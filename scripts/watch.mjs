@@ -126,7 +126,13 @@ async function fetchSpa(s) {
   try {
     const p = await b.newPage();
     await p.goto(s.url, { waitUntil: "networkidle", timeout: 45000 });
-    await p.waitForTimeout(1200);
+    // Cookie 同意墙。不点掉的话抓回来的是隐私政策，而不是更新日志 ——
+    // Runway 就是这么让我抓到一整页「Consent Selection」的。
+    for (const t of ["Allow all", "Accept all", "同意", "接受全部", "Agree", "Got it"]) {
+      const b = p.getByRole("button", { name: t, exact: false }).first();
+      if (await b.count().catch(() => 0)) { await b.click({ timeout: 3000 }).catch(() => {}); break; }
+    }
+    await p.waitForTimeout(1500);
     return await p.evaluate(() => document.body.innerText);
   } finally {
     await b.close();
@@ -170,13 +176,17 @@ for (const s of list) {
     const body = await fetchOne(s);
     const fp = fingerprint(s.kind, body);
     const changed = prev && prev.digest !== fp.digest;
+    // **抓到了但没内容**：HTTP 200、指纹稳定、报「无变化」，可正文里一个该有的词都没有。
+    // SPA 的导航壳就长这样。失败会喊，静默的成功不会 —— 所以要专门喊一声。
+    const hay = (fp.text ?? "") + fp.items.join(" ");
+    const hollow = s.expect?.length ? !s.expect.some((w) => hay.includes(w)) : false;
     // 列表型的源能算出「新增了哪些条目」—— 这才是能直接写进周报的东西
     const added = prev?.items && fp.items.length
       ? fp.items.filter((i) => !prev.items.includes(i)).map((i) => i.split("\t")[0])
       : [];
     row = {
       id: s.id, tier: s.tier, kind: s.kind, name: s.name, url: s.url,
-      status: !prev ? "首次" : changed ? "变了" : "无变化",
+      status: hollow ? "没内容" : !prev ? "首次" : changed ? "变了" : "无变化",
       digest: fp.digest, items: fp.items, added, fetched_at: TODAY,
     };
     writeFileSync(`${SNAP}/${s.id}.json`,
@@ -186,7 +196,7 @@ for (const s of list) {
     row = { id: s.id, tier: s.tier, kind: s.kind, name: s.name, url: s.url, status: "抓不到", error: `${e.message}${why ? " / " + why : ""}`.slice(0, 90), added: [] };
   }
   rows.push(row);
-  const mark = { 首次: "·", 变了: "★", 无变化: " ", 抓不到: "✗" }[row.status];
+  const mark = { 首次: "·", 变了: "★", 无变化: " ", 抓不到: "✗", 没内容: "!" }[row.status];
   console.log(`${mark} [${row.tier}/${row.kind}] ${row.id.padEnd(20)} ${row.status}${row.added?.length ? ` +${row.added.length}` : ""}${row.error ? "  " + row.error : ""}`);
 }
 
@@ -199,6 +209,11 @@ const md = [
   `> 这份报告是给人看的那 20 条待办的来源（§59.3 的负反馈：人每周要看的条目 ≤ 20）。`,
   `> 「抓不到」不是失败，是**信息本身** —— 一个长期抓不到的官方源，说明那家厂商没有可 diff 的公开更新入口，`,
   `> 而那正好解释了为什么它名下的格子质量最差。`,
+  ``,
+  `## 抓到了但没内容（比抓不到更危险 —— 它不会喊）`,`,`,
+  ...(byStatus("没内容").length
+    ? byStatus("没内容").map((r) => `- **${r.id}** ${r.name} — 正文里找不到任何一个期望关键词（${r.url}）`)
+    : ["（无）"]),
   ``,
   `## 抓不到（要处理）`,
   ``,

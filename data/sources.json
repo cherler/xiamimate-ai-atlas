@@ -53,6 +53,9 @@
         "capability",
         "api",
         "version"
+      ],
+      "expect": [
+        "API"
       ]
     },
     {
@@ -244,7 +247,11 @@
       "good_for": [
         "capability"
       ],
-      "note": "**厂商自己发布的能力矩阵。** 比我们手工拼的那张可靠得多 —— 该找的是这类页面，而不是去搜第三方评测。其它家有没有对应物，值得逐个翻一遍导航"
+      "note": "**厂商自己发布的能力矩阵。** 比我们手工拼的那张可靠得多 —— 该找的是这类页面，而不是去搜第三方评测。其它家有没有对应物，值得逐个翻一遍导航",
+      "expect": [
+        "Image to Video",
+        "Reference to Video"
+      ]
     },
     {
       "id": "vidu-site",
@@ -334,12 +341,13 @@
       "not_for": [
         "capability"
       ],
-      "note": "见 $epoch_finding：覆盖不到视频模型的版本与能力"
+      "note": "见 $epoch_finding：覆盖不到视频模型的版本与能力",
+      "expect": []
     },
     {
       "id": "aa-t2v",
       "tier": "A",
-      "kind": "html",
+      "kind": "spa",
       "vendor": "",
       "name": "Artificial Analysis · 文生视频榜",
       "url": "https://artificialanalysis.ai/video/leaderboard/text-to-video",
@@ -351,12 +359,17 @@
       "not_for": [
         "capability"
       ],
-      "note": "只答「谁生成得更好看」，不答「谁支持首尾帧」。榜上出现没见过的名字＝发现信号"
+      "note": "只答「谁生成得更好看」，不答「谁支持首尾帧」。榜上出现没见过的名字＝发现信号",
+      "expect": [
+        "Elo",
+        "Kling",
+        "Seedance"
+      ]
     },
     {
       "id": "aa-i2v",
       "tier": "A",
-      "kind": "html",
+      "kind": "spa",
       "vendor": "",
       "name": "Artificial Analysis · 图生视频榜",
       "url": "https://artificialanalysis.ai/video/leaderboard/image-to-video",
@@ -364,6 +377,11 @@
       "good_for": [
         "discovery",
         "benchmark"
+      ],
+      "expect": [
+        "Elo",
+        "Kling",
+        "Seedance"
       ]
     },
     {
@@ -371,12 +389,20 @@
       "tier": "A",
       "kind": "json",
       "vendor": "",
-      "name": "Hugging Face · text-to-video 最近改动",
-      "url": "https://huggingface.co/api/models?filter=text-to-video&sort=lastModified&direction=-1&limit=60",
+      "name": "Hugging Face · text-to-video 按下载量",
+      "url": "https://huggingface.co/api/models?filter=text-to-video&sort=downloads&direction=-1&limit=60",
       "refresh_days": 3,
       "good_for": [
         "openweights",
         "discovery"
+      ],
+      "note": "按 downloads 排。**按 lastModified 排是错的** —— 排出来 81 个组织里绝大多数是个人搬运/量化号，噪音淹没信号",
+      "expect": [
+        "Wan",
+        "Hunyuan",
+        "LTX",
+        "CogVideo",
+        "Mochi"
       ]
     },
     {
@@ -384,12 +410,20 @@
       "tier": "A",
       "kind": "json",
       "vendor": "",
-      "name": "Hugging Face · image-to-video 最近改动",
-      "url": "https://huggingface.co/api/models?filter=image-to-video&sort=lastModified&direction=-1&limit=60",
+      "name": "Hugging Face · image-to-video 按下载量",
+      "url": "https://huggingface.co/api/models?filter=image-to-video&sort=downloads&direction=-1&limit=60",
       "refresh_days": 3,
       "good_for": [
         "openweights",
         "discovery"
+      ],
+      "note": "按 downloads 排。**按 lastModified 排是错的** —— 排出来 81 个组织里绝大多数是个人搬运/量化号，噪音淹没信号",
+      "expect": [
+        "Wan",
+        "Hunyuan",
+        "LTX",
+        "CogVideo",
+        "Mochi"
       ]
     },
     {
@@ -397,12 +431,20 @@
       "tier": "A",
       "kind": "json",
       "vendor": "",
-      "name": "Hugging Face · video-to-video 最近改动",
-      "url": "https://huggingface.co/api/models?filter=video-to-video&sort=lastModified&direction=-1&limit=40",
+      "name": "Hugging Face · video-to-video 按下载量",
+      "url": "https://huggingface.co/api/models?filter=video-to-video&sort=downloads&direction=-1&limit=60",
       "refresh_days": 7,
       "good_for": [
         "openweights",
         "discovery"
+      ],
+      "note": "按 downloads 排。**按 lastModified 排是错的** —— 排出来 81 个组织里绝大多数是个人搬运/量化号，噪音淹没信号",
+      "expect": [
+        "Wan",
+        "Hunyuan",
+        "LTX",
+        "CogVideo",
+        "Mochi"
       ]
     },
     {
@@ -495,17 +537,110 @@
       "good_for": [
         "skill"
       ]
+    },
+    {
+      "id": "runway-changelog",
+      "tier": "S",
+      "kind": "spa",
+      "vendor": "runway",
+      "name": "Runway · Changelog（官方更新日志）",
+      "url": "https://runway.com/changelog",
+      "refresh_days": 7,
+      "good_for": [
+        "capability",
+        "version"
+      ],
+      "expect": [
+        "Gen-4",
+        "Gen-3",
+        "Act-One",
+        "Aleph"
+      ],
+      "note": "**我原先在 $missing 里断言「Runway 没有可 diff 的公开更新页」—— 那是错的，我只是没看。** 沿导航一扫就在。断言「没有」之前必须先扫一遍导航"
+    },
+    {
+      "id": "runway-models",
+      "tier": "S",
+      "kind": "spa",
+      "vendor": "runway",
+      "name": "Runway · Models 指南",
+      "url": "https://docs.dev.runwayml.com/guides/models/",
+      "refresh_days": 7,
+      "good_for": [
+        "capability",
+        "version"
+      ],
+      "expect": [
+        "Gen-4",
+        "model"
+      ]
+    },
+    {
+      "id": "luma-changelog",
+      "tier": "S",
+      "kind": "spa",
+      "vendor": "luma",
+      "name": "Luma · Changelog",
+      "url": "https://docs.lumalabs.ai/changelog",
+      "refresh_days": 7,
+      "good_for": [
+        "capability",
+        "version"
+      ],
+      "expect": [
+        "Ray",
+        "update"
+      ],
+      "note": "实测：条目最新是「1 year ago」的 Photon（图像），视频侧久未更新 —— 这条源的价值有限，别指望它报 Ray 的新版本"
+    },
+    {
+      "id": "google-models",
+      "tier": "S",
+      "kind": "html",
+      "vendor": "veo,gemini-omni",
+      "name": "Google · 全部模型清单",
+      "url": "https://ai.google.dev/gemini-api/docs/models",
+      "refresh_days": 7,
+      "good_for": [
+        "version",
+        "availability"
+      ],
+      "expect": [
+        "Veo",
+        "Gemini"
+      ]
+    },
+    {
+      "id": "seed-models-hub",
+      "tier": "S",
+      "kind": "html",
+      "vendor": "seedance",
+      "name": "ByteDance Seed · Models（首页 tab）",
+      "url": "https://seed.bytedance.com/models?view_from=homepage_tab",
+      "refresh_days": 7,
+      "good_for": [
+        "version"
+      ],
+      "expect": [
+        "Seedance",
+        "Seed"
+      ]
     }
   ],
   "$missing": [
     "Wan 官方 changelog：找不到可 diff 的能力更新页，只有 GitHub / HF 两个开源侧信号 —— 这就是 Wan 那几格质量最差的原因，且短期无解",
-    "Runway：官方没有可 diff 的能力更新页，目前只能靠第三方评测（Gen-4.5 那几格的 tier 因此是 third-party）",
     "fal / Replicate 的 JSON API 需要 token —— 拿到 token 后应从 html 升级为 json，那是「去哪用」矩阵的正解",
     "微信公众号生态：机器抓不到。按 A3 的发现，中文侧的新版本消息常常先出现在这里 —— 这一块只能靠人工，且要计入每周 3 小时",
-    "decart.ai/publications 与 epoch 的 frontier CSV 都是我 URL 写错（404），已移除；decart 用 /research 那条覆盖"
+    "decart.ai/publications 与 epoch 的 frontier CSV 都是我 URL 写错（404），已移除；decart 用 /research 那条覆盖",
+    "Kling：app.klingai.com 的开发者文档渲染不出链接（可能要登录或是重前端），kling.ai/document-api 页面本身抓得到但导航扫不出结构 —— 待人工确认入口",
+    "wan.video / HF 组织页：Playwright 取不到链接（前端结构特殊），Wan 的开源侧只能靠 HF API，产品侧仍缺官方更新页"
   ],
   "$blocked": [
     "openai.com：403 反爬，S 级源但抓不到 —— Sora 的状态只能靠人工看",
     "fal.ai / aiwiki.ai：429 限流，需要加退避重试后再评估"
+  ],
+  "$silent_failure": "抓取成功 ≠ 抓到内容。AA 榜单与 Vidu 文档都是 SPA，纯 HTTP 抓回来的 4000 字全是导航壳，监视器却报「无变化」—— **静默的成功比失败更危险**，因为失败会喊，成功不会。故给源加 expect 关键词，抓到但一个都不含就报警。 又一例：Runway 的 changelog 抓回来是整页 cookie 同意书，而 expect 里的「Gen」恰好被同意书里的词命中，自检没拦住 —— **关键词要挑那种只可能出现在正文里的**（改成 Gen-4 / Act-One / Aleph）。",
+  "$corrections": [
+    "2026-08-07：曾断言「Runway 没有可 diff 的公开更新页」，**错**。runway.com/changelog 与 docs.dev.runwayml.com/guides/models/ 都在，沿导航一扫就找到。教训：说一个源「不存在」之前，必须先做一遍导航扫描 —— 搜索搜不到不等于没有。"
   ]
 }
