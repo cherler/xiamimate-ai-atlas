@@ -62,7 +62,28 @@ export type Cell = {
   note?: string;
 };
 
+/**
+ * 方向。**现在只有 AI 视频一个。**
+ *
+ * 留这个结构是为了「加一个方向 = 改数据，不是改代码」。
+ * 但**界面上不做占位 tab 假装有别的** —— 那是骗人，而这个产品的全部本钱就是不骗人。
+ */
+export type Domain = { id: string; name: string; state: "live" | "planned"; note?: string };
+
+/** 被明确排除的东西。「为什么不收」和「它没了」一样，是有用的信息。 */
+export type Excluded = {
+  name: string;
+  vendor: string;
+  kind: string;
+  date: string;
+  why: string;
+  same_bucket?: string[];
+  revisit?: string;
+};
+
 export const atlas = raw as unknown as {
+  domains: Domain[];
+  excluded: Excluded[];
   version: string;
   generated_at: string;
   note: string;

@@ -13,6 +13,27 @@ const STATUS: Record<string, { tag: string; cls: string }> = {
   superseded: { tag: "非主力", cls: "text-muted" },
 };
 
+/**
+ * 数据里的注释一律用 `**…**` 标重点（那是给读 JSON 的人看的）。
+ * **同一个坑犯了三次**：表格说明、changelog、排除记录都曾把星号原样印在页面上。
+ * 打地鼠没用 —— 凡是渲染数据里的自由文本，一律走这里。
+ */
+function Rich({ text, className = "" }: { text: string; className?: string }) {
+  return (
+    <span className={className}>
+      {text.split(/\*\*(.+?)\*\*/g).map((part, i) =>
+        i % 2 ? (
+          <b key={i} className="text-ink">
+            {part}
+          </b>
+        ) : (
+          part
+        ),
+      )}
+    </span>
+  );
+}
+
 /** 「怎么个能法」的角标。原生不标，另一个接口才标 —— 默认值不占视觉。 */
 function ViaTag({ via }: { via?: string }) {
   if (via !== "separate-task") return null;
@@ -43,7 +64,7 @@ function Fact({ m, c }: { m: string; c: string }) {
         <ViaTag via={f.via} />
       </span>
       <div className="min-w-0 flex-1">
-        {f.note && <p className="text-ink leading-relaxed">{f.note}</p>}
+        {f.note && <Rich text={f.note} className="text-ink leading-relaxed block" />}
         <p className="text-muted text-[13px] mt-1 flex flex-wrap gap-x-3 gap-y-1 items-center">
           {src ? (
             <>
@@ -140,7 +161,27 @@ export default function Page() {
   return (
     <main className="max-w-[1240px] mx-auto px-8 py-10 flex flex-col gap-8">
       <header className="flex flex-col gap-3">
-        <p className="text-[13px] tracking-[0.16em] text-muted">AI 视频能力地图 · MVP</p>
+        {/*
+          方向切换的口子。从 atlas.domains 渲染 —— 加一个方向是改数据不是改代码。
+          **只显示真的有的那些。** 不做「AI 图片（敬请期待）」这种占位 tab：
+          这个产品的全部本钱就是不骗人，界面上先骗一下也是骗。
+        */}
+        <div className="flex items-center gap-2 text-[13px]">
+          {atlas.domains.map((d) => (
+            <span
+              key={d.id}
+              className={
+                d.state === "live"
+                  ? "px-2.5 py-1 rounded bg-ink text-paper font-medium"
+                  : "px-2.5 py-1 rounded border border-rule text-muted"
+              }
+              title={d.note ?? ""}
+            >
+              {d.name}
+            </span>
+          ))}
+          <span className="text-muted tracking-[0.16em] ml-1">能力地图 · MVP</span>
+        </div>
         <h1 className="text-[40px] leading-tight font-semibold">
           模型之间不靠出身相连，<span className="text-yes">靠能做什么相连</span>
         </h1>
@@ -276,7 +317,7 @@ export default function Page() {
                     </span>
                   )}
                 </p>
-                {m.status_note && <p className="text-muted text-[13px] mt-1 leading-relaxed">{m.status_note}</p>}
+                {m.status_note && <Rich text={m.status_note} className="text-muted text-[13px] mt-1 leading-relaxed block" />}
               </div>
             )),
           )}
@@ -319,25 +360,43 @@ export default function Page() {
         </p>
       </section>
 
+      <section>
+        <h2 className="text-[22px] font-semibold mb-1">明确不收的</h2>
+        <p className="text-muted text-[14px] mb-4 max-w-[880px] leading-relaxed">
+          收录门槛有三条（见 <code className="text-ink">data/ontology.md</code> 规则一）：
+          输出或转换动态影像、以模型形式提供、<b className="text-ink">面向内容创作</b>。
+          <br />
+          第三条排掉的是一整个品类。<b className="text-ink">「为什么不收」和「它没了」一样，是有用的信息</b> ——
+          半年后有人问「你们怎么没收某某」，答案该在库里，不在某个人的记忆里。
+        </p>
+        <div className="flex flex-col gap-3">
+          {atlas.excluded.map((e) => (
+            <div key={e.name} className="border-t border-rule pt-3 text-[15px]">
+              <p className="font-semibold">
+                {e.name}
+                <span className="text-muted font-normal text-[13px] ml-2">
+                  {e.vendor} · {e.kind} · {e.date} 判定
+                </span>
+              </p>
+              <Rich text={e.why} className="text-muted text-[13px] mt-1 leading-relaxed block" />
+              {e.same_bucket?.length ? (
+                <p className="text-muted text-[13px] mt-1">同类一并不收：{e.same_bucket.join("、")}</p>
+              ) : null}
+              {e.revisit && <p className="text-muted text-[13px] mt-1 italic">{e.revisit}</p>}
+            </div>
+          ))}
+        </div>
+      </section>
+
       <footer className="border-t border-rule pt-5 text-[13px] text-muted leading-relaxed">
         数据版本 {atlas.version} · 核验于 {atlas.generated_at} ·
         <b className="text-unknown"> 全部为机器录入，未经人工核验</b> · xiamimate.com/atlas
         <br />
         {atlas.note}
         <ul className="mt-2 list-disc pl-5">
-          {/* changelog 里用 **…** 标重点是给读源码的人看的；页面上要么加粗要么去掉，
-              不能把星号原样印出来 */}
           {atlas.changelog.map((l) => (
             <li key={l}>
-              {l.split(/\*\*(.+?)\*\*/g).map((part, i) =>
-                i % 2 ? (
-                  <b key={i} className="text-ink">
-                    {part}
-                  </b>
-                ) : (
-                  part
-                ),
-              )}
+              <Rich text={l} />
             </li>
           ))}
         </ul>
