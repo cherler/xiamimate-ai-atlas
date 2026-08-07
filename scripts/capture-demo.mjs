@@ -10,7 +10,7 @@
  *   node scripts/capture-demo.mjs        # 需要 dev server 跑在 3400
  *   → assets/demo-raw/*.webm → assets/atlas-demo.mp4（需要 ffmpeg）
  */
-import { chromium } from "/Users/liuzhenhai/.npm/_npx/360550e4913b8759/node_modules/playwright/index.mjs";
+import { chromium } from "playwright";
 import { mkdirSync, readdirSync, renameSync, rmSync } from "node:fs";
 import { execFileSync } from "node:child_process";
 

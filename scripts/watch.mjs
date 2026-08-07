@@ -49,7 +49,6 @@ if ((process.env.HTTPS_PROXY || process.env.HTTP_PROXY) && !process.env.NODE_USE
   process.exit(r.status ?? 1);
 }
 
-const PLAYWRIGHT = "/Users/liuzhenhai/.npm/_npx/360550e4913b8759/node_modules/playwright/index.mjs";
 const PROXY = process.env.HTTPS_PROXY || process.env.HTTP_PROXY || "";
 
 const HERE = dirname(fileURLToPath(import.meta.url));
@@ -121,7 +120,7 @@ function fingerprint(kind, body) {
  * 用无头浏览器渲染再取正文。慢，但这类源本来就一周才看一次。
  */
 async function fetchSpa(s) {
-  const { chromium } = await import(PLAYWRIGHT);
+  const { chromium } = await import("playwright");
   const b = await chromium.launch({ proxy: PROXY ? { server: PROXY } : undefined });
   try {
     const p = await b.newPage();

@@ -38,9 +38,9 @@ AA 榜单……），**纯 HTTP 抓回来是导航壳**。这些必须用无头 
 npx playwright install --with-deps chromium    # 约 400MB，含系统依赖
 ```
 
-而且 `watch.mjs` 与 `sweep-nav.mjs` 里的 Playwright 路径**目前是写死的本机 npx 缓存路径**，
-上服务器前必须改成正常依赖（`npm i -D playwright` 后 `import { chromium } from "playwright"`）。
-**这是已知的移植债，别忘。**
+~~移植债：Playwright 路径曾写死在本机 npx 缓存里~~ —— **2026-08-07 已还**：
+已 `npm i -D playwright`，三支脚本改为 `import { chromium } from "playwright"`，
+仓里 `grep _npx` 为空。服务器上只需再跑一次 `npx playwright install --with-deps chromium`。
 
 ### 坑二 · 出境可达性
 

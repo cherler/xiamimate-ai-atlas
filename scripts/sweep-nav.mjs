@@ -14,7 +14,6 @@ import { writeFileSync } from "node:fs";
 import { dirname } from "node:path";
 import { fileURLToPath } from "node:url";
 
-const PLAYWRIGHT = "/Users/liuzhenhai/.npm/_npx/360550e4913b8759/node_modules/playwright/index.mjs";
 const PROXY = process.env.HTTPS_PROXY || process.env.HTTP_PROXY || "";
 const ROOT = `${dirname(fileURLToPath(import.meta.url))}/..`;
 
@@ -41,7 +40,7 @@ const TARGETS = [
 const want = process.argv[2];
 const list = want ? TARGETS.filter((t) => t.vendor === want) : TARGETS;
 
-const { chromium } = await import(PLAYWRIGHT);
+const { chromium } = await import("playwright");
 const browser = await chromium.launch({ proxy: PROXY ? { server: PROXY } : undefined });
 const out = [`# 厂商导航扫描 · ${new Date().toISOString().slice(0, 10)}`, "",
   "> 目的：找**厂商自己发布的能力清单 / 更新日志**。",
