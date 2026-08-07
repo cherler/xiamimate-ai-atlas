@@ -1,6 +1,6 @@
 "use client";
 
-import { atlas, cell, compare, modelsWith, type State } from "@/lib/atlas";
+import { atlas, capsOf, cell, compare, label, modelsOf, modelsWith, type State } from "@/lib/atlas";
 
 /**
  * 模型 ↔ 能力 二部图。
@@ -35,9 +35,9 @@ const stateColor = (s: State) => (s === "yes" ? YES : s === "no" ? NO : UNK);
 export default function Bipartite({ sel, onSel }: { sel: Sel; onSel: (s: Sel) => void }) {
   // 已普及的能力不进图：它连向所有模型，画出来是一团噪音而不是信息。
   // 这正是 §59.1 提前防的「超级节点」问题。
-  const caps = atlas.capabilities.filter((c) => c.ubiquity !== "已普及");
-  const folded = atlas.capabilities.filter((c) => c.ubiquity === "已普及");
-  const models = atlas.models;
+  const caps = capsOf("clip").filter((c) => c.ubiquity !== "已普及");
+  const folded = capsOf("clip").filter((c) => c.ubiquity === "已普及");
+  const models = modelsOf("clip");
 
   const my = (i: number) => TOP + ((BOT - TOP) * i) / (models.length - 1);
   const cy = (i: number) => TOP + ((BOT - TOP) * i) / (caps.length - 1);
@@ -128,10 +128,10 @@ export default function Bipartite({ sel, onSel }: { sel: Sel; onSel: (s: Sel) =>
               strokeWidth={1.4}
             />
             <text x={MX + 16} y={my(i) - 3} fontSize={19} fontWeight={600} fill={on ? "#f7f8f5" : "#171b18"}>
-              {m.name}
+              {label(m)}
             </text>
             <text x={MX + 16} y={my(i) + 16} fontSize={13} fill={on ? "#a9b0a8" : "#6b716c"}>
-              {m.vendor} · {m.released}
+              {m.vendor} · 该版本 {m.version_as_of}
             </text>
           </g>
         );
@@ -140,7 +140,9 @@ export default function Bipartite({ sel, onSel }: { sel: Sel; onSel: (s: Sel) =>
       {caps.map((c, i) => {
         const on = sel.kind === "cap" && sel.id === c.id;
         const inCmp = cmp ? cmp.both.includes(c.id) || cmp.onlyA.includes(c.id) || cmp.onlyB.includes(c.id) : false;
-        const n = modelsWith(c.id).length;
+        // 只数本轨 —— openweights 是跨轨能力，不限定的话会把 realtime 的模型也数进来
+        const inTrack = new Set(models.map((x) => x.id));
+        const n = modelsWith(c.id).filter((id) => inTrack.has(id)).length;
         const unk = models.filter((m) => cell(m.id, c.id).state === "unknown").length;
         return (
           <g

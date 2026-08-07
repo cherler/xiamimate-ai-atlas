@@ -6,8 +6,16 @@ import raw from "@/data/atlas.json";
  */
 export type State = "yes" | "no" | "unknown";
 
+/**
+ * 品类。**两轨不共用一张表**（data/ontology.md 规则二）：
+ * 对实时模型「视频延长」没有意义（它没有终点），对离线模型「延迟」没有意义。
+ * 硬并成一张表，既没信息量，又会让人以为它们在同一条赛道上分了胜负。
+ */
+export type Klass = "clip" | "realtime";
+
 export type Capability = {
   id: string;
+  class: Klass | "both";
   name: string;
   zh: string;
   group: string;
@@ -15,7 +23,16 @@ export type Capability = {
   ubiquity: "前沿" | "主流" | "已普及";
 };
 
-export type Model = { id: string; name: string; zh: string; vendor: string; released: string };
+/** 一等实体是 Family，version 是会过期的挂件（ontology 规则三）。 */
+export type Model = {
+  id: string;
+  class: Klass;
+  family: string;
+  zh: string;
+  vendor: string;
+  version: string;
+  version_as_of: string;
+};
 
 export type Source = { url: string; tier: "official" | "third-party"; name: string };
 
@@ -23,7 +40,9 @@ export type Cell = {
   m: string;
   c: string;
   state: State;
-  /** 指向 sources 表。**没有 src 的 yes 是不允许的**，校验脚本会拦（scripts/validate.mjs） */
+  /** 这条结论核验的是哪个版本。与模型当前 version 不符时校验脚本报错（规则三之一）。 */
+  verified_for?: string;
+  /** 指向 sources 表。**没有 src 的 yes 是不允许的**，校验脚本会拦。 */
   src?: string;
   note?: string;
 };
@@ -32,6 +51,7 @@ export const atlas = raw as unknown as {
   version: string;
   generated_at: string;
   note: string;
+  changelog: string[];
   states: Record<State, string>;
   tiers: Record<string, string>;
   capabilities: Capability[];
@@ -48,18 +68,36 @@ export function cell(modelId: string, capId: string): Cell {
 
 export const isYes = (m: string, c: string) => cell(m, c).state === "yes";
 
+/**
+ * 模型显示名 = Family + 当前版本。版本会变，Family 不会。
+ *
+ * 有些 Family 名的末词本身就是版本号的前缀（Vidu **Q** / Q2、Runway **Gen** / Gen-4.5、
+ * Decart **Lucy** / Lucy 2），直接拼会拼出「Vidu Q Q2」。这里把重复的末词吃掉。
+ * 「MiniMax Hailuo」+「H3」不受影响 —— H3 不以 Hailuo 开头，两个词都得留。
+ */
+export function label(m: Model) {
+  const last = m.family.split(" ").pop() ?? "";
+  if (last && m.version.startsWith(last)) return `${m.family.slice(0, -last.length).trim()} ${m.version}`.trim();
+  return `${m.family} ${m.version}`;
+}
+
+export const modelsOf = (k: Klass) => atlas.models.filter((m) => m.class === k);
+export const capsOf = (k: Klass) => atlas.capabilities.filter((c) => c.class === k || c.class === "both");
+
 /** 实现了某能力的模型 —— 点一个能力节点时高亮的就是这批（= 「这个能力去哪用」） */
-export const modelsWith = (capId: string) => atlas.models.filter((m) => isYes(m.id, capId)).map((m) => m.id);
+export const modelsWith = (capId: string) =>
+  atlas.models.filter((m) => isYes(m.id, capId)).map((m) => m.id);
 
 /**
  * 两个模型的能力对比。§59.1 的红利：选中两个模型就是 Compare，
- * **不需要单独做一个 Compare 页面**。
+ * **不需要单独做一个 Compare 页面**。只在同轨内有意义。
  */
 export function compare(a: string, b: string) {
+  const ma = atlas.models.find((m) => m.id === a)!;
   const both: string[] = [];
   const onlyA: string[] = [];
   const onlyB: string[] = [];
-  for (const c of atlas.capabilities) {
+  for (const c of capsOf(ma.class)) {
     const x = isYes(a, c.id);
     const y = isYes(b, c.id);
     if (x && y) both.push(c.id);
@@ -69,16 +107,14 @@ export function compare(a: string, b: string) {
   return { both, onlyA, onlyB };
 }
 
-export function tally() {
-  let yes = 0;
-  let no = 0;
-  let unknown = 0;
-  for (const m of atlas.models)
-    for (const c of atlas.capabilities) {
-      const s = cell(m.id, c.id).state;
-      if (s === "yes") yes += 1;
-      else if (s === "no") no += 1;
-      else unknown += 1;
+export function tally(k?: Klass) {
+  const ms = k ? modelsOf(k) : atlas.models;
+  const ids = new Set(ms.map((m) => m.id));
+  const t = { yes: 0, no: 0, unknown: 0, total: 0 };
+  for (const s of atlas.support)
+    if (ids.has(s.m)) {
+      t[s.state] += 1;
+      t.total += 1;
     }
-  return { yes, no, unknown, total: atlas.models.length * atlas.capabilities.length };
+  return t;
 }

@@ -2,8 +2,11 @@
  * 数据校验。**「git 当数据库」能撑住的前提**（§59.4.c）：
  * 手写 JSON 坏掉时要有人喊一声，否则前台只会静默地少画一条边。
  *
- * 最重要的一条规则是 R4：**`yes` 必须有来源。**
- * 没有来源的「支持」就是猜的，而这个项目唯一交易不掉的东西就是「不猜」（§26）。
+ * 两条核心规则：
+ *   R4 —— `yes` 必须有来源。没有来源的「支持」就是猜的（§26）。
+ *   R9 —— 格子记的 `verified_for` 必须等于该模型当前 `version`。
+ *          这条拦的是**最阴的一种腐烂**：版本升了，旧结论被悄悄挂到新版本名下。
+ *          见 data/ontology.md 规则三之一。
  */
 import { readFileSync } from "node:fs";
 
@@ -11,36 +14,59 @@ const a = JSON.parse(readFileSync(new URL("../data/atlas.json", import.meta.url)
 const errs = [];
 const warns = [];
 
-const capIds = new Set(a.capabilities.map((c) => c.id));
-const modelIds = new Set(a.models.map((m) => m.id));
+const caps = new Map(a.capabilities.map((c) => [c.id, c]));
+const models = new Map(a.models.map((m) => [m.id, m]));
 const srcIds = new Set(Object.keys(a.sources));
 const seen = new Set();
 
+/** 某个模型该不该有某项能力的格子 —— 分轨之后不再是全笛卡尔积（ontology 规则二）。 */
+const applies = (m, c) => c.class === "both" || c.class === m.class;
+
 for (const s of a.support) {
   const at = `${s.m} × ${s.c}`;
-  if (!modelIds.has(s.m)) errs.push(`R1 未知模型：${s.m}`);
-  if (!capIds.has(s.c)) errs.push(`R2 未知能力：${s.c}`);
+  const m = models.get(s.m);
+  const c = caps.get(s.c);
+  if (!m) { errs.push(`R1 未知模型：${s.m}`); continue; }
+  if (!c) { errs.push(`R2 未知能力：${s.c}`); continue; }
   if (seen.has(`${s.m}::${s.c}`)) errs.push(`R3 重复格子：${at}`);
   seen.add(`${s.m}::${s.c}`);
   if (!["yes", "no", "unknown"].includes(s.state)) errs.push(`R0 非法状态 ${s.state}：${at}`);
   if (s.state === "yes" && !s.src) errs.push(`R4 「支持」但没有来源 —— 不许猜：${at}`);
   if (s.src && !srcIds.has(s.src)) errs.push(`R5 来源 id 不存在：${s.src}（${at}）`);
   if (s.state === "no" && !s.src && !s.note) warns.push(`R6 「不支持」既无来源也无说明：${at}`);
+  if (!applies(m, c)) errs.push(`R8 跨轨格子：${m.class} 的模型不该有 ${c.class} 的能力（${at}）`);
+  if (!s.verified_for) errs.push(`R9a 缺 verified_for：${at}`);
+  else if (s.verified_for !== m.version)
+    errs.push(`R9 版本对不上：${at} 记的是 ${s.verified_for}，但 ${m.family} 当前是 ${m.version}。` +
+      `升级后必须重新核验或退回 unknown，不许沿用旧版结论`);
 }
 
-// 每一格都要有人表过态。漏掉的格子会被前台当成 unknown，那是**沉默的错**。
+// 缺格会被前台静默当成 unknown，那是**沉默的错**。
 for (const m of a.models)
   for (const c of a.capabilities)
-    if (!seen.has(`${m.id}::${c.id}`)) errs.push(`R7 缺格：${m.id} × ${c.id}`);
+    if (applies(m, c) && !seen.has(`${m.id}::${c.id}`)) errs.push(`R7 缺格：${m.id} × ${c.id}`);
 
 const used = new Set(a.support.map((s) => s.src).filter(Boolean));
-for (const id of srcIds) if (!used.has(id)) warns.push(`R8 来源登记了但没被引用：${id}`);
+for (const id of srcIds) if (!used.has(id)) warns.push(`R10 来源登记了但没被引用：${id}`);
 
-const n = a.models.length * a.capabilities.length;
+// Core 每轨 ≤10（ontology 规则四）。加第 11 个之前必须先踢掉一个。
+for (const cls of ["clip", "realtime"]) {
+  const n = a.models.filter((m) => m.class === cls).length;
+  if (n > 10) errs.push(`R11 ${cls} 轨收了 ${n} 个 Family，超过 Core 上限 10`);
+}
+
 const by = { yes: 0, no: 0, unknown: 0 };
-for (const s of a.support) by[s.state] += 1;
+const perClass = {};
+for (const s of a.support) {
+  by[s.state] += 1;
+  const cls = models.get(s.m)?.class ?? "?";
+  perClass[cls] ??= { yes: 0, no: 0, unknown: 0 };
+  perClass[cls][s.state] += 1;
+}
 
-console.log(`格子 ${a.support.length}/${n} · ✅${by.yes} ❌${by.no} ⬜${by.unknown}`);
+console.log(`格子 ${a.support.length} · ✅${by.yes} ❌${by.no} ⬜${by.unknown}（⬜ 占 ${Math.round((by.unknown / a.support.length) * 100)}%）`);
+for (const [cls, t] of Object.entries(perClass))
+  console.log(`  ${cls}：✅${t.yes} ❌${t.no} ⬜${t.unknown}`);
 console.log(`来源 ${srcIds.size} 条，官方 ${Object.values(a.sources).filter((s) => s.tier === "official").length} 条`);
 for (const w of warns) console.log(`  警告 ${w}`);
 if (errs.length) {
