@@ -87,7 +87,28 @@ export type Excluded = {
   revisit?: string;
 };
 
+/** 平台（去哪用）。**厂商与平台是两个身份** —— Runway 两样都是。 */
+export type Platform = { id: string; name: string; kind: string; region: string; url: string; note?: string };
+
+/**
+ * 可用性。§9.3 明确要求「✓ 不能只是布尔值」。
+ * **最有用的一列是 match** —— 平台上架的常常不是当前主力版本，
+ * 只答「有没有」会让人以为能用上当前版本的能力。
+ */
+export type Availability = {
+  p: string;
+  m: string;
+  listed: string;
+  status: "available" | "coming-soon" | "gone";
+  match: "same" | "older" | "newer" | "unknown";
+  src: string;
+  quote: string;
+  note?: string;
+};
+
 export const atlas = raw as unknown as {
+  platforms: Platform[];
+  availability: Availability[];
   domains: Domain[];
   excluded: Excluded[];
   version: string;
@@ -172,6 +193,8 @@ export function transparency(k: Klass = "clip") {
     })
     .sort((a, b) => b.unknown - a.unknown);
 }
+
+export const avail = (p: string, m: string) => atlas.availability.find((v) => v.p === p && v.m === m);
 
 export function tally(k?: Klass) {
   const ms = k ? modelsOf(k) : atlas.models;

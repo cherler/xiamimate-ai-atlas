@@ -1,8 +1,9 @@
 {
-  "version": "1.4",
+  "version": "1.5",
   "generated_at": "2026-08-07",
   "note": "第九版。clip 轨九个 Family 已全部用厂商官方源逐格重核（86% 的格子挂官方来源）。全部由 Agent 录入，未经人工核验（§59.3 转述层）。模型按 version_as_of 降序；status 标生命周期。",
   "changelog": [
+    "v1.5 加平台 × 模型可用性（E5「去哪用」）。**最值钱的不是「谁有谁」，是「上架的常常不是当前版本」** —— Replicate 上是 Hailuo 2.3（我们表里是 H3）、ltx-video（不是 2.3）；APIYI 上是 Seedance 2.0（不是 2.5）",
     "v1.4 给每项能力定「最早可证时间」（E2a）。**不是业界首次出现，是我们手上的日志能证明的最早时间** —— 可追溯窗口起于 2024-01（Runway）/ 2024-09（Kling）",
     "v1.3 收录门槛加一条「面向内容创作」：世界模型/仿真类不收（Oasis 3 已移出）。加 domains 结构，为将来的其它方向留口子 —— 加一个方向是改数据，不是改代码",
     "v1.2 用 Decart 官网重核 Lucy 2.5 的 5 格（之前按规则三之一全退回未知，现在有官方依据）。顺带发现 Decart 还有第二个模型 Oasis 3 —— realtime 世界模型，但面向机器人/自动驾驶仿真，**算不算我们要收的东西是个边界问题，先记 extended 待拍板**",
@@ -580,6 +581,16 @@
       "url": "https://huggingface.co/Lightricks/LTX-2.3",
       "tier": "official",
       "name": "Hugging Face · Lightricks/LTX-2.3（当前主力）"
+    },
+    "replicate-t2v": {
+      "url": "https://replicate.com/collections/text-to-video",
+      "tier": "official",
+      "name": "Replicate · text-to-video 集合页"
+    },
+    "apiyi-log": {
+      "url": "https://docs.apiyi.com/changelog",
+      "tier": "official",
+      "name": "APIYI · 更新日志"
     }
   },
   "support": [
@@ -1632,5 +1643,174 @@
       "revisit": "等 AI 视频这个方向做扎实了，世界模型可以是**另一个方向**（见 domains），不是塞进这个方向"
     }
   ],
-  "$since": "每项能力的 since 是**我们手上的日志能证明的最早时间**，不是业界首次出现。可追溯窗口起于 2024-01（Runway changelog）与 2024-09（Kling API 日志），窗口之前的看不见。自动抽取只给候选：第一遍就把「Tail frame control is **not** supported」当成了首尾帧的支持证据，把 Motion Brush 里的 element 当成了角色参考，把 Multi-Image to **Image** 当成了视频多参考 —— 三条都是人工核掉的。"
+  "$since": "每项能力的 since 是**我们手上的日志能证明的最早时间**，不是业界首次出现。可追溯窗口起于 2024-01（Runway changelog）与 2024-09（Kling API 日志），窗口之前的看不见。自动抽取只给候选：第一遍就把「Tail frame control is **not** supported」当成了首尾帧的支持证据，把 Motion Brush 里的 element 当成了角色参考，把 Multi-Image to **Image** 当成了视频多参考 —— 三条都是人工核掉的。",
+  "platforms": [
+    {
+      "id": "replicate",
+      "name": "Replicate",
+      "kind": "API 市场",
+      "region": "全球",
+      "url": "https://replicate.com"
+    },
+    {
+      "id": "apiyi",
+      "name": "APIYI（易API）",
+      "kind": "API 聚合",
+      "region": "中国大陆",
+      "url": "https://apiyi.com",
+      "note": "国内可直连的聚合入口 —— fal / Replicate 覆盖不到这一块"
+    },
+    {
+      "id": "runway",
+      "name": "Runway",
+      "kind": "产品（同时也是模型厂商）",
+      "region": "全球",
+      "url": "https://runway.com",
+      "note": "⚠️ 既做自己的 Gen 系列，也转售别家 —— 平台与厂商两个身份要分开看"
+    },
+    {
+      "id": "higgsfield",
+      "name": "Higgsfield",
+      "kind": "产品",
+      "region": "全球",
+      "url": "https://higgsfield.ai"
+    },
+    {
+      "id": "fal",
+      "name": "fal",
+      "kind": "API 市场",
+      "region": "全球",
+      "url": "https://fal.ai",
+      "note": "⚠️ 页面对我们的采集器返回 429（限流），一格都没能核 —— 不是它没有，是我们看不到"
+    }
+  ],
+  "availability": [
+    {
+      "p": "replicate",
+      "m": "kling",
+      "listed": "Kling Video 3.0",
+      "status": "available",
+      "src": "replicate-t2v",
+      "quote": "Kling Video 3.0 generates cinematic videos up to 15 seconds with native audio",
+      "match": "same"
+    },
+    {
+      "p": "replicate",
+      "m": "seedance",
+      "listed": "Seedance 2.5",
+      "status": "coming-soon",
+      "src": "replicate-t2v",
+      "quote": "Seedance 2.5 is coming soon",
+      "match": "same",
+      "note": "⚠️ 页面明写 coming soon —— **还不能用**，不是已上架"
+    },
+    {
+      "p": "replicate",
+      "m": "veo",
+      "listed": "Veo 3.1 / 3.1 Fast / 3.1 Lite",
+      "status": "available",
+      "src": "replicate-t2v",
+      "quote": "Google Veo 3.1 and Veo 3.1 Fast are strong alternatives with native audio generation",
+      "match": "same"
+    },
+    {
+      "p": "replicate",
+      "m": "hailuo",
+      "listed": "Hailuo 2.3",
+      "status": "available",
+      "src": "replicate-t2v",
+      "quote": "Hailuo 2.3 from Minimax supports both text-to-video and image-to-video",
+      "match": "older",
+      "note": "⚠️ **上架的是 2.3，不是我们表里核的 H3** —— 想用 H3 的能力，这里给不了"
+    },
+    {
+      "p": "replicate",
+      "m": "vidu-q",
+      "listed": "Vidu Q3 Pro",
+      "status": "available",
+      "src": "replicate-t2v",
+      "quote": "Vidu Q3 Pro supports a start-end-to-video mode — provide first and last frames",
+      "match": "same"
+    },
+    {
+      "p": "replicate",
+      "m": "ltx",
+      "listed": "lightricks / ltx-video",
+      "status": "available",
+      "src": "replicate-t2v",
+      "quote": "lightricks / ltx-video —— LTX-Video is the first DiT-based video generation model",
+      "match": "older",
+      "note": "⚠️ **上架的是初代 LTX-Video，不是 LTX-2.3**；页面自己标着「Updated 1 year, 6 months ago」"
+    },
+    {
+      "p": "replicate",
+      "m": "sora",
+      "listed": "openai / sora-2-pro",
+      "status": "available",
+      "src": "replicate-t2v",
+      "quote": "Official openai / sora-2-pro —— OpenAI's most advanced synced-audio video generation",
+      "match": "same",
+      "note": "⚠️ **上游已公告停服**：Sora API 计划 2026-09-24 停。平台还挂着，不代表它还能用多久"
+    },
+    {
+      "p": "apiyi",
+      "m": "seedance",
+      "listed": "Seedance 2.0",
+      "status": "available",
+      "src": "apiyi-log",
+      "quote": "Seedance 2.0 上线：字节新一代视频模型，价格对齐官网",
+      "match": "older",
+      "note": "⚠️ 上架的是 2.0，当前主力是 2.5"
+    },
+    {
+      "p": "apiyi",
+      "m": "veo",
+      "listed": "VEO 3.1 Official",
+      "status": "available",
+      "src": "apiyi-log",
+      "quote": "VEO 3.1 Official 正式上线：透传 Google AI Studio",
+      "match": "same"
+    },
+    {
+      "p": "apiyi",
+      "m": "sora",
+      "listed": "Sora 2",
+      "status": "available",
+      "src": "apiyi-log",
+      "quote": "Sora 2 官方直转分组上线",
+      "match": "same",
+      "note": "⚠️ 同上：上游 2026-09-24 停服"
+    },
+    {
+      "p": "apiyi",
+      "m": "wan",
+      "listed": "Wan&HappyHorse 分组",
+      "status": "available",
+      "src": "apiyi-log",
+      "quote": "与 Wan 共用 Wan&HappyHorse 分组与端点，改 model 名即用",
+      "match": "unknown",
+      "note": "分组名里有 Wan，但**未写明是哪一版**"
+    },
+    {
+      "p": "apiyi",
+      "m": "happyhorse",
+      "listed": "happyhorse-1.1-r2v / happyhorse-1.0-video-edit",
+      "status": "available",
+      "src": "apiyi-log",
+      "quote": "happyhorse-1.1-r2v（最多 9 张参考图）/ happyhorse-1.0-video-edit",
+      "match": "same",
+      "note": "⚠️ **HappyHorse 此前只有榜单证据，这是第一条可用性证据** —— 而且顺带证实了它支持多参考（最多 9 张）"
+    },
+    {
+      "p": "runway",
+      "m": "seedance",
+      "listed": "Seedance 2.5",
+      "status": "available",
+      "src": "rw-changelog",
+      "quote": "Get unlimited Seedance 2.5 on new Max plans until August 14th",
+      "match": "same",
+      "note": "⚠️ Runway 既是厂商也转售别家 —— 它上面能用到字节的模型"
+    }
+  ],
+  "$availability": "§9.3 明确要求「✓ 不能只是布尔值」。这里每格带：上架的**具体版本名**、状态、原文引用、来源。**最有用的一列是 match** —— 平台上架的常常不是当前主力版本（Replicate 上是 Hailuo 2.3 与初代 ltx-video，APIYI 上是 Seedance 2.0）。只答「有没有」会让人以为能用上当前版本的能力，那是错的。另外两类要标出来：coming-soon（还不能用）与上游已停服（平台还挂着不代表还能用多久）。"
 }

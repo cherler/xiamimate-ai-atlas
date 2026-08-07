@@ -54,7 +54,22 @@ for (const m of a.models)
   for (const c of a.capabilities)
     if (isCore(m) && applies(m, c) && !seen.has(`${m.id}::${c.id}`)) errs.push(`R7 缺格：${m.id} × ${c.id}`);
 
-const used = new Set(a.support.map((s) => s.src).filter(Boolean));
+// ── 平台可用性（E5）。规矩和能力格一样：**没有原文就不算证据**。
+const pids = new Set((a.platforms ?? []).map((p) => p.id));
+const mids = new Set(a.models.map((m) => m.id));
+for (const v of a.availability ?? []) {
+  const at = `${v.p} × ${v.m}`;
+  if (!pids.has(v.p)) errs.push(`R13 未知平台：${v.p}`);
+  if (!mids.has(v.m)) errs.push(`R14 未知模型：${v.m}（${at}）`);
+  if (!srcIds.has(v.src)) errs.push(`R15 来源 id 不存在：${v.src}（${at}）`);
+  if (!v.quote) errs.push(`R16 可用性没有原文引用 —— 不算证据：${at}`);
+  if (!["available", "coming-soon", "gone"].includes(v.status)) errs.push(`R17 非法状态 ${v.status}：${at}`);
+  if (!["same", "older", "newer", "unknown"].includes(v.match)) errs.push(`R18 非法 match：${at}`);
+  // 上架的是旧版本，却没写清楚 —— 那正是这张表最该说的话
+  if (v.match === "older" && !v.note) warns.push(`R19 上架版本比当前主力旧，却没写说明：${at}`);
+}
+
+const used = new Set([...a.support.map((s) => s.src), ...(a.availability ?? []).map((v) => v.src)].filter(Boolean));
 for (const id of srcIds) if (!used.has(id)) warns.push(`R10 来源登记了但没被引用：${id}`);
 
 // Core 每轨 ≤10（ontology 规则四）。加第 11 个之前必须先踢掉一个。
@@ -77,6 +92,8 @@ for (const s of a.support) {
 console.log(`Core 格子 ${by.yes + by.no + by.unknown}（库内共 ${a.support.length}） · ✅${by.yes} ❌${by.no} ⬜${by.unknown}（⬜ 占 ${Math.round((by.unknown / (by.yes + by.no + by.unknown)) * 100)}%）`);
 for (const [cls, t] of Object.entries(perClass))
   console.log(`  ${cls}：✅${t.yes} ❌${t.no} ⬜${t.unknown}`);
+const older = (a.availability ?? []).filter((v) => v.match === "older").length;
+console.log(`平台 ${(a.platforms ?? []).length} 个 · 可用性 ${(a.availability ?? []).length} 条（其中 ${older} 条上架的不是当前主力版本）`);
 console.log(`来源 ${srcIds.size} 条，官方 ${Object.values(a.sources).filter((s) => s.tier === "official").length} 条`);
 for (const w of warns) console.log(`  警告 ${w}`);
 if (errs.length) {
