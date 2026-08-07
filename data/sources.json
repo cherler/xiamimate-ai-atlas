@@ -638,20 +638,20 @@
       "tier": "S",
       "kind": "spa",
       "vendor": "",
-      "name": "APIYI · 模型与文档（API 聚合商）",
-      "url": "https://help.apiyi.com/",
+      "name": "APIYI · 更新日志（API 聚合商）",
+      "url": "https://docs.apiyi.com/changelog",
       "refresh_days": 7,
       "good_for": [
         "availability",
         "pricing"
       ],
       "expect": [
-        "Sora",
-        "Kling",
-        "Veo",
-        "模型"
+        "模型",
+        "上线",
+        "新增",
+        "API"
       ],
-      "note": "项目负责人补充。国内 API 聚合商 —— 「去哪用」矩阵里中文侧的可用性信号，fal / Replicate 覆盖不到这一块。实测 help.apiyi.com 抓到的是博客列表，不是模型清单 —— 待用 sweep-nav 找它的模型/价格页，再把 url 换掉"
+      "note": "项目负责人补充并给了正确 URL。国内 API 聚合商的更新日志 —— 「哪个模型在国内能用上了」这条信号，fal / Replicate 覆盖不到"
     },
     {
       "id": "arxiv-worldmodel",

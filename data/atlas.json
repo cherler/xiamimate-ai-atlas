@@ -1,8 +1,9 @@
 {
-  "version": "0.4",
+  "version": "0.5",
   "generated_at": "2026-08-07",
   "note": "第二版。按 data/ontology.md 的四条规则重录：品类分轨（clip / realtime）、一等实体是 Family、版本升级后未重新核验的格子退回 unknown、Core 每轨 ≤10。全部由 Agent 从公开来源录入，未经人工核验（§59.3 转述层）。 模型按 version_as_of 降序排列（最新在最前）；status 标出生命周期：active / superseded / discontinued。",
   "changelog": [
+    "v0.5 用 Kling 官方更新日志全文（171 条）重核 11 格：4 格是错的。两个方向都有错 —— 角色参考/多参考被我误判为「官方没说」（因为 Kling 管它叫 Element，不叫 Character Reference），运镜/视频延长则被我误判为「支持」（官方明确说明停留在 V1.5/V1.6 时代，3.0 没有重述）",
     "v0.4 Decart Lucy 2→2.5（官网首屏「LUCY 2.5 IS LIVE」）。**这次是采集管线自己抓到的版本腐烂，不是用户指出来的** —— 管线开始工作了",
     "v0.4 Kling 的 API 更新日志实测是 SPA 空壳（43 字），而 atlas 里有 5 格署了它 —— 已改 spa 重抓，正文 4000 字，最新条目是 2026-08-07 当天；这 5 格待用真正文重核",
     "v0.3 加 status 生命周期字段。**Sora 2 已终止**：App 2026-04-26 关停、API 2026-09-24 停、OpenAI 无继任产品 —— 上一版还把它当在售模型列着，照表选型的人会撞墙",
@@ -29,7 +30,12 @@
       "name": "Text-to-Video",
       "zh": "文生视频",
       "group": "生成",
-      "ubiquity": "已普及"
+      "ubiquity": "已普及",
+      "aliases": [
+        "Text-to-Video",
+        "文生视频",
+        "T2V"
+      ]
     },
     {
       "id": "i2v",
@@ -37,7 +43,12 @@
       "name": "Image-to-Video",
       "zh": "图生视频",
       "group": "生成",
-      "ubiquity": "已普及"
+      "ubiquity": "已普及",
+      "aliases": [
+        "Image-to-Video",
+        "图生视频",
+        "I2V"
+      ]
     },
     {
       "id": "flf",
@@ -45,7 +56,17 @@
       "name": "First/Last Frame",
       "zh": "首尾帧",
       "group": "控制",
-      "ubiquity": "主流"
+      "ubiquity": "主流",
+      "aliases": [
+        "First/Last Frame",
+        "首尾帧",
+        "start & end frame",
+        "start/end frame",
+        "tail frame",
+        "Start/End to Video",
+        "首帧",
+        "尾帧"
+      ]
     },
     {
       "id": "charref",
@@ -53,7 +74,17 @@
       "name": "Character Ref",
       "zh": "角色参考",
       "group": "参考",
-      "ubiquity": "主流"
+      "ubiquity": "主流",
+      "aliases": [
+        "Character Reference",
+        "Element",
+        "元素",
+        "主体参考",
+        "Subject Reference",
+        "Omni Reference",
+        "cameo",
+        "Ingredients"
+      ]
     },
     {
       "id": "multiref",
@@ -61,7 +92,16 @@
       "name": "Multi-reference",
       "zh": "多参考",
       "group": "参考",
-      "ubiquity": "前沿"
+      "ubiquity": "前沿",
+      "aliases": [
+        "Multi-reference",
+        "Multi-Elements",
+        "image_list",
+        "element_list",
+        "多图参考",
+        "Reference to Video",
+        "多主体"
+      ]
     },
     {
       "id": "motion",
@@ -69,7 +109,16 @@
       "name": "Motion Control",
       "zh": "动作复刻",
       "group": "控制",
-      "ubiquity": "前沿"
+      "ubiquity": "前沿",
+      "aliases": [
+        "Motion Control",
+        "动作复刻",
+        "动作迁移",
+        "Motion Transfer",
+        "Act-One",
+        "Motion Brush",
+        "pose control"
+      ]
     },
     {
       "id": "camera",
@@ -77,7 +126,15 @@
       "name": "Camera Control",
       "zh": "运镜控制",
       "group": "控制",
-      "ubiquity": "主流"
+      "ubiquity": "主流",
+      "aliases": [
+        "Camera Control",
+        "运镜",
+        "镜头控制",
+        "multi-camera",
+        "多机位",
+        "camera movement"
+      ]
     },
     {
       "id": "audio",
@@ -85,7 +142,15 @@
       "name": "Native Audio",
       "zh": "原生音频",
       "group": "音频",
-      "ubiquity": "主流"
+      "ubiquity": "主流",
+      "aliases": [
+        "Native Audio",
+        "原生音频",
+        "sound parameter",
+        "audio-video joint",
+        "音视频联合",
+        "native sound"
+      ]
     },
     {
       "id": "lipsync",
@@ -93,7 +158,14 @@
       "name": "Lip Sync",
       "zh": "对口型",
       "group": "音频",
-      "ubiquity": "主流"
+      "ubiquity": "主流",
+      "aliases": [
+        "Lip Sync",
+        "对口型",
+        "唇形同步",
+        "lip-sync",
+        "口型对齐"
+      ]
     },
     {
       "id": "extend",
@@ -101,7 +173,14 @@
       "name": "Video Extension",
       "zh": "视频延长",
       "group": "叙事",
-      "ubiquity": "主流"
+      "ubiquity": "主流",
+      "aliases": [
+        "Video Extension",
+        "视频延长",
+        "续写",
+        "Scene extension",
+        "extend"
+      ]
     },
     {
       "id": "rt-fps",
@@ -109,7 +188,13 @@
       "name": "Real-time Output",
       "zh": "实时出帧",
       "group": "实时",
-      "ubiquity": "前沿"
+      "ubiquity": "前沿",
+      "aliases": [
+        "real-time",
+        "实时",
+        "fps",
+        "throughput"
+      ]
     },
     {
       "id": "rt-stream",
@@ -117,7 +202,13 @@
       "name": "Stream Input",
       "zh": "流式输入",
       "group": "实时",
-      "ubiquity": "前沿"
+      "ubiquity": "前沿",
+      "aliases": [
+        "stream input",
+        "直播流",
+        "live video",
+        "streaming"
+      ]
     },
     {
       "id": "rt-interact",
@@ -125,7 +216,14 @@
       "name": "Mid-gen Control",
       "zh": "生成中可干预",
       "group": "实时",
-      "ubiquity": "前沿"
+      "ubiquity": "前沿",
+      "aliases": [
+        "mid-generation",
+        "生成中",
+        "interactive",
+        "干预",
+        "online prompt"
+      ]
     },
     {
       "id": "rt-endless",
@@ -133,7 +231,13 @@
       "name": "Endless Length",
       "zh": "无限时长",
       "group": "实时",
-      "ubiquity": "前沿"
+      "ubiquity": "前沿",
+      "aliases": [
+        "infinite",
+        "无限时长",
+        "endless",
+        "no time limit"
+      ]
     },
     {
       "id": "openweights",
@@ -141,7 +245,13 @@
       "name": "Open Weights",
       "zh": "开源权重",
       "group": "获取",
-      "ubiquity": "前沿"
+      "ubiquity": "前沿",
+      "aliases": [
+        "Open Weights",
+        "开源权重",
+        "weights release",
+        "model weights"
+      ]
     }
   ],
   "models": [
@@ -263,17 +373,7 @@
     "kling-api": {
       "url": "https://kling.ai/document-api/updates/api",
       "tier": "official",
-      "name": "Kling AI API 文档 · 更新日志"
-    },
-    "kling-guide": {
-      "url": "https://invideo.io/blog/kling-3-0-complete-guide/",
-      "tier": "third-party",
-      "name": "Kling 3.0 指南（invideo，转售方）"
-    },
-    "kling-motion": {
-      "url": "https://openart.ai/ai-model/kling-3-motion-control/",
-      "tier": "third-party",
-      "name": "Kling 3.0 Motion Control（OpenArt，转售方）"
+      "name": "Kling AI · API 更新日志（171 条，需 JS 渲染）"
     },
     "seed-25": {
       "url": "https://seed.bytedance.com/en/blog/one-take-creation-flexible-referencing-introducing-seedance-2-5",
@@ -382,6 +482,7 @@
       "c": "t2v",
       "state": "yes",
       "verified_for": "3.0",
+      "note": "2026-06-17「Kling 3.0 Turbo 正式发布」：同时支持文生视频与图生视频，720P/1080P",
       "src": "kling-api"
     },
     {
@@ -389,6 +490,7 @@
       "c": "i2v",
       "state": "yes",
       "verified_for": "3.0",
+      "note": "同上；另有 Multi-Image to Video 一系列条目",
       "src": "kling-api"
     },
     {
@@ -396,59 +498,63 @@
       "c": "flf",
       "state": "yes",
       "verified_for": "3.0",
-      "src": "kling-guide",
-      "note": "图生视频可自定义起始帧与结束帧"
+      "note": "2026-05-07：多镜头视频可定义首尾帧，并解除了「多镜头」与「首尾帧」的互斥。⚠️ 边界：2026-03-11 明确「多机位（multi-camera）不支持首尾帧」，且 kling-video-o1 生成首尾帧时不支持引用 element。条目未点名 3.0，属通用能力升级",
+      "src": "kling-api"
     },
     {
       "m": "kling",
       "c": "charref",
-      "state": "unknown",
+      "state": "yes",
       "verified_for": "3.0",
-      "note": "API 更新页只提到「参考视频」，未见角色参考图的独立能力位"
+      "note": "⚠️ 我上一版标「官方没说」是错的 —— **Kling 管角色参考叫 Element（元素）**，不叫 Character Reference。2026-02-25 元素体系全面升级，可用视频创建元素并绑定音色；2026-01-23 可由正面图推断其它角度",
+      "src": "kling-api"
     },
     {
       "m": "kling",
       "c": "multiref",
-      "state": "unknown",
-      "verified_for": "3.0"
+      "state": "yes",
+      "verified_for": "3.0",
+      "note": "2026-04-01：3.0 Omni 的 image_list / element_list 参数，支持多图元素；2025-07-21 Multi-Elements 上线（对已有视频做元素增/换/删）",
+      "src": "kling-api"
     },
     {
       "m": "kling",
       "c": "motion",
       "state": "yes",
       "verified_for": "3.0",
-      "src": "kling-motion",
-      "note": "Motion Control 确实存在，但检索到的说明全部来自转售平台，未找到快手官方文档页"
+      "note": "⚠️ **Motion Control 是独立模型，不是 Kling 3.0 的一个参数** —— 2026-07-15 的新 API 支持清单里，Kling 3.0 / 3.0 Omni / 3.0 Motion Control 三者并列。2025-12-22 首发时要求同时上传参考图与参考视频，参考视频最长 30 秒",
+      "src": "kling-api"
     },
     {
       "m": "kling",
       "c": "camera",
-      "state": "yes",
+      "state": "unknown",
       "verified_for": "3.0",
-      "src": "kling-guide",
-      "note": "dolly / tracking / orbit / handheld"
+      "note": "⚠️ 我上一版标「支持」是错的（来源是转售平台的指南）。官方日志里对运镜控制的明确说明停留在 V1.5/V1.6 时代（2025-03-12「motion brush, camera control (simple only)」）；3.0 时代只见到「多机位 multi-camera」相关条目，未把运镜作为独立控制位重述 —— 按规则三之一退回未知",
+      "src": "kling-api"
     },
     {
       "m": "kling",
       "c": "audio",
       "state": "yes",
       "verified_for": "3.0",
-      "src": "kling-guide",
-      "note": "原生音频可开关"
+      "note": "2025-12-15：通过 sound 参数控制生成视频时是否包含音频。⚠️ 要与 Video-to-Audio 区分开 —— 后者（2025-08-01 起）是给**已生成的视频**配音效/BGM，不是生成时的原生音频",
+      "src": "kling-api"
     },
     {
       "m": "kling",
       "c": "lipsync",
       "state": "yes",
       "verified_for": "3.0",
-      "src": "kling-api",
-      "note": "API 支持 lip-sync；中英日韩西五语"
+      "note": "2024-12-23 首发；2025-09-15 支持多人画面对口型，用 face_id 指定说话人、sound_insert_time 指定起始时间。⚠️ Lip-Sync 是作用于**已有视频**的独立功能，不是生成时的一步",
+      "src": "kling-api"
     },
     {
       "m": "kling",
       "c": "extend",
-      "state": "yes",
+      "state": "unknown",
       "verified_for": "3.0",
+      "note": "⚠️ 我上一版标「支持」是错的。官方明确说明是 2024-11-15（V1.0，每次续 4~5 秒）与 2025-03-31（V1.5/V1.6 支持视频延长）—— **3.0 没有重述**，按规则三之一退回未知",
       "src": "kling-api"
     },
     {
@@ -456,7 +562,7 @@
       "c": "openweights",
       "state": "no",
       "verified_for": "3.0",
-      "note": "未见任何权重发布渠道，仅商用 API"
+      "note": "翻遍 171 条官方更新日志，无任何权重发布相关条目；仅商用 API"
     },
     {
       "m": "seedance",
@@ -1169,5 +1275,6 @@
       "verified_for": "Flash",
       "note": "闭源，仅通过 Gemini API / AI Studio 提供"
     }
-  ]
+  ],
+  "$aliases_why": "各家给同一个能力起不同的名字。**Kling 管角色参考叫 Element，我按 Character Reference 去找，找不到就标了「官方没说」—— 假阴性。** 采集时必须用整组别名去匹配，不能只用我们自己的叫法。这是原方案 §36 Entity Resolution 在能力维度上的对应物。"
 }
