@@ -21,6 +21,12 @@ export type Capability = {
   group: string;
   /** 已普及的能力默认折叠：它连向所有模型，画出来只是噪音（§59.1 的超级节点问题） */
   ubiquity: "前沿" | "主流" | "已普及";
+  /** 我们手上的日志能证明的最早时间（不是业界首次出现）。见 atlas.json 的 $since。 */
+  since?: string;
+  since_src?: string;
+  since_quote?: string;
+  since_note?: string;
+  aliases?: string[];
 };
 
 /** 一等实体是 Family，version 是会过期的挂件（ontology 规则三）。 */

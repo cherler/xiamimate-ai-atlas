@@ -107,7 +107,17 @@ function fingerprint(kind, body) {
     .replace(/&[a-z#0-9]+;/gi, " ")
     .replace(/\s+/g, " ")
     .trim();
-  return { items: [], digest: sha(text), text: text.slice(0, 4000) };
+  /**
+   * **快照的 text 有两个用途，长度得按更贪的那个定。**
+   *
+   * 变更检测只需要 digest（算的是全文），4000 字够了；
+   * 但快照同时是**取证据的语料** —— 从 Kling 的更新日志里找「首尾帧最早哪天出现」，
+   * 就得有全文。4000 字把那份 3.2 万字的日志砍掉了 87%，
+   * 于是「最早可证时间」这件事直接做不了。
+   *
+   * 存 8 万字：git 里几十 KB 的文本，和它换来的可追溯性不成比例。
+   */
+  return { items: [], digest: sha(text), text: text.slice(0, 80000) };
 }
 
 /**

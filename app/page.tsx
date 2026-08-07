@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Bipartite, { type Sel } from "@/components/Bipartite";
+import Evolution from "@/components/Evolution";
 import { atlas, capsOf, cell, compare, extendedOf, label, modelsOf, tally, transparency, type Klass, type State } from "@/lib/atlas";
 
 const MARK: Record<State, string> = { yes: "✅", no: "❌", unknown: "⬜" };
@@ -200,6 +201,28 @@ export default function Page() {
         <Bipartite sel={sel} onSel={setSel} />
       </section>
 
+      <section>
+        <h2 className="text-[22px] font-semibold mb-1">能力演进：早出现 ≠ 铺得开</h2>
+        <p className="text-muted text-[14px] mb-4 max-w-[920px] leading-relaxed">
+          <b className="text-ink">这张图有一个观点，不只是一个题目</b>：
+          最早出现的能力，今天反而最少人做。<b className="text-ink">对口型 2024-01 就有，如今 4/9；
+          运镜控制 2024-11 就有，如今只剩 1/9</b>。而 2025 年才冒出来的
+          <b className="text-ink">角色参考（2025-03）与多参考（2025-07），今天都是 8/9</b> —— 图上最粗的两条。
+          <br />
+          这两年真正在铺开的是「你给它什么参考」，不是「你能怎么控制它」。
+          运镜那条尤其值得留意：它不是没人做，是<b className="text-ink">没人再写进文档</b> ——
+          九家里八家把运镜退回成「你自己在提示词里描述」。
+          <br />
+          <span className="text-[13px]">
+            线越粗＝实现它的模型越多。左端是<b className="text-ink">我们能证明的最早时间</b>，不是业界首次出现 ——
+            点开每条能看到那句原文。
+          </span>
+        </p>
+        <div className="bg-card border border-rule rounded-xl p-4">
+          <Evolution onPick={(id) => setSel({ kind: "cap", id })} />
+        </div>
+      </section>
+
       <section className="min-h-[120px]">
         {sel.kind === "none" && (
           <p className="text-muted text-[15px]">
@@ -218,6 +241,38 @@ export default function Page() {
                 {atlas.capabilities.find((c) => c.id === sel.id)!.name}
               </span>
             </h2>
+            {(() => {
+              const c = atlas.capabilities.find((x) => x.id === sel.id)!;
+              return c.since ? (
+                <p className="text-[14px] mb-2 leading-relaxed">
+                  <b className="text-ink">最早可证 {c.since}</b>
+                  <span className="text-muted">
+                    {" "}—— 「{c.since_quote}」
+                    {c.since_src && atlas.sources[c.since_src] ? (
+                      <>
+                        {" "}
+                        <a
+                          href={atlas.sources[c.since_src].url}
+                          target="_blank"
+                          rel="noreferrer"
+                          className="underline hover:text-ink"
+                        >
+                          {atlas.sources[c.since_src].name}
+                        </a>
+                      </>
+                    ) : null}
+                  </span>
+                </p>
+              ) : (
+                <p className="text-muted text-[14px] mb-2">{c.since_note ?? ""}</p>
+              );
+            })()}
+            {(() => {
+              const c = atlas.capabilities.find((x) => x.id === sel.id)!;
+              return c.aliases?.length ? (
+                <p className="text-muted text-[13px] mb-2">各家叫法：{c.aliases.join(" · ")}</p>
+              ) : null;
+            })()}
             <p className="text-muted text-[14px] mb-2">按模型逐条列出，每条都带来源。</p>
             {modelsOf("clip").map((m) => (
               <div key={m.id} className="border-t border-rule pt-3 pb-1">
