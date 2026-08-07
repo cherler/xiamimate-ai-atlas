@@ -3,94 +3,16 @@
 import { useState } from "react";
 import Bipartite, { type Sel } from "@/components/Bipartite";
 import Evolution from "@/components/Evolution";
-import { atlas, avail, capsOf, cell, compare, extendedOf, label, modelsOf, tally, transparency, type Klass, type State } from "@/lib/atlas";
+import Link from "next/link";
+import { Fact, MARK, Rich, TONE } from "@/components/Fact";
+import { atlas, avail, capsOf, cell, compare, extendedOf, label, modelsOf, tally, transparency, type Klass } from "@/lib/atlas";
+import { capHref, modelHref } from "@/lib/slug";
 
-const MARK: Record<State, string> = { yes: "✅", no: "❌", unknown: "⬜" };
-const TONE: Record<State, string> = { yes: "text-yes", no: "text-no", unknown: "text-unknown" };
-
-/** 生命周期。**能力对不代表能用** —— 一个已停服的模型和在售的并排站着，是有害的。 */
+/** 生命周期标记。停服/非主力必须一眼看得见 —— 能力对不代表能用。 */
 const STATUS: Record<string, { tag: string; cls: string }> = {
   discontinued: { tag: "已停服", cls: "text-no line-through" },
   superseded: { tag: "非主力", cls: "text-muted" },
 };
-
-/**
- * 数据里的注释一律用 `**…**` 标重点（那是给读 JSON 的人看的）。
- * **同一个坑犯了三次**：表格说明、changelog、排除记录都曾把星号原样印在页面上。
- * 打地鼠没用 —— 凡是渲染数据里的自由文本，一律走这里。
- */
-function Rich({ text, className = "" }: { text: string; className?: string }) {
-  return (
-    <span className={className}>
-      {text.split(/\*\*(.+?)\*\*/g).map((part, i) =>
-        i % 2 ? (
-          <b key={i} className="text-ink">
-            {part}
-          </b>
-        ) : (
-          part
-        ),
-      )}
-    </span>
-  );
-}
-
-/** 「怎么个能法」的角标。原生不标，另一个接口才标 —— 默认值不占视觉。 */
-function ViaTag({ via }: { via?: string }) {
-  if (via !== "separate-task") return null;
-  return (
-    <span
-      className="ml-1.5 px-1.5 py-px rounded bg-unknown/15 text-unknown text-[11px] align-middle"
-      title="平台的另一个接口：能做，但要再调一次，且通常只能作用于已生成的视频"
-    >
-      另一个接口
-    </span>
-  );
-}
-
-/**
- * 每条事实旁边都必须看得见：来源、核验日期、核验的是哪个版本、以及**是谁录的**。
- *
- * 这不是加分项，是必需品（§59.3）。既然主动交易掉了精准度换维护成本，
- * 可信度就只能靠透明顶上 —— 读者没有同意接受不精准，只有我们同意了。
- */
-function Fact({ m, c }: { m: string; c: string }) {
-  const f = cell(m, c);
-  const src = f.src ? atlas.sources[f.src] : null;
-  const cap = atlas.capabilities.find((x) => x.id === c)!;
-  return (
-    <div className="border-t border-rule py-3 flex gap-4 text-[15px]">
-      <span className={`${TONE[f.state]} font-semibold shrink-0 w-[190px]`}>
-        {MARK[f.state]} {cap.zh}
-        <ViaTag via={f.via} />
-      </span>
-      <div className="min-w-0 flex-1">
-        {f.note && <Rich text={f.note} className="text-ink leading-relaxed block" />}
-        <p className="text-muted text-[13px] mt-1 flex flex-wrap gap-x-3 gap-y-1 items-center">
-          {src ? (
-            <>
-              <a href={src.url} target="_blank" rel="noreferrer" className="underline hover:text-ink">
-                {src.name}
-              </a>
-              <span
-                className={`px-1.5 py-px rounded text-[11px] ${
-                  src.tier === "official" ? "bg-yes/12 text-yes" : "bg-unknown/15 text-unknown"
-                }`}
-              >
-                {src.tier === "official" ? "官方来源" : "第三方来源"}
-              </span>
-            </>
-          ) : (
-            <span className="italic">无来源 —— 这一格是「查了没找到」，不是「我们没查」</span>
-          )}
-          {f.verified_for && <span>核验版本 {f.verified_for}</span>}
-          <span>核验于 {atlas.generated_at}</span>
-          <span className="px-1.5 py-px rounded bg-unknown/15 text-unknown text-[11px]">机器录入 · 未经人工核验</span>
-        </p>
-      </div>
-    </div>
-  );
-}
 
 function Matrix({ k, title, blurb }: { k: Klass; title: string; blurb: string }) {
   const ms = modelsOf(k);
@@ -112,9 +34,9 @@ function Matrix({ k, title, blurb }: { k: Klass; title: string; blurb: string })
                 const st = m.status && m.status !== "active" ? STATUS[m.status] : null;
                 return (
                   <th key={m.id} className="p-3 font-semibold text-[13px] whitespace-nowrap align-bottom">
-                    <span className={st?.cls ?? ""} title={m.status_note ?? ""}>
+                    <Link href={modelHref(m)} className={`${st?.cls ?? ""} underline hover:text-yes`} title={m.status_note ?? ""}>
                       {label(m)}
-                    </span>
+                    </Link>
                     <span className="block font-normal text-muted text-[11px]">{m.version_as_of}</span>
                     {st && <span className={`block text-[11px] font-medium ${st.cls.replace("line-through", "")}`}>{st.tag}</span>}
                   </th>
@@ -126,7 +48,9 @@ function Matrix({ k, title, blurb }: { k: Klass; title: string; blurb: string })
             {cs.map((c) => (
               <tr key={c.id} className="border-b border-rule/60 last:border-0">
                 <td className="p-3 sticky left-0 bg-card whitespace-nowrap">
-                  <span className="font-medium">{c.zh}</span>
+                  <Link href={capHref(c)} className="font-medium underline hover:text-yes">
+                    {c.zh}
+                  </Link>
                   <span className="text-muted text-[12px] ml-2">{c.ubiquity}</span>
                 </td>
                 {ms.map((m) => {
@@ -284,13 +208,18 @@ export default function Page() {
                 <p className="text-muted text-[13px] mb-2">各家叫法：{c.aliases.join(" · ")}</p>
               ) : null;
             })()}
-            <p className="text-muted text-[14px] mb-2">按模型逐条列出，每条都带来源。</p>
+            <p className="text-muted text-[14px] mb-2">
+              按模型逐条列出，每条都带来源。
+              <Link href={capHref(sel.id)} className="underline hover:text-ink ml-2">
+                打开这一项的独立页面 →
+              </Link>
+            </p>
             {modelsOf("clip").map((m) => (
               <div key={m.id} className="border-t border-rule pt-3 pb-1">
                 <p className="font-semibold text-[16px]">
                   {label(m)} <span className="text-muted font-normal text-[13px]">{m.vendor}</span>
                 </p>
-                <Fact m={m.id} c={sel.id} />
+                <Fact m={m.id} c={sel.id} label={atlas.capabilities.find((x) => x.id === sel.id)!.zh} />
               </div>
             ))}
           </div>
@@ -303,7 +232,7 @@ export default function Page() {
               再点一个模型即可对比。以下是它的 {clipCaps.length} 项能力逐条。
             </p>
             {clipCaps.map((c) => (
-              <Fact key={c.id} m={picked[0]} c={c.id} />
+              <Fact key={c.id} m={picked[0]} c={c.id} label={c.zh} />
             ))}
           </div>
         )}
