@@ -7,3 +7,4 @@ out-*.png
 .env.*
 next-env.d.ts
 tsconfig.tsbuildinfo
+assets/demo-raw/
