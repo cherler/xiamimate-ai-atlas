@@ -9,7 +9,7 @@ import { mkdirSync, readdirSync, renameSync, rmSync } from "node:fs";
 import { execFileSync } from "node:child_process";
 
 const W = 1080, H = 1920;
-const BASE = process.env.ATLAS_URL ?? "http://127.0.0.1:3400";
+const BASE = process.env.ATLAS_URL ?? "http://127.0.0.1:3400/atlas";
 const RAW = new URL("../assets/demo-raw-v/", import.meta.url).pathname;
 const CURSOR = `
 (() => {

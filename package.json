@@ -6,7 +6,10 @@
     "dev": "next dev -p 3400",
     "build": "next build",
     "start": "next start -p 3400",
-    "validate": "node scripts/validate.mjs"
+    "validate": "node scripts/validate.mjs",
+    "prebuild": "node scripts/validate.mjs",
+    "package": "bash scripts/package.sh",
+    "watch": "node scripts/watch.mjs --due"
   },
   "dependencies": {
     "next": "^15.1.0",

@@ -16,7 +16,7 @@ import { execFileSync } from "node:child_process";
 
 const W = 1920;
 const H = 1080;
-const BASE = process.env.ATLAS_URL ?? "http://127.0.0.1:3400";
+const BASE = process.env.ATLAS_URL ?? "http://127.0.0.1:3400/atlas";
 const RAW = new URL("../assets/demo-raw/", import.meta.url).pathname;
 
 const CURSOR = `
