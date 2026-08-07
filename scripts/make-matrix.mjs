@@ -31,13 +31,23 @@ next.setUTCDate(next.getUTCDate() + 30);
 const nextStr = next.toISOString().slice(0, 10);
 
 // 脚注只挑带 ⚠️ 的格子 —— 那些是**平台自己不会写**的边界与否定事实（§60.5）
-const stars = a.support
+// 脚注：挑带 ⚠️ 的格子，但**每家最多一条、总共最多 6 条**。
+// 全表现在有 35 条 ⚠️，全印上去版面就废了 —— 而且读者也读不完。
+// 优先级：明确「不支持」的 > 其它边界。否定事实最难在别处看到，最该占版面。
+const starPool = a.support
   .filter((s) => s.note?.includes("⚠️") && inClip.has(s.m))
-  .map((s) => {
-    const m = label(a.models.find((x) => x.id === s.m));
-    const c = a.capabilities.find((x) => x.id === s.c).zh;
-    return { m, c, text: s.note.replace(/⚠️\s*/, "").replace(/\*\*/g, "") };
-  });
+  .sort((x, y) => (x.state === "no" ? -1 : 1) - (y.state === "no" ? -1 : 1));
+const usedModel = new Set();
+const stars = [];
+for (const s of starPool) {
+  if (usedModel.has(s.m) || stars.length >= 6) continue;
+  usedModel.add(s.m);
+  const m = label(a.models.find((x) => x.id === s.m));
+  const c = a.capabilities.find((x) => x.id === s.c).zh;
+  // 只取 ⚠️ 后的第一句，长注释在网站上看，图上放不下
+  const text = s.note.replace(/⚠️\s*/, "").replace(/\*\*/g, "").split(/[；。]/)[0];
+  stars.push({ m, c, text });
+}
 
 const officialCount = Object.values(a.sources).filter((s) => s.tier === "official").length;
 
@@ -53,6 +63,14 @@ const head = models
       (st.tag ? `<span class="st" style="color:${st.color}">${st.tag}</span>` : "") + `</th>`;
   })
   .join("");
+// ⬜ 按模型分布。**「N 格官方没说」这句话会让人以为厂商普遍不透明，
+// 而实际上它高度集中在少数几家** —— 有官方能力文档的那几家只有 1~3 格。
+// 这也让「透明度」从主观打分变成算出来的数：⬜ 的多少就是透明度。
+const unkBy = models
+  .map((m) => ({ m, n: a.support.filter((s) => s.m === m.id && s.state === "unknown").length }))
+  .sort((x, y) => y.n - x.n);
+const topUnknown = unkBy.slice(0, 3).map((x) => `${label(x.m)} ${x.n} 格`).join(" · ")
+  + `，三家占 ${Math.round((unkBy.slice(0, 3).reduce((s, x) => s + x.n, 0) / t.unknown) * 100)}%`;
 const dead = models.filter((m) => m.status && m.status !== "active");
 const rt = a.models.filter((m) => m.class === "realtime");
 
@@ -82,11 +100,11 @@ const html = `<!doctype html>
   .sub{font-size:19px;color:var(--muted);line-height:1.55}
   .sub b{color:var(--ink);font-variant-numeric:tabular-nums}
   table{border-collapse:collapse;width:100%;table-layout:fixed}
-  th.cap{width:170px;text-align:left;padding:0 10px 0 2px}
+  th.cap{width:158px;text-align:left;padding:0 10px 0 2px}
   th.cap b{display:block;font-size:18px;font-weight:600;line-height:1.2}
   th.cap span{display:block;font-size:12px;color:var(--muted);font-weight:400}
   thead th{padding-bottom:12px;vertical-align:bottom}
-  .mn{display:block;font-size:12px;font-weight:600;line-height:1.25;white-space:nowrap}
+  .mn{display:block;font-size:11.5px;font-weight:600;line-height:1.2}
   .mn.dead{color:var(--no);text-decoration:line-through;text-decoration-thickness:1.5px}
   .mn.old{color:var(--muted)}
   .st{display:block;font-size:10px;font-weight:600;margin-top:2px}
@@ -117,8 +135,8 @@ const html = `<!doctype html>
     <div class="big"><div class="n" style="color:var(--no)">${t.no}</div><div class="l">不支持<br />或查无支持迹象</div></div>
     <div class="big" style="flex:2.1;border-color:var(--unk)">
       <div class="n" style="color:var(--unk)">${t.unknown}</div>
-      <div class="l"><b style="color:var(--ink)">官方没说</b> —— 不是我们没查，是查了公开渠道找不到。<br />
-      占全表 ${Math.round((t.unknown / (t.yes + t.no + t.unknown)) * 100)}%。这一格才是这张表最值得看的地方。</div>
+      <div class="l"><b style="color:var(--ink)">官方没说</b> —— 九家都已用厂商官方文档逐格核过，仍然查不到的。<br />
+      <b style="color:var(--ink)">而且高度集中：${topUnknown}</b> —— 不透明是分化的，不是普遍的。</div>
     </div>
   </div>
   <div class="notes">
