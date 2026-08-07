@@ -1,0 +1,20 @@
+@import "tailwindcss";
+
+@theme {
+  --color-paper: #eff0ec;
+  --color-card: #f7f8f5;
+  --color-ink: #171b18;
+  --color-muted: #6b716c;
+  --color-rule: #d3d6ce;
+  --color-yes: #2c6b5a;
+  --color-no: #b03a2c;
+  --color-unknown: #ad8324;
+}
+
+html,
+body {
+  background: var(--color-paper);
+  color: var(--color-ink);
+  font-family: "PingFang SC", "Hiragino Sans GB", system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
