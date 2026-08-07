@@ -8,3 +8,8 @@ out-*.png
 next-env.d.ts
 tsconfig.tsbuildinfo
 assets/demo-raw/
+data/watch.log
+data/launchd.*.log
+.env
+# data/inbox 先不进 git：候选里可能含厂商页面原文摘录，等人审流程定了再决定要不要留档
+data/inbox/

@@ -202,17 +202,32 @@ for (const s of list) {
   console.log(`${mark} [${row.tier}/${row.kind}] ${row.id.padEnd(20)} ${row.status}${row.added?.length ? ` +${row.added.length}` : ""}${row.error ? "  " + row.error : ""}`);
 }
 
+// 本次没查的源，从快照里补它上次的状态 —— **报告必须覆盖全部源**。
+// 第一次跑 --due 就踩了这个坑：那天没有源到期，报告被一份空清单覆盖，
+// 把前一天的真结果冲没了。增量抓取 ≠ 增量报告。
+const checked = new Set(rows.map((r) => r.id));
+for (const s2 of reg.sources) {
+  if (checked.has(s2.id)) continue;
+  const p = prevOf(s2.id);
+  rows.push({
+    id: s2.id, tier: s2.tier, kind: s2.kind, name: s2.name, url: s2.url,
+    status: p ? `未到期（上次 ${p.fetched_at}）` : "从未抓过", added: [],
+  });
+}
+rows.sort((a, b) => reg.sources.findIndex((x) => x.id === a.id) - reg.sources.findIndex((x) => x.id === b.id));
+
 const byStatus = (st) => rows.filter((r) => r.status === st);
 const md = [
   `# 信息源监视报告 · ${TODAY}`,
   ``,
-  `抓取 ${rows.length} 个源：变化 ${byStatus("变了").length} · 首次 ${byStatus("首次").length} · 无变化 ${byStatus("无变化").length} · **抓不到 ${byStatus("抓不到").length}**`,
+  `本次检查 ${checked.size} 个到期源（共 ${rows.length} 个）：变化 ${byStatus("变了").length} · 首次 ${byStatus("首次").length} · 无变化 ${byStatus("无变化").length} · **抓不到 ${byStatus("抓不到").length}**`,
   ``,
   `> 这份报告是给人看的那 20 条待办的来源（§59.3 的负反馈：人每周要看的条目 ≤ 20）。`,
   `> 「抓不到」不是失败，是**信息本身** —— 一个长期抓不到的官方源，说明那家厂商没有可 diff 的公开更新入口，`,
   `> 而那正好解释了为什么它名下的格子质量最差。`,
   ``,
-  `## 抓到了但没内容（比抓不到更危险 —— 它不会喊）`,`,`,
+  `## 抓到了但没内容（比抓不到更危险 —— 它不会喊）`,
+  ``,
   ...(byStatus("没内容").length
     ? byStatus("没内容").map((r) => `- **${r.id}** ${r.name} — 正文里找不到任何一个期望关键词（${r.url}）`)
     : ["（无）"]),

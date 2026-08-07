@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  AI 视频能力地图 · 信息源监视器的定时任务。
+
+  为什么用 launchd 而不是 crontab：
+  笔记本会睡。`StartCalendarInterval` 在错过触发时间后**会在下次唤醒时补跑一次**，
+  crontab 不会 —— 对一台每天合盖的机器，这个差别决定了它是每天跑还是隔三差五跑。
+
+  为什么不用 CronCreate：那个只活在一个 Claude 会话里、7 天自动过期。
+  抓取这一段是纯程序（§33），本来就该由系统调度器负责。
+
+  安装：  launchctl bootstrap gui/$(id -u) ops/com.xiamimate.atlas-watch.plist
+  卸载：  launchctl bootout gui/$(id -u)/com.xiamimate.atlas-watch
+  立刻跑：launchctl kickstart -k gui/$(id -u)/com.xiamimate.atlas-watch
+-->
+<plist version="1.0">
+<dict>
+  <key>Label</key>
+  <string>com.xiamimate.atlas-watch</string>
+
+  <key>ProgramArguments</key>
+  <array>
+    <string>/bin/bash</string>
+    <string>/Users/liuzhenhai/projects/xiamimate/xiamimate-ai-atlas/scripts/tick.sh</string>
+  </array>
+
+  <!--
+    每天 09:23。
+    刻意不用整点 —— 各家源站的整点是全世界定时任务一起砸过去的时刻。
+    每天跑但只抓「到期的」（--due 按各源自己的 refresh_days，3~30 天不等），
+    所以绝大多数日子只跑几个源，很便宜。
+  -->
+  <key>StartCalendarInterval</key>
+  <dict>
+    <key>Hour</key><integer>9</integer>
+    <key>Minute</key><integer>23</integer>
+  </dict>
+
+  <key>WorkingDirectory</key>
+  <string>/Users/liuzhenhai/projects/xiamimate/xiamimate-ai-atlas</string>
+
+  <!-- 脚本自己写 data/watch.log；这两个文件只兜 launchd 层面的意外 -->
+  <key>StandardOutPath</key>
+  <string>/Users/liuzhenhai/projects/xiamimate/xiamimate-ai-atlas/data/launchd.out.log</string>
+  <key>StandardErrorPath</key>
+  <string>/Users/liuzhenhai/projects/xiamimate/xiamimate-ai-atlas/data/launchd.err.log</string>
+
+  <key>EnvironmentVariables</key>
+  <dict>
+    <key>HTTPS_PROXY</key><string>http://127.0.0.1:7890</string>
+    <key>HTTP_PROXY</key><string>http://127.0.0.1:7890</string>
+    <key>PATH</key><string>/opt/homebrew/bin:/usr/local/bin:/usr/bin:/bin</string>
+  </dict>
+
+  <!-- 只在有网时跑，省得离线时白刷一堆「抓不到」污染报告 -->
+  <key>LimitLoadToSessionType</key>
+  <string>Aqua</string>
+</dict>
+</plist>
