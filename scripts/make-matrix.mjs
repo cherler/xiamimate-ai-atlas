@@ -13,7 +13,8 @@ const at = (m, c) => a.support.find((s) => s.m === m && s.c === c) ?? { state: "
 
 // 只出 clip 轨。realtime 的能力轴与之不通用（data/ontology.md 规则二），
 // 混进同一张图会把两边都讲错 —— 那一轨要出图得单独做一张。
-const models = a.models.filter((m) => m.class === "clip");
+// 只画 core。extended 是「保证存在、不保证核过」，混进来会让整张表的可信度打折。
+const models = a.models.filter((m) => m.class === "clip" && (m.tier ?? "core") === "core");
 const capabilities = a.capabilities.filter((c) => c.class === "clip" || c.class === "both");
 const inClip = new Set(models.map((m) => m.id));
 const label = (m) => {

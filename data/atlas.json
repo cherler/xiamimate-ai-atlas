@@ -1,8 +1,9 @@
 {
-  "version": "0.9",
+  "version": "1.0",
   "generated_at": "2026-08-07",
   "note": "第九版。clip 轨九个 Family 已全部用厂商官方源逐格重核（86% 的格子挂官方来源）。全部由 Agent 录入，未经人工核验（§59.3 转述层）。模型按 version_as_of 降序；status 标生命周期。",
   "changelog": [
+    "v1.0 收录名单第一次**从数据里筛**，不再抄交接文档：AA 榜第 5/6 的 HappyHorse、下载量 40 万的 LTX-2，原名单里一个都没有。加 tier 字段把规则四的三层落到数据上（core 进主图 / extended 只在库里）",
     "v0.9 重核 Seedance 2.5、Wan、Sora。**Wan 我连错三次（2.5→2.7→3.0）** —— 官网首屏写着 Try Wan3.0 Now。而且 wan.video 一个可抓的链接都取不到，是九家里唯一没有可核验官方能力文档的，它的 ⬜ 是真的 ⬜",
     "v0.8 重核 MiniMax H3 与 Runway。**Runway 的版本日期我又记错了**：Gen-4.5 是 2025-12-11 发布（官方 changelog），不是 2026-03-25。MiniMax 的开源许可拿到了机器可读的一手证据（HF API：license_name = minimax-h3-community-license-agreement）",
     "v0.7 用 Google 官方 docs/veo 与 docs/omni 重核两个 Family。**官方原话确认 Veo 已非主力**：「Use Gemini Omni Flash as your default model for video generation；Use Veo 3.1 for specific capabilities like scene extension, last-frame control」—— superseded 这个状态有官方依据了，不是我推的",
@@ -268,7 +269,8 @@
       "vendor": "字节 ByteDance Seed",
       "version": "2.5",
       "version_as_of": "2026-07-31",
-      "status": "active"
+      "status": "active",
+      "tier": "core"
     },
     {
       "id": "hailuo",
@@ -278,7 +280,8 @@
       "vendor": "MiniMax",
       "version": "H3",
       "version_as_of": "2026-07-31",
-      "status": "active"
+      "status": "active",
+      "tier": "core"
     },
     {
       "id": "gemini-omni",
@@ -288,7 +291,8 @@
       "vendor": "Google DeepMind",
       "version": "Flash",
       "version_as_of": "2026-05-19",
-      "status": "active"
+      "status": "active",
+      "tier": "core"
     },
     {
       "id": "wan",
@@ -299,7 +303,8 @@
       "version": "3.0",
       "version_as_of": "2026-08-07",
       "status": "active",
-      "status_note": "官网首屏「Try Wan3.0 Now」。⚠️ **wan.video 取不到任何可抓链接，官方无可核验的能力文档** —— 这是九家里唯一一个。它的 ⬜ 不是我们没查，是真的查不到"
+      "status_note": "官网首屏「Try Wan3.0 Now」。⚠️ **wan.video 取不到任何可抓链接，官方无可核验的能力文档** —— 这是九家里唯一一个。它的 ⬜ 不是我们没查，是真的查不到",
+      "tier": "core"
     },
     {
       "id": "runway",
@@ -310,7 +315,8 @@
       "version": "Gen-4.5",
       "version_as_of": "2025-12-11",
       "status": "active",
-      "status_note": "官方 changelog：Gen-4.5 于 2025-12-11 发布。⚠️ Runway 同时也是平台 —— 2026-04-07 起在自家产品里提供 Seedance 2.0、WAN2.2 Animate、Sora 2 Pro 等第三方模型"
+      "status_note": "官方 changelog：Gen-4.5 于 2025-12-11 发布。⚠️ Runway 同时也是平台 —— 2026-04-07 起在自家产品里提供 Seedance 2.0、WAN2.2 Animate、Sora 2 Pro 等第三方模型",
+      "tier": "core"
     },
     {
       "id": "kling",
@@ -320,7 +326,8 @@
       "vendor": "快手 Kuaishou",
       "version": "3.0",
       "version_as_of": "2026-02-04",
-      "status": "active"
+      "status": "active",
+      "tier": "core"
     },
     {
       "id": "vidu-q",
@@ -331,7 +338,8 @@
       "version": "Q3",
       "version_as_of": "2026-04-13",
       "status": "active",
-      "status_note": "Q3 是一个系列而非单一模型：viduq3-pro / -mix / -drama / -ad / -turbo 五个并列（官方 Model Map）。2026-02-11 起陆续进 API，2026-04-13 补齐 reference2video"
+      "status_note": "Q3 是一个系列而非单一模型：viduq3-pro / -mix / -drama / -ad / -turbo 五个并列（官方 Model Map）。2026-02-11 起陆续进 API，2026-04-13 补齐 reference2video",
+      "tier": "core"
     },
     {
       "id": "veo",
@@ -342,7 +350,8 @@
       "version": "3.1",
       "version_as_of": "2025-10",
       "status": "superseded",
-      "status_note": "官方总览页原话：「Use Gemini Omni Flash as your default model for video generation. Use Veo 3.1 for specific capabilities like scene extension, last-frame control, or integration with legacy pipelines」—— 厂商自己把它定位成「特定能力与老管线」用"
+      "status_note": "官方总览页原话：「Use Gemini Omni Flash as your default model for video generation. Use Veo 3.1 for specific capabilities like scene extension, last-frame control, or integration with legacy pipelines」—— 厂商自己把它定位成「特定能力与老管线」用",
+      "tier": "core"
     },
     {
       "id": "sora",
@@ -353,7 +362,8 @@
       "version": "2",
       "version_as_of": "2025-09",
       "status": "discontinued",
-      "status_note": "App 已于 2026-04-26 关停，API 计划 2026-09-24 停止，未宣布继任产品。⚠️ **OpenAI 帮助中心页面对我们的采集器返回 403 / 渲染为空，这条结论来自搜索摘要转述，未经一手核验**"
+      "status_note": "App 已于 2026-04-26 关停，API 计划 2026-09-24 停止，未宣布继任产品。⚠️ **OpenAI 帮助中心页面对我们的采集器返回 403 / 渲染为空，这条结论来自搜索摘要转述，未经一手核验**。按规则四降到 Extended：**不是删掉** —— 「它没了」本身是有用的信息，只是不该再占主图的位置",
+      "tier": "extended"
     },
     {
       "id": "vidu-s",
@@ -363,7 +373,8 @@
       "vendor": "生数 Shengshu",
       "version": "S1",
       "version_as_of": "2026-07-03",
-      "status": "active"
+      "status": "active",
+      "tier": "core"
     },
     {
       "id": "lucy",
@@ -374,7 +385,44 @@
       "version": "Lucy 2.5",
       "version_as_of": "2026-08-07",
       "status": "active",
-      "status_note": "官网首屏标 LUCY 2.5 IS LIVE；2.5 的具体能力差异待逐条重核"
+      "status_note": "官网首屏标 LUCY 2.5 IS LIVE；2.5 的具体能力差异待逐条重核",
+      "tier": "core"
+    },
+    {
+      "id": "ltx",
+      "class": "clip",
+      "tier": "core",
+      "family": "LTX",
+      "zh": "LTX",
+      "vendor": "Lightricks",
+      "version": "2",
+      "version_as_of": "2026-08-07",
+      "status": "active",
+      "status_note": "开源侧下载量最高的视频模型（HF ↓40.7 万，是 MiniMax H3 的 22 倍）。⚠️ 与 H3 同一个模式：叫开源，用的却是自定义社区许可"
+    },
+    {
+      "id": "happyhorse",
+      "class": "clip",
+      "tier": "extended",
+      "family": "HappyHorse",
+      "zh": "HappyHorse",
+      "vendor": "Alibaba-ATH",
+      "version": "1.1",
+      "version_as_of": "2026-06",
+      "status": "active",
+      "status_note": "⚠️ AA 榜 Elo 1148，**排在 Kling 3.0 与 Veo 3.1 之上**，而我们原名单里没有它。但 HF 上零仓库、Alibaba-ATH 组织不存在，也没找到官方文档 —— 只有榜单证据，够不上 core"
+    },
+    {
+      "id": "skyreels",
+      "class": "clip",
+      "tier": "extended",
+      "family": "SkyReels",
+      "zh": "SkyReels",
+      "vendor": "Skywork",
+      "version": "V4",
+      "version_as_of": "2026-03",
+      "status": "active",
+      "status_note": "⚠️ AA 榜 Elo 1107。官方 HF 组织 Skywork 有 SkyReels-V3-A2V-19B，但榜上是 V4 —— **两边对不上**，待核"
     }
   ],
   "sources": {
@@ -472,6 +520,16 @@
       "url": "https://huggingface.co/api/models?author=Wan-AI&sort=lastModified&direction=-1",
       "tier": "official",
       "name": "HF API · Wan-AI 组织下全部仓库"
+    },
+    "ltx-hf": {
+      "url": "https://huggingface.co/Lightricks/LTX-2",
+      "tier": "official",
+      "name": "Hugging Face · Lightricks/LTX-2 官方仓库与模型卡"
+    },
+    "aa-board": {
+      "url": "https://artificialanalysis.ai/video/leaderboard/text-to-video",
+      "tier": "third-party",
+      "name": "Artificial Analysis 榜（只证明「存在且有人用」，不证明能力）"
     }
   },
   "support": [
@@ -1372,6 +1430,106 @@
       "state": "no",
       "verified_for": "Flash",
       "note": "闭源，仅经 Gemini API / AI Studio 提供"
+    },
+    {
+      "m": "ltx",
+      "c": "t2v",
+      "state": "yes",
+      "verified_for": "2",
+      "src": "ltx-hf",
+      "via": "native",
+      "note": "HF 官方仓库 pipeline 标签含 text-to-video / text-to-audio-video"
+    },
+    {
+      "m": "ltx",
+      "c": "i2v",
+      "state": "yes",
+      "verified_for": "2",
+      "src": "ltx-hf",
+      "via": "native",
+      "note": "标签含 image-to-video / image-text-to-video；仓库 pipeline_tag 就是 image-to-video"
+    },
+    {
+      "m": "ltx",
+      "c": "flf",
+      "state": "unknown",
+      "verified_for": "2",
+      "src": "ltx-hf"
+    },
+    {
+      "m": "ltx",
+      "c": "charref",
+      "state": "unknown",
+      "verified_for": "2",
+      "src": "ltx-hf"
+    },
+    {
+      "m": "ltx",
+      "c": "multiref",
+      "state": "unknown",
+      "verified_for": "2",
+      "src": "ltx-hf"
+    },
+    {
+      "m": "ltx",
+      "c": "motion",
+      "state": "unknown",
+      "verified_for": "2",
+      "src": "ltx-hf"
+    },
+    {
+      "m": "ltx",
+      "c": "camera",
+      "state": "unknown",
+      "verified_for": "2",
+      "src": "ltx-hf"
+    },
+    {
+      "m": "ltx",
+      "c": "audio",
+      "state": "yes",
+      "verified_for": "2",
+      "src": "ltx-hf",
+      "via": "native",
+      "note": "模型卡：DiT 架构的**音视频联合基础模型**，单个模型内同时生成同步的画面与声音。⚠️ 官方自陈局限：不含人声时音质会下降"
+    },
+    {
+      "m": "ltx",
+      "c": "lipsync",
+      "state": "unknown",
+      "verified_for": "2",
+      "src": "ltx-hf"
+    },
+    {
+      "m": "ltx",
+      "c": "extend",
+      "state": "unknown",
+      "verified_for": "2",
+      "src": "ltx-hf"
+    },
+    {
+      "m": "ltx",
+      "c": "openweights",
+      "state": "yes",
+      "verified_for": "2",
+      "src": "ltx-hf",
+      "note": "⚠️ 权重公开、下载量 40.7 万，但许可是 **ltx-2-community-license-agreement**（自定义社区许可，不是标准开源协议）—— 与 MiniMax H3 同一个模式。商用前须自行核对条款"
+    },
+    {
+      "m": "happyhorse",
+      "c": "t2v",
+      "state": "yes",
+      "verified_for": "1.1",
+      "src": "aa-board",
+      "note": "榜单上有它（Elo 1148），说明能出片、且有人在用。**其余能力一格未核** —— Extended 层只保证「它存在」，不保证核过"
+    },
+    {
+      "m": "skyreels",
+      "c": "t2v",
+      "state": "yes",
+      "verified_for": "V4",
+      "src": "aa-board",
+      "note": "榜单上有它（Elo 1107），说明能出片、且有人在用。**其余能力一格未核** —— Extended 层只保证「它存在」，不保证核过"
     }
   ],
   "$aliases_why": "各家给同一个能力起不同的名字。**Kling 管角色参考叫 Element，我按 Character Reference 去找，找不到就标了「官方没说」—— 假阴性。** 采集时必须用整组别名去匹配，不能只用我们自己的叫法。这是原方案 §36 Entity Resolution 在能力维度上的对应物。",
@@ -1379,5 +1537,9 @@
     "native": "模型生成时的一步（同一次调用里出结果）",
     "separate-task": "平台的另一个接口 —— 能做，但要再调一次、通常作用于已生成的视频",
     "why": "原方案 §5.2 要区分 Native Capability 与 Platform Feature。Kling 的 Lip-Sync / Video-to-Audio、Vidu 的 Motion Sync / Lip Sync / Video Extension 都是独立任务。对用户「能不能做」都是能，但「是不是一步做完」差别很大 —— 后者意味着多一次调用、多一次计费、多一段等待。"
+  },
+  "$tier": {
+    "core": "进主图与主表，每轨 ≤10（规则四）",
+    "extended": "库里有、不进主要视觉。**停服的模型降到这里而不是删掉** —— 「它没了」本身是有用的信息"
   }
 }

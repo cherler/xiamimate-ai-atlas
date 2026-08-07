@@ -22,6 +22,13 @@ const seen = new Set();
 /** 某个模型该不该有某项能力的格子 —— 分轨之后不再是全笛卡尔积（ontology 规则二）。 */
 const applies = (m, c) => c.class === "both" || c.class === m.class;
 
+/**
+ * **只有 core 要求填满。**
+ * Extended 是「库里有、不进主要视觉」（规则四）—— 它只保证「这东西存在」，
+ * 不保证逐格核过。硬要求它填满，只会逼出一堆假的 ⬜。
+ */
+const isCore = (m) => (m.tier ?? "core") === "core";
+
 for (const s of a.support) {
   const at = `${s.m} × ${s.c}`;
   const m = models.get(s.m);
@@ -34,6 +41,7 @@ for (const s of a.support) {
   if (s.state === "yes" && !s.src) errs.push(`R4 「支持」但没有来源 —— 不许猜：${at}`);
   if (s.src && !srcIds.has(s.src)) errs.push(`R5 来源 id 不存在：${s.src}（${at}）`);
   if (s.state === "no" && !s.src && !s.note) warns.push(`R6 「不支持」既无来源也无说明：${at}`);
+  if (m.tier && !["core", "extended"].includes(m.tier)) errs.push(`R12 非法 tier：${m.tier}（${m.id}）`);
   if (!applies(m, c)) errs.push(`R8 跨轨格子：${m.class} 的模型不该有 ${c.class} 的能力（${at}）`);
   if (!s.verified_for) errs.push(`R9a 缺 verified_for：${at}`);
   else if (s.verified_for !== m.version)
@@ -44,27 +52,29 @@ for (const s of a.support) {
 // 缺格会被前台静默当成 unknown，那是**沉默的错**。
 for (const m of a.models)
   for (const c of a.capabilities)
-    if (applies(m, c) && !seen.has(`${m.id}::${c.id}`)) errs.push(`R7 缺格：${m.id} × ${c.id}`);
+    if (isCore(m) && applies(m, c) && !seen.has(`${m.id}::${c.id}`)) errs.push(`R7 缺格：${m.id} × ${c.id}`);
 
 const used = new Set(a.support.map((s) => s.src).filter(Boolean));
 for (const id of srcIds) if (!used.has(id)) warns.push(`R10 来源登记了但没被引用：${id}`);
 
 // Core 每轨 ≤10（ontology 规则四）。加第 11 个之前必须先踢掉一个。
 for (const cls of ["clip", "realtime"]) {
-  const n = a.models.filter((m) => m.class === cls).length;
-  if (n > 10) errs.push(`R11 ${cls} 轨收了 ${n} 个 Family，超过 Core 上限 10`);
+  const n = a.models.filter((m) => m.class === cls && isCore(m)).length;
+  if (n > 10) errs.push(`R11 ${cls} 轨 Core 收了 ${n} 个 Family，超过上限 10 —— 加第 11 个之前必须先踢掉一个`);
 }
 
 const by = { yes: 0, no: 0, unknown: 0 };
 const perClass = {};
 for (const s of a.support) {
+  const mm = models.get(s.m);
+  if (mm && !isCore(mm)) continue; // extended 不进对外统计
   by[s.state] += 1;
-  const cls = models.get(s.m)?.class ?? "?";
+  const cls = mm?.class ?? "?";
   perClass[cls] ??= { yes: 0, no: 0, unknown: 0 };
   perClass[cls][s.state] += 1;
 }
 
-console.log(`格子 ${a.support.length} · ✅${by.yes} ❌${by.no} ⬜${by.unknown}（⬜ 占 ${Math.round((by.unknown / a.support.length) * 100)}%）`);
+console.log(`Core 格子 ${by.yes + by.no + by.unknown}（库内共 ${a.support.length}） · ✅${by.yes} ❌${by.no} ⬜${by.unknown}（⬜ 占 ${Math.round((by.unknown / (by.yes + by.no + by.unknown)) * 100)}%）`);
 for (const [cls, t] of Object.entries(perClass))
   console.log(`  ${cls}：✅${t.yes} ❌${t.no} ⬜${t.unknown}`);
 console.log(`来源 ${srcIds.size} 条，官方 ${Object.values(a.sources).filter((s) => s.tier === "official").length} 条`);

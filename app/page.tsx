@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import Bipartite, { type Sel } from "@/components/Bipartite";
-import { atlas, capsOf, cell, compare, label, modelsOf, tally, transparency, type Klass, type State } from "@/lib/atlas";
+import { atlas, capsOf, cell, compare, extendedOf, label, modelsOf, tally, transparency, type Klass, type State } from "@/lib/atlas";
 
 const MARK: Record<State, string> = { yes: "✅", no: "❌", unknown: "⬜" };
 const TONE: Record<State, string> = { yes: "text-yes", no: "text-no", unknown: "text-unknown" };
@@ -251,6 +251,37 @@ export default function Page() {
         title="实时交互轨 · 另一套坐标系"
         blurb="边生成边看，生成过程中可以干预，时长不预先确定。它们和上面那张表不共用能力轴 —— 对它们来说「视频延长」没有意义（本来就没有终点），对上面那些模型「延迟」也没有意义。硬并成一张表会把两边都讲错。"
       />
+
+      <section>
+        <h2 className="text-[22px] font-semibold mb-1">库里还有，但没进主表</h2>
+        <p className="text-muted text-[14px] mb-4 max-w-[880px] leading-relaxed">
+          Extended 层：<b className="text-ink">保证「它存在」，不保证逐格核过</b>。
+          主表每轨最多 10 个（ontology 规则四），加第 11 个之前必须先踢掉一个 ——
+          所以这里既有<b className="text-ink">还没核到的新面孔</b>，也有<b className="text-ink">已经退场的</b>。
+          <br />
+          停服的模型降到这里而不是删掉：<b className="text-ink">「它没了」本身是有用的信息</b>。
+        </p>
+        <div className="flex flex-col gap-3">
+          {(["clip", "realtime"] as const).flatMap((k) =>
+            extendedOf(k).map((m) => (
+              <div key={m.id} className="border-t border-rule pt-3 text-[15px]">
+                <p className="font-semibold">
+                  {label(m)}
+                  <span className="text-muted font-normal text-[13px] ml-2">
+                    {m.vendor} · {m.version_as_of}
+                  </span>
+                  {m.status && m.status !== "active" && (
+                    <span className={`ml-2 text-[12px] ${STATUS[m.status]?.cls.replace("line-through", "")}`}>
+                      {STATUS[m.status]?.tag}
+                    </span>
+                  )}
+                </p>
+                {m.status_note && <p className="text-muted text-[13px] mt-1 leading-relaxed">{m.status_note}</p>}
+              </div>
+            )),
+          )}
+        </div>
+      </section>
 
       <section>
         <h2 id="transparency" className="text-[22px] font-semibold mb-1 scroll-mt-6">透明度：「官方没说」是分化的，不是普遍的</h2>

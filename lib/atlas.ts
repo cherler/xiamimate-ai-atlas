@@ -37,6 +37,8 @@ export type Model = {
   version_as_of: string;
   status?: Status;
   status_note?: string;
+  /** core 进主图与主表（每轨 ≤10）；extended 只在库里 —— 停服的降到这里而不是删掉。 */
+  tier?: "core" | "extended";
 };
 
 export type Source = { url: string; tier: "official" | "third-party"; name: string };
@@ -94,7 +96,11 @@ export function label(m: Model) {
   return `${m.family} ${m.version}`;
 }
 
-export const modelsOf = (k: Klass) => atlas.models.filter((m) => m.class === k);
+const isCore = (m: Model) => (m.tier ?? "core") === "core";
+
+/** 主图与主表只吃 core。extended 单独一节列，不混进统计（否则会污染对外的 ⬜ 占比）。 */
+export const modelsOf = (k: Klass) => atlas.models.filter((m) => m.class === k && isCore(m));
+export const extendedOf = (k: Klass) => atlas.models.filter((m) => m.class === k && !isCore(m));
 export const capsOf = (k: Klass) => atlas.capabilities.filter((c) => c.class === k || c.class === "both");
 
 /** 实现了某能力的模型 —— 点一个能力节点时高亮的就是这批（= 「这个能力去哪用」） */
