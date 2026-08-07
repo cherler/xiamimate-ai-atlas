@@ -1,0 +1,113 @@
+/**
+ * 从 data/atlas.json 生成能力矩阵静态图的 HTML。
+ *
+ * **数据只有一份。** 图里的每一格、每一个计数、每一条脚注都是算出来的，
+ * 不是手抄的 —— 手抄的图迟早会和数据对不上，而这个项目卖的就是「对得上」。
+ *
+ *   node scripts/make-matrix.mjs   →  assets/matrix-<generated_at>.html
+ */
+import { readFileSync, writeFileSync } from "node:fs";
+
+const a = JSON.parse(readFileSync(new URL("../data/atlas.json", import.meta.url), "utf8"));
+const at = (m, c) => a.support.find((s) => s.m === m && s.c === c) ?? { state: "unknown" };
+
+const MARK = { yes: "✅", no: "❌", unknown: "" };
+const t = { yes: 0, no: 0, unknown: 0 };
+for (const s of a.support) t[s.state] += 1;
+
+// 下次复核：能力类字段 30 天一轮（§37）
+const next = new Date(`${a.generated_at}T00:00:00Z`);
+next.setUTCDate(next.getUTCDate() + 30);
+const nextStr = next.toISOString().slice(0, 10);
+
+// 脚注只挑带 ⚠️ 的格子 —— 那些是**平台自己不会写**的边界与否定事实（§60.5）
+const stars = a.support
+  .filter((s) => s.note?.includes("⚠️"))
+  .map((s) => {
+    const m = a.models.find((x) => x.id === s.m).name;
+    const c = a.capabilities.find((x) => x.id === s.c).zh;
+    return { m, c, text: s.note.replace(/⚠️\s*/, "").replace(/\*\*/g, "") };
+  });
+
+const officialCount = Object.values(a.sources).filter((s) => s.tier === "official").length;
+
+const head = a.models
+  .map((m) => `<th><span class="mn">${m.name}</span><span class="mv">${m.vendor.split(" ")[0]}</span></th>`)
+  .join("");
+
+const rows = a.capabilities
+  .map((c) => {
+    const cells = a.models
+      .map((m) => {
+        const s = at(m.id, c.id);
+        const cls = s.state === "unknown" ? "unk" : s.state;
+        return `<td class="${cls}">${MARK[s.state] || "<i></i>"}</td>`;
+      })
+      .join("");
+    return `<tr><th class="cap"><b>${c.zh}</b><span>${c.name}</span></th>${cells}</tr>`;
+  })
+  .join("");
+
+const html = `<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8" /><title>${a.generated_at} AI 视频模型能力矩阵</title><style>
+  :root{--paper:#EFF0EC;--ink:#171B18;--muted:#6B716C;--rule:#D3D6CE;--yes:#2C6B5A;--no:#B03A2C;--unk:#AD8324}
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{width:1080px;height:1440px;background:var(--paper);color:var(--ink);padding:52px 48px 40px;
+       font-family:"PingFang SC","Hiragino Sans GB",system-ui,sans-serif;display:flex;flex-direction:column;gap:19px;
+       -webkit-font-smoothing:antialiased}
+  .eyebrow{font-size:18px;letter-spacing:.16em;color:var(--muted);display:flex;align-items:center;gap:14px}
+  .eyebrow::after{content:"";flex:1;height:1px;background:var(--rule)}
+  h1{font-size:46px;line-height:1.16;font-weight:600;letter-spacing:-.01em}
+  .sub{font-size:19px;color:var(--muted);line-height:1.55}
+  .sub b{color:var(--ink);font-variant-numeric:tabular-nums}
+  table{border-collapse:collapse;width:100%;table-layout:fixed}
+  th.cap{width:186px;text-align:left;padding:0 10px 0 2px}
+  th.cap b{display:block;font-size:19px;font-weight:600;line-height:1.2}
+  th.cap span{display:block;font-size:12px;color:var(--muted);font-weight:400}
+  thead th{padding-bottom:12px;vertical-align:bottom}
+  .mn{display:block;font-size:13px;font-weight:600;line-height:1.25;white-space:nowrap}
+  .mv{display:block;font-size:11px;color:var(--muted);font-weight:400}
+  tbody tr{border-top:1px solid var(--rule)}
+  tbody td{text-align:center;height:57px;font-size:23px}
+  td.unk i{display:inline-block;width:19px;height:19px;border:2px dashed var(--unk);border-radius:4px;opacity:.85}
+  .band{display:flex;gap:14px;align-items:stretch}
+  .big{background:#F7F8F5;border:1px solid var(--rule);border-radius:10px;padding:16px 20px;flex:1}
+  .big .n{font-size:42px;font-weight:700;line-height:1;font-variant-numeric:tabular-nums}
+  .big .l{font-size:15px;color:var(--muted);margin-top:6px;line-height:1.4}
+  .notes{border-top:1px solid var(--rule);padding-top:14px;display:flex;flex-direction:column;gap:7px}
+  .notes p{font-size:15px;line-height:1.5;color:var(--ink)}
+  .notes b{color:var(--no)}
+  .notes span{color:var(--muted)}
+  footer{margin-top:auto;border-top:1px solid var(--rule);padding-top:14px;display:flex;justify-content:space-between;
+         gap:24px;font-size:14px;color:var(--muted);line-height:1.6}
+  footer .who{text-align:right;flex:none;color:var(--ink);font-weight:600}
+  footer .who span{display:block;color:var(--muted);font-weight:400;margin-top:2px}
+</style></head><body>
+  <div class="eyebrow">AI 视频能力地图 · 数据版本 ${a.version}</div>
+  <h1>${a.generated_at.slice(0, 4)} 年 ${Number(a.generated_at.slice(5, 7))} 月，<br />这些 AI 视频模型分别能做什么</h1>
+  <p class="sub"><b>${a.models.length}</b> 个模型 × <b>${a.capabilities.length}</b> 项能力 ·
+     核验于 <b>${a.generated_at}</b> · 下次复核 <b>${nextStr}</b> · 来源 <b>${Object.keys(a.sources).length}</b> 条（官方 ${officialCount} 条）</p>
+  <table><thead><tr><th class="cap"></th>${head}</tr></thead><tbody>${rows}</tbody></table>
+  <div class="band">
+    <div class="big"><div class="n" style="color:var(--yes)">${t.yes}</div><div class="l">支持<br />有明确来源</div></div>
+    <div class="big"><div class="n" style="color:var(--no)">${t.no}</div><div class="l">不支持<br />或查无支持迹象</div></div>
+    <div class="big" style="flex:2.1;border-color:var(--unk)">
+      <div class="n" style="color:var(--unk)">${t.unknown}</div>
+      <div class="l"><b style="color:var(--ink)">官方没说</b> —— 不是我们没查，是查了公开渠道找不到。<br />
+      占全表 ${Math.round((t.unknown / (t.yes + t.no + t.unknown)) * 100)}%。这一格才是这张表最值得看的地方。</div>
+    </div>
+  </div>
+  <div class="notes">
+    ${stars.map((s) => `<p><b>${s.m} · ${s.c}</b> <span>${s.text}</span></p>`).join("")}
+  </div>
+  <footer>
+    <div>每一格的来源、原文链接与判定说明全部公开可复核。<br />
+      <b style="color:var(--unk)">本批数据全部为机器录入，未经人工核验</b> —— 我们把这件事印在脸上，而不是藏起来。</div>
+    <div class="who">AI 视频能力地图<span>atlas.xiamimate.com（建设中）</span></div>
+  </footer>
+</body></html>`;
+
+const out = new URL(`../assets/matrix-${a.generated_at}.html`, import.meta.url);
+writeFileSync(out, html);
+console.log(`写出 ${out.pathname}`);
+console.log(`  ✅${t.yes} ❌${t.no} ⬜${t.unknown} · 脚注 ${stars.length} 条 · 下次复核 ${nextStr}`);
