@@ -41,9 +41,20 @@ const stars = a.support
 
 const officialCount = Object.values(a.sources).filter((s) => s.tier === "official").length;
 
+const STATUS = {
+  discontinued: { cls: "dead", tag: "已停服", color: "var(--no)" },
+  superseded: { cls: "old", tag: "非主力", color: "var(--muted)" },
+  active: { cls: "", tag: "", color: "" },
+};
 const head = models
-  .map((m) => `<th><span class="mn">${label(m)}</span><span class="mv">${m.version_as_of}</span></th>`)
+  .map((m) => {
+    const st = STATUS[m.status] ?? STATUS.active;
+    return `<th><span class="mn ${st.cls}">${label(m)}</span><span class="mv">${m.version_as_of}</span>` +
+      (st.tag ? `<span class="st" style="color:${st.color}">${st.tag}</span>` : "") + `</th>`;
+  })
   .join("");
+const dead = models.filter((m) => m.status && m.status !== "active");
+const rt = a.models.filter((m) => m.class === "realtime");
 
 const rows = capabilities
   .map((c) => {
@@ -71,11 +82,14 @@ const html = `<!doctype html>
   .sub{font-size:19px;color:var(--muted);line-height:1.55}
   .sub b{color:var(--ink);font-variant-numeric:tabular-nums}
   table{border-collapse:collapse;width:100%;table-layout:fixed}
-  th.cap{width:186px;text-align:left;padding:0 10px 0 2px}
+  th.cap{width:170px;text-align:left;padding:0 10px 0 2px}
   th.cap b{display:block;font-size:18px;font-weight:600;line-height:1.2}
   th.cap span{display:block;font-size:12px;color:var(--muted);font-weight:400}
   thead th{padding-bottom:12px;vertical-align:bottom}
-  .mn{display:block;font-size:13px;font-weight:600;line-height:1.25;white-space:nowrap}
+  .mn{display:block;font-size:12px;font-weight:600;line-height:1.25;white-space:nowrap}
+  .mn.dead{color:var(--no);text-decoration:line-through;text-decoration-thickness:1.5px}
+  .mn.old{color:var(--muted)}
+  .st{display:block;font-size:10px;font-weight:600;margin-top:2px}
   .mv{display:block;font-size:11px;color:var(--muted);font-weight:400}
   tbody tr{border-top:1px solid var(--rule)}
   tbody td{text-align:center;height:52px;font-size:23px}
@@ -108,7 +122,11 @@ const html = `<!doctype html>
     </div>
   </div>
   <div class="notes">
+    ${dead.map((m) => `<p><b>${label(m)}</b> <span>${m.status_note ?? ""}</span></p>`).join("")}
     ${stars.map((s) => `<p><b>${s.m} · ${s.c}</b> <span>${s.text}</span></p>`).join("")}
+    <p style="color:var(--muted)"><b style="color:var(--ink)">另有实时交互轨</b>
+      <span>${rt.map((m) => label(m)).join("、")} —— 边生成边看、可干预、时长不预设。
+      它们和这张表不共用能力轴（「视频延长」对没有终点的东西没有意义），所以单列一张，不混在这里。</span></p>
   </div>
   <footer>
     <div>每一格的来源、原文链接与判定说明全部公开可复核。<br />

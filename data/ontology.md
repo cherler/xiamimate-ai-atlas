@@ -91,7 +91,12 @@ Seedance 2.0 的「@ 提及引用运动模式」，在 2.5 的官方发布页里
 
 ## 当前收录（2026-08-07）
 
-**Core · clip 轨**（8）：Kling、Seedance、Veo、Sora、Wan、MiniMax Hailuo、Vidu Q、Runway
+**Core · clip 轨**（9，按当前版本日期降序）：Seedance 2.5、MiniMax Hailuo H3、
+Gemini Omni Flash、Wan 2.7、Runway Gen-4.5、Kling 3.0、Vidu Q3、
+Veo 3.1（superseded）、Sora 2（**discontinued**）
+
+> Google 占两个 Family：**Veo 与 Gemini Omni 是两条产品线，不是版本关系**。
+> Veo 3.1 仍在 Gemini API 提供，但重心已移到 Omni —— 这正是 `superseded` 要表达的。
 
 **Core · realtime 轨**（2）：Vidu S1、Decart Lucy
 
@@ -102,8 +107,46 @@ Higgsfield（是平台不是模型，按规则一不收模型位，应进 Platfo
 
 ## 已知会疼的地方
 
-1. **Vidu 同时出现在两轨**（Vidu Q2 在 clip、Vidu S1 在 realtime）。
+1. **Vidu 同时出现在两轨**（Vidu Q3 在 clip、Vidu S1 在 realtime）。
    这是对的 —— 它们确实是两个东西 —— 但前台要标清楚同厂，别让人以为是两家。
 2. **规则三之一会让 ⬜ 短期内变多。** 这是设计意图，不是退步。
 3. **realtime 轨的能力轴还很粗**（只有 5 项）。等这一轨的模型多起来再细分，
    现在细分是凭空造格子。
+4. **clip 轨已经 9 个，离上限 10 只剩一格。** Luma Ray 与 PixVerse 想进来，
+   得先有一个出去 —— 按规则四，最可能出去的是 Sora（已停服）。
+   但停服的模型不该直接删：**「它没了」本身是有用的信息**，
+   应该降到 Extended 层而不是从库里消失。
+
+---
+
+## 规则五 · 模型有生命周期，`status` 必须标（2026-08-07 追加）
+
+这条是被 **Sora** 逼出来的。
+
+v0.2 的表里，Sora 2 和其它七个模型并排站着，看不出任何区别。
+实际上：**Sora App 已于 2026-04-26 关停，API 计划 2026-09-24 停止，
+OpenAI 没有宣布继任产品。**
+
+也就是说，照着那张表去选 Sora 的人，**48 天后会撞墙**。
+而表上每一格都是「对」的 —— 它确实支持文生视频、确实有 cameo。
+**所有格子都对，整张表却把人带沟里去了。**
+
+因此加一个模型级字段：
+
+| status | 含义 | 前台 |
+|---|---|---|
+| `active` | 在售、在更新 | 正常 |
+| `superseded` | 仍可用，但厂商重心已转移到别的产品线 | 标注，并指出新主力 |
+| `discontinued` | 已停服或已公告停服日期 | **明显标注 + 停服日期**，不建议用于新项目 |
+
+配 `status_note` 写清楚具体情况与日期。
+
+> 教训一句话：**能力对不代表能用。**
+> 一张只回答「能不能做」而不回答「还能不能用」的表，是有害的。
+
+### 顺带定下排序
+
+模型按 `version_as_of` **降序**（最新在最前）。
+
+排序不是排版，是信息：这张表卖的就是新鲜度，
+那么「谁最近动过」就该一眼看出来，而不是藏在某一列里。

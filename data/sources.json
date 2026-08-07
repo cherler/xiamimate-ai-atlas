@@ -1,0 +1,511 @@
+{
+  "$comment": "Source Registry。按原方案 §29（权威度 S/A/B/C）与 §30（第一批重点源）建。这份表本该在录第一条数据之前就存在 —— 没有它，采集退化成即席搜索，而即席搜索在 9 个 Family 上错了 6 个。",
+  "$two_axes": "权威度与机器可读度是**两个维度**，不要混成一个轴（我第一版混了）。tier 决定「这条声称能不能当事实」，kind 决定「能不能自动 diff」。一个来源可以是 S 级但只有 HTML（官方 changelog），也可以是 A 级且机器可读（Epoch CSV）。",
+  "tiers": {
+    "S": "Primary：官方 Docs / Blog / API / Paper / 官方 GitHub。适合 Capability、发布时间、API、模型版本、官方产品关系",
+    "A": "Independent Data：Epoch AI、Artificial Analysis、高质量 Benchmark。适合独立 benchmark、历史数据、研究型数据",
+    "B": "Secondary：高质量媒体、采访、AI Wiki。适合 Discovery、补充背景、寻找原始来源",
+    "C": "Community：Reddit / X / B站 / YouTube / 博客。适合发现 Skill 与 Workflow。**一般不作为核心事实的唯一证据**"
+  },
+  "kinds": {
+    "json": "JSON API —— 最好，结构化可直接 diff",
+    "csv": "CSV 定期发布 —— 好，可 diff",
+    "atom": "Atom/RSS —— 好，天然带条目与时间",
+    "html": "网页 —— 要抽正文再 diff，最费事也最容易误报",
+    "spa": "SPA 文档站 —— 内容由 JS 渲染，纯 HTTP 抓只能拿到导航壳，必须用无头浏览器"
+  },
+  "$epoch_finding": "实测 2026-08-07：Epoch AI 的 notable_ai_models.csv 共 1043 行，只命中 12 个我们跟踪的名字，且全是旧版本（Veo 2/3/3.1、Sora、Seedance 2.0、Gen-1/2）；无 Kling、无 Wan、无 Hailuo H3、无 Vidu、无 Seedance 2.5、无 Gen-4.5。Domain 分类里没有「视频生成」。它记的是训练算力与参数这类研究指标。→ 与 §29 一致：A 级适合研究型数据，**不适合能力面**。",
+  "sources": [
+    {
+      "id": "seed-blog",
+      "tier": "S",
+      "kind": "html",
+      "vendor": "seedance",
+      "name": "ByteDance Seed · 官方博客",
+      "url": "https://seed.bytedance.com/en/blog",
+      "refresh_days": 7,
+      "good_for": [
+        "capability",
+        "version"
+      ]
+    },
+    {
+      "id": "seed-models",
+      "tier": "S",
+      "kind": "html",
+      "vendor": "seedance",
+      "name": "ByteDance Seed · 模型页",
+      "url": "https://seed.bytedance.com/en/models",
+      "refresh_days": 14,
+      "good_for": [
+        "version"
+      ]
+    },
+    {
+      "id": "kling-api-updates",
+      "tier": "S",
+      "kind": "html",
+      "vendor": "kling",
+      "name": "Kling AI · API 更新日志",
+      "url": "https://kling.ai/document-api/updates/api",
+      "refresh_days": 7,
+      "good_for": [
+        "capability",
+        "api",
+        "version"
+      ]
+    },
+    {
+      "id": "kling-site",
+      "tier": "S",
+      "kind": "html",
+      "vendor": "kling",
+      "name": "Kling AI 官网",
+      "url": "https://klingai.com/",
+      "refresh_days": 14,
+      "good_for": [
+        "version"
+      ]
+    },
+    {
+      "id": "google-video-docs",
+      "tier": "S",
+      "kind": "html",
+      "vendor": "veo,gemini-omni",
+      "name": "Google AI for Developers · 视频生成",
+      "url": "https://ai.google.dev/gemini-api/docs/video",
+      "refresh_days": 7,
+      "good_for": [
+        "capability",
+        "api",
+        "version"
+      ]
+    },
+    {
+      "id": "deepmind-veo",
+      "tier": "S",
+      "kind": "html",
+      "vendor": "veo",
+      "name": "Google DeepMind · Veo",
+      "url": "https://deepmind.google/models/veo/",
+      "refresh_days": 14,
+      "good_for": [
+        "capability"
+      ]
+    },
+    {
+      "id": "vertex-video-ref",
+      "tier": "S",
+      "kind": "html",
+      "vendor": "veo",
+      "name": "Vertex AI · 参考图引导生成",
+      "url": "https://docs.cloud.google.com/vertex-ai/generative-ai/docs/video/use-reference-images-to-guide-video-generation",
+      "refresh_days": 14,
+      "good_for": [
+        "capability"
+      ]
+    },
+    {
+      "id": "openai-sora-eol",
+      "tier": "S",
+      "kind": "html",
+      "vendor": "sora",
+      "name": "OpenAI 帮助中心 · Sora 停服说明",
+      "url": "https://help.openai.com/en/articles/20001152-what-to-know-about-the-sora-discontinuation",
+      "refresh_days": 14,
+      "good_for": [
+        "status"
+      ],
+      "note": "盯停服日期是否变化、是否宣布继任"
+    },
+    {
+      "id": "openai-sora-2",
+      "tier": "S",
+      "kind": "html",
+      "vendor": "sora",
+      "name": "OpenAI · Sora 2 发布页",
+      "url": "https://openai.com/index/sora-2/",
+      "refresh_days": 30,
+      "good_for": [
+        "capability"
+      ]
+    },
+    {
+      "id": "wan-gh-releases",
+      "tier": "S",
+      "kind": "json",
+      "vendor": "wan",
+      "name": "GitHub · Wan-Video releases",
+      "url": "https://api.github.com/repos/Wan-Video/Wan2.1/releases",
+      "refresh_days": 7,
+      "good_for": [
+        "openweights",
+        "version"
+      ]
+    },
+    {
+      "id": "wan-hf",
+      "tier": "S",
+      "kind": "json",
+      "vendor": "wan",
+      "name": "Hugging Face · Wan-AI 名下仓库",
+      "url": "https://huggingface.co/api/models?author=Wan-AI&sort=lastModified&direction=-1&limit=40",
+      "refresh_days": 7,
+      "good_for": [
+        "openweights"
+      ],
+      "note": "「Wan 到底开没开源」这一格的直接证据源"
+    },
+    {
+      "id": "minimax-blog",
+      "tier": "S",
+      "kind": "html",
+      "vendor": "hailuo",
+      "name": "MiniMax · 官方博客",
+      "url": "https://www.minimax.io/blog",
+      "refresh_days": 7,
+      "good_for": [
+        "capability",
+        "version"
+      ]
+    },
+    {
+      "id": "minimax-hf",
+      "tier": "S",
+      "kind": "json",
+      "vendor": "hailuo",
+      "name": "Hugging Face · MiniMaxAI 名下仓库",
+      "url": "https://huggingface.co/api/models?author=MiniMaxAI&sort=lastModified&direction=-1&limit=40",
+      "refresh_days": 7,
+      "good_for": [
+        "openweights"
+      ]
+    },
+    {
+      "id": "runway-research",
+      "tier": "S",
+      "kind": "html",
+      "vendor": "runway",
+      "name": "Runway · Research",
+      "url": "https://runwayml.com/research",
+      "refresh_days": 14,
+      "good_for": [
+        "version"
+      ]
+    },
+    {
+      "id": "luma-site",
+      "tier": "S",
+      "kind": "html",
+      "vendor": "luma",
+      "name": "Luma AI 官网",
+      "url": "https://lumalabs.ai/",
+      "refresh_days": 14,
+      "good_for": [
+        "version"
+      ]
+    },
+    {
+      "id": "vidu-changelog",
+      "tier": "S",
+      "kind": "spa",
+      "vendor": "vidu-q,vidu-s",
+      "name": "Vidu 平台 · 更新日志",
+      "url": "https://platform.vidu.com/docs/update",
+      "refresh_days": 7,
+      "good_for": [
+        "capability",
+        "version",
+        "api"
+      ],
+      "note": "项目负责人手工找到 2026-04-13「新增 viduq3 / mix / turbo」，我漏了。漏的两个机械原因：① 站点是 SPA，纯 HTTP 只拿到壳；② 路径是猜的（/docs/changelog 不存在），真实路径 /docs/update —— **导航上的文字是「Api Reference」，href 却是 update**，按标签猜必然猜不到。教训：路径要从页面里读出来，不能凭常识拼"
+    },
+    {
+      "id": "vidu-model-map",
+      "tier": "S",
+      "kind": "spa",
+      "vendor": "vidu-q,vidu-s",
+      "name": "Vidu 平台 · Model Map（官方模型清单）",
+      "url": "https://platform.vidu.com/docs/model-map",
+      "refresh_days": 7,
+      "good_for": [
+        "version",
+        "availability"
+      ]
+    },
+    {
+      "id": "vidu-function-list",
+      "tier": "S",
+      "kind": "spa",
+      "vendor": "vidu-q,vidu-s",
+      "name": "Vidu 平台 · Function List（官方按模型列的能力清单）",
+      "url": "https://platform.vidu.com/docs/function-list",
+      "refresh_days": 7,
+      "good_for": [
+        "capability"
+      ],
+      "note": "**厂商自己发布的能力矩阵。** 比我们手工拼的那张可靠得多 —— 该找的是这类页面，而不是去搜第三方评测。其它家有没有对应物，值得逐个翻一遍导航"
+    },
+    {
+      "id": "vidu-site",
+      "tier": "S",
+      "kind": "html",
+      "vendor": "vidu-q",
+      "name": "Vidu 官网",
+      "url": "https://www.vidu.com/",
+      "refresh_days": 14,
+      "good_for": [
+        "capability"
+      ]
+    },
+    {
+      "id": "vidu-s1-gh",
+      "tier": "S",
+      "kind": "json",
+      "vendor": "vidu-s",
+      "name": "GitHub · Vidu-S1 releases",
+      "url": "https://api.github.com/repos/shengshu-ai/Vidu-S1/releases",
+      "refresh_days": 14,
+      "good_for": [
+        "openweights"
+      ]
+    },
+    {
+      "id": "pika-site",
+      "tier": "S",
+      "kind": "html",
+      "vendor": "pika",
+      "name": "Pika 官网",
+      "url": "https://pika.art/",
+      "refresh_days": 14,
+      "good_for": [
+        "skill"
+      ]
+    },
+    {
+      "id": "higgsfield-site",
+      "tier": "S",
+      "kind": "html",
+      "vendor": "higgsfield",
+      "name": "Higgsfield（平台，不是模型）",
+      "url": "https://higgsfield.ai/",
+      "refresh_days": 14,
+      "good_for": [
+        "platform",
+        "skill"
+      ]
+    },
+    {
+      "id": "decart-research",
+      "tier": "S",
+      "kind": "html",
+      "vendor": "lucy",
+      "name": "Decart · Research",
+      "url": "https://decart.ai/research",
+      "refresh_days": 14,
+      "good_for": [
+        "capability"
+      ]
+    },
+    {
+      "id": "arxiv-video",
+      "tier": "S",
+      "kind": "atom",
+      "vendor": "",
+      "name": "arXiv · 视频生成新论文",
+      "url": "http://export.arxiv.org/api/query?search_query=abs:%22video%20generation%22&sortBy=submittedDate&sortOrder=descending&max_results=40",
+      "refresh_days": 7,
+      "good_for": [
+        "discovery",
+        "paper"
+      ]
+    },
+    {
+      "id": "epoch-notable",
+      "tier": "A",
+      "kind": "csv",
+      "vendor": "",
+      "name": "Epoch AI · Notable AI Models（每日）",
+      "url": "https://epoch.ai/data/notable_ai_models.csv",
+      "refresh_days": 7,
+      "good_for": [
+        "discovery"
+      ],
+      "not_for": [
+        "capability"
+      ],
+      "note": "见 $epoch_finding：覆盖不到视频模型的版本与能力"
+    },
+    {
+      "id": "aa-t2v",
+      "tier": "A",
+      "kind": "html",
+      "vendor": "",
+      "name": "Artificial Analysis · 文生视频榜",
+      "url": "https://artificialanalysis.ai/video/leaderboard/text-to-video",
+      "refresh_days": 7,
+      "good_for": [
+        "discovery",
+        "benchmark"
+      ],
+      "not_for": [
+        "capability"
+      ],
+      "note": "只答「谁生成得更好看」，不答「谁支持首尾帧」。榜上出现没见过的名字＝发现信号"
+    },
+    {
+      "id": "aa-i2v",
+      "tier": "A",
+      "kind": "html",
+      "vendor": "",
+      "name": "Artificial Analysis · 图生视频榜",
+      "url": "https://artificialanalysis.ai/video/leaderboard/image-to-video",
+      "refresh_days": 7,
+      "good_for": [
+        "discovery",
+        "benchmark"
+      ]
+    },
+    {
+      "id": "hf-t2v",
+      "tier": "A",
+      "kind": "json",
+      "vendor": "",
+      "name": "Hugging Face · text-to-video 最近改动",
+      "url": "https://huggingface.co/api/models?filter=text-to-video&sort=lastModified&direction=-1&limit=60",
+      "refresh_days": 3,
+      "good_for": [
+        "openweights",
+        "discovery"
+      ]
+    },
+    {
+      "id": "hf-i2v",
+      "tier": "A",
+      "kind": "json",
+      "vendor": "",
+      "name": "Hugging Face · image-to-video 最近改动",
+      "url": "https://huggingface.co/api/models?filter=image-to-video&sort=lastModified&direction=-1&limit=60",
+      "refresh_days": 3,
+      "good_for": [
+        "openweights",
+        "discovery"
+      ]
+    },
+    {
+      "id": "hf-v2v",
+      "tier": "A",
+      "kind": "json",
+      "vendor": "",
+      "name": "Hugging Face · video-to-video 最近改动",
+      "url": "https://huggingface.co/api/models?filter=video-to-video&sort=lastModified&direction=-1&limit=40",
+      "refresh_days": 7,
+      "good_for": [
+        "openweights",
+        "discovery"
+      ]
+    },
+    {
+      "id": "fal-video",
+      "tier": "S",
+      "kind": "html",
+      "vendor": "",
+      "name": "fal · 视频模型目录",
+      "url": "https://fal.ai/models?categories=text-to-video",
+      "refresh_days": 7,
+      "good_for": [
+        "availability"
+      ],
+      "note": "「去哪用」矩阵的直接来源。API 需 token，先抓页面"
+    },
+    {
+      "id": "replicate-t2v",
+      "tier": "S",
+      "kind": "html",
+      "vendor": "",
+      "name": "Replicate · text-to-video 集合",
+      "url": "https://replicate.com/collections/text-to-video",
+      "refresh_days": 7,
+      "good_for": [
+        "availability"
+      ]
+    },
+    {
+      "id": "aiwiki",
+      "tier": "B",
+      "kind": "html",
+      "vendor": "",
+      "name": "AI Wiki",
+      "url": "https://aiwiki.ai/",
+      "refresh_days": 30,
+      "good_for": [
+        "discovery"
+      ],
+      "not_for": [
+        "capability"
+      ]
+    },
+    {
+      "id": "futurepedia",
+      "tier": "B",
+      "kind": "html",
+      "vendor": "",
+      "name": "Futurepedia",
+      "url": "https://www.futurepedia.io/",
+      "refresh_days": 30,
+      "good_for": [
+        "discovery"
+      ]
+    },
+    {
+      "id": "comfyui-releases",
+      "tier": "C",
+      "kind": "json",
+      "vendor": "",
+      "name": "GitHub · ComfyUI releases",
+      "url": "https://api.github.com/repos/comfyanonymous/ComfyUI/releases",
+      "refresh_days": 14,
+      "good_for": [
+        "workflow"
+      ]
+    },
+    {
+      "id": "capcut-templates",
+      "tier": "C",
+      "kind": "html",
+      "vendor": "",
+      "name": "CapCut 模板",
+      "url": "https://www.capcut.com/templates",
+      "refresh_days": 30,
+      "good_for": [
+        "skill"
+      ],
+      "not_for": [
+        "capability"
+      ]
+    },
+    {
+      "id": "picsart-effects",
+      "tier": "C",
+      "kind": "html",
+      "vendor": "",
+      "name": "Picsart Effects",
+      "url": "https://picsart.com/ai-video-effects/",
+      "refresh_days": 30,
+      "good_for": [
+        "skill"
+      ]
+    }
+  ],
+  "$missing": [
+    "Wan 官方 changelog：找不到可 diff 的能力更新页，只有 GitHub / HF 两个开源侧信号 —— 这就是 Wan 那几格质量最差的原因，且短期无解",
+    "Runway：官方没有可 diff 的能力更新页，目前只能靠第三方评测（Gen-4.5 那几格的 tier 因此是 third-party）",
+    "fal / Replicate 的 JSON API 需要 token —— 拿到 token 后应从 html 升级为 json，那是「去哪用」矩阵的正解",
+    "微信公众号生态：机器抓不到。按 A3 的发现，中文侧的新版本消息常常先出现在这里 —— 这一块只能靠人工，且要计入每周 3 小时",
+    "decart.ai/publications 与 epoch 的 frontier CSV 都是我 URL 写错（404），已移除；decart 用 /research 那条覆盖"
+  ],
+  "$blocked": [
+    "openai.com：403 反爬，S 级源但抓不到 —— Sora 的状态只能靠人工看",
+    "fal.ai / aiwiki.ai：429 限流，需要加退避重试后再评估"
+  ]
+}

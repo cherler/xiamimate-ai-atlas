@@ -1,8 +1,11 @@
 {
-  "version": "0.2",
+  "version": "0.3",
   "generated_at": "2026-08-07",
-  "note": "第二版。按 data/ontology.md 的四条规则重录：品类分轨（clip / realtime）、一等实体是 Family、版本升级后未重新核验的格子退回 unknown、Core 每轨 ≤10。全部由 Agent 从公开来源录入，未经人工核验（§59.3 转述层）。",
+  "note": "第二版。按 data/ontology.md 的四条规则重录：品类分轨（clip / realtime）、一等实体是 Family、版本升级后未重新核验的格子退回 unknown、Core 每轨 ≤10。全部由 Agent 从公开来源录入，未经人工核验（§59.3 转述层）。 模型按 version_as_of 降序排列（最新在最前）；status 标出生命周期：active / superseded / discontinued。",
   "changelog": [
+    "v0.3 加 status 生命周期字段。**Sora 2 已终止**：App 2026-04-26 关停、API 2026-09-24 停、OpenAI 无继任产品 —— 上一版还把它当在售模型列着，照表选型的人会撞墙",
+    "v0.3 又抓到三个过期：Google 主力已移到 Gemini Omni Flash（2026-05）、Vidu Q2→Q3（2026-01）。加上 v0.2 修的三个，8 个 Family 里 6 个曾经是错的",
+    "v0.3 模型按 version_as_of 降序排 —— 排序本身就是信息，最新的在最前",
     "v0.2 分出 realtime 轨（Vidu S1 / Decart Lucy 2）—— 它们的能力轴与 clip 轨不通用，硬并会毁表",
     "v0.2 三个 Family 升到当前主力版本：Seedance 2.0→2.5、Wan 2.5→2.7、Runway Gen-4→Gen-4.5",
     "v0.2 按规则三之一，升级后未在新版本来源里重新出现的能力一律退回 unknown —— ⬜ 因此变多，这是设计意图",
@@ -18,166 +21,1147 @@
     "third-party": "转售平台、评测、指南 —— 未能找到对应的官方页面"
   },
   "capabilities": [
-    { "id": "t2v",         "class": "clip", "name": "Text-to-Video",    "zh": "文生视频",   "group": "生成", "ubiquity": "已普及" },
-    { "id": "i2v",         "class": "clip", "name": "Image-to-Video",   "zh": "图生视频",   "group": "生成", "ubiquity": "已普及" },
-    { "id": "flf",         "class": "clip", "name": "First/Last Frame", "zh": "首尾帧",     "group": "控制", "ubiquity": "主流" },
-    { "id": "charref",     "class": "clip", "name": "Character Ref",    "zh": "角色参考",   "group": "参考", "ubiquity": "主流" },
-    { "id": "multiref",    "class": "clip", "name": "Multi-reference",  "zh": "多参考",     "group": "参考", "ubiquity": "前沿" },
-    { "id": "motion",      "class": "clip", "name": "Motion Control",   "zh": "动作复刻",   "group": "控制", "ubiquity": "前沿" },
-    { "id": "camera",      "class": "clip", "name": "Camera Control",   "zh": "运镜控制",   "group": "控制", "ubiquity": "主流" },
-    { "id": "audio",       "class": "clip", "name": "Native Audio",     "zh": "原生音频",   "group": "音频", "ubiquity": "主流" },
-    { "id": "lipsync",     "class": "clip", "name": "Lip Sync",         "zh": "对口型",     "group": "音频", "ubiquity": "主流" },
-    { "id": "extend",      "class": "clip", "name": "Video Extension",  "zh": "视频延长",   "group": "叙事", "ubiquity": "主流" },
-
-    { "id": "rt-fps",      "class": "realtime", "name": "Real-time Output", "zh": "实时出帧", "group": "实时", "ubiquity": "前沿" },
-    { "id": "rt-stream",   "class": "realtime", "name": "Stream Input",     "zh": "流式输入", "group": "实时", "ubiquity": "前沿" },
-    { "id": "rt-interact", "class": "realtime", "name": "Mid-gen Control",  "zh": "生成中可干预", "group": "实时", "ubiquity": "前沿" },
-    { "id": "rt-endless",  "class": "realtime", "name": "Endless Length",   "zh": "无限时长", "group": "实时", "ubiquity": "前沿" },
-
-    { "id": "openweights", "class": "both", "name": "Open Weights",     "zh": "开源权重",   "group": "获取", "ubiquity": "前沿" }
+    {
+      "id": "t2v",
+      "class": "clip",
+      "name": "Text-to-Video",
+      "zh": "文生视频",
+      "group": "生成",
+      "ubiquity": "已普及"
+    },
+    {
+      "id": "i2v",
+      "class": "clip",
+      "name": "Image-to-Video",
+      "zh": "图生视频",
+      "group": "生成",
+      "ubiquity": "已普及"
+    },
+    {
+      "id": "flf",
+      "class": "clip",
+      "name": "First/Last Frame",
+      "zh": "首尾帧",
+      "group": "控制",
+      "ubiquity": "主流"
+    },
+    {
+      "id": "charref",
+      "class": "clip",
+      "name": "Character Ref",
+      "zh": "角色参考",
+      "group": "参考",
+      "ubiquity": "主流"
+    },
+    {
+      "id": "multiref",
+      "class": "clip",
+      "name": "Multi-reference",
+      "zh": "多参考",
+      "group": "参考",
+      "ubiquity": "前沿"
+    },
+    {
+      "id": "motion",
+      "class": "clip",
+      "name": "Motion Control",
+      "zh": "动作复刻",
+      "group": "控制",
+      "ubiquity": "前沿"
+    },
+    {
+      "id": "camera",
+      "class": "clip",
+      "name": "Camera Control",
+      "zh": "运镜控制",
+      "group": "控制",
+      "ubiquity": "主流"
+    },
+    {
+      "id": "audio",
+      "class": "clip",
+      "name": "Native Audio",
+      "zh": "原生音频",
+      "group": "音频",
+      "ubiquity": "主流"
+    },
+    {
+      "id": "lipsync",
+      "class": "clip",
+      "name": "Lip Sync",
+      "zh": "对口型",
+      "group": "音频",
+      "ubiquity": "主流"
+    },
+    {
+      "id": "extend",
+      "class": "clip",
+      "name": "Video Extension",
+      "zh": "视频延长",
+      "group": "叙事",
+      "ubiquity": "主流"
+    },
+    {
+      "id": "rt-fps",
+      "class": "realtime",
+      "name": "Real-time Output",
+      "zh": "实时出帧",
+      "group": "实时",
+      "ubiquity": "前沿"
+    },
+    {
+      "id": "rt-stream",
+      "class": "realtime",
+      "name": "Stream Input",
+      "zh": "流式输入",
+      "group": "实时",
+      "ubiquity": "前沿"
+    },
+    {
+      "id": "rt-interact",
+      "class": "realtime",
+      "name": "Mid-gen Control",
+      "zh": "生成中可干预",
+      "group": "实时",
+      "ubiquity": "前沿"
+    },
+    {
+      "id": "rt-endless",
+      "class": "realtime",
+      "name": "Endless Length",
+      "zh": "无限时长",
+      "group": "实时",
+      "ubiquity": "前沿"
+    },
+    {
+      "id": "openweights",
+      "class": "both",
+      "name": "Open Weights",
+      "zh": "开源权重",
+      "group": "获取",
+      "ubiquity": "前沿"
+    }
   ],
   "models": [
-    { "id": "kling",    "class": "clip", "family": "Kling",          "zh": "可灵",       "vendor": "快手 Kuaishou",       "version": "3.0",     "version_as_of": "2026-02-04" },
-    { "id": "seedance", "class": "clip", "family": "Seedance",       "zh": "即梦 Seedance", "vendor": "字节 ByteDance Seed", "version": "2.5",  "version_as_of": "2026-07-31" },
-    { "id": "veo",      "class": "clip", "family": "Veo",            "zh": "Veo",        "vendor": "Google DeepMind",     "version": "3.1",     "version_as_of": "2025-10" },
-    { "id": "sora",     "class": "clip", "family": "Sora",           "zh": "Sora",       "vendor": "OpenAI",              "version": "2",       "version_as_of": "2025-09" },
-    { "id": "wan",      "class": "clip", "family": "Wan",            "zh": "通义万相",    "vendor": "阿里 Alibaba",        "version": "2.7",     "version_as_of": "2026-04" },
-    { "id": "hailuo",   "class": "clip", "family": "MiniMax Hailuo", "zh": "海螺",       "vendor": "MiniMax",             "version": "H3",      "version_as_of": "2026-07-31" },
-    { "id": "vidu-q",   "class": "clip", "family": "Vidu Q",         "zh": "Vidu Q",     "vendor": "生数 Shengshu",       "version": "Q2",      "version_as_of": "2025-10" },
-    { "id": "runway",   "class": "clip", "family": "Runway Gen",     "zh": "Runway",     "vendor": "Runway",              "version": "Gen-4.5", "version_as_of": "2026-03-25" },
-
-    { "id": "vidu-s",   "class": "realtime", "family": "Vidu S",     "zh": "Vidu S",     "vendor": "生数 Shengshu",       "version": "S1",      "version_as_of": "2026-07-03" },
-    { "id": "lucy",     "class": "realtime", "family": "Decart Lucy", "zh": "Lucy",      "vendor": "Decart",              "version": "Lucy 2",  "version_as_of": "2026-01" }
+    {
+      "id": "seedance",
+      "class": "clip",
+      "family": "Seedance",
+      "zh": "即梦 Seedance",
+      "vendor": "字节 ByteDance Seed",
+      "version": "2.5",
+      "version_as_of": "2026-07-31",
+      "status": "active"
+    },
+    {
+      "id": "hailuo",
+      "class": "clip",
+      "family": "MiniMax Hailuo",
+      "zh": "海螺",
+      "vendor": "MiniMax",
+      "version": "H3",
+      "version_as_of": "2026-07-31",
+      "status": "active"
+    },
+    {
+      "id": "gemini-omni",
+      "class": "clip",
+      "family": "Gemini Omni",
+      "zh": "Gemini Omni",
+      "vendor": "Google DeepMind",
+      "version": "Flash",
+      "version_as_of": "2026-05-19",
+      "status": "active"
+    },
+    {
+      "id": "wan",
+      "class": "clip",
+      "family": "Wan",
+      "zh": "通义万相",
+      "vendor": "阿里 Alibaba",
+      "version": "2.7",
+      "version_as_of": "2026-04",
+      "status": "active"
+    },
+    {
+      "id": "runway",
+      "class": "clip",
+      "family": "Runway Gen",
+      "zh": "Runway",
+      "vendor": "Runway",
+      "version": "Gen-4.5",
+      "version_as_of": "2026-03-25",
+      "status": "active"
+    },
+    {
+      "id": "kling",
+      "class": "clip",
+      "family": "Kling",
+      "zh": "可灵",
+      "vendor": "快手 Kuaishou",
+      "version": "3.0",
+      "version_as_of": "2026-02-04",
+      "status": "active"
+    },
+    {
+      "id": "vidu-q",
+      "class": "clip",
+      "family": "Vidu Q",
+      "zh": "Vidu Q",
+      "vendor": "生数 Shengshu",
+      "version": "Q3",
+      "version_as_of": "2026-01-30",
+      "status": "active"
+    },
+    {
+      "id": "veo",
+      "class": "clip",
+      "family": "Veo",
+      "zh": "Veo",
+      "vendor": "Google DeepMind",
+      "version": "3.1",
+      "version_as_of": "2025-10",
+      "status": "superseded",
+      "status_note": "仍在 Gemini API 提供，但 Google 已把视频生成的重心移到 Gemini Omni 家族"
+    },
+    {
+      "id": "sora",
+      "class": "clip",
+      "family": "Sora",
+      "zh": "Sora",
+      "vendor": "OpenAI",
+      "version": "2",
+      "version_as_of": "2025-09",
+      "status": "discontinued",
+      "status_note": "App 已于 2026-04-26 关停，API 计划 2026-09-24 停止，OpenAI 未宣布继任产品"
+    },
+    {
+      "id": "vidu-s",
+      "class": "realtime",
+      "family": "Vidu S",
+      "zh": "Vidu S",
+      "vendor": "生数 Shengshu",
+      "version": "S1",
+      "version_as_of": "2026-07-03",
+      "status": "active"
+    },
+    {
+      "id": "lucy",
+      "class": "realtime",
+      "family": "Decart Lucy",
+      "zh": "Lucy",
+      "vendor": "Decart",
+      "version": "Lucy 2",
+      "version_as_of": "2026-01",
+      "status": "active"
+    }
   ],
   "sources": {
-    "kling-api":    { "url": "https://kling.ai/document-api/updates/api", "tier": "official", "name": "Kling AI API 文档 · 更新日志" },
-    "kling-guide":  { "url": "https://invideo.io/blog/kling-3-0-complete-guide/", "tier": "third-party", "name": "Kling 3.0 指南（invideo，转售方）" },
-    "kling-motion": { "url": "https://openart.ai/ai-model/kling-3-motion-control/", "tier": "third-party", "name": "Kling 3.0 Motion Control（OpenArt，转售方）" },
-    "seed-25":      { "url": "https://seed.bytedance.com/en/blog/one-take-creation-flexible-referencing-introducing-seedance-2-5", "tier": "official", "name": "ByteDance Seed 官方博客 · Seedance 2.5 发布（2026-07-31）" },
-    "seed-20":      { "url": "https://seed.bytedance.com/en/blog/official-launch-of-seedance-2-0", "tier": "official", "name": "ByteDance Seed 官方博客 · Seedance 2.0 发布（上一版本，仅作对照）" },
-    "veo-api":      { "url": "https://ai.google.dev/gemini-api/docs/veo", "tier": "official", "name": "Google AI for Developers · Veo 文档" },
-    "veo-blog":     { "url": "https://developers.googleblog.com/en/introducing-veo-3-1-and-new-creative-capabilities-in-the-gemini-api/", "tier": "official", "name": "Google Developers Blog · Veo 3.1" },
-    "veo-ref":      { "url": "https://docs.cloud.google.com/vertex-ai/generative-ai/docs/video/use-reference-images-to-guide-video-generation", "tier": "official", "name": "Vertex AI 文档 · 参考图引导生成" },
-    "sora-2":       { "url": "https://openai.com/index/sora-2/", "tier": "official", "name": "OpenAI · Sora 2 发布页" },
-    "sora-api":     { "url": "https://developers.openai.com/api/docs/models/sora-2", "tier": "official", "name": "OpenAI API · sora-2 模型页" },
-    "minimax-h3":   { "url": "https://www.minimax.io/blog/minimax-h3", "tier": "official", "name": "MiniMax 官方博客 · H3" },
-    "minimax-hf":   { "url": "https://huggingface.co/blog/ResterChed/minimax-h3-hailuo-3-0", "tier": "third-party", "name": "Hugging Face 博客 · MiniMax H3 说明" },
-    "wan-weights":  { "url": "https://videoai.me/blog/wan-2-5-review-2026", "tier": "third-party", "name": "Wan 2.5 评测（含权重发布状态核查，讲的是 2.5）" },
-    "wan-27":       { "url": "https://www.teamday.ai/blog/best-ai-video-models-2026", "tier": "third-party", "name": "2026 模型横评（含 Wan 2.7 能力面）" },
-    "vidu":         { "url": "https://www.vidu.com/", "tier": "official", "name": "Vidu 官网" },
-    "vidu-sc":      { "url": "https://help.scenario.com/en/articles/vidu-models-the-essentials/", "tier": "third-party", "name": "Scenario 知识库 · Vidu 模型要点" },
-    "vidu-s1-paper": { "url": "https://arxiv.org/abs/2607.03118", "tier": "official", "name": "Vidu S1 论文（作者：生数）" },
-    "vidu-s1-gh":   { "url": "https://github.com/shengshu-ai/Vidu-S1", "tier": "official", "name": "Vidu S1 官方 GitHub 仓库" },
-    "lucy-2":       { "url": "https://decart.ai/publications/lucy-2-introducing-sota-video-generation-in-realtime", "tier": "official", "name": "Decart 官方 · Lucy 2 发布" },
-    "runway-rev":   { "url": "https://veo4.dev/runway-gen-4-5", "tier": "third-party", "name": "Runway Gen-4.5 评测（2026-03 版本）" }
+    "kling-api": {
+      "url": "https://kling.ai/document-api/updates/api",
+      "tier": "official",
+      "name": "Kling AI API 文档 · 更新日志"
+    },
+    "kling-guide": {
+      "url": "https://invideo.io/blog/kling-3-0-complete-guide/",
+      "tier": "third-party",
+      "name": "Kling 3.0 指南（invideo，转售方）"
+    },
+    "kling-motion": {
+      "url": "https://openart.ai/ai-model/kling-3-motion-control/",
+      "tier": "third-party",
+      "name": "Kling 3.0 Motion Control（OpenArt，转售方）"
+    },
+    "seed-25": {
+      "url": "https://seed.bytedance.com/en/blog/one-take-creation-flexible-referencing-introducing-seedance-2-5",
+      "tier": "official",
+      "name": "ByteDance Seed 官方博客 · Seedance 2.5 发布（2026-07-31）"
+    },
+    "seed-20": {
+      "url": "https://seed.bytedance.com/en/blog/official-launch-of-seedance-2-0",
+      "tier": "official",
+      "name": "ByteDance Seed 官方博客 · Seedance 2.0 发布（上一版本，仅作对照）"
+    },
+    "veo-api": {
+      "url": "https://ai.google.dev/gemini-api/docs/veo",
+      "tier": "official",
+      "name": "Google AI for Developers · Veo 文档"
+    },
+    "veo-blog": {
+      "url": "https://developers.googleblog.com/en/introducing-veo-3-1-and-new-creative-capabilities-in-the-gemini-api/",
+      "tier": "official",
+      "name": "Google Developers Blog · Veo 3.1"
+    },
+    "veo-ref": {
+      "url": "https://docs.cloud.google.com/vertex-ai/generative-ai/docs/video/use-reference-images-to-guide-video-generation",
+      "tier": "official",
+      "name": "Vertex AI 文档 · 参考图引导生成"
+    },
+    "sora-2": {
+      "url": "https://openai.com/index/sora-2/",
+      "tier": "official",
+      "name": "OpenAI · Sora 2 发布页"
+    },
+    "sora-api": {
+      "url": "https://developers.openai.com/api/docs/models/sora-2",
+      "tier": "official",
+      "name": "OpenAI API · sora-2 模型页"
+    },
+    "minimax-h3": {
+      "url": "https://www.minimax.io/blog/minimax-h3",
+      "tier": "official",
+      "name": "MiniMax 官方博客 · H3"
+    },
+    "minimax-hf": {
+      "url": "https://huggingface.co/blog/ResterChed/minimax-h3-hailuo-3-0",
+      "tier": "third-party",
+      "name": "Hugging Face 博客 · MiniMax H3 说明"
+    },
+    "wan-weights": {
+      "url": "https://videoai.me/blog/wan-2-5-review-2026",
+      "tier": "third-party",
+      "name": "Wan 2.5 评测（含权重发布状态核查，讲的是 2.5）"
+    },
+    "wan-27": {
+      "url": "https://www.teamday.ai/blog/best-ai-video-models-2026",
+      "tier": "third-party",
+      "name": "2026 模型横评（含 Wan 2.7 能力面）"
+    },
+    "vidu-s1-paper": {
+      "url": "https://arxiv.org/abs/2607.03118",
+      "tier": "official",
+      "name": "Vidu S1 论文（作者：生数）"
+    },
+    "vidu-s1-gh": {
+      "url": "https://github.com/shengshu-ai/Vidu-S1",
+      "tier": "official",
+      "name": "Vidu S1 官方 GitHub 仓库"
+    },
+    "lucy-2": {
+      "url": "https://decart.ai/publications/lucy-2-introducing-sota-video-generation-in-realtime",
+      "tier": "official",
+      "name": "Decart 官方 · Lucy 2 发布"
+    },
+    "runway-rev": {
+      "url": "https://veo4.dev/runway-gen-4-5",
+      "tier": "third-party",
+      "name": "Runway Gen-4.5 评测（2026-03 版本）"
+    },
+    "gemini-omni": {
+      "url": "https://ai.google.dev/gemini-api/docs/video",
+      "tier": "official",
+      "name": "Google AI for Developers · 视频生成文档（Gemini Omni）"
+    },
+    "sora-eol": {
+      "url": "https://help.openai.com/en/articles/20001152-what-to-know-about-the-sora-discontinuation",
+      "tier": "official",
+      "name": "OpenAI 帮助中心 · Sora 停止服务说明"
+    },
+    "vidu-q3": {
+      "url": "https://prtimes.jp/main/html/rd/p/000000005.000160300.html",
+      "tier": "official",
+      "name": "生数科技官方新闻稿 · Vidu Q3 发布"
+    },
+    "omni-rev": {
+      "url": "https://www.buildfastwithai.com/blogs/gemini-omni-flash-review-google-ai-video-model-2026",
+      "tier": "third-party",
+      "name": "Gemini Omni Flash 评测"
+    }
   },
   "support": [
-    { "m": "kling", "c": "t2v",         "state": "yes",     "verified_for": "3.0", "src": "kling-api" },
-    { "m": "kling", "c": "i2v",         "state": "yes",     "verified_for": "3.0", "src": "kling-api" },
-    { "m": "kling", "c": "flf",         "state": "yes",     "verified_for": "3.0", "src": "kling-guide", "note": "图生视频可自定义起始帧与结束帧" },
-    { "m": "kling", "c": "charref",     "state": "unknown", "verified_for": "3.0", "note": "API 更新页只提到「参考视频」，未见角色参考图的独立能力位" },
-    { "m": "kling", "c": "multiref",    "state": "unknown", "verified_for": "3.0" },
-    { "m": "kling", "c": "motion",      "state": "yes",     "verified_for": "3.0", "src": "kling-motion", "note": "Motion Control 确实存在，但检索到的说明全部来自转售平台，未找到快手官方文档页" },
-    { "m": "kling", "c": "camera",      "state": "yes",     "verified_for": "3.0", "src": "kling-guide", "note": "dolly / tracking / orbit / handheld" },
-    { "m": "kling", "c": "audio",       "state": "yes",     "verified_for": "3.0", "src": "kling-guide", "note": "原生音频可开关" },
-    { "m": "kling", "c": "lipsync",     "state": "yes",     "verified_for": "3.0", "src": "kling-api", "note": "API 支持 lip-sync；中英日韩西五语" },
-    { "m": "kling", "c": "extend",      "state": "yes",     "verified_for": "3.0", "src": "kling-api" },
-    { "m": "kling", "c": "openweights", "state": "no",      "verified_for": "3.0", "note": "未见任何权重发布渠道，仅商用 API" },
-
-    { "m": "seedance", "c": "t2v",         "state": "yes",     "verified_for": "2.5", "src": "seed-25", "note": "单次生成 30 秒音视频一镜到底" },
-    { "m": "seedance", "c": "i2v",         "state": "yes",     "verified_for": "2.5", "src": "seed-25", "note": "可输入图片作参考素材（单次最多 30 张）" },
-    { "m": "seedance", "c": "flf",         "state": "unknown", "verified_for": "2.5", "src": "seed-25", "note": "2.5 发布页未提首尾帧" },
-    { "m": "seedance", "c": "charref",     "state": "yes",     "verified_for": "2.5", "src": "seed-25", "note": "多角色同框时可同时保持各自外观与声音稳定" },
-    { "m": "seedance", "c": "multiref",    "state": "yes",     "verified_for": "2.5", "src": "seed-25", "note": "单次最多 50 个参考输入：30 图 + 10 视频 + 10 音频" },
-    { "m": "seedance", "c": "motion",      "state": "unknown", "verified_for": "2.5", "src": "seed-20", "note": "⚠️ 2.0 有「@ 提及引用运动模式」，但 2.5 发布页未重述 —— 按规则三之一退回未知，不沿用旧版结论" },
-    { "m": "seedance", "c": "camera",      "state": "unknown", "verified_for": "2.5", "src": "seed-20", "note": "同上：2.0 支持 @ 引用镜头技法，2.5 页面未重述" },
-    { "m": "seedance", "c": "audio",       "state": "yes",     "verified_for": "2.5", "src": "seed-25", "note": "音视频联合生成架构" },
-    { "m": "seedance", "c": "lipsync",     "state": "unknown", "verified_for": "2.5" },
-    { "m": "seedance", "c": "extend",      "state": "yes",     "verified_for": "2.5", "src": "seed-25", "note": "支持多轮延长" },
-    { "m": "seedance", "c": "openweights", "state": "no",      "verified_for": "2.5", "note": "未见权重发布，仅 API 与自有产品（即梦 / 豆包）" },
-
-    { "m": "veo", "c": "t2v",         "state": "yes",     "verified_for": "3.1", "src": "veo-api" },
-    { "m": "veo", "c": "i2v",         "state": "yes",     "verified_for": "3.1", "src": "veo-blog" },
-    { "m": "veo", "c": "flf",         "state": "yes",     "verified_for": "3.1", "src": "veo-ref", "note": "⚠️ 首帧（可选配尾帧）与参考图不能同时使用，一次生成只能二选一" },
-    { "m": "veo", "c": "charref",     "state": "yes",     "verified_for": "3.1", "src": "veo-ref", "note": "最多 3 张同一人物/角色/产品的资产图" },
-    { "m": "veo", "c": "multiref",    "state": "yes",     "verified_for": "3.1", "src": "veo-ref", "note": "1~3 张参考图；但与首帧互斥（见首尾帧一格）" },
-    { "m": "veo", "c": "motion",      "state": "unknown", "verified_for": "3.1" },
-    { "m": "veo", "c": "camera",      "state": "unknown", "verified_for": "3.1", "note": "官方有提示词指南，但未见把运镜作为独立参数的控制位" },
-    { "m": "veo", "c": "audio",       "state": "yes",     "verified_for": "3.1", "src": "veo-blog", "note": "原生音频，含多人对白与同步音效" },
-    { "m": "veo", "c": "lipsync",     "state": "unknown", "verified_for": "3.1", "note": "原生音频含对白，但未见把对口型作为独立能力说明" },
-    { "m": "veo", "c": "extend",      "state": "yes",     "verified_for": "3.1", "src": "veo-blog", "note": "Scene extension：基于上一段末秒续接" },
-    { "m": "veo", "c": "openweights", "state": "no",      "verified_for": "3.1", "note": "闭源，仅通过 Gemini API / Vertex AI 提供" },
-
-    { "m": "sora", "c": "t2v",         "state": "yes",     "verified_for": "2", "src": "sora-2" },
-    { "m": "sora", "c": "i2v",         "state": "yes",     "verified_for": "2", "src": "sora-api" },
-    { "m": "sora", "c": "flf",         "state": "unknown", "verified_for": "2", "note": "官方与第三方均未见首尾帧说明；第三方教程用「取末帧再生成」变通，反证没有原生能力" },
-    { "m": "sora", "c": "charref",     "state": "yes",     "verified_for": "2", "src": "sora-2", "note": "cameo 角色客串机制" },
-    { "m": "sora", "c": "multiref",    "state": "unknown", "verified_for": "2" },
-    { "m": "sora", "c": "motion",      "state": "unknown", "verified_for": "2" },
-    { "m": "sora", "c": "camera",      "state": "unknown", "verified_for": "2" },
-    { "m": "sora", "c": "audio",       "state": "yes",     "verified_for": "2", "src": "sora-2", "note": "同步对白、音效与背景音乐" },
-    { "m": "sora", "c": "lipsync",     "state": "unknown", "verified_for": "2" },
-    { "m": "sora", "c": "extend",      "state": "unknown", "verified_for": "2", "note": "第三方教程靠拼帧变通，未见原生延长" },
-    { "m": "sora", "c": "openweights", "state": "no",      "verified_for": "2", "note": "闭源，仅通过 OpenAI API 与 Sora 产品提供" },
-
-    { "m": "wan", "c": "t2v",         "state": "yes",     "verified_for": "2.7", "src": "wan-27" },
-    { "m": "wan", "c": "i2v",         "state": "yes",     "verified_for": "2.7", "src": "wan-27" },
-    { "m": "wan", "c": "flf",         "state": "yes",     "verified_for": "2.7", "src": "wan-27", "note": "2.7 新增首尾帧控制" },
-    { "m": "wan", "c": "charref",     "state": "unknown", "verified_for": "2.7" },
-    { "m": "wan", "c": "multiref",    "state": "yes",     "verified_for": "2.7", "src": "wan-27", "note": "九宫格图输入（一次最多 9 张参考图）" },
-    { "m": "wan", "c": "motion",      "state": "unknown", "verified_for": "2.7" },
-    { "m": "wan", "c": "camera",      "state": "unknown", "verified_for": "2.7", "note": "⚠️ 2.5 有镜头运动与构图控制，2.7 的公开说明未重述 —— 按规则三之一退回未知" },
-    { "m": "wan", "c": "audio",       "state": "yes",     "verified_for": "2.7", "src": "wan-27", "note": "audio drive（音频驱动）在 2.7 的能力面里" },
-    { "m": "wan", "c": "lipsync",     "state": "unknown", "verified_for": "2.7", "note": "2.5 有对口型，2.7 未见重述" },
-    { "m": "wan", "c": "extend",      "state": "unknown", "verified_for": "2.7" },
-    { "m": "wan", "c": "openweights", "state": "unknown", "verified_for": "2.7", "src": "wan-weights", "note": "⚠️ Wan 被广泛称作「开源模型」，但 2.5 的权重至今未在 Wan-AI 的 GitHub 与 Hugging Face 发布；2.7 是否开源未见任何说明。这一格是「查了没找到」，不是「不开源」" },
-
-    { "m": "hailuo", "c": "t2v",         "state": "yes",     "verified_for": "H3", "src": "minimax-h3" },
-    { "m": "hailuo", "c": "i2v",         "state": "yes",     "verified_for": "H3", "src": "minimax-h3" },
-    { "m": "hailuo", "c": "flf",         "state": "yes",     "verified_for": "H3", "src": "minimax-hf", "note": "支持首帧，以及首帧+尾帧" },
-    { "m": "hailuo", "c": "charref",     "state": "yes",     "verified_for": "H3", "src": "minimax-h3", "note": "Omni Reference，可引用角色外观" },
-    { "m": "hailuo", "c": "multiref",    "state": "yes",     "verified_for": "H3", "src": "minimax-hf", "note": "最多 9 图 + 3 视频 + 3 音频，合计 12 个文件；音频参考必须搭配图或视频" },
-    { "m": "hailuo", "c": "motion",      "state": "yes",     "verified_for": "H3", "src": "minimax-h3", "note": "可引用动作" },
-    { "m": "hailuo", "c": "camera",      "state": "yes",     "verified_for": "H3", "src": "minimax-h3", "note": "可引用运镜与构图" },
-    { "m": "hailuo", "c": "audio",       "state": "yes",     "verified_for": "H3", "src": "minimax-h3", "note": "原生立体声，含对白、音效、环境音与配乐" },
-    { "m": "hailuo", "c": "lipsync",     "state": "unknown", "verified_for": "H3" },
-    { "m": "hailuo", "c": "extend",      "state": "unknown", "verified_for": "H3" },
-    { "m": "hailuo", "c": "openweights", "state": "yes",     "verified_for": "H3", "src": "minimax-hf", "note": "⚠️ 2026-08-03 开放权重，但采用「MiniMax H3 Community License」自定义许可，不是标准开源协议 —— 商用前需自行核对条款" },
-
-    { "m": "vidu-q", "c": "t2v",         "state": "yes",     "verified_for": "Q2", "src": "vidu" },
-    { "m": "vidu-q", "c": "i2v",         "state": "yes",     "verified_for": "Q2", "src": "vidu" },
-    { "m": "vidu-q", "c": "flf",         "state": "yes",     "verified_for": "Q2", "src": "vidu-sc", "note": "Start/End to Video，首尾帧同时给定" },
-    { "m": "vidu-q", "c": "charref",     "state": "yes",     "verified_for": "Q2", "src": "vidu-sc", "note": "多主体一致性，可带入多张参考的身份与风格" },
-    { "m": "vidu-q", "c": "multiref",    "state": "yes",     "verified_for": "Q2", "src": "vidu-sc" },
-    { "m": "vidu-q", "c": "motion",      "state": "unknown", "verified_for": "Q2" },
-    { "m": "vidu-q", "c": "camera",      "state": "yes",     "verified_for": "Q2", "src": "vidu-sc" },
-    { "m": "vidu-q", "c": "audio",       "state": "unknown", "verified_for": "Q2" },
-    { "m": "vidu-q", "c": "lipsync",     "state": "unknown", "verified_for": "Q2" },
-    { "m": "vidu-q", "c": "extend",      "state": "unknown", "verified_for": "Q2" },
-    { "m": "vidu-q", "c": "openweights", "state": "no",      "verified_for": "Q2", "note": "未见权重发布渠道，仅官网与 API" },
-
-    { "m": "runway", "c": "t2v",         "state": "yes",     "verified_for": "Gen-4.5", "src": "runway-rev" },
-    { "m": "runway", "c": "i2v",         "state": "yes",     "verified_for": "Gen-4.5", "src": "runway-rev" },
-    { "m": "runway", "c": "flf",         "state": "unknown", "verified_for": "Gen-4.5", "note": "Gen-3 Turbo 可上传尾帧；Gen-4 与 4.5 均未见对应说明，未能确认是保留还是取消" },
-    { "m": "runway", "c": "charref",     "state": "unknown", "verified_for": "Gen-4.5", "note": "Gen-4 时代有 reference consistency 与 Act-One，4.5 的公开说明未重述" },
-    { "m": "runway", "c": "multiref",    "state": "unknown", "verified_for": "Gen-4.5" },
-    { "m": "runway", "c": "motion",      "state": "yes",     "verified_for": "Gen-4.5", "src": "runway-rev", "note": "精确运动控制；Gen-4 的 Motion Brush 3.0 一脉" },
-    { "m": "runway", "c": "camera",      "state": "yes",     "verified_for": "Gen-4.5", "src": "runway-rev", "note": "复杂镜头运动控制" },
-    { "m": "runway", "c": "audio",       "state": "no",      "verified_for": "Gen-4.5", "src": "runway-rev", "note": "⚠️ 不是模型原生能力：Gen-4 本体不生成音频、成片默认静音；Gen-4.5 的「集成音频」是接入 ElevenLabs 得来的" },
-    { "m": "runway", "c": "lipsync",     "state": "unknown", "verified_for": "Gen-4.5" },
-    { "m": "runway", "c": "extend",      "state": "unknown", "verified_for": "Gen-4.5" },
-    { "m": "runway", "c": "openweights", "state": "no",      "verified_for": "Gen-4.5", "note": "闭源商用平台，未见权重发布" },
-
-    { "m": "vidu-s", "c": "rt-fps",      "state": "yes",     "verified_for": "S1", "src": "vidu-s1-paper", "note": "540p / 3 步配置下，RTX 5090 上平均 42 FPS，越过 30 FPS 实时播放线" },
-    { "m": "vidu-s", "c": "rt-stream",   "state": "unknown", "verified_for": "S1", "note": "控制信号是语音与提示词，未见「吃直播视频流」的说明 —— 与 Lucy 的形态不同" },
-    { "m": "vidu-s", "c": "rt-interact", "state": "yes",     "verified_for": "S1", "src": "vidu-s1-paper", "note": "生成过程中用语音作为显式控制信号，可干预后续画面" },
-    { "m": "vidu-s", "c": "rt-endless",  "state": "yes",     "verified_for": "S1", "src": "vidu-s1-paper", "note": "无限长实时生成，不出现模糊、漂移与画面崩坏" },
-    { "m": "vidu-s", "c": "openweights", "state": "unknown", "verified_for": "S1", "src": "vidu-s1-gh", "note": "有官方 GitHub 仓库与 arXiv 论文，但未能确认仓库内是否发布权重、以及许可条款 —— 这一格需要人工核验" },
-
-    { "m": "lucy", "c": "rt-fps",      "state": "yes",     "verified_for": "Lucy 2", "src": "lucy-2", "note": "1080p / 30fps 实时输出，无缓冲" },
-    { "m": "lucy", "c": "rt-stream",   "state": "yes",     "verified_for": "Lucy 2", "src": "lucy-2", "note": "作用于实时视频流，逐帧随运动、光照、场景变化生成" },
-    { "m": "lucy", "c": "rt-interact", "state": "yes",     "verified_for": "Lucy 2", "src": "lucy-2" },
-    { "m": "lucy", "c": "rt-endless",  "state": "yes",     "verified_for": "Lucy 2", "src": "lucy-2", "note": "无重置、无预设时长上限" },
-    { "m": "lucy", "c": "openweights", "state": "unknown", "verified_for": "Lucy 2", "note": "未见权重发布说明，也未见明确的闭源声明" }
+    {
+      "m": "kling",
+      "c": "t2v",
+      "state": "yes",
+      "verified_for": "3.0",
+      "src": "kling-api"
+    },
+    {
+      "m": "kling",
+      "c": "i2v",
+      "state": "yes",
+      "verified_for": "3.0",
+      "src": "kling-api"
+    },
+    {
+      "m": "kling",
+      "c": "flf",
+      "state": "yes",
+      "verified_for": "3.0",
+      "src": "kling-guide",
+      "note": "图生视频可自定义起始帧与结束帧"
+    },
+    {
+      "m": "kling",
+      "c": "charref",
+      "state": "unknown",
+      "verified_for": "3.0",
+      "note": "API 更新页只提到「参考视频」，未见角色参考图的独立能力位"
+    },
+    {
+      "m": "kling",
+      "c": "multiref",
+      "state": "unknown",
+      "verified_for": "3.0"
+    },
+    {
+      "m": "kling",
+      "c": "motion",
+      "state": "yes",
+      "verified_for": "3.0",
+      "src": "kling-motion",
+      "note": "Motion Control 确实存在，但检索到的说明全部来自转售平台，未找到快手官方文档页"
+    },
+    {
+      "m": "kling",
+      "c": "camera",
+      "state": "yes",
+      "verified_for": "3.0",
+      "src": "kling-guide",
+      "note": "dolly / tracking / orbit / handheld"
+    },
+    {
+      "m": "kling",
+      "c": "audio",
+      "state": "yes",
+      "verified_for": "3.0",
+      "src": "kling-guide",
+      "note": "原生音频可开关"
+    },
+    {
+      "m": "kling",
+      "c": "lipsync",
+      "state": "yes",
+      "verified_for": "3.0",
+      "src": "kling-api",
+      "note": "API 支持 lip-sync；中英日韩西五语"
+    },
+    {
+      "m": "kling",
+      "c": "extend",
+      "state": "yes",
+      "verified_for": "3.0",
+      "src": "kling-api"
+    },
+    {
+      "m": "kling",
+      "c": "openweights",
+      "state": "no",
+      "verified_for": "3.0",
+      "note": "未见任何权重发布渠道，仅商用 API"
+    },
+    {
+      "m": "seedance",
+      "c": "t2v",
+      "state": "yes",
+      "verified_for": "2.5",
+      "src": "seed-25",
+      "note": "单次生成 30 秒音视频一镜到底"
+    },
+    {
+      "m": "seedance",
+      "c": "i2v",
+      "state": "yes",
+      "verified_for": "2.5",
+      "src": "seed-25",
+      "note": "可输入图片作参考素材（单次最多 30 张）"
+    },
+    {
+      "m": "seedance",
+      "c": "flf",
+      "state": "unknown",
+      "verified_for": "2.5",
+      "src": "seed-25",
+      "note": "2.5 发布页未提首尾帧"
+    },
+    {
+      "m": "seedance",
+      "c": "charref",
+      "state": "yes",
+      "verified_for": "2.5",
+      "src": "seed-25",
+      "note": "多角色同框时可同时保持各自外观与声音稳定"
+    },
+    {
+      "m": "seedance",
+      "c": "multiref",
+      "state": "yes",
+      "verified_for": "2.5",
+      "src": "seed-25",
+      "note": "单次最多 50 个参考输入：30 图 + 10 视频 + 10 音频"
+    },
+    {
+      "m": "seedance",
+      "c": "motion",
+      "state": "unknown",
+      "verified_for": "2.5",
+      "src": "seed-20",
+      "note": "⚠️ 2.0 有「@ 提及引用运动模式」，但 2.5 发布页未重述 —— 按规则三之一退回未知，不沿用旧版结论"
+    },
+    {
+      "m": "seedance",
+      "c": "camera",
+      "state": "unknown",
+      "verified_for": "2.5",
+      "src": "seed-20",
+      "note": "同上：2.0 支持 @ 引用镜头技法，2.5 页面未重述"
+    },
+    {
+      "m": "seedance",
+      "c": "audio",
+      "state": "yes",
+      "verified_for": "2.5",
+      "src": "seed-25",
+      "note": "音视频联合生成架构"
+    },
+    {
+      "m": "seedance",
+      "c": "lipsync",
+      "state": "unknown",
+      "verified_for": "2.5"
+    },
+    {
+      "m": "seedance",
+      "c": "extend",
+      "state": "yes",
+      "verified_for": "2.5",
+      "src": "seed-25",
+      "note": "支持多轮延长"
+    },
+    {
+      "m": "seedance",
+      "c": "openweights",
+      "state": "no",
+      "verified_for": "2.5",
+      "note": "未见权重发布，仅 API 与自有产品（即梦 / 豆包）"
+    },
+    {
+      "m": "veo",
+      "c": "t2v",
+      "state": "yes",
+      "verified_for": "3.1",
+      "src": "veo-api"
+    },
+    {
+      "m": "veo",
+      "c": "i2v",
+      "state": "yes",
+      "verified_for": "3.1",
+      "src": "veo-blog"
+    },
+    {
+      "m": "veo",
+      "c": "flf",
+      "state": "yes",
+      "verified_for": "3.1",
+      "src": "veo-ref",
+      "note": "⚠️ 首帧（可选配尾帧）与参考图不能同时使用，一次生成只能二选一"
+    },
+    {
+      "m": "veo",
+      "c": "charref",
+      "state": "yes",
+      "verified_for": "3.1",
+      "src": "veo-ref",
+      "note": "最多 3 张同一人物/角色/产品的资产图"
+    },
+    {
+      "m": "veo",
+      "c": "multiref",
+      "state": "yes",
+      "verified_for": "3.1",
+      "src": "veo-ref",
+      "note": "1~3 张参考图；但与首帧互斥（见首尾帧一格）"
+    },
+    {
+      "m": "veo",
+      "c": "motion",
+      "state": "unknown",
+      "verified_for": "3.1"
+    },
+    {
+      "m": "veo",
+      "c": "camera",
+      "state": "unknown",
+      "verified_for": "3.1",
+      "note": "官方有提示词指南，但未见把运镜作为独立参数的控制位"
+    },
+    {
+      "m": "veo",
+      "c": "audio",
+      "state": "yes",
+      "verified_for": "3.1",
+      "src": "veo-blog",
+      "note": "原生音频，含多人对白与同步音效"
+    },
+    {
+      "m": "veo",
+      "c": "lipsync",
+      "state": "unknown",
+      "verified_for": "3.1",
+      "note": "原生音频含对白，但未见把对口型作为独立能力说明"
+    },
+    {
+      "m": "veo",
+      "c": "extend",
+      "state": "yes",
+      "verified_for": "3.1",
+      "src": "veo-blog",
+      "note": "Scene extension：基于上一段末秒续接"
+    },
+    {
+      "m": "veo",
+      "c": "openweights",
+      "state": "no",
+      "verified_for": "3.1",
+      "note": "闭源，仅通过 Gemini API / Vertex AI 提供"
+    },
+    {
+      "m": "sora",
+      "c": "t2v",
+      "state": "yes",
+      "verified_for": "2",
+      "src": "sora-eol",
+      "note": "⚠️ 该产品线已终止：App 2026-04-26 关停，API 计划 2026-09-24 停止 —— 能力属实，但不建议用于新项目"
+    },
+    {
+      "m": "sora",
+      "c": "i2v",
+      "state": "yes",
+      "verified_for": "2",
+      "src": "sora-api"
+    },
+    {
+      "m": "sora",
+      "c": "flf",
+      "state": "unknown",
+      "verified_for": "2",
+      "note": "官方与第三方均未见首尾帧说明；第三方教程用「取末帧再生成」变通，反证没有原生能力"
+    },
+    {
+      "m": "sora",
+      "c": "charref",
+      "state": "yes",
+      "verified_for": "2",
+      "src": "sora-2",
+      "note": "cameo 角色客串机制"
+    },
+    {
+      "m": "sora",
+      "c": "multiref",
+      "state": "unknown",
+      "verified_for": "2"
+    },
+    {
+      "m": "sora",
+      "c": "motion",
+      "state": "unknown",
+      "verified_for": "2"
+    },
+    {
+      "m": "sora",
+      "c": "camera",
+      "state": "unknown",
+      "verified_for": "2"
+    },
+    {
+      "m": "sora",
+      "c": "audio",
+      "state": "yes",
+      "verified_for": "2",
+      "src": "sora-2",
+      "note": "同步对白、音效与背景音乐"
+    },
+    {
+      "m": "sora",
+      "c": "lipsync",
+      "state": "unknown",
+      "verified_for": "2"
+    },
+    {
+      "m": "sora",
+      "c": "extend",
+      "state": "unknown",
+      "verified_for": "2",
+      "note": "第三方教程靠拼帧变通，未见原生延长"
+    },
+    {
+      "m": "sora",
+      "c": "openweights",
+      "state": "no",
+      "verified_for": "2",
+      "note": "闭源，仅通过 OpenAI API 与 Sora 产品提供"
+    },
+    {
+      "m": "wan",
+      "c": "t2v",
+      "state": "yes",
+      "verified_for": "2.7",
+      "src": "wan-27"
+    },
+    {
+      "m": "wan",
+      "c": "i2v",
+      "state": "yes",
+      "verified_for": "2.7",
+      "src": "wan-27"
+    },
+    {
+      "m": "wan",
+      "c": "flf",
+      "state": "yes",
+      "verified_for": "2.7",
+      "src": "wan-27",
+      "note": "2.7 新增首尾帧控制"
+    },
+    {
+      "m": "wan",
+      "c": "charref",
+      "state": "unknown",
+      "verified_for": "2.7"
+    },
+    {
+      "m": "wan",
+      "c": "multiref",
+      "state": "yes",
+      "verified_for": "2.7",
+      "src": "wan-27",
+      "note": "九宫格图输入（一次最多 9 张参考图）"
+    },
+    {
+      "m": "wan",
+      "c": "motion",
+      "state": "unknown",
+      "verified_for": "2.7"
+    },
+    {
+      "m": "wan",
+      "c": "camera",
+      "state": "unknown",
+      "verified_for": "2.7",
+      "note": "⚠️ 2.5 有镜头运动与构图控制，2.7 的公开说明未重述 —— 按规则三之一退回未知"
+    },
+    {
+      "m": "wan",
+      "c": "audio",
+      "state": "yes",
+      "verified_for": "2.7",
+      "src": "wan-27",
+      "note": "audio drive（音频驱动）在 2.7 的能力面里"
+    },
+    {
+      "m": "wan",
+      "c": "lipsync",
+      "state": "unknown",
+      "verified_for": "2.7",
+      "note": "2.5 有对口型，2.7 未见重述"
+    },
+    {
+      "m": "wan",
+      "c": "extend",
+      "state": "unknown",
+      "verified_for": "2.7"
+    },
+    {
+      "m": "wan",
+      "c": "openweights",
+      "state": "unknown",
+      "verified_for": "2.7",
+      "src": "wan-weights",
+      "note": "⚠️ Wan 被广泛称作「开源模型」，但 2.5 的权重至今未在 Wan-AI 的 GitHub 与 Hugging Face 发布；2.7 是否开源未见任何说明。这一格是「查了没找到」，不是「不开源」"
+    },
+    {
+      "m": "hailuo",
+      "c": "t2v",
+      "state": "yes",
+      "verified_for": "H3",
+      "src": "minimax-h3"
+    },
+    {
+      "m": "hailuo",
+      "c": "i2v",
+      "state": "yes",
+      "verified_for": "H3",
+      "src": "minimax-h3"
+    },
+    {
+      "m": "hailuo",
+      "c": "flf",
+      "state": "yes",
+      "verified_for": "H3",
+      "src": "minimax-hf",
+      "note": "支持首帧，以及首帧+尾帧"
+    },
+    {
+      "m": "hailuo",
+      "c": "charref",
+      "state": "yes",
+      "verified_for": "H3",
+      "src": "minimax-h3",
+      "note": "Omni Reference，可引用角色外观"
+    },
+    {
+      "m": "hailuo",
+      "c": "multiref",
+      "state": "yes",
+      "verified_for": "H3",
+      "src": "minimax-hf",
+      "note": "最多 9 图 + 3 视频 + 3 音频，合计 12 个文件；音频参考必须搭配图或视频"
+    },
+    {
+      "m": "hailuo",
+      "c": "motion",
+      "state": "yes",
+      "verified_for": "H3",
+      "src": "minimax-h3",
+      "note": "可引用动作"
+    },
+    {
+      "m": "hailuo",
+      "c": "camera",
+      "state": "yes",
+      "verified_for": "H3",
+      "src": "minimax-h3",
+      "note": "可引用运镜与构图"
+    },
+    {
+      "m": "hailuo",
+      "c": "audio",
+      "state": "yes",
+      "verified_for": "H3",
+      "src": "minimax-h3",
+      "note": "原生立体声，含对白、音效、环境音与配乐"
+    },
+    {
+      "m": "hailuo",
+      "c": "lipsync",
+      "state": "unknown",
+      "verified_for": "H3"
+    },
+    {
+      "m": "hailuo",
+      "c": "extend",
+      "state": "unknown",
+      "verified_for": "H3"
+    },
+    {
+      "m": "hailuo",
+      "c": "openweights",
+      "state": "yes",
+      "verified_for": "H3",
+      "src": "minimax-hf",
+      "note": "⚠️ 2026-08-03 开放权重，但采用「MiniMax H3 Community License」自定义许可，不是标准开源协议 —— 商用前需自行核对条款"
+    },
+    {
+      "m": "vidu-q",
+      "c": "t2v",
+      "state": "yes",
+      "verified_for": "Q3",
+      "src": "vidu-q3",
+      "note": "三大模式之一"
+    },
+    {
+      "m": "vidu-q",
+      "c": "i2v",
+      "state": "yes",
+      "verified_for": "Q3",
+      "src": "vidu-q3",
+      "note": "三大模式之一"
+    },
+    {
+      "m": "vidu-q",
+      "c": "flf",
+      "state": "unknown",
+      "verified_for": "Q3",
+      "note": "⚠️ Q2 有 Start/End to Video，Q3 发布说明未重述 —— 按规则三之一退回未知"
+    },
+    {
+      "m": "vidu-q",
+      "c": "charref",
+      "state": "yes",
+      "verified_for": "Q3",
+      "src": "vidu-q3",
+      "note": "多主体一致性；参考生视频为三大模式之一"
+    },
+    {
+      "m": "vidu-q",
+      "c": "multiref",
+      "state": "yes",
+      "verified_for": "Q3",
+      "src": "vidu-q3",
+      "note": "reference-to-video"
+    },
+    {
+      "m": "vidu-q",
+      "c": "motion",
+      "state": "unknown",
+      "verified_for": "Q3"
+    },
+    {
+      "m": "vidu-q",
+      "c": "camera",
+      "state": "unknown",
+      "verified_for": "Q3",
+      "note": "⚠️ Q2 有运镜控制，Q3 未重述"
+    },
+    {
+      "m": "vidu-q",
+      "c": "audio",
+      "state": "yes",
+      "verified_for": "Q3",
+      "src": "vidu-q3",
+      "note": "业界首个单次生成 16 秒原生音视频"
+    },
+    {
+      "m": "vidu-q",
+      "c": "lipsync",
+      "state": "yes",
+      "verified_for": "Q3",
+      "src": "vidu-q3",
+      "note": "音视频同步且口型对齐"
+    },
+    {
+      "m": "vidu-q",
+      "c": "extend",
+      "state": "unknown",
+      "verified_for": "Q3"
+    },
+    {
+      "m": "vidu-q",
+      "c": "openweights",
+      "state": "no",
+      "verified_for": "Q3",
+      "note": "未见权重发布渠道，仅官网与 API"
+    },
+    {
+      "m": "runway",
+      "c": "t2v",
+      "state": "yes",
+      "verified_for": "Gen-4.5",
+      "src": "runway-rev"
+    },
+    {
+      "m": "runway",
+      "c": "i2v",
+      "state": "yes",
+      "verified_for": "Gen-4.5",
+      "src": "runway-rev"
+    },
+    {
+      "m": "runway",
+      "c": "flf",
+      "state": "unknown",
+      "verified_for": "Gen-4.5",
+      "note": "Gen-3 Turbo 可上传尾帧；Gen-4 与 4.5 均未见对应说明，未能确认是保留还是取消"
+    },
+    {
+      "m": "runway",
+      "c": "charref",
+      "state": "unknown",
+      "verified_for": "Gen-4.5",
+      "note": "Gen-4 时代有 reference consistency 与 Act-One，4.5 的公开说明未重述"
+    },
+    {
+      "m": "runway",
+      "c": "multiref",
+      "state": "unknown",
+      "verified_for": "Gen-4.5"
+    },
+    {
+      "m": "runway",
+      "c": "motion",
+      "state": "yes",
+      "verified_for": "Gen-4.5",
+      "src": "runway-rev",
+      "note": "精确运动控制；Gen-4 的 Motion Brush 3.0 一脉"
+    },
+    {
+      "m": "runway",
+      "c": "camera",
+      "state": "yes",
+      "verified_for": "Gen-4.5",
+      "src": "runway-rev",
+      "note": "复杂镜头运动控制"
+    },
+    {
+      "m": "runway",
+      "c": "audio",
+      "state": "no",
+      "verified_for": "Gen-4.5",
+      "src": "runway-rev",
+      "note": "⚠️ 不是模型原生能力：Gen-4 本体不生成音频、成片默认静音；Gen-4.5 的「集成音频」是接入 ElevenLabs 得来的"
+    },
+    {
+      "m": "runway",
+      "c": "lipsync",
+      "state": "unknown",
+      "verified_for": "Gen-4.5"
+    },
+    {
+      "m": "runway",
+      "c": "extend",
+      "state": "unknown",
+      "verified_for": "Gen-4.5"
+    },
+    {
+      "m": "runway",
+      "c": "openweights",
+      "state": "no",
+      "verified_for": "Gen-4.5",
+      "note": "闭源商用平台，未见权重发布"
+    },
+    {
+      "m": "vidu-s",
+      "c": "rt-fps",
+      "state": "yes",
+      "verified_for": "S1",
+      "src": "vidu-s1-paper",
+      "note": "540p / 3 步配置下，RTX 5090 上平均 42 FPS，越过 30 FPS 实时播放线"
+    },
+    {
+      "m": "vidu-s",
+      "c": "rt-stream",
+      "state": "unknown",
+      "verified_for": "S1",
+      "note": "控制信号是语音与提示词，未见「吃直播视频流」的说明 —— 与 Lucy 的形态不同"
+    },
+    {
+      "m": "vidu-s",
+      "c": "rt-interact",
+      "state": "yes",
+      "verified_for": "S1",
+      "src": "vidu-s1-paper",
+      "note": "生成过程中用语音作为显式控制信号，可干预后续画面"
+    },
+    {
+      "m": "vidu-s",
+      "c": "rt-endless",
+      "state": "yes",
+      "verified_for": "S1",
+      "src": "vidu-s1-paper",
+      "note": "无限长实时生成，不出现模糊、漂移与画面崩坏"
+    },
+    {
+      "m": "vidu-s",
+      "c": "openweights",
+      "state": "unknown",
+      "verified_for": "S1",
+      "src": "vidu-s1-gh",
+      "note": "有官方 GitHub 仓库与 arXiv 论文，但未能确认仓库内是否发布权重、以及许可条款 —— 这一格需要人工核验"
+    },
+    {
+      "m": "lucy",
+      "c": "rt-fps",
+      "state": "yes",
+      "verified_for": "Lucy 2",
+      "src": "lucy-2",
+      "note": "1080p / 30fps 实时输出，无缓冲"
+    },
+    {
+      "m": "lucy",
+      "c": "rt-stream",
+      "state": "yes",
+      "verified_for": "Lucy 2",
+      "src": "lucy-2",
+      "note": "作用于实时视频流，逐帧随运动、光照、场景变化生成"
+    },
+    {
+      "m": "lucy",
+      "c": "rt-interact",
+      "state": "yes",
+      "verified_for": "Lucy 2",
+      "src": "lucy-2"
+    },
+    {
+      "m": "lucy",
+      "c": "rt-endless",
+      "state": "yes",
+      "verified_for": "Lucy 2",
+      "src": "lucy-2",
+      "note": "无重置、无预设时长上限"
+    },
+    {
+      "m": "lucy",
+      "c": "openweights",
+      "state": "unknown",
+      "verified_for": "Lucy 2",
+      "note": "未见权重发布说明，也未见明确的闭源声明"
+    },
+    {
+      "m": "gemini-omni",
+      "c": "t2v",
+      "state": "yes",
+      "verified_for": "Flash",
+      "src": "gemini-omni"
+    },
+    {
+      "m": "gemini-omni",
+      "c": "i2v",
+      "state": "yes",
+      "verified_for": "Flash",
+      "src": "gemini-omni"
+    },
+    {
+      "m": "gemini-omni",
+      "c": "flf",
+      "state": "unknown",
+      "verified_for": "Flash"
+    },
+    {
+      "m": "gemini-omni",
+      "c": "charref",
+      "state": "yes",
+      "verified_for": "Flash",
+      "src": "omni-rev",
+      "note": "角色一致性"
+    },
+    {
+      "m": "gemini-omni",
+      "c": "multiref",
+      "state": "yes",
+      "verified_for": "Flash",
+      "src": "omni-rev",
+      "note": "可同时吃文本、图片、音频、视频作参考"
+    },
+    {
+      "m": "gemini-omni",
+      "c": "motion",
+      "state": "unknown",
+      "verified_for": "Flash"
+    },
+    {
+      "m": "gemini-omni",
+      "c": "camera",
+      "state": "unknown",
+      "verified_for": "Flash"
+    },
+    {
+      "m": "gemini-omni",
+      "c": "audio",
+      "state": "yes",
+      "verified_for": "Flash",
+      "src": "gemini-omni",
+      "note": "出片带音频"
+    },
+    {
+      "m": "gemini-omni",
+      "c": "lipsync",
+      "state": "unknown",
+      "verified_for": "Flash"
+    },
+    {
+      "m": "gemini-omni",
+      "c": "extend",
+      "state": "unknown",
+      "verified_for": "Flash",
+      "note": "⚠️ 支持用自然语言逐条改片（对话式编辑），但那不是「续接延长」，两回事"
+    },
+    {
+      "m": "gemini-omni",
+      "c": "openweights",
+      "state": "no",
+      "verified_for": "Flash",
+      "note": "闭源，仅通过 Gemini API / AI Studio 提供"
+    }
   ]
 }
