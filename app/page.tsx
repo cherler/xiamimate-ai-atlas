@@ -3,6 +3,7 @@
 import { useState } from "react";
 import Bipartite, { type Sel } from "@/components/Bipartite";
 import Evolution from "@/components/Evolution";
+import Search from "@/components/Search";
 import Link from "next/link";
 import { Fact, MARK, Rich, TONE } from "@/components/Fact";
 import { atlas, avail, capsOf, cell, compare, extendedOf, label, modelsOf, tally, transparency, type Klass } from "@/lib/atlas";
@@ -135,6 +136,10 @@ export default function Page() {
           <a href="#transparency" className="underline hover:text-ink">下面的分布</a>。
         </p>
       </header>
+
+      <section>
+        <Search />
+      </section>
 
       <section className="bg-card border border-rule rounded-xl p-4">
         <Bipartite sel={sel} onSel={setSel} />
