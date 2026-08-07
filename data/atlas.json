@@ -1,8 +1,10 @@
 {
-  "version": "0.3",
+  "version": "0.4",
   "generated_at": "2026-08-07",
   "note": "第二版。按 data/ontology.md 的四条规则重录：品类分轨（clip / realtime）、一等实体是 Family、版本升级后未重新核验的格子退回 unknown、Core 每轨 ≤10。全部由 Agent 从公开来源录入，未经人工核验（§59.3 转述层）。 模型按 version_as_of 降序排列（最新在最前）；status 标出生命周期：active / superseded / discontinued。",
   "changelog": [
+    "v0.4 Decart Lucy 2→2.5（官网首屏「LUCY 2.5 IS LIVE」）。**这次是采集管线自己抓到的版本腐烂，不是用户指出来的** —— 管线开始工作了",
+    "v0.4 Kling 的 API 更新日志实测是 SPA 空壳（43 字），而 atlas 里有 5 格署了它 —— 已改 spa 重抓，正文 4000 字，最新条目是 2026-08-07 当天；这 5 格待用真正文重核",
     "v0.3 加 status 生命周期字段。**Sora 2 已终止**：App 2026-04-26 关停、API 2026-09-24 停、OpenAI 无继任产品 —— 上一版还把它当在售模型列着，照表选型的人会撞墙",
     "v0.3 又抓到三个过期：Google 主力已移到 Gemini Omni Flash（2026-05）、Vidu Q2→Q3（2026-01）。加上 v0.2 修的三个，8 个 Family 里 6 个曾经是错的",
     "v0.3 模型按 version_as_of 降序排 —— 排序本身就是信息，最新的在最前",
@@ -251,9 +253,10 @@
       "family": "Decart Lucy",
       "zh": "Lucy",
       "vendor": "Decart",
-      "version": "Lucy 2",
-      "version_as_of": "2026-01",
-      "status": "active"
+      "version": "Lucy 2.5",
+      "version_as_of": "2026-08-07",
+      "status": "active",
+      "status_note": "官网首屏标 LUCY 2.5 IS LIVE；2.5 的具体能力差异待逐条重核"
     }
   ],
   "sources": {
@@ -366,6 +369,11 @@
       "url": "https://www.buildfastwithai.com/blogs/gemini-omni-flash-review-google-ai-video-model-2026",
       "tier": "third-party",
       "name": "Gemini Omni Flash 评测"
+    },
+    "decart-site": {
+      "url": "https://decart.ai/",
+      "tier": "official",
+      "name": "Decart 官网（首屏标注当前版本）"
     }
   },
   "support": [
@@ -1053,39 +1061,37 @@
       "m": "lucy",
       "c": "rt-fps",
       "state": "yes",
-      "verified_for": "Lucy 2",
-      "src": "lucy-2",
-      "note": "1080p / 30fps 实时输出，无缓冲"
+      "verified_for": "Lucy 2.5",
+      "src": "decart-site",
+      "note": "官网首屏：real-time, infinite video。2.5 的具体帧率与分辨率待逐条重核"
     },
     {
       "m": "lucy",
       "c": "rt-stream",
-      "state": "yes",
-      "verified_for": "Lucy 2",
-      "src": "lucy-2",
-      "note": "作用于实时视频流，逐帧随运动、光照、场景变化生成"
+      "state": "unknown",
+      "verified_for": "Lucy 2.5",
+      "note": "⚠️ Lucy 2→2.5 升级后未重新核验，按规则三之一退回未知"
     },
     {
       "m": "lucy",
       "c": "rt-interact",
-      "state": "yes",
-      "verified_for": "Lucy 2",
-      "src": "lucy-2"
+      "state": "unknown",
+      "verified_for": "Lucy 2.5",
+      "note": "⚠️ Lucy 2→2.5 升级后未重新核验，按规则三之一退回未知"
     },
     {
       "m": "lucy",
       "c": "rt-endless",
-      "state": "yes",
-      "verified_for": "Lucy 2",
-      "src": "lucy-2",
-      "note": "无重置、无预设时长上限"
+      "state": "unknown",
+      "verified_for": "Lucy 2.5",
+      "note": "⚠️ Lucy 2→2.5 升级后未重新核验，按规则三之一退回未知"
     },
     {
       "m": "lucy",
       "c": "openweights",
       "state": "unknown",
-      "verified_for": "Lucy 2",
-      "note": "未见权重发布说明，也未见明确的闭源声明"
+      "verified_for": "Lucy 2.5",
+      "note": "⚠️ Lucy 2→2.5 升级后未重新核验，按规则三之一退回未知"
     },
     {
       "m": "gemini-omni",

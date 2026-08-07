@@ -44,7 +44,7 @@
     {
       "id": "kling-api-updates",
       "tier": "S",
-      "kind": "html",
+      "kind": "spa",
       "vendor": "kling",
       "name": "Kling AI · API 更新日志",
       "url": "https://kling.ai/document-api/updates/api",
@@ -55,13 +55,18 @@
         "version"
       ],
       "expect": [
-        "API"
-      ]
+        "首尾帧",
+        "lip",
+        "multi_shot",
+        "2026",
+        "更新"
+      ],
+      "note": "**实测只抓到 43 字的空壳（'KlingAI Open Platform'×2）。而 atlas.json 里有 5 格 Kling 的能力署了这个 URL 当来源** —— 那些结论其实来自搜索摘要。这是本项目最不能犯的错：署了一个自己没读过、且根本没内容的官方链接。已改 spa 重抓"
     },
     {
       "id": "kling-site",
       "tier": "S",
-      "kind": "html",
+      "kind": "spa",
       "vendor": "kling",
       "name": "Kling AI 官网",
       "url": "https://klingai.com/",
@@ -144,7 +149,8 @@
       "good_for": [
         "openweights",
         "version"
-      ]
+      ],
+      "note": "实测 releases 为空数组：Wan 不用 GitHub Release 发版，权重走 HF。**这条源没有信息量**，openweights 以 wan-hf 为准"
     },
     {
       "id": "wan-hf",
@@ -275,7 +281,8 @@
       "refresh_days": 14,
       "good_for": [
         "openweights"
-      ]
+      ],
+      "note": "实测 releases 为空数组 —— 有仓库不等于有发布。Vidu S1 的 openweights 维持 unknown 是对的"
     },
     {
       "id": "pika-site",
@@ -625,6 +632,72 @@
         "Seedance",
         "Seed"
       ]
+    },
+    {
+      "id": "apiyi-models",
+      "tier": "S",
+      "kind": "spa",
+      "vendor": "",
+      "name": "APIYI · 模型与文档（API 聚合商）",
+      "url": "https://help.apiyi.com/",
+      "refresh_days": 7,
+      "good_for": [
+        "availability",
+        "pricing"
+      ],
+      "expect": [
+        "Sora",
+        "Kling",
+        "Veo",
+        "模型"
+      ],
+      "note": "项目负责人补充。国内 API 聚合商 —— 「去哪用」矩阵里中文侧的可用性信号，fal / Replicate 覆盖不到这一块。实测 help.apiyi.com 抓到的是博客列表，不是模型清单 —— 待用 sweep-nav 找它的模型/价格页，再把 url 换掉"
+    },
+    {
+      "id": "arxiv-worldmodel",
+      "tier": "S",
+      "kind": "atom",
+      "vendor": "",
+      "name": "arXiv · world model / 实时视频生成",
+      "url": "http://export.arxiv.org/api/query?search_query=abs:%22world%20model%22+AND+abs:%22video%22&sortBy=submittedDate&sortOrder=descending&max_results=40",
+      "refresh_days": 7,
+      "good_for": [
+        "discovery"
+      ],
+      "expect": [
+        "world"
+      ],
+      "note": "专门补 realtime 轨的盲区 —— 这一类模型先在论文里出现，不在榜单上"
+    },
+    {
+      "id": "techcrunch-ai",
+      "tier": "B",
+      "kind": "atom",
+      "vendor": "",
+      "name": "TechCrunch · AI（RSS）",
+      "url": "https://techcrunch.com/category/artificial-intelligence/feed/",
+      "refresh_days": 3,
+      "good_for": [
+        "discovery"
+      ],
+      "note": "Decart Lucy 2 是 Forbes/TechCrunch 这类媒体先报的，榜单与 HF 都没有 —— 科技媒体是 realtime 与闭源新品类的主要曝光渠道"
+    },
+    {
+      "id": "decart-blog",
+      "tier": "S",
+      "kind": "spa",
+      "vendor": "lucy",
+      "name": "Decart · Publications 索引",
+      "url": "https://decart.ai/",
+      "refresh_days": 7,
+      "good_for": [
+        "capability",
+        "version"
+      ],
+      "expect": [
+        "Lucy",
+        "real-time"
+      ]
     }
   ],
   "$missing": [
@@ -642,5 +715,11 @@
   "$silent_failure": "抓取成功 ≠ 抓到内容。AA 榜单与 Vidu 文档都是 SPA，纯 HTTP 抓回来的 4000 字全是导航壳，监视器却报「无变化」—— **静默的成功比失败更危险**，因为失败会喊，成功不会。故给源加 expect 关键词，抓到但一个都不含就报警。 又一例：Runway 的 changelog 抓回来是整页 cookie 同意书，而 expect 里的「Gen」恰好被同意书里的词命中，自检没拦住 —— **关键词要挑那种只可能出现在正文里的**（改成 Gen-4 / Act-One / Aleph）。",
   "$corrections": [
     "2026-08-07：曾断言「Runway 没有可 diff 的公开更新页」，**错**。runway.com/changelog 与 docs.dev.runwayml.com/guides/models/ 都在，沿导航一扫就找到。教训：说一个源「不存在」之前，必须先做一遍导航扫描 —— 搜索搜不到不等于没有。"
-  ]
+  ],
+  "$blind_spot": {
+    "发现": "Decart / Lucy 在 42 个源里**零命中**：AA 榜没有、HF 没有、Epoch 没有、Futurepedia 没有。",
+    "原因": "现有发现源全是围绕「离线出片」这一个品类建的 —— 榜单比的是生成出来的片子（实时流式模型没法进盲测 Elo）、HF 收的是开源权重（Lucy 闭源）、Epoch 记的是训练算力且分类里根本没有视频。**三重不可见。**",
+    "后果": "如果只跑现有管线，整个 realtime 轨会被系统性漏掉 —— 它是项目负责人手工点名才进来的，watcher 再跑一百遍也发现不了。",
+    "补救": "加两类机器可读源：① arXiv 的 world model / real-time video 查询（realtime 品类先在论文里出现）；② 科技媒体 RSS（Lucy 2 是 Forbes 先报的，不是榜单）。"
+  }
 }

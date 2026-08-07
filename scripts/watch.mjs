@@ -178,8 +178,10 @@ for (const s of list) {
     const changed = prev && prev.digest !== fp.digest;
     // **抓到了但没内容**：HTTP 200、指纹稳定、报「无变化」，可正文里一个该有的词都没有。
     // SPA 的导航壳就长这样。失败会喊，静默的成功不会 —— 所以要专门喊一声。
-    const hay = (fp.text ?? "") + fp.items.join(" ");
-    const hollow = s.expect?.length ? !s.expect.some((w) => hay.includes(w)) : false;
+    // 大小写要统一：arxiv 的条目里是 "World"，我拿小写 "world" 去 includes，永远不命中。
+    // 一个会误报的自检，比没有自检更糟 —— 它会让人开始忽略警告。
+    const hay = ((fp.text ?? "") + fp.items.join(" ")).toLowerCase();
+    const hollow = s.expect?.length ? !s.expect.some((w) => hay.includes(w.toLowerCase())) : false;
     // 列表型的源能算出「新增了哪些条目」—— 这才是能直接写进周报的东西
     const added = prev?.items && fp.items.length
       ? fp.items.filter((i) => !prev.items.includes(i)).map((i) => i.split("\t")[0])
