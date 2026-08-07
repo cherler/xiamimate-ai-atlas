@@ -2,10 +2,29 @@
 
 import { useState } from "react";
 import Bipartite, { type Sel } from "@/components/Bipartite";
-import { atlas, capsOf, cell, compare, label, modelsOf, tally, type Klass, type State } from "@/lib/atlas";
+import { atlas, capsOf, cell, compare, label, modelsOf, tally, transparency, type Klass, type State } from "@/lib/atlas";
 
 const MARK: Record<State, string> = { yes: "✅", no: "❌", unknown: "⬜" };
 const TONE: Record<State, string> = { yes: "text-yes", no: "text-no", unknown: "text-unknown" };
+
+/** 生命周期。**能力对不代表能用** —— 一个已停服的模型和在售的并排站着，是有害的。 */
+const STATUS: Record<string, { tag: string; cls: string }> = {
+  discontinued: { tag: "已停服", cls: "text-no line-through" },
+  superseded: { tag: "非主力", cls: "text-muted" },
+};
+
+/** 「怎么个能法」的角标。原生不标，另一个接口才标 —— 默认值不占视觉。 */
+function ViaTag({ via }: { via?: string }) {
+  if (via !== "separate-task") return null;
+  return (
+    <span
+      className="ml-1.5 px-1.5 py-px rounded bg-unknown/15 text-unknown text-[11px] align-middle"
+      title="平台的另一个接口：能做，但要再调一次，且通常只能作用于已生成的视频"
+    >
+      另一个接口
+    </span>
+  );
+}
 
 /**
  * 每条事实旁边都必须看得见：来源、核验日期、核验的是哪个版本、以及**是谁录的**。
@@ -19,8 +38,9 @@ function Fact({ m, c }: { m: string; c: string }) {
   const cap = atlas.capabilities.find((x) => x.id === c)!;
   return (
     <div className="border-t border-rule py-3 flex gap-4 text-[15px]">
-      <span className={`${TONE[f.state]} font-semibold shrink-0 w-[132px]`}>
+      <span className={`${TONE[f.state]} font-semibold shrink-0 w-[190px]`}>
         {MARK[f.state]} {cap.zh}
+        <ViaTag via={f.via} />
       </span>
       <div className="min-w-0 flex-1">
         {f.note && <p className="text-ink leading-relaxed">{f.note}</p>}
@@ -57,17 +77,27 @@ function Matrix({ k, title, blurb }: { k: Klass; title: string; blurb: string })
     <section>
       <h2 className="text-[22px] font-semibold mb-1">{title}</h2>
       <p className="text-muted text-[14px] mb-3 max-w-[860px] leading-relaxed">{blurb}</p>
+      <p className="text-muted text-[13px] mb-2">
+        <b className="text-unknown">*</b> = 平台的另一个接口：能做，但要再调一次，且通常只能作用于<b className="text-ink">已生成的</b>视频。
+        对「能不能做」两者都是能，对「是不是一步做完」差很多。
+      </p>
       <div className="overflow-x-auto border border-rule rounded-xl bg-card">
         <table className="w-full text-[14px] border-collapse">
           <thead>
             <tr className="border-b border-rule">
               <th className="text-left font-semibold p-3 sticky left-0 bg-card">能力</th>
-              {ms.map((m) => (
-                <th key={m.id} className="p-3 font-semibold text-[13px] whitespace-nowrap">
-                  {label(m)}
-                  <span className="block font-normal text-muted text-[11px]">{m.version_as_of}</span>
-                </th>
-              ))}
+              {ms.map((m) => {
+                const st = m.status && m.status !== "active" ? STATUS[m.status] : null;
+                return (
+                  <th key={m.id} className="p-3 font-semibold text-[13px] whitespace-nowrap align-bottom">
+                    <span className={st?.cls ?? ""} title={m.status_note ?? ""}>
+                      {label(m)}
+                    </span>
+                    <span className="block font-normal text-muted text-[11px]">{m.version_as_of}</span>
+                    {st && <span className={`block text-[11px] font-medium ${st.cls.replace("line-through", "")}`}>{st.tag}</span>}
+                  </th>
+                );
+              })}
             </tr>
           </thead>
           <tbody>
@@ -82,6 +112,11 @@ function Matrix({ k, title, blurb }: { k: Klass; title: string; blurb: string })
                   return (
                     <td key={m.id} className="p-3 text-center" title={f.note ?? ""}>
                       <span className={TONE[f.state]}>{MARK[f.state]}</span>
+                      {f.via === "separate-task" && (
+                        <span className="text-unknown text-[11px] align-super" title="平台的另一个接口，不是生成时的一步">
+                          *
+                        </span>
+                      )}
                     </td>
                   );
                 })}
@@ -114,8 +149,9 @@ export default function Page() {
           其中 <b className="text-yes">{t.yes} 格有明确来源</b>、<b className="text-no">{t.no} 格明确不支持</b>、
           <b className="text-unknown">{t.unknown} 格官方没说</b>。
           <br />
-          <b className="text-unknown">⬜ 不是我们没查，是查了公开渠道找不到。</b>
-          这一列本身就是这张表最值得看的部分。
+          九家已全部用<b className="text-ink">厂商官方文档</b>逐格核过，{Math.round((85 / t.total) * 100)}% 的格子挂官方来源。
+          <b className="text-unknown"> ⬜ 高度集中在少数几家</b> —— 别看总数，看
+          <a href="#transparency" className="underline hover:text-ink">下面的分布</a>。
         </p>
       </header>
 
@@ -216,14 +252,62 @@ export default function Page() {
         blurb="边生成边看，生成过程中可以干预，时长不预先确定。它们和上面那张表不共用能力轴 —— 对它们来说「视频延长」没有意义（本来就没有终点），对上面那些模型「延迟」也没有意义。硬并成一张表会把两边都讲错。"
       />
 
+      <section>
+        <h2 id="transparency" className="text-[22px] font-semibold mb-1 scroll-mt-6">透明度：「官方没说」是分化的，不是普遍的</h2>
+        <p className="text-muted text-[14px] mb-4 max-w-[880px] leading-relaxed">
+          九家都已用厂商官方文档逐格核过。<b className="text-ink">剩下的 ⬜ 就是这家没公开说的部分</b> ——
+          不需要我们主观打分，它是从公开事实算出来的、可复核的数。
+          <br />
+          注意<b className="text-ink">别看总数</b>：报「{tally("clip").unknown} 格官方没说」会让人以为厂商普遍不透明，
+          而实际上有官方能力文档的那几家只有 1~3 格。
+        </p>
+        <div className="flex flex-col gap-2">
+          {transparency("clip").map(({ model, unknown, caps }) => (
+            <div key={model.id} className="flex items-center gap-3 text-[14px]">
+              <span className="w-[190px] shrink-0 truncate">
+                {label(model)}
+                {model.status && model.status !== "active" && (
+                  <span className="text-muted text-[11px] ml-2">{STATUS[model.status]?.tag}</span>
+                )}
+              </span>
+              <span className="w-[52px] shrink-0 text-right text-muted tabular-nums">
+                {unknown}/{caps}
+              </span>
+              <span className="flex-1 h-[14px] bg-rule/50 rounded-sm overflow-hidden">
+                <span
+                  className="block h-full bg-unknown/80"
+                  style={{ width: `${(unknown / caps) * 100}%` }}
+                />
+              </span>
+            </div>
+          ))}
+        </div>
+        <p className="text-muted text-[13px] mt-3">
+          Wan 那 10 格的原因很具体：<b className="text-ink">wan.video 取不到任何可抓链接，官方没有可核验的能力文档</b> ——
+          九家里唯一一个。Sora 的 6 格则是因为已停服、且页面对我们的采集器返回 403。
+        </p>
+      </section>
+
       <footer className="border-t border-rule pt-5 text-[13px] text-muted leading-relaxed">
         数据版本 {atlas.version} · 核验于 {atlas.generated_at} ·
         <b className="text-unknown"> 全部为机器录入，未经人工核验</b> · xiamimate.com/atlas
         <br />
         {atlas.note}
         <ul className="mt-2 list-disc pl-5">
+          {/* changelog 里用 **…** 标重点是给读源码的人看的；页面上要么加粗要么去掉，
+              不能把星号原样印出来 */}
           {atlas.changelog.map((l) => (
-            <li key={l}>{l}</li>
+            <li key={l}>
+              {l.split(/\*\*(.+?)\*\*/g).map((part, i) =>
+                i % 2 ? (
+                  <b key={i} className="text-ink">
+                    {part}
+                  </b>
+                ) : (
+                  part
+                ),
+              )}
+            </li>
           ))}
         </ul>
       </footer>

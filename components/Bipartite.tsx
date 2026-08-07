@@ -2,6 +2,12 @@
 
 import { atlas, capsOf, cell, compare, label, modelsOf, modelsWith, type State } from "@/lib/atlas";
 
+/** 生命周期在图上必须看得见 —— 一个已停服的模型和在售的并排站着，是有害的。 */
+const STATUS = {
+  discontinued: { tag: "已停服", color: "#b03a2c", strike: true },
+  superseded: { tag: "非主力", color: "#6b716c", strike: false },
+} as const;
+
 /**
  * 模型 ↔ 能力 二部图。
  *
@@ -18,7 +24,7 @@ const W = 1160;
 const H = 690;
 const TOP = 56;
 // 留出底部那行「已折叠」说明的高度 —— 否则最后一个模型节点会被文字压住
-const BOT = 618;
+const BOT = 598;
 const MX = 44; // 模型列左边界
 const MW = 218;
 const CX = 700; // 能力列左边界
@@ -45,29 +51,40 @@ export default function Bipartite({ sel, onSel }: { sel: Sel; onSel: (s: Sel) =>
   const picked = sel.kind === "models" ? sel.ids : [];
   const cmp = picked.length === 2 ? compare(picked[0], picked[1]) : null;
 
-  /** 一条边该画成什么样。返回 null 表示不画。 */
+  /**
+   * 一条边该画成什么样。返回 null 表示不画。
+   *
+   * 三种线型对应三件不同的事：
+   *   实线 = 模型原生（同一次调用出结果）
+   *   点线 = 平台另一个接口（能做，但要再调一次）
+   *   虚线 = 官方没说
+   * **点线和实线的区别不是装饰** —— 它是「一步做完」和「两步做完」的区别。
+   */
   function edge(mId: string, cId: string) {
-    const st = cell(mId, cId).state;
+    const f = cell(mId, cId);
+    const st = f.state;
     if (st === "no") return null;
+    const sep = f.via === "separate-task";
+    const solid = sep ? "1.5 3" : "";
 
     if (sel.kind === "none") {
-      return st === "yes" ? { color: YES, w: 1.1, op: 0.13, dash: "" } : null;
+      return st === "yes" ? { color: YES, w: 1.1, op: 0.13, dash: solid } : null;
     }
     if (sel.kind === "cap") {
       if (cId !== sel.id) return null;
       return st === "yes"
-        ? { color: YES, w: 2.4, op: 0.9, dash: "" }
+        ? { color: YES, w: 2.4, op: 0.9, dash: solid }
         : { color: UNK, w: 1.8, op: 0.75, dash: "7 5" };
     }
     if (!picked.includes(mId)) return null;
     if (cmp) {
       const shared = cmp.both.includes(cId);
       if (st === "yes")
-        return { color: shared ? YES : "#1f4d8f", w: shared ? 2.6 : 2.2, op: 0.9, dash: shared ? "" : "" };
+        return { color: shared ? YES : "#1f4d8f", w: shared ? 2.6 : 2.2, op: 0.9, dash: solid };
       return { color: UNK, w: 1.5, op: 0.5, dash: "7 5" };
     }
     return st === "yes"
-      ? { color: YES, w: 2.4, op: 0.88, dash: "" }
+      ? { color: YES, w: 2.4, op: 0.88, dash: solid }
       : { color: UNK, w: 1.6, op: 0.6, dash: "7 5" };
   }
 
@@ -105,6 +122,7 @@ export default function Bipartite({ sel, onSel }: { sel: Sel; onSel: (s: Sel) =>
           (sel.kind === "cap" && modelsWith(sel.id).includes(m.id)) ||
           (sel.kind === "models" && picked.includes(m.id));
         const sole = picked.length === 1 && picked[0] === m.id;
+        const st = m.status && m.status !== "active" ? STATUS[m.status] : null;
         return (
           <g
             key={m.id}
@@ -127,11 +145,19 @@ export default function Bipartite({ sel, onSel }: { sel: Sel; onSel: (s: Sel) =>
               stroke={on || sole ? "#171b18" : "#d3d6ce"}
               strokeWidth={1.4}
             />
-            <text x={MX + 16} y={my(i) - 3} fontSize={19} fontWeight={600} fill={on ? "#f7f8f5" : "#171b18"}>
+            <text
+              x={MX + 16}
+              y={my(i) - 3}
+              fontSize={19}
+              fontWeight={600}
+              fill={on ? "#f7f8f5" : st ? st.color : "#171b18"}
+              textDecoration={st?.strike ? "line-through" : undefined}
+            >
               {label(m)}
             </text>
             <text x={MX + 16} y={my(i) + 16} fontSize={13} fill={on ? "#a9b0a8" : "#6b716c"}>
-              {m.vendor} · 该版本 {m.version_as_of}
+              {m.version_as_of}
+              {st ? ` · ${st.tag}` : ` · ${m.vendor.split(" ")[0]}`}
             </text>
           </g>
         );
@@ -202,6 +228,15 @@ export default function Bipartite({ sel, onSel }: { sel: Sel; onSel: (s: Sel) =>
       <text x={CX + CW + 8} y={26} fontSize={11} fill="#6b716c">
         支持数 / 没说
       </text>
+
+      <g transform={`translate(${MX}, ${H - 30})`} fontSize={12} fill="#6b716c">
+        <line x1={0} y1={-4} x2={26} y2={-4} stroke={YES} strokeWidth={2.2} />
+        <text x={32} y={0}>原生（一步做完）</text>
+        <line x1={150} y1={-4} x2={176} y2={-4} stroke={YES} strokeWidth={2.2} strokeDasharray="1.5 3" />
+        <text x={182} y={0}>另一个接口（要再调一次）</text>
+        <line x1={360} y1={-4} x2={386} y2={-4} stroke={UNK} strokeWidth={1.8} strokeDasharray="7 5" />
+        <text x={392} y={0}>官方没说</text>
+      </g>
 
       <g opacity={0.85}>
         <text x={MX} y={H - 8} fontSize={13} fill="#6b716c">
