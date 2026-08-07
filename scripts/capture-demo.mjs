@@ -76,16 +76,22 @@ await moveClick(capText("动作复刻"), 2600);
 // 二、点另一个能力 → 「官方没说」的虚线是主角
 await moveClick(capText("开源权重"), 2800);
 
-// 三、退出选中，点两个模型 → Compare
+// 三、退出选中，点两个模型 → Compare（挑 Kling 与 LTX：一闭源一开源，差异最大）
 await moveClick(capText("开源权重"), 500);
 await moveClick(modelText("Kling 3.0"), 900);
-await moveClick(modelText("Runway Gen-4"), 2600);
+await moveClick(modelText("LTX 2.3"), 2600);
 
 // 四、滚到证据：来源 + 官方角标 + 核验日期 + 「机器录入」
 await page.mouse.wheel(0, 700);
 await page.waitForTimeout(2400);
 await page.mouse.wheel(0, 900);
 await page.waitForTimeout(2200);
+
+// 五、滚到透明度分布 —— 这一版最值钱的一屏。
+// **滚到元素上，不要算像素**：算出来的滚动量在内容一改就失准，
+// 而 #transparency 这个锚点是我在页面里留的，改版也跟着走。
+await page.evaluate(() => document.querySelector("#transparency")?.scrollIntoView({ behavior: "smooth", block: "start" }));
+await page.waitForTimeout(3200);
 
 await ctx.close();
 await browser.close();
