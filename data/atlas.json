@@ -1,8 +1,10 @@
 {
-  "version": "0.5",
+  "version": "0.6",
   "generated_at": "2026-08-07",
   "note": "第二版。按 data/ontology.md 的四条规则重录：品类分轨（clip / realtime）、一等实体是 Family、版本升级后未重新核验的格子退回 unknown、Core 每轨 ≤10。全部由 Agent 从公开来源录入，未经人工核验（§59.3 转述层）。 模型按 version_as_of 降序排列（最新在最前）；status 标出生命周期：active / superseded / discontinued。",
   "changelog": [
+    "v0.6 用 Vidu 官方 function-list / model-map / update 三页重核 11 格：又错 4 格，**其中 3 格是假阴性**（首尾帧/动作复刻/视频延长，官方都有独立 API，我却标成「官方没说」）。加上 Kling 那轮，⬜ 那一列已被证明严重掺假",
+    "v0.6 新增 via 字段区分「模型原生」与「平台另一个接口」—— Kling 与 Vidu 都出现同一结构（Lip Sync / Motion Sync / Video Extension 都是独立任务，不是生成时的一步），按「第二家出现才改架构」的规矩，现在改",
     "v0.5 用 Kling 官方更新日志全文（171 条）重核 11 格：4 格是错的。两个方向都有错 —— 角色参考/多参考被我误判为「官方没说」（因为 Kling 管它叫 Element，不叫 Character Reference），运镜/视频延长则被我误判为「支持」（官方明确说明停留在 V1.5/V1.6 时代，3.0 没有重述）",
     "v0.4 Decart Lucy 2→2.5（官网首屏「LUCY 2.5 IS LIVE」）。**这次是采集管线自己抓到的版本腐烂，不是用户指出来的** —— 管线开始工作了",
     "v0.4 Kling 的 API 更新日志实测是 SPA 空壳（43 字），而 atlas 里有 5 格署了它 —— 已改 spa 重抓，正文 4000 字，最新条目是 2026-08-07 当天；这 5 格待用真正文重核",
@@ -322,8 +324,9 @@
       "zh": "Vidu Q",
       "vendor": "生数 Shengshu",
       "version": "Q3",
-      "version_as_of": "2026-01-30",
-      "status": "active"
+      "version_as_of": "2026-04-13",
+      "status": "active",
+      "status_note": "Q3 是一个系列而非单一模型：viduq3-pro / -mix / -drama / -ad / -turbo 五个并列（官方 Model Map）。2026-02-11 起陆续进 API，2026-04-13 补齐 reference2video"
     },
     {
       "id": "veo",
@@ -460,11 +463,6 @@
       "tier": "official",
       "name": "OpenAI 帮助中心 · Sora 停止服务说明"
     },
-    "vidu-q3": {
-      "url": "https://prtimes.jp/main/html/rd/p/000000005.000160300.html",
-      "tier": "official",
-      "name": "生数科技官方新闻稿 · Vidu Q3 发布"
-    },
     "omni-rev": {
       "url": "https://www.buildfastwithai.com/blogs/gemini-omni-flash-review-google-ai-video-model-2026",
       "tier": "third-party",
@@ -474,6 +472,21 @@
       "url": "https://decart.ai/",
       "tier": "official",
       "name": "Decart 官网（首屏标注当前版本）"
+    },
+    "vidu-fl": {
+      "url": "https://platform.vidu.com/docs/function-list",
+      "tier": "official",
+      "name": "Vidu 平台 · Function List（官方功能清单）"
+    },
+    "vidu-mm": {
+      "url": "https://platform.vidu.com/docs/model-map",
+      "tier": "official",
+      "name": "Vidu 平台 · Model Map（官方模型清单）"
+    },
+    "vidu-up": {
+      "url": "https://platform.vidu.com/docs/update",
+      "tier": "official",
+      "name": "Vidu 平台 · Update Notice（官方更新日志）"
     }
   },
   "support": [
@@ -483,7 +496,8 @@
       "state": "yes",
       "verified_for": "3.0",
       "note": "2026-06-17「Kling 3.0 Turbo 正式发布」：同时支持文生视频与图生视频，720P/1080P",
-      "src": "kling-api"
+      "src": "kling-api",
+      "via": "native"
     },
     {
       "m": "kling",
@@ -491,7 +505,8 @@
       "state": "yes",
       "verified_for": "3.0",
       "note": "同上；另有 Multi-Image to Video 一系列条目",
-      "src": "kling-api"
+      "src": "kling-api",
+      "via": "native"
     },
     {
       "m": "kling",
@@ -499,7 +514,8 @@
       "state": "yes",
       "verified_for": "3.0",
       "note": "2026-05-07：多镜头视频可定义首尾帧，并解除了「多镜头」与「首尾帧」的互斥。⚠️ 边界：2026-03-11 明确「多机位（multi-camera）不支持首尾帧」，且 kling-video-o1 生成首尾帧时不支持引用 element。条目未点名 3.0，属通用能力升级",
-      "src": "kling-api"
+      "src": "kling-api",
+      "via": "native"
     },
     {
       "m": "kling",
@@ -507,7 +523,8 @@
       "state": "yes",
       "verified_for": "3.0",
       "note": "⚠️ 我上一版标「官方没说」是错的 —— **Kling 管角色参考叫 Element（元素）**，不叫 Character Reference。2026-02-25 元素体系全面升级，可用视频创建元素并绑定音色；2026-01-23 可由正面图推断其它角度",
-      "src": "kling-api"
+      "src": "kling-api",
+      "via": "native"
     },
     {
       "m": "kling",
@@ -515,7 +532,8 @@
       "state": "yes",
       "verified_for": "3.0",
       "note": "2026-04-01：3.0 Omni 的 image_list / element_list 参数，支持多图元素；2025-07-21 Multi-Elements 上线（对已有视频做元素增/换/删）",
-      "src": "kling-api"
+      "src": "kling-api",
+      "via": "native"
     },
     {
       "m": "kling",
@@ -523,7 +541,8 @@
       "state": "yes",
       "verified_for": "3.0",
       "note": "⚠️ **Motion Control 是独立模型，不是 Kling 3.0 的一个参数** —— 2026-07-15 的新 API 支持清单里，Kling 3.0 / 3.0 Omni / 3.0 Motion Control 三者并列。2025-12-22 首发时要求同时上传参考图与参考视频，参考视频最长 30 秒",
-      "src": "kling-api"
+      "src": "kling-api",
+      "via": "separate-task"
     },
     {
       "m": "kling",
@@ -539,7 +558,8 @@
       "state": "yes",
       "verified_for": "3.0",
       "note": "2025-12-15：通过 sound 参数控制生成视频时是否包含音频。⚠️ 要与 Video-to-Audio 区分开 —— 后者（2025-08-01 起）是给**已生成的视频**配音效/BGM，不是生成时的原生音频",
-      "src": "kling-api"
+      "src": "kling-api",
+      "via": "native"
     },
     {
       "m": "kling",
@@ -547,7 +567,8 @@
       "state": "yes",
       "verified_for": "3.0",
       "note": "2024-12-23 首发；2025-09-15 支持多人画面对口型，用 face_id 指定说话人、sound_insert_time 指定起始时间。⚠️ Lip-Sync 是作用于**已有视频**的独立功能，不是生成时的一步",
-      "src": "kling-api"
+      "src": "kling-api",
+      "via": "separate-task"
     },
     {
       "m": "kling",
@@ -971,81 +992,96 @@
       "c": "t2v",
       "state": "yes",
       "verified_for": "Q3",
-      "src": "vidu-q3",
-      "note": "三大模式之一"
+      "note": "官方功能清单「Text to Video」；2026-02-11 viduq3-turbo 进 text2video",
+      "src": "vidu-fl",
+      "via": "native"
     },
     {
       "m": "vidu-q",
       "c": "i2v",
       "state": "yes",
       "verified_for": "Q3",
-      "src": "vidu-q3",
-      "note": "三大模式之一"
+      "note": "官方功能清单「Image to Video」",
+      "src": "vidu-fl",
+      "via": "native"
     },
     {
       "m": "vidu-q",
       "c": "flf",
-      "state": "unknown",
+      "state": "yes",
       "verified_for": "Q3",
-      "note": "⚠️ Q2 有 Start/End to Video，Q3 发布说明未重述 —— 按规则三之一退回未知"
+      "note": "⚠️ 我上一版标「官方没说」是错的 —— 官方有一等功能「Start end to video」，且 2026-02-11 明确 viduq3-turbo 与 viduq3-pro 都进了 start-end2video",
+      "src": "vidu-up",
+      "via": "native"
     },
     {
       "m": "vidu-q",
       "c": "charref",
       "state": "yes",
       "verified_for": "Q3",
-      "src": "vidu-q3",
-      "note": "多主体一致性；参考生视频为三大模式之一"
+      "note": "官方「Reference to Video」：用输入图里的主体或场景作参考",
+      "src": "vidu-fl",
+      "via": "native"
     },
     {
       "m": "vidu-q",
       "c": "multiref",
       "state": "yes",
       "verified_for": "Q3",
-      "src": "vidu-q3",
-      "note": "reference-to-video"
+      "note": "同上，官方写明「Supports uploading multiple images」",
+      "src": "vidu-fl",
+      "via": "native"
     },
     {
       "m": "vidu-q",
       "c": "motion",
-      "state": "unknown",
-      "verified_for": "Q3"
+      "state": "yes",
+      "verified_for": "Q3",
+      "note": "⚠️ 我上一版标「官方没说」是错的 —— 官方有独立任务 **Motion Sync**；2026-02-04 更新写明「输入动作参考视频＋角色图，生成角色按参考视频动作的视频」。注意它是独立接口，不是 viduq3 生成时的一步",
+      "src": "vidu-fl",
+      "via": "separate-task"
     },
     {
       "m": "vidu-q",
       "c": "camera",
       "state": "unknown",
       "verified_for": "Q3",
-      "note": "⚠️ Q2 有运镜控制，Q3 未重述"
+      "note": "⚠️ 官方 function-list 与 update 两页里「camera / 运镜 / 镜头」**零命中**；只提供「motion amplitude（运动幅度）」。我上一版标「支持」是拿第三方知识库当官方了",
+      "src": "vidu-fl"
     },
     {
       "m": "vidu-q",
       "c": "audio",
       "state": "yes",
       "verified_for": "Q3",
-      "src": "vidu-q3",
-      "note": "业界首个单次生成 16 秒原生音视频"
+      "note": "官方 Model Map：ViduQ3 全系「Supports simultaneous audio & video output」；2025-11-13 起「Audio&Video Direct Output」",
+      "src": "vidu-mm",
+      "via": "native"
     },
     {
       "m": "vidu-q",
       "c": "lipsync",
       "state": "yes",
       "verified_for": "Q3",
-      "src": "vidu-q3",
-      "note": "音视频同步且口型对齐"
+      "note": "官方独立任务 Lip Sync：让视频角色按指定文本对口型，支持数百种音色与语言",
+      "src": "vidu-fl",
+      "via": "separate-task"
     },
     {
       "m": "vidu-q",
       "c": "extend",
-      "state": "unknown",
-      "verified_for": "Q3"
+      "state": "yes",
+      "verified_for": "Q3",
+      "note": "⚠️ 我上一版标「官方没说」是错的 —— 官方独立任务 **Video Extension**，「Supports extension from 1～7s」",
+      "src": "vidu-fl",
+      "via": "separate-task"
     },
     {
       "m": "vidu-q",
       "c": "openweights",
       "state": "no",
       "verified_for": "Q3",
-      "note": "未见权重发布渠道，仅官网与 API"
+      "note": "官方文档与更新日志中无任何权重发布条目；仅 API"
     },
     {
       "m": "runway",
@@ -1276,5 +1312,10 @@
       "note": "闭源，仅通过 Gemini API / AI Studio 提供"
     }
   ],
-  "$aliases_why": "各家给同一个能力起不同的名字。**Kling 管角色参考叫 Element，我按 Character Reference 去找，找不到就标了「官方没说」—— 假阴性。** 采集时必须用整组别名去匹配，不能只用我们自己的叫法。这是原方案 §36 Entity Resolution 在能力维度上的对应物。"
+  "$aliases_why": "各家给同一个能力起不同的名字。**Kling 管角色参考叫 Element，我按 Character Reference 去找，找不到就标了「官方没说」—— 假阴性。** 采集时必须用整组别名去匹配，不能只用我们自己的叫法。这是原方案 §36 Entity Resolution 在能力维度上的对应物。",
+  "$via": {
+    "native": "模型生成时的一步（同一次调用里出结果）",
+    "separate-task": "平台的另一个接口 —— 能做，但要再调一次、通常作用于已生成的视频",
+    "why": "原方案 §5.2 要区分 Native Capability 与 Platform Feature。Kling 的 Lip-Sync / Video-to-Audio、Vidu 的 Motion Sync / Lip Sync / Video Extension 都是独立任务。对用户「能不能做」都是能，但「是不是一步做完」差别很大 —— 后者意味着多一次调用、多一次计费、多一段等待。"
+  }
 }
