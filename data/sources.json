@@ -698,6 +698,54 @@
         "Lucy",
         "real-time"
       ]
+    },
+    {
+      "id": "ltx-gh",
+      "tier": "S",
+      "kind": "json",
+      "vendor": "ltx",
+      "name": "GitHub · Lightricks/LTX-2 releases",
+      "url": "https://api.github.com/repos/Lightricks/LTX-2/releases",
+      "refresh_days": 7,
+      "good_for": [
+        "version",
+        "openweights"
+      ]
+    },
+    {
+      "id": "ltx-hf-org",
+      "tier": "S",
+      "kind": "json",
+      "vendor": "ltx",
+      "name": "Hugging Face · Lightricks 组织全部仓库",
+      "url": "https://huggingface.co/api/models?author=Lightricks&sort=downloads&direction=-1&limit=40",
+      "refresh_days": 3,
+      "good_for": [
+        "version",
+        "openweights",
+        "capability"
+      ],
+      "expect": [
+        "LTX"
+      ],
+      "note": "**收 LTX 当天就是靠它发现版本不对的**：我按 LTX-2 收录，而 Lightricks/LTX-2.3 下载 178 万、是前者的 4 倍。仓库名本身就是能力清单（IC-LoRA-Ingredients / Motion-Track-Control / DubIt…）"
+    },
+    {
+      "id": "decart-site",
+      "tier": "S",
+      "kind": "spa",
+      "vendor": "lucy",
+      "name": "Decart 官网首屏（当前版本）",
+      "url": "https://decart.ai/",
+      "refresh_days": 7,
+      "good_for": [
+        "version",
+        "capability"
+      ],
+      "expect": [
+        "Lucy",
+        "real-time"
+      ]
     }
   ],
   "$missing": [

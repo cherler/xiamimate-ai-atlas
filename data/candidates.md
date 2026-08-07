@@ -43,7 +43,7 @@
 > 不要照单全收，也不要因为混了噪音就整路丢掉：Lightricks、nvidia、zai-org
 > 都是这一路捞出来的，而它们在闭源榜上完全隐形。
 
-## 当前 Core（clip 轨 12/10，realtime 轨 2/10）
+## 当前 Core（clip 轨 12/10，realtime 轨 3/10）
 
 - `clip` Seedance 2.5（2026-07-31）
 - `clip` MiniMax Hailuo H3（2026-07-31）
@@ -56,9 +56,10 @@
 - `clip` Sora 2（2025-09） — **discontinued**
 - `realtime` Vidu S S1（2026-07-03）
 - `realtime` Decart Lucy Lucy 2.5（2026-08-07）
-- `clip` LTX 2（2026-08-07）
+- `clip` LTX 2.3（2026-08-08）
 - `clip` HappyHorse 1.1（2026-06）
 - `clip` SkyReels V4（2026-03）
+- `realtime` Oasis 3（2026-08-08）
 
 > clip 轨只剩 1 个空位。按规则四，再进新的就必须先踢一个 ——
 > 最该出去的是 **Sora 2**（已公告停服）。但**停服的模型不该从库里删**：

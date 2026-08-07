@@ -1,8 +1,10 @@
 {
-  "version": "1.0",
+  "version": "1.2",
   "generated_at": "2026-08-07",
   "note": "第九版。clip 轨九个 Family 已全部用厂商官方源逐格重核（86% 的格子挂官方来源）。全部由 Agent 录入，未经人工核验（§59.3 转述层）。模型按 version_as_of 降序；status 标生命周期。",
   "changelog": [
+    "v1.2 用 Decart 官网重核 Lucy 2.5 的 5 格（之前按规则三之一全退回未知，现在有官方依据）。顺带发现 Decart 还有第二个模型 Oasis 3 —— realtime 世界模型，但面向机器人/自动驾驶仿真，**算不算我们要收的东西是个边界问题，先记 extended 待拍板**",
+    "v1.1 LTX 收进来当天就发现版本不对：**LTX-2.3 下载 178 万，是我收的 LTX-2（40 万）的 4 倍**，才是当前主力。用官方 GitHub README 逐格核了 11 格 —— 7 个 ⬜ 里有 4 个是真能力，只是藏在 pipeline 与 IC-LoRA 的名字里",
     "v1.0 收录名单第一次**从数据里筛**，不再抄交接文档：AA 榜第 5/6 的 HappyHorse、下载量 40 万的 LTX-2，原名单里一个都没有。加 tier 字段把规则四的三层落到数据上（core 进主图 / extended 只在库里）",
     "v0.9 重核 Seedance 2.5、Wan、Sora。**Wan 我连错三次（2.5→2.7→3.0）** —— 官网首屏写着 Try Wan3.0 Now。而且 wan.video 一个可抓的链接都取不到，是九家里唯一没有可核验官方能力文档的，它的 ⬜ 是真的 ⬜",
     "v0.8 重核 MiniMax H3 与 Runway。**Runway 的版本日期我又记错了**：Gen-4.5 是 2025-12-11 发布（官方 changelog），不是 2026-03-25。MiniMax 的开源许可拿到了机器可读的一手证据（HF API：license_name = minimax-h3-community-license-agreement）",
@@ -395,10 +397,10 @@
       "family": "LTX",
       "zh": "LTX",
       "vendor": "Lightricks",
-      "version": "2",
-      "version_as_of": "2026-08-07",
+      "version": "2.3",
+      "version_as_of": "2026-08-08",
       "status": "active",
-      "status_note": "开源侧下载量最高的视频模型（HF ↓40.7 万，是 MiniMax H3 的 22 倍）。⚠️ 与 H3 同一个模式：叫开源，用的却是自定义社区许可"
+      "status_note": "开源侧下载量最高的视频模型：LTX-2.3 ↓178 万，另有 fp8 / nvfp4 量化版。⚠️ 与 MiniMax H3 同一模式：叫开源，用的是自定义社区许可"
     },
     {
       "id": "happyhorse",
@@ -423,6 +425,18 @@
       "version_as_of": "2026-03",
       "status": "active",
       "status_note": "⚠️ AA 榜 Elo 1107。官方 HF 组织 Skywork 有 SkyReels-V3-A2V-19B，但榜上是 V4 —— **两边对不上**，待核"
+    },
+    {
+      "id": "oasis",
+      "class": "realtime",
+      "tier": "extended",
+      "family": "Oasis",
+      "zh": "Oasis",
+      "vendor": "Decart",
+      "version": "3",
+      "version_as_of": "2026-08-08",
+      "status": "active",
+      "status_note": "⚠️ **边界问题，待人拍板**：官网定位是「REALTIME INTERACTIVE WORLD MODEL FOR PHYSICAL AI」——为机器人、自动驾驶、制造、无人机做可交互的物理环境。按规则一它确实「输出动态影像」且是模型，该收；但它的用途不是做内容。收进 realtime 主轨会让这条轨的坐标系从「创作」漂到「仿真」。先记 extended"
     }
   ],
   "sources": {
@@ -449,7 +463,7 @@
     "decart-site": {
       "url": "https://decart.ai/",
       "tier": "official",
-      "name": "Decart 官网（首屏标注当前版本）"
+      "name": "Decart 官网（首屏标当前版本与产品线）"
     },
     "vidu-fl": {
       "url": "https://platform.vidu.com/docs/function-list",
@@ -521,15 +535,20 @@
       "tier": "official",
       "name": "HF API · Wan-AI 组织下全部仓库"
     },
-    "ltx-hf": {
-      "url": "https://huggingface.co/Lightricks/LTX-2",
-      "tier": "official",
-      "name": "Hugging Face · Lightricks/LTX-2 官方仓库与模型卡"
-    },
     "aa-board": {
       "url": "https://artificialanalysis.ai/video/leaderboard/text-to-video",
       "tier": "third-party",
       "name": "Artificial Analysis 榜（只证明「存在且有人用」，不证明能力）"
+    },
+    "ltx-gh": {
+      "url": "https://github.com/Lightricks/LTX-2",
+      "tier": "official",
+      "name": "GitHub · Lightricks/LTX-2 官方仓库 README（pipeline 与 IC-LoRA 清单）"
+    },
+    "ltx-hf-23": {
+      "url": "https://huggingface.co/Lightricks/LTX-2.3",
+      "tier": "official",
+      "name": "Hugging Face · Lightricks/LTX-2.3（当前主力）"
     }
   },
   "support": [
@@ -1310,36 +1329,39 @@
       "c": "rt-fps",
       "state": "yes",
       "verified_for": "Lucy 2.5",
-      "src": "decart-site",
-      "note": "官网首屏：real-time, infinite video。2.5 的具体帧率与分辨率待逐条重核"
+      "note": "官网首屏「Real-time, infinite video」；产品线页称 Lucy World Editing 是 production scale 的实时视频转换",
+      "src": "decart-site"
     },
     {
       "m": "lucy",
       "c": "rt-stream",
-      "state": "unknown",
+      "state": "yes",
       "verified_for": "Lucy 2.5",
-      "note": "⚠️ Lucy 2→2.5 升级后未重新核验，按规则三之一退回未知"
+      "note": "官网：把高保真视频编辑从**离线渲染**搬到**实时交互**；作用于进来的视频流",
+      "src": "decart-site"
     },
     {
       "m": "lucy",
       "c": "rt-interact",
-      "state": "unknown",
+      "state": "yes",
       "verified_for": "Lucy 2.5",
-      "note": "⚠️ Lucy 2→2.5 升级后未重新核验，按规则三之一退回未知"
+      "note": "同上 —— live interaction 是它的卖点，不是附加项",
+      "src": "decart-site"
     },
     {
       "m": "lucy",
       "c": "rt-endless",
-      "state": "unknown",
+      "state": "yes",
       "verified_for": "Lucy 2.5",
-      "note": "⚠️ Lucy 2→2.5 升级后未重新核验，按规则三之一退回未知"
+      "note": "官网首屏「infinite video, evolving continuously with the world」",
+      "src": "decart-site"
     },
     {
       "m": "lucy",
       "c": "openweights",
       "state": "unknown",
       "verified_for": "Lucy 2.5",
-      "note": "⚠️ Lucy 2→2.5 升级后未重新核验，按规则三之一退回未知"
+      "note": "官网未见权重发布说明，也未见明确闭源声明；HF 上未找到 Decart 官方组织"
     },
     {
       "m": "gemini-omni",
@@ -1435,85 +1457,97 @@
       "m": "ltx",
       "c": "t2v",
       "state": "yes",
-      "verified_for": "2",
-      "src": "ltx-hf",
+      "verified_for": "2.3",
+      "src": "ltx-hf-23",
       "via": "native",
-      "note": "HF 官方仓库 pipeline 标签含 text-to-video / text-to-audio-video"
+      "note": "官方仓库 pipeline 标签含 text-to-video / text-to-audio-video"
     },
     {
       "m": "ltx",
       "c": "i2v",
       "state": "yes",
-      "verified_for": "2",
-      "src": "ltx-hf",
+      "verified_for": "2.3",
+      "src": "ltx-hf-23",
       "via": "native",
-      "note": "标签含 image-to-video / image-text-to-video；仓库 pipeline_tag 就是 image-to-video"
+      "note": "TI2Vid 系列 pipeline（text+image → video）"
     },
     {
       "m": "ltx",
       "c": "flf",
-      "state": "unknown",
-      "verified_for": "2",
-      "src": "ltx-hf"
+      "state": "yes",
+      "verified_for": "2.3",
+      "src": "ltx-gh",
+      "via": "separate-task",
+      "note": "⚠️ 藏在名字里：官方 **KeyframeInterpolationPipeline** —— 「在关键帧图像之间插值」。我上一版标「官方没说」，是因为按 first/last frame 去找，而它叫 keyframe interpolation"
     },
     {
       "m": "ltx",
       "c": "charref",
-      "state": "unknown",
-      "verified_for": "2",
-      "src": "ltx-hf"
+      "state": "yes",
+      "verified_for": "2.3",
+      "src": "ltx-gh",
+      "via": "separate-task",
+      "note": "官方 **LTX-2.3-22b-IC-LoRA-Ingredients**。⚠️ Ingredients 正是 Google 给参考图起的名字 —— 这一格是靠能力别名表才对上的（ontology 规则六）"
     },
     {
       "m": "ltx",
       "c": "multiref",
-      "state": "unknown",
-      "verified_for": "2",
-      "src": "ltx-hf"
+      "state": "yes",
+      "verified_for": "2.3",
+      "src": "ltx-gh",
+      "via": "separate-task",
+      "note": "IC-LoRA-Union-Control 与 Ingredients 一系；具体上限未在 README 写明"
     },
     {
       "m": "ltx",
       "c": "motion",
-      "state": "unknown",
-      "verified_for": "2",
-      "src": "ltx-hf"
+      "state": "yes",
+      "verified_for": "2.3",
+      "src": "ltx-gh",
+      "via": "separate-task",
+      "note": "官方 **LTX-2.3-22b-IC-LoRA-Motion-Track-Control**（运动轨迹控制适配器）"
     },
     {
       "m": "ltx",
       "c": "camera",
       "state": "unknown",
-      "verified_for": "2",
-      "src": "ltx-hf"
+      "verified_for": "2.3",
+      "src": "ltx-gh",
+      "note": "README 里 camera 出现 29 次，**全部在提示词示例里**（「看向镜头」之类），不是控制参数 —— 不拿写提示词的建议冒充控制能力"
     },
     {
       "m": "ltx",
       "c": "audio",
       "state": "yes",
-      "verified_for": "2",
-      "src": "ltx-hf",
+      "verified_for": "2.3",
+      "src": "ltx-gh",
       "via": "native",
-      "note": "模型卡：DiT 架构的**音视频联合基础模型**，单个模型内同时生成同步的画面与声音。⚠️ 官方自陈局限：不含人声时音质会下降"
+      "note": "官方自述：**首个 DiT 架构的音视频基础模型**，单模型内同时生成同步的画面与声音。另有 A2Vid（音频驱动生成）。⚠️ 官方自陈局限：不含人声时音质下降"
     },
     {
       "m": "ltx",
       "c": "lipsync",
-      "state": "unknown",
-      "verified_for": "2",
-      "src": "ltx-hf"
+      "state": "yes",
+      "verified_for": "2.3",
+      "src": "ltx-gh",
+      "via": "separate-task",
+      "note": "官方 **Dub-It** pipeline / IC-LoRA：改写台词的同时匹配说话人身份与口型"
     },
     {
       "m": "ltx",
       "c": "extend",
       "state": "unknown",
-      "verified_for": "2",
-      "src": "ltx-hf"
+      "verified_for": "2.3",
+      "src": "ltx-gh",
+      "note": "README 全文检索 extend / continuation / prolong —— 零命中"
     },
     {
       "m": "ltx",
       "c": "openweights",
       "state": "yes",
-      "verified_for": "2",
-      "src": "ltx-hf",
-      "note": "⚠️ 权重公开、下载量 40.7 万，但许可是 **ltx-2-community-license-agreement**（自定义社区许可，不是标准开源协议）—— 与 MiniMax H3 同一个模式。商用前须自行核对条款"
+      "verified_for": "2.3",
+      "src": "ltx-hf-23",
+      "note": "⚠️ 权重公开、下载 178 万，但许可是 **ltx-2-community-license-agreement**（自定义社区许可，不是标准开源协议）—— 与 MiniMax H3 同一个模式，商用前须自行核对"
     },
     {
       "m": "happyhorse",
@@ -1530,6 +1564,14 @@
       "verified_for": "V4",
       "src": "aa-board",
       "note": "榜单上有它（Elo 1107），说明能出片、且有人在用。**其余能力一格未核** —— Extended 层只保证「它存在」，不保证核过"
+    },
+    {
+      "m": "oasis",
+      "c": "rt-interact",
+      "state": "yes",
+      "verified_for": "3",
+      "src": "decart-site",
+      "note": "官网：可交互、物理精确、实时响应的环境。**其余能力一格未核** —— Extended 层只保证「它存在」"
     }
   ],
   "$aliases_why": "各家给同一个能力起不同的名字。**Kling 管角色参考叫 Element，我按 Character Reference 去找，找不到就标了「官方没说」—— 假阴性。** 采集时必须用整组别名去匹配，不能只用我们自己的叫法。这是原方案 §36 Entity Resolution 在能力维度上的对应物。",
