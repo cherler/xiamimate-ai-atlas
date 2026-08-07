@@ -1,0 +1,116 @@
+{
+  "$comment": "ChangeEvent（方案 §38）。**两类分开记**：world = 世界变了；ours = 我们记错了又改了。后者照样公开 —— 一个只报别人变化、从不报自己出错的变更页，是营销稿不是变更记录。",
+  "$kinds": {
+    "version": "版本更迭",
+    "status": "生命周期（停服 / 非主力）",
+    "capability": "能力面变化",
+    "availability": "去哪用变化",
+    "scope": "收录范围变化"
+  },
+  "events": [
+    {
+      "id": "sora-eol",
+      "date": "2026-04-26",
+      "side": "world",
+      "kind": "status",
+      "subject": "Sora",
+      "before": "OpenAI 的旗舰视频产品，App 与 API 都在售",
+      "after": "App 已关停；API 计划 2026-09-24 停止；未宣布继任产品",
+      "why": "这是本表里唯一一个**能力全对、却不能用**的模型。照着能力表去选它的人，会在 9 月撞墙。",
+      "impact": ["正在用 Sora API 的项目要排迁移", "Replicate 与 APIYI 上仍在售 —— 货架比上游慢"],
+      "src": "sora-eol-search",
+      "models": ["sora"]
+    },
+    {
+      "id": "h3-open",
+      "date": "2026-08-03",
+      "side": "world",
+      "kind": "capability",
+      "subject": "MiniMax H3",
+      "before": "官方博客写的是「plan to open up the model weights in the coming days」",
+      "after": "权重已上 Hugging Face（280 个文件，含 safetensors）",
+      "why": "**「计划开」和「已经开」是两件事**，中间隔了几天。而许可是自定义的 minimax-h3-community-license-agreement，不是标准开源协议 —— 只看「开源 ✅」会看错。",
+      "impact": ["想自部署的可以动手了", "商用前必须自己读许可条款"],
+      "src": "mm-hf-api",
+      "models": ["hailuo"]
+    },
+    {
+      "id": "seedance-25",
+      "date": "2026-07-31",
+      "side": "world",
+      "kind": "version",
+      "subject": "Seedance",
+      "before": "2.0：单次 9 图 + 3 视频 + 3 音频参考",
+      "after": "2.5：单次最多 50 个参考输入（30 图 + 10 视频 + 10 音频），30 秒一镜到底，支持多轮延长",
+      "why": "参考输入的上限从 15 涨到 50，是这一代最实的一步 —— 而「参考」正是这两年真正在铺开的方向。",
+      "impact": ["多主体、多镜头的活可以少拆几次", "Replicate 上仍标着 coming soon，还用不上"],
+      "src": "seed-25",
+      "models": ["seedance"]
+    },
+    {
+      "id": "omni-default",
+      "date": "2026-05-19",
+      "side": "world",
+      "kind": "status",
+      "subject": "Google Veo → Gemini Omni Flash",
+      "before": "Veo 3.1 是 Google 的视频主力",
+      "after": "官方文档原话：「Use Gemini Omni Flash as your default model for video generation」；Veo 3.1 留给 scene extension、last-frame control 与老管线",
+      "why": "**厂商自己写明了取舍**。而且这句导购语反过来是 Omni 缺首尾帧与场景延长的官方证据 —— 只在两个模型并排读的时候才看得见。",
+      "impact": ["新项目默认该用 Omni", "需要首尾帧或场景延长的仍得回 Veo"],
+      "src": "g-video",
+      "models": ["veo", "gemini-omni"]
+    },
+    {
+      "id": "runway-resell",
+      "date": "2026-04-07",
+      "side": "world",
+      "kind": "availability",
+      "subject": "Runway 开始转售别家模型",
+      "before": "Runway 是纯模型厂商，卖自己的 Gen 系列",
+      "after": "自家产品里提供 Seedance 2.0、WAN2.2 Animate、Sora 2 Pro 等；Max 套餐无限用 Seedance 2.5",
+      "why": "**厂商与平台两个身份合一了。** 「Runway 支持什么」和「在 Runway 上能用到什么」从此不是一个问题。",
+      "impact": ["「去哪用」矩阵里 Runway 要占一行", "比较模型时别把平台转售的算进它自己的能力"],
+      "src": "rw-changelog",
+      "models": ["runway", "seedance"]
+    },
+    {
+      "id": "our-alias-miss",
+      "date": "2026-08-07",
+      "side": "ours",
+      "kind": "capability",
+      "subject": "我们把「找不到」写成了「官方没说」",
+      "before": "Kling 与 Vidu 的角色参考、多参考、首尾帧、动作复刻、视频延长被标为 ⬜「官方没说」",
+      "after": "全部改为 ✅ —— 官方都有，只是叫法不同：Kling 叫 Element、Vidu 叫 Motion Sync / Start end to video、LTX 叫 Ingredients",
+      "why": "**这是本项目最严重的一次错。** ⬜ 那一列是我们最得意的东西（「不是我们没查，是查了找不到」），而前两家里接近一半其实是我们自己没找到 —— 把自己的疏忽包装成了对方的不透明。",
+      "impact": ["每项能力加了 aliases，采集用整组别名匹配", "ontology 补规则六"],
+      "src": null,
+      "models": ["kling", "vidu-q", "ltx"]
+    },
+    {
+      "id": "our-stale-day-one",
+      "date": "2026-08-07",
+      "side": "ours",
+      "kind": "version",
+      "subject": "首批数据交付当天就有三个模型是过期版本",
+      "before": "Seedance 2.0 / Wan 2.5 / Runway Gen-4",
+      "after": "Seedance 2.5 / Wan 3.0 / Runway Gen-4.5（Wan 一家连错三次：2.5 → 2.7 → 3.0）",
+      "why": "起因是我用即席搜索当采集。**这正是「靠人手工追追不上」的实证** —— 也是后来把 49 个源接进定时管线的直接原因。",
+      "impact": ["建了 Source Registry 与每日监视", "ontology 加规则三之一：版本一升，没重新核验的格子必须退回 ⬜"],
+      "src": null,
+      "models": ["seedance", "wan", "runway"]
+    },
+    {
+      "id": "scope-ltx",
+      "date": "2026-08-08",
+      "side": "ours",
+      "kind": "scope",
+      "subject": "收录名单第一次从数据里筛，不再抄交接文档",
+      "before": "9 个 Family，来自交接文档",
+      "after": "LTX 进 core（HF 下载 178 万，是 MiniMax H3 的 22 倍）；HappyHorse 与 SkyReels 进 extended；Sora 降 extended",
+      "why": "AA 榜第 5、第 6 的 HappyHorse 原名单里一个都没有。**抄来的名单反映的是写文档那个人的视野，不是世界的实际分布。**",
+      "impact": ["开源侧的格局第一次进表（Lightricks / NVIDIA / 智谱在闭源榜上完全隐形）"],
+      "src": "aa-board",
+      "models": ["ltx", "happyhorse", "skyreels", "sora"]
+    }
+  ]
+}

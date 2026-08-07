@@ -117,6 +117,10 @@ export default function Page() {
             </span>
           ))}
           <span className="text-muted tracking-[0.16em] ml-1">能力地图 · MVP</span>
+          <span className="flex-1" />
+          <Link href="/changes" className="underline text-muted hover:text-ink">
+            变了什么 →
+          </Link>
         </div>
         <h1 className="text-[40px] leading-tight font-semibold">
           模型之间不靠出身相连，<span className="text-yes">靠能做什么相连</span>
