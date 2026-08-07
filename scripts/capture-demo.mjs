@@ -91,7 +91,9 @@ await page.waitForTimeout(2200);
 // **滚到元素上，不要算像素**：算出来的滚动量在内容一改就失准，
 // 而 #transparency 这个锚点是我在页面里留的，改版也跟着走。
 await page.evaluate(() => document.querySelector("#transparency")?.scrollIntoView({ behavior: "smooth", block: "start" }));
-await page.waitForTimeout(3200);
+// 停够 9 秒：这一段要配 8.5 秒旁白。**素材必须比镜头长**，
+// 否则镜头尾巴会停在最后一帧上 —— 上一版就是沿用旧 startSec 撞上这个。
+await page.waitForTimeout(9000);
 
 await ctx.close();
 await browser.close();
