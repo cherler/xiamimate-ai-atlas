@@ -1,8 +1,9 @@
 {
-  "version": "0.6",
+  "version": "0.7",
   "generated_at": "2026-08-07",
   "note": "第二版。按 data/ontology.md 的四条规则重录：品类分轨（clip / realtime）、一等实体是 Family、版本升级后未重新核验的格子退回 unknown、Core 每轨 ≤10。全部由 Agent 从公开来源录入，未经人工核验（§59.3 转述层）。 模型按 version_as_of 降序排列（最新在最前）；status 标出生命周期：active / superseded / discontinued。",
   "changelog": [
+    "v0.7 用 Google 官方 docs/veo 与 docs/omni 重核两个 Family。**官方原话确认 Veo 已非主力**：「Use Gemini Omni Flash as your default model for video generation；Use Veo 3.1 for specific capabilities like scene extension, last-frame control」—— superseded 这个状态有官方依据了，不是我推的",
     "v0.6 用 Vidu 官方 function-list / model-map / update 三页重核 11 格：又错 4 格，**其中 3 格是假阴性**（首尾帧/动作复刻/视频延长，官方都有独立 API，我却标成「官方没说」）。加上 Kling 那轮，⬜ 那一列已被证明严重掺假",
     "v0.6 新增 via 字段区分「模型原生」与「平台另一个接口」—— Kling 与 Vidu 都出现同一结构（Lip Sync / Motion Sync / Video Extension 都是独立任务，不是生成时的一步），按「第二家出现才改架构」的规矩，现在改",
     "v0.5 用 Kling 官方更新日志全文（171 条）重核 11 格：4 格是错的。两个方向都有错 —— 角色参考/多参考被我误判为「官方没说」（因为 Kling 管它叫 Element，不叫 Character Reference），运镜/视频延长则被我误判为「支持」（官方明确说明停留在 V1.5/V1.6 时代，3.0 没有重述）",
@@ -337,7 +338,7 @@
       "version": "3.1",
       "version_as_of": "2025-10",
       "status": "superseded",
-      "status_note": "仍在 Gemini API 提供，但 Google 已把视频生成的重心移到 Gemini Omni 家族"
+      "status_note": "官方总览页原话：「Use Gemini Omni Flash as your default model for video generation. Use Veo 3.1 for specific capabilities like scene extension, last-frame control, or integration with legacy pipelines」—— 厂商自己把它定位成「特定能力与老管线」用"
     },
     {
       "id": "sora",
@@ -443,30 +444,15 @@
       "tier": "official",
       "name": "Vidu S1 官方 GitHub 仓库"
     },
-    "lucy-2": {
-      "url": "https://decart.ai/publications/lucy-2-introducing-sota-video-generation-in-realtime",
-      "tier": "official",
-      "name": "Decart 官方 · Lucy 2 发布"
-    },
     "runway-rev": {
       "url": "https://veo4.dev/runway-gen-4-5",
       "tier": "third-party",
       "name": "Runway Gen-4.5 评测（2026-03 版本）"
     },
-    "gemini-omni": {
-      "url": "https://ai.google.dev/gemini-api/docs/video",
-      "tier": "official",
-      "name": "Google AI for Developers · 视频生成文档（Gemini Omni）"
-    },
     "sora-eol": {
       "url": "https://help.openai.com/en/articles/20001152-what-to-know-about-the-sora-discontinuation",
       "tier": "official",
       "name": "OpenAI 帮助中心 · Sora 停止服务说明"
-    },
-    "omni-rev": {
-      "url": "https://www.buildfastwithai.com/blogs/gemini-omni-flash-review-google-ai-video-model-2026",
-      "tier": "third-party",
-      "name": "Gemini Omni Flash 评测"
     },
     "decart-site": {
       "url": "https://decart.ai/",
@@ -487,6 +473,21 @@
       "url": "https://platform.vidu.com/docs/update",
       "tier": "official",
       "name": "Vidu 平台 · Update Notice（官方更新日志）"
+    },
+    "veo-doc": {
+      "url": "https://ai.google.dev/gemini-api/docs/veo",
+      "tier": "official",
+      "name": "Google · Veo 3.1 官方文档"
+    },
+    "omni-doc": {
+      "url": "https://ai.google.dev/gemini-api/docs/omni",
+      "tier": "official",
+      "name": "Google · Gemini Omni Flash 官方文档"
+    },
+    "g-video": {
+      "url": "https://ai.google.dev/gemini-api/docs/video",
+      "tier": "official",
+      "name": "Google · 视频生成总览（两个模型如何取舍）"
     }
   },
   "support": [
@@ -675,81 +676,94 @@
       "c": "t2v",
       "state": "yes",
       "verified_for": "3.1",
-      "src": "veo-api"
+      "note": "官方 Veo 文档的文生视频示例，支持对白与音效",
+      "src": "veo-doc",
+      "via": "native"
     },
     {
       "m": "veo",
       "c": "i2v",
       "state": "yes",
       "verified_for": "3.1",
-      "src": "veo-blog"
+      "note": "官方示例：先用 Nano Banana 2 出图，再作为起始帧喂 Veo 3.1",
+      "src": "veo-doc",
+      "via": "native"
     },
     {
       "m": "veo",
       "c": "flf",
       "state": "yes",
       "verified_for": "3.1",
-      "src": "veo-ref",
-      "note": "⚠️ 首帧（可选配尾帧）与参考图不能同时使用，一次生成只能二选一"
+      "note": "官方「Frame-specific generation: Generate a video by specifying the first and last frames」，并注明「available for Veo 3.1 models only」。⚠️ 两条边界：① Vertex 文档说首帧与参考图**不能同时用**；② 视频延长只限 720p",
+      "src": "veo-doc",
+      "via": "native"
     },
     {
       "m": "veo",
       "c": "charref",
       "state": "yes",
       "verified_for": "3.1",
-      "src": "veo-ref",
-      "note": "最多 3 张同一人物/角色/产品的资产图"
+      "note": "官方「Image-based direction: Use up to three reference images」，可给人物/角色/产品图",
+      "src": "veo-doc",
+      "via": "native"
     },
     {
       "m": "veo",
       "c": "multiref",
       "state": "yes",
       "verified_for": "3.1",
-      "src": "veo-ref",
-      "note": "1~3 张参考图；但与首帧互斥（见首尾帧一格）"
+      "note": "最多 3 张参考图；⚠️ 与首帧互斥（见首尾帧一格）",
+      "src": "veo-doc",
+      "via": "native"
     },
     {
       "m": "veo",
       "c": "motion",
       "state": "unknown",
-      "verified_for": "3.1"
+      "verified_for": "3.1",
+      "note": "官方文档未见动作复刻/动作迁移相关参数或功能",
+      "src": "veo-doc"
     },
     {
       "m": "veo",
       "c": "camera",
       "state": "unknown",
       "verified_for": "3.1",
-      "note": "官方有提示词指南，但未见把运镜作为独立参数的控制位"
+      "note": "官方只在提示词写作建议里提到 camera movement，未见把运镜作为独立参数",
+      "src": "veo-doc"
     },
     {
       "m": "veo",
       "c": "audio",
       "state": "yes",
       "verified_for": "3.1",
-      "src": "veo-blog",
-      "note": "原生音频，含多人对白与同步音效"
+      "note": "原生音频，官方示例含 dialogue & sound effects",
+      "src": "veo-doc",
+      "via": "native"
     },
     {
       "m": "veo",
       "c": "lipsync",
       "state": "unknown",
       "verified_for": "3.1",
-      "note": "原生音频含对白，但未见把对口型作为独立能力说明"
+      "note": "原生音频含对白，但未见把对口型作为独立能力说明",
+      "src": "veo-doc"
     },
     {
       "m": "veo",
       "c": "extend",
       "state": "yes",
       "verified_for": "3.1",
-      "src": "veo-blog",
-      "note": "Scene extension：基于上一段末秒续接"
+      "note": "官方「Video extension: Extend videos that were previously generated using Veo」。⚠️ 边界：延长只支持 720p",
+      "src": "veo-doc",
+      "via": "native"
     },
     {
       "m": "veo",
       "c": "openweights",
       "state": "no",
       "verified_for": "3.1",
-      "note": "闭源，仅通过 Gemini API / Vertex AI 提供"
+      "note": "闭源，仅经 Gemini API / Vertex AI 提供"
     },
     {
       "m": "sora",
@@ -1240,76 +1254,90 @@
       "c": "t2v",
       "state": "yes",
       "verified_for": "Flash",
-      "src": "gemini-omni"
+      "note": "官方：从文本提示生成视频，**并按描述同时生成音频**",
+      "src": "omni-doc",
+      "via": "native"
     },
     {
       "m": "gemini-omni",
       "c": "i2v",
       "state": "yes",
       "verified_for": "Flash",
-      "src": "gemini-omni"
+      "note": "官方：可随文本提示给一张参考图，模型自行决定如何使用",
+      "src": "omni-doc",
+      "via": "native"
     },
     {
       "m": "gemini-omni",
       "c": "flf",
-      "state": "unknown",
-      "verified_for": "Flash"
+      "state": "no",
+      "verified_for": "Flash",
+      "note": "⚠️ 官方总览页把首尾帧明确指向 Veo：「Use Veo 3.1 for specific capabilities like **last-frame control**」；Omni 文档里也未见对应参数",
+      "src": "g-video"
     },
     {
       "m": "gemini-omni",
       "c": "charref",
       "state": "yes",
       "verified_for": "Flash",
-      "src": "omni-rev",
-      "note": "角色一致性"
+      "note": "官方「Subject reference」：可给指定主体的参考图",
+      "src": "omni-doc",
+      "via": "native"
     },
     {
       "m": "gemini-omni",
       "c": "multiref",
       "state": "yes",
       "verified_for": "Flash",
-      "src": "omni-rev",
-      "note": "可同时吃文本、图片、音频、视频作参考"
+      "note": "官方示例一次给 2 张参考图（猫与毛线球）；总览页称其支持文本/图片/音频/视频多输入同时推理",
+      "src": "omni-doc",
+      "via": "native"
     },
     {
       "m": "gemini-omni",
       "c": "motion",
       "state": "unknown",
-      "verified_for": "Flash"
+      "verified_for": "Flash",
+      "src": "omni-doc"
     },
     {
       "m": "gemini-omni",
       "c": "camera",
       "state": "unknown",
-      "verified_for": "Flash"
+      "verified_for": "Flash",
+      "note": "官方只在提示词建议里说「详细描述 camera movement 效果更好」，那是写提示词，不是控制参数",
+      "src": "omni-doc"
     },
     {
       "m": "gemini-omni",
       "c": "audio",
       "state": "yes",
       "verified_for": "Flash",
-      "src": "gemini-omni",
-      "note": "出片带音频"
+      "note": "文生视频即带音频输出",
+      "src": "omni-doc",
+      "via": "native"
     },
     {
       "m": "gemini-omni",
       "c": "lipsync",
       "state": "unknown",
-      "verified_for": "Flash"
+      "verified_for": "Flash",
+      "src": "omni-doc"
     },
     {
       "m": "gemini-omni",
       "c": "extend",
-      "state": "unknown",
+      "state": "no",
       "verified_for": "Flash",
-      "note": "⚠️ 支持用自然语言逐条改片（对话式编辑），但那不是「续接延长」，两回事"
+      "note": "⚠️ 官方总览页把场景延长明确指向 Veo：「Use Veo 3.1 for specific capabilities like **scene extension**」",
+      "src": "g-video"
     },
     {
       "m": "gemini-omni",
       "c": "openweights",
       "state": "no",
       "verified_for": "Flash",
-      "note": "闭源，仅通过 Gemini API / AI Studio 提供"
+      "note": "闭源，仅经 Gemini API / AI Studio 提供"
     }
   ],
   "$aliases_why": "各家给同一个能力起不同的名字。**Kling 管角色参考叫 Element，我按 Character Reference 去找，找不到就标了「官方没说」—— 假阴性。** 采集时必须用整组别名去匹配，不能只用我们自己的叫法。这是原方案 §36 Entity Resolution 在能力维度上的对应物。",
