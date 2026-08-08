@@ -44,7 +44,10 @@ export function caveats(): Caveat[] {
     if (m?.status === "discontinued" && v.status !== "gone")
       out.push({
         kind: "upstream-gone", m: v.m, p: v.p, src: v.src, quote: v.quote,
-        what: `${nm(v.m)} 上游已公告停服，${pf(v.p)} 还挂着${m.status_note ? `（${m.status_note}）` : ""}`,
+        // ⚠️ **不要把 status_note 整段倒出来** —— 那里面混着我们的工作过程
+        // （「采集器返回 403」「按规则四降到 Extended」），那是我们的话，不是用户要的事实。
+        // 用户要的是：什么时候停、现在还能不能买到。用 status_short 这个短字段。
+        what: `${nm(v.m)} 上游已公告停服${m.status_short ? `（${m.status_short}）` : ""}，${pf(v.p)} 还挂着`,
       });
   }
 

@@ -724,7 +724,9 @@
       "tier": "extended",
       "domain": "video",
       "reach_cn": "blocked",
-      "reach_note": "openai.com 返回 403（反爬，非网络）；且该产品线已公告停服"
+      "reach_note": "openai.com 返回 403（反爬，非网络）；且该产品线已公告停服",
+      "status_until": "2026-09-24",
+      "status_short": "API 计划 2026-09-24 停止；App 已于 2026-04-26 关停"
     },
     {
       "id": "vidu-s",

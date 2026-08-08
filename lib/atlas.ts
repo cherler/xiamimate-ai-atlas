@@ -45,6 +45,9 @@ export type Model = {
   version: string;
   version_as_of: string;
   status?: Status;
+  /** 给用户看的一句话：什么时候停。**status_note 里混着我们的工作过程，不上前端。** */
+  status_short?: string;
+  status_until?: string;
   status_note?: string;
   /** core 进主图与主表（每轨 ≤10）；extended 只在库里 —— 停服的降到这里而不是删掉。 */
   tier?: "core" | "extended";
