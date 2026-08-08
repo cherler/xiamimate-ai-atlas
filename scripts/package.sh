@@ -4,17 +4,26 @@
 set -euo pipefail
 cd "$(dirname "$0")/.."
 
-echo "── 1/4 校验数据"
+echo "── 1/5 校验数据"
 node scripts/validate.mjs
 
-echo "── 2/4 重出矩阵图（数据一变，图就得跟着变）"
+echo "── 2/5 重出矩阵图（数据一变，图就得跟着变）"
 node scripts/make-matrix.mjs
 
-echo "── 3/4 构建静态站"
+# 分享图不进 git —— 它是数据的产物，不是源码。
+# 每次打包重出，才保证图上写的和站上写的是同一份数据。
+echo "── 3/5 重出分享图（§19）"
+node scripts/make-share.mjs
+
+echo "── 4/5 构建静态站"
 rm -rf out
 npm run build >/dev/null
 
-echo "── 4/4 打包"
+# 出站前的最后一道：**量到用户能感知那一层**（详见 scripts/verify.mjs 开头）
+echo "── 5/5 出站前验证"
+node scripts/verify.mjs
+
+echo "── 打包"
 STAMP=$(date '+%Y%m%d-%H%M')
 TAR="dist/atlas-${STAMP}.tar.gz"
 mkdir -p dist

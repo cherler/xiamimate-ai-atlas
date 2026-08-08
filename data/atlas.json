@@ -108,7 +108,8 @@
       ],
       "since": "2025-03",
       "since_src": "kling-api",
-      "since_quote": "Selecting Face as reference：可让面部与参考图保持一致，再用提示词改其它部分"
+      "since_quote": "Selecting Face as reference：可让面部与参考图保持一致，再用提示词改其它部分",
+      "alias_bit_us": "**就是这一项让我们记错过。** 我们按自己的词「角色参考」去各家文档搜，搜不到就记成了不支持 —— 而 Kling 管它叫 Element、LTX 叫 Ingredients、Midjourney 系叫 Omni Reference、还有人叫 cameo。重核 22 格时发现 8 格错，其中 5 格是这么来的假阴性。"
     },
     {
       "id": "multiref",
@@ -1815,7 +1816,7 @@
       "note": "榜单上有它（Elo 1107），说明能出片、且有人在用。**其余能力一格未核** —— Extended 层只保证「它存在」，不保证核过"
     }
   ],
-  "$aliases_why": "各家给同一个能力起不同的名字。**Kling 管角色参考叫 Element，我按 Character Reference 去找，找不到就标了「官方没说」—— 假阴性。** 采集时必须用整组别名去匹配，不能只用我们自己的叫法。这是原方案 §36 Entity Resolution 在能力维度上的对应物。",
+  "$aliases_why": "各家给同一个能力起不同的名字。**Kling 管角色参考叫 Element，我按 Character Reference 去找，找不到就标了「官方没说」—— 假阴性。** 采集时必须用整组别名去匹配，不能只用我们自己的叫法。这是原方案 §36 Entity Resolution 在能力维度上的对应物。\n\n`alias_bit_us` 标在**真把我们坑过的那一项**上（角色参考）。别名多不等于叫法分歧大：「首尾帧」也有 8 条别名，但全是 start/end frame 的描述性变体，谁都猜得到；而 Element / Ingredients / cameo 是厂商自造词，**不知道就永远搜不到**。选例子要选后者，靠数别名条数是挑不出来的 —— 所以标在数据里，不用启发式猜。",
   "$via": {
     "native": "模型生成时的一步（同一次调用里出结果）",
     "separate-task": "平台的另一个接口 —— 能做，但要再调一次、通常作用于已生成的视频",

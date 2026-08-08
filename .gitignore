@@ -13,4 +13,10 @@ data/launchd.*.log
 .env
 # data/inbox 先不进 git：候选里可能含厂商页面原文摘录，等人审流程定了再决定要不要留档
 data/inbox/
+# 分享图是从 data/atlas.json 生成的产物，不是源码。
+# 进 git 只会让每次数据微调都拖着 2.6MB 二进制 diff，
+# 而且**图和数据可能对不上** —— 忘了重跑就会发出去一张过期的图。
+# 打包脚本每次都会重出（scripts/package.sh 第 3 步）。
+public/og/
+
 dist/

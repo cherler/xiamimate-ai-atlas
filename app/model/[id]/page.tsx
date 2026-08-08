@@ -27,6 +27,10 @@ export async function generateMetadata({ params }: { params: Promise<{ id: strin
     description:
       `${t}（${vendorName(m)}，${m.version_as_of}）在 ${capsOf(m.class).length} 项能力里支持 ${yes} 项。` +
       `每一格都带厂商官方来源与核验日期。`,
+    // 这一页自己的分享图（§19）。§19 要的是「知识图可分享」，不是只分享 URL ——
+    // 图里画的就是这一页的结论，从同一份数据生成。
+    openGraph: { images: [{ url: `/atlas/og/model-${id}-16x9.png`, width: 1200, height: 675 }] },
+    twitter: { card: "summary_large_image", images: [`/atlas/og/model-${id}-16x9.png`] },
   };
 }
 
