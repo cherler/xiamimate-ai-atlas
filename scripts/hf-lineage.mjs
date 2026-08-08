@@ -52,8 +52,15 @@ const ORGS = [
 ];
 
 const VIDEO = /video|t2v|i2v|ti2v|s2v|flf|vace|animate|dance|mochi|cogvideo|allegro|hunyuanvideo|skyreels|ltx|wan\d/i;
-/** 端口与配件不是新模型 —— 收进来会把树塞满噪音。 */
-const NOISE = /-diffusers$|-Diffusers$|LoRA|lora|upscaler|PromptRewrite|-fp8$|-nvfp4$|-hf$|distilled|Distilled|-dev$|tokenizer|Tokenizer/;
+/**
+ * 噪音过滤：端口与配件不是新模型。
+ *
+ * ⚠️ **不能按 `-dev` / `distilled` 过滤。** LTX 的 0.9.7 和 0.9.8 只发过
+ * `-dev` 和 `-distilled` 版本 —— 那就是那一代的发布本体，滤掉就等于说这两代不存在。
+ * 真正该滤的只有：格式端口（-diffusers）、量化（-fp8/-nvfp4）、外挂（LoRA/upscaler）。
+ * 代际去重交给下游按**版本号**归组，不靠名字后缀猜。
+ */
+const NOISE = /-diffusers$|-Diffusers$|LoRA|lora|upscaler|PromptRewrite|-fp8$|-nvfp4$|-hf$|tokenizer|Tokenizer/;
 
 const rows = [];
 for (const t of ORGS) {

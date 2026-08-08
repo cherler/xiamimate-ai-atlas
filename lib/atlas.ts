@@ -54,6 +54,8 @@ export type Model = {
    */
   reach_cn?: "ok" | "blocked" | "unknown";
   reach_note?: string;
+  /** 谱系节点少于 3 个时必须写明为什么（R58）。**「没采到」和「本来就没有」是两回事。** */
+  lineage_note?: string;
 };
 
 export type Source = { url: string; tier: "official" | "third-party"; name: string };

@@ -194,6 +194,14 @@
       "likes": 4
     },
     {
+      "org": "Lightricks",
+      "m": "ltx",
+      "repo": "Lightricks/LTX-Video-2B-0.9.6-Distilled-04-25",
+      "date": "2025-04-18",
+      "downloads": 0,
+      "likes": 7
+    },
+    {
       "org": "Skywork",
       "m": "skyreels",
       "repo": "Skywork/SkyReels-V2-I2V-14B-540P",
@@ -274,12 +282,36 @@
       "likes": 500
     },
     {
+      "org": "Lightricks",
+      "m": "ltx",
+      "repo": "Lightricks/LTX-Video-0.9.7-dev",
+      "date": "2025-05-13",
+      "downloads": 751,
+      "likes": 23
+    },
+    {
+      "org": "Lightricks",
+      "m": "ltx",
+      "repo": "Lightricks/LTX-Video-0.9.7-distilled",
+      "date": "2025-05-14",
+      "downloads": 1468,
+      "likes": 60
+    },
+    {
       "org": "tencent",
       "m": null,
       "repo": "tencent/HunyuanVideo-Avatar",
       "date": "2025-05-26",
       "downloads": 0,
       "likes": 333
+    },
+    {
+      "org": "Lightricks",
+      "m": "ltx",
+      "repo": "Lightricks/LTX-Video-0.9.8-13B-distilled",
+      "date": "2025-07-17",
+      "downloads": 2101,
+      "likes": 32
     },
     {
       "org": "Wan-AI",
@@ -383,7 +415,7 @@
       "repo": "Lightricks/LTX-2.3",
       "date": "2026-03-04",
       "downloads": 1707707,
-      "likes": 1773
+      "likes": 1774
     },
     {
       "org": "Wan-AI",
@@ -399,7 +431,7 @@
       "repo": "Wan-AI/Wan2.2-Animate-2-14B",
       "date": "2026-07-14",
       "downloads": 0,
-      "likes": 38
+      "likes": 39
     }
   ]
 }

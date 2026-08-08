@@ -210,7 +210,7 @@ export default function Genealogy() {
                     : n.added}
                 </text>
                 <text x={px + 11} y={py + 8} fontSize="9.5" fill="var(--color-muted)">
-                  {n.date.slice(0, 7)}{isRoot ? ` · ${n.added}` : ""}{solo ? " · 只拿到这一个点" : ""}
+                  {n.date.slice(0, 7)}{isRoot ? ` · ${n.added}` : ""}
                 </text>
                 {rank && isRoot && (
                   <>
@@ -251,6 +251,12 @@ export default function Genealogy() {
             <span className="text-muted text-[13px] ml-2">{orgOf(hot.m)?.zh} · {hot.date}</span>
           </p>
           <p className="text-[14px]">新增：<b className="text-ink">{hot.added}</b></p>
+          {/* 孤点有两种成因：「我们没采到」和「它本来就没有历史」。**这两件事对读者完全不同。** */}
+          {atlas.models.find((m) => m.id === hot.m)?.lineage_note && (
+            <p className="text-[13px] text-unknown leading-relaxed">
+              {atlas.models.find((m) => m.id === hot.m)!.lineage_note}
+            </p>
+          )}
           <p className="text-muted text-[12px] leading-relaxed">
             原文：「{hot.quote}」
             <a href={atlas.sources[hot.src]?.url} target="_blank" rel="noreferrer" className="underline ml-1.5 hover:text-yes">

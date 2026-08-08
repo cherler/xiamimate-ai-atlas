@@ -478,6 +478,66 @@
         "lat": 31.7683,
         "lon": 35.2137
       }
+    },
+    {
+      "id": "tencent",
+      "zh": "腾讯",
+      "name": "Tencent",
+      "kind": "bigtech",
+      "hq": {
+        "city": "深圳",
+        "country": "中国",
+        "iso": "CN",
+        "lat": 22.5431,
+        "lon": 114.0579
+      },
+      "hq_precision": "none",
+      "hq_note": "⚠️ 还没有来源，按常识填的（R21 会一直警告）。"
+    },
+    {
+      "id": "genmo",
+      "zh": "Genmo",
+      "name": "Genmo",
+      "kind": "startup",
+      "hq": {
+        "city": "旧金山",
+        "country": "美国",
+        "iso": "US",
+        "lat": 37.7749,
+        "lon": -122.4194
+      },
+      "hq_precision": "none",
+      "hq_note": "⚠️ 还没有来源，按常识填的（R21 会一直警告）。"
+    },
+    {
+      "id": "rhymes",
+      "zh": "Rhymes AI",
+      "name": "Rhymes AI",
+      "kind": "startup",
+      "hq": {
+        "city": "东京",
+        "country": "日本",
+        "iso": "JP",
+        "lat": 35.6762,
+        "lon": 139.6503
+      },
+      "hq_precision": "none",
+      "hq_note": "⚠️ 还没有来源，按常识填的（R21 会一直警告）。"
+    },
+    {
+      "id": "hpcai",
+      "zh": "潞晨科技 HPC-AI Tech",
+      "name": "HPC-AI Tech",
+      "kind": "startup",
+      "hq": {
+        "city": "新加坡",
+        "country": "新加坡",
+        "iso": "SG",
+        "lat": 1.3521,
+        "lon": 103.8198
+      },
+      "hq_precision": "none",
+      "hq_note": "⚠️ 还没有来源，按常识填的（R21 会一直警告）。"
     }
   ],
   "$orgs": "公司是**一等实体**，不是模型上的一个字符串（此前 vendor 是字符串，结果阿里在库里成了两家）。产业链图、地球分布、投资关系全都挂在这一层上。\n**hq 只有 5 家有来源，其余 6 家仍然没有** —— 都是公开常识，但我们自己的规矩是「没有来源的结论就是猜的」，所以校验里 R21 会一直警告，前台也必须标出来。不许因为「大家都知道」就当成核过了。\n\n2026-08-08 补：从已有快照和官网拿到 5 家的可引证据，但**精度分三档**，写进 `hq_precision`：\n  exact     —— 页脚给出具体街道地址（只有字节）\n  province  —— **ICP 备案只证到省**（快手/MiniMax/阿里）。阿里那条只证到浙江，没证到杭州\n  ambiguous —— 招聘页同时列两个城市（Runway 的纽约与旧金山）\n\n剩下 6 家（生数、昆仑万维、Google DeepMind、OpenAI、Decart、Lightricks）没拿到：\n**生数官网 HTTPS 证书已过期**（ERR_CERT_DATE_INVALID）—— 这条本身就是信息；\n其余几家的 about/contact 页没有可机读的地址段。R21 会一直为它们报警告。\n\n**不许把 province 当成 exact 用。** 我们批评厂商「说了半句」的时候，自己不能也说半句。",
@@ -572,7 +632,8 @@
       "tier": "core",
       "domain": "video",
       "reach_cn": "blocked",
-      "reach_note": "同上"
+      "reach_note": "同上",
+      "lineage_note": "谱系只有 1 个节点：这个模型 2026-06-30 才在 Gemini API 上线，**五周前的东西凑不出三次发布**。不是我们没采到，是它还没有历史。"
     },
     {
       "id": "wan",
@@ -603,7 +664,8 @@
       "tier": "core",
       "domain": "video",
       "reach_cn": "ok",
-      "reach_note": "runway.com 直连 200"
+      "reach_note": "runway.com 直连 200",
+      "lineage_note": "谱系只有 3 个节点，且都在 2025-12 之后：Runway 的公开更新日志只回溯到那时，**Gen-1 / Gen-2 / Gen-3 的发布记录我们还没找到可引的官方页**。"
     },
     {
       "id": "kling",
@@ -739,6 +801,62 @@
       "domain": "video",
       "reach_cn": "unknown",
       "reach_note": "未测"
+    },
+    {
+      "id": "hunyuan-video",
+      "class": "clip",
+      "family": "HunyuanVideo",
+      "zh": "腾讯混元视频",
+      "org": "tencent",
+      "version": "1.5",
+      "version_as_of": "2025-11-18",
+      "status": "active",
+      "tier": "extended",
+      "domain": "video",
+      "reach_cn": "ok",
+      "note": "开源侧谱系的主干之一，进 extended 层（规则四：core 每轨 ≤10）。能力格未逐格核，只保证「它存在」。"
+    },
+    {
+      "id": "mochi",
+      "class": "clip",
+      "family": "Mochi",
+      "zh": "Genmo Mochi",
+      "org": "genmo",
+      "version": "1",
+      "version_as_of": "2024-10-22",
+      "status": "active",
+      "tier": "extended",
+      "domain": "video",
+      "reach_cn": "unknown",
+      "note": "开源侧谱系的主干之一，进 extended 层（规则四：core 每轨 ≤10）。能力格未逐格核，只保证「它存在」。"
+    },
+    {
+      "id": "allegro",
+      "class": "clip",
+      "family": "Allegro",
+      "zh": "Rhymes Allegro",
+      "org": "rhymes",
+      "version": "T2V",
+      "version_as_of": "2024-12-17",
+      "status": "active",
+      "tier": "extended",
+      "domain": "video",
+      "reach_cn": "unknown",
+      "note": "开源侧谱系的主干之一，进 extended 层（规则四：core 每轨 ≤10）。能力格未逐格核，只保证「它存在」。"
+    },
+    {
+      "id": "open-sora",
+      "class": "clip",
+      "family": "Open-Sora",
+      "zh": "Open-Sora",
+      "org": "hpcai",
+      "version": "v2",
+      "version_as_of": "2025-03-10",
+      "status": "active",
+      "tier": "extended",
+      "domain": "video",
+      "reach_cn": "unknown",
+      "note": "开源侧谱系的主干之一，进 extended 层（规则四：core 每轨 ≤10）。能力格未逐格核，只保证「它存在」。"
     }
   ],
   "sources": {
@@ -921,6 +1039,31 @@
       "url": "https://huggingface.co/Lightricks",
       "tier": "official",
       "name": "Lightricks 官方 Hugging Face 组织"
+    },
+    "hf-lineage": {
+      "url": "https://huggingface.co/models",
+      "tier": "official",
+      "name": "官方 Hugging Face 组织（发布时间取自 API 的 createdAt）"
+    },
+    "minimax-release-notes": {
+      "url": "https://platform.minimax.io/docs/release-notes/models",
+      "tier": "official",
+      "name": "MiniMax 开放平台 · 模型发布日志"
+    },
+    "gemini-changelog": {
+      "url": "https://ai.google.dev/gemini-api/docs/changelog",
+      "tier": "official",
+      "name": "Google · Gemini API 变更日志"
+    },
+    "seed-blog-1_5": {
+      "url": "https://seed.bytedance.com/en/blog/sound-and-vision-all-in-one-take-the-official-release-of-seedance-1-5-pro",
+      "tier": "official",
+      "name": "字节 Seed · Seedance 1.5 pro 发布（2025-12-16）"
+    },
+    "seed-blog-2_0": {
+      "url": "https://seed.bytedance.com/en/blog/official-launch-of-seedance-2-0",
+      "tier": "official",
+      "name": "字节 Seed · Seedance 2.0 发布（2026-02-12）"
     }
   },
   "support": [
@@ -2520,98 +2663,154 @@
   "$generated_at": "`generated_at` 是**能力格的核验日期**，不是「文件最后改动日期」。\n今天（2026-08-08）加了公司实体、平台透明度、价格三块，但**一格能力都没有重核**，\n所以这个日期不动。把它顺手改成今天，等于宣称九个模型逐格重查过了 —— 那是假的。\n各块自带自己的日期：pricing 有 as_of，platforms 的透明度看 discloses_src 的快照。",
   "versions": [
     {
-      "m": "wan",
-      "version": "2.1",
-      "date": "2025-02-25",
-      "added": "图生视频",
-      "src": "wan-hf",
-      "quote": "Wan-AI/Wan2.1-I2V-14B-480P",
-      "cap": "i2v",
-      "id": "wan2.1",
-      "note": "发布日期取自 HF API 的 createdAt（**不是 lastModified**）。"
+      "id": "allegro-Allegro-Allegro",
+      "m": "allegro",
+      "version": "Allegro",
+      "date": "2024-10-16",
+      "added": "Allegro",
+      "src": "hf-lineage",
+      "quote": "rhymes-ai/Allegro",
+      "note": "日期取自官方 HF 组织的 createdAt（**不是 lastModified**）。"
     },
     {
-      "m": "wan",
-      "version": "2.1",
-      "date": "2025-02-25",
+      "id": "allegro-Allegro-TI2V-图文混合生视频",
+      "m": "allegro",
+      "version": "Allegro-TI2V",
+      "date": "2024-11-21",
+      "added": "图文混合生视频",
+      "src": "hf-lineage",
+      "quote": "rhymes-ai/Allegro-TI2V",
+      "note": "日期取自官方 HF 组织的 createdAt（**不是 lastModified**）。",
+      "parent": "allegro-Allegro-Allegro"
+    },
+    {
+      "id": "allegro-Allegro-T2V-文生视频",
+      "m": "allegro",
+      "version": "Allegro-T2V",
+      "date": "2024-12-17",
       "added": "文生视频",
-      "src": "wan-hf",
-      "quote": "Wan-AI/Wan2.1-T2V-14B",
-      "cap": "t2v",
-      "id": "wan2.1-t2v",
-      "parent": "wan2.1",
-      "note": "发布日期取自 HF API 的 createdAt（**不是 lastModified**）。"
+      "src": "hf-lineage",
+      "quote": "rhymes-ai/Allegro-T2V-40x360P",
+      "note": "日期取自官方 HF 组织的 createdAt（**不是 lastModified**）。",
+      "parent": "allegro-Allegro-TI2V-图文混合生视频",
+      "cap": "t2v"
     },
     {
-      "m": "wan",
-      "version": "2.1",
-      "date": "2025-04-17",
-      "added": "首尾帧",
-      "src": "wan-hf",
-      "quote": "Wan-AI/Wan2.1-FLF2V-14B-720P",
-      "note": "FLF2V = First-Last-Frame to Video",
-      "cap": "flf",
-      "id": "wan2.1-flf2v",
-      "parent": "wan2.1"
+      "id": "gemini-omni-preview-高速视频生成+对话式剪辑",
+      "m": "gemini-omni",
+      "version": "preview",
+      "date": "2026-06-30",
+      "added": "高速视频生成 + 对话式剪辑",
+      "src": "gemini-changelog",
+      "quote": "Released gemini-omni-flash-preview, a high-performance multimodal model designed for high-speed video generation and conversational video editing."
     },
     {
-      "m": "wan",
-      "version": "2.1",
-      "date": "2025-05-13",
-      "added": "统一编辑",
-      "src": "wan-hf",
-      "quote": "Wan-AI/Wan2.1-VACE-14B",
-      "note": "发布日期取自 HF API 的 createdAt（**不是 lastModified**）。",
-      "cap_skip": "VACE 是一整套编辑能力，不等于我们轴上的任何一项",
-      "id": "wan2.1-vace",
-      "parent": "wan2.1"
+      "id": "hailuo-01-运镜控制",
+      "m": "hailuo",
+      "version": "01",
+      "date": "2025-02-11",
+      "added": "运镜控制",
+      "src": "minimax-release-notes",
+      "quote": "Released a video generation model with enhanced camera control, offering superior adherence to camera movement directives.",
+      "cap": "camera"
     },
     {
-      "m": "wan",
-      "version": "2.2",
-      "date": "2025-07-18",
-      "added": "换代：文生/图生/图文混合",
-      "src": "wan-hf",
-      "quote": "Wan-AI/Wan2.2-TI2V-5B",
-      "cap_skip": "同上",
-      "id": "wan2.2",
-      "parent": "wan2.1",
-      "note": "发布日期取自 HF API 的 createdAt（**不是 lastModified**）。"
+      "id": "hailuo-02-换代02：1080p",
+      "m": "hailuo",
+      "version": "02",
+      "date": "2025-06-18",
+      "added": "换代 02：1080p",
+      "src": "minimax-release-notes",
+      "quote": "Released MiniMax Hailuo 02, a next-generation video generation model with support for 1080p resolution.",
+      "parent": "hailuo-01-运镜控制"
     },
     {
-      "m": "wan",
-      "version": "2.2",
-      "date": "2025-08-25",
-      "added": "语音驱动数字人",
-      "src": "wan-hf",
-      "quote": "Wan-AI/Wan2.2-S2V-14B",
-      "note": "发布日期取自 HF API 的 createdAt（**不是 lastModified**）。",
-      "cap_skip": "S2V 是语音驱动，不等于「对口型」—— 两件事，不许合并",
-      "id": "wan2.2-s2v",
-      "parent": "wan2.2"
+      "id": "hailuo-2.3-换代2.3：肢体动作与表情",
+      "m": "hailuo",
+      "version": "2.3",
+      "date": "2025-10-28",
+      "added": "换代 2.3：肢体动作与表情",
+      "src": "minimax-release-notes",
+      "quote": "Released MiniMax-Hailuo-2.3 & 2.3-Fast, featuring breakthroughs in body movement, facial expressions, physical realism.",
+      "parent": "hailuo-02-换代02：1080p"
     },
     {
-      "m": "wan",
-      "version": "2.2",
-      "date": "2025-09-11",
-      "added": "动作复刻",
-      "src": "wan-hf",
-      "quote": "Wan-AI/Wan2.2-Animate-14B",
-      "cap": "motion",
-      "id": "wan2.2-animate",
-      "parent": "wan2.2",
-      "note": "发布日期取自 HF API 的 createdAt（**不是 lastModified**）。"
+      "id": "hailuo-H3-换代H3：开放权重的通用多模态",
+      "m": "hailuo",
+      "version": "H3",
+      "date": "2026-07-31",
+      "added": "换代 H3：开放权重的通用多模态",
+      "src": "minimax-release-notes",
+      "quote": "A new-generation open general-purpose multimodal video model.",
+      "parent": "hailuo-2.3-换代2.3：肢体动作与表情"
     },
     {
-      "m": "wan",
-      "version": "2.2",
-      "date": "2026-08-07",
-      "added": "动作复刻第二代",
-      "src": "wan-hf",
-      "quote": "Wan-AI/Wan2.2-Animate-2-14B",
-      "cap": "motion",
-      "id": "wan2.2-animate-2",
-      "parent": "wan2.2-animate"
+      "id": "hunyuan-video-HunyuanVideo-HunyuanVideo",
+      "m": "hunyuan-video",
+      "version": "HunyuanVideo",
+      "date": "2024-12-01",
+      "added": "HunyuanVideo",
+      "src": "hf-lineage",
+      "quote": "tencent/HunyuanVideo",
+      "note": "日期取自官方 HF 组织的 createdAt（**不是 lastModified**）。"
+    },
+    {
+      "id": "hunyuan-video-HunyuanVideo-图生视频",
+      "m": "hunyuan-video",
+      "version": "HunyuanVideo",
+      "date": "2025-03-05",
+      "added": "图生视频",
+      "src": "hf-lineage",
+      "quote": "tencent/HunyuanVideo-I2V",
+      "note": "日期取自官方 HF 组织的 createdAt（**不是 lastModified**）。",
+      "parent": "hunyuan-video-HunyuanVideo-HunyuanVideo",
+      "cap": "i2v"
+    },
+    {
+      "id": "hunyuan-video-HunyuanVideo-数字人",
+      "m": "hunyuan-video",
+      "version": "HunyuanVideo",
+      "date": "2025-05-26",
+      "added": "数字人",
+      "src": "hf-lineage",
+      "quote": "tencent/HunyuanVideo-Avatar",
+      "note": "日期取自官方 HF 组织的 createdAt（**不是 lastModified**）。",
+      "parent": "hunyuan-video-HunyuanVideo-HunyuanVideo"
+    },
+    {
+      "id": "hunyuan-video-HunyuanVideo-音效生成",
+      "m": "hunyuan-video",
+      "version": "HunyuanVideo",
+      "date": "2025-08-21",
+      "added": "音效生成",
+      "src": "hf-lineage",
+      "quote": "tencent/HunyuanVideo-Foley",
+      "note": "日期取自官方 HF 组织的 createdAt（**不是 lastModified**）。",
+      "parent": "hunyuan-video-HunyuanVideo-HunyuanVideo",
+      "cap": "audio"
+    },
+    {
+      "id": "hunyuan-video-HunyuanVideo-1.5-HunyuanVideo-1.5",
+      "m": "hunyuan-video",
+      "version": "HunyuanVideo-1.5",
+      "date": "2025-11-18",
+      "added": "HunyuanVideo-1.5",
+      "src": "hf-lineage",
+      "quote": "tencent/HunyuanVideo-1.5",
+      "note": "日期取自官方 HF 组织的 createdAt（**不是 lastModified**）。",
+      "parent": "hunyuan-video-HunyuanVideo-HunyuanVideo"
+    },
+    {
+      "id": "hunyuan-video-HY-Video-视频生成",
+      "m": "hunyuan-video",
+      "version": "HY-Video",
+      "date": "2026-01-07",
+      "added": "视频生成",
+      "src": "hf-lineage",
+      "quote": "tencent/HY-Video-PRFL",
+      "note": "日期取自官方 HF 组织的 createdAt（**不是 lastModified**）。",
+      "parent": "hunyuan-video-HunyuanVideo-1.5-HunyuanVideo-1.5",
+      "cap": "t2v"
     },
     {
       "m": "kling",
@@ -2679,6 +2878,131 @@
       "parent": "kling3.0"
     },
     {
+      "id": "ltx-LongAnimateDiff-LongAnimateDiff",
+      "m": "ltx",
+      "version": "LongAnimateDiff",
+      "date": "2023-12-10",
+      "added": "LongAnimateDiff",
+      "src": "hf-lineage",
+      "quote": "Lightricks/LongAnimateDiff",
+      "note": "日期取自官方 HF 组织的 createdAt（**不是 lastModified**）。"
+    },
+    {
+      "id": "ltx-LTX-Video-视频生成",
+      "m": "ltx",
+      "version": "LTX-Video",
+      "date": "2024-10-31",
+      "added": "视频生成",
+      "src": "hf-lineage",
+      "quote": "Lightricks/LTX-Video",
+      "note": "日期取自官方 HF 组织的 createdAt（**不是 lastModified**）。",
+      "parent": "ltx-LongAnimateDiff-LongAnimateDiff",
+      "cap": "t2v"
+    },
+    {
+      "id": "ltx-0.9.5-视频生成",
+      "m": "ltx",
+      "version": "0.9.5",
+      "date": "2025-03-16",
+      "added": "视频生成",
+      "src": "hf-lineage",
+      "quote": "Lightricks/LTX-Video-0.9.5",
+      "note": "日期取自官方 HF 组织的 createdAt（**不是 lastModified**）。",
+      "parent": "ltx-LTX-Video-视频生成",
+      "cap": "t2v"
+    },
+    {
+      "id": "ltx-0.9.6-视频生成",
+      "m": "ltx",
+      "version": "0.9.6",
+      "date": "2025-04-18",
+      "added": "视频生成",
+      "src": "hf-lineage",
+      "quote": "Lightricks/LTX-Video-2B-0.9.6-Dev-04-25",
+      "note": "日期取自官方 HF 组织的 createdAt（**不是 lastModified**）。",
+      "parent": "ltx-0.9.5-视频生成",
+      "cap": "t2v"
+    },
+    {
+      "id": "ltx-0.9.7-视频生成",
+      "m": "ltx",
+      "version": "0.9.7",
+      "date": "2025-05-13",
+      "added": "视频生成",
+      "src": "hf-lineage",
+      "quote": "Lightricks/LTX-Video-0.9.7-dev",
+      "note": "日期取自官方 HF 组织的 createdAt（**不是 lastModified**）。",
+      "parent": "ltx-0.9.6-视频生成",
+      "cap": "t2v"
+    },
+    {
+      "id": "ltx-0.9.8-视频生成",
+      "m": "ltx",
+      "version": "0.9.8",
+      "date": "2025-07-17",
+      "added": "视频生成",
+      "src": "hf-lineage",
+      "quote": "Lightricks/LTX-Video-0.9.8-13B-distilled",
+      "note": "日期取自官方 HF 组织的 createdAt（**不是 lastModified**）。",
+      "parent": "ltx-0.9.7-视频生成",
+      "cap": "t2v"
+    },
+    {
+      "id": "ltx-LTX-2-LTX-2",
+      "m": "ltx",
+      "version": "LTX-2",
+      "date": "2026-01-03",
+      "added": "LTX-2",
+      "src": "hf-lineage",
+      "quote": "Lightricks/LTX-2",
+      "note": "日期取自官方 HF 组织的 createdAt（**不是 lastModified**）。",
+      "parent": "ltx-0.9.8-视频生成"
+    },
+    {
+      "id": "ltx-LTX-2.3-LTX-2.3",
+      "m": "ltx",
+      "version": "LTX-2.3",
+      "date": "2026-03-04",
+      "added": "LTX-2.3",
+      "src": "hf-lineage",
+      "quote": "Lightricks/LTX-2.3",
+      "note": "日期取自官方 HF 组织的 createdAt（**不是 lastModified**）。",
+      "parent": "ltx-LTX-2-LTX-2"
+    },
+    {
+      "id": "mochi-mochi-1-mochi-1",
+      "m": "mochi",
+      "version": "mochi-1",
+      "date": "2024-10-22",
+      "added": "mochi-1",
+      "src": "hf-lineage",
+      "quote": "genmo/mochi-1-preview",
+      "note": "日期取自官方 HF 组织的 createdAt（**不是 lastModified**）。"
+    },
+    {
+      "id": "open-sora-OpenSora-STDiT-v4-图生视频",
+      "m": "open-sora",
+      "version": "OpenSora-STDiT-v4",
+      "date": "2025-02-21",
+      "added": "图生视频",
+      "src": "hf-lineage",
+      "quote": "hpcai-tech/OpenSora-STDiT-v4-i2v",
+      "note": "日期取自官方 HF 组织的 createdAt（**不是 lastModified**）。",
+      "cap": "i2v"
+    },
+    {
+      "id": "open-sora-Open-Sora-v2-视频生成",
+      "m": "open-sora",
+      "version": "Open-Sora-v2",
+      "date": "2025-03-10",
+      "added": "视频生成",
+      "src": "hf-lineage",
+      "quote": "hpcai-tech/Open-Sora-v2-Video-DC-AE",
+      "note": "日期取自官方 HF 组织的 createdAt（**不是 lastModified**）。",
+      "parent": "open-sora-OpenSora-STDiT-v4-图生视频",
+      "cap": "t2v"
+    },
+    {
       "m": "runway",
       "version": "4.5",
       "date": "2025-12-11",
@@ -2711,14 +3035,24 @@
       "note": "Aleph 是 Runway 的视频编辑线，**不是 Gen 系列的版本** —— 之前误标成 4.5，会让人以为它是 Gen-4.5 的一个版本。"
     },
     {
-      "m": "vidu-q",
-      "version": "Q2",
-      "date": "2025-11-13",
-      "added": "音视频直出",
-      "src": "vidu-changelog",
-      "quote": "Audio&Video Direct Output Capability - Audio&video direct output is now available",
+      "id": "seedance-1.5-音视频联合生成",
+      "m": "seedance",
+      "version": "1.5",
+      "date": "2025-12-16",
+      "added": "音视频联合生成",
       "cap": "audio",
-      "id": "viduq2"
+      "src": "seed-blog-1_5",
+      "quote": "Seedance 1.5 pro features joint audio-visual generation, capable of executing a range of tasks, including synthesizing audio-video content from text prompts and generating it through image-driven processes."
+    },
+    {
+      "id": "seedance-2.0-换代2.0：四种输入模态",
+      "m": "seedance",
+      "version": "2.0",
+      "date": "2026-02-12",
+      "added": "换代 2.0：四种输入模态",
+      "parent": "seedance-1.5-音视频联合生成",
+      "src": "seed-blog-2_0",
+      "quote": "Built with a unified multimodal audio-video joint generation architecture, Seedance 2.0 supports four input modalities: text, image, audio, and video."
     },
     {
       "m": "seedance",
@@ -2728,10 +3062,348 @@
       "src": "seed-blog",
       "quote": "One-take Creation, Flexible Referencing: Introducing Seedance 2.5",
       "cap_skip": "同上",
-      "id": "seedance2.5"
+      "id": "seedance2.5",
+      "parent": "seedance-2.0-换代2.0：四种输入模态"
+    },
+    {
+      "id": "skyreels-SkyReels-A1-表情驱动",
+      "m": "skyreels",
+      "version": "SkyReels-A1",
+      "date": "2025-02-13",
+      "added": "表情驱动",
+      "src": "hf-lineage",
+      "quote": "Skywork/SkyReels-A1",
+      "note": "日期取自官方 HF 组织的 createdAt（**不是 lastModified**）。"
+    },
+    {
+      "id": "skyreels-SkyReels-V1-文生视频",
+      "m": "skyreels",
+      "version": "SkyReels-V1",
+      "date": "2025-02-13",
+      "added": "文生视频",
+      "src": "hf-lineage",
+      "quote": "Skywork/SkyReels-V1-Hunyuan-T2V",
+      "note": "日期取自官方 HF 组织的 createdAt（**不是 lastModified**）。",
+      "parent": "skyreels-SkyReels-A1-表情驱动",
+      "cap": "t2v"
+    },
+    {
+      "id": "skyreels-SkyReels-V1-图生视频",
+      "m": "skyreels",
+      "version": "SkyReels-V1",
+      "date": "2025-02-17",
+      "added": "图生视频",
+      "src": "hf-lineage",
+      "quote": "Skywork/SkyReels-V1-Hunyuan-I2V",
+      "note": "日期取自官方 HF 组织的 createdAt（**不是 lastModified**）。",
+      "parent": "skyreels-SkyReels-V1-文生视频",
+      "cap": "i2v"
+    },
+    {
+      "id": "skyreels-SkyReels-A2-主体参考",
+      "m": "skyreels",
+      "version": "SkyReels-A2",
+      "date": "2025-03-30",
+      "added": "主体参考",
+      "src": "hf-lineage",
+      "quote": "Skywork/SkyReels-A2",
+      "note": "日期取自官方 HF 组织的 createdAt（**不是 lastModified**）。",
+      "parent": "skyreels-SkyReels-V1-文生视频",
+      "cap": "charref"
+    },
+    {
+      "id": "skyreels-SkyReels-V2-图生视频",
+      "m": "skyreels",
+      "version": "SkyReels-V2",
+      "date": "2025-04-18",
+      "added": "图生视频",
+      "src": "hf-lineage",
+      "quote": "Skywork/SkyReels-V2-I2V-14B-540P",
+      "note": "日期取自官方 HF 组织的 createdAt（**不是 lastModified**）。",
+      "parent": "skyreels-SkyReels-A2-主体参考",
+      "cap": "i2v"
+    },
+    {
+      "id": "skyreels-SkyReels-V2-长视频扩散强制",
+      "m": "skyreels",
+      "version": "SkyReels-V2",
+      "date": "2025-04-18",
+      "added": "长视频扩散强制",
+      "src": "hf-lineage",
+      "quote": "Skywork/SkyReels-V2-DF-1.3B-540P",
+      "note": "日期取自官方 HF 组织的 createdAt（**不是 lastModified**）。",
+      "parent": "skyreels-SkyReels-V2-图生视频"
+    },
+    {
+      "id": "skyreels-SkyReels-V2-文生视频",
+      "m": "skyreels",
+      "version": "SkyReels-V2",
+      "date": "2025-04-18",
+      "added": "文生视频",
+      "src": "hf-lineage",
+      "quote": "Skywork/SkyReels-V2-T2V-14B-540P",
+      "note": "日期取自官方 HF 组织的 createdAt（**不是 lastModified**）。",
+      "parent": "skyreels-SkyReels-V2-图生视频",
+      "cap": "t2v"
+    },
+    {
+      "id": "skyreels-SkyReels-V3-视频转视频",
+      "m": "skyreels",
+      "version": "SkyReels-V3",
+      "date": "2026-01-19",
+      "added": "视频转视频",
+      "src": "hf-lineage",
+      "quote": "Skywork/SkyReels-V3-V2V-14B",
+      "note": "日期取自官方 HF 组织的 createdAt（**不是 lastModified**）。",
+      "parent": "skyreels-SkyReels-V2-图生视频"
+    },
+    {
+      "id": "skyreels-SkyReels-V3-参考生视频",
+      "m": "skyreels",
+      "version": "SkyReels-V3",
+      "date": "2026-01-19",
+      "added": "参考生视频",
+      "src": "hf-lineage",
+      "quote": "Skywork/SkyReels-V3-R2V-14B",
+      "note": "日期取自官方 HF 组织的 createdAt（**不是 lastModified**）。",
+      "parent": "skyreels-SkyReels-V3-视频转视频",
+      "cap": "charref"
+    },
+    {
+      "id": "skyreels-SkyReels-V3-音频驱动视频",
+      "m": "skyreels",
+      "version": "SkyReels-V3",
+      "date": "2026-01-19",
+      "added": "音频驱动视频",
+      "src": "hf-lineage",
+      "quote": "Skywork/SkyReels-V3-A2V-19B",
+      "note": "日期取自官方 HF 组织的 createdAt（**不是 lastModified**）。",
+      "parent": "skyreels-SkyReels-V3-视频转视频",
+      "cap": "audio"
+    },
+    {
+      "id": "veo-3.0-原生音频",
+      "m": "veo",
+      "version": "3.0",
+      "date": "2025-07-17",
+      "added": "原生音频",
+      "src": "gemini-changelog",
+      "quote": "Launched veo-3.0-generate-preview, the latest update to Veo introducing video with audio generation.",
+      "cap": "audio"
+    },
+    {
+      "id": "veo-3.0-图生视频",
+      "m": "veo",
+      "version": "3.0",
+      "date": "2025-07-31",
+      "added": "图生视频",
+      "src": "gemini-changelog",
+      "quote": "Launched image-to-video generation for the Veo 3 Preview model",
+      "parent": "veo-3.0-原生音频",
+      "cap": "i2v"
+    },
+    {
+      "id": "veo-3.0-正式版：分辨率宽高比种子",
+      "m": "veo",
+      "version": "3.0",
+      "date": "2025-09-09",
+      "added": "正式版：分辨率/宽高比/种子",
+      "src": "gemini-changelog",
+      "quote": "Launched Veo 3 and Veo 3 Fast GA, with lower pricing and new options for aspect ratios, resolution, and seeding.",
+      "parent": "veo-3.0-原生音频"
+    },
+    {
+      "id": "veo-3.1-换代3.1：视频延长+参考图",
+      "m": "veo",
+      "version": "3.1",
+      "date": "2025-10-15",
+      "added": "换代 3.1：视频延长 + 参考图",
+      "src": "gemini-changelog",
+      "quote": "Released Veo 3.1 and 3.1 Fast models in public preview",
+      "parent": "veo-3.0-原生音频",
+      "cap": "extend"
+    },
+    {
+      "id": "vidu-q-Q1-参考生视频",
+      "m": "vidu-q",
+      "version": "Q1",
+      "date": "2025-08-26",
+      "added": "参考生视频",
+      "src": "vidu-changelog",
+      "quote": "Reference video generation launched, supporting viduq1, vidu2.0, vidu1.5 models",
+      "cap": "charref"
+    },
+    {
+      "id": "vidu-q-Q2-换代Q2：pro与turbo两档",
+      "m": "vidu-q",
+      "version": "Q2",
+      "date": "2025-09-24",
+      "added": "换代 Q2：pro 与 turbo 两档",
+      "src": "vidu-changelog",
+      "quote": "Added viduq2-pro and viduq2-turbo models",
+      "parent": "vidu-q-Q1-参考生视频"
+    },
+    {
+      "m": "vidu-q",
+      "version": "Q2",
+      "date": "2025-11-13",
+      "added": "音视频直出",
+      "src": "vidu-changelog",
+      "quote": "Audio&Video Direct Output Capability - Audio&video direct output is now available",
+      "cap": "audio",
+      "id": "viduq2",
+      "parent": "vidu-q-Q2-换代Q2：pro与turbo两档"
+    },
+    {
+      "id": "vidu-q-Q3-换代Q3：文生+图生",
+      "m": "vidu-q",
+      "version": "Q3",
+      "date": "2026-01-27",
+      "added": "换代 Q3：文生 + 图生",
+      "src": "vidu-changelog",
+      "quote": "Support the addition of viduq3-pro models for both Wensheng and Tusheng",
+      "parent": "vidu-q-Q2-换代Q2：pro与turbo两档"
+    },
+    {
+      "id": "vidu-q-Q3-首尾帧",
+      "m": "vidu-q",
+      "version": "Q3",
+      "date": "2026-02-11",
+      "added": "首尾帧",
+      "src": "vidu-changelog",
+      "quote": "Support the addition of viduq3-turbo model for both text2video and image2video and start-end2video",
+      "parent": "vidu-q-Q3-换代Q3：文生+图生",
+      "cap": "flf"
+    },
+    {
+      "id": "vidu-q-Q3-参考生视频（Q3版）",
+      "m": "vidu-q",
+      "version": "Q3",
+      "date": "2026-04-13",
+      "added": "参考生视频（Q3 版）",
+      "src": "vidu-changelog",
+      "quote": "Support the addition of viduq3-mix、viduq3-turbo、viduq3 model for reference2video",
+      "parent": "vidu-q-Q3-换代Q3：文生+图生",
+      "cap": "charref"
+    },
+    {
+      "id": "wan-Wan2.1-文生视频",
+      "m": "wan",
+      "version": "Wan2.1",
+      "date": "2025-02-25",
+      "added": "文生视频",
+      "src": "hf-lineage",
+      "quote": "Wan-AI/Wan2.1-T2V-14B",
+      "note": "日期取自官方 HF 组织的 createdAt（**不是 lastModified**）。",
+      "cap": "t2v"
+    },
+    {
+      "id": "wan-Wan2.1-图生视频",
+      "m": "wan",
+      "version": "Wan2.1",
+      "date": "2025-02-25",
+      "added": "图生视频",
+      "src": "hf-lineage",
+      "quote": "Wan-AI/Wan2.1-I2V-14B-480P",
+      "note": "日期取自官方 HF 组织的 createdAt（**不是 lastModified**）。",
+      "parent": "wan-Wan2.1-文生视频",
+      "cap": "i2v"
+    },
+    {
+      "id": "wan-Wan2.1-首尾帧",
+      "m": "wan",
+      "version": "Wan2.1",
+      "date": "2025-04-17",
+      "added": "首尾帧",
+      "src": "hf-lineage",
+      "quote": "Wan-AI/Wan2.1-FLF2V-14B-720P",
+      "note": "日期取自官方 HF 组织的 createdAt（**不是 lastModified**）。",
+      "parent": "wan-Wan2.1-文生视频",
+      "cap": "flf"
+    },
+    {
+      "id": "wan-Wan2.1-统一编辑",
+      "m": "wan",
+      "version": "Wan2.1",
+      "date": "2025-05-13",
+      "added": "统一编辑",
+      "src": "hf-lineage",
+      "quote": "Wan-AI/Wan2.1-VACE-1.3B",
+      "note": "日期取自官方 HF 组织的 createdAt（**不是 lastModified**）。",
+      "parent": "wan-Wan2.1-文生视频"
+    },
+    {
+      "id": "wan-Wan2.2-图文混合生视频",
+      "m": "wan",
+      "version": "Wan2.2",
+      "date": "2025-07-18",
+      "added": "图文混合生视频",
+      "src": "hf-lineage",
+      "quote": "Wan-AI/Wan2.2-TI2V-5B",
+      "note": "日期取自官方 HF 组织的 createdAt（**不是 lastModified**）。",
+      "parent": "wan-Wan2.1-文生视频"
+    },
+    {
+      "id": "wan-Wan2.2-图生视频",
+      "m": "wan",
+      "version": "Wan2.2",
+      "date": "2025-07-24",
+      "added": "图生视频",
+      "src": "hf-lineage",
+      "quote": "Wan-AI/Wan2.2-I2V-A14B",
+      "note": "日期取自官方 HF 组织的 createdAt（**不是 lastModified**）。",
+      "parent": "wan-Wan2.2-图文混合生视频",
+      "cap": "i2v"
+    },
+    {
+      "id": "wan-Wan2.2-文生视频",
+      "m": "wan",
+      "version": "Wan2.2",
+      "date": "2025-07-24",
+      "added": "文生视频",
+      "src": "hf-lineage",
+      "quote": "Wan-AI/Wan2.2-T2V-A14B",
+      "note": "日期取自官方 HF 组织的 createdAt（**不是 lastModified**）。",
+      "parent": "wan-Wan2.2-图文混合生视频",
+      "cap": "t2v"
+    },
+    {
+      "id": "wan-Wan2.2-语音驱动",
+      "m": "wan",
+      "version": "Wan2.2",
+      "date": "2025-08-25",
+      "added": "语音驱动",
+      "src": "hf-lineage",
+      "quote": "Wan-AI/Wan2.2-S2V-14B",
+      "note": "日期取自官方 HF 组织的 createdAt（**不是 lastModified**）。",
+      "parent": "wan-Wan2.2-图文混合生视频"
+    },
+    {
+      "id": "wan-Wan2.2-动作复刻",
+      "m": "wan",
+      "version": "Wan2.2",
+      "date": "2025-09-11",
+      "added": "动作复刻",
+      "src": "hf-lineage",
+      "quote": "Wan-AI/Wan2.2-Animate-14B",
+      "note": "日期取自官方 HF 组织的 createdAt（**不是 lastModified**）。",
+      "parent": "wan-Wan2.2-图文混合生视频",
+      "cap": "motion"
+    },
+    {
+      "id": "wan-Wan-Dancer-舞蹈驱动",
+      "m": "wan",
+      "version": "Wan-Dancer",
+      "date": "2026-07-10",
+      "added": "舞蹈驱动",
+      "src": "hf-lineage",
+      "quote": "Wan-AI/Wan-Dancer-14B",
+      "note": "日期取自官方 HF 组织的 createdAt（**不是 lastModified**）。",
+      "parent": "wan-Wan2.2-图文混合生视频",
+      "cap": "motion"
     }
   ],
-  "$versions": "版本谱系（演进图的数据）。**演进的主体是模型，不是能力。**\n\n原来那张演进图每行是一项能力、横轴是「我们能证明的最早时间」、粗细是几家支持。\n读者看完只得到「动作复刻 2025-12 出现、6/9 支持」—— 那是一次数据库查询的可视化，不涨知识。\n而且它得靠图注免责（「不是业界首次出现」）：**一张需要图注免责的图，说明它量错了东西。**\n\n这份数据画的是**厂商自己发布的版本和日期**，所以不需要免责。每条必须回答：\n**这一代新增了什么。** 只有版本号没有 added 的节点没有价值，不收。\n\n两个最好的来源，都不是「新闻」：\n  · **官方 Hugging Face 组织** —— 模型名本身就编码了能力与代际\n    （Wan2.1-FLF2V＝首尾帧、Wan2.2-S2V＝语音驱动、LTX 的 IC-LoRA-Ingredients＝角色参考），\n    发布时间由 HF API 给出，比任何新闻稿都准。\n  · **官方 API 更新日志** —— 可灵那份 31k 字符里有 170 条带日期的条目。\n\n覆盖不全是事实：万相和可灵能画出完整谱系，Runway/Vidu/Seedance 只有近期几个点，\nVeo/Sora/海螺/LTX 还没有。**图上要标出哪几条线是完整的、哪几条只是片段** ——\n画一条只有两个点的线却不说明，读者会以为这家两年只更新过两次。\n\n`cap` 把版本节点挂到能力 id 上，图上「点一项能力，看各家谁先谁后」靠它。\n**对不上的一律留空并写明理由（cap_skip），不硬凑** —— 硬凑一个 id，纵向那一刀就切错了。\n典型：Wan 的 S2V 是「语音驱动」，不等于我们轴上的「对口型」，两件事不合并；\n「换代」节点本身也不是新增单项能力。\n\n`id` + `parent` 把平铺记录变成**真的树**。分叉是真实存在的：\nWan2.1 底座上同时长出 FLF2V（首尾帧）和 VACE（统一编辑）两个变体，\nWan2.2 是换代接在 2.1 后面，Animate-2 又接在 Animate 后面。\n\n**没有父节点的就让它当根，不许为了让树好看硬接一条边** ——\nRunway 的 Aleph 是编辑线，不是 Gen 的后代，它自己是一棵树。\n\n⚠️ **日期必须取 HF 的 `createdAt`，不能取 `lastModified`。**\n第一版取错了字段，把「最后修改」当成了发布日期：Wan2.2 记成 2025-08-07（实际 2025-07-18）、\nAnimate 记成 2025-11-05（实际 2025-09-11）——**差了两个月**。\n仓库发布后还会被反复更新，两个字段根本不是一回事。\n这类错最阴：日期看着合理、图也画得出来，但整条时间线是歪的。",
+  "$versions": "版本谱系（演进图的数据）。**演进的主体是模型，不是能力。**\n\n原来那张演进图每行是一项能力、横轴是「我们能证明的最早时间」、粗细是几家支持。\n读者看完只得到「动作复刻 2025-12 出现、6/9 支持」—— 那是一次数据库查询的可视化，不涨知识。\n而且它得靠图注免责（「不是业界首次出现」）：**一张需要图注免责的图，说明它量错了东西。**\n\n这份数据画的是**厂商自己发布的版本和日期**，所以不需要免责。每条必须回答：\n**这一代新增了什么。** 只有版本号没有 added 的节点没有价值，不收。\n\n两个最好的来源，都不是「新闻」：\n  · **官方 Hugging Face 组织** —— 模型名本身就编码了能力与代际\n    （Wan2.1-FLF2V＝首尾帧、Wan2.2-S2V＝语音驱动、LTX 的 IC-LoRA-Ingredients＝角色参考），\n    发布时间由 HF API 给出，比任何新闻稿都准。\n  · **官方 API 更新日志** —— 可灵那份 31k 字符里有 170 条带日期的条目。\n\n覆盖不全是事实：万相和可灵能画出完整谱系，Runway/Vidu/Seedance 只有近期几个点，\nVeo/Sora/海螺/LTX 还没有。**图上要标出哪几条线是完整的、哪几条只是片段** ——\n画一条只有两个点的线却不说明，读者会以为这家两年只更新过两次。\n\n`cap` 把版本节点挂到能力 id 上，图上「点一项能力，看各家谁先谁后」靠它。\n**对不上的一律留空并写明理由（cap_skip），不硬凑** —— 硬凑一个 id，纵向那一刀就切错了。\n典型：Wan 的 S2V 是「语音驱动」，不等于我们轴上的「对口型」，两件事不合并；\n「换代」节点本身也不是新增单项能力。\n\n`id` + `parent` 把平铺记录变成**真的树**。分叉是真实存在的：\nWan2.1 底座上同时长出 FLF2V（首尾帧）和 VACE（统一编辑）两个变体，\nWan2.2 是换代接在 2.1 后面，Animate-2 又接在 Animate 后面。\n\n**没有父节点的就让它当根，不许为了让树好看硬接一条边** ——\nRunway 的 Aleph 是编辑线，不是 Gen 的后代，它自己是一棵树。\n\n⚠️ **日期必须取 HF 的 `createdAt`，不能取 `lastModified`。**\n第一版取错了字段，把「最后修改」当成了发布日期：Wan2.2 记成 2025-08-07（实际 2025-07-18）、\nAnimate 记成 2025-11-05（实际 2025-09-11）——**差了两个月**。\n仓库发布后还会被反复更新，两个字段根本不是一回事。\n这类错最阴：日期看着合理、图也画得出来，但整条时间线是歪的。\n\n覆盖不足要**写在数据里**，不是靠图上一句话糊过去：\n模型的 `lineage_note` 解释为什么它的节点少（太新 / 官方记录只回溯到某时）。\n校验 R58 强制：**核心模型少于 3 个节点却没写理由，就是错**。\n「我们没采到」和「它本来就没有」是两回事，读者有权知道是哪一种。",
   "skills": [],
   "$skills": "Skill / Workflow。方案 §10 原话：**「Skill 必须是第一等公民。」**\n一个 Skill 回答的是「这件事怎么做」，而能力格回答的是「谁能做」——两个问题。\n\n字段：{id, zh, en, cap?, io{in[],out}, native[], opensource[], platform_feature[], limits[], cases[], src, quote, verified_at}\n\n**limits 为空要报警告（R45）**：一个没有「已知限制」的 Skill 页是在卖广告，不是在帮人。",
   "change_events": [],

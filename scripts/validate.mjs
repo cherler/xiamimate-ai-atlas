@@ -159,6 +159,20 @@ for (const v of a.versions ?? []) {
   }
 }
 
+/**
+ * R58：**核心模型少于 3 个谱系节点，必须写明为什么。**
+ *
+ * 少于 3 个的模型在演化树上是孤点。孤点有两种成因：
+ * 「我们没采到」和「它本来就没有历史」—— **这两件事对读者完全不同**，
+ * 不许都画成一样的孤点然后不解释。写不出理由，就说明是前一种，那就去采。
+ */
+for (const m of a.models) {
+  if (m.class !== "clip" || (m.tier ?? "core") !== "core") continue;
+  const n = (a.versions ?? []).filter((v) => v.m === m.id).length;
+  if (n < 3 && !m.lineage_note)
+    errs.push(`R58 ${m.family} 只有 ${n} 个谱系节点却没写原因 —— 「没采到」和「本来就没有」是两回事`);
+}
+
 // ── 新实体（A2）。**结构先立、校验先行**：结构定错了，填进去的数据全要返工。
 // 五个都可以是空数组 —— 不能因为还没填数据就报错。
 const skillIds = new Set((a.skills ?? []).map((k) => k.id));

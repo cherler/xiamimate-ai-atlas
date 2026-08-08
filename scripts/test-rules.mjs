@@ -58,6 +58,11 @@ const CASES = [
     want: ["R56"],
     mut: (a) => { const c = a.versions.find((v) => v.parent); c.date = "2020-01-01"; } },
 
+  { name: "谱系：核心模型只有 1 个节点却不写原因（孤点有两种成因，不许混）",
+    want: ["R58"],
+    mut: (a) => { a.versions = a.versions.filter((v) => v.m !== "kling"); 
+      const m = a.models.find((x) => x.id === "kling"); delete m.lineage_note; } },
+
   { name: "动线：中间步没有出口（死路）/ 引用了不存在的页",
     want: ["R41", "R42"],
     mut: (a, flows) => { flows.flows[0].steps[0].exits = []; flows.flows[0].steps[1].page = "/查无此页"; } },
