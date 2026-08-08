@@ -7,7 +7,7 @@ import Search from "@/components/Search";
 import MobileStack from "@/components/MobileStack";
 import Link from "next/link";
 import { Fact, MARK, Rich, TONE } from "@/components/Fact";
-import { atlas, avail, capsOf, cell, compare, extendedOf, label, modelsOf, tally, transparency, type Klass } from "@/lib/atlas";
+import { atlas, avail, capsOf, cell, compare, extendedOf, label, modelsOf, tally, transparency, vendorName, type Klass } from "@/lib/atlas";
 import { capHref, modelHref } from "@/lib/slug";
 
 /** 生命周期标记。停服/非主力必须一眼看得见 —— 能力对不代表能用。 */
@@ -231,7 +231,7 @@ export default function Page() {
             {modelsOf("clip").map((m) => (
               <div key={m.id} className="border-t border-rule pt-3 pb-1">
                 <p className="font-semibold text-[16px]">
-                  {label(m)} <span className="text-muted font-normal text-[13px]">{m.vendor}</span>
+                  {label(m)} <span className="text-muted font-normal text-[13px]">{vendorName(m)}</span>
                 </p>
                 <Fact m={m.id} c={sel.id} label={atlas.capabilities.find((x) => x.id === sel.id)!.zh} />
               </div>
@@ -410,7 +410,7 @@ export default function Page() {
                 <p className="font-semibold">
                   {label(m)}
                   <span className="text-muted font-normal text-[13px] ml-2">
-                    {m.vendor} · {m.version_as_of}
+                    {vendorName(m)} · {m.version_as_of}
                   </span>
                   {m.status && m.status !== "active" && (
                     <span className={`ml-2 text-[12px] ${STATUS[m.status]?.cls.replace("line-through", "")}`}>

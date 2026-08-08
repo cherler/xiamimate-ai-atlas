@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { atlas, cell, label } from "@/lib/atlas";
+import { atlas, cell, label, vendorName } from "@/lib/atlas";
 
 /**
  * 一键报错（方案 §46 Suggest Correction）。
@@ -31,7 +31,7 @@ export default function ReportIssue({ m, c }: { m?: string; c?: string }) {
   const where = md && cp ? `${label(md)} × ${cp.zh}` : md ? label(md) : cp ? cp.zh : "整站";
   const body = [
     `【报错位置】${where}`,
-    md && `模型：${label(md)}（${md.vendor}，该版本 ${md.version_as_of}）`,
+    md && `模型：${label(md)}（${vendorName(md)}，该版本 ${md.version_as_of}）`,
     cp && `能力：${cp.zh} / ${cp.name}`,
     f && `我们现在写的是：${{ yes: "支持", no: "不支持", unknown: "官方没说" }[f.state]}`,
     f?.note && `说明：${f.note}`,

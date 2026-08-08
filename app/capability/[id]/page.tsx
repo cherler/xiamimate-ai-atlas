@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { Fact } from "@/components/Fact";
-import { atlas, cell, label, modelsOf, type Klass } from "@/lib/atlas";
+import { atlas, cell, label, modelsOf, vendorName, type Klass } from "@/lib/atlas";
 import { modelHref } from "@/lib/slug";
 
 /**
@@ -100,7 +100,7 @@ export default async function CapabilityPage({ params }: { params: Promise<{ id:
           {modelsOf(k).map((m) => (
             <div key={m.id}>
               <Link href={modelHref(m)} className="text-[13px] text-muted underline hover:text-ink">
-                {m.vendor}
+                {vendorName(m)}
               </Link>
               <Fact m={m.id} c={c.id} label={label(m)} />
             </div>

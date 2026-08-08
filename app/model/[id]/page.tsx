@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { Fact, Rich } from "@/components/Fact";
-import { atlas, avail, capsOf, cell, label } from "@/lib/atlas";
+import { atlas, avail, capsOf, cell, label, vendorName } from "@/lib/atlas";
 import { capHref } from "@/lib/slug";
 
 /**
@@ -25,7 +25,7 @@ export async function generateMetadata({ params }: { params: Promise<{ id: strin
     // §20 的长尾词就长这样：「Kling 3.0 支持什么 / 能做什么」
     title: `${t} 能做什么 —— 逐项能力与官方来源`,
     description:
-      `${t}（${m.vendor}，${m.version_as_of}）在 ${capsOf(m.class).length} 项能力里支持 ${yes} 项。` +
+      `${t}（${vendorName(m)}，${m.version_as_of}）在 ${capsOf(m.class).length} 项能力里支持 ${yes} 项。` +
       `每一格都带厂商官方来源与核验日期。`,
   };
 }
@@ -61,7 +61,7 @@ export default async function ModelPage({ params }: { params: Promise<{ id: stri
           {st && <span className={`ml-3 text-[18px] font-medium ${st.cls}`}>{st.tag}</span>}
         </h1>
         <p className="text-muted text-[16px]">
-          {m.vendor} · 该版本 {m.version_as_of} · {m.class === "clip" ? "离线出片" : "实时交互"}轨
+          {vendorName(m)} · 该版本 {m.version_as_of} · {m.class === "clip" ? "离线出片" : "实时交互"}轨
           {(m.tier ?? "core") !== "core" && " · Extended（只保证存在，不保证逐格核过）"}
         </p>
         {m.status_note && <Rich text={m.status_note} className="text-ink text-[15px] leading-relaxed" />}

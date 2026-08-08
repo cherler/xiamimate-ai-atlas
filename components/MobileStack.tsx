@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { atlas, capsOf, cell, label, modelsOf, transparency } from "@/lib/atlas";
+import { atlas, capsOf, cell, label, modelsOf, transparency, vendorName } from "@/lib/atlas";
 import { capHref, modelHref } from "@/lib/slug";
 import { MARK, TONE } from "./Fact";
 
@@ -46,7 +46,7 @@ export default function MobileStack() {
                 <span className="text-muted text-[12px] shrink-0">{m.version_as_of}</span>
               </div>
               <div className="text-muted text-[12px]">
-                {m.vendor} · {caps.length} 项里支持 {yes} 项
+                {vendorName(m)} · {caps.length} 项里支持 {yes} 项
                 {m.reach_cn === "blocked" && <b className="text-no"> · 大陆直连不通</b>}
               </div>
             </Link>

@@ -1,6 +1,6 @@
 "use client";
 
-import { atlas, capsOf, cell, compare, label, modelsOf, modelsWith, type State } from "@/lib/atlas";
+import { atlas, capsOf, cell, compare, label, modelsOf, modelsWith, type State, orgOf } from "@/lib/atlas";
 
 /** 生命周期在图上必须看得见 —— 一个已停服的模型和在售的并排站着，是有害的。 */
 const STATUS = {
@@ -157,7 +157,7 @@ export default function Bipartite({ sel, onSel }: { sel: Sel; onSel: (s: Sel) =>
             </text>
             <text x={MX + 16} y={my(i) + 16} fontSize={13} fill={on ? "#a9b0a8" : "#6b716c"}>
               {m.version_as_of}
-              {st ? ` · ${st.tag}` : ` · ${m.vendor.split(" ")[0]}`}
+              {st ? ` · ${st.tag}` : ` · ${orgOf(m)?.zh ?? "?"}`}
             </text>
           </g>
         );

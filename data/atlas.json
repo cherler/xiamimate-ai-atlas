@@ -39,6 +39,7 @@
     {
       "id": "t2v",
       "class": "clip",
+      "domain": "video",
       "name": "Text-to-Video",
       "zh": "文生视频",
       "group": "生成",
@@ -53,6 +54,7 @@
     {
       "id": "i2v",
       "class": "clip",
+      "domain": "video",
       "name": "Image-to-Video",
       "zh": "图生视频",
       "group": "生成",
@@ -67,6 +69,7 @@
     {
       "id": "flf",
       "class": "clip",
+      "domain": "video",
       "name": "First/Last Frame",
       "zh": "首尾帧",
       "group": "控制",
@@ -88,6 +91,7 @@
     {
       "id": "charref",
       "class": "clip",
+      "domain": "video",
       "name": "Character Ref",
       "zh": "角色参考",
       "group": "参考",
@@ -109,6 +113,7 @@
     {
       "id": "multiref",
       "class": "clip",
+      "domain": "video",
       "name": "Multi-reference",
       "zh": "多参考",
       "group": "参考",
@@ -129,6 +134,7 @@
     {
       "id": "motion",
       "class": "clip",
+      "domain": "video",
       "name": "Motion Control",
       "zh": "动作复刻",
       "group": "控制",
@@ -149,6 +155,7 @@
     {
       "id": "camera",
       "class": "clip",
+      "domain": "video",
       "name": "Camera Control",
       "zh": "运镜控制",
       "group": "控制",
@@ -168,6 +175,7 @@
     {
       "id": "audio",
       "class": "clip",
+      "domain": "video",
       "name": "Native Audio",
       "zh": "原生音频",
       "group": "音频",
@@ -187,6 +195,7 @@
     {
       "id": "lipsync",
       "class": "clip",
+      "domain": "video",
       "name": "Lip Sync",
       "zh": "对口型",
       "group": "音频",
@@ -205,6 +214,7 @@
     {
       "id": "extend",
       "class": "clip",
+      "domain": "video",
       "name": "Video Extension",
       "zh": "视频延长",
       "group": "叙事",
@@ -223,6 +233,7 @@
     {
       "id": "rt-fps",
       "class": "realtime",
+      "domain": "video",
       "name": "Real-time Output",
       "zh": "实时出帧",
       "group": "实时",
@@ -237,6 +248,7 @@
     {
       "id": "rt-stream",
       "class": "realtime",
+      "domain": "video",
       "name": "Stream Input",
       "zh": "流式输入",
       "group": "实时",
@@ -251,6 +263,7 @@
     {
       "id": "rt-interact",
       "class": "realtime",
+      "domain": "video",
       "name": "Mid-gen Control",
       "zh": "生成中可干预",
       "group": "实时",
@@ -266,6 +279,7 @@
     {
       "id": "rt-endless",
       "class": "realtime",
+      "domain": "video",
       "name": "Endless Length",
       "zh": "无限时长",
       "group": "实时",
@@ -280,6 +294,7 @@
     {
       "id": "openweights",
       "class": "both",
+      "domain": "video",
       "name": "Open Weights",
       "zh": "开源权重",
       "group": "获取",
@@ -293,13 +308,168 @@
       "since_note": "不是随时间演进的能力，是获取方式；不进演进图"
     }
   ],
+  "orgs": [
+    {
+      "id": "bytedance",
+      "zh": "字节跳动",
+      "name": "ByteDance",
+      "kind": "bigtech",
+      "hq": {
+        "city": "北京",
+        "country": "中国",
+        "iso": "CN",
+        "lat": 39.9042,
+        "lon": 116.4074
+      }
+    },
+    {
+      "id": "alibaba",
+      "zh": "阿里巴巴",
+      "name": "Alibaba",
+      "kind": "bigtech",
+      "hq": {
+        "city": "杭州",
+        "country": "中国",
+        "iso": "CN",
+        "lat": 30.2741,
+        "lon": 120.1551
+      },
+      "note": "通义（Wan）与 ATH 是同一家公司的两个团队 —— 此前库里记成了两家。团队记在模型的 team 上。"
+    },
+    {
+      "id": "kuaishou",
+      "zh": "快手",
+      "name": "Kuaishou",
+      "kind": "bigtech",
+      "hq": {
+        "city": "北京",
+        "country": "中国",
+        "iso": "CN",
+        "lat": 39.9042,
+        "lon": 116.4074
+      }
+    },
+    {
+      "id": "minimax",
+      "zh": "稀宇科技 MiniMax",
+      "name": "MiniMax",
+      "kind": "startup",
+      "hq": {
+        "city": "上海",
+        "country": "中国",
+        "iso": "CN",
+        "lat": 31.2304,
+        "lon": 121.4737
+      }
+    },
+    {
+      "id": "shengshu",
+      "zh": "生数科技",
+      "name": "Shengshu Technology",
+      "kind": "startup",
+      "hq": {
+        "city": "北京",
+        "country": "中国",
+        "iso": "CN",
+        "lat": 39.9042,
+        "lon": 116.4074
+      }
+    },
+    {
+      "id": "kunlun",
+      "zh": "昆仑万维",
+      "name": "Kunlun Tech",
+      "kind": "bigtech",
+      "hq": {
+        "city": "北京",
+        "country": "中国",
+        "iso": "CN",
+        "lat": 39.9042,
+        "lon": 116.4074
+      },
+      "note": "Skywork 是昆仑万维的 AI 品牌，不是独立公司 —— 品牌名和公司名要分开记。"
+    },
+    {
+      "id": "google",
+      "zh": "Google DeepMind",
+      "name": "Google DeepMind",
+      "kind": "bigtech",
+      "parent": "alphabet",
+      "hq": {
+        "city": "伦敦",
+        "country": "英国",
+        "iso": "GB",
+        "lat": 51.5074,
+        "lon": -0.1278
+      },
+      "note": "DeepMind 总部在伦敦，母公司 Alphabet 在山景城 —— 地球上点哪个是个口径选择，这里点研发主体。"
+    },
+    {
+      "id": "openai",
+      "zh": "OpenAI",
+      "name": "OpenAI",
+      "kind": "lab",
+      "hq": {
+        "city": "旧金山",
+        "country": "美国",
+        "iso": "US",
+        "lat": 37.7749,
+        "lon": -122.4194
+      }
+    },
+    {
+      "id": "runway",
+      "zh": "Runway",
+      "name": "Runway",
+      "kind": "startup",
+      "hq": {
+        "city": "纽约",
+        "country": "美国",
+        "iso": "US",
+        "lat": 40.7128,
+        "lon": -74.006
+      }
+    },
+    {
+      "id": "decart",
+      "zh": "Decart",
+      "name": "Decart",
+      "kind": "startup",
+      "hq": {
+        "city": "特拉维夫",
+        "country": "以色列",
+        "iso": "IL",
+        "lat": 32.0853,
+        "lon": 34.7818
+      },
+      "note": "以色列 + 旧金山两地办公，主体记以色列。"
+    },
+    {
+      "id": "lightricks",
+      "zh": "Lightricks",
+      "name": "Lightricks",
+      "kind": "startup",
+      "hq": {
+        "city": "耶路撒冷",
+        "country": "以色列",
+        "iso": "IL",
+        "lat": 31.7683,
+        "lon": 35.2137
+      }
+    }
+  ],
+  "$orgs": "公司是**一等实体**，不是模型上的一个字符串（此前 vendor 是字符串，结果阿里在库里成了两家）。产业链图、地球分布、投资关系全都挂在这一层上。\n**hq 目前没有来源** —— 都是公开常识，但我们自己的规矩是「没有来源的结论就是猜的」，所以校验里 R21 会一直警告，前台也必须标出来。不许因为「大家都知道」就当成核过了。",
+  "investments": [],
+  "$investments": "上游投资关系。**结构先建好，但一行都不填。**\n原因：投资数据的可得性上限只有 B/C 级 —— 轮次能从 Crunchbase / IT桔子 / 新闻稿拿到，**金额多半核不实**。要填就必须每条带来源和原文，和能力格一个规矩。\n字段：{from(投资方 org 或外部名), to(org id), round, date, src, quote}",
+  "$chain": "产业链三层的可得性差得很远，别当成一件事：\n  下游运营商 —— ✅ 就是 platforms + availability，已经在库里且官方源核过。\n  公司归属/总部 —— ⚠️ 可查可证，但现在还没证（见 $orgs）。\n  上游投资 —— ⚠️ 上限 B/C 级，见 $investments。\n  终端用户分布 —— ❌ **不做**。没有厂商公开用户地理分布，画出来的热力一定是编的，那是自拆招牌。替代口径：reach_cn（大陆可达性）+ platforms.region。",
   "models": [
     {
       "id": "seedance",
       "class": "clip",
       "family": "Seedance",
       "zh": "即梦 Seedance",
-      "vendor": "字节 ByteDance Seed",
+      "org": "bytedance",
+      "team": "Seed",
       "version": "2.5",
       "version_as_of": "2026-07-31",
       "status": "active",
@@ -313,7 +483,7 @@
       "class": "clip",
       "family": "MiniMax Hailuo",
       "zh": "海螺",
-      "vendor": "MiniMax",
+      "org": "minimax",
       "version": "H3",
       "version_as_of": "2026-07-31",
       "status": "active",
@@ -327,7 +497,7 @@
       "class": "clip",
       "family": "Gemini Omni",
       "zh": "Gemini Omni",
-      "vendor": "Google DeepMind",
+      "org": "google",
       "version": "Flash",
       "version_as_of": "2026-05-19",
       "status": "active",
@@ -341,7 +511,8 @@
       "class": "clip",
       "family": "Wan",
       "zh": "通义万相",
-      "vendor": "阿里 Alibaba",
+      "org": "alibaba",
+      "team": "通义 Tongyi",
       "version": "3.0",
       "version_as_of": "2026-08-07",
       "status": "active",
@@ -356,7 +527,7 @@
       "class": "clip",
       "family": "Runway Gen",
       "zh": "Runway",
-      "vendor": "Runway",
+      "org": "runway",
       "version": "Gen-4.5",
       "version_as_of": "2025-12-11",
       "status": "active",
@@ -371,7 +542,7 @@
       "class": "clip",
       "family": "Kling",
       "zh": "可灵",
-      "vendor": "快手 Kuaishou",
+      "org": "kuaishou",
       "version": "3.0",
       "version_as_of": "2026-02-04",
       "status": "active",
@@ -385,7 +556,7 @@
       "class": "clip",
       "family": "Vidu Q",
       "zh": "Vidu Q",
-      "vendor": "生数 Shengshu",
+      "org": "shengshu",
       "version": "Q3",
       "version_as_of": "2026-04-13",
       "status": "active",
@@ -400,7 +571,7 @@
       "class": "clip",
       "family": "Veo",
       "zh": "Veo",
-      "vendor": "Google DeepMind",
+      "org": "google",
       "version": "3.1",
       "version_as_of": "2025-10",
       "status": "superseded",
@@ -415,7 +586,7 @@
       "class": "clip",
       "family": "Sora",
       "zh": "Sora",
-      "vendor": "OpenAI",
+      "org": "openai",
       "version": "2",
       "version_as_of": "2025-09",
       "status": "discontinued",
@@ -430,7 +601,7 @@
       "class": "realtime",
       "family": "Vidu S",
       "zh": "Vidu S",
-      "vendor": "生数 Shengshu",
+      "org": "shengshu",
       "version": "S1",
       "version_as_of": "2026-07-03",
       "status": "active",
@@ -444,7 +615,7 @@
       "class": "realtime",
       "family": "Decart Lucy",
       "zh": "Lucy",
-      "vendor": "Decart",
+      "org": "decart",
       "version": "Lucy 2.5",
       "version_as_of": "2026-08-07",
       "status": "active",
@@ -460,7 +631,7 @@
       "tier": "core",
       "family": "LTX",
       "zh": "LTX",
-      "vendor": "Lightricks",
+      "org": "lightricks",
       "version": "2.3",
       "version_as_of": "2026-08-08",
       "status": "active",
@@ -475,7 +646,8 @@
       "tier": "extended",
       "family": "HappyHorse",
       "zh": "HappyHorse",
-      "vendor": "Alibaba-ATH",
+      "org": "alibaba",
+      "team": "ATH",
       "version": "1.1",
       "version_as_of": "2026-06",
       "status": "active",
@@ -490,7 +662,8 @@
       "tier": "extended",
       "family": "SkyReels",
       "zh": "SkyReels",
-      "vendor": "Skywork",
+      "org": "kunlun",
+      "team": "Skywork",
       "version": "V4",
       "version_as_of": "2026-03",
       "status": "active",
@@ -1655,7 +1828,7 @@
       "note": "当前唯一在做的方向"
     }
   ],
-  "$domains": "前端的方向切换从这里渲染。**现在只有一个，界面上就只显示一个** —— 不做占位 tab 假装有别的。加方向 = 往这个数组里加一条 + 给模型标 domain，不动代码。",
+  "$domains": "前端的方向切换从这里渲染。**现在只有一个，界面上就只显示一个** —— 不做占位 tab 假装有别的。加方向 = 往这个数组里加一条 + 给模型标 domain，不动代码。\n\n**能力轴按方向隔离**（规则二再往上推一层）：能力也带 domain。clip 和 realtime 已经不能共用能力轴，视频和文本更不能 —— 「首尾帧」对文本模型没有意义，硬塞进同一张表只会造出一整片假的 ⬜。校验 R26 拦跨方向的格子。",
   "excluded": [
     {
       "name": "Oasis 3",

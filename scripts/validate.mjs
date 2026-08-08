@@ -20,7 +20,8 @@ const srcIds = new Set(Object.keys(a.sources));
 const seen = new Set();
 
 /** 某个模型该不该有某项能力的格子 —— 分轨之后不再是全笛卡尔积（ontology 规则二）。 */
-const applies = (m, c) => c.class === "both" || c.class === m.class;
+const applies = (m, c) =>
+  (c.domain ?? "video") === (m.domain ?? "video") && (c.class === "both" || c.class === m.class);
 
 /**
  * **只有 core 要求填满。**
@@ -42,7 +43,9 @@ for (const s of a.support) {
   if (s.src && !srcIds.has(s.src)) errs.push(`R5 来源 id 不存在：${s.src}（${at}）`);
   if (s.state === "no" && !s.src && !s.note) warns.push(`R6 「不支持」既无来源也无说明：${at}`);
   if (m.tier && !["core", "extended"].includes(m.tier)) errs.push(`R12 非法 tier：${m.tier}（${m.id}）`);
-  if (!applies(m, c)) errs.push(`R8 跨轨格子：${m.class} 的模型不该有 ${c.class} 的能力（${at}）`);
+  if ((c.domain ?? "video") !== (m.domain ?? "video"))
+    errs.push(`R26 跨方向格子：${m.domain} 的模型不该有 ${c.domain} 的能力（${at}）—— 方向之间不共用能力轴`);
+  else if (!applies(m, c)) errs.push(`R8 跨轨格子：${m.class} 的模型不该有 ${c.class} 的能力（${at}）`);
   if (!s.verified_for) errs.push(`R9a 缺 verified_for：${at}`);
   else if (s.verified_for !== m.version)
     errs.push(`R9 版本对不上：${at} 记的是 ${s.verified_for}，但 ${m.family} 当前是 ${m.version}。` +
@@ -67,6 +70,21 @@ for (const v of a.availability ?? []) {
   if (!["same", "older", "newer", "unknown"].includes(v.match)) errs.push(`R18 非法 match：${at}`);
   // 上架的是旧版本，却没写清楚 —— 那正是这张表最该说的话
   if (v.match === "older" && !v.note) warns.push(`R19 上架版本比当前主力旧，却没写说明：${at}`);
+}
+
+// ── 公司实体层。**产业链图全挂在这层上，这层烂了上面全烂。**
+const orgIds = new Set((a.orgs ?? []).map((o) => o.id));
+if (orgIds.size !== (a.orgs ?? []).length) errs.push("R20a orgs 里有重复 id");
+for (const o of a.orgs ?? []) {
+  if (o.parent && !orgIds.has(o.parent) && o.parent !== "alphabet") errs.push(`R22 parent 指向不存在的公司：${o.id} → ${o.parent}`);
+  if (!o.hq?.lat || !o.hq?.lon) errs.push(`R23 缺经纬度，地球上画不出来：${o.id}`);
+  // **不许因为「大家都知道」就当成核过了** —— 那正是我们批评别人的那件事。
+  if (!o.hq_src) warns.push(`R21 总部没有来源，只是常识：${o.zh}`);
+}
+for (const m of a.models) if (!orgIds.has(m.org)) errs.push(`R20 模型挂到不存在的公司：${m.id} → ${m.org}`);
+for (const v of a.investments ?? []) {
+  if (!orgIds.has(v.to)) errs.push(`R24 投资的接收方不是库里的公司：${v.to}`);
+  if (!v.src || !v.quote) errs.push(`R25 投资关系没有来源或原文 —— 和能力格一个规矩：${v.from} → ${v.to}`);
 }
 
 const used = new Set([...a.support.map((s) => s.src), ...(a.availability ?? []).map((v) => v.src)].filter(Boolean));
@@ -94,6 +112,9 @@ for (const [cls, t] of Object.entries(perClass))
   console.log(`  ${cls}：✅${t.yes} ❌${t.no} ⬜${t.unknown}`);
 const older = (a.availability ?? []).filter((v) => v.match === "older").length;
 console.log(`平台 ${(a.platforms ?? []).length} 个 · 可用性 ${(a.availability ?? []).length} 条（其中 ${older} 条上架的不是当前主力版本）`);
+const geo = {};
+for (const m of a.models) { const o = (a.orgs ?? []).find((x) => x.id === m.org); if (o) geo[o.hq.country] = (geo[o.hq.country] ?? 0) + 1; }
+console.log(`公司 ${(a.orgs ?? []).length} 家 · 模型按总部：${Object.entries(geo).map(([k, v]) => `${k} ${v}`).join(" / ")} · 投资关系 ${(a.investments ?? []).length} 条`);
 console.log(`来源 ${srcIds.size} 条，官方 ${Object.values(a.sources).filter((s) => s.tier === "official").length} 条`);
 for (const w of warns) console.log(`  警告 ${w}`);
 if (errs.length) {

@@ -38,7 +38,10 @@ export type Model = {
   class: Klass;
   family: string;
   zh: string;
-  vendor: string;
+  /** 指向 orgs 的实体 id。**不再是自由字符串** —— 那让阿里在库里成了两家。 */
+  org: string;
+  /** 公司内部团队（Seed / 通义 / ATH / Skywork）。合并公司时信息不能丢在合并里。 */
+  team?: string;
   version: string;
   version_as_of: string;
   status?: Status;
@@ -54,6 +57,33 @@ export type Model = {
 };
 
 export type Source = { url: string; tier: "official" | "third-party"; name: string };
+
+/**
+ * 公司 —— **一等实体**（此前只是模型上的一个字符串，结果同一家公司出现两次）。
+ *
+ * 产业链地图、地球分布、投资关系全都挂在这一层。现在只有 11 家，
+ * 拆开是十分钟的活；等五个方向两百个模型再拆就是一次迁移。
+ *
+ * ## hq 现在没有来源
+ *
+ * 都是公开常识，但我们自己的规矩是**「没有来源的结论就是猜的」**。
+ * 所以 `hq_src` 缺失时校验 R21 会一直警告、前台必须标出来 ——
+ * **不许因为「大家都知道」就当成核过了**，那正是我们批评别人的那件事。
+ */
+export type Org = {
+  id: string;
+  zh: string;
+  name: string;
+  kind: "bigtech" | "startup" | "lab";
+  parent?: string;
+  hq: { city: string; country: string; iso: string; lat: number; lon: number };
+  /** 有来源才算核过。没有就是「按常识填的」。 */
+  hq_src?: string;
+  note?: string;
+};
+
+/** 上游投资关系。结构先建好 —— 但**可得性上限只有 B/C 级**，见 atlas.json 的 $investments。 */
+export type Investment = { from: string; to: string; round?: string; date?: string; src: string; quote: string };
 
 /**
  * 怎么个能法（ontology 规则七）。对「能不能做」两者都是能；
@@ -135,6 +165,8 @@ export const atlas = raw as unknown as {
   tiers: Record<string, string>;
   capabilities: Capability[];
   models: Model[];
+  orgs: Org[];
+  investments: Investment[];
   sources: Record<string, Source>;
   support: Cell[];
 };
@@ -223,3 +255,17 @@ export function tally(k?: Klass) {
     }
   return t;
 }
+
+
+/** 公司实体查找。前台一律走这个，不要再直接读模型上的字符串。 */
+export const orgOf = (m: Model | string): Org | undefined => {
+  const id = typeof m === "string" ? atlas.models.find((x) => x.id === m)?.org : m.org;
+  return atlas.orgs.find((o) => o.id === id);
+};
+
+/** 显示用的厂商名：公司 + 团队（「字节跳动 · Seed」）—— 团队是真实信息，不该被合并吞掉。 */
+export const vendorName = (m: Model): string => {
+  const o = orgOf(m);
+  if (!o) return "?";
+  return m.team ? `${o.zh} · ${m.team}` : o.zh;
+};

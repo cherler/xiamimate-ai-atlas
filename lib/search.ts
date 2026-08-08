@@ -1,4 +1,4 @@
-import { atlas, avail, capsOf, cell, label, modelsOf, type Klass } from "./atlas";
+import { atlas, avail, capsOf, cell, label, modelsOf, vendorName, type Klass } from "./atlas";
 
 /**
  * 本地检索 + Answer View（方案 §13、§41 第一阶段）。
@@ -87,7 +87,7 @@ export function search(q: string): Hit[] {
     if (score) hits.push({ kind, id, title, sub, score });
   };
   for (const m of atlas.models)
-    push("model", m.id, label(m), `${m.vendor} · ${m.version_as_of}`, [m.family, m.zh, m.vendor, label(m), m.version]);
+    push("model", m.id, label(m), `${vendorName(m)} · ${m.version_as_of}`, [m.family, m.zh, vendorName(m), label(m), m.version]);
   for (const c of atlas.capabilities)
     push("capability", c.id, c.zh, [c.name, ...(c.aliases ?? []).slice(0, 4)].join(" · "), [
       c.zh,
