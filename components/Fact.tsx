@@ -1,4 +1,5 @@
 import { atlas, cell, type State } from "@/lib/atlas";
+import ReportIssue from "./ReportIssue";
 
 /**
  * 一条事实的完整呈现：状态 + 说明 + 来源 + 官方/第三方 + 核验版本 + 录入身份。
@@ -70,6 +71,11 @@ export function Fact({ m, c, label }: { m: string; c: string; label: string }) {
           <span>核验于 {atlas.generated_at}</span>
           <span className="px-1.5 py-px rounded bg-unknown/15 text-unknown text-[11px]">机器录入 · 未经人工核验</span>
         </p>
+        {/* 报错入口就挂在每一条事实旁边 —— 放在页脚等于没有：
+            人是在看到某一格不对时才想报错的，那一刻要伸手就够得着 */}
+        <div className="mt-1">
+          <ReportIssue m={m} c={c} />
+        </div>
       </div>
     </div>
   );

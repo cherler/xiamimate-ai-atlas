@@ -4,6 +4,7 @@ import { useState } from "react";
 import Bipartite, { type Sel } from "@/components/Bipartite";
 import Evolution from "@/components/Evolution";
 import Search from "@/components/Search";
+import MobileStack from "@/components/MobileStack";
 import Link from "next/link";
 import { Fact, MARK, Rich, TONE } from "@/components/Fact";
 import { atlas, avail, capsOf, cell, compare, extendedOf, label, modelsOf, tally, transparency, type Klass } from "@/lib/atlas";
@@ -19,7 +20,7 @@ function Matrix({ k, title, blurb }: { k: Klass; title: string; blurb: string })
   const ms = modelsOf(k);
   const cs = capsOf(k);
   return (
-    <section>
+    <section className="hidden md:block">
       <h2 className="text-[22px] font-semibold mb-1">{title}</h2>
       <p className="text-muted text-[14px] mb-3 max-w-[860px] leading-relaxed">{blurb}</p>
       <p className="text-muted text-[13px] mb-2">
@@ -141,11 +142,15 @@ export default function Page() {
         <Search />
       </section>
 
-      <section className="bg-card border border-rule rounded-xl p-4">
+      {/* §12：移动端不是桌面端缩小。二部图缩到 390 宽只剩一团毛，
+          而且它靠「点一个节点看它连去哪」—— 手指点不准 20px 的圆点。 */}
+      <MobileStack />
+
+      <section className="bg-card border border-rule rounded-xl p-4 hidden md:block">
         <Bipartite sel={sel} onSel={setSel} />
       </section>
 
-      <section>
+      <section className="hidden md:block">
         <h2 className="text-[22px] font-semibold mb-1">能力演进：早出现 ≠ 铺得开</h2>
         <p className="text-muted text-[14px] mb-4 max-w-[920px] leading-relaxed">
           <b className="text-ink">这张图有一个观点，不只是一个题目</b>：
@@ -167,7 +172,7 @@ export default function Page() {
         </div>
       </section>
 
-      <section className="min-h-[120px]">
+      <section className="min-h-[120px] hidden md:block">
         {sel.kind === "none" && (
           <p className="text-muted text-[15px]">
             点右边一个<b className="text-ink">能力</b>，看谁实现了它（这就是「这个能力去哪用」）；
@@ -297,7 +302,7 @@ export default function Page() {
         blurb="边生成边看，生成过程中可以干预，时长不预先确定。它们和上面那张表不共用能力轴 —— 对它们来说「视频延长」没有意义（本来就没有终点），对上面那些模型「延迟」也没有意义。硬并成一张表会把两边都讲错。"
       />
 
-      <section>
+      <section className="hidden md:block">
         <h2 className="text-[22px] font-semibold mb-1">去哪用：平台 × 模型</h2>
         <p className="text-muted text-[14px] mb-3 max-w-[920px] leading-relaxed">
           知道谁支持之后，下一个问题是「我上哪用」。
@@ -420,7 +425,7 @@ export default function Page() {
         </div>
       </section>
 
-      <section>
+      <section className="hidden md:block">
         <h2 className="text-[22px] font-semibold mb-1">你在大陆，能不能用上</h2>
         <p className="text-muted text-[14px] mb-4 max-w-[920px] leading-relaxed">
           <b className="text-ink">「地理」这条线真正有用的不是「公司在哪」，是「你在哪，能不能用上」。</b>
@@ -451,7 +456,7 @@ export default function Page() {
         </div>
       </section>
 
-      <section>
+      <section className="hidden md:block">
         <h2 id="transparency" className="text-[22px] font-semibold mb-1 scroll-mt-6">透明度：「官方没说」是分化的，不是普遍的</h2>
         <p className="text-muted text-[14px] mb-4 max-w-[880px] leading-relaxed">
           九家都已用厂商官方文档逐格核过。<b className="text-ink">剩下的 ⬜ 就是这家没公开说的部分</b> ——
