@@ -252,8 +252,9 @@ export default function Tree() {
             );
           })}
 
+          {/* 靠左对齐，不能用 end —— end 会把「2023-12 起」推出画布左边（刚才裁成了「3-12 起」）。
+              另：JSX 注释不能和元素并列当兄弟，这个错今天犯了第三次。 */}
           {earlier.length > 0 && (
-            {/* 靠左对齐，不能 end —— end 会把「2023-12 起」推出画布左边（刚才就裁成了「3-12 起」） */}
             <text x={6} y={PAD.t + AXIS_H + 24} fontSize="11" fill="var(--color-muted)">
               轴起于 {ymd(t0).slice(0, 7)}；更早还有 {earlier.length} 条（{ymd(Math.min(...earlier.map((n) => MS(n.date)))).slice(0, 7)}）
             </text>
