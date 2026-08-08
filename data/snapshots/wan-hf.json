@@ -1,7 +1,7 @@
 {
   "url": "https://huggingface.co/api/models?author=Wan-AI&sort=lastModified&direction=-1&limit=40",
   "kind": "json",
-  "fetched_at": "2026-08-07",
+  "fetched_at": "2026-08-08",
   "digest": "c6c98ebd62c0b93f",
   "items": [
     "Wan-AI/Wan-Dancer-14B\t2026-07-17T09:01:53.000Z",

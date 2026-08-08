@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import Bipartite, { type Sel } from "@/components/Bipartite";
-import Evolution from "@/components/Evolution";
+import Genealogy from "@/components/Genealogy";
 import Search from "@/components/Search";
 import MobileStack from "@/components/MobileStack";
 import Link from "next/link";
@@ -153,24 +153,23 @@ export default function Page() {
       </section>
 
       <section className="hidden md:block">
-        <h2 className="text-[22px] font-semibold mb-1">能力演进：早出现 ≠ 铺得开</h2>
+        {/*
+          §18 EditorialInsight：**一个判断 + 一张图 + 证据**，不是一个题目 + 一张图。
+          这个判断是从谱系数据本身读出来的，不是先有观点再找数据 ——
+          写之前先核过一版「Runway 正在从模型厂商变成平台」，
+          结果 104 条日志里只有 6 条讲别家模型，**论点不成立，扔了。**
+        */}
+        <h2 className="text-[22px] font-semibold mb-1">开源在「一个能力一个模型」，闭源在「一个模型全都有」</h2>
         <p className="text-muted text-[14px] mb-4 max-w-[920px] leading-relaxed">
-          <b className="text-ink">这张图有一个观点，不只是一个题目</b>：
-          最早出现的能力，今天反而最少人做。<b className="text-ink">对口型 2024-01 就有，如今 4/9；
-          运镜控制 2024-11 就有，如今只剩 1/9</b>。而 2025 年才冒出来的
-          <b className="text-ink">角色参考（2025-03）与多参考（2025-07），今天都是 8/9</b> —— 图上最粗的两条。
+          看万相那一行：<b className="text-ink">首尾帧、统一编辑、语音驱动、动作复刻，各是一个单独发布的模型</b>
+          （Wan2.1-FLF2V / VACE / Wan2.2-S2V / Animate）。看可灵那一行：
+          <b className="text-ink">同一条产品线逐版本往上加</b>，2.6 加动作复刻，3.0 加智能景别。
           <br />
-          这两年真正在铺开的是「你给它什么参考」，不是「你能怎么控制它」。
-          运镜那条尤其值得留意：它不是没人做，是<b className="text-ink">没人再写进文档</b> ——
-          九家里八家把运镜退回成「你自己在提示词里描述」。
-          <br />
-          <span className="text-[13px]">
-            线越粗＝实现它的模型越多。左端是<b className="text-ink">我们能证明的最早时间</b>，不是业界首次出现 ——
-            点开每条能看到那句原文。
-          </span>
+          这不是风格差异，是<b className="text-ink">你会怎么用它们</b>的差异：走开源那条路，你得自己挑对模型、拼对 workflow；
+          走闭源那条路，一个接口全都有，但加什么、什么时候加，你说了不算。
         </p>
         <div className="bg-card border border-rule rounded-xl p-4">
-          <Evolution onPick={(id) => setSel({ kind: "cap", id })} />
+          <Genealogy />
         </div>
       </section>
 

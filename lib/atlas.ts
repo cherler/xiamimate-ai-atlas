@@ -106,6 +106,14 @@ export type Price = {
   note?: string;
 };
 
+/**
+ * 版本谱系（演进图的数据）。**演进的主体是模型，不是能力。**
+ *
+ * `added` 是必填且是这条数据的全部价值所在：**只有版本号没有 added 的节点没有意义**——
+ * 「Kling 出了 3.0」不涨知识，「Kling 3.0 加了动作复刻」才涨。
+ */
+export type Version = { m: string; version: string; date: string; added: string; src: string; quote: string; note?: string };
+
 /** 上游投资关系。结构先建好 —— 但**可得性上限只有 B/C 级**，见 atlas.json 的 $investments。 */
 export type Investment = { from: string; to: string; round?: string; date?: string; src: string; quote: string };
 
@@ -199,6 +207,7 @@ export const atlas = raw as unknown as {
   models: Model[];
   orgs: Org[];
   pricing: Price[];
+  versions: Version[];
   investments: Investment[];
   sources: Record<string, Source>;
   support: Cell[];

@@ -20,3 +20,10 @@ data/inbox/
 public/og/
 
 dist/
+
+# 演示视频/大图不进 git —— .git 里 24M 有 21M 是这些。
+# 它们是构建产物与素材，不是源码；要分发就走 dist/ 或 publicity/。
+assets/*.mp4
+assets/*.webm
+assets/*.png
+assets/demo-raw*/

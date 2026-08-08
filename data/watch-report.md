@@ -1,6 +1,6 @@
 # 信息源监视报告 · 2026-08-08
 
-本次检查 2 个到期源（共 62 个）：变化 2 · 首次 0 · 无变化 0 · **抓不到 0**
+本次检查 1 个到期源（共 62 个）：变化 0 · 首次 1 · 无变化 0 · **抓不到 0**
 
 > 这份报告是给人看的那 20 条待办的来源（§59.3 的负反馈：人每周要看的条目 ≤ 20）。
 > 「抓不到」不是失败，是**信息本身** —— 一个长期抓不到的官方源，说明那家厂商没有可 diff 的公开更新入口，
@@ -16,8 +16,7 @@
 
 ## 有变化
 
-- **minimax-price** MiniMax 开放平台 · 价格
-- **bailian-price** 阿里云百炼 · 模型计费
+（首轮无基线可比）
 
 ## 全部
 
@@ -32,10 +31,10 @@
 | vertex-video-ref | S | html | 未到期（上次 2026-08-07） |
 | openai-sora-eol | S | html | 从未抓过 |
 | openai-sora-2 | S | html | 从未抓过 |
-| wan-gh-releases | S | json | 未到期（上次 2026-08-07） |
-| wan-hf | S | json | 未到期（上次 2026-08-07） |
+| wan-gh-releases | S | json | 未到期（上次 2026-08-08） |
+| wan-hf | S | json | 未到期（上次 2026-08-08） |
 | minimax-blog | S | html | 未到期（上次 2026-08-07） |
-| minimax-hf | S | json | 未到期（上次 2026-08-07） |
+| minimax-hf | S | json | 未到期（上次 2026-08-08） |
 | runway-research | S | html | 未到期（上次 2026-08-07） |
 | luma-site | S | html | 未到期（上次 2026-08-07） |
 | vidu-changelog | S | spa | 未到期（上次 2026-08-07） |
@@ -69,17 +68,17 @@
 | arxiv-worldmodel | S | atom | 未到期（上次 2026-08-07） |
 | techcrunch-ai | B | atom | 未到期（上次 2026-08-07） |
 | decart-blog | S | spa | 未到期（上次 2026-08-07） |
-| ltx-gh | S | json | 从未抓过 |
-| ltx-hf-org | S | json | 从未抓过 |
+| ltx-gh | S | json | 未到期（上次 2026-08-08） |
+| ltx-hf-org | S | json | 首次 |
 | decart-site | S | spa | 从未抓过 |
 | picsart-video | C | spa | 从未抓过 |
 | libtv | C | spa | 从未抓过 |
 | dreamina | S | spa | 从未抓过 |
 | hailuo-video | S | spa | 从未抓过 |
 | volcengine-ark-price | S | spa | 未到期（上次 2026-08-08） |
-| minimax-price | S | spa | 变了 |
+| minimax-price | S | spa | 未到期（上次 2026-08-08） |
 | google-ai-price | S | html | 未到期（上次 2026-08-08） |
-| bailian-price | S | spa | 变了 |
+| bailian-price | S | spa | 未到期（上次 2026-08-08） |
 | runway-price | S | spa | 未到期（上次 2026-08-08） |
 | kling-price | S | spa | 未到期（上次 2026-08-08） |
 | vidu-price | S | spa | 未到期（上次 2026-08-08） |
