@@ -799,6 +799,41 @@
       "url": "https://higgsfield.ai/",
       "tier": "official",
       "name": "Higgsfield 首页（2026-08 快照，data/snapshots/higgsfield-site.json）"
+    },
+    "google-ai-price": {
+      "url": "https://ai.google.dev/gemini-api/docs/pricing",
+      "tier": "official",
+      "name": "Google AI · Gemini API 定价"
+    },
+    "kling-price": {
+      "url": "https://klingai.com/dev/pricing",
+      "tier": "official",
+      "name": "可灵开放平台 · API 价格"
+    },
+    "vidu-price": {
+      "url": "https://platform.vidu.com/docs/pricing",
+      "tier": "official",
+      "name": "Vidu 平台 · Pricing"
+    },
+    "bailian-price": {
+      "url": "https://help.aliyun.com/zh/model-studio/model-pricing",
+      "tier": "official",
+      "name": "阿里云百炼 · 模型调用计费"
+    },
+    "minimax-price": {
+      "url": "https://platform.minimaxi.com/docs/guides/pricing-video",
+      "tier": "official",
+      "name": "MiniMax 开放平台 · 视频资源包"
+    },
+    "runway-price": {
+      "url": "https://runway.com/pricing",
+      "tier": "official",
+      "name": "Runway · 定价"
+    },
+    "volcengine-ark-price": {
+      "url": "https://docs.volcengine.com/docs/82379/1544106",
+      "tier": "official",
+      "name": "火山方舟 · 模型价格"
     }
   },
   "support": [
@@ -2095,5 +2130,151 @@
     "third-party": "第三方产品（Higgsfield、Picsart、LibTV）—— 包着别人的模型卖体验，**关键问题是它公不公示用的是谁、哪一版**"
   },
   "$reach": "`reach_cn` 是 2026-08-08 从**大陆网络不走代理**实测的结果，测的是**厂商官方站 / 文档页**，**不是 API 端点** —— 两件事不能混：文档打不开不等于接口调不通，反过来也一样。但对「想自部署」的人，权重所在的 huggingface.co 直连不可达就是硬阻碍。地理这条线真正有用的不是「公司在哪」，是「你在哪，能不能用上」。",
-  "$transparency": "平台透明度评级（§59.4.e）。原方案是三色刻度：🟢明确公示 / 🟡部分公示 / 🔴只字不提。\n**三档装不下真实情况 —— 必须有第四档。**\n\n9 个平台里有 4 个我们根本没读到页面（fal 429、LibTV 连不上、即梦和 Picsart 超时）。\n给它们打 🔴「只字不提」，那是**我们在编** —— 我们不知道它说没说，我们是没看见。\n这正是本项目最贵的那条教训在另一个位置的复现：**「没有值」和「取不到值」不是一回事。**\n\n  yes     🟢 明确公示 —— 读到了页面，点名了底层模型（必须有原文）\n  partial 🟡 部分公示 —— 读到了，只说了一部分\n  no      🔴 只字不提 —— **读完了整页，确实没提**。这一档的门槛是「读过」\n  blocked ⬜ 我们没看到 —— 采集失败。**这是我们的缺口，要修的是我们**\n  n/a     —— 自有模型厂商，问题不适用（Pika：读过首页才敢这么判）\n\n注意 Pika 是 n/a、即梦是 blocked，两家都归类为「厂商自有」——\n差别只在**Pika 的页面我们读了，即梦的没读到**。「自有产品」不等于「从不转售」，\n没读过就不能替它下结论。这个区分是这张表的全部价值所在。"
+  "$transparency": "平台透明度评级（§59.4.e）。原方案是三色刻度：🟢明确公示 / 🟡部分公示 / 🔴只字不提。\n**三档装不下真实情况 —— 必须有第四档。**\n\n9 个平台里有 4 个我们根本没读到页面（fal 429、LibTV 连不上、即梦和 Picsart 超时）。\n给它们打 🔴「只字不提」，那是**我们在编** —— 我们不知道它说没说，我们是没看见。\n这正是本项目最贵的那条教训在另一个位置的复现：**「没有值」和「取不到值」不是一回事。**\n\n  yes     🟢 明确公示 —— 读到了页面，点名了底层模型（必须有原文）\n  partial 🟡 部分公示 —— 读到了，只说了一部分\n  no      🔴 只字不提 —— **读完了整页，确实没提**。这一档的门槛是「读过」\n  blocked ⬜ 我们没看到 —— 采集失败。**这是我们的缺口，要修的是我们**\n  n/a     —— 自有模型厂商，问题不适用（Pika：读过首页才敢这么判）\n\n注意 Pika 是 n/a、即梦是 blocked，两家都归类为「厂商自有」——\n差别只在**Pika 的页面我们读了，即梦的没读到**。「自有产品」不等于「从不转售」，\n没读过就不能替它下结论。这个区分是这张表的全部价值所在。",
+  "pricing": [
+    {
+      "m": "veo",
+      "unit": "per-second",
+      "currency": "USD",
+      "listed_as": "Veo 3.1（标准，含音频）",
+      "tiers": [
+        {
+          "label": "720p / 1080p",
+          "v": 0.4
+        },
+        {
+          "label": "4K",
+          "v": 0.6
+        }
+      ],
+      "src": "google-ai-price",
+      "as_of": "2026-08-08",
+      "quote": "Veo 3.1 Standard video with audio price (default) … $0.40 (720p and 1080p) $0.60 (4k)"
+    },
+    {
+      "m": "kling",
+      "unit": "per-second",
+      "currency": "CNY",
+      "listed_as": "Kling 3.0",
+      "tiers": [
+        {
+          "label": "720P 无声",
+          "v": 0.6
+        },
+        {
+          "label": "1080P 无声",
+          "v": 0.8
+        },
+        {
+          "label": "4K",
+          "v": 3.0
+        },
+        {
+          "label": "720P 有声",
+          "v": 0.9
+        },
+        {
+          "label": "1080P 有声",
+          "v": 1.2
+        }
+      ],
+      "src": "kling-price",
+      "as_of": "2026-08-08",
+      "quote": "Kling 3.0 按秒收费 无声 0.6积分（¥0.6）/秒 0.8积分（¥0.8）/秒 3.0积分（¥3.0）/秒",
+      "note": "标价用「积分」，但官方写明**1 积分等于 1 元（原价）**，买大额套餐折到 0.9 元/积分 —— 所以标价可比、实付价按套餐浮动。"
+    },
+    {
+      "m": "vidu-q",
+      "unit": "per-second",
+      "currency": "USD",
+      "listed_as": "Vidu Q3-pro",
+      "tiers": [
+        {
+          "label": "540P",
+          "v": 0.045
+        },
+        {
+          "label": "720P",
+          "v": 0.1
+        },
+        {
+          "label": "1080P",
+          "v": 0.12
+        }
+      ],
+      "src": "vidu-price",
+      "as_of": "2026-08-08",
+      "quote": "Vidu Q3-pro - img2video - text2video - start-end2video 1-16S 1080P 24 /Second $0.12 / Second"
+    },
+    {
+      "m": "wan",
+      "unit": "per-second",
+      "currency": "CNY",
+      "listed_as": "wan2.7-t2v",
+      "tiers": [
+        {
+          "label": "720P",
+          "v": 0.6
+        },
+        {
+          "label": "1080P",
+          "v": 1.0
+        }
+      ],
+      "src": "bailian-price",
+      "as_of": "2026-08-08",
+      "quote": "wan2.7-t2v 720P 0.6元/秒 50秒 1080P 1元/秒",
+      "note": "⚠️ **百炼价格页上最新是 wan2.7，没有我们记的 3.0。** 这条价格属于 2.7，不能挂到 3.0 名下 —— 见 ontology 规则三之一。"
+    },
+    {
+      "m": "hailuo",
+      "unit": "points",
+      "currency": null,
+      "listed_as": "MiniMax-Hailuo-2.3",
+      "tiers": [
+        {
+          "label": "768p / 6s",
+          "v": 1
+        },
+        {
+          "label": "768p / 10s",
+          "v": 2
+        },
+        {
+          "label": "1080p / 6s",
+          "v": 2
+        }
+      ],
+      "src": "minimax-price",
+      "as_of": "2026-08-08",
+      "quote": "[MiniMax-Hailuo-02] [MiniMax-Hailuo-2.3]，生成单条1080p，6s视频，扣减2视频点数",
+      "note": "⚠️ 记的是「视频点数」不是钱，**换不成每秒单价**。而且官方明写「视频资源包支持 Hailuo 系列视频模型，**暂不支持 MiniMax H3**」—— H3 正是我们记的当前主力。"
+    },
+    {
+      "m": "runway",
+      "unit": "subscription",
+      "currency": "USD",
+      "listed_as": "Standard 档",
+      "tiers": [
+        {
+          "label": "$12/月（年付）= 625 credits",
+          "v": 12
+        }
+      ],
+      "src": "runway-price",
+      "as_of": "2026-08-08",
+      "quote": "$15 $12 /month 625 credits /mo 625 credits monthly = 52s of Gen-4.5",
+      "note": "**只卖订阅，不卖秒。** 官方自己写了「625 credits = 52 秒 Gen-4.5」，但把 12÷52 算成每秒单价是**我们做的推算，不是它说的** —— 按 §26 不录。"
+    },
+    {
+      "m": "seedance",
+      "unit": "unavailable",
+      "currency": null,
+      "src": "volcengine-ark-price",
+      "as_of": "2026-08-08",
+      "quote": "火山方舟视频生成模型价格快查表",
+      "note": "⚠️ 文档站的「模型价格」页只有文本模型 token 单价；**视频模型价格被放在飞书多维表里**（bytedance.larkoffice.com），我们抓不到，也不该去抓别人的协作文档。这一格空着是事实，不是遗漏。"
+    }
+  ],
+  "$pricing": "价格（G5）。**只取厂商官方价格页，Artificial Analysis 只做交叉校验。**\n\n## 这一栏最重要的结论是「价格根本不可比」\n\n七家、七种计价方式：Veo 和 Vidu 按秒标美元，Kling 和万相按秒标人民币，\n海螺记「视频点数」，Runway 只卖订阅，Seedance 把视频价放在飞书多维表里。\n**把它们并成一列数字，那一列一定是编的。**\n\n所以 unit 是一等字段：per-second / points / subscription / unavailable。\n只有 unit=per-second 且带 currency 的才允许横向比，而且**人民币和美元不换算** ——\n汇率是我们加的假设，不是厂商说的。\n\n## 维度不能丢\n\n同一个模型，720P 和 4K 能差 5 倍（Kling ¥0.6 vs ¥3.0），有声无声再差 50%。\n**记成一个数字必然是错的**，所以 tiers 是数组不是标量。"
 }

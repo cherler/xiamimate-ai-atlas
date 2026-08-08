@@ -133,7 +133,11 @@ async function fetchSpa(s) {
   const { chromium } = await import("playwright");
   const b = await chromium.launch({ proxy: PROXY ? { server: PROXY } : undefined });
   try {
-    const p = await b.newPage();
+    // **必须钉死语言。** Google 的定价页按出口 IP 本地化 ——
+    // 我们抓回来的那份 59% 是俄文（「Нет в наличии」＝不可用）。
+    // 页面看着「抓到了」，但抽取器读到的是另一种语言的标签，
+    // **这不是显示问题，是会毒到数据的 bug**。中文站按各自习惯，这里统一要英文原版。
+    const p = await b.newPage({ locale: "en-US", extraHTTPHeaders: { "accept-language": "en-US,en;q=0.9" } });
     await p.goto(s.url, { waitUntil: "networkidle", timeout: 45000 });
     // Cookie 同意墙。不点掉的话抓回来的是隐私政策，而不是更新日志 ——
     // Runway 就是这么让我抓到一整页「Consent Selection」的。
@@ -157,6 +161,8 @@ async function fetchOne(s) {
       // 不伪装成别人；说清楚我们是谁、来干什么，方便对方要联系时找得到人
       "user-agent": "xiamimate-ai-atlas/0.1 (capability atlas; contact via xiamimate.com)",
       accept: s.kind === "json" ? "application/json" : "*/*",
+      // 同上：不钉语言，同一个 URL 换个出口 IP 就换一种语言，diff 全是噪音
+      "accept-language": "en-US,en;q=0.9",
     },
   });
   if (!res.ok) throw new Error(`HTTP ${res.status}`);

@@ -796,6 +796,123 @@
         "platform",
         "availability"
       ]
+    },
+    {
+      "id": "volcengine-ark-price",
+      "tier": "S",
+      "kind": "spa",
+      "vendor": "seedance",
+      "name": "火山引擎方舟 · 模型计费",
+      "url": "https://docs.volcengine.com/docs/82379/1544106",
+      "refresh_days": 30,
+      "good_for": [
+        "pricing"
+      ],
+      "note": "路径是从导航里读出来的，不是猜的 —— 我猜的 /docs/82379/1099320 只有导航壳。另注：字节把**视频模型价格快查表放在飞书多维表里**（bytedance.larkoffice.com），文档站上只有说明。 换 html→spa：文档站正文靠 JS 渲染，不渲染只拿得到导航壳（1964 字符、零个价）。"
+    },
+    {
+      "id": "minimax-price",
+      "tier": "S",
+      "kind": "spa",
+      "vendor": "hailuo",
+      "name": "MiniMax 开放平台 · 价格",
+      "url": "https://platform.minimaxi.com/docs/guides/pricing-video",
+      "refresh_days": 30,
+      "good_for": [
+        "pricing"
+      ],
+      "note": "我猜的 /document/price 落到了语音资源包 —— 视频价在 /docs/guides/pricing-video。"
+    },
+    {
+      "id": "google-ai-price",
+      "tier": "S",
+      "kind": "html",
+      "vendor": "veo",
+      "name": "Google AI · Gemini API 定价",
+      "url": "https://ai.google.dev/gemini-api/docs/pricing",
+      "refresh_days": 30,
+      "good_for": [
+        "pricing"
+      ],
+      "note": "G5 候选：先实测能不能读到，再谈能不能录。**读不到就是读不到，不许拿第三方估的价顶上。**"
+    },
+    {
+      "id": "bailian-price",
+      "tier": "S",
+      "kind": "spa",
+      "vendor": "wan",
+      "name": "阿里云百炼 · 模型计费",
+      "url": "https://help.aliyun.com/zh/model-studio/model-pricing",
+      "refresh_days": 30,
+      "good_for": [
+        "pricing"
+      ],
+      "note": "我猜的 /models 是模型清单不是价格页；价格在 /model-pricing。"
+    },
+    {
+      "id": "runway-price",
+      "tier": "S",
+      "kind": "spa",
+      "vendor": "runway",
+      "name": "Runway · 定价",
+      "url": "https://runway.com/pricing",
+      "refresh_days": 30,
+      "good_for": [
+        "pricing"
+      ],
+      "note": "G5 候选：先实测能不能读到，再谈能不能录。**读不到就是读不到，不许拿第三方估的价顶上。**"
+    },
+    {
+      "id": "kling-price",
+      "tier": "S",
+      "kind": "spa",
+      "vendor": "kling",
+      "name": "可灵开放平台 · 计费",
+      "url": "https://klingai.com/dev/pricing",
+      "refresh_days": 30,
+      "good_for": [
+        "pricing"
+      ],
+      "note": "真地址在导航「前往购买」后面。我猜的 API commonInfo 页只有鉴权说明，一个价都没有。"
+    },
+    {
+      "id": "vidu-price",
+      "tier": "S",
+      "kind": "spa",
+      "vendor": "vidu-q",
+      "name": "Vidu 平台 · 价格",
+      "url": "https://platform.vidu.com/docs/pricing",
+      "refresh_days": 30,
+      "good_for": [
+        "pricing"
+      ],
+      "note": "我猜的是 /docs/price，官方是 /docs/pricing。"
+    },
+    {
+      "id": "fal-ltx-price",
+      "tier": "S",
+      "kind": "spa",
+      "vendor": "",
+      "name": "fal · 平台定价",
+      "url": "https://fal.ai/pricing",
+      "refresh_days": 30,
+      "good_for": [
+        "pricing"
+      ],
+      "note": "改成平台价格总页 —— 单个模型页上没有价，价在 pricing 页。"
+    },
+    {
+      "id": "replicate-price",
+      "tier": "A",
+      "kind": "html",
+      "vendor": "",
+      "name": "Replicate · 定价",
+      "url": "https://replicate.com/pricing",
+      "refresh_days": 30,
+      "good_for": [
+        "pricing"
+      ],
+      "note": "G5 候选：先实测能不能读到，再谈能不能录。**读不到就是读不到，不许拿第三方估的价顶上。**"
     }
   ],
   "$missing": [
@@ -819,5 +936,6 @@
     "原因": "现有发现源全是围绕「离线出片」这一个品类建的 —— 榜单比的是生成出来的片子（实时流式模型没法进盲测 Elo）、HF 收的是开源权重（Lucy 闭源）、Epoch 记的是训练算力且分类里根本没有视频。**三重不可见。**",
     "后果": "如果只跑现有管线，整个 realtime 轨会被系统性漏掉 —— 它是项目负责人手工点名才进来的，watcher 再跑一百遍也发现不了。",
     "补救": "加两类机器可读源：① arXiv 的 world model / real-time video 查询（realtime 品类先在论文里出现）；② 科技媒体 RSS（Lucy 2 是 Forbes 先报的，不是榜单）。"
-  }
+  },
+  "$pricing": "价格（G5 · §59.4）。**只从厂商官方价格页取，Artificial Analysis 只做交叉校验。**\n理由：AA 量的是质量与速度，价格是它顺带记的，而且**它没有公开条款**（terms 页 404），\n拿它的价当事实等于把别人的顺带产物当自己的一等数据。\n\n价格这类字段和能力格不同的地方：**它天生带维度**（分辨率/时长/档位/是否含音频），\n记成一个数字必然是错的。所以要么连维度一起记，要么就别记。"
 }

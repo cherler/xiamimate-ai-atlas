@@ -102,10 +102,26 @@ for (const pf of a.platforms ?? []) {
   if (!pf.discloses_why) warns.push(`R31 透明度没写理由：${pf.id}`);
 }
 
+// ── 价格（G5）。**unit 是一等字段** —— 七家七种计价方式，
+// 把它们并成一列数字，那一列一定是编的。
+const UNITS = ["per-second", "points", "subscription", "credits", "unavailable"];
+for (const q of a.pricing ?? []) {
+  const at = `价格 ${q.m}`;
+  if (!mids.has(q.m)) errs.push(`R32 未知模型：${at}`);
+  if (!UNITS.includes(q.unit)) errs.push(`R33 非法计价单位 ${q.unit}：${at}`);
+  if (!srcIds.has(q.src)) errs.push(`R34 来源 id 不存在：${q.src}（${at}）`);
+  if (!q.quote) errs.push(`R35 价格没有原文 —— 和能力格一个规矩：${at}`);
+  if (q.unit === "per-second" && !q.currency) errs.push(`R36 按秒计价却没写币种 —— 那就没法比：${at}`);
+  // 有价必须有维度：同一个模型 720P 和 4K 能差 5 倍，记成一个标量必然是错的
+  if (q.unit !== "unavailable" && !(q.tiers ?? []).length) errs.push(`R37 有价但没写档位（分辨率/时长/有无声）：${at}`);
+  if (!q.as_of) errs.push(`R38 价格没写核验日期 —— 价格比能力更容易过期：${at}`);
+}
+
 const used = new Set([
   ...a.support.map((s) => s.src),
   ...(a.availability ?? []).map((v) => v.src),
   ...(a.platforms ?? []).map((p) => p.discloses_src), // 透明度也是引用，漏了会误报 R10
+  ...(a.pricing ?? []).map((q) => q.src),
 ].filter(Boolean));
 for (const id of srcIds) if (!used.has(id)) warns.push(`R10 来源登记了但没被引用：${id}`);
 
@@ -136,6 +152,10 @@ for (const m of a.models) { const o = (a.orgs ?? []).find((x) => x.id === m.org)
 const d = {};
 for (const pf of a.platforms ?? []) d[pf.discloses] = (d[pf.discloses] ?? 0) + 1;
 console.log(`平台透明度：🟢公示 ${d.yes ?? 0} · 🟡部分 ${d.partial ?? 0} · 🔴不提 ${d.no ?? 0} · ⬜我们没看到 ${d.blocked ?? 0} · 不适用 ${d["n/a"] ?? 0}`);
+const pu = {};
+for (const q of a.pricing ?? []) pu[q.unit] = (pu[q.unit] ?? 0) + 1;
+console.log(`价格 ${(a.pricing ?? []).length} 条 · 计价单位：${Object.entries(pu).map(([k, v]) => `${k} ${v}`).join(" / ")}` +
+  `（**能横向比的只有 per-second 那几条**）`);
 console.log(`公司 ${(a.orgs ?? []).length} 家 · 模型按总部：${Object.entries(geo).map(([k, v]) => `${k} ${v}`).join(" / ")} · 投资关系 ${(a.investments ?? []).length} 条`);
 console.log(`来源 ${srcIds.size} 条，官方 ${Object.values(a.sources).filter((s) => s.tier === "official").length} 条`);
 for (const w of warns) console.log(`  警告 ${w}`);

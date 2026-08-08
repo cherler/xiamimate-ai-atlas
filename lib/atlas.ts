@@ -82,6 +82,28 @@ export type Org = {
   note?: string;
 };
 
+/**
+ * 价格（G5）。**unit 是一等字段，不是备注。**
+ *
+ * 七家七种计价方式：按秒标美元 / 按秒标人民币 / 按点数扣 / 只卖订阅 / 官方页上查不到。
+ * 把它们并成一列「每秒多少钱」，**那一列一定是编的**。
+ *
+ * `tiers` 是数组不是标量：同一个模型 720P 和 4K 能差 5 倍（Kling ¥0.6 vs ¥3.0），
+ * 有声无声再差 50%。**记成一个数字必然是错的。**
+ */
+export type Price = {
+  m: string;
+  unit: "per-second" | "points" | "subscription" | "credits" | "unavailable";
+  currency?: "USD" | "CNY" | null;
+  listed_as?: string;
+  tiers?: { label: string; v: number }[];
+  src: string;
+  quote: string;
+  /** 价格比能力过期得快得多，所以核验日期是必填。 */
+  as_of: string;
+  note?: string;
+};
+
 /** 上游投资关系。结构先建好 —— 但**可得性上限只有 B/C 级**，见 atlas.json 的 $investments。 */
 export type Investment = { from: string; to: string; round?: string; date?: string; src: string; quote: string };
 
@@ -174,6 +196,7 @@ export const atlas = raw as unknown as {
   capabilities: Capability[];
   models: Model[];
   orgs: Org[];
+  pricing: Price[];
   investments: Investment[];
   sources: Record<string, Source>;
   support: Cell[];

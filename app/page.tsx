@@ -7,6 +7,7 @@ import Search from "@/components/Search";
 import MobileStack from "@/components/MobileStack";
 import Link from "next/link";
 import { Fact, MARK, Rich, TONE } from "@/components/Fact";
+import Pricing from "@/components/Pricing";
 import Transparency from "@/components/Transparency";
 import { atlas, avail, capsOf, cell, compare, extendedOf, label, modelsOf, tally, transparency, vendorName, type Klass } from "@/lib/atlas";
 import { capHref, modelHref } from "@/lib/slug";
@@ -394,6 +395,8 @@ export default function Page() {
             ))}
         </div>
       </section>
+
+      <Pricing />
 
       <Transparency />
 

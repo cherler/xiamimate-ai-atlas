@@ -1,0 +1,114 @@
+import { atlas, label, orgOf } from "@/lib/atlas";
+import { Rich } from "./Fact";
+
+/**
+ * 价格（任务 G5）。**只取厂商官方价格页，Artificial Analysis 只做交叉校验。**
+ *
+ * AA 量的是质量与速度，价格是它顺带记的，而且它没有公开条款（terms 页 404）——
+ * 拿别人的顺带产物当自己的一等数据，是这个项目最不该做的事。
+ *
+ * ## 这一栏最重要的结论是「价格根本没法比」
+ *
+ * 七家、七种计价方式。做这一栏之前我以为难点是把价抓全，
+ * 抓完才发现难点是**它们压根不在同一个刻度上**：
+ *
+ *   Veo / Vidu   按秒标美元
+ *   Kling / 万相  按秒标人民币
+ *   海螺          记「视频点数」，点数换钱要看你买的哪个包
+ *   Runway       只卖订阅，不卖秒
+ *   Seedance     视频价放在飞书多维表里，文档站上没有
+ *
+ * **把它们并成一列「每秒多少钱」，那一列一定是编的。**
+ * 所以这里不做那一列 —— 分单位摆出来，让读者自己看见这件事。
+ *
+ * 人民币和美元也**不换算**：汇率是我们加的假设，不是厂商说的。
+ */
+const UNIT = {
+  "per-second": { zh: "按秒计价", ord: 0 },
+  points: { zh: "按点数扣减", ord: 1 },
+  credits: { zh: "按积分扣减", ord: 2 },
+  subscription: { zh: "只卖订阅", ord: 3 },
+  unavailable: { zh: "官方页上查不到", ord: 4 },
+} as const;
+
+const SYM: Record<string, string> = { USD: "$", CNY: "¥" };
+
+export default function Pricing() {
+  const rows = [...atlas.pricing].sort((a, b) => UNIT[a.unit].ord - UNIT[b.unit].ord);
+  const cmp = rows.filter((r) => r.unit === "per-second");
+
+  return (
+    <section>
+      <h2 className="text-[22px] font-semibold mb-1">多少钱一秒</h2>
+      <p className="text-muted text-[14px] mb-4 max-w-[880px] leading-relaxed">
+        全部取自<b className="text-ink">厂商自己的价格页</b>，每条带原文。
+        第三方评测站也记价格，但那是它顺带做的事 —— 这里只做交叉校验，不当来源。
+      </p>
+
+      {/* 和透明度那一栏一样：先把最要紧的那句话摆在前面 */}
+      <div className="border border-rule rounded-lg bg-card p-4 mb-4 max-w-[880px]">
+        <p className="text-[14px] leading-relaxed">
+          <b className="text-ink">做完这一栏才发现，难的不是把价抓全，是它们根本不在同一个刻度上。</b>
+          <br />
+          {rows.length} 家用了 {new Set(rows.map((r) => r.unit)).size} 种计价方式。
+          <b className="text-ink">
+            能横着比的只有按秒计价的那 {cmp.length} 家 —— 而且人民币和美元我们不换算
+          </b>
+          ，汇率是我们加的假设，不是厂商说的。
+        </p>
+      </div>
+
+      <div className="flex flex-col gap-2 max-w-[880px]">
+        {rows.map((q) => {
+          const m = atlas.models.find((x) => x.id === q.m);
+          const src = atlas.sources[q.src];
+          if (!m) return null;
+          return (
+            <div key={q.m} className="border border-rule rounded-lg bg-card p-3 flex flex-col gap-2">
+              <div className="flex items-baseline gap-2 flex-wrap">
+                <span className="font-semibold text-[16px]">{label(m)}</span>
+                <span className="text-muted text-[12px]">{orgOf(m)?.zh}</span>
+                <span className="text-[12px] px-1.5 py-0.5 rounded border border-rule text-muted">
+                  {UNIT[q.unit].zh}
+                </span>
+                {q.listed_as && q.listed_as !== label(m) && (
+                  <span className="text-unknown text-[12px]">价格页上写的是「{q.listed_as}」</span>
+                )}
+              </div>
+
+              {/* 档位必须全摆出来：同一个模型 720P 和 4K 能差 5 倍，记成一个数字就是错的 */}
+              {!!q.tiers?.length && (
+                <div className="flex flex-wrap gap-x-4 gap-y-1 text-[14px]">
+                  {q.tiers.map((t) => (
+                    <span key={t.label}>
+                      <span className="text-muted">{t.label}</span>
+                      <b className="ml-1.5 tabular-nums">
+                        {q.currency ? `${SYM[q.currency] ?? ""}${t.v}` : t.v}
+                        {q.unit === "per-second" && " /秒"}
+                        {q.unit === "points" && " 点"}
+                      </b>
+                    </span>
+                  ))}
+                </div>
+              )}
+
+              {q.note && <Rich text={q.note} className="text-[13px] leading-relaxed" />}
+              <p className="text-muted text-[12px] leading-relaxed">
+                原文：「{q.quote}」
+                <a href={src?.url} target="_blank" rel="noreferrer" className="underline ml-2 hover:text-yes">
+                  {src?.name}
+                </a>
+                <span className="ml-2">· 核验于 {q.as_of}</span>
+              </p>
+            </div>
+          );
+        })}
+      </div>
+
+      <p className="text-muted text-[13px] mt-3 max-w-[880px] leading-relaxed">
+        <b className="text-ink">价格比能力过期得快得多。</b>
+        每条都写了核验日期 —— 看到日期旧了，就当它旧了。
+      </p>
+    </section>
+  );
+}
