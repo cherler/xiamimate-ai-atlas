@@ -1064,6 +1064,16 @@
       "url": "https://seed.bytedance.com/en/blog/official-launch-of-seedance-2-0",
       "tier": "official",
       "name": "字节 Seed · Seedance 2.0 发布（2026-02-12）"
+    },
+    "aa-t2v": {
+      "url": "https://artificialanalysis.ai/video/leaderboard/text-to-video",
+      "tier": "third-party",
+      "name": "Artificial Analysis · 文生视频 Elo 榜（盲测投票，2026-08-09 取）"
+    },
+    "fal-ltx-price": {
+      "url": "https://fal.ai/pricing",
+      "tier": "official",
+      "name": "fal · 平台定价页"
     }
   },
   "support": [
@@ -2538,7 +2548,7 @@
       "src": "kling-price",
       "as_of": "2026-08-08",
       "quote": "Kling 3.0 按秒收费 无声 0.6积分（¥0.6）/秒 0.8积分（¥0.8）/秒 3.0积分（¥3.0）/秒",
-      "note": "标价用「积分」，但官方写明**1 积分等于 1 元（原价）**，买大额套餐折到 0.9 元/积分 —— 所以标价可比、实付价按套餐浮动。"
+      "note": "标价用「积分」，但官方写明**1 积分等于 1 元（原价）** —— 所以标价可比。折扣见折扣栏。"
     },
     {
       "p": "vidu-api",
@@ -2657,6 +2667,36 @@
       "as_of": "2026-08-08",
       "quote": "wavespeedai / wan-2.1-i2v-720p … $0.25 / second of output video",
       "note": "⚠️ 同一个万相，**百炼上 720P 是 ¥0.6/秒，Replicate 上 720P 是 $0.25/秒** —— 而且 Replicate 卖的还是 2.1，不是当前的 3.0。**「多少钱」这个问题，不指定平台就没有答案。**"
+    },
+    {
+      "p": "fal",
+      "m": "ltx",
+      "unit": "unavailable",
+      "currency": null,
+      "src": "fal-ltx-price",
+      "as_of": "2026-08-09",
+      "quote": "（本轮未在官方页上找到逐条价格）",
+      "note": "⚠️ LTX 的权重公开，但 Lightricks 没有自营 API 定价页；平台侧 fal 的定价页未按模型逐条标价。"
+    },
+    {
+      "p": "libtv",
+      "m": "lucy",
+      "unit": "unavailable",
+      "currency": null,
+      "src": "decart-site",
+      "as_of": "2026-08-09",
+      "quote": "（本轮未在官方页上找到逐条价格）",
+      "note": "⚠️ Decart 官网未见公开定价页，也未见 API 价目。"
+    },
+    {
+      "p": "replicate",
+      "m": "sora",
+      "unit": "unavailable",
+      "currency": null,
+      "src": "replicate-t2v",
+      "as_of": "2026-08-09",
+      "quote": "（本轮未在官方页上找到逐条价格）",
+      "note": "⚠️ OpenAI 的 Sora API 已公告 2026-09-24 停服；定价页对我们的采集器返回 403，未能一手复核。"
     }
   ],
   "$pricing": "价格（G5）。**只取厂商官方价格页，Artificial Analysis 只做交叉校验。**\n\n## 这一栏最重要的结论是「价格根本不可比」\n\n七家、七种计价方式：Veo 和 Vidu 按秒标美元，Kling 和万相按秒标人民币，\n海螺记「视频点数」，Runway 只卖订阅，Seedance 把视频价放在飞书多维表里。\n**把它们并成一列数字，那一列一定是编的。**\n\n所以 unit 是一等字段：per-second / points / subscription / unavailable。\n只有 unit=per-second 且带 currency 的才允许横向比，而且**人民币和美元不换算** ——\n汇率是我们加的假设，不是厂商说的。\n\n## 价格挂在「平台 × 模型」上，不是挂在模型上\n\n**同一个模型在不同平台不是一个价**（项目负责人 2026-08-08 指出）。\n万相在百炼 720P ¥0.6/秒，在 Replicate 720P $0.25/秒，而且 Replicate 卖的还是 2.1。\n所以 `pricing` 的主键是 (p, m)：**「多少钱」这个问题，不指定平台就没有答案。**\n\n厂商自有的 API 平台（火山方舟 / 百炼 / 可灵开放平台 / Vidu / MiniMax / Google AI）\n因此也进了 platforms —— 它们本来就是平台，只是此前只收了第三方那一类。\n\n## 维度不能丢\n\n同一个模型，720P 和 4K 能差 5 倍（Kling ¥0.6 vs ¥3.0），有声无声再差 50%。\n**记成一个数字必然是错的**，所以 tiers 是数组不是标量。",
@@ -3403,8 +3443,147 @@
   "$change_events": "Change + So What（方案 §15）。**只有 after 的那是新闻，不是 ChangeEvent。**\n字段：{date, entity, kind, before, after, why, affects[], src, quote}\nR46 盯着 before/after/why 三者齐全 —— 缺任何一个，读者就只知道「变了」，不知道「所以呢」。",
   "toolkit": [],
   "$toolkit": "资源导航（方案 §16）。原话：**「不要做一排 Logo 的 hao123」，要「导航 + 判断」。**\n字段：{task, site, url, verdict, caveat, checked_at}\n**verdict 和 caveat 都必填（R49）** —— caveat 是负面结论，「Epoch AI 不收视频模型」这种我们真查过才知道的话，才是这一页的价值。",
-  "effect": [],
-  "$effect": "效果。**我们自己不打分，只转述并标明是谁说的**（负责人 2026-08-08 拍板）。\n字段：{m, kind: third-party|vendor-claim, who, value, url?, quote, as_of}\nR50 who 必填。注：Artificial Analysis 没有公开使用条款（terms 页 404），只取位次 + 回源链接，不整站搬。",
-  "discount": [],
-  "$discount": "折扣。此前埋在 pricing.note 里，结构化出来才能在对比表里并排看。\n字段：{p, m, rule, off, src, quote}"
+  "effect": [
+    {
+      "m": "gemini-omni",
+      "kind": "third-party",
+      "who": "Artificial Analysis",
+      "value": "文生视频 Elo 榜 第 1（1244）",
+      "quote": "Models are ranked using an Elo rating system derived from blind user votes comparing videos generated from identical prompts",
+      "as_of": "2026-08-09",
+      "url": "https://artificialanalysis.ai/video/leaderboard/text-to-video"
+    },
+    {
+      "m": "hailuo",
+      "kind": "third-party",
+      "who": "Artificial Analysis",
+      "value": "第 2（1240）",
+      "quote": "Models are ranked using an Elo rating system derived from blind user votes comparing videos generated from identical prompts",
+      "as_of": "2026-08-09",
+      "url": "https://artificialanalysis.ai/video/leaderboard/text-to-video"
+    },
+    {
+      "m": "seedance",
+      "kind": "third-party",
+      "who": "Artificial Analysis",
+      "value": "第 3（1224）",
+      "quote": "Models are ranked using an Elo rating system derived from blind user votes comparing videos generated from identical prompts",
+      "as_of": "2026-08-09",
+      "url": "https://artificialanalysis.ai/video/leaderboard/text-to-video",
+      "note": "⚠️ 榜上是 **Seedance 2.0**，不是我们记的当前主力 2.5 —— 榜单和当前版本对不上，是常态。"
+    },
+    {
+      "m": "wan",
+      "kind": "third-party",
+      "who": "Artificial Analysis",
+      "value": "第 7（1111）",
+      "quote": "Models are ranked using an Elo rating system derived from blind user votes comparing videos generated from identical prompts",
+      "as_of": "2026-08-09",
+      "url": "https://artificialanalysis.ai/video/leaderboard/text-to-video",
+      "note": "⚠️ 榜上是 **Wan 2.7**，不是我们记的 3.0。"
+    },
+    {
+      "m": "kling",
+      "kind": "third-party",
+      "who": "Artificial Analysis",
+      "value": "第 8（1111，3.0 1080p Pro）",
+      "quote": "Models are ranked using an Elo rating system derived from blind user votes comparing videos generated from identical prompts",
+      "as_of": "2026-08-09",
+      "url": "https://artificialanalysis.ai/video/leaderboard/text-to-video"
+    },
+    {
+      "m": "skyreels",
+      "kind": "third-party",
+      "who": "Artificial Analysis",
+      "value": "第 9（1107，V4）",
+      "quote": "Models are ranked using an Elo rating system derived from blind user votes comparing videos generated from identical prompts",
+      "as_of": "2026-08-09",
+      "url": "https://artificialanalysis.ai/video/leaderboard/text-to-video",
+      "note": "⚠️ 榜上已是 **SkyReels V4**，我们库里最新只到 V3 —— **这是我们的采集缺口**。"
+    },
+    {
+      "m": "veo",
+      "kind": "third-party",
+      "who": "Artificial Analysis",
+      "value": "第 11（1093）",
+      "quote": "Models are ranked using an Elo rating system derived from blind user votes comparing videos generated from identical prompts",
+      "as_of": "2026-08-09",
+      "url": "https://artificialanalysis.ai/video/leaderboard/text-to-video"
+    },
+    {
+      "m": "vidu-q",
+      "kind": "third-party",
+      "who": "Artificial Analysis",
+      "value": "第 16（1079，Q3 Pro）",
+      "quote": "Models are ranked using an Elo rating system derived from blind user votes comparing videos generated from identical prompts",
+      "as_of": "2026-08-09",
+      "url": "https://artificialanalysis.ai/video/leaderboard/text-to-video"
+    },
+    {
+      "m": "runway",
+      "kind": "third-party",
+      "who": "Artificial Analysis",
+      "value": "前 20 未出现",
+      "quote": "Models are ranked using an Elo rating system derived from blind user votes comparing videos generated from identical prompts",
+      "as_of": "2026-08-09",
+      "url": "https://artificialanalysis.ai/video/leaderboard/text-to-video",
+      "note": "**对照厂商自述看**：Runway 官方称 Gen-4.5 是「the world's best video model」，而这份盲测榜前 20 里没有它。我们不评判谁对，只把两句话放在一起。"
+    },
+    {
+      "m": "runway",
+      "kind": "vendor-claim",
+      "who": "Runway 官方",
+      "value": "「世界最好的视频模型」",
+      "quote": "Introducing Gen-4.5, the world's best video model",
+      "as_of": "2026-08-09",
+      "src": "rw-changelog"
+    },
+    {
+      "m": "veo",
+      "kind": "vendor-claim",
+      "who": "Google DeepMind 官方",
+      "value": "「我们领先的视频生成模型」",
+      "quote": "Veo · Our leading video generation model",
+      "as_of": "2026-08-09",
+      "src": "deepmind-veo"
+    },
+    {
+      "m": "seedance",
+      "kind": "vendor-claim",
+      "who": "字节 Seed 官方",
+      "value": "统一多模态音视频联合生成架构，支持四种输入",
+      "quote": "Built with a unified multimodal audio-video joint generation architecture, Seedance 2.0 supports four input modalities: text, image, audio, and video.",
+      "as_of": "2026-08-09",
+      "src": "seed-blog-2_0"
+    },
+    {
+      "m": "hailuo",
+      "kind": "vendor-claim",
+      "who": "MiniMax 官方",
+      "value": "新一代开放通用多模态视频模型",
+      "quote": "A new-generation open general-purpose multimodal video model.",
+      "as_of": "2026-08-09",
+      "src": "minimax-release-notes"
+    }
+  ],
+  "$effect": "效果。**我们自己不打分，只转述并标明是谁说的**（负责人 2026-08-08 拍板）。\n字段：{m, kind: third-party|vendor-claim, who, value, url?, quote, as_of}\nR50 who 必填。注：Artificial Analysis 没有公开使用条款（terms 页 404），只取位次 + 回源链接，不整站搬。\n\n采到之后照出三件事，都记在 note 里：\n1. **榜单排的常常不是当前版本** —— AA 榜上是 Seedance 2.0（当前 2.5）、Wan 2.7（当前 3.0）\n2. **SkyReels V4 已存在，我们库里还是 V3** —— 这是我们的采集缺口，不是它的问题\n3. **厂商自述与第三方榜单的落差** —— Runway 官方称 Gen-4.5 是「世界最好的视频模型」，\n   而这份盲测榜前 20 里没有它。**我们不评判谁对，只把两句话放在一起，让读者自己看。**\n\nAA 量的是**画质偏好**（盲测投票的 Elo），不是能力 —— 它和我们的能力格是两回事，不能互相替代。",
+  "discount": [
+    {
+      "p": "klingai-api",
+      "m": "kling",
+      "rule": "买 ≥30000 积分",
+      "off": "9 折（0.9 元/积分）",
+      "src": "kling-price",
+      "quote": "直降 10%，折后单价 0.9元/积分 30000 积分 有效期180天"
+    },
+    {
+      "p": "minimax-api",
+      "m": "hailuo",
+      "rule": "买视频资源包",
+      "off": "按包折扣（**但不支持 H3**）",
+      "src": "minimax-price",
+      "quote": "视频资源包支持 Hailuo 系列视频模型，暂不支持 MiniMax H3。"
+    }
+  ],
+  "$discount": "折扣。此前埋在 pricing.note 里，结构化出来才能在对比表里并排看。\n字段：{p, m, rule, off, src, quote}\n\n第一批两条。海螺那条是**负面折扣**：资源包确实有折扣，但官方明写「暂不支持 MiniMax H3」——**而 H3 正是它的当前主力**。只写「有折扣」会把人骗进去。"
 }
