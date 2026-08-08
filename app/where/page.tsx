@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import Pricing from "@/components/Pricing";
+import WhereTable from "@/components/WhereTable";
 import Transparency from "@/components/Transparency";
 import { Rich } from "@/components/Fact";
 import { atlas, avail, label, modelsOf, STATUS, availModels } from "@/lib/atlas";
@@ -108,28 +109,13 @@ export default function WherePage() {
         </div>
       </section>
 
-      <section className="hidden md:block">
-        <h2 className="text-[22px] font-semibold mb-1">你在大陆，能不能用上</h2>
-        <p className="text-muted text-[14px] mb-4 max-w-[920px]">
-          2026-08-08 从大陆<b className="text-ink">不走代理</b>直连各厂商官方站 / 文档页的实测。
-          <Link href="/method#gaps" className="underline ml-2 hover:text-ink">口径 →</Link>
+      <section>
+        <h2 className="text-[22px] font-semibold mb-1">平台 × 模型</h2>
+        <p className="text-muted text-[14px] mb-3 max-w-[920px]">
+          <b className="text-ink">看的不是「有没有」，是「上的是哪一版」。</b>
+          <Link href="/caveats" className="underline ml-2 hover:text-ink">哪些坑 →</Link>
         </p>
-        <div className="flex flex-col gap-2">
-          {atlas.models
-            .filter((m) => m.reach_cn && m.reach_cn !== "unknown")
-            .sort((a, b) => (a.reach_cn === "blocked" ? -1 : 1) - (b.reach_cn === "blocked" ? -1 : 1))
-            .map((m) => (
-              <div key={m.id} className="flex items-baseline gap-3 text-[15px] border-t border-rule pt-2">
-                <span className={`w-[26px] shrink-0 ${m.reach_cn === "ok" ? "text-yes" : "text-no"}`}>
-                  {m.reach_cn === "ok" ? "✅" : "⛔"}
-                </span>
-                <Link href={modelHref(m)} className="w-[190px] shrink-0 underline hover:text-yes">
-                  {label(m)}
-                </Link>
-                <Rich text={m.reach_note ?? ""} className="text-muted text-[13px] leading-relaxed" />
-              </div>
-            ))}
-        </div>
+        <WhereTable />
       </section>
 
       <Pricing />
