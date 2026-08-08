@@ -130,7 +130,15 @@ export type Platform = {
   kind: string;
   /** 三类：厂商自有 / API 市场 / 第三方产品。第三方那类的关键问题是**公不公示底层模型**。 */
   kind2?: "vendor-own" | "api" | "third-party";
-  discloses?: "yes" | "no" | "n/a";
+  /**
+   * 公不公示底层模型（§59.4.e）。**四档不是三档** ——
+   * `no`（读完了确实没提）和 `blocked`（我们没读到）是两件事，混在一起就是我们在编。
+   * `no` 的门槛是「读过」：校验 R30 要求它必须拿得出 `discloses_src`。
+   */
+  discloses: "yes" | "partial" | "no" | "blocked" | "n/a";
+  discloses_src?: string;
+  discloses_quote?: string;
+  discloses_why?: string;
   region: string;
   url: string;
   note?: string;

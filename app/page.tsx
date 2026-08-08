@@ -7,6 +7,7 @@ import Search from "@/components/Search";
 import MobileStack from "@/components/MobileStack";
 import Link from "next/link";
 import { Fact, MARK, Rich, TONE } from "@/components/Fact";
+import Transparency from "@/components/Transparency";
 import { atlas, avail, capsOf, cell, compare, extendedOf, label, modelsOf, tally, transparency, vendorName, type Klass } from "@/lib/atlas";
 import { capHref, modelHref } from "@/lib/slug";
 
@@ -393,6 +394,8 @@ export default function Page() {
             ))}
         </div>
       </section>
+
+      <Transparency />
 
       <section>
         <h2 className="text-[22px] font-semibold mb-1">库里还有，但没进主表</h2>

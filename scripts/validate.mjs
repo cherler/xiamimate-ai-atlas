@@ -87,7 +87,26 @@ for (const v of a.investments ?? []) {
   if (!v.src || !v.quote) errs.push(`R25 投资关系没有来源或原文 —— 和能力格一个规矩：${v.from} → ${v.to}`);
 }
 
-const used = new Set([...a.support.map((s) => s.src), ...(a.availability ?? []).map((v) => v.src)].filter(Boolean));
+// ── 平台透明度（G3 · §59.4.e）。**🔴 的门槛是「读过」** ——
+// 没读到页面只能记 blocked，那是我们的缺口，不是对方的问题。
+const DISC = ["yes", "partial", "no", "blocked", "n/a"];
+for (const pf of a.platforms ?? []) {
+  if (!DISC.includes(pf.discloses)) { errs.push(`R27 非法透明度取值 ${pf.discloses}：${pf.id}`); continue; }
+  if (["yes", "partial"].includes(pf.discloses)) {
+    if (!pf.discloses_quote) errs.push(`R28 说人家公示了，却没有原文 —— 不算证据：${pf.id}`);
+    if (!srcIds.has(pf.discloses_src)) errs.push(`R29 透明度来源 id 不存在：${pf.discloses_src}（${pf.id}）`);
+  }
+  // 「只字不提」是对人家的负面判断，必须先证明我们真的读过整页。
+  if (pf.discloses === "no" && !srcIds.has(pf.discloses_src))
+    errs.push(`R30 判 ${pf.id}「只字不提」却拿不出读过的证据 —— 没读到只能记 blocked`);
+  if (!pf.discloses_why) warns.push(`R31 透明度没写理由：${pf.id}`);
+}
+
+const used = new Set([
+  ...a.support.map((s) => s.src),
+  ...(a.availability ?? []).map((v) => v.src),
+  ...(a.platforms ?? []).map((p) => p.discloses_src), // 透明度也是引用，漏了会误报 R10
+].filter(Boolean));
 for (const id of srcIds) if (!used.has(id)) warns.push(`R10 来源登记了但没被引用：${id}`);
 
 // Core 每轨 ≤10（ontology 规则四）。加第 11 个之前必须先踢掉一个。
@@ -114,6 +133,9 @@ const older = (a.availability ?? []).filter((v) => v.match === "older").length;
 console.log(`平台 ${(a.platforms ?? []).length} 个 · 可用性 ${(a.availability ?? []).length} 条（其中 ${older} 条上架的不是当前主力版本）`);
 const geo = {};
 for (const m of a.models) { const o = (a.orgs ?? []).find((x) => x.id === m.org); if (o) geo[o.hq.country] = (geo[o.hq.country] ?? 0) + 1; }
+const d = {};
+for (const pf of a.platforms ?? []) d[pf.discloses] = (d[pf.discloses] ?? 0) + 1;
+console.log(`平台透明度：🟢公示 ${d.yes ?? 0} · 🟡部分 ${d.partial ?? 0} · 🔴不提 ${d.no ?? 0} · ⬜我们没看到 ${d.blocked ?? 0} · 不适用 ${d["n/a"] ?? 0}`);
 console.log(`公司 ${(a.orgs ?? []).length} 家 · 模型按总部：${Object.entries(geo).map(([k, v]) => `${k} ${v}`).join(" / ")} · 投资关系 ${(a.investments ?? []).length} 条`);
 console.log(`来源 ${srcIds.size} 条，官方 ${Object.values(a.sources).filter((s) => s.tier === "official").length} 条`);
 for (const w of warns) console.log(`  警告 ${w}`);

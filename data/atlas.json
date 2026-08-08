@@ -793,6 +793,11 @@
       "url": "https://docs.apiyi.com/changelog",
       "tier": "official",
       "name": "APIYI · 更新日志"
+    },
+    "higgsfield-site": {
+      "url": "https://higgsfield.ai/",
+      "tier": "official",
+      "name": "Higgsfield 首页（2026-08 快照，data/snapshots/higgsfield-site.json）"
     }
   },
   "support": [
@@ -1853,7 +1858,11 @@
       "kind": "API 市场",
       "region": "全球",
       "url": "https://replicate.com",
-      "kind2": "api"
+      "kind2": "api",
+      "discloses": "yes",
+      "discloses_src": "replicate-t2v",
+      "discloses_quote": "Kling Video 3.0 generates cinematic videos up to 15 seconds with native audio",
+      "discloses_why": "收录页逐个点名底层模型与版本 —— 我们那 7 条上架记录本身就是它公示的产物。"
     },
     {
       "id": "apiyi",
@@ -1862,7 +1871,11 @@
       "region": "中国大陆",
       "url": "https://apiyi.com",
       "note": "国内可直连的聚合入口 —— fal / Replicate 覆盖不到这一块",
-      "kind2": "api"
+      "kind2": "api",
+      "discloses": "yes",
+      "discloses_src": "apiyi-log",
+      "discloses_quote": "VEO 3.1 Official 正式上线：透传 Google AI Studio",
+      "discloses_why": "不只点名模型，连上游通道都写出来（「透传 Google AI Studio」）。国内聚合站里少见。"
     },
     {
       "id": "runway",
@@ -1871,7 +1884,11 @@
       "region": "全球",
       "url": "https://runway.com",
       "note": "⚠️ 既做自己的 Gen 系列，也转售别家 —— 平台与厂商两个身份要分开看",
-      "kind2": "third-party"
+      "kind2": "third-party",
+      "discloses": "yes",
+      "discloses_src": "rw-changelog",
+      "discloses_quote": "Get unlimited Seedance 2.5 on new Max plans until August 14th",
+      "discloses_why": "**自己也是模型厂商，却明写在转售字节的 Seedance** —— 两个身份都摆出来了，没有含糊。"
     },
     {
       "id": "higgsfield",
@@ -1880,8 +1897,11 @@
       "region": "全球",
       "url": "https://higgsfield.ai",
       "kind2": "third-party",
+      "note": "✅ **公示底层模型** —— 首页直接写着 Seedance 2.5、MiniMax H3。第三方产品里少见的做法",
       "discloses": "yes",
-      "note": "✅ **公示底层模型** —— 首页直接写着 Seedance 2.5、MiniMax H3。第三方产品里少见的做法"
+      "discloses_src": "higgsfield-site",
+      "discloses_quote": "Open Unlimited Seedance 2.5 for 33 days … Seedance 2.5 MiniMax H3",
+      "discloses_why": "首页同时点名 Seedance 2.5 和 MiniMax H3 两家上游 —— 第三方产品里少见的做法。（原文取自快照，中间的省略号是正文抽取时丢掉的排版，不是我们改写。）"
     },
     {
       "id": "fal",
@@ -1890,7 +1910,9 @@
       "region": "全球",
       "url": "https://fal.ai",
       "note": "⚠️ 页面对我们的采集器返回 429（限流），一格都没能核 —— 不是它没有，是我们看不到",
-      "kind2": "api"
+      "kind2": "api",
+      "discloses": "blocked",
+      "discloses_why": "页面对我们的采集器返回 429（限流）。**这一格空着是我们的缺口，不是 fal 的问题。**"
     },
     {
       "id": "pika",
@@ -1899,8 +1921,9 @@
       "kind2": "vendor-own",
       "region": "全球",
       "url": "https://pika.art",
+      "note": "首页只提自己的模型 —— **它本来就是模型厂商，不是转售方**，不适用「公不公示底层」这个问题",
       "discloses": "n/a",
-      "note": "首页只提自己的模型 —— **它本来就是模型厂商，不是转售方**，不适用「公不公示底层」这个问题"
+      "discloses_why": "**读过首页**，只提自己的模型 —— 它本来就是模型厂商，不是转售方，这个问题不适用。"
     },
     {
       "id": "dreamina",
@@ -1909,7 +1932,9 @@
       "kind2": "vendor-own",
       "region": "中国大陆",
       "url": "https://dreamina.capcut.com",
-      "note": "⚠️ 采集器 45 秒超时，未能核 —— 不是它没有，是我们抓不到"
+      "note": "⚠️ 采集器 45 秒超时，未能核 —— 不是它没有，是我们抓不到",
+      "discloses": "blocked",
+      "discloses_why": "采集器 45 秒超时，**页面一个字都没读到**。虽然它归类为厂商自有产品，但「自有产品」不等于「从不转售」—— 没读过就不能替它下结论。这和 Pika 的 n/a 是两回事：Pika 我们读了。"
     },
     {
       "id": "picsart",
@@ -1918,7 +1943,9 @@
       "kind2": "third-party",
       "region": "全球",
       "url": "https://picsart.com",
-      "note": "⚠️ 采集器超时，未能核"
+      "note": "⚠️ 采集器超时，未能核",
+      "discloses": "blocked",
+      "discloses_why": "采集器超时，未能读到页面。"
     },
     {
       "id": "libtv",
@@ -1927,7 +1954,9 @@
       "kind2": "third-party",
       "region": "—",
       "url": "https://libtv.com",
-      "note": "⚠️ 直接 ERR_CONNECTION_CLOSED，站点当前访问不到"
+      "note": "⚠️ 直接 ERR_CONNECTION_CLOSED，站点当前访问不到",
+      "discloses": "blocked",
+      "discloses_why": "ERR_CONNECTION_CLOSED，站点当前访问不到。"
     }
   ],
   "availability": [
@@ -2064,5 +2093,6 @@
     "api": "API 市场 / 聚合（fal、Replicate、APIYI）—— 自己调，能锁定版本",
     "third-party": "第三方产品（Higgsfield、Picsart、LibTV）—— 包着别人的模型卖体验，**关键问题是它公不公示用的是谁、哪一版**"
   },
-  "$reach": "`reach_cn` 是 2026-08-08 从**大陆网络不走代理**实测的结果，测的是**厂商官方站 / 文档页**，**不是 API 端点** —— 两件事不能混：文档打不开不等于接口调不通，反过来也一样。但对「想自部署」的人，权重所在的 huggingface.co 直连不可达就是硬阻碍。地理这条线真正有用的不是「公司在哪」，是「你在哪，能不能用上」。"
+  "$reach": "`reach_cn` 是 2026-08-08 从**大陆网络不走代理**实测的结果，测的是**厂商官方站 / 文档页**，**不是 API 端点** —— 两件事不能混：文档打不开不等于接口调不通，反过来也一样。但对「想自部署」的人，权重所在的 huggingface.co 直连不可达就是硬阻碍。地理这条线真正有用的不是「公司在哪」，是「你在哪，能不能用上」。",
+  "$transparency": "平台透明度评级（§59.4.e）。原方案是三色刻度：🟢明确公示 / 🟡部分公示 / 🔴只字不提。\n**三档装不下真实情况 —— 必须有第四档。**\n\n9 个平台里有 4 个我们根本没读到页面（fal 429、LibTV 连不上、即梦和 Picsart 超时）。\n给它们打 🔴「只字不提」，那是**我们在编** —— 我们不知道它说没说，我们是没看见。\n这正是本项目最贵的那条教训在另一个位置的复现：**「没有值」和「取不到值」不是一回事。**\n\n  yes     🟢 明确公示 —— 读到了页面，点名了底层模型（必须有原文）\n  partial 🟡 部分公示 —— 读到了，只说了一部分\n  no      🔴 只字不提 —— **读完了整页，确实没提**。这一档的门槛是「读过」\n  blocked ⬜ 我们没看到 —— 采集失败。**这是我们的缺口，要修的是我们**\n  n/a     —— 自有模型厂商，问题不适用（Pika：读过首页才敢这么判）\n\n注意 Pika 是 n/a、即梦是 blocked，两家都归类为「厂商自有」——\n差别只在**Pika 的页面我们读了，即梦的没读到**。「自有产品」不等于「从不转售」，\n没读过就不能替它下结论。这个区分是这张表的全部价值所在。"
 }
