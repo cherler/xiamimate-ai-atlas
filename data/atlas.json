@@ -2805,12 +2805,11 @@
       "m": "hunyuan-video",
       "version": "HY-Video",
       "date": "2026-01-07",
-      "added": "视频生成",
+      "added": "换代 HY-Video",
       "src": "hf-lineage",
       "quote": "tencent/HY-Video-PRFL",
       "note": "日期取自官方 HF 组织的 createdAt（**不是 lastModified**）。",
-      "parent": "hunyuan-video-HunyuanVideo-1.5-HunyuanVideo-1.5",
-      "cap": "t2v"
+      "parent": "hunyuan-video-HunyuanVideo-1.5-HunyuanVideo-1.5"
     },
     {
       "m": "kling",
@@ -2892,60 +2891,55 @@
       "m": "ltx",
       "version": "LTX-Video",
       "date": "2024-10-31",
-      "added": "视频生成",
+      "added": "换代 LTX-Video",
       "src": "hf-lineage",
       "quote": "Lightricks/LTX-Video",
       "note": "日期取自官方 HF 组织的 createdAt（**不是 lastModified**）。",
-      "parent": "ltx-LongAnimateDiff-LongAnimateDiff",
-      "cap": "t2v"
+      "parent": "ltx-LongAnimateDiff-LongAnimateDiff"
     },
     {
       "id": "ltx-0.9.5-视频生成",
       "m": "ltx",
       "version": "0.9.5",
       "date": "2025-03-16",
-      "added": "视频生成",
+      "added": "换代 0.9.5",
       "src": "hf-lineage",
       "quote": "Lightricks/LTX-Video-0.9.5",
       "note": "日期取自官方 HF 组织的 createdAt（**不是 lastModified**）。",
-      "parent": "ltx-LTX-Video-视频生成",
-      "cap": "t2v"
+      "parent": "ltx-LTX-Video-视频生成"
     },
     {
       "id": "ltx-0.9.6-视频生成",
       "m": "ltx",
       "version": "0.9.6",
       "date": "2025-04-18",
-      "added": "视频生成",
+      "added": "换代 0.9.6",
       "src": "hf-lineage",
       "quote": "Lightricks/LTX-Video-2B-0.9.6-Dev-04-25",
       "note": "日期取自官方 HF 组织的 createdAt（**不是 lastModified**）。",
-      "parent": "ltx-0.9.5-视频生成",
-      "cap": "t2v"
+      "parent": "ltx-0.9.5-视频生成"
     },
     {
       "id": "ltx-0.9.7-视频生成",
       "m": "ltx",
       "version": "0.9.7",
       "date": "2025-05-13",
-      "added": "视频生成",
+      "added": "换代 0.9.7",
       "src": "hf-lineage",
       "quote": "Lightricks/LTX-Video-0.9.7-dev",
       "note": "日期取自官方 HF 组织的 createdAt（**不是 lastModified**）。",
-      "parent": "ltx-0.9.6-视频生成",
-      "cap": "t2v"
+      "parent": "ltx-0.9.6-视频生成"
     },
     {
       "id": "ltx-0.9.8-视频生成",
       "m": "ltx",
       "version": "0.9.8",
       "date": "2025-07-17",
-      "added": "视频生成",
+      "added": "换代 0.9.8",
       "src": "hf-lineage",
       "quote": "Lightricks/LTX-Video-0.9.8-13B-distilled",
       "note": "日期取自官方 HF 组织的 createdAt（**不是 lastModified**）。",
-      "parent": "ltx-0.9.7-视频生成",
-      "cap": "t2v"
+      "parent": "ltx-0.9.7-视频生成"
     },
     {
       "id": "ltx-LTX-2-LTX-2",
@@ -2995,12 +2989,11 @@
       "m": "open-sora",
       "version": "Open-Sora-v2",
       "date": "2025-03-10",
-      "added": "视频生成",
+      "added": "换代 Open-Sora-v2",
       "src": "hf-lineage",
       "quote": "hpcai-tech/Open-Sora-v2-Video-DC-AE",
       "note": "日期取自官方 HF 组织的 createdAt（**不是 lastModified**）。",
-      "parent": "open-sora-OpenSora-STDiT-v4-图生视频",
-      "cap": "t2v"
+      "parent": "open-sora-OpenSora-STDiT-v4-图生视频"
     },
     {
       "m": "runway",
@@ -3116,7 +3109,7 @@
       "m": "skyreels",
       "version": "SkyReels-V2",
       "date": "2025-04-18",
-      "added": "图生视频",
+      "added": "图生视频 补充发布",
       "src": "hf-lineage",
       "quote": "Skywork/SkyReels-V2-I2V-14B-540P",
       "note": "日期取自官方 HF 组织的 createdAt（**不是 lastModified**）。",
@@ -3139,7 +3132,7 @@
       "m": "skyreels",
       "version": "SkyReels-V2",
       "date": "2025-04-18",
-      "added": "文生视频",
+      "added": "文生视频 补充发布",
       "src": "hf-lineage",
       "quote": "Skywork/SkyReels-V2-T2V-14B-540P",
       "note": "日期取自官方 HF 组织的 createdAt（**不是 lastModified**）。",
@@ -3348,7 +3341,7 @@
       "m": "wan",
       "version": "Wan2.2",
       "date": "2025-07-24",
-      "added": "图生视频",
+      "added": "图生视频 补充发布",
       "src": "hf-lineage",
       "quote": "Wan-AI/Wan2.2-I2V-A14B",
       "note": "日期取自官方 HF 组织的 createdAt（**不是 lastModified**）。",
@@ -3360,7 +3353,7 @@
       "m": "wan",
       "version": "Wan2.2",
       "date": "2025-07-24",
-      "added": "文生视频",
+      "added": "文生视频 补充发布",
       "src": "hf-lineage",
       "quote": "Wan-AI/Wan2.2-T2V-A14B",
       "note": "日期取自官方 HF 组织的 createdAt（**不是 lastModified**）。",
