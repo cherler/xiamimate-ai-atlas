@@ -1,8 +1,9 @@
 {
-  "version": "1.5",
+  "version": "1.6",
   "generated_at": "2026-08-07",
   "note": "第九版。clip 轨九个 Family 已全部用厂商官方源逐格重核（86% 的格子挂官方来源）。全部由 Agent 录入，未经人工核验（§59.3 转述层）。模型按 version_as_of 降序；status 标生命周期。",
   "changelog": [
+    "v1.6 平台分三类（厂商自有 / API 市场 / 第三方产品）+ 公示与否 + **大陆直连可达性实测** —— 地理真正有用的那一面不是「公司在哪」，是「你在哪，能不能用上」",
     "v1.5 加平台 × 模型可用性（E5「去哪用」）。**最值钱的不是「谁有谁」，是「上架的常常不是当前版本」** —— Replicate 上是 Hailuo 2.3（我们表里是 H3）、ltx-video（不是 2.3）；APIYI 上是 Seedance 2.0（不是 2.5）",
     "v1.4 给每项能力定「最早可证时间」（E2a）。**不是业界首次出现，是我们手上的日志能证明的最早时间** —— 可追溯窗口起于 2024-01（Runway）/ 2024-09（Kling）",
     "v1.3 收录门槛加一条「面向内容创作」：世界模型/仿真类不收（Oasis 3 已移出）。加 domains 结构，为将来的其它方向留口子 —— 加一个方向是改数据，不是改代码",
@@ -303,7 +304,9 @@
       "version_as_of": "2026-07-31",
       "status": "active",
       "tier": "core",
-      "domain": "video"
+      "domain": "video",
+      "reach_cn": "ok",
+      "reach_note": "seed.bytedance.com 直连 200"
     },
     {
       "id": "hailuo",
@@ -315,7 +318,9 @@
       "version_as_of": "2026-07-31",
       "status": "active",
       "tier": "core",
-      "domain": "video"
+      "domain": "video",
+      "reach_cn": "ok",
+      "reach_note": "minimax.io 直连 200；⚠️ 但权重在 huggingface.co，该域直连不可达"
     },
     {
       "id": "gemini-omni",
@@ -327,7 +332,9 @@
       "version_as_of": "2026-05-19",
       "status": "active",
       "tier": "core",
-      "domain": "video"
+      "domain": "video",
+      "reach_cn": "blocked",
+      "reach_note": "同上"
     },
     {
       "id": "wan",
@@ -340,7 +347,9 @@
       "status": "active",
       "status_note": "官网首屏「Try Wan3.0 Now」。⚠️ **wan.video 取不到任何可抓链接，官方无可核验的能力文档** —— 这是九家里唯一一个。它的 ⬜ 不是我们没查，是真的查不到",
       "tier": "core",
-      "domain": "video"
+      "domain": "video",
+      "reach_cn": "ok",
+      "reach_note": "wan.video 直连 200"
     },
     {
       "id": "runway",
@@ -353,7 +362,9 @@
       "status": "active",
       "status_note": "官方 changelog：Gen-4.5 于 2025-12-11 发布。⚠️ Runway 同时也是平台 —— 2026-04-07 起在自家产品里提供 Seedance 2.0、WAN2.2 Animate、Sora 2 Pro 等第三方模型",
       "tier": "core",
-      "domain": "video"
+      "domain": "video",
+      "reach_cn": "ok",
+      "reach_note": "runway.com 直连 200"
     },
     {
       "id": "kling",
@@ -365,7 +376,9 @@
       "version_as_of": "2026-02-04",
       "status": "active",
       "tier": "core",
-      "domain": "video"
+      "domain": "video",
+      "reach_cn": "ok",
+      "reach_note": "klingai.com 直连 200"
     },
     {
       "id": "vidu-q",
@@ -378,7 +391,9 @@
       "status": "active",
       "status_note": "Q3 是一个系列而非单一模型：viduq3-pro / -mix / -drama / -ad / -turbo 五个并列（官方 Model Map）。2026-02-11 起陆续进 API，2026-04-13 补齐 reference2video",
       "tier": "core",
-      "domain": "video"
+      "domain": "video",
+      "reach_cn": "ok",
+      "reach_note": "vidu.com 直连 301"
     },
     {
       "id": "veo",
@@ -391,7 +406,9 @@
       "status": "superseded",
       "status_note": "官方总览页原话：「Use Gemini Omni Flash as your default model for video generation. Use Veo 3.1 for specific capabilities like scene extension, last-frame control, or integration with legacy pipelines」—— 厂商自己把它定位成「特定能力与老管线」用",
       "tier": "core",
-      "domain": "video"
+      "domain": "video",
+      "reach_cn": "blocked",
+      "reach_note": "ai.google.dev 直连不通（连接失败）—— 读官方文档要出境"
     },
     {
       "id": "sora",
@@ -404,7 +421,9 @@
       "status": "discontinued",
       "status_note": "App 已于 2026-04-26 关停，API 计划 2026-09-24 停止，未宣布继任产品。⚠️ **OpenAI 帮助中心页面对我们的采集器返回 403 / 渲染为空，这条结论来自搜索摘要转述，未经一手核验**。按规则四降到 Extended：**不是删掉** —— 「它没了」本身是有用的信息，只是不该再占主图的位置",
       "tier": "extended",
-      "domain": "video"
+      "domain": "video",
+      "reach_cn": "blocked",
+      "reach_note": "openai.com 返回 403（反爬，非网络）；且该产品线已公告停服"
     },
     {
       "id": "vidu-s",
@@ -416,7 +435,9 @@
       "version_as_of": "2026-07-03",
       "status": "active",
       "tier": "core",
-      "domain": "video"
+      "domain": "video",
+      "reach_cn": "ok",
+      "reach_note": "同上"
     },
     {
       "id": "lucy",
@@ -429,7 +450,9 @@
       "status": "active",
       "status_note": "官网首屏标 LUCY 2.5 IS LIVE；2.5 的具体能力差异待逐条重核",
       "tier": "core",
-      "domain": "video"
+      "domain": "video",
+      "reach_cn": "ok",
+      "reach_note": "decart.ai 直连 200"
     },
     {
       "id": "ltx",
@@ -442,7 +465,9 @@
       "version_as_of": "2026-08-08",
       "status": "active",
       "status_note": "开源侧下载量最高的视频模型：LTX-2.3 ↓178 万，另有 fp8 / nvfp4 量化版。⚠️ 与 MiniMax H3 同一模式：叫开源，用的是自定义社区许可",
-      "domain": "video"
+      "domain": "video",
+      "reach_cn": "blocked",
+      "reach_note": "huggingface.co 直连不通 —— **权重在那儿，想自部署得先解决可达性**"
     },
     {
       "id": "happyhorse",
@@ -455,7 +480,9 @@
       "version_as_of": "2026-06",
       "status": "active",
       "status_note": "⚠️ AA 榜 Elo 1148，**排在 Kling 3.0 与 Veo 3.1 之上**，而我们原名单里没有它。但 HF 上零仓库、Alibaba-ATH 组织不存在，也没找到官方文档 —— 只有榜单证据，够不上 core",
-      "domain": "video"
+      "domain": "video",
+      "reach_cn": "unknown",
+      "reach_note": "未测"
     },
     {
       "id": "skyreels",
@@ -468,7 +495,9 @@
       "version_as_of": "2026-03",
       "status": "active",
       "status_note": "⚠️ AA 榜 Elo 1107。官方 HF 组织 Skywork 有 SkyReels-V3-A2V-19B，但榜上是 V4 —— **两边对不上**，待核",
-      "domain": "video"
+      "domain": "video",
+      "reach_cn": "unknown",
+      "reach_note": "未测"
     }
   ],
   "sources": {
@@ -1650,7 +1679,8 @@
       "name": "Replicate",
       "kind": "API 市场",
       "region": "全球",
-      "url": "https://replicate.com"
+      "url": "https://replicate.com",
+      "kind2": "api"
     },
     {
       "id": "apiyi",
@@ -1658,7 +1688,8 @@
       "kind": "API 聚合",
       "region": "中国大陆",
       "url": "https://apiyi.com",
-      "note": "国内可直连的聚合入口 —— fal / Replicate 覆盖不到这一块"
+      "note": "国内可直连的聚合入口 —— fal / Replicate 覆盖不到这一块",
+      "kind2": "api"
     },
     {
       "id": "runway",
@@ -1666,14 +1697,18 @@
       "kind": "产品（同时也是模型厂商）",
       "region": "全球",
       "url": "https://runway.com",
-      "note": "⚠️ 既做自己的 Gen 系列，也转售别家 —— 平台与厂商两个身份要分开看"
+      "note": "⚠️ 既做自己的 Gen 系列，也转售别家 —— 平台与厂商两个身份要分开看",
+      "kind2": "third-party"
     },
     {
       "id": "higgsfield",
       "name": "Higgsfield",
       "kind": "产品",
       "region": "全球",
-      "url": "https://higgsfield.ai"
+      "url": "https://higgsfield.ai",
+      "kind2": "third-party",
+      "discloses": "yes",
+      "note": "✅ **公示底层模型** —— 首页直接写着 Seedance 2.5、MiniMax H3。第三方产品里少见的做法"
     },
     {
       "id": "fal",
@@ -1681,7 +1716,45 @@
       "kind": "API 市场",
       "region": "全球",
       "url": "https://fal.ai",
-      "note": "⚠️ 页面对我们的采集器返回 429（限流），一格都没能核 —— 不是它没有，是我们看不到"
+      "note": "⚠️ 页面对我们的采集器返回 429（限流），一格都没能核 —— 不是它没有，是我们看不到",
+      "kind2": "api"
+    },
+    {
+      "id": "pika",
+      "name": "Pika",
+      "kind": "产品（自有模型）",
+      "kind2": "vendor-own",
+      "region": "全球",
+      "url": "https://pika.art",
+      "discloses": "n/a",
+      "note": "首页只提自己的模型 —— **它本来就是模型厂商，不是转售方**，不适用「公不公示底层」这个问题"
+    },
+    {
+      "id": "dreamina",
+      "name": "即梦 Dreamina",
+      "kind": "厂商自有产品（字节）",
+      "kind2": "vendor-own",
+      "region": "中国大陆",
+      "url": "https://dreamina.capcut.com",
+      "note": "⚠️ 采集器 45 秒超时，未能核 —— 不是它没有，是我们抓不到"
+    },
+    {
+      "id": "picsart",
+      "name": "Picsart",
+      "kind": "第三方产品",
+      "kind2": "third-party",
+      "region": "全球",
+      "url": "https://picsart.com",
+      "note": "⚠️ 采集器超时，未能核"
+    },
+    {
+      "id": "libtv",
+      "name": "LibTV",
+      "kind": "第三方产品",
+      "kind2": "third-party",
+      "region": "—",
+      "url": "https://libtv.com",
+      "note": "⚠️ 直接 ERR_CONNECTION_CLOSED，站点当前访问不到"
     }
   ],
   "availability": [
@@ -1812,5 +1885,11 @@
       "note": "⚠️ Runway 既是厂商也转售别家 —— 它上面能用到字节的模型"
     }
   ],
-  "$availability": "§9.3 明确要求「✓ 不能只是布尔值」。这里每格带：上架的**具体版本名**、状态、原文引用、来源。**最有用的一列是 match** —— 平台上架的常常不是当前主力版本（Replicate 上是 Hailuo 2.3 与初代 ltx-video，APIYI 上是 Seedance 2.0）。只答「有没有」会让人以为能用上当前版本的能力，那是错的。另外两类要标出来：coming-soon（还不能用）与上游已停服（平台还挂着不代表还能用多久）。"
+  "$availability": "§9.3 明确要求「✓ 不能只是布尔值」。这里每格带：上架的**具体版本名**、状态、原文引用、来源。**最有用的一列是 match** —— 平台上架的常常不是当前主力版本（Replicate 上是 Hailuo 2.3 与初代 ltx-video，APIYI 上是 Seedance 2.0）。只答「有没有」会让人以为能用上当前版本的能力，那是错的。另外两类要标出来：coming-soon（还不能用）与上游已停服（平台还挂着不代表还能用多久）。",
+  "$platform_kinds": {
+    "vendor-own": "厂商自有产品（即梦、海螺、Pika）—— 版本最新，但只有自家",
+    "api": "API 市场 / 聚合（fal、Replicate、APIYI）—— 自己调，能锁定版本",
+    "third-party": "第三方产品（Higgsfield、Picsart、LibTV）—— 包着别人的模型卖体验，**关键问题是它公不公示用的是谁、哪一版**"
+  },
+  "$reach": "`reach_cn` 是 2026-08-08 从**大陆网络不走代理**实测的结果，测的是**厂商官方站 / 文档页**，**不是 API 端点** —— 两件事不能混：文档打不开不等于接口调不通，反过来也一样。但对「想自部署」的人，权重所在的 huggingface.co 直连不可达就是硬阻碍。地理这条线真正有用的不是「公司在哪」，是「你在哪，能不能用上」。"
 }

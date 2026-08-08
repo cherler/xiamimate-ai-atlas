@@ -329,7 +329,7 @@ export default function Page() {
               </tr>
             </thead>
             <tbody>
-              {atlas.platforms.map((pf) => (
+              {atlas.platforms.filter((pf) => atlas.availability.some((v) => v.p === pf.id) || pf.note).map((pf) => (
                 <tr key={pf.id} className="border-b border-rule/60 last:border-0">
                   <td className="p-3 sticky left-0 bg-card whitespace-nowrap">
                     <a href={pf.url} target="_blank" rel="noreferrer" className="font-medium underline hover:text-yes">
@@ -337,6 +337,7 @@ export default function Page() {
                     </a>
                     <span className="block text-muted text-[11px]">
                       {pf.kind} · {pf.region}
+                      {pf.discloses === "yes" && <b className="text-yes"> · 公示底层模型</b>}
                     </span>
                   </td>
                   {availModels.map((m) => {
@@ -416,6 +417,37 @@ export default function Page() {
               </div>
             )),
           )}
+        </div>
+      </section>
+
+      <section>
+        <h2 className="text-[22px] font-semibold mb-1">你在大陆，能不能用上</h2>
+        <p className="text-muted text-[14px] mb-4 max-w-[920px] leading-relaxed">
+          <b className="text-ink">「地理」这条线真正有用的不是「公司在哪」，是「你在哪，能不能用上」。</b>
+          下面是 2026-08-08 从大陆网络<b className="text-ink">不走代理</b>直连各厂商
+          <b className="text-ink">官方站 / 文档页</b>的实测结果。
+          <br />
+          <span className="text-[13px]">
+            口径要说清：测的<b className="text-ink">不是 API 端点</b> ——
+            文档打不开不等于接口调不通，反过来也一样。但对想自部署的人，
+            权重所在的域直连不可达就是硬阻碍。
+          </span>
+        </p>
+        <div className="flex flex-col gap-2">
+          {atlas.models
+            .filter((m) => m.reach_cn && m.reach_cn !== "unknown")
+            .sort((a, b) => (a.reach_cn === "blocked" ? -1 : 1) - (b.reach_cn === "blocked" ? -1 : 1))
+            .map((m) => (
+              <div key={m.id} className="flex items-baseline gap-3 text-[15px] border-t border-rule pt-2">
+                <span className={`w-[26px] shrink-0 ${m.reach_cn === "ok" ? "text-yes" : "text-no"}`}>
+                  {m.reach_cn === "ok" ? "✅" : "⛔"}
+                </span>
+                <Link href={modelHref(m)} className="w-[190px] shrink-0 underline hover:text-yes">
+                  {label(m)}
+                </Link>
+                <Rich text={m.reach_note ?? ""} className="text-muted text-[13px] leading-relaxed" />
+              </div>
+            ))}
         </div>
       </section>
 

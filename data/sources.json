@@ -746,6 +746,56 @@
         "Lucy",
         "real-time"
       ]
+    },
+    {
+      "id": "picsart-video",
+      "tier": "C",
+      "kind": "spa",
+      "vendor": "",
+      "name": "Picsart AI 视频",
+      "url": "https://picsart.com/ai-video-generator/",
+      "refresh_days": 30,
+      "good_for": [
+        "platform"
+      ]
+    },
+    {
+      "id": "libtv",
+      "tier": "C",
+      "kind": "spa",
+      "vendor": "",
+      "name": "LibTV",
+      "url": "https://libtv.com/",
+      "refresh_days": 30,
+      "good_for": [
+        "platform"
+      ]
+    },
+    {
+      "id": "dreamina",
+      "tier": "S",
+      "kind": "spa",
+      "vendor": "seedance",
+      "name": "即梦 Dreamina（字节自有产品）",
+      "url": "https://dreamina.capcut.com/",
+      "refresh_days": 14,
+      "good_for": [
+        "platform",
+        "availability"
+      ]
+    },
+    {
+      "id": "hailuo-video",
+      "tier": "S",
+      "kind": "spa",
+      "vendor": "hailuo",
+      "name": "海螺视频（MiniMax 自有产品）",
+      "url": "https://hailuoai.video/",
+      "refresh_days": 14,
+      "good_for": [
+        "platform",
+        "availability"
+      ]
     }
   ],
   "$missing": [

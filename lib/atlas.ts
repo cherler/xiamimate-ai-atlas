@@ -45,6 +45,12 @@ export type Model = {
   status_note?: string;
   /** core 进主图与主表（每轨 ≤10）；extended 只在库里 —— 停服的降到这里而不是删掉。 */
   tier?: "core" | "extended";
+  /**
+   * 大陆网络**不走代理**直连厂商官方站/文档的实测结果（不是 API 端点 —— 两件事不能混）。
+   * 地理这条线真正有用的不是「公司在哪」，是**「你在哪，能不能用上」**。
+   */
+  reach_cn?: "ok" | "blocked" | "unknown";
+  reach_note?: string;
 };
 
 export type Source = { url: string; tier: "official" | "third-party"; name: string };
@@ -88,7 +94,17 @@ export type Excluded = {
 };
 
 /** 平台（去哪用）。**厂商与平台是两个身份** —— Runway 两样都是。 */
-export type Platform = { id: string; name: string; kind: string; region: string; url: string; note?: string };
+export type Platform = {
+  id: string;
+  name: string;
+  kind: string;
+  /** 三类：厂商自有 / API 市场 / 第三方产品。第三方那类的关键问题是**公不公示底层模型**。 */
+  kind2?: "vendor-own" | "api" | "third-party";
+  discloses?: "yes" | "no" | "n/a";
+  region: string;
+  url: string;
+  note?: string;
+};
 
 /**
  * 可用性。§9.3 明确要求「✓ 不能只是布尔值」。
