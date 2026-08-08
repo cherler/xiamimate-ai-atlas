@@ -1,6 +1,6 @@
 # 信息源监视报告 · 2026-08-08
 
-本次检查 6 个到期源（共 53 个）：变化 1 · 首次 0 · 无变化 1 · **抓不到 4**
+本次检查 2 个到期源（共 62 个）：变化 2 · 首次 0 · 无变化 0 · **抓不到 0**
 
 > 这份报告是给人看的那 20 条待办的来源（§59.3 的负反馈：人每周要看的条目 ≤ 20）。
 > 「抓不到」不是失败，是**信息本身** —— 一个长期抓不到的官方源，说明那家厂商没有可 diff 的公开更新入口，
@@ -12,26 +12,12 @@
 
 ## 抓不到（要处理）
 
-- **picsart-video**（C/spa）Picsart AI 视频 — page.goto: Timeout 45000ms exceeded.
-Call log:
-[2m  - navigating to "https://picsart.com/
-  https://picsart.com/ai-video-generator/
-- **libtv**（C/spa）LibTV — page.goto: net::ERR_CONNECTION_CLOSED at https://libtv.com/
-Call log:
-[2m  - navigating t
-  https://libtv.com/
-- **dreamina**（S/spa）即梦 Dreamina（字节自有产品） — page.goto: Timeout 45000ms exceeded.
-Call log:
-[2m  - navigating to "https://dreamina.cap
-  https://dreamina.capcut.com/
-- **hailuo-video**（S/spa）海螺视频（MiniMax 自有产品） — page.goto: Timeout 45000ms exceeded.
-Call log:
-[2m  - navigating to "https://hailuoai.vid
-  https://hailuoai.video/
+（无）
 
 ## 有变化
 
-- **higgsfield-site** Higgsfield（平台，不是模型）
+- **minimax-price** MiniMax 开放平台 · 价格
+- **bailian-price** 阿里云百炼 · 模型计费
 
 ## 全部
 
@@ -57,8 +43,8 @@ Call log:
 | vidu-function-list | S | spa | 未到期（上次 2026-08-07） |
 | vidu-site | S | html | 未到期（上次 2026-08-07） |
 | vidu-s1-gh | S | json | 未到期（上次 2026-08-07） |
-| pika-site | S | html | 无变化 |
-| higgsfield-site | S | html | 变了 |
+| pika-site | S | html | 未到期（上次 2026-08-08） |
+| higgsfield-site | S | html | 未到期（上次 2026-08-08） |
 | decart-research | S | html | 未到期（上次 2026-08-07） |
 | arxiv-video | S | atom | 未到期（上次 2026-08-07） |
 | epoch-notable | A | csv | 未到期（上次 2026-08-07） |
@@ -86,15 +72,16 @@ Call log:
 | ltx-gh | S | json | 从未抓过 |
 | ltx-hf-org | S | json | 从未抓过 |
 | decart-site | S | spa | 从未抓过 |
-| picsart-video | C | spa | 抓不到（page.goto: Timeout 45000ms exceeded.
-Call log:
-[2m  - navigating to "https://picsart.com/） |
-| libtv | C | spa | 抓不到（page.goto: net::ERR_CONNECTION_CLOSED at https://libtv.com/
-Call log:
-[2m  - navigating t） |
-| dreamina | S | spa | 抓不到（page.goto: Timeout 45000ms exceeded.
-Call log:
-[2m  - navigating to "https://dreamina.cap） |
-| hailuo-video | S | spa | 抓不到（page.goto: Timeout 45000ms exceeded.
-Call log:
-[2m  - navigating to "https://hailuoai.vid） |
+| picsart-video | C | spa | 从未抓过 |
+| libtv | C | spa | 从未抓过 |
+| dreamina | S | spa | 从未抓过 |
+| hailuo-video | S | spa | 从未抓过 |
+| volcengine-ark-price | S | spa | 未到期（上次 2026-08-08） |
+| minimax-price | S | spa | 变了 |
+| google-ai-price | S | html | 未到期（上次 2026-08-08） |
+| bailian-price | S | spa | 变了 |
+| runway-price | S | spa | 未到期（上次 2026-08-08） |
+| kling-price | S | spa | 未到期（上次 2026-08-08） |
+| vidu-price | S | spa | 未到期（上次 2026-08-08） |
+| fal-ltx-price | S | spa | 未到期（上次 2026-08-08） |
+| replicate-price | A | html | 未到期（上次 2026-08-08） |

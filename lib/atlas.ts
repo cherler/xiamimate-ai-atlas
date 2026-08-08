@@ -92,6 +92,8 @@ export type Org = {
  * 有声无声再差 50%。**记成一个数字必然是错的。**
  */
 export type Price = {
+  /** 平台。**主键是 (p, m)** —— 不指定平台，「多少钱」就没有答案。 */
+  p: string;
   m: string;
   unit: "per-second" | "points" | "subscription" | "credits" | "unavailable";
   currency?: "USD" | "CNY" | null;

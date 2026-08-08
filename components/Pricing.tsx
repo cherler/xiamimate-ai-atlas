@@ -34,8 +34,12 @@ const UNIT = {
 const SYM: Record<string, string> = { USD: "$", CNY: "¥" };
 
 export default function Pricing() {
-  const rows = [...atlas.pricing].sort((a, b) => UNIT[a.unit].ord - UNIT[b.unit].ord);
+  const rows = [...atlas.pricing].sort(
+    (a, b) => UNIT[a.unit].ord - UNIT[b.unit].ord || (a.m < b.m ? -1 : 1),
+  );
   const cmp = rows.filter((r) => r.unit === "per-second");
+  // 同一个模型出现在多个平台 —— 那正是这一栏要说的事
+  const multi = new Set(rows.filter((r, _, all) => all.filter((x) => x.m === r.m).length > 1).map((r) => r.m));
 
   return (
     <section>
@@ -48,7 +52,15 @@ export default function Pricing() {
       {/* 和透明度那一栏一样：先把最要紧的那句话摆在前面 */}
       <div className="border border-rule rounded-lg bg-card p-4 mb-4 max-w-[880px]">
         <p className="text-[14px] leading-relaxed">
-          <b className="text-ink">做完这一栏才发现，难的不是把价抓全，是它们根本不在同一个刻度上。</b>
+          <b className="text-ink">
+            「多少钱一秒」这个问题，不指定平台就没有答案。
+          </b>
+          <br />
+          同一个万相，<b className="text-ink">百炼上 720P 是 ¥0.6/秒，Replicate 上 720P 是 $0.25/秒</b>
+          —— 而且 Replicate 卖的还是 2.1，不是当前的 3.0。所以这里每一条都写清楚是<b className="text-ink">哪个平台</b>的价。
+          <br />
+          <br />
+          <b className="text-ink">第二件事：它们根本不在同一个刻度上。</b>
           <br />
           {rows.length} 家用了 {new Set(rows.map((r) => r.unit)).size} 种计价方式。
           <b className="text-ink">
@@ -64,9 +76,16 @@ export default function Pricing() {
           const src = atlas.sources[q.src];
           if (!m) return null;
           return (
-            <div key={q.m} className="border border-rule rounded-lg bg-card p-3 flex flex-col gap-2">
+            <div key={`${q.p}-${q.m}`} className="border border-rule rounded-lg bg-card p-3 flex flex-col gap-2">
               <div className="flex items-baseline gap-2 flex-wrap">
                 <span className="font-semibold text-[16px]">{label(m)}</span>
+                {/* 平台名和模型名一样醒目 —— 不指定平台，「多少钱」就没有答案 */}
+                <span className="text-[13px] text-yes">
+                  在 {atlas.platforms.find((x) => x.id === q.p)?.name ?? q.p}
+                </span>
+                {multi.has(q.m) && (
+                  <span className="text-unknown text-[12px]">· 这个模型在多个平台价不一样，往下看</span>
+                )}
                 <span className="text-muted text-[12px]">{orgOf(m)?.zh}</span>
                 <span className="text-[12px] px-1.5 py-0.5 rounded border border-rule text-muted">
                   {UNIT[q.unit].zh}

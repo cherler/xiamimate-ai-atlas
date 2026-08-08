@@ -74,7 +74,19 @@ const VISIBLE = (sel) => `(() => {
 for (const [name, w, h] of [["桌面", 1440, 900], ["手机", 390, 844]]) {
   const page = await browser.newPage({ viewport: { width: w, height: h } });
   console.log(`\n── ${name} ${w}×${h} ──`);
+  /**
+   * 控制台报错也要收。
+   *
+   * 这一条是补上去的：页面**看起来完全正常、内容全对**，但每次打开都在报
+   * hydration mismatch —— 因为 localeCompare 在 Node 和 Chrome 下把中英混排的
+   * 平台名排成了两种顺序。查内容查不出来，只有听控制台才听得见。
+   * **「看着对」和「没出错」是两回事。**
+   */
+  const errs = [];
+  page.on("pageerror", (e) => errs.push(String(e).split("\n")[0].slice(0, 120)));
+  page.on("console", (m) => { if (m.type() === "error") errs.push(m.text().split("\n")[0].slice(0, 120)); });
   await page.goto(`http://127.0.0.1:${PORT}${BASE}/`, { waitUntil: "networkidle" });
+  await page.waitForTimeout(1200);
 
   ok(await page.evaluate(VISIBLE("h2")) > 0, "首页有可见标题");
   ok((await page.content()).includes("说不说底下用的是谁的模型"), "透明度版块在页面上");
@@ -94,6 +106,7 @@ for (const [name, w, h] of [["桌面", 1440, 900], ["手机", 390, 844]]) {
     ok((await page.evaluate(VISIBLE("details"))) > 0, "手机上叙事版的折叠列表看得见");
   }
   ok(await page.evaluate("document.documentElement.scrollWidth <= window.innerWidth + 1"), "页面不横向滚动");
+  ok(errs.length === 0, `控制台没有报错${errs.length ? `：${errs[0]}` : ""}`);
   await page.close();
 }
 

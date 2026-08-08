@@ -35,8 +35,12 @@ const GRADE = {
 } as const;
 
 export default function Transparency() {
+  // ⚠️ 同名次的并列**不能用 localeCompare 排** ——
+  // 中英混排（「fal」vs「即梦 Dreamina」）在 Node 的 ICU 和 Chrome 的 ICU 下结果不一样，
+  // 于是服务端渲染出来的顺序和浏览器 hydrate 出来的顺序对不上，每次打开都报一个 React 错误。
+  // 换成按 id 排：ASCII、稳定、两边一定一致。**排序只要确定，不要「好看」。**
   const rows = [...atlas.platforms].sort(
-    (a, b) => GRADE[a.discloses].ord - GRADE[b.discloses].ord || a.name.localeCompare(b.name),
+    (a, b) => GRADE[a.discloses].ord - GRADE[b.discloses].ord || (a.id < b.id ? -1 : 1),
   );
   const n = (k: keyof typeof GRADE) => rows.filter((p) => p.discloses === k).length;
 

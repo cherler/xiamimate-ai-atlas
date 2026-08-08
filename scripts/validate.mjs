@@ -80,6 +80,11 @@ for (const o of a.orgs ?? []) {
   if (!o.hq?.lat || !o.hq?.lon) errs.push(`R23 缺经纬度，地球上画不出来：${o.id}`);
   // **不许因为「大家都知道」就当成核过了** —— 那正是我们批评别人的那件事。
   if (!o.hq_src) warns.push(`R21 总部没有来源，只是常识：${o.zh}`);
+  // 有来源不等于证到位：ICP 备案只证到省，招聘页可能同时列两个城市。
+  // **不许把 province 当 exact 用** —— 我们批评厂商「说了半句」时，自己不能也说半句。
+  else if (o.hq_precision && o.hq_precision !== "exact")
+    warns.push(`R21b 总部有来源但只证到 ${o.hq_precision}，城市这一级仍是常识：${o.zh}`);
+  if (o.hq_src && !srcIds.has(o.hq_src)) errs.push(`R21c 总部来源 id 不存在：${o.hq_src}（${o.zh}）`);
 }
 for (const m of a.models) if (!orgIds.has(m.org)) errs.push(`R20 模型挂到不存在的公司：${m.id} → ${m.org}`);
 for (const v of a.investments ?? []) {
@@ -104,10 +109,16 @@ for (const pf of a.platforms ?? []) {
 
 // ── 价格（G5）。**unit 是一等字段** —— 七家七种计价方式，
 // 把它们并成一列数字，那一列一定是编的。
+const seenPrice = new Set();
 const UNITS = ["per-second", "points", "subscription", "credits", "unavailable"];
 for (const q of a.pricing ?? []) {
-  const at = `价格 ${q.m}`;
+  const at = `价格 ${q.p} × ${q.m}`;
   if (!mids.has(q.m)) errs.push(`R32 未知模型：${at}`);
+  // **主键是 (平台, 模型)** —— 同一个模型在不同平台不是一个价，
+  // 不写平台的价等于没写：万相在百炼 ¥0.6/秒，在 Replicate $0.25/秒。
+  if (!pids.has(q.p)) errs.push(`R39 未知平台：${at}`);
+  if (seenPrice.has(`${q.p}::${q.m}`)) errs.push(`R40 重复的价格条目：${at}`);
+  seenPrice.add(`${q.p}::${q.m}`);
   if (!UNITS.includes(q.unit)) errs.push(`R33 非法计价单位 ${q.unit}：${at}`);
   if (!srcIds.has(q.src)) errs.push(`R34 来源 id 不存在：${q.src}（${at}）`);
   if (!q.quote) errs.push(`R35 价格没有原文 —— 和能力格一个规矩：${at}`);
