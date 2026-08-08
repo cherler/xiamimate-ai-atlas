@@ -1,4 +1,5 @@
 import { atlas } from "@/lib/atlas";
+import Link from "next/link";
 import { Rich } from "./Fact";
 
 /**
@@ -47,29 +48,10 @@ export default function Transparency() {
   return (
     <section>
       <h2 className="text-[22px] font-semibold mb-1">这家平台，说不说底下用的是谁的模型</h2>
-      <p className="text-muted text-[14px] mb-4 max-w-[880px] leading-relaxed">
-        你在某个产品里点一下「让它动起来」，底下跑的可能是 Kling、可能是 Seedance ——
-        <b className="text-ink">大部分产品不会告诉你</b>。这一栏就记这件事本身。
+      <p className="text-muted text-[14px] mb-4 max-w-[880px]">
+        🟢 {n("yes")} 公示 · 🔴 {n("no")} 只字不提 · ⬜ {n("blocked")} 我们没读到页面
+        <Link href="/method#transparency" className="underline ml-2 hover:text-ink">口径 →</Link>
       </p>
-
-      {/* 先把「不提」和「没看到」的差别摆在最前面 —— 这张表的全部价值就在这个区分上 */}
-      <div className="border border-rule rounded-lg bg-card p-4 mb-4 max-w-[880px]">
-        <p className="text-[14px] leading-relaxed">
-          <b className="text-ink">⬜ 和 🔴 是两回事，千万别看混：</b>
-          <br />
-          🔴 是<b className="text-ink">我们把整页读完了，它确实没提</b>；
-          ⬜ 是<b className="text-ink">我们的采集器没拿到页面</b>，那是我们的缺口，不是它的问题。
-        </p>
-        <p className="text-muted text-[13px] mt-2 leading-relaxed">
-          目前 <b className="text-yes">{n("yes")} 家公示</b>、
-          <b className="text-muted">{n("blocked")} 家我们没看到</b>、
-          <b className="text-no">{n("no")} 家判定只字不提</b>。
-          <br />
-          <b className="text-ink">
-            也就是说：我们还没有证据说任何一家在藏 —— 我们怀疑的那几家，恰好就是我们读不到的那几家。
-          </b>
-        </p>
-      </div>
 
       <div className="flex flex-col gap-2 max-w-[880px]">
         {rows.map((pf) => {

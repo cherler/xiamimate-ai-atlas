@@ -1,0 +1,405 @@
+{
+  "note": "HF createdAt 采集的开源视频模型候选，**未经人工核**，不要直接当数据用",
+  "rows": [
+    {
+      "org": "Lightricks",
+      "m": "ltx",
+      "repo": "Lightricks/LongAnimateDiff",
+      "date": "2023-12-10",
+      "downloads": 0,
+      "likes": 51
+    },
+    {
+      "org": "rhymes-ai",
+      "m": null,
+      "repo": "rhymes-ai/Allegro",
+      "date": "2024-10-16",
+      "downloads": 98,
+      "likes": 263
+    },
+    {
+      "org": "genmo",
+      "m": null,
+      "repo": "genmo/mochi-1-preview",
+      "date": "2024-10-22",
+      "downloads": 3083,
+      "likes": 1340
+    },
+    {
+      "org": "Lightricks",
+      "m": "ltx",
+      "repo": "Lightricks/LTX-Video",
+      "date": "2024-10-31",
+      "downloads": 541597,
+      "likes": 2255
+    },
+    {
+      "org": "rhymes-ai",
+      "m": null,
+      "repo": "rhymes-ai/Allegro-TI2V",
+      "date": "2024-11-21",
+      "downloads": 35,
+      "likes": 60
+    },
+    {
+      "org": "tencent",
+      "m": null,
+      "repo": "tencent/HunyuanVideo",
+      "date": "2024-12-01",
+      "downloads": 817,
+      "likes": 2242
+    },
+    {
+      "org": "Alibaba-Research-Intelligence-Computing",
+      "m": null,
+      "repo": "Alibaba-Research-Intelligence-Computing/Tora_T2V_diffusers",
+      "date": "2024-12-09",
+      "downloads": 308,
+      "likes": 1
+    },
+    {
+      "org": "rhymes-ai",
+      "m": null,
+      "repo": "rhymes-ai/Allegro-T2V-40x360P",
+      "date": "2024-12-17",
+      "downloads": 39,
+      "likes": 2
+    },
+    {
+      "org": "rhymes-ai",
+      "m": null,
+      "repo": "rhymes-ai/Allegro-T2V-40x720P",
+      "date": "2024-12-17",
+      "downloads": 28,
+      "likes": 3
+    },
+    {
+      "org": "Skywork",
+      "m": "skyreels",
+      "repo": "Skywork/SkyReels-A1",
+      "date": "2025-02-13",
+      "downloads": 68,
+      "likes": 67
+    },
+    {
+      "org": "Skywork",
+      "m": "skyreels",
+      "repo": "Skywork/SkyReels-V1-Hunyuan-T2V",
+      "date": "2025-02-13",
+      "downloads": 233,
+      "likes": 92
+    },
+    {
+      "org": "Skywork",
+      "m": "skyreels",
+      "repo": "Skywork/SkyReels-V1-Hunyuan-I2V",
+      "date": "2025-02-17",
+      "downloads": 754,
+      "likes": 279
+    },
+    {
+      "org": "hpcai-tech",
+      "m": null,
+      "repo": "hpcai-tech/OpenSora-STDiT-v4-i2v",
+      "date": "2025-02-21",
+      "downloads": 6,
+      "likes": 0
+    },
+    {
+      "org": "Wan-AI",
+      "m": "wan",
+      "repo": "Wan-AI/Wan2.1-T2V-14B",
+      "date": "2025-02-25",
+      "downloads": 43309,
+      "likes": 1542
+    },
+    {
+      "org": "Wan-AI",
+      "m": "wan",
+      "repo": "Wan-AI/Wan2.1-I2V-14B-480P",
+      "date": "2025-02-25",
+      "downloads": 71524,
+      "likes": 227
+    },
+    {
+      "org": "Wan-AI",
+      "m": "wan",
+      "repo": "Wan-AI/Wan2.1-I2V-14B-720P",
+      "date": "2025-02-25",
+      "downloads": 21978,
+      "likes": 592
+    },
+    {
+      "org": "Wan-AI",
+      "m": "wan",
+      "repo": "Wan-AI/Wan2.1-T2V-1.3B",
+      "date": "2025-02-25",
+      "downloads": 49042,
+      "likes": 501
+    },
+    {
+      "org": "tencent",
+      "m": null,
+      "repo": "tencent/HunyuanVideo-I2V",
+      "date": "2025-03-05",
+      "downloads": 243,
+      "likes": 356
+    },
+    {
+      "org": "hpcai-tech",
+      "m": null,
+      "repo": "hpcai-tech/Open-Sora-v2-Video-DC-AE",
+      "date": "2025-03-10",
+      "downloads": 0,
+      "likes": 6
+    },
+    {
+      "org": "Lightricks",
+      "m": "ltx",
+      "repo": "Lightricks/LTX-Video-0.9.5",
+      "date": "2025-03-16",
+      "downloads": 4010,
+      "likes": 30
+    },
+    {
+      "org": "Lightricks",
+      "m": "ltx",
+      "repo": "Lightricks/LTX-Video-0.9.1",
+      "date": "2025-03-16",
+      "downloads": 190,
+      "likes": 11
+    },
+    {
+      "org": "Skywork",
+      "m": "skyreels",
+      "repo": "Skywork/SkyReels-A2",
+      "date": "2025-03-30",
+      "downloads": 28,
+      "likes": 139
+    },
+    {
+      "org": "Wan-AI",
+      "m": "wan",
+      "repo": "Wan-AI/Wan2.1-FLF2V-14B-720P",
+      "date": "2025-04-17",
+      "downloads": 1227,
+      "likes": 227
+    },
+    {
+      "org": "Lightricks",
+      "m": "ltx",
+      "repo": "Lightricks/LTX-Video-2B-0.9.6-Dev-04-25",
+      "date": "2025-04-18",
+      "downloads": 0,
+      "likes": 4
+    },
+    {
+      "org": "Skywork",
+      "m": "skyreels",
+      "repo": "Skywork/SkyReels-V2-I2V-14B-540P",
+      "date": "2025-04-18",
+      "downloads": 55,
+      "likes": 91
+    },
+    {
+      "org": "Skywork",
+      "m": "skyreels",
+      "repo": "Skywork/SkyReels-V2-DF-1.3B-540P",
+      "date": "2025-04-18",
+      "downloads": 337,
+      "likes": 50
+    },
+    {
+      "org": "Skywork",
+      "m": "skyreels",
+      "repo": "Skywork/SkyReels-V2-DF-14B-540P",
+      "date": "2025-04-18",
+      "downloads": 82,
+      "likes": 21
+    },
+    {
+      "org": "Skywork",
+      "m": "skyreels",
+      "repo": "Skywork/SkyReels-V2-T2V-14B-540P",
+      "date": "2025-04-18",
+      "downloads": 133,
+      "likes": 25
+    },
+    {
+      "org": "Skywork",
+      "m": "skyreels",
+      "repo": "Skywork/SkyReels-V2-DF-14B-720P",
+      "date": "2025-04-18",
+      "downloads": 678,
+      "likes": 30
+    },
+    {
+      "org": "Skywork",
+      "m": "skyreels",
+      "repo": "Skywork/SkyReels-V2-T2V-14B-720P",
+      "date": "2025-04-18",
+      "downloads": 322,
+      "likes": 42
+    },
+    {
+      "org": "Skywork",
+      "m": "skyreels",
+      "repo": "Skywork/SkyReels-V2-I2V-1.3B-540P",
+      "date": "2025-04-20",
+      "downloads": 164,
+      "likes": 47
+    },
+    {
+      "org": "Skywork",
+      "m": "skyreels",
+      "repo": "Skywork/SkyReels-V2-I2V-14B-720P",
+      "date": "2025-04-24",
+      "downloads": 439,
+      "likes": 36
+    },
+    {
+      "org": "Wan-AI",
+      "m": "wan",
+      "repo": "Wan-AI/Wan2.1-VACE-1.3B",
+      "date": "2025-05-13",
+      "downloads": 4368,
+      "likes": 142
+    },
+    {
+      "org": "Wan-AI",
+      "m": "wan",
+      "repo": "Wan-AI/Wan2.1-VACE-14B",
+      "date": "2025-05-13",
+      "downloads": 17768,
+      "likes": 500
+    },
+    {
+      "org": "tencent",
+      "m": null,
+      "repo": "tencent/HunyuanVideo-Avatar",
+      "date": "2025-05-26",
+      "downloads": 0,
+      "likes": 333
+    },
+    {
+      "org": "Wan-AI",
+      "m": "wan",
+      "repo": "Wan-AI/Wan2.2-TI2V-5B",
+      "date": "2025-07-18",
+      "downloads": 14586,
+      "likes": 736
+    },
+    {
+      "org": "Wan-AI",
+      "m": "wan",
+      "repo": "Wan-AI/Wan2.2-I2V-A14B",
+      "date": "2025-07-24",
+      "downloads": 23133,
+      "likes": 766
+    },
+    {
+      "org": "Wan-AI",
+      "m": "wan",
+      "repo": "Wan-AI/Wan2.2-T2V-A14B",
+      "date": "2025-07-24",
+      "downloads": 9059,
+      "likes": 535
+    },
+    {
+      "org": "tencent",
+      "m": null,
+      "repo": "tencent/HunyuanVideo-Foley",
+      "date": "2025-08-21",
+      "downloads": 314,
+      "likes": 171
+    },
+    {
+      "org": "Wan-AI",
+      "m": "wan",
+      "repo": "Wan-AI/Wan2.2-S2V-14B",
+      "date": "2025-08-25",
+      "downloads": 43707,
+      "likes": 458
+    },
+    {
+      "org": "Wan-AI",
+      "m": "wan",
+      "repo": "Wan-AI/Wan2.2-Animate-14B",
+      "date": "2025-09-11",
+      "downloads": 18110,
+      "likes": 1235
+    },
+    {
+      "org": "tencent",
+      "m": null,
+      "repo": "tencent/HunyuanVideo-1.5",
+      "date": "2025-11-18",
+      "downloads": 2339,
+      "likes": 1029
+    },
+    {
+      "org": "Lightricks",
+      "m": "ltx",
+      "repo": "Lightricks/LTX-2",
+      "date": "2026-01-03",
+      "downloads": 399351,
+      "likes": 1769
+    },
+    {
+      "org": "tencent",
+      "m": null,
+      "repo": "tencent/HY-Video-PRFL",
+      "date": "2026-01-07",
+      "downloads": 0,
+      "likes": 18
+    },
+    {
+      "org": "Skywork",
+      "m": "skyreels",
+      "repo": "Skywork/SkyReels-V3-V2V-14B",
+      "date": "2026-01-19",
+      "downloads": 0,
+      "likes": 16
+    },
+    {
+      "org": "Skywork",
+      "m": "skyreels",
+      "repo": "Skywork/SkyReels-V3-R2V-14B",
+      "date": "2026-01-19",
+      "downloads": 330,
+      "likes": 42
+    },
+    {
+      "org": "Skywork",
+      "m": "skyreels",
+      "repo": "Skywork/SkyReels-V3-A2V-19B",
+      "date": "2026-01-19",
+      "downloads": 1200,
+      "likes": 95
+    },
+    {
+      "org": "Lightricks",
+      "m": "ltx",
+      "repo": "Lightricks/LTX-2.3",
+      "date": "2026-03-04",
+      "downloads": 1707707,
+      "likes": 1773
+    },
+    {
+      "org": "Wan-AI",
+      "m": "wan",
+      "repo": "Wan-AI/Wan-Dancer-14B",
+      "date": "2026-07-10",
+      "downloads": 4534,
+      "likes": 182
+    },
+    {
+      "org": "Wan-AI",
+      "m": "wan",
+      "repo": "Wan-AI/Wan2.2-Animate-2-14B",
+      "date": "2026-07-14",
+      "downloads": 0,
+      "likes": 38
+    }
+  ]
+}

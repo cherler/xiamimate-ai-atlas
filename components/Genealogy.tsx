@@ -133,13 +133,13 @@ export default function Genealogy() {
           onChange={(e) => { setPlaying(false); setCut(+e.target.value); }}
           className="flex-1 min-w-[180px] max-w-[380px] accent-[var(--color-yes)]" aria-label="时间游标" />
         <b className="text-ink tabular-nums">{ymd(cutMs).slice(0, 7)}</b>
-        <span className="text-muted">
-          {nodes.filter((n) => MS(n.date) <= cutMs).length} / {nodes.length} 个已发布
+        <span className="text-muted tabular-nums">
+          {nodes.filter((n) => MS(n.date) <= cutMs).length}/{nodes.length}
         </span>
       </div>
 
       <div className="flex flex-wrap items-baseline gap-2 text-[13px]">
-        <span className="text-muted">切一项能力看谁先谁后：</span>
+        <span className="text-muted">谁先谁后：</span>
         <button onClick={() => setCap(null)}
           className={`px-2 py-0.5 rounded border ${!cap ? "border-yes text-yes" : "border-rule text-muted hover:text-ink"}`}>全部</button>
         {capsHere.map((c) => (
@@ -151,17 +151,12 @@ export default function Genealogy() {
       </div>
 
       {cap && (
-        <p className="text-[14px] leading-relaxed border border-yes/40 bg-yes/6 rounded-lg p-3">
+        <p className="text-[15px] border border-yes/40 bg-yes/6 rounded-lg px-3 py-2">
           <b className="text-ink">
-            {atlas.capabilities.find((c) => c.id === cap)!.zh}：
             {[...order.entries()].map(([m, i]) => (
               <span key={m}>{i > 1 && " → "}{i}. {atlas.models.find((x) => x.id === m)?.family}</span>
             ))}
           </b>
-          <br />
-          <span className="text-muted text-[13px]">
-            只数我们手上有发布记录的那几家。<b className="text-ink">孤点那几家记录还不全</b>，排序会因此偏晚。
-          </span>
         </p>
       )}
 
@@ -235,12 +230,19 @@ export default function Genealogy() {
         </svg>
       </div>
 
-      <p className="text-muted text-[13px] leading-relaxed max-w-[900px]">
-        实心大点＝一条线的起点（底座或换代），空心小点＝从它长出来的变体。
-        <b className="text-ink">分叉是真的：Wan2.1 上同时长出首尾帧和统一编辑两个模型。</b>
-        {" "}颜色区分厂商。点任一节点看原文。
-        <b className="text-ink">孤点＝这家的发布记录我们还没补齐</b>，不是它只发过一次。
-      </p>
+      {/* 图例只画，不写句子。**解释一律去 /method** —— 前端不放我们的旁白。 */}
+      <div className="flex flex-wrap items-center gap-x-5 gap-y-2 text-[12px] text-muted">
+        <span className="flex items-center gap-1.5">
+          <svg width="14" height="14"><circle cx="7" cy="7" r="5.5" fill="var(--color-yes)" /></svg>底座 / 换代
+        </span>
+        <span className="flex items-center gap-1.5">
+          <svg width="14" height="14"><circle cx="7" cy="7" r="4" fill="var(--color-paper)" stroke="var(--color-yes)" strokeWidth="2" /></svg>变体
+        </span>
+        <span className="flex items-center gap-1.5">
+          <svg width="26" height="10"><path d="M1,5 H25" stroke="var(--color-yes)" strokeWidth="2" fill="none" /></svg>血缘
+        </span>
+        <Link href="/method#genealogy" className="underline hover:text-ink">这张图怎么读、数据哪来的 →</Link>
+      </div>
 
       {hot && (
         <div className="border border-rule rounded-lg bg-card p-3 max-w-[900px] flex flex-col gap-1">

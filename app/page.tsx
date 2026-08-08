@@ -26,8 +26,8 @@ function Matrix({ k, title, blurb }: { k: Klass; title: string; blurb: string })
       <h2 className="text-[22px] font-semibold mb-1">{title}</h2>
       <p className="text-muted text-[14px] mb-3 max-w-[860px] leading-relaxed">{blurb}</p>
       <p className="text-muted text-[13px] mb-2">
-        <b className="text-unknown">*</b> = 平台的另一个接口：能做，但要再调一次，且通常只能作用于<b className="text-ink">已生成的</b>视频。
-        对「能不能做」两者都是能，对「是不是一步做完」差很多。
+        <b className="text-unknown">*</b> = 另一个接口，不是生成时的一步
+        <Link href="/method#states" className="underline ml-2 hover:text-ink">口径 →</Link>
       </p>
       <div className="overflow-x-auto border border-rule rounded-xl bg-card">
         <table className="w-full text-[14px] border-collapse">
@@ -161,12 +161,8 @@ export default function Page() {
         */}
         <h2 className="text-[22px] font-semibold mb-1">开源在「一个能力一个模型」，闭源在「一个模型全都有」</h2>
         <p className="text-muted text-[14px] mb-4 max-w-[920px] leading-relaxed">
-          看万相那一行：<b className="text-ink">首尾帧、统一编辑、语音驱动、动作复刻，各是一个单独发布的模型</b>
-          （Wan2.1-FLF2V / VACE / Wan2.2-S2V / Animate）。看可灵那一行：
-          <b className="text-ink">同一条产品线逐版本往上加</b>，2.6 加动作复刻，3.0 加智能景别。
-          <br />
-          这不是风格差异，是<b className="text-ink">你会怎么用它们</b>的差异：走开源那条路，你得自己挑对模型、拼对 workflow；
-          走闭源那条路，一个接口全都有，但加什么、什么时候加，你说了不算。
+          万相的首尾帧、统一编辑、语音驱动、动作复刻，是四个单独发布的模型；
+          可灵是同一条产品线逐版本往上加。
         </p>
         <div className="bg-card border border-rule rounded-xl p-4">
           <Genealogy />
@@ -305,12 +301,9 @@ export default function Page() {
 
       <section className="hidden md:block">
         <h2 className="text-[22px] font-semibold mb-1">去哪用：平台 × 模型</h2>
-        <p className="text-muted text-[14px] mb-3 max-w-[920px] leading-relaxed">
-          知道谁支持之后，下一个问题是「我上哪用」。
-          <b className="text-ink">这张表最该看的不是「有没有」，是「上的是哪一版」</b> ——
-          Replicate 上是 <b className="text-ink">Hailuo 2.3</b>（不是 H3）、初代 <b className="text-ink">ltx-video</b>（不是 2.3），
-          APIYI 上是 <b className="text-ink">Seedance 2.0</b>（不是 2.5）。
-          只答「有」会让人以为能用上当前版本的能力，那是错的。
+        <p className="text-muted text-[14px] mb-3 max-w-[920px]">
+          <b className="text-ink">看的不是「有没有」，是「上的是哪一版」。</b>
+          Replicate 上是 Hailuo 2.3（不是 H3）、初代 ltx-video（不是 2.3）；APIYI 上是 Seedance 2.0（不是 2.5）。
         </p>
         <p className="text-muted text-[13px] mb-3 flex flex-wrap gap-x-5 gap-y-1">
           <span><b className="text-yes">✅</b> 上架的就是当前主力版本</span>
@@ -401,12 +394,8 @@ export default function Page() {
 
       <section>
         <h2 className="text-[22px] font-semibold mb-1">库里还有，但没进主表</h2>
-        <p className="text-muted text-[14px] mb-4 max-w-[880px] leading-relaxed">
-          Extended 层：<b className="text-ink">保证「它存在」，不保证逐格核过</b>。
-          主表每轨最多 10 个（ontology 规则四），加第 11 个之前必须先踢掉一个 ——
-          所以这里既有<b className="text-ink">还没核到的新面孔</b>，也有<b className="text-ink">已经退场的</b>。
-          <br />
-          停服的模型降到这里而不是删掉：<b className="text-ink">「它没了」本身是有用的信息</b>。
+        <p className="text-muted text-[14px] mb-4 max-w-[880px]">
+          保证「它存在」，不保证逐格核过。停服的降到这里，不删。
         </p>
         <div className="flex flex-col gap-3">
           {(["clip", "realtime"] as const).flatMap((k) =>
@@ -432,16 +421,9 @@ export default function Page() {
 
       <section className="hidden md:block">
         <h2 className="text-[22px] font-semibold mb-1">你在大陆，能不能用上</h2>
-        <p className="text-muted text-[14px] mb-4 max-w-[920px] leading-relaxed">
-          <b className="text-ink">「地理」这条线真正有用的不是「公司在哪」，是「你在哪，能不能用上」。</b>
-          下面是 2026-08-08 从大陆网络<b className="text-ink">不走代理</b>直连各厂商
-          <b className="text-ink">官方站 / 文档页</b>的实测结果。
-          <br />
-          <span className="text-[13px]">
-            口径要说清：测的<b className="text-ink">不是 API 端点</b> ——
-            文档打不开不等于接口调不通，反过来也一样。但对想自部署的人，
-            权重所在的域直连不可达就是硬阻碍。
-          </span>
+        <p className="text-muted text-[14px] mb-4 max-w-[920px]">
+          2026-08-08 从大陆<b className="text-ink">不走代理</b>直连各厂商官方站 / 文档页的实测。
+          <Link href="/method#gaps" className="underline ml-2 hover:text-ink">口径 →</Link>
         </p>
         <div className="flex flex-col gap-2">
           {atlas.models
@@ -463,12 +445,9 @@ export default function Page() {
 
       <section className="hidden md:block">
         <h2 id="transparency" className="text-[22px] font-semibold mb-1 scroll-mt-6">透明度：「官方没说」是分化的，不是普遍的</h2>
-        <p className="text-muted text-[14px] mb-4 max-w-[880px] leading-relaxed">
-          九家都已用厂商官方文档逐格核过。<b className="text-ink">剩下的 ⬜ 就是这家没公开说的部分</b> ——
-          不需要我们主观打分，它是从公开事实算出来的、可复核的数。
-          <br />
-          注意<b className="text-ink">别看总数</b>：报「{tally("clip").unknown} 格官方没说」会让人以为厂商普遍不透明，
-          而实际上有官方能力文档的那几家只有 1~3 格。
+        <p className="text-muted text-[14px] mb-4 max-w-[880px]">
+          <b className="text-ink">别看总数，看分布。</b>
+          <Link href="/method#states" className="underline ml-2 hover:text-ink">⬜ 是什么意思 →</Link>
         </p>
         <div className="flex flex-col gap-2">
           {transparency("clip").map(({ model, unknown, caps }) => (
@@ -499,12 +478,8 @@ export default function Page() {
 
       <section>
         <h2 className="text-[22px] font-semibold mb-1">明确不收的</h2>
-        <p className="text-muted text-[14px] mb-4 max-w-[880px] leading-relaxed">
-          收录门槛有三条（见 <code className="text-ink">data/ontology.md</code> 规则一）：
-          输出或转换动态影像、以模型形式提供、<b className="text-ink">面向内容创作</b>。
-          <br />
-          第三条排掉的是一整个品类。<b className="text-ink">「为什么不收」和「它没了」一样，是有用的信息</b> ——
-          半年后有人问「你们怎么没收某某」，答案该在库里，不在某个人的记忆里。
+        <p className="text-muted text-[14px] mb-4 max-w-[880px]">
+          门槛三条：输出或转换动态影像、以模型形式提供、面向内容创作。
         </p>
         <div className="flex flex-col gap-3">
           {atlas.excluded.map((e) => (
@@ -527,7 +502,7 @@ export default function Page() {
 
       <footer className="border-t border-rule pt-5 text-[13px] text-muted leading-relaxed">
         数据版本 {atlas.version} · 核验于 {atlas.generated_at} ·
-        <b className="text-unknown"> 全部为机器录入，未经人工核验</b> · xiamimate.com/atlas
+        <Link href="/method#agent" className="text-unknown underline hover:text-ink"> 全部为机器录入，未经人工核验</Link> · xiamimate.com/atlas
         <br />
         {atlas.note}
         <ul className="mt-2 list-disc pl-5">

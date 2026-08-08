@@ -1,4 +1,5 @@
 import { atlas, label, orgOf } from "@/lib/atlas";
+import Link from "next/link";
 import { Rich } from "./Fact";
 
 /**
@@ -126,10 +127,7 @@ export default function Pricing() {
         })}
       </div>
 
-      <p className="text-muted text-[13px] mt-3 max-w-[880px] leading-relaxed">
-        <b className="text-ink">价格比能力过期得快得多。</b>
-        每条都写了核验日期 —— 看到日期旧了，就当它旧了。
-      </p>
+
     </section>
   );
 }
