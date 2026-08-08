@@ -57,14 +57,16 @@ export default function Pricing() {
           </b>
           <br />
           同一个万相，<b className="text-ink">百炼上 720P 是 ¥0.6/秒，Replicate 上 720P 是 $0.25/秒</b>
-          —— 而且 Replicate 卖的还是 2.1，不是当前的 3.0。所以这里每一条都写清楚是<b className="text-ink">哪个平台</b>的价。
+          {" "}—— 而且 Replicate 卖的还是 2.1，不是当前的 3.0。所以这里每一条都写清楚是<b className="text-ink">哪个平台</b>的价。
           <br />
           <br />
           <b className="text-ink">第二件事：它们根本不在同一个刻度上。</b>
           <br />
-          {rows.length} 家用了 {new Set(rows.map((r) => r.unit)).size} 种计价方式。
+          {/* 数的是**条**不是家 —— 同一个模型在两个平台就是两条。写成「家」会把读者数糊涂。 */}
+          {rows.length} 条价格记录、{new Set(rows.map((r) => r.m)).size} 个模型，用了{" "}
+          {new Set(rows.map((r) => r.unit)).size} 种计价方式。
           <b className="text-ink">
-            能横着比的只有按秒计价的那 {cmp.length} 家 —— 而且人民币和美元我们不换算
+            能横着比的只有按秒计价的那 {cmp.length} 条 —— 而且人民币和美元我们不换算
           </b>
           ，汇率是我们加的假设，不是厂商说的。
         </p>
