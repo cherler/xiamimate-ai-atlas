@@ -8,7 +8,7 @@
  *          这条拦的是**最阴的一种腐烂**：版本升了，旧结论被悄悄挂到新版本名下。
  *          见 data/ontology.md 规则三之一。
  */
-import { readFileSync } from "node:fs";
+import { readFileSync, existsSync } from "node:fs";
 
 const a = JSON.parse(readFileSync(new URL("../data/atlas.json", import.meta.url), "utf8"));
 const errs = [];
@@ -128,6 +128,28 @@ for (const q of a.pricing ?? []) {
   if (!q.as_of) errs.push(`R38 价格没写核验日期 —— 价格比能力更容易过期：${at}`);
 }
 
+// ── 动线（A1）。**没有动线，拆页只是把一堆页面摆开。**
+const flows = existsSync(new URL("../data/flows.json", import.meta.url))
+  ? JSON.parse(readFileSync(new URL("../data/flows.json", import.meta.url), "utf8")).flows
+  : null;
+if (flows) {
+  // 路由表：静态页 + 动态段的样板。动态段只校验前缀，具体 id 由 generateStaticParams 保证。
+  const ROUTES = ["/", "/tree", "/map", "/where", "/models", "/toolkit", "/changes", "/method"];
+  const DYN = ["/model/", "/capability/", "/skill/", "/compare/"];
+  const known = (p) => ROUTES.includes(p) || DYN.some((d) => p.startsWith(d));
+  for (const f of flows) {
+    if (!f.steps?.length) errs.push(`R41a 动线没有步骤：${f.id}`);
+    f.steps.forEach((s, i) => {
+      if (!known(s.page)) errs.push(`R41 动线引用了不存在的页：${f.id} → ${s.page}`);
+      for (const e of s.exits ?? []) if (!known(e)) errs.push(`R41 动线出口指向不存在的页：${f.id} → ${e}`);
+      // 除末步外必须有出口 —— **没有出口的中间步就是死路**
+      if (i < f.steps.length - 1 && !(s.exits ?? []).length)
+        errs.push(`R42 动线中间步没有出口（死路）：${f.id} 第 ${i + 1} 步 ${s.page}`);
+      if (!s.q) errs.push(`R42a 动线步骤没写它回答的问题：${f.id} → ${s.page}`);
+    });
+  }
+}
+
 const used = new Set([
   ...a.support.map((s) => s.src),
   ...(a.availability ?? []).map((v) => v.src),
@@ -168,6 +190,7 @@ for (const q of a.pricing ?? []) pu[q.unit] = (pu[q.unit] ?? 0) + 1;
 console.log(`价格 ${(a.pricing ?? []).length} 条 · 计价单位：${Object.entries(pu).map(([k, v]) => `${k} ${v}`).join(" / ")}` +
   `（**能横向比的只有 per-second 那几条**）`);
 console.log(`公司 ${(a.orgs ?? []).length} 家 · 模型按总部：${Object.entries(geo).map(([k, v]) => `${k} ${v}`).join(" / ")} · 投资关系 ${(a.investments ?? []).length} 条`);
+if (flows) console.log(`动线 ${flows.length} 条，共 ${flows.reduce((n, f) => n + f.steps.length, 0)} 步`);
 console.log(`来源 ${srcIds.size} 条，官方 ${Object.values(a.sources).filter((s) => s.tier === "official").length} 条`);
 for (const w of warns) console.log(`  警告 ${w}`);
 if (errs.length) {

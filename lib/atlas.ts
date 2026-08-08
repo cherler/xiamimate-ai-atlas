@@ -326,3 +326,18 @@ export const vendorName = (m: Model): string => {
   if (!o) return "?";
   return m.team ? `${o.zh} · ${m.team}` : o.zh;
 };
+
+/**
+ * 生命周期标签的展示口径。**只此一份。**
+ * 刚才 `Sel` 在两个文件里各写了一份，类型立刻对不上 —— 同一个口径不许有第二份。
+ */
+export const STATUS: Record<string, { tag: string; cls: string }> = {
+  discontinued: { tag: "已停服", cls: "text-no line-through" },
+  superseded: { tag: "非主力", cls: "text-muted" },
+};
+
+/** 出现在 availability 表里的模型：core 全收 + extended 里真有上架记录的。 */
+export const availModels = () => [
+  ...modelsOf("clip"),
+  ...atlas.models.filter((m) => (m.tier ?? "core") !== "core" && atlas.availability.some((v) => v.m === m.id)),
+];

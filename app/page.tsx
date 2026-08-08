@@ -9,75 +9,11 @@ import Link from "next/link";
 import { Fact, MARK, Rich, TONE } from "@/components/Fact";
 import Pricing from "@/components/Pricing";
 import Transparency from "@/components/Transparency";
-import { atlas, avail, capsOf, cell, compare, extendedOf, label, modelsOf, tally, transparency, vendorName, type Klass } from "@/lib/atlas";
+import { atlas, avail, capsOf, cell, compare, extendedOf, label, modelsOf, tally, transparency, vendorName, STATUS, availModels, type Klass } from "@/lib/atlas";
 import { capHref, modelHref } from "@/lib/slug";
 
 /** 生命周期标记。停服/非主力必须一眼看得见 —— 能力对不代表能用。 */
-const STATUS: Record<string, { tag: string; cls: string }> = {
-  discontinued: { tag: "已停服", cls: "text-no line-through" },
-  superseded: { tag: "非主力", cls: "text-muted" },
-};
 
-function Matrix({ k, title, blurb }: { k: Klass; title: string; blurb: string }) {
-  const ms = modelsOf(k);
-  const cs = capsOf(k);
-  return (
-    <section className="hidden md:block">
-      <h2 className="text-[22px] font-semibold mb-1">{title}</h2>
-      <p className="text-muted text-[14px] mb-3 max-w-[860px] leading-relaxed">{blurb}</p>
-      <p className="text-muted text-[13px] mb-2">
-        <b className="text-unknown">*</b> = 另一个接口，不是生成时的一步
-        <Link href="/method#states" className="underline ml-2 hover:text-ink">口径 →</Link>
-      </p>
-      <div className="overflow-x-auto border border-rule rounded-xl bg-card">
-        <table className="w-full text-[14px] border-collapse">
-          <thead>
-            <tr className="border-b border-rule">
-              <th className="text-left font-semibold p-3 sticky left-0 bg-card">能力</th>
-              {ms.map((m) => {
-                const st = m.status && m.status !== "active" ? STATUS[m.status] : null;
-                return (
-                  <th key={m.id} className="p-3 font-semibold text-[13px] whitespace-nowrap align-bottom">
-                    <Link href={modelHref(m)} className={`${st?.cls ?? ""} underline hover:text-yes`} title={m.status_note ?? ""}>
-                      {label(m)}
-                    </Link>
-                    <span className="block font-normal text-muted text-[11px]">{m.version_as_of}</span>
-                    {st && <span className={`block text-[11px] font-medium ${st.cls.replace("line-through", "")}`}>{st.tag}</span>}
-                  </th>
-                );
-              })}
-            </tr>
-          </thead>
-          <tbody>
-            {cs.map((c) => (
-              <tr key={c.id} className="border-b border-rule/60 last:border-0">
-                <td className="p-3 sticky left-0 bg-card whitespace-nowrap">
-                  <Link href={capHref(c)} className="font-medium underline hover:text-yes">
-                    {c.zh}
-                  </Link>
-                  <span className="text-muted text-[12px] ml-2">{c.ubiquity}</span>
-                </td>
-                {ms.map((m) => {
-                  const f = cell(m.id, c.id);
-                  return (
-                    <td key={m.id} className="p-3 text-center" title={f.note ?? ""}>
-                      <span className={TONE[f.state]}>{MARK[f.state]}</span>
-                      {f.via === "separate-task" && (
-                        <span className="text-unknown text-[11px] align-super" title="平台的另一个接口，不是生成时的一步">
-                          *
-                        </span>
-                      )}
-                    </td>
-                  );
-                })}
-              </tr>
-            ))}
-          </tbody>
-        </table>
-      </div>
-    </section>
-  );
-}
 
 export default function Page() {
   const [sel, setSel] = useState<Sel>({ kind: "none" });
@@ -91,12 +27,7 @@ export default function Page() {
    * Sora 已停服却还在 Replicate 与 APIYI 的货架上 ——
    * **停服模型最该出现的地方就是这里**，不列出来等于放任别人去买一个 48 天后关掉的 API。
    */
-  const availModels = [
-    ...modelsOf("clip"),
-    ...atlas.models.filter(
-      (m) => (m.tier ?? "core") !== "core" && atlas.availability.some((v) => v.m === m.id),
-    ),
-  ];
+
 
   return (
     <main className="max-w-[1240px] mx-auto px-8 py-10 flex flex-col gap-8">
@@ -148,9 +79,6 @@ export default function Page() {
           而且它靠「点一个节点看它连去哪」—— 手指点不准 20px 的圆点。 */}
       <MobileStack />
 
-      <section className="bg-card border border-rule rounded-xl p-4 hidden md:block">
-        <Bipartite sel={sel} onSel={setSel} />
-      </section>
 
       <section className="hidden md:block">
         {/*
@@ -287,218 +215,14 @@ export default function Page() {
         )}
       </section>
 
-      <Matrix
-        k="clip"
-        title="离线出片轨 · 全表"
-        blurb="给定条件 → 渲染一段固定长度的成片，生成完才能看。列头是 Family 与当前主力版本；换版本后没有重新核验的能力一律退回 ⬜，不沿用旧版结论。"
-      />
 
-      <Matrix
-        k="realtime"
-        title="实时交互轨 · 另一套坐标系"
-        blurb="边生成边看，生成过程中可以干预，时长不预先确定。它们和上面那张表不共用能力轴 —— 对它们来说「视频延长」没有意义（本来就没有终点），对上面那些模型「延迟」也没有意义。硬并成一张表会把两边都讲错。"
-      />
 
-      <section className="hidden md:block">
-        <h2 className="text-[22px] font-semibold mb-1">去哪用：平台 × 模型</h2>
-        <p className="text-muted text-[14px] mb-3 max-w-[920px]">
-          <b className="text-ink">看的不是「有没有」，是「上的是哪一版」。</b>
-          Replicate 上是 Hailuo 2.3（不是 H3）、初代 ltx-video（不是 2.3）；APIYI 上是 Seedance 2.0（不是 2.5）。
-        </p>
-        <p className="text-muted text-[13px] mb-3 flex flex-wrap gap-x-5 gap-y-1">
-          <span><b className="text-yes">✅</b> 上架的就是当前主力版本</span>
-          <span><b className="text-unknown">⚠️</b> 上架的是旧版本</span>
-          <span><b className="text-muted">🕐</b> 标着 coming soon，还不能用</span>
-          <span>空白 = 我们没找到证据，不代表没有</span>
-        </p>
-        <div className="overflow-x-auto border border-rule rounded-xl bg-card mb-3">
-          <table className="w-full text-[14px] border-collapse">
-            <thead>
-              <tr className="border-b border-rule">
-                <th className="text-left font-semibold p-3 sticky left-0 bg-card">平台</th>
-                {availModels.map((m) => {
-                  const st = m.status && m.status !== "active" ? STATUS[m.status] : null;
-                  return (
-                    <th key={m.id} className="p-3 font-semibold text-[12px] whitespace-nowrap align-bottom">
-                      <span className={st?.cls ?? ""}>{label(m)}</span>
-                      {st && <span className="block text-[11px] font-medium text-no">{st.tag}</span>}
-                    </th>
-                  );
-                })}
-              </tr>
-            </thead>
-            <tbody>
-              {atlas.platforms.filter((pf) => atlas.availability.some((v) => v.p === pf.id) || pf.note).map((pf) => (
-                <tr key={pf.id} className="border-b border-rule/60 last:border-0">
-                  <td className="p-3 sticky left-0 bg-card whitespace-nowrap">
-                    <a href={pf.url} target="_blank" rel="noreferrer" className="font-medium underline hover:text-yes">
-                      {pf.name}
-                    </a>
-                    <span className="block text-muted text-[11px]">
-                      {pf.kind} · {pf.region}
-                      {pf.discloses === "yes" && <b className="text-yes"> · 公示底层模型</b>}
-                    </span>
-                  </td>
-                  {availModels.map((m) => {
-                    const v = avail(pf.id, m.id);
-                    const mark = !v ? "" : v.status === "coming-soon" ? "🕐" : v.match === "older" ? "⚠️" : "✅";
-                    return (
-                      <td key={m.id} className="p-3 text-center" title={v ? `${v.listed}｜${v.quote}` : ""}>
-                        <span className={v?.match === "older" ? "text-unknown" : "text-yes"}>{mark}</span>
-                      </td>
-                    );
-                  })}
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        </div>
-        <div className="flex flex-col gap-2 text-[14px]">
-          {atlas.availability
-            .filter((v) => v.note)
-            .map((v) => {
-              const pf = atlas.platforms.find((x) => x.id === v.p)!;
-              const md = atlas.models.find((x) => x.id === v.m)!;
-              return (
-                <div key={`${v.p}-${v.m}`} className="border-t border-rule pt-2">
-                  <span className="font-semibold">
-                    {pf.name} · {label(md)}
-                  </span>
-                  <span className="text-muted text-[13px] ml-2">上架为「{v.listed}」</span>
-                  <Rich text={v.note!} className="block text-muted text-[13px] mt-1 leading-relaxed" />
-                  <a
-                    href={atlas.sources[v.src].url}
-                    target="_blank"
-                    rel="noreferrer"
-                    className="text-muted text-[12px] underline hover:text-ink"
-                  >
-                    原文：「{v.quote}」
-                  </a>
-                </div>
-              );
-            })}
-          {atlas.platforms
-            .filter((pf) => pf.note && !atlas.availability.some((v) => v.p === pf.id))
-            .map((pf) => (
-              <div key={pf.id} className="border-t border-rule pt-2">
-                <span className="font-semibold">{pf.name}</span>
-                <Rich text={pf.note!} className="block text-muted text-[13px] mt-1 leading-relaxed" />
-              </div>
-            ))}
-        </div>
-      </section>
 
-      <Pricing />
 
-      <Transparency />
 
-      <section>
-        <h2 className="text-[22px] font-semibold mb-1">库里还有，但没进主表</h2>
-        <p className="text-muted text-[14px] mb-4 max-w-[880px]">
-          保证「它存在」，不保证逐格核过。停服的降到这里，不删。
-        </p>
-        <div className="flex flex-col gap-3">
-          {(["clip", "realtime"] as const).flatMap((k) =>
-            extendedOf(k).map((m) => (
-              <div key={m.id} className="border-t border-rule pt-3 text-[15px]">
-                <p className="font-semibold">
-                  {label(m)}
-                  <span className="text-muted font-normal text-[13px] ml-2">
-                    {vendorName(m)} · {m.version_as_of}
-                  </span>
-                  {m.status && m.status !== "active" && (
-                    <span className={`ml-2 text-[12px] ${STATUS[m.status]?.cls.replace("line-through", "")}`}>
-                      {STATUS[m.status]?.tag}
-                    </span>
-                  )}
-                </p>
-                {m.status_note && <Rich text={m.status_note} className="text-muted text-[13px] mt-1 leading-relaxed block" />}
-              </div>
-            )),
-          )}
-        </div>
-      </section>
 
-      <section className="hidden md:block">
-        <h2 className="text-[22px] font-semibold mb-1">你在大陆，能不能用上</h2>
-        <p className="text-muted text-[14px] mb-4 max-w-[920px]">
-          2026-08-08 从大陆<b className="text-ink">不走代理</b>直连各厂商官方站 / 文档页的实测。
-          <Link href="/method#gaps" className="underline ml-2 hover:text-ink">口径 →</Link>
-        </p>
-        <div className="flex flex-col gap-2">
-          {atlas.models
-            .filter((m) => m.reach_cn && m.reach_cn !== "unknown")
-            .sort((a, b) => (a.reach_cn === "blocked" ? -1 : 1) - (b.reach_cn === "blocked" ? -1 : 1))
-            .map((m) => (
-              <div key={m.id} className="flex items-baseline gap-3 text-[15px] border-t border-rule pt-2">
-                <span className={`w-[26px] shrink-0 ${m.reach_cn === "ok" ? "text-yes" : "text-no"}`}>
-                  {m.reach_cn === "ok" ? "✅" : "⛔"}
-                </span>
-                <Link href={modelHref(m)} className="w-[190px] shrink-0 underline hover:text-yes">
-                  {label(m)}
-                </Link>
-                <Rich text={m.reach_note ?? ""} className="text-muted text-[13px] leading-relaxed" />
-              </div>
-            ))}
-        </div>
-      </section>
 
-      <section className="hidden md:block">
-        <h2 id="transparency" className="text-[22px] font-semibold mb-1 scroll-mt-6">透明度：「官方没说」是分化的，不是普遍的</h2>
-        <p className="text-muted text-[14px] mb-4 max-w-[880px]">
-          <b className="text-ink">别看总数，看分布。</b>
-          <Link href="/method#states" className="underline ml-2 hover:text-ink">⬜ 是什么意思 →</Link>
-        </p>
-        <div className="flex flex-col gap-2">
-          {transparency("clip").map(({ model, unknown, caps }) => (
-            <div key={model.id} className="flex items-center gap-3 text-[14px]">
-              <span className="w-[190px] shrink-0 truncate">
-                {label(model)}
-                {model.status && model.status !== "active" && (
-                  <span className="text-muted text-[11px] ml-2">{STATUS[model.status]?.tag}</span>
-                )}
-              </span>
-              <span className="w-[52px] shrink-0 text-right text-muted tabular-nums">
-                {unknown}/{caps}
-              </span>
-              <span className="flex-1 h-[14px] bg-rule/50 rounded-sm overflow-hidden">
-                <span
-                  className="block h-full bg-unknown/80"
-                  style={{ width: `${(unknown / caps) * 100}%` }}
-                />
-              </span>
-            </div>
-          ))}
-        </div>
-        <p className="text-muted text-[13px] mt-3">
-          Wan 那 10 格的原因很具体：<b className="text-ink">wan.video 取不到任何可抓链接，官方没有可核验的能力文档</b> ——
-          九家里唯一一个。Sora 的 6 格则是因为已停服、且页面对我们的采集器返回 403。
-        </p>
-      </section>
 
-      <section>
-        <h2 className="text-[22px] font-semibold mb-1">明确不收的</h2>
-        <p className="text-muted text-[14px] mb-4 max-w-[880px]">
-          门槛三条：输出或转换动态影像、以模型形式提供、面向内容创作。
-        </p>
-        <div className="flex flex-col gap-3">
-          {atlas.excluded.map((e) => (
-            <div key={e.name} className="border-t border-rule pt-3 text-[15px]">
-              <p className="font-semibold">
-                {e.name}
-                <span className="text-muted font-normal text-[13px] ml-2">
-                  {e.vendor} · {e.kind} · {e.date} 判定
-                </span>
-              </p>
-              <Rich text={e.why} className="text-muted text-[13px] mt-1 leading-relaxed block" />
-              {e.same_bucket?.length ? (
-                <p className="text-muted text-[13px] mt-1">同类一并不收：{e.same_bucket.join("、")}</p>
-              ) : null}
-              {e.revisit && <p className="text-muted text-[13px] mt-1 italic">{e.revisit}</p>}
-            </div>
-          ))}
-        </div>
-      </section>
 
       <footer className="border-t border-rule pt-5 text-[13px] text-muted leading-relaxed">
         数据版本 {atlas.version} · 核验于 {atlas.generated_at} ·

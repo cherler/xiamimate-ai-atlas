@@ -18,3 +18,12 @@ body {
   font-family: "PingFang SC", "Hiragino Sans GB", system-ui, sans-serif;
   -webkit-font-smoothing: antialiased;
 }
+
+/*
+ * 长英文串兜底。厂商的别名里有 KeyframeInterpolationPipeline 这种 29 个字符不带空格的，
+ * 在 390 宽的手机上一个词就 215px，直接把页面撑到横向滚动。
+ * **别名是从厂商那儿抄来的，我们控制不了它多长** —— 所以要在样式层兜住。
+ */
+body {
+  overflow-wrap: break-word;
+}

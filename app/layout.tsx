@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import Nav from "@/components/Nav";
+import NextSteps from "@/components/NextSteps";
 
 const DESC =
   "模型之间不靠出身相连，靠能做什么相连。每条事实都带来源、核验日期，和一个「这是机器写的」标记。";
@@ -31,7 +33,14 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="zh-CN">
-      <body>{children}</body>
+      <body>
+        {/* Nav 和 NextSteps 挂在 layout 上 —— **每一页都有，否则总有页面是死路**。 */}
+        <Nav />
+        {children}
+        <div className="max-w-[1240px] mx-auto px-5 pb-10">
+          <NextSteps />
+        </div>
+      </body>
     </html>
   );
 }
