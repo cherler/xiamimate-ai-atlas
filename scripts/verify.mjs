@@ -113,7 +113,7 @@ const BASE_ZH = existsSync(BASE_PATH) ? JSON.parse(readFileSync(BASE_PATH, "utf8
 const NEW_ZH = {};
 
 const graph = new Map();
-const HOME_ONLY = "模型之间不靠出身相连"; // 首页独有；别的页出现它＝路由回退了
+
 
 for (const [vp, w, h] of [["桌面", 1440, 900], ["手机", 390, 844]]) {
   console.log(`\n══════ ${vp} ${w}×${h} ══════`);
@@ -124,6 +124,7 @@ for (const [vp, w, h] of [["桌面", 1440, 900], ["手机", 390, 844]]) {
     page.on("console", (m) => { if (m.type() === "error") errs.push(m.text().split("\n")[0].slice(0, 90)); });
 
     let body = "";
+    let fellBack = false;
     try {
       await page.goto(`${ORIGIN}${BASE}${r.path === "/" ? "" : r.path}`,
         { waitUntil: DEV ? "domcontentloaded" : "networkidle", timeout: 45000 });
@@ -132,9 +133,12 @@ for (const [vp, w, h] of [["桌面", 1440, 900], ["手机", 390, 844]]) {
       // textContent **把隐藏元素的文字也算进来** —— 移动端叙事版在桌面上是 hidden，
       // 文字却照样计入，首页因此虚高一倍多。**这正是「量错了东西」的又一例**。
       body = await page.evaluate("document.body.innerText");
+      // 兜底判断靠 data-page="home" 这个**稳定记号**，不靠首页的文案 ——
+      // 文案一改判断就失效（刚才就失效了）。
+      fellBack = r.path !== "/" && (await page.evaluate('!!document.querySelector(\'[data-page="home"]\')'));
     } catch { body = ""; }
 
-    const self = body.includes(r.must) && (r.path === "/" || !body.includes(HOME_ONLY));
+    const self = body.includes(r.must) && !fellBack;
     // 还没建的页单独列成待办，不混进失败 —— 整片红看不出真问题
     if (!r.built && !self) { todo.add(r.path); await page.close(); continue; }
 
