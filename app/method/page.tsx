@@ -92,9 +92,18 @@ export default function Method() {
         <p>
           <b>分叉是真的</b>：Wan2.1 这个底座上同时长出 FLF2V（首尾帧）和 VACE（统一编辑）两个模型。
         </p>
+        {/* 写死的名单会过期 —— 这句话上一版就已经错了（列的四家其实都补齐了）。算出来。 */}
         <p>
-          <b className="text-ink">孤点 = 这家的发布记录我们还没补齐，不是它只发过一次。</b>
-          Veo、Sora、海螺、LTX 的发布记录目前是空的。
+          <b className="text-ink">孤点有两种成因，我们把它们分开写。</b>
+          {(() => {
+            const thin = atlas.models.filter(
+              (m) => m.class === "clip" && (m.tier ?? "core") === "core"
+                && atlas.versions.filter((v) => v.m === m.id).length < 3,
+            );
+            return thin.length
+              ? <> 目前节点不足三个的是 {thin.map((m) => m.family).join("、")} —— 点开节点能看到具体原因。</>
+              : <> 目前每个核心模型都有三个以上节点。</>;
+          })()}
         </p>
         <p className="text-muted">
           节点上的能力标记只在<b className="text-ink">明确对得上</b>时才挂 ——
@@ -129,7 +138,17 @@ export default function Method() {
         <p>· {atlas.orgs.filter((o) => !o.hq_src).length} 家公司的总部还没有来源，是按常识填的。</p>
         <p>· 有来源的那几家里，ICP 备案<b>只证到省</b>，没证到城市。</p>
         <p>· {atlas.platforms.filter((p) => p.discloses === "blocked").length} 个平台的页面我们读不到。</p>
-        <p>· 4 个模型还没拿到官方价格。</p>
+        <p>
+          · 4 个模型没拿到官方价格，各有各的原因：
+          <b>LTX</b> 权重公开但 Lightricks 没有自营定价页；
+          <b>Lucy</b> 官网未见价目；
+          <b>Sora</b> 的定价页对我们的采集器返回 403，且 API 已公告 2026-09-24 停服。
+          <b className="text-ink">「空着」和「我们查了查不到」是两回事。</b>
+        </p>
+        <p>
+          · <b>SkyReels V4 已经存在，我们库里最新只到 V3</b> —— 从第三方榜单上看见的，
+          <b className="text-ink">这是我们的采集缺口，不是它的问题</b>。
+        </p>
         <p>· 投资关系只录了 {atlas.investments.length} 条。</p>
       </S>
     </main>

@@ -74,7 +74,24 @@ export default function Pricing() {
       </div>
 
       <div className="flex flex-col gap-2 max-w-[880px]">
-        {rows.map((q) => {
+        {/*
+          `unavailable` 的行只占一行。它讲的是**我们没拿到**，不是价格本身 ——
+          详细原因归 /method 的「我们自己没做到的」。
+          把四条「查不到」的长说明摊在价格表里，会把这一页撑成一篇检讨。
+        */}
+        {rows.filter((q) => q.unit === "unavailable").length > 0 && (
+          <p className="text-muted text-[13px]">
+            官方页上查不到价格的：
+            {rows.filter((q) => q.unit === "unavailable").map((q, i) => (
+              <span key={q.m}>
+                {i > 0 && "、"}
+                {label(atlas.models.find((x) => x.id === q.m)!)}
+              </span>
+            ))}
+            <Link href="/method#gaps" className="underline ml-2 hover:text-ink">为什么 →</Link>
+          </p>
+        )}
+        {rows.filter((q) => q.unit !== "unavailable").map((q) => {
           const m = atlas.models.find((x) => x.id === q.m);
           const src = atlas.sources[q.src];
           if (!m) return null;
