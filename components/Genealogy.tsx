@@ -1,171 +1,262 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import Link from "next/link";
-import { atlas, label } from "@/lib/atlas";
+import { atlas, label, orgOf } from "@/lib/atlas";
 import { modelHref } from "@/lib/slug";
 
 /**
- * 模型演进谱系（替换掉原来的「能力演进图」）。
+ * 模型演化树（谱系图）。
  *
- * ## 换掉的原因
+ * ## 为什么是树，不是泳道
  *
- * 原来那张图每行是一项**能力**，横轴是「我们能证明的最早时间」，线的粗细是几家支持。
- * 读者看完只得到「动作复刻 2025-12 出现、6/9 家支持」——
- * **那是一次数据库查询的可视化，不是知识。**
+ * 上一版画的是泳道：一行一个模型，版本沿着行往右排。**平的，没有分叉。**
+ * 但真实的演进是有父子关系的：Wan2.1 这个底座上同时长出 FLF2V（首尾帧）和
+ * VACE（统一编辑）两个变体，Wan2.2 是换代接在 2.1 后面，Animate-2 又接在 Animate 后面。
+ * **平铺会把「分叉」这件事整个抹掉** —— 而分叉正是谱系的意义。
  *
- * 而且它必须靠图注免责（「左端是我们能证明的最早时间，不是业界首次出现」）。
- * **一张需要图注免责的图，说明它量错了东西** —— 它量的是我们的采集能力，不是行业。
+ * 参照的是 LLM 演化树那类图：时间做一根轴，分支按血缘劈开，
+ * 模型作为叶子在各自发布的时刻长出来。
  *
- * 这张图的主体是**模型**，横轴是厂商自己发布的日期，所以不需要免责。
- * 每个节点必须回答一件事：**这一代新增了什么。**
+ * ## 动画为什么允许存在（§7.3）
  *
- * ## 读者能一眼拿到的三件事
+ * §7.3 只准三类动画，其中一类是 **Temporal Motion —— 用于解释 2024 → 2026 的变化**。
+ * 「按时间推进，模型一个个冒出来」正是这一类：
+ * 去掉它，读者就得自己在脑子里按日期重排 19 个节点。**它承担理解，不是装饰。**
  *
- * 1. **谁在猛迭代、谁停了** —— 断掉的线比连着的线信息量大
- * 2. **每一代真正加了什么** —— 不是版本号往上跳，是能力往上加
- * 3. **纵向切一刀**：同一项能力，谁先谁后
+ * 其余交互同样过了「去掉会少理解什么」这一关：
+ *  · 点一项能力 → 纵向切一刀，看各家谁先谁后（去掉就看不出谁领先）
+ *  · 点节点 → 钉住明细（**手机上没有 hover**，§12）
+ * 不做的：按公司筛选（现在就 6 棵树，筛完还是 6 棵）、缩放平移（不增加理解）。
  *
- * ## 覆盖不全是明说的，不是藏起来的
+ * ## 覆盖不全是明说的
  *
- * 万相和可灵能画出完整谱系，Runway/Vidu/Seedance 只有近期几个点。
- * **画一条只有两个点的线却不说明，读者会以为这家两年只更新过两次。**
- * 所以线的样式区分「完整」与「片段」，并在行尾直说。
+ * 万相和可灵能长成树，Runway/Vidu/Seedance 只有孤零零几个点。
+ * **画一个孤点却不说明，读者会以为这家两年只发过一次** —— 所以孤根单独标出来。
  */
-const W = 1080;
-const PAD = { l: 132, r: 128, t: 44, b: 28 };
-const ROW = 118; // 标签最多三层，给够地方，否则又糊成一团
+const W = 1120;
+const PAD = { l: 56, r: 150, t: 52, b: 40 };
+const LANE = 46; // 每个叶子占的高度
 
 const MS = (d: string) => new Date(`${d.length === 7 ? `${d}-01` : d}T00:00:00Z`).getTime();
-/** 一年内 ≥4 次发布记为「持续迭代」；否则只能算片段，不能让读者误以为这家两年只更新过两次。 */
-const DENSE = 4;
+const ymd = (ms: number) => new Date(ms).toISOString().slice(0, 10);
+
+type Node = { id: string; parent?: string; m: string; date: string; added: string; version: string; cap?: string; src: string; quote: string };
 
 export default function Genealogy() {
-  const [hot, setHot] = useState<string | null>(null);
+  const [pin, setPin] = useState<string | null>(null);
+  const [cap, setCap] = useState<string | null>(null);
+  const [cut, setCut] = useState(100);
+  const [playing, setPlaying] = useState(false);
+  const raf = useRef<number>(0);
 
-  const byModel = new Map<string, typeof atlas.versions>();
-  for (const v of atlas.versions) byModel.set(v.m, [...(byModel.get(v.m) ?? []), v]);
-  const lanes = [...byModel.entries()]
-    .map(([m, vs]) => ({
-      model: atlas.models.find((x) => x.id === m)!,
-      vs: [...vs].sort((a, b) => MS(a.date) - MS(b.date)),
-    }))
-    .filter((l) => l.model)
-    .sort((a, b) => b.vs.length - a.vs.length);
-
-  const all = atlas.versions.map((v) => MS(v.date));
+  const nodes = atlas.versions as unknown as Node[];
+  const all = nodes.map((n) => MS(n.date));
   const t0 = Math.min(...all), t1 = Math.max(...all);
-  const x = (d: string) => PAD.l + ((MS(d) - t0) / (t1 - t0)) * (W - PAD.l - PAD.r);
-  const H = PAD.t + lanes.length * ROW + PAD.b;
+  const cutMs = t0 + ((t1 - t0) * cut) / 100;
 
-  // 年份刻度
-  // 起点那一年的 1 月 1 日通常落在范围之外（数据从 2025-02 开始），
-  // 但**读者需要知道左边是哪一年** —— 所以它照样标，只是画在轴的最左端。
-  const years: { y: number; at: string }[] = [];
-  for (let y = new Date(t0).getUTCFullYear(); y <= new Date(t1).getUTCFullYear(); y++) {
-    const ms = Date.UTC(y, 0, 1);
-    years.push({ y, at: ms >= t0 ? `${y}-01-01` : new Date(t0).toISOString().slice(0, 10) });
-  }
-  const half = years.map(({ y }) => Date.UTC(y, 6, 1)).filter((ms) => ms >= t0 && ms <= t1);
+  /**
+   * 树布局：**每个节点占自己的一槽，按「先根后子、子按时间」的顺序排**。
+   *
+   * 第一版用的是经典 tidy tree（父节点取子节点中位）。结果单子链上父与子落在同一槽，
+   * 标签直接压成一团（Runway 的「换代 Gen-4.5」和「首帧图输入」叠在一起）。
+   * 这里节点少、每个都要带一行文字标签，**「一节点一槽」比「树看起来更居中」重要得多**。
+   * 分叉靠连线表达，不靠纵向对齐表达。
+   *
+   * 不引入布局库：19 个节点，引一个 ELK 是给一件能算出来的事加一个依赖。
+   */
+  const { pos, roots } = useMemo(() => {
+    const kids = new Map<string, Node[]>();
+    const rootList: Node[] = [];
+    for (const n of [...nodes].sort((a, b) => MS(a.date) - MS(b.date))) {
+      if (n.parent) kids.set(n.parent, [...(kids.get(n.parent) ?? []), n]);
+      else rootList.push(n);
+    }
+    const p = new Map<string, number>();
+    let slot = 0;
+    const walk = (n: Node) => {
+      p.set(n.id, slot++);
+      for (const c of kids.get(n.id) ?? []) walk(c);
+    };
+    for (const r of rootList) { walk(r); slot += 0.5; } // 树与树之间留条缝
+    return { pos: p, roots: new Set(rootList.map((r) => r.id)) };
+  }, [nodes]);
+
+  const maxSlot = Math.max(...[...pos.values()]) + 1;
+  const H = PAD.t + maxSlot * LANE + PAD.b;
+  const x = (d: string) => PAD.l + ((MS(d) - t0) / (t1 - t0)) * (W - PAD.l - PAD.r);
+  const y = (id: string) => PAD.t + (pos.get(id) ?? 0) * LANE + LANE / 2;
+
+  // 播放：把游标从头推到尾。**推完就停**，不循环 —— 循环的动画会一直抢注意力。
+  useEffect(() => {
+    if (!playing) return;
+    let last = performance.now();
+    const tick = (now: number) => {
+      const d = (now - last) / 1000; last = now;
+      setCut((c) => { const n = c + d * 22; if (n >= 100) { setPlaying(false); return 100; } return n; });
+      raf.current = requestAnimationFrame(tick);
+    };
+    raf.current = requestAnimationFrame(tick);
+    return () => cancelAnimationFrame(raf.current);
+  }, [playing]);
+
+  const capsHere = useMemo(() => {
+    const ids = new Set(nodes.map((n) => n.cap).filter(Boolean) as string[]);
+    return atlas.capabilities.filter((c) => ids.has(c.id));
+  }, [nodes]);
+
+  /** 选中某能力时，谁第几个拿到 —— 这就是「纵向一刀」的全部产出。 */
+  const order = useMemo(() => {
+    if (!cap) return new Map<string, number>();
+    const first = new Map<string, string>();
+    for (const n of [...nodes].sort((a, b) => MS(a.date) - MS(b.date)))
+      if (n.cap === cap && !first.has(n.m)) first.set(n.m, n.date);
+    return new Map([...first.entries()].sort((a, b) => MS(a[1]) - MS(b[1])).map(([m], i) => [m, i + 1]));
+  }, [cap, nodes]);
+
+  const years: number[] = [];
+  for (let yr = new Date(t0).getUTCFullYear(); yr <= new Date(t1).getUTCFullYear(); yr++) years.push(yr);
+  const hot = pin ? nodes.find((n) => n.id === pin) : null;
+  const ORG_HUE: Record<string, string> = {
+    wan: "var(--color-yes)", kling: "#7a5cc4", runway: "#b06a2c", seedance: "#2c6bb0", "vidu-q": "#b03a7a",
+  };
+  const hue = (m: string) => ORG_HUE[m] ?? "var(--color-muted)";
 
   return (
     <div className="flex flex-col gap-3">
+      <div className="flex flex-wrap items-center gap-2 text-[13px]">
+        <button onClick={() => { if (cut >= 100) setCut(0); setPlaying(!playing); }}
+          className="px-3 py-1 rounded border border-yes text-yes hover:bg-yes hover:text-paper">
+          {playing ? "⏸ 暂停" : "▶ 按时间长出来"}
+        </button>
+        <input type="range" min={0} max={100} value={cut}
+          onChange={(e) => { setPlaying(false); setCut(+e.target.value); }}
+          className="flex-1 min-w-[180px] max-w-[380px] accent-[var(--color-yes)]" aria-label="时间游标" />
+        <b className="text-ink tabular-nums">{ymd(cutMs).slice(0, 7)}</b>
+        <span className="text-muted">
+          {nodes.filter((n) => MS(n.date) <= cutMs).length} / {nodes.length} 个已发布
+        </span>
+      </div>
+
+      <div className="flex flex-wrap items-baseline gap-2 text-[13px]">
+        <span className="text-muted">切一项能力看谁先谁后：</span>
+        <button onClick={() => setCap(null)}
+          className={`px-2 py-0.5 rounded border ${!cap ? "border-yes text-yes" : "border-rule text-muted hover:text-ink"}`}>全部</button>
+        {capsHere.map((c) => (
+          <button key={c.id} onClick={() => setCap(cap === c.id ? null : c.id)}
+            className={`px-2 py-0.5 rounded border ${cap === c.id ? "border-yes text-yes" : "border-rule text-muted hover:text-ink"}`}>
+            {c.zh}
+          </button>
+        ))}
+      </div>
+
+      {cap && (
+        <p className="text-[14px] leading-relaxed border border-yes/40 bg-yes/6 rounded-lg p-3">
+          <b className="text-ink">
+            {atlas.capabilities.find((c) => c.id === cap)!.zh}：
+            {[...order.entries()].map(([m, i]) => (
+              <span key={m}>{i > 1 && " → "}{i}. {atlas.models.find((x) => x.id === m)?.family}</span>
+            ))}
+          </b>
+          <br />
+          <span className="text-muted text-[13px]">
+            只数我们手上有发布记录的那几家。<b className="text-ink">孤点那几家记录还不全</b>，排序会因此偏晚。
+          </span>
+        </p>
+      )}
+
       <div className="overflow-x-auto">
-        <svg viewBox={`0 0 ${W} ${H}`} className="w-full min-w-[820px]" style={{ height: H }}>
-          {years.map(({ y, at }) => (
-            <g key={y}>
-              <line x1={x(at)} x2={x(at)} y1={PAD.t - 22} y2={H - PAD.b} stroke="var(--color-rule)" />
-              <text x={x(at) + 5} y={PAD.t - 27} fontSize="12" fill="var(--color-muted)">{y}</text>
-            </g>
-          ))}
-          {half.map((ms) => (
-            <line key={ms} x1={x(new Date(ms).toISOString().slice(0, 10))} x2={x(new Date(ms).toISOString().slice(0, 10))}
-              y1={PAD.t - 12} y2={H - PAD.b} stroke="var(--color-rule)" strokeOpacity="0.4" strokeDasharray="3 4" />
-          ))}
-
-          {lanes.map((l, i) => {
-            const y = PAD.t + i * ROW + 30;
-            const dense = l.vs.length >= DENSE;
-            const dim = hot && hot !== l.model.id;
-            const dead = l.model.status === "discontinued";
+        <svg viewBox={`0 0 ${W} ${H}`} className="w-full min-w-[880px]" style={{ height: H }}>
+          {years.map((yr) => {
+            const at = Date.UTC(yr, 0, 1) >= t0 ? `${yr}-01-01` : ymd(t0);
             return (
-              <g key={l.model.id} opacity={dim ? 0.22 : 1} onMouseEnter={() => setHot(l.model.id)} onMouseLeave={() => setHot(null)}>
-                <text x={PAD.l - 12} y={y + 4} textAnchor="end" fontSize="14" fontWeight="600" fill="var(--color-ink)">
-                  {l.model.family}
-                </text>
-                {/* 实线＝持续迭代；虚线＝我们只拿到片段。**两者必须一眼分得开。** */}
-                <line x1={x(l.vs[0].date) - (l.vs.length === 1 ? 22 : 0)}
-                  x2={x(l.vs[l.vs.length - 1].date) + (l.vs.length === 1 ? 22 : 0)} y1={y} y2={y}
-                  stroke={dead ? "var(--color-no)" : "var(--color-yes)"} strokeWidth={dense ? 3 : 1.5}
-                  strokeDasharray={dense ? undefined : "6 5"} strokeLinecap="round" />
-
-                {/*
-                  标签分层不能按奇偶排。可灵 8 个月里发了 6 次，奇偶两层还是会撞成一团 ——
-                  **按实际像素距离贪心分层**：离上一个同层标签太近就换一层。
-                */}
-                {(() => {
-                  const lastAt: number[] = [];
-                  return l.vs.map((v, j) => {
-                  const gen = j === 0 || v.version !== l.vs[j - 1].version; // 换代 vs 增量
-                  const px = x(v.date);
-                  let tier = 0;
-                  while (lastAt[tier] !== undefined && px - lastAt[tier] < 132) tier += 1;
-                  lastAt[tier] = px;
-                  const up = tier % 2 === 0;
-                  const step = Math.floor(tier / 2) * 26;
-                  // 贴右边的节点标签居中会压到右侧那句「只拿到 N 个点」——
-                  // 靠边就改成右对齐，靠左同理。
-                  const near = px > W - PAD.r - 60 ? "end" : px < PAD.l + 60 ? "start" : "middle";
-                  const dx = near === "end" ? -8 : near === "start" ? 8 : 0;
-                  return (
-                    <g key={`${v.date}-${v.added}`}>
-                      <circle cx={x(v.date)} cy={y} r={gen ? 6 : 3.5}
-                        fill={gen ? "var(--color-yes)" : "var(--color-paper)"}
-                        stroke="var(--color-yes)" strokeWidth="2" />
-                      <line x1={px} x2={px} y1={y} y2={up ? y - 9 - step : y + 9 + step}
-                        stroke="var(--color-rule)" strokeWidth="1" />
-                      <text x={px + dx} y={up ? y - 13 - step : y + 22 + step} textAnchor={near} fontSize="11"
-                        fill="var(--color-ink)" fontWeight={gen ? 600 : 400}>
-                        {gen ? `${v.version} · ` : ""}{v.added.length > 11 ? `${v.added.slice(0, 10)}…` : v.added}
-                      </text>
-                      <text x={px + dx} y={up ? y - 25 - step : y + 34 + step} textAnchor={near} fontSize="9.5"
-                        fill="var(--color-muted)">{v.date.slice(0, 7)}</text>
-                    </g>
-                  );
-                });
-                })()}
-                <text x={W - PAD.r + 12} y={y + 4} fontSize="11.5" fill={dense ? "var(--color-muted)" : "var(--color-unknown)"}>
-                  {dense ? `${l.vs.length} 次发布` : `只拿到 ${l.vs.length} 个点`}
-                </text>
+              <g key={yr}>
+                <line x1={x(at)} x2={x(at)} y1={PAD.t - 26} y2={H - PAD.b} stroke="var(--color-rule)" />
+                <text x={x(at) + 5} y={PAD.t - 31} fontSize="12" fill="var(--color-muted)">{yr}</text>
               </g>
             );
           })}
+
+          {/* 树枝：先画边，节点压在上面 */}
+          {nodes.filter((n) => n.parent).map((n) => {
+            const p = nodes.find((z) => z.id === n.parent)!;
+            const x1 = x(p.date), y1 = y(p.id), x2 = x(n.date), y2 = y(n.id);
+            const mx = x1 + Math.max(18, (x2 - x1) * 0.45);
+            const on = MS(n.date) <= cutMs;
+            const lit = !cap || n.cap === cap;
+            return (
+              <path key={`e-${n.id}`} d={`M${x1},${y1} H${mx} Q${mx + 10},${y1} ${mx + 10},${y1 + Math.sign(y2 - y1) * 8} V${y2 - Math.sign(y2 - y1) * 8} Q${mx + 10},${y2} ${mx + 20},${y2} H${x2}`}
+                fill="none" stroke={hue(n.m)} strokeWidth={n.parent && p.version !== n.version ? 2.5 : 1.5}
+                opacity={on ? (lit ? 0.55 : 0.14) : 0.05}
+                style={{ transition: "opacity .35s" }} />
+            );
+          })}
+
+          {[...nodes].sort((a, b) => MS(a.date) - MS(b.date)).map((n) => {
+            const on = MS(n.date) <= cutMs;
+            const lit = !cap || n.cap === cap;
+            const isRoot = roots.has(n.id);
+            const rank = cap ? order.get(n.m) : undefined;
+            const px = x(n.date), py = y(n.id);
+            const solo = isRoot && !nodes.some((z) => z.parent === n.id);
+            return (
+              <g key={n.id} style={{ cursor: "pointer", transition: "opacity .35s" }}
+                opacity={on ? (lit ? 1 : 0.22) : 0}
+                onClick={() => setPin(pin === n.id ? null : n.id)}>
+                <circle cx={px} cy={py} r={isRoot ? 7 : 4.5}
+                  fill={isRoot ? hue(n.m) : "var(--color-paper)"} stroke={hue(n.m)} strokeWidth="2" />
+                {pin === n.id && <circle cx={px} cy={py} r="12" fill="none" stroke={hue(n.m)} strokeWidth="1.5" />}
+                <text x={px + 11} y={py - 4} fontSize="11.5" fontWeight={isRoot ? 700 : 500} fill="var(--color-ink)">
+                  {/* version 里已经带了产品名就别再拼一遍：Aleph 2.0 不该显示成「Runway Gen Aleph 2.0」 */}
+                  {isRoot
+                    ? (/[A-Za-z\u4e00-\u9fa5]{3,}/.test(n.version)
+                        ? n.version
+                        : `${atlas.models.find((x) => x.id === n.m)?.family} ${n.version}`)
+                    : n.added}
+                </text>
+                <text x={px + 11} y={py + 8} fontSize="9.5" fill="var(--color-muted)">
+                  {n.date.slice(0, 7)}{isRoot ? ` · ${n.added}` : ""}{solo ? " · 只拿到这一个点" : ""}
+                </text>
+                {rank && isRoot && (
+                  <>
+                    <circle cx={px - 15} cy={py} r="8.5" fill={hue(n.m)} />
+                    <text x={px - 15} y={py + 3.5} textAnchor="middle" fontSize="10.5" fontWeight="700"
+                      fill="var(--color-paper)">{rank}</text>
+                  </>
+                )}
+              </g>
+            );
+          })}
+
+          {cut < 100 && (
+            <line x1={x(ymd(cutMs))} x2={x(ymd(cutMs))} y1={PAD.t - 26} y2={H - PAD.b}
+              stroke="var(--color-unknown)" strokeWidth="1.5" />
+          )}
         </svg>
       </div>
 
-      {/* 图外的话只说两件事：怎么读、哪里不全。**不解释我们怎么采的。** */}
-      <p className="text-muted text-[13px] leading-relaxed max-w-[880px]">
-        实心大点＝换代，空心小点＝这一代里新增的能力。
-        <b className="text-ink">实线＝这家我们拿到了连续的发布记录；虚线＝只拿到片段</b>
-        {" "}—— 虚线不代表它更新得少，代表我们还没把它的发布记录补齐。
+      <p className="text-muted text-[13px] leading-relaxed max-w-[900px]">
+        实心大点＝一条线的起点（底座或换代），空心小点＝从它长出来的变体。
+        <b className="text-ink">分叉是真的：Wan2.1 上同时长出首尾帧和统一编辑两个模型。</b>
+        {" "}颜色区分厂商。点任一节点看原文。
+        <b className="text-ink">孤点＝这家的发布记录我们还没补齐</b>，不是它只发过一次。
       </p>
 
       {hot && (
-        <div className="border border-rule rounded-lg bg-card p-3 max-w-[880px] flex flex-col gap-1.5">
-          {(byModel.get(hot) ?? []).map((v) => (
-            <p key={`${v.date}-${v.added}`} className="text-[13px] leading-relaxed">
-              <span className="text-muted tabular-nums mr-2">{v.date}</span>
-              <b className="text-ink">{v.added}</b>
-              <span className="text-muted ml-2">
-                原文：「{v.quote}」
-                <a href={atlas.sources[v.src]?.url} target="_blank" rel="noreferrer" className="underline ml-1.5 hover:text-yes">
-                  {atlas.sources[v.src]?.name}
-                </a>
-              </span>
-            </p>
-          ))}
-          <Link href={modelHref(hot)} className="text-[13px] underline hover:text-yes self-start mt-1">
-            {label(atlas.models.find((m) => m.id === hot)!)} 的完整能力 →
+        <div className="border border-rule rounded-lg bg-card p-3 max-w-[900px] flex flex-col gap-1">
+          <p className="text-[15px]">
+            <b className="text-ink">{atlas.models.find((m) => m.id === hot.m)?.family} {hot.version}</b>
+            <span className="text-muted text-[13px] ml-2">{orgOf(hot.m)?.zh} · {hot.date}</span>
+          </p>
+          <p className="text-[14px]">新增：<b className="text-ink">{hot.added}</b></p>
+          <p className="text-muted text-[12px] leading-relaxed">
+            原文：「{hot.quote}」
+            <a href={atlas.sources[hot.src]?.url} target="_blank" rel="noreferrer" className="underline ml-1.5 hover:text-yes">
+              {atlas.sources[hot.src]?.name}
+            </a>
+          </p>
+          <Link href={modelHref(hot.m)} className="text-[13px] underline hover:text-yes self-start mt-1">
+            {label(atlas.models.find((m) => m.id === hot.m)!)} 的完整能力 →
           </Link>
         </div>
       )}

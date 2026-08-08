@@ -112,7 +112,22 @@ export type Price = {
  * `added` 是必填且是这条数据的全部价值所在：**只有版本号没有 added 的节点没有意义**——
  * 「Kling 出了 3.0」不涨知识，「Kling 3.0 加了动作复刻」才涨。
  */
-export type Version = { m: string; version: string; date: string; added: string; src: string; quote: string; note?: string };
+export type Version = {
+  /** 树节点 id。 */
+  id: string;
+  /** 父节点。**没有父节点的就当根，不许为了让树好看硬接一条边** —— Aleph 不是 Gen 的后代。 */
+  parent?: string;
+  m: string;
+  version: string;
+  date: string;
+  added: string;
+  /** 挂到能力轴上，「点一项能力看谁先谁后」靠它。**对不上就留空**，硬凑会把那一刀切错。 */
+  cap?: string;
+  cap_skip?: string;
+  src: string;
+  quote: string;
+  note?: string;
+};
 
 /** 上游投资关系。结构先建好 —— 但**可得性上限只有 B/C 级**，见 atlas.json 的 $investments。 */
 export type Investment = { from: string; to: string; round?: string; date?: string; src: string; quote: string };
