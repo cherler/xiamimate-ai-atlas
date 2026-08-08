@@ -59,6 +59,13 @@ export type Model = {
   reach_note?: string;
   /** 谱系节点少于 3 个时必须写明为什么（R58）。**「没采到」和「本来就没有」是两回事。** */
   lineage_note?: string;
+  /**
+   * 产品线级别的开闭源归属，用来分演化树的两条主干。
+   * **`mixed` 不是含糊，是真实情况**：万相 2.1/2.2 有权重、2.5 之后没有；
+   * 海螺反过来只有最新的 H3 放了权重。**同一条线前半开后半闭，硬分哪边都是错的。**
+   */
+  weights?: "open" | "closed" | "mixed";
+  weights_note?: string;
 };
 
 export type Source = { url: string; tier: "official" | "third-party"; name: string };

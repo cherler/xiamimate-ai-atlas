@@ -604,7 +604,8 @@
       "tier": "core",
       "domain": "video",
       "reach_cn": "ok",
-      "reach_note": "seed.bytedance.com 直连 200"
+      "reach_note": "seed.bytedance.com 直连 200",
+      "weights": "closed"
     },
     {
       "id": "hailuo",
@@ -618,7 +619,9 @@
       "tier": "core",
       "domain": "video",
       "reach_cn": "ok",
-      "reach_note": "minimax.io 直连 200；⚠️ 但权重在 huggingface.co，该域直连不可达"
+      "reach_note": "minimax.io 直连 200；⚠️ 但权重在 huggingface.co，该域直连不可达",
+      "weights": "mixed",
+      "weights_note": "H3 放出了权重（自定义社区许可），**之前的 01 / 02 / 2.3 没有**。"
     },
     {
       "id": "gemini-omni",
@@ -633,7 +636,8 @@
       "domain": "video",
       "reach_cn": "blocked",
       "reach_note": "同上",
-      "lineage_note": "谱系只有 1 个节点：这个模型 2026-06-30 才在 Gemini API 上线，**五周前的东西凑不出三次发布**。不是我们没采到，是它还没有历史。"
+      "lineage_note": "谱系只有 1 个节点：这个模型 2026-06-30 才在 Gemini API 上线，**五周前的东西凑不出三次发布**。不是我们没采到，是它还没有历史。",
+      "weights": "closed"
     },
     {
       "id": "wan",
@@ -649,7 +653,9 @@
       "tier": "core",
       "domain": "video",
       "reach_cn": "ok",
-      "reach_note": "wan.video 直连 200"
+      "reach_note": "wan.video 直连 200",
+      "weights": "mixed",
+      "weights_note": "2.1 / 2.2 系列在官方 HF 上有权重；**2.5 / 2.7 / 3.0 没有** —— 同一条产品线，前半开后半闭。"
     },
     {
       "id": "runway",
@@ -665,7 +671,8 @@
       "domain": "video",
       "reach_cn": "ok",
       "reach_note": "runway.com 直连 200",
-      "lineage_note": "谱系只有 3 个节点，且都在 2025-12 之后：Runway 的公开更新日志只回溯到那时，**Gen-1 / Gen-2 / Gen-3 的发布记录我们还没找到可引的官方页**。"
+      "lineage_note": "谱系只有 3 个节点，且都在 2025-12 之后：Runway 的公开更新日志只回溯到那时，**Gen-1 / Gen-2 / Gen-3 的发布记录我们还没找到可引的官方页**。",
+      "weights": "closed"
     },
     {
       "id": "kling",
@@ -679,7 +686,8 @@
       "tier": "core",
       "domain": "video",
       "reach_cn": "ok",
-      "reach_note": "klingai.com 直连 200"
+      "reach_note": "klingai.com 直连 200",
+      "weights": "closed"
     },
     {
       "id": "vidu-q",
@@ -694,7 +702,8 @@
       "tier": "core",
       "domain": "video",
       "reach_cn": "ok",
-      "reach_note": "vidu.com 直连 301"
+      "reach_note": "vidu.com 直连 301",
+      "weights": "closed"
     },
     {
       "id": "veo",
@@ -709,7 +718,8 @@
       "tier": "core",
       "domain": "video",
       "reach_cn": "blocked",
-      "reach_note": "ai.google.dev 直连不通（连接失败）—— 读官方文档要出境"
+      "reach_note": "ai.google.dev 直连不通（连接失败）—— 读官方文档要出境",
+      "weights": "closed"
     },
     {
       "id": "sora",
@@ -770,7 +780,8 @@
       "status_note": "开源侧下载量最高的视频模型：LTX-2.3 ↓178 万，另有 fp8 / nvfp4 量化版。⚠️ 与 MiniMax H3 同一模式：叫开源，用的是自定义社区许可",
       "domain": "video",
       "reach_cn": "blocked",
-      "reach_note": "huggingface.co 直连不通 —— **权重在那儿，想自部署得先解决可达性**"
+      "reach_note": "huggingface.co 直连不通 —— **权重在那儿，想自部署得先解决可达性**",
+      "weights": "open"
     },
     {
       "id": "happyhorse",
@@ -802,7 +813,8 @@
       "status_note": "⚠️ AA 榜 Elo 1107。官方 HF 组织 Skywork 有 SkyReels-V3-A2V-19B，但榜上是 V4 —— **两边对不上**，待核",
       "domain": "video",
       "reach_cn": "unknown",
-      "reach_note": "未测"
+      "reach_note": "未测",
+      "weights": "open"
     },
     {
       "id": "hunyuan-video",
@@ -816,7 +828,8 @@
       "tier": "extended",
       "domain": "video",
       "reach_cn": "ok",
-      "note": "开源侧谱系的主干之一，进 extended 层（规则四：core 每轨 ≤10）。能力格未逐格核，只保证「它存在」。"
+      "note": "开源侧谱系的主干之一，进 extended 层（规则四：core 每轨 ≤10）。能力格未逐格核，只保证「它存在」。",
+      "weights": "open"
     },
     {
       "id": "mochi",
@@ -830,7 +843,8 @@
       "tier": "extended",
       "domain": "video",
       "reach_cn": "unknown",
-      "note": "开源侧谱系的主干之一，进 extended 层（规则四：core 每轨 ≤10）。能力格未逐格核，只保证「它存在」。"
+      "note": "开源侧谱系的主干之一，进 extended 层（规则四：core 每轨 ≤10）。能力格未逐格核，只保证「它存在」。",
+      "weights": "open"
     },
     {
       "id": "allegro",
@@ -844,7 +858,8 @@
       "tier": "extended",
       "domain": "video",
       "reach_cn": "unknown",
-      "note": "开源侧谱系的主干之一，进 extended 层（规则四：core 每轨 ≤10）。能力格未逐格核，只保证「它存在」。"
+      "note": "开源侧谱系的主干之一，进 extended 层（规则四：core 每轨 ≤10）。能力格未逐格核，只保证「它存在」。",
+      "weights": "open"
     },
     {
       "id": "open-sora",
@@ -858,7 +873,8 @@
       "tier": "extended",
       "domain": "video",
       "reach_cn": "unknown",
-      "note": "开源侧谱系的主干之一，进 extended 层（规则四：core 每轨 ≤10）。能力格未逐格核，只保证「它存在」。"
+      "note": "开源侧谱系的主干之一，进 extended 层（规则四：core 每轨 ≤10）。能力格未逐格核，只保证「它存在」。",
+      "weights": "open"
     }
   ],
   "sources": {
@@ -2091,6 +2107,51 @@
       "verified_for": "V4",
       "src": "aa-board",
       "note": "榜单上有它（Elo 1107），说明能出片、且有人在用。**其余能力一格未核** —— Extended 层只保证「它存在」，不保证核过"
+    },
+    {
+      "m": "hunyuan-video",
+      "c": "openweights",
+      "state": "yes",
+      "verified_for": "1.5",
+      "src": "hf-lineage",
+      "quote": "tencent/HunyuanVideo",
+      "note": "证据是官方 HF 组织上的公开权重仓库。**许可条款未逐条核** —— 「权重公开」不等于标准开源协议。"
+    },
+    {
+      "m": "skyreels",
+      "c": "openweights",
+      "state": "yes",
+      "verified_for": "V4",
+      "src": "hf-lineage",
+      "quote": "Skywork/SkyReels-V2-T2V-14B-720P",
+      "note": "证据是官方 HF 组织上的公开权重仓库。**许可条款未逐条核** —— 「权重公开」不等于标准开源协议。"
+    },
+    {
+      "m": "mochi",
+      "c": "openweights",
+      "state": "yes",
+      "verified_for": "1",
+      "src": "hf-lineage",
+      "quote": "genmo/mochi-1-preview",
+      "note": "证据是官方 HF 组织上的公开权重仓库。**许可条款未逐条核** —— 「权重公开」不等于标准开源协议。"
+    },
+    {
+      "m": "allegro",
+      "c": "openweights",
+      "state": "yes",
+      "verified_for": "T2V",
+      "src": "hf-lineage",
+      "quote": "rhymes-ai/Allegro",
+      "note": "证据是官方 HF 组织上的公开权重仓库。**许可条款未逐条核** —— 「权重公开」不等于标准开源协议。"
+    },
+    {
+      "m": "open-sora",
+      "c": "openweights",
+      "state": "yes",
+      "verified_for": "v2",
+      "src": "hf-lineage",
+      "quote": "hpcai-tech/Open-Sora-v2-Video-DC-AE",
+      "note": "证据是官方 HF 组织上的公开权重仓库。**许可条款未逐条核** —— 「权重公开」不等于标准开源协议。"
     }
   ],
   "$aliases_why": "各家给同一个能力起不同的名字。**Kling 管角色参考叫 Element，我按 Character Reference 去找，找不到就标了「官方没说」—— 假阴性。** 采集时必须用整组别名去匹配，不能只用我们自己的叫法。这是原方案 §36 Entity Resolution 在能力维度上的对应物。\n\n`alias_bit_us` 标在**真把我们坑过的那一项**上（角色参考）。别名多不等于叫法分歧大：「首尾帧」也有 8 条别名，但全是 start/end frame 的描述性变体，谁都猜得到；而 Element / Ingredients / cameo 是厂商自造词，**不知道就永远搜不到**。选例子要选后者，靠数别名条数是挑不出来的 —— 所以标在数据里，不用启发式猜。",
@@ -3587,5 +3648,6 @@
       "quote": "视频资源包支持 Hailuo 系列视频模型，暂不支持 MiniMax H3。"
     }
   ],
-  "$discount": "折扣。此前埋在 pricing.note 里，结构化出来才能在对比表里并排看。\n字段：{p, m, rule, off, src, quote}\n\n第一批两条。海螺那条是**负面折扣**：资源包确实有折扣，但官方明写「暂不支持 MiniMax H3」——**而 H3 正是它的当前主力**。只写「有折扣」会把人骗进去。"
+  "$discount": "折扣。此前埋在 pricing.note 里，结构化出来才能在对比表里并排看。\n字段：{p, m, rule, off, src, quote}\n\n第一批两条。海螺那条是**负面折扣**：资源包确实有折扣，但官方明写「暂不支持 MiniMax H3」——**而 H3 正是它的当前主力**。只写「有折扣」会把人骗进去。",
+  "$weights": "`weights` 是**产品线级别**的开闭源归属，用来分演化树的两条主干。\n**`mixed` 不是含糊，是真实情况**：万相 2.1/2.2 在官方 HF 上有权重、2.5 之后没有；\n海螺反过来，只有最新的 H3 放了权重。**同一条产品线前半开后半闭**，\n硬分成开源或闭源哪一边都是错的。"
 }

@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
-import Genealogy from "@/components/Genealogy";
+import Tree from "@/components/Tree";
+import { atlas } from "@/lib/atlas";
 
 /** 演化树。**这一页是分发引擎** —— 分享图带来的人落在这里，所以它必须有出口。 */
 export const metadata: Metadata = {
@@ -12,10 +13,11 @@ export default function TreePage() {
     <main className="max-w-[1240px] mx-auto px-5 py-8 flex flex-col gap-4">
       <h1 className="text-[28px] font-semibold leading-tight">谁在什么时候，长出了什么</h1>
       <p className="text-muted text-[15px] max-w-[860px]">
-        万相的首尾帧、统一编辑、语音驱动、动作复刻是四个单独发布的模型；可灵是同一条产品线逐版本往上加。
+        {atlas.versions.length} 次发布，{new Set(atlas.versions.map((v) => v.m)).size} 条产品线，
+        从 {atlas.versions.map((v) => v.date).sort()[0]} 到今天。左开源、右闭源。
       </p>
       <div className="bg-card border border-rule rounded-xl p-4">
-        <Genealogy />
+        <Tree />
       </div>
     </main>
   );
