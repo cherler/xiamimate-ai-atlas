@@ -6,6 +6,12 @@ import { atlas } from "@/lib/atlas";
 export const metadata: Metadata = {
   title: "AI 视频模型演化树 —— 谁在什么时候长出了什么",
   description: "每个节点是一次发布，写明这一代新增了什么。开源实心、闭源空心，日期取自厂商官方发布记录。",
+  openGraph: {
+    title: "AI 视频模型演化树 —— 67 次发布，14 条产品线",
+    description: "时间做纵轴，开源与闭源两条主干。每个节点写明这一代新增了什么，日期取自厂商官方发布记录。",
+    images: [{ url: "/atlas/og/tree-16x9.png", width: 1200, height: 675 }],
+  },
+  twitter: { card: "summary_large_image", images: ["/atlas/og/tree-16x9.png"] },
 };
 
 export default function TreePage() {

@@ -185,6 +185,81 @@ function matrixCard(w, h) {
     `每一格都能点开看厂商官方原文与核验日期`);
 }
 
+/**
+ * 演化树卡：**分发引擎的那一张。**
+ * 不画完整的树（67 个节点缩到 1200 宽会糊成一团），画它的**结论**：
+ * 哪几条线在开源侧、哪几条在闭源侧、各自迭代了多少次、谁在中间换了向。
+ */
+function treeCard(w, h) {
+  const by = new Map();
+  for (const v of a.versions) by.set(v.m, (by.get(v.m) ?? 0) + 1);
+  const rows = [...by.entries()].map(([m, n]) => {
+    const mm = a.models.find((x) => x.id === m);
+    const ds = a.versions.filter((v) => v.m === m).map((v) => v.date).sort();
+    return { m, n, model: mm, first: ds[0], last: ds[ds.length - 1], w: mm?.weights };
+  }).filter((r) => r.model).sort((x, y) => y.n - x.n);
+  const open = rows.filter((r) => r.w === "open" || r.m === "wan");
+  const closed = rows.filter((r) => !(r.w === "open" || r.m === "wan"));
+  const span = `${rows.map((r) => r.first).sort()[0]} → ${rows.map((r) => r.last).sort().pop()}`;
+  const maxN = Math.max(...rows.map((r) => r.n));
+  // 条的**长度**才是发布次数。第一版把 n 映射到了高度，10 次和 1 次几乎一样长 ——
+  // **形状要能一眼比大小，那才叫「不靠文字」。**
+  const col = (list, title, hue) => `
+    <div style="flex:1">
+      <div style="font-size:${Math.round(w * 0.019)}px;font-weight:700;color:${hue};margin-bottom:${Math.round(w * 0.012)}px">${title}</div>
+      ${list.map((r) => `<div style="display:flex;align-items:baseline;gap:8px;margin-bottom:${Math.round(w * 0.008)}px">
+        <span style="font-size:${Math.round(w * 0.019)}px;font-weight:600;min-width:${Math.round(w * 0.115)}px">${esc(r.model.family)}</span>
+        <span style="flex:1;display:block;height:${Math.round(w * 0.009)}px;background:${C.rule};border-radius:99px;opacity:.5">
+          <span style="display:block;width:${Math.round((r.n / maxN) * 100)}%;height:100%;background:${hue};border-radius:99px"></span>
+        </span>
+        <span style="font-size:${Math.round(w * 0.016)}px;color:${C.muted};font-variant-numeric:tabular-nums">${r.n} 次</span>
+      </div>`).join("")}
+    </div>`;
+  return shell(w, h, `
+    <div style="font-size:${Math.round(w * 0.033)}px;font-weight:700;line-height:1.25">
+      ${a.versions.length} 次发布，${rows.length} 条产品线
+    </div>
+    <div style="font-size:${Math.round(w * 0.0155)}px;color:${C.muted};margin:6px 0 ${Math.round(w * 0.026)}px">
+      ${span} · 日期取自厂商官方发布记录
+    </div>
+    <div style="display:flex;gap:${Math.round(w * 0.035)}px">
+      ${col(open, "开源权重", C.yes)}
+      ${col(closed, "闭源", "#7a5cc4")}
+    </div>
+    <div style="margin-top:${Math.round(w * 0.028)}px;font-size:${Math.round(w * 0.0185)}px;line-height:1.6">
+      <b>两条主干中间是交叉的。</b>万相 2.1/2.2 在官方 HF 上有权重、2.5 之后没有；
+      海螺反过来，只有最新的 H3 放了权重。
+    </div>`,
+    `每次发布都写明这一代新增了什么`);
+}
+
+/** 「别踩坑」卡：这个产品最值钱的那一页，压成一张图。 */
+function caveatCard(w, h) {
+  const older = (a.availability ?? []).filter((v) => v.match === "older");
+  const gone = (a.availability ?? []).filter((v) => {
+    const m = a.models.find((x) => x.id === v.m);
+    return m?.status === "discontinued" && v.status !== "gone";
+  });
+  const soon = (a.availability ?? []).filter((v) => v.status === "coming-soon");
+  const blocked = a.models.filter((m) => m.reach_cn === "blocked" && (m.tier ?? "core") === "core");
+  const pn = (id) => a.platforms.find((x) => x.id === id)?.name ?? id;
+  const item = (t, list, mark) => list.length ? `
+    <div style="margin-bottom:${Math.round(w * 0.022)}px">
+      <div style="font-size:${Math.round(w * 0.021)}px;font-weight:700">${mark} ${t}<span style="color:${C.muted};font-weight:400"> ${list.length} 条</span></div>
+      <div style="font-size:${Math.round(w * 0.0175)}px;color:${C.muted};line-height:1.55;margin-top:2px">${list.slice(0, 3).join("；")}</div>
+    </div>` : "";
+  return shell(w, h, `
+    <div style="font-size:${Math.round(w * 0.036)}px;font-weight:700;line-height:1.22">能力对了，你未必用得上</div>
+    <div style="font-size:${Math.round(w * 0.0155)}px;color:${C.muted};margin:6px 0 ${Math.round(w * 0.026)}px">
+      每条都从厂商官方页面核过，带原文
+    </div>
+    ${item("上游停服了，平台还在卖", gone.map((v) => `${pn(v.p)} 还挂着 ${label(a.models.find((x) => x.id === v.m))}`), "⚠️")}
+    ${item("上架的不是当前版本", older.map((v) => `${pn(v.p)}：${v.listed}`), "⚠️")}
+    ${item("标着有，其实还不能用", soon.map((v) => `${pn(v.p)}：${v.listed}`), "🕐")}
+    ${item("大陆直连不通", blocked.map((m) => label(m)), "🚫")}`,
+    `下单之前先看这几条`);
+}
+
 /** 模型卡：这个模型能做什么、不能做什么、官方没说什么。 */
 function modelCard(m, w, h) {
   const caps = capsOf(m.class);
@@ -240,6 +315,9 @@ const EVERY = ALL ? Object.keys(RATIOS) : ["16x9"];
 
 // 首页/总表：**四个比例都出** —— 这是唯一真会被人手动转发的一张
 add("index", matrixCard, Object.keys(RATIOS));
+// 演化树与「别踩坑」也出四个比例 —— **这两张才是最有转发潜力的**
+add("tree", treeCard, Object.keys(RATIOS));
+add("caveats", caveatCard, Object.keys(RATIOS));
 for (const m of a.models) add(`model-${m.id}`, (w, h) => modelCard(m, w, h), EVERY);
 for (const c of a.capabilities) add(`capability-${c.id}`, (w, h) => capCard(c, w, h), EVERY);
 

@@ -13,6 +13,12 @@ import { modelHref } from "@/lib/slug";
 export const metadata: Metadata = {
   title: "能力对了，你未必用得上 —— 下单前先看这几条",
   description: "上架的常常不是当前版本；上游停服了平台还在卖；同一个模型各平台不同价；大陆直连不通。每条带厂商官方原文。",
+  openGraph: {
+    title: "能力对了，你未必用得上 —— 下单前先看这几条",
+    description: "上游停服了平台还在卖；上架的常常不是当前版本；同一模型各平台不同价；大陆直连不通。每条带厂商官方原文。",
+    images: [{ url: "/atlas/og/caveats-16x9.png", width: 1200, height: 675 }],
+  },
+  twitter: { card: "summary_large_image", images: ["/atlas/og/caveats-16x9.png"] },
 };
 
 export default function CaveatsPage() {
