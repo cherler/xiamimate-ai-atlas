@@ -22,6 +22,7 @@ const MAIN = [
   { href: "/tree", zh: "演化" },
   { href: "/map", zh: "关系图" },
   { href: "/where", zh: "去哪用" },
+  { href: "/caveats", zh: "别踩坑" },
   { href: "/models", zh: "全部模型" },
   { href: "/changes", zh: "变化" },
 ];

@@ -23,6 +23,7 @@ const LABEL: Record<string, string> = {
   "/models": "看全部模型",
   "/changes": "最近变了什么",
   "/toolkit": "该去哪个站查",
+  "/caveats": "下单前先看这几条",
 };
 
 export default function NextSteps() {

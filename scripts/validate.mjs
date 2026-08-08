@@ -228,7 +228,7 @@ const flows = existsSync(new URL("../data/flows.json", import.meta.url))
   : null;
 if (flows) {
   // 路由表：静态页 + 动态段的样板。动态段只校验前缀，具体 id 由 generateStaticParams 保证。
-  const ROUTES = ["/", "/tree", "/map", "/where", "/models", "/toolkit", "/changes", "/method"];
+  const ROUTES = ["/", "/tree", "/map", "/where", "/caveats", "/models", "/toolkit", "/changes", "/method"];
   const DYN = ["/model/", "/capability/", "/skill/", "/compare/"];
   const known = (p) => ROUTES.includes(p) || DYN.some((d) => p.startsWith(d));
   for (const f of flows) {

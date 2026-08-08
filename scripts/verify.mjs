@@ -52,6 +52,7 @@ const ROUTES = [
   { path: "/capability/flf", must: "首尾帧", zh: 1200, built: true },
   { path: "/tree", must: "长出了什么", zh: 800, built: true },
   { path: "/where", must: "我在哪能用上", zh: 1600, built: true },
+  { path: "/caveats", must: "你未必用得上", zh: 1400, built: true },
   { path: "/compare/kling-vs-seedance", must: "还是", zh: 800, built: true },
   { path: "/skill/motion", must: "动作复刻", zh: 1200 },
   { path: "/toolkit", must: "该去哪个站", zh: 1200 },
@@ -124,6 +125,7 @@ for (const [vp, w, h] of [["桌面", 1440, 900], ["手机", 390, 844]]) {
     page.on("console", (m) => { if (m.type() === "error") errs.push(m.text().split("\n")[0].slice(0, 90)); });
 
     let body = "";
+    let mainText = "";
     let fellBack = false;
     try {
       await page.goto(`${ORIGIN}${BASE}${r.path === "/" ? "" : r.path}`,
@@ -133,6 +135,10 @@ for (const [vp, w, h] of [["桌面", 1440, 900], ["手机", 390, 844]]) {
       // textContent **把隐藏元素的文字也算进来** —— 移动端叙事版在桌面上是 hidden，
       // 文字却照样计入，首页因此虚高一倍多。**这正是「量错了东西」的又一例**。
       body = await page.evaluate("document.body.innerText");
+      // 中文字数只量 <main> —— **导航和页脚是 chrome，不是「我们的解释说明」**。
+      // 量 body 的后果：加一个导航项，十二个页面的预算同时被扣，
+      // 而那和「前端放不放旁白」毫无关系。度量要对准它想管的那件事。
+      mainText = await page.evaluate('document.querySelector("main")?.innerText ?? document.body.innerText');
       // 兜底判断靠 data-page="home" 这个**稳定记号**，不靠首页的文案 ——
       // 文案一改判断就失效（刚才就失效了）。
       fellBack = r.path !== "/" && (await page.evaluate('!!document.querySelector(\'[data-page="home"]\')'));
@@ -158,7 +164,7 @@ for (const [vp, w, h] of [["桌面", 1440, 900], ["手机", 390, 844]]) {
      * 所以：**只许降不许升** —— 超过上次记录的基线就失败，
      * 同时把「离目标还差多少」打出来，让欠账一直可见。
      */
-    const zh = (body.match(/[一-龥]/g) ?? []).length;
+    const zh = (mainText.match(/[一-龥]/g) ?? []).length;
     const key = `${r.path}|${vp}`;
     const base = BASE_ZH[key] ?? Infinity;
     const pass = zh <= Math.max(r.zh, base);

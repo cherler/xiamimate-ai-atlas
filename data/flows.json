@@ -6,9 +6,33 @@
       "name": "我要做一件事，用谁？",
       "note": "最高频。分发进来的人如果带着具体任务，走这条。",
       "steps": [
-        { "page": "/", "q": "你想做什么", "exits": ["/compare/kling-vs-seedance", "/models"] },
-        { "page": "/compare/kling-vs-seedance", "q": "这两个选哪个", "exits": ["/where"] },
-        { "page": "/where", "q": "去哪用、多少钱", "exits": [] }
+        {
+          "page": "/",
+          "q": "你想做什么",
+          "exits": [
+            "/compare/kling-vs-seedance",
+            "/models"
+          ]
+        },
+        {
+          "page": "/compare/kling-vs-seedance",
+          "q": "这两个选哪个",
+          "exits": [
+            "/where"
+          ]
+        },
+        {
+          "page": "/where",
+          "q": "去哪用、多少钱",
+          "exits": [
+            "/caveats"
+          ]
+        },
+        {
+          "page": "/caveats",
+          "q": "下单前还要注意什么",
+          "exits": []
+        }
       ]
     },
     {
@@ -16,9 +40,34 @@
       "name": "这东西现在到什么程度了？",
       "note": "演化树分享图带来的人走这条。",
       "steps": [
-        { "page": "/tree", "q": "谁在什么时候长出了什么", "exits": ["/model/wan", "/map"] },
-        { "page": "/model/wan", "q": "这个模型到底能做什么", "exits": ["/where", "/capability/flf"] },
-        { "page": "/where", "q": "我能不能用上", "exits": [] }
+        {
+          "page": "/tree",
+          "q": "谁在什么时候长出了什么",
+          "exits": [
+            "/model/wan",
+            "/map"
+          ]
+        },
+        {
+          "page": "/model/wan",
+          "q": "这个模型到底能做什么",
+          "exits": [
+            "/where",
+            "/capability/flf"
+          ]
+        },
+        {
+          "page": "/where",
+          "q": "我能不能用上",
+          "exits": [
+            "/caveats"
+          ]
+        },
+        {
+          "page": "/caveats",
+          "q": "能力对了就能用吗",
+          "exits": []
+        }
       ]
     },
     {
@@ -26,9 +75,26 @@
       "name": "我在追踪这个领域",
       "note": "复访靠它。",
       "steps": [
-        { "page": "/changes", "q": "变了什么，意味着什么", "exits": ["/tree", "/where"] },
-        { "page": "/tree", "q": "放到整条线上看", "exits": ["/model/wan"] },
-        { "page": "/model/wan", "q": "这一家的全貌", "exits": [] }
+        {
+          "page": "/changes",
+          "q": "变了什么，意味着什么",
+          "exits": [
+            "/tree",
+            "/where"
+          ]
+        },
+        {
+          "page": "/tree",
+          "q": "放到整条线上看",
+          "exits": [
+            "/model/wan"
+          ]
+        },
+        {
+          "page": "/model/wan",
+          "q": "这一家的全貌",
+          "exits": []
+        }
       ]
     }
   ]
