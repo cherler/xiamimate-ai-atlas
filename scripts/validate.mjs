@@ -69,6 +69,11 @@ for (const v of a.availability ?? []) {
   if (!["available", "coming-soon", "gone"].includes(v.status)) errs.push(`R17 非法状态 ${v.status}：${at}`);
   if (!["same", "older", "newer", "unknown"].includes(v.match)) errs.push(`R18 非法 match：${at}`);
   // 上架的是旧版本，却没写清楚 —— 那正是这张表最该说的话
+  if (!["api", "web", "both", "unknown"].includes(v.access_type)) errs.push(`R53 非法 access_type：${at}`);
+  if (!["free", "paid", "trial", "unknown"].includes(v.plan)) errs.push(`R53 非法 plan：${at}`);
+  // 有效期过了却还标着 available —— 那是过期的断言
+  if (v.valid_to && v.valid_to !== "unknown" && v.valid_to < a.generated_at && v.status !== "gone")
+    errs.push(`R54 有效期已过（${v.valid_to}）却不是 gone：${at}`);
   if (v.match === "older" && !v.note) warns.push(`R19 上架版本比当前主力旧，却没写说明：${at}`);
 }
 
@@ -126,6 +131,81 @@ for (const q of a.pricing ?? []) {
   // 有价必须有维度：同一个模型 720P 和 4K 能差 5 倍，记成一个标量必然是错的
   if (q.unit !== "unavailable" && !(q.tiers ?? []).length) errs.push(`R37 有价但没写档位（分辨率/时长/有无声）：${at}`);
   if (!q.as_of) errs.push(`R38 价格没写核验日期 —— 价格比能力更容易过期：${at}`);
+}
+
+// ── 版本谱系（B1）。树的边错了，整张演化图就是错的。
+const vids = new Set((a.versions ?? []).map((v) => v.id));
+for (const v of a.versions ?? []) {
+  const at = `版本 ${v.id}`;
+  if (!mids.has(v.m)) errs.push(`R55a 版本挂到不存在的模型：${at} → ${v.m}`);
+  if (!v.added) errs.push(`R55b 版本没写「这一代新增了什么」—— 只有版本号的节点没有价值：${at}`);
+  if (v.parent) {
+    if (!vids.has(v.parent)) errs.push(`R56a parent 指向不存在的节点：${at} → ${v.parent}`);
+    else {
+      const p = a.versions.find((x) => x.id === v.parent);
+      // **时间倒流的血缘是错的** —— 父节点不可能晚于子节点发布
+      if (p.date > v.date) errs.push(`R56 血缘时间倒流：${at}（${v.date}）的父节点 ${p.id} 是 ${p.date}`);
+    }
+  }
+}
+// 环：顺着 parent 往上走，走不到根就是有环
+for (const v of a.versions ?? []) {
+  const seen = new Set([v.id]);
+  let cur = v;
+  while (cur?.parent) {
+    if (seen.has(cur.parent)) { errs.push(`R57 血缘成环：${v.id}`); break; }
+    seen.add(cur.parent);
+    cur = a.versions.find((x) => x.id === cur.parent);
+  }
+}
+
+// ── 新实体（A2）。**结构先立、校验先行**：结构定错了，填进去的数据全要返工。
+// 五个都可以是空数组 —— 不能因为还没填数据就报错。
+const skillIds = new Set((a.skills ?? []).map((k) => k.id));
+for (const k of a.skills ?? []) {
+  const at = `Skill ${k.id}`;
+  if (k.cap && !caps.has(k.cap)) errs.push(`R43 Skill 的 cap 不在能力轴内：${at} → ${k.cap}`);
+  for (const m of k.native ?? []) if (!models.has(m)) errs.push(`R43 Skill 的原生实现指向不存在的模型：${at} → ${m}`);
+  for (const o of [...(k.opensource ?? []), ...(k.platform_feature ?? [])])
+    if (!o.src || !o.quote) errs.push(`R44 Skill 的实现条目缺来源或原文：${at} → ${o.name ?? o.p}`);
+  // **一个没有「已知限制」的 Skill 页是在卖广告，不是在帮人。**
+  if (!(k.limits ?? []).length) warns.push(`R45 Skill 没写已知限制：${at}`);
+  if (!k.verified_at) errs.push(`R45a Skill 没写核验日期：${at}`);
+}
+
+for (const e of a.change_events ?? []) {
+  const at = `变化 ${e.date} ${e.entity}`;
+  // **只有 after 的那是新闻，不是 ChangeEvent。**
+  for (const f of ["before", "after", "why"])
+    if (!e[f]) errs.push(`R46 变化事件缺 ${f} —— 只有 after 的是新闻不是 ChangeEvent：${at}`);
+  for (const x of e.affects ?? []) {
+    const [kind, id] = x.includes(":") ? x.split(":") : ["model", x];
+    const okRef = kind === "skill" ? skillIds.has(id) : kind === "capability" ? caps.has(id) : models.has(id);
+    if (!okRef) errs.push(`R47 变化事件的影响对象解析不到：${at} → ${x}`);
+  }
+  if (!e.src || !e.quote) errs.push(`R48 变化事件缺来源或原文：${at}`);
+}
+
+for (const t of a.toolkit ?? []) {
+  // **只有链接没有判断的就是 hao123**（§16 原话：不要做一排 Logo 的 hao123）。
+  if (!t.verdict) errs.push(`R49 工具箱条目没有我们的判断：${t.site}`);
+  if (!t.caveat) errs.push(`R49 工具箱条目没有负面结论 —— 那正是这一页的价值：${t.site}`);
+  if (!t.url || !t.checked_at) errs.push(`R49a 工具箱条目缺链接或核验日期：${t.site}`);
+}
+
+for (const e of a.effect ?? []) {
+  const at = `效果 ${e.m}`;
+  if (!mids.has(e.m)) errs.push(`R50a 未知模型：${at}`);
+  // **我们不打分，只转述并标明是谁说的。**
+  if (!e.who) errs.push(`R50 效果没写是谁说的 —— 我们不打分，只转述：${at}`);
+  if (!["third-party", "vendor-claim"].includes(e.kind)) errs.push(`R50b 非法 kind：${at}`);
+  if (e.kind === "third-party" && !e.url) errs.push(`R51 第三方效果没有回源链接：${at}`);
+  if (!e.quote || !e.as_of) errs.push(`R51a 效果缺原文或核验日期：${at}`);
+}
+
+for (const d of a.discount ?? []) {
+  if (!pids.has(d.p) || !mids.has(d.m)) errs.push(`R52a 折扣挂到不存在的平台或模型：${d.p} × ${d.m}`);
+  if (!d.src || !d.quote) errs.push(`R52 折扣缺来源或原文：${d.p} × ${d.m}`);
 }
 
 // ── 动线（A1）。**没有动线，拆页只是把一堆页面摆开。**

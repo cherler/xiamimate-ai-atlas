@@ -2150,7 +2150,12 @@
       "status": "available",
       "src": "replicate-t2v",
       "quote": "Kling Video 3.0 generates cinematic videos up to 15 seconds with native audio",
-      "match": "same"
+      "match": "same",
+      "access_type": "api",
+      "region": "全球",
+      "plan": "unknown",
+      "valid_from": "unknown",
+      "valid_to": "unknown"
     },
     {
       "p": "replicate",
@@ -2160,7 +2165,12 @@
       "src": "replicate-t2v",
       "quote": "Seedance 2.5 is coming soon",
       "match": "same",
-      "note": "⚠️ 页面明写 coming soon —— **还不能用**，不是已上架"
+      "note": "⚠️ 页面明写 coming soon —— **还不能用**，不是已上架",
+      "access_type": "api",
+      "region": "全球",
+      "plan": "unknown",
+      "valid_from": "unknown",
+      "valid_to": "unknown"
     },
     {
       "p": "replicate",
@@ -2169,7 +2179,12 @@
       "status": "available",
       "src": "replicate-t2v",
       "quote": "Google Veo 3.1 and Veo 3.1 Fast are strong alternatives with native audio generation",
-      "match": "same"
+      "match": "same",
+      "access_type": "api",
+      "region": "全球",
+      "plan": "unknown",
+      "valid_from": "unknown",
+      "valid_to": "unknown"
     },
     {
       "p": "replicate",
@@ -2179,7 +2194,12 @@
       "src": "replicate-t2v",
       "quote": "Hailuo 2.3 from Minimax supports both text-to-video and image-to-video",
       "match": "older",
-      "note": "⚠️ **上架的是 2.3，不是我们表里核的 H3** —— 想用 H3 的能力，这里给不了"
+      "note": "⚠️ **上架的是 2.3，不是我们表里核的 H3** —— 想用 H3 的能力，这里给不了",
+      "access_type": "api",
+      "region": "全球",
+      "plan": "unknown",
+      "valid_from": "unknown",
+      "valid_to": "unknown"
     },
     {
       "p": "replicate",
@@ -2188,7 +2208,12 @@
       "status": "available",
       "src": "replicate-t2v",
       "quote": "Vidu Q3 Pro supports a start-end-to-video mode — provide first and last frames",
-      "match": "same"
+      "match": "same",
+      "access_type": "api",
+      "region": "全球",
+      "plan": "unknown",
+      "valid_from": "unknown",
+      "valid_to": "unknown"
     },
     {
       "p": "replicate",
@@ -2198,7 +2223,12 @@
       "src": "replicate-t2v",
       "quote": "lightricks / ltx-video —— LTX-Video is the first DiT-based video generation model",
       "match": "older",
-      "note": "⚠️ **上架的是初代 LTX-Video，不是 LTX-2.3**；页面自己标着「Updated 1 year, 6 months ago」"
+      "note": "⚠️ **上架的是初代 LTX-Video，不是 LTX-2.3**；页面自己标着「Updated 1 year, 6 months ago」",
+      "access_type": "api",
+      "region": "全球",
+      "plan": "unknown",
+      "valid_from": "unknown",
+      "valid_to": "unknown"
     },
     {
       "p": "replicate",
@@ -2208,7 +2238,12 @@
       "src": "replicate-t2v",
       "quote": "Official openai / sora-2-pro —— OpenAI's most advanced synced-audio video generation",
       "match": "same",
-      "note": "⚠️ **上游已公告停服**：Sora API 计划 2026-09-24 停。平台还挂着，不代表它还能用多久"
+      "note": "⚠️ **上游已公告停服**：Sora API 计划 2026-09-24 停。平台还挂着，不代表它还能用多久",
+      "access_type": "api",
+      "region": "全球",
+      "plan": "unknown",
+      "valid_from": "unknown",
+      "valid_to": "unknown"
     },
     {
       "p": "apiyi",
@@ -2218,7 +2253,12 @@
       "src": "apiyi-log",
       "quote": "Seedance 2.0 上线：字节新一代视频模型，价格对齐官网",
       "match": "older",
-      "note": "⚠️ 上架的是 2.0，当前主力是 2.5"
+      "note": "⚠️ 上架的是 2.0，当前主力是 2.5",
+      "access_type": "api",
+      "region": "中国大陆",
+      "plan": "unknown",
+      "valid_from": "unknown",
+      "valid_to": "unknown"
     },
     {
       "p": "apiyi",
@@ -2227,7 +2267,12 @@
       "status": "available",
       "src": "apiyi-log",
       "quote": "VEO 3.1 Official 正式上线：透传 Google AI Studio",
-      "match": "same"
+      "match": "same",
+      "access_type": "api",
+      "region": "中国大陆",
+      "plan": "unknown",
+      "valid_from": "unknown",
+      "valid_to": "unknown"
     },
     {
       "p": "apiyi",
@@ -2237,7 +2282,12 @@
       "src": "apiyi-log",
       "quote": "Sora 2 官方直转分组上线",
       "match": "same",
-      "note": "⚠️ 同上：上游 2026-09-24 停服"
+      "note": "⚠️ 同上：上游 2026-09-24 停服",
+      "access_type": "api",
+      "region": "中国大陆",
+      "plan": "unknown",
+      "valid_from": "unknown",
+      "valid_to": "unknown"
     },
     {
       "p": "apiyi",
@@ -2247,7 +2297,12 @@
       "src": "apiyi-log",
       "quote": "与 Wan 共用 Wan&HappyHorse 分组与端点，改 model 名即用",
       "match": "unknown",
-      "note": "分组名里有 Wan，但**未写明是哪一版**"
+      "note": "分组名里有 Wan，但**未写明是哪一版**",
+      "access_type": "api",
+      "region": "中国大陆",
+      "plan": "unknown",
+      "valid_from": "unknown",
+      "valid_to": "unknown"
     },
     {
       "p": "apiyi",
@@ -2257,7 +2312,12 @@
       "src": "apiyi-log",
       "quote": "happyhorse-1.1-r2v（最多 9 张参考图）/ happyhorse-1.0-video-edit",
       "match": "same",
-      "note": "⚠️ **HappyHorse 此前只有榜单证据，这是第一条可用性证据** —— 而且顺带证实了它支持多参考（最多 9 张）"
+      "note": "⚠️ **HappyHorse 此前只有榜单证据，这是第一条可用性证据** —— 而且顺带证实了它支持多参考（最多 9 张）",
+      "access_type": "api",
+      "region": "中国大陆",
+      "plan": "unknown",
+      "valid_from": "unknown",
+      "valid_to": "unknown"
     },
     {
       "p": "runway",
@@ -2267,10 +2327,15 @@
       "src": "rw-changelog",
       "quote": "Get unlimited Seedance 2.5 on new Max plans until August 14th",
       "match": "same",
-      "note": "⚠️ Runway 既是厂商也转售别家 —— 它上面能用到字节的模型"
+      "note": "⚠️ Runway 既是厂商也转售别家 —— 它上面能用到字节的模型",
+      "access_type": "web",
+      "region": "全球",
+      "plan": "unknown",
+      "valid_from": "unknown",
+      "valid_to": "unknown"
     }
   ],
-  "$availability": "§9.3 明确要求「✓ 不能只是布尔值」。这里每格带：上架的**具体版本名**、状态、原文引用、来源。**最有用的一列是 match** —— 平台上架的常常不是当前主力版本（Replicate 上是 Hailuo 2.3 与初代 ltx-video，APIYI 上是 Seedance 2.0）。只答「有没有」会让人以为能用上当前版本的能力，那是错的。另外两类要标出来：coming-soon（还不能用）与上游已停服（平台还挂着不代表还能用多久）。",
+  "$availability": "§9.3 明确要求「✓ 不能只是布尔值」。这里每格带：上架的**具体版本名**、状态、原文引用、来源。**最有用的一列是 match** —— 平台上架的常常不是当前主力版本（Replicate 上是 Hailuo 2.3 与初代 ltx-video，APIYI 上是 Seedance 2.0）。只答「有没有」会让人以为能用上当前版本的能力，那是错的。另外两类要标出来：coming-soon（还不能用）与上游已停服（平台还挂着不代表还能用多久）。\n\n补齐 §9.3 要求的五个字段。**能从平台属性推出来的才推**（access_type 由 platform.kind2、region 由 platform.region），**推不出来的一律 unknown，不许猜** —— plan / valid_from / valid_to 三项目前全是 unknown，那是事实不是遗漏。",
   "$platform_kinds": {
     "vendor-own": "厂商自有产品（即梦、海螺、Pika）—— 版本最新，但只有自家",
     "api": "API 市场 / 聚合（fal、Replicate、APIYI）—— 自己调，能锁定版本",
@@ -2666,5 +2731,15 @@
       "id": "seedance2.5"
     }
   ],
-  "$versions": "版本谱系（演进图的数据）。**演进的主体是模型，不是能力。**\n\n原来那张演进图每行是一项能力、横轴是「我们能证明的最早时间」、粗细是几家支持。\n读者看完只得到「动作复刻 2025-12 出现、6/9 支持」—— 那是一次数据库查询的可视化，不涨知识。\n而且它得靠图注免责（「不是业界首次出现」）：**一张需要图注免责的图，说明它量错了东西。**\n\n这份数据画的是**厂商自己发布的版本和日期**，所以不需要免责。每条必须回答：\n**这一代新增了什么。** 只有版本号没有 added 的节点没有价值，不收。\n\n两个最好的来源，都不是「新闻」：\n  · **官方 Hugging Face 组织** —— 模型名本身就编码了能力与代际\n    （Wan2.1-FLF2V＝首尾帧、Wan2.2-S2V＝语音驱动、LTX 的 IC-LoRA-Ingredients＝角色参考），\n    发布时间由 HF API 给出，比任何新闻稿都准。\n  · **官方 API 更新日志** —— 可灵那份 31k 字符里有 170 条带日期的条目。\n\n覆盖不全是事实：万相和可灵能画出完整谱系，Runway/Vidu/Seedance 只有近期几个点，\nVeo/Sora/海螺/LTX 还没有。**图上要标出哪几条线是完整的、哪几条只是片段** ——\n画一条只有两个点的线却不说明，读者会以为这家两年只更新过两次。\n\n`cap` 把版本节点挂到能力 id 上，图上「点一项能力，看各家谁先谁后」靠它。\n**对不上的一律留空并写明理由（cap_skip），不硬凑** —— 硬凑一个 id，纵向那一刀就切错了。\n典型：Wan 的 S2V 是「语音驱动」，不等于我们轴上的「对口型」，两件事不合并；\n「换代」节点本身也不是新增单项能力。\n\n`id` + `parent` 把平铺记录变成**真的树**。分叉是真实存在的：\nWan2.1 底座上同时长出 FLF2V（首尾帧）和 VACE（统一编辑）两个变体，\nWan2.2 是换代接在 2.1 后面，Animate-2 又接在 Animate 后面。\n\n**没有父节点的就让它当根，不许为了让树好看硬接一条边** ——\nRunway 的 Aleph 是编辑线，不是 Gen 的后代，它自己是一棵树。\n\n⚠️ **日期必须取 HF 的 `createdAt`，不能取 `lastModified`。**\n第一版取错了字段，把「最后修改」当成了发布日期：Wan2.2 记成 2025-08-07（实际 2025-07-18）、\nAnimate 记成 2025-11-05（实际 2025-09-11）——**差了两个月**。\n仓库发布后还会被反复更新，两个字段根本不是一回事。\n这类错最阴：日期看着合理、图也画得出来，但整条时间线是歪的。"
+  "$versions": "版本谱系（演进图的数据）。**演进的主体是模型，不是能力。**\n\n原来那张演进图每行是一项能力、横轴是「我们能证明的最早时间」、粗细是几家支持。\n读者看完只得到「动作复刻 2025-12 出现、6/9 支持」—— 那是一次数据库查询的可视化，不涨知识。\n而且它得靠图注免责（「不是业界首次出现」）：**一张需要图注免责的图，说明它量错了东西。**\n\n这份数据画的是**厂商自己发布的版本和日期**，所以不需要免责。每条必须回答：\n**这一代新增了什么。** 只有版本号没有 added 的节点没有价值，不收。\n\n两个最好的来源，都不是「新闻」：\n  · **官方 Hugging Face 组织** —— 模型名本身就编码了能力与代际\n    （Wan2.1-FLF2V＝首尾帧、Wan2.2-S2V＝语音驱动、LTX 的 IC-LoRA-Ingredients＝角色参考），\n    发布时间由 HF API 给出，比任何新闻稿都准。\n  · **官方 API 更新日志** —— 可灵那份 31k 字符里有 170 条带日期的条目。\n\n覆盖不全是事实：万相和可灵能画出完整谱系，Runway/Vidu/Seedance 只有近期几个点，\nVeo/Sora/海螺/LTX 还没有。**图上要标出哪几条线是完整的、哪几条只是片段** ——\n画一条只有两个点的线却不说明，读者会以为这家两年只更新过两次。\n\n`cap` 把版本节点挂到能力 id 上，图上「点一项能力，看各家谁先谁后」靠它。\n**对不上的一律留空并写明理由（cap_skip），不硬凑** —— 硬凑一个 id，纵向那一刀就切错了。\n典型：Wan 的 S2V 是「语音驱动」，不等于我们轴上的「对口型」，两件事不合并；\n「换代」节点本身也不是新增单项能力。\n\n`id` + `parent` 把平铺记录变成**真的树**。分叉是真实存在的：\nWan2.1 底座上同时长出 FLF2V（首尾帧）和 VACE（统一编辑）两个变体，\nWan2.2 是换代接在 2.1 后面，Animate-2 又接在 Animate 后面。\n\n**没有父节点的就让它当根，不许为了让树好看硬接一条边** ——\nRunway 的 Aleph 是编辑线，不是 Gen 的后代，它自己是一棵树。\n\n⚠️ **日期必须取 HF 的 `createdAt`，不能取 `lastModified`。**\n第一版取错了字段，把「最后修改」当成了发布日期：Wan2.2 记成 2025-08-07（实际 2025-07-18）、\nAnimate 记成 2025-11-05（实际 2025-09-11）——**差了两个月**。\n仓库发布后还会被反复更新，两个字段根本不是一回事。\n这类错最阴：日期看着合理、图也画得出来，但整条时间线是歪的。",
+  "skills": [],
+  "$skills": "Skill / Workflow。方案 §10 原话：**「Skill 必须是第一等公民。」**\n一个 Skill 回答的是「这件事怎么做」，而能力格回答的是「谁能做」——两个问题。\n\n字段：{id, zh, en, cap?, io{in[],out}, native[], opensource[], platform_feature[], limits[], cases[], src, quote, verified_at}\n\n**limits 为空要报警告（R45）**：一个没有「已知限制」的 Skill 页是在卖广告，不是在帮人。",
+  "change_events": [],
+  "$change_events": "Change + So What（方案 §15）。**只有 after 的那是新闻，不是 ChangeEvent。**\n字段：{date, entity, kind, before, after, why, affects[], src, quote}\nR46 盯着 before/after/why 三者齐全 —— 缺任何一个，读者就只知道「变了」，不知道「所以呢」。",
+  "toolkit": [],
+  "$toolkit": "资源导航（方案 §16）。原话：**「不要做一排 Logo 的 hao123」，要「导航 + 判断」。**\n字段：{task, site, url, verdict, caveat, checked_at}\n**verdict 和 caveat 都必填（R49）** —— caveat 是负面结论，「Epoch AI 不收视频模型」这种我们真查过才知道的话，才是这一页的价值。",
+  "effect": [],
+  "$effect": "效果。**我们自己不打分，只转述并标明是谁说的**（负责人 2026-08-08 拍板）。\n字段：{m, kind: third-party|vendor-claim, who, value, url?, quote, as_of}\nR50 who 必填。注：Artificial Analysis 没有公开使用条款（terms 页 404），只取位次 + 回源链接，不整站搬。",
+  "discount": [],
+  "$discount": "折扣。此前埋在 pricing.note 里，结构化出来才能在对比表里并排看。\n字段：{p, m, rule, off, src, quote}"
 }

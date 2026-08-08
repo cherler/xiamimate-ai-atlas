@@ -129,6 +129,40 @@ export type Version = {
   note?: string;
 };
 
+/**
+ * Skill / Workflow。方案 §10 原话：**「Skill 必须是第一等公民。」**
+ * Skill 回答「这件事怎么做」，能力格回答「谁能做」—— 两个问题。
+ * `limits` 为空要报警告（R45）：**没有「已知限制」的 Skill 页是在卖广告。**
+ */
+export type Skill = {
+  id: string; zh: string; en: string; cap?: string;
+  io?: { in: string[]; out: string };
+  native?: string[];
+  opensource?: { name: string; url?: string; src: string; quote: string }[];
+  platform_feature?: { p: string; name: string; src: string; quote: string; discloses?: string }[];
+  limits?: string[]; cases?: string[];
+  src?: string; quote?: string; verified_at: string;
+};
+
+/** Change + So What（§15）。**只有 after 的那是新闻，不是 ChangeEvent。** */
+export type ChangeEvent = {
+  date: string; entity: string; kind?: string;
+  before: string; after: string; why: string;
+  affects?: string[]; src: string; quote: string;
+};
+
+/** 资源导航（§16）。**只有链接没有判断的就是 hao123** —— `caveat` 是负面结论，必填。 */
+export type Toolkit = { task: string; site: string; url: string; verdict: string; caveat: string; checked_at: string };
+
+/** 效果。**我们不打分，只转述并标明是谁说的。** */
+export type Effect = {
+  m: string; kind: "third-party" | "vendor-claim";
+  who: string; value: string; url?: string; quote: string; as_of: string;
+};
+
+/** 折扣。此前埋在 pricing.note 里，结构化出来才能在对比表里并排看。 */
+export type Discount = { p: string; m: string; rule: string; off: string; src: string; quote: string };
+
 /** 上游投资关系。结构先建好 —— 但**可得性上限只有 B/C 级**，见 atlas.json 的 $investments。 */
 export type Investment = { from: string; to: string; round?: string; date?: string; src: string; quote: string };
 
@@ -197,6 +231,12 @@ export type Platform = {
  * 只答「有没有」会让人以为能用上当前版本的能力。
  */
 export type Availability = {
+  /** §9.3 要求的五个字段。**推不出来的一律 unknown，不许猜。** */
+  access_type?: "api" | "web" | "both" | "unknown";
+  region?: string;
+  plan?: "free" | "paid" | "trial" | "unknown";
+  valid_from?: string;
+  valid_to?: string;
   p: string;
   m: string;
   listed: string;
@@ -223,6 +263,11 @@ export const atlas = raw as unknown as {
   orgs: Org[];
   pricing: Price[];
   versions: Version[];
+  skills: Skill[];
+  change_events: ChangeEvent[];
+  toolkit: Toolkit[];
+  effect: Effect[];
+  discount: Discount[];
   investments: Investment[];
   sources: Record<string, Source>;
   support: Cell[];
