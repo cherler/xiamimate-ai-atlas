@@ -19,7 +19,6 @@ const LABEL: Record<string, string> = {
   "/": "从一个任务开始",
   "/tree": "谁在什么时候长出了什么",
   "/map": "谁是谁家的",
-  "/where": "去哪用、多少钱",
   "/models": "看全部模型",
   "/changes": "最近变了什么",
   "/toolkit": "该去哪个站查",

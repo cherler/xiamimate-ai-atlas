@@ -36,7 +36,6 @@ export default function Hierarchy() {
   const model = mid ? atlas.models.find((m) => m.id === mid) : null;
   const versions = mid ? atlas.versions.filter((v) => v.m === mid).sort((a, b) => b.date.localeCompare(a.date)) : [];
   const caps = model ? capsOf(model.class) : [];
-  const avail = mid ? atlas.availability.filter((v) => v.m === mid) : [];
   const skills = model ? atlas.skills.filter((s) => s.native?.includes(model.id)) : [];
 
   const Col = ({ t, n, children }: { t: string; n?: number; children: React.ReactNode }) => (
@@ -102,18 +101,6 @@ export default function Hierarchy() {
           ) : <p className="text-muted text-[13px] px-2">← 再选一条产品线</p>}
         </Col>
 
-        <Col t="去哪用" n={model ? avail.length : undefined}>
-          {model ? (
-            avail.length ? avail.map((v) => (
-              <Link key={v.p} href="/where" className="text-[14px] px-2 py-1 rounded hover:bg-yes/8">
-                {atlas.platforms.find((x) => x.id === v.p)?.name}
-                <span className="block text-muted text-[11px]">
-                  {v.listed}{v.match === "older" && <b className="text-unknown"> ⚠️ 旧版本</b>}
-                </span>
-              </Link>
-            )) : <p className="text-unknown text-[13px] px-2">没找到上架记录</p>
-          ) : <span />}
-        </Col>
       </div>
 
       {model && (

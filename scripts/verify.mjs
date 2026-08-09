@@ -53,7 +53,6 @@ const ROUTES = [
   { path: "/model/wan", must: "阿里巴巴", zh: 1200, built: true },
   { path: "/capability/flf", must: "首尾帧", zh: 1200, built: true },
   { path: "/tree", must: "长出了什么", zh: 800, built: true },
-  { path: "/where", must: "我在哪能用上", zh: 1600, built: true },
   { path: "/caveats", must: "你未必用得上", zh: 90, per: "section > div", built: true },
   { path: "/compare/kling-vs-seedance", must: "还是", zh: 800, built: true },
   { path: "/skill/motion", must: "动作复刻", zh: 1400, built: true },

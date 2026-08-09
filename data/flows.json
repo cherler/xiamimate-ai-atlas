@@ -18,13 +18,6 @@
           "page": "/compare/kling-vs-seedance",
           "q": "这两个选哪个",
           "exits": [
-            "/where"
-          ]
-        },
-        {
-          "page": "/where",
-          "q": "去哪用、多少钱",
-          "exits": [
             "/caveats"
           ]
         },
@@ -52,14 +45,7 @@
           "page": "/model/wan",
           "q": "这个模型到底能做什么",
           "exits": [
-            "/where",
-            "/capability/flf"
-          ]
-        },
-        {
-          "page": "/where",
-          "q": "我能不能用上",
-          "exits": [
+            "/capability/flf",
             "/caveats"
           ]
         },
@@ -80,7 +66,6 @@
           "q": "变了什么，意味着什么",
           "exits": [
             "/tree",
-            "/where",
             "/toolkit"
           ]
         },

@@ -119,7 +119,6 @@ export default async function SkillPage({ params }: { params: Promise<{ id: stri
 
       <footer className="border-t border-rule pt-4 flex flex-wrap gap-3 text-[14px]">
         {cap && <Link href={capHref(cap)} className="underline hover:text-yes">这一项谁支持 →</Link>}
-        <Link href="/where" className="underline hover:text-yes">去哪用、多少钱 →</Link>
         <Link href="/caveats" className="underline hover:text-yes">下单前先看这几条 →</Link>
         <span className="text-muted ml-auto">核验于 {s.verified_at}</span>
       </footer>
