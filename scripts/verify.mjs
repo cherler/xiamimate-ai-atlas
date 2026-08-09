@@ -56,6 +56,7 @@ const ROUTES = [
   { path: "/caveats", must: "你未必用得上", zh: 90, per: "section > div", built: true },
   { path: "/compare/kling-vs-seedance", must: "还是", zh: 800, built: true },
   { path: "/skill/motion", must: "动作复刻", zh: 1400, built: true },
+  { path: "/scenario", must: "我想做这件事", zh: 900, built: true },
   { path: "/toolkit", must: "该去哪个站", zh: 300, per: "main > div > section", built: true },
   { path: "/map", must: "谁是谁家的", zh: 2400, built: true },
   { path: "/models", must: "全部模型", zh: 1200, built: true },

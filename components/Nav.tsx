@@ -18,13 +18,14 @@ import { usePathname } from "next/navigation";
  * 比没有入口更糟 —— 它把人引进死路。
  */
 /**
- * 三张图 = 全部主线（docs/北极星.md 第三节）。导航就是这三个词。
+ * 四张图 = 全部主线（docs/北极星.md 第三节 + 场景）。导航就是这四个词。
  *
  *   现在 → /       AI 视频研发到哪一步了、谁能做什么（首页真值表）
  *   演变 → /tree   谁在什么时候长出了什么
- *   关系 → /map    谁是谁家的、谁基于谁
+ *   关系 → /map      谁是谁家的、谁基于谁
+ *   场景 → /scenario 我想做这件事，谁能做（方案 §10 Skill 第一等公民）
  *
- * 用户只要这三个问题的答案。**其余一切都是它们的下级或废案**，不占导航：
+ * 用户只要这四个问题的答案。**其余一切都是它们的下级或废案**，不占导航：
  * `/models` `/compare` `/capability` `/model` 从图里点进去；
  * `/changes` `/skill` `/toolkit` `/caveats` 是复访/长尾层，从首页页脚的次级入口进。
  *
@@ -38,6 +39,7 @@ const MAIN = [
   { href: "/", zh: "现在" },
   { href: "/tree", zh: "演变" },
   { href: "/map", zh: "关系" },
+  { href: "/scenario", zh: "场景" },
 ];
 
 export default function Nav() {
