@@ -15,10 +15,17 @@ export const metadata: Metadata = {
   description: "⬜ 是什么意思、来源怎么分级、价格为什么不换算、哪些是机器录入的、怎么报错。",
 };
 
-const S = ({ id, t, children }: { id: string; t: string; children: React.ReactNode }) => (
-  <section id={id} className="flex flex-col gap-2 scroll-mt-6">
-    <h2 className="text-[20px] font-semibold">{t}</h2>
-    <div className="text-[15px] leading-[1.75] flex flex-col gap-2 max-w-[760px]">{children}</div>
+const CN = ["一", "二", "三", "四", "五", "六", "七", "八", "九", "十"];
+
+// 层级要一眼看得出：粗顶线分节 + 大号中文序号。原来 8 个 h2 一样大，滚动时分不清
+// 到了第几节。序号用青绿，和正文拉开。
+const S = ({ id, n, t, children }: { id: string; n: number; t: string; children: React.ReactNode }) => (
+  <section id={id} className="border-t-[2.5px] border-ink pt-4 scroll-mt-6">
+    <h2 className="text-[23px] font-bold leading-tight flex items-baseline gap-3">
+      <span className="text-[18px] text-yes-ink font-bold shrink-0">{CN[n - 1]}</span>
+      {t}
+    </h2>
+    <div className="text-[15px] leading-[1.75] flex flex-col gap-2 max-w-[760px] mt-3">{children}</div>
   </section>
 );
 
@@ -36,7 +43,7 @@ export default function Method() {
         </p>
       </header>
 
-      <S id="states" t="✅ ❌ ⬜ 三种状态">
+      <S id="states" n={1} t="✅ ❌ ⬜ 三种状态">
         <p><b>✅</b> 厂商官方文档明确写了支持，并且我们摘得出那句原文。</p>
         <p><b>❌</b> 厂商官方明确写了不支持。这一档比 ✅ 少见得多 —— 没人爱写自己不能做什么。</p>
         <p>
@@ -49,7 +56,7 @@ export default function Method() {
         </p>
       </S>
 
-      <S id="aliases" t="为什么要收各家的叫法">
+      <S id="aliases" n={2} t="为什么要收各家的叫法">
         <p>
           同一件事，Kling 叫 Element、LTX 叫 Ingredients、有人叫 Omni Reference、有人叫 cameo ——
           它们都是<b>角色参考</b>。
@@ -61,7 +68,7 @@ export default function Method() {
         </p>
       </S>
 
-      <S id="transparency" t="平台透明度：⬜ 和 🔴 是两回事">
+      <S id="transparency" n={3} t="平台透明度：⬜ 和 🔴 是两回事">
         <p><b>🟢</b> 读到了页面，它点名了底层模型（必须有原文）。</p>
         <p><b>🔴</b> <b className="text-ink">读完了整页，它确实没提。</b>这一档的门槛是「读过」。</p>
         <p>
@@ -73,7 +80,7 @@ export default function Method() {
         </p>
       </S>
 
-      <S id="pricing" t="价格为什么不换算、不合计">
+      <S id="pricing" n={4} t="价格为什么不换算、不合计">
         <p>
           七家有七种计价方式：按秒标美元、按秒标人民币、按点数扣、只卖订阅、官方页上查不到。
           <b>把它们并成一列「每秒多少钱」，那一列一定是编的。</b>
@@ -87,7 +94,7 @@ export default function Method() {
         </p>
       </S>
 
-      <S id="genealogy" t="演化树怎么读">
+      <S id="genealogy" n={5} t="演化树怎么读">
         <p>横轴是厂商自己发布的日期。实心大点是一条线的起点（底座或换代），空心小点是从它长出来的变体。</p>
         <p>
           <b>分叉是真的</b>：Wan2.1 这个底座上同时长出 FLF2V（首尾帧）和 VACE（统一编辑）两个模型。
@@ -111,7 +118,7 @@ export default function Method() {
         </p>
       </S>
 
-      <S id="sources" t="来源怎么分级">
+      <S id="sources" n={6} t="来源怎么分级">
         <p><b>官方</b>：厂商自己的文档、更新日志、价格页、官方 Hugging Face 组织。</p>
         <p><b>第三方</b>：评测站、聚合平台、媒体。只用来交叉校验，不当唯一依据。</p>
         <p>
@@ -119,7 +126,7 @@ export default function Method() {
         </p>
       </S>
 
-      <S id="agent" t="哪些是机器录入的">
+      <S id="agent" n={7} t="哪些是机器录入的">
         <p>
           绝大部分格子由 Agent 从官方页面抽取，页面上标着「机器录入 · 未经人工核验」。
           Agent <b>只补空白格，从不覆盖已经核过的结论</b> —— 覆盖必须人工。
@@ -134,7 +141,7 @@ export default function Method() {
         </p>
       </S>
 
-      <S id="gaps" t="我们自己没做到的">
+      <S id="gaps" n={8} t="我们自己没做到的">
         <p>· {atlas.orgs.filter((o) => !o.hq_src).length} 家公司的总部还没有来源，是按常识填的。</p>
         <p>· 有来源的那几家里，ICP 备案<b>只证到省</b>，没证到城市。</p>
         <p>· {atlas.platforms.filter((p) => p.discloses === "blocked").length} 个平台的页面我们读不到。</p>

@@ -56,6 +56,13 @@ export default function Nav() {
         <Link href="/" className="text-[13px] font-semibold bg-ink text-paper px-2 py-1 shrink-0 mr-2">
           AI 能力地图
         </Link>
+        {/* 返回放**最左**（紧挨 logo）—— 放右上角太不显眼，负责人以为没加成功。 */}
+        {isSub && (
+          <button onClick={() => window.history.back()}
+            className="text-[14px] font-medium px-2.5 py-1 mr-2 shrink-0 whitespace-nowrap text-ink hover:text-yes-ink border border-rule">
+            ← 返回
+          </button>
+        )}
         {MAIN.map((m) => (
           <Link key={m.href} href={m.href}
             className={`text-[14px] px-2.5 py-1 shrink-0 whitespace-nowrap ${
@@ -64,14 +71,8 @@ export default function Nav() {
             {m.zh}
           </Link>
         ))}
-        {isSub && (
-          <button onClick={() => window.history.back()}
-            className="text-[13px] px-2.5 py-1 ml-auto shrink-0 whitespace-nowrap text-muted hover:text-ink">
-            ← 返回
-          </button>
-        )}
         <Link href="/method"
-          className={`text-[13px] px-2.5 py-1 shrink-0 whitespace-nowrap underline ${isSub ? "" : "ml-auto"} ${
+          className={`text-[13px] px-2.5 py-1 ml-auto shrink-0 whitespace-nowrap underline ${
             here("/method") ? "text-ink" : "text-muted hover:text-ink"
           }`}>
           方法
