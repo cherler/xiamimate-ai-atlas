@@ -605,7 +605,12 @@
       "domain": "video",
       "reach_cn": "ok",
       "reach_note": "seed.bytedance.com 直连 200",
-      "weights": "closed"
+      "weights": "closed",
+      "arch": "dit",
+      "arch_src": null,
+      "arch_quote": null,
+      "arch_note": null,
+      "arch_basis": "common"
     },
     {
       "id": "hailuo",
@@ -621,7 +626,12 @@
       "reach_cn": "ok",
       "reach_note": "minimax.io 直连 200；⚠️ 但权重在 huggingface.co，该域直连不可达",
       "weights": "mixed",
-      "weights_note": "H3 放出了权重（自定义社区许可），**之前的 01 / 02 / 2.3 没有**。"
+      "weights_note": "H3 放出了权重（自定义社区许可），**之前的 01 / 02 / 2.3 没有**。",
+      "arch": "dit",
+      "arch_src": null,
+      "arch_quote": null,
+      "arch_note": null,
+      "arch_basis": "common"
     },
     {
       "id": "gemini-omni",
@@ -637,7 +647,12 @@
       "reach_cn": "blocked",
       "reach_note": "同上",
       "lineage_note": "谱系只有 1 个节点：这个模型 2026-06-30 才在 Gemini API 上线，**五周前的东西凑不出三次发布**。不是我们没采到，是它还没有历史。",
-      "weights": "closed"
+      "weights": "closed",
+      "arch": "dit",
+      "arch_src": null,
+      "arch_quote": null,
+      "arch_note": null,
+      "arch_basis": "common"
     },
     {
       "id": "wan",
@@ -655,7 +670,12 @@
       "reach_cn": "ok",
       "reach_note": "wan.video 直连 200",
       "weights": "mixed",
-      "weights_note": "2.1 / 2.2 系列在官方 HF 上有权重；**2.5 / 2.7 / 3.0 没有** —— 同一条产品线，前半开后半闭。"
+      "weights_note": "2.1 / 2.2 系列在官方 HF 上有权重；**2.5 / 2.7 / 3.0 没有** —— 同一条产品线，前半开后半闭。",
+      "arch": "dit",
+      "arch_src": "wan-tr",
+      "arch_quote": "Built upon the mainstream diffusion transformer paradigm, Wan achieves significant advancements in generative capabilities",
+      "arch_note": null,
+      "arch_basis": "official"
     },
     {
       "id": "runway",
@@ -672,7 +692,12 @@
       "reach_cn": "ok",
       "reach_note": "runway.com 直连 200",
       "lineage_note": "谱系只有 3 个节点，且都在 2025-12 之后：Runway 的公开更新日志只回溯到那时，**Gen-1 / Gen-2 / Gen-3 的发布记录我们还没找到可引的官方页**。",
-      "weights": "closed"
+      "weights": "closed",
+      "arch": "dit",
+      "arch_src": null,
+      "arch_quote": null,
+      "arch_note": null,
+      "arch_basis": "common"
     },
     {
       "id": "kling",
@@ -687,7 +712,12 @@
       "domain": "video",
       "reach_cn": "ok",
       "reach_note": "klingai.com 直连 200",
-      "weights": "closed"
+      "weights": "closed",
+      "arch": "dit",
+      "arch_src": null,
+      "arch_quote": null,
+      "arch_note": null,
+      "arch_basis": "common"
     },
     {
       "id": "vidu-q",
@@ -703,7 +733,12 @@
       "domain": "video",
       "reach_cn": "ok",
       "reach_note": "vidu.com 直连 301",
-      "weights": "closed"
+      "weights": "closed",
+      "arch": "dit",
+      "arch_src": null,
+      "arch_quote": null,
+      "arch_note": null,
+      "arch_basis": "common"
     },
     {
       "id": "veo",
@@ -719,7 +754,12 @@
       "domain": "video",
       "reach_cn": "blocked",
       "reach_note": "ai.google.dev 直连不通（连接失败）—— 读官方文档要出境",
-      "weights": "closed"
+      "weights": "closed",
+      "arch": "dit",
+      "arch_src": null,
+      "arch_quote": null,
+      "arch_note": null,
+      "arch_basis": "common"
     },
     {
       "id": "sora",
@@ -736,7 +776,12 @@
       "reach_cn": "blocked",
       "reach_note": "openai.com 返回 403（反爬，非网络）；且该产品线已公告停服",
       "status_until": "2026-09-24",
-      "status_short": "API 计划 2026-09-24 停止；App 已于 2026-04-26 关停"
+      "status_short": "API 计划 2026-09-24 停止；App 已于 2026-04-26 关停",
+      "arch": "dit",
+      "arch_src": null,
+      "arch_quote": null,
+      "arch_note": null,
+      "arch_basis": "common"
     },
     {
       "id": "vidu-s",
@@ -750,7 +795,12 @@
       "tier": "core",
       "domain": "video",
       "reach_cn": "ok",
-      "reach_note": "同上"
+      "reach_note": "同上",
+      "arch": "ar",
+      "arch_src": null,
+      "arch_quote": null,
+      "arch_note": null,
+      "arch_basis": "common"
     },
     {
       "id": "lucy",
@@ -765,7 +815,12 @@
       "tier": "core",
       "domain": "video",
       "reach_cn": "ok",
-      "reach_note": "decart.ai 直连 200"
+      "reach_note": "decart.ai 直连 200",
+      "arch": "ar",
+      "arch_src": null,
+      "arch_quote": null,
+      "arch_note": null,
+      "arch_basis": "common"
     },
     {
       "id": "ltx",
@@ -781,7 +836,12 @@
       "domain": "video",
       "reach_cn": "blocked",
       "reach_note": "huggingface.co 直连不通 —— **权重在那儿，想自部署得先解决可达性**",
-      "weights": "open"
+      "weights": "open",
+      "arch": "dit",
+      "arch_src": "ltx-tr",
+      "arch_quote": "We introduce LTX-Video, a transformer-based latent diffusion model ... integrating the responsibilities of the Video-VAE and the denoising transformer",
+      "arch_note": null,
+      "arch_basis": "official"
     },
     {
       "id": "happyhorse",
@@ -797,7 +857,12 @@
       "status_note": "⚠️ AA 榜 Elo 1148，**排在 Kling 3.0 与 Veo 3.1 之上**，而我们原名单里没有它。但 HF 上零仓库、Alibaba-ATH 组织不存在，也没找到官方文档 —— 只有榜单证据，够不上 core",
       "domain": "video",
       "reach_cn": "unknown",
-      "reach_note": "未测"
+      "reach_note": "未测",
+      "arch": "dit",
+      "arch_src": null,
+      "arch_quote": null,
+      "arch_note": null,
+      "arch_basis": "common"
     },
     {
       "id": "skyreels",
@@ -814,7 +879,12 @@
       "domain": "video",
       "reach_cn": "unknown",
       "reach_note": "未测",
-      "weights": "open"
+      "weights": "open",
+      "arch": "hybrid",
+      "arch_src": "skyreels-tr",
+      "arch_quote": "synergizes Multi-modal Large Language Model (MLLM), Multi-stage Pretraining, Reinforcement Learning, and Diffusion Forcing Framework",
+      "arch_note": "Diffusion Forcing 把扩散与自回归式续写结合，用于无限长生成 —— 因此记 hybrid 而不是纯 dit。",
+      "arch_basis": "official"
     },
     {
       "id": "hunyuan-video",
@@ -829,7 +899,12 @@
       "domain": "video",
       "reach_cn": "ok",
       "note": "开源侧谱系的主干之一，进 extended 层（规则四：core 每轨 ≤10）。能力格未逐格核，只保证「它存在」。",
-      "weights": "open"
+      "weights": "open",
+      "arch": "dit",
+      "arch_src": null,
+      "arch_quote": null,
+      "arch_note": null,
+      "arch_basis": "common"
     },
     {
       "id": "mochi",
@@ -844,7 +919,12 @@
       "domain": "video",
       "reach_cn": "unknown",
       "note": "开源侧谱系的主干之一，进 extended 层（规则四：core 每轨 ≤10）。能力格未逐格核，只保证「它存在」。",
-      "weights": "open"
+      "weights": "open",
+      "arch": "dit",
+      "arch_src": null,
+      "arch_quote": null,
+      "arch_note": null,
+      "arch_basis": "common"
     },
     {
       "id": "allegro",
@@ -859,7 +939,12 @@
       "domain": "video",
       "reach_cn": "unknown",
       "note": "开源侧谱系的主干之一，进 extended 层（规则四：core 每轨 ≤10）。能力格未逐格核，只保证「它存在」。",
-      "weights": "open"
+      "weights": "open",
+      "arch": "dit",
+      "arch_src": null,
+      "arch_quote": null,
+      "arch_note": null,
+      "arch_basis": "common"
     },
     {
       "id": "open-sora",
@@ -874,7 +959,12 @@
       "domain": "video",
       "reach_cn": "unknown",
       "note": "开源侧谱系的主干之一，进 extended 层（规则四：core 每轨 ≤10）。能力格未逐格核，只保证「它存在」。",
-      "weights": "open"
+      "weights": "open",
+      "arch": "dit",
+      "arch_src": null,
+      "arch_quote": null,
+      "arch_note": null,
+      "arch_basis": "common"
     }
   ],
   "sources": {
@@ -1092,6 +1182,21 @@
       "url": "https://fal.ai/pricing",
       "tier": "official",
       "name": "fal · 平台定价页"
+    },
+    "wan-tr": {
+      "name": "Wan 技术报告（arXiv:2503.20314）",
+      "url": "https://arxiv.org/abs/2503.20314",
+      "tier": "official"
+    },
+    "ltx-tr": {
+      "name": "LTX-Video 论文（arXiv:2501.00103）",
+      "url": "https://arxiv.org/abs/2501.00103",
+      "tier": "official"
+    },
+    "skyreels-tr": {
+      "name": "SkyReels-V2 论文（arXiv:2504.13074）",
+      "url": "https://arxiv.org/abs/2504.13074",
+      "tier": "official"
     }
   },
   "support": [
@@ -3962,5 +4067,23 @@
     }
   ],
   "$discount": "折扣。此前埋在 pricing.note 里，结构化出来才能在对比表里并排看。\n字段：{p, m, rule, off, src, quote}\n\n第一批两条。海螺那条是**负面折扣**：资源包确实有折扣，但官方明写「暂不支持 MiniMax H3」——**而 H3 正是它的当前主力**。只写「有折扣」会把人骗进去。",
-  "$weights": "`weights` 是**产品线级别**的开闭源归属，用来分演化树的两条主干。\n**`mixed` 不是含糊，是真实情况**：万相 2.1/2.2 在官方 HF 上有权重、2.5 之后没有；\n海螺反过来，只有最新的 H3 放了权重。**同一条产品线前半开后半闭**，\n硬分成开源或闭源哪一边都是错的。"
+  "$weights": "`weights` 是**产品线级别**的开闭源归属，用来分演化树的两条主干。\n**`mixed` 不是含糊，是真实情况**：万相 2.1/2.2 在官方 HF 上有权重、2.5 之后没有；\n海螺反过来，只有最新的 H3 放了权重。**同一条产品线前半开后半闭**，\n硬分成开源或闭源哪一边都是错的。",
+  "$arch": {
+    "unet": {
+      "zh": "U-Net 扩散",
+      "note": "早期视频扩散主流：2D U-Net + 时间层。AnimateDiff / SVD 这一支。"
+    },
+    "dit": {
+      "zh": "DiT 扩散",
+      "note": "Diffusion Transformer + 3D VAE。Sora（2024-02）之后几乎全转这一支。"
+    },
+    "ar": {
+      "zh": "自回归 / 实时",
+      "note": "逐帧或逐块自回归生成，可边生成边看 —— 和扩散不是一条路。"
+    },
+    "hybrid": {
+      "zh": "混合",
+      "note": "同时用了上面两支的做法，且厂商自己说明了。"
+    }
+  }
 }

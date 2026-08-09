@@ -92,6 +92,31 @@ for (const o of a.orgs ?? []) {
   if (o.hq_src && !srcIds.has(o.hq_src)) errs.push(`R21c 总部来源 id 不存在：${o.hq_src}（${o.zh}）`);
 }
 for (const m of a.models) if (!orgIds.has(m.org)) errs.push(`R20 模型挂到不存在的公司：${m.id} → ${m.org}`);
+
+/**
+ * 架构族（R59~R62）—— 演化树能不能从**一个根**长出来，全靠这一栏。
+ *
+ * 那张 LLM 演化树的根不是「谁用了谁的权重」（BERT 和 GPT 没有权重关系），
+ * 是 **Transformer 架构**；三条主干是架构族。**架构闭源也公开**，写在技术报告里。
+ * 所以这一栏对闭源模型同样可采 —— 采不到就留 null，不猜。
+ *
+ * 规矩和能力格完全一致：**填了架构就必须给得出官方原文和来源**。
+ */
+const ARCH = Object.keys(a.$arch ?? {});
+for (const m of a.models) {
+  if (m.arch == null) { warns.push(`R59 架构未采：${m.id}（树上只能挂在「未标注」）`); continue; }
+  if (!ARCH.includes(m.arch)) errs.push(`R60 非法架构族 ${m.arch}：${m.id} —— 只能是 ${ARCH.join("/")}`);
+  // **依据必须标明**：official = 有厂商技术报告原文；common = 领域常识判断，没有厂商确证。
+  // 负责人 2026-08-09 拍板：架构族是领域常识（Sora 之后基本全转 DiT），不必逐条考据，
+  // 但**站上不能假称厂商确认过** —— 所以用 basis 分档，和总部定位「精确/省市级/未定」一个做法。
+  if (!["official", "common"].includes(m.arch_basis ?? ""))
+    errs.push(`R61 架构没标依据（official / common）：${m.id}`);
+  if (m.arch_basis === "official") {
+    if (!m.arch_quote) errs.push(`R62 标了 official 却没有原文 —— 和能力格一个规矩：${m.id}`);
+    if (!m.arch_src) errs.push(`R62 标了 official 却没有来源 id：${m.id}`);
+    else if (!srcIds.has(m.arch_src)) errs.push(`R62 架构来源 id 不存在：${m.arch_src}（${m.id}）`);
+  }
+}
 for (const v of a.investments ?? []) {
   if (!orgIds.has(v.to)) errs.push(`R24 投资的接收方不是库里的公司：${v.to}`);
   if (!v.src || !v.quote) errs.push(`R25 投资关系没有来源或原文 —— 和能力格一个规矩：${v.from} → ${v.to}`);

@@ -34,7 +34,7 @@ import { modelHref } from "@/lib/slug";
  * 67 个标签同时铺在图上，只会变成一团噪音。
  */
 const W = 1240;
-const PAD = { t: 56, b: 44, l: 78, r: 58 };
+const PAD = { t: 56, b: 120, l: 78, r: 58 };  // b 加大：轴底下方要放树根与主干
 const AXIS_H = 560;
 
 const MS = (d: string) => new Date(`${d.length === 7 ? `${d}-01` : d}T00:00:00Z`).getTime();
@@ -81,25 +81,23 @@ export default function Tree() {
     const arr = [...by.entries()].map(([m, ns]) => {
       const model = atlas.models.find((x) => x.id === m)!;
       const sorted = [...ns].sort((a, b) => MS(a.date) - MS(b.date));
-      // 只用来给线**排序与分色板**，不代表这条线「是开源的」——
-      // 开不开源逐代看节点实心/空心。命名成 group 而不是 open/closed，避免又被当成语义。
-      const w = model?.weights;
-      const group: "a" | "b" =
-        w === "open" ? "a" : w === "closed" ? "b" : m === "wan" ? "a" : "b";
+      // **按架构族分主干** —— 这是让树从一个根长出来的那一层（负责人 2026-08-09）。
+      // 那张 LLM 演化树的根不是权重派生，是 Transformer 架构；三条主干是架构族。
+      // 视频这边同理：扩散是共同的根，DiT / 自回归 / 混合 是主干。
+      const group: string = (model as { arch?: string })?.arch ?? "unknown";
       return { m, model, ns: sorted, group, first: sorted[0].date };
     }).filter((l) => l.model);
-    // 两组各按首发时间排，拼成一条连续平铺 —— 没有中线、没有分区标题。
-    // 分组只影响顺序和取哪套色板，**不表示这条线开不开源**。
-    const ga = arr.filter((l) => l.group === "a").sort((a, b) => a.first.localeCompare(b.first));
-    const gb = arr.filter((l) => l.group === "b").sort((a, b) => a.first.localeCompare(b.first));
-    const seq = [...ga, ...gb];
+    // 按架构族聚在一起，族内按首发时间排 —— 同族的线彼此相邻，才看得出「一支」。
+    const ORDER = ["dit", "hybrid", "ar", "unknown"];
+    const seq = ORDER.flatMap((g) =>
+      arr.filter((l) => l.group === g).sort((a, b) => a.first.localeCompare(b.first)));
     let oi = 0, ci = 0;
     return seq.map((l, i) => ({
       ...l,
       // 每条线拿到的是一个**带**，不是一个 x —— 分叉要在带内铺开
       cx: PAD.l + ((i + 0.5) / seq.length) * (W - PAD.l - PAD.r),
       band: ((W - PAD.l - PAD.r) / seq.length) * 0.82,
-      color: l.group === "a" ? HUE_A[oi++ % HUE_A.length] : HUE_B[ci++ % HUE_B.length],
+      color: l.group === "dit" ? HUE_A[oi++ % HUE_A.length] : HUE_B[ci++ % HUE_B.length],
     }));
   }, [nodes]);
 
@@ -166,6 +164,13 @@ export default function Tree() {
       if (n.cap === cap && !first.has(n.m)) first.set(n.m, n.date);
     return new Map([...first.entries()].sort((a, b) => MS(a[1]) - MS(b[1])).map(([m], i) => [m, i + 1]));
   }, [cap, nodes]);
+
+  // 每个架构族的主干落点 = 该族所有产品线 cx 的中位数
+  const trunks = useMemo(() => {
+    const by = new Map<string, number[]>();
+    for (const l of lines) by.set(l.group, [...(by.get(l.group) ?? []), l.cx]);
+    return [...by.entries()].map(([g, xs]) => ({ g, cx: xs.reduce((a, b) => a + b, 0) / xs.length }));
+  }, [lines]);
 
   const H = PAD.t + AXIS_H + PAD.b;
   const years: number[] = [];
@@ -244,6 +249,45 @@ export default function Tree() {
               </g>
             );
           })}
+
+          {/*
+            **树根与主干**（负责人 2026-08-09）：那张 LLM 演化树之所以是「一棵树」，
+            是因为所有分支汇到一个共同的根 —— 不是权重派生，是 **Transformer 架构**。
+            视频这边同理：**扩散模型是共同的根**，DiT / 混合 / 自回归是从根上分出的主干。
+            我们原来是 14 根各自从底部冒出来的独立竖线，看着像草不像树 —— 这里补上。
+          */}
+          {(() => {
+            const rootY = PAD.t + AXIS_H + 74;   // 根压到更低，主干才有高度长出来
+            const rootX = W / 2;
+            const forkY = PAD.t + AXIS_H + 4;    // 主干在轴底附近分叉
+            const fams = [...new Set(trunks.map((t) => t.g))];
+            return (
+              <g>
+                {/* 从根到各架构族主干的分叉 */}
+                {trunks.map((t) => (
+                  <path key={`trunk-${t.g}`}
+                    // 从根竖直上升一段再向各族横向张开 —— 才像树干分叉，不是一条压扁的横线
+                    d={`M${rootX},${rootY} C${rootX},${rootY - 42} ${t.cx},${rootY - 34} ${t.cx},${forkY}`}
+                    fill="none" stroke="var(--color-rule)" strokeWidth={4} opacity={0.95} />
+                ))}
+                {/* 族名标在分叉点下方 */}
+                {trunks.map((t) => (
+                  <text key={`tl-${t.g}`} x={t.cx} y={forkY + 14} textAnchor="middle"
+                    fontSize="10" fontWeight="700" fill="var(--color-muted)">
+                    {(atlas as unknown as { $arch: Record<string, { zh: string }> }).$arch?.[t.g]?.zh ?? t.g}
+                  </text>
+                ))}
+                {/* 根 */}
+                <circle cx={rootX} cy={rootY} r={5} fill="var(--color-muted)" />
+                <text x={rootX} y={rootY + 17} textAnchor="middle" fontSize="11" fontWeight="700" fill="var(--color-ink)">
+                  扩散模型
+                </text>
+                <text x={rootX} y={rootY + 29} textAnchor="middle" fontSize="9" fill="var(--color-muted)">
+                  {fams.length} 支主干 · {lines.length} 条产品线
+                </text>
+              </g>
+            );
+          })()}
 
           {/* 血缘的边：先画，节点压在上面 */}
           {nodes.filter((n) => n.parent && posOf.has(n.id) && posOf.has(n.parent!)).map((n) => {
