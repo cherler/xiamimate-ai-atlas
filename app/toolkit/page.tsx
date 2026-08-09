@@ -20,26 +20,29 @@ export const metadata: Metadata = {
 export default function ToolkitPage() {
   return (
     <main className="max-w-[900px] mx-auto px-5 py-8 flex flex-col gap-6">
-      <header className="flex flex-col gap-2">
-        <h1 className="text-[30px] font-semibold leading-tight">想查一件事，该去哪个站</h1>
+      <header className="flex flex-col gap-2 border-b-[2.5px] border-ink pb-4">
+        <h1 className="text-[38px] font-bold leading-tight tracking-[-.01em]">想查一件事，该去哪个站</h1>
         <p className="text-muted text-[15px]">
           {atlas.toolkit.length} 条 · 每条带我们自己的判断，<b className="text-ink">包括「别去」的那部分</b>
         </p>
       </header>
 
-      <div className="flex flex-col gap-3">
-        {atlas.toolkit.map((t) => (
-          <section key={t.site + t.task} className="border border-rule rounded-lg bg-card p-4 flex flex-col gap-1.5">
-            <p className="text-[13px] text-muted">{t.task}</p>
-            <p className="text-[18px] font-semibold">
-              <a href={t.url} target="_blank" rel="noreferrer" className="underline hover:text-yes">{t.site} →</a>
-            </p>
-            <Rich text={t.verdict} className="text-[15px] leading-relaxed" />
-            {/* 负面结论单独描出来 —— 它是这一页真正值钱的部分 */}
-            <div className="border-l-2 border-unknown pl-3 mt-1">
-              <Rich text={t.caveat} className="text-[14px] leading-relaxed text-muted" />
+      <div className="flex flex-col">
+        {atlas.toolkit.map((t, i) => (
+          <section key={t.site + t.task} className="border-t border-rule py-4 flex gap-4">
+            <span className="text-[15px] text-muted tabular-nums shrink-0 w-7 pt-1">{String(i + 1).padStart(2, "0")}</span>
+            <div className="flex flex-col gap-1.5 flex-1 min-w-0">
+              <p className="text-[13px] text-muted">{t.task}</p>
+              <p className="text-[18px] font-semibold">
+                <a href={t.url} target="_blank" rel="noreferrer" className="underline hover:text-yes-ink">{t.site} →</a>
+              </p>
+              <Rich text={t.verdict} className="text-[15px] leading-relaxed" />
+              {/* 负面结论单独描出来 —— 它是这一页真正值钱的部分 */}
+              <div className="border-l-2 border-no pl-3 mt-1">
+                <Rich text={t.caveat} className="text-[14px] leading-relaxed text-muted" />
+              </div>
+              <p className="text-muted text-[12px]">核验于 {t.checked_at}</p>
             </div>
-            <p className="text-muted text-[12px]">核验于 {t.checked_at}</p>
           </section>
         ))}
       </div>

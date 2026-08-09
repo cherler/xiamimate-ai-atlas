@@ -49,7 +49,7 @@ const ROUTES = [
   { path: "/method", must: "这些数据是怎么来的", zh: 4000, built: true },
   // 列表页量**每条的字数**，不量总字数 —— 变更日志天生随事件累积变长，
   // 对它用「不许涨」是错的度量：那样一来，多记一条真实变更反而算退步。
-  { path: "/changes", must: "变", zh: 130, per: "article, section > div", built: true },
+  { path: "/changes", must: "最近有什么变化", zh: 130, per: "article, section > div", built: true },
   { path: "/model/wan", must: "阿里巴巴", zh: 1200, built: true },
   { path: "/capability/flf", must: "首尾帧", zh: 1200, built: true },
   { path: "/tree", must: "长出了什么", zh: 800, built: true },

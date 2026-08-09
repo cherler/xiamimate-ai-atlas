@@ -27,26 +27,30 @@ export default function CaveatsPage() {
   for (const c of all) byKind.set(c.kind, [...(byKind.get(c.kind) ?? []), c]);
   const order: Caveat["kind"][] = ["upstream-gone", "stale-version", "coming-soon", "discount-trap", "price-varies", "blocked"];
 
+  const CN = ["一", "二", "三", "四", "五", "六", "七", "八"];
+  const kinds = order.filter((k) => byKind.get(k)?.length);
+
   return (
     <main className="max-w-[900px] mx-auto px-5 py-8 flex flex-col gap-8">
-      <header className="flex flex-col gap-2">
-        <h1 className="text-[30px] font-semibold leading-tight">能力对了，你未必用得上</h1>
+      <header className="flex flex-col gap-2 border-b-[2.5px] border-ink pb-4">
+        <h1 className="text-[38px] font-bold leading-tight tracking-[-.01em]">能力对了，你未必用得上</h1>
         <p className="text-muted text-[15px]">
           {all.length} 条，全部从数据现算 · 每条带厂商官方原文
           <Link href="/method#states" className="underline ml-2 hover:text-ink">口径 →</Link>
         </p>
       </header>
 
-      {order.filter((k) => byKind.get(k)?.length).map((k) => (
-        <section key={k} className="flex flex-col gap-2">
-          <h2 className="text-[20px] font-semibold">
+      {kinds.map((k, ki) => (
+        <section key={k} className={ki === 0 ? "flex flex-col gap-2 pt-1" : "flex flex-col gap-2 border-t-[2.5px] border-ink pt-4"}>
+          <h2 className="text-[22px] font-bold leading-tight flex items-baseline gap-3">
+            <span className="text-[17px] text-yes-ink font-bold">{CN[ki]}</span>
             {CAVEAT_ZH[k]}
-            <span className="text-muted text-[14px] font-normal ml-2">{byKind.get(k)!.length} 条</span>
+            <span className="text-muted text-[14px] font-normal">{byKind.get(k)!.length} 条</span>
           </h2>
           {byKind.get(k)!.map((c, i) => {
             const src = c.src ? atlas.sources[c.src] : null;
             return (
-              <div key={i} className="border border-rule rounded-lg bg-card p-3 flex flex-col gap-1">
+              <div key={i} className="border border-rule bg-card p-3 flex flex-col gap-1">
                 <p className="text-[15px]">
                   {c.m ? (
                     <Link href={modelHref(c.m)} className="underline hover:text-yes">{c.what}</Link>
