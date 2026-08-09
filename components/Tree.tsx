@@ -34,7 +34,7 @@ import { modelHref } from "@/lib/slug";
  * 67 个标签同时铺在图上，只会变成一团噪音。
  */
 const W = 1240;
-const PAD = { t: 56, b: 120, l: 78, r: 58 };  // b 加大：轴底下方要放树根与主干
+const PAD = { t: 56, b: 48, l: 78, r: 58 };
 const AXIS_H = 560;
 
 const MS = (d: string) => new Date(`${d.length === 7 ? `${d}-01` : d}T00:00:00Z`).getTime();
@@ -165,13 +165,6 @@ export default function Tree() {
     return new Map([...first.entries()].sort((a, b) => MS(a[1]) - MS(b[1])).map(([m], i) => [m, i + 1]));
   }, [cap, nodes]);
 
-  // 每个架构族的主干落点 = 该族所有产品线 cx 的中位数
-  const trunks = useMemo(() => {
-    const by = new Map<string, number[]>();
-    for (const l of lines) by.set(l.group, [...(by.get(l.group) ?? []), l.cx]);
-    return [...by.entries()].map(([g, xs]) => ({ g, cx: xs.reduce((a, b) => a + b, 0) / xs.length }));
-  }, [lines]);
-
   const H = PAD.t + AXIS_H + PAD.b;
   const years: number[] = [];
   for (let yr = new Date(t0).getUTCFullYear(); yr <= new Date(t1).getUTCFullYear(); yr++) years.push(yr);
@@ -256,61 +249,20 @@ export default function Tree() {
             视频这边同理：**扩散模型是共同的根**，DiT / 混合 / 自回归是从根上分出的主干。
             我们原来是 14 根各自从底部冒出来的独立竖线，看着像草不像树 —— 这里补上。
           */}
-          {(() => {
-            /**
-             * **树干**：照参考图的结构重做（上一版做错了）。
-             *
-             * 参考图的树干**贯穿整张图**，从底部根部一直长到顶部；每个模型在自己的
-             * 发布时间点**从树干上分叉出去**，弯到自己的位置。我上一版只在轴底画了
-             * 一小段横着的分叉，产品线全飘在上方**和根没有物理连接** —— 那不是树。
-             *
-             * 现在：根在底部中央 → 各架构族主干竖直贯穿 → 每条产品线在**首发那一刻**
-             * 从所属主干上弯出去。树干下粗上细。
-             */
-            const rootY = PAD.t + AXIS_H + 66;
-            const rootX = W / 2;
-            const topY = PAD.t + 8;
-            return (
-              <g>
-                {/* 各架构族的主干：从根部竖直长到顶部，下粗上细 */}
-                {trunks.map((t) => (
-                  <path key={`trunk-${t.g}`}
-                    d={`M${rootX},${rootY} C${rootX},${rootY - 30} ${t.cx},${rootY - 20} ${t.cx},${PAD.t + AXIS_H - 10} L${t.cx},${topY}`}
-                    fill="none" stroke="var(--color-rule)" strokeWidth={3} strokeLinecap="round" opacity={0.4} />
-                ))}
-                {/* 每条产品线在**首发时刻**从所属主干分叉出去 —— 这是「长在树上」的关键 */}
-                {lines.map((l) => {
-                  const tk = trunks.find((t) => t.g === l.group);
-                  const first = l.ns[0];
-                  const p = posOf.get(first.id);
-                  if (!tk || !p) return null;
-                  const on = MS(first.date) <= cutMs;
-                  // 从主干**同高度**弯出去：短弧、不横穿整张画面
-                  const mx = (tk.cx + p.x) / 2;
-                  return (
-                    <path key={`br-${l.m}`}
-                      d={`M${tk.cx},${p.y + 14} C${mx},${p.y + 14} ${mx},${p.y} ${p.x},${p.y}`}
-                      fill="none" stroke={l.color} strokeWidth={1.6} opacity={on ? 0.22 : 0}
-                      style={{ transition: "opacity .35s" }} />
-                  );
-                })}
-                {/* 族名 + 根 */}
-                {trunks.map((t) => (
-                  <text key={`tl-${t.g}`} x={t.cx} y={PAD.t + AXIS_H + 18} textAnchor="middle"
-                    fontSize="10" fontWeight="700" fill="var(--color-muted)">
-                    {(atlas as unknown as { $arch: Record<string, { zh: string }> }).$arch?.[t.g]?.zh ?? t.g}
-                  </text>
-                ))}
-                <circle cx={rootX} cy={rootY} r={6} fill="var(--color-muted)" />
-                <text x={rootX} y={rootY + 18} textAnchor="middle" fontSize="11" fontWeight="700" fill="var(--color-ink)">
-                  扩散模型
-                </text>
-                <text x={rootX} y={rootY + 30} textAnchor="middle" fontSize="9" fill="var(--color-muted)">
-                  {trunks.length} 支主干 · {lines.length} 条产品线
-                </text>
-              </g>
-            );
-          })()}
+          {/*
+            **这里原来有一个我造的假树根**（负责人 2026-08-09 当场看穿）：
+            根叫「扩散模型」，分支叫「DiT 扩散」和「混合」—— 这两个是同一件事的不同粗细，
+            所有视频模型都是扩散、DiT 也是扩散，**根和分支说的是一句话，等于没分叉**；
+            「混合」那支还只有 SkyReels 一条线（它本质也是扩散）。
+            一支 13 条、一支 1 条，那不是树，是一根主干带了根小杈。
+
+            根子上的原因：LLM 那张演化树能成立，是因为它真有三个势均力敌的架构族
+            （encoder-only / encoder-decoder / decoder-only，各十几个模型）。
+            **视频这边 Sora 之后基本全转 DiT —— 15/18 是同一个架构。**
+            硬套一个树根是在假装有分化，这是数据的事实，画法补不了。
+
+            所以：**不画假树根**。架构信息保留在数据里（模型页可查），图上不编。
+          */}
 
           {/* 血缘的边：先画，节点压在上面 */}
           {nodes.filter((n) => n.parent && posOf.has(n.id) && posOf.has(n.parent!)).map((n) => {
