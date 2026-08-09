@@ -90,7 +90,26 @@ export default function Home() {
         </div>
       </section>
 
-      <footer className="mt-12 border-t-[.5px] border-rule pt-3 text-[12px] leading-[1.6] text-muted">
+      {/*
+        次级入口。三张图（现在/演变/关系）在顶部导航；这些是复访与长尾层 ——
+        不占主导航（北极星），但也不能变成孤岛，从这里进得去。
+        文案写「问题」不写页面名 —— 读者关心自己的下一个问题，不是我们的信息架构。
+      */}
+      <nav className="mt-12 border-t-[.5px] border-rule pt-3 flex flex-wrap gap-x-6 gap-y-2 text-[13px] text-muted">
+        {[
+          ["/changes", "最近变了什么"],
+          ["/skill", "这几件事怎么做"],
+          ["/caveats", "能力对了，未必用得上"],
+          ["/toolkit", "想查一件事，去哪个站"],
+          ["/models", `全部 ${atlas.models.length} 个模型`],
+        ].map(([href, zh]) => (
+          <Link key={href} href={href} className="hover:text-ink underline">
+            {zh} →
+          </Link>
+        ))}
+      </nav>
+
+      <footer className="mt-6 border-t-[.5px] border-rule pt-3 text-[12px] leading-[1.6] text-muted">
         数据 {atlas.version} · 核验于 {atlas.generated_at} ·{" "}
         <Link href="/method#agent" className="underline hover:text-ink">
           机器录入，未经人工核验
