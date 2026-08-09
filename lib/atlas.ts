@@ -91,6 +91,8 @@ export type Org = {
   hq: { city: string; country: string; iso: string; lat: number; lon: number };
   /** 有来源才算核过。没有就是「按常识填的」。 */
   hq_src?: string;
+  /** 定位精度：exact / province / ambiguous / null。10 家仍未定到城市级（待办 H2）。 */
+  hq_precision?: string;
   note?: string;
 };
 
