@@ -45,7 +45,7 @@ const ORIGIN = DEV ? "http://127.0.0.1:3400" : `http://127.0.0.1:${PORT}`;
  * 否则它只是口号，下次又会悄悄涨回去。/method 是口径收容所，它本来就该长。
  */
 const ROUTES = [
-  { path: "/", must: "AI 视频", zh: 500, built: true },
+  { path: "/", must: "AI 视频", zh: 900, built: true },
   { path: "/method", must: "这些数据是怎么来的", zh: 4000, built: true },
   // 列表页量**每条的字数**，不量总字数 —— 变更日志天生随事件累积变长，
   // 对它用「不许涨」是错的度量：那样一来，多记一条真实变更反而算退步。

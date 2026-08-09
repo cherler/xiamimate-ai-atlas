@@ -104,7 +104,7 @@ export default function TruthTable({ k }: { k: Klass }) {
                         <Link href={capHref(c)} className="font-semibold text-[15px] hover:text-yes-ink">
                           {c.zh}
                         </Link>
-                        <span className="text-[10px] tracking-[.06em] uppercase text-muted ml-2">{c.name}</span>
+                        {c.ubiquity && <span className="text-[11px] text-muted ml-2">{c.ubiquity}</span>}
                         <span className="text-[11px] text-muted ml-3">
                           {c.since ? `${c.since} 起` : "早于可追溯范围"}
                         </span>
@@ -114,26 +114,21 @@ export default function TruthTable({ k }: { k: Klass }) {
                       </td>
                       {ms.map((m) => {
                         const f = cell(m.id, c.id);
-                        if (f.state === "yes") {
-                          fn += 1;
-                          notes.push({ n: fn, m: m.id, c: c.id, note: f.note, src: f.src });
-                        }
+                        if (f.state === "yes") notes.push({ n: ++fn, m: m.id, c: c.id, note: f.note, src: f.src });
                         return (
-                          <td
-                            key={m.id}
-                            className={`text-center border-b-[.5px] border-l-[.5px] border-rule ${
-                              f.state === "unknown" ? "hatch" : ""
-                            }`}
-                          >
+                          <td key={m.id} className="text-center border-b-[.5px] border-l-[.5px] border-rule" title={f.note ?? ""}>
+                            {/* 绿勾 / 红叉 / 灰块 —— 三态一目了然（负责人拍板，2026-08-09）。
+                                此前用「蓝块=有出处、斜线=没说」，立场纯粹但一眼看不出三态，弃。 */}
                             {f.state === "yes" && (
-                              <>
-                                {/* 蓝块放大到填多半格 —— 13px 在格子里像撒芝麻，眯眼看是一片灰。
-                                    现在块/斜线对比强到眯眼也能看出块状分布。 */}
-                                <span className="inline-block w-[22px] h-[22px] bg-yes align-middle" />
-                                <sup className="text-[9px] text-yes-ink ml-px tnum">{fn}</sup>
-                              </>
+                              <span className="text-[17px] leading-none">
+                                ✅
+                                {f.via === "separate-task" && <sup className="text-[10px] text-unknown ml-px">*</sup>}
+                              </span>
                             )}
-                            {f.state === "no" && <span className="text-[17px] leading-none text-muted">✕</span>}
+                            {f.state === "no" && <span className="text-[17px] leading-none">❌</span>}
+                            {f.state === "unknown" && (
+                              <span className="inline-block w-[15px] h-[15px] align-middle" style={{ background: "var(--color-unknown)", opacity: 0.28 }} />
+                            )}
                           </td>
                         );
                       })}
@@ -147,21 +142,21 @@ export default function TruthTable({ k }: { k: Klass }) {
       </div>
 
       {/* signature：脚注栏。可追溯不是弹窗，是规格书自带的东西。
-          **默认折叠** —— 59 条原文摊开会把表压到看不见，而人是先看表才想追某一条的。 */}
+          **默认折叠** —— 原文摊开会把表压到看不见，而人是先看表才想追某一条的。
+          每条前面标「模型 · 能力」，对应表里那个 ✅。 */}
       <details className="mt-7 border-t-[2.5px] border-ink">
         <summary className="cursor-pointer py-2.5 text-[13px] text-muted hover:text-ink select-none">
-          {notes.length} 条厂商原文 —— 表里每个编号都能在这儿查到出处
+          {notes.length} 条厂商原文 —— 每个 ✅ 都能在这儿查到出处
         </summary>
       <div data-quote className="pt-1 pb-3 [column-count:2] [column-gap:34px] [column-rule:.5px_solid_var(--color-rule)]">
         {notes.map((n) => {
           const s = n.src ? atlas.sources[n.src] : null;
+          const mm = atlas.models.find((m) => m.id === n.m);
+          const cc = cs.find((c) => c.id === n.c);
           return (
-            <p
-              key={n.n}
-              className="text-[11px] leading-[1.62] text-muted mb-1.5 [break-inside:avoid] pl-[22px] -indent-[22px]"
-            >
-              <b className="font-normal text-[10px] text-yes-ink inline-block w-5 indent-0 tnum">{n.n}</b>
-              <Rich text={n.note ?? `${label(atlas.models.find((m) => m.id === n.m)!)} · 已核`} />
+            <p key={`${n.m}-${n.c}`} className="text-[11px] leading-[1.62] text-muted mb-1.5 [break-inside:avoid]">
+              <b className="font-normal text-yes-ink">{mm ? label(mm) : n.m} · {cc?.zh ?? n.c}：</b>
+              <Rich text={n.note ?? "已核"} />
               {s && (
                 <a href={s.url} target="_blank" rel="noreferrer" className="underline ml-1 hover:text-ink">
                   {s.name}
@@ -184,18 +179,13 @@ export default function TruthTable({ k }: { k: Klass }) {
 export function Legend() {
   return (
     <div className="hidden md:flex flex-wrap items-center gap-x-6 gap-y-1.5 mt-5 pt-3 border-t-[.5px] border-rule text-[12px] text-muted">
+      <span className="flex items-center gap-1.5"><i className="not-italic">✅</i>厂商官方文档写明支持</span>
+      <span className="flex items-center gap-1.5"><i className="not-italic">❌</i>厂商明确说不支持</span>
       <span className="flex items-center gap-1.5">
-        <i className="inline-block w-[11px] h-[11px] bg-yes not-italic" />
-        厂商官方文档写明支持，右上角编号对应下方原文
-      </span>
-      <span className="flex items-center gap-1.5">
-        <i className="not-italic text-ink text-[13px]">✕</i>
-        厂商明确说不支持
-      </span>
-      <span className="flex items-center gap-1.5">
-        <i className="hatch inline-block w-[11px] h-[11px] not-italic border-[.5px] border-rule" />
+        <i className="inline-block w-[11px] h-[11px] not-italic" style={{ background: "var(--color-unknown)", opacity: 0.28 }} />
         厂商没说过 —— 和「不支持」不是一回事
       </span>
+      <span className="flex items-center gap-1.5"><i className="not-italic text-unknown">*</i>平台另一个接口，不是生成时一步</span>
       <Link href="/method#states" className="underline hover:text-ink">
         口径 →
       </Link>

@@ -72,11 +72,24 @@ export default function Home() {
         </Link>
       </p>
 
-      <p className="mt-3 text-[13px] text-muted">
-        另有 {modelsOf("realtime").length} 个<b className="text-ink font-normal">实时交互</b>模型 ——
-        边生成边看、中途可干预、时长不预先确定，它们走的是另一套能力轴，不和上表混算。
-        <Link href="/models#realtime" className="underline ml-1 hover:text-ink">看那一轨 →</Link>
-      </p>
+      {/*
+        实时交互轨拉回首页（负责人 2026-08-09）。它们不并进上表 ——
+        Vidu S1、Lucy 这些在离线轨 10 项能力上 10/10 全「没说」，因为它们根本不做
+        首尾帧、视频延长这类事。硬塞进上表就是两列整列斜线，让人以为「它俩啥都不行」，
+        其实是用错了尺子。所以另起一张同语言的表，能力轴是它们自己的。
+      */}
+      <section className="mt-12">
+        <h2 className="text-[13px] tracking-[.2em] text-muted border-b-[2.5px] border-ink pb-2">
+          实时交互轨 · 另一套能力轴
+        </h2>
+        <p className="text-[13px] text-muted mt-2 max-w-[820px]">
+          边生成边看、中途可干预、时长不预先确定。对它们「视频延长」没有意义（本来就没终点），
+          对上表那些「实时出帧」也没有意义 —— 两轨不共用坐标系，硬并成一张表会把两边都讲错。
+        </p>
+        <div className="mt-3">
+          <TruthTable k="realtime" />
+        </div>
+      </section>
 
       <section className="mt-12">
         <h2 className="text-[13px] tracking-[.2em] text-muted border-b-[2.5px] border-ink pb-2">

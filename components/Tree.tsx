@@ -232,16 +232,37 @@ export default function Tree() {
             );
           })}
 
-          {/* 产品线名：贴在这条线最新那个节点的上方 */}
+          {/* 每条线标首末两个节点 —— 上一版只标最新一个，67 个点里 53 个是哑点，
+              「看不出是什么」的最直接原因。末节点标产品线名（它长成了什么），
+              首节点标它出道时叫什么（这条线从哪来）。 */}
           {lines.map((l) => {
             const top = l.ns[l.ns.length - 1];
-            const p = posOf.get(top.id)!;
-            const on = MS(top.date) <= cutMs;
+            const bot = l.ns[0];
+            const pt = posOf.get(top.id)!;
+            const pb = posOf.get(bot.id)!;
+            const onTop = MS(top.date) <= cutMs;
+            const onBot = MS(bot.date) <= cutMs;
+            // 首标签的条件（否则叠成一团）：
+            //   ① 多节点线（单节点如 Mochi 首末同点，不标）
+            //   ② 离末标签够远（短线首末会叠）
+            //   ③ **首节点不在轴底最早那批** —— LTX/Allegro/浑源的首发都挤在 2024 底部，
+            //      那里已经有「轴起于…」说明和一堆节点，再塞首标签必然叠字。
+            //      只有出道较晚、首节点有空档的线（Seedance/Kling/Vidu…）才标首。
+            const atFloor = pb.y > PAD.t + AXIS_H - 40;
+            const showBot = l.ns.length > 1 && Math.abs(pt.y - pb.y) > 46 && !atFloor;
             return (
-              <text key={`t-${l.m}`} x={p.x} y={p.y - 13} textAnchor="middle" fontSize="12" fontWeight="700"
-                fill={l.color} opacity={on ? 1 : 0.15} style={{ transition: "opacity .35s" }}>
-                {l.model.family}
-              </text>
+              <g key={`t-${l.m}`}>
+                <text x={pt.x} y={pt.y - 13} textAnchor="middle" fontSize="12" fontWeight="700"
+                  fill={l.color} opacity={onTop ? 1 : 0.15} style={{ transition: "opacity .35s" }}>
+                  {l.model.family}
+                </text>
+                {showBot && (
+                  <text x={pb.x} y={pb.y + 17} textAnchor="middle" fontSize="10"
+                    fill={l.color} opacity={onBot ? 0.65 : 0.12} style={{ transition: "opacity .35s" }}>
+                    {(bot.version || bot.added).slice(0, 13)}
+                  </text>
+                )}
+              </g>
             );
           })}
 
