@@ -86,6 +86,7 @@ const SHORT = (t: string) =>
     .replace(/^Allegro-/, "Alg-")
     .replace(/^换代[:：]?\s*/, "")
     .replace(/\s*补充发布$/, "")
+    .replace(/-v\?$/, "")
     .slice(0, 12);
 
 export default function Tree() {
@@ -337,34 +338,9 @@ export default function Tree() {
             视频这边同理：**扩散模型是共同的根**，DiT / 混合 / 自回归是从根上分出的主干。
             我们原来是 14 根各自从底部冒出来的独立竖线，看着像草不像树 —— 这里补上。
           */}
-          {/*
-            **主干 + 枝条**：主干就是时间轴本身（不编造「扩散模型」那种假树根 ——
-            那次教训见 git log）。枝条在**各自首发的时间点**从主干上左右伸出，
-            老枝在下伸得远、新枝在上靠主干，自然成一个树冠。
-          */}
-          {(() => {
-            const CX = W / 2;
-            const botY = PAD.t + AXIS_H;
-            return (
-              <g>
-                {/* 枝：从主干在首发高度伸到该线的位置（主干＝时间轴本身，居中） */}
-                {lines.map((l) => {
-                  const p = posOf.get(l.ns[0].id);
-                  if (!p) return null;
-                  const on = MS(l.ns[0].date) <= cutMs;
-                  // 每条线从自己首个节点下方短短抽一截「根须」—— 表示它在这一刻出现，
-                  // 不横穿画面（上一版那些长弧把整张图划得乱七八糟）。
-                  return (
-                    <path key={`br-${l.m}`}
-                      d={`M${p.x},${Math.min(p.y + 26, botY + 8)} L${p.x},${p.y}`}
-                      fill="none" stroke={l.color} strokeLinecap="round"
-                      strokeWidth={1.4 + Math.min(3.4, l.ns.length * 0.32)}
-                      opacity={on ? 0.28 : 0} style={{ transition: "opacity .35s" }} />
-                  );
-                })}
-              </g>
-            );
-          })()}
+          {/* 起点下方那截「根须」已删（负责人：每个起点下面带个小尾巴是为什么）。
+              它本来想表示「这条线在这一刻出现」，但既然不做树根，它就只是装饰 ——
+              节点本身的位置已经说明了出现时间。 */}
 
           {/* 血缘的边：先画，节点压在上面 */}
           {nodes.filter((n) => n.parent && posOf.has(n.id) && posOf.has(n.parent!)).map((n) => {
@@ -419,7 +395,9 @@ export default function Tree() {
                   const scrubbing = playing || cut < 99.5;
                   const justGrown = scrubbing && MS(n.date) > cutMs - (t1 - t0) * 0.05;
                   // **首末两端常驻**（负责人要求），中间的仍默认隐藏
-                  const showLabel = on && (isTop || isBot || pin === n.id || justGrown);
+                  // 首标签若和末端的产品线名一模一样就不标 —— 重复两遍没有信息量
+                  const dupBot = isBot && SHORT(n.version || n.added || "") === SHORT(l.model.family);
+                  const showLabel = on && (isTop || (isBot && !dupBot) || pin === n.id || justGrown);
                   // 首末显版本号（那是「从哪来、长成什么」），中间显「这一代新增了什么」。
                   // 长名简称 —— 负责人：模型名太长就用简称。
                   const raw = (isTop || isBot) ? (n.version || n.added) : (n.added || n.version);
