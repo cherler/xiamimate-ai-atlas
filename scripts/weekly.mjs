@@ -25,6 +25,13 @@ const reg = JSON.parse(readFileSync(join(ROOT, "data/sources.json"), "utf8"));
 const WRITE = process.argv.includes("--write");
 const DIR = join(ROOT, "weekly");
 const issue = (existsSync(DIR) ? readdirSync(DIR).filter((f) => f.endsWith(".md")).length : 0) + 1;
+/**
+ * 周报的日期是**出报那天**，不是能力格的核验日期。
+ * 上一版用了 `atlas.generated_at`，结果第 2 期和第 1 期同一个日期、
+ * 文件名都差点撞上 —— **那两个日期是两件事**：一个是「这份报告什么时候出的」，
+ * 一个是「能力格什么时候核的」。
+ */
+const TODAY = new Date().toISOString().slice(0, 10);
 
 const git = (...args) => execFileSync("git", args, { cwd: ROOT, encoding: "utf8" }).trim();
 const core = a.models.filter((m) => (m.tier ?? "core") === "core");
@@ -48,13 +55,31 @@ const unk = core
 const log = git("log", "--since=7 days ago", "--pretty=%an\t%s").split("\n").filter(Boolean);
 const bot = log.filter((l) => l.startsWith("atlas-")).length;
 
+// **「官方页上查不到」不是一种计价方式** —— 上一版把它也算进去了，
+// 于是「N 种计价方式」这个数虚高。分开数。
 const units = {};
-for (const q of a.pricing ?? []) units[q.unit] = (units[q.unit] ?? 0) + 1;
+for (const q of (a.pricing ?? []).filter((x) => x.unit !== "unavailable")) units[q.unit] = (units[q.unit] ?? 0) + 1;
+const noPrice = (a.pricing ?? []).filter((x) => x.unit === "unavailable").length;
 const blocked = (a.platforms ?? []).filter((p) => p.discloses === "blocked");
 const older = (a.availability ?? []).filter((v) => v.match === "older");
 const noSrcHq = a.orgs.filter((o) => !o.hq_src).length;
+/** 「用不上」的条数：和前台同一套算法的最小版本，**不另抄一份口径**。 */
+const cav = () => {
+  const older = (a.availability ?? []).filter((v) => v.match === "older").length;
+  const gone = (a.availability ?? []).filter((v) => {
+    const m = a.models.find((x) => x.id === v.m);
+    return m?.status === "discontinued" && v.status !== "gone";
+  }).length;
+  const soon = (a.availability ?? []).filter((v) => v.status === "coming-soon").length;
+  const blocked = a.models.filter((m) => m.reach_cn === "blocked" && (m.tier ?? "core") === "core").length;
+  const trap = (a.discount ?? []).filter((d) => /不支持|暂不/.test(d.off + d.rule)).length;
+  const byM = {};
+  for (const q of (a.pricing ?? []).filter((x) => x.unit === "per-second")) (byM[q.m] ??= []).push(q);
+  const varies = Object.values(byM).filter((x) => x.length > 1).length;
+  return older + gone + soon + blocked + trap + varies;
+};
 
-const md = `# AI 能力地图 · 第 ${issue} 期（${a.generated_at}）
+const md = `# AI 能力地图 · 第 ${issue} 期（${TODAY}）
 
 > 这份周报**从数据生成**，不是手写的。统计、清单、口径全部算自 \`data/atlas.json\` 和 git；
 > 人只写判断。手抄的周报第二期就会和站上对不上，而这个项目卖的就是「对得上」。
@@ -73,8 +98,9 @@ ${unk.slice(0, 3).map((u) => `- ${label(u.m)}：${u.n}/${capsOf("clip").length} 
 
 ## 价格：难的不是抓全，是它们压根不在同一个刻度上
 
-${(a.pricing ?? []).length} 家，${Object.keys(units).length} 种计价方式：
-${Object.entries(units).map(([k, v]) => `\`${k}\` ${v} 家`).join(" · ")}。
+${Object.values(units).reduce((x, y) => x + y, 0)} 条能标出价，用了 ${Object.keys(units).length} 种计价方式：
+${Object.entries(units).map(([k, v]) => `\`${k}\` ${v} 条`).join(" · ")}。
+另有 ${noPrice} 条**官方页上查不到** —— 那不是一种计价方式，是我们没拿到。
 
 Veo 和 Vidu 按秒标美元，Kling 和万相按秒标人民币，海螺记「视频点数」，
 Runway 只卖订阅，Seedance 把视频价放在飞书多维表里。
@@ -87,6 +113,18 @@ Runway 只卖订阅，Seedance 把视频价放在飞书多维表里。
 
 ${older.length ? `- **平台上架的常常不是当前主力版本**：${(a.availability ?? []).length} 条上架记录里有 ${older.length} 条挂的是旧版本。「能力对」不等于「你用得上」。\n` : ""}- MiniMax 官方明写「视频资源包**暂不支持 MiniMax H3**」—— 而 H3 正是我们记的当前主力
 - 百炼价格页上万相最新是 **wan2.7**，没有我们记的 3.0
+
+## 谱系
+
+${(a.versions ?? []).length} 次发布，${new Set((a.versions ?? []).map((v) => v.m)).size} 条产品线，
+从 ${(a.versions ?? []).map((v) => v.date).sort()[0]} 到今天。
+按第一次发布时是否公开权重分成两条主干 —— **中间是交叉的**：
+万相 2.1/2.2 有权重、2.5 之后没有；海螺反过来，只有最新的 H3 放了权重。
+
+## 能力对了 ≠ 你用得上
+
+现算出 ${cav()} 条：上游停服了平台还在卖、上架的不是当前版本、
+优惠不覆盖主力型号、大陆直连不通。**一条都不手写** —— 某天不再成立，它自己就消失。
 
 ## 我们自己没做到的
 
@@ -104,7 +142,7 @@ Agent 只补空白格，**从不覆盖人已经核过的结论** —— 覆盖�
 
 ---
 
-*数据 ${a.version}。能力格核验于 ${a.generated_at}；价格另有各自的核验日期（见站上每条）。*
+*出报于 ${TODAY} · 数据 ${a.version}。能力格核验于 ${a.generated_at}；价格另有各自的核验日期（见站上每条）。*
 *两个日期不合并 —— **合并就等于宣称什么都在同一天重查过**，那是假的。*
 *每一格都能点开看厂商官方原文。*
 *发现哪条不对，页面上每条都有「这一条不对？」。*
