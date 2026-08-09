@@ -38,7 +38,7 @@ const COL = { inv: 24, org: 246, model: 620, cap: W - 205 };
  * 画布左边留白：投资方标签靠右对齐写在节点左侧，最长的「视觉中国 Visual China Group」
  * 约 190px。viewBox 从 0 起会把它整段裁掉 —— 所以让 viewBox 从负值开始。
  */
-const LEFT = 118;  // 投资方标签靠右写在节点左侧，最长约 110px
+const LEFT = 100;  // 投资方字号缩到 8px 后，最长的名字约 95px
 
 const ORG_HUE: Record<string, string> = {
   alibaba: "#2f7d5e", kuaishou: "#c2703a", bytedance: "#2b6fb0", tencent: "#3f8f86",
@@ -134,9 +134,9 @@ export default function RelationGraph() {
     onClick: () => void; href?: string; anchor: "start" | "end"; small?: boolean;
   }) => (
     <g opacity={lit(id) ? 1 : 0.13} style={{ transition: "opacity .3s", cursor: "pointer" }} onClick={onClick}>
-      <circle cx={x} cy={y} r={key === id ? 5.5 : small ? 3 : 4} fill={color} />
+      <circle cx={x} cy={y} r={key === id ? 5.5 : small ? 2.5 : 4} fill={color} />
       <text x={anchor === "end" ? x - (small ? 7 : 9) : x + 9} y={y + 3.5} textAnchor={anchor}
-        fontSize={small ? 9.5 : 11.5} fontWeight={key === id ? 700 : small ? 400 : 500}
+        fontSize={small ? 8 : 11.5} fontWeight={key === id ? 700 : small ? 400 : 500}
         fill={small ? "var(--color-muted)" : "var(--color-ink)"}>
         {text}
         {sub && <tspan fontSize="9.5" fontWeight="400" fill="var(--color-muted)">{"  " + sub}</tspan>}
@@ -170,7 +170,7 @@ export default function RelationGraph() {
 
       <div className="bg-card border border-rule overflow-x-auto">
         <svg viewBox={`${-LEFT} 0 ${W + LEFT} ${g.H + PAD.t + PAD.b}`} className="w-full min-w-[980px]">
-          <text x={COL.inv} y={20} textAnchor="end" fontSize="9.5" fontWeight="700" fill="#b04a72">投资方</text>
+          <text x={COL.inv} y={20} textAnchor="end" fontSize="8.5" fontWeight="700" fill="#b04a72">投资方</text>
           <text x={COL.org} y={20} textAnchor="end" fontSize="11" fontWeight="700" fill="var(--color-muted)">公司</text>
           <text x={COL.model} y={20} textAnchor="middle" fontSize="11" fontWeight="700" fill="var(--color-muted)">模型</text>
           <text x={COL.cap} y={20} textAnchor="start" fontSize="11" fontWeight="700" fill="var(--color-muted)">能力 · 枢纽</text>
