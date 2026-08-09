@@ -15,7 +15,7 @@ import { usePathname } from "next/navigation";
  * 这个假阳性是「拿一条已知是错的喂进去看它响不响」抓出来的。
  *
  * **没建好的页不放进导航。** 一个点进去发现「还在建」的入口，
- * 比没有入口更糟 —— 它把人引进死路。/skill 和 /toolkit 等 A2 有数据了再加。
+ * 比没有入口更糟 —— 它把人引进死路。/skill 还在建，所以还没进来。
  */
 const MAIN = [
   { href: "/", zh: "首页" },
@@ -24,6 +24,7 @@ const MAIN = [
   { href: "/where", zh: "去哪用" },
   { href: "/caveats", zh: "别踩坑" },
   { href: "/models", zh: "全部模型" },
+  { href: "/toolkit", zh: "工具箱" },
   { href: "/changes", zh: "变化" },
 ];
 

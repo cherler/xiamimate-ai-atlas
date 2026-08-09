@@ -80,7 +80,8 @@
           "q": "变了什么，意味着什么",
           "exits": [
             "/tree",
-            "/where"
+            "/where",
+            "/toolkit"
           ]
         },
         {
@@ -93,6 +94,13 @@
         {
           "page": "/model/wan",
           "q": "这一家的全貌",
+          "exits": [
+            "/toolkit"
+          ]
+        },
+        {
+          "page": "/toolkit",
+          "q": "该去哪个站查",
           "exits": []
         }
       ]
