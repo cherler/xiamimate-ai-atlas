@@ -113,19 +113,50 @@ export default function RelationGraph() {
   }, [g]);
 
   const key = sel.kind === "none" ? null : `${sel.kind === "org" ? "o" : sel.kind === "model" ? "m" : "c"}:${sel.id}`;
-  /** 与选中节点直接相连的另一端 —— Focus 只留一跳。 */
-  const near = useMemo(() => {
+  /**
+   * **整条链路全亮**，但只沿**方向**走（负责人要求全链路，同时不能失去 Focus）。
+   *
+   * 第一版做成无向广度优先，结果点 Sequoia 亮了全图 69 个节点、一个不暗 ——
+   * 因为**能力是共享枢纽**：Sequoia → Decart → Lucy →「文生视频」→ 所有模型 →
+   * 所有公司，无向遍历必然扩散到全图，Focus 当场失效。
+   *
+   * 正解是分两个方向各走到底，**不在枢纽上横向跳**：
+   *   顺流（下游）投资方 → 公司 → 模型 → 能力
+   *   逆流（上游）能力 → 模型 → 公司 → 投资方
+   * 点「文生视频」看谁实现了它，点 Sequoia 看这笔钱最终支撑了哪些能力，
+   * 两条链路都完整，但不会溢到无关的分支。
+   */
+  const reach = useMemo(() => {
     if (!key) return null;
-    const s = new Set<string>([key]);
-    for (const e of edges) {
-      if (e.a === key) s.add(e.b);
-      if (e.b === key) s.add(e.a);
-    }
-    return s;
+    const nodes = new Set<string>([key]);
+    const eids = new Set<number>();
+    const fwd = new Map<string, { to: string; i: number }[]>();
+    const bwd = new Map<string, { to: string; i: number }[]>();
+    edges.forEach((e, i) => {
+      if (!fwd.has(e.a)) fwd.set(e.a, []);
+      if (!bwd.has(e.b)) bwd.set(e.b, []);
+      fwd.get(e.a)!.push({ to: e.b, i });
+      bwd.get(e.b)!.push({ to: e.a, i });
+    });
+    const walk = (m: Map<string, { to: string; i: number }[]>) => {
+      const q = [key];
+      const seen = new Set([key]);
+      while (q.length) {
+        const cur = q.shift()!;
+        for (const { to, i } of m.get(cur) ?? []) {
+          eids.add(i);
+          nodes.add(to);
+          if (!seen.has(to)) { seen.add(to); q.push(to); }
+        }
+      }
+    };
+    walk(fwd);
+    walk(bwd);
+    return { nodes, eids };
   }, [key, edges]);
 
-  const lit = (id: string) => !near || near.has(id);
-  const litEdge = (e: { a: string; b: string }) => !key || e.a === key || e.b === key;
+  const lit = (id: string) => !reach || reach.nodes.has(id);
+  const litEdge = (_e: { a: string; b: string }, i: number) => !reach || reach.eids.has(i);
 
   const Node = ({
     id, x, y, text, sub, color, onClick, href, anchor, small,
@@ -178,7 +209,7 @@ export default function RelationGraph() {
           {edges.map((e, i) => {
             const a = P.get(e.a), b = P.get(e.b);
             if (!a || !b) return null;
-            const on = litEdge(e);
+            const on = litEdge(e, i);
             const mx = (a.x + b.x) / 2;
             return (
               <path key={i}
