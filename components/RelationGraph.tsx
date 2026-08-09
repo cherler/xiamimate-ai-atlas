@@ -28,7 +28,17 @@ import { capHref, modelHref } from "@/lib/slug";
  */
 const W = 1180;
 const PAD = { t: 44, b: 28, l: 20, r: 20 };
-const COL = { org: 150, model: W / 2, cap: W - 175 };
+/**
+ * **四列**：投资方 → 公司 → 模型 → 能力。
+ * 上一版把投资方和公司挤在同一列，投资边只能向左弯回去、横穿所有公司标签 ——
+ * 采到 8 条就已经乱了，越采越糟。分成独立一列后全部左到右流动，没有回头弯。
+ */
+const COL = { inv: 196, org: 430, model: 720, cap: W - 205 };
+/**
+ * 画布左边留白：投资方标签靠右对齐写在节点左侧，最长的「视觉中国 Visual China Group」
+ * 约 190px。viewBox 从 0 起会把它整段裁掉 —— 所以让 viewBox 从负值开始。
+ */
+const LEFT = 200;
 
 const ORG_HUE: Record<string, string> = {
   alibaba: "#2f7d5e", kuaishou: "#c2703a", bytedance: "#2b6fb0", tencent: "#3f8f86",
@@ -58,17 +68,21 @@ export default function RelationGraph() {
      * ⚠️ investments.from 存的是**公司中文名字符串**，不是 org id —— 上一版按 id 过滤，
      * 5 条投资边一条都画不出来。这里给投资方单独建节点，id 用 `inv:名字`。
      */
-    const owner = atlas.orgs.filter((o) => models.some((m) => m.org === o.id));
-    const invNames = [...new Set(atlas.investments.map((v) => v.from))];
-    const orgs = [
-      ...owner.map((o) => ({ id: o.id, zh: o.zh, hq: o.hq, investor: false })),
-      ...invNames.map((n) => ({ id: `inv:${n}`, zh: n, hq: undefined, investor: true })),
-    ];
+    const orgs = atlas.orgs.filter((o) => models.some((m) => m.org === o.id));
+    // 投资方按「投给谁」排序聚拢 —— 同一家的投资方挨在一起，边才不会互相穿插
+    const orgIdx = new Map(orgs.map((o, i) => [o.id, i]));
+    const invNames = [...new Set(atlas.investments.map((v) => v.from))].sort((x, y) => {
+      const tx = atlas.investments.find((v) => v.from === x)!.to;
+      const ty = atlas.investments.find((v) => v.from === y)!.to;
+      return (orgIdx.get(tx) ?? 99) - (orgIdx.get(ty) ?? 99);
+    });
     const step = (h: number, n: number) => (i: number) => PAD.t + (n > 1 ? (h * i) / (n - 1) : h / 2);
     const H = 620;
     const oy = step(H, orgs.length), my = step(H * 0.86, models.length), cy = step(H * 0.86, caps.length);
+    const iy = step(H * 0.62, invNames.length);
     return {
       H,
+      investors: invNames.map((n, i) => ({ id: `inv:${n}`, zh: n, x: COL.inv, y: iy(i) + H * 0.19 })),
       orgs: orgs.map((o, i) => ({ ...o, x: COL.org, y: oy(i) })),
       models: models.map((m, i) => ({ ...m, x: COL.model, y: my(i) + H * 0.07 })),
       caps: caps.map((c, i) => ({ ...c, x: COL.cap, y: cy(i) + H * 0.07 })),
@@ -77,6 +91,7 @@ export default function RelationGraph() {
 
   const P = useMemo(() => {
     const p = new Map<string, { x: number; y: number }>();
+    for (const v of g.investors) p.set(`o:${v.id}`, v);
     for (const o of g.orgs) p.set(`o:${o.id}`, o);
     for (const m of g.models) p.set(`m:${m.id}`, m);
     for (const c of g.caps) p.set(`c:${c.id}`, c);
@@ -153,7 +168,8 @@ export default function RelationGraph() {
       </div>
 
       <div className="bg-card border border-rule overflow-x-auto">
-        <svg viewBox={`0 0 ${W} ${g.H + PAD.t + PAD.b}`} className="w-full min-w-[900px]">
+        <svg viewBox={`${-LEFT} 0 ${W + LEFT} ${g.H + PAD.t + PAD.b}`} className="w-full min-w-[980px]">
+          <text x={COL.inv} y={20} textAnchor="end" fontSize="11" fontWeight="700" fill="#b04a72">投资方</text>
           <text x={COL.org} y={20} textAnchor="end" fontSize="11" fontWeight="700" fill="var(--color-muted)">公司</text>
           <text x={COL.model} y={20} textAnchor="middle" fontSize="11" fontWeight="700" fill="var(--color-muted)">模型</text>
           <text x={COL.cap} y={20} textAnchor="start" fontSize="11" fontWeight="700" fill="var(--color-muted)">能力 · 枢纽</text>
@@ -165,22 +181,25 @@ export default function RelationGraph() {
             const mx = (a.x + b.x) / 2;
             return (
               <path key={i}
-                d={e.kind === "invest"
-                  ? `M${a.x},${a.y} C${a.x - 60},${a.y} ${b.x - 60},${b.y} ${b.x},${b.y}`
-                  : `M${a.x},${a.y} C${mx},${a.y} ${mx},${b.y} ${b.x},${b.y}`}
+                d={`M${a.x},${a.y} C${mx},${a.y} ${mx},${b.y} ${b.x},${b.y}`}
                 fill="none" stroke={e.color}
                 strokeWidth={e.kind === "own" ? 1.6 : e.kind === "invest" ? 1.4 : 1}
                 strokeDasharray={e.kind === "invest" ? "4 3" : undefined}
-                opacity={on ? (e.kind === "impl" ? 0.4 : 0.75) : 0.05}
+                // 投资边默认压淡：采得越多越糊，点中投资方或那家公司才亮起来
+                opacity={on ? (e.kind === "impl" ? 0.38 : e.kind === "invest" ? (key ? 0.85 : 0.22) : 0.7) : 0.05}
                 style={{ transition: "opacity .3s" }} />
             );
           })}
 
+          {g.investors.map((v) => (
+            <Node key={v.id} id={`o:${v.id}`} x={v.x} y={v.y} anchor="end"
+              text={v.zh} color="#b04a72"
+              onClick={() => setSel(key === `o:${v.id}` ? { kind: "none" } : { kind: "org", id: v.id })} />
+          ))}
           {g.orgs.map((o) => (
             <Node key={o.id} id={`o:${o.id}`} x={o.x} y={o.y} anchor="end"
               text={o.zh.replace("稀宇科技 ", "").replace(" DeepMind", "").replace("科技", "")}
-              sub={o.investor ? "投资方" : undefined}
-              color={o.investor ? "#b04a72" : HUE(o.id)}
+              color={HUE(o.id)}
               onClick={() => setSel(key === `o:${o.id}` ? { kind: "none" } : { kind: "org", id: o.id })} />
           ))}
           {g.models.map((m) => (
