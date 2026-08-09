@@ -27,7 +27,8 @@ import { usePathname } from "next/navigation";
  *
  * 用户只要这四个问题的答案。**其余一切都是它们的下级或废案**，不占导航：
  * `/models` `/compare` `/capability` `/model` 从图里点进去；
- * `/changes` `/skill` `/toolkit` `/caveats` 是复访/长尾层，从首页页脚的次级入口进。
+ * `/changes` `/toolkit` `/caveats` 是复访/长尾层，从首页页脚的次级入口进；
+ * 「场景」页（/scenario）已经涵盖六件事的做法，原 /skill 索引删掉，只留 /skill/[id] 详情。
  *
  * 上一版挂到过九项、砍到六项、又砍到四项 —— **每一次「砍」都还留着不服务三张图的词**。
  * 这一次对着北极星砍到底：不服务三张图的，一个都不上导航。

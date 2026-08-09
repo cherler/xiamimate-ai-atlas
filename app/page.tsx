@@ -102,7 +102,6 @@ export default function Home() {
       <nav className="mt-12 border-t-[.5px] border-rule pt-3 flex flex-wrap gap-x-6 gap-y-2 text-[13px] text-muted">
         {[
           ["/changes", "最近有什么变化"],
-          ["/skill", "这几件事怎么做"],
           ["/caveats", "能力对了，未必用得上"],
           ["/toolkit", "想查一件事，去哪个站"],
           ["/models", `全部 ${atlas.models.length} 个模型`],
