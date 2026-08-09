@@ -105,6 +105,24 @@ export default async function SkillPage({ params }: { params: Promise<{ id: stri
         </Box>
       )}
 
+      {/* **拿什么做**（方案 §10 明确要求的一栏）：能直接跑起来的 workflow / 官方插件。
+          原来这一页只说「谁能做」，不说「用什么跑」—— 那是把最实用的一半略掉了。 */}
+      {!!s.workflow?.length && (
+        <Box t="拿什么做 · 能跑起来的 workflow">
+          {s.workflow.map((w) => (
+            <p key={w.url} className="flex flex-wrap items-baseline gap-x-2">
+              <a href={w.url} target="_blank" rel="noreferrer" className="font-medium underline hover:text-yes-ink">
+                {w.name} →
+              </a>
+              <span className={`text-[11px] px-1.5 ${w.kind === "official" ? "bg-yes/12 text-yes-ink" : "bg-rule/60 text-muted"}`}>
+                {w.kind === "official" ? "官方" : "社区"}
+              </span>
+              <span className="text-muted text-[12px]">{w.quote}</span>
+            </p>
+          ))}
+        </Box>
+      )}
+
       {/* **这一栏是这一页最值钱的部分。** 厂商不会写自己做不好什么。 */}
       <section className="border border-unknown/40 bg-unknown/6 rounded-lg p-4 flex flex-col gap-1.5">
         <h2 className="text-[15px] font-semibold">已知限制</h2>

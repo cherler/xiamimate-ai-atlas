@@ -279,6 +279,7 @@ const used = new Set([
   ...(a.availability ?? []).map((v) => v.src),
   ...(a.platforms ?? []).map((p) => p.discloses_src), // 透明度也是引用，漏了会误报 R10
   ...(a.investments ?? []).map((v) => v.src),         // 投资关系也是引用
+  ...(a.skills ?? []).flatMap((k) => (k.workflow ?? []).map((w) => w.src)), // workflow 来源
   ...a.models.map((m) => m.arch_src),                 // 架构标注也是引用
   ...(a.pricing ?? []).map((q) => q.src),
 ].filter(Boolean));

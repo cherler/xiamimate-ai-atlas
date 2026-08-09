@@ -1338,6 +1338,21 @@
       "name": "OpenAI 官网 · Our structure（股权结构披露）",
       "url": "https://openai.com/our-structure/",
       "tier": "official"
+    },
+    "comfy-org-hf": {
+      "name": "Comfy-Org 官方 Hugging Face 组织",
+      "url": "https://huggingface.co/Comfy-Org",
+      "tier": "official"
+    },
+    "ltx-comfy-gh": {
+      "name": "Lightricks/ComfyUI-LTXVideo（官方插件）",
+      "url": "https://github.com/Lightricks/ComfyUI-LTXVideo",
+      "tier": "official"
+    },
+    "wanwrapper-gh": {
+      "name": "kijai/ComfyUI-WanVideoWrapper（社区，星标 6.6k）",
+      "url": "https://github.com/kijai/ComfyUI-WanVideoWrapper",
+      "tier": "third-party"
     }
   },
   "support": [
@@ -3820,6 +3835,15 @@
         "kling",
         "vidu-q",
         "ltx"
+      ],
+      "workflow": [
+        {
+          "name": "ComfyUI-WanVideoWrapper（含 Animate 动作复刻）",
+          "url": "https://github.com/kijai/ComfyUI-WanVideoWrapper",
+          "kind": "community",
+          "src": "wanwrapper-gh",
+          "quote": "★6,655 —— 开源侧动作复刻实际能跑起来的 workflow 主要在这里"
+        }
       ]
     },
     {
@@ -3863,7 +3887,8 @@
         "vidu-q",
         "veo",
         "ltx"
-      ]
+      ],
+      "workflow": []
     },
     {
       "id": "flf",
@@ -3902,7 +3927,8 @@
         "vidu-q",
         "veo",
         "ltx"
-      ]
+      ],
+      "workflow": []
     },
     {
       "id": "lipsync",
@@ -3941,7 +3967,8 @@
         "kling",
         "vidu-q",
         "ltx"
-      ]
+      ],
+      "workflow": []
     },
     {
       "id": "extend",
@@ -3978,7 +4005,8 @@
         "seedance",
         "vidu-q",
         "veo"
-      ]
+      ],
+      "workflow": []
     },
     {
       "id": "openweights",
@@ -3994,16 +4022,52 @@
       },
       "opensource": [
         {
+          "name": "MiniMax 官方组织",
+          "url": "https://huggingface.co/MiniMaxAI",
+          "src": "hf-lineage",
+          "quote": "MiniMaxAI/MiniMax-H3（image-text-to-video，↓35,295）"
+        },
+        {
           "name": "Wan-AI 官方组织",
           "url": "https://huggingface.co/Wan-AI",
           "src": "hf-lineage",
-          "quote": "Wan-AI 官方 Hugging Face 组织"
+          "quote": "Wan-AI 官方 Hugging Face 组织，27 个视频模型"
         },
         {
           "name": "Lightricks 官方组织",
           "url": "https://huggingface.co/Lightricks",
           "src": "hf-lineage",
-          "quote": "Lightricks 官方 Hugging Face 组织"
+          "quote": "Lightricks 官方组织，51 个视频模型含 LTX-2.3"
+        },
+        {
+          "name": "腾讯官方组织",
+          "url": "https://huggingface.co/tencent",
+          "src": "hf-lineage",
+          "quote": "tencent 官方组织，含 HunyuanVideo 系列"
+        },
+        {
+          "name": "昆仑万维 Skywork",
+          "url": "https://huggingface.co/Skywork",
+          "src": "hf-lineage",
+          "quote": "Skywork 官方组织，SkyReels-V1/A1/V3 系列"
+        },
+        {
+          "name": "Genmo 官方组织",
+          "url": "https://huggingface.co/genmo",
+          "src": "hf-lineage",
+          "quote": "genmo/mochi-1-preview"
+        },
+        {
+          "name": "Rhymes AI 官方组织",
+          "url": "https://huggingface.co/rhymes-ai",
+          "src": "hf-lineage",
+          "quote": "rhymes-ai/Allegro、Allegro-TI2V、Allegro-T2V"
+        },
+        {
+          "name": "潞晨 HPC-AI Tech",
+          "url": "https://huggingface.co/hpcai-tech",
+          "src": "hf-lineage",
+          "quote": "hpcai-tech/Open-Sora 与 OpenSora-STDiT 系列"
         }
       ],
       "platform_feature": [],
@@ -4020,7 +4084,36 @@
       "verified_at": "2026-08-09",
       "native": [
         "hailuo",
-        "ltx"
+        "wan",
+        "ltx",
+        "skyreels",
+        "hunyuan-video",
+        "mochi",
+        "allegro",
+        "open-sora"
+      ],
+      "workflow": [
+        {
+          "name": "Wan 2.2 ComfyUI 官方打包",
+          "url": "https://huggingface.co/Comfy-Org/Wan_2.2_ComfyUI_Repackaged",
+          "kind": "official",
+          "src": "comfy-org-hf",
+          "quote": "Comfy-Org/Wan_2.2_ComfyUI_Repackaged ↓5,494,798"
+        },
+        {
+          "name": "HunyuanVideo ComfyUI 打包",
+          "url": "https://huggingface.co/Comfy-Org/HunyuanVideo_repackaged",
+          "kind": "official",
+          "src": "comfy-org-hf",
+          "quote": "Comfy-Org/HunyuanVideo_repackaged ↓89,635"
+        },
+        {
+          "name": "ComfyUI-LTXVideo（Lightricks 官方）",
+          "url": "https://github.com/Lightricks/ComfyUI-LTXVideo",
+          "kind": "official",
+          "src": "ltx-comfy-gh",
+          "quote": "LTX-Video Support for ComfyUI · ★4,038"
+        }
       ]
     }
   ],

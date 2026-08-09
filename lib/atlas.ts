@@ -162,6 +162,8 @@ export type Skill = {
   io?: { in: string[]; out: string };
   native?: string[];
   opensource?: { name: string; url?: string; src: string; quote: string }[];
+  /** 能直接跑起来的 workflow / 官方插件。**方案 §10 要的「拿什么做」就是这一栏。** */
+  workflow?: { name: string; url: string; kind: "official" | "community"; src: string; quote: string }[];
   platform_feature?: { p: string; name: string; src: string; quote: string; discloses?: string }[];
   limits?: string[]; cases?: string[];
   src?: string; quote?: string; verified_at: string;
