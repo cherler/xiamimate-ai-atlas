@@ -15,14 +15,17 @@ import { modelHref } from "@/lib/slug";
  * 模型在各自发布的时刻长出来。** 分叉是真的（Wan2.1 底座上同时长出
  * FLF2V 和 VACE），平铺会把分叉整个抹掉。
  *
- * ## 开源 / 闭源用颜色分，不用位置分
+ * ## 开不开源只由「实心/空心」逐代表示，颜色只用来区分线
  *
- * 上一版把宽度硬切两半（左开源右闭源）、中间一道竖线。结果万相、海螺这种
- * **换过向的**产品线被挤在交界，逼出一句「两条主干中间是交叉的」文字补救 ——
- * 需要文字补救的图就是没做到位。现在改成：**绿系=开源家族、紫系=闭源家族**，
- * 14 条线按首发时间连续平铺（绿在前紫在后，保留空间倾向但没有中线）。
- * 换向由**节点实心/空心**表现：万相 2.1/2.2 实心、2.5 之后空心（走向闭源），
- * 海螺只有 H3 实心（反过来）。位置不再背两份意义，那句文字补救删掉。
+ * 上一版把宽度硬切两半（左开源右闭源），万相/海螺这种换过向的被挤在交界，
+ * 逼出一句文字补救。改成颜色分之后又踩了第二个坑：图例写「绿系=开源家族、
+ * 彩色=闭源家族」，同时写「实心=权重公开」—— **两套都叫开源/闭源，结论还相反**
+ * （MiniMax 是紫色「闭源家族」，但 H3 实心「权重公开」）。负责人当场问
+ * 「公开权重不就是开源吗」。**是分类有毛病，不是他没看懂。**
+ *
+ * 真相：**开不开源是逐代变的**（万相开源起家、3.0 转闭源；海螺闭源起家、H3 才放权重），
+ * 按「家族」贴死标签本身就错。所以现在：开不开源**只看节点实心/空心**，
+ * 颜色退回只做一件事 —— 把 14 条产品线彼此区分开，不承载开源语义。
  *
  * ## 文字为什么少
  *
@@ -42,9 +45,13 @@ type Node = {
   added: string; cap?: string; src: string; quote: string;
 };
 
-/** 主干配色。开源一族偏绿，闭源一族偏冷 —— 一眼分得开，且不靠图例。 */
-const HUE_OPEN = ["#1f6f5c", "#7a9a3e", "#2f8f8a", "#4a6b2e", "#3aa08a", "#8aa832", "#276b4e"];
-const HUE_CLOSED = ["#7a5cc4", "#b06a2c", "#2c6bb0", "#b03a7a", "#5b4fa8", "#c07a1a", "#3a5fa0"];
+/**
+ * 两组色板，**只用来把相邻的线区分开，不承载「开不开源」的含义**。
+ * （开不开源看节点实心/空心，逐代判断。）
+ * 分成两组是为了让首发早的一批和晚的一批在色相上错开，扫视时不糊成一片。
+ */
+const HUE_A = ["#1f6f5c", "#7a9a3e", "#2f8f8a", "#4a6b2e", "#3aa08a", "#8aa832", "#276b4e"];
+const HUE_B = ["#7a5cc4", "#b06a2c", "#2c6bb0", "#b03a7a", "#5b4fa8", "#c07a1a", "#3a5fa0"];
 
 export default function Tree() {
   const [pin, setPin] = useState<string | null>(null);
@@ -74,27 +81,25 @@ export default function Tree() {
     const arr = [...by.entries()].map(([m, ns]) => {
       const model = atlas.models.find((x) => x.id === m)!;
       const sorted = [...ns].sort((a, b) => MS(a.date) - MS(b.date));
-      // 第一次发布时开不开源 —— mixed 的按「起点」归边，换向的节点后面单独描
+      // 只用来给线**排序与分色板**，不代表这条线「是开源的」——
+      // 开不开源逐代看节点实心/空心。命名成 group 而不是 open/closed，避免又被当成语义。
       const w = model?.weights;
-      const side: "open" | "closed" =
-        w === "open" ? "open" : w === "closed" ? "closed" : m === "wan" ? "open" : "closed";
-      return { m, model, ns: sorted, side, first: sorted[0].date };
+      const group: "a" | "b" =
+        w === "open" ? "a" : w === "closed" ? "b" : m === "wan" ? "a" : "b";
+      return { m, model, ns: sorted, group, first: sorted[0].date };
     }).filter((l) => l.model);
-    // 开源在前、闭源在后，各自按首发排 —— 保留绿偏左、紫偏右的空间倾向，
-    // 但**拼成一条连续的平铺，没有中线、没有两大标题**。
-    // 上一版把宽度硬切两半、中间留 gap，万相/海螺被挤在交界，逼出一句
-    // 「两条主干中间是交叉的」文字补救 —— 需要文字补救的图就是没做到位。
-    // 换向（万相走向闭源、海螺反过来）改由**节点实心/空心**表现，不靠位置也不靠文字。
-    const open = arr.filter((l) => l.side === "open").sort((a, b) => a.first.localeCompare(b.first));
-    const closed = arr.filter((l) => l.side === "closed").sort((a, b) => a.first.localeCompare(b.first));
-    const seq = [...open, ...closed];
+    // 两组各按首发时间排，拼成一条连续平铺 —— 没有中线、没有分区标题。
+    // 分组只影响顺序和取哪套色板，**不表示这条线开不开源**。
+    const ga = arr.filter((l) => l.group === "a").sort((a, b) => a.first.localeCompare(b.first));
+    const gb = arr.filter((l) => l.group === "b").sort((a, b) => a.first.localeCompare(b.first));
+    const seq = [...ga, ...gb];
     let oi = 0, ci = 0;
     return seq.map((l, i) => ({
       ...l,
       // 每条线拿到的是一个**带**，不是一个 x —— 分叉要在带内铺开
       cx: PAD.l + ((i + 0.5) / seq.length) * (W - PAD.l - PAD.r),
       band: ((W - PAD.l - PAD.r) / seq.length) * 0.82,
-      color: l.side === "open" ? HUE_OPEN[oi++ % HUE_OPEN.length] : HUE_CLOSED[ci++ % HUE_CLOSED.length],
+      color: l.group === "a" ? HUE_A[oi++ % HUE_A.length] : HUE_B[ci++ % HUE_B.length],
     }));
   }, [nodes]);
 
@@ -107,7 +112,7 @@ export default function Tree() {
    * 做法是经典 tidy tree 的横向版：叶子按顺序占槽，父节点取子节点中位。
    */
   const posOf = useMemo(() => {
-    const p = new Map<string, { x: number; y: number; color: string; side: string }>();
+    const p = new Map<string, { x: number; y: number; color: string; group: string }>();
     for (const l of lines) {
       const kids = new Map<string, Node[]>();
       const roots: Node[] = [];
@@ -131,7 +136,7 @@ export default function Tree() {
         usedY.push(yy);
         const s = slot.get(n.id) ?? 0;
         const x = l.cx + (maxS ? (s / maxS - 0.5) : 0) * l.band;
-        p.set(n.id, { x, y: yy, color: l.color, side: l.side });
+        p.set(n.id, { x, y: yy, color: l.color, group: l.group });
       }
     }
     return p;
@@ -165,6 +170,14 @@ export default function Tree() {
   const H = PAD.t + AXIS_H + PAD.b;
   const years: number[] = [];
   for (let yr = new Date(t0).getUTCFullYear(); yr <= new Date(t1).getUTCFullYear(); yr++) years.push(yr);
+  // 从 t0 那个月的月初起，逐月到 t1 —— 左侧月份刻度用它。
+  const months: number[] = [];
+  for (let d = Date.UTC(new Date(t0).getUTCFullYear(), new Date(t0).getUTCMonth(), 1); d <= t1; ) {
+    if (d >= t0) months.push(d);
+    const nx = new Date(d);
+    nx.setUTCMonth(nx.getUTCMonth() + 1);
+    d = nx.getTime();
+  }
   const hot = pin ? nodes.find((n) => n.id === pin) : null;
 
   return (
@@ -202,7 +215,24 @@ export default function Tree() {
 
       <div className="overflow-x-auto">
         <svg viewBox={`0 0 ${W} ${H}`} className="w-full min-w-[900px]" style={{ height: H }}>
-          {/* 年份横线 */}
+          {/* 月份刻度：左侧一把「尺子」—— 每月一个短刻度，季度（1/4/7/10 月）标月份数字。
+              原来只有 2025/2026 两条年线，太粗，看不出一条线上两个节点隔了几个月。 */}
+          {months.map((ms) => {
+            const yy = y(ymd(ms));
+            const mo = new Date(ms).getUTCMonth() + 1;
+            const quarter = mo % 3 === 1; // 1/4/7/10
+            return (
+              <g key={`mo-${ms}`}>
+                <line x1={PAD.l - 34} x2={PAD.l - (quarter ? 26 : 30)} y1={yy} y2={yy} stroke="var(--color-rule)" />
+                {quarter && (
+                  <text x={PAD.l - 38} y={yy + 3} textAnchor="end" fontSize="8" fill="var(--color-muted)" opacity={0.75}>
+                    {mo}月
+                  </text>
+                )}
+              </g>
+            );
+          })}
+          {/* 年份横线：全宽虚线，比月份刻度显眼，做粗分隔 */}
           {years.map((yr) => {
             const ms = Date.UTC(yr, 0, 1);
             if (ms < t0 || ms > t1) return null;
@@ -210,7 +240,7 @@ export default function Tree() {
             return (
               <g key={yr}>
                 <line x1={PAD.l - 34} x2={W - 20} y1={yy} y2={yy} stroke="var(--color-rule)" strokeDasharray="3 5" />
-                <text x={PAD.l - 40} y={yy + 4} textAnchor="end" fontSize="12" fill="var(--color-muted)">{yr}</text>
+                <text x={PAD.l - 40} y={yy - 3} textAnchor="end" fontSize="12" fontWeight="700" fill="var(--color-ink)">{yr}</text>
               </g>
             );
           })}
@@ -252,6 +282,12 @@ export default function Tree() {
             const showBot = l.ns.length > 1 && Math.abs(pt.y - pb.y) > 46 && !atFloor;
             return (
               <g key={`t-${l.m}`}>
+                {/* 公司名放产品线名上方一行小灰字 —— 回答「谁家的」，和关系图呼应。
+                    去掉「科技 / DeepMind」等长后缀，免得撑太宽压到邻线。 */}
+                <text x={pt.x} y={pt.y - 26} textAnchor="middle" fontSize="9"
+                  fill="var(--color-muted)" opacity={onTop ? 0.85 : 0.12} style={{ transition: "opacity .35s" }}>
+                  {(orgOf(l.m)?.zh ?? "").replace("稀宇科技 ", "").replace(" DeepMind", "").replace("科技", "")}
+                </text>
                 <text x={pt.x} y={pt.y - 13} textAnchor="middle" fontSize="12" fontWeight="700"
                   fill={l.color} opacity={onTop ? 1 : 0.15} style={{ transition: "opacity .35s" }}>
                   {l.model.family}
@@ -305,19 +341,27 @@ export default function Tree() {
       </div>
 
       <div className="flex flex-wrap items-center gap-x-5 gap-y-2 text-[12px] text-muted">
-        <span className="flex items-center gap-1.5">
-          <svg width="16" height="13"><circle cx="5" cy="6.5" r="4.5" fill="#1f6f5c" /><circle cx="11" cy="6.5" r="4" fill="var(--color-paper)" stroke="#1f6f5c" strokeWidth="2" /></svg>
-          绿系 = 开源家族
-        </span>
-        <span className="flex items-center gap-1.5">
-          <svg width="16" height="13"><circle cx="5" cy="6.5" r="4.5" fill="#7a5cc4" /><circle cx="11" cy="6.5" r="4" fill="var(--color-paper)" stroke="#7a5cc4" strokeWidth="2" /></svg>
-          紫系 = 闭源家族
-        </span>
+        {/*
+          **开不开源只看实心/空心，不看颜色。**
+          之前图例写「绿系=开源家族、彩色=闭源家族」，同时又写「实心=权重公开」——
+          两套都叫开源/闭源，结论还能相反（MiniMax 紫色=闭源家族，但 H3 是实心=权重公开），
+          负责人当场问「公开权重不就是开源吗」。**是分类有毛病，不是他没看懂。**
+          真相：开不开源是**逐代变**的（万相开源起家、3.0 转闭源；海螺闭源起家、H3 放权重），
+          按「家族」贴死标签本身就错。所以颜色退回只做一件事：区分 14 条线。
+        */}
         <span>
-          <b className="text-ink">实心</b> = 这一代权重公开，<b className="text-ink">空心</b> = 没公开 ——
-          同一条线上实空混着，就是它换过向（万相走向闭源，海螺反过来）
+          <b className="text-ink">实心</b> = 这一代权重公开，<b className="text-ink">空心</b> = 没公开。
+          <b className="text-ink">开不开源看点，不看颜色</b> —— 颜色只用来区分 14 条产品线。
         </span>
-        <span>点任一节点看它加了什么</span>
+        <span className="flex items-center gap-1.5">
+          <svg width="34" height="13">
+            <circle cx="5" cy="6.5" r="4.5" fill="#1f6f5c" />
+            <circle cx="16" cy="6.5" r="4" fill="var(--color-paper)" stroke="#7a5cc4" strokeWidth="2" />
+            <circle cx="28" cy="6.5" r="4.5" fill="#b06a2c" />
+          </svg>
+          同一条线上实空混着 = 它中途换过向（万相开源起家、3.0 转闭源；海螺相反，H3 才放权重）
+        </span>
+        <span>产品线名旁是公司名 · <b className="text-ink">点任一节点</b>看它这一代加了什么</span>
         <Link href="/method#genealogy" className="underline hover:text-ink">这张图怎么读 →</Link>
       </div>
 

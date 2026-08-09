@@ -20,7 +20,7 @@ export default function TreePage() {
       <h1 className="text-[28px] font-semibold leading-tight">谁在什么时候，长出了什么</h1>
       <p className="text-muted text-[15px] max-w-[860px]">
         {atlas.versions.length} 次发布，{new Set(atlas.versions.map((v) => v.m)).size} 条产品线，
-        从 {atlas.versions.map((v) => v.date).sort()[0]} 到今天。绿系开源、紫系闭源。
+        从 {atlas.versions.map((v) => v.date).sort()[0]} 到今天。实心点＝这一代权重公开，空心＝没公开。
       </p>
       <div className="bg-card border border-rule rounded-xl p-4">
         <Tree />
