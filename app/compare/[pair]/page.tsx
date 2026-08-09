@@ -3,6 +3,7 @@ import Link from "next/link";
 import { Fact, MARK, TONE } from "@/components/Fact";
 import { atlas, capsOf, cell, label, modelsOf, orgOf, STATUS } from "@/lib/atlas";
 import { modelHref } from "@/lib/slug";
+import BackLink from "@/components/BackLink";
 
 /**
  * 对比台（§14 + §19）。URL 稳定可分享：`/compare/kling-vs-seedance`。
@@ -131,7 +132,8 @@ export default async function ComparePage({ params }: { params: Promise<{ pair: 
   };
 
   return (
-    <main className="max-w-[1000px] mx-auto px-5 py-8 flex flex-col gap-6">
+    <main className="max-w-[1000px] mx-auto px-5 pt-5 pb-8 flex flex-col gap-6">
+      <BackLink />
       <h1 className="text-[28px] font-semibold leading-tight">
         {label(a)} 还是 {label(b)}？
       </h1>

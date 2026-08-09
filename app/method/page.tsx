@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { atlas } from "@/lib/atlas";
+import BackLink from "@/components/BackLink";
 
 /**
  * 方法与口径。**这一页是其余所有页面的旁白收容所。**
@@ -34,9 +35,9 @@ export default function Method() {
   const off = src.filter((s) => s.tier === "official").length;
 
   return (
-    <main className="max-w-[880px] mx-auto px-5 py-10 flex flex-col gap-9">
+    <main className="max-w-[880px] mx-auto px-5 pt-5 pb-10 flex flex-col gap-9">
       <header className="flex flex-col gap-2">
-        <Link href="/" className="text-muted text-[13px] underline hover:text-ink self-start">← 回地图</Link>
+        <BackLink />
         <h1 className="text-[30px] font-semibold leading-tight">这些数据是怎么来的</h1>
         <p className="text-muted text-[15px] leading-relaxed">
           数据 {atlas.version} · 能力格核验于 {atlas.generated_at} · 共 {src.length} 条来源，其中官方 {off} 条。

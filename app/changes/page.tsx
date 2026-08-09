@@ -4,6 +4,7 @@ import { Rich } from "@/components/Fact";
 import { atlas, label } from "@/lib/atlas";
 import { modelHref } from "@/lib/slug";
 import changes from "@/data/changes.json";
+import BackLink from "@/components/BackLink";
 
 /**
  * 最近有什么变化（方案 §15 What Changed）。
@@ -85,12 +86,8 @@ export default function ChangesPage() {
   );
 
   return (
-    <main className="max-w-[980px] mx-auto px-8 py-10 flex flex-col gap-8">
-      <nav className="text-[13px] text-muted">
-        <Link href="/" className="underline hover:text-ink">AI 视频能力地图</Link>
-        <span className="mx-2">/</span>
-        <span>最近有什么变化</span>
-      </nav>
+    <main className="max-w-[980px] mx-auto px-8 pt-5 pb-10 flex flex-col gap-8">
+      <BackLink />
 
       <header className="flex flex-col gap-3 border-b-[2.5px] border-ink pb-4">
         <h1 className="text-[38px] leading-tight font-bold tracking-[-.01em]">最近有什么变化</h1>

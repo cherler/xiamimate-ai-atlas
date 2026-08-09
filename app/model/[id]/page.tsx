@@ -3,6 +3,7 @@ import Link from "next/link";
 import { Fact, Rich } from "@/components/Fact";
 import { atlas, avail, capsOf, cell, label, vendorName } from "@/lib/atlas";
 import { capHref } from "@/lib/slug";
+import BackLink from "@/components/BackLink";
 
 /**
  * 模型页。**每个模型一个稳定 URL**（§19 分享 / §20 SEO 都建在这上面）。
@@ -50,14 +51,8 @@ export default async function ModelPage({ params }: { params: Promise<{ id: stri
   for (const c of caps) t[cell(m.id, c.id).state] += 1;
 
   return (
-    <main className="max-w-[980px] mx-auto px-8 py-10 flex flex-col gap-8">
-      <nav className="text-[13px] text-muted">
-        <Link href="/" className="underline hover:text-ink">
-          AI 视频能力地图
-        </Link>
-        <span className="mx-2">/</span>
-        <span>{label(m)}</span>
-      </nav>
+    <main className="max-w-[980px] mx-auto px-8 pt-5 pb-10 flex flex-col gap-8">
+      <BackLink />
 
       <header className="flex flex-col gap-2">
         <h1 className="text-[40px] leading-tight font-semibold">

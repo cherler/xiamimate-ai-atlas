@@ -3,6 +3,7 @@ import Link from "next/link";
 import { atlas, label } from "@/lib/atlas";
 import { caveats, CAVEAT_ZH, type Caveat } from "@/lib/caveats";
 import { modelHref } from "@/lib/slug";
+import BackLink from "@/components/BackLink";
 
 /**
  * 「能力对了 ≠ 你用得上」。**这一页是三条动线的交汇点，也是这个产品最值钱的内容。**
@@ -31,7 +32,8 @@ export default function CaveatsPage() {
   const kinds = order.filter((k) => byKind.get(k)?.length);
 
   return (
-    <main className="max-w-[900px] mx-auto px-5 py-8 flex flex-col gap-8">
+    <main className="max-w-[900px] mx-auto px-5 pt-5 pb-8 flex flex-col gap-8">
+      <BackLink />
       <header className="flex flex-col gap-2 border-b-[2.5px] border-ink pb-4">
         <h1 className="text-[38px] font-bold leading-tight tracking-[-.01em]">能力对了，你未必用得上</h1>
         <p className="text-muted text-[15px]">

@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { Rich } from "@/components/Fact";
 import { atlas } from "@/lib/atlas";
+import BackLink from "@/components/BackLink";
 
 /**
  * 资源导航（方案 §16）。原话：**「不要做一排 Logo 的 hao123」，要「导航 + 判断」。**
@@ -19,7 +20,8 @@ export const metadata: Metadata = {
 
 export default function ToolkitPage() {
   return (
-    <main className="max-w-[900px] mx-auto px-5 py-8 flex flex-col gap-6">
+    <main className="max-w-[900px] mx-auto px-5 pt-5 pb-8 flex flex-col gap-6">
+      <BackLink />
       <header className="flex flex-col gap-2 border-b-[2.5px] border-ink pb-4">
         <h1 className="text-[38px] font-bold leading-tight tracking-[-.01em]">想查一件事，该去哪个站</h1>
         <p className="text-muted text-[15px]">

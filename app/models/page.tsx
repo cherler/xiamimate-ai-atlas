@@ -3,6 +3,7 @@ import Link from "next/link";
 import { Rich } from "@/components/Fact";
 import { atlas, extendedOf, label, vendorName, orgOf, STATUS } from "@/lib/atlas";
 import { modelHref } from "@/lib/slug";
+import BackLink from "@/components/BackLink";
 
 export const metadata: Metadata = {
   title: "全部模型 —— 含库里有但没进主表的",
@@ -11,7 +12,8 @@ export const metadata: Metadata = {
 
 export default function ModelsPage() {
   return (
-    <main className="max-w-[1240px] mx-auto px-5 py-8 flex flex-col gap-10">
+    <main className="max-w-[1240px] mx-auto px-5 pt-5 pb-8 flex flex-col gap-10">
+      <BackLink />
       <h1 className="text-[28px] font-semibold leading-tight">全部模型</h1>
 
       <section className="flex flex-col gap-2">

@@ -3,6 +3,7 @@ import Link from "next/link";
 import { Rich } from "@/components/Fact";
 import { atlas, cell, label } from "@/lib/atlas";
 import { capHref, modelHref } from "@/lib/slug";
+import BackLink from "@/components/BackLink";
 
 /**
  * Skill 页（方案 §10）。原话：**「Skill 必须是第一等公民。」**
@@ -43,7 +44,8 @@ export default async function SkillPage({ params }: { params: Promise<{ id: stri
   const cap = s.cap ? atlas.capabilities.find((c) => c.id === s.cap) : null;
 
   return (
-    <main className="max-w-[880px] mx-auto px-5 py-8 flex flex-col gap-7">
+    <main className="max-w-[880px] mx-auto px-5 pt-5 pb-8 flex flex-col gap-7">
+      <BackLink />
       <header className="flex flex-col gap-1">
         <h1 className="text-[30px] font-semibold leading-tight">{s.zh}</h1>
         <p className="text-muted text-[15px]">

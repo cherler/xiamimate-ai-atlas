@@ -3,6 +3,7 @@ import Link from "next/link";
 import { Fact } from "@/components/Fact";
 import { atlas, cell, label, modelsOf, vendorName, type Klass } from "@/lib/atlas";
 import { modelHref } from "@/lib/slug";
+import BackLink from "@/components/BackLink";
 
 /**
  * 能力页。回答 §1.4 里最常被问的那类问题：「我想做人物动作复刻，有哪些模型？」
@@ -42,14 +43,8 @@ export default async function CapabilityPage({ params }: { params: Promise<{ id:
   const src = c.since_src ? atlas.sources[c.since_src] : null;
 
   return (
-    <main className="max-w-[980px] mx-auto px-8 py-10 flex flex-col gap-8">
-      <nav className="text-[13px] text-muted">
-        <Link href="/" className="underline hover:text-ink">
-          AI 视频能力地图
-        </Link>
-        <span className="mx-2">/</span>
-        <span>{c.zh}</span>
-      </nav>
+    <main className="max-w-[980px] mx-auto px-8 pt-5 pb-10 flex flex-col gap-8">
+      <BackLink />
 
       <header className="flex flex-col gap-3">
         <h1 className="text-[40px] leading-tight font-semibold">
