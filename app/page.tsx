@@ -28,7 +28,7 @@ export default function Home() {
     ["模型", ms.length, ""],
     ["能力项", cs.length, ""],
     ["格子", cells, ""],
-    ["有出处", t.yes, "text-yes"],
+    ["有出处", t.yes, "text-yes-ink"],
     ["明确不支持", t.no, ""],
     ["厂商没说", t.unknown, "opacity-30"],
   ];
@@ -56,7 +56,7 @@ export default function Home() {
         {SPEC.map(([k, v, cls]) => (
           <div key={k} className="py-3 border-r-[.5px] border-rule last:border-r-0">
             <div className="text-[12px] tracking-[.08em] text-muted">{k}</div>
-            <div className={`font-mono text-[33px] leading-none mt-1.5 tabular-nums ${cls}`}>{v}</div>
+            <div className={`text-[33px] leading-none mt-1.5 tabular-nums ${cls}`}>{v}</div>
           </div>
         ))}
       </div>

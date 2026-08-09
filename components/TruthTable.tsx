@@ -54,7 +54,7 @@ export default function TruthTable({ k }: { k: Klass }) {
   if (ungrouped.length) groups.push(["未分组", ungrouped] as const);
 
   return (
-    <div className="hidden md:block">
+    <div className="hidden md:block bg-card border border-rule px-5 pt-4 pb-1">
       <div className="overflow-x-auto">
         <table className="w-full border-collapse">
           <thead>
@@ -70,11 +70,11 @@ export default function TruthTable({ k }: { k: Klass }) {
                     className="align-bottom pb-2 px-1 font-normal border-b-[1.5px] border-l-[.5px] border-l-rule border-ink"
                     style={{ width: `${Math.floor(62 / ms.length)}%` }}
                   >
-                    <Link href={modelHref(m)} className="block hover:text-yes">
+                    <Link href={modelHref(m)} className="block hover:text-yes-ink">
                       <span className="block font-semibold text-[13px] leading-[1.25]">{label(m)}</span>
                     </Link>
                     <span className="block text-[10px] leading-[1.3] text-muted mt-1">{shortOrg(orgOf(m)?.zh ?? "")}</span>
-                    <span className="block font-mono text-[9.5px] leading-none text-muted mt-0.5">{m.version_as_of}</span>
+                    <span className="block text-[9.5px] leading-none text-muted mt-0.5 tnum">{m.version_as_of}</span>
                     {st && <span className="block text-[9.5px] leading-none mt-0.5 text-no">{st.tag}</span>}
                   </th>
                 );
@@ -98,14 +98,14 @@ export default function TruthTable({ k }: { k: Klass }) {
                   return (
                     <tr key={c.id}>
                       <td className="h-9 pr-4 whitespace-nowrap border-b-[.5px] border-rule">
-                        <Link href={capHref(c)} className="font-semibold text-[15px] hover:text-yes">
+                        <Link href={capHref(c)} className="font-semibold text-[15px] hover:text-yes-ink">
                           {c.zh}
                         </Link>
-                        <span className="font-mono text-[10px] tracking-[.06em] uppercase text-muted ml-2">{c.name}</span>
+                        <span className="text-[10px] tracking-[.06em] uppercase text-muted ml-2">{c.name}</span>
                         <span className="text-[11px] text-muted ml-3">
                           {c.since ? `${c.since} 起` : "早于可追溯范围"}
                         </span>
-                        <span className="font-mono text-[11px] text-muted ml-3">
+                        <span className="text-[11px] text-muted ml-3 tnum">
                           {y}/{ms.length}
                         </span>
                       </td>
@@ -125,7 +125,7 @@ export default function TruthTable({ k }: { k: Klass }) {
                             {f.state === "yes" && (
                               <>
                                 <span className="inline-block w-[13px] h-[13px] bg-yes align-middle" />
-                                <sup className="font-mono text-[9px] text-yes ml-px">{fn}</sup>
+                                <sup className="text-[9px] text-yes-ink ml-px tnum">{fn}</sup>
                               </>
                             )}
                             {f.state === "no" && <span className="text-[15px] leading-none">✕</span>}
@@ -155,7 +155,7 @@ export default function TruthTable({ k }: { k: Klass }) {
               key={n.n}
               className="text-[11px] leading-[1.62] text-muted mb-1.5 [break-inside:avoid] pl-[22px] -indent-[22px]"
             >
-              <b className="font-mono font-normal text-[10px] text-yes inline-block w-5 indent-0">{n.n}</b>
+              <b className="font-normal text-[10px] text-yes-ink inline-block w-5 indent-0 tnum">{n.n}</b>
               <Rich text={n.note ?? `${label(atlas.models.find((m) => m.id === n.m)!)} · 已核`} />
               {s && (
                 <a href={s.url} target="_blank" rel="noreferrer" className="underline ml-1 hover:text-ink">

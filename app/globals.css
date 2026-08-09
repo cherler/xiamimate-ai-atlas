@@ -1,33 +1,45 @@
+@import "./brand-tokens.css";
 @import "tailwindcss";
 
 /*
- * Token 系统（docs/视觉方案_V1.md 第三节）。
+ * 配色接进虾米伙伴平台令牌（2026-08-09 负责人拍板）。
  *
- * ## 强调色给「有出处」，不给「支持」
+ * 平台令牌只管「必须一致的东西」：品牌色、字号基准、字体族。
+ * 页面自己的表面色由各应用定 —— 虾米看股是深色研究台，主站是浅色平台页，
+ * 压成完全一样反而让人分不清自己在哪。本站取主站那套浅色表面。
  *
- * 上一版是绿 ✅ / 红 ❌ —— 那是 SaaS 的语义色，它在替读者下结论「这个好那个差」。
- * 这个产品的立场不是评判谁强，是记录**谁说过**。所以强调色（蓝）标的是
- * 「这一格有厂商原文可查」；「厂商明确说不支持」用黑色叉 —— 它是一条事实，不是差评。
+ * ## 品牌色为什么拆两个
  *
- * ## ⬜ 不是颜色，是纹理
+ * 令牌注释里写清楚了：#0c9488 对白只有 3.75:1，够 AA「大字」档，
+ * **当 12px 说明文字或白字按钮底都是不合格的**。所以：
+ *   色块 / 边框 / 进度   → --xm-brand      #0c9488
+ *   小字 / 链接 / 上标   → --xm-brand-ink  #097067（5.96:1，正文档 AA 通过）
+ * 真值表里 13px 的实心方块是色块，右上角的脚注编号是小字 —— 两者不同色，是有意的。
  *
- * 「官方没说」占 90 格里的 30 格，是这个产品最值钱的一类事实。
- * 用浅灰画它，它就消失了（我连着三版设计稿都栽在这儿）。
- * 改成整格 45° 斜线：空白会自己连成片，一眼看出它高度集中在少数几家。
+ * ## 数字不用等宽
+ *
+ * 令牌里另有一条明规矩：**等宽是终端的语言，不是财务工具的。**
+ * 上一版我通篇用 Menlo 排日期和格数，正好违反。对齐由 tabular-nums 提供，
+ * 与字体族无关；规格书的性格靠结构（规则线、密度、脚注）撑，不靠等宽字。
  */
 @theme {
-  --color-paper: #fbfbf9;
-  --color-card: #fbfbf9; /* 与纸同色 —— 卡片底色是上一版「什么都不是」的主要构成材料 */
-  --color-ink: #0b0b0c;
-  --color-muted: #6e7069;
-  --color-rule: #c9cbc6;
-  --color-yes: #0a3ce0; /* 有出处 */
-  --color-no: #0b0b0c; /* 厂商明确说不支持 —— 黑叉，不是红叉 */
-  --color-unknown: #8a8c86;
-  --color-hatch: #e4e5e0;
+  /* 表面：取主站那套 —— 页底浅灰，内容区纯白 */
+  --color-paper: #f4f6f9;
+  --color-card: #ffffff;
+  --color-ink: #16212c;
+  --color-muted: #647587;
+  --color-rule: #e2e6ec;
 
-  /* 零圆角。把 Tailwind 的半径刻度直接归零，rounded-* 全站失效，
-     不必逐个文件删类名，也杜绝以后手滑再写回来。 */
+  /* 语义色。**强调色标的是「有出处」，不是「支持」** ——
+     我们不评判谁强，只记录谁说过；所以「厂商明确说不支持」是墨色叉，不是红叉。 */
+  --color-yes: var(--xm-brand); /* 色块 */
+  --color-yes-ink: var(--xm-brand-ink); /* 小字、上标、链接 */
+  --color-no: #16212c;
+  --color-unknown: #8a95a1;
+  --color-hatch: #d8dee6;
+
+  /* 零圆角。datasheet 的性格来自直角与规则线；
+     平台令牌里的 --xm-radius 是给控件用的，本站不铺到内容区。 */
   --radius-xs: 0px;
   --radius-sm: 0px;
   --radius-md: 0px;
@@ -36,15 +48,13 @@
   --radius-2xl: 0px;
   --radius-3xl: 0px;
   --radius-4xl: 0px;
-
-  --font-mono: Menlo, "SF Mono", ui-monospace, monospace;
 }
 
 html,
 body {
   background: var(--color-paper);
   color: var(--color-ink);
-  font-family: "PingFang SC", "Hiragino Sans GB", system-ui, sans-serif;
+  font-family: var(--xm-font-sans);
   -webkit-font-smoothing: antialiased;
 }
 
@@ -63,7 +73,8 @@ table {
   font-variant-numeric: tabular-nums;
 }
 
-/* 「官方没说」的斜线纹理。整格铺，不画符号。 */
+/* 「官方没说」的斜线纹理。整格铺，不画符号 ——
+   用浅灰画一个符号它就消失了，铺成纹理才连得成片。 */
 .hatch {
   background: repeating-linear-gradient(45deg, var(--color-hatch) 0 1px, transparent 1px 5px);
 }
