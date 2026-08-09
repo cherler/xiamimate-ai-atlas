@@ -17,7 +17,12 @@ const DESC =
  */
 export const metadata: Metadata = {
   metadataBase: new URL("https://xiamimate.com"),
-  title: "AI 视频能力地图",
+  /**
+   * `template` 让每个子页都自动带上站名 —— 否则分享出去的是一个孤零零的
+   * 「谁和谁有关系」，看不出是谁家的。首页用 default，与姊妹站同格式。
+   */
+  title: { default: BRAND.tab, template: `%s｜${BRAND.short}` },
+  icons: { icon: BRAND.icon, shortcut: BRAND.icon, apple: BRAND.icon },
   description: DESC,
   openGraph: {
     title: "9 个 AI 视频模型 × 11 项能力，谁能做什么",
