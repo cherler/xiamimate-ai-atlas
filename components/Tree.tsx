@@ -72,6 +72,22 @@ const ORG_HUE: Record<string, string> = {
 };
 const FALLBACK = "#5c6a78";
 
+/**
+ * 长名简称（负责人：模型名太长就用简称）。
+ * 只砍**冗余前后缀**，不砍能区分版本的部分 —— 砍错了就分不出谁是谁。
+ */
+const SHORT = (t: string) =>
+  (t || "")
+    .replace(/^HunyuanVideo/, "HY")
+    .replace(/^LongAnimateDiff/, "LongAnimDiff")
+    .replace(/^OpenSora-/, "OS-")
+    .replace(/^Open-Sora/, "Open-Sora")
+    .replace(/^SkyReels-/, "SR-")
+    .replace(/^Allegro-/, "Alg-")
+    .replace(/^换代[:：]?\s*/, "")
+    .replace(/\s*补充发布$/, "")
+    .slice(0, 12);
+
 export default function Tree() {
   const [pin, setPin] = useState<string | null>(null);
   const [cap, setCap] = useState<string | null>(null);
@@ -214,6 +230,40 @@ export default function Tree() {
     return w;
   }, [nodes]);
 
+  /**
+   * **标签位置一次性算完**（跨枝防重叠）。
+   * 上一版在渲染过程里往数组 push，React 重渲时数组不清空、顺序也不保证 ——
+   * 结果仍有 10 对重叠。**布局不能靠渲染副作用**，这里用 useMemo 算成纯数据。
+   */
+  const labelAt = useMemo(() => {
+    const out = new Map<string, { x: number; y: number; side: 1 | -1 }>();
+    const placed: { x0: number; x1: number; y: number }[] = [];
+    // 按 y 从上到下排，先来先占 —— 顺序稳定，结果才可复现
+    const all = [...nodes].filter((n) => posOf.has(n.id))
+      .sort((a, b) => (posOf.get(a.id)!.y - posOf.get(b.id)!.y));
+    for (const n of all) {
+      const p = posOf.get(n.id)!;
+      const l = lines.find((x) => x.m === n.m);
+      const isTop = l ? n.id === l.ns[l.ns.length - 1].id : false;
+      const isBot = l ? n.id === l.ns[0].id && l.ns.length > 1 : false;
+      const raw = (isTop || isBot) ? (n.version || n.added) : (n.added || n.version);
+      const w = SHORT(raw ?? "").replace(/[^\x00-\xff]/g, "aa").length * 5.2 + 10;
+      let side: 1 | -1 = 1;
+      let ny = p.y;
+      const hit = (x0: number, x1: number, yy: number) =>
+        placed.some((q) => yy > q.y - 9.5 && yy < q.y + 9.5 && x0 < q.x1 && q.x0 < x1);
+      for (let g = 0; g < 16; g++) {
+        const x0 = side === 1 ? p.x + 7 : p.x - 7 - w;
+        if (!hit(x0, x0 + w, ny)) break;
+        if (side === 1) side = -1; else { side = 1; ny -= 9.5; }
+      }
+      const fx0 = side === 1 ? p.x + 7 : p.x - 7 - w;
+      placed.push({ x0: fx0, x1: fx0 + w, y: ny });
+      out.set(n.id, { x: p.x, y: ny, side });
+    }
+    return out;
+  }, [nodes, posOf, lines]);
+
   const hot = pin ? nodes.find((n) => n.id === pin) : null;
 
   return (
@@ -256,7 +306,7 @@ export default function Tree() {
           {months.map((ms) => {
             const yy = y(ymd(ms));
             const mo = new Date(ms).getUTCMonth() + 1;
-            const quarter = mo % 3 === 1; // 1/4/7/10
+            const quarter = mo % 3 === 1 && mo !== 1; // 4/7/10 —— 1 月不标，年份标签已经在那儿了
             return (
               <g key={`mo-${ms}`}>
                 <line x1={PAD.l - 34} x2={PAD.l - (quarter ? 26 : 30)} y1={yy} y2={yy} stroke="var(--color-rule)" />
@@ -344,9 +394,11 @@ export default function Tree() {
             做法：标签写在节点右侧，同一条线内按 y 排序做避让（挤不下就左右交替），
             末节点仍加粗并配公司名。
           */}
+          {/* **占位表是全图共用的**（负责人：不同树枝节点之间不要遮挡重叠）。
+              上一版每条线各算各的，同一条线内不撞，**邻线之间照撞**。
+              现在记下已占用的矩形（x 范围 + y），谁都得躲开谁。 */}
           {lines.map((l) => {
             const sorted = [...l.ns].sort((a, b) => (posOf.get(a.id)?.y ?? 0) - (posOf.get(b.id)?.y ?? 0));
-            const used: { y: number; side: 1 | -1 }[] = [];
             const top = l.ns[l.ns.length - 1];
             return (
               <g key={`lbl-${l.m}`}>
@@ -354,6 +406,7 @@ export default function Tree() {
                   const p = posOf.get(n.id);
                   if (!p) return null;
                   const isTop = n.id === top.id;
+                  const isBot = n.id === l.ns[0].id && l.ns.length > 1;
                   const on = MS(n.date) <= cutMs;
                   /**
                    * **中间节点的标签默认全隐**（负责人：67 个标签把整幅图污染了）。
@@ -365,27 +418,24 @@ export default function Tree() {
                    */
                   const scrubbing = playing || cut < 99.5;
                   const justGrown = scrubbing && MS(n.date) > cutMs - (t1 - t0) * 0.05;
-                  const showLabel = on && (isTop || pin === n.id || justGrown);
-                  // 右侧优先；同高度已被占就翻到左侧，再挤就往上抬一点
-                  let side: 1 | -1 = 1;
-                  let ny = p.y;
-                  for (let guard = 0; guard < 8; guard++) {
-                    const clash = used.some((u) => Math.abs(u.y - ny) < 10 && u.side === side);
-                    if (!clash) break;
-                    if (side === 1) side = -1; else { side = 1; ny -= 10; }
-                  }
-                  used.push({ y: ny, side });
+                  // **首末两端常驻**（负责人要求），中间的仍默认隐藏
+                  const showLabel = on && (isTop || isBot || pin === n.id || justGrown);
+                  // 首末显版本号（那是「从哪来、长成什么」），中间显「这一代新增了什么」。
+                  // 长名简称 —— 负责人：模型名太长就用简称。
+                  const raw = (isTop || isBot) ? (n.version || n.added) : (n.added || n.version);
+                  const txt = SHORT(raw ?? "");
+                  const lp = labelAt.get(n.id) ?? { x: p.x, y: p.y, side: 1 as 1 | -1 };
+                  const side = lp.side, ny = lp.y;
                   // **不用 version** —— 同一条线里它大量重复（HunyuanVideo 出现 5 次、
                   // Wan2.2 出现 4 次），重复的标签等于没有标签。用「这一代新增了什么」。
                   // 末节点例外：那里要的是产品线当前版本号。
-                  const txt = (isTop ? (n.version || n.added) : (n.added || n.version) || "").slice(0, 13);
                   return (
                     <g key={`n-${n.id}`} opacity={showLabel ? 1 : 0} style={{ transition: "opacity .3s" }}>
                       <text x={p.x + side * 8} y={ny + 3} textAnchor={side === 1 ? "start" : "end"}
-                        fontSize={isTop ? 10.5 : pin === n.id ? 10 : 8.5}
-                        fontWeight={isTop || pin === n.id ? 700 : 400}
-                        fill={isTop || pin === n.id ? l.color : "var(--color-muted)"}
-                        opacity={isTop || pin === n.id ? 1 : 0.85}>
+                        fontSize={isTop ? 10.5 : isBot || pin === n.id ? 9.5 : 8.5}
+                        fontWeight={isTop || isBot || pin === n.id ? 700 : 400}
+                        fill={isTop || isBot || pin === n.id ? l.color : "var(--color-muted)"}
+                        opacity={isTop || isBot || pin === n.id ? 1 : 0.85}>
                         {txt}
                       </text>
                     </g>
@@ -398,10 +448,7 @@ export default function Tree() {
                   return (
                     <text x={pt.x} y={pt.y - 12} textAnchor="middle" fontSize="9.5" fontWeight="700"
                       fill={l.color} opacity={on ? 1 : 0.15} style={{ transition: "opacity .35s" }}>
-                      {l.model.family}
-                      <tspan fontWeight="400" fill="var(--color-muted)" fontSize="8">
-                        {"  "}{(orgOf(l.m)?.zh ?? "").replace("稀宇科技 ", "").replace(" DeepMind", "").replace("科技", "")}
-                      </tspan>
+                      {SHORT(l.model.family)}
                     </text>
                   );
                 })()}
