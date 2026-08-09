@@ -1,5 +1,5 @@
 {
-  "$comment": "ChangeEvent（方案 §38）。**两类分开记**：world = 世界变了；ours = 我们记错了又改了。后者照样公开 —— 一个只报别人变化、从不报自己出错的变更页，是营销稿不是变更记录。",
+  "$comment": "ChangeEvent（方案 §38）。**两类分开记**：world = 世界变了；ours = 我们记错了又改了。后者照样公开 —— 一个只报别人变化、从不报自己出错的变更页，是营销稿不是变更记录。\n\n⚠️ **变更事件只有这一份。** 我一度在 atlas.json 里另建了 change_events，那是同一个口径的第二份 —— 两份迟早对不上。合并回这里，atlas 那份已删。",
   "$kinds": {
     "version": "版本更迭",
     "status": "生命周期（停服 / 非主力）",
@@ -9,95 +9,21 @@
   },
   "events": [
     {
-      "id": "sora-eol",
-      "date": "2026-04-26",
+      "id": "sora-2026-09-24",
+      "date": "2026-09-24",
       "side": "world",
-      "kind": "status",
+      "kind": "生命周期",
       "subject": "Sora",
-      "before": "OpenAI 的旗舰视频产品，App 与 API 都在售",
-      "after": "App 已关停；API 计划 2026-09-24 停止；未宣布继任产品",
-      "why": "这是本表里唯一一个**能力全对、却不能用**的模型。照着能力表去选它的人，会在 9 月撞墙。",
-      "impact": ["正在用 Sora API 的项目要排迁移", "Replicate 与 APIYI 上仍在售 —— 货架比上游慢"],
-      "src": "sora-eol-search",
-      "models": ["sora"]
-    },
-    {
-      "id": "h3-open",
-      "date": "2026-08-03",
-      "side": "world",
-      "kind": "capability",
-      "subject": "MiniMax H3",
-      "before": "官方博客写的是「plan to open up the model weights in the coming days」",
-      "after": "权重已上 Hugging Face（280 个文件，含 safetensors）",
-      "why": "**「计划开」和「已经开」是两件事**，中间隔了几天。而许可是自定义的 minimax-h3-community-license-agreement，不是标准开源协议 —— 只看「开源 ✅」会看错。",
-      "impact": ["想自部署的可以动手了", "商用前必须自己读许可条款"],
-      "src": "mm-hf-api",
-      "models": ["hailuo"]
-    },
-    {
-      "id": "seedance-25",
-      "date": "2026-07-31",
-      "side": "world",
-      "kind": "version",
-      "subject": "Seedance",
-      "before": "2.0：单次 9 图 + 3 视频 + 3 音频参考",
-      "after": "2.5：单次最多 50 个参考输入（30 图 + 10 视频 + 10 音频），30 秒一镜到底，支持多轮延长",
-      "why": "参考输入的上限从 15 涨到 50，是这一代最实的一步 —— 而「参考」正是这两年真正在铺开的方向。",
-      "impact": ["多主体、多镜头的活可以少拆几次", "Replicate 上仍标着 coming soon，还用不上"],
-      "src": "seed-25",
-      "models": ["seedance"]
-    },
-    {
-      "id": "omni-default",
-      "date": "2026-05-19",
-      "side": "world",
-      "kind": "status",
-      "subject": "Google Veo → Gemini Omni Flash",
-      "before": "Veo 3.1 是 Google 的视频主力",
-      "after": "官方文档原话：「Use Gemini Omni Flash as your default model for video generation」；Veo 3.1 留给 scene extension、last-frame control 与老管线",
-      "why": "**厂商自己写明了取舍**。而且这句导购语反过来是 Omni 缺首尾帧与场景延长的官方证据 —— 只在两个模型并排读的时候才看得见。",
-      "impact": ["新项目默认该用 Omni", "需要首尾帧或场景延长的仍得回 Veo"],
-      "src": "g-video",
-      "models": ["veo", "gemini-omni"]
-    },
-    {
-      "id": "runway-resell",
-      "date": "2026-04-07",
-      "side": "world",
-      "kind": "availability",
-      "subject": "Runway 开始转售别家模型",
-      "before": "Runway 是纯模型厂商，卖自己的 Gen 系列",
-      "after": "自家产品里提供 Seedance 2.0、WAN2.2 Animate、Sora 2 Pro 等；Max 套餐无限用 Seedance 2.5",
-      "why": "**厂商与平台两个身份合一了。** 「Runway 支持什么」和「在 Runway 上能用到什么」从此不是一个问题。",
-      "impact": ["「去哪用」矩阵里 Runway 要占一行", "比较模型时别把平台转售的算进它自己的能力"],
-      "src": "rw-changelog",
-      "models": ["runway", "seedance"]
-    },
-    {
-      "id": "our-alias-miss",
-      "date": "2026-08-07",
-      "side": "ours",
-      "kind": "capability",
-      "subject": "我们把「找不到」写成了「官方没说」",
-      "before": "Kling 与 Vidu 的角色参考、多参考、首尾帧、动作复刻、视频延长被标为 ⬜「官方没说」",
-      "after": "全部改为 ✅ —— 官方都有，只是叫法不同：Kling 叫 Element、Vidu 叫 Motion Sync / Start end to video、LTX 叫 Ingredients",
-      "why": "**这是本项目最严重的一次错。** ⬜ 那一列是我们最得意的东西（「不是我们没查，是查了找不到」），而前两家里接近一半其实是我们自己没找到 —— 把自己的疏忽包装成了对方的不透明。",
-      "impact": ["每项能力加了 aliases，采集用整组别名匹配", "ontology 补规则六"],
-      "src": null,
-      "models": ["kling", "vidu-q", "ltx"]
-    },
-    {
-      "id": "our-stale-day-one",
-      "date": "2026-08-07",
-      "side": "ours",
-      "kind": "version",
-      "subject": "首批数据交付当天就有三个模型是过期版本",
-      "before": "Seedance 2.0 / Wan 2.5 / Runway Gen-4",
-      "after": "Seedance 2.5 / Wan 3.0 / Runway Gen-4.5（Wan 一家连错三次：2.5 → 2.7 → 3.0）",
-      "why": "起因是我用即席搜索当采集。**这正是「靠人手工追追不上」的实证** —— 也是后来把 49 个源接进定时管线的直接原因。",
-      "impact": ["建了 Source Registry 与每日监视", "ontology 加规则三之一：版本一升，没重新核验的格子必须退回 ⬜"],
-      "src": null,
-      "models": ["seedance", "wan", "runway"]
+      "before": "Sora 2 API 可用，Replicate 与 APIYI 都在转售",
+      "after": "OpenAI 公告 API 于 2026-09-24 停止",
+      "why": "**上游停了，平台不一定同步下架** —— 现在两家仍挂着，买了会踩空",
+      "impact": [
+        "sora"
+      ],
+      "src": "replicate-t2v",
+      "models": [
+        "sora"
+      ]
     },
     {
       "id": "scope-ltx",
@@ -108,9 +34,221 @@
       "before": "9 个 Family，来自交接文档",
       "after": "LTX 进 core（HF 下载 178 万，是 MiniMax H3 的 22 倍）；HappyHorse 与 SkyReels 进 extended；Sora 降 extended",
       "why": "AA 榜第 5、第 6 的 HappyHorse 原名单里一个都没有。**抄来的名单反映的是写文档那个人的视野，不是世界的实际分布。**",
-      "impact": ["开源侧的格局第一次进表（Lightricks / NVIDIA / 智谱在闭源榜上完全隐形）"],
+      "impact": [
+        "开源侧的格局第一次进表（Lightricks / NVIDIA / 智谱在闭源榜上完全隐形）"
+      ],
       "src": "aa-board",
-      "models": ["ltx", "happyhorse", "skyreels", "sora"]
+      "models": [
+        "ltx",
+        "happyhorse",
+        "skyreels",
+        "sora"
+      ]
+    },
+    {
+      "id": "our-alias-miss",
+      "date": "2026-08-07",
+      "side": "ours",
+      "kind": "capability",
+      "subject": "我们把「找不到」写成了「官方没说」",
+      "before": "Kling 与 Vidu 的角色参考、多参考、首尾帧、动作复刻、视频延长被标为 ⬜「官方没说」",
+      "after": "全部改为 ✅ —— 官方都有，只是叫法不同：Kling 叫 Element、Vidu 叫 Motion Sync / Start end to video、LTX 叫 Ingredients",
+      "why": "**这是本项目最严重的一次错。** ⬜ 那一列是我们最得意的东西（「不是我们没查，是查了找不到」），而前两家里接近一半其实是我们自己没找到 —— 把自己的疏忽包装成了对方的不透明。",
+      "impact": [
+        "每项能力加了 aliases，采集用整组别名匹配",
+        "ontology 补规则六"
+      ],
+      "src": null,
+      "models": [
+        "kling",
+        "vidu-q",
+        "ltx"
+      ]
+    },
+    {
+      "id": "our-stale-day-one",
+      "date": "2026-08-07",
+      "side": "ours",
+      "kind": "version",
+      "subject": "首批数据交付当天就有三个模型是过期版本",
+      "before": "Seedance 2.0 / Wan 2.5 / Runway Gen-4",
+      "after": "Seedance 2.5 / Wan 3.0 / Runway Gen-4.5（Wan 一家连错三次：2.5 → 2.7 → 3.0）",
+      "why": "起因是我用即席搜索当采集。**这正是「靠人手工追追不上」的实证** —— 也是后来把 49 个源接进定时管线的直接原因。",
+      "impact": [
+        "建了 Source Registry 与每日监视",
+        "ontology 加规则三之一：版本一升，没重新核验的格子必须退回 ⬜"
+      ],
+      "src": null,
+      "models": [
+        "seedance",
+        "wan",
+        "runway"
+      ]
+    },
+    {
+      "id": "seedance-2026-08-05",
+      "date": "2026-08-05",
+      "side": "world",
+      "kind": "版本更迭",
+      "subject": "Seedance",
+      "before": "Seedance 2.0 支持四种输入模态",
+      "after": "2.5 主打一镜到底与灵活参考",
+      "why": "一镜到底把「多镜头拼接」这件事从后期挪到了生成阶段",
+      "impact": [
+        "seedance",
+        "skill:extend"
+      ],
+      "src": "seed-blog",
+      "models": [
+        "seedance"
+      ]
+    },
+    {
+      "id": "h3-open",
+      "date": "2026-08-03",
+      "side": "world",
+      "kind": "capability",
+      "subject": "MiniMax H3",
+      "before": "官方博客写的是「plan to open up the model weights in the coming days」",
+      "after": "权重已上 Hugging Face（280 个文件，含 safetensors）",
+      "why": "**「计划开」和「已经开」是两件事**，中间隔了几天。而许可是自定义的 minimax-h3-community-license-agreement，不是标准开源协议 —— 只看「开源 ✅」会看错。",
+      "impact": [
+        "想自部署的可以动手了",
+        "商用前必须自己读许可条款"
+      ],
+      "src": "mm-hf-api",
+      "models": [
+        "hailuo"
+      ]
+    },
+    {
+      "id": "seedance-25",
+      "date": "2026-07-31",
+      "side": "world",
+      "kind": "version",
+      "subject": "Seedance",
+      "before": "2.0：单次 9 图 + 3 视频 + 3 音频参考",
+      "after": "2.5：单次最多 50 个参考输入（30 图 + 10 视频 + 10 音频），30 秒一镜到底，支持多轮延长",
+      "why": "参考输入的上限从 15 涨到 50，是这一代最实的一步 —— 而「参考」正是这两年真正在铺开的方向。",
+      "impact": [
+        "多主体、多镜头的活可以少拆几次",
+        "Replicate 上仍标着 coming soon，还用不上"
+      ],
+      "src": "seed-25",
+      "models": [
+        "seedance"
+      ]
+    },
+    {
+      "id": "hailuo-2026-07-31",
+      "date": "2026-07-31",
+      "side": "world",
+      "kind": "生命周期",
+      "subject": "MiniMax Hailuo",
+      "before": "海螺 01 / 02 / 2.3 全部闭源，只能调 API",
+      "after": "H3 放出权重（自定义社区许可），可自部署",
+      "why": "闭源阵营里第一家把主力模型的权重放出来的 —— **和万相正好走了相反的方向**",
+      "impact": [
+        "skill:openweights",
+        "capability:openweights",
+        "hailuo"
+      ],
+      "src": "minimax-release-notes",
+      "models": [
+        "hailuo"
+      ]
+    },
+    {
+      "id": "gemini-omni-2026-06-30",
+      "date": "2026-06-30",
+      "side": "world",
+      "kind": "版本更迭",
+      "subject": "Gemini Omni",
+      "before": "Google 在视频这块只有 Veo 一条线",
+      "after": "gemini-omni-flash 上线，主打高速生成 + 对话式剪辑",
+      "why": "「对话式剪辑」是新的交互形态：不是给提示词重生成，是接着改",
+      "impact": [
+        "gemini-omni",
+        "capability:extend"
+      ],
+      "src": "gemini-changelog",
+      "models": [
+        "gemini-omni"
+      ]
+    },
+    {
+      "id": "kling-2026-06-17",
+      "date": "2026-06-17",
+      "side": "world",
+      "kind": "价格",
+      "subject": "Kling",
+      "before": "3.0 有声 1080P ¥1.2/秒",
+      "after": "Turbo 档有声 1080P ¥1.0/秒",
+      "why": "Turbo 把「有声」拉进了和无声接近的价位 —— 此前有声要多付 50%",
+      "impact": [
+        "skill:lipsync",
+        "capability:audio"
+      ],
+      "src": "kling-price",
+      "models": [
+        "kling"
+      ]
+    },
+    {
+      "id": "omni-default",
+      "date": "2026-05-19",
+      "side": "world",
+      "kind": "status",
+      "subject": "Google Veo → Gemini Omni Flash",
+      "before": "Veo 3.1 是 Google 的视频主力",
+      "after": "官方文档原话：「Use Gemini Omni Flash as your default model for video generation」；Veo 3.1 留给 scene extension、last-frame control 与老管线",
+      "why": "**厂商自己写明了取舍**。而且这句导购语反过来是 Omni 缺首尾帧与场景延长的官方证据 —— 只在两个模型并排读的时候才看得见。",
+      "impact": [
+        "新项目默认该用 Omni",
+        "需要首尾帧或场景延长的仍得回 Veo"
+      ],
+      "src": "g-video",
+      "models": [
+        "veo",
+        "gemini-omni"
+      ]
+    },
+    {
+      "id": "sora-eol",
+      "date": "2026-04-26",
+      "side": "world",
+      "kind": "status",
+      "subject": "Sora",
+      "before": "OpenAI 的旗舰视频产品，App 与 API 都在售",
+      "after": "App 已关停；API 计划 2026-09-24 停止；未宣布继任产品",
+      "why": "这是本表里唯一一个**能力全对、却不能用**的模型。照着能力表去选它的人，会在 9 月撞墙。",
+      "impact": [
+        "正在用 Sora API 的项目要排迁移",
+        "Replicate 与 APIYI 上仍在售 —— 货架比上游慢"
+      ],
+      "src": "sora-eol-search",
+      "models": [
+        "sora"
+      ]
+    },
+    {
+      "id": "runway-resell",
+      "date": "2026-04-07",
+      "side": "world",
+      "kind": "availability",
+      "subject": "Runway 开始转售别家模型",
+      "before": "Runway 是纯模型厂商，卖自己的 Gen 系列",
+      "after": "自家产品里提供 Seedance 2.0、WAN2.2 Animate、Sora 2 Pro 等；Max 套餐无限用 Seedance 2.5",
+      "why": "**厂商与平台两个身份合一了。** 「Runway 支持什么」和「在 Runway 上能用到什么」从此不是一个问题。",
+      "impact": [
+        "「去哪用」矩阵里 Runway 要占一行",
+        "比较模型时别把平台转售的算进它自己的能力"
+      ],
+      "src": "rw-changelog",
+      "models": [
+        "runway",
+        "seedance"
+      ]
     }
   ]
 }

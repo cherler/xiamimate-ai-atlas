@@ -47,15 +47,17 @@ const ORIGIN = DEV ? "http://127.0.0.1:3400" : `http://127.0.0.1:${PORT}`;
 const ROUTES = [
   { path: "/", must: "AI 视频", zh: 500, built: true },
   { path: "/method", must: "这些数据是怎么来的", zh: 4000, built: true },
-  { path: "/changes", must: "变", zh: 1200, built: true },
+  // 列表页量**每条的字数**，不量总字数 —— 变更日志天生随事件累积变长，
+  // 对它用「不许涨」是错的度量：那样一来，多记一条真实变更反而算退步。
+  { path: "/changes", must: "变", zh: 130, per: "article, section > div", built: true },
   { path: "/model/wan", must: "阿里巴巴", zh: 1200, built: true },
   { path: "/capability/flf", must: "首尾帧", zh: 1200, built: true },
   { path: "/tree", must: "长出了什么", zh: 800, built: true },
   { path: "/where", must: "我在哪能用上", zh: 1600, built: true },
-  { path: "/caveats", must: "你未必用得上", zh: 1400, built: true },
+  { path: "/caveats", must: "你未必用得上", zh: 90, per: "section > div", built: true },
   { path: "/compare/kling-vs-seedance", must: "还是", zh: 800, built: true },
   { path: "/skill/motion", must: "动作复刻", zh: 1400, built: true },
-  { path: "/toolkit", must: "该去哪个站", zh: 2600, built: true },
+  { path: "/toolkit", must: "该去哪个站", zh: 300, per: "main > div > section", built: true },
   { path: "/map", must: "谁是谁家的", zh: 1800, built: true },
   { path: "/models", must: "全部模型", zh: 1200, built: true },
 ];
@@ -164,11 +166,16 @@ for (const [vp, w, h] of [["桌面", 1440, 900], ["手机", 390, 844]]) {
      * 所以：**只许降不许升** —— 超过上次记录的基线就失败，
      * 同时把「离目标还差多少」打出来，让欠账一直可见。
      */
-    const zh = (mainText.match(/[一-龥]/g) ?? []).length;
+    // 列表页按条均摊 —— 见路由表里的 `per`
+    const items = r.per
+      ? await page.evaluate(`document.querySelectorAll(${JSON.stringify(r.per)}).length`)
+      : 1;
+    const zhAll = (mainText.match(/[一-龥]/g) ?? []).length;
+    const zh = r.per ? Math.round(zhAll / Math.max(1, items)) : zhAll;
     const key = `${r.path}|${vp}`;
     const base = BASE_ZH[key] ?? Infinity;
     const pass = zh <= Math.max(r.zh, base);
-    ok(pass, `中文字符 ${zh}（基线 ${base === Infinity ? "首次" : base} · 目标 ${r.zh}）` +
+    ok(pass, `中文字符 ${zh}${r.per ? `/条（共 ${items} 条 ${zhAll} 字）` : ""}（基线 ${base === Infinity ? "首次" : base} · 目标 ${r.zh}）` +
       (zh > r.zh ? ` —— 还差 ${zh - r.zh} 字` : ""));
     if (pass) NEW_ZH[key] = Math.min(zh, base === Infinity ? zh : base);
 

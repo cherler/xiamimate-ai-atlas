@@ -187,17 +187,22 @@ for (const k of a.skills ?? []) {
   if (!k.verified_at) errs.push(`R45a Skill 没写核验日期：${at}`);
 }
 
-for (const e of a.change_events ?? []) {
-  const at = `变化 ${e.date} ${e.entity}`;
+const CHANGES = existsSync(new URL("../data/changes.json", import.meta.url))
+  ? JSON.parse(readFileSync(new URL("../data/changes.json", import.meta.url), "utf8")).events
+  : [];
+for (const e of CHANGES) {
+  const at = `变化 ${e.date} ${e.subject ?? e.entity}`;
   // **只有 after 的那是新闻，不是 ChangeEvent。**
   for (const f of ["before", "after", "why"])
     if (!e[f]) errs.push(`R46 变化事件缺 ${f} —— 只有 after 的是新闻不是 ChangeEvent：${at}`);
-  for (const x of e.affects ?? []) {
+  for (const x of e.impact ?? []) {
+    if (!x.includes(":")) continue;   // 影响可以是一句自然语言，不强求是 id
     const [kind, id] = x.includes(":") ? x.split(":") : ["model", x];
     const okRef = kind === "skill" ? skillIds.has(id) : kind === "capability" ? caps.has(id) : models.has(id);
     if (!okRef) errs.push(`R47 变化事件的影响对象解析不到：${at} → ${x}`);
   }
-  if (!e.src || !e.quote) errs.push(`R48 变化事件缺来源或原文：${at}`);
+  // changes.json 里「我们记错了」那一侧不必有外部来源 —— 来源就是我们自己的提交
+  if (!e.src && e.side !== "ours") errs.push(`R48 变化事件缺来源：${at}`);
 }
 
 for (const t of a.toolkit ?? []) {

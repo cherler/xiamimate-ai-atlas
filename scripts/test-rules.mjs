@@ -31,8 +31,9 @@ const CASES = [
 
   { name: "变化事件：只有 after（那是新闻不是 ChangeEvent）/ 影响对象查无此人 / 没来源",
     want: ["R46", "R47", "R48"],
-    mut: (a) => { a.change_events = [{ date: "2026-01-01", entity: "kling", after: "变好了",
-      affects: ["skill:查无此技能"] }]; } },
+    // 变更事件的真源是 data/changes.json，不是 atlas.json —— **同一个口径只有一份**
+    mut: (a, flows, changes) => { changes.events = [{ id: "bad", date: "2026-01-01", side: "world",
+      subject: "坏", after: "变好了", impact: ["skill:查无此技能"] }]; } },
 
   { name: "工具箱：只有链接没有判断（那就是 hao123）",
     want: ["R49"],
@@ -72,14 +73,19 @@ copyFileSync(LIVE, BAK);
 const FLOWS = join(ROOT, "data/flows.json");
 const FBAK = join(ROOT, "data/.flows.test-backup.json");
 copyFileSync(FLOWS, FBAK);
+const CH = join(ROOT, "data/changes.json");
+const CBAK = join(ROOT, "data/.changes.test-backup.json");
+copyFileSync(CH, CBAK);
 
 let bad = 0;
 for (const c of CASES) {
   const a = JSON.parse(readFileSync(BAK, "utf8"));
   const f = JSON.parse(readFileSync(FBAK, "utf8"));
-  c.mut(a, f);
+  const ch = JSON.parse(readFileSync(CBAK, "utf8"));
+  c.mut(a, f, ch);
   writeFileSync(LIVE, JSON.stringify(a, null, 2));
   writeFileSync(FLOWS, JSON.stringify(f, null, 2));
+  writeFileSync(CH, JSON.stringify(ch, null, 2));
 
   let out = "";
   try { out = execFileSync("node", [join(ROOT, "scripts/validate.mjs")], { encoding: "utf8" }); }
@@ -92,6 +98,7 @@ for (const c of CASES) {
 
 copyFileSync(BAK, LIVE); unlinkSync(BAK);
 copyFileSync(FBAK, FLOWS); unlinkSync(FBAK);
+copyFileSync(CBAK, CH); unlinkSync(CBAK);
 
 console.log(bad ? `\n${bad} 条规则是摆设 —— 它存在，但拦不住它该拦的东西。` : `\n${CASES.length} 条规则全部会响。`);
 process.exit(bad ? 1 : 0);

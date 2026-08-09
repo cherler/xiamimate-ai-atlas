@@ -276,7 +276,6 @@ export const atlas = raw as unknown as {
   pricing: Price[];
   versions: Version[];
   skills: Skill[];
-  change_events: ChangeEvent[];
   toolkit: Toolkit[];
   effect: Effect[];
   discount: Discount[];

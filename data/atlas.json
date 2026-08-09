@@ -3759,8 +3759,7 @@
     }
   ],
   "$skills": "Skill / Workflow。方案 §10 原话：**「Skill 必须是第一等公民。」**\n一个 Skill 回答的是「这件事怎么做」，而能力格回答的是「谁能做」——两个问题。\n\n字段：{id, zh, en, cap?, io{in[],out}, native[], opensource[], platform_feature[], limits[], cases[], src, quote, verified_at}\n\n**limits 为空要报警告（R45）**：一个没有「已知限制」的 Skill 页是在卖广告，不是在帮人。",
-  "change_events": [],
-  "$change_events": "Change + So What（方案 §15）。**只有 after 的那是新闻，不是 ChangeEvent。**\n字段：{date, entity, kind, before, after, why, affects[], src, quote}\nR46 盯着 before/after/why 三者齐全 —— 缺任何一个，读者就只知道「变了」，不知道「所以呢」。",
+  "$change_events": "**已删。** 变更事件的真源是 data/changes.json（那一份还区分 world/ours 两侧，比这里全）。同一个口径不许有第二份。",
   "toolkit": [
     {
       "task": "想知道哪个模型更强",
