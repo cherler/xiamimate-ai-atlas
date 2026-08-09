@@ -2,9 +2,10 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { Rich } from "@/components/Fact";
 import { atlas, label } from "@/lib/atlas";
+import BackLink from "@/components/BackLink";
 
 export const metadata: Metadata = {
-  title: "怎么做 —— 六件事，各自用什么做、有什么限制",
+  title: "六件事，分别用什么做 —— 附原生/开源实现与已知限制",
   description: "动作复刻、角色一致、首尾帧补间、口播对口型、多镜头与视频延长、开源自部署。每条列出原生实现、开源实现、已知限制。",
 };
 
@@ -19,12 +20,13 @@ export default function SkillIndex() {
   const skills = atlas.skills;
 
   return (
-    <main className="max-w-[1400px] mx-auto px-6 py-8">
-      <header className="flex items-end gap-4 border-b-[2.5px] border-ink pb-2.5">
+    <main className="max-w-[1400px] mx-auto px-6 pt-5 pb-8 flex flex-col">
+      <BackLink />
+      <header className="flex items-end gap-4 border-b-[2.5px] border-ink pb-2.5 mt-3">
         <h1 className="text-[38px] leading-[1.05] font-bold tracking-[-.01em]">
-          怎么做
+          六件事，分别用什么做
           <span className="block text-[15px] leading-[1.3] font-normal text-muted mt-2">
-            {skills.length} 件事 —— 各自用什么做、有没有开源实现、会在哪儿崩
+            {skills.length} 件常见的活儿 —— 各自谁能原生做、有没有开源实现、会在哪儿崩
           </span>
         </h1>
         <div className="ml-auto text-right text-[12px] leading-[1.7] text-muted whitespace-nowrap">
