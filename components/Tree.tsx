@@ -46,13 +46,31 @@ type Node = {
 };
 
 /**
- * **单色系**（负责人 2026-08-09：颜色不要那么混乱）。
- * 原来 14 条线 14 种颜色（绿/紫/橙/蓝/粉混着），扫过去是一团花。
- * 现在只用品牌青绿的三档深浅，靠**深浅**区分相邻的枝，不靠色相。
- * 开不开源仍由节点实心/空心表示 —— 那是信息，颜色只是分隔。
+ * **按公司着色**（负责人 2026-08-09：同色同大小分不出谁是谁）。
+ *
+ * 走过两个极端：先是 14 条线 14 种随机色（一团花），再是全青绿单色（分不清谁是谁）。
+ * 正解是**颜色承载信息**：一家公司一个色，同一家的两条线（Google 的 Veo 与
+ * Gemini Omni）同色 —— 这本身就是要传达的事实。
+ *
+ * 色板是**低饱和、明度接近**的一组，放在纸底上不打架；顺序按色相环排开，
+ * 相邻的线拿到的色相差足够大，扫视时分得开。
  */
-const BRANCH = ["#0c9488", "#137a70", "#3aa79b"];
-const TRUNK = "#16212c";
+const ORG_HUE: Record<string, string> = {
+  alibaba: "#2f7d5e",      // 阿里 · 绿
+  kuaishou: "#c2703a",     // 快手 · 橙
+  bytedance: "#2b6fb0",    // 字节 · 蓝
+  tencent: "#3f8f86",      // 腾讯 · 青
+  kunlun: "#7a5cc4",       // 昆仑万维 · 紫
+  shengshu: "#b04a72",     // 生数 · 洋红
+  minimax: "#8a7a2e",      // MiniMax · 橄榄
+  google: "#4a5fa8",       // Google · 靛
+  lightricks: "#1f8a7a",   // Lightricks · 蓝绿
+  runway: "#a8563a",       // Runway · 砖
+  rhymes: "#6b8f3a",       // Rhymes · 黄绿
+  genmo: "#7d6ba8",        // Genmo · 淡紫
+  hpcai: "#3d7fa0",        // 潞晨 · 天蓝
+};
+const FALLBACK = "#5c6a78";
 
 export default function Tree() {
   const [pin, setPin] = useState<string | null>(null);
@@ -97,7 +115,7 @@ export default function Tree() {
       ...l,
       cx: PAD.l + slotW * (i + 0.5),
       band: slotW * 0.72,           // 带内分叉铺开的宽度，留 28% 做间隙
-      color: BRANCH[i % BRANCH.length],
+      color: ORG_HUE[l.model.org] ?? FALLBACK,
     }));
   }, [nodes]);
 
@@ -176,6 +194,26 @@ export default function Tree() {
     nx.setUTCMonth(nx.getUTCMonth() + 1);
     d = nx.getTime();
   }
+  /**
+   * **下粗上细**（负责人：既然是树，有分支的该下粗上细）。
+   * 一个节点的粗细 = 它下面还挂着多少后代 —— 底座托着整条线所以最粗，
+   * 末梢没有后代所以最细。这是真实树干的力学，也是谱系的信息量。
+   */
+  const weight = useMemo(() => {
+    const kids = new Map<string, string[]>();
+    for (const n of nodes) if (n.parent) kids.set(n.parent, [...(kids.get(n.parent) ?? []), n.id]);
+    const memo = new Map<string, number>();
+    const count = (id: string): number => {
+      if (memo.has(id)) return memo.get(id)!;
+      const c = (kids.get(id) ?? []).reduce((sum, k) => sum + 1 + count(k), 0);
+      memo.set(id, c);
+      return c;
+    };
+    const w = new Map<string, number>();
+    for (const n of nodes) w.set(n.id, count(n.id));
+    return w;
+  }, [nodes]);
+
   const hot = pin ? nodes.find((n) => n.id === pin) : null;
 
   return (
@@ -268,8 +306,9 @@ export default function Tree() {
                   // 不横穿画面（上一版那些长弧把整张图划得乱七八糟）。
                   return (
                     <path key={`br-${l.m}`}
-                      d={`M${p.x},${Math.min(p.y + 22, botY + 6)} L${p.x},${p.y}`}
-                      fill="none" stroke={l.color} strokeWidth={1.6} strokeLinecap="round"
+                      d={`M${p.x},${Math.min(p.y + 26, botY + 8)} L${p.x},${p.y}`}
+                      fill="none" stroke={l.color} strokeLinecap="round"
+                      strokeWidth={1.4 + Math.min(3.4, l.ns.length * 0.32)}
                       opacity={on ? 0.28 : 0} style={{ transition: "opacity .35s" }} />
                   );
                 })}
@@ -288,7 +327,9 @@ export default function Tree() {
             return (
               <path key={`e-${n.id}`}
                 d={`M${a.x},${a.y} C${a.x},${my} ${b.x},${my} ${b.x},${b.y}`}
-                fill="none" stroke={b.color} strokeWidth={a.x === b.x ? 2.4 : 1.4}
+                fill="none" stroke={b.color} strokeLinecap="round"
+                // 后代越多越粗：底座 ~4px，末梢 ~1.2px
+                strokeWidth={1.2 + Math.min(3, (weight.get(n.parent!) ?? 0) * 0.45)}
                 opacity={on ? (lit && !dim ? 0.6 : 0.12) : 0}
                 style={{ transition: "opacity .35s" }} />
             );

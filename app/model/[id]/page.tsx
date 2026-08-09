@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { Fact, Rich } from "@/components/Fact";
-import { atlas, avail, capsOf, cell, label, vendorName } from "@/lib/atlas";
+import { atlas, capsOf, cell, label, vendorName } from "@/lib/atlas";
 import { capHref } from "@/lib/slug";
 import BackLink from "@/components/BackLink";
 
@@ -46,7 +46,6 @@ export default async function ModelPage({ params }: { params: Promise<{ id: stri
   if (!m) return null;
   const caps = capsOf(m.class);
   const st = m.status && m.status !== "active" ? STATUS[m.status] : null;
-  const where = atlas.availability.filter((v) => v.m === m.id);
   const t = { yes: 0, no: 0, unknown: 0 };
   for (const c of caps) t[cell(m.id, c.id).state] += 1;
 
@@ -82,42 +81,9 @@ export default async function ModelPage({ params }: { params: Promise<{ id: stri
         ))}
       </section>
 
-      <section>
-        <h2 className="text-[22px] font-semibold mb-1">去哪用</h2>
-        {where.length ? (
-          <div className="flex flex-col gap-3">
-            {where.map((v) => {
-              const pf = atlas.platforms.find((x) => x.id === v.p)!;
-              return (
-                <div key={v.p} className="border-t border-rule pt-3 text-[15px]">
-                  <a href={pf.url} target="_blank" rel="noreferrer" className="font-semibold underline hover:text-yes">
-                    {pf.name}
-                  </a>
-                  <span className="text-muted text-[13px] ml-2">
-                    {pf.kind} · {pf.region} · 上架为「{v.listed}」
-                    {v.status === "coming-soon" && " · 标着 coming soon"}
-                    {v.match === "older" && " · 不是当前主力版本"}
-                  </span>
-                  {v.note && <Rich text={v.note} className="block text-muted text-[13px] mt-1 leading-relaxed" />}
-                  <a
-                    href={atlas.sources[v.src].url}
-                    target="_blank"
-                    rel="noreferrer"
-                    className="block text-muted text-[12px] mt-1 underline hover:text-ink"
-                  >
-                    原文：「{v.quote}」
-                  </a>
-                </div>
-              );
-            })}
-          </div>
-        ) : (
-          <p className="text-muted text-[15px]">
-            我们还没找到它在哪家平台上架的证据。<b className="text-ink">这不代表没有</b> ——
-            只代表我们手上的源里没写。
-          </p>
-        )}
-      </section>
+      {/* 「去哪用」模块已删（负责人 2026-08-09）：那一页整体砍掉了 —— 不给
+          Replicate / fal / APIYI 这些第三方 API 货架做免费曝光。数据层保留，
+          只用来撑「上游停服了平台还在卖」那类警告（/caveats）。 */}
 
       <footer className="border-t border-rule pt-5 text-[13px] text-muted leading-relaxed">
         数据版本 {atlas.version} · 核验于 {atlas.generated_at} ·

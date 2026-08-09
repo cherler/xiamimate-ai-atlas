@@ -832,7 +832,7 @@
       "version": "2.3",
       "version_as_of": "2026-08-08",
       "status": "active",
-      "status_note": "开源侧下载量最高的视频模型：LTX-2.3 ↓178 万，另有 fp8 / nvfp4 量化版。⚠️ 与 MiniMax H3 同一模式：叫开源，用的是自定义社区许可",
+      "status_note": "开源侧下载量最高的视频模型：LTX-2.3 ↓178 万，另有 fp8 / nvfp4 量化版。⚠️ 与 MiniMax H3 同一模式：**名义上是开源，实际用的是自定义社区许可，不是标准开源协议** —— 商用前必须自己读条款。",
       "domain": "video",
       "reach_cn": "blocked",
       "reach_note": "huggingface.co 直连不通 —— **权重在那儿，想自部署得先解决可达性**",
