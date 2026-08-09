@@ -24,6 +24,8 @@
     "/map|手机": 10,
     "/models|手机": 419,
     "/toolkit|桌面": 894,
-    "/toolkit|手机": 894
+    "/toolkit|手机": 894,
+    "/skill/motion|桌面": 236,
+    "/skill/motion|手机": 236
   }
 }

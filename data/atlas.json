@@ -3500,7 +3500,264 @@
     }
   ],
   "$versions": "版本谱系（演进图的数据）。**演进的主体是模型，不是能力。**\n\n原来那张演进图每行是一项能力、横轴是「我们能证明的最早时间」、粗细是几家支持。\n读者看完只得到「动作复刻 2025-12 出现、6/9 支持」—— 那是一次数据库查询的可视化，不涨知识。\n而且它得靠图注免责（「不是业界首次出现」）：**一张需要图注免责的图，说明它量错了东西。**\n\n这份数据画的是**厂商自己发布的版本和日期**，所以不需要免责。每条必须回答：\n**这一代新增了什么。** 只有版本号没有 added 的节点没有价值，不收。\n\n两个最好的来源，都不是「新闻」：\n  · **官方 Hugging Face 组织** —— 模型名本身就编码了能力与代际\n    （Wan2.1-FLF2V＝首尾帧、Wan2.2-S2V＝语音驱动、LTX 的 IC-LoRA-Ingredients＝角色参考），\n    发布时间由 HF API 给出，比任何新闻稿都准。\n  · **官方 API 更新日志** —— 可灵那份 31k 字符里有 170 条带日期的条目。\n\n覆盖不全是事实：万相和可灵能画出完整谱系，Runway/Vidu/Seedance 只有近期几个点，\nVeo/Sora/海螺/LTX 还没有。**图上要标出哪几条线是完整的、哪几条只是片段** ——\n画一条只有两个点的线却不说明，读者会以为这家两年只更新过两次。\n\n`cap` 把版本节点挂到能力 id 上，图上「点一项能力，看各家谁先谁后」靠它。\n**对不上的一律留空并写明理由（cap_skip），不硬凑** —— 硬凑一个 id，纵向那一刀就切错了。\n典型：Wan 的 S2V 是「语音驱动」，不等于我们轴上的「对口型」，两件事不合并；\n「换代」节点本身也不是新增单项能力。\n\n`id` + `parent` 把平铺记录变成**真的树**。分叉是真实存在的：\nWan2.1 底座上同时长出 FLF2V（首尾帧）和 VACE（统一编辑）两个变体，\nWan2.2 是换代接在 2.1 后面，Animate-2 又接在 Animate 后面。\n\n**没有父节点的就让它当根，不许为了让树好看硬接一条边** ——\nRunway 的 Aleph 是编辑线，不是 Gen 的后代，它自己是一棵树。\n\n⚠️ **日期必须取 HF 的 `createdAt`，不能取 `lastModified`。**\n第一版取错了字段，把「最后修改」当成了发布日期：Wan2.2 记成 2025-08-07（实际 2025-07-18）、\nAnimate 记成 2025-11-05（实际 2025-09-11）——**差了两个月**。\n仓库发布后还会被反复更新，两个字段根本不是一回事。\n这类错最阴：日期看着合理、图也画得出来，但整条时间线是歪的。\n\n覆盖不足要**写在数据里**，不是靠图上一句话糊过去：\n模型的 `lineage_note` 解释为什么它的节点少（太新 / 官方记录只回溯到某时）。\n校验 R58 强制：**核心模型少于 3 个节点却没写理由，就是错**。\n「我们没采到」和「它本来就没有」是两回事，读者有权知道是哪一种。",
-  "skills": [],
+  "skills": [
+    {
+      "id": "motion",
+      "zh": "动作复刻",
+      "en": "Motion Control",
+      "cap": "motion",
+      "io": {
+        "in": [
+          "人物图 ×1",
+          "驱动动作视频"
+        ],
+        "out": "人物按驱动视频动起来的视频"
+      },
+      "opensource": [
+        {
+          "name": "Wan2.2-Animate-14B",
+          "url": "https://huggingface.co/Wan-AI/Wan2.2-Animate-14B",
+          "src": "hf-lineage",
+          "quote": "Wan-AI/Wan2.2-Animate-14B（2025-09-11 发布）"
+        },
+        {
+          "name": "Wan2.2-Animate-2-14B",
+          "url": "https://huggingface.co/Wan-AI/Wan2.2-Animate-2-14B",
+          "src": "hf-lineage",
+          "quote": "Wan-AI/Wan2.2-Animate-2-14B（2026-07-14 发布）"
+        }
+      ],
+      "platform_feature": [
+        {
+          "p": "higgsfield",
+          "name": "AI Dance 一类的成品功能",
+          "src": "higgsfield-site",
+          "quote": "Open Unlimited Seedance 2.5 for 33 days … Seedance 2.5 MiniMax H3"
+        }
+      ],
+      "limits": [
+        "驱动素材幅度大、转身多的容易崩 —— 我们自己跑 Wan2.2-animate 时实测",
+        "Q 版/非写实形象用 pro 档反而更差：手臂会被拉成细条，笑容变形",
+        "多数平台把它做成**另一个接口**，不是生成时的一步 —— 要再调一次、再计一次费",
+        "这几家是**另一个接口**不是生成时的一步：Kling、Runway Gen、Vidu Q、LTX"
+      ],
+      "cases": [
+        "AI 舞蹈",
+        "动漫角色驱动",
+        "IP 形象动起来"
+      ],
+      "verified_at": "2026-08-09",
+      "native": [
+        "seedance",
+        "hailuo",
+        "runway",
+        "kling",
+        "vidu-q",
+        "ltx"
+      ]
+    },
+    {
+      "id": "charref",
+      "zh": "角色一致",
+      "en": "Character Reference",
+      "cap": "charref",
+      "io": {
+        "in": [
+          "角色参考图 1~N 张",
+          "提示词"
+        ],
+        "out": "多镜头里角色长相一致的视频"
+      },
+      "opensource": [
+        {
+          "name": "Wan2.1-VACE-14B（统一编辑，含参考）",
+          "url": "https://huggingface.co/Wan-AI/Wan2.1-VACE-14B",
+          "src": "hf-lineage",
+          "quote": "Wan-AI/Wan2.1-VACE-14B（2025-05-13 发布）"
+        }
+      ],
+      "platform_feature": [],
+      "limits": [
+        "**各家叫法完全不同**：Kling 叫 Element、LTX 叫 Ingredients、还有人叫 Omni Reference、cameo —— 按自己的词去搜会搜不到",
+        "参考图张数上限各家不一样，HappyHorse 标的是最多 9 张",
+        "这几家是**另一个接口**不是生成时的一步：Runway Gen、LTX"
+      ],
+      "cases": [
+        "系列短片主角一致",
+        "品牌 IP 出镜",
+        "口播人物固定"
+      ],
+      "verified_at": "2026-08-09",
+      "native": [
+        "seedance",
+        "hailuo",
+        "gemini-omni",
+        "runway",
+        "kling",
+        "vidu-q",
+        "veo",
+        "ltx"
+      ]
+    },
+    {
+      "id": "flf",
+      "zh": "首尾帧补间",
+      "en": "First / Last Frame",
+      "cap": "flf",
+      "io": {
+        "in": [
+          "首帧图",
+          "尾帧图"
+        ],
+        "out": "两张图之间的过渡视频"
+      },
+      "opensource": [
+        {
+          "name": "Wan2.1-FLF2V-14B-720P",
+          "url": "https://huggingface.co/Wan-AI/Wan2.1-FLF2V-14B-720P",
+          "src": "hf-lineage",
+          "quote": "Wan-AI/Wan2.1-FLF2V-14B-720P（2025-04-17 发布）"
+        }
+      ],
+      "platform_feature": [],
+      "limits": [
+        "**Gemini Omni Flash 官方明写不支持** —— 这是少见的、厂商自己写下的否定事实",
+        "两帧差异太大时中间会硬切，不是所有内容都能补",
+        "这几家是**另一个接口**不是生成时的一步：LTX"
+      ],
+      "cases": [
+        "分镜之间的过渡",
+        "产品图变形动画",
+        "关键帧动画补间"
+      ],
+      "verified_at": "2026-08-09",
+      "native": [
+        "kling",
+        "vidu-q",
+        "veo",
+        "ltx"
+      ]
+    },
+    {
+      "id": "lipsync",
+      "zh": "口播对口型",
+      "en": "Lip Sync",
+      "cap": "lipsync",
+      "io": {
+        "in": [
+          "人物视频或图",
+          "音频或文本"
+        ],
+        "out": "口型对上的说话视频"
+      },
+      "opensource": [
+        {
+          "name": "HunyuanVideo-Avatar",
+          "url": "https://huggingface.co/tencent/HunyuanVideo-Avatar",
+          "src": "hf-lineage",
+          "quote": "tencent/HunyuanVideo-Avatar（2025-05-26 发布）"
+        }
+      ],
+      "platform_feature": [],
+      "limits": [
+        "**「语音驱动」不等于「对口型」** —— Wan 的 S2V 是前者，两件事我们没有合并",
+        "多数平台把它做成另一个接口，只能作用于**已经生成好**的视频",
+        "这几家是**另一个接口**不是生成时的一步：Kling、Vidu Q、LTX"
+      ],
+      "cases": [
+        "数字人口播",
+        "多语种配音",
+        "虚拟主播"
+      ],
+      "verified_at": "2026-08-09",
+      "native": [
+        "hailuo",
+        "kling",
+        "vidu-q",
+        "ltx"
+      ]
+    },
+    {
+      "id": "extend",
+      "zh": "多镜头与视频延长",
+      "en": "Multi-shot / Extension",
+      "cap": "extend",
+      "io": {
+        "in": [
+          "已有视频或提示词"
+        ],
+        "out": "接着往下演的视频"
+      },
+      "opensource": [
+        {
+          "name": "SkyReels-V2（长视频扩散强制）",
+          "url": "https://huggingface.co/Skywork/SkyReels-V2-DF-14B-720P",
+          "src": "hf-lineage",
+          "quote": "Skywork/SkyReels-V2-DF-14B-720P（2025-04-18 发布）"
+        }
+      ],
+      "platform_feature": [],
+      "limits": [
+        "延长通常只能接在**已生成的**视频后面，不能中途插入",
+        "多镜头里保持主体一致，是另一件事（见角色一致）",
+        "这几家是**另一个接口**不是生成时的一步：Vidu Q"
+      ],
+      "cases": [
+        "长于单次上限的成片",
+        "连续剧情",
+        "一镜到底的接续"
+      ],
+      "verified_at": "2026-08-09",
+      "native": [
+        "seedance",
+        "vidu-q",
+        "veo"
+      ]
+    },
+    {
+      "id": "openweights",
+      "zh": "开源自部署",
+      "en": "Self-hosting",
+      "cap": "openweights",
+      "io": {
+        "in": [
+          "自己的 GPU",
+          "权重 + workflow"
+        ],
+        "out": "不受平台限制的生成能力"
+      },
+      "opensource": [
+        {
+          "name": "Wan-AI 官方组织",
+          "url": "https://huggingface.co/Wan-AI",
+          "src": "hf-lineage",
+          "quote": "Wan-AI 官方 Hugging Face 组织"
+        },
+        {
+          "name": "Lightricks 官方组织",
+          "url": "https://huggingface.co/Lightricks",
+          "src": "hf-lineage",
+          "quote": "Lightricks 官方 Hugging Face 组织"
+        }
+      ],
+      "platform_feature": [],
+      "limits": [
+        "**「权重公开」不等于标准开源协议** —— LTX-2 和 MiniMax H3 用的都是自定义社区许可，商用前必须自己读条款",
+        "万相只有 2.1 / 2.2 系列在官方 HF 上有权重，**2.5 之后没有**",
+        "我们自己在 4060Ti 上跑通过一次 18.3 秒零拼接，但手糊问题未解 —— 要换更大的模型"
+      ],
+      "cases": [
+        "批量生产不受配额限制",
+        "数据不出本地",
+        "自己改 workflow"
+      ],
+      "verified_at": "2026-08-09",
+      "native": [
+        "hailuo",
+        "ltx"
+      ]
+    }
+  ],
   "$skills": "Skill / Workflow。方案 §10 原话：**「Skill 必须是第一等公民。」**\n一个 Skill 回答的是「这件事怎么做」，而能力格回答的是「谁能做」——两个问题。\n\n字段：{id, zh, en, cap?, io{in[],out}, native[], opensource[], platform_feature[], limits[], cases[], src, quote, verified_at}\n\n**limits 为空要报警告（R45）**：一个没有「已知限制」的 Skill 页是在卖广告，不是在帮人。",
   "change_events": [],
   "$change_events": "Change + So What（方案 §15）。**只有 after 的那是新闻，不是 ChangeEvent。**\n字段：{date, entity, kind, before, after, why, affects[], src, quote}\nR46 盯着 before/after/why 三者齐全 —— 缺任何一个，读者就只知道「变了」，不知道「所以呢」。",
