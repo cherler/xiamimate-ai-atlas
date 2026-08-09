@@ -257,33 +257,56 @@ export default function Tree() {
             我们原来是 14 根各自从底部冒出来的独立竖线，看着像草不像树 —— 这里补上。
           */}
           {(() => {
-            const rootY = PAD.t + AXIS_H + 74;   // 根压到更低，主干才有高度长出来
+            /**
+             * **树干**：照参考图的结构重做（上一版做错了）。
+             *
+             * 参考图的树干**贯穿整张图**，从底部根部一直长到顶部；每个模型在自己的
+             * 发布时间点**从树干上分叉出去**，弯到自己的位置。我上一版只在轴底画了
+             * 一小段横着的分叉，产品线全飘在上方**和根没有物理连接** —— 那不是树。
+             *
+             * 现在：根在底部中央 → 各架构族主干竖直贯穿 → 每条产品线在**首发那一刻**
+             * 从所属主干上弯出去。树干下粗上细。
+             */
+            const rootY = PAD.t + AXIS_H + 66;
             const rootX = W / 2;
-            const forkY = PAD.t + AXIS_H + 4;    // 主干在轴底附近分叉
-            const fams = [...new Set(trunks.map((t) => t.g))];
+            const topY = PAD.t + 8;
             return (
               <g>
-                {/* 从根到各架构族主干的分叉 */}
+                {/* 各架构族的主干：从根部竖直长到顶部，下粗上细 */}
                 {trunks.map((t) => (
                   <path key={`trunk-${t.g}`}
-                    // 从根竖直上升一段再向各族横向张开 —— 才像树干分叉，不是一条压扁的横线
-                    d={`M${rootX},${rootY} C${rootX},${rootY - 42} ${t.cx},${rootY - 34} ${t.cx},${forkY}`}
-                    fill="none" stroke="var(--color-rule)" strokeWidth={4} opacity={0.95} />
+                    d={`M${rootX},${rootY} C${rootX},${rootY - 30} ${t.cx},${rootY - 20} ${t.cx},${PAD.t + AXIS_H - 10} L${t.cx},${topY}`}
+                    fill="none" stroke="var(--color-rule)" strokeWidth={3} strokeLinecap="round" opacity={0.4} />
                 ))}
-                {/* 族名标在分叉点下方 */}
+                {/* 每条产品线在**首发时刻**从所属主干分叉出去 —— 这是「长在树上」的关键 */}
+                {lines.map((l) => {
+                  const tk = trunks.find((t) => t.g === l.group);
+                  const first = l.ns[0];
+                  const p = posOf.get(first.id);
+                  if (!tk || !p) return null;
+                  const on = MS(first.date) <= cutMs;
+                  // 从主干**同高度**弯出去：短弧、不横穿整张画面
+                  const mx = (tk.cx + p.x) / 2;
+                  return (
+                    <path key={`br-${l.m}`}
+                      d={`M${tk.cx},${p.y + 14} C${mx},${p.y + 14} ${mx},${p.y} ${p.x},${p.y}`}
+                      fill="none" stroke={l.color} strokeWidth={1.6} opacity={on ? 0.22 : 0}
+                      style={{ transition: "opacity .35s" }} />
+                  );
+                })}
+                {/* 族名 + 根 */}
                 {trunks.map((t) => (
-                  <text key={`tl-${t.g}`} x={t.cx} y={forkY + 14} textAnchor="middle"
+                  <text key={`tl-${t.g}`} x={t.cx} y={PAD.t + AXIS_H + 18} textAnchor="middle"
                     fontSize="10" fontWeight="700" fill="var(--color-muted)">
                     {(atlas as unknown as { $arch: Record<string, { zh: string }> }).$arch?.[t.g]?.zh ?? t.g}
                   </text>
                 ))}
-                {/* 根 */}
-                <circle cx={rootX} cy={rootY} r={5} fill="var(--color-muted)" />
-                <text x={rootX} y={rootY + 17} textAnchor="middle" fontSize="11" fontWeight="700" fill="var(--color-ink)">
+                <circle cx={rootX} cy={rootY} r={6} fill="var(--color-muted)" />
+                <text x={rootX} y={rootY + 18} textAnchor="middle" fontSize="11" fontWeight="700" fill="var(--color-ink)">
                   扩散模型
                 </text>
-                <text x={rootX} y={rootY + 29} textAnchor="middle" fontSize="9" fill="var(--color-muted)">
-                  {fams.length} 支主干 · {lines.length} 条产品线
+                <text x={rootX} y={rootY + 30} textAnchor="middle" fontSize="9" fill="var(--color-muted)">
+                  {trunks.length} 支主干 · {lines.length} 条产品线
                 </text>
               </g>
             );
@@ -309,39 +332,57 @@ export default function Tree() {
           {/* 每条线标首末两个节点 —— 上一版只标最新一个，67 个点里 53 个是哑点，
               「看不出是什么」的最直接原因。末节点标产品线名（它长成了什么），
               首节点标它出道时叫什么（这条线从哪来）。 */}
+          {/*
+            **每个节点都带名字**（负责人 2026-08-09）。参考图 100+ 个叶子全是带名方块，
+            我们原来 67 个点只有 14 个顶端有名、53 个是哑点 —— 那是「看着差」最直接的一条。
+            做法：标签写在节点右侧，同一条线内按 y 排序做避让（挤不下就左右交替），
+            末节点仍加粗并配公司名。
+          */}
           {lines.map((l) => {
+            const sorted = [...l.ns].sort((a, b) => (posOf.get(a.id)?.y ?? 0) - (posOf.get(b.id)?.y ?? 0));
+            const used: { y: number; side: 1 | -1 }[] = [];
             const top = l.ns[l.ns.length - 1];
-            const bot = l.ns[0];
-            const pt = posOf.get(top.id)!;
-            const pb = posOf.get(bot.id)!;
-            const onTop = MS(top.date) <= cutMs;
-            const onBot = MS(bot.date) <= cutMs;
-            // 首标签的条件（否则叠成一团）：
-            //   ① 多节点线（单节点如 Mochi 首末同点，不标）
-            //   ② 离末标签够远（短线首末会叠）
-            //   ③ **首节点不在轴底最早那批** —— LTX/Allegro/浑源的首发都挤在 2024 底部，
-            //      那里已经有「轴起于…」说明和一堆节点，再塞首标签必然叠字。
-            //      只有出道较晚、首节点有空档的线（Seedance/Kling/Vidu…）才标首。
-            const atFloor = pb.y > PAD.t + AXIS_H - 40;
-            const showBot = l.ns.length > 1 && Math.abs(pt.y - pb.y) > 46 && !atFloor;
             return (
-              <g key={`t-${l.m}`}>
-                {/* 公司名放产品线名上方一行小灰字 —— 回答「谁家的」，和关系图呼应。
-                    去掉「科技 / DeepMind」等长后缀，免得撑太宽压到邻线。 */}
-                <text x={pt.x} y={pt.y - 26} textAnchor="middle" fontSize="9"
-                  fill="var(--color-muted)" opacity={onTop ? 0.85 : 0.12} style={{ transition: "opacity .35s" }}>
-                  {(orgOf(l.m)?.zh ?? "").replace("稀宇科技 ", "").replace(" DeepMind", "").replace("科技", "")}
-                </text>
-                <text x={pt.x} y={pt.y - 13} textAnchor="middle" fontSize="12" fontWeight="700"
-                  fill={l.color} opacity={onTop ? 1 : 0.15} style={{ transition: "opacity .35s" }}>
-                  {l.model.family}
-                </text>
-                {showBot && (
-                  <text x={pb.x} y={pb.y + 17} textAnchor="middle" fontSize="10"
-                    fill={l.color} opacity={onBot ? 0.65 : 0.12} style={{ transition: "opacity .35s" }}>
-                    {(bot.version || bot.added).slice(0, 13)}
-                  </text>
-                )}
+              <g key={`lbl-${l.m}`}>
+                {sorted.map((n) => {
+                  const p = posOf.get(n.id);
+                  if (!p) return null;
+                  const isTop = n.id === top.id;
+                  const on = MS(n.date) <= cutMs;
+                  // 右侧优先；同高度已被占就翻到左侧，再挤就往上抬一点
+                  let side: 1 | -1 = 1;
+                  let ny = p.y;
+                  for (let guard = 0; guard < 8; guard++) {
+                    const clash = used.some((u) => Math.abs(u.y - ny) < 10 && u.side === side);
+                    if (!clash) break;
+                    if (side === 1) side = -1; else { side = 1; ny -= 10; }
+                  }
+                  used.push({ y: ny, side });
+                  const txt = (n.version || n.added || "").slice(0, 12);
+                  return (
+                    <g key={`n-${n.id}`} opacity={on ? 1 : 0} style={{ transition: "opacity .35s" }}>
+                      <text x={p.x + side * 8} y={ny + 3} textAnchor={side === 1 ? "start" : "end"}
+                        fontSize={isTop ? 10.5 : 8.5} fontWeight={isTop ? 700 : 400}
+                        fill={isTop ? l.color : "var(--color-muted)"} opacity={isTop ? 1 : 0.8}>
+                        {txt}
+                      </text>
+                    </g>
+                  );
+                })}
+                {/* 公司名压在这条线最新节点的上方 */}
+                {(() => {
+                  const pt = posOf.get(top.id)!;
+                  const on = MS(top.date) <= cutMs;
+                  return (
+                    <text x={pt.x} y={pt.y - 12} textAnchor="middle" fontSize="9.5" fontWeight="700"
+                      fill={l.color} opacity={on ? 1 : 0.15} style={{ transition: "opacity .35s" }}>
+                      {l.model.family}
+                      <tspan fontWeight="400" fill="var(--color-muted)" fontSize="8">
+                        {"  "}{(orgOf(l.m)?.zh ?? "").replace("稀宇科技 ", "").replace(" DeepMind", "").replace("科技", "")}
+                      </tspan>
+                    </text>
+                  );
+                })()}
               </g>
             );
           })}
