@@ -1,10 +1,10 @@
 import type { Metadata } from "next";
-import OrgPanorama from "@/components/OrgPanorama";
+import RelationGraph from "@/components/RelationGraph";
 import { atlas } from "@/lib/atlas";
 
 export const metadata: Metadata = {
-  title: "谁是谁家的 —— AI 视频厂商全景",
-  description: "15 家公司、18 条产品线一次全摊开：各自做什么、权重开闭、已核验多少项能力。",
+  title: "谁和谁有关系 —— 公司 → 模型 → 能力",
+  description: "模型之间不靠出身相连，靠能做什么相连。点任一节点只留与它直接相连的边：公司拥有、模型实现、投资。",
 };
 
 /**
@@ -21,9 +21,10 @@ export default function MapPage() {
     <main className="max-w-[1400px] mx-auto px-6 py-8">
       <header className="flex items-end gap-4 border-b-[2.5px] border-ink pb-2.5">
         <h1 className="text-[38px] leading-[1.05] font-bold tracking-[-.01em]">
-          谁是谁家的
+          谁和谁有关系
           <span className="block text-[15px] leading-[1.3] font-normal text-muted mt-2">
-            {n} 家公司、{lines} 条产品线 —— 一次全部摊开，不用点
+            公司 → 模型 → 能力。<b className="text-ink font-normal">模型之间不靠出身相连，靠能做什么相连</b> ——
+            Kling 和 Seedance 分属快手与字节，是「动作复刻」让它们成了同类
           </span>
         </h1>
         <div className="ml-auto text-right text-[12px] leading-[1.7] text-muted whitespace-nowrap">
@@ -34,11 +35,12 @@ export default function MapPage() {
       </header>
 
       <div className="mt-6">
-        <OrgPanorama />
+        <RelationGraph />
       </div>
 
       <p className="mt-6 text-[12px] text-muted">
-        这一版只画「谁是谁家的」。谁基于谁、谁投资谁，是我们还没采到的边 —— 采到了才画，不编。
+        图上只有真边：公司拥有产品线 {lines} 条、模型实现能力 {atlas.support.filter((s) => s.state === "yes").length} 格、
+        投资 {atlas.investments.length} 条。<b className="text-ink font-normal">谁基于谁的训练血缘我们还没采到，没采到就不画。</b>
       </p>
     </main>
   );
