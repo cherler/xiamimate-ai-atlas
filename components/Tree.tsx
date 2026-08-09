@@ -32,7 +32,7 @@ import { modelHref } from "@/lib/slug";
  */
 const W = 1240;
 const PAD = { t: 56, b: 44, l: 78, r: 58 };
-const AXIS_H = 880;
+const AXIS_H = 560;
 
 const MS = (d: string) => new Date(`${d.length === 7 ? `${d}-01` : d}T00:00:00Z`).getTime();
 const ymd = (ms: number) => new Date(ms).toISOString().slice(0, 10);
@@ -127,7 +127,7 @@ export default function Tree() {
       const usedY: number[] = [];
       for (const n of l.ns) {
         let yy = y(n.date);
-        while (usedY.some((u) => Math.abs(u - yy) < 11)) yy -= 11; // 同月发布不叠成一点
+        while (usedY.some((u) => Math.abs(u - yy) < 8)) yy -= 8; // 同月发布不叠成一点
         usedY.push(yy);
         const s = slot.get(n.id) ?? 0;
         const x = l.cx + (maxS ? (s / maxS - 0.5) : 0) * l.band;
