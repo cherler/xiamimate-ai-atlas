@@ -193,8 +193,9 @@ export type Investment = { from: string; to: string; round?: string; date?: stri
 
 /**
  * 怎么个能法（ontology 规则七）。对「能不能做」两者都是能；
- * 对**「要跑几遍」**差很多 —— separate-task 得先生成一条普通片子，
- * 再把它喂进另一个功能改一遍：多等一次、多付一次钱。
+ * 对**「用的是原生模型还是它的变体」**差很多。**别把它概括成一句通用解释** ——
+ * 动作复刻的变体照样直接收驱动视频，口播对口型的变体才是「只能作用于已生成的视频」，
+ * 两者都在 separate-task 里，一句话套过去必有一头是编的。看每一格的 note。
  */
 export type Via = "native" | "separate-task";
 
@@ -332,9 +333,10 @@ export const modelsWith = (capId: string) =>
 /**
  * 一个 Skill 能用哪些模型做 —— 并且**分成两堆**。
  *
- * `support[].via` 早就记着这件事了：`native` 是出片时顺手就做了，`separate-task` 是
- * 得做两遍 —— 先生成一条普通片子，再把它喂进另一个功能改一遍。差别对使用者是实的：
- * 多等一次、多付一次钱。
+ * `support[].via` 早就记着这件事了：`native` 是**原生模型**就能做，
+ * `separate-task` 是得用**它的变体** —— Kling 官方 API 清单里
+ * Kling 3.0 与 Kling 3.0 Motion Control 是并列的两个模型，不是同一个模型的一个开关。
+ * 那个变体具体叫什么，看那一格的 note。
  * 以前这个事实只以一句散文躺在 limits 里（「这几家是另一个接口…」），
  * 于是六个 Skill 页看上去都是一模一样的一排模型名。现在它是结构。
  */

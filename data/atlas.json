@@ -1438,7 +1438,7 @@
    "c": "charref",
    "state": "yes",
    "verified_for": "3.0",
-   "note": "⚠️ 我上一版标「官方没说」是错的 —— **Kling 管角色参考叫 Element（元素）**，不叫 Character Reference。2026-02-25 元素体系全面升级，可用视频创建元素并绑定音色；2026-01-23 可由正面图推断其它角度",
+   "note": "**Kling 管角色参考叫 Element（元素）**，不叫 Character Reference。2026-02-25 元素体系全面升级，可用视频创建元素并绑定音色；2026-01-23 可由正面图推断其它角度",
    "src": "kling-api",
    "via": "native"
   },
@@ -1456,7 +1456,7 @@
    "c": "motion",
    "state": "yes",
    "verified_for": "3.0",
-   "note": "⚠️ **Motion Control 是独立模型，不是 Kling 3.0 的一个参数** —— 2026-07-15 的新 API 支持清单里，Kling 3.0 / 3.0 Omni / 3.0 Motion Control 三者并列。2025-12-22 首发时要求同时上传参考图与参考视频，参考视频最长 30 秒",
+   "note": "**Motion Control 是独立模型，不是 Kling 3.0 的一个参数** —— 2026-07-15 的新 API 支持清单里，Kling 3.0 / 3.0 Omni / 3.0 Motion Control 三者并列。2025-12-22 首发时要求同时上传参考图与参考视频，参考视频最长 30 秒",
    "src": "kling-api",
    "via": "separate-task"
   },
@@ -1465,7 +1465,7 @@
    "c": "camera",
    "state": "unknown",
    "verified_for": "3.0",
-   "note": "⚠️ 我上一版标「支持」是错的（来源是转售平台的指南）。官方日志里对运镜控制的明确说明停留在 V1.5/V1.6 时代（2025-03-12「motion brush, camera control (simple only)」）；3.0 时代只见到「多机位 multi-camera」相关条目，未把运镜作为独立控制位重述 —— 按规则三之一退回未知",
+   "note": "官方日志里对运镜控制的明确说明停留在 V1.5/V1.6 时代（2025-03-12「motion brush, camera control (simple only)」）；3.0 时代只见到「多机位 multi-camera」相关条目，未把运镜作为独立控制位重述 —— 按规则三之一退回未知",
    "src": "kling-api"
   },
   {
@@ -1491,7 +1491,7 @@
    "c": "extend",
    "state": "unknown",
    "verified_for": "3.0",
-   "note": "⚠️ 我上一版标「支持」是错的。官方明确说明是 2024-11-15（V1.0，每次续 4~5 秒）与 2025-03-31（V1.5/V1.6 支持视频延长）—— **3.0 没有重述**，按规则三之一退回未知",
+   "note": "官方明确说明是 2024-11-15（V1.0，每次续 4~5 秒）与 2025-03-31（V1.5/V1.6 支持视频延长）—— **3.0 没有重述**，按规则三之一退回未知",
    "src": "kling-api"
   },
   {
@@ -1525,7 +1525,7 @@
    "state": "unknown",
    "verified_for": "2.5",
    "src": "seed-25",
-   "note": "⚠️ 在 2.5 官方发布全文里检索「first frame / last frame / start-end / 首尾」—— **零命中**"
+   "note": "在 2.5 官方发布全文里检索「first frame / last frame / start-end / 首尾」—— **零命中**"
   },
   {
    "m": "seedance",
@@ -1560,7 +1560,7 @@
    "state": "unknown",
    "verified_for": "2.5",
    "src": "seed-25",
-   "note": "⚠️ 官方提到 camera perspective，但它出现在**高级编辑功能**里（与绿幕、参考式编辑并列），不是生成时的运镜控制参数 —— 不拿编辑能力冒充生成控制"
+   "note": "官方提到 camera perspective，但它出现在**高级编辑功能**里（与绿幕、参考式编辑并列），不是生成时的运镜控制参数 —— 不拿编辑能力冒充生成控制"
   },
   {
    "m": "seedance",
@@ -1577,7 +1577,7 @@
    "state": "unknown",
    "verified_for": "2.5",
    "src": "seed-25",
-   "note": "⚠️ 在 2.5 官方发布全文里检索「lip sync / 口型 / mouth」—— **零命中**"
+   "note": "在 2.5 官方发布全文里检索「lip sync / 口型 / mouth」—— **零命中**"
   },
   {
    "m": "seedance",
@@ -1695,7 +1695,7 @@
    "state": "yes",
    "verified_for": "2",
    "src": "sora-eol-search",
-   "note": "⚠️ 该产品线已终止：App 2026-04-26 关停，API 计划 2026-09-24 停止 —— 能力属实，但不建议用于新项目 ⚠️ openai.com 对我们的采集器返回 403，本轮未能一手复核；且该产品线已公告停服（API 2026-09-24）"
+   "note": "该产品线已终止：App 2026-04-26 关停，API 计划 2026-09-24 停止 —— 能力属实，但不建议用于新项目 ⚠️ openai.com 对我们的采集器返回 403，本轮未能一手复核；且该产品线已公告停服（API 2026-09-24）"
   },
   {
    "m": "sora",
@@ -1703,7 +1703,7 @@
    "state": "yes",
    "verified_for": "2",
    "src": "sora-api",
-   "note": "⚠️ openai.com 对我们的采集器返回 403，本轮未能一手复核；且该产品线已公告停服（API 2026-09-24）"
+   "note": "openai.com 对我们的采集器返回 403，本轮未能一手复核；且该产品线已公告停服（API 2026-09-24）"
   },
   {
    "m": "sora",
@@ -1727,7 +1727,7 @@
    "state": "unknown",
    "verified_for": "2",
    "src": null,
-   "note": "⚠️ openai.com 对我们的采集器返回 403，本轮未能一手复核；且该产品线已公告停服（API 2026-09-24）"
+   "note": "openai.com 对我们的采集器返回 403，本轮未能一手复核；且该产品线已公告停服（API 2026-09-24）"
   },
   {
    "m": "sora",
@@ -1735,7 +1735,7 @@
    "state": "unknown",
    "verified_for": "2",
    "src": null,
-   "note": "⚠️ openai.com 对我们的采集器返回 403，本轮未能一手复核；且该产品线已公告停服（API 2026-09-24）"
+   "note": "openai.com 对我们的采集器返回 403，本轮未能一手复核；且该产品线已公告停服（API 2026-09-24）"
   },
   {
    "m": "sora",
@@ -1743,7 +1743,7 @@
    "state": "unknown",
    "verified_for": "2",
    "src": null,
-   "note": "⚠️ openai.com 对我们的采集器返回 403，本轮未能一手复核；且该产品线已公告停服（API 2026-09-24）"
+   "note": "openai.com 对我们的采集器返回 403，本轮未能一手复核；且该产品线已公告停服（API 2026-09-24）"
   },
   {
    "m": "sora",
@@ -1759,7 +1759,7 @@
    "state": "unknown",
    "verified_for": "2",
    "src": null,
-   "note": "⚠️ openai.com 对我们的采集器返回 403，本轮未能一手复核；且该产品线已公告停服（API 2026-09-24）"
+   "note": "openai.com 对我们的采集器返回 403，本轮未能一手复核；且该产品线已公告停服（API 2026-09-24）"
   },
   {
    "m": "sora",
@@ -1858,7 +1858,7 @@
    "state": "unknown",
    "verified_for": "3.0",
    "src": "wan-hf",
-   "note": "⚠️ HF 上 Wan-AI 组织只有 Wan2.1 系列（最新 Wan-Dancer-14B，2026-07-17），**没有 2.5 / 2.7 / 3.0 的权重**。但官网首屏挂着「Open Source」入口 —— 两边对不上，需人工核验"
+   "note": "HF 上 Wan-AI 组织只有 Wan2.1 系列（最新 Wan-Dancer-14B，2026-07-17），**没有 2.5 / 2.7 / 3.0 的权重**。但官网首屏挂着「Open Source」入口 —— 两边对不上，需人工核验"
   },
   {
    "m": "hailuo",
@@ -1920,7 +1920,7 @@
    "verified_for": "H3",
    "src": "mm-blog",
    "via": "native",
-   "note": "⚠️ 与别家不同：不是参数，是**从参考视频里引用运镜** ——「Reference the Hitchcock camera movement from Video 1」"
+   "note": "与别家不同：不是参数，是**从参考视频里引用运镜** ——「Reference the Hitchcock camera movement from Video 1」"
   },
   {
    "m": "hailuo",
@@ -1953,7 +1953,7 @@
    "state": "yes",
    "verified_for": "H3",
    "src": "mm-hf-api",
-   "note": "⚠️ HF API 元数据：license = other，license_name = **minimax-h3-community-license-agreement** —— 自定义社区许可，不是标准开源协议。仓库含 280 个文件、有 safetensors，权重是真放出来了。官方博客发布当天写的还是「plan to open up the model weights in the coming days」"
+   "note": "HF API 元数据：license = other，license_name = **minimax-h3-community-license-agreement** —— 自定义社区许可，不是标准开源协议。仓库含 280 个文件、有 safetensors，权重是真放出来了。官方博客发布当天写的还是「plan to open up the model weights in the coming days」"
   },
   {
    "m": "vidu-q",
@@ -1978,7 +1978,7 @@
    "c": "flf",
    "state": "yes",
    "verified_for": "Q3",
-   "note": "⚠️ 我上一版标「官方没说」是错的 —— 官方有一等功能「Start end to video」，且 2026-02-11 明确 viduq3-turbo 与 viduq3-pro 都进了 start-end2video",
+   "note": "官方有一等功能「Start end to video」，且 2026-02-11 明确 viduq3-turbo 与 viduq3-pro 都进了 start-end2video",
    "src": "vidu-up",
    "via": "native"
   },
@@ -2005,7 +2005,7 @@
    "c": "motion",
    "state": "yes",
    "verified_for": "Q3",
-   "note": "⚠️ 我上一版标「官方没说」是错的 —— 官方有独立任务 **Motion Sync**；2026-02-04 更新写明「输入动作参考视频＋角色图，生成角色按参考视频动作的视频」。注意它是独立接口，不是 viduq3 生成时的一步",
+   "note": "官方有独立任务 **Motion Sync**；2026-02-04 更新写明「输入动作参考视频＋角色图，生成角色按参考视频动作的视频」。注意它是独立接口，不是 viduq3 生成时的一步",
    "src": "vidu-fl",
    "via": "separate-task"
   },
@@ -2014,7 +2014,7 @@
    "c": "camera",
    "state": "unknown",
    "verified_for": "Q3",
-   "note": "⚠️ 官方 function-list 与 update 两页里「camera / 运镜 / 镜头」**零命中**；只提供「motion amplitude（运动幅度）」。我上一版标「支持」是拿第三方知识库当官方了",
+   "note": "官方 function-list 与 update 两页里「camera / 运镜 / 镜头」**零命中**；只提供「motion amplitude（运动幅度）」。我上一版标「支持」是拿第三方知识库当官方了",
    "src": "vidu-fl"
   },
   {
@@ -2040,7 +2040,7 @@
    "c": "extend",
    "state": "yes",
    "verified_for": "Q3",
-   "note": "⚠️ 我上一版标「官方没说」是错的 —— 官方独立任务 **Video Extension**，「Supports extension from 1～7s」",
+   "note": "官方独立任务 **Video Extension**，「Supports extension from 1～7s」",
    "src": "vidu-fl",
    "via": "separate-task"
   },
@@ -2075,7 +2075,7 @@
    "state": "unknown",
    "verified_for": "Gen-4.5",
    "src": "rw-changelog",
-   "note": "⚠️ 官方只写了**首帧**（2026-01-21），**未见尾帧**。与 Kling / Vidu / Veo 的「首尾帧成对」不是一回事，故不记为支持"
+   "note": "官方只写了**首帧**（2026-01-21），**未见尾帧**。与 Kling / Vidu / Veo 的「首尾帧成对」不是一回事，故不记为支持"
   },
   {
    "m": "runway",
@@ -2116,7 +2116,7 @@
    "state": "no",
    "verified_for": "Gen-4.5",
    "src": "rw-changelog",
-   "note": "⚠️ 官方把音频放在**独立的 Audio 工具**里：2025-12-18「Text to Speech 进 Audio 页签，另有 SFX 与 Speech to Speech 应用」；2026-06-29 Seed Audio 1.0 可生成最长 120 秒语音/音效/音乐。**都不是 Gen-4.5 生成时的原生音频**"
+   "note": "官方把音频放在**独立的 Audio 工具**里：2025-12-18「Text to Speech 进 Audio 页签，另有 SFX 与 Speech to Speech 应用」；2026-06-29 Seed Audio 1.0 可生成最长 120 秒语音/音效/音乐。**都不是 Gen-4.5 生成时的原生音频**"
   },
   {
    "m": "runway",
@@ -2240,7 +2240,7 @@
    "c": "flf",
    "state": "no",
    "verified_for": "Flash",
-   "note": "⚠️ 官方总览页把首尾帧明确指向 Veo：「Use Veo 3.1 for specific capabilities like **last-frame control**」；Omni 文档里也未见对应参数",
+   "note": "官方总览页把首尾帧明确指向 Veo：「Use Veo 3.1 for specific capabilities like **last-frame control**」；Omni 文档里也未见对应参数",
    "src": "g-video"
   },
   {
@@ -2297,7 +2297,7 @@
    "c": "extend",
    "state": "no",
    "verified_for": "Flash",
-   "note": "⚠️ 官方总览页把场景延长明确指向 Veo：「Use Veo 3.1 for specific capabilities like **scene extension**」",
+   "note": "官方总览页把场景延长明确指向 Veo：「Use Veo 3.1 for specific capabilities like **scene extension**」",
    "src": "g-video"
   },
   {
@@ -2332,7 +2332,7 @@
    "verified_for": "2.3",
    "src": "ltx-gh",
    "via": "separate-task",
-   "note": "⚠️ 藏在名字里：官方 **KeyframeInterpolationPipeline** —— 「在关键帧图像之间插值」。我上一版标「官方没说」，是因为按 first/last frame 去找，而它叫 keyframe interpolation"
+   "note": "藏在名字里：官方 **KeyframeInterpolationPipeline** —— 「在关键帧图像之间插值」。我上一版标「官方没说」，是因为按 first/last frame 去找，而它叫 keyframe interpolation"
   },
   {
    "m": "ltx",
@@ -2401,7 +2401,7 @@
    "state": "yes",
    "verified_for": "2.3",
    "src": "ltx-hf-23",
-   "note": "⚠️ 权重公开、下载 178 万，但许可是 **ltx-2-community-license-agreement**（自定义社区许可，不是标准开源协议）—— 与 MiniMax H3 同一个模式，商用前须自行核对"
+   "note": "权重公开、下载 178 万，但许可是 **ltx-2-community-license-agreement**（自定义社区许可，不是标准开源协议）—— 与 MiniMax H3 同一个模式，商用前须自行核对"
   },
   {
    "m": "happyhorse",
@@ -3846,6 +3846,12 @@
    },
    "opensource": [
     {
+     "name": "MiniMax-H3（权重公开，官方称做 V2V 动作迁移）",
+     "url": "https://huggingface.co/MiniMaxAI/MiniMax-H3",
+     "src": "mm-blog",
+     "quote": "官方博客：「excelling at instruction following, accurate text and brand rendering, and V2V motion transfer」；HF 标签含 video-to-video"
+    },
+    {
      "name": "Wan2.2-Animate-14B",
      "url": "https://huggingface.co/Wan-AI/Wan2.2-Animate-14B",
      "src": "hf-lineage",
@@ -3868,8 +3874,7 @@
    ],
    "limits": [
     "驱动素材幅度大、转身多的容易崩 —— 我们自己跑 Wan2.2-animate 时实测",
-    "Q 版/非写实形象用 pro 档反而更差：手臂会被拉成细条，笑容变形",
-    "多数平台把它做成**另一个接口**，不是生成时的一步 —— 要再调一次、再计一次费"
+    "Q 版/非写实形象用 pro 档反而更差：手臂会被拉成细条，笑容变形"
    ],
    "cases": [
     "AI 舞蹈",
@@ -4068,8 +4073,7 @@
    ],
    "platform_feature": [],
    "limits": [
-    "**「语音驱动」不等于「对口型」** —— Wan 的 S2V 是前者，两件事我们没有合并",
-    "多数平台把它做成另一个接口，只能作用于**已经生成好**的视频"
+    "**「语音驱动」不等于「对口型」** —— Wan 的 S2V 是前者，两件事我们没有合并"
    ],
    "cases": [
     "数字人口播",
