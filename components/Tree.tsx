@@ -34,7 +34,7 @@ import { modelHref } from "@/lib/slug";
  * 67 个标签同时铺在图上，只会变成一团噪音。
  */
 const W = 1240;
-const PAD = { t: 56, b: 48, l: 78, r: 58 };
+const PAD = { t: 56, b: 48, l: 78, r: 120 };  // r 加大：末节点标签写在右侧，别溢出画布
 const AXIS_H = 560;
 
 const MS = (d: string) => new Date(`${d.length === 7 ? `${d}-01` : d}T00:00:00Z`).getTime();
@@ -46,12 +46,13 @@ type Node = {
 };
 
 /**
- * 两组色板，**只用来把相邻的线区分开，不承载「开不开源」的含义**。
- * （开不开源看节点实心/空心，逐代判断。）
- * 分成两组是为了让首发早的一批和晚的一批在色相上错开，扫视时不糊成一片。
+ * **单色系**（负责人 2026-08-09：颜色不要那么混乱）。
+ * 原来 14 条线 14 种颜色（绿/紫/橙/蓝/粉混着），扫过去是一团花。
+ * 现在只用品牌青绿的三档深浅，靠**深浅**区分相邻的枝，不靠色相。
+ * 开不开源仍由节点实心/空心表示 —— 那是信息，颜色只是分隔。
  */
-const HUE_A = ["#1f6f5c", "#7a9a3e", "#2f8f8a", "#4a6b2e", "#3aa08a", "#8aa832", "#276b4e"];
-const HUE_B = ["#7a5cc4", "#b06a2c", "#2c6bb0", "#b03a7a", "#5b4fa8", "#c07a1a", "#3a5fa0"];
+const BRANCH = ["#0c9488", "#137a70", "#3aa79b"];
+const TRUNK = "#16212c";
 
 export default function Tree() {
   const [pin, setPin] = useState<string | null>(null);
@@ -81,23 +82,22 @@ export default function Tree() {
     const arr = [...by.entries()].map(([m, ns]) => {
       const model = atlas.models.find((x) => x.id === m)!;
       const sorted = [...ns].sort((a, b) => MS(a.date) - MS(b.date));
-      // **按架构族分主干** —— 这是让树从一个根长出来的那一层（负责人 2026-08-09）。
-      // 那张 LLM 演化树的根不是权重派生，是 Transformer 架构；三条主干是架构族。
-      // 视频这边同理：扩散是共同的根，DiT / 自回归 / 混合 是主干。
-      const group: string = (model as { arch?: string })?.arch ?? "unknown";
-      return { m, model, ns: sorted, group, first: sorted[0].date };
-    }).filter((l) => l.model);
-    // 按架构族聚在一起，族内按首发时间排 —— 同族的线彼此相邻，才看得出「一支」。
-    const ORDER = ["dit", "hybrid", "ar", "unknown"];
-    const seq = ORDER.flatMap((g) =>
-      arr.filter((l) => l.group === g).sort((a, b) => a.first.localeCompare(b.first)));
-    let oi = 0, ci = 0;
-    return seq.map((l, i) => ({
+      return { m, model, ns: sorted, first: sorted[0].date };
+    }).filter((l) => l.model).sort((a, b) => a.first.localeCompare(b.first));
+
+    /**
+     * **横向均匀铺开**（负责人：有的挤一起、有的空一大片）。
+     * 上一版按「老枝伸得远」排，结果首发早的全挤左边、晚的全挤右边，疏密极不均。
+     * 现在：**每条线占等宽的一格**，格宽 = 可用宽度 / 条数 —— 间距天然均匀。
+     * 顺序仍按首发时间，读者从左到右就是从早到晚。
+     */
+    const usable = W - PAD.l - PAD.r;
+    const slotW = usable / arr.length;
+    return arr.map((l, i) => ({
       ...l,
-      // 每条线拿到的是一个**带**，不是一个 x —— 分叉要在带内铺开
-      cx: PAD.l + ((i + 0.5) / seq.length) * (W - PAD.l - PAD.r),
-      band: ((W - PAD.l - PAD.r) / seq.length) * 0.82,
-      color: l.group === "dit" ? HUE_A[oi++ % HUE_A.length] : HUE_B[ci++ % HUE_B.length],
+      cx: PAD.l + slotW * (i + 0.5),
+      band: slotW * 0.72,           // 带内分叉铺开的宽度，留 28% 做间隙
+      color: BRANCH[i % BRANCH.length],
     }));
   }, [nodes]);
 
@@ -110,7 +110,7 @@ export default function Tree() {
    * 做法是经典 tidy tree 的横向版：叶子按顺序占槽，父节点取子节点中位。
    */
   const posOf = useMemo(() => {
-    const p = new Map<string, { x: number; y: number; color: string; group: string }>();
+    const p = new Map<string, { x: number; y: number; color: string }>();
     for (const l of lines) {
       const kids = new Map<string, Node[]>();
       const roots: Node[] = [];
@@ -134,7 +134,7 @@ export default function Tree() {
         usedY.push(yy);
         const s = slot.get(n.id) ?? 0;
         const x = l.cx + (maxS ? (s / maxS - 0.5) : 0) * l.band;
-        p.set(n.id, { x, y: yy, color: l.color, group: l.group });
+        p.set(n.id, { x, y: yy, color: l.color });
       }
     }
     return p;
@@ -250,19 +250,32 @@ export default function Tree() {
             我们原来是 14 根各自从底部冒出来的独立竖线，看着像草不像树 —— 这里补上。
           */}
           {/*
-            **这里原来有一个我造的假树根**（负责人 2026-08-09 当场看穿）：
-            根叫「扩散模型」，分支叫「DiT 扩散」和「混合」—— 这两个是同一件事的不同粗细，
-            所有视频模型都是扩散、DiT 也是扩散，**根和分支说的是一句话，等于没分叉**；
-            「混合」那支还只有 SkyReels 一条线（它本质也是扩散）。
-            一支 13 条、一支 1 条，那不是树，是一根主干带了根小杈。
-
-            根子上的原因：LLM 那张演化树能成立，是因为它真有三个势均力敌的架构族
-            （encoder-only / encoder-decoder / decoder-only，各十几个模型）。
-            **视频这边 Sora 之后基本全转 DiT —— 15/18 是同一个架构。**
-            硬套一个树根是在假装有分化，这是数据的事实，画法补不了。
-
-            所以：**不画假树根**。架构信息保留在数据里（模型页可查），图上不编。
+            **主干 + 枝条**：主干就是时间轴本身（不编造「扩散模型」那种假树根 ——
+            那次教训见 git log）。枝条在**各自首发的时间点**从主干上左右伸出，
+            老枝在下伸得远、新枝在上靠主干，自然成一个树冠。
           */}
+          {(() => {
+            const CX = W / 2;
+            const botY = PAD.t + AXIS_H;
+            return (
+              <g>
+                {/* 枝：从主干在首发高度伸到该线的位置（主干＝时间轴本身，居中） */}
+                {lines.map((l) => {
+                  const p = posOf.get(l.ns[0].id);
+                  if (!p) return null;
+                  const on = MS(l.ns[0].date) <= cutMs;
+                  // 每条线从自己首个节点下方短短抽一截「根须」—— 表示它在这一刻出现，
+                  // 不横穿画面（上一版那些长弧把整张图划得乱七八糟）。
+                  return (
+                    <path key={`br-${l.m}`}
+                      d={`M${p.x},${Math.min(p.y + 22, botY + 6)} L${p.x},${p.y}`}
+                      fill="none" stroke={l.color} strokeWidth={1.6} strokeLinecap="round"
+                      opacity={on ? 0.28 : 0} style={{ transition: "opacity .35s" }} />
+                  );
+                })}
+              </g>
+            );
+          })()}
 
           {/* 血缘的边：先画，节点压在上面 */}
           {nodes.filter((n) => n.parent && posOf.has(n.id) && posOf.has(n.parent!)).map((n) => {
@@ -310,7 +323,10 @@ export default function Tree() {
                     if (side === 1) side = -1; else { side = 1; ny -= 10; }
                   }
                   used.push({ y: ny, side });
-                  const txt = (n.version || n.added || "").slice(0, 12);
+                  // **不用 version** —— 同一条线里它大量重复（HunyuanVideo 出现 5 次、
+                  // Wan2.2 出现 4 次），重复的标签等于没有标签。用「这一代新增了什么」。
+                  // 末节点例外：那里要的是产品线当前版本号。
+                  const txt = (isTop ? (n.version || n.added) : (n.added || n.version) || "").slice(0, 13);
                   return (
                     <g key={`n-${n.id}`} opacity={on ? 1 : 0} style={{ transition: "opacity .35s" }}>
                       <text x={p.x + side * 8} y={ny + 3} textAnchor={side === 1 ? "start" : "end"}
