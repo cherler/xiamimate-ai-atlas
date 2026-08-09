@@ -3786,30 +3786,6 @@
       "checked_at": "2026-08-09"
     },
     {
-      "task": "想直接调 API",
-      "site": "Replicate",
-      "url": "https://replicate.com/collections/text-to-video",
-      "verdict": "按模型逐条标每秒单价，model card 点名底层模型，是少数把「底下跑的是谁」写清楚的平台。",
-      "caveat": "**上架的常常不是当前版本**：我们核的时候它挂的是 Hailuo 2.3（不是 H3）、初代 ltx-video（不是 2.3）。而且 Sora 2 上游已公告 2026-09-24 停服，它还挂着。",
-      "checked_at": "2026-08-09"
-    },
-    {
-      "task": "想直接调 API（另一家）",
-      "site": "fal",
-      "url": "https://fal.ai/pricing",
-      "verdict": "模型上新快，定价页按模型列。",
-      "caveat": "**它对我们的采集器返回 429**，所以它公不公示底层模型这一栏我们至今是空的 —— 那是我们的缺口，不是它在藏。你自己手点是能看的。",
-      "checked_at": "2026-08-09"
-    },
-    {
-      "task": "国内直连想调 API",
-      "site": "APIYI（易API）",
-      "url": "https://docs.apiyi.com/changelog",
-      "verdict": "国内可直连的聚合入口，更新日志里会写清楚透传的是哪家上游（「透传 Google AI Studio」这种）。fal / Replicate 覆盖不到这一块。",
-      "caveat": "同样有**版本滞后**：它上架的 Seedance 是 2.0，当前主力是 2.5。价格写「对齐官网」但不给具体数字。",
-      "checked_at": "2026-08-09"
-    },
-    {
       "task": "想快速了解一个 AI 概念",
       "site": "AI Wiki",
       "url": "https://aiwiki.ai/",
@@ -3822,7 +3798,7 @@
       "site": "Futurepedia",
       "url": "https://www.futurepedia.io/",
       "verdict": "收录量大，找现成产品好用。",
-      "caveat": "**它收的是产品，不是模型。** 想查某个产品底下跑的是谁的模型，这儿答不了 —— 那正是我们做「去哪用」那一页的原因。",
+      "caveat": "**它收的是产品，不是模型。** 想查某个产品底下跑的是谁的模型，这儿答不了 —— 我们的「场景」页反过来，从「你想做什么」直接指到能做的模型。",
       "checked_at": "2026-08-08"
     },
     {
