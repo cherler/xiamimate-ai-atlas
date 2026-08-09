@@ -71,6 +71,13 @@ export default function RelationGraph() {
     const orgs = atlas.orgs.filter((o) => models.some((m) => m.org === o.id));
     // 投资方按「投给谁」排序聚拢 —— 同一家的投资方挨在一起，边才不会互相穿插
     const orgIdx = new Map(orgs.map((o, i) => [o.id, i]));
+    /**
+     * **没录全的要画出来**（负责人：OpenAI 只找到微软，不全）。
+     * 只画已知的那一条，读者会以为「OpenAI 就微软一个投资方」—— 那比不画更误导。
+     * 给标了 investors_coverage: "partial" 的公司挂一个 ⋯ 占位节点，
+     * 明说「还有没录进来的」。这和 ⬜「官方没说」是同一条纪律。
+     */
+    const partial = atlas.orgs.filter((o) => o.investors_coverage === "partial");
     const invNames = [...new Set(atlas.investments.map((v) => v.from))].sort((x, y) => {
       const tx = atlas.investments.find((v) => v.from === x)!.to;
       const ty = atlas.investments.find((v) => v.from === y)!.to;
@@ -82,7 +89,13 @@ export default function RelationGraph() {
     const iy = step(H * 0.42, invNames.length);
     return {
       H,
-      investors: invNames.map((n, i) => ({ id: `inv:${n}`, zh: n, x: COL.inv, y: iy(i) + H * 0.29 })),
+      investors: [
+        ...invNames.map((n, i) => ({ id: `inv:${n}`, zh: n, x: COL.inv, y: iy(i) + H * 0.29, more: false })),
+        ...partial.map((o, k) => ({
+          id: `more:${o.id}`, zh: "⋯ 还有未录", x: COL.inv,
+          y: iy(invNames.length + k) + H * 0.29, more: true,
+        })),
+      ],
       orgs: orgs.map((o, i) => ({ ...o, x: COL.org, y: oy(i) })),
       models: models.map((m, i) => ({ ...m, x: COL.model, y: my(i) + H * 0.07 })),
       caps: caps.map((c, i) => ({ ...c, x: COL.cap, y: cy(i) + H * 0.07 })),
@@ -109,6 +122,9 @@ export default function RelationGraph() {
           out.push({ a: `m:${m.id}`, b: `c:${c.id}`, kind: "impl", color: HUE(m.org) });
     for (const v of atlas.investments)
       out.push({ a: `o:inv:${v.from}`, b: `o:${v.to}`, kind: "invest", color: "#b04a72" });
+    for (const o of atlas.orgs)
+      if (o.investors_coverage === "partial")
+        out.push({ a: `o:more:${o.id}`, b: `o:${o.id}`, kind: "invest", color: "#b04a72" });
     return out;
   }, [g]);
 
@@ -225,7 +241,7 @@ export default function RelationGraph() {
 
           {g.investors.map((v) => (
             <Node key={v.id} id={`o:${v.id}`} x={v.x} y={v.y} anchor="end" small
-              text={v.zh} color="#b04a72"
+              text={v.zh} color={v.more ? "#d9a8ba" : "#b04a72"}
               onClick={() => setSel(key === `o:${v.id}` ? { kind: "none" } : { kind: "org", id: v.id })} />
           ))}
           {g.orgs.map((o) => (

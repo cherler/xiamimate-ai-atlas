@@ -394,7 +394,9 @@
         "iso": "CN",
         "lat": 39.9042,
         "lon": 116.4074
-      }
+      },
+      "investors_coverage": "partial",
+      "investors_note": "已录 A+ 轮 5 家；更早轮次的投资方未录。"
     },
     {
       "id": "kunlun",
@@ -436,7 +438,9 @@
         "iso": "US",
         "lat": 37.7749,
         "lon": -122.4194
-      }
+      },
+      "investors_coverage": "partial",
+      "investors_note": "官网股权披露只点名微软（约 27%）；其余 47% 原文只写「现任及前任员工与投资人」，未点名 —— 图上用 ⋯ 表示还有没录进来的。"
     },
     {
       "id": "runway",
@@ -467,7 +471,8 @@
         "lat": 32.0853,
         "lon": 34.7818
       },
-      "note": "以色列 + 旧金山两地办公，主体记以色列。"
+      "note": "以色列 + 旧金山两地办公，主体记以色列。",
+      "investors_coverage": "full"
     },
     {
       "id": "lightricks",
@@ -480,7 +485,8 @@
         "iso": "IL",
         "lat": 31.7683,
         "lon": 35.2137
-      }
+      },
+      "investors_coverage": "full"
     },
     {
       "id": "tencent",

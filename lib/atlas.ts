@@ -93,6 +93,15 @@ export type Org = {
   hq_src?: string;
   /** 定位精度：exact / province / ambiguous / null。10 家仍未定到城市级（待办 H2）。 */
   hq_precision?: string;
+  /**
+   * 投资方录全了没：full = 官方披露里点名的都录了；partial = 还有没点名/没录的。
+   * **partial 必须在图上画出来**（⋯ 节点）—— 只画已知的那几条，
+   * 读者会以为「就这几个投资方」，那比不画更误导。和 ⬜「官方没说」同一条纪律。
+   */
+  investors_coverage?: "full" | "partial";
+  investors_note?: string;
+  ir_url?: string;
+  ir_src?: string;
   note?: string;
 };
 
