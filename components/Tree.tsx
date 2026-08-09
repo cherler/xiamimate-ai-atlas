@@ -261,14 +261,19 @@ export default function Tree() {
       let raw = (isTop || isBot) ? (n.version || n.added) : (n.added || n.version);
       if (isBot && l && SHORT(raw ?? "") === SHORT(l.model.family)) raw = n.added || raw;
       const w = SHORT(raw ?? "").replace(/[^\x00-\xff]/g, "aa").length * 5.2 + 10;
-      let side: 1 | -1 = 1;
+      // **首末标签一律放左侧**（负责人：LongAnimDiff 和 HY-Video 放节点左侧）。
+      // 末标签右边正好是产品线名，放右侧会压住它；首标签在最左那条线上会顶出画布。
+      const forceLeft = isTop || isBot;
+      let side: 1 | -1 = forceLeft ? -1 : 1;
       let ny = p.y;
       const hit = (x0: number, x1: number, yy: number) =>
         placed.some((q) => yy > q.y - 9.5 && yy < q.y + 9.5 && x0 < q.x1 && q.x0 < x1);
       for (let g = 0; g < 16; g++) {
         const x0 = side === 1 ? p.x + 7 : p.x - 7 - w;
         if (!hit(x0, x0 + w, ny)) break;
-        if (side === 1) side = -1; else { side = 1; ny -= 9.5; }
+        if (forceLeft) ny -= 9.5;                       // 首末只上抬，不翻到右边
+        else if (side === 1) side = -1;
+        else { side = 1; ny -= 9.5; }
       }
       const fx0 = side === 1 ? p.x + 7 : p.x - 7 - w;
       placed.push({ x0: fx0, x1: fx0 + w, y: ny });
