@@ -28,6 +28,8 @@
     "/map|手机": 10,
     "/models|手机": 419,
     "/scenario|桌面": 593,
-    "/scenario|手机": 593
+    "/scenario|手机": 593,
+    "/skill/openweights|桌面": 424,
+    "/skill/openweights|手机": 424
   }
 }

@@ -55,8 +55,9 @@ const ROUTES = [
   { path: "/tree", must: "长出了什么", zh: 800, built: true },
   { path: "/caveats", must: "你未必用得上", zh: 90, per: "section > div", built: true },
   { path: "/compare/kling-vs-seedance", must: "还是", zh: 800, built: true },
-  { path: "/skill/motion", must: "动作复刻", zh: 1400, built: true },
-  { path: "/scenario", must: "我想做这件事", zh: 900, built: true },
+  { path: "/skill/motion", must: "动作复刻", zh: 1400, built: true, also: ["拿什么跑", "生成时一步做完", "要另开一个任务", "自己部署"] },
+  { path: "/skill/openweights", must: "开源自部署", zh: 1600, built: true, also: ["拿什么跑", "家能做这件事"] },
+  { path: "/scenario", must: "我想做这件事", zh: 1200, built: true, also: ["拿什么跑", "另开任务"] },
   { path: "/toolkit", must: "该去哪个站", zh: 300, per: "main > div > section", built: true },
   { path: "/map", must: "谁和谁有关系", zh: 2400, built: true },
   { path: "/models", must: "全部模型", zh: 1200, built: true },
@@ -162,6 +163,10 @@ for (const [vp, w, h] of [["桌面", 1440, 900], ["手机", 390, 844]]) {
 
     console.log(`\n── ${r.path}`);
     ok(self, `渲染的是自己（含「${r.must}」，没回退到首页）`);
+    // `also` 钉的是**这一页的结构**，不是它的身份。改版把某一栏做没了，`must`
+    // 照样过（标题还在），只有这里能拦住 —— 上一次「加了栏位但四个页面看不出区别」
+    // 就是因为没有任何检查在盯「这一栏到底有没有渲染出来」。
+    for (const m of r.also ?? []) ok(body.includes(m), `有「${m}」这一栏`);
     ok((await page.evaluate(VISIBLE("h1, h2"))) > 0, "有可见标题");
     ok(errs.length === 0, `控制台没有报错${errs.length ? `：${errs[0]}` : ""}`);
     ok(await page.evaluate("document.documentElement.scrollWidth <= window.innerWidth + 1"), "不横向滚动");

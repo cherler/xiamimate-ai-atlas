@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { Rich } from "@/components/Fact";
-import { atlas, cell, label } from "@/lib/atlas";
+import { atlas, label, skillModels, type Model } from "@/lib/atlas";
 import { capHref, modelHref } from "@/lib/slug";
 import BackLink from "@/components/BackLink";
 
@@ -9,11 +9,18 @@ import BackLink from "@/components/BackLink";
  * Skill 页（方案 §10）。原话：**「Skill 必须是第一等公民。」**
  *
  * Skill 回答的是「**这件事怎么做**」，能力格回答的是「谁能做」—— 两个问题。
- * 所以这一页的骨架是 §10 给的那个：输入 → 输出，然后
- * 原生实现 / 开源实现 / 平台功能 / 已知限制 / 典型用例。
  *
- * **「已知限制」是必填的**（校验 R45）：一个没有限制的 Skill 页是在卖广告，不是在帮人。
- * 而且它恰恰是别处最难找的部分 —— 厂商不会写自己做不好什么。
+ * ## 这一页曾经的毛病
+ *
+ * 六个 Skill 页长得一模一样：一排模型名、一行开源链接、几条限制。看完不知道
+ * 拿什么跑，也不知道那一排模型名里哪些是「点一下就出」、哪些是「再开一个任务」。
+ * 差别是实的 —— 后者要再调一次、再等一次、再计一次费。
+ *
+ * 现在这一页只答四件事，每件都落到可核验的东西上：
+ * **多少家能做**（并分成一步 / 两步）→ **拿什么跑**（官方工作流 + 社区仓库带星标）
+ * → **能不能自己部署**（权重链接）→ **有什么坑**。
+ *
+ * 「已知限制」是必填的（校验 R45）：一个没有限制的 Skill 页是在卖广告，不是在帮人。
  */
 export function generateStaticParams() {
   return atlas.skills.map((s) => ({ id: s.id }));
@@ -23,32 +30,70 @@ export async function generateMetadata({ params }: { params: Promise<{ id: strin
   const { id } = await params;
   const s = atlas.skills.find((x) => x.id === id);
   if (!s) return {};
+  const { direct, separate } = skillModels(s);
   return {
-    title: `${s.zh}怎么做 —— 谁能做、拿什么做、有什么坑`,
-    description: `${s.zh}（${s.en}）：${s.native?.length ?? 0} 个模型原生支持，开源侧有对应实现。含已知限制与官方来源。`,
+    title: `${s.zh}怎么做 —— 谁能做、拿什么跑、有什么坑`,
+    description: `${s.zh}（${s.en}）：${direct.length} 家生成时一步做完，${separate.length} 家要另开一个任务，${s.workflow?.length ?? 0} 个能跑起来的 workflow。含已知限制与官方来源。`,
     openGraph: { images: [{ url: `/atlas/og/capability-${s.cap ?? "t2v"}-16x9.png`, width: 1200, height: 675 }] },
   };
 }
 
-const Box = ({ t, children }: { t: string; children: React.ReactNode }) => (
-  <section className="flex flex-col gap-1.5">
-    <h2 className="text-[15px] font-semibold text-muted">{t}</h2>
+const Box = ({ t, sub, children }: { t: string; sub?: string; children: React.ReactNode }) => (
+  <section className="flex flex-col gap-2">
+    <h2 className="text-[13px] font-semibold tracking-[.04em] text-muted border-b border-rule pb-1.5">
+      {t}
+      {sub && <span className="font-normal ml-2 text-[12px]">{sub}</span>}
+    </h2>
     <div className="text-[15px] leading-relaxed">{children}</div>
   </section>
 );
+
+/** 一列模型。两列并排就是「一步 vs 两步」那件事的全部内容。 */
+const Models = ({ ms, empty }: { ms: Model[]; empty: string }) =>
+  ms.length ? (
+    <ul className="flex flex-col gap-1">
+      {ms.map((m) => (
+        <li key={m.id}>
+          <Link href={modelHref(m)} className="hover:text-yes-ink hover:underline">
+            {label(m)}
+            <span className="text-muted text-[12px] ml-1.5">{atlas.orgs.find((o) => o.id === m.org)?.name}</span>
+          </Link>
+        </li>
+      ))}
+    </ul>
+  ) : (
+    <p className="text-unknown text-[13px]">{empty}</p>
+  );
 
 export default async function SkillPage({ params }: { params: Promise<{ id: string }> }) {
   const { id } = await params;
   const s = atlas.skills.find((x) => x.id === id);
   if (!s) return <main className="p-10">没有这个 Skill。</main>;
   const cap = s.cap ? atlas.capabilities.find((c) => c.id === s.cap) : null;
+  const { direct, separate } = skillModels(s);
+  const wf = s.workflow ?? [];
+  const official = wf.filter((w) => w.kind === "official").length;
+
+  // 「开源自部署」这类事没有「另开一个任务」之说 —— 分法不适用时就不硬套。
+  const split = separate.length > 0;
+
+  /** 首屏几个数字。全是从数据算出来的，不是形容词 —— 「删字测试」里这一行删不掉。 */
+  const stats: { n: number; t: string; hint: string }[] = [
+    split
+      ? { n: direct.length, t: "家生成时一步做完", hint: "选完模型直接出，不用再开任务" }
+      : { n: direct.length, t: "家能做这件事", hint: "厂商官方文档写明支持" },
+    ...(split ? [{ n: separate.length, t: "家要另开一个任务", hint: "再调一次接口、再等一次、再计一次费" }] : []),
+    { n: s.opensource?.length ?? 0, t: "处权重可自部署", hint: "自己的 GPU 上跑，不受平台限制" },
+    { n: wf.length, t: "个能跑起来的 workflow", hint: `其中官方 ${official} 个` },
+  ];
 
   return (
-    <main className="max-w-[880px] mx-auto px-5 pt-5 pb-8 flex flex-col gap-7">
+    <main className="max-w-[900px] mx-auto px-5 pt-5 pb-10 flex flex-col gap-7">
       <BackLink />
-      <header className="flex flex-col gap-1">
-        <h1 className="text-[30px] font-semibold leading-tight">{s.zh}</h1>
-        <p className="text-muted text-[15px]">
+
+      <header className="flex flex-col gap-1 border-b-[2.5px] border-ink pb-3">
+        <h1 className="text-[32px] font-bold leading-tight tracking-[-.01em]">{s.zh}</h1>
+        <p className="text-muted text-[14px]">
           {s.en}
           {cap?.aliases?.length ? ` · 各家还叫它：${cap.aliases.slice(0, 5).join(" / ")}` : ""}
         </p>
@@ -56,36 +101,87 @@ export default async function SkillPage({ params }: { params: Promise<{ id: stri
 
       {/* §10 的首屏就是输入 → 输出。**先让人看懂这件事长什么样**，再谈谁能做。 */}
       {s.io && (
-        <div className="border border-rule rounded-xl bg-card p-5 flex flex-wrap items-center justify-center gap-4 text-[15px]">
+        <div className="border border-rule bg-card p-4 flex flex-wrap items-center justify-center gap-3 text-[15px]">
           {s.io.in.map((x, i) => (
-            <span key={x} className="flex items-center gap-4">
+            <span key={x} className="flex items-center gap-3">
               {i > 0 && <span className="text-muted">+</span>}
-              <span className="border border-rule rounded-lg px-4 py-3 bg-paper">{x}</span>
+              <span className="border border-rule px-3.5 py-2 bg-paper">{x}</span>
             </span>
           ))}
-          <span className="text-muted text-[20px]">→</span>
-          <span className="border border-yes rounded-lg px-4 py-3 text-yes font-medium">{s.io.out}</span>
+          <span className="text-muted text-[18px]">→</span>
+          <span className="border border-yes px-3.5 py-2 text-yes-ink font-medium">{s.io.out}</span>
         </div>
       )}
 
-      <Box t="原生实现（一步做完）">
-        {s.native?.length ? (
-          <p className="flex flex-wrap gap-x-3 gap-y-1">
-            {s.native.map((m) => {
-              const md = atlas.models.find((x) => x.id === m)!;
-              return <Link key={m} href={modelHref(md)} className="text-yes underline hover:text-ink">{label(md)}</Link>;
-            })}
-          </p>
-        ) : <p className="text-unknown">还没有模型有明确的官方依据</p>}
+      <div
+        className={`grid grid-cols-2 border-t border-l border-rule ${
+          stats.length === 4 ? "md:grid-cols-4" : "md:grid-cols-3"
+        }`}
+      >
+        {stats.map((x) => (
+          <div key={x.t} className="border-r border-b border-rule px-3.5 py-3">
+            <div className="text-[27px] leading-none font-bold tabular-nums">{x.n}</div>
+            <div className="text-[12.5px] mt-1.5">{x.t}</div>
+            <div className="text-[11px] text-muted leading-snug mt-0.5">{x.hint}</div>
+          </div>
+        ))}
+      </div>
+
+      {/* 一步 / 两步。这是 support[].via 里一直存着、却从没画出来的那个区别。 */}
+      <Box t="谁能做" sub={split ? "同一件事，有的家是生成时的一步，有的家是另一个接口" : undefined}>
+        {split ? (
+          <div className="grid md:grid-cols-2 gap-x-8 gap-y-4">
+            <div>
+              <p className="text-[12.5px] text-yes-ink mb-1.5">✅ 生成时一步做完</p>
+              <Models ms={direct} empty="还没有模型把它做进生成里" />
+            </div>
+            <div>
+              <p className="text-[12.5px] text-muted mb-1.5">↺ 要另开一个任务</p>
+              <Models ms={separate} empty="没有" />
+            </div>
+          </div>
+        ) : (
+          <div className="columns-2 md:columns-3">
+            <Models ms={direct} empty="还没有模型有明确的官方依据" />
+          </div>
+        )}
       </Box>
 
+      {/* **拿什么跑**（方案 §10 明确要求的一栏）：能直接跑起来的 workflow / 官方插件。
+          原来这一页只说「谁能做」，不说「用什么跑」—— 那是把最实用的一半略掉了。 */}
+      {!!wf.length && (
+        <Box t="拿什么跑" sub="官方工作流优先；社区仓库标星标，星标是它有没有人真在用的唯一硬指标">
+          <ol className="flex flex-col">
+            {wf.map((w) => (
+              <li key={w.url} className="flex gap-3 py-2 border-b border-rule last:border-0">
+                <span
+                  className={`shrink-0 text-[11px] px-1.5 py-0.5 h-fit ${
+                    w.kind === "official" ? "bg-yes text-paper" : "bg-rule text-muted"
+                  }`}
+                >
+                  {w.kind === "official" ? "官方" : "社区"}
+                </span>
+                <span className="flex flex-col gap-0.5 min-w-0">
+                  <a href={w.url} target="_blank" rel="noreferrer" className="font-medium underline hover:text-yes-ink">
+                    {w.name} →
+                  </a>
+                  <span className="text-muted text-[12px] leading-snug">{w.quote}</span>
+                </span>
+              </li>
+            ))}
+          </ol>
+        </Box>
+      )}
+
       {!!s.opensource?.length && (
-        <Box t="开源实现（可自部署）">
-          <div className="flex flex-col gap-1">
+        <Box t="自己部署" sub="权重公开的，拿去自己 GPU 上跑">
+          <div className="flex flex-col gap-1.5">
             {s.opensource.map((o) => (
-              <p key={o.name}>
-                <a href={o.url} target="_blank" rel="noreferrer" className="underline hover:text-yes">{o.name}</a>
-                <span className="text-muted text-[12px] ml-2">
+              <p key={o.name} className="flex flex-wrap items-baseline gap-x-2">
+                <a href={o.url} target="_blank" rel="noreferrer" className="underline hover:text-yes-ink">
+                  {o.name}
+                </a>
+                <span className="text-muted text-[12px]">
                   {o.quote} · {atlas.sources[o.src]?.name}
                 </span>
               </p>
@@ -95,7 +191,7 @@ export default async function SkillPage({ params }: { params: Promise<{ id: stri
       )}
 
       {!!s.platform_feature?.length && (
-        <Box t="平台上的成品功能">
+        <Box t="平台上的成品功能" sub="不用自己搭，平台已经封成一个按钮">
           {s.platform_feature.map((f) => (
             <p key={f.p}>
               {atlas.platforms.find((x) => x.id === f.p)?.name} · {f.name}
@@ -105,29 +201,11 @@ export default async function SkillPage({ params }: { params: Promise<{ id: stri
         </Box>
       )}
 
-      {/* **拿什么做**（方案 §10 明确要求的一栏）：能直接跑起来的 workflow / 官方插件。
-          原来这一页只说「谁能做」，不说「用什么跑」—— 那是把最实用的一半略掉了。 */}
-      {!!s.workflow?.length && (
-        <Box t="拿什么做 · 能跑起来的 workflow">
-          {s.workflow.map((w) => (
-            <p key={w.url} className="flex flex-wrap items-baseline gap-x-2">
-              <a href={w.url} target="_blank" rel="noreferrer" className="font-medium underline hover:text-yes-ink">
-                {w.name} →
-              </a>
-              <span className={`text-[11px] px-1.5 ${w.kind === "official" ? "bg-yes/12 text-yes-ink" : "bg-rule/60 text-muted"}`}>
-                {w.kind === "official" ? "官方" : "社区"}
-              </span>
-              <span className="text-muted text-[12px]">{w.quote}</span>
-            </p>
-          ))}
-        </Box>
-      )}
-
       {/* **这一栏是这一页最值钱的部分。** 厂商不会写自己做不好什么。 */}
-      <section className="border border-unknown/40 bg-unknown/6 rounded-lg p-4 flex flex-col gap-1.5">
-        <h2 className="text-[15px] font-semibold">已知限制</h2>
+      <section className="border border-unknown/40 bg-unknown/6 p-4 flex flex-col gap-1.5">
+        <h2 className="text-[13px] font-semibold tracking-[.04em]">已知限制</h2>
         {s.limits?.map((l, i) => (
-          <Rich key={i} text={`· ${l}`} className="text-[15px] leading-relaxed" />
+          <Rich key={i} text={`· ${l}`} className="text-[14.5px] leading-relaxed" />
         ))}
       </section>
 
@@ -138,8 +216,14 @@ export default async function SkillPage({ params }: { params: Promise<{ id: stri
       )}
 
       <footer className="border-t border-rule pt-4 flex flex-wrap gap-3 text-[14px]">
-        {cap && <Link href={capHref(cap)} className="underline hover:text-yes">这一项谁支持 →</Link>}
-        <Link href="/caveats" className="underline hover:text-yes">下单前先看这几条 →</Link>
+        {cap && (
+          <Link href={capHref(cap)} className="underline hover:text-yes-ink">
+            这一项谁支持 →
+          </Link>
+        )}
+        <Link href="/caveats" className="underline hover:text-yes-ink">
+          下单前先看这几条 →
+        </Link>
         <span className="text-muted ml-auto">核验于 {s.verified_at}</span>
       </footer>
     </main>

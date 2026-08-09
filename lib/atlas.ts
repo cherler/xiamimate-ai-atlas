@@ -330,6 +330,24 @@ export const modelsWith = (capId: string) =>
   atlas.models.filter((m) => isYes(m.id, capId)).map((m) => m.id);
 
 /**
+ * 一个 Skill 能用哪些模型做 —— 并且**分成两堆**。
+ *
+ * `support[].via` 早就记着这件事了：`native` 是生成时的一步，`separate-task` 是
+ * 另一个接口。差别对使用者是实的 —— 后者要再调一次、再等一次、再计一次费。
+ * 以前这个事实只以一句散文躺在 limits 里（「这几家是另一个接口…」），
+ * 于是六个 Skill 页看上去都是一模一样的一排模型名。现在它是结构。
+ */
+export function skillModels(skill: { cap?: string; native?: string[] }) {
+  const ids = skill.native ?? [];
+  const ms = ids.map((id) => atlas.models.find((m) => m.id === id)).filter(Boolean) as Model[];
+  const viaOf = (m: Model) => (skill.cap ? cell(m.id, skill.cap).via : undefined);
+  return {
+    direct: ms.filter((m) => viaOf(m) !== "separate-task"),
+    separate: ms.filter((m) => viaOf(m) === "separate-task"),
+  };
+}
+
+/**
  * 两个模型的能力对比。§59.1 的红利：选中两个模型就是 Compare，
  * **不需要单独做一个 Compare 页面**。只在同轨内有意义。
  */
