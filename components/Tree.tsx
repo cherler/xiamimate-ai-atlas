@@ -131,7 +131,14 @@ export default function Tree() {
      */
     const stale = (l: (typeof arr)[number]) =>
       l.ns.length <= 2 && l.ns[l.ns.length - 1].date < "2025-07-01";
-    const ordered = [...arr.filter((l) => !stale(l)), ...arr.filter(stale)];
+    // **实时交互轨排到最后** —— Vidu S / Lucy 是另一套坐标系（边生成边看），
+    // 插在离线轨中间会让人以为是同一类。放队尾，和右下的短线待在一起。
+    const rt = (l: (typeof arr)[number]) => l.model.class === "realtime";
+    const ordered = [
+      ...arr.filter((l) => !stale(l) && !rt(l)),
+      ...arr.filter((l) => stale(l) && !rt(l)),
+      ...arr.filter(rt),
+    ];
 
     /**
      * **横向均匀铺开**：每条线占等宽的一格，格宽 = 可用宽度 / 条数。
@@ -191,7 +198,8 @@ export default function Tree() {
     let last = performance.now();
     const tick = (now: number) => {
       const d = (now - last) / 1000; last = now;
-      setCut((c) => { const n = c + d * 20; if (n >= 100) { setPlaying(false); return 100; } return n; });
+      // 速度 20→7：跑完从 5 秒变约 14 秒，看得清每一代是怎么长出来的
+      setCut((c) => { const n = c + d * 7; if (n >= 100) { setPlaying(false); return 100; } return n; });
       raf.current = requestAnimationFrame(tick);
     };
     raf.current = requestAnimationFrame(tick);
