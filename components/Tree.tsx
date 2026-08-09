@@ -78,6 +78,9 @@ const FALLBACK = "#5c6a78";
  */
 const SHORT = (t: string) =>
   (t || "")
+    .replace(/^MiniMax Hailuo/, "MiniMax")
+    .replace(/^OpenSora-STDiT-v(\d)/, "STDiT-v$1")
+    .replace(/^Open-Sora-v(\d)/, "v$1")
     .replace(/^HunyuanVideo/, "HY")
     .replace(/^LongAnimateDiff/, "LongAnimDiff")
     .replace(/^OpenSora-/, "OS-")
@@ -121,14 +124,22 @@ export default function Tree() {
     }).filter((l) => l.model).sort((a, b) => a.first.localeCompare(b.first));
 
     /**
-     * **横向均匀铺开**（负责人：有的挤一起、有的空一大片）。
-     * 上一版按「老枝伸得远」排，结果首发早的全挤左边、晚的全挤右边，疏密极不均。
-     * 现在：**每条线占等宽的一格**，格宽 = 可用宽度 / 条数 —— 间距天然均匀。
-     * 顺序仍按首发时间，读者从左到右就是从早到晚。
+     * **早夭的短线挪到队尾**（负责人：Open-Sora 右侧那个时间段空白一片）。
+     * 纯按首发时间排，Open-Sora / Mochi / Allegro 这些只活在 2025 年初、之后再没
+     * 更新的线会卡在中间，把右上角（2026 的密集期）挤空。把「节点少且早就停更」的
+     * 挪到队尾 —— 右下正好是它们的时间段，空白被填上，中段也不再被短线切断。
+     */
+    const stale = (l: (typeof arr)[number]) =>
+      l.ns.length <= 2 && l.ns[l.ns.length - 1].date < "2025-07-01";
+    const ordered = [...arr.filter((l) => !stale(l)), ...arr.filter(stale)];
+
+    /**
+     * **横向均匀铺开**：每条线占等宽的一格，格宽 = 可用宽度 / 条数。
+     * 上一版按「老枝伸得远」排，首发早的全挤左、晚的全挤右，疏密极不均。
      */
     const usable = W - PAD.l - PAD.r;
-    const slotW = usable / arr.length;
-    return arr.map((l, i) => ({
+    const slotW = usable / ordered.length;
+    return ordered.map((l, i) => ({
       ...l,
       cx: PAD.l + slotW * (i + 0.5),
       band: slotW * 0.72,           // 带内分叉铺开的宽度，留 28% 做间隙
@@ -247,7 +258,8 @@ export default function Tree() {
       const l = lines.find((x) => x.m === n.m);
       const isTop = l ? n.id === l.ns[l.ns.length - 1].id : false;
       const isBot = l ? n.id === l.ns[0].id && l.ns.length > 1 : false;
-      const raw = (isTop || isBot) ? (n.version || n.added) : (n.added || n.version);
+      let raw = (isTop || isBot) ? (n.version || n.added) : (n.added || n.version);
+      if (isBot && l && SHORT(raw ?? "") === SHORT(l.model.family)) raw = n.added || raw;
       const w = SHORT(raw ?? "").replace(/[^\x00-\xff]/g, "aa").length * 5.2 + 10;
       let side: 1 | -1 = 1;
       let ny = p.y;
@@ -343,8 +355,18 @@ export default function Tree() {
               节点本身的位置已经说明了出现时间。 */}
 
           {/* 血缘的边：先画，节点压在上面 */}
-          {nodes.filter((n) => n.parent && posOf.has(n.id) && posOf.has(n.parent!)).map((n) => {
-            const a = posOf.get(n.parent!)!, b = posOf.get(n.id)!;
+          {/* **同一条线按时间顺序全连上**（负责人：Runway 断掉了，管它有没有关系，
+              它就是 Runway，连起来）。原来只连有 parent 的节点，Runway 的 Aleph 2.0
+              没登记 parent 就成了孤点。既然这张图不讲血缘，连的就该是「同一条产品线
+              的先后」—— parent 有就用 parent，没有就接上这条线里时间上的前一个。 */}
+          {nodes.filter((n) => posOf.has(n.id)).map((n) => {
+            const line = lines.find((l) => l.m === n.m);
+            const seq = line?.ns ?? [];
+            const idx = seq.findIndex((x) => x.id === n.id);
+            const prevId = (n.parent && posOf.has(n.parent)) ? n.parent
+              : idx > 0 ? seq[idx - 1].id : null;
+            if (!prevId || !posOf.has(prevId)) return null;
+            const a = posOf.get(prevId)!, b = posOf.get(n.id)!;
             const on = MS(n.date) <= cutMs;
             const lit = !cap || n.cap === cap;
             const dim = pin && nodes.find((x) => x.id === pin)?.m !== n.m;
@@ -355,7 +377,7 @@ export default function Tree() {
                 d={`M${a.x},${a.y} C${a.x},${my} ${b.x},${my} ${b.x},${b.y}`}
                 fill="none" stroke={b.color} strokeLinecap="round"
                 // 后代越多越粗：底座 ~4px，末梢 ~1.2px
-                strokeWidth={1.2 + Math.min(3, (weight.get(n.parent!) ?? 0) * 0.45)}
+                strokeWidth={1.2 + Math.min(3, (weight.get(prevId) ?? 0) * 0.45)}
                 opacity={on ? (lit && !dim ? 0.6 : 0.12) : 0}
                 style={{ transition: "opacity .35s" }} />
             );
@@ -395,12 +417,13 @@ export default function Tree() {
                   const scrubbing = playing || cut < 99.5;
                   const justGrown = scrubbing && MS(n.date) > cutMs - (t1 - t0) * 0.05;
                   // **首末两端常驻**（负责人要求），中间的仍默认隐藏
-                  // 首标签若和末端的产品线名一模一样就不标 —— 重复两遍没有信息量
-                  const dupBot = isBot && SHORT(n.version || n.added || "") === SHORT(l.model.family);
-                  const showLabel = on && (isTop || (isBot && !dupBot) || pin === n.id || justGrown);
+                  const showLabel = on && (isTop || isBot || pin === n.id || justGrown);
                   // 首末显版本号（那是「从哪来、长成什么」），中间显「这一代新增了什么」。
                   // 长名简称 —— 负责人：模型名太长就用简称。
-                  const raw = (isTop || isBot) ? (n.version || n.added) : (n.added || n.version);
+                  // 首末显版本号；**首标签若和产品线名重复就换成「这一代新增了什么」** ——
+                  // HY / Veo 的首版本名就等于产品线名，原来被过滤掉成了无标签的孤点。
+                  let raw = (isTop || isBot) ? (n.version || n.added) : (n.added || n.version);
+                  if (isBot && SHORT(raw ?? "") === SHORT(l.model.family)) raw = n.added || raw;
                   const txt = SHORT(raw ?? "");
                   const lp = labelAt.get(n.id) ?? { x: p.x, y: p.y, side: 1 as 1 | -1 };
                   const side = lp.side, ny = lp.y;
@@ -424,7 +447,7 @@ export default function Tree() {
                   const pt = posOf.get(top.id)!;
                   const on = MS(top.date) <= cutMs;
                   return (
-                    <text x={pt.x} y={pt.y - 12} textAnchor="middle" fontSize="9.5" fontWeight="700"
+                    <text x={pt.x} y={pt.y - 12} textAnchor="end" fontSize="9.5" fontWeight="700"
                       fill={l.color} opacity={on ? 1 : 0.15} style={{ transition: "opacity .35s" }}>
                       {SHORT(l.model.family)}
                     </text>
