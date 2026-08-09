@@ -36,7 +36,7 @@
   --color-yes-ink: var(--xm-brand-ink); /* 小字、上标、链接 */
   --color-no: #16212c;
   --color-unknown: #8a95a1;
-  --color-hatch: #d8dee6;
+  --color-hatch: #c3c9d0; /* 加深一档：太淡的斜线在纸底上等于消失，⬜ 是主角得看得见 */
 
   /* 零圆角。datasheet 的性格来自直角与规则线；
      平台令牌里的 --xm-radius 是给控件用的，本站不铺到内容区。 */
@@ -76,5 +76,5 @@ table {
 /* 「官方没说」的斜线纹理。整格铺，不画符号 ——
    用浅灰画一个符号它就消失了，铺成纹理才连得成片。 */
 .hatch {
-  background: repeating-linear-gradient(45deg, var(--color-hatch) 0 1px, transparent 1px 5px);
+  background: repeating-linear-gradient(45deg, var(--color-hatch) 0 1.2px, transparent 1.2px 4px);
 }

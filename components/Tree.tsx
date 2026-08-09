@@ -6,7 +6,7 @@ import { atlas, label, orgOf } from "@/lib/atlas";
 import { modelHref } from "@/lib/slug";
 
 /**
- * 模型演化树。**时间是纵轴，树从下往上长；两条主干：开源 / 闭源。**
+ * 模型演化树。**时间是纵轴，树从下往上长；14 条产品线横向平铺。**
  *
  * ## 为什么是这个形态
  *
@@ -15,12 +15,14 @@ import { modelHref } from "@/lib/slug";
  * 模型在各自发布的时刻长出来。** 分叉是真的（Wan2.1 底座上同时长出
  * FLF2V 和 VACE），平铺会把分叉整个抹掉。
  *
- * ## 两条主干怎么分
+ * ## 开源 / 闭源用颜色分，不用位置分
  *
- * 按**第一次发布时是否公开权重**分。这不是标签游戏 ——
- * 它照出一件别处看不到的事：**万相从开源走向闭源**（2.1/2.2 在官方 HF 上有权重，
- * 2.5 之后没有），**海螺反过来**（只有最新的 H3 放了权重）。**两条线在中间交叉。**
- * 换向的那个节点单独描出来。
+ * 上一版把宽度硬切两半（左开源右闭源）、中间一道竖线。结果万相、海螺这种
+ * **换过向的**产品线被挤在交界，逼出一句「两条主干中间是交叉的」文字补救 ——
+ * 需要文字补救的图就是没做到位。现在改成：**绿系=开源家族、紫系=闭源家族**，
+ * 14 条线按首发时间连续平铺（绿在前紫在后，保留空间倾向但没有中线）。
+ * 换向由**节点实心/空心**表现：万相 2.1/2.2 实心、2.5 之后空心（走向闭源），
+ * 海螺只有 H3 实心（反过来）。位置不再背两份意义，那句文字补救删掉。
  *
  * ## 文字为什么少
  *
@@ -78,20 +80,22 @@ export default function Tree() {
         w === "open" ? "open" : w === "closed" ? "closed" : m === "wan" ? "open" : "closed";
       return { m, model, ns: sorted, side, first: sorted[0].date };
     }).filter((l) => l.model);
+    // 开源在前、闭源在后，各自按首发排 —— 保留绿偏左、紫偏右的空间倾向，
+    // 但**拼成一条连续的平铺，没有中线、没有两大标题**。
+    // 上一版把宽度硬切两半、中间留 gap，万相/海螺被挤在交界，逼出一句
+    // 「两条主干中间是交叉的」文字补救 —— 需要文字补救的图就是没做到位。
+    // 换向（万相走向闭源、海螺反过来）改由**节点实心/空心**表现，不靠位置也不靠文字。
     const open = arr.filter((l) => l.side === "open").sort((a, b) => a.first.localeCompare(b.first));
     const closed = arr.filter((l) => l.side === "closed").sort((a, b) => a.first.localeCompare(b.first));
-    const place = (list: typeof arr, x0: number, x1: number, hue: string[]) =>
-      list.map((l, i) => ({
-        ...l,
-        // 每条线拿到的是一个**带**，不是一个 x —— 分叉要在带内铺开
-        cx: x0 + ((i + 0.5) / list.length) * (x1 - x0),
-        band: ((x1 - x0) / list.length) * 0.82,
-        color: hue[i % hue.length],
-      }));
-    return [
-      ...place(open, PAD.l, W / 2 - 26, HUE_OPEN),
-      ...place(closed, W / 2 + 26, W - PAD.r, HUE_CLOSED),
-    ];
+    const seq = [...open, ...closed];
+    let oi = 0, ci = 0;
+    return seq.map((l, i) => ({
+      ...l,
+      // 每条线拿到的是一个**带**，不是一个 x —— 分叉要在带内铺开
+      cx: PAD.l + ((i + 0.5) / seq.length) * (W - PAD.l - PAD.r),
+      band: ((W - PAD.l - PAD.r) / seq.length) * 0.82,
+      color: l.side === "open" ? HUE_OPEN[oi++ % HUE_OPEN.length] : HUE_CLOSED[ci++ % HUE_CLOSED.length],
+    }));
   }, [nodes]);
 
   /**
@@ -162,8 +166,6 @@ export default function Tree() {
   const years: number[] = [];
   for (let yr = new Date(t0).getUTCFullYear(); yr <= new Date(t1).getUTCFullYear(); yr++) years.push(yr);
   const hot = pin ? nodes.find((n) => n.id === pin) : null;
-  const openW = atlas.models.find((m) => m.id === "wan");
-  const hail = atlas.models.find((m) => m.id === "hailuo");
 
   return (
     <div className="flex flex-col gap-3">
@@ -212,15 +214,6 @@ export default function Tree() {
               </g>
             );
           })}
-
-          {/* 两条主干标题 */}
-          <text x={(PAD.l + W / 2 - 26) / 2} y={22} textAnchor="middle" fontSize="14" fontWeight="700" fill="var(--color-yes)">
-            开源权重
-          </text>
-          <text x={(W / 2 + 26 + W - PAD.r) / 2} y={22} textAnchor="middle" fontSize="14" fontWeight="700" fill="#7a5cc4">
-            闭源
-          </text>
-          <line x1={W / 2} x2={W / 2} y1={30} y2={H - PAD.b} stroke="var(--color-rule)" />
 
           {/* 血缘的边：先画，节点压在上面 */}
           {nodes.filter((n) => n.parent && posOf.has(n.id) && posOf.has(n.parent!)).map((n) => {
@@ -292,21 +285,20 @@ export default function Tree() {
 
       <div className="flex flex-wrap items-center gap-x-5 gap-y-2 text-[12px] text-muted">
         <span className="flex items-center gap-1.5">
-          <svg width="13" height="13"><circle cx="6.5" cy="6.5" r="4.5" fill="var(--color-yes)" /></svg>这一代权重公开
+          <svg width="16" height="13"><circle cx="5" cy="6.5" r="4.5" fill="#1f6f5c" /><circle cx="11" cy="6.5" r="4" fill="var(--color-paper)" stroke="#1f6f5c" strokeWidth="2" /></svg>
+          绿系 = 开源家族
         </span>
         <span className="flex items-center gap-1.5">
-          <svg width="13" height="13"><circle cx="6.5" cy="6.5" r="4" fill="var(--color-paper)" stroke="#7a5cc4" strokeWidth="2" /></svg>闭源
+          <svg width="16" height="13"><circle cx="5" cy="6.5" r="4.5" fill="#7a5cc4" /><circle cx="11" cy="6.5" r="4" fill="var(--color-paper)" stroke="#7a5cc4" strokeWidth="2" /></svg>
+          紫系 = 闭源家族
+        </span>
+        <span>
+          <b className="text-ink">实心</b> = 这一代权重公开，<b className="text-ink">空心</b> = 没公开 ——
+          同一条线上实空混着，就是它换过向（万相走向闭源，海螺反过来）
         </span>
         <span>点任一节点看它加了什么</span>
         <Link href="/method#genealogy" className="underline hover:text-ink">这张图怎么读 →</Link>
       </div>
-
-      {/* 两条线交叉，是这张图上最值得说的一件事 */}
-      <p className="text-[14px] leading-relaxed max-w-[860px]">
-        <b className="text-ink">两条主干中间是交叉的。</b>
-        {openW?.weights_note && <> 万相：{openW.weights_note.replace(/\*\*/g, "")}</>}
-        {hail?.weights_note && <> 海螺：{hail.weights_note.replace(/\*\*/g, "")}</>}
-      </p>
 
       {hot && (
         <div className="border border-rule rounded-lg bg-card p-3 flex flex-col gap-1">

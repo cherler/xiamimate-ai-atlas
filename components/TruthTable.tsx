@@ -43,8 +43,11 @@ const groupsOf = (cs: { group?: string }[]) => {
 };
 
 export default function TruthTable({ k }: { k: Klass }) {
-  const ms = modelsOf(k);
   const cs = capsOf(k);
+  // 列按「谁最全」排：✅ 数从多到少。蓝块会自然堆成左密右疏的阶梯 ——
+  // 「谁能力最全」不用数就看出来。原来是录入顺序，随机的，看不出任何结构。
+  const yesCount = (mId: string) => cs.filter((c) => cell(mId, c.id).state === "yes").length;
+  const ms = [...modelsOf(k)].sort((a, b) => yesCount(b.id) - yesCount(a.id));
   const notes: { n: number; m: string; c: string; note?: string; src?: string }[] = [];
   let fn = 0;
 
@@ -124,11 +127,13 @@ export default function TruthTable({ k }: { k: Klass }) {
                           >
                             {f.state === "yes" && (
                               <>
-                                <span className="inline-block w-[13px] h-[13px] bg-yes align-middle" />
+                                {/* 蓝块放大到填多半格 —— 13px 在格子里像撒芝麻，眯眼看是一片灰。
+                                    现在块/斜线对比强到眯眼也能看出块状分布。 */}
+                                <span className="inline-block w-[22px] h-[22px] bg-yes align-middle" />
                                 <sup className="text-[9px] text-yes-ink ml-px tnum">{fn}</sup>
                               </>
                             )}
-                            {f.state === "no" && <span className="text-[15px] leading-none">✕</span>}
+                            {f.state === "no" && <span className="text-[17px] leading-none text-muted">✕</span>}
                           </td>
                         );
                       })}
