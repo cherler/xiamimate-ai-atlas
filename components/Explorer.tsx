@@ -23,8 +23,14 @@ export default function Explorer() {
 
   return (
     <div className="hidden md:flex flex-col gap-4">
+      {/* 二部图是 SVG，字号在自己的坐标系里（模型名 19、能力名 18），比真值表 13~15px
+          大一圈，SVG 又按容器宽放大显示，于是看着明显更大、和上面两张表不协调。
+          外框保持满宽（与真值表框对齐），把 SVG 收窄居中等比缩小 —— 不动内部比例，
+          字号视觉就落回真值表量级。 */}
       <div className="bg-card border border-rule p-4">
-        <Bipartite sel={sel} onSel={setSel} />
+        <div className="max-w-[900px] mx-auto">
+          <Bipartite sel={sel} onSel={setSel} />
+        </div>
       </div>
 
       <section className="min-h-[110px]">
