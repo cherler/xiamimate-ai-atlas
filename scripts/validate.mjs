@@ -278,6 +278,8 @@ const used = new Set([
   ...a.support.map((s) => s.src),
   ...(a.availability ?? []).map((v) => v.src),
   ...(a.platforms ?? []).map((p) => p.discloses_src), // 透明度也是引用，漏了会误报 R10
+  ...(a.investments ?? []).map((v) => v.src),         // 投资关系也是引用
+  ...a.models.map((m) => m.arch_src),                 // 架构标注也是引用
   ...(a.pricing ?? []).map((q) => q.src),
 ].filter(Boolean));
 for (const id of srcIds) if (!used.has(id)) warns.push(`R10 来源登记了但没被引用：${id}`);

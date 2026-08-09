@@ -23,8 +23,7 @@ export default function MapPage() {
         <h1 className="text-[38px] leading-[1.05] font-bold tracking-[-.01em]">
           谁和谁有关系
           <span className="block text-[15px] leading-[1.3] font-normal text-muted mt-2">
-            公司 → 模型 → 能力。<b className="text-ink font-normal">模型之间不靠出身相连，靠能做什么相连</b> ——
-            Kling 和 Seedance 分属快手与字节，是「动作复刻」让它们成了同类
+            公司 → 模型 → 能力
           </span>
         </h1>
         <div className="ml-auto text-right text-[12px] leading-[1.7] text-muted whitespace-nowrap">

@@ -44,8 +44,15 @@ export default function RelationGraph() {
   const [sel, setSel] = useState<Sel>({ kind: "none" });
 
   const g = useMemo(() => {
-    const models = modelsOf("clip");
-    const caps = capsOf("clip");
+    /**
+     * **全部模型都进图，不只主表 clip**（负责人：Decart 没出现）。
+     * 上一版用 modelsOf("clip")（只要 core），一下筛掉 7 家公司：
+     * Decart 是实时轨；昆仑万维 / 腾讯 / OpenAI / Genmo / Rhymes / 潞晨 是 Extended 层。
+     * **公司之间有没有关系，跟我们把它放主表还是 Extended 无关** —— 那是我们的分层，
+     * 不是它们的事实。关系图收全部。
+     */
+    const models = atlas.models;
+    const caps = atlas.capabilities.filter((c) => ["clip", "realtime", "both"].includes(c.class));
     /**
      * 公司列 = 有模型的公司 + **投资方**。
      * ⚠️ investments.from 存的是**公司中文名字符串**，不是 org id —— 上一版按 id 过滤，
