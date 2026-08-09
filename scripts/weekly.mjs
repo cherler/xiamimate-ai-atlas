@@ -150,9 +150,10 @@ Agent 只补空白格，**从不覆盖人已经核过的结论** —— 覆盖�
 
 if (WRITE) {
   mkdirSync(DIR, { recursive: true });
-  const f = join(DIR, `${String(issue).padStart(2, "0")}-${a.generated_at}.md`);
+  // 文件名也用出报日期 —— 只改标题不改文件名，等于没改
+  const f = join(DIR, `${String(issue).padStart(2, "0")}-${TODAY}.md`);
   writeFileSync(f, md);
-  console.log(`写好：weekly/${String(issue).padStart(2, "0")}-${a.generated_at}.md`);
+  console.log(`写好：weekly/${String(issue).padStart(2, "0")}-${TODAY}.md`);
 } else {
   console.log(md);
 }
