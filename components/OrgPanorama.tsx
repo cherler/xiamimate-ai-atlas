@@ -65,10 +65,28 @@ export default function OrgPanorama() {
 
   return (
     <div className="flex flex-col gap-8">
-      {/* 摘要：一家一条，段宽 = 该产品线已核验能力数。生数、Google 排头，开源大厂只有 1~2 项。
-          桌面才显示 —— 190px 名列 + 条 + 数字一行放不进 390 手机，且概览在手机上没意义，
-          手机直接看下面的明细表。 */}
-      <section className="hidden md:block bg-card border border-rule">
+      {/*
+        摘要条（负责人三条反馈全改）：
+          ① 裸数字删掉 —— 一个没有标注的 12 谁也不知道是什么，明细表里已经有「支持/总」。
+          ② 条长与填充的含义**写在图例里**，不再只存在于我脑子里。
+          ③ 每一段可点，直接进那条产品线的模型页 —— 原来整块是死的。
+        桌面才显示：190px 名列 + 条一行放不进 390 手机，手机直接看下面的明细表。
+      */}
+      <section className="hidden md:block">
+        <div className="flex flex-wrap items-center gap-x-5 gap-y-1.5 text-[12px] text-muted mb-2">
+          <span><b className="text-ink">条越长</b> = 这家已核验的能力项越多</span>
+          <span className="flex items-center gap-1.5">
+            <i className="inline-block w-[11px] h-[11px] bg-yes not-italic" />权重公开
+          </span>
+          <span className="flex items-center gap-1.5">
+            <i className="inline-block w-[11px] h-[11px] bg-yes/15 border border-yes not-italic" />部分代公开
+          </span>
+          <span className="flex items-center gap-1.5">
+            <i className="inline-block w-[11px] h-[11px] bg-card border border-muted not-italic" />闭源
+          </span>
+          <span>点任一段进那条产品线</span>
+        </div>
+        <div className="bg-card border border-rule">
         {rows.map((r) => (
           <div key={r.id} className="flex items-center gap-3 px-4 py-2 border-b border-rule last:border-0">
             <div className="w-[190px] shrink-0">
@@ -81,9 +99,11 @@ export default function OrgPanorama() {
               {r.lines
                 .filter((l) => l.yes.length)
                 .map((l) => (
-                  <div
+                  <Link
                     key={l.m.id}
-                    className={`flex items-center px-2 text-[11.5px] whitespace-nowrap overflow-hidden ${
+                    href={modelHref(l.m)}
+                    title={`${label(l.m)} —— ${l.yes.length} 项已核验能力`}
+                    className={`flex items-center px-2 text-[11.5px] whitespace-nowrap overflow-hidden hover:opacity-80 ${
                       wcls(l.m.weights) === "open"
                         ? "bg-yes text-white"
                         : wcls(l.m.weights) === "mixed"
@@ -93,13 +113,13 @@ export default function OrgPanorama() {
                     style={{ flex: l.yes.length }}
                   >
                     {label(l.m)}
-                  </div>
+                  </Link>
                 ))}
               {!r.total && <div className="flex items-center text-[11.5px] text-muted">没有已核验的能力</div>}
             </div>
-            <div className="w-[48px] text-right text-[13px] font-semibold text-yes-ink shrink-0 tnum">{r.total}</div>
           </div>
         ))}
+        </div>
       </section>
 
       {/* 明细：公司组头 + 产品线行 + 能力平铺 */}
