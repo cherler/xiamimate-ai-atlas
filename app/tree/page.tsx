@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import Tree from "@/components/Tree";
 import { atlas } from "@/lib/atlas";
 
@@ -15,16 +16,42 @@ export const metadata: Metadata = {
 };
 
 export default function TreePage() {
+  const lines = new Set(atlas.versions.map((v) => v.m)).size;
+  const since = atlas.versions.map((v) => v.date).sort()[0];
+
   return (
-    <main className="max-w-[1240px] mx-auto px-5 py-8 flex flex-col gap-4">
-      <h1 className="text-[28px] font-semibold leading-tight">谁在什么时候，长出了什么</h1>
-      <p className="text-muted text-[15px] max-w-[860px]">
-        {atlas.versions.length} 次发布，{new Set(atlas.versions.map((v) => v.m)).size} 条产品线，
-        从 {atlas.versions.map((v) => v.date).sort()[0]} 到今天。实心点＝这一代权重公开，空心＝没公开。
-      </p>
-      <div className="bg-card border border-rule rounded-xl p-4">
+    /**
+     * 页眉与「现在 / 关系 / 场景」同一套：1400 宽、38px 粗标题压 2.5px 黑线、
+     * 右侧靠边放核验日期与计数。**四个主页面是一组，长得不一样就是没做完。**
+     * 实心/空心的图例归 Tree 自己（它下面已经有一份），这里不再重复一遍。
+     */
+    <main className="max-w-[1400px] mx-auto px-6 py-8">
+      <header className="flex items-end gap-4 border-b-[2.5px] border-ink pb-2.5">
+        <h1 className="text-[38px] leading-[1.05] font-bold tracking-[-.01em]">
+          谁在什么时候，长出了什么
+          <span className="block text-[15px] leading-[1.3] font-normal text-muted mt-2">
+            {lines} 条产品线的每一次发布 —— 点上写的是这一代新增了什么，不是版本号
+          </span>
+        </h1>
+        <div className="ml-auto text-right text-[12px] leading-[1.7] text-muted whitespace-nowrap">
+          核验于 {atlas.generated_at}
+          <br />
+          发布记录 {atlas.versions.length} 次
+          <br />
+          最早 {since}
+        </div>
+      </header>
+
+      <div className="mt-6 bg-card border border-rule p-4">
         <Tree />
       </div>
+
+      <p className="mt-6 text-[12px] text-muted">
+        每个点＝厂商官方发布记录里的一次发布，日期与「新增了什么」都取自官方原文。
+        <Link href="/method#genealogy" className="underline ml-1 hover:text-ink">
+          口径 →
+        </Link>
+      </p>
     </main>
   );
 }

@@ -27,6 +27,10 @@ export default function ScenarioPage() {
         </h1>
         <div className="ml-auto text-right text-[12px] leading-[1.7] text-muted whitespace-nowrap">
           核验于 {atlas.generated_at}
+          <br />
+          能跑起来的 workflow {atlas.skills.reduce((n, k) => n + (k.workflow?.length ?? 0), 0)} 个
+          <br />
+          可自部署 {atlas.skills.reduce((n, k) => n + (k.opensource?.length ?? 0), 0)} 处
         </div>
       </header>
 

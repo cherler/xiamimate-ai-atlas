@@ -30,6 +30,8 @@ export default function MapPage() {
           核验于 {atlas.generated_at}
           <br />
           公司 {n} 家 · 产品线 {lines} 条
+          <br />
+          投资关系 {atlas.investments.length} 条
         </div>
       </header>
 
