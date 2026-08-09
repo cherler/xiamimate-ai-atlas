@@ -314,6 +314,17 @@ export default function Tree() {
                   if (!p) return null;
                   const isTop = n.id === top.id;
                   const on = MS(n.date) <= cutMs;
+                  /**
+                   * **中间节点的标签默认全隐**（负责人：67 个标签把整幅图污染了）。
+                   * 只在三种时候露出来：
+                   *   ① 末节点 —— 那是产品线名与当前版本，图的骨架，常驻
+                   *   ② 正在「长出来」—— 播放或拖动时间轴时，刚长到的那一批亮起
+                   *   ③ 被点中 —— 读者主动要看这一条
+                   * 平时图上只有 14 个末标签 + 节点，干净。
+                   */
+                  const scrubbing = playing || cut < 99.5;
+                  const justGrown = scrubbing && MS(n.date) > cutMs - (t1 - t0) * 0.05;
+                  const showLabel = on && (isTop || pin === n.id || justGrown);
                   // 右侧优先；同高度已被占就翻到左侧，再挤就往上抬一点
                   let side: 1 | -1 = 1;
                   let ny = p.y;
@@ -328,10 +339,12 @@ export default function Tree() {
                   // 末节点例外：那里要的是产品线当前版本号。
                   const txt = (isTop ? (n.version || n.added) : (n.added || n.version) || "").slice(0, 13);
                   return (
-                    <g key={`n-${n.id}`} opacity={on ? 1 : 0} style={{ transition: "opacity .35s" }}>
+                    <g key={`n-${n.id}`} opacity={showLabel ? 1 : 0} style={{ transition: "opacity .3s" }}>
                       <text x={p.x + side * 8} y={ny + 3} textAnchor={side === 1 ? "start" : "end"}
-                        fontSize={isTop ? 10.5 : 8.5} fontWeight={isTop ? 700 : 400}
-                        fill={isTop ? l.color : "var(--color-muted)"} opacity={isTop ? 1 : 0.8}>
+                        fontSize={isTop ? 10.5 : pin === n.id ? 10 : 8.5}
+                        fontWeight={isTop || pin === n.id ? 700 : 400}
+                        fill={isTop || pin === n.id ? l.color : "var(--color-muted)"}
+                        opacity={isTop || pin === n.id ? 1 : 0.85}>
                         {txt}
                       </text>
                     </g>
@@ -414,7 +427,7 @@ export default function Tree() {
           </svg>
           同一条线上实空混着 = 它中途换过向（万相开源起家、3.0 转闭源；海螺相反，H3 才放权重）
         </span>
-        <span>产品线名旁是公司名 · <b className="text-ink">点任一节点</b>看它这一代加了什么</span>
+        <span>产品线名旁是公司名 · <b className="text-ink">拖时间轴</b>看每一代长出来 · <b className="text-ink">点任一节点</b>看它加了什么</span>
         <Link href="/method#genealogy" className="underline hover:text-ink">这张图怎么读 →</Link>
       </div>
 
