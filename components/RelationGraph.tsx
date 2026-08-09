@@ -33,12 +33,12 @@ const PAD = { t: 44, b: 28, l: 20, r: 20 };
  * 上一版把投资方和公司挤在同一列，投资边只能向左弯回去、横穿所有公司标签 ——
  * 采到 8 条就已经乱了，越采越糟。分成独立一列后全部左到右流动，没有回头弯。
  */
-const COL = { inv: 196, org: 430, model: 720, cap: W - 205 };
+const COL = { inv: 24, org: 246, model: 620, cap: W - 205 };
 /**
  * 画布左边留白：投资方标签靠右对齐写在节点左侧，最长的「视觉中国 Visual China Group」
  * 约 190px。viewBox 从 0 起会把它整段裁掉 —— 所以让 viewBox 从负值开始。
  */
-const LEFT = 200;
+const LEFT = 118;  // 投资方标签靠右写在节点左侧，最长约 110px
 
 const ORG_HUE: Record<string, string> = {
   alibaba: "#2f7d5e", kuaishou: "#c2703a", bytedance: "#2b6fb0", tencent: "#3f8f86",
@@ -79,10 +79,10 @@ export default function RelationGraph() {
     const step = (h: number, n: number) => (i: number) => PAD.t + (n > 1 ? (h * i) / (n - 1) : h / 2);
     const H = 620;
     const oy = step(H, orgs.length), my = step(H * 0.86, models.length), cy = step(H * 0.86, caps.length);
-    const iy = step(H * 0.62, invNames.length);
+    const iy = step(H * 0.42, invNames.length);
     return {
       H,
-      investors: invNames.map((n, i) => ({ id: `inv:${n}`, zh: n, x: COL.inv, y: iy(i) + H * 0.19 })),
+      investors: invNames.map((n, i) => ({ id: `inv:${n}`, zh: n, x: COL.inv, y: iy(i) + H * 0.29 })),
       orgs: orgs.map((o, i) => ({ ...o, x: COL.org, y: oy(i) })),
       models: models.map((m, i) => ({ ...m, x: COL.model, y: my(i) + H * 0.07 })),
       caps: caps.map((c, i) => ({ ...c, x: COL.cap, y: cy(i) + H * 0.07 })),
@@ -128,15 +128,16 @@ export default function RelationGraph() {
   const litEdge = (e: { a: string; b: string }) => !key || e.a === key || e.b === key;
 
   const Node = ({
-    id, x, y, text, sub, color, onClick, href, anchor,
+    id, x, y, text, sub, color, onClick, href, anchor, small,
   }: {
     id: string; x: number; y: number; text: string; sub?: string; color: string;
-    onClick: () => void; href?: string; anchor: "start" | "end";
+    onClick: () => void; href?: string; anchor: "start" | "end"; small?: boolean;
   }) => (
     <g opacity={lit(id) ? 1 : 0.13} style={{ transition: "opacity .3s", cursor: "pointer" }} onClick={onClick}>
-      <circle cx={x} cy={y} r={key === id ? 6 : 4} fill={color} />
-      <text x={anchor === "end" ? x - 9 : x + 9} y={y + 3.5} textAnchor={anchor}
-        fontSize="11.5" fontWeight={key === id ? 700 : 500} fill="var(--color-ink)">
+      <circle cx={x} cy={y} r={key === id ? 5.5 : small ? 3 : 4} fill={color} />
+      <text x={anchor === "end" ? x - (small ? 7 : 9) : x + 9} y={y + 3.5} textAnchor={anchor}
+        fontSize={small ? 9.5 : 11.5} fontWeight={key === id ? 700 : small ? 400 : 500}
+        fill={small ? "var(--color-muted)" : "var(--color-ink)"}>
         {text}
         {sub && <tspan fontSize="9.5" fontWeight="400" fill="var(--color-muted)">{"  " + sub}</tspan>}
       </text>
@@ -169,7 +170,7 @@ export default function RelationGraph() {
 
       <div className="bg-card border border-rule overflow-x-auto">
         <svg viewBox={`${-LEFT} 0 ${W + LEFT} ${g.H + PAD.t + PAD.b}`} className="w-full min-w-[980px]">
-          <text x={COL.inv} y={20} textAnchor="end" fontSize="11" fontWeight="700" fill="#b04a72">投资方</text>
+          <text x={COL.inv} y={20} textAnchor="end" fontSize="9.5" fontWeight="700" fill="#b04a72">投资方</text>
           <text x={COL.org} y={20} textAnchor="end" fontSize="11" fontWeight="700" fill="var(--color-muted)">公司</text>
           <text x={COL.model} y={20} textAnchor="middle" fontSize="11" fontWeight="700" fill="var(--color-muted)">模型</text>
           <text x={COL.cap} y={20} textAnchor="start" fontSize="11" fontWeight="700" fill="var(--color-muted)">能力 · 枢纽</text>
@@ -192,7 +193,7 @@ export default function RelationGraph() {
           })}
 
           {g.investors.map((v) => (
-            <Node key={v.id} id={`o:${v.id}`} x={v.x} y={v.y} anchor="end"
+            <Node key={v.id} id={`o:${v.id}`} x={v.x} y={v.y} anchor="end" small
               text={v.zh} color="#b04a72"
               onClick={() => setSel(key === `o:${v.id}` ? { kind: "none" } : { kind: "org", id: v.id })} />
           ))}
