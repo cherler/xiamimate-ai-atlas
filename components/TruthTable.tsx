@@ -59,7 +59,13 @@ export default function TruthTable({ k }: { k: Klass }) {
   return (
     <div className="hidden md:block bg-card border border-rule px-5 pt-4 pb-1">
       <div className="overflow-x-auto">
-        <table className="w-full border-collapse">
+        {/* table-fixed + 能力列固定 320px：其余列均分剩余、紧贴能力列。
+            此前 w-full auto-layout 把能力列拉到近半宽，能力名右边空一大片。 */}
+        <table className="w-full border-collapse table-fixed">
+          <colgroup>
+            <col style={{ width: 320 }} />
+            {ms.map((m) => <col key={m.id} />)}
+          </colgroup>
           <thead>
             <tr>
               <th className="text-left align-bottom pb-2 pr-4 font-normal text-[12px] text-muted border-b-[1.5px] border-ink">
@@ -71,7 +77,6 @@ export default function TruthTable({ k }: { k: Klass }) {
                   <th
                     key={m.id}
                     className="align-bottom pb-2 px-1 font-normal border-b-[1.5px] border-l-[.5px] border-l-rule border-ink"
-                    style={{ width: `${Math.floor(62 / ms.length)}%` }}
                   >
                     <Link href={modelHref(m)} className="block hover:text-yes-ink">
                       <span className="block font-semibold text-[13px] leading-[1.25]">{label(m)}</span>

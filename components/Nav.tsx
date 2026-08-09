@@ -46,6 +46,10 @@ export default function Nav() {
   const p = usePathname() ?? "/";
   const here = (h: string) => (h === "/" ? p === "/" : p.startsWith(h.split("/").slice(0, 2).join("/")));
 
+  // 下级页 = 不在四张主图导航里的页（/skill/* /model/* /compare/* /changes /toolkit …）。
+  // 它们从图里点进去，得有一条明确的回退路 —— 否则读者点深了只能靠浏览器后退。
+  const isSub = ![...MAIN.map((m) => m.href), "/method"].includes(p) && p !== "/";
+
   return (
     <nav data-nav="global" className="border-b border-rule bg-paper sticky top-0 z-20">
       <div className="max-w-[1240px] mx-auto px-5 h-12 flex items-center gap-1 overflow-x-auto">
@@ -60,8 +64,14 @@ export default function Nav() {
             {m.zh}
           </Link>
         ))}
+        {isSub && (
+          <button onClick={() => window.history.back()}
+            className="text-[13px] px-2.5 py-1 ml-auto shrink-0 whitespace-nowrap text-muted hover:text-ink">
+            ← 返回
+          </button>
+        )}
         <Link href="/method"
-          className={`text-[13px] px-2.5 py-1 ml-auto shrink-0 whitespace-nowrap underline ${
+          className={`text-[13px] px-2.5 py-1 shrink-0 whitespace-nowrap underline ${isSub ? "" : "ml-auto"} ${
             here("/method") ? "text-ink" : "text-muted hover:text-ink"
           }`}>
           方法
