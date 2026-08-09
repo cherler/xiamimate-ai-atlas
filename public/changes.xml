@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>AI 能力地图 · 变了什么</title>
+    <link>https://xiamimate.com/atlas/changes</link>
+    <atom:link href="https://xiamimate.com/atlas/changes.xml" rel="self" type="application/rss+xml"/>
+    <description>AI 视频模型的版本、停服、价格与能力变化。每条带 Before / After / 为什么重要，以及厂商官方来源。</description>
+    <language>zh-CN</language>
+    <lastBuildDate>Fri, 07 Aug 2026 00:00:00 GMT</lastBuildDate>
+    <item>
+      <title>Sora：OpenAI 公告 API 于 2026-09-24 停止</title>
+      <link>https://xiamimate.com/atlas/changes#sora-2026-09-24</link>
+      <guid isPermaLink="false">sora-2026-09-24</guid>
+      <pubDate>Thu, 24 Sep 2026 00:00:00 GMT</pubDate>
+      <category>sora</category>
+      <description>&lt;p&gt;&lt;b&gt;Sora&lt;/b&gt; · 生命周期&lt;/p&gt;&lt;p&gt;此前：Sora 2 API 可用，Replicate 与 APIYI 都在转售&lt;/p&gt;&lt;p&gt;现在：OpenAI 公告 API 于 2026-09-24 停止&lt;/p&gt;&lt;p&gt;&lt;b&gt;为什么重要：&lt;/b&gt;**上游停了，平台不一定同步下架** —— 现在两家仍挂着，买了会踩空&lt;/p&gt;&lt;p&gt;影响：sora&lt;/p&gt;&lt;p&gt;来源：&lt;a href=&quot;https://replicate.com/collections/text-to-video&quot;&gt;Replicate · text-to-video 集合页&lt;/a&gt;&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>收录名单第一次从数据里筛，不再抄交接文档：LTX 进 core（HF 下载 178 万，是 MiniMax H3 的 22 倍）；HappyHorse 与 SkyReels 进 extended；Sora 降 extended</title>
+      <link>https://xiamimate.com/atlas/changes#scope-ltx</link>
+      <guid isPermaLink="false">scope-ltx</guid>
+      <pubDate>Sat, 08 Aug 2026 00:00:00 GMT</pubDate>
+      <category>ltx</category>
+      <category>happyhorse</category>
+      <category>skyreels</category>
+      <category>sora</category>
+      <description>&lt;p&gt;&lt;b&gt;收录名单第一次从数据里筛，不再抄交接文档&lt;/b&gt; · scope（这一条是我们记错了）&lt;/p&gt;&lt;p&gt;此前：9 个 Family，来自交接文档&lt;/p&gt;&lt;p&gt;现在：LTX 进 core（HF 下载 178 万，是 MiniMax H3 的 22 倍）；HappyHorse 与 SkyReels 进 extended；Sora 降 extended&lt;/p&gt;&lt;p&gt;&lt;b&gt;为什么重要：&lt;/b&gt;AA 榜第 5、第 6 的 HappyHorse 原名单里一个都没有。**抄来的名单反映的是写文档那个人的视野，不是世界的实际分布。**&lt;/p&gt;&lt;p&gt;影响：开源侧的格局第一次进表（Lightricks / NVIDIA / 智谱在闭源榜上完全隐形）&lt;/p&gt;&lt;p&gt;来源：&lt;a href=&quot;https://artificialanalysis.ai/video/leaderboard/text-to-video&quot;&gt;Artificial Analysis 榜（只证明「存在且有人用」，不证明能力）&lt;/a&gt;&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>我们把「找不到」写成了「官方没说」：全部改为 ✅ —— 官方都有，只是叫法不同：Kling 叫 Element、Vidu 叫 Motion Sync / Start end to video、LTX 叫 Ingredients</title>
+      <link>https://xiamimate.com/atlas/changes#our-alias-miss</link>
+      <guid isPermaLink="false">our-alias-miss</guid>
+      <pubDate>Fri, 07 Aug 2026 00:00:00 GMT</pubDate>
+      <category>kling</category>
+      <category>vidu-q</category>
+      <category>ltx</category>
+      <description>&lt;p&gt;&lt;b&gt;我们把「找不到」写成了「官方没说」&lt;/b&gt; · capability（这一条是我们记错了）&lt;/p&gt;&lt;p&gt;此前：Kling 与 Vidu 的角色参考、多参考、首尾帧、动作复刻、视频延长被标为 ⬜「官方没说」&lt;/p&gt;&lt;p&gt;现在：全部改为 ✅ —— 官方都有，只是叫法不同：Kling 叫 Element、Vidu 叫 Motion Sync / Start end to video、LTX 叫 Ingredients&lt;/p&gt;&lt;p&gt;&lt;b&gt;为什么重要：&lt;/b&gt;**这是本项目最严重的一次错。** ⬜ 那一列是我们最得意的东西（「不是我们没查，是查了找不到」），而前两家里接近一半其实是我们自己没找到 —— 把自己的疏忽包装成了对方的不透明。&lt;/p&gt;&lt;p&gt;影响：每项能力加了 aliases，采集用整组别名匹配；ontology 补规则六&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>首批数据交付当天就有三个模型是过期版本：Seedance 2.5 / Wan 3.0 / Runway Gen-4.5（Wan 一家连错三次：2.5 → 2.7 → 3.0）</title>
+      <link>https://xiamimate.com/atlas/changes#our-stale-day-one</link>
+      <guid isPermaLink="false">our-stale-day-one</guid>
+      <pubDate>Fri, 07 Aug 2026 00:00:00 GMT</pubDate>
+      <category>seedance</category>
+      <category>wan</category>
+      <category>runway</category>
+      <description>&lt;p&gt;&lt;b&gt;首批数据交付当天就有三个模型是过期版本&lt;/b&gt; · version（这一条是我们记错了）&lt;/p&gt;&lt;p&gt;此前：Seedance 2.0 / Wan 2.5 / Runway Gen-4&lt;/p&gt;&lt;p&gt;现在：Seedance 2.5 / Wan 3.0 / Runway Gen-4.5（Wan 一家连错三次：2.5 → 2.7 → 3.0）&lt;/p&gt;&lt;p&gt;&lt;b&gt;为什么重要：&lt;/b&gt;起因是我用即席搜索当采集。**这正是「靠人手工追追不上」的实证** —— 也是后来把 49 个源接进定时管线的直接原因。&lt;/p&gt;&lt;p&gt;影响：建了 Source Registry 与每日监视；ontology 加规则三之一：版本一升，没重新核验的格子必须退回 ⬜&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Seedance：2.5 主打一镜到底与灵活参考</title>
+      <link>https://xiamimate.com/atlas/changes#seedance-2026-08-05</link>
+      <guid isPermaLink="false">seedance-2026-08-05</guid>
+      <pubDate>Wed, 05 Aug 2026 00:00:00 GMT</pubDate>
+      <category>seedance</category>
+      <description>&lt;p&gt;&lt;b&gt;Seedance&lt;/b&gt; · 版本更迭&lt;/p&gt;&lt;p&gt;此前：Seedance 2.0 支持四种输入模态&lt;/p&gt;&lt;p&gt;现在：2.5 主打一镜到底与灵活参考&lt;/p&gt;&lt;p&gt;&lt;b&gt;为什么重要：&lt;/b&gt;一镜到底把「多镜头拼接」这件事从后期挪到了生成阶段&lt;/p&gt;&lt;p&gt;影响：seedance；skill:extend&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>MiniMax H3：权重已上 Hugging Face（280 个文件，含 safetensors）</title>
+      <link>https://xiamimate.com/atlas/changes#h3-open</link>
+      <guid isPermaLink="false">h3-open</guid>
+      <pubDate>Mon, 03 Aug 2026 00:00:00 GMT</pubDate>
+      <category>hailuo</category>
+      <description>&lt;p&gt;&lt;b&gt;MiniMax H3&lt;/b&gt; · capability&lt;/p&gt;&lt;p&gt;此前：官方博客写的是「plan to open up the model weights in the coming days」&lt;/p&gt;&lt;p&gt;现在：权重已上 Hugging Face（280 个文件，含 safetensors）&lt;/p&gt;&lt;p&gt;&lt;b&gt;为什么重要：&lt;/b&gt;**「计划开」和「已经开」是两件事**，中间隔了几天。而许可是自定义的 minimax-h3-community-license-agreement，不是标准开源协议 —— 只看「开源 ✅」会看错。&lt;/p&gt;&lt;p&gt;影响：想自部署的可以动手了；商用前必须自己读许可条款&lt;/p&gt;&lt;p&gt;来源：&lt;a href=&quot;https://huggingface.co/api/models/MiniMaxAI/MiniMax-H3&quot;&gt;HF API · MiniMaxAI/MiniMax-H3 元数据（许可与文件清单）&lt;/a&gt;&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Seedance：2.5：单次最多 50 个参考输入（30 图 + 10 视频 + 10 音频），30 秒一镜到底，支持多轮延长</title>
+      <link>https://xiamimate.com/atlas/changes#seedance-25</link>
+      <guid isPermaLink="false">seedance-25</guid>
+      <pubDate>Fri, 31 Jul 2026 00:00:00 GMT</pubDate>
+      <category>seedance</category>
+      <description>&lt;p&gt;&lt;b&gt;Seedance&lt;/b&gt; · version&lt;/p&gt;&lt;p&gt;此前：2.0：单次 9 图 + 3 视频 + 3 音频参考&lt;/p&gt;&lt;p&gt;现在：2.5：单次最多 50 个参考输入（30 图 + 10 视频 + 10 音频），30 秒一镜到底，支持多轮延长&lt;/p&gt;&lt;p&gt;&lt;b&gt;为什么重要：&lt;/b&gt;参考输入的上限从 15 涨到 50，是这一代最实的一步 —— 而「参考」正是这两年真正在铺开的方向。&lt;/p&gt;&lt;p&gt;影响：多主体、多镜头的活可以少拆几次；Replicate 上仍标着 coming soon，还用不上&lt;/p&gt;&lt;p&gt;来源：&lt;a href=&quot;https://seed.bytedance.com/en/blog/one-take-creation-flexible-referencing-introducing-seedance-2-5&quot;&gt;ByteDance Seed 官方博客 · Seedance 2.5（2026-07-31）&lt;/a&gt;&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>MiniMax Hailuo：H3 放出权重（自定义社区许可），可自部署</title>
+      <link>https://xiamimate.com/atlas/changes#hailuo-2026-07-31</link>
+      <guid isPermaLink="false">hailuo-2026-07-31</guid>
+      <pubDate>Fri, 31 Jul 2026 00:00:00 GMT</pubDate>
+      <category>hailuo</category>
+      <description>&lt;p&gt;&lt;b&gt;MiniMax Hailuo&lt;/b&gt; · 生命周期&lt;/p&gt;&lt;p&gt;此前：海螺 01 / 02 / 2.3 全部闭源，只能调 API&lt;/p&gt;&lt;p&gt;现在：H3 放出权重（自定义社区许可），可自部署&lt;/p&gt;&lt;p&gt;&lt;b&gt;为什么重要：&lt;/b&gt;闭源阵营里第一家把主力模型的权重放出来的 —— **和万相正好走了相反的方向**&lt;/p&gt;&lt;p&gt;影响：skill:openweights；capability:openweights；hailuo&lt;/p&gt;&lt;p&gt;来源：&lt;a href=&quot;https://platform.minimax.io/docs/release-notes/models&quot;&gt;MiniMax 开放平台 · 模型发布日志&lt;/a&gt;&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Gemini Omni：gemini-omni-flash 上线，主打高速生成 + 对话式剪辑</title>
+      <link>https://xiamimate.com/atlas/changes#gemini-omni-2026-06-30</link>
+      <guid isPermaLink="false">gemini-omni-2026-06-30</guid>
+      <pubDate>Tue, 30 Jun 2026 00:00:00 GMT</pubDate>
+      <category>gemini-omni</category>
+      <description>&lt;p&gt;&lt;b&gt;Gemini Omni&lt;/b&gt; · 版本更迭&lt;/p&gt;&lt;p&gt;此前：Google 在视频这块只有 Veo 一条线&lt;/p&gt;&lt;p&gt;现在：gemini-omni-flash 上线，主打高速生成 + 对话式剪辑&lt;/p&gt;&lt;p&gt;&lt;b&gt;为什么重要：&lt;/b&gt;「对话式剪辑」是新的交互形态：不是给提示词重生成，是接着改&lt;/p&gt;&lt;p&gt;影响：gemini-omni；capability:extend&lt;/p&gt;&lt;p&gt;来源：&lt;a href=&quot;https://ai.google.dev/gemini-api/docs/changelog&quot;&gt;Google · Gemini API 变更日志&lt;/a&gt;&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Kling：Turbo 档有声 1080P ¥1.0/秒</title>
+      <link>https://xiamimate.com/atlas/changes#kling-2026-06-17</link>
+      <guid isPermaLink="false">kling-2026-06-17</guid>
+      <pubDate>Wed, 17 Jun 2026 00:00:00 GMT</pubDate>
+      <category>kling</category>
+      <description>&lt;p&gt;&lt;b&gt;Kling&lt;/b&gt; · 价格&lt;/p&gt;&lt;p&gt;此前：3.0 有声 1080P ¥1.2/秒&lt;/p&gt;&lt;p&gt;现在：Turbo 档有声 1080P ¥1.0/秒&lt;/p&gt;&lt;p&gt;&lt;b&gt;为什么重要：&lt;/b&gt;Turbo 把「有声」拉进了和无声接近的价位 —— 此前有声要多付 50%&lt;/p&gt;&lt;p&gt;影响：skill:lipsync；capability:audio&lt;/p&gt;&lt;p&gt;来源：&lt;a href=&quot;https://klingai.com/dev/pricing&quot;&gt;可灵开放平台 · API 价格&lt;/a&gt;&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Google Veo → Gemini Omni Flash：官方文档原话：「Use Gemini Omni Flash as your default model for video generation」；Veo 3.1 留给 scene extension、last-frame control 与老管线</title>
+      <link>https://xiamimate.com/atlas/changes#omni-default</link>
+      <guid isPermaLink="false">omni-default</guid>
+      <pubDate>Tue, 19 May 2026 00:00:00 GMT</pubDate>
+      <category>veo</category>
+      <category>gemini-omni</category>
+      <description>&lt;p&gt;&lt;b&gt;Google Veo → Gemini Omni Flash&lt;/b&gt; · status&lt;/p&gt;&lt;p&gt;此前：Veo 3.1 是 Google 的视频主力&lt;/p&gt;&lt;p&gt;现在：官方文档原话：「Use Gemini Omni Flash as your default model for video generation」；Veo 3.1 留给 scene extension、last-frame control 与老管线&lt;/p&gt;&lt;p&gt;&lt;b&gt;为什么重要：&lt;/b&gt;**厂商自己写明了取舍**。而且这句导购语反过来是 Omni 缺首尾帧与场景延长的官方证据 —— 只在两个模型并排读的时候才看得见。&lt;/p&gt;&lt;p&gt;影响：新项目默认该用 Omni；需要首尾帧或场景延长的仍得回 Veo&lt;/p&gt;&lt;p&gt;来源：&lt;a href=&quot;https://ai.google.dev/gemini-api/docs/video&quot;&gt;Google · 视频生成总览（两个模型如何取舍）&lt;/a&gt;&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Sora：App 已关停；API 计划 2026-09-24 停止；未宣布继任产品</title>
+      <link>https://xiamimate.com/atlas/changes#sora-eol</link>
+      <guid isPermaLink="false">sora-eol</guid>
+      <pubDate>Sun, 26 Apr 2026 00:00:00 GMT</pubDate>
+      <category>sora</category>
+      <description>&lt;p&gt;&lt;b&gt;Sora&lt;/b&gt; · status&lt;/p&gt;&lt;p&gt;此前：OpenAI 的旗舰视频产品，App 与 API 都在售&lt;/p&gt;&lt;p&gt;现在：App 已关停；API 计划 2026-09-24 停止；未宣布继任产品&lt;/p&gt;&lt;p&gt;&lt;b&gt;为什么重要：&lt;/b&gt;这是本表里唯一一个**能力全对、却不能用**的模型。照着能力表去选它的人，会在 9 月撞墙。&lt;/p&gt;&lt;p&gt;影响：正在用 Sora API 的项目要排迁移；Replicate 与 APIYI 上仍在售 —— 货架比上游慢&lt;/p&gt;&lt;p&gt;来源：&lt;a href=&quot;https://help.openai.com/en/articles/20001152-what-to-know-about-the-sora-discontinuation&quot;&gt;OpenAI Sora 停服说明（⚠️ 页面反爬，我们抓不到，内容来自搜索摘要转述）&lt;/a&gt;&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Runway 开始转售别家模型：自家产品里提供 Seedance 2.0、WAN2.2 Animate、Sora 2 Pro 等；Max 套餐无限用 Seedance 2.5</title>
+      <link>https://xiamimate.com/atlas/changes#runway-resell</link>
+      <guid isPermaLink="false">runway-resell</guid>
+      <pubDate>Tue, 07 Apr 2026 00:00:00 GMT</pubDate>
+      <category>runway</category>
+      <category>seedance</category>
+      <description>&lt;p&gt;&lt;b&gt;Runway 开始转售别家模型&lt;/b&gt; · availability&lt;/p&gt;&lt;p&gt;此前：Runway 是纯模型厂商，卖自己的 Gen 系列&lt;/p&gt;&lt;p&gt;现在：自家产品里提供 Seedance 2.0、WAN2.2 Animate、Sora 2 Pro 等；Max 套餐无限用 Seedance 2.5&lt;/p&gt;&lt;p&gt;&lt;b&gt;为什么重要：&lt;/b&gt;**厂商与平台两个身份合一了。** 「Runway 支持什么」和「在 Runway 上能用到什么」从此不是一个问题。&lt;/p&gt;&lt;p&gt;影响：「去哪用」矩阵里 Runway 要占一行；比较模型时别把平台转售的算进它自己的能力&lt;/p&gt;&lt;p&gt;来源：&lt;a href=&quot;https://runway.com/changelog&quot;&gt;Runway · 官方 Changelog&lt;/a&gt;&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

@@ -28,6 +28,9 @@ export const metadata: Metadata = {
     images: [{ url: "/atlas/og/index-16x9.png", width: 1200, height: 675 }],
   },
   twitter: { card: "summary_large_image", images: ["/atlas/og/index-16x9.png"] },
+  // RSS 自动发现：**静态站没有后端，订阅只能是一个静态文件** ——
+  // 好处是读者不用把邮箱交给我们。
+  alternates: { types: { "application/rss+xml": [{ url: "/atlas/changes.xml", title: "AI 能力地图 · 变了什么" }] } },
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

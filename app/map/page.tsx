@@ -3,6 +3,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import Bipartite, { type Sel } from "@/components/Bipartite";
+import Hierarchy from "@/components/Hierarchy";
 import { Fact, MARK, TONE } from "@/components/Fact";
 import { atlas, avail, capsOf, cell, compare, label, modelsOf, modelsWith, transparency, vendorName, orgOf, STATUS, type Klass } from "@/lib/atlas";
 import { capHref, modelHref } from "@/lib/slug";
@@ -81,6 +82,10 @@ export default function MapPage() {
   return (
     <main className="max-w-[1240px] mx-auto px-5 py-8 flex flex-col gap-6">
       <h1 className="text-[28px] font-semibold leading-tight">谁是谁家的，谁能做什么</h1>
+
+      <section className="border border-rule rounded-xl bg-card p-4">
+        <Hierarchy />
+      </section>
       <Matrix
         k="clip"
         title="离线出片轨 · 全表"

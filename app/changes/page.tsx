@@ -101,6 +101,10 @@ export default function ChangesPage() {
 
       <header className="flex flex-col gap-3">
         <h1 className="text-[40px] leading-tight font-semibold">变了什么</h1>
+      <p className="text-muted text-[14px]">
+        <a href="/atlas/changes.xml" className="underline hover:text-ink">用 RSS 订阅这一页 →</a>
+        <span className="ml-2">阅读器里可以按模型过滤（每条都带 category）</span>
+      </p>
         <p className="text-muted text-[16px] leading-relaxed max-w-[880px]">
           <b className="text-ink">不只列发生了什么，还说明它意味着什么</b> ——
           只列「某某发布了某某」的话，和厂商自己的 changelog 没有区别，而那个谁都能看。

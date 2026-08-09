@@ -12,8 +12,9 @@ node scripts/make-matrix.mjs
 
 # 分享图不进 git —— 它是数据的产物，不是源码。
 # 每次打包重出，才保证图上写的和站上写的是同一份数据。
-echo "── 3/5 重出分享图（§19）"
+echo "── 3/5 重出分享图与 RSS"
 node scripts/make-share.mjs
+node scripts/make-feed.mjs
 
 echo "── 4/5 构建静态站"
 rm -rf out
