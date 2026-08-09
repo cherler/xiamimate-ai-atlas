@@ -13,11 +13,11 @@ import BackLink from "@/components/BackLink";
  * ## 这一页曾经的毛病
  *
  * 六个 Skill 页长得一模一样：一排模型名、一行开源链接、几条限制。看完不知道
- * 拿什么跑，也不知道那一排模型名里哪些是「点一下就出」、哪些是「再开一个任务」。
- * 差别是实的 —— 后者要再调一次、再等一次、再计一次费。
+ * 拿什么跑，也不知道那一排模型名里哪些是「点一下就出」、哪些得先出片再改一遍。
+ * 差别是实的 —— 后者多等一次、多付一次钱。
  *
  * 现在这一页只答四件事，每件都落到可核验的东西上：
- * **多少家能做**（并分成一步 / 两步）→ **拿什么跑**（官方工作流 + 社区仓库带星标）
+ * **多少家能做**（并分成「顺手做」/「要做两遍」）→ **拿什么跑**（官方工作流 + 社区仓库带星标）
  * → **能不能自己部署**（权重链接）→ **有什么坑**。
  *
  * 「已知限制」是必填的（校验 R45）：一个没有限制的 Skill 页是在卖广告，不是在帮人。
@@ -33,7 +33,7 @@ export async function generateMetadata({ params }: { params: Promise<{ id: strin
   const { direct, separate } = skillModels(s);
   return {
     title: `${s.zh}怎么做 —— 谁能做、拿什么跑、有什么坑`,
-    description: `${s.zh}（${s.en}）：${direct.length} 家生成时一步做完，${separate.length} 家要另开一个任务，${s.workflow?.length ?? 0} 个能跑起来的 workflow。含已知限制与官方来源。`,
+    description: `${s.zh}（${s.en}）：${direct.length} 家出片时顺手就做了，${separate.length} 家要先出片再改一遍，${s.workflow?.length ?? 0} 个能跑起来的 workflow。含已知限制与官方来源。`,
     openGraph: { images: [{ url: `/atlas/og/capability-${s.cap ?? "t2v"}-16x9.png`, width: 1200, height: 675 }] },
   };
 }
@@ -48,7 +48,7 @@ const Box = ({ t, sub, children }: { t: string; sub?: string; children: React.Re
   </section>
 );
 
-/** 一列模型。两列并排就是「一步 vs 两步」那件事的全部内容。 */
+/** 一列模型。两列并排就是「顺手做 vs 要做两遍」那件事的全部内容。 */
 const Models = ({ ms, empty }: { ms: Model[]; empty: string }) =>
   ms.length ? (
     <ul className="flex flex-col gap-1">
@@ -74,15 +74,17 @@ export default async function SkillPage({ params }: { params: Promise<{ id: stri
   const wf = s.workflow ?? [];
   const official = wf.filter((w) => w.kind === "official").length;
 
-  // 「开源自部署」这类事没有「另开一个任务」之说 —— 分法不适用时就不硬套。
+  // 「开源自部署」这类事没有「做两遍」之说 —— 分法不适用时就不硬套。
   const split = separate.length > 0;
 
   /** 首屏几个数字。全是从数据算出来的，不是形容词 —— 「删字测试」里这一行删不掉。 */
   const stats: { n: number; t: string; hint: string }[] = [
     split
-      ? { n: direct.length, t: "家生成时一步做完", hint: "选完模型直接出，不用再开任务" }
+      ? { n: direct.length, t: "家出片时顺手就做了", hint: "写好提示词点生成，出来的片子已经是你要的" }
       : { n: direct.length, t: "家能做这件事", hint: "厂商官方文档写明支持" },
-    ...(split ? [{ n: separate.length, t: "家要另开一个任务", hint: "再调一次接口、再等一次、再计一次费" }] : []),
+    ...(split
+      ? [{ n: separate.length, t: "家要做两遍", hint: "先生成一条片子，再把它喂进另一个功能改一遍" }]
+      : []),
     { n: s.opensource?.length ?? 0, t: "处权重可自部署", hint: "自己的 GPU 上跑，不受平台限制" },
     { n: wf.length, t: "个能跑起来的 workflow", hint: `其中官方 ${official} 个` },
   ];
@@ -127,16 +129,24 @@ export default async function SkillPage({ params }: { params: Promise<{ id: stri
         ))}
       </div>
 
-      {/* 一步 / 两步。这是 support[].via 里一直存着、却从没画出来的那个区别。 */}
-      <Box t="谁能做" sub={split ? "同一件事，有的家是生成时的一步，有的家是另一个接口" : undefined}>
+      {/* 顺手做 / 要做两遍。support[].via 里一直存着、却从没画出来的那个区别。 */}
+      <Box t="谁能做" sub={split ? "同一件事，两家的做法不一样 —— 差的是你要跑几遍、付几次钱" : undefined}>
         {split ? (
           <div className="grid md:grid-cols-2 gap-x-8 gap-y-4">
             <div>
-              <p className="text-[12.5px] text-yes-ink mb-1.5">✅ 生成时一步做完</p>
-              <Models ms={direct} empty="还没有模型把它做进生成里" />
+              <p className="text-[13px] text-yes-ink font-medium">✅ 出片时顺手就做了</p>
+              <p className="text-[11.5px] text-muted mb-2 leading-snug">
+                写好提示词点一次生成，出来的片子已经是你要的
+              </p>
+              <Models ms={direct} empty="还没有模型出片时就能做掉" />
             </div>
             <div>
-              <p className="text-[12.5px] text-muted mb-1.5">↺ 要另开一个任务</p>
+              <p className="text-[13px] text-muted font-medium">↺ 要做两遍</p>
+              <p className="text-[11.5px] text-muted mb-2 leading-snug">
+                先生成一条普通片子，再把它喂进「{s.zh}」这个单独功能改一遍：<b className="font-normal text-ink">
+                  多等一次、多付一次钱
+                </b>
+              </p>
               <Models ms={separate} empty="没有" />
             </div>
           </div>

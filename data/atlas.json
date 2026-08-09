@@ -1398,6 +1398,11 @@
    "name": "yuvraj108c/ComfyUI-FLOAT（社区，星标 267）",
    "url": "https://github.com/yuvraj108c/ComfyUI-FLOAT",
    "tier": "third-party"
+  },
+  "h3-card": {
+   "name": "MiniMax H3 官方模型卡（Hugging Face，含变体表与官方案例）",
+   "url": "https://huggingface.co/MiniMaxAI/MiniMax-H3",
+   "tier": "official"
   }
  },
  "support": [
@@ -3918,6 +3923,12 @@
    },
    "opensource": [
     {
+     "name": "MiniMax-H3（Ref2VA 全参考模式，权重公开）",
+     "url": "https://huggingface.co/MiniMaxAI/MiniMax-H3",
+     "src": "h3-card",
+     "quote": "H3-Base-Ref2VA｜Omni-reference mode：Images ≤ 9 images；Videos ≤ 3 clips；Mixed inputs 最多 12 个文件"
+    },
+    {
      "name": "Wan2.1-VACE-14B（统一编辑，含参考）",
      "url": "https://huggingface.co/Wan-AI/Wan2.1-VACE-14B",
      "src": "hf-lineage",
@@ -3975,6 +3986,12 @@
     "out": "两张图之间的过渡视频"
    },
    "opensource": [
+    {
+     "name": "MiniMax-H3（FL2VA 首尾帧模式，权重公开）",
+     "url": "https://huggingface.co/MiniMaxAI/MiniMax-H3",
+     "src": "h3-card",
+     "quote": "H3-Base-FL2VA｜Two image inputs: First-and-last-frame-to-video generation"
+    },
     {
      "name": "Wan2.1-FLF2V-14B-720P",
      "url": "https://huggingface.co/Wan-AI/Wan2.1-FLF2V-14B-720P",
@@ -4036,6 +4053,12 @@
     "out": "口型对上的说话视频"
    },
    "opensource": [
+    {
+     "name": "MiniMax-H3（Ref2VA 官方案例：让画面里的人说指定台词）",
+     "url": "https://huggingface.co/MiniMaxAI/MiniMax-H3",
+     "src": "h3-card",
+     "quote": "case-Ref2VA 官方示例：「The edit animates <Subject 1>'s face to speak the user-provided dialogue」，另给音色参考"
+    },
     {
      "name": "HunyuanVideo-Avatar",
      "url": "https://huggingface.co/tencent/HunyuanVideo-Avatar",
