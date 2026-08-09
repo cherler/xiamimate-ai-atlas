@@ -65,7 +65,7 @@ export default function Bipartite({ sel, onSel }: { sel: Sel; onSel: (s: Sel) =>
     const st = f.state;
     if (st === "no") return null;
     const sep = f.via === "separate-task";
-    const solid = sep ? "1.5 3" : "";
+    const solid = sep ? "4 3" : "";
 
     if (sel.kind === "none") {
       return st === "yes" ? { color: YES, w: 1.1, op: 0.13, dash: solid } : null;
@@ -232,8 +232,8 @@ export default function Bipartite({ sel, onSel }: { sel: Sel; onSel: (s: Sel) =>
       <g transform={`translate(${MX}, ${H - 30})`} fontSize={12} fill="#647587">
         <line x1={0} y1={-4} x2={26} y2={-4} stroke={YES} strokeWidth={2.2} />
         <text x={32} y={0}>原生（一步做完）</text>
-        <line x1={150} y1={-4} x2={176} y2={-4} stroke={YES} strokeWidth={2.2} strokeDasharray="1.5 3" />
-        <text x={182} y={0}>另一个接口（要再调一次）</text>
+        <line x1={150} y1={-4} x2={176} y2={-4} stroke={YES} strokeWidth={2.2} strokeDasharray="4 3" />
+        <text x={182} y={0}>另一个接口 *（要再调一次）</text>
         <line x1={360} y1={-4} x2={386} y2={-4} stroke={UNK} strokeWidth={1.8} strokeDasharray="7 5" />
         <text x={392} y={0}>官方没说</text>
       </g>

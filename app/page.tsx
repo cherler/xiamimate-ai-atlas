@@ -77,7 +77,7 @@ export default function Home() {
       <section className="mt-14">
         <header className="border-b-[2.5px] border-ink pb-2.5">
           <h2 className="text-[38px] leading-[1.05] font-bold tracking-[-.01em]">
-            你想做什么
+            第三卷 · 自己上手查
             <span className="block text-[15px] leading-[1.3] font-normal text-muted mt-2">
               点右边一项能力看谁实现了它，点左边两个模型比一比 —— 或者直接搜一个问题
             </span>
