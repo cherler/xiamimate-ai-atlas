@@ -17,16 +17,19 @@ import { usePathname } from "next/navigation";
  * **没建好的页不放进导航。** 一个点进去发现「还在建」的入口，
  * 比没有入口更糟 —— 它把人引进死路。
  */
+/**
+ * 六项 + 右侧「方法」（docs/视觉方案_V1.md 第五节）。
+ *
+ * 上一版挂了九项 —— **九项等于没做取舍**，读者第一眼就要在九个词里挑。
+ * `/models` `/skill` `/compare` `/capability` `/model` 都是从主图点进去的下级页，不占导航。
+ * `/where`（去哪用）和 `/caveats`（别踩坑）同样撤出导航：**它们是「看完表之后」的问题**，
+ * 入口应该长在表的下面，不是长在页面最顶上 —— 人还没看表，不会先问「我去哪用」。
+ */
 const MAIN = [
-  { href: "/", zh: "首页" },
+  { href: "/map", zh: "地图" },
   { href: "/tree", zh: "演化" },
-  { href: "/map", zh: "关系图" },
-  { href: "/where", zh: "去哪用" },
-  { href: "/caveats", zh: "别踩坑" },
-  { href: "/models", zh: "全部模型" },
-  { href: "/skill/motion", zh: "怎么做" },
-  { href: "/toolkit", zh: "工具箱" },
   { href: "/changes", zh: "变化" },
+  { href: "/toolkit", zh: "工具箱" },
 ];
 
 export default function Nav() {
@@ -36,12 +39,12 @@ export default function Nav() {
   return (
     <nav data-nav="global" className="border-b border-rule bg-paper sticky top-0 z-20">
       <div className="max-w-[1240px] mx-auto px-5 h-12 flex items-center gap-1 overflow-x-auto">
-        <Link href="/" className="text-[13px] font-semibold bg-ink text-paper px-2 py-1 rounded shrink-0 mr-2">
+        <Link href="/" className="text-[13px] font-semibold bg-ink text-paper px-2 py-1 shrink-0 mr-2">
           AI 能力地图
         </Link>
         {MAIN.map((m) => (
           <Link key={m.href} href={m.href}
-            className={`text-[14px] px-2.5 py-1 rounded shrink-0 whitespace-nowrap ${
+            className={`text-[14px] px-2.5 py-1 shrink-0 whitespace-nowrap ${
               here(m.href) ? "text-ink font-semibold" : "text-muted hover:text-ink"
             }`}>
             {m.zh}

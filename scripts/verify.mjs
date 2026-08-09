@@ -128,6 +128,7 @@ for (const [vp, w, h] of [["桌面", 1440, 900], ["手机", 390, 844]]) {
 
     let body = "";
     let mainText = "";
+    let quoted = "";
     let fellBack = false;
     try {
       await page.goto(`${ORIGIN}${BASE}${r.path === "/" ? "" : r.path}`,
@@ -141,6 +142,15 @@ for (const [vp, w, h] of [["桌面", 1440, 900], ["手机", 390, 844]]) {
       // 量 body 的后果：加一个导航项，十二个页面的预算同时被扣，
       // 而那和「前端放不放旁白」毫无关系。度量要对准它想管的那件事。
       mainText = await page.evaluate('document.querySelector("main")?.innerText ?? document.body.innerText');
+      // 引用不算我们的旁白。**这条预算量的是「我们自己说了多少话」**，
+      // 而脚注里那 57 条是厂商官方文档的原文 —— 它越多越好，不该被扣分。
+      // 首页因此从 230 涨到 2116 而报红，红的是尺子不是页面：**量对了再谈调参。**
+      // ⚠️ 只减**可见**的引用块。`display:none` 的元素上 innerText 会退化成 textContent，
+      // 手机端真值表整块隐藏，它里面的 59 条脚注照样被当成引用减掉，
+      // 结果首页中文字符被减成负数、夹到 0 —— **和当初 textContent 那个坑是同一类**。
+      quoted = await page.evaluate(
+        '[...document.querySelectorAll("main [data-quote]")]' +
+        '.filter(e=>e.getClientRects().length>0).map(e=>e.innerText).join("")');
       // 兜底判断靠 data-page="home" 这个**稳定记号**，不靠首页的文案 ——
       // 文案一改判断就失效（刚才就失效了）。
       fellBack = r.path !== "/" && (await page.evaluate('!!document.querySelector(\'[data-page="home"]\')'));
@@ -170,7 +180,8 @@ for (const [vp, w, h] of [["桌面", 1440, 900], ["手机", 390, 844]]) {
     const items = r.per
       ? await page.evaluate(`document.querySelectorAll(${JSON.stringify(r.per)}).length`)
       : 1;
-    const zhAll = (mainText.match(/[一-龥]/g) ?? []).length;
+    const zhOf = (t) => (t.match(/[一-龥]/g) ?? []).length;
+    const zhAll = Math.max(0, zhOf(mainText) - zhOf(quoted));
     const zh = r.per ? Math.round(zhAll / Math.max(1, items)) : zhAll;
     const key = `${r.path}|${vp}`;
     const base = BASE_ZH[key] ?? Infinity;

@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { Rich } from "@/components/Fact";
+import TruthTable, { Legend } from "@/components/TruthTable";
 import { atlas, capsOf, cell, extendedOf, label, modelsOf, vendorName, orgOf, STATUS, availModels } from "@/lib/atlas";
 import { modelHref } from "@/lib/slug";
 
@@ -29,6 +30,17 @@ export default function ModelsPage() {
           </Link>
         ))}
       </section>
+      <section id="realtime">
+        <h2 className="text-[22px] font-semibold mb-1">实时交互轨 · 另一套坐标系</h2>
+        <p className="text-muted text-[14px] mb-4 max-w-[880px]">
+          边生成边看、中途可以干预、时长不预先确定。它们和离线出片轨<b className="text-ink font-normal">不共用能力轴</b> ——
+          对它们来说「视频延长」没有意义（本来就没有终点），对那一轨「延迟」也没有意义。
+          硬并成一张表会把两边都讲错。
+        </p>
+        <TruthTable k="realtime" />
+        <Legend />
+      </section>
+
       <section>
         <h2 className="text-[22px] font-semibold mb-1">库里还有，但没进主表</h2>
         <p className="text-muted text-[14px] mb-4 max-w-[880px]">

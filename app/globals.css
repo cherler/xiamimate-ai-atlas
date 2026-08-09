@@ -1,14 +1,43 @@
 @import "tailwindcss";
 
+/*
+ * Token 系统（docs/视觉方案_V1.md 第三节）。
+ *
+ * ## 强调色给「有出处」，不给「支持」
+ *
+ * 上一版是绿 ✅ / 红 ❌ —— 那是 SaaS 的语义色，它在替读者下结论「这个好那个差」。
+ * 这个产品的立场不是评判谁强，是记录**谁说过**。所以强调色（蓝）标的是
+ * 「这一格有厂商原文可查」；「厂商明确说不支持」用黑色叉 —— 它是一条事实，不是差评。
+ *
+ * ## ⬜ 不是颜色，是纹理
+ *
+ * 「官方没说」占 90 格里的 30 格，是这个产品最值钱的一类事实。
+ * 用浅灰画它，它就消失了（我连着三版设计稿都栽在这儿）。
+ * 改成整格 45° 斜线：空白会自己连成片，一眼看出它高度集中在少数几家。
+ */
 @theme {
-  --color-paper: #eff0ec;
-  --color-card: #f7f8f5;
-  --color-ink: #171b18;
-  --color-muted: #6b716c;
-  --color-rule: #d3d6ce;
-  --color-yes: #2c6b5a;
-  --color-no: #b03a2c;
-  --color-unknown: #ad8324;
+  --color-paper: #fbfbf9;
+  --color-card: #fbfbf9; /* 与纸同色 —— 卡片底色是上一版「什么都不是」的主要构成材料 */
+  --color-ink: #0b0b0c;
+  --color-muted: #6e7069;
+  --color-rule: #c9cbc6;
+  --color-yes: #0a3ce0; /* 有出处 */
+  --color-no: #0b0b0c; /* 厂商明确说不支持 —— 黑叉，不是红叉 */
+  --color-unknown: #8a8c86;
+  --color-hatch: #e4e5e0;
+
+  /* 零圆角。把 Tailwind 的半径刻度直接归零，rounded-* 全站失效，
+     不必逐个文件删类名，也杜绝以后手滑再写回来。 */
+  --radius-xs: 0px;
+  --radius-sm: 0px;
+  --radius-md: 0px;
+  --radius-lg: 0px;
+  --radius-xl: 0px;
+  --radius-2xl: 0px;
+  --radius-3xl: 0px;
+  --radius-4xl: 0px;
+
+  --font-mono: Menlo, "SF Mono", ui-monospace, monospace;
 }
 
 html,
@@ -26,4 +55,15 @@ body {
  */
 body {
   overflow-wrap: break-word;
+}
+
+/* 全站数字对齐。日期、格数、版本号成列出现，不等宽就会跳。 */
+.tnum,
+table {
+  font-variant-numeric: tabular-nums;
+}
+
+/* 「官方没说」的斜线纹理。整格铺，不画符号。 */
+.hatch {
+  background: repeating-linear-gradient(45deg, var(--color-hatch) 0 1px, transparent 1px 5px);
 }
