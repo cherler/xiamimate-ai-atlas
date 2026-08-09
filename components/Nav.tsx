@@ -24,12 +24,20 @@ import { usePathname } from "next/navigation";
  * `/models` `/skill` `/compare` `/capability` `/model` 都是从主图点进去的下级页，不占导航。
  * `/where`（去哪用）和 `/caveats`（别踩坑）同样撤出导航：**它们是「看完表之后」的问题**，
  * 入口应该长在表的下面，不是长在页面最顶上 —— 人还没看表，不会先问「我去哪用」。
+ *
+ * ## 「地图」为什么改叫「厂商」
+ *
+ * 产品叫「AI 能力地图」，首页那张真值表**就是能力地图本体**；
+ * 我却又在导航里放了个「地图」指向 /map，两个都叫地图，读者当然要问哪个是哪个。
+ * /map 回答的是「谁是谁家的」—— 那是**组织**问题不是能力问题，两张图本就不该同名。
+ * 首页从左上角 logo 进，logo 上写着的就是产品名。
  */
 const MAIN = [
-  { href: "/map", zh: "地图" },
+  { href: "/map", zh: "厂商" },
   { href: "/tree", zh: "演化" },
+  { href: "/skill", zh: "Skills" },
   { href: "/changes", zh: "变化" },
-  { href: "/toolkit", zh: "工具箱" },
+  { href: "/toolkit", zh: "导航" },
 ];
 
 export default function Nav() {
