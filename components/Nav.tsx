@@ -2,6 +2,8 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import DomainSwitch from "./DomainSwitch";
+import { BRAND } from "@/lib/brand";
 
 /**
  * 全站导航。挂在 layout 上，**每一页都有** —— 否则总有页面是死路。
@@ -51,24 +53,30 @@ export default function Nav() {
   // 改用 <BackLink/> 放各下级页内容区顶部（像旧 /method 的「回地图」那样）。
   return (
     <nav data-nav="global" className="border-b border-rule bg-paper sticky top-0 z-20">
-      <div className="max-w-[1240px] mx-auto px-5 h-12 flex items-center gap-1 overflow-x-auto">
-        <Link href="/" className="text-[13px] font-semibold bg-ink text-paper px-2 py-1 shrink-0 mr-2">
-          AI 能力地图
-        </Link>
-        {MAIN.map((m) => (
-          <Link key={m.href} href={m.href}
-            className={`text-[14px] px-2.5 py-1 shrink-0 whitespace-nowrap ${
-              here(m.href) ? "text-ink font-semibold" : "text-muted hover:text-ink"
+      {/**
+       * 品牌块在 `overflow-x-auto` **之外**。
+       * 放进去的话，那个 overflow 会建立裁剪上下文，把绝对定位的下拉整个切掉 ——
+       * 面板照样存在于 DOM 里、`aria-expanded` 也照样是 true，
+       * 只是**一个字都看不见**。又一个「查 DOM 查不出来」的坑。
+       */}
+      <div className="max-w-[1240px] mx-auto px-5 h-12 flex items-center gap-1">
+        <DomainSwitch brand={BRAND.short} />
+        <div className="flex items-center gap-1 min-w-0 flex-1 overflow-x-auto">
+          {MAIN.map((m) => (
+            <Link key={m.href} href={m.href}
+              className={`text-[14px] px-2.5 py-1 shrink-0 whitespace-nowrap ${
+                here(m.href) ? "text-ink font-semibold" : "text-muted hover:text-ink"
+              }`}>
+              {m.zh}
+            </Link>
+          ))}
+          <Link href="/method"
+            className={`text-[13px] px-2.5 py-1 ml-auto shrink-0 whitespace-nowrap underline ${
+              here("/method") ? "text-ink" : "text-muted hover:text-ink"
             }`}>
-            {m.zh}
+            方法
           </Link>
-        ))}
-        <Link href="/method"
-          className={`text-[13px] px-2.5 py-1 ml-auto shrink-0 whitespace-nowrap underline ${
-            here("/method") ? "text-ink" : "text-muted hover:text-ink"
-          }`}>
-          方法
-        </Link>
+        </div>
       </div>
     </nav>
   );

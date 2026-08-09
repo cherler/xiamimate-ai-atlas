@@ -57,7 +57,7 @@ ${(e.models ?? []).map((m) => `      <category>${esc(m)}</category>`).join("\n")
 const xml = `<?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>AI 能力地图 · 变了什么</title>
+    <title>虾米看AI · 变了什么</title>
     <link>${SITE}/changes</link>
     <atom:link href="${SITE}/changes.xml" rel="self" type="application/rss+xml"/>
     <description>AI 视频模型的版本、停服、价格与能力变化。每条带 Before / After / 为什么重要，以及厂商官方来源。</description>

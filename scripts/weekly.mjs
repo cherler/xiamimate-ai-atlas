@@ -79,7 +79,7 @@ const cav = () => {
   return older + gone + soon + blocked + trap + varies;
 };
 
-const md = `# AI 能力地图 · 第 ${issue} 期（${TODAY}）
+const md = `# 虾米看AI · 第 ${issue} 期（${TODAY}）
 
 > 这份周报**从数据生成**，不是手写的。统计、清单、口径全部算自 \`data/atlas.json\` 和 git；
 > 人只写判断。手抄的周报第二期就会和站上对不上，而这个项目卖的就是「对得上」。

@@ -76,6 +76,20 @@ const FALLBACK = "#5c6a78";
  * 长名简称（负责人：模型名太长就用简称）。
  * 只砍**冗余前后缀**，不砍能区分版本的部分 —— 砍错了就分不出谁是谁。
  */
+/**
+ * 公司简称 —— **起点节点写公司，不写模型名**（负责人定）。
+ *
+ * 树是按产品线画的，线尾已经标着产品线名（Kling / Wan …），起点再写一遍模型名
+ * 就是复述。写公司才补上一条新信息：**这条线是谁家的**。
+ * 取的是 orgs[].zh 的可辨认前缀，不是自由发挥 —— 对不上就退回 orgs[].name。
+ */
+const ORG_SHORT: Record<string, string> = {
+  bytedance: "字节", alibaba: "阿里", kuaishou: "快手", tencent: "腾讯",
+  kunlun: "昆仑万维", shengshu: "生数", minimax: "MiniMax", hpcai: "潞晨",
+  google: "Google", openai: "OpenAI", runway: "Runway", decart: "Decart",
+  lightricks: "Lightricks", genmo: "Genmo", rhymes: "Rhymes AI",
+};
+
 const SHORT = (t: string) =>
   (t || "")
     .replace(/^MiniMax Hailuo/, "MiniMax")
@@ -91,6 +105,19 @@ const SHORT = (t: string) =>
     .replace(/\s*补充发布$/, "")
     .replace(/-v\?$/, "")
     .slice(0, 12);
+
+/** 一个节点该显示什么字。**只此一处** —— 布局与渲染各算一遍必然会算歪。 */
+const labelText = (
+  n: { version?: string; added?: string },
+  org: string,
+  orgName: string,
+  isTop: boolean,
+  isBot: boolean,
+) => {
+  if (isBot) return ORG_SHORT[org] ?? orgName;
+  if (isTop) return SHORT(n.version || n.added || "");
+  return SHORT(n.added || n.version || "");
+};
 
 export default function Tree() {
   const [pin, setPin] = useState<string | null>(null);
@@ -266,9 +293,9 @@ export default function Tree() {
       const l = lines.find((x) => x.m === n.m);
       const isTop = l ? n.id === l.ns[l.ns.length - 1].id : false;
       const isBot = l ? n.id === l.ns[0].id && l.ns.length > 1 : false;
-      let raw = (isTop || isBot) ? (n.version || n.added) : (n.added || n.version);
-      if (isBot && l && SHORT(raw ?? "") === SHORT(l.model.family)) raw = n.added || raw;
-      const w = SHORT(raw ?? "").replace(/[^\x00-\xff]/g, "aa").length * 5.2 + 10;
+      // 宽度必须按**渲染时那一份文字**算 —— 两处各算一遍，避让就是算歪的
+      const txt = l ? labelText(n, l.model.org, l.model.zh, isTop, isBot) : "";
+      const w = txt.replace(/[^\x00-\xff]/g, "aa").length * 5.2 + 10;
       // **首末标签一律放左侧**（负责人：LongAnimDiff 和 HY-Video 放节点左侧）。
       // 末标签右边正好是产品线名，放右侧会压住它；首标签在最左那条线上会顶出画布。
       const forceLeft = isTop || isBot;
@@ -431,13 +458,10 @@ export default function Tree() {
                   const justGrown = scrubbing && MS(n.date) > cutMs - (t1 - t0) * 0.05;
                   // **首末两端常驻**（负责人要求），中间的仍默认隐藏
                   const showLabel = on && (isTop || isBot || pin === n.id || justGrown);
-                  // 首末显版本号（那是「从哪来、长成什么」），中间显「这一代新增了什么」。
-                  // 长名简称 —— 负责人：模型名太长就用简称。
-                  // 首末显版本号；**首标签若和产品线名重复就换成「这一代新增了什么」** ——
-                  // HY / Veo 的首版本名就等于产品线名，原来被过滤掉成了无标签的孤点。
-                  let raw = (isTop || isBot) ? (n.version || n.added) : (n.added || n.version);
-                  if (isBot && SHORT(raw ?? "") === SHORT(l.model.family)) raw = n.added || raw;
-                  const txt = SHORT(raw ?? "");
+                  // **起点写公司简称**（负责人定），末端写当前版本，中间写这一代新增了什么。
+                  // 起点原来写的是首版本名，而 HY / Veo 的首版本名就等于产品线名 ——
+                  // 线尾已经标着产品线名，起点再写一遍是复述；写公司才是新信息。
+                  const txt = labelText(n, l.model.org, l.model.zh, isTop, isBot);
                   const lp = labelAt.get(n.id) ?? { x: p.x, y: p.y, side: 1 as 1 | -1 };
                   const side = lp.side, ny = lp.y;
                   // **不用 version** —— 同一条线里它大量重复（HunyuanVideo 出现 5 次、

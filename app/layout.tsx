@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { BRAND } from "@/lib/brand";
 import "./globals.css";
 import Nav from "@/components/Nav";
 import NextSteps from "@/components/NextSteps";
@@ -22,7 +23,7 @@ export const metadata: Metadata = {
     title: "9 个 AI 视频模型 × 11 项能力，谁能做什么",
     description: DESC,
     url: "/atlas/",
-    siteName: "AI 能力地图",
+    siteName: BRAND.full,
     locale: "zh_CN",
     type: "website",
     images: [{ url: "/atlas/og/index-16x9.png", width: 1200, height: 675 }],
@@ -30,7 +31,7 @@ export const metadata: Metadata = {
   twitter: { card: "summary_large_image", images: ["/atlas/og/index-16x9.png"] },
   // RSS 自动发现：**静态站没有后端，订阅只能是一个静态文件** ——
   // 好处是读者不用把邮箱交给我们。
-  alternates: { types: { "application/rss+xml": [{ url: "/atlas/changes.xml", title: "AI 能力地图 · 变了什么" }] } },
+  alternates: { types: { "application/rss+xml": [{ url: "/atlas/changes.xml", title: `${BRAND.full} · 变了什么` }] } },
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

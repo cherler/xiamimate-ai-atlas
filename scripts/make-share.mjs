@@ -78,7 +78,7 @@ const shell = (w, h, body, foot) => `<!doctype html><meta charset="utf-8">
 <div class="foot">
   <div>${foot}</div>
   <div style="text-align:right">
-    <div class="brand">AI 能力地图 · xiamimate.com/atlas</div>
+    <div class="brand">虾米看AI · xiamimate.com/atlas</div>
     <div>数据 ${a.version} · 核验于 ${a.generated_at} · 机器录入，每格带官方来源</div>
   </div>
 </div>`;
