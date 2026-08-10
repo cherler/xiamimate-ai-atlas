@@ -343,3 +343,48 @@ Runway Characters 都是同一类。
 被排除的东西记进 `excluded`，带理由与同类清单。
 **「为什么不收」和「它没了」一样，本身是有用的信息** ——
 半年后有人问「你们怎么没收 Genie」，答案应该在库里，而不是在某个人的记忆里。
+
+---
+
+## 规则十 · AI 图像的能力轴从厂商用词里 derive，不自己编（2026-08-11 追加）
+
+第二个方向定为 **AI 图像**（负责人拍板）。选它的理由是可核验的：公司、来源、
+监视清单与 AI 视频**大面积重合**（字节 / 快手 / 阿里 / MiniMax / Google），
+采集成本最低；而它**只有一轨**，恰好用来检验「轨是方向的属性、不是全局枚举」
+那次改造对不对 —— 如果架子里还藏着视频特有的两轨假设，接图像时立刻会暴露。
+
+### 轴怎么定的
+
+**不凭脑子列。** 先读厂商自己的文档，看他们**给什么起了名字**：
+
+| 能力 | 谁这么叫 |
+|---|---|
+| 文生图 / 图生图 | Gemini `Image generation (text-to-image)`、OpenAI `Generations` |
+| 指令编辑 | OpenAI `Edits：Modify existing images using a new prompt` |
+| **多轮编辑** | Gemini `Multi-turn image editing` 与 OpenAI `Multi-turn editing` **各自单列** |
+| 蒙版重绘 | Gemini `Inpainting (semantic masking)`、OpenAI `Mask-based editing` |
+| 扩图 | Black Forest Labs `FLUX Tools：outpainting` |
+| 多图参考 | Gemini `Use up to 14 reference images`、OpenAI `Image references` |
+| 风格参考 | Gemini `Style transfer` |
+| **保真度控制** | OpenAI `Input image fidelity`、Gemini `High-fidelity detail preservation` |
+| 4K 出图 | Gemini `Generate images up to 4K resolution` |
+| 文字渲染 | Qwen-Image 官方**拿它给自己定位**（多行、段落级中英文渲染） |
+
+**「多轮编辑」和「保真度控制」是读文档读出来的，不在我们的预想里。**
+两家头部厂商都单独命名了它们 —— 这正是「从用词里 derive」比「先列一张表再去填」
+强的地方：**预想会漏掉真实存在的轴，也会造出没人用的轴。**
+
+### 三条边界
+
+1. **画布编辑收，但要与 Canva 分清。**「画布」有两个东西同名：
+   Canva 那家设计 SaaS 是**产品**，进 `platforms`；
+   即梦「灵动画布」那种在一块画布上多图/局部反复改，是**交互形态层面的能力**，
+   进 `capabilities`。混为一谈会把一家公司写成一条能力。
+2. **放大（超分）收。** 它是独立能力，不是「4K 出图」的同义词 ——
+   前者作用于已有图，后者是生成时的原生分辨率。
+3. 沿用视频轴的 `开源权重`：**权重公不公开与能力无关，但它决定你能不能自己跑。**
+
+### 现在的状态
+
+`domains` 里 image 是 `planned`，**只立了轴、一个模型都没采**。
+轴定不下来就去采集，采回来的东西会按错的格子摆，返工成本比重采还高。

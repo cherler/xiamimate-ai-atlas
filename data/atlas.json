@@ -308,6 +308,228 @@
     "model weights"
    ],
    "since_note": "不是随时间演进的能力，是获取方式；不进演进图"
+  },
+  {
+   "id": "i-t2i",
+   "class": "still",
+   "domain": "image",
+   "name": "Text-to-Image",
+   "zh": "文生图",
+   "group": "生成",
+   "ubiquity": "已普及",
+   "aliases": [
+    "Text-to-Image",
+    "文生图",
+    "T2I",
+    "Generations"
+   ],
+   "since_note": "Gemini「Image generation (text-to-image)」/ OpenAI「Generations」"
+  },
+  {
+   "id": "i-i2i",
+   "class": "still",
+   "domain": "image",
+   "name": "Image-to-Image",
+   "zh": "图生图",
+   "group": "生成",
+   "ubiquity": "已普及",
+   "aliases": [
+    "Image-to-Image",
+    "图生图",
+    "I2I"
+   ],
+   "since_note": "Gemini「Image editing (text-and-image-to-image)」"
+  },
+  {
+   "id": "i-edit",
+   "class": "still",
+   "domain": "image",
+   "name": "Instruct Edit",
+   "zh": "指令编辑",
+   "group": "编辑",
+   "ubiquity": "主流",
+   "aliases": [
+    "指令编辑",
+    "Edits",
+    "自然语言修图",
+    "text-and-image-to-image"
+   ],
+   "since_note": "OpenAI「Edits：Modify existing images using a new prompt」"
+  },
+  {
+   "id": "i-multiturn",
+   "class": "still",
+   "domain": "image",
+   "name": "Multi-turn Editing",
+   "zh": "多轮编辑",
+   "group": "编辑",
+   "ubiquity": "主流",
+   "aliases": [
+    "多轮编辑",
+    "连续修改",
+    "Multi-turn editing"
+   ],
+   "since_note": "Gemini 与 OpenAI **都单独命名了这一条**：Multi-turn image editing / Multi-turn editing"
+  },
+  {
+   "id": "i-inpaint",
+   "class": "still",
+   "domain": "image",
+   "name": "Inpainting",
+   "zh": "蒙版重绘",
+   "group": "编辑",
+   "ubiquity": "主流",
+   "aliases": [
+    "局部重绘",
+    "涂抹修改",
+    "Inpainting",
+    "Mask-based editing",
+    "semantic masking"
+   ],
+   "since_note": "Gemini「Inpainting (semantic masking)」/ OpenAI「Mask-based editing」"
+  },
+  {
+   "id": "i-outpaint",
+   "class": "still",
+   "domain": "image",
+   "name": "Outpainting",
+   "zh": "扩图",
+   "group": "编辑",
+   "ubiquity": "主流",
+   "aliases": [
+    "扩图",
+    "外扩",
+    "Outpainting",
+    "Uncrop"
+   ],
+   "since_note": "Black Forest Labs「FLUX Tools：outpainting」"
+  },
+  {
+   "id": "i-canvas",
+   "class": "still",
+   "domain": "image",
+   "name": "Canvas Editing",
+   "zh": "画布编辑",
+   "group": "编辑",
+   "ubiquity": "前沿",
+   "aliases": [
+    "画布",
+    "无限画布",
+    "灵动画布",
+    "Canvas"
+   ],
+   "since_note": "负责人 2026-08-11 定：在一块画布上多图/局部反复改，是交互形态层面的能力。**注意与 Canva 那家 SaaS 区分** —— 后者是产品，进 platforms 不进 models"
+  },
+  {
+   "id": "i-multiref",
+   "class": "still",
+   "domain": "image",
+   "name": "Multi-image Reference",
+   "zh": "多图参考",
+   "group": "参考",
+   "ubiquity": "主流",
+   "aliases": [
+    "多图参考",
+    "Image references",
+    "参考图",
+    "Advanced composition"
+   ],
+   "since_note": "Gemini「Use up to 14 reference images」/ OpenAI「Image references」"
+  },
+  {
+   "id": "i-styleref",
+   "class": "still",
+   "domain": "image",
+   "name": "Style Reference",
+   "zh": "风格参考",
+   "group": "参考",
+   "ubiquity": "主流",
+   "aliases": [
+    "风格参考",
+    "风格迁移",
+    "Style transfer",
+    "Style Reference"
+   ],
+   "since_note": "Gemini「Style transfer」"
+  },
+  {
+   "id": "i-fidelity",
+   "class": "still",
+   "domain": "image",
+   "name": "Input Fidelity",
+   "zh": "保真度控制",
+   "group": "参考",
+   "ubiquity": "前沿",
+   "aliases": [
+    "保真度",
+    "细节保留",
+    "Input image fidelity",
+    "High-fidelity detail preservation"
+   ],
+   "since_note": "OpenAI「Input image fidelity：控制模型编辑时保留原图细节的强度」/ Gemini「High-fidelity detail preservation」"
+  },
+  {
+   "id": "i-textrender",
+   "class": "still",
+   "domain": "image",
+   "name": "Text Rendering",
+   "zh": "文字渲染",
+   "group": "规格",
+   "ubiquity": "主流",
+   "aliases": [
+    "文字渲染",
+    "文本渲染",
+    "出字",
+    "Text rendering"
+   ],
+   "since_note": "中文侧最痛的一条。Qwen-Image 官方**拿它给自己定位**（多行、段落级中英文渲染）"
+  },
+  {
+   "id": "i-upscale",
+   "class": "still",
+   "domain": "image",
+   "name": "Upscaling",
+   "zh": "放大",
+   "group": "规格",
+   "ubiquity": "主流",
+   "aliases": [
+    "放大",
+    "超分",
+    "高清修复",
+    "Upscaling",
+    "Super-resolution"
+   ],
+   "since_note": "负责人 2026-08-11 定：收"
+  },
+  {
+   "id": "i-4k",
+   "class": "still",
+   "domain": "image",
+   "name": "4K Output",
+   "zh": "4K 出图",
+   "group": "规格",
+   "ubiquity": "前沿",
+   "aliases": [
+    "4K",
+    "高分辨率",
+    "原生分辨率"
+   ],
+   "since_note": "Gemini「Generate images up to 4K resolution」/ OpenAI「Size customization」"
+  },
+  {
+   "id": "i-openweights",
+   "class": "still",
+   "domain": "image",
+   "name": "Open Weights",
+   "zh": "开源权重",
+   "group": "获取",
+   "ubiquity": "前沿",
+   "aliases": [
+    "开源权重",
+    "权重公开",
+    "Open Weights"
+   ],
+   "since_note": "沿用视频轴的同名能力：**权重公不公开与能力无关，但它决定你能不能自己跑**"
   }
  ],
  "orgs": [
@@ -2561,6 +2783,21 @@
      "short": "实时交互",
      "volume": "第二卷",
      "note": "边生成边看，另一套坐标系"
+    }
+   ]
+  },
+  {
+   "id": "image",
+   "name": "AI 图像",
+   "state": "planned",
+   "note": "第二个方向。**只有一轨** —— 图像没有「离线渲染 vs 边生成边看」那种分法，这正好用来检验「轨是方向的属性」这次改造对不对。",
+   "volume": "第二个方向",
+   "tracks": [
+    {
+     "id": "still",
+     "zh": "出图轨",
+     "short": "出图",
+     "note": "给定条件，产出一张（或一组）静态图"
     }
    ]
   }
