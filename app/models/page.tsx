@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { Rich } from "@/components/Fact";
-import { atlas, extendedOf, label, vendorName, orgOf, STATUS } from "@/lib/atlas";
+import { atlas, domainModels, extendedOf, label, vendorName, orgOf, STATUS } from "@/lib/atlas";
 import { modelHref } from "@/lib/slug";
 import BackLink from "@/components/BackLink";
 
@@ -17,7 +17,7 @@ export default function ModelsPage() {
       <h1 className="text-[28px] font-semibold leading-tight">全部模型</h1>
 
       <section className="flex flex-col gap-2">
-        {atlas.models.map((m) => (
+        {domainModels().map((m) => (
           <Link key={m.id} href={modelHref(m)}
             className="border-b border-rule pb-2 flex flex-wrap items-baseline gap-x-3 gap-y-1 hover:text-yes">
             {/* 手机 390 宽装不下三列固定宽度 —— 换成可换行，别让页面横向滚动 */}

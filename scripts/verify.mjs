@@ -249,6 +249,43 @@ for (const [vp, w, h] of [["桌面", 1440, 900], ["手机", 390, 844]]) {
   }
 }
 
+// ── 方向隔离：别的方向的模型不许出现在当前方向的页面上 ─────────────────
+/**
+ * **这条是实测抓出来的，不是想出来的。**
+ *
+ * 2026-08-11 加完 AI 图像花名册（13 条产品线）后，validate 全绿、类型全过，
+ * 但在浏览器里一看：`/models` 与 `/map` **两页都把图像产品线渲染出来了** ——
+ * 因为那两处直接遍历 `atlas.models`，而它现在装着两个方向的东西。
+ *
+ * **校验管的是数据自洽，管不了「这条数据该不该出现在这一页」。**
+ * 所以这一条必须在浏览器里查，而且要一直查下去：下次再加方向，
+ * 任何一处漏了过滤，这里立刻红。
+ */
+{
+  console.log("\n══════ 方向隔离 ══════");
+  const raw = JSON.parse(readFileSync(join(ROOT, "data/atlas.json"), "utf8"));
+  const live = (raw.domains ?? []).find((d) => d.state === "live")?.id ?? "video";
+  const alien = (raw.models ?? []).filter((m) => (m.domain ?? "video") !== live);
+  if (!alien.length) {
+    ok(true, `只有一个方向，暂无可漏的（当前 ${live}）`);
+  } else {
+    const names = alien.map((m) => m.family);
+    for (const path of ["/", "/models", "/map", "/tree", "/scenario", "/changes"]) {
+      const page = await browser.newPage({ viewport: { width: 1440, height: 900 } });
+      let txt = "";
+      try {
+        await page.goto(`${ORIGIN}${BASE}${path === "/" ? "" : path}`,
+          { waitUntil: DEV ? "domcontentloaded" : "networkidle", timeout: 45000 });
+        await page.waitForTimeout(DEV ? 1800 : 900);
+        txt = await page.evaluate('document.querySelector("main")?.innerText ?? ""');
+      } catch { txt = ""; }
+      const hit = names.filter((n) => txt.includes(n));
+      ok(hit.length === 0, `${path} 没有混入别的方向的模型${hit.length ? `：${hit.join("、")}` : ""}`);
+      await page.close();
+    }
+  }
+}
+
 // ── 动线可达性：从任意页出发，≤2 次点击能到三条动线的起点 ─────────────
 if (FLOWS) {
   console.log("\n══════ 动线可达性 ══════");

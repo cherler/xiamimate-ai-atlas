@@ -2,7 +2,7 @@
 
 import { useMemo, useState } from "react";
 import Link from "next/link";
-import { atlas, capsOf, cell, label, modelsOf, orgOf } from "@/lib/atlas";
+import { atlas, capsOf, cell, label, modelsOf, orgOf , domainModels} from "@/lib/atlas";
 import { capHref, modelHref } from "@/lib/slug";
 
 /**
@@ -61,7 +61,8 @@ export default function RelationGraph() {
      * **公司之间有没有关系，跟我们把它放主表还是 Extended 无关** —— 那是我们的分层，
      * 不是它们的事实。关系图收全部。
      */
-    const models = atlas.models;
+    // **只画当前方向的模型** —— 混着画会把 AI 图像的产品线接到 AI 视频的能力上
+    const models = domainModels();
     const caps = atlas.capabilities.filter((c) => ["clip", "realtime", "both"].includes(c.class));
     /**
      * 公司列 = 有模型的公司 + **投资方**。

@@ -43,6 +43,8 @@ export type Model = {
   /** 公司内部团队（Seed / 通义 / ATH / Skywork）。合并公司时信息不能丢在合并里。 */
   team?: string;
   version: string;
+  /** 属于哪个方向。缺省按 video 兜底（第一批数据写在只有一个方向的年代）。 */
+  domain?: string;
   version_as_of: string;
   /**
    * 版本号是**从哪看到的**。
@@ -430,6 +432,17 @@ export function label(m: Model) {
 const isCore = (m: Model) => (m.tier ?? "core") === "core";
 
 /** 主图与主表只吃 core。extended 单独一节列，不混进统计（否则会污染对外的 ⬜ 占比）。 */
+/**
+ * **当前方向的模型。** 加了 AI 图像之后，`atlas.models` 里同时装着两个方向的东西 ——
+ * 直接遍历它就会把图像模型混进视频的地图里。
+ *
+ * 这不是假设：2026-08-11 加完图像花名册后在浏览器里实测，`/models` 与 `/map`
+ * **两页都把 13 条图像产品线渲染出来了**，而 validate 全绿 ——
+ * **校验管的是数据自洽，管不了「这条数据该不该出现在这一页」。**
+ */
+export const domainModels = (d: string = currentDomain().id) =>
+  atlas.models.filter((m) => (m.domain ?? "video") === d);
+
 export const modelsOf = (k: Klass) => atlas.models.filter((m) => m.class === k && isCore(m));
 export const extendedOf = (k: Klass) => atlas.models.filter((m) => m.class === k && !isCore(m));
 export const capsOf = (k: Klass) => atlas.capabilities.filter((c) => c.class === k || c.class === "both");
