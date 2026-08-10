@@ -50,7 +50,12 @@ const HUE = (id?: string) => ORG_HUE[id ?? ""] ?? "#8a95a1";
 
 type Sel = { kind: "none" } | { kind: "org" | "model" | "cap"; id: string };
 
-export default function RelationGraph() {
+/**
+ * @param domain 画哪个方向。**必须由页面传进来** ——
+ * 默认取 currentDomain() 的话，/atlas/image/map 会画出 AI 视频的关系图：
+ * 路由是 image、内容是 video，**页面不报任何错**。
+ */
+export default function RelationGraph({ domain }: { domain: string }) {
   const [sel, setSel] = useState<Sel>({ kind: "none" });
 
   const g = useMemo(() => {
@@ -62,7 +67,7 @@ export default function RelationGraph() {
      * 不是它们的事实。关系图收全部。
      */
     // **只画当前方向的模型** —— 混着画会把 AI 图像的产品线接到 AI 视频的能力上
-    const models = domainModels();
+    const models = domainModels(domain);
     const caps = atlas.capabilities.filter((c) => ["clip", "realtime", "both"].includes(c.class));
     /**
      * 公司列 = 有模型的公司 + **投资方**。

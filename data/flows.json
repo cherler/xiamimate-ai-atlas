@@ -11,7 +11,7 @@
      "q": "你想做什么",
      "exits": [
       "/compare/kling-vs-seedance",
-      "/models"
+      "/video/models"
      ]
     },
     {
@@ -38,7 +38,7 @@
      "q": "谁在什么时候长出了什么",
      "exits": [
       "/model/wan",
-      "/map"
+      "/video/map"
      ]
     },
     {
@@ -65,7 +65,7 @@
      "page": "/changes",
      "q": "变了什么，意味着什么",
      "exits": [
-      "/tree",
+      "/video/tree",
       "/toolkit"
      ]
     },

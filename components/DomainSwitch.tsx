@@ -16,7 +16,12 @@ import { atlas } from "@/lib/atlas";
  *
  * 加第二个方向 = 往 data/atlas.json 的 domains 里加一条，不动这个文件。
  */
-export default function DomainSwitch({ brand }: { brand: string }) {
+/**
+ * @param current 当前所在的方向 id。**由 Nav 从路由算好传进来。**
+ *   之前这里自己 `find(d => d.state === "live")` —— 于是站在 /atlas/image/* 上，
+ *   切换器照样显示「AI 视频」：**路由对、内容对、只有这块标签在骗人**。
+ */
+export default function DomainSwitch({ brand, current }: { brand: string; current?: string }) {
   const [open, setOpen] = useState(false);
   /**
    * 平台页眉挂上时收起品牌字样。
@@ -35,7 +40,10 @@ export default function DomainSwitch({ brand }: { brand: string }) {
     return () => mo.disconnect();
   }, []);
   const box = useRef<HTMLDivElement>(null);
-  const now = atlas.domains.find((d) => d.state === "live") ?? atlas.domains[0];
+  const now =
+    atlas.domains.find((d) => d.id === current) ??
+    atlas.domains.find((d) => d.state === "live") ??
+    atlas.domains[0];
 
   useEffect(() => {
     if (!open) return;

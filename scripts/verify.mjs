@@ -277,11 +277,19 @@ for (const [vp, w, h] of [["桌面", 1440, 900], ["手机", 390, 844]]) {
   const raw = JSON.parse(readFileSync(join(ROOT, "data/atlas.json"), "utf8"));
   const live = (raw.domains ?? []).find((d) => d.state === "live")?.id ?? "video";
   const alien = (raw.models ?? []).filter((m) => (m.domain ?? "video") !== live);
-  if (!alien.length) {
+  if (raw.domains.length <= 1) {
     ok(true, `只有一个方向，暂无可漏的（当前 ${live}）`);
   } else {
     const names = alien.map((m) => m.family);
-    for (const path of ["/", "/models", "/map", "/tree", "/scenario", "/changes"]) {
+    /**
+     * **每个方向的每一页都要查，不能只查一组固定路径。**
+     * 上一版写死了 ["/", "/models", "/map", …]，那是方向化之前的路由 ——
+     * 方向化之后它一页都没真正覆盖到，于是 /atlas/image/map 画着 AI 视频的关系图
+     * 却全绿。**测试跟着重构一起改，否则它保护的是上一版的代码。**
+     */
+    const pages = raw.domains.flatMap((d) =>
+      ["", "/tree", "/map", "/scenario", "/models"].map((seg) => `/${d.id}${seg}`));
+    for (const path of pages) {
       const page = await browser.newPage({ viewport: { width: 1440, height: 900 } });
       let txt = "";
       try {
@@ -290,8 +298,17 @@ for (const [vp, w, h] of [["桌面", 1440, 900], ["手机", 390, 844]]) {
         await page.waitForTimeout(DEV ? 1800 : 900);
         txt = await page.evaluate('document.querySelector("main")?.innerText ?? ""');
       } catch { txt = ""; }
-      const hit = names.filter((n) => txt.includes(n));
+      const mine = path.split("/")[1];
+      const foreign = (raw.models ?? [])
+        .filter((m) => (m.domain ?? "video") !== mine).map((m) => m.family);
+      const hit = foreign.filter((n) => txt.includes(n));
       ok(hit.length === 0, `${path} 没有混入别的方向的模型${hit.length ? `：${hit.join("、")}` : ""}`);
+      // **切换器标签必须跟着路由走。** 它自己去找 live 方向的话，
+      // 站在 /atlas/image/* 上照样显示「AI 视频」—— 路由对、内容对，只有这块标签骗人。
+      const chip = await page.evaluate(
+        'document.querySelector("nav[data-nav=global] button[aria-haspopup=menu]")?.innerText ?? ""');
+      const want = raw.domains.find((d) => d.id === mine)?.name ?? "";
+      ok(chip.includes(want), `${path} 切换器显示的是本方向（要「${want}」，实为「${chip.replace(/\s+/g, " ").trim()}」）`);
       await page.close();
     }
   }

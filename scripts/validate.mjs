@@ -286,8 +286,19 @@ const flows = existsSync(new URL("../data/flows.json", import.meta.url))
   ? JSON.parse(readFileSync(new URL("../data/flows.json", import.meta.url), "utf8")).flows
   : null;
 if (flows) {
-  // 路由表：静态页 + 动态段的样板。动态段只校验前缀，具体 id 由 generateStaticParams 保证。
-  const ROUTES = ["/", "/tree", "/map", "/where", "/caveats", "/models", "/toolkit", "/changes", "/method"];
+  /**
+   * 路由表：全局页 + 方向页 + 动态段样板。
+   *
+   * **方向页要按 domains 展开。** 路由方向化之后（/atlas/video/tree），
+   * 这张表还写着旧的 /tree，于是动线一改就报「引用了不存在的页」——
+   * 而真正不存在的恰恰是表里那几个旧路径。**校验表要跟着路由一起改。**
+   */
+  const GLOBAL = ["/", "/caveats", "/toolkit", "/changes", "/method"];
+  const DOMAIN_PAGES = ["", "/tree", "/map", "/scenario", "/models"];
+  const ROUTES = [
+    ...GLOBAL,
+    ...(a.domains ?? []).flatMap((d) => DOMAIN_PAGES.map((seg) => `/${d.id}${seg}`)),
+  ];
   const DYN = ["/model/", "/capability/", "/skill/", "/compare/"];
   const known = (p) => ROUTES.includes(p) || DYN.some((d) => p.startsWith(d));
   for (const f of flows) {

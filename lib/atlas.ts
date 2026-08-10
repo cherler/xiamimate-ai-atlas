@@ -321,6 +321,8 @@ export type Domain = {
 /** 被明确排除的东西。「为什么不收」和「它没了」一样，是有用的信息。 */
 export type Excluded = {
   name: string;
+  /** 属于哪个方向的排除留档。缺省 video。 */
+  domain?: string;
   vendor: string;
   kind: string;
   date: string;

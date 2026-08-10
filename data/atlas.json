@@ -1554,7 +1554,7 @@
    "tier": "extended",
    "domain": "image",
    "weights": "closed",
-   "status_note": "⚠️ **版本没核到。** docs.midjourney.com 对采集器连续两次返回 **HTTP 403**。**拿不到就记拿不到** —— 和可图（446）、Sora（403）一样，是我们的缺口，不是对方不透明"
+   "status_note": "⚠️ **版本没核到。** docs.midjourney.com 对采集器连续两次返回 **HTTP 403**。**拿不到就记拿不到** —— 这是我们的缺口，不是对方不透明。（同类情形：可图的 API 文档回 446）"
   },
   {
    "id": "ideogram",
@@ -4089,7 +4089,8 @@
     "Runway Game Worlds",
     "Runway Characters"
    ],
-   "revisit": "等 AI 视频这个方向做扎实了，世界模型可以是**另一个方向**（见 domains），不是塞进这个方向"
+   "revisit": "等 AI 视频这个方向做扎实了，世界模型可以是**另一个方向**（见 domains），不是塞进这个方向",
+   "domain": "video"
   }
  ],
  "$since": "每项能力的 since 是**我们手上的日志能证明的最早时间**，不是业界首次出现。可追溯窗口起于 2024-01（Runway changelog）与 2024-09（Kling API 日志），窗口之前的看不见。自动抽取只给候选：第一遍就把「Tail frame control is **not** supported」当成了首尾帧的支持证据，把 Motion Brush 里的 element 当成了角色参考，把 Multi-Image to **Image** 当成了视频多参考 —— 三条都是人工核掉的。",

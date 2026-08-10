@@ -72,7 +72,9 @@ export default async function ModelsPage({ params }: { params: Promise<{ domain:
           门槛三条：输出或转换动态影像、以模型形式提供、面向内容创作。
         </p>
         <div className="flex flex-col gap-3">
-          {atlas.excluded.map((e) => (
+          {/* 排除留档也按方向分 —— 视频那条「Oasis 3」的理由里点了 Runway / Genie，
+              摆在图像页上会让人以为我们排除了图像侧的它们 */}
+          {atlas.excluded.filter((e) => (e.domain ?? "video") === d.id).map((e) => (
             <div key={e.name} className="border-t border-rule pt-3 text-[15px]">
               <p className="font-semibold">
                 {e.name}

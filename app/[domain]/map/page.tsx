@@ -44,7 +44,7 @@ export default async function MapPage({ params }: { params: Promise<{ domain: st
       </header>
 
       <div className="mt-6">
-        <RelationGraph />
+        <RelationGraph domain={d.id} />
       </div>
 
       <p className="mt-6 text-[12px] text-muted">
