@@ -9,7 +9,9 @@
     "validate": "node scripts/validate.mjs",
     "prebuild": "node scripts/validate.mjs",
     "package": "bash scripts/package.sh",
-    "watch": "node scripts/watch.mjs --due"
+    "watch": "node scripts/watch.mjs --due",
+    "gateway": "node scripts/local-gateway.mjs",
+    "gateway:static": "node scripts/local-gateway.mjs --main=static --atlas=static"
   },
   "dependencies": {
     "next": "^15.1.0",
