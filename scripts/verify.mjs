@@ -72,6 +72,9 @@ const ROUTES = [
   { path: "/toolkit", must: "该去哪个站", zh: 300, per: "main > div > section", built: true },
   { path: "/map", must: "谁和谁有关系", zh: 2400, built: true },
   { path: "/models", must: "全部模型", zh: 1200, built: true },
+  // 第二个方向。**用的是和首页同一个 TruthTable**，只换了轨 ——
+  // 这一条红了，说明「轨是方向的属性」那次重构又被人破坏了。
+  { path: "/image", must: "AI 图像", zh: 900, built: true, also: ["出图轨", "文字渲染", "这个方向还在建"] },
 ];
 
 const FLOWS = existsSync(join(ROOT, "data/flows.json"))

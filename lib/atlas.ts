@@ -16,6 +16,8 @@ export type Klass = string;
 export type Capability = {
   id: string;
   class: Klass | "both";
+  /** 属于哪个方向。缺省按 video 兜底（第一批数据写在只有一个方向的年代）。 */
+  domain?: string;
   name: string;
   zh: string;
   group: string;
@@ -296,6 +298,8 @@ export type Domain = {
   state: "live" | "planned";
   note?: string;
   volume?: string;
+  /** 这个方向的入口路由。有 href 就说明它已经有页面可看，哪怕 state 还是 planned。 */
+  href?: string;
   /**
    * 这个方向分几条轨。
    *
@@ -443,9 +447,41 @@ const isCore = (m: Model) => (m.tier ?? "core") === "core";
 export const domainModels = (d: string = currentDomain().id) =>
   atlas.models.filter((m) => (m.domain ?? "video") === d);
 
-export const modelsOf = (k: Klass) => atlas.models.filter((m) => m.class === k && isCore(m));
-export const extendedOf = (k: Klass) => atlas.models.filter((m) => m.class === k && !isCore(m));
-export const capsOf = (k: Klass) => atlas.capabilities.filter((c) => c.class === k || c.class === "both");
+/**
+ * 主表 / extended 都按**轨 + 方向**过滤。
+ * 只按 class 过滤现在没出事，只是因为 clip/realtime/still 三个值恰好不撞 ——
+ * **那是运气不是设计**，下个方向随便起一个同名轨就串了。
+ */
+export const modelsOf = (k: Klass, d: string = domainOfTrack(k)) =>
+  atlas.models.filter((m) => (m.domain ?? "video") === d && m.class === k && isCore(m));
+export const extendedOf = (k: Klass, d: string = domainOfTrack(k)) =>
+  atlas.models.filter((m) => (m.domain ?? "video") === d && m.class === k && !isCore(m));
+/**
+ * 某一条轨的能力轴。**必须同时按方向过滤。**
+ *
+ * `class: "both"` 的本意是「这个方向的两条轨都算」（视频的开源权重就是），
+ * 但它**只说了轨、没说方向** —— 于是加上 AI 图像之后，视频的「开源权重」
+ * 漏进了图像的表，还显示 0/7（图像模型当然没有视频那个能力 id 的格子）。
+ *
+ * 实测抓到的：/atlas/image 的表里「开源权重」出现了两行。
+ * 和 domainModels 那次是同一类洞 —— **加了第二个方向之后，
+ * 任何只按 class 过滤的地方都会串方向。**
+ */
+/**
+ * 由轨反查它属于哪个方向。
+ *
+ * **比默认取 currentDomain 稳。** 组件（TruthTable）手上有的是轨，不是方向；
+ * 默认成「当前方向」的话，从 /atlas/image 调用 `capsOf("still")` 会拿 video
+ * 去过滤，结果是空表 —— 而空表在页面上看起来只是「还没数据」，不像 bug。
+ * 轨 id 在全局唯一属于一个方向，让它自己说。
+ */
+export const domainOfTrack = (k: Klass): string =>
+  atlas.domains.find((d) => (d.tracks ?? []).some((t) => t.id === k))?.id ?? currentDomain().id;
+
+export const capsOf = (k: Klass, d: string = domainOfTrack(k)) =>
+  atlas.capabilities.filter(
+    (c) => (c.domain ?? "video") === d && (c.class === k || c.class === "both"),
+  );
 
 /** 实现了某能力的模型 —— 点一个能力节点时高亮的就是这批（= 「这个能力去哪用」） */
 export const modelsWith = (capId: string) =>

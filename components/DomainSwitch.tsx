@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 import { atlas } from "@/lib/atlas";
 
@@ -50,7 +51,7 @@ export default function DomainSwitch({ brand }: { brand: string }) {
     };
   }, [open]);
 
-  const planned = atlas.domains.filter((d) => d.state !== "live");
+  const planned = atlas.domains.filter((d) => d.state !== "live" && !d.href);
 
   return (
     <div ref={box} className="relative shrink-0 mr-2">
@@ -76,25 +77,49 @@ export default function DomainSwitch({ brand }: { brand: string }) {
           role="menu"
           className="absolute left-0 top-full mt-1 min-w-[230px] bg-paper border border-ink shadow-[3px_3px_0_var(--color-rule)] py-1 z-30"
         >
-          {atlas.domains.map((d) => (
-            <div
-              key={d.id}
-              role="menuitem"
-              className={`px-3 py-1.5 text-[13px] flex items-center gap-2 ${
-                d.state === "live" ? "font-semibold" : "text-muted"
-              }`}
-            >
-              <span className={d.state === "live" ? "text-yes-ink" : "text-unknown"}>
-                {d.state === "live" ? "●" : "○"}
-              </span>
-              {d.name}
-              {d.state !== "live" && <span className="ml-auto text-[11px]">还没开始</span>}
-            </div>
-          ))}
+          {/**
+            * 有 href 的就是**真能点进去**，没有的才是「还没开始」。
+            * 之前无差别标「还没开始」，是因为那时确实只有一个方向；
+            * 现在 AI 图像已经有页面了 —— 还标「还没开始」就是骗人。
+            */}
+          {atlas.domains.map((d) => {
+            const live = d.state === "live";
+            const inner = (
+              <>
+                <span className={live ? "text-yes-ink" : "text-unknown"}>{live ? "●" : "○"}</span>
+                {d.name}
+                {!live && (
+                  <span className="ml-auto text-[11px]">{d.href ? "建设中" : "还没开始"}</span>
+                )}
+              </>
+            );
+            const cls = `px-3 py-1.5 text-[13px] flex items-center gap-2 ${
+              live ? "font-semibold" : "text-muted"
+            }`;
+            return d.href ? (
+              <Link key={d.id} href={d.href} role="menuitem" onClick={() => setOpen(false)}
+                className={`${cls} hover:bg-yes/8`}>
+                {inner}
+              </Link>
+            ) : (
+              <div key={d.id} role="menuitem" className={cls}>{inner}</div>
+            );
+          })}
           {/* **不许悄悄留白。** 只有一卷就把这句写出来，别让人以为菜单坏了。 */}
-          {!planned.length && (
+          {/**
+            * 这句话的条件写错过一次：原来只看 `planned.length`，
+            * 而 planned 现在把「有页面的建设中方向」排除掉了 ——
+            * 于是加上 AI 图像之后，菜单里明明列着两卷，底下还写着「目前只有这一卷」。
+            * **实测点开菜单才看见的。** 条件改成看方向总数。
+            */}
+          {atlas.domains.length <= 1 ? (
             <p className="px-3 pt-1.5 pb-1 mt-1 border-t border-rule text-[11px] text-muted leading-snug">
               目前只有这一卷。下一个方向没开工，就不在这里摆一个灰名字。
+            </p>
+          ) : (
+            <p className="px-3 pt-1.5 pb-1 mt-1 border-t border-rule text-[11px] text-muted leading-snug">
+              「建设中」= 页面能看，但数据还没核完 ——{" "}
+              <span className="text-ink">⬜ 多不代表厂商不透明，是我们还没读完。</span>
             </p>
           )}
         </div>

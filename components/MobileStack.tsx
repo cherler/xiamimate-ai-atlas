@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { atlas, capsOf, cell, label, modelsOf, transparency, vendorName } from "@/lib/atlas";
+import { atlas, capsOf, cell, label, modelsOf, transparency, vendorName , type Klass} from "@/lib/atlas";
 import { capHref, modelHref } from "@/lib/slug";
 import { MARK, TONE } from "./Fact";
 
@@ -21,9 +21,16 @@ import { MARK, TONE } from "./Fact";
  * **在手机上做对比是错的场景**，人在手机上是「刷着看」，不是「坐下来查」。
  * 要比就点进模型页。
  */
-export default function MobileStack() {
-  const models = modelsOf("clip");
-  const caps = capsOf("clip").filter((c) => c.ubiquity !== "已普及");
+/**
+ * 手机端的叙事版。**轨从外面传进来，别写死。**
+ *
+ * 原来硬编码 `"clip"` —— 于是 /atlas/image 在手机上**整页没有表**：
+ * 桌面表是 `hidden md:block`，手机靠这个组件兜底，而它只会画视频那一轨。
+ * 出站验证的桌面端全绿、手机端才报出来 —— **一个视口测不出另一个视口的事**。
+ */
+export default function MobileStack({ k = "clip" }: { k?: Klass }) {
+  const models = modelsOf(k);
+  const caps = capsOf(k).filter((c) => c.ubiquity !== "已普及");
 
   return (
     <div className="flex flex-col gap-8 md:hidden">
