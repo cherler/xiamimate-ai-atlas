@@ -1,23 +1,30 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { Rich } from "@/components/Fact";
-import { atlas, domainModels, extendedOf, label, vendorName, orgOf, STATUS } from "@/lib/atlas";
+import { atlas, domainModels, extendedOf, label, vendorName, orgOf, tracksOf, STATUS } from "@/lib/atlas";
 import { modelHref } from "@/lib/slug";
 import BackLink from "@/components/BackLink";
+import { domainOf } from "../dom";
 
-export const metadata: Metadata = {
-  title: "全部模型 —— 含库里有但没进主表的",
-  description: "主表每轨最多 10 个；停服的降到 Extended 层，不删除。还有明确不收的那一类。",
-};
+export async function generateMetadata(
+  { params }: { params: Promise<{ domain: string }> },
+): Promise<Metadata> {
+  const d = domainOf((await params).domain);
+  return {
+    title: `${d.name} · 全部模型 —— 含库里有但没进主表的`,
+    description: "主表每轨最多 10 个；停服的降到 Extended 层，不删除。还有明确不收的那一类。",
+  };
+}
 
-export default function ModelsPage() {
+export default async function ModelsPage({ params }: { params: Promise<{ domain: string }> }) {
+  const d = domainOf((await params).domain);
   return (
     <main className="max-w-[1240px] mx-auto px-5 pt-5 pb-8 flex flex-col gap-10">
       <BackLink />
-      <h1 className="text-[28px] font-semibold leading-tight">全部模型</h1>
+      <h1 className="text-[28px] font-semibold leading-tight">{d.name} · 全部模型</h1>
 
       <section className="flex flex-col gap-2">
-        {domainModels().map((m) => (
+        {domainModels(d.id).map((m) => (
           <Link key={m.id} href={modelHref(m)}
             className="border-b border-rule pb-2 flex flex-wrap items-baseline gap-x-3 gap-y-1 hover:text-yes">
             {/* 手机 390 宽装不下三列固定宽度 —— 换成可换行，别让页面横向滚动 */}
@@ -37,8 +44,9 @@ export default function ModelsPage() {
           保证「它存在」，不保证逐格核过。停服的降到这里，不删。
         </p>
         <div className="flex flex-col gap-3">
-          {(["clip", "realtime"] as const).flatMap((k) =>
-            extendedOf(k).map((m) => (
+          {/* 轨不再写死 —— 按这个方向自己声明的轨遍历 */}
+          {tracksOf(d).flatMap((t) =>
+            extendedOf(t.id, d.id).map((m) => (
               <div key={m.id} className="border-t border-rule pt-3 text-[15px]">
                 <p className="font-semibold">
                   {label(m)}

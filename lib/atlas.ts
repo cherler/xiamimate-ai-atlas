@@ -172,6 +172,8 @@ export type Version = {
  */
 export type Skill = {
   id: string; zh: string; en: string; cap?: string;
+  /** 属于哪个方向。缺省按 video 兜底。 */
+  domain?: string;
   io?: { in: string[]; out: string };
   native?: string[];
   opensource?: { name: string; url?: string; src: string; quote: string }[];
@@ -227,6 +229,8 @@ export type Application = {
   id: string;
   zh: string;
   en: string;
+  /** 属于哪个方向。缺省按 video 兜底。 */
+  domain?: string;
   /**
    * 同一件事在行业里的别名。**这一栏是给搜的人用的** ——
    * 我们叫「数字人口播」，别人可能搜「AI口播」「口播视频」；叫「AI漫剧」的

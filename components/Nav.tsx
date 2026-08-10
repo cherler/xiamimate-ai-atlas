@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { atlas } from "@/lib/atlas";
 import DomainSwitch from "./DomainSwitch";
 import { BRAND } from "@/lib/brand";
 
@@ -38,16 +39,29 @@ import { BRAND } from "@/lib/brand";
  *
  * `data-nav="global"` 是给检查器认的记号：用通用 `<nav>` 查会假阳性（面包屑也是 nav）。
  */
+/**
+ * 四张图。**路径带方向前缀** —— `/atlas/video/tree`、`/atlas/image/tree`。
+ * 这里只写后缀，前缀由当前所在的方向决定（见下面 `dom`）。
+ */
 const MAIN = [
-  { href: "/", zh: "现在" },
-  { href: "/tree", zh: "演变" },
-  { href: "/map", zh: "关系" },
-  { href: "/scenario", zh: "场景" },
+  { seg: "", zh: "现在" },
+  { seg: "/tree", zh: "演变" },
+  { seg: "/map", zh: "关系" },
+  { seg: "/scenario", zh: "场景" },
 ];
 
 export default function Nav() {
   const p = usePathname() ?? "/";
-  const here = (h: string) => (h === "/" ? p === "/" : p.startsWith(h.split("/").slice(0, 2).join("/")));
+  /**
+   * 当前在哪个方向。从路径第一段取；取不到（根页、/method 这类全局页）
+   * 就退回 live 的那个 —— **导航不能因为你在全局页就失去入口**。
+   */
+  const seg = p.replace(/^\/atlas/, "").split("/").filter(Boolean)[0] ?? "";
+  const dom = atlas.domains.some((d) => d.id === seg)
+    ? seg
+    : (atlas.domains.find((d) => d.state === "live") ?? atlas.domains[0]).id;
+  const base = `/${dom}`;
+  const here = (h: string) => (h === base ? p.endsWith(base) : p.includes(h));
 
   // 返回不放在导航条里 —— 塞进菜单栏太丑、和菜单项挤在一起。
   // 改用 <BackLink/> 放各下级页内容区顶部（像旧 /method 的「回地图」那样）。
@@ -62,14 +76,17 @@ export default function Nav() {
       <div className="max-w-[1240px] mx-auto px-5 h-12 flex items-center gap-1">
         <DomainSwitch brand={BRAND.short} />
         <div className="flex items-center gap-1 min-w-0 flex-1 overflow-x-auto">
-          {MAIN.map((m) => (
-            <Link key={m.href} href={m.href}
-              className={`text-[14px] px-2.5 py-1 shrink-0 whitespace-nowrap ${
-                here(m.href) ? "text-ink font-semibold" : "text-muted hover:text-ink"
-              }`}>
-              {m.zh}
-            </Link>
-          ))}
+          {MAIN.map((m) => {
+            const href = `${base}${m.seg}`;
+            return (
+              <Link key={href} href={href}
+                className={`text-[14px] px-2.5 py-1 shrink-0 whitespace-nowrap ${
+                  here(href) ? "text-ink font-semibold" : "text-muted hover:text-ink"
+                }`}>
+                {m.zh}
+              </Link>
+            );
+          })}
           <Link href="/method"
             className={`text-[13px] px-2.5 py-1 ml-auto shrink-0 whitespace-nowrap underline ${
               here("/method") ? "text-ink" : "text-muted hover:text-ink"

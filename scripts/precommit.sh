@@ -12,4 +12,9 @@ echo "── 2/5 数据校验"; node scripts/validate.mjs
 echo "── 3/5 规则自测"; node scripts/test-rules.mjs
 echo "── 4/5 构建";     npx next build > /tmp/atlas-build.log 2>&1 || { tail -20 /tmp/atlas-build.log; exit 1; }
 echo "── 5/5 出站验证"; node scripts/verify.mjs
+# **构建会把 .next 写成生产形态，正在跑的 next dev 复用它就对不上** ——
+# 表现是页面能开、但 _next/static/* 全 404，整页无样式无交互。
+# 跑完清掉，下次 dev 从零编译。**别让"跑一次验证"把开发环境弄坏。**
+rm -rf .next
+echo "已清 .next（构建产物会让 next dev 拿到对不上的 chunk）"
 echo "全部通过，可以提交。"

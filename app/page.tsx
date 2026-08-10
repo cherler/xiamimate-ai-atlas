@@ -1,131 +1,64 @@
+import type { Metadata } from "next";
 import Link from "next/link";
-import TruthTable, { Legend } from "@/components/TruthTable";
-import Explorer from "@/components/Explorer";
-import MobileStack from "@/components/MobileStack";
-import TaskPicker from "@/components/TaskPicker";
-import Search from "@/components/Search";
-import { atlas, capsOf, cell, currentDomain, modelsOf, tracksOf } from "@/lib/atlas";
+import { atlas, domainModels, tracksOf } from "@/lib/atlas";
 
 /**
- * 首页 = 规格书第一页（docs/视觉方案_V1.md）。
+ * `/atlas` 根路径 = **方向选择页**。
  *
- * 顺序按「读者要投入多少」排，越往下要求越多：
- *   真值表   零操作，扫一眼就懂         ← 首屏全部装下，不用滚
- *   脚注     想追一句原文才往下看
- *   实时轨   知道还有另一套坐标系
- *   任务入口 已经知道自己要干嘛了
- * 反过来排，第一屏就把人劝退了 —— 上一版就是这么劝退的。
+ * 每个方向都带自己的前缀（`/atlas/video`、`/atlas/image`），包括第一个 ——
+ * 负责人 2026-08-11 定。**不让第一个方向霸占根路径**：那会让它看起来是「主体」、
+ * 后来的都是附属品，加第三个方向时这个不对称立刻变成负担（根到底属于谁？）。
  *
- * 这一页不解释自己。口径全在 <Legend/> 那一行和 /method。
+ * 静态导出没有服务端重定向，所以这里不是跳转，是一页真正的入口 ——
+ * 它顺带回答了一个之前没地方回答的问题：**这个站到底covers 几个方向、各自做到哪一步了。**
  */
-export default function Home() {
-  /**
-   * 卷名与轨名从数据取，**不写死**。
-   * 「第一卷 · 离线出片轨」是 AI 视频这个方向自己的分法，AI 图像只有一轨、
-   * 也就没有「第一卷 / 第二卷」这回事 —— 写死在这里等于把一个方向刻进架子。
-   * 轨的定义见 data/atlas.json 的 domains[].tracks。
-   */
-  const dom = currentDomain();
-  const [t0, t1] = tracksOf(dom);
-  const ms = modelsOf("clip");
-  const cs = capsOf("clip");
-  // data-page="home" 是给检查器认「有没有兜底到首页」的记号。**别拿会变的文案当锚点。**
+export const metadata: Metadata = {
+  title: "AI 能力核验 —— 谁能做什么，每一格都带官方原文",
+  description: "按方向分卷：AI 视频、AI 图像。能力矩阵、演化谱系、公司关系、应用路线，每条事实都带厂商官方来源与核验日期。",
+};
+
+export default function Pick() {
   return (
-    <main data-page="home" className="max-w-[1400px] mx-auto px-6 py-8">
-      <header className="flex items-end gap-4 border-b-[2.5px] border-ink pb-2.5">
+    <main data-page="home" className="max-w-[1000px] mx-auto px-6 py-12">
+      <header className="border-b-[2.5px] border-ink pb-3">
         <h1 className="text-[38px] leading-[1.05] font-bold tracking-[-.01em]">
-          {dom.name} · 能力核验规格书
+          先选一个方向
           <span className="block text-[15px] leading-[1.3] font-normal text-muted mt-2">
-            {t0 ? `${t0.volume} · ${t0.zh} —— ${t0.note}` : dom.note}
+            每个方向一套独立的能力轴 —— 硬并成一张表会把两边都讲错
           </span>
         </h1>
-        <div className="ml-auto text-right text-[12px] leading-[1.7] text-muted whitespace-nowrap">
-          核验于 {atlas.generated_at}
-          <br />
-          发布记录 {atlas.versions.length} 次
-          <br />
-          引用官方来源 {Object.keys(atlas.sources).length} 处
-        </div>
       </header>
 
-      <div className="mt-4">
-        <TruthTable k="clip" />
+      <div className="mt-8 flex flex-col gap-4">
+        {atlas.domains.map((d) => {
+          const ms = domainModels(d.id);
+          const core = ms.filter((m) => (m.tier ?? "core") === "core").length;
+          const cells = atlas.support.filter((s) => ms.some((m) => m.id === s.m));
+          const yes = cells.filter((s) => s.state === "yes").length;
+          return (
+            <Link key={d.id} href={`/${d.id}`}
+              className="border border-rule bg-card px-5 py-5 hover:border-yes hover:bg-yes/5 flex flex-wrap items-baseline gap-x-4 gap-y-2">
+              <span className="text-[26px] font-bold">{d.name}</span>
+              {d.state !== "live" && (
+                <span className="text-[11px] px-1.5 py-0.5 bg-unknown/20 text-unknown">建设中</span>
+              )}
+              <span className="text-[13px] text-muted">
+                {tracksOf(d).map((t) => t.zh).join(" · ")}
+              </span>
+              <span className="ml-auto text-[12px] text-muted tabular-nums whitespace-nowrap">
+                产品线 {ms.length} 条 · 进表 {core} 条 · 已核 {yes} 格
+              </span>
+            </Link>
+          );
+        })}
       </div>
-      <Legend />
-      <MobileStack />
 
-      <p className="mt-5 text-[13px] text-muted">
-        代表性视图，不是完整列表 ——
-        <Link href="/models" className="underline ml-1 hover:text-ink">
-          查看全部 {atlas.models.length} 个模型 →
-        </Link>
+      <p className="mt-8 text-[12.5px] text-muted leading-relaxed">
+        <b className="text-ink">「已核」只数带官方原文的那些。</b>
+        ⬜ 不是缺口，是一条事实：我们查了、公开渠道没说；而两个方向的 ⬜ 密度不同，
+        多的那个是我们还没读完那些文档 —— 这一点在方向页里也写着。
+        <Link href="/method" className="underline ml-1 hover:text-ink">口径 →</Link>
       </p>
-
-      {/*
-        实时交互轨拉回首页（负责人 2026-08-09）。它们不并进上表 ——
-        Vidu S1、Lucy 这些在离线轨 10 项能力上 10/10 全「没说」，因为它们根本不做
-        首尾帧、视频延长这类事。硬塞进上表就是两列整列斜线，让人以为「它俩啥都不行」，
-        其实是用错了尺子。所以另起一张同语言的表，能力轴是它们自己的。
-      */}
-      {/* 标题格式对齐第一卷的 h1（大标题 + 副标题一行）；描述压到一行，不换行。 */}
-      <section className="mt-14">
-        <header className="border-b-[2.5px] border-ink pb-2.5">
-          <h2 className="text-[38px] leading-[1.05] font-bold tracking-[-.01em]">
-            {t1 ? `${t1.volume} · ${t1.zh}` : ""}
-            <span className="block text-[15px] leading-[1.3] font-normal text-muted mt-2">
-              边生成边看、中途可干预、时长不预先确定 —— 它们和上表不共用坐标系，硬并成一张表会把两边都讲错
-            </span>
-          </h2>
-        </header>
-        <div className="mt-4">
-          <TruthTable k="realtime" />
-        </div>
-      </section>
-
-      <section className="mt-14">
-        <header className="border-b-[2.5px] border-ink pb-2.5">
-          <h2 className="text-[38px] leading-[1.05] font-bold tracking-[-.01em]">
-            第三卷 · 自己上手查
-            <span className="block text-[15px] leading-[1.3] font-normal text-muted mt-2">
-              点右边一项能力看谁实现了它，点左边两个模型比一比 —— 或者直接搜一个问题
-            </span>
-          </h2>
-        </header>
-        <div className="mt-4">
-          <Explorer />
-        </div>
-        <div className="mt-4">
-          <TaskPicker />
-        </div>
-        <div className="mt-5">
-          <Search />
-        </div>
-      </section>
-
-      {/*
-        次级入口。三张图（现在/演变/关系）在顶部导航；这些是复访与长尾层 ——
-        不占主导航（北极星），但也不能变成孤岛，从这里进得去。
-        文案写「问题」不写页面名 —— 读者关心自己的下一个问题，不是我们的信息架构。
-      */}
-      <nav className="mt-12 border-t-[.5px] border-rule pt-3 flex flex-wrap gap-x-6 gap-y-2 text-[13px] text-muted">
-        {[
-          ["/changes", "最近有什么变化"],
-          ["/caveats", "能力对了，未必用得上"],
-          ["/toolkit", "想查一件事，去哪个站"],
-          ["/models", `全部 ${atlas.models.length} 个模型`],
-        ].map(([href, zh]) => (
-          <Link key={href} href={href} className="hover:text-ink underline">
-            {zh} →
-          </Link>
-        ))}
-      </nav>
-
-      <footer className="mt-6 border-t-[.5px] border-rule pt-3 text-[12px] leading-[1.6] text-muted">
-        数据 {atlas.version} · 核验于 {atlas.generated_at} ·{" "}
-        <Link href="/method#agent" className="underline hover:text-ink">
-          机器录入
-        </Link>
-      </footer>
     </main>
   );
 }

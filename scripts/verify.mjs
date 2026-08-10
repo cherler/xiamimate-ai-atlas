@@ -53,14 +53,26 @@ const ORIGIN = DEV ? "http://127.0.0.1:3400" : `http://127.0.0.1:${PORT}`;
  * 否则它只是口号，下次又会悄悄涨回去。/method 是口径收容所，它本来就该长。
  */
 const ROUTES = [
-  { path: "/", must: "AI 视频", zh: 900, built: true },
+  // 根路径 = 方向选择页（不再是视频首页）
+  { path: "/", must: "先选一个方向", zh: 200, built: true, also: ["AI 视频", "AI 图像"] },
+  // ── 两个方向各一套。**同一份代码渲染，路由表也照抄一遍** ——
+  // 抄一遍才能证明「换方向不改前端」；只测一个方向等于没测这件事。
+  { path: "/video", must: "AI 视频", zh: 900, built: true },
+  { path: "/video/tree", must: "长出了什么", zh: 800, built: true },
+  { path: "/video/map", must: "谁和谁有关系", zh: 2400, built: true },
+  { path: "/video/scenario", must: "我想做什么", zh: 260, per: "article", built: true, also: ["公开路线", "需要的能力", "输入 → 输出"] },
+  { path: "/video/models", must: "全部模型", zh: 1200, built: true },
+  { path: "/image", must: "AI 图像", zh: 900, built: true, also: ["出图轨", "文字渲染", "这个方向还在建"] },
+  { path: "/image/tree", must: "长出了什么", zh: 800, built: true, also: ["还没采谱系"] },
+  { path: "/image/map", must: "谁和谁有关系", zh: 2400, built: true },
+  { path: "/image/scenario", must: "我想做什么", zh: 900, built: true, also: ["还没定应用"] },
+  { path: "/image/models", must: "全部模型", zh: 1200, built: true },
   { path: "/method", must: "这些数据是怎么来的", zh: 4000, built: true },
   // 列表页量**每条的字数**，不量总字数 —— 变更日志天生随事件累积变长，
   // 对它用「不许涨」是错的度量：那样一来，多记一条真实变更反而算退步。
   { path: "/changes", must: "最近有什么变化", zh: 130, per: "article, section > div", built: true },
   { path: "/model/wan", must: "阿里巴巴", zh: 1200, built: true },
   { path: "/capability/flf", must: "首尾帧", zh: 1200, built: true },
-  { path: "/tree", must: "长出了什么", zh: 800, built: true },
   { path: "/caveats", must: "你未必用得上", zh: 90, per: "section > div", built: true },
   { path: "/compare/kling-vs-seedance", must: "还是", zh: 800, built: true },
   { path: "/skill/motion", must: "动作复刻", zh: 1400, built: true, also: ["拿什么跑", "原生模型就能做", "得用它的变体", "自己部署", "Motion Control 是独立模型"] },
@@ -68,13 +80,9 @@ const ROUTES = [
   // /scenario 现在是应用目录：字数随「收了几个应用、每个应用挂几条资源」长。
   // 对它用整页上限，等于「多收一个真实应用算退步」—— 和 /changes 当初那个错一样。
   // 所以按条均摊（每条 = 一个应用卡）。
-  { path: "/scenario", must: "我想做什么", zh: 260, per: "article", built: true, also: ["公开路线", "需要的能力", "输入 → 输出"] },
   { path: "/toolkit", must: "该去哪个站", zh: 300, per: "main > div > section", built: true },
-  { path: "/map", must: "谁和谁有关系", zh: 2400, built: true },
-  { path: "/models", must: "全部模型", zh: 1200, built: true },
   // 第二个方向。**用的是和首页同一个 TruthTable**，只换了轨 ——
   // 这一条红了，说明「轨是方向的属性」那次重构又被人破坏了。
-  { path: "/image", must: "AI 图像", zh: 900, built: true, also: ["出图轨", "文字渲染", "这个方向还在建"] },
 ];
 
 const FLOWS = existsSync(join(ROOT, "data/flows.json"))
