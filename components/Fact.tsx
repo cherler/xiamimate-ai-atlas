@@ -69,7 +69,7 @@ export function Fact({ m, c, label }: { m: string; c: string; label: string }) {
           )}
           {f.verified_for && <span>核验版本 {f.verified_for}</span>}
           <span>核验于 {atlas.generated_at}</span>
-          <span className="px-1.5 py-px rounded bg-unknown/15 text-unknown text-[11px]">机器录入 · 未经人工核验</span>
+          <span className="px-1.5 py-px rounded bg-unknown/15 text-unknown text-[11px]">机器录入</span>
         </p>
         {/* 报错入口就挂在每一条事实旁边 —— 放在页脚等于没有：
             人是在看到某一格不对时才想报错的，那一刻要伸手就够得着 */}

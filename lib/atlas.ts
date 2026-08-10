@@ -11,7 +11,7 @@ export type State = "yes" | "no" | "unknown";
  * 对实时模型「视频延长」没有意义（它没有终点），对离线模型「延迟」没有意义。
  * 硬并成一张表，既没信息量，又会让人以为它们在同一条赛道上分了胜负。
  */
-export type Klass = "clip" | "realtime";
+export type Klass = string;
 
 export type Capability = {
   id: string;
@@ -276,7 +276,28 @@ export type Cell = {
  * 留这个结构是为了「加一个方向 = 改数据，不是改代码」。
  * 但**界面上不做占位 tab 假装有别的** —— 那是骗人，而这个产品的全部本钱就是不骗人。
  */
-export type Domain = { id: string; name: string; state: "live" | "planned"; note?: string };
+/** 一条轨。**轨是方向自己的属性**，见 Domain 的注释。 */
+export type Track = { id: string; zh: string; short: string; volume?: string; note?: string };
+
+export type Domain = {
+  id: string;
+  name: string;
+  state: "live" | "planned";
+  note?: string;
+  volume?: string;
+  /**
+   * 这个方向分几条轨。
+   *
+   * **轨不是全局枚举，是方向的属性。** AI 视频分两轨（离线出片 / 实时交互）
+   * 是它自己的事 —— 因为「渲染一段成片」和「边生成边看」根本不在同一条赛道上，
+   * 硬并成一张表既没信息量、又像在分胜负（ontology 规则二）。
+   * **AI 图像没有这个分法，AI 编程更没有。**
+   *
+   * 所以扩方向时，前端不该出现 `k === "clip" ? "离线出片轨" : "实时交互轨"`
+   * 这种写法 —— 那是把一个方向的分类刻进了架子里。轨名一律从这里查。
+   */
+  tracks?: Track[];
+};
 
 /** 被明确排除的东西。「为什么不收」和「它没了」一样，是有用的信息。 */
 export type Excluded = {
@@ -357,6 +378,24 @@ export const atlas = raw as unknown as {
   sources: Record<string, Source>;
   support: Cell[];
 };
+
+/** 当前方向（现在只有一个）。加第二个方向时这里改成按路由/切换器取。 */
+export const currentDomain = (): Domain =>
+  atlas.domains.find((d) => d.state === "live") ?? atlas.domains[0];
+
+/** 这个方向的全部轨，按数据顺序。 */
+export const tracksOf = (d: Domain = currentDomain()): Track[] => d.tracks ?? [];
+
+/**
+ * 轨的显示名。**不许再写三元表达式。**
+ * `long` 要「离线出片轨」，`short` 要「离线出片」——
+ * 两种都在页面上用过，所以都从数据里取，不在调用处拼。
+ */
+export function trackName(id: Klass, form: "long" | "short" = "long"): string {
+  const t = tracksOf().find((x) => x.id === id);
+  if (!t) return id;                 // 数据里没登记就照实显示 id，不编一个名字
+  return form === "short" ? t.short : t.zh;
+}
 
 const index = new Map(atlas.support.map((s) => [`${s.m}::${s.c}`, s]));
 

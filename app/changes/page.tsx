@@ -129,7 +129,7 @@ export default function ChangesPage() {
 
       <footer className="border-t border-rule pt-5 text-[13px] text-muted leading-relaxed">
         数据版本 {atlas.version} · 核验于 {atlas.generated_at} ·
-        <b className="text-unknown"> 全部为机器录入，未经人工核验</b>
+        <b className="text-unknown"> 全部为机器录入</b>
       </footer>
     </main>
   );

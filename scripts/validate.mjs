@@ -303,6 +303,43 @@ if (flows) {
   }
 }
 
+/**
+ * 方向与轨（H5 扩方向的地基）。
+ *
+ * **轨是方向的属性，不是全局枚举。** AI 视频分两轨（离线出片 / 实时交互）是它
+ * 自己的事；AI 图像只有一轨，AI 编程更没有这个分法。所以：
+ *   - 每个方向自己声明 tracks；
+ *   - model.class 必须是**它所属方向**声明过的轨；
+ *   - skills / applications 也要有 domain —— 少了这一栏，扩方向时它们会
+ *     **同时出现在每个方向下**，而且没有任何一处会报错。
+ */
+const domainIds = new Set((a.domains ?? []).map((d) => d.id));
+if (!domainIds.size) errs.push("R64 一个方向都没有 —— domains 是空的");
+for (const d of a.domains ?? []) {
+  if (!(d.tracks ?? []).length) warns.push(`R64 方向没声明 tracks：${d.id}（前端只能拿 id 当名字显示）`);
+  const seenTrack = new Set();
+  for (const t of d.tracks ?? []) {
+    if (!t.id || !t.zh || !t.short) errs.push(`R65 轨缺 id/zh/short：${d.id} → ${JSON.stringify(t)}`);
+    if (seenTrack.has(t.id)) errs.push(`R65 同一方向里轨 id 重复：${d.id} → ${t.id}`);
+    seenTrack.add(t.id);
+  }
+}
+const tracksOfDomain = (dom) =>
+  new Set(((a.domains ?? []).find((d) => d.id === dom)?.tracks ?? []).map((t) => t.id));
+for (const m of a.models) {
+  const dom = m.domain ?? "video";
+  if (!domainIds.has(dom)) errs.push(`R64 模型挂到不存在的方向：${m.id} → ${dom}`);
+  else if (!tracksOfDomain(dom).has(m.class))
+    errs.push(`R65 模型的轨没在它的方向里登记：${m.id} 是 ${m.class}，但方向 ${dom} 只有 ${[...tracksOfDomain(dom)].join("/") || "（无）"}`);
+}
+for (const k of ["capabilities", "skills", "applications"]) {
+  for (const x of a[k] ?? []) {
+    const dom = x.domain ?? "video";
+    if (!domainIds.has(dom)) errs.push(`R64 ${k} 挂到不存在的方向：${x.id} → ${dom}`);
+    if (!x.domain) warns.push(`R64 ${k} 没写 domain，按 video 兜底：${x.id} —— 扩方向前必须补齐`);
+  }
+}
+
 const used = new Set([
   ...a.support.map((s) => s.src),
   ...(a.availability ?? []).map((v) => v.src),

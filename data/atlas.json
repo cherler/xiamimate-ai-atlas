@@ -2545,7 +2545,24 @@
    "id": "video",
    "name": "AI 视频",
    "state": "live",
-   "note": "当前唯一在做的方向"
+   "note": "第一个方向。两轨是它特有的：离线渲染一段成片 vs 边生成边看。",
+   "volume": "第一卷",
+   "tracks": [
+    {
+     "id": "clip",
+     "zh": "离线出片轨",
+     "short": "离线出片",
+     "volume": "第一卷",
+     "note": "给定条件，渲染一段固定长度的成片"
+    },
+    {
+     "id": "realtime",
+     "zh": "实时交互轨",
+     "short": "实时交互",
+     "volume": "第二卷",
+     "note": "边生成边看，另一套坐标系"
+    }
+   ]
   }
  ],
  "$domains": "前端的方向切换从这里渲染。**现在只有一个，界面上就只显示一个** —— 不做占位 tab 假装有别的。加方向 = 往这个数组里加一条 + 给模型标 domain，不动代码。\n\n**能力轴按方向隔离**（规则二再往上推一层）：能力也带 domain。clip 和 realtime 已经不能共用能力轴，视频和文本更不能 —— 「首尾帧」对文本模型没有意义，硬塞进同一张表只会造出一整片假的 ⬜。校验 R26 拦跨方向的格子。",
@@ -3977,7 +3994,8 @@
      "src": "wanwrapper-gh",
      "quote": "★6,655 —— 开源侧动作复刻实际能跑起来的 workflow 主要在这里"
     }
-   ]
+   ],
+   "domain": "video"
   },
   {
    "id": "charref",
@@ -4041,7 +4059,8 @@
      "src": "vacetools-gh",
      "quote": "★138 · Some Comfyui custom nodes for wan2.1 VACE, attempt to implement VACE video generation/editing"
     }
-   ]
+   ],
+   "domain": "video"
   },
   {
    "id": "flf",
@@ -4108,7 +4127,8 @@
      "src": "flflatent-gh",
      "quote": "★37 · ComfyUI node that adds support for FLF2V with the Wan2.2 VAE"
     }
-   ]
+   ],
+   "domain": "video"
   },
   {
    "id": "lipsync",
@@ -4181,7 +4201,8 @@
      "src": "comfy-docs",
      "quote": "native workflow example for Wan2.2-S2V audio-driven video generation —— 注意这是「语音驱动」，不等同于对口型"
     }
-   ]
+   ],
+   "domain": "video"
   },
   {
    "id": "extend",
@@ -4233,7 +4254,8 @@
      "src": "fpwrapper-gh",
      "quote": "★1,685 · FramePack 的 ComfyUI 封装，kijai 维护"
     }
-   ]
+   ],
+   "domain": "video"
   },
   {
    "id": "openweights",
@@ -4341,7 +4363,8 @@
      "src": "ltx-comfy-gh",
      "quote": "LTX-Video Support for ComfyUI · ★4,038"
     }
-   ]
+   ],
+   "domain": "video"
   }
  ],
  "applications": [
@@ -4408,7 +4431,8 @@
    "aliases": [
     "AI微短剧",
     "短剧"
-   ]
+   ],
+   "domain": "video"
   },
   {
    "id": "comic-drama",
@@ -4466,7 +4490,8 @@
     "漫剧",
     "动画微短剧",
     "网文漫改"
-   ]
+   ],
+   "domain": "video"
   },
   {
    "id": "digital-host",
@@ -4539,7 +4564,8 @@
     "AI口播",
     "口播视频",
     "数字人分身"
-   ]
+   ],
+   "domain": "video"
   },
   {
    "id": "commerce-video",
@@ -4596,7 +4622,8 @@
     "电商口播",
     "好物带货",
     "商品短视频"
-   ]
+   ],
+   "domain": "video"
   },
   {
    "id": "effect-video",
@@ -4652,7 +4679,8 @@
     "特效变身",
     "画风转换",
     "创意特效"
-   ]
+   ],
+   "domain": "video"
   },
   {
    "id": "novel-promo",
@@ -4698,7 +4726,8 @@
      "src": "hf-course",
      "quote": "公开课程从扩散模型基础讲起，是理解这些图像与视频模型的共同底子"
     }
-   ]
+   ],
+   "domain": "video"
   },
   {
    "id": "explainer",
@@ -4744,7 +4773,8 @@
      "src": "comfy-docs",
      "quote": "官方文档提供音频驱动视频的原生工作流示例"
     }
-   ]
+   ],
+   "domain": "video"
   },
   {
    "id": "brand-film",
@@ -4776,7 +4806,8 @@
      "src": "comfy-docs",
      "quote": "官方工作流通过轨迹引导实现更细的点级运动控制"
     }
-   ]
+   ],
+   "domain": "video"
   },
   {
    "id": "picture-book",
@@ -4806,7 +4837,8 @@
      "src": "comfy-docs",
      "quote": "官方教程说明如何在两张关键画面之间补出过渡"
     }
-   ]
+   ],
+   "domain": "video"
   }
  ],
  "$applications": "应用是用户要交付的东西，不是能力名的同义改写。字段：{id, zh, en, intro, inputs[], output, skills[], resources[{kind, name, url, src, quote, note?}]}。应用层不下效果或适用性结论；资源分 project / skill / course / docs 四类，项目与工作流从关联 Skill 自动汇总，避免重复维护。场景页默认按 project → skill → docs → course 排序，同类官方来源优先；排序不是质量或效果评分。治理规则见 docs/应用开源资源治理.md。",

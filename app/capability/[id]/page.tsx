@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { Fact } from "@/components/Fact";
-import { atlas, cell, label, modelsOf, vendorName, type Klass } from "@/lib/atlas";
+import { atlas, cell, label, modelsOf, vendorName, type Klass , trackName} from "@/lib/atlas";
 import { modelHref } from "@/lib/slug";
 import BackLink from "@/components/BackLink";
 
@@ -94,7 +94,7 @@ export default async function CapabilityPage({ params }: { params: Promise<{ id:
       {tracks.map((k) => (
         <section key={k}>
           <h2 className="text-[22px] font-semibold mb-3">
-            {k === "clip" ? "离线出片轨" : "实时交互轨"}：谁实现了
+            {trackName(k)}：谁实现了
           </h2>
           {modelsOf(k).map((m) => (
             <div key={m.id}>
@@ -109,7 +109,7 @@ export default async function CapabilityPage({ params }: { params: Promise<{ id:
 
       <footer className="border-t border-rule pt-5 text-[13px] text-muted leading-relaxed">
         数据版本 {atlas.version} · 核验于 {atlas.generated_at} ·
-        <b className="text-unknown"> 全部为机器录入，未经人工核验</b>
+        <b className="text-unknown"> 全部为机器录入</b>
       </footer>
     </main>
   );

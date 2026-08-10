@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { Fact, Rich } from "@/components/Fact";
-import { atlas, capsOf, cell, label, vendorName } from "@/lib/atlas";
+import { atlas, capsOf, cell, label, vendorName , trackName} from "@/lib/atlas";
 import { capHref } from "@/lib/slug";
 import BackLink from "@/components/BackLink";
 
@@ -59,7 +59,7 @@ export default async function ModelPage({ params }: { params: Promise<{ id: stri
           {st && <span className={`ml-3 text-[18px] font-medium ${st.cls}`}>{st.tag}</span>}
         </h1>
         <p className="text-muted text-[16px]">
-          {vendorName(m)} · 该版本 {m.version_as_of} · {m.class === "clip" ? "离线出片" : "实时交互"}轨
+          {vendorName(m)} · 该版本 {m.version_as_of} · {trackName(m.class, "short")}轨
           {(m.tier ?? "core") !== "core" && " · Extended（只保证存在，不保证逐格核过）"}
         </p>
         {m.status_note && <Rich text={m.status_note} className="text-ink text-[15px] leading-relaxed" />}
@@ -87,7 +87,7 @@ export default async function ModelPage({ params }: { params: Promise<{ id: stri
 
       <footer className="border-t border-rule pt-5 text-[13px] text-muted leading-relaxed">
         数据版本 {atlas.version} · 核验于 {atlas.generated_at} ·
-        <b className="text-unknown"> 全部为机器录入，未经人工核验</b>
+        <b className="text-unknown"> 全部为机器录入</b>
       </footer>
     </main>
   );

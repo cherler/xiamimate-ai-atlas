@@ -4,7 +4,7 @@ import Explorer from "@/components/Explorer";
 import MobileStack from "@/components/MobileStack";
 import TaskPicker from "@/components/TaskPicker";
 import Search from "@/components/Search";
-import { atlas, capsOf, cell, modelsOf } from "@/lib/atlas";
+import { atlas, capsOf, cell, currentDomain, modelsOf, tracksOf } from "@/lib/atlas";
 
 /**
  * 首页 = 规格书第一页（docs/视觉方案_V1.md）。
@@ -19,6 +19,14 @@ import { atlas, capsOf, cell, modelsOf } from "@/lib/atlas";
  * 这一页不解释自己。口径全在 <Legend/> 那一行和 /method。
  */
 export default function Home() {
+  /**
+   * 卷名与轨名从数据取，**不写死**。
+   * 「第一卷 · 离线出片轨」是 AI 视频这个方向自己的分法，AI 图像只有一轨、
+   * 也就没有「第一卷 / 第二卷」这回事 —— 写死在这里等于把一个方向刻进架子。
+   * 轨的定义见 data/atlas.json 的 domains[].tracks。
+   */
+  const dom = currentDomain();
+  const [t0, t1] = tracksOf(dom);
   const ms = modelsOf("clip");
   const cs = capsOf("clip");
   // data-page="home" 是给检查器认「有没有兜底到首页」的记号。**别拿会变的文案当锚点。**
@@ -26,9 +34,9 @@ export default function Home() {
     <main data-page="home" className="max-w-[1400px] mx-auto px-6 py-8">
       <header className="flex items-end gap-4 border-b-[2.5px] border-ink pb-2.5">
         <h1 className="text-[38px] leading-[1.05] font-bold tracking-[-.01em]">
-          AI 视频 · 能力核验规格书
+          {dom.name} · 能力核验规格书
           <span className="block text-[15px] leading-[1.3] font-normal text-muted mt-2">
-            第一卷 · 离线出片轨 —— 给定条件，渲染一段固定长度的成片
+            {t0 ? `${t0.volume} · ${t0.zh} —— ${t0.note}` : dom.note}
           </span>
         </h1>
         <div className="ml-auto text-right text-[12px] leading-[1.7] text-muted whitespace-nowrap">
@@ -63,7 +71,7 @@ export default function Home() {
       <section className="mt-14">
         <header className="border-b-[2.5px] border-ink pb-2.5">
           <h2 className="text-[38px] leading-[1.05] font-bold tracking-[-.01em]">
-            第二卷 · 实时交互轨
+            {t1 ? `${t1.volume} · ${t1.zh}` : ""}
             <span className="block text-[15px] leading-[1.3] font-normal text-muted mt-2">
               边生成边看、中途可干预、时长不预先确定 —— 它们和上表不共用坐标系，硬并成一张表会把两边都讲错
             </span>
@@ -115,7 +123,7 @@ export default function Home() {
       <footer className="mt-6 border-t-[.5px] border-rule pt-3 text-[12px] leading-[1.6] text-muted">
         数据 {atlas.version} · 核验于 {atlas.generated_at} ·{" "}
         <Link href="/method#agent" className="underline hover:text-ink">
-          机器录入，未经人工核验
+          机器录入
         </Link>
       </footer>
     </main>

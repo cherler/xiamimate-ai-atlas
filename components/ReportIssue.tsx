@@ -56,7 +56,7 @@ export default function ReportIssue({ m, c }: { m?: string; c?: string }) {
       {open && (
         <div className="mt-2 border border-rule rounded-lg p-3 bg-card flex flex-col gap-2">
           <p className="text-muted leading-relaxed">
-            我们主动用<b className="text-ink">「不那么精准」换了维护成本</b>（数据由 Agent 录入、未经人工核验）。
+            我们主动用<b className="text-ink">「不那么精准」换了维护成本</b>（数据由 Agent 机器录入）。
             <b className="text-ink">那笔交易的另一半就是可纠错</b> —— 报错请直接发，我们改完会记进「变了什么」。
           </p>
           <a
