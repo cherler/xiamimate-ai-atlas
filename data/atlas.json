@@ -1359,6 +1359,11 @@
    "url": "https://docs.comfy.org/tutorials/video/wan/",
    "tier": "official"
   },
+  "hf-course": {
+   "name": "Hugging Face Diffusion Models Course（公开课程）",
+   "url": "https://huggingface.co/learn/diffusion-course/en/unit0/1",
+   "tier": "official"
+  },
   "latentsync-gh": {
    "name": "bytedance/LatentSync（字节自家开源仓库，星标 5,975）",
    "url": "https://github.com/bytedance/LatentSync",
@@ -4279,6 +4284,333 @@
    ]
   }
  ],
+ "applications": [
+  {
+   "id": "short-drama",
+   "zh": "AI短剧",
+   "en": "AI Short Drama",
+   "intro": "把角色设定、对白和多个镜头接成一段连续剧情。",
+   "inputs": [
+    "角色参考图",
+    "分镜 / 台词",
+    "对白或配乐"
+   ],
+   "output": "连续多镜头短片",
+   "skills": [
+    "charref",
+    "extend",
+    "lipsync",
+    "flf"
+   ],
+   "resources": [
+    {
+     "kind": "course",
+     "name": "Hugging Face Diffusion Models Course",
+     "url": "https://huggingface.co/learn/diffusion-course/en/unit0/1",
+     "src": "hf-course",
+     "quote": "公开课程从扩散模型基础开始，后续单元延伸到视频生成资料",
+     "note": "补共同底层；不是一键短剧模板"
+    },
+    {
+     "kind": "docs",
+     "name": "ComfyUI · Wan2.2 视频工作流",
+     "url": "https://docs.comfy.org/tutorials/video/wan/wan2_2",
+     "src": "comfy-docs",
+     "quote": "官方教程提供本地自部署、首尾帧与视频工作流入口",
+     "note": "先跑通一条镜头，再做角色和延长"
+    }
+   ],
+   "aliases": [
+    "AI微短剧",
+    "短剧"
+   ]
+  },
+  {
+   "id": "comic-drama",
+   "zh": "AI漫剧",
+   "en": "AI Comic Drama",
+   "intro": "把漫画、网文这类图文素材改编成视频，角色和画风跨集保持一致。",
+   "inputs": [
+    "角色立绘 / 设定图",
+    "分镜图",
+    "动作参考"
+   ],
+   "output": "动态漫剧片段",
+   "skills": [
+    "charref",
+    "flf",
+    "extend",
+    "motion"
+   ],
+   "resources": [
+    {
+     "kind": "course",
+     "name": "Hugging Face Diffusion Models Course",
+     "url": "https://huggingface.co/learn/diffusion-course/en/unit0/1",
+     "src": "hf-course",
+     "quote": "公开课程提供扩散模型的基础概念与进一步学习路径",
+     "note": "适合先理解模型和工作流，不替代分镜设计"
+    },
+    {
+     "kind": "docs",
+     "name": "ComfyUI · Wan2.2 Animate",
+     "url": "https://docs.comfy.org/tutorials/video/wan/wan2-2-animate",
+     "src": "comfy-docs",
+     "quote": "官方教程说明角色动画与替换的本地工作流",
+     "note": "适合把单张角色图先动起来"
+    }
+   ],
+   "aliases": [
+    "漫剧",
+    "动画微短剧",
+    "网文漫改"
+   ]
+  },
+  {
+   "id": "digital-host",
+   "zh": "数字人口播",
+   "en": "Digital Host",
+   "intro": "不出镜，用一个固定形象把稿子念出来，口型对得上。",
+   "inputs": [
+    "角色图或人物视频",
+    "文本 / 音频",
+    "镜头脚本"
+   ],
+   "output": "口型同步的连续口播片",
+   "skills": [
+    "lipsync",
+    "charref",
+    "extend"
+   ],
+   "resources": [
+    {
+     "kind": "project",
+     "name": "LatentSync",
+     "url": "https://github.com/bytedance/LatentSync",
+     "src": "latentsync-gh",
+     "quote": "字节开源仓库，专门处理音频与人物口型同步",
+     "note": "先确认输入视频、人脸和显存要求"
+    },
+    {
+     "kind": "docs",
+     "name": "ComfyUI · Wan2.2-S2V",
+     "url": "https://docs.comfy.org/tutorials/video/wan/wan2-2-s2v",
+     "src": "comfy-docs",
+     "quote": "官方文档提供音频驱动视频的原生工作流示例",
+     "note": "语音驱动不等于口型同步，页面已分开记录"
+    }
+   ],
+   "aliases": [
+    "AI口播",
+    "口播视频",
+    "数字人分身"
+   ]
+  },
+  {
+   "id": "commerce-video",
+   "zh": "带货视频",
+   "en": "Commerce Video",
+   "intro": "把一个商品从静态展示推进到有动作、有镜头、有记忆点的短视频。",
+   "inputs": [
+    "商品图 / 包装图",
+    "卖点或脚本",
+    "首尾画面"
+   ],
+   "output": "商品展示与卖点短片",
+   "skills": [
+    "motion",
+    "charref",
+    "flf",
+    "extend"
+   ],
+   "resources": [
+    {
+     "kind": "docs",
+     "name": "ComfyUI · Wan-Move 轨迹控制",
+     "url": "https://docs.comfy.org/tutorials/video/wan/wan-move",
+     "src": "comfy-docs",
+     "quote": "官方工作流通过轨迹引导实现更细的点级运动控制",
+     "note": "适合先控制商品或人物怎么动"
+    },
+    {
+     "kind": "course",
+     "name": "Hugging Face Diffusion Models Course",
+     "url": "https://huggingface.co/learn/diffusion-course/en/unit0/1",
+     "src": "hf-course",
+     "quote": "公开课程提供扩散模型的基础与进一步资料",
+     "note": "补原理；商品创意仍需自己做测试"
+    }
+   ],
+   "aliases": [
+    "电商口播",
+    "好物带货",
+    "商品短视频"
+   ]
+  },
+  {
+   "id": "effect-video",
+   "zh": "AI特效",
+   "en": "AI Effects",
+   "intro": "把人物、商品或一张图变成一个几秒内成立的视觉效果。",
+   "inputs": [
+    "主体图",
+    "效果意图",
+    "动作或轨迹参考"
+   ],
+   "output": "可复用的特效镜头",
+   "skills": [
+    "motion",
+    "flf",
+    "charref"
+   ],
+   "resources": [
+    {
+     "kind": "docs",
+     "name": "ComfyUI · Wan-Move 轨迹控制",
+     "url": "https://docs.comfy.org/tutorials/video/wan/wan-move",
+     "src": "comfy-docs",
+     "quote": "官方文档给出可直接尝试的运动控制工作流",
+     "note": "从一个主体、一条轨迹开始"
+    },
+    {
+     "kind": "course",
+     "name": "Hugging Face Diffusion Models Course",
+     "url": "https://huggingface.co/learn/diffusion-course/en/unit0/1",
+     "src": "hf-course",
+     "quote": "公开课程从扩散模型基础讲起，适合补齐共同语言",
+     "note": "课程不是特效素材库"
+    }
+   ],
+   "aliases": [
+    "特效变身",
+    "画风转换",
+    "创意特效"
+   ]
+  },
+  {
+   "id": "novel-promo",
+   "zh": "小说推文",
+   "en": "Novel Promo",
+   "aliases": [
+    "推文视频",
+    "网文推广"
+   ],
+   "intro": "把网文段落变成信息流里能播的短视频，靠画面把人留到下一段。",
+   "inputs": [
+    "网文段落 / 拆书稿",
+    "角色与场景设定图",
+    "旁白配音"
+   ],
+   "output": "引流到小说的推文短视频",
+   "skills": [
+    "charref",
+    "flf",
+    "extend"
+   ],
+   "resources": [
+    {
+     "kind": "course",
+     "name": "Hugging Face Diffusion Models Course",
+     "url": "https://huggingface.co/learn/diffusion-course/en/unit0/1",
+     "src": "hf-course",
+     "quote": "公开课程从扩散模型基础讲起，是理解这些图像与视频模型的共同底子"
+    }
+   ]
+  },
+  {
+   "id": "explainer",
+   "zh": "知识科普",
+   "en": "Explainer",
+   "aliases": [
+    "科普短视频",
+    "知识口播"
+   ],
+   "intro": "把一个知识点讲清楚：出镜形象加画面演示，一条讲完。",
+   "inputs": [
+    "讲稿",
+    "出镜形象或图示",
+    "配音"
+   ],
+   "output": "讲清一个知识点的短视频",
+   "skills": [
+    "lipsync",
+    "charref",
+    "extend"
+   ],
+   "resources": [
+    {
+     "kind": "docs",
+     "name": "ComfyUI · Wan2.2-S2V 音频驱动",
+     "url": "https://docs.comfy.org/tutorials/video/wan/wan2-2-s2v",
+     "src": "comfy-docs",
+     "quote": "官方文档提供音频驱动视频的原生工作流示例"
+    }
+   ]
+  },
+  {
+   "id": "brand-film",
+   "zh": "品牌短片",
+   "en": "Brand Film",
+   "aliases": [
+    "品牌故事片",
+    "企业宣传片",
+    "广告短片"
+   ],
+   "intro": "讲品牌而不是讲单个商品，一条能反复播的形象片。",
+   "inputs": [
+    "品牌与产品素材",
+    "分镜与文案",
+    "首尾关键画面"
+   ],
+   "output": "品牌形象短片",
+   "skills": [
+    "charref",
+    "flf",
+    "motion",
+    "extend"
+   ],
+   "resources": [
+    {
+     "kind": "docs",
+     "name": "ComfyUI · Wan-Move 轨迹控制",
+     "url": "https://docs.comfy.org/tutorials/video/wan/wan-move",
+     "src": "comfy-docs",
+     "quote": "官方工作流通过轨迹引导实现更细的点级运动控制"
+    }
+   ]
+  },
+  {
+   "id": "picture-book",
+   "zh": "绘本视频",
+   "en": "Picture Book",
+   "aliases": [
+    "故事绘本",
+    "儿童绘本"
+   ],
+   "intro": "把一册图文故事逐页动起来，跨页画风和角色不跑。",
+   "inputs": [
+    "绘本插画 / 角色设定",
+    "故事文本",
+    "旁白配音"
+   ],
+   "output": "逐页动起来的绘本视频",
+   "skills": [
+    "charref",
+    "flf",
+    "extend"
+   ],
+   "resources": [
+    {
+     "kind": "docs",
+     "name": "ComfyUI · Wan2.1 FLF2V 首尾帧",
+     "url": "https://docs.comfy.org/tutorials/video/wan/wan-flf",
+     "src": "comfy-docs",
+     "quote": "官方教程说明如何在两张关键画面之间补出过渡"
+    }
+   ]
+  }
+ ],
+ "$applications": "应用是用户要交付的东西，不是能力名的同义改写。字段：{id, zh, en, intro, inputs[], output, skills[], resources[{kind, name, url, src, quote, note?}]}。应用层不下效果或适用性结论；资源分 project / skill / course / docs 四类，项目与工作流从关联 Skill 自动汇总，避免重复维护。场景页默认按 project → skill → docs → course 排序，同类官方来源优先；排序不是质量或效果评分。治理规则见 docs/应用开源资源治理.md。",
  "$skills": "Skill / Workflow。方案 §10 原话：**「Skill 必须是第一等公民。」**\n一个 Skill 回答的是「这件事怎么做」，而能力格回答的是「谁能做」——两个问题。\n\n字段：{id, zh, en, cap?, io{in[],out}, native[], opensource[], platform_feature[], limits[], cases[], src, quote, verified_at}\n\n**limits 为空要报警告（R45）**：一个没有「已知限制」的 Skill 页是在卖广告，不是在帮人。",
  "$change_events": "**已删。** 变更事件的真源是 data/changes.json（那一份还区分 world/ours 两侧，比这里全）。同一个口径不许有第二份。",
  "toolkit": [

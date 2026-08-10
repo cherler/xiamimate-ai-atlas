@@ -11,12 +11,14 @@
 import { readFileSync, existsSync } from "node:fs";
 
 const a = JSON.parse(readFileSync(new URL("../data/atlas.json", import.meta.url), "utf8"));
+const watchRegistry = JSON.parse(readFileSync(new URL("../data/sources.json", import.meta.url), "utf8"));
 const errs = [];
 const warns = [];
 
 const caps = new Map(a.capabilities.map((c) => [c.id, c]));
 const models = new Map(a.models.map((m) => [m.id, m]));
 const srcIds = new Set(Object.keys(a.sources));
+const watchSources = new Map((watchRegistry.sources ?? []).map((s) => [s.id, s]));
 const seen = new Set();
 
 /** 某个模型该不该有某项能力的格子 —— 分轨之后不再是全笛卡尔积（ontology 规则二）。 */
@@ -212,6 +214,33 @@ for (const k of a.skills ?? []) {
   if (!k.verified_at) errs.push(`R45a Skill 没写核验日期：${at}`);
 }
 
+for (const app of a.applications ?? []) {
+  const at = `应用 ${app.id}`;
+  for (const skillId of app.skills ?? [])
+    if (!skillIds.has(skillId)) errs.push(`R43 应用关联了不存在的 Skill：${at} → ${skillId}`);
+  for (const r of app.resources ?? []) {
+    if (!["project", "skill", "course", "docs"].includes(r.kind))
+      errs.push(`R43 应用资源类型不合法：${at} → ${r.name}`);
+    if (!r.url || !r.src || !r.quote)
+      errs.push(`R44 应用公开资源缺链接、来源或原文：${at} → ${r.name}`);
+    if (r.src && !watchSources.has(r.src))
+      errs.push(`R63 应用资源来源没有进入自动监视清单：${at} → ${r.src}`);
+  }
+}
+
+// 应用会从关联 Skill 自动汇总项目 / Workflow；这些来源也必须有刷新周期，
+// 否则页面看起来在更新，真正的开源内容却永远不会进入 watch --due。
+//
+// **查全部 Skill，不只查被应用引用到的那些。** 原来按应用往下遍历，
+// 一个还没进任何应用的 Skill（比如「开源自部署」被从应用层拿掉之后）
+// 就悄悄脱离监视 —— 而它的资源照样显示在 /skill 页上。
+for (const skill of a.skills ?? []) {
+  for (const item of [...(skill.opensource ?? []), ...(skill.workflow ?? [])]) {
+    if (item.src && !watchSources.has(item.src))
+      errs.push(`R63 Skill 资源来源没有进入自动监视清单：${skill.id} → ${item.src}`);
+  }
+}
+
 const CHANGES = existsSync(new URL("../data/changes.json", import.meta.url))
   ? JSON.parse(readFileSync(new URL("../data/changes.json", import.meta.url), "utf8")).events
   : [];
@@ -282,6 +311,7 @@ const used = new Set([
   ...(a.skills ?? []).flatMap((k) => (k.workflow ?? []).map((w) => w.src)),   // workflow 来源
   ...(a.skills ?? []).flatMap((k) => (k.opensource ?? []).map((o) => o.src)), // 开源实现的来源，漏了会误报 R10
   ...(a.skills ?? []).flatMap((k) => (k.platform_feature ?? []).map((f) => f.src)),
+  ...(a.applications ?? []).flatMap((app) => (app.resources ?? []).map((r) => r.src)), // 应用的课程与文档来源
   ...a.models.map((m) => m.arch_src),                 // 架构标注也是引用
   ...(a.pricing ?? []).map((q) => q.src),
 ].filter(Boolean));

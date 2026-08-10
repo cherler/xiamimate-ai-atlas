@@ -1,163 +1,166 @@
-import { Fragment } from "react";
 import Link from "next/link";
-import { Rich } from "./Fact";
-import { atlas, label, skillModels } from "@/lib/atlas";
-import { modelHref } from "@/lib/slug";
+import {
+  applicationResources,
+  atlas,
+  type Application,
+  type ApplicationResource,
+  type ApplicationResourceKind,
+} from "@/lib/atlas";
+
+const KIND: Record<ApplicationResourceKind, { label: string; className: string }> = {
+  project: { label: "项目", className: "bg-yes/10 text-yes-ink" },
+  skill: { label: "Skill", className: "bg-ink/8 text-ink" },
+  course: { label: "课程", className: "bg-[#f4eee3] text-[#795b2c]" },
+  docs: { label: "文档", className: "bg-[#edf0f3] text-muted" },
+};
+
+function ResourceCard({ resource }: { resource: ApplicationResource }) {
+  const kind = KIND[resource.kind];
+  const source = atlas.sources[resource.src]?.name ?? resource.src;
+
+  return (
+    <a
+      href={resource.url}
+      target="_blank"
+      rel="noreferrer"
+      className="group block min-w-0 border border-rule bg-paper/60 px-3.5 py-3 hover:border-yes hover:bg-yes/5"
+    >
+      <div className="flex items-center justify-between gap-2 mb-2">
+        <span className={`text-[11px] px-1.5 py-0.5 ${kind.className}`}>{kind.label}</span>
+        {/* 多条证据时每一行自己就带着 Skill 名，这里再列一遍是重复 —— 只报个数。 */}
+        {resource.evidence.length === 1 && (
+          <span className="text-[11px] text-muted truncate">来自 {resource.evidence[0].skill_zh}</span>
+        )}
+        {resource.evidence.length > 1 && (
+          <span className="text-[11px] text-muted shrink-0">{resource.evidence.length} 项能力</span>
+        )}
+      </div>
+      <p className="text-[14px] font-medium leading-snug group-hover:text-yes-ink">{resource.name} ↗</p>
+      {/* 原文摘录与来源名是**引用**，不计入「我们自己说了多少话」的预算 ——
+          和首页脚注同一条纪律（scripts/verify.mjs 里减的就是 [data-quote]）。
+          多个 Skill 认领同一个仓库时，**每条原文都留着**：H3 一个链接同时是
+          角色一致的 Ref2VA、首尾帧的 FL2VA、口播对口型的官方案例，
+          只显示第一条会让口播剧看不到它真正需要的那句。 */}
+      {resource.evidence.length > 1 ? (
+        <ul data-quote className="text-[12px] text-muted leading-relaxed mt-1.5 flex flex-col gap-1">
+          {resource.evidence.map((e) => (
+            <li key={`${e.skill_id}-${e.quote}`} className="line-clamp-2">
+              <span className="text-ink">{e.skill_zh}</span>：{e.quote}
+            </li>
+          ))}
+        </ul>
+      ) : (
+        <p data-quote className="text-[12px] text-muted leading-relaxed mt-1.5 line-clamp-2">
+          {resource.note ?? resource.quote}
+        </p>
+      )}
+      <p data-quote className="text-[10.5px] text-muted leading-snug mt-2 truncate">{source}</p>
+    </a>
+  );
+}
+
+function counts(resources: ApplicationResource[]) {
+  return (Object.keys(KIND) as ApplicationResourceKind[]).map((kind) => ({
+    kind,
+    n: resources.filter((r) => r.kind === kind).length,
+  }));
+}
+
+function ApplicationRow({ app }: { app: Application }) {
+  const resources = applicationResources(app);
+  const skillItems = app.skills
+    .map((id) => atlas.skills.find((s) => s.id === id))
+    .filter(Boolean);
+
+  return (
+    <article className="border-t border-rule px-4 py-6 md:grid md:grid-cols-[280px_1fr] md:gap-8">
+      <div className="mb-6 md:mb-0">
+        <p className="text-[11px] tracking-[.14em] uppercase text-yes-ink mb-2">应用 / {app.en}</p>
+        <h2 className="text-[27px] font-bold leading-tight tracking-[-.02em]">{app.zh}</h2>
+        <p className="text-[14px] text-muted leading-relaxed mt-2.5">{app.intro}</p>
+        {!!app.aliases?.length && (
+          <p className="text-[11.5px] text-muted mt-1.5">行业里也叫：{app.aliases.join(" / ")}</p>
+        )}
+
+        <div className="border border-rule bg-paper mt-5">
+          <div className="px-3 py-2 border-b border-rule text-[11px] text-muted">输入 → 输出</div>
+          <div className="px-3 py-3">
+            <div className="flex flex-wrap gap-1.5">
+              {app.inputs.map((input) => (
+                <span key={input} className="text-[12px] border border-rule px-2 py-1 bg-card">
+                  {input}
+                </span>
+              ))}
+            </div>
+            <div className="text-[16px] text-muted my-2">↓</div>
+            <div className="text-[13px] text-yes-ink border-l-2 border-yes pl-2.5">{app.output}</div>
+          </div>
+        </div>
+
+        <div className="mt-5">
+          <p className="text-[11px] text-muted mb-2">需要的能力</p>
+          <div className="flex flex-wrap gap-1.5">
+            {skillItems.map((skill) => (
+              <Link
+                key={skill!.id}
+                href={`/skill/${skill!.id}`}
+                className="text-[12px] px-2 py-1 bg-yes/8 text-yes-ink hover:bg-yes/15"
+              >
+                {skill!.zh} →
+              </Link>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      <div className="min-w-0">
+        <div className="flex flex-wrap items-end justify-between gap-3 pb-3 border-b border-rule">
+          <p className="text-[16px] font-semibold">公开路线</p>
+          <div className="flex flex-wrap gap-1.5">
+            {counts(resources).map(({ kind, n }) => (
+              <span key={kind} className="text-[11px] border border-rule px-2 py-1 text-muted">
+                {KIND[kind].label} <b className="text-ink">{n}</b>
+              </span>
+            ))}
+          </div>
+        </div>
+
+        <div
+          className="mt-3 h-[500px] md:h-[560px] overflow-y-auto overscroll-contain border border-rule bg-paper/35 p-2.5"
+          tabIndex={0}
+          role="region"
+          aria-label={`${app.zh}公开资源列表`}
+        >
+          <div className="grid gap-2.5 sm:grid-cols-2">
+            {resources.map((resource) => <ResourceCard key={resource.url} resource={resource} />)}
+          </div>
+        </div>
+
+      </div>
+    </article>
+  );
+}
 
 /**
- * 场景板 —— 「我想做这件事，谁能做、拿什么跑」（docs/北极星.md，方案 §10）
- *
- * ## 为什么单独一张图
- *
- * 「能力」是给我们对齐数据用的技术术语（首尾帧、角色参考、多参考…）——
- * 用户不关心这些词，关心「我想让品牌 IP 出镜，用哪个模型」。方案第六节原话：
- * **「Skill 必须是第一等公民。」**
- *
- * ## 这一版改了什么
- *
- * 上一版是「能力说明换个说法」：一排场景词 + 一排模型名 + 一条限制。看完只知道
- * 「有人能做」，不知道**用的是原生模型还是变体**、**拿什么跑**。这两件事数据里一直有：
- *
- * - `support[].via` 分 `native`（原生模型就能做）和 `separate-task`（得用它的变体
- *   —— Kling 官方 API 清单里 Kling 3.0 与 Kling 3.0 Motion Control 是并列的
- *   两个模型）—— 以前它只是一句散文躺在 limits 里；
- * - `skills[].workflow` 是能真跑起来的官方工作流 / 社区仓库（带星标）。
- *
- * 一行给到：原生还是变体 → 谁能做 → 拿什么跑 → 有什么坑。零点击。
+ * 场景页现在以「应用」为入口：先问用户想做什么，再把公开实现路线接上。
+ * 能力详情仍然保留在 /skill/[id]，但不再把能力换个词伪装成应用。
  */
 export default function ScenarioBoard() {
   return (
     <div className="bg-card border border-rule">
-      {atlas.skills.map((s) => {
-        const { direct, separate } = skillModels(s);
-        const wf = s.workflow ?? [];
-        const official = wf.filter((w) => w.kind === "official");
-        // 「开源自部署」这类事没有原生/变体之分 —— 分法不适用时就不硬套，标「能做」。
-        const split = separate.length > 0;
-        return (
-          <div
-            key={s.id}
-            className="border-b border-rule last:border-0 px-5 py-5 md:grid md:grid-cols-[248px_1fr] md:gap-7"
-          >
-            {/* 左：这是什么事 + 输入→输出 + 三个数 */}
-            <div className="mb-4 md:mb-0">
-              <Link href={`/skill/${s.id}`} className="text-[20px] font-bold hover:text-yes-ink">
-                {s.zh}
-              </Link>
-              <span className="block text-[11px] tracking-[.06em] uppercase text-muted mt-0.5">{s.en}</span>
-              {s.io && (
-                <p className="text-[12.5px] text-muted mt-2 leading-relaxed">
-                  <b className="text-ink font-normal">{(s.io.in ?? []).join(" + ")}</b>
-                  <span className="mx-1.5">→</span>
-                  {s.io.out}
-                </p>
-              )}
-              <p className="mt-2.5 text-[12px] text-muted flex flex-wrap gap-x-3 tabular-nums">
-                <span>
-                  {split ? "原生" : "能做"} <b className="text-ink text-[13px]">{direct.length}</b>
-                </span>
-                {split && (
-                  <span>
-                    变体 <b className="text-ink text-[13px]">{separate.length}</b>
-                  </span>
-                )}
-                <span>
-                  自部署 <b className="text-ink text-[13px]">{s.opensource?.length ?? 0}</b>
-                </span>
-                <span>
-                  workflow <b className="text-ink text-[13px]">{wf.length}</b>
-                </span>
-              </p>
-            </div>
-
-            {/* 右：想做 → 原生模型 / 得用变体 → 拿什么跑 → 先知道 */}
-            <div className="flex flex-col gap-2.5">
-              <div>
-                <span className="text-[12px] text-muted mr-2">想做</span>
-                {(s.cases ?? []).map((c) => (
-                  <span key={c} className="inline-block text-[14px] bg-yes/8 text-yes-ink px-2.5 py-1 mr-2 mb-1">
-                    {c}
-                  </span>
-                ))}
-              </div>
-
-              <div className="text-[14px] flex gap-2">
-                <span className="text-[12px] text-muted shrink-0 w-[76px] pt-[3px]">{split ? "原生模型" : "能做"}</span>
-                <span className="min-w-0">
-                  {direct.length ? (
-                    direct.map((m, i) => (
-                      <Fragment key={m.id}>
-                        {i > 0 && <span className="text-rule mx-1">·</span>}
-                        <Link href={modelHref(m)} className="font-medium hover:text-yes-ink">
-                          {label(m)}
-                        </Link>
-                      </Fragment>
-                    ))
-                  ) : (
-                    <span className="text-unknown text-[13px]">还没有原生模型做到</span>
-                  )}
-                </span>
-              </div>
-
-              {!!separate.length && (
-                <div className="text-[13.5px] flex gap-2">
-                  <span className="text-[12px] text-muted shrink-0 w-[76px] pt-[2px]">得用变体</span>
-                  <span className="min-w-0 text-muted">
-                    {separate.map((m, i) => (
-                      <Fragment key={m.id}>
-                        {i > 0 && <span className="text-rule mx-1">·</span>}
-                        <Link href={modelHref(m)} className="hover:text-yes-ink">
-                          {label(m)}
-                        </Link>
-                      </Fragment>
-                    ))}
-                    <span className="text-[11.5px] ml-1.5">—— 厂商为这件事单出的变体模型，和主力模型在官方清单里并列</span>
-                  </span>
-                </div>
-              )}
-
-              {!!wf.length && (
-                <div className="text-[13.5px] flex gap-2">
-                  <span className="text-[12px] text-muted shrink-0 w-[76px] pt-[2px]">拿什么跑</span>
-                  <span className="min-w-0">
-                    {(official.length ? official : wf).slice(0, 2).map((w, i) => (
-                      <Fragment key={w.url}>
-                        {i > 0 && <span className="text-rule mx-1">·</span>}
-                        <a
-                          href={w.url}
-                          target="_blank"
-                          rel="noreferrer"
-                          className="underline decoration-dotted hover:text-yes-ink"
-                        >
-                          {w.name}
-                        </a>
-                      </Fragment>
-                    ))}
-                    {wf.length > (official.length ? Math.min(official.length, 2) : Math.min(wf.length, 2)) && (
-                      <Link href={`/skill/${s.id}`} className="text-muted ml-1.5 underline hover:text-ink">
-                        全部 {wf.length} 个 →
-                      </Link>
-                    )}
-                  </span>
-                </div>
-              )}
-
-              {!!s.limits?.length && (
-                <p className="text-[12.5px] text-muted leading-relaxed">
-                  <span className="text-no font-medium">先知道</span>
-                  <span className="mx-1.5">·</span>
-                  <Rich text={s.limits[0]} />
-                  {s.limits.length > 1 && (
-                    <Link href={`/skill/${s.id}`} className="underline ml-1.5 hover:text-ink">
-                      还有 {s.limits.length - 1} 条 →
-                    </Link>
-                  )}
-                </p>
-              )}
-            </div>
-          </div>
-        );
-      })}
+      <div className="px-4 py-4 bg-yes/5 border-b border-rule flex flex-wrap items-baseline justify-between gap-2">
+        <div>
+          <p className="text-[11px] tracking-[.14em] uppercase text-yes-ink">Application Atlas</p>
+          <p className="text-[18px] font-semibold mt-1">从一个真实产出，找到能走的公开路线</p>
+        </div>
+        {/* 排序与收录规则**全页只说一次**。原来它在六个应用下各印一遍 ——
+            同一句话重复六遍不是强调，是噪音，出站验证的字数棘轮正是拿它报的红。 */}
+        <p className="text-[12px] text-muted leading-relaxed max-w-[520px]">
+          项目、Skill、课程、文档从关联能力自动汇总，按「项目 → Skill → 文档 → 课程」排，
+          同类官方来源优先，不按 Star 做推荐结论。不导流收费平台；公开访问 ≠ 自动允许商用。
+        </p>
+      </div>
+      {atlas.applications.map((app) => <ApplicationRow key={app.id} app={app} />)}
     </div>
   );
 }

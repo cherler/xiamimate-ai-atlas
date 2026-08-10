@@ -169,6 +169,53 @@ export type Skill = {
   src?: string; quote?: string; verified_at: string;
 };
 
+/**
+ * 应用资源不是另一套散乱的导航页，而是从「我想做什么」往下接的公开路线。
+ * 项目 / Skill / 课程 / 文档四种标签故意分开：能下载、能运行、能学习、能查证是四件不同的事。
+ */
+export type ApplicationResourceKind = "project" | "skill" | "course" | "docs";
+
+/**
+ * 一条证据 = 哪个 Skill 因为什么原文把这个资源认下来。
+ *
+ * **同一个 URL 会被多个 Skill 认领**：MiniMaxAI/MiniMax-H3 一个链接同时挂在
+ * 角色一致（Ref2VA）、首尾帧（FL2VA）、口播对口型（官方案例）、动作复刻（V2V）四处，
+ * 四条原文各不相同。按 URL 去重是对的（同一个仓库不该在一页里出现四次），
+ * 但**只留第一条就是在静默丢证据** —— 口播剧原来显示的是「角色一致」的
+ * Omni-reference 原文，而它最需要的那条「让画面里的人说指定台词」被丢了。
+ * 所以去重保留卡片，证据整组留下。
+ */
+export type ApplicationResourceEvidence = { skill_id: string; skill_zh: string; quote: string };
+
+export type ApplicationResource = {
+  kind: ApplicationResourceKind;
+  name: string;
+  url: string;
+  src: string;
+  quote: string;
+  note?: string;
+  /** 认领它的每一个 Skill 及其原文。应用自己填的课程/文档没有 Skill，这里是空数组。 */
+  evidence: ApplicationResourceEvidence[];
+};
+
+export type Application = {
+  id: string;
+  zh: string;
+  en: string;
+  /**
+   * 同一件事在行业里的别名。**这一栏是给搜的人用的** ——
+   * 我们叫「数字人口播」，别人可能搜「AI口播」「口播视频」；叫「AI漫剧」的
+   * 也有人叫「动画微短剧」「网文漫改」。和 capabilities.aliases 一个道理：
+   * 按自己的词去搜会搜不到。
+   */
+  aliases?: string[];
+  intro: string;
+  inputs: string[];
+  output: string;
+  skills: string[];
+  resources?: ApplicationResource[];
+};
+
 /** Change + So What（§15）。**只有 after 的那是新闻，不是 ChangeEvent。** */
 export type ChangeEvent = {
   date: string; entity: string; kind?: string;
@@ -290,6 +337,7 @@ export const atlas = raw as unknown as {
   pricing: Price[];
   versions: Version[];
   skills: Skill[];
+  applications: Application[];
   toolkit: Toolkit[];
   effect: Effect[];
   discount: Discount[];
@@ -348,6 +396,77 @@ export function skillModels(skill: { cap?: string; native?: string[] }) {
     direct: ms.filter((m) => viaOf(m) !== "separate-task"),
     separate: ms.filter((m) => viaOf(m) === "separate-task"),
   };
+}
+
+const resourceKindForWorkflow = (url: string): ApplicationResourceKind =>
+  url.includes("docs.comfy.org") ? "docs" : "skill";
+
+/**
+ * 场景页资源排序（docs/应用开源资源治理.md）。
+ *
+ * 先把「能不能继续做」排在「去哪里学」前面，再看来源层级；不把 Star
+ * 或一条主观推荐语压成可信度分数。最后用名称和 URL 做稳定兜底，避免
+ * 上游抓取顺序变化导致页面每次刷新都跳动。
+ */
+const RESOURCE_KIND_ORDER: Record<ApplicationResourceKind, number> = {
+  project: 0,
+  skill: 1,
+  docs: 2,
+  course: 3,
+};
+
+const resourceSourceOrder = (resource: ApplicationResource) =>
+  atlas.sources[resource.src]?.tier === "official" ? 0 : 1;
+
+const compareApplicationResources = (a: ApplicationResource, b: ApplicationResource) =>
+  RESOURCE_KIND_ORDER[a.kind] - RESOURCE_KIND_ORDER[b.kind]
+  || resourceSourceOrder(a) - resourceSourceOrder(b)
+  || a.name.localeCompare(b.name, "zh-Hans")
+  || a.url.localeCompare(b.url);
+
+/**
+ * 应用页的资源由两部分组成：应用额外推荐的课程/文档 + 关联 Skill 已核过的公开项目/工作流。
+ * 这样资源只维护一次，动作复刻的仓库不会在「短剧」「漫剧」「特效」三处各抄一份。
+ */
+export function applicationResources(app: Application): ApplicationResource[] {
+  const byUrl = new Map<string, ApplicationResource>();
+  for (const r of app.resources ?? []) byUrl.set(r.url, { ...r, evidence: r.evidence ?? [] });
+
+  /** 已有同 URL 的卡就只追加证据，不再丢弃 —— 见 ApplicationResourceEvidence 的注释。 */
+  const take = (url: string, make: () => ApplicationResource, ev: ApplicationResourceEvidence) => {
+    const hit = byUrl.get(url);
+    if (hit) {
+      if (!hit.evidence.some((e) => e.skill_id === ev.skill_id && e.quote === ev.quote)) hit.evidence.push(ev);
+      return;
+    }
+    byUrl.set(url, { ...make(), evidence: [ev] });
+  };
+
+  for (const skillId of app.skills) {
+    const s = atlas.skills.find((x) => x.id === skillId);
+    if (!s) continue;
+    for (const o of s.opensource ?? []) {
+      if (!o.url) continue;
+      take(o.url,
+        () => ({ kind: "project", name: o.name, url: o.url!, src: o.src, quote: o.quote, evidence: [] }),
+        { skill_id: s.id, skill_zh: s.zh, quote: o.quote });
+    }
+    for (const w of s.workflow ?? []) {
+      take(w.url,
+        () => ({
+          kind: resourceKindForWorkflow(w.url),
+          name: w.name,
+          url: w.url,
+          src: w.src,
+          quote: w.quote,
+          note: w.kind === "community" ? "社区维护；先看依赖和显存要求" : "官方公开教程或工作流",
+          evidence: [],
+        }),
+        { skill_id: s.id, skill_zh: s.zh, quote: w.quote });
+    }
+  }
+
+  return [...byUrl.values()].sort(compareApplicationResources);
 }
 
 /**

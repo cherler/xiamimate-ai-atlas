@@ -57,7 +57,10 @@ const ROUTES = [
   { path: "/compare/kling-vs-seedance", must: "还是", zh: 800, built: true },
   { path: "/skill/motion", must: "动作复刻", zh: 1400, built: true, also: ["拿什么跑", "原生模型就能做", "得用它的变体", "自己部署", "Motion Control 是独立模型"] },
   { path: "/skill/openweights", must: "开源自部署", zh: 1600, built: true, also: ["拿什么跑", "家能做这件事"] },
-  { path: "/scenario", must: "我想做这件事", zh: 1200, built: true, also: ["拿什么跑", "得用变体"] },
+  // /scenario 现在是应用目录：字数随「收了几个应用、每个应用挂几条资源」长。
+  // 对它用整页上限，等于「多收一个真实应用算退步」—— 和 /changes 当初那个错一样。
+  // 所以按条均摊（每条 = 一个应用卡）。
+  { path: "/scenario", must: "我想做什么", zh: 260, per: "article", built: true, also: ["公开路线", "需要的能力", "输入 → 输出"] },
   { path: "/toolkit", must: "该去哪个站", zh: 300, per: "main > div > section", built: true },
   { path: "/map", must: "谁和谁有关系", zh: 2400, built: true },
   { path: "/models", must: "全部模型", zh: 1200, built: true },

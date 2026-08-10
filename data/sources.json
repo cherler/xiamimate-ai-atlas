@@ -913,6 +913,223 @@
         "pricing"
       ],
       "note": "G5 候选：先实测能不能读到，再谈能不能录。**读不到就是读不到，不许拿第三方估的价顶上。**"
+    },
+    {
+      "id": "hf-course",
+      "tier": "S",
+      "kind": "html",
+      "vendor": "hugging-face",
+      "name": "Hugging Face · Diffusion Models Course",
+      "url": "https://huggingface.co/learn/diffusion-course/en/unit0/1",
+      "refresh_days": 90,
+      "good_for": [
+        "application-resource",
+        "course"
+      ]
+    },
+    {
+      "id": "comfy-docs",
+      "tier": "S",
+      "kind": "spa",
+      "vendor": "comfyui",
+      "name": "ComfyUI · 官方视频工作流文档",
+      "url": "https://docs.comfy.org/tutorials/video/wan/",
+      "refresh_days": 14,
+      "good_for": [
+        "application-resource",
+        "docs",
+        "workflow"
+      ]
+    },
+    {
+      "id": "h3-card",
+      "tier": "S",
+      "kind": "html",
+      "vendor": "minimax",
+      "name": "Hugging Face · MiniMax H3 模型卡",
+      "url": "https://huggingface.co/MiniMaxAI/MiniMax-H3",
+      "refresh_days": 14,
+      "good_for": [
+        "application-resource",
+        "openweights",
+        "version"
+      ]
+    },
+    {
+      "id": "hf-lineage",
+      "tier": "S",
+      "kind": "json",
+      "vendor": "hugging-face",
+      "name": "Hugging Face · 模型公开目录",
+      "url": "https://huggingface.co/api/models?sort=lastModified&direction=-1&limit=100",
+      "refresh_days": 7,
+      "good_for": [
+        "application-resource",
+        "openweights",
+        "version"
+      ]
+    },
+    {
+      "id": "vacetools-gh",
+      "tier": "C",
+      "kind": "json",
+      "vendor": "community",
+      "name": "GitHub · ComfyUI-SuperUltimateVaceTools",
+      "url": "https://api.github.com/repos/bbaudio-2025/ComfyUI-SuperUltimateVaceTools",
+      "refresh_days": 7,
+      "good_for": [
+        "application-resource",
+        "project"
+      ]
+    },
+    {
+      "id": "framepack-gh",
+      "tier": "S",
+      "kind": "json",
+      "vendor": "framepack",
+      "name": "GitHub · FramePack",
+      "url": "https://api.github.com/repos/lllyasviel/FramePack",
+      "refresh_days": 7,
+      "good_for": [
+        "application-resource",
+        "project",
+        "version"
+      ]
+    },
+    {
+      "id": "fpwrapper-gh",
+      "tier": "C",
+      "kind": "json",
+      "vendor": "community",
+      "name": "GitHub · ComfyUI-FramePackWrapper",
+      "url": "https://api.github.com/repos/kijai/ComfyUI-FramePackWrapper",
+      "refresh_days": 7,
+      "good_for": [
+        "application-resource",
+        "project"
+      ]
+    },
+    {
+      "id": "latentsync-gh",
+      "tier": "S",
+      "kind": "json",
+      "vendor": "bytedance",
+      "name": "GitHub · bytedance/LatentSync",
+      "url": "https://api.github.com/repos/bytedance/LatentSync",
+      "refresh_days": 7,
+      "good_for": [
+        "application-resource",
+        "project",
+        "version",
+        "license"
+      ]
+    },
+    {
+      "id": "lswrapper-gh",
+      "tier": "C",
+      "kind": "json",
+      "vendor": "community",
+      "name": "GitHub · ComfyUI-LatentSyncWrapper",
+      "url": "https://api.github.com/repos/ShmuelRonen/ComfyUI-LatentSyncWrapper",
+      "refresh_days": 7,
+      "good_for": [
+        "application-resource",
+        "project"
+      ]
+    },
+    {
+      "id": "float-gh",
+      "tier": "C",
+      "kind": "json",
+      "vendor": "community",
+      "name": "GitHub · ComfyUI-FLOAT",
+      "url": "https://api.github.com/repos/yuvraj108c/ComfyUI-FLOAT",
+      "refresh_days": 7,
+      "good_for": [
+        "application-resource",
+        "project"
+      ]
+    },
+    {
+      "id": "sviflf-gh",
+      "tier": "C",
+      "kind": "json",
+      "vendor": "community",
+      "name": "GitHub · ComfyUI-Wan-SVI2Pro-FLF",
+      "url": "https://api.github.com/repos/Well-Made/ComfyUI-Wan-SVI2Pro-FLF",
+      "refresh_days": 7,
+      "good_for": [
+        "application-resource",
+        "project"
+      ]
+    },
+    {
+      "id": "flflatent-gh",
+      "tier": "C",
+      "kind": "json",
+      "vendor": "community",
+      "name": "GitHub · Wan22FirstLastFrameToVideoLatent",
+      "url": "https://api.github.com/repos/stduhpf/ComfyUI--Wan22FirstLastFrameToVideoLatent",
+      "refresh_days": 7,
+      "good_for": [
+        "application-resource",
+        "project"
+      ]
+    },
+    {
+      "id": "mm-blog",
+      "tier": "S",
+      "kind": "html",
+      "vendor": "minimax",
+      "name": "MiniMax · H3 官方发布",
+      "url": "https://www.minimax.io/blog/minimax-h3",
+      "refresh_days": 30,
+      "good_for": [
+        "application-resource",
+        "version"
+      ]
+    },
+    {
+      "id": "wanwrapper-gh",
+      "tier": "C",
+      "kind": "json",
+      "vendor": "community",
+      "name": "GitHub · ComfyUI-WanVideoWrapper",
+      "url": "https://api.github.com/repos/kijai/ComfyUI-WanVideoWrapper",
+      "refresh_days": 7,
+      "good_for": [
+        "application-resource",
+        "project"
+      ]
+    },
+    {
+      "id": "comfy-org-hf",
+      "tier": "S",
+      "kind": "json",
+      "vendor": "comfyui",
+      "name": "Hugging Face · Comfy-Org 官方组织",
+      "url": "https://huggingface.co/api/models?author=Comfy-Org&sort=lastModified&direction=-1&limit=40",
+      "refresh_days": 7,
+      "good_for": [
+        "application-resource",
+        "openweights",
+        "version"
+      ]
+    },
+    {
+      "id": "ltx-comfy-gh",
+      "tier": "S",
+      "kind": "json",
+      "vendor": "lightricks",
+      "name": "GitHub · ComfyUI-LTXVideo",
+      "url": "https://api.github.com/repos/Lightricks/ComfyUI-LTXVideo",
+      "refresh_days": 7,
+      "good_for": [
+        "application-resource",
+        "project",
+        "version",
+        "license"
+      ]
     }
   ],
   "$missing": [
