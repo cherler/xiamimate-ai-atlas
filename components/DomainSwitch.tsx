@@ -17,6 +17,22 @@ import { atlas } from "@/lib/atlas";
  */
 export default function DomainSwitch({ brand }: { brand: string }) {
   const [open, setOpen] = useState(false);
+  /**
+   * 平台页眉挂上时收起品牌字样。
+   *
+   * 挂上之后上面那条已经写着「虾米伙伴 › 虾米看AI」，这里再写一遍
+   * 就是同一个名字在两行里各说一遍。挂不上（本地 dev、干净 clone）时照旧显示 ——
+   * **降级后不能连自己是谁都没了。**
+   */
+  const [chrome, setChrome] = useState(false);
+  useEffect(() => {
+    const el = document.documentElement;
+    const read = () => setChrome(el.dataset.chrome === "on");
+    read();
+    const mo = new MutationObserver(read);
+    mo.observe(el, { attributes: true, attributeFilter: ["data-chrome"] });
+    return () => mo.disconnect();
+  }, []);
   const box = useRef<HTMLDivElement>(null);
   const now = atlas.domains.find((d) => d.state === "live") ?? atlas.domains[0];
 
@@ -45,9 +61,13 @@ export default function DomainSwitch({ brand }: { brand: string }) {
         aria-haspopup="menu"
         className="flex items-center gap-1.5 text-[13px] font-semibold bg-ink text-paper px-2 py-1 hover:opacity-90"
       >
-        <span>{brand}</span>
-        <span className="opacity-55">·</span>
-        <span className="font-normal">{now?.name}</span>
+        {!chrome && (
+          <>
+            <span>{brand}</span>
+            <span className="opacity-55">·</span>
+          </>
+        )}
+        <span className={chrome ? "" : "font-normal"}>{now?.name}</span>
         <span className={`text-[9px] transition-transform ${open ? "rotate-180" : ""}`}>▼</span>
       </button>
 

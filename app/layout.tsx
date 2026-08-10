@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { BRAND } from "@/lib/brand";
 import "./globals.css";
 import Nav from "@/components/Nav";
+import { ChromeFooter, ChromeHeader } from "@/components/PlatformChrome";
 import NextSteps from "@/components/NextSteps";
 
 const DESC =
@@ -43,12 +44,15 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="zh-CN">
       <body>
+        {/* 平台页眉页脚：加载主站 /chrome 制品。取不到就整个不渲染（本地 dev 即如此）。 */}
+        <ChromeHeader />
         {/* Nav 和 NextSteps 挂在 layout 上 —— **每一页都有，否则总有页面是死路**。 */}
         <Nav />
         {children}
         <div className="max-w-[1240px] mx-auto px-5 pb-10">
           <NextSteps />
         </div>
+        <ChromeFooter />
       </body>
     </html>
   );

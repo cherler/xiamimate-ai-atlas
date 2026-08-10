@@ -32,6 +32,14 @@ import { fileURLToPath } from "node:url";
 
 const ROOT = `${dirname(fileURLToPath(import.meta.url))}/..`;
 const OUT = join(ROOT, "out");
+/**
+ * 平台页眉制品的真身在主站仓。**线上 `/chrome/*` 与 `/atlas/*` 同源**，
+ * 所以这里也照着挂 —— 不挂的话，本仓探测 manifest 会 404，
+ * 而那不是产品的问题，是**验证环境没长得像线上**。
+ * 主站没构建过就跳过，并如实说一声，不假装测过。
+ */
+const CHROME_DIR = join(ROOT, "..", "xiamimate-tools-frontend", "out", "chrome");
+const HAS_CHROME = existsSync(CHROME_DIR);
 const PORT = 4319;
 const BASE = "/atlas";
 const DEV = process.argv.includes("--dev");
@@ -82,8 +90,38 @@ if (!DEV) {
     // 尾斜杠 308，与 @atlasTrail 同规则。少了它 /model/wan/ 会被兜底成首页：200 但内容是错的。
     const m = p.match(new RegExp(`^${BASE}/(.+)/$`));
     if (m) { res.writeHead(308, { location: `${BASE}/${m[1]}` }); return res.end(); }
-    if (p.startsWith(BASE)) p = p.slice(BASE.length) || "/";
-    for (const cand of [p, `${p}/index.html`, `${p}.html`, "/index.html"]) {
+    // /chrome/* 从主站产物直供，和线上同源同路径
+    if (p.startsWith("/chrome/")) {
+      const f = join(CHROME_DIR, p.slice("/chrome/".length));
+      if (HAS_CHROME && f.startsWith(CHROME_DIR) && existsSync(f)) {
+        res.writeHead(200, { "content-type": MIME[extname(f)] ?? "application/octet-stream" });
+        return res.end(await readFile(f));
+      }
+      return res.writeHead(404).end("no chrome");
+    }
+    /**
+     * **前缀剥离要精确匹配边界。** 原来是裸的 `startsWith`，
+     * `/atlas.txt` 会被剥成 `.txt` —— 那不是「去掉 basePath」，是切错了字符串。
+     *
+     * 而 `/atlas.txt` 是真实存在的请求：App Router 对根路由做 RSC 预取时就发它，
+     * 静态导出把内容写在 `out/index.txt`。**这一条以前被「什么都回 index.html」
+     * 盖了整整一轮**——回的是 200 + HTML，Next 拿到解析不了但静默吞掉，
+     * 所以谁也没发现。线上 Caddy 若也用通配回退，同样是这个情形。
+     */
+    if (p === `${BASE}.txt`) p = "/index.txt";
+    else if (p === BASE) p = "/";
+    else if (p.startsWith(`${BASE}/`)) p = p.slice(BASE.length);
+    /**
+     * **带扩展名的资源不回退 index.html。**
+     *
+     * 原来任何未命中的路径都兜到首页，于是 `/chrome/chrome.js` 回的是
+     * 200 + 一坨 HTML，浏览器把它当 JS 解析报 `SyntaxError: Unexpected token '<'`。
+     * 这条兜底本是给 SPA 路由用的，用在资源上就成了「谎报成功」——
+     * 和当初「200 就算通过」是同一个错，只是换到了服务器这一侧。
+     */
+    const asset = /\.[a-z0-9]+$/i.test(p) && !p.endsWith(".html");
+    const cands = asset ? [p] : [p, `${p}/index.html`, `${p}.html`, "/index.html"];
+    for (const cand of cands) {
       const f = join(OUT, cand);
       if (!f.startsWith(OUT) || !existsSync(f) || !extname(f)) continue;
       res.writeHead(200, { "content-type": MIME[extname(f)] ?? "application/octet-stream" });
@@ -93,6 +131,10 @@ if (!DEV) {
   });
   await new Promise((r) => server.listen(PORT, r));
 }
+
+console.log(HAS_CHROME
+  ? "平台页眉制品：从 ../xiamimate-tools-frontend/out/chrome 直供（与线上同源）"
+  : "平台页眉制品：主站未构建，本轮跳过 —— **没测过就是没测过**，别当成通过");
 
 const { chromium } = await import("playwright");
 const browser = await chromium.launch();
