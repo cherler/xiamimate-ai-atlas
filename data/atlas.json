@@ -1402,7 +1402,7 @@
    "version": "2-dev",
    "version_as_of": "2025-11-22",
    "status": "active",
-   "tier": "extended",
+   "tier": "core",
    "domain": "image",
    "weights": "open",
    "weights_note": "black-forest-labs/FLUX.2-dev（2025-11-22 发布，↓963,011）；许可 other（自定义），非标准开源协议",
@@ -1417,7 +1417,7 @@
    "version": "Edit-2511",
    "version_as_of": "2025-12-17",
    "status": "active",
-   "tier": "extended",
+   "tier": "core",
    "domain": "image",
    "weights": "open",
    "team": "通义 Qwen",
@@ -1432,7 +1432,7 @@
    "version": "Turbo",
    "version_as_of": "2025-11-25",
    "status": "active",
-   "tier": "extended",
+   "tier": "core",
    "domain": "image",
    "weights": "open",
    "team": "通义 Tongyi-MAI",
@@ -2000,6 +2000,21 @@
   "ideogram-x": {
    "name": "Ideogram 官方账号发布公告（@ideogram_ai）",
    "url": "https://x.com/ideogram_ai/status/1917985285679530232",
+   "tier": "official"
+  },
+  "bfl-docs": {
+   "name": "Black Forest Labs · 官方文档索引",
+   "url": "https://docs.bfl.ai/llms.txt",
+   "tier": "official"
+  },
+  "qwen-image-card": {
+   "name": "Qwen-Image 官方模型卡（Hugging Face）",
+   "url": "https://huggingface.co/Qwen/Qwen-Image",
+   "tier": "official"
+  },
+  "zimage-card": {
+   "name": "Z-Image 官方模型卡（Hugging Face）",
+   "url": "https://huggingface.co/Tongyi-MAI/Z-Image-Turbo",
    "tier": "official"
   }
  },
@@ -3482,6 +3497,318 @@
    "verified_for": "V4.1",
    "src": "recraft-docs",
    "note": "闭源，官方未发布权重"
+  },
+  {
+   "m": "flux",
+   "c": "i-t2i",
+   "state": "yes",
+   "verified_for": "2-dev",
+   "src": "bfl-docs",
+   "note": "官方原文：「FLUX.2 is the recommended model for text-to-image generation」"
+  },
+  {
+   "m": "flux",
+   "c": "i-i2i",
+   "state": "yes",
+   "verified_for": "2-dev",
+   "src": "bfl-docs",
+   "note": "官方原文：「Edit images with FLUX.2 using text prompts and multi-reference support for up to 10 images」"
+  },
+  {
+   "m": "flux",
+   "c": "i-edit",
+   "state": "yes",
+   "verified_for": "2-dev",
+   "src": "bfl-docs",
+   "note": "官方原文：「Edit images with FLUX.2 using text prompts」"
+  },
+  {
+   "m": "flux",
+   "c": "i-multiturn",
+   "state": "unknown",
+   "verified_for": "2-dev",
+   "note": "BFL 官方文档索引通篇没提这一条 —— 读完没找到，不是没读"
+  },
+  {
+   "m": "flux",
+   "c": "i-inpaint",
+   "state": "yes",
+   "verified_for": "2-dev",
+   "src": "bfl-docs",
+   "note": "官方原文：「Use FLUX.1 Fill for text-driven inpainting and outpainting to edit image regions」"
+  },
+  {
+   "m": "flux",
+   "c": "i-outpaint",
+   "state": "yes",
+   "verified_for": "2-dev",
+   "src": "bfl-docs",
+   "note": "官方原文：「Expand any image beyond its borders in a single call」"
+  },
+  {
+   "m": "flux",
+   "c": "i-canvas",
+   "state": "unknown",
+   "verified_for": "2-dev",
+   "note": "BFL 官方文档索引通篇没提这一条 —— 读完没找到，不是没读"
+  },
+  {
+   "m": "flux",
+   "c": "i-multiref",
+   "state": "yes",
+   "verified_for": "2-dev",
+   "src": "bfl-docs",
+   "note": "官方原文：「multi-reference support for up to 10 images」"
+  },
+  {
+   "m": "flux",
+   "c": "i-styleref",
+   "state": "unknown",
+   "verified_for": "2-dev",
+   "note": "BFL 官方文档索引通篇没提这一条 —— 读完没找到，不是没读"
+  },
+  {
+   "m": "flux",
+   "c": "i-fidelity",
+   "state": "unknown",
+   "verified_for": "2-dev",
+   "note": "BFL 官方文档索引通篇没提这一条 —— 读完没找到，不是没读"
+  },
+  {
+   "m": "flux",
+   "c": "i-textrender",
+   "state": "unknown",
+   "verified_for": "2-dev",
+   "note": "BFL 官方文档索引通篇没提这一条 —— 读完没找到，不是没读"
+  },
+  {
+   "m": "flux",
+   "c": "i-upscale",
+   "state": "unknown",
+   "verified_for": "2-dev",
+   "note": "**没有顺着写。** FLUX Tools 里有 Erase / Deblur，但 **Deblur 是去模糊不是放大** —— 官方没有超分端点"
+  },
+  {
+   "m": "flux",
+   "c": "i-4k",
+   "state": "unknown",
+   "verified_for": "2-dev",
+   "note": "BFL 官方文档索引通篇没提这一条 —— 读完没找到，不是没读"
+  },
+  {
+   "m": "flux",
+   "c": "i-openweights",
+   "state": "yes",
+   "verified_for": "2-dev",
+   "src": "hf-lineage",
+   "note": "官方原文：「black-forest-labs/FLUX.2-dev 权重公开（↓963,011）；⚠️ 许可为 other，非标准开源协议」"
+  },
+  {
+   "m": "qwen-image",
+   "c": "i-t2i",
+   "state": "yes",
+   "verified_for": "Edit-2511",
+   "src": "qwen-image-card",
+   "note": "官方原文：「an image generation foundation model in the Qwen series」"
+  },
+  {
+   "m": "qwen-image",
+   "c": "i-i2i",
+   "state": "yes",
+   "verified_for": "Edit-2511",
+   "src": "qwen-image-card",
+   "note": "官方原文：「precise image editing」"
+  },
+  {
+   "m": "qwen-image",
+   "c": "i-edit",
+   "state": "yes",
+   "verified_for": "Edit-2511",
+   "src": "qwen-image-card",
+   "note": "官方原文：「achieves significant advances in complex text rendering and precise image editing」"
+  },
+  {
+   "m": "qwen-image",
+   "c": "i-multiturn",
+   "state": "unknown",
+   "verified_for": "Edit-2511",
+   "note": "Qwen-Image 官方模型卡没提这一条 —— 读完没找到"
+  },
+  {
+   "m": "qwen-image",
+   "c": "i-inpaint",
+   "state": "unknown",
+   "verified_for": "Edit-2511",
+   "note": "Qwen-Image 官方模型卡没提这一条 —— 读完没找到"
+  },
+  {
+   "m": "qwen-image",
+   "c": "i-outpaint",
+   "state": "unknown",
+   "verified_for": "Edit-2511",
+   "note": "Qwen-Image 官方模型卡没提这一条 —— 读完没找到"
+  },
+  {
+   "m": "qwen-image",
+   "c": "i-canvas",
+   "state": "unknown",
+   "verified_for": "Edit-2511",
+   "note": "Qwen-Image 官方模型卡没提这一条 —— 读完没找到"
+  },
+  {
+   "m": "qwen-image",
+   "c": "i-multiref",
+   "state": "yes",
+   "verified_for": "Edit-2511",
+   "src": "hf-lineage",
+   "note": "官方原文：「Edit-2511 官方示例直接传两张图：pipeline 入参 \"image\": [image1, image2]」"
+  },
+  {
+   "m": "qwen-image",
+   "c": "i-styleref",
+   "state": "unknown",
+   "verified_for": "Edit-2511",
+   "note": "Qwen-Image 官方模型卡没提这一条 —— 读完没找到"
+  },
+  {
+   "m": "qwen-image",
+   "c": "i-fidelity",
+   "state": "unknown",
+   "verified_for": "Edit-2511",
+   "note": "**没有顺着写。** 官方说「mitigate image drift、improved character consistency」，那是**效果变好**；我们这一格问的是**有没有一个控制保真强度的旋钮**（OpenAI 的 input fidelity 那种）。两回事"
+  },
+  {
+   "m": "qwen-image",
+   "c": "i-textrender",
+   "state": "yes",
+   "verified_for": "Edit-2511",
+   "src": "qwen-image-card",
+   "note": "官方原文：「exceptional performance in text rendering, especially for Chinese」"
+  },
+  {
+   "m": "qwen-image",
+   "c": "i-upscale",
+   "state": "unknown",
+   "verified_for": "Edit-2511",
+   "note": "Qwen-Image 官方模型卡没提这一条 —— 读完没找到"
+  },
+  {
+   "m": "qwen-image",
+   "c": "i-4k",
+   "state": "unknown",
+   "verified_for": "Edit-2511",
+   "note": "Qwen-Image 官方模型卡没提这一条 —— 读完没找到"
+  },
+  {
+   "m": "qwen-image",
+   "c": "i-openweights",
+   "state": "yes",
+   "verified_for": "Edit-2511",
+   "src": "hf-lineage",
+   "note": "官方原文：「Qwen/Qwen-Image 与 Qwen-Image-Edit-2511 均为 **apache-2.0**，标准开源协议」"
+  },
+  {
+   "m": "z-image",
+   "c": "i-t2i",
+   "state": "yes",
+   "verified_for": "Turbo",
+   "src": "zimage-card",
+   "note": "官方原文：「Z-Image is a powerful and highly efficient image generation model family with 6B parameters」"
+  },
+  {
+   "m": "z-image",
+   "c": "i-i2i",
+   "state": "yes",
+   "verified_for": "Turbo",
+   "src": "zimage-card",
+   "note": "官方原文：「Z-Image-Edit … supports creative image-to-image generation」"
+  },
+  {
+   "m": "z-image",
+   "c": "i-edit",
+   "state": "yes",
+   "verified_for": "Turbo",
+   "src": "zimage-card",
+   "note": "官方原文：「allowing for precise edits based on natural language prompts」"
+  },
+  {
+   "m": "z-image",
+   "c": "i-multiturn",
+   "state": "unknown",
+   "verified_for": "Turbo",
+   "note": "Z-Image 官方模型卡没提这一条 —— 读完没找到"
+  },
+  {
+   "m": "z-image",
+   "c": "i-inpaint",
+   "state": "unknown",
+   "verified_for": "Turbo",
+   "note": "Z-Image 官方模型卡没提这一条 —— 读完没找到"
+  },
+  {
+   "m": "z-image",
+   "c": "i-outpaint",
+   "state": "unknown",
+   "verified_for": "Turbo",
+   "note": "Z-Image 官方模型卡没提这一条 —— 读完没找到"
+  },
+  {
+   "m": "z-image",
+   "c": "i-canvas",
+   "state": "unknown",
+   "verified_for": "Turbo",
+   "note": "Z-Image 官方模型卡没提这一条 —— 读完没找到"
+  },
+  {
+   "m": "z-image",
+   "c": "i-multiref",
+   "state": "unknown",
+   "verified_for": "Turbo",
+   "note": "Z-Image 官方模型卡没提这一条 —— 读完没找到"
+  },
+  {
+   "m": "z-image",
+   "c": "i-styleref",
+   "state": "unknown",
+   "verified_for": "Turbo",
+   "note": "**没有顺着写。** 官方说「supports a wide range of artistic styles」——那是**风格多**，不是**能拿一张图当风格参考**。这一格问的是后者"
+  },
+  {
+   "m": "z-image",
+   "c": "i-fidelity",
+   "state": "unknown",
+   "verified_for": "Turbo",
+   "note": "Z-Image 官方模型卡没提这一条 —— 读完没找到"
+  },
+  {
+   "m": "z-image",
+   "c": "i-textrender",
+   "state": "yes",
+   "verified_for": "Turbo",
+   "src": "zimage-card",
+   "note": "官方原文：「bilingual text rendering (English & Chinese)」"
+  },
+  {
+   "m": "z-image",
+   "c": "i-upscale",
+   "state": "unknown",
+   "verified_for": "Turbo",
+   "note": "Z-Image 官方模型卡没提这一条 —— 读完没找到"
+  },
+  {
+   "m": "z-image",
+   "c": "i-4k",
+   "state": "unknown",
+   "verified_for": "Turbo",
+   "note": "Z-Image 官方模型卡没提这一条 —— 读完没找到"
+  },
+  {
+   "m": "z-image",
+   "c": "i-openweights",
+   "state": "yes",
+   "verified_for": "Turbo",
+   "src": "hf-lineage",
+   "note": "官方原文：「Tongyi-MAI/Z-Image-Turbo，**apache-2.0**，↓998,283」"
   }
  ],
  "$aliases_why": "各家给同一个能力起不同的名字。**Kling 管角色参考叫 Element，我按 Character Reference 去找，找不到就标了「官方没说」—— 假阴性。** 采集时必须用整组别名去匹配，不能只用我们自己的叫法。这是原方案 §36 Entity Resolution 在能力维度上的对应物。\n\n`alias_bit_us` 标在**真把我们坑过的那一项**上（角色参考）。别名多不等于叫法分歧大：「首尾帧」也有 8 条别名，但全是 start/end frame 的描述性变体，谁都猜得到；而 Element / Ingredients / cameo 是厂商自造词，**不知道就永远搜不到**。选例子要选后者，靠数别名条数是挑不出来的 —— 所以标在数据里，不用启发式猜。",
