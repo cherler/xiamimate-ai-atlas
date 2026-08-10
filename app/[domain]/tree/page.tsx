@@ -47,7 +47,7 @@ export default async function TreePage({ params }: { params: Promise<{ domain: s
 
       {vs.length ? (
         <div className="mt-6 bg-card border border-rule p-4">
-          <Tree />
+          <Tree domain={d.id} />
         </div>
       ) : (
         /* **没有数据就说没有，不画一棵空树。** 空图比没有图更让人以为「这个方向没东西长出来」。 */

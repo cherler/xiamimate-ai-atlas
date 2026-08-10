@@ -69,6 +69,14 @@ const ORG_HUE: Record<string, string> = {
   rhymes: "#6b8f3a",       // Rhymes · 黄绿
   genmo: "#7d6ba8",        // Genmo · 淡紫
   hpcai: "#3d7fa0",        // 潞晨 · 天蓝
+  // ── AI 图像方向的公司。**加方向就得加这两张表** ——
+  //    缺了不会报错，只会让新公司全落到同一个兜底灰，图上分不出谁是谁。
+  bfl: "#b0532b",          // Black Forest Labs · 赭
+  stability: "#6a6f8c",    // Stability AI · 石板
+  krea: "#2f8f5e",         // Krea · 翠
+  midjourney: "#8f4a8f",   // Midjourney · 紫红
+  ideogram: "#3a7fa8",     // Ideogram · 湖蓝
+  recraft: "#a88a2e",      // Recraft · 芥黄
 };
 const FALLBACK = "#5c6a78";
 
@@ -88,6 +96,8 @@ const ORG_SHORT: Record<string, string> = {
   kunlun: "昆仑万维", shengshu: "生数", minimax: "MiniMax", hpcai: "潞晨",
   google: "Google", openai: "OpenAI", runway: "Runway", decart: "Decart",
   lightricks: "Lightricks", genmo: "Genmo", rhymes: "Rhymes AI",
+  bfl: "BFL", stability: "Stability", krea: "Krea",
+  midjourney: "Midjourney", ideogram: "Ideogram", recraft: "Recraft",
 };
 
 const SHORT = (t: string) =>
@@ -119,14 +129,21 @@ const labelText = (
   return SHORT(n.added || n.version || "");
 };
 
-export default function Tree() {
+/**
+ * @param domain 画哪个方向的谱系。**必须传** ——
+ * 之前直接读全局 `atlas.versions`，于是 /atlas/image/tree 画的是**两个方向混在一起**
+ * 的 82 个节点：页头写着「5 条产品线」，图上却是 16 条。
+ * 而且混进来之后视频树的标签重叠从 0 涨到 36 —— **一次数据扩容同时坏了两个方向的图**。
+ */
+export default function Tree({ domain }: { domain: string }) {
   const [pin, setPin] = useState<string | null>(null);
   const [cap, setCap] = useState<string | null>(null);
   const [cut, setCut] = useState(100);
   const [playing, setPlaying] = useState(false);
   const raf = useRef(0);
 
-  const nodes = atlas.versions as unknown as Node[];
+  const mine = new Set(atlas.models.filter((m) => (m.domain ?? "video") === domain).map((m) => m.id));
+  const nodes = (atlas.versions as unknown as Node[]).filter((v) => mine.has(v.m));
   const all = nodes.map((n) => MS(n.date)).sort((a, b) => a - b);
   /**
    * 轴的起点不取最早那一条。**2024-10 之前只有一个节点**（Lightricks 的
@@ -284,7 +301,33 @@ export default function Tree() {
    */
   const labelAt = useMemo(() => {
     const out = new Map<string, { x: number; y: number; side: 1 | -1 }>();
-    const placed: { x0: number; x1: number; y: number }[] = [];
+    /**
+     * `h` = 这块东西的**半高**。判定用「两块半高之和」，
+     * 上抬步长另有其数 —— **一个常量身兼两职，调它必然按下葫芦浮起瓢**
+     * （实测：把统一带宽从 9.5 调到 14，视频树重叠从 0 涨到 17）。
+     */
+    const placed: { x0: number; x1: number; y: number; h: number }[] = [];
+
+    /**
+     * **先把「不是节点标签、但也占地方」的东西占上位。**
+     *
+     * 上一版只算节点标签彼此之间 —— 于是节点标签照样压住
+     * ① 左侧的年份刻度、② 每条线顶上的产品线名。
+     * 视频方向节点密、这两类被挤开了看不出来；换到只有 13 个节点的 AI 图像
+     * 立刻现形：「2026」被 FLUX.2-klein 压住、「Stability」和「Stable Diffu」叠在一起。
+     * **稀疏的数据比密集的数据更能暴露布局 bug。**
+     */
+    for (const yr of years) {
+      const yy = y(new Date(Date.UTC(yr, 0, 1)).toISOString().slice(0, 10));
+      placed.push({ x0: -9999, x1: PAD.l - 4, y: yy, h: 8 });   // 年份刻度：11px 字
+    }
+    for (const l of lines) {
+      const top = l.ns[l.ns.length - 1];
+      const pt = posOf.get(top.id);
+      if (!pt) continue;
+      const w = SHORT(l.model.family).replace(/[^\x00-\xff]/g, "aa").length * 5.2 + 8;
+      placed.push({ x0: pt.x - w, x1: pt.x, y: pt.y - 20, h: 7 }); // 产品线名：9.5px 粗体
+    }
     // 按 y 从上到下排，先来先占 —— 顺序稳定，结果才可复现
     const all = [...nodes].filter((n) => posOf.has(n.id))
       .sort((a, b) => (posOf.get(a.id)!.y - posOf.get(b.id)!.y));
@@ -301,17 +344,33 @@ export default function Tree() {
       const forceLeft = isTop || isBot;
       let side: 1 | -1 = forceLeft ? -1 : 1;
       let ny = p.y;
+      /**
+       * 碰撞判定带 = 真实字高，不是拍脑袋的数。
+       * 原来 ±9.5 判不到「顶端节点标签 vs 产品线名」那一对 ——
+       * 它们垂直只差 12px，而 9.5 的带宽刚好漏过去，**字框却是叠的**。
+       * 判定带比字框窄，等于给自己发了一张「没有重叠」的假通行证。
+       *
+       * ⚠️ **但把这个数调大是错的解法**：BAND 同时被用作「碰撞判定带」和
+       * 「找不到位置时的上抬步长」。调到 14 之后视频树的重叠从 0 涨到 17 ——
+       * 带宽一大，16 次尝试里找不到空位的标签就原地落下，反而全撞在一起。
+       * **一个常量身兼两职，调它必然按下葫芦浮起瓢。**
+       *
+       * 所以带宽退回 9.5（视频侧实测 0 重叠的那个值），
+       * 真正的间距问题改到源头解决：产品线名从 -12 挪到 -20（见下方绘制处）。
+       */
+      const BAND = 9.5;      // 上抬步长
+      const MINE = 7;        // 节点标签自己的半高（8.5~10.5px 字，含升降部）
       const hit = (x0: number, x1: number, yy: number) =>
-        placed.some((q) => yy > q.y - 9.5 && yy < q.y + 9.5 && x0 < q.x1 && q.x0 < x1);
+        placed.some((q) => Math.abs(yy - q.y) < q.h + MINE && x0 < q.x1 && q.x0 < x1);
       for (let g = 0; g < 16; g++) {
         const x0 = side === 1 ? p.x + 7 : p.x - 7 - w;
         if (!hit(x0, x0 + w, ny)) break;
-        if (forceLeft) ny -= 9.5;                       // 首末只上抬，不翻到右边
+        if (forceLeft) ny -= BAND;                       // 首末只上抬，不翻到右边
         else if (side === 1) side = -1;
-        else { side = 1; ny -= 9.5; }
+        else { side = 1; ny -= BAND; }
       }
       const fx0 = side === 1 ? p.x + 7 : p.x - 7 - w;
-      placed.push({ x0: fx0, x1: fx0 + w, y: ny });
+      placed.push({ x0: fx0, x1: fx0 + w, y: ny, h: MINE });
       out.set(n.id, { x: p.x, y: ny, side });
     }
     return out;
@@ -484,7 +543,10 @@ export default function Tree() {
                   const pt = posOf.get(top.id)!;
                   const on = MS(top.date) <= cutMs;
                   return (
-                    <text x={pt.x} y={pt.y - 12} textAnchor="end" fontSize="9.5" fontWeight="700"
+                    /* -20 而不是 -12：与顶端节点标签拉开真实间距。
+                       12px 的间距在两个字框（10.5px + 9.5px 字号，含升降部）下是叠的，
+                       靠调碰撞带宽去救会连累整张图 —— 源头拉开才对。 */
+                    <text x={pt.x} y={pt.y - 20} textAnchor="end" fontSize="9.5" fontWeight="700"
                       fill={l.color} opacity={on ? 1 : 0.15} style={{ transition: "opacity .35s" }}>
                       {SHORT(l.model.family)}
                     </text>
@@ -543,7 +605,7 @@ export default function Tree() {
         */}
         <span>
           <b className="text-ink">实心</b> = 这一代权重公开，<b className="text-ink">空心</b> = 没公开。
-          <b className="text-ink">开不开源看点，不看颜色</b> —— 颜色只用来区分 14 条产品线。
+          <b className="text-ink">开不开源看点，不看颜色</b> —— 颜色只用来区分这 {lines.length} 条产品线。
         </span>
         <span className="flex items-center gap-1.5">
           <svg width="34" height="13">
@@ -551,7 +613,8 @@ export default function Tree() {
             <circle cx="16" cy="6.5" r="4" fill="var(--color-paper)" stroke="#7a5cc4" strokeWidth="2" />
             <circle cx="28" cy="6.5" r="4.5" fill="#b06a2c" />
           </svg>
-          同一条线上实空混着 = 它中途换过向（万相开源起家、3.0 转闭源；海螺相反，H3 才放权重）
+          同一条线上实空混着 = 它中途换过向
+          {domain === "video" && "（万相开源起家、3.0 转闭源；海螺相反，H3 才放权重）"}
         </span>
         <span>产品线名旁是公司名 · <b className="text-ink">拖时间轴</b>看每一代长出来 · <b className="text-ink">点任一节点</b>看它加了什么</span>
         <Link href="/method#genealogy" className="underline hover:text-ink">这张图怎么读 →</Link>

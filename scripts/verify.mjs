@@ -63,7 +63,9 @@ const ROUTES = [
   { path: "/video/scenario", must: "我想做什么", zh: 260, per: "article", built: true, also: ["公开路线", "需要的能力", "输入 → 输出"] },
   { path: "/video/models", must: "全部模型", zh: 1200, built: true },
   { path: "/image", must: "AI 图像", zh: 900, built: true, also: ["出图轨", "文字渲染", "这个方向还在建"] },
-  { path: "/image/tree", must: "长出了什么", zh: 800, built: true, also: ["还没采谱系"] },
+  // 断言跟着数据走：图像谱系已经采了 13 条，「还没采谱系」那句空状态不该再出现。
+  // 钉一个只有图像树才有的产品线名，比钉空状态文案稳。
+  { path: "/image/tree", must: "长出了什么", zh: 800, built: true, also: ["FLUX", "Z-Image"] },
   { path: "/image/map", must: "谁和谁有关系", zh: 2400, built: true },
   { path: "/image/scenario", must: "我想做什么", zh: 900, built: true, also: ["还没定应用"] },
   { path: "/image/models", must: "全部模型", zh: 1200, built: true },
@@ -311,6 +313,40 @@ for (const [vp, w, h] of [["桌面", 1440, 900], ["手机", 390, 844]]) {
       ok(chip.includes(want), `${path} 切换器显示的是本方向（要「${want}」，实为「${chip.replace(/\s+/g, " ").trim()}」）`);
       await page.close();
     }
+  }
+}
+
+// ── 演化树：标签不许重叠 ────────────────────────────────────────────
+/**
+ * **这条只能在浏览器里量。** 标签避让是纯几何，validate 看不见，
+ * 而它坏起来是「图还在、就是看不清」—— 最容易被当成「这样也还行」。
+ *
+ * 量的时候只数**真正可见**的：opacity 0 的标签也有矩形，混进来会虚报。
+ * 2026-08-11 加图像谱系时，光是量法不同就把 0 报成了 6。
+ */
+{
+  console.log("\n══════ 演化树标签 ══════");
+  const raw2 = JSON.parse(readFileSync(join(ROOT, "data/atlas.json"), "utf8"));
+  for (const d of raw2.domains ?? []) {
+    const page = await browser.newPage({ viewport: { width: 1440, height: 1200 } });
+    let r = { n: 0, ov: 0, eg: [] };
+    try {
+      await page.goto(`${ORIGIN}${BASE}/${d.id}/tree`,
+        { waitUntil: DEV ? "domcontentloaded" : "networkidle", timeout: 45000 });
+      await page.waitForTimeout(DEV ? 2200 : 1200);
+      r = await page.evaluate(`(()=>{
+        const t=[...document.querySelectorAll('main svg text')]
+          .filter(e=>+getComputedStyle(e.closest('g')||e).opacity>0.5 && e.getClientRects().length);
+        const rs=t.map(e=>e.getBoundingClientRect()); let ov=0; const eg=[];
+        for(let i=0;i<rs.length;i++)for(let j=i+1;j<rs.length;j++){const a=rs[i],b=rs[j];
+          if(a.left<b.right&&b.left<a.right&&a.top<b.bottom&&b.top<a.bottom){ov++;
+            if(eg.length<3)eg.push(t[i].textContent+' ⨯ '+t[j].textContent);}}
+        return {n:t.length, ov, eg};
+      })()`);
+    } catch { /* 页面打不开由别处的断言负责报 */ }
+    ok(r.n > 0, `${d.id} 的树画出来了（可见标签 ${r.n} 个）`);
+    ok(r.ov === 0, `${d.id} 的树标签零重叠${r.ov ? `：${r.ov} 对，例 ${r.eg.join("、")}` : ""}`);
+    await page.close();
   }
 }
 
