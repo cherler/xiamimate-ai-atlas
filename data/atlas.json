@@ -1464,7 +1464,7 @@
    "version": "2（gemini-3.1-flash-image）",
    "version_as_of": "2026-08-11",
    "status": "active",
-   "tier": "extended",
+   "tier": "core",
    "domain": "image",
    "weights": "closed",
    "status_note": "官方模型列表原文：Nano Banana 2 → `gemini-3.1-flash-image`；另有 Nano Banana Pro → `gemini-3-pro-image`（4K 影棚级）。⚠️ 官方列表未标发布日期",
@@ -1479,7 +1479,7 @@
    "version": "2（gpt-image-2）",
    "version_as_of": "2026-08-11",
    "status": "active",
-   "tier": "extended",
+   "tier": "core",
    "domain": "image",
    "weights": "closed",
    "status_note": "官方模型列表原文：GPT Image 2 / `gpt-image-2`，「State-of-the-art image generation model」。⚠️ 官方列表未标发布日期",
@@ -1894,6 +1894,16 @@
   "gemini-models": {
    "name": "Google · Gemini API 官方模型列表",
    "url": "https://ai.google.dev/gemini-api/docs/models",
+   "tier": "official"
+  },
+  "gemini-image-docs": {
+   "name": "Google · Gemini API 图像生成官方文档",
+   "url": "https://ai.google.dev/gemini-api/docs/image-generation",
+   "tier": "official"
+  },
+  "openai-image-docs": {
+   "name": "OpenAI · Image generation 官方指南",
+   "url": "https://developers.openai.com/api/docs/guides/image-generation",
    "tier": "official"
   }
  },
@@ -2955,6 +2965,220 @@
    "src": "hf-lineage",
    "quote": "hpcai-tech/Open-Sora-v2-Video-DC-AE",
    "note": "证据是官方 HF 组织上的公开权重仓库。**许可条款未逐条核** —— 「权重公开」不等于标准开源协议。"
+  },
+  {
+   "m": "gemini-image",
+   "c": "i-t2i",
+   "state": "yes",
+   "verified_for": "2（gemini-3.1-flash-image）",
+   "src": "gemini-image-docs",
+   "note": "官方原文：「Image generation (text-to-image)」"
+  },
+  {
+   "m": "gemini-image",
+   "c": "i-i2i",
+   "state": "yes",
+   "verified_for": "2（gemini-3.1-flash-image）",
+   "src": "gemini-image-docs",
+   "note": "官方原文：「Image editing (text-and-image-to-image)」"
+  },
+  {
+   "m": "gemini-image",
+   "c": "i-edit",
+   "state": "yes",
+   "verified_for": "2（gemini-3.1-flash-image）",
+   "src": "gemini-image-docs",
+   "note": "官方原文：「Adding and removing elements」"
+  },
+  {
+   "m": "gemini-image",
+   "c": "i-multiturn",
+   "state": "yes",
+   "verified_for": "2（gemini-3.1-flash-image）",
+   "src": "gemini-image-docs",
+   "note": "官方原文：「Multi-turn image editing」"
+  },
+  {
+   "m": "gemini-image",
+   "c": "i-inpaint",
+   "state": "yes",
+   "verified_for": "2（gemini-3.1-flash-image）",
+   "src": "gemini-image-docs",
+   "note": "官方原文：「Inpainting (semantic masking)」"
+  },
+  {
+   "m": "gemini-image",
+   "c": "i-outpaint",
+   "state": "unknown",
+   "verified_for": "2（gemini-3.1-flash-image）",
+   "note": "官方图像文档通篇未提及这一条 —— **是我们读完没找到，不是没读**"
+  },
+  {
+   "m": "gemini-image",
+   "c": "i-canvas",
+   "state": "unknown",
+   "verified_for": "2（gemini-3.1-flash-image）",
+   "note": "官方图像文档通篇未提及这一条 —— **是我们读完没找到，不是没读**"
+  },
+  {
+   "m": "gemini-image",
+   "c": "i-multiref",
+   "state": "yes",
+   "verified_for": "2（gemini-3.1-flash-image）",
+   "src": "gemini-image-docs",
+   "note": "官方原文：「Use up to 14 reference images」"
+  },
+  {
+   "m": "gemini-image",
+   "c": "i-styleref",
+   "state": "yes",
+   "verified_for": "2（gemini-3.1-flash-image）",
+   "src": "gemini-image-docs",
+   "note": "官方原文：「Style transfer」"
+  },
+  {
+   "m": "gemini-image",
+   "c": "i-fidelity",
+   "state": "yes",
+   "verified_for": "2（gemini-3.1-flash-image）",
+   "src": "gemini-image-docs",
+   "note": "官方原文：「High-fidelity detail preservation」"
+  },
+  {
+   "m": "gemini-image",
+   "c": "i-textrender",
+   "state": "unknown",
+   "verified_for": "2（gemini-3.1-flash-image）",
+   "note": "官方图像文档通篇未提及这一条 —— **是我们读完没找到，不是没读**"
+  },
+  {
+   "m": "gemini-image",
+   "c": "i-upscale",
+   "state": "unknown",
+   "verified_for": "2（gemini-3.1-flash-image）",
+   "note": "官方图像文档通篇未提及这一条 —— **是我们读完没找到，不是没读**"
+  },
+  {
+   "m": "gemini-image",
+   "c": "i-4k",
+   "state": "yes",
+   "verified_for": "2（gemini-3.1-flash-image）",
+   "src": "gemini-image-docs",
+   "note": "官方原文：「Generate images up to 4K resolution」"
+  },
+  {
+   "m": "gemini-image",
+   "c": "i-openweights",
+   "state": "no",
+   "verified_for": "2（gemini-3.1-flash-image）",
+   "src": "gemini-image-docs",
+   "note": "闭源。官方只提供 API，未发布权重"
+  },
+  {
+   "m": "gpt-image",
+   "c": "i-t2i",
+   "state": "yes",
+   "verified_for": "2（gpt-image-2）",
+   "src": "openai-image-docs",
+   "note": "官方原文：「Generations - Generate images from scratch based on a text prompt」"
+  },
+  {
+   "m": "gpt-image",
+   "c": "i-i2i",
+   "state": "yes",
+   "verified_for": "2（gpt-image-2）",
+   "src": "openai-image-docs",
+   "note": "官方原文：「Edits - Modify existing images using a new prompt, either partially or entirely」"
+  },
+  {
+   "m": "gpt-image",
+   "c": "i-edit",
+   "state": "yes",
+   "verified_for": "2（gpt-image-2）",
+   "src": "openai-image-docs",
+   "note": "官方原文：「Edits - Modify existing images using a new prompt」"
+  },
+  {
+   "m": "gpt-image",
+   "c": "i-multiturn",
+   "state": "yes",
+   "verified_for": "2（gpt-image-2）",
+   "src": "openai-image-docs",
+   "note": "官方原文：「Multi-turn editing - Iteratively make high fidelity edits to images with prompting」"
+  },
+  {
+   "m": "gpt-image",
+   "c": "i-inpaint",
+   "state": "yes",
+   "verified_for": "2（gpt-image-2）",
+   "src": "openai-image-docs",
+   "note": "官方原文：「Mask-based editing - Edit parts of images using mask overlays」"
+  },
+  {
+   "m": "gpt-image",
+   "c": "i-outpaint",
+   "state": "unknown",
+   "verified_for": "2（gpt-image-2）",
+   "note": "官方图像文档通篇未提及这一条 —— **是我们读完没找到，不是没读**"
+  },
+  {
+   "m": "gpt-image",
+   "c": "i-canvas",
+   "state": "unknown",
+   "verified_for": "2（gpt-image-2）",
+   "note": "官方图像文档通篇未提及这一条 —— **是我们读完没找到，不是没读**"
+  },
+  {
+   "m": "gpt-image",
+   "c": "i-multiref",
+   "state": "yes",
+   "verified_for": "2（gpt-image-2）",
+   "src": "openai-image-docs",
+   "note": "官方原文：「Image references - Create new images using other images as reference material」"
+  },
+  {
+   "m": "gpt-image",
+   "c": "i-styleref",
+   "state": "unknown",
+   "verified_for": "2（gpt-image-2）",
+   "note": "官方图像文档通篇未提及这一条 —— **是我们读完没找到，不是没读**"
+  },
+  {
+   "m": "gpt-image",
+   "c": "i-fidelity",
+   "state": "yes",
+   "verified_for": "2（gpt-image-2）",
+   "src": "openai-image-docs",
+   "note": "官方原文：「Input image fidelity - Control how strongly a model preserves details from input images during edits」"
+  },
+  {
+   "m": "gpt-image",
+   "c": "i-textrender",
+   "state": "unknown",
+   "verified_for": "2（gpt-image-2）",
+   "note": "官方图像文档通篇未提及这一条 —— **是我们读完没找到，不是没读**"
+  },
+  {
+   "m": "gpt-image",
+   "c": "i-upscale",
+   "state": "unknown",
+   "verified_for": "2（gpt-image-2）",
+   "note": "官方图像文档通篇未提及这一条 —— **是我们读完没找到，不是没读**"
+  },
+  {
+   "m": "gpt-image",
+   "c": "i-4k",
+   "state": "unknown",
+   "verified_for": "2（gpt-image-2）",
+   "note": "官方只写 Size customization（灵活选分辨率），**没有 4K 这个断言** —— 有尺寸参数不等于官方承诺 4K"
+  },
+  {
+   "m": "gpt-image",
+   "c": "i-openweights",
+   "state": "no",
+   "verified_for": "2（gpt-image-2）",
+   "src": "openai-image-docs",
+   "note": "闭源。官方只提供 API，未发布权重"
   }
  ],
  "$aliases_why": "各家给同一个能力起不同的名字。**Kling 管角色参考叫 Element，我按 Character Reference 去找，找不到就标了「官方没说」—— 假阴性。** 采集时必须用整组别名去匹配，不能只用我们自己的叫法。这是原方案 §36 Entity Resolution 在能力维度上的对应物。\n\n`alias_bit_us` 标在**真把我们坑过的那一项**上（角色参考）。别名多不等于叫法分歧大：「首尾帧」也有 8 条别名，但全是 start/end frame 的描述性变体，谁都猜得到；而 Element / Ingredients / cameo 是厂商自造词，**不知道就永远搜不到**。选例子要选后者，靠数别名条数是挑不出来的 —— 所以标在数据里，不用启发式猜。",
