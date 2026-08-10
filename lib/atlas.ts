@@ -44,6 +44,15 @@ export type Model = {
   team?: string;
   version: string;
   version_as_of: string;
+  /**
+   * 版本号是**从哪看到的**。
+   *
+   * 视频侧的版本靠 `versions[]` 谱系带来源，但闭源图像这几家的官方页
+   * **只写当前版本、不写发布日期** —— 进不了谱系（谱系的 date 是发布日，
+   * 不是我们的核验日，硬填就是造一个假日期）。所以单开这一栏：
+   * 版本这个断言本身有出处，日期缺就缺着、在 status_note 里说明白。
+   */
+  version_src?: string;
   status?: Status;
   /** 给用户看的一句话：什么时候停。**status_note 里混着我们的工作过程，不上前端。** */
   status_short?: string;

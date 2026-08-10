@@ -350,6 +350,7 @@ const used = new Set([
   ...(a.skills ?? []).flatMap((k) => (k.platform_feature ?? []).map((f) => f.src)),
   ...(a.applications ?? []).flatMap((app) => (app.resources ?? []).map((r) => r.src)), // 应用的课程与文档来源
   ...a.models.map((m) => m.arch_src),                 // 架构标注也是引用
+  ...a.models.map((m) => m.version_src),              // 版本号的出处（闭源图像几家只有这一栏能挂）
   ...(a.pricing ?? []).map((q) => q.src),
 ].filter(Boolean));
 for (const id of srcIds) if (!used.has(id)) warns.push(`R10 来源登记了但没被引用：${id}`);

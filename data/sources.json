@@ -1296,6 +1296,45 @@
     "workflow"
    ],
    "note": "收录时 ★5,747，**仓库无 LICENSE 文件**。盯这条源的首要目的是等作者补许可证 —— 补上了才谈得上「可用」"
+  },
+  {
+   "id": "seedream-page",
+   "tier": "S",
+   "kind": "html",
+   "vendor": "seedream",
+   "name": "ByteDance Seed · Seedream 官方页",
+   "url": "https://seed.bytedance.com/en/seedream5_0_pro",
+   "refresh_days": 14,
+   "good_for": [
+    "version"
+   ],
+   "note": "AI 图像方向的版本真源。**官方页只写当前版本、不写发布日期** —— 日期缺就缺着"
+  },
+  {
+   "id": "openai-models",
+   "tier": "S",
+   "kind": "html",
+   "vendor": "openai",
+   "name": "OpenAI · 官方模型列表",
+   "url": "https://developers.openai.com/api/docs/models",
+   "refresh_days": 7,
+   "good_for": [
+    "version"
+   ],
+   "note": "AI 图像方向的版本真源。**官方页只写当前版本、不写发布日期** —— 日期缺就缺着"
+  },
+  {
+   "id": "gemini-models",
+   "tier": "S",
+   "kind": "html",
+   "vendor": "gemini",
+   "name": "Google · Gemini API 官方模型列表",
+   "url": "https://ai.google.dev/gemini-api/docs/models",
+   "refresh_days": 7,
+   "good_for": [
+    "version"
+   ],
+   "note": "AI 图像方向的版本真源。**官方页只写当前版本、不写发布日期** —— 日期缺就缺着"
   }
  ],
  "$missing": [

@@ -769,6 +769,48 @@
    },
    "hq_precision": "none",
    "hq_note": "⚠️ 还没有来源，按常识填的（R21 会一直警告）。"
+  },
+  {
+   "id": "bfl",
+   "zh": "Black Forest Labs",
+   "name": "Black Forest Labs",
+   "kind": "startup",
+   "hq": {
+    "city": "Freiburg",
+    "country": "Germany",
+    "iso": "DE",
+    "lat": 48.0,
+    "lon": 7.85
+   },
+   "note": "FLUX 系列。创始团队来自 Stable Diffusion 原班人马"
+  },
+  {
+   "id": "stability",
+   "zh": "Stability AI",
+   "name": "Stability AI",
+   "kind": "startup",
+   "hq": {
+    "city": "London",
+    "country": "United Kingdom",
+    "iso": "GB",
+    "lat": 51.5074,
+    "lon": -0.1278
+   },
+   "note": "Stable Diffusion 系列"
+  },
+  {
+   "id": "krea",
+   "zh": "Krea AI",
+   "name": "Krea AI",
+   "kind": "startup",
+   "hq": {
+    "city": "San Francisco",
+    "country": "United States",
+    "iso": "US",
+    "lat": 37.7749,
+    "lon": -122.4194
+   },
+   "note": "Krea 系列"
   }
  ],
  "$orgs": "公司是**一等实体**，不是模型上的一个字符串（此前 vendor 是字符串，结果阿里在库里成了两家）。产业链图、地球分布、投资关系全都挂在这一层上。\n**hq 只有 5 家有来源，其余 6 家仍然没有** —— 都是公开常识，但我们自己的规矩是「没有来源的结论就是猜的」，所以校验里 R21 会一直警告，前台也必须标出来。不许因为「大家都知道」就当成核过了。\n\n2026-08-08 补：从已有快照和官网拿到 5 家的可引证据，但**精度分三档**，写进 `hq_precision`：\n  exact     —— 页脚给出具体街道地址（只有字节）\n  province  —— **ICP 备案只证到省**（快手/MiniMax/阿里）。阿里那条只证到浙江，没证到杭州\n  ambiguous —— 招聘页同时列两个城市（Runway 的纽约与旧金山）\n\n剩下 6 家（生数、昆仑万维、Google DeepMind、OpenAI、Decart、Lightricks）没拿到：\n**生数官网 HTTPS 证书已过期**（ERR_CERT_DATE_INVALID）—— 这条本身就是信息；\n其余几家的 about/contact 页没有可机读的地址段。R21 会一直为它们报警告。\n\n**不许把 province 当成 exact 用。** 我们批评厂商「说了半句」的时候，自己不能也说半句。",
@@ -1308,6 +1350,154 @@
    "arch_quote": null,
    "arch_note": null,
    "arch_basis": "common"
+  },
+  {
+   "id": "flux",
+   "class": "still",
+   "family": "FLUX",
+   "zh": "FLUX",
+   "org": "bfl",
+   "version": "2-dev",
+   "version_as_of": "2025-11-22",
+   "status": "active",
+   "tier": "extended",
+   "domain": "image",
+   "weights": "open",
+   "weights_note": "black-forest-labs/FLUX.2-dev（2025-11-22 发布，↓963,011）；许可 other（自定义），非标准开源协议",
+   "lineage_note": "FLUX.1-dev/schnell → FLUX.1-Kontext-dev（2025-05-28）→ FLUX.2 系列"
+  },
+  {
+   "id": "qwen-image",
+   "class": "still",
+   "family": "Qwen-Image",
+   "zh": "通义千问图像",
+   "org": "alibaba",
+   "version": "Edit-2511",
+   "version_as_of": "2025-12-17",
+   "status": "active",
+   "tier": "extended",
+   "domain": "image",
+   "weights": "open",
+   "team": "通义 Qwen",
+   "weights_note": "Qwen/Qwen-Image（2025-08-02）与 Qwen-Image-Edit-2511（2025-12-17）均为 apache-2.0 —— **标准开源协议**，在这批里少见"
+  },
+  {
+   "id": "z-image",
+   "class": "still",
+   "family": "Z-Image",
+   "zh": "Z-Image",
+   "org": "alibaba",
+   "version": "Turbo",
+   "version_as_of": "2025-11-25",
+   "status": "active",
+   "tier": "extended",
+   "domain": "image",
+   "weights": "open",
+   "team": "通义 Tongyi-MAI",
+   "weights_note": "Tongyi-MAI/Z-Image-Turbo，apache-2.0，↓998,283 —— 开源侧下载量第一档"
+  },
+  {
+   "id": "hunyuan-image",
+   "class": "still",
+   "family": "HunyuanImage",
+   "zh": "混元图像",
+   "org": "tencent",
+   "version": "3.0",
+   "version_as_of": "2025-09-25",
+   "status": "active",
+   "tier": "extended",
+   "domain": "image",
+   "weights": "open",
+   "weights_note": "tencent/HunyuanImage-3.0-Instruct，许可 other"
+  },
+  {
+   "id": "sd",
+   "class": "still",
+   "family": "Stable Diffusion",
+   "zh": "Stable Diffusion",
+   "org": "stability",
+   "version": "XL 1.0",
+   "version_as_of": "2023-07-25",
+   "status": "active",
+   "tier": "extended",
+   "domain": "image",
+   "weights": "open",
+   "weights_note": "stabilityai/stable-diffusion-xl-base-1.0，openrail++，↓1,381,466 —— 累计下载最高，但 2023 年的模型",
+   "lineage_note": "SD 1.4/1.5 → SDXL → SD3 系列"
+  },
+  {
+   "id": "krea-img",
+   "class": "still",
+   "family": "Krea",
+   "zh": "Krea",
+   "org": "krea",
+   "version": "2-Raw",
+   "version_as_of": "2026-06-18",
+   "status": "active",
+   "tier": "extended",
+   "domain": "image",
+   "weights": "open",
+   "weights_note": "krea/Krea-2-Raw，许可 other"
+  },
+  {
+   "id": "seedream",
+   "class": "still",
+   "family": "Seedream",
+   "zh": "即梦图像",
+   "org": "bytedance",
+   "version": "5.0 Pro",
+   "version_as_of": "2026-08-11",
+   "status": "active",
+   "tier": "extended",
+   "domain": "image",
+   "weights": "closed",
+   "team": "Seed",
+   "status_note": "官方页当前指向 Seedream 5.0 Pro（seed.bytedance.com/en/seedream5_0_pro）。⚠️ **官方页没写发布日期**，所以 version_as_of 记的是我们的核验日",
+   "version_src": "seedream-page"
+  },
+  {
+   "id": "gemini-image",
+   "class": "still",
+   "family": "Nano Banana",
+   "zh": "Nano Banana",
+   "org": "google",
+   "version": "2（gemini-3.1-flash-image）",
+   "version_as_of": "2026-08-11",
+   "status": "active",
+   "tier": "extended",
+   "domain": "image",
+   "weights": "closed",
+   "status_note": "官方模型列表原文：Nano Banana 2 → `gemini-3.1-flash-image`；另有 Nano Banana Pro → `gemini-3-pro-image`（4K 影棚级）。⚠️ 官方列表未标发布日期",
+   "version_src": "gemini-models"
+  },
+  {
+   "id": "gpt-image",
+   "class": "still",
+   "family": "GPT Image",
+   "zh": "GPT Image",
+   "org": "openai",
+   "version": "2（gpt-image-2）",
+   "version_as_of": "2026-08-11",
+   "status": "active",
+   "tier": "extended",
+   "domain": "image",
+   "weights": "closed",
+   "status_note": "官方模型列表原文：GPT Image 2 / `gpt-image-2`，「State-of-the-art image generation model」。⚠️ 官方列表未标发布日期",
+   "version_src": "openai-models"
+  },
+  {
+   "id": "kolors",
+   "class": "still",
+   "family": "Kolors",
+   "zh": "可图",
+   "org": "kuaishou",
+   "version": "待核",
+   "version_as_of": "2026-08-11",
+   "status": "active",
+   "tier": "extended",
+   "domain": "image",
+   "weights": "closed",
+   "status_note": "⚠️ **版本号没核到。** kling.ai 的图像 API 文档对我们的采集器返回 **HTTP 446**（与视频侧 kling-api-updates 撞的是同一堵墙）。**拿不到就记拿不到，不猜版本号。**"
   }
  ],
  "sources": {
@@ -1690,6 +1880,21 @@
    "name": "GitHub · showlab/Awesome-Video-Diffusion（星标 5,747，仓库无 LICENSE 文件）",
    "url": "https://github.com/showlab/Awesome-Video-Diffusion",
    "tier": "third-party"
+  },
+  "seedream-page": {
+   "name": "ByteDance Seed · Seedream 官方页",
+   "url": "https://seed.bytedance.com/en/seedream5_0_pro",
+   "tier": "official"
+  },
+  "openai-models": {
+   "name": "OpenAI · 官方模型列表",
+   "url": "https://developers.openai.com/api/docs/models",
+   "tier": "official"
+  },
+  "gemini-models": {
+   "name": "Google · Gemini API 官方模型列表",
+   "url": "https://ai.google.dev/gemini-api/docs/models",
+   "tier": "official"
   }
  },
  "support": [
