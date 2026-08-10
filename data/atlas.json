@@ -1408,6 +1408,66 @@
    "name": "MiniMax H3 官方模型卡（Hugging Face，含变体表与官方案例）",
    "url": "https://huggingface.co/MiniMaxAI/MiniMax-H3",
    "tier": "official"
+  },
+  "mpt-gh": {
+   "name": "GitHub · harry0703/MoneyPrinterTurbo（星标 102,454，许可 MIT）",
+   "url": "https://github.com/harry0703/MoneyPrinterTurbo",
+   "tier": "third-party"
+  },
+  "manim-gh": {
+   "name": "GitHub · ManimCommunity/manim（星标 40,048，许可 MIT）",
+   "url": "https://github.com/ManimCommunity/manim",
+   "tier": "third-party"
+  },
+  "pyvideotrans-gh": {
+   "name": "GitHub · jianchang512/pyvideotrans（星标 18,636，许可 GPL-3.0）",
+   "url": "https://github.com/jianchang512/pyvideotrans",
+   "tier": "third-party"
+  },
+  "duix-gh": {
+   "name": "GitHub · duixcom/Duix-Avatar（星标 14,401，许可 DUIX.COM COMMUNITY LICENSE AGREEMENT（自定义社区许可））",
+   "url": "https://github.com/duixcom/Duix-Avatar",
+   "tier": "third-party"
+  },
+  "fay-gh": {
+   "name": "GitHub · xszyou/Fay（星标 13,405，许可 GPL-3.0）",
+   "url": "https://github.com/xszyou/Fay",
+   "tier": "third-party"
+  },
+  "narrato-gh": {
+   "name": "GitHub · linyqh/NarratoAI（星标 10,650，许可 MIT）",
+   "url": "https://github.com/linyqh/NarratoAI",
+   "tier": "third-party"
+  },
+  "zho-wf-gh": {
+   "name": "GitHub · ZHO-ZHO-ZHO/ComfyUI-Workflows-ZHO（星标 7,724，许可 GPL-3.0）",
+   "url": "https://github.com/ZHO-ZHO-ZHO/ComfyUI-Workflows-ZHO",
+   "tier": "third-party"
+  },
+  "echomimic-gh": {
+   "name": "GitHub · antgroup/echomimic（星标 4,282，许可 Apache-2.0）",
+   "url": "https://github.com/antgroup/echomimic",
+   "tier": "third-party"
+  },
+  "linly-talker-gh": {
+   "name": "GitHub · Kedreamix/Linly-Talker（星标 3,424，许可 MIT）",
+   "url": "https://github.com/Kedreamix/Linly-Talker",
+   "tier": "third-party"
+  },
+  "animate-anything-gh": {
+   "name": "GitHub · alibaba/animate-anything（星标 970，许可 MIT）",
+   "url": "https://github.com/alibaba/animate-anything",
+   "tier": "third-party"
+  },
+  "huobao-gh": {
+   "name": "GitHub · chatfire-AI/huobao-drama（星标 13,898，仓库无 LICENSE 文件）",
+   "url": "https://github.com/chatfire-AI/huobao-drama",
+   "tier": "third-party"
+  },
+  "awesome-vd-gh": {
+   "name": "GitHub · showlab/Awesome-Video-Diffusion（星标 5,747，仓库无 LICENSE 文件）",
+   "url": "https://github.com/showlab/Awesome-Video-Diffusion",
+   "tier": "third-party"
   }
  },
  "support": [
@@ -4304,6 +4364,31 @@
    ],
    "resources": [
     {
+     "kind": "project",
+     "name": "火宝短剧（一句话生成完整短剧）",
+     "url": "https://github.com/chatfire-AI/huobao-drama",
+     "src": "huobao-gh",
+     "note": "作者没放 LICENSE。能看、能在 GitHub 内 fork，但**没有授权你使用、修改或再分发** —— 商用前必须先联系作者拿授权",
+     "quote": "chatfire-AI/huobao-drama：基于AI的一站式短剧生成平台，从剧本到成片全自动化（★13,898）",
+     "license": null
+    },
+    {
+     "kind": "project",
+     "name": "MoneyPrinterTurbo（一句话到成片的全流程）",
+     "url": "https://github.com/harry0703/MoneyPrinterTurbo",
+     "src": "mpt-gh",
+     "license": "MIT",
+     "quote": "harry0703/MoneyPrinterTurbo：利用 AI 大模型和自动化工作流，根据主题或关键词一键生成高清短视频（★102,454）"
+    },
+    {
+     "kind": "project",
+     "name": "NarratoAI（AI 解说 + 自动剪辑）",
+     "url": "https://github.com/linyqh/NarratoAI",
+     "src": "narrato-gh",
+     "license": "MIT",
+     "quote": "linyqh/NarratoAI：利用 AI 大模型，一键解说并剪辑视频（★10,650）"
+    },
+    {
      "kind": "course",
      "name": "Hugging Face Diffusion Models Course",
      "url": "https://huggingface.co/learn/diffusion-course/en/unit0/1",
@@ -4344,6 +4429,14 @@
    ],
    "resources": [
     {
+     "kind": "project",
+     "name": "ComfyUI-Workflows-ZHO（中文工作流合集）",
+     "url": "https://github.com/ZHO-ZHO-ZHO/ComfyUI-Workflows-ZHO",
+     "src": "zho-wf-gh",
+     "license": "GPL-3.0",
+     "quote": "ZHO-ZHO-ZHO/ComfyUI-Workflows-ZHO：我的 ComfyUI 工作流合集 | My ComfyUI workflows collection（★7,724）"
+    },
+    {
      "kind": "course",
      "name": "Hugging Face Diffusion Models Course",
      "url": "https://huggingface.co/learn/diffusion-course/en/unit0/1",
@@ -4358,6 +4451,15 @@
      "src": "comfy-docs",
      "quote": "官方教程说明角色动画与替换的本地工作流",
      "note": "适合把单张角色图先动起来"
+    },
+    {
+     "kind": "docs",
+     "name": "Awesome-Video-Diffusion（视频生成论文与模型索引）",
+     "url": "https://github.com/showlab/Awesome-Video-Diffusion",
+     "src": "awesome-vd-gh",
+     "note": "作者没放 LICENSE。能看、能在 GitHub 内 fork，但**没有授权你使用、修改或再分发** —— 商用前必须先联系作者拿授权",
+     "quote": "showlab/Awesome-Video-Diffusion：A curated list of recent diffusion models for video generation, editing（★5,747）",
+     "license": null
     }
    ],
    "aliases": [
@@ -4383,6 +4485,39 @@
     "extend"
    ],
    "resources": [
+    {
+     "kind": "project",
+     "name": "Duix-Avatar（离线数字人工具包）",
+     "url": "https://github.com/duixcom/Duix-Avatar",
+     "src": "duix-gh",
+     "license": "DUIX.COM COMMUNITY LICENSE AGREEMENT（自定义社区许可）",
+     "quote": "duixcom/Duix-Avatar：Truly open-source AI avatar(digital human) toolkit for offline video（★14,401）",
+     "note": "自定义社区许可，商用前必须自己读条款"
+    },
+    {
+     "kind": "project",
+     "name": "Fay（数字人 agent 框架）",
+     "url": "https://github.com/xszyou/Fay",
+     "src": "fay-gh",
+     "license": "GPL-3.0",
+     "quote": "xszyou/Fay：帮助数字人（2.5d、3d、移动、pc、网页）或大语言模型连通业务系统的 agent 框架（★13,405）"
+    },
+    {
+     "kind": "project",
+     "name": "EchoMimic（音频驱动人像，AAAI 2025）",
+     "url": "https://github.com/antgroup/echomimic",
+     "src": "echomimic-gh",
+     "license": "Apache-2.0",
+     "quote": "antgroup/echomimic：[AAAI 2025] EchoMimic: Lifelike Audio-Driven Portrait Animations（★4,282）"
+    },
+    {
+     "kind": "project",
+     "name": "Linly-Talker（数字人对话系统）",
+     "url": "https://github.com/Kedreamix/Linly-Talker",
+     "src": "linly-talker-gh",
+     "license": "MIT",
+     "quote": "Kedreamix/Linly-Talker：Digital Avatar Conversational System - Linly-Talker（★3,424）"
+    },
     {
      "kind": "project",
      "name": "LatentSync",
@@ -4425,6 +4560,22 @@
    ],
    "resources": [
     {
+     "kind": "project",
+     "name": "MoneyPrinterTurbo（一句话到成片的全流程）",
+     "url": "https://github.com/harry0703/MoneyPrinterTurbo",
+     "src": "mpt-gh",
+     "license": "MIT",
+     "quote": "harry0703/MoneyPrinterTurbo：利用 AI 大模型和自动化工作流，根据主题或关键词一键生成高清短视频（★102,454）"
+    },
+    {
+     "kind": "project",
+     "name": "pyvideotrans（视频翻译配音，跨境带货用）",
+     "url": "https://github.com/jianchang512/pyvideotrans",
+     "src": "pyvideotrans-gh",
+     "license": "GPL-3.0",
+     "quote": "jianchang512/pyvideotrans：Translate the video from one language to another and embed dubbing & subtitles（★18,636）"
+    },
+    {
      "kind": "docs",
      "name": "ComfyUI · Wan-Move 轨迹控制",
      "url": "https://docs.comfy.org/tutorials/video/wan/wan-move",
@@ -4464,6 +4615,22 @@
     "charref"
    ],
    "resources": [
+    {
+     "kind": "project",
+     "name": "ComfyUI-Workflows-ZHO（中文工作流合集）",
+     "url": "https://github.com/ZHO-ZHO-ZHO/ComfyUI-Workflows-ZHO",
+     "src": "zho-wf-gh",
+     "license": "GPL-3.0",
+     "quote": "ZHO-ZHO-ZHO/ComfyUI-Workflows-ZHO：我的 ComfyUI 工作流合集 | My ComfyUI workflows collection（★7,724）"
+    },
+    {
+     "kind": "project",
+     "name": "animate-anything（细粒度图像动画）",
+     "url": "https://github.com/alibaba/animate-anything",
+     "src": "animate-anything-gh",
+     "license": "MIT",
+     "quote": "alibaba/animate-anything：Fine-Grained Open Domain Image Animation with Motion Guidance（★970）"
+    },
     {
      "kind": "docs",
      "name": "ComfyUI · Wan-Move 轨迹控制",
@@ -4509,6 +4676,22 @@
    ],
    "resources": [
     {
+     "kind": "project",
+     "name": "MoneyPrinterTurbo（一句话到成片的全流程）",
+     "url": "https://github.com/harry0703/MoneyPrinterTurbo",
+     "src": "mpt-gh",
+     "license": "MIT",
+     "quote": "harry0703/MoneyPrinterTurbo：利用 AI 大模型和自动化工作流，根据主题或关键词一键生成高清短视频（★102,454）"
+    },
+    {
+     "kind": "project",
+     "name": "NarratoAI（AI 解说 + 自动剪辑）",
+     "url": "https://github.com/linyqh/NarratoAI",
+     "src": "narrato-gh",
+     "license": "MIT",
+     "quote": "linyqh/NarratoAI：利用 AI 大模型，一键解说并剪辑视频（★10,650）"
+    },
+    {
      "kind": "course",
      "name": "Hugging Face Diffusion Models Course",
      "url": "https://huggingface.co/learn/diffusion-course/en/unit0/1",
@@ -4538,6 +4721,22 @@
     "extend"
    ],
    "resources": [
+    {
+     "kind": "project",
+     "name": "Manim（数学与科普动画引擎）",
+     "url": "https://github.com/ManimCommunity/manim",
+     "src": "manim-gh",
+     "license": "MIT",
+     "quote": "ManimCommunity/manim：A community-maintained Python framework for creating mathematical animations（★40,048）"
+    },
+    {
+     "kind": "project",
+     "name": "NarratoAI（AI 解说 + 自动剪辑）",
+     "url": "https://github.com/linyqh/NarratoAI",
+     "src": "narrato-gh",
+     "license": "MIT",
+     "quote": "linyqh/NarratoAI：利用 AI 大模型，一键解说并剪辑视频（★10,650）"
+    },
     {
      "kind": "docs",
      "name": "ComfyUI · Wan2.2-S2V 音频驱动",

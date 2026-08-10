@@ -194,6 +194,18 @@ export type ApplicationResource = {
   src: string;
   quote: string;
   note?: string;
+  /**
+   * 许可证。**三态，不是两态** —— 这是本项目栽过的同一个坑：
+   *
+   *   `"MIT"` 等字符串 = 查过，就是这个许可（自定义社区许可按原名写，不写「开源」）
+   *   `null`           = **查过，作者确实没放 LICENSE**
+   *   字段缺失          = **我们还没采**
+   *
+   * 后两者长得像，含义完全相反。混成一个「有没有」的布尔，
+   * 界面就会把 HunyuanVideo、Wan 这些明明有许可证的仓库标成「未授权使用」——
+   * 那不是谨慎，是造谣。和 ⬜「官方没说」/ ❌「官方说了不支持」的区分同一条纪律。
+   */
+  license?: string | null;
   /** 认领它的每一个 Skill 及其原文。应用自己填的课程/文档没有 Skill，这里是空数组。 */
   evidence: ApplicationResourceEvidence[];
 };

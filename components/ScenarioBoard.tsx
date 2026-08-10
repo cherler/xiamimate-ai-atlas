@@ -54,7 +54,28 @@ function ResourceCard({ resource }: { resource: ApplicationResource }) {
           {resource.note ?? resource.quote}
         </p>
       )}
-      <p data-quote className="text-[10.5px] text-muted leading-snug mt-2 truncate">{source}</p>
+      {/**
+        * 许可证三态：有原名就写原名；`null` 是「查过、作者确实没放」，红标并写清后果；
+        * 字段缺失是「我们还没采」，走 ⬜ 那一档的灰。**后两者绝不能混** ——
+        * 混了就会把 HunyuanVideo、Wan 这些有许可证的仓库标成「未授权使用」。
+        *
+        * **「传到 GitHub 上」不等于开源。** 没有 LICENSE 文件时默认保留全部版权，
+        * GitHub 服务条款只授予查看与站内 fork，不授予使用、修改、再分发。
+        * 但也**不能因此把项目藏起来** —— 那和留白一样是在假装没这东西。
+        * 和 ⬜「官方没说」同一条纪律：标出来，别抹掉。
+        */}
+      <p className="text-[10.5px] leading-snug mt-2 flex items-center gap-1.5">
+        {resource.license ? (
+          <span className="text-yes-ink shrink-0">{resource.license}</span>
+        ) : resource.license === null ? (
+          // 查过，作者确实没放 —— 这是一条事实，红着标
+          <span className="shrink-0 px-1 bg-no/10 text-no font-medium">无许可证 · 未授权使用</span>
+        ) : (
+          // 我们还没采 —— 这是我们的缺口，不是对方的问题，用 ⬜ 那一档的灰
+          <span className="shrink-0 text-unknown">许可证未采</span>
+        )}
+        <span data-quote className="text-muted truncate">{source}</span>
+      </p>
     </a>
   );
 }
