@@ -79,3 +79,21 @@ table {
 .hatch {
   background: repeating-linear-gradient(45deg, var(--color-hatch) 0 1.2px, transparent 1.2px 4px);
 }
+
+/**
+ * 平台页眉要压过本仓自己的导航。
+ *
+ * 页眉制品里的下拉菜单写着 `z-index: 60`，看着很高 —— **但它在 `.topbar` 里面，
+ * 而 `.topbar` 自己是 `z-index: 20` 且 `position: relative`，于是它建立了层叠上下文：
+ * 子元素的 60 只在这个上下文内部有效，对外仍以父级的 20 参与比较。**
+ * 本仓的导航也是 z-20 且在 DOM 里更靠后 —— 同级同层，后来者赢，
+ * 于是下拉菜单顶部那一条被导航切掉一半。
+ *
+ * 排查时还差点被自己骗过去：用 elementFromPoint 量菜单**中心**，
+ * 中心不在重叠区，报「没被挡」。要量就量重叠的那一段。
+ *
+ * 还有一层：制品 CSS 是运行时注入的 `<link>`，**加载在本文件之后**。
+ * 同等特异性下后来者赢，所以这里必须比它高一级 —— 加个 `html` 前缀，
+ * 而不是甩 `!important`（那会让下一个人更难覆盖）。
+ */
+html .topbar.xm-embedded-chrome { z-index: 40; }

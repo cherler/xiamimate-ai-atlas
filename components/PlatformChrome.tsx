@@ -102,9 +102,19 @@ function Slot({ part }: { part: "header" | "footer" }) {
       if (!live || !api || !ref.current) return;
       done.current = true;
       ref.current.id = `xm-chrome-${part}`;
-      // 本仓是 1400 宽的居中排版，用和内容区同一档的左右留白，页眉才不会比正文窄
-      if (part === "header") api.header(`#xm-chrome-${part}`, { module: MODULE_KEY, headerPadding: "0 24px" });
-      else api.footer(`#xm-chrome-${part}`, { footerPadding: "14px 24px" });
+      /**
+       * **不传 padding，用主站的默认值。**
+       *
+       * 主站 `.topbar` 是 `0 4vw`、`.site-footer` 是 `14px 5vw`，虾米跨境用的就是这个。
+       * 我第一版传了 `0 24px`，结果 /atlas 的页眉贴着屏幕边，跟主页、虾米跨境**明显对不齐** ——
+       * 用户一眼就看出来了。
+       *
+       * 虾米看股确实传了自己的 padding，但那是**它有理由**：左边 248px 侧边栏，
+       * 套 4vw 会把页脚内容挤到右半边。本仓是居中排版，与主站同构，
+       * **没有那个理由就不该覆盖** —— 平台页眉的意义正是「看着像同一个产品」。
+       */
+      if (part === "header") api.header(`#xm-chrome-${part}`, { module: MODULE_KEY });
+      else api.footer(`#xm-chrome-${part}`);
       setOn(true);
       document.documentElement.dataset.chrome = "on";
     });
