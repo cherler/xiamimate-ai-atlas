@@ -811,6 +811,48 @@
     "lon": -122.4194
    },
    "note": "Krea 系列"
+  },
+  {
+   "id": "midjourney",
+   "zh": "Midjourney",
+   "name": "Midjourney, Inc.",
+   "kind": "startup",
+   "hq": {
+    "city": "San Francisco",
+    "country": "United States",
+    "iso": "US",
+    "lat": 37.7749,
+    "lon": -122.4194
+   },
+   "note": "总部为公开常识（Wikipedia / CB Insights），**无官方来源** —— 与既有 10 家同待遇，R21 照常警告"
+  },
+  {
+   "id": "ideogram",
+   "zh": "Ideogram",
+   "name": "Ideogram AI",
+   "kind": "startup",
+   "hq": {
+    "city": "Toronto",
+    "country": "Canada",
+    "iso": "CA",
+    "lat": 43.6532,
+    "lon": -79.3832
+   },
+   "note": "总部为公开常识（CB Insights），无官方来源"
+  },
+  {
+   "id": "recraft",
+   "zh": "Recraft",
+   "name": "Recraft AI",
+   "kind": "startup",
+   "hq": {
+    "city": "San Francisco",
+    "country": "United States",
+    "iso": "US",
+    "lat": 37.7749,
+    "lon": -122.4194
+   },
+   "note": "总部为公开常识，无官方来源"
   }
  ],
  "$orgs": "公司是**一等实体**，不是模型上的一个字符串（此前 vendor 是字符串，结果阿里在库里成了两家）。产业链图、地球分布、投资关系全都挂在这一层上。\n**hq 只有 5 家有来源，其余 6 家仍然没有** —— 都是公开常识，但我们自己的规矩是「没有来源的结论就是猜的」，所以校验里 R21 会一直警告，前台也必须标出来。不许因为「大家都知道」就当成核过了。\n\n2026-08-08 补：从已有快照和官网拿到 5 家的可引证据，但**精度分三档**，写进 `hq_precision`：\n  exact     —— 页脚给出具体街道地址（只有字节）\n  province  —— **ICP 备案只证到省**（快手/MiniMax/阿里）。阿里那条只证到浙江，没证到杭州\n  ambiguous —— 招聘页同时列两个城市（Runway 的纽约与旧金山）\n\n剩下 6 家（生数、昆仑万维、Google DeepMind、OpenAI、Decart、Lightricks）没拿到：\n**生数官网 HTTPS 证书已过期**（ERR_CERT_DATE_INVALID）—— 这条本身就是信息；\n其余几家的 about/contact 页没有可机读的地址段。R21 会一直为它们报警告。\n\n**不许把 province 当成 exact 用。** 我们批评厂商「说了半句」的时候，自己不能也说半句。",
@@ -1498,6 +1540,50 @@
    "domain": "image",
    "weights": "closed",
    "status_note": "⚠️ **版本号没核到。** kling.ai 的图像 API 文档对我们的采集器返回 **HTTP 446**（与视频侧 kling-api-updates 撞的是同一堵墙）。**拿不到就记拿不到，不猜版本号。**"
+  },
+  {
+   "id": "midjourney",
+   "class": "still",
+   "family": "Midjourney",
+   "zh": "Midjourney",
+   "org": "midjourney",
+   "version": "待核",
+   "version_as_of": "2026-08-11",
+   "status": "active",
+   "tier": "extended",
+   "domain": "image",
+   "weights": "closed",
+   "status_note": "⚠️ **版本没核到。** docs.midjourney.com 对采集器连续两次返回 **HTTP 403**。**拿不到就记拿不到** —— 和可图（446）、Sora（403）一样，是我们的缺口，不是对方不透明"
+  },
+  {
+   "id": "ideogram",
+   "class": "still",
+   "family": "Ideogram",
+   "zh": "Ideogram",
+   "org": "ideogram",
+   "version": "3.0",
+   "version_as_of": "2025-03-26",
+   "status": "active",
+   "tier": "core",
+   "domain": "image",
+   "weights": "closed",
+   "version_src": "ideogram-x",
+   "status_note": "官方账号公告原文：「You can now use Magic Fill and Extend with 3.0 in Ideogram Canvas to edit both uploaded and generated images」。以文字渲染见长"
+  },
+  {
+   "id": "recraft",
+   "class": "still",
+   "family": "Recraft",
+   "zh": "Recraft",
+   "org": "recraft",
+   "version": "V4.1",
+   "version_as_of": "2026-08-11",
+   "status": "active",
+   "tier": "core",
+   "domain": "image",
+   "weights": "closed",
+   "version_src": "recraft-docs",
+   "status_note": "官方文档原文：「V4.1 is the latest generation」。⚠️ 官方文档未标发布日期，version_as_of 记的是核验日"
   }
  ],
  "sources": {
@@ -1904,6 +1990,16 @@
   "openai-image-docs": {
    "name": "OpenAI · Image generation 官方指南",
    "url": "https://developers.openai.com/api/docs/guides/image-generation",
+   "tier": "official"
+  },
+  "recraft-docs": {
+   "name": "Recraft · 官方文档",
+   "url": "https://www.recraft.ai/docs",
+   "tier": "official"
+  },
+  "ideogram-x": {
+   "name": "Ideogram 官方账号发布公告（@ideogram_ai）",
+   "url": "https://x.com/ideogram_ai/status/1917985285679530232",
    "tier": "official"
   }
  },
@@ -3179,6 +3275,213 @@
    "verified_for": "2（gpt-image-2）",
    "src": "openai-image-docs",
    "note": "闭源。官方只提供 API，未发布权重"
+  },
+  {
+   "m": "ideogram",
+   "c": "i-t2i",
+   "state": "yes",
+   "verified_for": "3.0",
+   "src": "ideogram-x",
+   "note": "官方原文：「Ideogram 3.0」"
+  },
+  {
+   "m": "ideogram",
+   "c": "i-i2i",
+   "state": "yes",
+   "verified_for": "3.0",
+   "src": "ideogram-x",
+   "note": "官方原文：「edit both uploaded and generated images」"
+  },
+  {
+   "m": "ideogram",
+   "c": "i-edit",
+   "state": "yes",
+   "verified_for": "3.0",
+   "src": "ideogram-x",
+   "note": "官方原文：「Magic Fill … to edit both uploaded and generated images」"
+  },
+  {
+   "m": "ideogram",
+   "c": "i-multiturn",
+   "state": "unknown",
+   "verified_for": "3.0",
+   "note": "官方那条公告只讲了 3.0 与画布编辑，没提这一条 —— 读完没找到，不是没读"
+  },
+  {
+   "m": "ideogram",
+   "c": "i-inpaint",
+   "state": "yes",
+   "verified_for": "3.0",
+   "src": "ideogram-x",
+   "note": "官方原文：「Magic Fill」"
+  },
+  {
+   "m": "ideogram",
+   "c": "i-outpaint",
+   "state": "yes",
+   "verified_for": "3.0",
+   "src": "ideogram-x",
+   "note": "官方原文：「Extend」"
+  },
+  {
+   "m": "ideogram",
+   "c": "i-canvas",
+   "state": "yes",
+   "verified_for": "3.0",
+   "src": "ideogram-x",
+   "note": "官方原文：「in Ideogram Canvas」"
+  },
+  {
+   "m": "ideogram",
+   "c": "i-multiref",
+   "state": "unknown",
+   "verified_for": "3.0",
+   "note": "官方那条公告只讲了 3.0 与画布编辑，没提这一条 —— 读完没找到，不是没读"
+  },
+  {
+   "m": "ideogram",
+   "c": "i-styleref",
+   "state": "unknown",
+   "verified_for": "3.0",
+   "note": "**没有顺着写。** 二手报道普遍说 3.0 引入 Style References，但**官方那条公告原文里没有这个词** —— 二手说法不足以记 ✅"
+  },
+  {
+   "m": "ideogram",
+   "c": "i-fidelity",
+   "state": "unknown",
+   "verified_for": "3.0",
+   "note": "官方那条公告只讲了 3.0 与画布编辑，没提这一条 —— 读完没找到，不是没读"
+  },
+  {
+   "m": "ideogram",
+   "c": "i-textrender",
+   "state": "unknown",
+   "verified_for": "3.0",
+   "note": "Ideogram 以文字渲染见长是行业共识，但**这条公告里没写** —— 要记 ✅ 得找到厂商自己的原话"
+  },
+  {
+   "m": "ideogram",
+   "c": "i-upscale",
+   "state": "unknown",
+   "verified_for": "3.0",
+   "note": "官方那条公告只讲了 3.0 与画布编辑，没提这一条 —— 读完没找到，不是没读"
+  },
+  {
+   "m": "ideogram",
+   "c": "i-4k",
+   "state": "unknown",
+   "verified_for": "3.0",
+   "note": "官方那条公告只讲了 3.0 与画布编辑，没提这一条 —— 读完没找到，不是没读"
+  },
+  {
+   "m": "ideogram",
+   "c": "i-openweights",
+   "state": "no",
+   "verified_for": "3.0",
+   "src": "ideogram-x",
+   "note": "闭源，官方未发布权重"
+  },
+  {
+   "m": "recraft",
+   "c": "i-t2i",
+   "state": "yes",
+   "verified_for": "V4.1",
+   "src": "recraft-docs",
+   "note": "官方原文：「V4.1 is the latest generation」"
+  },
+  {
+   "m": "recraft",
+   "c": "i-i2i",
+   "state": "unknown",
+   "verified_for": "V4.1",
+   "note": "Recraft 官方文档这一页没提 —— 读完没找到，不是没读"
+  },
+  {
+   "m": "recraft",
+   "c": "i-edit",
+   "state": "unknown",
+   "verified_for": "V4.1",
+   "note": "Recraft 官方文档这一页没提 —— 读完没找到，不是没读"
+  },
+  {
+   "m": "recraft",
+   "c": "i-multiturn",
+   "state": "unknown",
+   "verified_for": "V4.1",
+   "note": "Recraft 官方文档这一页没提 —— 读完没找到，不是没读"
+  },
+  {
+   "m": "recraft",
+   "c": "i-inpaint",
+   "state": "unknown",
+   "verified_for": "V4.1",
+   "note": "**官方文档这一页明确没有 inpainting** —— 但「这一页没写」不等于「产品没有」，所以记 ⬜ 不记 ❌"
+  },
+  {
+   "m": "recraft",
+   "c": "i-outpaint",
+   "state": "unknown",
+   "verified_for": "V4.1",
+   "note": "Recraft 官方文档这一页没提 —— 读完没找到，不是没读"
+  },
+  {
+   "m": "recraft",
+   "c": "i-canvas",
+   "state": "unknown",
+   "verified_for": "V4.1",
+   "note": "Recraft 官方文档这一页没提 —— 读完没找到，不是没读"
+  },
+  {
+   "m": "recraft",
+   "c": "i-multiref",
+   "state": "unknown",
+   "verified_for": "V4.1",
+   "note": "Recraft 官方文档这一页没提 —— 读完没找到，不是没读"
+  },
+  {
+   "m": "recraft",
+   "c": "i-styleref",
+   "state": "yes",
+   "verified_for": "V4.1",
+   "src": "recraft-docs",
+   "note": "官方原文：「built for style consistency … artistic level control」"
+  },
+  {
+   "m": "recraft",
+   "c": "i-fidelity",
+   "state": "unknown",
+   "verified_for": "V4.1",
+   "note": "Recraft 官方文档这一页没提 —— 读完没找到，不是没读"
+  },
+  {
+   "m": "recraft",
+   "c": "i-textrender",
+   "state": "yes",
+   "verified_for": "V4.1",
+   "src": "recraft-docs",
+   "note": "官方原文：「precise text positioning」"
+  },
+  {
+   "m": "recraft",
+   "c": "i-upscale",
+   "state": "unknown",
+   "verified_for": "V4.1",
+   "note": "Recraft 官方文档这一页没提 —— 读完没找到，不是没读"
+  },
+  {
+   "m": "recraft",
+   "c": "i-4k",
+   "state": "unknown",
+   "verified_for": "V4.1",
+   "note": "官方只写 Pro 变体「outputs at higher resolution, for print-ready assets」—— **「更高分辨率」不是 4K 这个断言**"
+  },
+  {
+   "m": "recraft",
+   "c": "i-openweights",
+   "state": "no",
+   "verified_for": "V4.1",
+   "src": "recraft-docs",
+   "note": "闭源，官方未发布权重"
   }
  ],
  "$aliases_why": "各家给同一个能力起不同的名字。**Kling 管角色参考叫 Element，我按 Character Reference 去找，找不到就标了「官方没说」—— 假阴性。** 采集时必须用整组别名去匹配，不能只用我们自己的叫法。这是原方案 §36 Entity Resolution 在能力维度上的对应物。\n\n`alias_bit_us` 标在**真把我们坑过的那一项**上（角色参考）。别名多不等于叫法分歧大：「首尾帧」也有 8 条别名，但全是 start/end frame 的描述性变体，谁都猜得到；而 Element / Ingredients / cameo 是厂商自造词，**不知道就永远搜不到**。选例子要选后者，靠数别名条数是挑不出来的 —— 所以标在数据里，不用启发式猜。",
