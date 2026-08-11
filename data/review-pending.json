@@ -11,6 +11,17 @@
       "missing": [
         "没落到具体能力上"
       ]
+    },
+    {
+      "id": "2026-08-07::kling-api-updates::kling 3.0 turbo::pricing::Kling 3.0 Turbo 按生成视频时长计",
+      "at": "2026-08-11 12:27:01",
+      "who": "admin",
+      "claim": "Kling 3.0 Turbo 按生成视频时长计费：720P 每秒扣 0.8 单位，1080P 每秒扣 1.0 单位",
+      "quote": "0.8 units are deducted per second for 720P generation, and 1.0 unit is deducted per second for 1080P generation",
+      "source": "kling-api-updates",
+      "missing": [
+        "没落到具体能力上"
+      ]
     }
   ]
 }
