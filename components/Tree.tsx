@@ -99,7 +99,7 @@ const ORG_SHORT: Record<string, string> = {
   midjourney: "Midjourney", ideogram: "Ideogram", recraft: "Recraft",
 };
 
-const SHORT = (t: string) =>
+const SHORT_RAW = (t: string) =>
   (t || "")
     .replace(/^MiniMax Hailuo/, "MiniMax")
     .replace(/^OpenSora-STDiT-v(\d)/, "STDiT-v$1")
@@ -113,7 +113,21 @@ const SHORT = (t: string) =>
     .replace(/^换代[:：]?\s*/, "")
     .replace(/\s*补充发布$/, "")
     .replace(/-v\?$/, "")
-    .slice(0, 12);
+    // 通义这条线的版本号是日期戳（2511 / 2512），前缀太长会被截掉尾巴 ——
+    // 而尾巴正是唯一能区分两代的东西。先缩前缀，别缩后缀。
+    .replace(/^Qwen-Image-Edit-/, "QI-Edit-")
+    .replace(/^Qwen-Image-/, "QI-");
+
+/**
+ * **截断要看得出来是截断。**
+ *
+ * 原来直接 `slice(0, 12)`：`Qwen-Image-2512` 变成 `Qwen-Image-2` ——
+ * 那不是省略，是**凭空造了一个不存在的版本号**，而且看着完全合理。
+ * 同理 `Stable Diffusion` 变成 `Stable Diffu`，像个错别字。
+ * 加省略号之后，读者至少知道这里还有字。
+ */
+const CUT = (t: string) => (t.length > 12 ? `${t.slice(0, 12)}…` : t);
+const SHORT = (t: string) => CUT(SHORT_RAW(t));
 
 /**
  * 产品线名（画在线顶）的宽度与靠边方向。**布局占位和实际绘制各算一遍必然算歪**，

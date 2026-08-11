@@ -91,10 +91,20 @@ export default function DomainSwitch({ brand, current }: { brand: string; curren
             * 现在 AI 图像已经有页面了 —— 还标「还没开始」就是骗人。
             */}
           {atlas.domains.map((d) => {
+            /**
+             * **实心点 = 你现在在这里，不是「这个方向是 live」。**
+             *
+             * 原来两件事挤在同一个点上：`d.state === "live"` 既画实心又加粗。
+             * 于是站在 /atlas/image/* 上打开菜单，选中态显示的是「AI 视频」——
+             * 顶上的按钮明明写着「AI 图像」。负责人 2026-08-11 截图报的就是这个。
+             *
+             * 成熟度另有其位（右侧的「建设中 / 还没开始」），**它跟你在哪儿无关**。
+             */
+            const here = d.id === current;
             const live = d.state === "live";
             const inner = (
               <>
-                <span className={live ? "text-yes-ink" : "text-unknown"}>{live ? "●" : "○"}</span>
+                <span className={here ? "text-yes-ink" : "text-unknown"}>{here ? "●" : "○"}</span>
                 {d.name}
                 {!live && (
                   <span className="ml-auto text-[11px]">{d.href ? "建设中" : "还没开始"}</span>
@@ -102,7 +112,7 @@ export default function DomainSwitch({ brand, current }: { brand: string; curren
               </>
             );
             const cls = `px-3 py-1.5 text-[13px] flex items-center gap-2 ${
-              live ? "font-semibold" : "text-muted"
+              here ? "font-semibold" : "text-muted"
             }`;
             return d.href ? (
               <Link key={d.id} href={d.href} role="menuitem" onClick={() => setOpen(false)}

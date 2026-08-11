@@ -66,7 +66,7 @@ export default function AppJump({ apps }: { apps: { id: string; zh: string }[] }
       className="sticky top-12 z-10 -mx-6 px-6 bg-paper/95 backdrop-blur-sm border-b border-rule"
     >
       <div className="flex items-center gap-1 overflow-x-auto py-2">
-        <span className="text-[11px] text-muted shrink-0 mr-1.5 whitespace-nowrap">跳到</span>
+        <span className="text-[11px] text-muted shrink-0 mr-1.5 whitespace-nowrap">目录</span>
         {apps.map((a) => (
           <a
             key={a.id}

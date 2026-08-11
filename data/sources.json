@@ -1893,6 +1893,59 @@
       "good_for": [
         "opensource"
       ]
+    },
+    {
+      "id": "google-nb-blog",
+      "tier": "S",
+      "kind": "html",
+      "vendor": "gemini-image",
+      "name": "Google 官方博客 · Nano Banana 系列",
+      "url": "https://blog.google/innovation-and-ai/",
+      "refresh_days": 14,
+      "good_for": [
+        "version",
+        "capability"
+      ]
+    },
+    {
+      "id": "ms-foundry-blog",
+      "tier": "B",
+      "kind": "html",
+      "vendor": "gpt-image",
+      "name": "Microsoft Foundry 博客",
+      "url": "https://techcommunity.microsoft.com/category/azure-ai-foundry-blog",
+      "refresh_days": 30,
+      "good_for": [
+        "version"
+      ],
+      "note": "**不是模型厂商自己的页**。openai.com 与 help.openai.com 都是 403（见 $blocked），gpt-image 这条线的发布日只能从同日上线的微软一侧取。"
+    },
+    {
+      "id": "hf-image-org",
+      "tier": "S",
+      "kind": "json",
+      "vendor": "多家",
+      "name": "Hugging Face 官方组织 · 出图模型",
+      "url": "https://huggingface.co/api/models",
+      "refresh_days": 7,
+      "good_for": [
+        "version",
+        "opensource"
+      ]
+    },
+    {
+      "id": "mj-updates",
+      "tier": "S",
+      "kind": "html",
+      "vendor": "midjourney",
+      "name": "Midjourney 官方更新日志（updates.midjourney.com）",
+      "url": "https://updates.midjourney.com/",
+      "refresh_days": 14,
+      "good_for": [
+        "version",
+        "capability"
+      ],
+      "note": "**官方一手源，能抓。**之前只登记了被 Cloudflare 挡住的 docs.midjourney.com，就以为 Midjourney 整家抓不到、把版本年表退到了 Wikipedia —— **一个域名挡住不等于这家挡住**。"
     }
   ],
   "$missing": [
@@ -1906,7 +1959,8 @@
   "$blocked": [
     "openai.com：403 反爬，S 级源但抓不到 —— Sora 的状态只能靠人工看",
     "fal.ai / aiwiki.ai：429 限流，需要加退避重试后再评估",
-    "docs.midjourney.com：Cloudflare 挑战，浏览器外一律 403 —— Midjourney 版本年表只能退到 B 级源"
+    "docs.midjourney.com：Cloudflare 挑战，浏览器外一律 403 —— Midjourney 版本年表只能退到 B 级源",
+    "help.openai.com：同样 403 —— OpenAI 侧一手来源整片抓不到"
   ],
   "$silent_failure": "抓取成功 ≠ 抓到内容。AA 榜单与 Vidu 文档都是 SPA，纯 HTTP 抓回来的 4000 字全是导航壳，监视器却报「无变化」—— **静默的成功比失败更危险**，因为失败会喊，成功不会。故给源加 expect 关键词，抓到但一个都不含就报警。 又一例：Runway 的 changelog 抓回来是整页 cookie 同意书，而 expect 里的「Gen」恰好被同意书里的词命中，自检没拦住 —— **关键词要挑那种只可能出现在正文里的**（改成 Gen-4 / Act-One / Aleph）。",
   "$corrections": [
