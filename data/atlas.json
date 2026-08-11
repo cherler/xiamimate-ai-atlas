@@ -6162,6 +6162,436 @@
     }
    ],
    "domain": "video"
+  },
+  {
+   "id": "i-instruct",
+   "zh": "指令改图",
+   "en": "Instructed Editing",
+   "io": {
+    "in": [
+     "原图 ×1",
+     "一句话说要改什么"
+    ],
+    "out": "改完的图"
+   },
+   "native": [
+    "flux",
+    "gemini-image",
+    "gpt-image",
+    "hunyuan-image",
+    "ideogram",
+    "qwen-image",
+    "seedream",
+    "z-image"
+   ],
+   "opensource": [
+    {
+     "name": "Step1X-Edit（开源指令改图）",
+     "url": "https://github.com/stepfun-ai/Step1X-Edit",
+     "src": "step1x-gh",
+     "license": "Apache-2.0",
+     "quote": "stepfun-ai/Step1X-Edit：A SOTA open-source image editing model, which aims to provide comparable performance against the closed-source models（★2,249）"
+    },
+    {
+     "name": "OmniGen（一个模型吃下多种改图指令）",
+     "url": "https://github.com/VectorSpaceLab/OmniGen",
+     "src": "omnigen-gh",
+     "license": "MIT",
+     "quote": "VectorSpaceLab/OmniGen：OmniGen: Unified Image Generation（★4,337）"
+    },
+    {
+     "name": "Qwen-Image（开源权重，中文出字与改图）",
+     "url": "https://github.com/QwenLM/Qwen-Image",
+     "src": "qwenimage-gh",
+     "license": "Apache-2.0",
+     "quote": "QwenLM/Qwen-Image：Qwen-Image is a powerful image generation foundation model capable of complex text rendering and precise image editing.（★8,226）"
+    }
+   ],
+   "platform_feature": [],
+   "limits": [
+    "「只改这一处」很难做到 —— 多数模型会顺手重画整张，人脸和商品细节最容易被改掉",
+    "改多轮会累积漂移：第 3 轮之后往往和第 1 张不是同一个东西了"
+   ],
+   "cases": [
+    "改颜色/材质",
+    "换背景",
+    "加减物体"
+   ],
+   "src": "comfy-docs",
+   "quote": "开源侧三个实现（Step1X-Edit / OmniGen / Qwen-Image）都把「一句话改图」写在项目自述里",
+   "verified_at": "2026-08-11",
+   "domain": "image",
+   "cap": "i-edit"
+  },
+  {
+   "id": "i-inpaint-skill",
+   "zh": "局部重绘与消除",
+   "en": "Inpainting & Object Removal",
+   "io": {
+    "in": [
+     "原图 ×1",
+     "涂出要改的区域"
+    ],
+    "out": "该区域被重画过的图"
+   },
+   "native": [
+    "flux",
+    "gemini-image",
+    "gpt-image",
+    "ideogram"
+   ],
+   "opensource": [
+    {
+     "name": "IOPaint（消除物体 / 局部重绘，开箱即用）",
+     "url": "https://github.com/Sanster/IOPaint",
+     "src": "iopaint-gh",
+     "license": "Apache-2.0",
+     "quote": "Sanster/IOPaint：Image inpainting tool powered by SOTA AI Model. Remove any unwanted object, defect, people from your pictures（★23,353）"
+    },
+    {
+     "name": "Krita AI Diffusion（在 Krita 里直接重绘/扩图）",
+     "url": "https://github.com/Acly/krita-ai-diffusion",
+     "src": "kritaai-gh",
+     "license": "GPL-3.0",
+     "quote": "Acly/krita-ai-diffusion：Streamlined interface for generating images with AI in Krita. Inpaint and outpaint with optional text prompt（★10,448）"
+    },
+    {
+     "name": "ComfyUI（节点式工作流，出图工具的事实底座）",
+     "url": "https://github.com/Comfy-Org/ComfyUI",
+     "src": "comfyui-gh",
+     "license": "GPL-3.0",
+     "quote": "Comfy-Org/ComfyUI：The most powerful and modular diffusion model GUI, api and backend with a graph/nodes interface.（★126,453）"
+    }
+   ],
+   "platform_feature": [],
+   "limits": [
+    "涂选范围要比目标大一圈，贴边涂容易留下接缝",
+    "去水印类用途要自己看素材授权 —— 工具不判断你有没有权利去掉它"
+   ],
+   "cases": [
+    "消除路人/杂物",
+    "去水印",
+    "局部换材质"
+   ],
+   "src": "comfy-docs",
+   "quote": "IOPaint 自述即「Remove any unwanted object, defect, people from your pictures」",
+   "verified_at": "2026-08-11",
+   "domain": "image",
+   "cap": "i-inpaint"
+  },
+  {
+   "id": "i-idref",
+   "zh": "人物保真",
+   "en": "Identity Preserving",
+   "io": {
+    "in": [
+     "人脸照 1~N 张",
+     "要生成的场景描述"
+    ],
+    "out": "同一个人出现在新场景里的图"
+   },
+   "native": [
+    "gemini-image",
+    "gpt-image"
+   ],
+   "opensource": [
+    {
+     "name": "InstantID（一张脸照即可保真，不用训练）",
+     "url": "https://github.com/instantX-research/InstantID",
+     "src": "instantid-gh",
+     "license": "Apache-2.0",
+     "quote": "instantX-research/InstantID：InstantID: Zero-shot Identity-Preserving Generation in Seconds（★11,983）"
+    },
+    {
+     "name": "PhotoMaker（多张同人照融成一个身份）",
+     "url": "https://github.com/TencentARC/PhotoMaker",
+     "src": "photomaker-gh",
+     "license": "Apache-2.0",
+     "quote": "TencentARC/PhotoMaker：PhotoMaker [CVPR 2024]（★10,096）",
+     "note": "同 GFPGAN：GitHub 显示 Other，正文是 Apache-2.0 加第三方组件例外"
+    },
+    {
+     "name": "IP-Adapter（拿图当提示词，锁风格或锁人）",
+     "url": "https://github.com/tencent-ailab/IP-Adapter",
+     "src": "ipadapter-gh",
+     "license": "Apache-2.0",
+     "quote": "tencent-ailab/IP-Adapter：The image prompt adapter is designed to enable a pretrained text-to-image diffusion model to generate images with image prompt.（★6,660）"
+    },
+    {
+     "name": "EasyPhoto（训一个自己的写真 LoRA）",
+     "url": "https://github.com/aigc-apps/EasyPhoto",
+     "src": "easyphoto-gh",
+     "license": "Apache-2.0",
+     "quote": "aigc-apps/EasyPhoto：EasyPhoto | Your Smart AI Photo Generator（★291）"
+    }
+   ],
+   "platform_feature": [],
+   "limits": [
+    "越像越不自由：锁得紧则表情和角度变不动，放松则越看越不像本人",
+    "拿别人的脸做这件事有肖像权问题 —— 这是法律问题，不是技术问题"
+   ],
+   "cases": [
+    "AI 写真",
+    "证件照",
+    "品牌人设图"
+   ],
+   "src": "comfy-docs",
+   "quote": "InstantID 自述「Zero-shot Identity-Preserving Generation in Seconds」，PhotoMaker 走多图融身份",
+   "verified_at": "2026-08-11",
+   "domain": "image",
+   "cap": "i-fidelity"
+  },
+  {
+   "id": "i-styleref-skill",
+   "zh": "风格参考",
+   "en": "Style Reference",
+   "io": {
+    "in": [
+     "风格参考图 1~N 张",
+     "要画的内容"
+    ],
+    "out": "内容照你写的、风格照参考图的图"
+   },
+   "native": [
+    "gemini-image",
+    "recraft"
+   ],
+   "opensource": [
+    {
+     "name": "IP-Adapter（拿图当提示词，锁风格或锁人）",
+     "url": "https://github.com/tencent-ailab/IP-Adapter",
+     "src": "ipadapter-gh",
+     "license": "Apache-2.0",
+     "quote": "tencent-ailab/IP-Adapter：The image prompt adapter is designed to enable a pretrained text-to-image diffusion model to generate images with image prompt.（★6,660）"
+    },
+    {
+     "name": "In-Context-LoRA（成套出图，风格保持一致）",
+     "url": "https://github.com/ali-vilab/In-Context-LoRA",
+     "src": "incontextlora-gh",
+     "quote": "ali-vilab/In-Context-LoRA：Official repository of In-Context LoRA for Diffusion Transformers（★2,083）",
+     "note": "仓库里**没有 LICENSE 文件**（API 返回 404）。能看能 fork，但没有授权你使用、修改或再分发 —— 商用前得先联系作者"
+    }
+   ],
+   "platform_feature": [],
+   "limits": [
+    "「风格」没有公认定义：模型经常把参考图的**构图和主体**也一起抄过来",
+    "成套出图要风格统一，单张参考往往不够，得上 LoRA 一类的成组方案"
+   ],
+   "cases": [
+    "系列插画",
+    "品牌视觉统一",
+    "成套海报"
+   ],
+   "src": "comfy-docs",
+   "quote": "IP-Adapter 自述「generate images with image prompt」；In-Context-LoRA 面向成组一致性",
+   "verified_at": "2026-08-11",
+   "domain": "image",
+   "cap": "i-styleref"
+  },
+  {
+   "id": "i-text",
+   "zh": "图上出字",
+   "en": "Text in Image",
+   "io": {
+    "in": [
+     "要写的文字",
+     "版面或位置要求"
+    ],
+    "out": "字正确、位置对的图"
+   },
+   "native": [
+    "qwen-image",
+    "recraft",
+    "seedream",
+    "z-image"
+   ],
+   "opensource": [
+    {
+     "name": "AnyText（把中文字准确写进图里）",
+     "url": "https://github.com/tyxsspa/AnyText",
+     "src": "anytext-gh",
+     "license": "Apache-2.0",
+     "quote": "tyxsspa/AnyText：Official implementation code of the paper <AnyText: Multilingual Visual Text Generation And Editing>（★4,871）"
+    },
+    {
+     "name": "Qwen-Image（开源权重，中文出字与改图）",
+     "url": "https://github.com/QwenLM/Qwen-Image",
+     "src": "qwenimage-gh",
+     "license": "Apache-2.0",
+     "quote": "QwenLM/Qwen-Image：Qwen-Image is a powerful image generation foundation model capable of complex text rendering and precise image editing.（★8,226）"
+    }
+   ],
+   "platform_feature": [],
+   "limits": [
+    "中文比英文难得多：笔画多的字、长句、竖排最容易写错或写糊",
+    "**能写对 ≠ 能排版**。指定字号和位置这件事，开源侧还没有和 Recraft 对等的方案"
+   ],
+   "cases": [
+    "电商海报",
+    "封面标题",
+    "logo 草案"
+   ],
+   "src": "comfy-docs",
+   "quote": "AnyText 论文标题即「Multilingual Visual Text Generation And Editing」；Qwen-Image 自述 complex text rendering",
+   "verified_at": "2026-08-11",
+   "domain": "image",
+   "cap": "i-textrender"
+  },
+  {
+   "id": "i-upscale-skill",
+   "zh": "放大与修复",
+   "en": "Upscale & Restore",
+   "io": {
+    "in": [
+     "低清或老旧照片"
+    ],
+    "out": "分辨率更高、瑕疵更少的图"
+   },
+   "native": [],
+   "opensource": [
+    {
+     "name": "Real-ESRGAN（通用放大与修复）",
+     "url": "https://github.com/xinntao/Real-ESRGAN",
+     "src": "realesrgan-gh",
+     "license": "BSD-3-Clause",
+     "quote": "xinntao/Real-ESRGAN：Real-ESRGAN aims at developing Practical Algorithms for General Image/Video Restoration.（★36,444）"
+    },
+    {
+     "name": "GFPGAN（人脸修复，放大时脸不糊）",
+     "url": "https://github.com/TencentARC/GFPGAN",
+     "src": "gfpgan-gh",
+     "license": "Apache-2.0",
+     "quote": "TencentARC/GFPGAN：GFPGAN aims at developing Practical Algorithms for Real-world Face Restoration.（★37,654）",
+     "note": "GitHub 识别为 Other；打开 LICENSE 正文写的是「licensed under the Apache License Version 2.0 except for the third-party components」—— 主体 Apache-2.0，第三方组件另算"
+    },
+    {
+     "name": "CodeFormer（人脸修复，糊得厉害时比 GFPGAN 稳）",
+     "url": "https://github.com/sczhou/CodeFormer",
+     "src": "codeformer-gh",
+     "license": "S-Lab License 1.0（非商用）",
+     "quote": "sczhou/CodeFormer：[NeurIPS 2022] Towards Robust Blind Face Restoration with Codebook Lookup Transformer（★18,103）",
+     "note": "LICENSE 正文：「Redistribution and use for non-commercial purpose」—— **不可商用**：许可证正文写明 NonCommercial。跑通做 demo 可以，接单/上架不行"
+    },
+    {
+     "name": "Bringing Old Photos Back to Life（老照片划痕与褪色）",
+     "url": "https://github.com/microsoft/Bringing-Old-Photos-Back-to-Life",
+     "src": "oldphoto-gh",
+     "license": "MIT",
+     "quote": "microsoft/Bringing-Old-Photos-Back-to-Life：Bringing Old Photo Back to Life (CVPR 2020 oral)（★15,703）"
+    }
+   ],
+   "platform_feature": [],
+   "limits": [
+    "放大是**猜**出来的细节，不是把原来看不见的东西找回来 —— 用作证据材料不合适",
+    "人脸要单独走人脸修复模型，通用放大器会把脸放大成蜡像",
+    "CodeFormer 是非商用许可，接单前要换成 GFPGAN 或 Real-ESRGAN"
+   ],
+   "cases": [
+    "老照片翻新",
+    "印刷前提清",
+    "出图后期"
+   ],
+   "src": "comfy-docs",
+   "quote": "Real-ESRGAN 自述「Practical Algorithms for General Image/Video Restoration」；GFPGAN 专做人脸",
+   "verified_at": "2026-08-11",
+   "domain": "image",
+   "cap": "i-upscale"
+  },
+  {
+   "id": "i-matting",
+   "zh": "抠图与换背景",
+   "en": "Matting & Background Swap",
+   "io": {
+    "in": [
+     "原图 ×1",
+     "新背景描述或图"
+    ],
+    "out": "主体不变、背景换过的图"
+   },
+   "native": [],
+   "opensource": [
+    {
+     "name": "rembg（抠图去背景，一行命令）",
+     "url": "https://github.com/danielgatis/rembg",
+     "src": "rembg-gh",
+     "license": "MIT",
+     "quote": "danielgatis/rembg：Rembg is a tool to remove images background（★24,213）"
+    },
+    {
+     "name": "IC-Light（换光照，商品图换场景的关键一步）",
+     "url": "https://github.com/lllyasviel/IC-Light",
+     "src": "iclight-gh",
+     "license": "Apache-2.0",
+     "quote": "lllyasviel/IC-Light：More relighting!（★8,490）"
+    }
+   ],
+   "platform_feature": [],
+   "limits": [
+    "毛发、透明材质、反光的边缘最容易翻车，得手工补",
+    "换了背景不换光，一眼假 —— 这是 IC-Light 那一步在解决的问题"
+   ],
+   "cases": [
+    "白底商品图",
+    "场景图",
+    "证件照换底"
+   ],
+   "src": "comfy-docs",
+   "quote": "rembg 自述「a tool to remove images background」；IC-Light 做重打光",
+   "verified_at": "2026-08-11",
+   "domain": "image"
+  },
+  {
+   "id": "i-tryon",
+   "zh": "虚拟试穿",
+   "en": "Virtual Try-On",
+   "io": {
+    "in": [
+     "模特图 ×1",
+     "服装平铺图 ×1"
+    ],
+    "out": "模特穿上这件衣服的图"
+   },
+   "native": [],
+   "opensource": [
+    {
+     "name": "IDM-VTON（虚拟试穿）",
+     "url": "https://github.com/yisol/IDM-VTON",
+     "src": "idmvton-gh",
+     "license": "CC BY-NC-SA 4.0（非商用）",
+     "quote": "yisol/IDM-VTON：[ECCV2024] IDM-VTON : Improving Diffusion Models for Authentic Virtual Try-on in the Wild（★5,136）",
+     "note": "**不可商用**：许可证正文写明 NonCommercial。跑通做 demo 可以，接单/上架不行"
+    },
+    {
+     "name": "OOTDiffusion（虚拟试穿）",
+     "url": "https://github.com/levihsu/OOTDiffusion",
+     "src": "ootd-gh",
+     "license": "CC BY-NC-SA 4.0（非商用）",
+     "quote": "levihsu/OOTDiffusion：[AAAI 2025] \"OOTDiffusion: Outfitting Fusion based Latent Diffusion for Controllable Virtual Try-on\"（★6,581）",
+     "note": "**不可商用**：许可证正文写明 NonCommercial。跑通做 demo 可以，接单/上架不行"
+    },
+    {
+     "name": "CatVTON（虚拟试穿，8G 显存能跑）",
+     "url": "https://github.com/Zheng-Chong/CatVTON",
+     "src": "catvton-gh",
+     "license": "CC BY-NC-SA 4.0（非商用）",
+     "quote": "Zheng-Chong/CatVTON：[ICLR 2025] CatVTON is a simple and efficient virtual try-on diffusion model … < 8G VRAM for 1024X768 resolution（★1,817）",
+     "note": "**不可商用**：许可证正文写明 NonCommercial。跑通做 demo 可以，接单/上架不行"
+    }
+   ],
+   "platform_feature": [],
+   "limits": [
+    "**开源侧三个主流实现全是非商用许可**（CC BY-NC-SA 4.0）—— 电商上架属于商用，直接用不合规",
+    "花纹、logo、文字在布料上会被重画，品牌服装尤其明显",
+    "换姿势和换人一起做会崩，一次只动一个变量"
+   ],
+   "cases": [
+    "服装电商上身图",
+    "搭配预览"
+   ],
+   "src": "comfy-docs",
+   "quote": "IDM-VTON / OOTDiffusion / CatVTON 的 LICENSE 正文均为 CC BY-NC-SA 4.0（NonCommercial）",
+   "verified_at": "2026-08-11",
+   "domain": "image"
   }
  ],
  "applications": [
@@ -6636,6 +7066,463 @@
     }
    ],
    "domain": "video"
+  },
+  {
+   "id": "product-shot",
+   "zh": "电商商品图",
+   "en": "Product Shot",
+   "intro": "把一张实拍或白底图变成能上架的主图、场景图、细节图。",
+   "inputs": [
+    "商品实拍图",
+    "想要的场景/风格"
+   ],
+   "output": "可上架的商品图组",
+   "skills": [
+    "i-matting",
+    "i-inpaint-skill",
+    "i-instruct"
+   ],
+   "resources": [
+    {
+     "kind": "project",
+     "name": "rembg（抠图去背景，一行命令）",
+     "url": "https://github.com/danielgatis/rembg",
+     "src": "rembg-gh",
+     "license": "MIT",
+     "quote": "danielgatis/rembg：Rembg is a tool to remove images background（★24,213）"
+    },
+    {
+     "kind": "project",
+     "name": "IC-Light（换光照，商品图换场景的关键一步）",
+     "url": "https://github.com/lllyasviel/IC-Light",
+     "src": "iclight-gh",
+     "license": "Apache-2.0",
+     "quote": "lllyasviel/IC-Light：More relighting!（★8,490）"
+    },
+    {
+     "kind": "project",
+     "name": "IOPaint（消除物体 / 局部重绘，开箱即用）",
+     "url": "https://github.com/Sanster/IOPaint",
+     "src": "iopaint-gh",
+     "license": "Apache-2.0",
+     "quote": "Sanster/IOPaint：Image inpainting tool powered by SOTA AI Model. Remove any unwanted object, defect, people from your pictures（★23,353）"
+    },
+    {
+     "kind": "project",
+     "name": "ComfyUI（节点式工作流，出图工具的事实底座）",
+     "url": "https://github.com/Comfy-Org/ComfyUI",
+     "src": "comfyui-gh",
+     "license": "GPL-3.0",
+     "quote": "Comfy-Org/ComfyUI：The most powerful and modular diffusion model GUI, api and backend with a graph/nodes interface.（★126,453）"
+    },
+    {
+     "kind": "docs",
+     "name": "ComfyUI · 局部重绘（Inpaint）教程",
+     "url": "https://docs.comfy.org/tutorials/basic/inpaint",
+     "src": "comfy-docs",
+     "quote": "官方基础教程，从涂选区域到重绘出图的完整一条流程"
+    }
+   ],
+   "aliases": [
+    "主图",
+    "白底图",
+    "场景图",
+    "详情页配图"
+   ],
+   "domain": "image"
+  },
+  {
+   "id": "model-shot",
+   "zh": "模特图与试穿",
+   "en": "Model Shot & Try-On",
+   "intro": "让衣服穿在模特身上，或换一个模特、换一个姿势。",
+   "inputs": [
+    "服装平铺图或实拍",
+    "模特图或模特描述"
+   ],
+   "output": "上身图",
+   "skills": [
+    "i-tryon",
+    "i-idref",
+    "i-matting"
+   ],
+   "resources": [
+    {
+     "kind": "project",
+     "name": "IDM-VTON（虚拟试穿）",
+     "url": "https://github.com/yisol/IDM-VTON",
+     "src": "idmvton-gh",
+     "license": "CC BY-NC-SA 4.0（非商用）",
+     "quote": "yisol/IDM-VTON：[ECCV2024] IDM-VTON : Improving Diffusion Models for Authentic Virtual Try-on in the Wild（★5,136）",
+     "note": "**不可商用**：许可证正文写明 NonCommercial。跑通做 demo 可以，接单/上架不行"
+    },
+    {
+     "kind": "project",
+     "name": "OOTDiffusion（虚拟试穿）",
+     "url": "https://github.com/levihsu/OOTDiffusion",
+     "src": "ootd-gh",
+     "license": "CC BY-NC-SA 4.0（非商用）",
+     "quote": "levihsu/OOTDiffusion：[AAAI 2025] \"OOTDiffusion: Outfitting Fusion based Latent Diffusion for Controllable Virtual Try-on\"（★6,581）",
+     "note": "**不可商用**：许可证正文写明 NonCommercial。跑通做 demo 可以，接单/上架不行"
+    },
+    {
+     "kind": "project",
+     "name": "CatVTON（虚拟试穿，8G 显存能跑）",
+     "url": "https://github.com/Zheng-Chong/CatVTON",
+     "src": "catvton-gh",
+     "license": "CC BY-NC-SA 4.0（非商用）",
+     "quote": "Zheng-Chong/CatVTON：[ICLR 2025] CatVTON is a simple and efficient virtual try-on diffusion model … < 8G VRAM for 1024X768 resolution（★1,817）",
+     "note": "**不可商用**：许可证正文写明 NonCommercial。跑通做 demo 可以，接单/上架不行"
+    },
+    {
+     "kind": "project",
+     "name": "IP-Adapter（拿图当提示词，锁风格或锁人）",
+     "url": "https://github.com/tencent-ailab/IP-Adapter",
+     "src": "ipadapter-gh",
+     "license": "Apache-2.0",
+     "quote": "tencent-ailab/IP-Adapter：The image prompt adapter is designed to enable a pretrained text-to-image diffusion model to generate images with image prompt.（★6,660）"
+    }
+   ],
+   "aliases": [
+    "虚拟试穿",
+    "AI 模特",
+    "上身图",
+    "换模特"
+   ],
+   "domain": "image"
+  },
+  {
+   "id": "poster",
+   "zh": "海报与广告图",
+   "en": "Poster & Ad Creative",
+   "intro": "出一张带标题文字、能直接投放的图。",
+   "inputs": [
+    "文案",
+    "品牌色/风格要求",
+    "商品图（可选）"
+   ],
+   "output": "带文字的成品图",
+   "skills": [
+    "i-text",
+    "i-styleref-skill",
+    "i-instruct"
+   ],
+   "resources": [
+    {
+     "kind": "project",
+     "name": "AnyText（把中文字准确写进图里）",
+     "url": "https://github.com/tyxsspa/AnyText",
+     "src": "anytext-gh",
+     "license": "Apache-2.0",
+     "quote": "tyxsspa/AnyText：Official implementation code of the paper <AnyText: Multilingual Visual Text Generation And Editing>（★4,871）"
+    },
+    {
+     "kind": "project",
+     "name": "Qwen-Image（开源权重，中文出字与改图）",
+     "url": "https://github.com/QwenLM/Qwen-Image",
+     "src": "qwenimage-gh",
+     "license": "Apache-2.0",
+     "quote": "QwenLM/Qwen-Image：Qwen-Image is a powerful image generation foundation model capable of complex text rendering and precise image editing.（★8,226）"
+    },
+    {
+     "kind": "project",
+     "name": "In-Context-LoRA（成套出图，风格保持一致）",
+     "url": "https://github.com/ali-vilab/In-Context-LoRA",
+     "src": "incontextlora-gh",
+     "quote": "ali-vilab/In-Context-LoRA：Official repository of In-Context LoRA for Diffusion Transformers（★2,083）",
+     "note": "仓库里**没有 LICENSE 文件**（API 返回 404）。能看能 fork，但没有授权你使用、修改或再分发 —— 商用前得先联系作者"
+    },
+    {
+     "kind": "docs",
+     "name": "ComfyUI · Qwen-Image 工作流",
+     "url": "https://docs.comfy.org/tutorials/image/qwen/qwen-image",
+     "src": "comfy-docs",
+     "quote": "官方教程给出 Qwen-Image 的本地出图工作流入口"
+    }
+   ],
+   "aliases": [
+    "电商海报",
+    "banner",
+    "宣传图",
+    "节日海报"
+   ],
+   "domain": "image"
+  },
+  {
+   "id": "portrait",
+   "zh": "AI 写真与头像",
+   "en": "AI Portrait",
+   "intro": "用自己的照片生成写真、证件照或头像。",
+   "inputs": [
+    "本人照片 1~20 张",
+    "风格/服装要求"
+   ],
+   "output": "同一个人的成组写真",
+   "skills": [
+    "i-idref",
+    "i-upscale-skill",
+    "i-matting"
+   ],
+   "resources": [
+    {
+     "kind": "project",
+     "name": "InstantID（一张脸照即可保真，不用训练）",
+     "url": "https://github.com/instantX-research/InstantID",
+     "src": "instantid-gh",
+     "license": "Apache-2.0",
+     "quote": "instantX-research/InstantID：InstantID: Zero-shot Identity-Preserving Generation in Seconds（★11,983）"
+    },
+    {
+     "kind": "project",
+     "name": "PhotoMaker（多张同人照融成一个身份）",
+     "url": "https://github.com/TencentARC/PhotoMaker",
+     "src": "photomaker-gh",
+     "license": "Apache-2.0",
+     "quote": "TencentARC/PhotoMaker：PhotoMaker [CVPR 2024]（★10,096）",
+     "note": "同 GFPGAN：GitHub 显示 Other，正文是 Apache-2.0 加第三方组件例外"
+    },
+    {
+     "kind": "project",
+     "name": "EasyPhoto（训一个自己的写真 LoRA）",
+     "url": "https://github.com/aigc-apps/EasyPhoto",
+     "src": "easyphoto-gh",
+     "license": "Apache-2.0",
+     "quote": "aigc-apps/EasyPhoto：EasyPhoto | Your Smart AI Photo Generator（★291）"
+    },
+    {
+     "kind": "project",
+     "name": "GFPGAN（人脸修复，放大时脸不糊）",
+     "url": "https://github.com/TencentARC/GFPGAN",
+     "src": "gfpgan-gh",
+     "license": "Apache-2.0",
+     "quote": "TencentARC/GFPGAN：GFPGAN aims at developing Practical Algorithms for Real-world Face Restoration.（★37,654）",
+     "note": "GitHub 识别为 Other；打开 LICENSE 正文写的是「licensed under the Apache License Version 2.0 except for the third-party components」—— 主体 Apache-2.0，第三方组件另算"
+    }
+   ],
+   "aliases": [
+    "AI 写真",
+    "证件照",
+    "AI 头像",
+    "形象照"
+   ],
+   "domain": "image"
+  },
+  {
+   "id": "comic-illust",
+   "zh": "漫画与插画",
+   "en": "Comic & Illustration",
+   "intro": "画分镜、给线稿上色、把整本漫画翻译并回填。",
+   "inputs": [
+    "线稿或分镜描述",
+    "人物设定图"
+   ],
+   "output": "成套插画或漫画页",
+   "skills": [
+    "i-styleref-skill",
+    "i-idref",
+    "i-instruct"
+   ],
+   "resources": [
+    {
+     "kind": "project",
+     "name": "MangaNinjia（线稿按参考图上色）",
+     "url": "https://github.com/ali-vilab/MangaNinjia",
+     "src": "manganinjia-gh",
+     "quote": "ali-vilab/MangaNinjia：[CVPR 2025 Highlight] \"MangaNinja: Line Art Colorization with Precise Reference Following\"（★738）",
+     "note": "GitHub 未识别出许可证，也没有独立 LICENSE 文件 —— 按「未声明」处理"
+    },
+    {
+     "kind": "project",
+     "name": "comic-translate（漫画整本翻译并回填字）",
+     "url": "https://github.com/ogkalu2/comic-translate",
+     "src": "comictrans-gh",
+     "license": "Apache-2.0",
+     "quote": "ogkalu2/comic-translate：AI comic and manga translator app/browser extension for automatically translating comics, manga, manhwa（★2,876）"
+    },
+    {
+     "kind": "project",
+     "name": "ControlNet（用线稿/姿势/深度锁住构图）",
+     "url": "https://github.com/lllyasviel/ControlNet",
+     "src": "controlnet-gh",
+     "license": "Apache-2.0",
+     "quote": "lllyasviel/ControlNet：Let us control diffusion models!（★34,058）"
+    },
+    {
+     "kind": "project",
+     "name": "InvokeAI（带画布与图层的创作端）",
+     "url": "https://github.com/invoke-ai/InvokeAI",
+     "src": "invokeai-gh",
+     "license": "Apache-2.0",
+     "quote": "invoke-ai/InvokeAI：Invoke is a leading creative engine for Stable Diffusion models（★27,829）"
+    }
+   ],
+   "aliases": [
+    "条漫",
+    "绘本插画",
+    "线稿上色",
+    "漫画翻译"
+   ],
+   "domain": "image"
+  },
+  {
+   "id": "photo-restore",
+   "zh": "老照片修复",
+   "en": "Photo Restoration",
+   "intro": "把褪色、划痕、模糊的旧照片修回能看能印的样子。",
+   "inputs": [
+    "旧照片扫描件"
+   ],
+   "output": "修复并放大后的照片",
+   "skills": [
+    "i-upscale-skill",
+    "i-inpaint-skill"
+   ],
+   "resources": [
+    {
+     "kind": "project",
+     "name": "Bringing Old Photos Back to Life（老照片划痕与褪色）",
+     "url": "https://github.com/microsoft/Bringing-Old-Photos-Back-to-Life",
+     "src": "oldphoto-gh",
+     "license": "MIT",
+     "quote": "microsoft/Bringing-Old-Photos-Back-to-Life：Bringing Old Photo Back to Life (CVPR 2020 oral)（★15,703）"
+    },
+    {
+     "kind": "project",
+     "name": "GFPGAN（人脸修复，放大时脸不糊）",
+     "url": "https://github.com/TencentARC/GFPGAN",
+     "src": "gfpgan-gh",
+     "license": "Apache-2.0",
+     "quote": "TencentARC/GFPGAN：GFPGAN aims at developing Practical Algorithms for Real-world Face Restoration.（★37,654）",
+     "note": "GitHub 识别为 Other；打开 LICENSE 正文写的是「licensed under the Apache License Version 2.0 except for the third-party components」—— 主体 Apache-2.0，第三方组件另算"
+    },
+    {
+     "kind": "project",
+     "name": "CodeFormer（人脸修复，糊得厉害时比 GFPGAN 稳）",
+     "url": "https://github.com/sczhou/CodeFormer",
+     "src": "codeformer-gh",
+     "license": "S-Lab License 1.0（非商用）",
+     "quote": "sczhou/CodeFormer：[NeurIPS 2022] Towards Robust Blind Face Restoration with Codebook Lookup Transformer（★18,103）",
+     "note": "LICENSE 正文：「Redistribution and use for non-commercial purpose」—— **不可商用**：许可证正文写明 NonCommercial。跑通做 demo 可以，接单/上架不行"
+    },
+    {
+     "kind": "project",
+     "name": "Real-ESRGAN（通用放大与修复）",
+     "url": "https://github.com/xinntao/Real-ESRGAN",
+     "src": "realesrgan-gh",
+     "license": "BSD-3-Clause",
+     "quote": "xinntao/Real-ESRGAN：Real-ESRGAN aims at developing Practical Algorithms for General Image/Video Restoration.（★36,444）"
+    }
+   ],
+   "aliases": [
+    "照片修复",
+    "高清修复",
+    "老照片上色",
+    "照片放大"
+   ],
+   "domain": "image"
+  },
+  {
+   "id": "logo-vector",
+   "zh": "Logo 与矢量图形",
+   "en": "Logo & Vector",
+   "intro": "出可缩放的矢量图形，而不是放大就糊的位图。",
+   "inputs": [
+    "品牌名或图形描述"
+   ],
+   "output": "SVG 矢量文件",
+   "skills": [
+    "i-text",
+    "i-styleref-skill"
+   ],
+   "resources": [
+    {
+     "kind": "project",
+     "name": "StarVector（直接生成 SVG 代码，不是位图描边）",
+     "url": "https://github.com/joanrod/star-vector",
+     "src": "starvector-gh",
+     "license": "Apache-2.0",
+     "quote": "joanrod/star-vector：StarVector is a foundation model for SVG generation that transforms vectorization into a code generation task（★4,516）"
+    },
+    {
+     "kind": "project",
+     "name": "SVGDreamer（文字生成矢量图）",
+     "url": "https://github.com/ximinng/SVGDreamer",
+     "src": "svgdreamer-gh",
+     "license": "MIT",
+     "quote": "ximinng/SVGDreamer：[CVPR 2024] \"SVGDreamer: Text Guided SVG Generation with Diffusion Model\"（★449）"
+    }
+   ],
+   "aliases": [
+    "图标",
+    "SVG",
+    "矢量插画",
+    "品牌标志"
+   ],
+   "domain": "image"
+  },
+  {
+   "id": "local-studio",
+   "zh": "本地出图工作台",
+   "en": "Local Studio",
+   "intro": "不走云服务，在自己机器上把上面这些事串成一条流水线。",
+   "inputs": [
+    "显卡与模型权重"
+   ],
+   "output": "可反复运行的本地工作流",
+   "skills": [
+    "i-instruct",
+    "i-inpaint-skill",
+    "i-styleref-skill"
+   ],
+   "resources": [
+    {
+     "kind": "project",
+     "name": "ComfyUI（节点式工作流，出图工具的事实底座）",
+     "url": "https://github.com/Comfy-Org/ComfyUI",
+     "src": "comfyui-gh",
+     "license": "GPL-3.0",
+     "quote": "Comfy-Org/ComfyUI：The most powerful and modular diffusion model GUI, api and backend with a graph/nodes interface.（★126,453）"
+    },
+    {
+     "kind": "project",
+     "name": "Stable Diffusion web UI（装机量最大的本地出图界面）",
+     "url": "https://github.com/AUTOMATIC1111/stable-diffusion-webui",
+     "src": "sdwebui-gh",
+     "license": "AGPL-3.0",
+     "quote": "AUTOMATIC1111/stable-diffusion-webui：Stable Diffusion web UI（★164,466）",
+     "note": "AGPL-3.0：**改了拿去做在线服务，要连服务端代码一起开源**"
+    },
+    {
+     "kind": "project",
+     "name": "Fooocus（几乎不用调参的出图界面）",
+     "url": "https://github.com/lllyasviel/Fooocus",
+     "src": "fooocus-gh",
+     "license": "GPL-3.0",
+     "quote": "lllyasviel/Fooocus：Focus on prompting and generating（★52,160）"
+    },
+    {
+     "kind": "project",
+     "name": "Krita AI Diffusion（在 Krita 里直接重绘/扩图）",
+     "url": "https://github.com/Acly/krita-ai-diffusion",
+     "src": "kritaai-gh",
+     "license": "GPL-3.0",
+     "quote": "Acly/krita-ai-diffusion：Streamlined interface for generating images with AI in Krita. Inpaint and outpaint with optional text prompt（★10,448）"
+    },
+    {
+     "kind": "course",
+     "name": "Hugging Face Diffusion Models Course",
+     "url": "https://huggingface.co/learn/diffusion-course/en/unit0/1",
+     "src": "hf-course",
+     "quote": "公开课程从扩散模型基础开始，讲清楚出图这件事底下在算什么",
+     "note": "补共同底层，不是某个应用的模板"
+    }
+   ],
+   "aliases": [
+    "ComfyUI 工作流",
+    "本地部署",
+    "离线出图"
+   ],
+   "domain": "image"
   }
  ],
  "$applications": "应用是用户要交付的东西，不是能力名的同义改写。字段：{id, zh, en, intro, inputs[], output, skills[], resources[{kind, name, url, src, quote, note?}]}。应用层不下效果或适用性结论；资源分 project / skill / course / docs 四类，项目与工作流从关联 Skill 自动汇总，避免重复维护。场景页默认按 project → skill → docs → course 排序，同类官方来源优先；排序不是质量或效果评分。治理规则见 docs/应用开源资源治理.md。",

@@ -1413,6 +1413,354 @@
     "version"
    ],
    "note": "**降级取源**。Midjourney 官方文档站 docs.midjourney.com 挂 Cloudflare 挑战，浏览器外一律 403；官方没有可抓的 changelog。版本年表只能取 B 级。"
+  },
+  {
+   "id": "comfyui-gh",
+   "tier": "S",
+   "kind": "json",
+   "vendor": "comfy-org",
+   "name": "ComfyUI · 官方仓库",
+   "url": "https://github.com/Comfy-Org/ComfyUI",
+   "refresh_days": 30,
+   "good_for": [
+    "opensource"
+   ]
+  },
+  {
+   "id": "sdwebui-gh",
+   "tier": "S",
+   "kind": "json",
+   "vendor": "automatic1111",
+   "name": "Stable Diffusion web UI · 官方仓库",
+   "url": "https://github.com/AUTOMATIC1111/stable-diffusion-webui",
+   "refresh_days": 30,
+   "good_for": [
+    "opensource"
+   ]
+  },
+  {
+   "id": "fooocus-gh",
+   "tier": "S",
+   "kind": "json",
+   "vendor": "lllyasviel",
+   "name": "Fooocus · 官方仓库",
+   "url": "https://github.com/lllyasviel/Fooocus",
+   "refresh_days": 30,
+   "good_for": [
+    "opensource"
+   ]
+  },
+  {
+   "id": "invokeai-gh",
+   "tier": "S",
+   "kind": "json",
+   "vendor": "invoke-ai",
+   "name": "InvokeAI · 官方仓库",
+   "url": "https://github.com/invoke-ai/InvokeAI",
+   "refresh_days": 30,
+   "good_for": [
+    "opensource"
+   ]
+  },
+  {
+   "id": "iopaint-gh",
+   "tier": "S",
+   "kind": "json",
+   "vendor": "sanster",
+   "name": "IOPaint · 官方仓库",
+   "url": "https://github.com/Sanster/IOPaint",
+   "refresh_days": 30,
+   "good_for": [
+    "opensource"
+   ]
+  },
+  {
+   "id": "rembg-gh",
+   "tier": "S",
+   "kind": "json",
+   "vendor": "danielgatis",
+   "name": "rembg · 官方仓库",
+   "url": "https://github.com/danielgatis/rembg",
+   "refresh_days": 30,
+   "good_for": [
+    "opensource"
+   ]
+  },
+  {
+   "id": "realesrgan-gh",
+   "tier": "S",
+   "kind": "json",
+   "vendor": "xinntao",
+   "name": "Real-ESRGAN · 官方仓库",
+   "url": "https://github.com/xinntao/Real-ESRGAN",
+   "refresh_days": 30,
+   "good_for": [
+    "opensource"
+   ]
+  },
+  {
+   "id": "gfpgan-gh",
+   "tier": "S",
+   "kind": "json",
+   "vendor": "tencentarc",
+   "name": "GFPGAN · 官方仓库",
+   "url": "https://github.com/TencentARC/GFPGAN",
+   "refresh_days": 30,
+   "good_for": [
+    "opensource"
+   ]
+  },
+  {
+   "id": "codeformer-gh",
+   "tier": "S",
+   "kind": "json",
+   "vendor": "sczhou",
+   "name": "CodeFormer · 官方仓库",
+   "url": "https://github.com/sczhou/CodeFormer",
+   "refresh_days": 30,
+   "good_for": [
+    "opensource"
+   ]
+  },
+  {
+   "id": "oldphoto-gh",
+   "tier": "S",
+   "kind": "json",
+   "vendor": "microsoft",
+   "name": "Bringing Old Photos Back to Life · 官方仓库",
+   "url": "https://github.com/microsoft/Bringing-Old-Photos-Back-to-Life",
+   "refresh_days": 30,
+   "good_for": [
+    "opensource"
+   ]
+  },
+  {
+   "id": "controlnet-gh",
+   "tier": "S",
+   "kind": "json",
+   "vendor": "lllyasviel",
+   "name": "ControlNet · 官方仓库",
+   "url": "https://github.com/lllyasviel/ControlNet",
+   "refresh_days": 30,
+   "good_for": [
+    "opensource"
+   ]
+  },
+  {
+   "id": "ipadapter-gh",
+   "tier": "S",
+   "kind": "json",
+   "vendor": "tencent-ailab",
+   "name": "IP-Adapter · 官方仓库",
+   "url": "https://github.com/tencent-ailab/IP-Adapter",
+   "refresh_days": 30,
+   "good_for": [
+    "opensource"
+   ]
+  },
+  {
+   "id": "instantid-gh",
+   "tier": "S",
+   "kind": "json",
+   "vendor": "instantx-research",
+   "name": "InstantID · 官方仓库",
+   "url": "https://github.com/instantX-research/InstantID",
+   "refresh_days": 30,
+   "good_for": [
+    "opensource"
+   ]
+  },
+  {
+   "id": "photomaker-gh",
+   "tier": "S",
+   "kind": "json",
+   "vendor": "tencentarc",
+   "name": "PhotoMaker · 官方仓库",
+   "url": "https://github.com/TencentARC/PhotoMaker",
+   "refresh_days": 30,
+   "good_for": [
+    "opensource"
+   ]
+  },
+  {
+   "id": "iclight-gh",
+   "tier": "S",
+   "kind": "json",
+   "vendor": "lllyasviel",
+   "name": "IC-Light · 官方仓库",
+   "url": "https://github.com/lllyasviel/IC-Light",
+   "refresh_days": 30,
+   "good_for": [
+    "opensource"
+   ]
+  },
+  {
+   "id": "idmvton-gh",
+   "tier": "S",
+   "kind": "json",
+   "vendor": "yisol",
+   "name": "IDM-VTON · 官方仓库",
+   "url": "https://github.com/yisol/IDM-VTON",
+   "refresh_days": 30,
+   "good_for": [
+    "opensource"
+   ]
+  },
+  {
+   "id": "ootd-gh",
+   "tier": "S",
+   "kind": "json",
+   "vendor": "levihsu",
+   "name": "OOTDiffusion · 官方仓库",
+   "url": "https://github.com/levihsu/OOTDiffusion",
+   "refresh_days": 30,
+   "good_for": [
+    "opensource"
+   ]
+  },
+  {
+   "id": "catvton-gh",
+   "tier": "S",
+   "kind": "json",
+   "vendor": "zheng-chong",
+   "name": "CatVTON · 官方仓库",
+   "url": "https://github.com/Zheng-Chong/CatVTON",
+   "refresh_days": 30,
+   "good_for": [
+    "opensource"
+   ]
+  },
+  {
+   "id": "kritaai-gh",
+   "tier": "S",
+   "kind": "json",
+   "vendor": "acly",
+   "name": "Krita AI Diffusion · 官方仓库",
+   "url": "https://github.com/Acly/krita-ai-diffusion",
+   "refresh_days": 30,
+   "good_for": [
+    "opensource"
+   ]
+  },
+  {
+   "id": "omnigen-gh",
+   "tier": "S",
+   "kind": "json",
+   "vendor": "vectorspacelab",
+   "name": "OmniGen · 官方仓库",
+   "url": "https://github.com/VectorSpaceLab/OmniGen",
+   "refresh_days": 30,
+   "good_for": [
+    "opensource"
+   ]
+  },
+  {
+   "id": "step1x-gh",
+   "tier": "S",
+   "kind": "json",
+   "vendor": "stepfun-ai",
+   "name": "Step1X-Edit · 官方仓库",
+   "url": "https://github.com/stepfun-ai/Step1X-Edit",
+   "refresh_days": 30,
+   "good_for": [
+    "opensource"
+   ]
+  },
+  {
+   "id": "qwenimage-gh",
+   "tier": "S",
+   "kind": "json",
+   "vendor": "qwenlm",
+   "name": "Qwen-Image · 官方仓库",
+   "url": "https://github.com/QwenLM/Qwen-Image",
+   "refresh_days": 30,
+   "good_for": [
+    "opensource"
+   ]
+  },
+  {
+   "id": "anytext-gh",
+   "tier": "S",
+   "kind": "json",
+   "vendor": "tyxsspa",
+   "name": "AnyText · 官方仓库",
+   "url": "https://github.com/tyxsspa/AnyText",
+   "refresh_days": 30,
+   "good_for": [
+    "opensource"
+   ]
+  },
+  {
+   "id": "incontextlora-gh",
+   "tier": "S",
+   "kind": "json",
+   "vendor": "ali-vilab",
+   "name": "In-Context-LoRA · 官方仓库",
+   "url": "https://github.com/ali-vilab/In-Context-LoRA",
+   "refresh_days": 30,
+   "good_for": [
+    "opensource"
+   ]
+  },
+  {
+   "id": "comictrans-gh",
+   "tier": "S",
+   "kind": "json",
+   "vendor": "ogkalu2",
+   "name": "comic-translate · 官方仓库",
+   "url": "https://github.com/ogkalu2/comic-translate",
+   "refresh_days": 30,
+   "good_for": [
+    "opensource"
+   ]
+  },
+  {
+   "id": "manganinjia-gh",
+   "tier": "S",
+   "kind": "json",
+   "vendor": "ali-vilab",
+   "name": "MangaNinjia · 官方仓库",
+   "url": "https://github.com/ali-vilab/MangaNinjia",
+   "refresh_days": 30,
+   "good_for": [
+    "opensource"
+   ]
+  },
+  {
+   "id": "starvector-gh",
+   "tier": "S",
+   "kind": "json",
+   "vendor": "joanrod",
+   "name": "StarVector · 官方仓库",
+   "url": "https://github.com/joanrod/star-vector",
+   "refresh_days": 30,
+   "good_for": [
+    "opensource"
+   ]
+  },
+  {
+   "id": "svgdreamer-gh",
+   "tier": "S",
+   "kind": "json",
+   "vendor": "ximinng",
+   "name": "SVGDreamer · 官方仓库",
+   "url": "https://github.com/ximinng/SVGDreamer",
+   "refresh_days": 30,
+   "good_for": [
+    "opensource"
+   ]
+  },
+  {
+   "id": "easyphoto-gh",
+   "tier": "S",
+   "kind": "json",
+   "vendor": "aigc-apps",
+   "name": "EasyPhoto · 官方仓库",
+   "url": "https://github.com/aigc-apps/EasyPhoto",
+   "refresh_days": 30,
+   "good_for": [
+    "opensource"
+   ]
   }
  ],
  "$missing": [

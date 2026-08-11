@@ -56,10 +56,22 @@ export default function Nav() {
    * 当前在哪个方向。从路径第一段取；取不到（根页、/method 这类全局页）
    * 就退回 live 的那个 —— **导航不能因为你在全局页就失去入口**。
    */
-  const seg = p.replace(/^\/atlas/, "").split("/").filter(Boolean)[0] ?? "";
+  const parts = p.replace(/^\/atlas/, "").split("/").filter(Boolean);
+  const seg = parts[0] ?? "";
+  /**
+   * `/skill/[id]` 这类页不带方向前缀，但它**本身是属于某个方向的**。
+   * 只按路径退回 live 方向的话，「虚拟试穿」这个图像 Skill 会顶着
+   * 「AI 视频」的导航显示 —— 和之前 /atlas/image/map 显示视频是同一类错。
+   * 实体自己知道自己属于谁，就问它。
+   */
+  const owner = seg === "skill"
+    ? atlas.skills.find((k) => k.id === parts[1])?.domain
+    : undefined;
   const dom = atlas.domains.some((d) => d.id === seg)
     ? seg
-    : (atlas.domains.find((d) => d.state === "live") ?? atlas.domains[0]).id;
+    : owner && atlas.domains.some((d) => d.id === owner)
+      ? owner
+      : (atlas.domains.find((d) => d.state === "live") ?? atlas.domains[0]).id;
   const base = `/${dom}`;
   const here = (h: string) => (h === base ? p.endsWith(base) : p.includes(h));
 

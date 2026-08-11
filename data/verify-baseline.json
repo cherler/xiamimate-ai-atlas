@@ -28,7 +28,6 @@
     "/image|桌面": 432,
     "/image/tree|桌面": 149,
     "/image/map|桌面": 242,
-    "/image/scenario|桌面": 161,
     "/image/models|桌面": 244,
     "/|手机": 140,
     "/video|手机": 440,
@@ -39,7 +38,8 @@
     "/image|手机": 382,
     "/image/tree|手机": 149,
     "/image/map|手机": 242,
-    "/image/scenario|手机": 161,
-    "/image/models|手机": 244
+    "/image/models|手机": 244,
+    "/image/scenario|桌面": 301,
+    "/image/scenario|手机": 301
   }
 }

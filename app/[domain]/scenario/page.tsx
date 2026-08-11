@@ -43,7 +43,7 @@ export default async function ScenarioPage({ params }: { params: Promise<{ domai
 
       {n ? (
         <div className="mt-6">
-          <ScenarioBoard />
+          <ScenarioBoard domain={d.id} />
         </div>
       ) : (
         /* 应用层是逐个人工定的，图像方向还一个都没定 —— 说清楚，不摆空板子 */

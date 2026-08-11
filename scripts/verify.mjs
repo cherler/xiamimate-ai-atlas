@@ -67,7 +67,11 @@ const ROUTES = [
   // 钉一个只有图像树才有的产品线名，比钉空状态文案稳。
   { path: "/image/tree", must: "长出了什么", zh: 800, built: true, also: ["FLUX", "Z-Image"] },
   { path: "/image/map", must: "谁和谁有关系", zh: 2400, built: true },
-  { path: "/image/scenario", must: "我想做什么", zh: 900, built: true, also: ["还没定应用"] },
+  // 应用已经定了 8 个，「还没定应用」那句空状态不该再出现；改钉真实应用名。
+  // **字数按 per: "article" 量** —— 和 /video/scenario 同一把尺子。
+  // 之前这条写的是整页 900：两个方向量的根本不是同一个东西，比出来的数没有意义。
+  { path: "/image/scenario", must: "我想做什么", zh: 260, per: "article", built: true,
+    also: ["公开路线", "需要的能力", "输入 → 输出", "虚拟试穿"] },
   { path: "/image/models", must: "全部模型", zh: 1200, built: true },
   { path: "/method", must: "这些数据是怎么来的", zh: 4000, built: true },
   // 列表页量**每条的字数**，不量总字数 —— 变更日志天生随事件累积变长，
@@ -322,6 +326,20 @@ for (const [vp, w, h] of [["桌面", 1440, 900], ["手机", 390, 844]]) {
         .filter((n) => !mineCaps.has(n));
       const capHit = alienCaps.filter((n) => txt.includes(n));
       ok(capHit.length === 0, `${path} 没有混入别的方向的能力${capHit.length ? `：${capHit.join("、")}` : ""}`);
+
+      /**
+       * **应用也要查。** 同一个错法第三次了：/atlas/image/scenario 把「AI短剧」
+       * 「数字人口播」这些视频应用整页列了出来 —— 方向页明明算好了 `apps`，
+       * 组件内部又自己取了一遍全局 `atlas.applications`。
+       * **一个值算两遍，第二遍必然被漏掉**（模型一次、能力一次、现在应用一次）。
+       */
+      const mineApps = new Set((raw.applications ?? [])
+        .filter((x) => (x.domain ?? "video") === mine).map((x) => x.zh));
+      const alienApps = (raw.applications ?? [])
+        .filter((x) => (x.domain ?? "video") !== mine).map((x) => x.zh)
+        .filter((n) => !mineApps.has(n));
+      const appHit = alienApps.filter((n) => txt.includes(n));
+      ok(appHit.length === 0, `${path} 没有混入别的方向的应用${appHit.length ? `：${appHit.join("、")}` : ""}`);
       // **切换器标签必须跟着路由走。** 它自己去找 live 方向的话，
       // 站在 /atlas/image/* 上照样显示「AI 视频」—— 路由对、内容对，只有这块标签骗人。
       const chip = await page.evaluate(

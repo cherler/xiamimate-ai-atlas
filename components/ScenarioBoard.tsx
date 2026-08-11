@@ -166,7 +166,14 @@ function ApplicationRow({ app }: { app: Application }) {
  * 场景页现在以「应用」为入口：先问用户想做什么，再把公开实现路线接上。
  * 能力详情仍然保留在 /skill/[id]，但不再把能力换个词伪装成应用。
  */
-export default function ScenarioBoard() {
+/**
+ * @param domain 只列这个方向的应用。**必须传** —— 之前直接读全局
+ * `atlas.applications`，于是 /atlas/image/scenario 把 AI 短剧、数字人口播
+ * 这些视频方向的应用一起列了出来。方向页算好了 `apps` 却没往下传，
+ * 组件自己又取了一遍全局 —— **同一个值算两遍，第二遍必然被漏掉**，
+ * 和之前 RelationGraph 能力列那次是同一个错法。
+ */
+export default function ScenarioBoard({ domain }: { domain: string }) {
   return (
     <div className="bg-card border border-rule">
       <div className="px-4 py-4 bg-yes/5 border-b border-rule flex flex-wrap items-baseline justify-between gap-2">
@@ -181,7 +188,7 @@ export default function ScenarioBoard() {
           同类官方来源优先，不按 Star 做推荐结论。不导流收费平台；公开访问 ≠ 自动允许商用。
         </p>
       </div>
-      {atlas.applications.map((app) => <ApplicationRow key={app.id} app={app} />)}
+      {atlas.applications.filter((x) => (x.domain ?? "video") === domain).map((app) => <ApplicationRow key={app.id} app={app} />)}
     </div>
   );
 }
