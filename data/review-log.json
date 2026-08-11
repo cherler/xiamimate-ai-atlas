@@ -154,6 +154,17 @@
       "missing": [
         "库里没有这条产品线（要先建实体：公司 / 轨 / 层级 / 架构依据）"
       ]
+    },
+    {
+      "id": "2026-08-07::vidu-changelog::viduq2-pro-fast::i2v::viduq2-pro-fast 模型支持 Ima",
+      "at": "2026-08-11 12:30:06",
+      "who": "admin",
+      "verdict": "pass-pending",
+      "why": "",
+      "claim": "viduq2-pro-fast 模型支持 Image to Video，速度更快、价格更低",
+      "missing": [
+        "库里没有这条产品线（要先建实体：公司 / 轨 / 层级 / 架构依据）"
+      ]
     }
   ]
 }
