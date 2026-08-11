@@ -21,7 +21,9 @@ import { atlas } from "@/lib/atlas";
  *   之前这里自己 `find(d => d.state === "live")` —— 于是站在 /atlas/image/* 上，
  *   切换器照样显示「AI 视频」：**路由对、内容对、只有这块标签在骗人**。
  */
-export default function DomainSwitch({ brand, current }: { brand: string; current?: string }) {
+export default function DomainSwitch({
+  brand, current, neutral = false,
+}: { brand: string; current?: string; neutral?: boolean }) {
   const [open, setOpen] = useState(false);
   /**
    * 平台页眉挂上时收起品牌字样。
@@ -76,7 +78,7 @@ export default function DomainSwitch({ brand, current }: { brand: string; curren
             <span className="opacity-55">·</span>
           </>
         )}
-        <span className={chrome ? "" : "font-normal"}>{now?.name}</span>
+        <span className={chrome ? "" : "font-normal"}>{neutral ? "全站" : now?.name}</span>
         <span className={`text-[9px] transition-transform ${open ? "rotate-180" : ""}`}>▼</span>
       </button>
 

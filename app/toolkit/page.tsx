@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { Rich } from "@/components/Fact";
-import { atlas } from "@/lib/atlas";
+import { atlas, groupByDomain } from "@/lib/atlas";
 import BackLink from "@/components/BackLink";
 
 /**
@@ -29,8 +29,16 @@ export default function ToolkitPage() {
         </p>
       </header>
 
-      <div className="flex flex-col">
-        {atlas.toolkit.map((t, i) => (
+      {/* 按方向分组 —— 三个公共页同一条规矩，顺序来自 atlas.domains（见 groupByDomain） */}
+      {groupByDomain(atlas.toolkit, (t) => (t as { domain?: string }).domain).map((g, _gi, gs) => (
+      <div key={g.id || "rest"} className="flex flex-col">
+        {gs.length > 1 && (
+          <p className="text-[13px] text-muted flex items-baseline gap-2 pb-1">
+            <b className="text-ink text-[15px]">{g.name}</b>
+            <span className="tabular-nums">{g.items.length} 条</span>
+          </p>
+        )}
+        {g.items.map((t, i) => (
           <section key={t.site + t.task} className="border-t border-rule py-4 flex gap-4">
             <span className="text-[15px] text-muted tabular-nums shrink-0 w-7 pt-1">{String(i + 1).padStart(2, "0")}</span>
             <div className="flex flex-col gap-1.5 flex-1 min-w-0">
@@ -48,6 +56,7 @@ export default function ToolkitPage() {
           </section>
         ))}
       </div>
+      ))}
 
       <p className="text-muted text-[13px]">
         我们自己的口径在

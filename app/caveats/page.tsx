@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { atlas, label } from "@/lib/atlas";
+import { atlas, label, groupByDomain, domainOfModel } from "@/lib/atlas";
 import { caveats, CAVEAT_ZH, type Caveat } from "@/lib/caveats";
 import { modelHref } from "@/lib/slug";
 import BackLink from "@/components/BackLink";
@@ -42,6 +42,10 @@ export default function CaveatsPage() {
         </p>
       </header>
 
+      {/**
+        * 每一类里**再按方向分一层**。caveat 自己不带 domain —— 它是从模型现算出来的，
+        * 所以方向也从模型问：`domainOfModel(c.m)`。**别为此在数据里加一个会和模型对不上的字段。**
+        */}
       {kinds.map((k, ki) => (
         <section key={k} className={ki === 0 ? "flex flex-col gap-2 pt-1" : "flex flex-col gap-2 border-t-[2.5px] border-ink pt-4"}>
           <h2 className="text-[22px] font-bold leading-tight flex items-baseline gap-3">
@@ -49,7 +53,16 @@ export default function CaveatsPage() {
             {CAVEAT_ZH[k]}
             <span className="text-muted text-[14px] font-normal">{byKind.get(k)!.length} 条</span>
           </h2>
-          {byKind.get(k)!.map((c, i) => {
+          {groupByDomain(byKind.get(k)!, (c) => (c.m ? domainOfModel(c.m) : undefined)).map((g, _gi, gs) => (
+          <div key={g.id || "rest"} className="flex flex-col gap-2">
+            {/* 只有一个方向时不画小标题 —— 那时候分组是噪音 */}
+            {gs.length > 1 && (
+              <p className="text-[13px] text-muted flex items-baseline gap-2">
+                <b className="text-ink text-[14px]">{g.name}</b>
+                <span className="tabular-nums">{g.items.length} 条</span>
+              </p>
+            )}
+          {g.items.map((c, i) => {
             const src = c.src ? atlas.sources[c.src] : null;
             return (
               <div key={i} className="border border-rule rounded-xl bg-card p-3 flex flex-col gap-1">
@@ -71,6 +84,8 @@ export default function CaveatsPage() {
               </div>
             );
           })}
+          </div>
+          ))}
         </section>
       ))}
     </main>

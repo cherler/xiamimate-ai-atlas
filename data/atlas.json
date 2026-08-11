@@ -8543,7 +8543,8 @@
    "url": "https://artificialanalysis.ai/video/leaderboard/text-to-video",
    "verdict": "目前最系统的第三方视频模型盲测榜，Elo 排名，覆盖主流厂商。",
    "caveat": "它量的是**画质偏好**，不是能力 —— 一个模型能不能做首尾帧，榜上看不出来。而且它**没有公开使用条款**（terms 页 404），引用位次可以，别整站搬。榜上排的还常常不是当前版本：我们查的时候它列的是 Seedance 2.0（当时主力已是 2.5）。",
-   "checked_at": "2026-08-09"
+   "checked_at": "2026-08-09",
+   "domain": "video"
   },
   {
    "task": "想查模型历史、训练规模与研究数据",
@@ -8551,7 +8552,8 @@
    "url": "https://epoch.ai/data/notable-ai-models",
    "verdict": "训练算力、参数量、发布时间的权威数据集，做研究很好用。",
    "caveat": "**它不收视频模型。** 我们逐条核过它的数据集，一个视频生成模型都没有 —— 想查 Kling / Seedance / Wan 的话，去这儿是白跑一趟。",
-   "checked_at": "2026-08-08"
+   "checked_at": "2026-08-08",
+   "domain": "video"
   },
   {
    "task": "想找开源模型和权重",
@@ -8559,7 +8561,8 @@
    "url": "https://huggingface.co/models?pipeline_tag=text-to-video",
    "verdict": "视频这块最活跃的几家都在这儿：Wan-AI、Lightricks、tencent、Skywork、MiniMaxAI。模型名本身就编码了代际和能力（Wan2.1-FLF2V＝首尾帧）。",
    "caveat": "**「权重公开」不等于标准开源协议。** LTX-2 和 MiniMax H3 用的都是自定义社区许可，商用前必须自己读条款。另外仓库的 `lastModified` 不是发布日期，要看 `createdAt` —— 我们在这上面错过两个月。",
-   "checked_at": "2026-08-09"
+   "checked_at": "2026-08-09",
+   "domain": "video"
   },
   {
    "task": "想快速了解一个 AI 概念",
@@ -8567,7 +8570,8 @@
    "url": "https://aiwiki.ai/",
    "verdict": "概念解释比较系统，适合入门。",
    "caveat": "**更新慢，新能力常常没有。** 我们查 Decart / Lucy 这类 2025 年之后的实时交互模型时，在这儿一条都没找到。",
-   "checked_at": "2026-08-08"
+   "checked_at": "2026-08-08",
+   "domain": "video"
   },
   {
    "task": "想找 AI 应用（不是模型）",
@@ -8575,7 +8579,8 @@
    "url": "https://www.futurepedia.io/",
    "verdict": "收录量大，找现成产品好用。",
    "caveat": "**它收的是产品，不是模型。** 想查某个产品底下跑的是谁的模型，这儿答不了 —— 我们的「场景」页反过来，从「你想做什么」直接指到能做的模型。",
-   "checked_at": "2026-08-08"
+   "checked_at": "2026-08-08",
+   "domain": "video"
   },
   {
    "task": "想找代码和 workflow",
@@ -8583,7 +8588,8 @@
    "url": "https://github.com/comfyanonymous/ComfyUI",
    "verdict": "开源侧的动作复刻、首尾帧、统一编辑，实际能跑起来的 workflow 主要在 ComfyUI 这边。",
    "caveat": "**workflow 的可复现性差别很大**，很多依赖特定版本的节点和权重文件。我们自己跑过 Wan2.2-animate：能出片，但对驱动素材挑剔（幅度大、转身多的容易崩）。",
-   "checked_at": "2026-08-09"
+   "checked_at": "2026-08-09",
+   "domain": "video"
   },
   {
    "task": "想查中国厂商的官方价格",
@@ -8591,10 +8597,38 @@
    "url": "https://help.aliyun.com/zh/model-studio/model-pricing",
    "verdict": "百炼、可灵开放平台、Vidu、MiniMax 都有逐条标价的页面，比任何转述都准。",
    "caveat": "**字节是例外**：火山方舟文档站的「模型价格」页只有文本模型的 token 单价，**视频模型价格放在飞书多维表里** —— 我们抓不到，也不该去抓别人的协作文档。",
-   "checked_at": "2026-08-08"
+   "checked_at": "2026-08-08",
+   "domain": "video"
+  },
+  {
+   "task": "想知道哪个出图模型更强",
+   "site": "Artificial Analysis · Text to Image Arena",
+   "url": "https://artificialanalysis.ai/text-to-image/arena",
+   "domain": "image",
+   "verdict": "出图侧同一套盲测 Elo，和视频那张榜同源，能横向看各家位次。",
+   "caveat": "和视频榜同一个毛病：**它量的是画质偏好，不是能力** —— 能不能按蒙版重绘、能不能把中文写对，榜上看不出来。",
+   "checked_at": "2026-08-11"
+  },
+  {
+   "task": "想找开源权重和它的发布日",
+   "site": "Hugging Face 官方组织页",
+   "url": "https://huggingface.co",
+   "domain": "image",
+   "verdict": "出图这一卷大半产品线的权重和发布时间都在各家官方组织下，createdAt 可以当发布日用。",
+   "caveat": "**只认官方组织**：同名镜像满地都是，日期和许可证常常是错的。另外部分仓库是 gated（要先同意条款），API 拿不到内容只拿得到 401。",
+   "checked_at": "2026-08-11"
+  },
+  {
+   "task": "想在自己机器上把工作流跑起来",
+   "site": "ComfyUI 官方文档 · 教程",
+   "url": "https://docs.comfy.org/tutorials/",
+   "domain": "image",
+   "verdict": "出图侧的官方工作流最全的一处：局部重绘、扩图、放大、ControlNet、各家新模型都有原生教程。",
+   "caveat": "它写的是**怎么跑**，不是**效果怎么样** —— 教程里出现某个模型不代表它好用。而且模型自己的架构说明常常也只在这儿有，那属于第三方转述，不是厂商原话。",
+   "checked_at": "2026-08-11"
   }
  ],
- "$toolkit": "资源导航（方案 §16）。原话：**「不要做一排 Logo 的 hao123」，要「导航 + 判断」。**\n字段：{task, site, url, verdict, caveat, checked_at}\n**verdict 和 caveat 都必填（R49）** —— caveat 是负面结论，「Epoch AI 不收视频模型」这种我们真查过才知道的话，才是这一页的价值。",
+ "$toolkit": "资源导航（方案 §16）。原话：**「不要做一排 Logo 的 hao123」，要「导航 + 判断」。**\n字段：{task, site, url, verdict, caveat, checked_at}\n**verdict 和 caveat 都必填（R49）** —— caveat 是负面结论，「Epoch AI 不收视频模型」这种我们真查过才知道的话，才是这一页的价值。 每条带 domain：这一页是全站公共的，按方向分组显示。",
  "effect": [
   {
    "m": "gemini-omni",

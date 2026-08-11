@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { Rich } from "@/components/Fact";
-import { atlas, label } from "@/lib/atlas";
+import { atlas, groupByDomain, label } from "@/lib/atlas";
 import { modelHref } from "@/lib/slug";
 import changes from "@/data/changes.json";
 import BackLink from "@/components/BackLink";
@@ -24,7 +24,7 @@ import BackLink from "@/components/BackLink";
 type Ev = {
   id: string; date: string; side: "world" | "ours"; kind: string;
   subject: string; before: string; after: string; why: string;
-  impact: string[]; src: string | null; models: string[];
+  impact: string[]; src: string | null; models: string[]; domain?: string;
 };
 const KIND: Record<string, string> = {
   version: "版本更迭", status: "生命周期", capability: "能力面",
@@ -32,7 +32,7 @@ const KIND: Record<string, string> = {
 };
 
 export const metadata: Metadata = {
-  title: "最近有什么变化 —— AI 视频模型的版本、停服与能力变动",
+  title: "最近有什么变化 —— 各方向的版本、停服与能力变动",
   description: "不只列发生了什么，还说明它意味着什么。同时公开我们自己记错又改正的地方。",
 };
 
@@ -85,6 +85,31 @@ export default function ChangesPage() {
     </article>
   );
 
+  /**
+   * 每一大节内部**再按方向分一层**（负责人 2026-08-11：三个公共页
+   * 「都可以往这里放内容。但也应该在对应页面做一定的分类才是。混在一起还是不够好」）。
+   *
+   * 分组顺序来自 `atlas.domains`，**加一个方向不用改这一页**。
+   * 只有一个方向有内容时不画小标题 —— 那时候分组是噪音。
+   */
+  const ByDomain = ({ evs }: { evs: Ev[] }) => {
+    const gs = groupByDomain(evs, (e) => e.domain);
+    if (gs.length <= 1) return <div className="mt-2">{evs.map((e, i) => <Card key={e.id} e={e} n={i + 1} />)}</div>;
+    return (
+      <div className="mt-2 flex flex-col gap-5">
+        {gs.map((g) => (
+          <div key={g.id || "rest"}>
+            <p className="text-[13px] text-muted flex items-baseline gap-2 border-b border-rule pb-1.5">
+              <b className="text-ink text-[14px]">{g.name}</b>
+              <span className="tabular-nums">{g.items.length} 条</span>
+            </p>
+            {g.items.map((e, i) => <Card key={e.id} e={e} n={i + 1} />)}
+          </div>
+        ))}
+      </div>
+    );
+  };
+
   return (
     <main className="max-w-[980px] mx-auto px-8 pt-5 pb-10 flex flex-col gap-8">
       <BackLink />
@@ -107,9 +132,7 @@ export default function ChangesPage() {
           厂商那边变了什么
           <span className="text-muted text-[14px] font-normal">{world.length} 条</span>
         </h2>
-        <div className="mt-2">
-          {world.map((e, i) => <Card key={e.id} e={e} n={i + 1} />)}
-        </div>
+        <ByDomain evs={world} />
       </section>
 
       <section className="border-t-[2.5px] border-ink pt-4">
@@ -122,9 +145,7 @@ export default function ChangesPage() {
           <b className="text-ink">一个只报别人变化、从不报自己出错的变更页，是营销稿不是变更记录。</b>
           这个产品唯一的本钱是可信，承认错误比列举别人的新版本更能换来它。
         </p>
-        <div className="mt-2">
-          {ours.map((e, i) => <Card key={e.id} e={e} n={i + 1} />)}
-        </div>
+        <ByDomain evs={ours} />
       </section>
 
       <footer className="border-t border-rule pt-5 text-[13px] text-muted leading-relaxed">

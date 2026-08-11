@@ -493,6 +493,35 @@ export const extendedOf = (k: Klass, d: string = domainOfTrack(k)) =>
  * 去过滤，结果是空表 —— 而空表在页面上看起来只是「还没数据」，不像 bug。
  * 轨 id 在全局唯一属于一个方向，让它自己说。
  */
+/**
+ * 按方向分组。**三个公共页（变更 / 注意事项 / 工具站）共用这一个。**
+ *
+ * 负责人 2026-08-11：这三页做成公共的没问题，「不管视频、图像、3D、世界模型等后续
+ * AI 方向，都可以往这里放内容。但也应该在对应页面做一定的分类才是。**混在一起还是不够好**」。
+ *
+ * 顺序照 `atlas.domains` 走，没有归属的落到最后一组 ——
+ * **加一个方向不用改任何页面**，这正是分组要泛化的原因。
+ */
+export function groupByDomain<T>(items: T[], of: (x: T) => string | undefined) {
+  const bag = new Map<string, T[]>();
+  for (const it of items) {
+    const k = of(it) ?? "";
+    bag.set(k, [...(bag.get(k) ?? []), it]);
+  }
+  const out = atlas.domains
+    .map((d) => ({ id: d.id, name: d.name, items: bag.get(d.id) ?? [] }))
+    .filter((g) => g.items.length);
+  const rest = [...bag.entries()].filter(([k]) => !atlas.domains.some((d) => d.id === k));
+  for (const [, v] of rest) out.push({ id: "", name: "不限方向", items: v });
+  return out;
+}
+
+export const domainName = (id: string) =>
+  atlas.domains.find((d) => d.id === id)?.name ?? id;
+
+export const domainOfModel = (id: string) =>
+  atlas.models.find((m) => m.id === id)?.domain ?? "video";
+
 export const domainOfTrack = (k: Klass): string =>
   atlas.domains.find((d) => (d.tracks ?? []).some((t) => t.id === k))?.id ?? currentDomain().id;
 

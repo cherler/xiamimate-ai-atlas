@@ -67,6 +67,16 @@ export default function Nav() {
   const owner = seg === "skill"
     ? atlas.skills.find((k) => k.id === parts[1])?.domain
     : undefined;
+  /**
+   * **有些页本来就不属于任何一个方向**：变更记录、方法、工具站、注意事项 ——
+   * 它们讲的是整个站。之前这些页会退回 live 方向，于是从 AI 图像点「最近有什么变化」
+   * 过去，顶上突然写着「AI 视频」—— 用户读成「它自动跳到视频去了」。
+   *
+   * **不属于谁就别声称属于谁。** 切换器在这些页显示「全站」，菜单里两个方向都不实心。
+   * （四个主链接仍要有落点，用 live 方向；这是导航选择，不是身份声明。）
+   */
+  const CROSS = ["changes", "method", "toolkit", "caveats"];
+  const cross = CROSS.includes(seg);
   const dom = atlas.domains.some((d) => d.id === seg)
     ? seg
     : owner && atlas.domains.some((d) => d.id === owner)
@@ -86,7 +96,7 @@ export default function Nav() {
        * 只是**一个字都看不见**。又一个「查 DOM 查不出来」的坑。
        */}
       <div className="max-w-[1240px] mx-auto px-5 h-12 flex items-center gap-1">
-        <DomainSwitch brand={BRAND.short} current={dom} />
+        <DomainSwitch brand={BRAND.short} current={cross ? undefined : dom} neutral={cross} />
         <div className="flex items-center gap-1 min-w-0 flex-1 overflow-x-auto">
           {MAIN.map((m) => {
             const href = `${base}${m.seg}`;

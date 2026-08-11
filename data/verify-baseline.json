@@ -2,7 +2,7 @@
   "note": "中文字符数基线，只许降不许升。verify 全绿时自动更新。",
   "zh": {
     "/method|桌面": 1038,
-    "/changes|桌面": 80,
+    "/changes|桌面": 78,
     "/model/wan|桌面": 604,
     "/capability/flf|桌面": 633,
     "/caveats|桌面": 34,
@@ -10,7 +10,7 @@
     "/skill/motion|桌面": 230,
     "/toolkit|桌面": 89,
     "/method|手机": 1038,
-    "/changes|手机": 80,
+    "/changes|手机": 78,
     "/model/wan|手机": 604,
     "/capability/flf|手机": 633,
     "/caveats|手机": 34,
