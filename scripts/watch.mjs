@@ -59,7 +59,26 @@ mkdirSync(SNAP, { recursive: true });
 
 const reg = JSON.parse(readFileSync(`${ROOT}/data/sources.json`, "utf8"));
 const argv = process.argv.slice(2);
-const only = argv.find((a) => a.startsWith("--only"))?.split("=")[1] ?? argv[argv.indexOf("--only") + 1];
+/**
+ * ⚠️ 这里出过一个**四天没人发现**的 bug（2026-08-11 修）。
+ *
+ * 原来写的是：
+ *   `argv.find(a => a.startsWith("--only"))?.split("=")[1] ?? argv[argv.indexOf("--only") + 1]`
+ *
+ * 跑 `--due` 时没有 `--only`，`indexOf` 返回 **-1**，`-1 + 1 = 0`，
+ * 于是 `only` 被赋成了 `argv[0]`，也就是 `"--due"` 自己 ——
+ * 接着拿它去匹配源 id，**一个都匹配不上，选中 0 个源**。
+ *
+ * `-1` 是「没找到」，不是一个合法下标。**「没有值」和「取不到值」混在一起**，
+ * 而 JS 不会为此报错，只会安安静静地给你一个 0。
+ *
+ * 后果：launchd 每天 09:23 照常跑、退出码 0、日志干干净净，
+ * 但 213 个源里 149 个从来没被抓过，快照停在 08-08。
+ * **一个报告成功却什么都没做的定时任务，比一个明着失败的更糟。**
+ */
+const onlyIdx = argv.indexOf("--only");
+const only = argv.find((a) => a.startsWith("--only="))?.split("=")[1]
+  ?? (onlyIdx >= 0 ? argv[onlyIdx + 1] : undefined);
 const dueOnly = argv.includes("--due");
 const TODAY = process.env.WATCH_DATE || new Date().toISOString().slice(0, 10);
 
@@ -192,6 +211,28 @@ const list = reg.sources.filter((s) => {
   const p = prevOf(s.id);
   return !p || daysBetween(TODAY, p.fetched_at) >= (s.refresh_days ?? 7);
 });
+
+/**
+ * **选中 0 个源必须是一件响的事。**
+ *
+ * 上面那个 bug 之所以能躺四天，不是因为它藏得深，是因为它**长得像成功**：
+ * 「监视 0/213」印出来了，退出码 0，launchd 心满意足。
+ * 所以这里把三种 0 分开 —— 只有「全都还新鲜」那一种是正常的。
+ */
+if (list.length === 0) {
+  if (only) {
+    console.error(`--only "${only}" 一个源都没匹配上。是不是把 id 写错了？（登记了 ${reg.sources.length} 个源）`);
+    process.exit(2);
+  }
+  if (!dueOnly) { console.error(`源表是空的：data/sources.json 里一个源都没有`); process.exit(2); }
+  const never = reg.sources.filter((s) => !prevOf(s.id)).length;
+  if (never > 0) {
+    // 「到期 0 个」和「有 149 个从来没抓过」不可能同时成立 —— 同时出现就是选择逻辑坏了
+    console.error(`选出 0 个到期源，但有 ${never} 个源从来没抓过 —— **这两件事不可能同时成立**，选择逻辑坏了`);
+    process.exit(2);
+  }
+  console.log(`没有到期的源（${reg.sources.length} 个全都还在各自的 refresh_days 之内）· ${TODAY}`);
+}
 
 console.log(`监视 ${list.length}/${reg.sources.length} 个源 · ${TODAY}\n`);
 
