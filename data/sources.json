@@ -2757,6 +2757,70 @@
       "good_for": [
         "capability"
       ]
+    },
+    {
+      "id": "minimax-anthropic-api",
+      "tier": "S",
+      "kind": "spa",
+      "lang": "zh-CN",
+      "vendor": "minimax-text",
+      "name": "MiniMax 开放平台 · Anthropic SDK 兼容",
+      "url": "https://platform.minimaxi.com/docs/api-reference/text-anthropic-api",
+      "refresh_days": 14,
+      "good_for": [
+        "capability"
+      ]
+    },
+    {
+      "id": "minimax-openai-api",
+      "tier": "S",
+      "kind": "spa",
+      "lang": "zh-CN",
+      "vendor": "minimax-text",
+      "name": "MiniMax 开放平台 · OpenAI SDK 兼容",
+      "url": "https://platform.minimaxi.com/docs/api-reference/text-openai-api",
+      "refresh_days": 14,
+      "good_for": [
+        "capability"
+      ]
+    },
+    {
+      "id": "minimax-server-tools",
+      "tier": "S",
+      "kind": "spa",
+      "lang": "zh-CN",
+      "vendor": "minimax-text",
+      "name": "MiniMax 开放平台 · 服务端工具",
+      "url": "https://platform.minimaxi.com/docs/guides/server-tools",
+      "refresh_days": 14,
+      "good_for": [
+        "capability"
+      ]
+    },
+    {
+      "id": "minimax-caching",
+      "tier": "S",
+      "kind": "spa",
+      "lang": "zh-CN",
+      "vendor": "minimax-text",
+      "name": "MiniMax 开放平台 · Prompt 缓存",
+      "url": "https://platform.minimaxi.com/docs/api-reference/text-prompt-caching",
+      "refresh_days": 14,
+      "good_for": [
+        "capability"
+      ]
+    },
+    {
+      "id": "minimax-openapi",
+      "tier": "S",
+      "kind": "json",
+      "vendor": "minimax-text",
+      "name": "MiniMax 开放平台 · Chat Completions OpenAPI 规格",
+      "url": "https://platform.minimaxi.com/docs/api-reference/text/api/openapi-chat-openai.json",
+      "refresh_days": 7,
+      "good_for": [
+        "capability"
+      ]
     }
   ],
   "$missing": [
