@@ -156,9 +156,33 @@ export default function Tree({ domain }: { domain: string }) {
   const earlier = nodes.filter((n) => MS(n.date) < t0);
   const cutMs = t0 + ((t1 - t0) * cut) / 100;
 
-  /** 时间越晚越靠上 —— 树是往上长的。 */
-  const y = (d: string) =>
-    PAD.t + AXIS_H - (Math.max(0, MS(d) - t0) / (t1 - t0)) * AXIS_H;
+  /**
+   * 时间越晚越靠上 —— 树是往上长的。
+   *
+   * ## 纯线性刻度会把稀疏的方向画得很空
+   *
+   * AI 图像 14 个节点里 11 个挤在最后 6 个月，纯线性铺开时**下面三分之二是空的**，
+   * 整张图看着像没做完。AI 视频没这个问题（前半段占 53%），
+   * 所以这不是「换个好看的画法」，是**同一套线性刻度对两种分布效果差很多**。
+   *
+   * 做法：线性位置与**经验分位**（这个时刻之前占了多少比例的节点）按权混合。
+   * 空白期被压缩、密集期被拉开，**先后顺序完全不变**。
+   * 年份网格线用同一个函数算，所以「2025」还是落在 2025-01-01 真正的位置上 ——
+   * 刻度没有说谎，只是尺子不均匀，图例里写明了。
+   */
+  const stamps = useMemo(() => nodes.map((n) => MS(n.date)).sort((a, b) => a - b), [nodes]);
+  const quantile = (t: number) => {
+    let lo = 0, hi = stamps.length;
+    while (lo < hi) { const mid = (lo + hi) >> 1; if (stamps[mid] < t) lo = mid + 1; else hi = mid; }
+    return stamps.length ? lo / stamps.length : 0;
+  };
+  /** 0 = 纯线性；1 = 纯分位。0.45 是实测：图像不再空，视频几乎不变形。 */
+  const MIX = 0.45;
+  const frac = (ms: number) => {
+    const lin = (Math.max(0, ms - t0)) / (t1 - t0 || 1);
+    return MIX * quantile(ms) + (1 - MIX) * lin;
+  };
+  const y = (d: string) => PAD.t + AXIS_H - Math.min(1, frac(MS(d))) * AXIS_H;
 
   const lines = useMemo(() => {
     const by = new Map<string, Node[]>();
@@ -175,8 +199,17 @@ export default function Tree({ domain }: { domain: string }) {
      * 更新的线会卡在中间，把右上角（2026 的密集期）挤空。把「节点少且早就停更」的
      * 挪到队尾 —— 右下正好是它们的时间段，空白被填上，中段也不再被短线切断。
      */
+    /**
+     * 阈值**从数据算**，不写死日期。原来写的是 "2025-07-01" ——
+     * 那是照着 AI 视频的数据调出来的，搬到 AI 图像就把最老的两条线
+     * （Stable Diffusion 2023、Ideogram 2025-03）推到了最右边，
+     * **读起来时间是倒着的**。改成「跨度的前 40%」，两个方向都成立。
+     */
+    const spanEnd = MS(arr[arr.length - 1].ns[arr[arr.length - 1].ns.length - 1].date);
+    const spanStart = MS(arr[0].first);
+    const cutoff = spanStart + (spanEnd - spanStart) * 0.4;
     const stale = (l: (typeof arr)[number]) =>
-      l.ns.length <= 2 && l.ns[l.ns.length - 1].date < "2025-07-01";
+      l.ns.length <= 2 && MS(l.ns[l.ns.length - 1].date) < cutoff;
     // **实时交互轨排到最后** —— Vidu S / Lucy 是另一套坐标系（边生成边看），
     // 插在离线轨中间会让人以为是同一类。放队尾，和右下的短线待在一起。
     const rt = (l: (typeof arr)[number]) => l.model.class === "realtime";
@@ -190,11 +223,18 @@ export default function Tree({ domain }: { domain: string }) {
      * **横向均匀铺开**：每条线占等宽的一格，格宽 = 可用宽度 / 条数。
      * 上一版按「老枝伸得远」排，首发早的全挤左、晚的全挤右，疏密极不均。
      */
+    /**
+     * 格宽**封顶**。原来是「可用宽 / 条数」—— 6 条线摊 1200px，
+     * 每格 200px，线与线之间全是空隙，一个孤零零的点飘在最右。
+     * 封到 150 之后整组居中，稀疏的方向不再被拉散；
+     * 条数多时仍按可用宽平分（视频 16 条算下来 75px，不受影响）。
+     */
     const usable = W - PAD.l - PAD.r;
-    const slotW = usable / ordered.length;
+    const slotW = Math.min(150, usable / ordered.length);
+    const offset = (usable - slotW * ordered.length) / 2;
     return ordered.map((l, i) => ({
       ...l,
-      cx: PAD.l + slotW * (i + 0.5),
+      cx: PAD.l + offset + slotW * (i + 0.5),
       band: slotW * 0.72,           // 带内分叉铺开的宽度，留 28% 做间隙
       color: ORG_HUE[l.model.org] ?? FALLBACK,
     }));
@@ -328,7 +368,7 @@ export default function Tree({ domain }: { domain: string }) {
       const pt = posOf.get(top.id);
       if (!pt) continue;
       const w = SHORT(l.model.family).replace(/[^\x00-\xff]/g, "aa").length * 5.2 + 8;
-      placed.push({ x0: pt.x - w, x1: pt.x, y: pt.y - 20, h: 7 }); // 产品线名：9.5px 粗体
+      placed.push({ x0: pt.x - w, x1: pt.x, y: pt.y - 20, h: 9 }); // 产品线名：9.5px 粗体，占位比字高留一点余量
     }
     // 按 y 从上到下排，先来先占 —— 顺序稳定，结果才可复现
     const all = [...nodes].filter((n) => posOf.has(n.id))
@@ -673,6 +713,11 @@ export default function Tree({ domain }: { domain: string }) {
           </svg>
           同一条线上实空混着 = 它中途换过向
           {domain === "video" && "（万相开源起家、3.0 转闭源；海螺相反，H3 才放权重）"}
+        </span>
+        {/* **改了刻度就要说。** 年份线仍落在真实日期上，只是间距按节点密度调过 ——
+            不写出来就是偷偷改尺子。 */}
+        <span>
+          纵轴间距按节点密度调过（空白期压缩、密集期拉开），<b className="text-ink">先后顺序不变</b>
         </span>
         <span>产品线名旁是公司名 · <b className="text-ink">拖时间轴</b>看每一代长出来 · <b className="text-ink">点任一节点</b>看它加了什么</span>
         <Link href="/method#genealogy" className="underline hover:text-ink">这张图怎么读 →</Link>
