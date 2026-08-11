@@ -211,8 +211,11 @@ for (const [vp, w, h] of [["桌面", 1440, 900], ["手机", 390, 844]]) {
       // ⚠️ 只减**可见**的引用块。`display:none` 的元素上 innerText 会退化成 textContent，
       // 手机端真值表整块隐藏，它里面的 59 条脚注照样被当成引用减掉，
       // 结果首页中文字符被减成负数、夹到 0 —— **和当初 textContent 那个坑是同一类**。
+      // **导航标签也不算旁白。** 跳转条上的九个词就是九张卡的标题本身，
+      // 算两遍只会让数字虚高，而这条尺子量的是「我们自己额外说了多少话」。
+      // 判据是语义标签 `<nav>`，不是某个组件 —— 面包屑、「接下来」同理。
       quoted = await page.evaluate(
-        '[...document.querySelectorAll("main [data-quote]")]' +
+        '[...document.querySelectorAll("main [data-quote], main nav")]' +
         '.filter(e=>e.getClientRects().length>0).map(e=>e.innerText).join("")');
       // 兜底判断靠 data-page="home" 这个**稳定记号**，不靠首页的文案 ——
       // 文案一改判断就失效（刚才就失效了）。
@@ -352,6 +355,19 @@ for (const [vp, w, h] of [["桌面", 1440, 900], ["手机", 390, 844]]) {
       const alienCaps = (raw.capabilities ?? [])
         .filter((c) => (c.domain ?? "video") !== mine).map((c) => c.zh)
         .filter((n) => !mineCaps.has(n));
+      /**
+       * **页面上不许出现裸的 `**`。**
+       *
+       * 全库都用 `**` 在数据里标重点，渲染时要过 `Rich`。漏用的地方不会报错，
+       * 只会把星号原样印出来 —— 一眼看去像排版坏了。手机端截图才发现
+       * 「**直接对得上这件事**」就这么印在卡片上。
+       * 三处漏用（场景页 note、models 页 revisit）都是这么找出来的，钉住。
+       */
+      // 变量别叫 raw —— 外层的 `raw` 是解析好的 atlas.json，同名会把它遮住
+      const starred = txt.match(/\*\*[^*\n]{1,40}\*\*/g) ?? [];
+      ok(starred.length === 0,
+        `${path} 没有把 ** 原样印出来${starred.length ? `：${starred.slice(0, 3).join("、")}` : ""}`);
+
       const capHit = alienCaps.filter((n) => txt.includes(n));
       ok(capHit.length === 0, `${path} 没有混入别的方向的能力${capHit.length ? `：${capHit.join("、")}` : ""}`);
 

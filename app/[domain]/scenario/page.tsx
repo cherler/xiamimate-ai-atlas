@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import ScenarioBoard from "@/components/ScenarioBoard";
+import AppJump from "@/components/AppJump";
 import { applicationResources, atlas } from "@/lib/atlas";
 import { domainOf } from "../dom";
 
@@ -42,9 +43,13 @@ export default async function ScenarioPage({ params }: { params: Promise<{ domai
       </header>
 
       {n ? (
-        <div className="mt-6">
-          <ScenarioBoard domain={d.id} />
-        </div>
+        <>
+          {/* 跳转条紧贴页头之下、内容之上 —— 它是这一页的目录，不是卡片的一部分 */}
+          <AppJump apps={apps.map((x) => ({ id: x.id, zh: x.zh }))} />
+          <div className="mt-4">
+            <ScenarioBoard domain={d.id} />
+          </div>
+        </>
       ) : (
         /* 应用层是逐个人工定的，图像方向还一个都没定 —— 说清楚，不摆空板子 */
         <div className="mt-6 border border-unknown/40 bg-unknown/6 p-5 text-[14px] leading-relaxed">

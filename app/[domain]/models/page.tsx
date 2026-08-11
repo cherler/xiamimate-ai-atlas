@@ -86,7 +86,8 @@ export default async function ModelsPage({ params }: { params: Promise<{ domain:
               {e.same_bucket?.length ? (
                 <p className="text-muted text-[13px] mt-1">同类一并不收：{e.same_bucket.join("、")}</p>
               ) : null}
-              {e.revisit && <p className="text-muted text-[13px] mt-1 italic">{e.revisit}</p>}
+              {/* `revisit` 和 `why` 一样是带 `**` 的自由文本 —— 隔壁走了 Rich，这行漏了 */}
+              {e.revisit && <Rich text={e.revisit} className="text-muted text-[13px] mt-1 italic block" />}
             </div>
           ))}
         </div>

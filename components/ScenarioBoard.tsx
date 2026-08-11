@@ -6,6 +6,9 @@ import {
   type ApplicationResource,
   type ApplicationResourceKind,
 } from "@/lib/atlas";
+// `Rich` 把数据里的 `**重点**` 渲染成 <b>。**全库都这么写重点**，
+// 漏用不会报错，只会把星号原样印在页面上（手机端截图才发现「**直接对得上这件事**」）。
+import { Rich } from "./Fact";
 
 const KIND: Record<ApplicationResourceKind, { label: string; className: string }> = {
   project: { label: "项目", className: "bg-yes/10 text-yes-ink" },
@@ -51,7 +54,7 @@ function ResourceCard({ resource }: { resource: ApplicationResource }) {
         </ul>
       ) : (
         <p data-quote className="text-[12px] text-muted leading-relaxed mt-1.5 line-clamp-2">
-          {resource.note ?? resource.quote}
+          <Rich text={resource.note ?? resource.quote} />
         </p>
       )}
       {/**
@@ -102,8 +105,13 @@ function ApplicationRow({ app }: { app: Application }) {
     .map((id) => atlas.skills.find((s) => s.id === id))
     .filter(Boolean);
 
+  // `id` 供顶部跳转条用；`scroll-mt` = 全站导航 48 + 跳转条 40，
+  // 少了它锚点会把标题正好停在两条吸顶栏底下 —— 跳过去看不见自己要找的那行。
   return (
-    <article className="border-t border-rule px-4 py-6 md:grid md:grid-cols-[280px_1fr] md:gap-8">
+    <article
+      id={`app-${app.id}`}
+      className="scroll-mt-[92px] border-t border-rule px-4 py-6 md:grid md:grid-cols-[280px_1fr] md:gap-8"
+    >
       <div className="mb-6 md:mb-0">
         <p className="text-[11px] tracking-[.14em] uppercase text-yes-ink mb-2">应用 / {app.en}</p>
         <h2 className="text-[27px] font-bold leading-tight tracking-[-.02em]">{app.zh}</h2>
