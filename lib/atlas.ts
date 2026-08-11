@@ -176,9 +176,16 @@ export type Skill = {
   domain?: string;
   io?: { in: string[]; out: string };
   native?: string[];
-  opensource?: { name: string; url?: string; src: string; quote: string }[];
+  /**
+   * `license` 走三态，和 `ApplicationResource` 同一套：字符串 = 查到的原名，
+   * `null` = 查过、作者确实没放，字段缺失 = 我们还没采。
+   * **这两个字段以前没写进类型**，于是采到的许可证在汇总到场景页时被整个丢掉 ——
+   * PhotoMaker 明明是 Apache-2.0，卡片上却印着「许可证未采」。
+   * 类型漏一个字段，数据就静悄悄地少一截。
+   */
+  opensource?: { name: string; url?: string; src: string; quote: string; license?: string | null; note?: string }[];
   /** 能直接跑起来的 workflow / 官方插件。**方案 §10 要的「拿什么做」就是这一栏。** */
-  workflow?: { name: string; url: string; kind: "official" | "community"; src: string; quote: string }[];
+  workflow?: { name: string; url: string; kind: "official" | "community"; src: string; quote: string; license?: string | null; note?: string }[];
   platform_feature?: { p: string; name: string; src: string; quote: string; discloses?: string }[];
   limits?: string[]; cases?: string[];
   src?: string; quote?: string; verified_at: string;
@@ -563,7 +570,14 @@ export function applicationResources(app: Application): ApplicationResource[] {
     for (const o of s.opensource ?? []) {
       if (!o.url) continue;
       take(o.url,
-        () => ({ kind: "project", name: o.name, url: o.url!, src: o.src, quote: o.quote, evidence: [] }),
+        () => ({
+          kind: "project", name: o.name, url: o.url!, src: o.src, quote: o.quote,
+          // `license` 必须**逐字段判断有没有写**，不能用 `o.license ?? undefined` ——
+          // 那会把「查过、确实没有」的 null 压成「还没采」，三态又塌回两态。
+          ...("license" in o ? { license: o.license } : {}),
+          ...(o.note ? { note: o.note } : {}),
+          evidence: [],
+        }),
         { skill_id: s.id, skill_zh: s.zh, quote: o.quote });
     }
     for (const w of s.workflow ?? []) {
@@ -577,7 +591,8 @@ export function applicationResources(app: Application): ApplicationResource[] {
           // 官方那句原来写的是「官方公开教程或工作流」—— **「文档」那个标签已经说了同一件事**，
           // 而它会在每一张官方卡上重复一遍。复述不是强调，是噪音；社区那句留着，
           // 因为「先看依赖和显存」是能照着做的事。
-          note: w.kind === "community" ? "社区维护；先看依赖和显存要求" : undefined,
+          note: w.note ?? (w.kind === "community" ? "社区维护；先看依赖和显存要求" : undefined),
+          ...("license" in w ? { license: w.license } : {}),
           evidence: [],
         }),
         { skill_id: s.id, skill_zh: s.zh, quote: w.quote });

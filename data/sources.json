@@ -1857,6 +1857,42 @@
       "good_for": [
         "course"
       ]
+    },
+    {
+      "id": "dreamtextures-gh",
+      "tier": "S",
+      "kind": "json",
+      "vendor": "carson-katri",
+      "name": "Dream Textures（Blender 内出图）· 官方仓库",
+      "url": "https://github.com/carson-katri/dream-textures",
+      "refresh_days": 30,
+      "good_for": [
+        "opensource"
+      ]
+    },
+    {
+      "id": "char2d-gh",
+      "tier": "S",
+      "kind": "json",
+      "vendor": "mor-o",
+      "name": "ComfyUI 2D 角色流水线 · 官方仓库",
+      "url": "https://github.com/mor-o/comfyui-2d-character-pipeline",
+      "refresh_days": 30,
+      "good_for": [
+        "opensource"
+      ]
+    },
+    {
+      "id": "hf-pixelart-lora",
+      "tier": "S",
+      "kind": "json",
+      "vendor": "nerijs",
+      "name": "Hugging Face · nerijs/pixel-art-xl",
+      "url": "https://huggingface.co/nerijs/pixel-art-xl",
+      "refresh_days": 60,
+      "good_for": [
+        "opensource"
+      ]
     }
   ],
   "$missing": [
@@ -1884,6 +1920,8 @@
   },
   "$pricing": "价格（G5 · §59.4）。**只从厂商官方价格页取，Artificial Analysis 只做交叉校验。**\n理由：AA 量的是质量与速度，价格是它顺带记的，而且**它没有公开条款**（terms 页 404），\n拿它的价当事实等于把别人的顺带产物当自己的一等数据。\n\n价格这类字段和能力格不同的地方：**它天生带维度**（分辨率/时长/档位/是否含音频），\n记成一个数字必然是错的。所以要么连维度一起记，要么就别记。",
   "$excluded_resources": [
-    "DeepLearning.AI《How Diffusion Models Work》：内容免费但**必须注册账号**才能看，与「公开可访问：不要求购买、订阅或登录」这条硬门槛冲突（docs/应用开源资源治理.md 二·硬门槛 2），不收"
+    "DeepLearning.AI《How Diffusion Models Work》：内容免费但**必须注册账号**才能看，与「公开可访问：不要求购买、订阅或登录」这条硬门槛冲突（docs/应用开源资源治理.md 二·硬门槛 2），不收",
+    "blendi-remade/sprite-sheet-creator（★1,648）：**仓库里没有 LICENSE**，且核心链路必须调 fal.ai 付费 API 才能跑 —— 授权与「不导流收费平台」两条都卡着，不收",
+    "steven2711/pixel-sprite-lab、hafiidz/sprigen：搜索结果里出现过，实测 GitHub API 404，**仓库不存在**。搜索摘要不能当收录依据"
   ]
 }

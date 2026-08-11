@@ -2276,6 +2276,21 @@
    "name": "Wikipedia · Midjourney（版本年表）",
    "url": "https://en.wikipedia.org/wiki/Midjourney",
    "tier": "secondary"
+  },
+  "dreamtextures-gh": {
+   "name": "GitHub · carson-katri/dream-textures",
+   "url": "https://github.com/carson-katri/dream-textures",
+   "tier": "official"
+  },
+  "char2d-gh": {
+   "name": "GitHub · mor-o/comfyui-2d-character-pipeline",
+   "url": "https://github.com/mor-o/comfyui-2d-character-pipeline",
+   "tier": "official"
+  },
+  "hf-pixelart-lora": {
+   "name": "Hugging Face · nerijs/pixel-art-xl",
+   "url": "https://huggingface.co/nerijs/pixel-art-xl",
+   "tier": "official"
   }
  },
  "support": [
@@ -4345,6 +4360,22 @@
    ],
    "revisit": "等 AI 视频这个方向做扎实了，世界模型可以是**另一个方向**（见 domains），不是塞进这个方向",
    "domain": "video"
+  },
+  {
+   "name": "图生 3D（TRELLIS / Hunyuan3D-2 / TripoSR / Stable Fast 3D）",
+   "vendor": "多家",
+   "kind": "image-to-3D",
+   "date": "2026-08-11",
+   "by": "human",
+   "why": "游戏美术真正吃的是 3D 模型和 PBR 贴图，这几个（TRELLIS ★13,417 MIT、Hunyuan3D-2 ★14,459、TripoSR ★6,828 MIT）都很成熟，ComfyUI 也有官方教程。**但它们的产出是网格和材质，不是图。** 收进来这一卷的能力轴（文生图/改图/放大…）一格都对不上，等于用一套坐标系去量另一件事。",
+   "same_bucket": [
+    "threestudio",
+    "stable-dreamfusion",
+    "Tripo 3.1",
+    "Hunyuan3D 3.0"
+   ],
+   "revisit": "和世界模型同样处理：**3D 生成值得单开一个方向**，不是塞进 AI 图像",
+   "domain": "image"
   }
  ],
  "$since": "每项能力的 since 是**我们手上的日志能证明的最早时间**，不是业界首次出现。可追溯窗口起于 2024-01（Runway changelog）与 2024-09（Kling API 日志），窗口之前的看不见。自动抽取只给候选：第一遍就把「Tail frame control is **not** supported」当成了首尾帧的支持证据，把 Motion Brush 里的 element 当成了角色参考，把 Multi-Image to **Image** 当成了视频多参考 —— 三条都是人工核掉的。",
@@ -6686,7 +6717,8 @@
      "url": "https://github.com/cubiq/ComfyUI_IPAdapter_plus",
      "kind": "community",
      "src": "ipadapter-plus-gh",
-     "quote": "cubiq/ComfyUI_IPAdapter_plus（★6,090，GPL-3.0）"
+     "quote": "cubiq/ComfyUI_IPAdapter_plus（★6,090，GPL-3.0）",
+     "license": "GPL-3.0"
     }
    ]
   },
@@ -6820,7 +6852,8 @@
      "url": "https://github.com/ssitu/ComfyUI_UltimateSDUpscale",
      "kind": "community",
      "src": "ultimate-upscale-gh",
-     "quote": "ssitu/ComfyUI_UltimateSDUpscale：ComfyUI nodes for the Ultimate Stable Diffusion Upscale script（★1,535，GPL-3.0）"
+     "quote": "ssitu/ComfyUI_UltimateSDUpscale：ComfyUI nodes for the Ultimate Stable Diffusion Upscale script（★1,535，GPL-3.0）",
+     "license": "GPL-3.0"
     }
    ]
   },
@@ -7906,6 +7939,75 @@
     "ComfyUI 工作流",
     "本地部署",
     "离线出图"
+   ],
+   "domain": "image"
+  },
+  {
+   "id": "game-art",
+   "zh": "游戏美术素材",
+   "en": "Game Art Assets",
+   "intro": "出角色立绘、精灵图、图标与贴图，成套且风格一致。",
+   "inputs": [
+    "角色或物件描述",
+    "风格参考图",
+    "已有素材（可选）"
+   ],
+   "output": "可进引擎的 2D 素材",
+   "skills": [
+    "i-styleref-skill",
+    "i-idref",
+    "i-matting"
+   ],
+   "resources": [
+    {
+     "kind": "project",
+     "name": "Dream Textures（Blender 里直接出贴图）",
+     "url": "https://github.com/carson-katri/dream-textures",
+     "src": "dreamtextures-gh",
+     "quote": "carson-katri/dream-textures：Stable Diffusion built-in to Blender（★8,190）",
+     "license": "GPL-3.0"
+    },
+    {
+     "kind": "project",
+     "name": "ComfyUI 2D 角色流水线（一张图出分层动画帧）",
+     "url": "https://github.com/mor-o/comfyui-2d-character-pipeline",
+     "src": "char2d-gh",
+     "quote": "mor-o/comfyui-2d-character-pipeline：an ai harness-driven comfyui pipeline for creating 2d characters（★70）",
+     "note": "★70，很新（2026-06 还在动）。收它是因为**直接对得上这件事**，不是因为热度",
+     "license": "MIT"
+    },
+    {
+     "kind": "skill",
+     "name": "ComfyUI 官方模板 · Sprite Sheet Generator",
+     "url": "https://github.com/Comfy-Org/workflow_templates/blob/main/templates/templates-sprite_sheet.json",
+     "src": "comfy-templates-gh",
+     "quote": "Upload an image of your sprite and receive individual frames of idle, attack, walk and jump animations.（官方模板索引，tags 含 Game）",
+     "license": "MIT"
+    },
+    {
+     "kind": "skill",
+     "name": "ComfyUI 官方模板 · 单图转动画精灵图",
+     "url": "https://github.com/Comfy-Org/workflow_templates/blob/main/templates/template_purz_nb2_single_image_sprite_sheet.json",
+     "src": "comfy-templates-gh",
+     "quote": "Upload a single image to generate an animated sequence. The workflow creates a sprite sheet with multiple frames for use in games or animations.（tags 含 Game）",
+     "license": "MIT"
+    },
+    {
+     "kind": "project",
+     "name": "pixel-art-xl（像素画 LoRA）",
+     "url": "https://huggingface.co/nerijs/pixel-art-xl",
+     "src": "hf-pixelart-lora",
+     "quote": "nerijs/pixel-art-xl（下载 11,548；模型卡许可 creativeml-openrail-m）",
+     "license": "CreativeML OpenRAIL-M"
+    }
+   ],
+   "aliases": [
+    "精灵图",
+    "立绘",
+    "原画",
+    "像素画",
+    "游戏图标",
+    "贴图"
    ],
    "domain": "image"
   }
