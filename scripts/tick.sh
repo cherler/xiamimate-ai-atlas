@@ -62,6 +62,19 @@ elif [ -z "${MINIMAX_API_KEY:-}" ]; then
   echo "   没有 MINIMAX_API_KEY，跳过抽取（采集本身不需要模型）" >> "$LOG"
 fi
 
-# 报告里「有变化」和「没内容」两节是人每周要看的东西，跳完直接回显一次
-sed -n '/^## 抓到了但没内容/,/^## 全部/p' data/watch-report.md | head -30 >> "$LOG"
+# ── 待办：汇成一个文件，并且主动叫人。
+#
+# **管线会攒待办，但在这之前它不会叫人** —— 收件箱里 17 条从 08-07 躺到 08-11，
+# 四天没人知道，因为唯一的出口是这个日志文件，而人不会每天打开日志。
+# 现在收敛到一个 data/TODO.md，并发一条本机通知（零成本、不需要任何凭据）。
+# 要邮件/微信是另一件事，得先定渠道 —— 那是花钱和对外的决定。
+node scripts/todo.mjs --notify >> "$LOG" 2>&1 || echo "   todo.mjs 失败，见上方" >> "$LOG"
+
+# 待办表变了就提交 —— 它和快照一样是「这一天的事实」，要能回溯
+if [ -n "$(git status --porcelain data/TODO.md)" ]; then
+  git add data/TODO.md
+  git -c user.name='atlas-watch[bot]' -c user.email='atlas-watch@xiamimate.local' \
+      commit -q -m "watch: ${STAMP} 待办表更新" && echo "   待办表已提交" >> "$LOG"
+fi
+
 echo "" >> "$LOG"
