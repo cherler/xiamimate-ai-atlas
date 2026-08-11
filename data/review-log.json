@@ -143,6 +143,17 @@
       "missing": [
         "库里没有这条产品线（要先建实体：公司 / 轨 / 层级 / 架构依据）"
       ]
+    },
+    {
+      "id": "2026-08-07::vidu-changelog::viduq3-turbo::flf::viduq3-turbo 模型支持 start-",
+      "at": "2026-08-11 12:29:47",
+      "who": "admin",
+      "verdict": "pass-pending",
+      "why": "",
+      "claim": "viduq3-turbo 模型支持 start-end2video（首尾帧）",
+      "missing": [
+        "库里没有这条产品线（要先建实体：公司 / 轨 / 层级 / 架构依据）"
+      ]
     }
   ]
 }
