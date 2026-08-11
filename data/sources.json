@@ -2684,6 +2684,79 @@
         "version"
       ],
       "lang": "zh-CN"
+    },
+    {
+      "id": "claude-models",
+      "tier": "S",
+      "kind": "html",
+      "vendor": "claude",
+      "name": "Anthropic · Models overview",
+      "url": "https://platform.claude.com/docs/en/about-claude/models/overview",
+      "refresh_days": 7,
+      "good_for": [
+        "capability",
+        "version"
+      ]
+    },
+    {
+      "id": "openai-caching",
+      "tier": "S",
+      "kind": "html",
+      "vendor": "gpt",
+      "name": "OpenAI · Prompt Caching",
+      "url": "https://developers.openai.com/api/docs/guides/prompt-caching",
+      "refresh_days": 14,
+      "good_for": [
+        "capability"
+      ]
+    },
+    {
+      "id": "openai-structured",
+      "tier": "S",
+      "kind": "html",
+      "vendor": "gpt",
+      "name": "OpenAI · Structured model outputs",
+      "url": "https://developers.openai.com/api/docs/guides/structured-outputs",
+      "refresh_days": 14,
+      "good_for": [
+        "capability"
+      ]
+    },
+    {
+      "id": "deepseek-chat-api",
+      "tier": "S",
+      "kind": "html",
+      "vendor": "deepseek",
+      "name": "DeepSeek · Create Chat Completion",
+      "url": "https://api-docs.deepseek.com/api/create-chat-completion",
+      "refresh_days": 14,
+      "good_for": [
+        "capability"
+      ]
+    },
+    {
+      "id": "gemini-audio",
+      "tier": "S",
+      "kind": "spa",
+      "vendor": "gemini-text",
+      "name": "Gemini API · Audio understanding",
+      "url": "https://ai.google.dev/gemini-api/docs/audio",
+      "refresh_days": 14,
+      "good_for": [
+        "capability"
+      ]
+    },
+    {
+      "id": "gemini-vision",
+      "tier": "S",
+      "kind": "spa",
+      "vendor": "gemini-text",
+      "name": "Gemini API · Image understanding",
+      "url": "https://ai.google.dev/gemini-api/docs/image-understanding",
+      "refresh_days": 14,
+      "good_for": [
+        "capability"
+      ]
     }
   ],
   "$missing": [

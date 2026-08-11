@@ -2752,7 +2752,7 @@
    "tier": "official"
   },
   "openai-models": {
-   "name": "OpenAI · 官方模型列表",
+   "name": "OpenAI · Models",
    "url": "https://developers.openai.com/api/docs/models",
    "tier": "official"
   },
@@ -3314,6 +3314,36 @@
   "minimax-api-overview": {
    "name": "MiniMax 开放平台 · 接口概览",
    "url": "https://platform.minimaxi.com/docs/api-reference/api-overview",
+   "tier": "official"
+  },
+  "claude-models": {
+   "name": "Anthropic · Models overview",
+   "url": "https://platform.claude.com/docs/en/about-claude/models/overview",
+   "tier": "official"
+  },
+  "openai-caching": {
+   "name": "OpenAI · Prompt Caching",
+   "url": "https://developers.openai.com/api/docs/guides/prompt-caching",
+   "tier": "official"
+  },
+  "openai-structured": {
+   "name": "OpenAI · Structured model outputs",
+   "url": "https://developers.openai.com/api/docs/guides/structured-outputs",
+   "tier": "official"
+  },
+  "deepseek-chat-api": {
+   "name": "DeepSeek · Create Chat Completion",
+   "url": "https://api-docs.deepseek.com/api/create-chat-completion",
+   "tier": "official"
+  },
+  "gemini-audio": {
+   "name": "Gemini API · Audio understanding",
+   "url": "https://ai.google.dev/gemini-api/docs/audio",
+   "tier": "official"
+  },
+  "gemini-vision": {
+   "name": "Gemini API · Image understanding",
+   "url": "https://ai.google.dev/gemini-api/docs/image-understanding",
    "tier": "official"
   }
  },
@@ -5399,8 +5429,12 @@
   {
    "m": "claude",
    "c": "t-audio",
-   "state": "unknown",
-   "verified_for": "Fable 5"
+   "state": "no",
+   "verified_for": "Fable 5",
+   "src": "claude-models",
+   "note": "「All current Claude models support text and image input, text output, multilingual capabilities, and vision.」——输入模态列全了，**没有音频**。⚠️ 同样是从枚举读出来的，不是明写的「不支持」",
+   "via": "native",
+   "as_of": "2026-08-11"
   },
   {
    "m": "claude",
@@ -5471,8 +5505,12 @@
   {
    "m": "gpt",
    "c": "t-json",
-   "state": "unknown",
-   "verified_for": "GPT-5.6"
+   "state": "yes",
+   "verified_for": "GPT-5.6",
+   "src": "openai-structured",
+   "note": "Structured Outputs：`text.format` 取 `type: \"json_schema\"` 且 `strict: true`，「ensures the model will always generate responses that adhere to your supplied JSON Schema」；新项目推荐 `gpt-5.6`",
+   "via": "native",
+   "as_of": "2026-08-11"
   },
   {
    "m": "gpt",
@@ -5504,20 +5542,32 @@
   {
    "m": "gpt",
    "c": "t-vision",
-   "state": "unknown",
-   "verified_for": "GPT-5.6"
+   "state": "yes",
+   "verified_for": "GPT-5.6",
+   "src": "openai-models",
+   "note": "「All latest OpenAI models support text and image input, text output, multilingual capabilities, and vision.」GPT-5.6 Sol 卡片另列 Tools: Functions, Web search, File search, Computer use",
+   "via": "native",
+   "as_of": "2026-08-11"
   },
   {
    "m": "gpt",
    "c": "t-audio",
-   "state": "unknown",
-   "verified_for": "GPT-5.6"
+   "state": "no",
+   "verified_for": "GPT-5.6",
+   "src": "openai-models",
+   "note": "同一句把输入模态列全了：「support text and image input, text output」——**没有音频**。⚠️ 这是从「列全了的枚举」读出来的，不是一句明写的「不支持」。音频在另一条产品线上（GPT-Realtime 系列、GPT Transcribe），那不是 GPT-5.6 的版本",
+   "via": "native",
+   "as_of": "2026-08-11"
   },
   {
    "m": "gpt",
    "c": "t-cache",
-   "state": "unknown",
-   "verified_for": "GPT-5.6"
+   "state": "yes",
+   "verified_for": "GPT-5.6",
+   "src": "openai-caching",
+   "note": "参数 `prompt_cache_key` / `prompt_cache_breakpoint` / `prompt_cache_retention`（`ttl`）；≥1024 token 自动缓存，写入计 1.25×，扩展保留最长 24 小时",
+   "via": "native",
+   "as_of": "2026-08-11"
   },
   {
    "m": "gpt",
@@ -5609,14 +5659,22 @@
   {
    "m": "gemini-text",
    "c": "t-vision",
-   "state": "unknown",
-   "verified_for": "Gemini 3.6 Flash"
+   "state": "yes",
+   "verified_for": "Gemini 3.6 Flash",
+   "src": "gemini-vision",
+   "note": "「All Gemini model versions are multimodal and can be utilized in a wide range of image processing and computer vision tasks」；示例同样全部用 `model=\"gemini-3.6-flash\"`；Gemini 3 另有 `media_resolution` 控制每张图分配的 token 上限",
+   "via": "native",
+   "as_of": "2026-08-11"
   },
   {
    "m": "gemini-text",
    "c": "t-audio",
-   "state": "unknown",
-   "verified_for": "Gemini 3.6 Flash"
+   "state": "yes",
+   "verified_for": "Gemini 3.6 Flash",
+   "src": "gemini-audio",
+   "note": "音频理解指南全篇示例都是 `model=\"gemini-3.6-flash\"`（**正是我们记的这一支**）；并给了量：「32 tokens per second of audio（1 分钟 = 1,920 tokens）」「Max length: 9.5 hours of audio per prompt」",
+   "via": "native",
+   "as_of": "2026-08-11"
   },
   {
    "m": "gemini-text",
@@ -5818,8 +5876,12 @@
   {
    "m": "deepseek",
    "c": "t-search",
-   "state": "unknown",
-   "verified_for": "V4"
+   "state": "no",
+   "verified_for": "V4",
+   "src": "deepseek-chat-api",
+   "note": "Chat Completions 的请求参数列全了（messages / thinking / tools / tool_choice / response_format / logprobs …），**没有任何联网搜索开关**。⚠️ 这是从「列全了的参数表」读出来的，不是一句明写的「不支持」；要联网得自己在 `tools` 里接外部搜索",
+   "via": "native",
+   "as_of": "2026-08-11"
   },
   {
    "m": "deepseek",
