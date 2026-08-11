@@ -165,6 +165,17 @@
       "missing": [
         "库里没有这条产品线（要先建实体：公司 / 轨 / 层级 / 架构依据）"
       ]
+    },
+    {
+      "id": "2026-08-07::vidu-changelog::viduq2-pro-fast::flf::viduq2-pro-fast 模型支持 Sta",
+      "at": "2026-08-11 12:30:07",
+      "who": "admin",
+      "verdict": "pass-pending",
+      "why": "",
+      "claim": "viduq2-pro-fast 模型支持 Start end to Video（首尾帧）",
+      "missing": [
+        "库里没有这条产品线（要先建实体：公司 / 轨 / 层级 / 架构依据）"
+      ]
     }
   ]
 }
