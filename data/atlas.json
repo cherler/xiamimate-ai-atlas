@@ -3104,6 +3104,16 @@
    "name": "量子位 · Wan3.0 开启公测",
    "url": "https://www.qbitai.com/2026/08/467877.html",
    "tier": "secondary"
+  },
+  "kimi-api": {
+   "name": "Kimi 开放平台 · Chat API",
+   "url": "https://platform.kimi.com/docs/api/chat",
+   "tier": "official"
+  },
+  "glm-api": {
+   "name": "Z.ai 官方 API 参考",
+   "url": "https://docs.z.ai/api-reference/llm/chat-completion",
+   "tier": "official"
   }
  },
  "support": [
@@ -5611,8 +5621,11 @@
   {
    "m": "kimi",
    "c": "t-think",
-   "state": "unknown",
-   "verified_for": "K3"
+   "state": "yes",
+   "verified_for": "K3",
+   "src": "kimi-api",
+   "note": "文档小节「思考模式与 Preserved Thinking」；参数 reasoning_effort（K3）、thinking.type（K2.x）",
+   "via": "native"
   },
   {
    "m": "kimi",
@@ -5629,14 +5642,20 @@
   {
    "m": "kimi",
    "c": "t-tools",
-   "state": "unknown",
-   "verified_for": "K3"
+   "state": "yes",
+   "verified_for": "K3",
+   "src": "kimi-api",
+   "note": "文档小节「工具调用 Tool Use」；请求参数含 tools / tool_choice",
+   "via": "native"
   },
   {
    "m": "kimi",
    "c": "t-json",
-   "state": "unknown",
-   "verified_for": "K3"
+   "state": "yes",
+   "verified_for": "K3",
+   "src": "kimi-api",
+   "note": "文档小节「JSON Mode」；参数 response_format.json_schema（含 strict）",
+   "via": "native"
   },
   {
    "m": "kimi",
@@ -5671,8 +5690,11 @@
   {
    "m": "kimi",
    "c": "t-cache",
-   "state": "unknown",
-   "verified_for": "K3"
+   "state": "yes",
+   "verified_for": "K3",
+   "src": "kimi-api",
+   "note": "请求参数含 prompt_cache_key",
+   "via": "native"
   },
   {
    "m": "kimi",
@@ -5695,8 +5717,11 @@
   {
    "m": "glm",
    "c": "t-think",
-   "state": "unknown",
-   "verified_for": "GLM-5.2"
+   "state": "yes",
+   "verified_for": "GLM-5.2",
+   "src": "glm-api",
+   "note": "ChatCompletionTextRequest 参数含 thinking 与 reasoning_effort",
+   "via": "native"
   },
   {
    "m": "glm",
@@ -5713,14 +5738,20 @@
   {
    "m": "glm",
    "c": "t-tools",
-   "state": "unknown",
-   "verified_for": "GLM-5.2"
+   "state": "yes",
+   "verified_for": "GLM-5.2",
+   "src": "glm-api",
+   "note": "ChatCompletionTextRequest 参数含 tools / tool_choice（另有 tool_stream）",
+   "via": "native"
   },
   {
    "m": "glm",
    "c": "t-json",
-   "state": "unknown",
-   "verified_for": "GLM-5.2"
+   "state": "yes",
+   "verified_for": "GLM-5.2",
+   "src": "glm-api",
+   "note": "ChatCompletionTextRequest 参数含 response_format",
+   "via": "native"
   },
   {
    "m": "glm",
@@ -5743,8 +5774,11 @@
   {
    "m": "glm",
    "c": "t-vision",
-   "state": "unknown",
-   "verified_for": "GLM-5.2"
+   "state": "yes",
+   "verified_for": "GLM-5.2",
+   "src": "glm-api",
+   "note": "API 参考单列 ChatCompletionVisionRequest —— 图像输入是独立的请求体",
+   "via": "native"
   },
   {
    "m": "glm",

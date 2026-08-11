@@ -2114,6 +2114,53 @@
         "version"
       ],
       "note": "**降级取源**：Wan 3.0 是闭源公测版，官方 HF 组织里没有（那里最新只到 Wan2.2-Animate-2），阿里云百炼文档站是 SPA。当前版本只能退到媒体报道。"
+    },
+    {
+      "id": "kimi-api",
+      "tier": "S",
+      "kind": "html",
+      "vendor": "kimi",
+      "name": "Kimi 开放平台 · Chat API",
+      "url": "https://platform.kimi.com/docs/api/chat",
+      "refresh_days": 14,
+      "good_for": [
+        "capability"
+      ],
+      "expect": [
+        "工具调用",
+        "JSON Mode",
+        "reasoning_effort"
+      ]
+    },
+    {
+      "id": "glm-api",
+      "tier": "S",
+      "kind": "html",
+      "vendor": "glm",
+      "name": "Z.ai 官方 API 参考 · Chat Completion",
+      "url": "https://docs.z.ai/api-reference/llm/chat-completion",
+      "refresh_days": 14,
+      "good_for": [
+        "capability"
+      ],
+      "expect": [
+        "thinking",
+        "tools",
+        "response_format"
+      ]
+    },
+    {
+      "id": "minimax-platform",
+      "tier": "S",
+      "kind": "spa",
+      "vendor": "minimax-text",
+      "name": "MiniMax 开放平台文档",
+      "url": "https://platform.minimaxi.com/document/platform",
+      "refresh_days": 14,
+      "good_for": [
+        "capability"
+      ],
+      "note": "**抓到了但没内容**：整站 SPA，纯 HTTP 拿到的只有标题「MiniMax-与用户共创智能」。这一列的 ⬜ 是我们读不到，不是它没有。"
     }
   ],
   "$missing": [
