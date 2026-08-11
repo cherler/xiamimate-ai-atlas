@@ -99,7 +99,7 @@ async function load(){
       <div class="claim">\${esc(it.claim)}</div>
       <div class="quote">原文：\${esc(it.quote)}</div>
       <div class="acts">
-        <button class="pass" data-id="\${esc(it.id)}" data-v="pass">\${it.landable?'通过并写入':'通过 · 记成采集单'}</button>
+        <button class="pass" data-id="\${esc(it.id)}" data-v="pass">\${it.landable?'通过':'通过 · 记成采集单'}</button>
         <button class="rej"  data-id="\${esc(it.id)}" data-v="reject">不通过</button>
         <input placeholder="不通过必须写理由" data-why="\${esc(it.id)}">
       </div>
@@ -120,7 +120,13 @@ document.addEventListener('click',async e=>{
     b.closest('.acts').querySelectorAll('button').forEach(x=>x.disabled=false);
     return;
   }
-  const said={wrote:'已写入 '+r.cell+'，并提交',pending:'已记成采集单：还缺 '+(r.missing||[]).join('；'),reject:'已记进否决账'}[r.kind]||'已处理';
+  const said={
+    wrote:'已写入 '+r.cell+'，并提交',
+    pending:'已记成采集单：还缺 '+(r.missing||[]).join('；'),
+    reject:'已记进否决账',
+    duplicate:'库里已有同样结论（'+r.cell+'）—— 记为重复，没动数据',
+    conflict:'⚠ 与已有结论相反（库里是「'+r.existing+'」）—— 进冲突台账，等人裁决',
+  }[r.kind]||'已处理';
   box.querySelector('.acts').outerHTML='<div class="done">✓ '+esc(said)+'</div>';
 });
 

@@ -159,8 +159,44 @@ export function decide({ id, verdict, why = "", who = "unknown" }) {
   const atlas = readJSON("data/atlas.json", {});
   const cell = atlas.support.find((s) => s.m === item.model && s.c === item.capability);
   if (!cell) throw new Error("找不到这一格（模型 × 能力）");
+  /**
+   * **格子已经有结论时，不能只报错了事。**
+   *
+   * 第一版这里直接 `return {ok:false}`：既不写库、也不落账、更不出队 ——
+   * 于是这几条永远卡在待审里，「通过」按不动，而按「不通过」又是错的
+   * （那些结论是**真的**，只是我们早就记着了）。负责人 2026-08-11 截图报的就是这个。
+   *
+   * 拆成两种，判据是**新结论和已有结论一不一致**：
+   *
+   *   ⊙ 一致 → **重复**。认可它为真，库里已有同样结论，落一条流水、出队、不动 atlas.json。
+   *   ⚠ 不一致 → **冲突**。这是真问题：同一格两个方向相反的官方说法。
+   *     进冲突台账，必须人定 —— 但也要出队，否则它会一直占着「待审」的位置，
+   *     让人以为还没看过。**「看过了、结论是有冲突」和「还没看」不是一回事。**
+   */
+  const claimsYes = true;   // 收件箱里的 claim 都是「支持」型断言；将来有否定型再分
+  if (cell.state === "yes" && claimsYes) {
+    log({ id, at, who, verdict: "duplicate", why, claim: item.claim,
+          cell: `${item.model}×${item.capability}`,
+          note: `已有结论一致（yes）。这条的核验版本是 ${item.verified_for ?? item.day}，库里那条是 ${cell.verified_for ?? "—"}` });
+    commit(`review: 重复 1 条（${who}）\n\n${item.claim}\n` +
+      `${item.model} × ${item.capability} 已经是 yes，结论一致 —— **没有改动 atlas.json**。`,
+      ["data/review-log.json"]);
+    return { ok: true, kind: "duplicate", cell: `${item.model}×${item.capability}` };
+  }
   if (cell.state !== "unknown") {
-    return { ok: false, kind: "occupied", msg: `这一格已经是「${cell.state}」，不覆盖 —— 要改得单独走一次讨论` };
+    const cf = readJSON("data/review-conflicts.json", {
+      $note: "**同一格上，新证据与已有结论相反。** 这不是待审，是待裁决 —— 两边都带官方原文，得人去看哪边说的是哪一代。",
+      rows: [],
+    });
+    cf.rows.push({ id, at, who, cell: `${item.model}×${item.capability}`,
+      existing: { state: cell.state, note: cell.note ?? "", src: cell.src ?? "", verified_for: cell.verified_for ?? "" },
+      incoming: { claim: item.claim, quote: item.quote, src: item.source, tier: item.tier } });
+    writeJSON("data/review-conflicts.json", cf);
+    log({ id, at, who, verdict: "conflict", why, claim: item.claim, cell: `${item.model}×${item.capability}` });
+    commit(`review: 冲突 1 条（${who}）\n\n${item.model} × ${item.capability}\n` +
+      `已有：${cell.state}\n新证据：${item.claim}\n\n**没有改动 atlas.json** —— 进冲突台账等人裁决。`,
+      ["data/review-conflicts.json", "data/review-log.json"]);
+    return { ok: true, kind: "conflict", cell: `${item.model}×${item.capability}`, existing: cell.state };
   }
   cell.state = "yes";
   cell.src = item.source;
