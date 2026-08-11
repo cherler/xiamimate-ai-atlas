@@ -2557,9 +2557,9 @@
    "name": "MiniMax 开放平台 · 模型发布日志"
   },
   "gemini-changelog": {
+   "name": "Gemini API · Release notes",
    "url": "https://ai.google.dev/gemini-api/docs/changelog",
-   "tier": "official",
-   "name": "Google · Gemini API 变更日志"
+   "tier": "official"
   },
   "seed-blog-1_5": {
    "url": "https://seed.bytedance.com/en/blog/sound-and-vision-all-in-one-take-the-official-release-of-seedance-1-5-pro",
@@ -3394,6 +3394,21 @@
   "glm-chat-api": {
    "name": "智谱开放平台 · 对话补全 API",
    "url": "https://docs.bigmodel.cn/api-reference/模型-api/对话补全.md",
+   "tier": "official"
+  },
+  "claude-deprecations": {
+   "name": "Anthropic · Model deprecations",
+   "url": "https://platform.claude.com/docs/en/about-claude/model-deprecations",
+   "tier": "official"
+  },
+  "openai-changelog": {
+   "name": "OpenAI · API Changelog",
+   "url": "https://developers.openai.com/api/docs/changelog",
+   "tier": "official"
+  },
+  "xai-release-notes": {
+   "name": "xAI · API Release Notes",
+   "url": "https://docs.x.ai/developers/release-notes",
    "tier": "official"
   }
  },
@@ -9176,6 +9191,419 @@
    "src": "hf-text-org",
    "quote": "Following the February release of the Qwen3.5 series, we're pleased to share the first open-weight variant of Qwen3.6. Built on direct feedback from the community, Qwen3.6 prioritizes stability and re…",
    "parent": "qwen-text-Qwen3.5-换代"
+  },
+  {
+   "id": "claude-Claude 3-这一代的 API 发",
+   "m": "claude",
+   "version": "Claude 3",
+   "date": "2024-02-29",
+   "added": "这一代的 API 发布",
+   "src": "claude-deprecations",
+   "quote": "弃用表：`claude-3-sonnet-20240229`（ID 尾部即发布日）",
+   "note": "Anthropic 的弃用表**只登记日期，不写这一代新增了什么** —— 这一条本身就是可记的事实。4.6 之后 ID 不再带日期，日期由「退役不早于」减一年推得（**这是推算不是原文**）：Fable 5 官方写明 GA 2026-06-09、退役不早于 2027-06-09，Sonnet 4.5 的 ID 是 20250929、退役 2026-09-29，两个锚点都正好一年；误差最大的 Opus 4.5 也只差 23 天，月份级可用"
+  },
+  {
+   "id": "claude-Claude 3.5-这一代的 API 发",
+   "m": "claude",
+   "version": "Claude 3.5",
+   "date": "2024-06-20",
+   "added": "这一代的 API 发布",
+   "src": "claude-deprecations",
+   "quote": "弃用表：`claude-3-5-sonnet-20240620`",
+   "note": "Anthropic 的弃用表**只登记日期，不写这一代新增了什么** —— 这一条本身就是可记的事实。4.6 之后 ID 不再带日期，日期由「退役不早于」减一年推得（**这是推算不是原文**）：Fable 5 官方写明 GA 2026-06-09、退役不早于 2027-06-09，Sonnet 4.5 的 ID 是 20250929、退役 2026-09-29，两个锚点都正好一年；误差最大的 Opus 4.5 也只差 23 天，月份级可用",
+   "parent": "claude-Claude 3-这一代的 API 发"
+  },
+  {
+   "id": "claude-Claude 3.7-这一代的 API 发",
+   "m": "claude",
+   "version": "Claude 3.7",
+   "date": "2025-02-19",
+   "added": "这一代的 API 发布",
+   "src": "claude-deprecations",
+   "quote": "弃用表：`claude-3-7-sonnet-20250219`",
+   "note": "Anthropic 的弃用表**只登记日期，不写这一代新增了什么** —— 这一条本身就是可记的事实。4.6 之后 ID 不再带日期，日期由「退役不早于」减一年推得（**这是推算不是原文**）：Fable 5 官方写明 GA 2026-06-09、退役不早于 2027-06-09，Sonnet 4.5 的 ID 是 20250929、退役 2026-09-29，两个锚点都正好一年；误差最大的 Opus 4.5 也只差 23 天，月份级可用",
+   "parent": "claude-Claude 3.5-这一代的 API 发"
+  },
+  {
+   "id": "claude-Claude 4-这一代的 API 发",
+   "m": "claude",
+   "version": "Claude 4",
+   "date": "2025-05-14",
+   "added": "这一代的 API 发布",
+   "src": "claude-deprecations",
+   "quote": "弃用表：`claude-sonnet-4-20250514`、`claude-opus-4-20250514`",
+   "note": "Anthropic 的弃用表**只登记日期，不写这一代新增了什么** —— 这一条本身就是可记的事实。4.6 之后 ID 不再带日期，日期由「退役不早于」减一年推得（**这是推算不是原文**）：Fable 5 官方写明 GA 2026-06-09、退役不早于 2027-06-09，Sonnet 4.5 的 ID 是 20250929、退役 2026-09-29，两个锚点都正好一年；误差最大的 Opus 4.5 也只差 23 天，月份级可用",
+   "parent": "claude-Claude 3.7-这一代的 API 发"
+  },
+  {
+   "id": "claude-Claude 4.1-Opus 小版本",
+   "m": "claude",
+   "version": "Claude 4.1",
+   "date": "2025-08-05",
+   "added": "Opus 小版本",
+   "src": "claude-deprecations",
+   "quote": "弃用表：`claude-opus-4-1-20250805`",
+   "note": "Anthropic 的弃用表**只登记日期，不写这一代新增了什么** —— 这一条本身就是可记的事实。4.6 之后 ID 不再带日期，日期由「退役不早于」减一年推得（**这是推算不是原文**）：Fable 5 官方写明 GA 2026-06-09、退役不早于 2027-06-09，Sonnet 4.5 的 ID 是 20250929、退役 2026-09-29，两个锚点都正好一年；误差最大的 Opus 4.5 也只差 23 天，月份级可用",
+   "parent": "claude-Claude 4-这一代的 API 发"
+  },
+  {
+   "id": "claude-Claude 4.5-这一代的 API 发",
+   "m": "claude",
+   "version": "Claude 4.5",
+   "date": "2025-09-29",
+   "added": "这一代的 API 发布",
+   "src": "claude-deprecations",
+   "quote": "弃用表：`claude-sonnet-4-5-20250929`、`claude-haiku-4-5-20251001`、`claude-opus-4-5-20251101`",
+   "note": "Anthropic 的弃用表**只登记日期，不写这一代新增了什么** —— 这一条本身就是可记的事实。4.6 之后 ID 不再带日期，日期由「退役不早于」减一年推得（**这是推算不是原文**）：Fable 5 官方写明 GA 2026-06-09、退役不早于 2027-06-09，Sonnet 4.5 的 ID 是 20250929、退役 2026-09-29，两个锚点都正好一年；误差最大的 Opus 4.5 也只差 23 天，月份级可用",
+   "parent": "claude-Claude 4.1-Opus 小版本"
+  },
+  {
+   "id": "claude-Claude 4.6-ID 改为无日期的定",
+   "m": "claude",
+   "version": "Claude 4.6",
+   "date": "2026-02-05",
+   "added": "ID 改为无日期的定版快照",
+   "src": "claude-deprecations",
+   "quote": "弃用表：`claude-opus-4-6` 退役不早于 2027-02-05（**日期为减一年推算**）",
+   "note": "Anthropic 的弃用表**只登记日期，不写这一代新增了什么** —— 这一条本身就是可记的事实。4.6 之后 ID 不再带日期，日期由「退役不早于」减一年推得（**这是推算不是原文**）：Fable 5 官方写明 GA 2026-06-09、退役不早于 2027-06-09，Sonnet 4.5 的 ID 是 20250929、退役 2026-09-29，两个锚点都正好一年；误差最大的 Opus 4.5 也只差 23 天，月份级可用",
+   "parent": "claude-Claude 4.5-这一代的 API 发"
+  },
+  {
+   "id": "claude-Claude 4.7-起用新分词器；tem",
+   "m": "claude",
+   "version": "Claude 4.7",
+   "date": "2026-04-16",
+   "added": "起用新分词器；temperature/top_p/top_k 被弃用",
+   "src": "claude-deprecations",
+   "quote": "弃用表：`claude-opus-4-7` 退役不早于 2027-04-16（推算）；参数弃用表写明「Deprecated (Claude Opus 4.7 and later)」",
+   "note": "Anthropic 的弃用表**只登记日期，不写这一代新增了什么** —— 这一条本身就是可记的事实。4.6 之后 ID 不再带日期，日期由「退役不早于」减一年推得（**这是推算不是原文**）：Fable 5 官方写明 GA 2026-06-09、退役不早于 2027-06-09，Sonnet 4.5 的 ID 是 20250929、退役 2026-09-29，两个锚点都正好一年；误差最大的 Opus 4.5 也只差 23 天，月份级可用",
+   "parent": "claude-Claude 4.6-ID 改为无日期的定"
+  },
+  {
+   "id": "claude-Claude 4.8-effort 参数在",
+   "m": "claude",
+   "version": "Claude 4.8",
+   "date": "2026-05-28",
+   "added": "effort 参数在所有入口默认 high",
+   "src": "claude-deprecations",
+   "quote": "弃用表：`claude-opus-4-8` 退役不早于 2027-05-28（推算）",
+   "note": "Anthropic 的弃用表**只登记日期，不写这一代新增了什么** —— 这一条本身就是可记的事实。4.6 之后 ID 不再带日期，日期由「退役不早于」减一年推得（**这是推算不是原文**）：Fable 5 官方写明 GA 2026-06-09、退役不早于 2027-06-09，Sonnet 4.5 的 ID 是 20250929、退役 2026-09-29，两个锚点都正好一年；误差最大的 Opus 4.5 也只差 23 天，月份级可用",
+   "parent": "claude-Claude 4.7-起用新分词器；tem"
+  },
+  {
+   "id": "claude-Claude 5-1M 上下文 + 1",
+   "m": "claude",
+   "version": "Claude 5",
+   "date": "2026-06-30",
+   "added": "1M 上下文 + 128K 最大输出，自适应思考",
+   "src": "claude-deprecations",
+   "quote": "弃用表：`claude-sonnet-5` 退役不早于 2027-06-30、`claude-opus-5` 不早于 2027-07-24（推算）",
+   "note": "Anthropic 的弃用表**只登记日期，不写这一代新增了什么** —— 这一条本身就是可记的事实。4.6 之后 ID 不再带日期，日期由「退役不早于」减一年推得（**这是推算不是原文**）：Fable 5 官方写明 GA 2026-06-09、退役不早于 2027-06-09，Sonnet 4.5 的 ID 是 20250929、退役 2026-09-29，两个锚点都正好一年；误差最大的 Opus 4.5 也只差 23 天，月份级可用",
+   "parent": "claude-Claude 4.8-effort 参数在"
+  },
+  {
+   "id": "claude-Claude Fable 5-面向长程智能体；自适",
+   "m": "claude",
+   "version": "Claude Fable 5",
+   "date": "2026-06-09",
+   "added": "面向长程智能体；自适应思考常开",
+   "src": "claude-deprecations",
+   "quote": "模型总览页原文：「Claude Fable 5 is generally available on the Claude API … beginning June 9, 2026」（**这一条是原文，不是推算**）",
+   "note": "Anthropic 的弃用表**只登记日期，不写这一代新增了什么** —— 这一条本身就是可记的事实。4.6 之后 ID 不再带日期，日期由「退役不早于」减一年推得（**这是推算不是原文**）：Fable 5 官方写明 GA 2026-06-09、退役不早于 2027-06-09，Sonnet 4.5 的 ID 是 20250929、退役 2026-09-29，两个锚点都正好一年；误差最大的 Opus 4.5 也只差 23 天，月份级可用。⚠️ **它和 Claude 5 是同一波的两支，不是父子**：Fable 5 的 GA（06-09，原文）早于推算出的 Sonnet 5（06-30）",
+   "parent": "claude-Claude 4.8-effort 参数在"
+  },
+  {
+   "id": "gpt-GPT-4 Turbo-这一代的 API 发",
+   "m": "gpt",
+   "version": "GPT-4 Turbo",
+   "date": "2023-11-06",
+   "added": "这一代的 API 发布",
+   "src": "openai-changelog",
+   "quote": "changelog 2023-11-06：GPT-4 Turbo、GPT-3.5 Turbo、DALL·E 3",
+   "note": "OpenAI 官方 API changelog 按日列出当天上线的模型 id；取每一代**最早**出现的那一天"
+  },
+  {
+   "id": "gpt-GPT-4o-原生多模态",
+   "m": "gpt",
+   "version": "GPT-4o",
+   "date": "2024-05-13",
+   "added": "原生多模态",
+   "src": "openai-changelog",
+   "quote": "changelog 2024-05-13：GPT-4o",
+   "note": "OpenAI 官方 API changelog 按日列出当天上线的模型 id；取每一代**最早**出现的那一天",
+   "parent": "gpt-GPT-4 Turbo-这一代的 API 发"
+  },
+  {
+   "id": "gpt-GPT-4.1-三档分级 mini ",
+   "m": "gpt",
+   "version": "GPT-4.1",
+   "date": "2025-04-14",
+   "added": "三档分级 mini / nano",
+   "src": "openai-changelog",
+   "quote": "changelog 2025-04-14：gpt-4.1、gpt-4.1-mini、gpt-4.1-nano",
+   "note": "OpenAI 官方 API changelog 按日列出当天上线的模型 id；取每一代**最早**出现的那一天",
+   "parent": "gpt-GPT-4o-原生多模态"
+  },
+  {
+   "id": "gpt-GPT-5-这一代的 API 发",
+   "m": "gpt",
+   "version": "GPT-5",
+   "date": "2025-08-07",
+   "added": "这一代的 API 发布",
+   "src": "openai-changelog",
+   "quote": "changelog 2025-08-07：gpt-5、gpt-5-mini、gpt-5-nano",
+   "note": "OpenAI 官方 API changelog 按日列出当天上线的模型 id；取每一代**最早**出现的那一天",
+   "parent": "gpt-GPT-4.1-三档分级 mini "
+  },
+  {
+   "id": "gpt-GPT-5.1-加 codex 系列",
+   "m": "gpt",
+   "version": "GPT-5.1",
+   "date": "2025-11-13",
+   "added": "加 codex 系列",
+   "src": "openai-changelog",
+   "quote": "changelog 2025-11-13：gpt-5.1、gpt-5.1-codex、gpt-5.1-chat-latest、gpt-5.1-codex-mini",
+   "note": "OpenAI 官方 API changelog 按日列出当天上线的模型 id；取每一代**最早**出现的那一天",
+   "parent": "gpt-GPT-5-这一代的 API 发"
+  },
+  {
+   "id": "gpt-GPT-5.2-小版本迭代",
+   "m": "gpt",
+   "version": "GPT-5.2",
+   "date": "2025-12-11",
+   "added": "小版本迭代",
+   "src": "openai-changelog",
+   "quote": "changelog 2025-12-11：gpt-5.2、gpt-5.2-chat-latest",
+   "note": "OpenAI 官方 API changelog 按日列出当天上线的模型 id；取每一代**最早**出现的那一天",
+   "parent": "gpt-GPT-5.1-加 codex 系列"
+  },
+  {
+   "id": "gpt-GPT-5.3-先出 codex 变",
+   "m": "gpt",
+   "version": "GPT-5.3",
+   "date": "2026-02-24",
+   "added": "先出 codex 变体",
+   "src": "openai-changelog",
+   "quote": "changelog 2026-02-24：gpt-5.3-codex（基础型号未单独列出，故取此日）",
+   "note": "OpenAI 官方 API changelog 按日列出当天上线的模型 id；取每一代**最早**出现的那一天",
+   "parent": "gpt-GPT-5.2-小版本迭代"
+  },
+  {
+   "id": "gpt-GPT-5.4-加 pro 档",
+   "m": "gpt",
+   "version": "GPT-5.4",
+   "date": "2026-03-05",
+   "added": "加 pro 档",
+   "src": "openai-changelog",
+   "quote": "changelog 2026-03-05：gpt-5.4、gpt-5.4-pro",
+   "note": "OpenAI 官方 API changelog 按日列出当天上线的模型 id；取每一代**最早**出现的那一天",
+   "parent": "gpt-GPT-5.3-先出 codex 变"
+  },
+  {
+   "id": "gpt-GPT-5.5-小版本迭代",
+   "m": "gpt",
+   "version": "GPT-5.5",
+   "date": "2026-04-24",
+   "added": "小版本迭代",
+   "src": "openai-changelog",
+   "quote": "changelog 2026-04-24：gpt-5.5、gpt-5.5-pro",
+   "note": "OpenAI 官方 API changelog 按日列出当天上线的模型 id；取每一代**最早**出现的那一天",
+   "parent": "gpt-GPT-5.4-加 pro 档"
+  },
+  {
+   "id": "gpt-GPT-5.6-改为 Sol / T",
+   "m": "gpt",
+   "version": "GPT-5.6",
+   "date": "2026-07-09",
+   "added": "改为 Sol / Terra / Luna 三档命名",
+   "src": "openai-changelog",
+   "quote": "changelog 2026-07-09：gpt-5.6-sol、gpt-5.6-terra、gpt-5.6-luna",
+   "note": "OpenAI 官方 API changelog 按日列出当天上线的模型 id；取每一代**最早**出现的那一天",
+   "parent": "gpt-GPT-5.5-小版本迭代"
+  },
+  {
+   "id": "gemini-text-Gemini 1.5-长上下文",
+   "m": "gemini-text",
+   "version": "Gemini 1.5",
+   "date": "2024-04-09",
+   "added": "长上下文",
+   "src": "gemini-changelog",
+   "quote": "「Released Gemini 1.5 Pro (gemini-1.5-pro-latest) in preview.」",
+   "note": "Gemini API 官方发布说明；取每一代在日志里**最早**出现的那一天（预览版早于 GA，这里记预览）"
+  },
+  {
+   "id": "gemini-text-Gemini 2.0-加思考型号",
+   "m": "gemini-text",
+   "version": "Gemini 2.0",
+   "date": "2025-01-21",
+   "added": "加思考型号",
+   "src": "gemini-changelog",
+   "quote": "「Released gemini-2.0-flash-thinking-exp-01-21, the latest preview version…」",
+   "note": "Gemini API 官方发布说明；取每一代在日志里**最早**出现的那一天（预览版早于 GA，这里记预览）",
+   "parent": "gemini-text-Gemini 1.5-长上下文"
+  },
+  {
+   "id": "gemini-text-Gemini 2.5-这一代的实验版发布",
+   "m": "gemini-text",
+   "version": "Gemini 2.5",
+   "date": "2025-03-25",
+   "added": "这一代的实验版发布",
+   "src": "gemini-changelog",
+   "quote": "「Released gemini-2.5-pro-exp-03-25, a public experimental Gemini model…」",
+   "note": "Gemini API 官方发布说明；取每一代在日志里**最早**出现的那一天（预览版早于 GA，这里记预览）",
+   "parent": "gemini-text-Gemini 2.0-加思考型号"
+  },
+  {
+   "id": "gemini-text-Gemini 3-这一代首个型号",
+   "m": "gemini-text",
+   "version": "Gemini 3",
+   "date": "2025-11-18",
+   "added": "这一代首个型号",
+   "src": "gemini-changelog",
+   "quote": "「Launched the first Gemini 3 series model, gemini-3-pro-preview…」",
+   "note": "Gemini API 官方发布说明；取每一代在日志里**最早**出现的那一天（预览版早于 GA，这里记预览）",
+   "parent": "gemini-text-Gemini 2.5-这一代的实验版发布"
+  },
+  {
+   "id": "gemini-text-Gemini 3.1-自定义工具独立端点",
+   "m": "gemini-text",
+   "version": "Gemini 3.1",
+   "date": "2026-02-19",
+   "added": "自定义工具独立端点",
+   "src": "gemini-changelog",
+   "quote": "「Launched a separate endpoint gemini-3.1-pro-preview-customtools…」",
+   "note": "Gemini API 官方发布说明；取每一代在日志里**最早**出现的那一天（预览版早于 GA，这里记预览）",
+   "parent": "gemini-text-Gemini 3-这一代首个型号"
+  },
+  {
+   "id": "gemini-text-Gemini 3.5-转向长程智能体与编码",
+   "m": "gemini-text",
+   "version": "Gemini 3.5",
+   "date": "2026-05-19",
+   "added": "转向长程智能体与编码",
+   "src": "gemini-changelog",
+   "quote": "「Released gemini-3.5-flash, the generally available (GA) version…」",
+   "note": "Gemini API 官方发布说明；取每一代在日志里**最早**出现的那一天（预览版早于 GA，这里记预览）",
+   "parent": "gemini-text-Gemini 3.1-自定义工具独立端点"
+  },
+  {
+   "id": "gemini-text-Gemini 3.6-token 效率与智",
+   "m": "gemini-text",
+   "version": "Gemini 3.6",
+   "date": "2026-07-21",
+   "added": "token 效率与智能体规划；同时弃用 temperature / top_p / top_k",
+   "src": "gemini-changelog",
+   "quote": "「Gemini 3.6 Flash (gemini-3.6-flash): Features improved token efficiency and code/agentic planning capabilities…」",
+   "note": "Gemini API 官方发布说明；取每一代在日志里**最早**出现的那一天（预览版早于 GA，这里记预览）",
+   "parent": "gemini-text-Gemini 3.5-转向长程智能体与编码"
+  },
+  {
+   "id": "doubao-Seed 1.6-这一代的 API 发",
+   "m": "doubao",
+   "version": "Seed 1.6",
+   "date": "2025-06-15",
+   "added": "这一代的 API 发布",
+   "src": "ark-models",
+   "quote": "模型清单：`doubao-seed-1-6-250615`",
+   "note": "火山方舟模型列表页的**模型 ID 尾部就是发布日**（YYMMDD），与 Claude 同一个路子；这里只取文本那条 seed 线"
+  },
+  {
+   "id": "doubao-Seed 1.6 Vision-加 GUI 任务处理",
+   "m": "doubao",
+   "version": "Seed 1.6 Vision",
+   "date": "2025-08-15",
+   "added": "加 GUI 任务处理",
+   "src": "ark-models",
+   "quote": "模型清单：`doubao-seed-1-6-vision-250815`，能力支持列含「GUI 任务处理」",
+   "note": "火山方舟模型列表页的**模型 ID 尾部就是发布日**（YYMMDD），与 Claude 同一个路子；这里只取文本那条 seed 线",
+   "parent": "doubao-Seed 1.6-这一代的 API 发"
+  },
+  {
+   "id": "doubao-Seed 1.8-小版本迭代",
+   "m": "doubao",
+   "version": "Seed 1.8",
+   "date": "2025-12-28",
+   "added": "小版本迭代",
+   "src": "ark-models",
+   "quote": "模型清单：`doubao-seed-1-8-251228`",
+   "note": "火山方舟模型列表页的**模型 ID 尾部就是发布日**（YYMMDD），与 Claude 同一个路子；这里只取文本那条 seed 线",
+   "parent": "doubao-Seed 1.6 Vision-加 GUI 任务处理"
+  },
+  {
+   "id": "doubao-Seed 2.0-分 pro / li",
+   "m": "doubao",
+   "version": "Seed 2.0",
+   "date": "2026-02-15",
+   "added": "分 pro / lite / mini 三档",
+   "src": "ark-models",
+   "quote": "模型清单：`doubao-seed-2-0-pro-260215`、`-lite-260215`、`-mini-260215`",
+   "note": "火山方舟模型列表页的**模型 ID 尾部就是发布日**（YYMMDD），与 Claude 同一个路子；这里只取文本那条 seed 线",
+   "parent": "doubao-Seed 1.8-小版本迭代"
+  },
+  {
+   "id": "doubao-Seed 2.1-256k 上下文与最",
+   "m": "doubao",
+   "version": "Seed 2.1",
+   "date": "2026-06-28",
+   "added": "256k 上下文与最大回答；深度思考+多模态理解+结构化输出",
+   "src": "ark-models",
+   "quote": "模型清单：`doubao-seed-2-1-pro-260628`、`doubao-seed-2-1-turbo-260628`",
+   "note": "火山方舟模型列表页的**模型 ID 尾部就是发布日**（YYMMDD），与 Claude 同一个路子；这里只取文本那条 seed 线",
+   "parent": "doubao-Seed 2.0-分 pro / li"
+  },
+  {
+   "id": "grok-Grok 2-这一代的 API 发",
+   "m": "grok",
+   "version": "Grok 2",
+   "date": "2024-12-01",
+   "added": "这一代的 API 发布",
+   "src": "xai-release-notes",
+   "quote": "发布说明 2024 年 12 月：grok-2-1212、grok-2-vision-1212",
+   "note": "xAI 官方 API 发布说明按月分节；**只精确到月**，日期统一记为当月 1 日"
+  },
+  {
+   "id": "grok-Grok 3-这一代的 API 发",
+   "m": "grok",
+   "version": "Grok 3",
+   "date": "2025-04-01",
+   "added": "这一代的 API 发布",
+   "src": "xai-release-notes",
+   "quote": "发布说明 2025 年 4 月：grok-3",
+   "note": "xAI 官方 API 发布说明按月分节；**只精确到月**，日期统一记为当月 1 日",
+   "parent": "grok-Grok 2-这一代的 API 发"
+  },
+  {
+   "id": "grok-Grok 4-这一代的 API 发",
+   "m": "grok",
+   "version": "Grok 4",
+   "date": "2025-07-01",
+   "added": "这一代的 API 发布",
+   "src": "xai-release-notes",
+   "quote": "发布说明 2025 年 7 月：grok-4",
+   "note": "xAI 官方 API 发布说明按月分节；**只精确到月**，日期统一记为当月 1 日",
+   "parent": "grok-Grok 3-这一代的 API 发"
+  },
+  {
+   "id": "grok-Grok 4.1-加 fast 档",
+   "m": "grok",
+   "version": "Grok 4.1",
+   "date": "2025-11-01",
+   "added": "加 fast 档",
+   "src": "xai-release-notes",
+   "quote": "发布说明 2025 年 11 月：grok-4.1-fast",
+   "note": "xAI 官方 API 发布说明按月分节；**只精确到月**，日期统一记为当月 1 日",
+   "parent": "grok-Grok 4-这一代的 API 发"
+  },
+  {
+   "id": "grok-Grok 4.5-500k 上下文",
+   "m": "grok",
+   "version": "Grok 4.5",
+   "date": "2026-07-01",
+   "added": "500k 上下文",
+   "src": "xai-release-notes",
+   "quote": "发布说明 2026 年 7 月：grok-4.5（同月还有 grok-imagine-video-1.5、grok-voice-think-fast-2.0）",
+   "note": "xAI 官方 API 发布说明按月分节；**只精确到月**，日期统一记为当月 1 日",
+   "parent": "grok-Grok 4.1-加 fast 档"
   }
  ],
  "$versions": "版本谱系（演进图的数据）。**演进的主体是模型，不是能力。**\n\n原来那张演进图每行是一项能力、横轴是「我们能证明的最早时间」、粗细是几家支持。\n读者看完只得到「动作复刻 2025-12 出现、6/9 支持」—— 那是一次数据库查询的可视化，不涨知识。\n而且它得靠图注免责（「不是业界首次出现」）：**一张需要图注免责的图，说明它量错了东西。**\n\n这份数据画的是**厂商自己发布的版本和日期**，所以不需要免责。每条必须回答：\n**这一代新增了什么。** 只有版本号没有 added 的节点没有价值，不收。\n\n两个最好的来源，都不是「新闻」：\n  · **官方 Hugging Face 组织** —— 模型名本身就编码了能力与代际\n    （Wan2.1-FLF2V＝首尾帧、Wan2.2-S2V＝语音驱动、LTX 的 IC-LoRA-Ingredients＝角色参考），\n    发布时间由 HF API 给出，比任何新闻稿都准。\n  · **官方 API 更新日志** —— 可灵那份 31k 字符里有 170 条带日期的条目。\n\n覆盖不全是事实：万相和可灵能画出完整谱系，Runway/Vidu/Seedance 只有近期几个点，\nVeo/Sora/海螺/LTX 还没有。**图上要标出哪几条线是完整的、哪几条只是片段** ——\n画一条只有两个点的线却不说明，读者会以为这家两年只更新过两次。\n\n`cap` 把版本节点挂到能力 id 上，图上「点一项能力，看各家谁先谁后」靠它。\n**对不上的一律留空并写明理由（cap_skip），不硬凑** —— 硬凑一个 id，纵向那一刀就切错了。\n典型：Wan 的 S2V 是「语音驱动」，不等于我们轴上的「对口型」，两件事不合并；\n「换代」节点本身也不是新增单项能力。\n\n`id` + `parent` 把平铺记录变成**真的树**。分叉是真实存在的：\nWan2.1 底座上同时长出 FLF2V（首尾帧）和 VACE（统一编辑）两个变体，\nWan2.2 是换代接在 2.1 后面，Animate-2 又接在 Animate 后面。\n\n**没有父节点的就让它当根，不许为了让树好看硬接一条边** ——\nRunway 的 Aleph 是编辑线，不是 Gen 的后代，它自己是一棵树。\n\n⚠️ **日期必须取 HF 的 `createdAt`，不能取 `lastModified`。**\n第一版取错了字段，把「最后修改」当成了发布日期：Wan2.2 记成 2025-08-07（实际 2025-07-18）、\nAnimate 记成 2025-11-05（实际 2025-09-11）——**差了两个月**。\n仓库发布后还会被反复更新，两个字段根本不是一回事。\n这类错最阴：日期看着合理、图也画得出来，但整条时间线是歪的。\n\n覆盖不足要**写在数据里**，不是靠图上一句话糊过去：\n模型的 `lineage_note` 解释为什么它的节点少（太新 / 官方记录只回溯到某时）。\n校验 R58 强制：**核心模型少于 3 个节点却没写理由，就是错**。\n「我们没采到」和「它本来就没有」是两回事，读者有权知道是哪一种。",
