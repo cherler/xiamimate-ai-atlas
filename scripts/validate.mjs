@@ -7,6 +7,9 @@
  *   R9 —— 格子记的 `verified_for` 必须等于该模型当前 `version`。
  *          这条拦的是**最阴的一种腐烂**：版本升了，旧结论被悄悄挂到新版本名下。
  *          见 data/ontology.md 规则三之一。
+ *          例外只有一种：能力本来就长在同门另一支型号上（Kimi 的视觉在 K2.6、
+ *          Qwen 的 FIM 在 coder 那支）。那不是腐烂，是产品线的形状 ——
+ *          填 `sibling` 明说是哪一支，R9c/d/e 接手，前台把型号名印出来。
  */
 import { readFileSync, existsSync } from "node:fs";
 
@@ -49,9 +52,17 @@ for (const s of a.support) {
     errs.push(`R26 跨方向格子：${m.domain} 的模型不该有 ${c.domain} 的能力（${at}）—— 方向之间不共用能力轴`);
   else if (!applies(m, c)) errs.push(`R8 跨轨格子：${m.class} 的模型不该有 ${c.class} 的能力（${at}）`);
   if (!s.verified_for) errs.push(`R9a 缺 verified_for：${at}`);
-  else if (s.verified_for !== m.version)
+  else if (s.sibling) {
+    // 同门别支：**放行，但要求说清楚**。见 lib/atlas.ts 的 Cell.sibling 注释。
+    if (s.verified_for !== s.sibling)
+      errs.push(`R9c sibling 与 verified_for 对不上：${at} 说核在 ${s.sibling}，verified_for 却写 ${s.verified_for}`);
+    if (s.sibling === m.version)
+      errs.push(`R9d ${at} 的 sibling 填的就是当前版本 ${m.version} —— 那它不是别支，去掉这个字段`);
+    if (!s.note) errs.push(`R9e 挂在同门别支却没写明白：${at} —— ✅ 不加说明会被当成旗舰就能做`);
+  } else if (s.verified_for !== m.version)
     errs.push(`R9 版本对不上：${at} 记的是 ${s.verified_for}，但 ${m.family} 当前是 ${m.version}。` +
-      `升级后必须重新核验或退回 unknown，不许沿用旧版结论`);
+      `升级后必须重新核验或退回 unknown，不许沿用旧版结论。` +
+      `（若这条能力本来就长在同门另一支型号上，那不是腐烂 —— 填 sibling 字段）`);
 }
 
 // 缺格会被前台静默当成 unknown，那是**沉默的错**。

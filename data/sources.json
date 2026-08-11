@@ -2512,6 +2512,150 @@
         "Context Length",
         "Max Output"
       ]
+    },
+    {
+      "id": "bailian-models",
+      "tier": "S",
+      "kind": "html",
+      "vendor": "qwen-text",
+      "name": "阿里云百炼 · 支持的模型清单",
+      "url": "https://www.alibabacloud.com/help/en/model-studio/models",
+      "refresh_days": 7,
+      "good_for": [
+        "version",
+        "capability"
+      ],
+      "expect": [
+        "qwen3"
+      ]
+    },
+    {
+      "id": "kimi-pricing",
+      "tier": "S",
+      "kind": "html",
+      "vendor": "kimi",
+      "name": "Kimi 开放平台 · 模型推理价格",
+      "url": "https://platform.kimi.com/docs/pricing/chat",
+      "refresh_days": 14,
+      "good_for": [
+        "version",
+        "capability",
+        "pricing"
+      ]
+    },
+    {
+      "id": "glm-52-doc",
+      "tier": "S",
+      "kind": "html",
+      "vendor": "glm",
+      "name": "Z.ai 开放平台 · GLM-5.2 模型文档",
+      "url": "https://docs.z.ai/guides/llm/glm-5.2",
+      "refresh_days": 14,
+      "good_for": [
+        "capability",
+        "version"
+      ],
+      "expect": [
+        "GLM-5.2"
+      ]
+    },
+    {
+      "id": "bailian-textgen",
+      "tier": "S",
+      "kind": "html",
+      "vendor": "qwen-text",
+      "name": "阿里云百炼 · 文本生成",
+      "url": "https://www.alibabacloud.com/help/en/model-studio/text-generation",
+      "refresh_days": 14,
+      "good_for": [
+        "capability"
+      ]
+    },
+    {
+      "id": "kimi-websearch",
+      "tier": "S",
+      "kind": "html",
+      "vendor": "kimi",
+      "name": "Kimi 开放平台 · 联网搜索",
+      "url": "https://platform.kimi.com/docs/guide/use-web-search",
+      "refresh_days": 14,
+      "good_for": [
+        "capability"
+      ]
+    },
+    {
+      "id": "kimi-chat-api",
+      "tier": "S",
+      "kind": "html",
+      "vendor": "kimi",
+      "name": "Kimi 开放平台 · Chat Completions",
+      "url": "https://platform.kimi.com/docs/api/chat",
+      "refresh_days": 14,
+      "good_for": [
+        "capability"
+      ]
+    },
+    {
+      "id": "bailian-cache",
+      "tier": "S",
+      "kind": "html",
+      "vendor": "qwen-text",
+      "name": "阿里云百炼 · 上下文缓存",
+      "url": "https://www.alibabacloud.com/help/en/model-studio/context-cache",
+      "refresh_days": 14,
+      "good_for": [
+        "capability",
+        "pricing"
+      ]
+    },
+    {
+      "id": "bailian-batch",
+      "tier": "S",
+      "kind": "html",
+      "vendor": "qwen-text",
+      "name": "阿里云百炼 · OpenAI 兼容批量推理",
+      "url": "https://www.alibabacloud.com/help/en/model-studio/batch-interfaces-compatible-with-openai",
+      "refresh_days": 14,
+      "good_for": [
+        "capability",
+        "pricing"
+      ]
+    },
+    {
+      "id": "bailian-websearch",
+      "tier": "S",
+      "kind": "html",
+      "vendor": "qwen-text",
+      "name": "阿里云百炼 · 大模型联网搜索",
+      "url": "https://www.alibabacloud.com/help/en/model-studio/web-search",
+      "refresh_days": 14,
+      "good_for": [
+        "capability"
+      ]
+    },
+    {
+      "id": "glm-websearch",
+      "tier": "S",
+      "kind": "html",
+      "vendor": "glm",
+      "name": "智谱开放平台 · 联网搜索工具",
+      "url": "https://docs.bigmodel.cn/cn/guide/tools/web-search",
+      "refresh_days": 14,
+      "good_for": [
+        "capability"
+      ]
+    },
+    {
+      "id": "bailian-coder",
+      "tier": "S",
+      "kind": "html",
+      "vendor": "qwen-text",
+      "name": "阿里云百炼 · Qwen-Coder",
+      "url": "https://help.aliyun.com/zh/model-studio/qwen-coder",
+      "refresh_days": 14,
+      "good_for": [
+        "capability"
+      ]
     }
   ],
   "$missing": [

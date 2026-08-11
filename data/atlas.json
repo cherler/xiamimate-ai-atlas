@@ -2224,16 +2224,17 @@
    "family": "Qwen",
    "zh": "通义千问",
    "org": "alibaba",
-   "version": "Qwen3.6",
-   "version_as_of": "2026-04-21",
+   "version": "3.7-max",
+   "version_as_of": "2026-08-11",
    "status": "active",
    "tier": "core",
    "domain": "text",
    "weights": "open",
    "team": "通义 Qwen",
    "weights_note": "Qwen3 系列多数档位 Apache-2.0 —— 中文侧开源力度最大的一家",
-   "version_src": "hf-text-org",
-   "version_quote": "Qwen/Qwen3.6-27B（官方 HF 组织 createdAt 2026-04-21，下载 657 万）"
+   "version_src": "bailian-models",
+   "version_quote": "阿里云百炼支持的模型清单里列有 qwen3.7-max / qwen3.7-plus / qwen3.6-flash。**日期是核验日** —— 该页不标发布日；批量推理页的 Qwen-Max 清单同样以 qwen3.7-max 打头（第二个独立出处）",
+   "status_note": " ⚠️ **两条线要分清**：API 线已到 3.7-max，而**开源权重最新只到 Qwen3.6**（官方 HF 组织 2026-04-21）。演化树画的是开源那条，因为只有它有可核的发布日期。"
   },
   {
    "id": "deepseek",
@@ -3253,6 +3254,56 @@
   "deepseek-pricing": {
    "name": "DeepSeek 官方文档 · 模型与价格",
    "url": "https://api-docs.deepseek.com/quick_start/pricing",
+   "tier": "official"
+  },
+  "bailian-models": {
+   "name": "阿里云百炼 · 支持的模型清单",
+   "url": "https://www.alibabacloud.com/help/en/model-studio/models",
+   "tier": "official"
+  },
+  "kimi-pricing": {
+   "name": "Kimi 开放平台 · 模型推理价格",
+   "url": "https://platform.kimi.com/docs/pricing/chat",
+   "tier": "official"
+  },
+  "glm-52-doc": {
+   "name": "Z.ai 开放平台 · GLM-5.2 模型文档",
+   "url": "https://docs.z.ai/guides/llm/glm-5.2",
+   "tier": "official"
+  },
+  "bailian-textgen": {
+   "name": "阿里云百炼 · 文本生成",
+   "url": "https://www.alibabacloud.com/help/en/model-studio/text-generation",
+   "tier": "official"
+  },
+  "kimi-websearch": {
+   "name": "Kimi 开放平台 · 联网搜索",
+   "url": "https://platform.kimi.com/docs/guide/use-web-search",
+   "tier": "official"
+  },
+  "bailian-cache": {
+   "name": "阿里云百炼 · 上下文缓存",
+   "url": "https://www.alibabacloud.com/help/en/model-studio/context-cache",
+   "tier": "official"
+  },
+  "bailian-batch": {
+   "name": "阿里云百炼 · OpenAI 兼容批量推理",
+   "url": "https://www.alibabacloud.com/help/en/model-studio/batch-interfaces-compatible-with-openai",
+   "tier": "official"
+  },
+  "bailian-websearch": {
+   "name": "阿里云百炼 · 大模型联网搜索",
+   "url": "https://www.alibabacloud.com/help/en/model-studio/web-search",
+   "tier": "official"
+  },
+  "glm-websearch": {
+   "name": "智谱开放平台 · 联网搜索工具",
+   "url": "https://docs.bigmodel.cn/cn/guide/tools/web-search",
+   "tier": "official"
+  },
+  "bailian-coder": {
+   "name": "阿里云百炼 · Qwen-Coder",
+   "url": "https://help.aliyun.com/zh/model-studio/qwen-coder",
    "tier": "official"
   }
  },
@@ -5591,7 +5642,7 @@
    "m": "qwen-text",
    "c": "t-think",
    "state": "yes",
-   "verified_for": "Qwen3.6",
+   "verified_for": "3.7-max",
    "note": "「Seamless switching between thinking mode … and non-thinking mode … within a single model」",
    "src": "qwen-docs",
    "via": "native"
@@ -5600,7 +5651,7 @@
    "m": "qwen-text",
    "c": "t-long",
    "state": "yes",
-   "verified_for": "Qwen3.6",
+   "verified_for": "3.7-max",
    "note": "「Enhanced 256K long-context understanding, extensible to 1M」",
    "src": "qwen-docs",
    "via": "native"
@@ -5609,13 +5660,13 @@
    "m": "qwen-text",
    "c": "t-maxout",
    "state": "unknown",
-   "verified_for": "Qwen3.6"
+   "verified_for": "3.7-max"
   },
   {
    "m": "qwen-text",
    "c": "t-tools",
    "state": "yes",
-   "verified_for": "Qwen3.6",
+   "verified_for": "3.7-max",
    "note": "「Expertise in agent capabilities, enabling precise integration with external tools」",
    "src": "qwen-docs",
    "via": "native"
@@ -5623,62 +5674,82 @@
   {
    "m": "qwen-text",
    "c": "t-json",
-   "state": "unknown",
-   "verified_for": "Qwen3.6"
+   "state": "yes",
+   "verified_for": "3.7-max",
+   "src": "bailian-textgen",
+   "note": "Production Use 小节列出的特性含 structured output（与 RAG、tool calling、streaming output、deep thinking、prefix completion 并列）",
+   "via": "native"
   },
   {
    "m": "qwen-text",
    "c": "t-search",
-   "state": "unknown",
-   "verified_for": "Qwen3.6"
+   "state": "yes",
+   "verified_for": "3.7-max",
+   "src": "bailian-websearch",
+   "via": "native",
+   "note": "三条通道各有写法：Chat Completions / DashScope 用 `enable_search: true`，Responses API 用 `tools: [{\"type\": \"web_search\"}]`；另有 `search_strategy: \"agent\" | \"agent_max\"` 与 `enable_source`。支持模型清单含 Qwen3.7-Max、Qwen3.7-Plus"
   },
   {
    "m": "qwen-text",
    "c": "t-code",
    "state": "unknown",
-   "verified_for": "Qwen3.6"
+   "verified_for": "3.7-max"
   },
   {
    "m": "qwen-text",
    "c": "t-computer",
    "state": "unknown",
-   "verified_for": "Qwen3.6"
+   "verified_for": "3.7-max"
   },
   {
    "m": "qwen-text",
    "c": "t-vision",
-   "state": "unknown",
-   "verified_for": "Qwen3.6"
+   "state": "yes",
+   "verified_for": "3.7-plus",
+   "src": "bailian-batch",
+   "note": "批量页把 qwen3.7-plus 列在 Multimodal models → Image/video 一栏（与 qwen3-vl-plus 并列）",
+   "via": "native",
+   "sibling": "3.7-plus"
   },
   {
    "m": "qwen-text",
    "c": "t-audio",
    "state": "unknown",
-   "verified_for": "Qwen3.6"
+   "verified_for": "3.7-max"
   },
   {
    "m": "qwen-text",
    "c": "t-cache",
-   "state": "unknown",
-   "verified_for": "Qwen3.6"
+   "state": "yes",
+   "verified_for": "3.7-max",
+   "src": "bailian-cache",
+   "note": "分显式与隐式两种：显式缓存用 `\"cache_control\": {\"type\": \"ephemeral\"}` 标记，命中计 10% 标准价（创建 125%），隐式命中计 20%",
+   "via": "native"
   },
   {
    "m": "qwen-text",
    "c": "t-batch",
-   "state": "unknown",
-   "verified_for": "Qwen3.6"
+   "state": "yes",
+   "verified_for": "3.7-max",
+   "src": "bailian-batch",
+   "note": "OpenAI 兼容 Batch API，「Costs are only 50% of real-time calls」，completion_window 24h–336h；支持模型清单含 qwen3.7-max",
+   "via": "native"
   },
   {
    "m": "qwen-text",
    "c": "t-fim",
-   "state": "unknown",
-   "verified_for": "Qwen3.6"
+   "state": "yes",
+   "verified_for": "qwen3-coder-next",
+   "src": "bailian-coder",
+   "via": "native",
+   "note": "Completions API 的 FIM 标记：`<|fim_prefix|>{prefix}<|fim_suffix|>{suffix}<|fim_middle|>`；另有 Partial Mode（`\"partial\": true`）做前缀续写。⚠️ 在 **qwen3-coder-next** 这支代码模型上，不是 qwen3.7-max",
+   "sibling": "qwen3-coder-next"
   },
   {
    "m": "qwen-text",
    "c": "t-openweights",
    "state": "yes",
-   "verified_for": "Qwen3.6",
+   "verified_for": "3.7-max",
    "src": "hf-text-org",
    "via": "native",
    "note": "官方 HF 组织下有可下载权重：Qwen/Qwen3.6-27B"
@@ -5803,8 +5874,11 @@
   {
    "m": "kimi",
    "c": "t-long",
-   "state": "unknown",
-   "verified_for": "K3"
+   "state": "yes",
+   "verified_for": "K3",
+   "src": "kimi-pricing",
+   "note": "模型卡片：「Kimi K3 —— 旗舰模型，1M token 上下文」",
+   "via": "native"
   },
   {
    "m": "kimi",
@@ -5833,8 +5907,11 @@
   {
    "m": "kimi",
    "c": "t-search",
-   "state": "unknown",
-   "verified_for": "K3"
+   "state": "yes",
+   "verified_for": "K3",
+   "src": "kimi-websearch",
+   "note": "「声明 $web_search」——以 builtin_function 类型声明的内置函数，模型把执行参数放在 tool_call.function.arguments 里回传",
+   "via": "native"
   },
   {
    "m": "kimi",
@@ -5851,8 +5928,12 @@
   {
    "m": "kimi",
    "c": "t-vision",
-   "state": "unknown",
-   "verified_for": "K3"
+   "state": "yes",
+   "verified_for": "K2.6",
+   "src": "kimi-pricing",
+   "note": "模型卡片：「Kimi K2.6 —— 支持视觉与文本输入」；K2.7 Code 标注为多模态模型",
+   "via": "native",
+   "sibling": "K2.6"
   },
   {
    "m": "kimi",
@@ -5902,14 +5983,20 @@
   {
    "m": "glm",
    "c": "t-long",
-   "state": "unknown",
-   "verified_for": "GLM-5.2"
+   "state": "yes",
+   "verified_for": "GLM-5.2",
+   "src": "glm-52-doc",
+   "note": "文档规格表：Context Length = 1M",
+   "via": "native"
   },
   {
    "m": "glm",
    "c": "t-maxout",
-   "state": "unknown",
-   "verified_for": "GLM-5.2"
+   "state": "yes",
+   "verified_for": "GLM-5.2",
+   "src": "glm-52-doc",
+   "note": "文档规格表：Maximum Output Tokens = 128K",
+   "via": "native"
   },
   {
    "m": "glm",
@@ -5932,8 +6019,12 @@
   {
    "m": "glm",
    "c": "t-search",
-   "state": "unknown",
-   "verified_for": "GLM-5.2"
+   "state": "yes",
+   "verified_for": "glm-4-air",
+   "src": "glm-websearch",
+   "via": "native",
+   "note": "「对话中的网络搜索」参数 `enable` / `search_engine` / `search_recency_filter` / `content_size`，另有独立的 Web Search API。⚠️ 该页写明的支持模型是 **glm-4-air、glm-4-assistant**，**不是 GLM-5.2** —— GLM-5.2 自己的模型页没有列联网搜索",
+   "sibling": "glm-4-air"
   },
   {
    "m": "glm",
@@ -5953,7 +6044,7 @@
    "state": "yes",
    "verified_for": "GLM-5.2",
    "src": "glm-api",
-   "note": "API 参考单列 ChatCompletionVisionRequest —— 图像输入是独立的请求体",
+   "note": "API 参考单列 ChatCompletionVisionRequest —— 图像输入是独立的请求体。⚠️ 注意**不是同一个模型**：GLM-5.2 文档写明 Input/Output Modalities 均为 Text，视觉在另一支多模态型号上",
    "via": "native"
   },
   {
@@ -5965,8 +6056,11 @@
   {
    "m": "glm",
    "c": "t-cache",
-   "state": "unknown",
-   "verified_for": "GLM-5.2"
+   "state": "yes",
+   "verified_for": "GLM-5.2",
+   "src": "glm-52-doc",
+   "note": "Core Capabilities 列出 Context Caching（并列 Thinking Mode / Function Call / Structured Output / MCP）",
+   "via": "native"
   },
   {
    "m": "glm",

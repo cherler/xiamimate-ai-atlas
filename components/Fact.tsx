@@ -73,7 +73,14 @@ export function Fact({ m, c, label }: { m: string; c: string; label: string }) {
           ) : (
             <span className="italic">无来源 —— 这一格是「查了没找到」，不是「我们没查」</span>
           )}
-          {f.verified_for && <span>核验版本 {f.verified_for}</span>}
+          {/* 同门别支要说出型号名 —— 只印「核验版本 K2.6」，读者会当成旗舰就能做 */}
+          {f.sibling ? (
+            <span className="px-1.5 py-px rounded bg-unknown/15 text-unknown text-[11px]">
+              核在同门另一支：{f.sibling}
+            </span>
+          ) : (
+            f.verified_for && <span>核验版本 {f.verified_for}</span>
+          )}
           <span>核验于 {atlas.generated_at}</span>
           <span className="px-1.5 py-px rounded bg-unknown/15 text-unknown text-[11px]">机器录入</span>
         </p>
