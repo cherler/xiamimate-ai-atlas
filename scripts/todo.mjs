@@ -34,14 +34,20 @@ const groups = [];
 
 /** ① 收件箱里等人定的（黄 + 红）。跑 triage 拿分级，不自己重算一遍规则。 */
 try {
-  const out = execFileSync("node", [join(ROOT, "scripts/triage.mjs")], { encoding: "utf8" });
-  const y = Number(out.match(/🟡 黄 · [^（]*（(\d+)）/)?.[1] ?? 0);
-  const r = Number(out.match(/🔴 红 · [^（]*（(\d+)）/)?.[1] ?? 0);
-  if (y + r > 0)
+  /**
+   * 数用 `review.mjs` 的队列，**不用 triage 的黄红计数** ——
+   * 后者不知道哪些已经被人处理过，两个数摆在一起会互相打架。
+   * 审阅台、命令行、这张待办表，三处必须是同一个口径。
+   */
+  const { queue } = await import("./review.mjs");
+  const q = queue();
+  const land = q.filter((x) => x.landable).length;
+  if (q.length > 0)
     groups.push({
-      n: y + r,
-      t: `收件箱里等你定的 ${y + r} 条（黄 ${y} · 红 ${r}）`,
-      how: "`node scripts/triage.mjs` 看分级理由；`--apply` 只写绿色通道，黄红要人改 data/atlas.json",
+      n: q.length,
+      t: `收件箱里等你定的 ${q.length} 条（能直接落格 ${land} 条）`,
+      how: "**开审阅台**：`node scripts/review-ui.mjs` → http://127.0.0.1:8230 ；" +
+        "命令行版 `node scripts/review.mjs`。分级理由看 `node scripts/triage.mjs`",
       why: "红的共同点是**错了会污染整张图且难回滚**：新实体、要推理才得出的结论、摘不出原文的。",
     });
 } catch {
@@ -132,13 +138,56 @@ const md = [
 writeFileSync(join(ROOT, "data/TODO.md"), `${md}\n`);
 console.log(`${total} 条待办 → data/TODO.md`);
 
+/**
+ * 飞书群机器人。**协议照抄线上那支监控**
+ * （`xiamimate-tools-backend/scripts/ecs_runtime_monitor.py` 的 `_send_feishu`）——
+ * 同一个 `msg_type: "post"` 版式、同一条判成败的规矩（飞书恒回 200，看 body 里的 code）。
+ * 不另起一套：两套格式迟早有一套没人维护。
+ *
+ * webhook 从环境变量读，`tick.sh` 会 source 仓库根的 `.env`（已在 .gitignore 里）。
+ * 没配就静默跳过 —— **本机通知照发，不能因为没配群就整条哑掉**。
+ *
+ * ⚠️ 失败只记类型，**绝不把 webhook 打进日志** —— 那串东西本身就是密钥。
+ */
+async function feishu(title, lines) {
+  const url = (process.env.ATLAS_FEISHU_WEBHOOK_URL || process.env.ECS_MONITOR_FEISHU_WEBHOOK_URL || "").trim();
+  if (!url) return "没配 webhook，跳过";
+  const payload = {
+    msg_type: "post",
+    content: { post: { zh_cn: { title, content: lines.map((t) => [{ tag: "text", text: t }]) } } },
+  };
+  try {
+    const r = await fetch(url, {
+      method: "POST",
+      headers: { "Content-Type": "application/json; charset=utf-8" },
+      body: JSON.stringify(payload),
+      signal: AbortSignal.timeout(8000),
+    });
+    const body = (await r.text()).replace(/\s/g, "");
+    return body.includes('"code":0') || body.includes('"errcode":0')
+      ? "飞书已送达"
+      : `飞书可能未送达：${body.slice(0, 80)}`;
+  } catch (e) {
+    return `飞书发送失败：${e.name}`;   // 只记类型
+  }
+}
+
 if (process.argv.includes("--notify") && total) {
-  // 本机通知：零成本、可逆、不需要任何凭据。要邮件/微信是另一件事，得先定渠道。
-  const msg = groups.map((g) => `${g.n} ${g.t.split("（")[0].replace(/\s*\d+\s*条?$/, "")}`).join("；");
+  const brief = groups.map((g) => `${g.n} ${g.t.split("（")[0].replace(/\s*\d+\s*条?$/, "")}`).join("；");
+  // 本机通知：零成本、不需要凭据。和飞书**两条都发** —— 一条断了另一条还在。
   try {
     execFileSync("osascript", [
       "-e",
-      `display notification ${JSON.stringify(msg.slice(0, 180))} with title "虾米看AI · ${total} 条待办" subtitle "data/TODO.md"`,
+      `display notification ${JSON.stringify(brief.slice(0, 180))} with title "虾米看AI · ${total} 条待办" subtitle "data/TODO.md"`,
     ]);
   } catch { console.log("（系统通知发不出去，不影响 TODO.md）"); }
+
+  console.log(
+    await feishu(`虾米看AI · ${total} 条待办`, [
+      ...groups.map((g) => `· ${g.t}`),
+      "",
+      "清单：data/TODO.md（每摞都写了下一步该跑什么）",
+      "红色那批错了会污染整张图，必须人工。",
+    ]),
+  );
 }
