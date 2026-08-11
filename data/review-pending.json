@@ -66,6 +66,17 @@
       "missing": [
         "库里没有这条产品线（要先建实体：公司 / 轨 / 层级 / 架构依据）"
       ]
+    },
+    {
+      "id": "2026-08-07::vidu-changelog::viduq3::multiref::viduq3 模型支持 reference2vi",
+      "at": "2026-08-11 12:28:46",
+      "who": "admin",
+      "claim": "viduq3 模型支持 reference2video",
+      "quote": "Support the addition of viduq3-mix、viduq3-turbo、viduq3 model for reference2video",
+      "source": "vidu-changelog",
+      "missing": [
+        "库里没有这条产品线（要先建实体：公司 / 轨 / 层级 / 架构依据）"
+      ]
     }
   ]
 }
