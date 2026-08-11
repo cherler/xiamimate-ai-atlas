@@ -3305,6 +3305,16 @@
    "name": "阿里云百炼 · Qwen-Coder",
    "url": "https://help.aliyun.com/zh/model-studio/qwen-coder",
    "tier": "official"
+  },
+  "ark-models": {
+   "name": "火山方舟 · 模型列表",
+   "url": "https://www.volcengine.com/docs/82379/1330310",
+   "tier": "official"
+  },
+  "minimax-api-overview": {
+   "name": "MiniMax 开放平台 · 接口概览",
+   "url": "https://platform.minimaxi.com/docs/api-reference/api-overview",
+   "tier": "official"
   }
  },
  "support": [
@@ -6104,8 +6114,12 @@
   {
    "m": "minimax-text",
    "c": "t-long",
-   "state": "unknown",
-   "verified_for": "M3"
+   "state": "yes",
+   "verified_for": "M3",
+   "src": "minimax-api-overview",
+   "note": "支持模型表：MiniMax-M3 输入输出总 token 1,000,000（其余 M2.x 均为 204800）",
+   "via": "native",
+   "as_of": "2026-08-11"
   },
   {
    "m": "minimax-text",
@@ -6116,8 +6130,12 @@
   {
    "m": "minimax-text",
    "c": "t-tools",
-   "state": "unknown",
-   "verified_for": "M3"
+   "state": "yes",
+   "verified_for": "M3",
+   "src": "minimax-api-overview",
+   "note": "「语言模型接口……根据输入的上下文，让模型生成对话内容、工具调用」；M3 一行的介绍为「适用于 Agent 推理、工具调用、代码和长上下文任务」",
+   "via": "native",
+   "as_of": "2026-08-11"
   },
   {
    "m": "minimax-text",
@@ -6185,38 +6203,62 @@
   {
    "m": "doubao",
    "c": "t-think",
-   "state": "unknown",
-   "verified_for": "Seed-2.1 Pro"
+   "state": "yes",
+   "verified_for": "Seed-2.1 Pro",
+   "src": "ark-models",
+   "note": "模型列表页 `doubao-seed-2-1-pro-260628` 一行的「能力支持」列列有「深度思考」",
+   "via": "native",
+   "as_of": "2026-08-11"
   },
   {
    "m": "doubao",
    "c": "t-long",
-   "state": "unknown",
-   "verified_for": "Seed-2.1 Pro"
+   "state": "yes",
+   "verified_for": "Seed-2.1 Pro",
+   "src": "ark-models",
+   "note": "同一行「长度限制（token）」列：上下文窗口 256k，最大输入 256k",
+   "via": "native",
+   "as_of": "2026-08-11"
   },
   {
    "m": "doubao",
    "c": "t-maxout",
-   "state": "unknown",
-   "verified_for": "Seed-2.1 Pro"
+   "state": "yes",
+   "verified_for": "Seed-2.1 Pro",
+   "src": "ark-models",
+   "note": "同一行「长度限制（token）」列：最大回答(默认 4k) 256k，最大思维链 256k",
+   "via": "native",
+   "as_of": "2026-08-11"
   },
   {
    "m": "doubao",
    "c": "t-tools",
-   "state": "unknown",
-   "verified_for": "Seed-2.1 Pro"
+   "state": "yes",
+   "verified_for": "Seed-2.1 Pro",
+   "src": "ark-models",
+   "note": "模型列表页 `doubao-seed-2-1-pro-260628` 一行的「能力支持」列列有「工具调用」；「工具调用能力」表里该行「函数调用」为勾",
+   "via": "native",
+   "as_of": "2026-08-11"
   },
   {
    "m": "doubao",
    "c": "t-json",
-   "state": "unknown",
-   "verified_for": "Seed-2.1 Pro"
+   "state": "yes",
+   "verified_for": "Seed-2.1 Pro",
+   "src": "ark-models",
+   "note": "模型列表页 `doubao-seed-2-1-pro-260628` 一行的「能力支持」列列有「结构化输出（推荐使用 json_schema 模式）」",
+   "via": "native",
+   "as_of": "2026-08-11"
   },
   {
    "m": "doubao",
    "c": "t-search",
-   "state": "unknown",
-   "verified_for": "Seed-2.1 Pro"
+   "state": "yes",
+   "verified_for": "Seed-2.1 Pro",
+   "src": "ark-models",
+   "note": "「工具调用能力」表该行「联网内容插件」为勾（Responses API）。⚠️ 这一格是**看截图读出来的** —— 勾是图标，取文字只能得到空白，空白既可能是不支持也可能是没渲染出来",
+   "via": "native",
+   "as_of": "2026-08-11"
   },
   {
    "m": "doubao",
@@ -6227,26 +6269,44 @@
   {
    "m": "doubao",
    "c": "t-computer",
-   "state": "unknown",
-   "verified_for": "Seed-2.1 Pro"
+   "state": "yes",
+   "verified_for": "doubao-seed-1-6-vision-250815",
+   "src": "ark-models",
+   "note": "「GUI 任务处理能力」一节只列了 doubao-seed-1-6-vision-250815，其「能力支持」列含「GUI 任务处理」。⚠️ 该型号页面标着**即将下线**，而旗舰那一支并没有这项",
+   "via": "native",
+   "as_of": "2026-08-11",
+   "sibling": "doubao-seed-1-6-vision-250815"
   },
   {
    "m": "doubao",
    "c": "t-vision",
-   "state": "unknown",
-   "verified_for": "Seed-2.1 Pro"
+   "state": "yes",
+   "verified_for": "Seed-2.1 Pro",
+   "src": "ark-models",
+   "note": "模型列表页 `doubao-seed-2-1-pro-260628` 一行的「能力支持」列列有「多模态理解」",
+   "via": "native",
+   "as_of": "2026-08-11"
   },
   {
    "m": "doubao",
    "c": "t-audio",
-   "state": "unknown",
-   "verified_for": "Seed-2.1 Pro"
+   "state": "yes",
+   "verified_for": "doubao-seed-2-0-lite-260428",
+   "src": "ark-models",
+   "note": "「音频理解能力」一节的推荐模型只列了 doubao-seed-2-0-lite-260428 与 doubao-seed-2-0-mini-260428，旗舰 doubao-seed-2-1-pro 不在其中",
+   "via": "native",
+   "as_of": "2026-08-11",
+   "sibling": "doubao-seed-2-0-lite-260428"
   },
   {
    "m": "doubao",
    "c": "t-cache",
-   "state": "unknown",
-   "verified_for": "Seed-2.1 Pro"
+   "state": "yes",
+   "verified_for": "Seed-2.1 Pro",
+   "src": "ark-models",
+   "note": "「上下文缓存能力」表该行：隐式缓存走 Responses API / Chat API，显式缓存走 Responses API 的前缀缓存与 Session 缓存",
+   "via": "native",
+   "as_of": "2026-08-11"
   },
   {
    "m": "doubao",

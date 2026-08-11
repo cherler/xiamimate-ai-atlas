@@ -1,6 +1,6 @@
 # 信息源监视报告 · 2026-08-11
 
-本次检查 6 个到期源（共 146 个）：变化 0 · 首次 6 · 无变化 0 · **抓不到 0**
+本次检查 2 个到期源（共 197 个）：变化 0 · 首次 2 · 无变化 0 · **抓不到 0**
 
 > 这份报告是给人看的那 20 条待办的来源（§59.3 的负反馈：人每周要看的条目 ≤ 20）。
 > 「抓不到」不是失败，是**信息本身** —— 一个长期抓不到的官方源，说明那家厂商没有可 diff 的公开更新入口，
@@ -112,14 +112,14 @@
 | animate-anything-gh | C | json | 从未抓过 |
 | huobao-gh | C | json | 从未抓过 |
 | awesome-vd-gh | C | json | 从未抓过 |
-| seedream-page | S | html | 首次 |
+| seedream-page | S | html | 未到期（上次 2026-08-11） |
 | openai-models | S | html | 从未抓过 |
 | gemini-models | S | html | 从未抓过 |
 | google-gemini-blog | S | html | 从未抓过 |
 | azure-foundry-blog | B | html | 从未抓过 |
-| recraft-blog | S | html | 首次 |
-| kolors-gh | S | html | 首次 |
-| krea-blog | S | html | 首次 |
+| recraft-blog | S | html | 未到期（上次 2026-08-11） |
+| kolors-gh | S | html | 未到期（上次 2026-08-11） |
+| krea-blog | S | html | 未到期（上次 2026-08-11） |
 | wiki-midjourney | B | html | 从未抓过 |
 | comfyui-gh | S | json | 从未抓过 |
 | sdwebui-gh | S | json | 从未抓过 |
@@ -161,10 +161,61 @@
 | dreamtextures-gh | S | json | 从未抓过 |
 | char2d-gh | S | json | 从未抓过 |
 | hf-pixelart-lora | S | json | 从未抓过 |
-| google-nb-blog | S | html | 首次 |
+| google-nb-blog | S | html | 未到期（上次 2026-08-11） |
 | ms-foundry-blog | B | html | 从未抓过 |
 | hf-image-org | S | json | 从未抓过 |
-| mj-updates | S | html | 首次 |
+| mj-updates | S | html | 未到期（上次 2026-08-11） |
 | aa-t2i | A | spa | 未到期（上次 2026-08-11） |
 | hf-t2i | A | json | 未到期（上次 2026-08-11） |
 | hf-i2i | A | json | 未到期（上次 2026-08-11） |
+| anthropic-models | S | html | 从未抓过 |
+| deepseek-docs | S | html | 从未抓过 |
+| qwen-docs | S | html | 从未抓过 |
+| xai-docs | S | html | 从未抓过 |
+| doubao-force-2026 | B | html | 从未抓过 |
+| hf-text-org | S | json | 从未抓过 |
+| wan3-qbitai | B | html | 从未抓过 |
+| kimi-api | S | html | 从未抓过 |
+| glm-api | S | html | 从未抓过 |
+| minimax-platform | S | spa | 从未抓过 |
+| langchain-gh | S | json | 从未抓过 |
+| langgraph-gh | S | json | 从未抓过 |
+| llamaindex-gh | S | json | 从未抓过 |
+| vllm-gh | S | json | 从未抓过 |
+| llamacpp-gh | S | json | 从未抓过 |
+| ollama-gh | S | json | 从未抓过 |
+| ragflow-gh | S | json | 从未抓过 |
+| dify-gh | S | json | 从未抓过 |
+| n8n-gh | S | json | 从未抓过 |
+| openwebui-gh | S | json | 从未抓过 |
+| autogen-gh | S | json | 从未抓过 |
+| crewai-gh | S | json | 从未抓过 |
+| litellm-gh | S | json | 从未抓过 |
+| transformers-gh | S | json | 从未抓过 |
+| unsloth-gh | S | json | 从未抓过 |
+| llamafactory-gh | S | json | 从未抓过 |
+| aider-gh | S | json | 从未抓过 |
+| cline-gh | S | json | 从未抓过 |
+| continue-gh | S | json | 从未抓过 |
+| openhands-gh | S | json | 从未抓过 |
+| browseruse-gh | S | json | 从未抓过 |
+| markitdown-gh | S | json | 从未抓过 |
+| unstructured-gh | S | json | 从未抓过 |
+| mineru-gh | S | json | 从未抓过 |
+| mcpservers-gh | S | json | 从未抓过 |
+| anthropic-features | S | html | 从未抓过 |
+| openai-docs | S | html | 从未抓过 |
+| deepseek-pricing | S | html | 从未抓过 |
+| bailian-models | S | html | 从未抓过 |
+| kimi-pricing | S | html | 从未抓过 |
+| glm-52-doc | S | html | 从未抓过 |
+| bailian-textgen | S | html | 从未抓过 |
+| kimi-websearch | S | html | 从未抓过 |
+| kimi-chat-api | S | html | 从未抓过 |
+| bailian-cache | S | html | 从未抓过 |
+| bailian-batch | S | html | 从未抓过 |
+| bailian-websearch | S | html | 从未抓过 |
+| glm-websearch | S | html | 从未抓过 |
+| bailian-coder | S | html | 从未抓过 |
+| ark-models | S | spa | 首次 |
+| minimax-api-overview | S | spa | 首次 |

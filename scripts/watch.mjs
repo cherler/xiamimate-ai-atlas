@@ -22,6 +22,7 @@ import { createHash } from "node:crypto";
 import { mkdirSync, readFileSync, writeFileSync, existsSync } from "node:fs";
 import { dirname } from "node:path";
 import { fileURLToPath } from "node:url";
+import { spaText } from "./lib/spa-text.mjs";
 
 /**
  * **先把量测对。**
@@ -133,11 +134,17 @@ async function fetchSpa(s) {
   const { chromium } = await import("playwright");
   const b = await chromium.launch({ proxy: PROXY ? { server: PROXY } : undefined });
   try {
-    // **必须钉死语言。** Google 的定价页按出口 IP 本地化 ——
-    // 我们抓回来的那份 59% 是俄文（「Нет в наличии」＝不可用）。
-    // 页面看着「抓到了」，但抽取器读到的是另一种语言的标签，
-    // **这不是显示问题，是会毒到数据的 bug**。中文站按各自习惯，这里统一要英文原版。
-    const p = await b.newPage({ locale: "en-US", extraHTTPHeaders: { "accept-language": "en-US,en;q=0.9" } });
+    /**
+     * **必须钉死语言。** Google 的定价页按出口 IP 本地化 ——
+     * 我们抓回来的那份 59% 是俄文（「Нет в наличии」＝不可用）。
+     * 页面看着「抓到了」，但抽取器读到的是另一种语言的标签，
+     * **这不是显示问题，是会毒到数据的 bug**。
+     *
+     * 默认要英文原版；中文厂商站（火山方舟、MiniMax）在源表里写 `lang: "zh-CN"` ——
+     * 硬给它们塞 en-US，抓回来的会是另一份译文，diff 全是噪音。
+     */
+    const lang = s.lang ?? "en-US";
+    const p = await b.newPage({ locale: lang, extraHTTPHeaders: { "accept-language": `${lang},${lang.split("-")[0]};q=0.9` } });
     await p.goto(s.url, { waitUntil: "networkidle", timeout: 45000 });
     // Cookie 同意墙。不点掉的话抓回来的是隐私政策，而不是更新日志 ——
     // Runway 就是这么让我抓到一整页「Consent Selection」的。
@@ -145,8 +152,13 @@ async function fetchSpa(s) {
       const b = p.getByRole("button", { name: t, exact: false }).first();
       if (await b.count().catch(() => 0)) { await b.click({ timeout: 3000 }).catch(() => {}); break; }
     }
-    await p.waitForTimeout(1500);
-    return await p.evaluate(() => document.body.innerText);
+    /**
+     * 走共用抽取（去导航、图标留痕、壳直接抛）。**不再用 body.innerText** ——
+     * 那样抓回来的一半是侧边栏，图标画的勾读成空白，
+     * 而 MiniMax 那种整页是壳的还会被记成「抓到了、没内容」，
+     * 听起来像厂商没写，其实是我们够不着。抛出去才会进「抓不到」那一摞。
+     */
+    return (await spaText(p, { wait: 1500, sel: s.sel })).text;
   } finally {
     await b.close();
   }

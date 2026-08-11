@@ -2656,6 +2656,34 @@
       "good_for": [
         "capability"
       ]
+    },
+    {
+      "id": "ark-models",
+      "tier": "S",
+      "kind": "spa",
+      "vendor": "doubao",
+      "name": "火山方舟 · 模型列表",
+      "url": "https://www.volcengine.com/docs/82379/1330310",
+      "refresh_days": 7,
+      "good_for": [
+        "capability",
+        "version"
+      ],
+      "lang": "zh-CN"
+    },
+    {
+      "id": "minimax-api-overview",
+      "tier": "S",
+      "kind": "spa",
+      "vendor": "minimax-text",
+      "name": "MiniMax 开放平台 · 接口概览",
+      "url": "https://platform.minimaxi.com/docs/api-reference/api-overview",
+      "refresh_days": 7,
+      "good_for": [
+        "capability",
+        "version"
+      ],
+      "lang": "zh-CN"
     }
   ],
   "$missing": [
