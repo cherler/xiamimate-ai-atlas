@@ -269,6 +269,22 @@ for (const [vp, w, h] of [["桌面", 1440, 900], ["手机", 390, 844]]) {
   }
 }
 
+/**
+ * 一个名字有没有**作为一个词**出现在文本里。
+ *
+ * 直接 `includes` 会误报：新收的图像产品线叫 **Anima**，而视频侧到处是
+ * `AnimateDiff`、`Wan2.2-Animate` —— 子串一撞，就报「视频页混入了图像模型」。
+ * **名字是真的，该改的是匹配方式。**
+ *
+ * 拉丁名要求两侧不是字母数字；中文名没有词边界，仍用包含判断（实测没出过误报）。
+ */
+const mentions = (txt, name) => {
+  const esc = name.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+  return /^[\x00-\x7f]+$/.test(name)
+    ? new RegExp(`(?<![A-Za-z0-9])${esc}(?![A-Za-z0-9])`).test(txt)
+    : txt.includes(name);
+};
+
 // ── 方向隔离：别的方向的模型不许出现在当前方向的页面上 ─────────────────
 /**
  * **这条是实测抓出来的，不是想出来的。**
@@ -338,7 +354,7 @@ for (const [vp, w, h] of [["桌面", 1440, 900], ["手机", 390, 844]]) {
       const mine = path.split("/")[1];
       const foreign = (raw.models ?? [])
         .filter((m) => (m.domain ?? "video") !== mine).map((m) => m.family);
-      const hit = foreign.filter((n) => txt.includes(n));
+      const hit = foreign.filter((n) => mentions(txt, n));
       ok(hit.length === 0, `${path} 没有混入别的方向的模型${hit.length ? `：${hit.join("、")}` : ""}`);
 
       /**
@@ -368,7 +384,7 @@ for (const [vp, w, h] of [["桌面", 1440, 900], ["手机", 390, 844]]) {
       ok(starred.length === 0,
         `${path} 没有把 ** 原样印出来${starred.length ? `：${starred.slice(0, 3).join("、")}` : ""}`);
 
-      const capHit = alienCaps.filter((n) => txt.includes(n));
+      const capHit = alienCaps.filter((n) => mentions(txt, n));
       ok(capHit.length === 0, `${path} 没有混入别的方向的能力${capHit.length ? `：${capHit.join("、")}` : ""}`);
 
       /**
@@ -382,7 +398,7 @@ for (const [vp, w, h] of [["桌面", 1440, 900], ["手机", 390, 844]]) {
       const alienApps = (raw.applications ?? [])
         .filter((x) => (x.domain ?? "video") !== mine).map((x) => x.zh)
         .filter((n) => !mineApps.has(n));
-      const appHit = alienApps.filter((n) => txt.includes(n));
+      const appHit = alienApps.filter((n) => mentions(txt, n));
       ok(appHit.length === 0, `${path} 没有混入别的方向的应用${appHit.length ? `：${appHit.join("、")}` : ""}`);
       // **切换器标签必须跟着路由走。** 它自己去找 live 方向的话，
       // 站在 /atlas/image/* 上照样显示「AI 视频」—— 路由对、内容对，只有这块标签骗人。
@@ -425,6 +441,27 @@ for (const [vp, w, h] of [["桌面", 1440, 900], ["手机", 390, 844]]) {
     } catch { /* 页面打不开由别处的断言负责报 */ }
     ok(r.n > 0, `${d.id} 的树画出来了（可见标签 ${r.n} 个）`);
     ok(r.ov === 0, `${d.id} 的树标签零重叠${r.ov ? `：${r.ov} 对，例 ${r.eg.join("、")}` : ""}`);
+    /**
+     * **零重叠不代表没坏。** 标签一路上抬可以让到画布外面 —— 矩形不再相交，
+     * 这条检查全绿，而那块字**在画面里根本看不见**（22 条产品线时
+     * 「Boogu-Image」实测让到了 y = -8，顶端被切掉一半）。
+     * 所以必须再问一句：每块字是不是都还在画布里。
+     */
+    let outside = [];
+    try {
+      outside = await page.evaluate(`(() => {
+        const svg = document.querySelector("svg"); if (!svg) return [];
+        const sb = svg.getBoundingClientRect();
+        return [...svg.querySelectorAll("text")].filter((t) => {
+          if (+getComputedStyle(t).opacity <= 0.5) return false;
+          const r = t.getBoundingClientRect(); if (!r.width) return false;
+          return r.top < sb.top - 0.5 || r.bottom > sb.bottom + 0.5
+              || r.left < sb.left - 0.5 || r.right > sb.right + 0.5;
+        }).map((t) => t.textContent.trim());
+      })()`);
+    } catch { /* 同上 */ }
+    ok(outside.length === 0,
+      `${d.id} 的树标签都在画布里${outside.length ? `：${outside.slice(0, 3).join("、")} 溢出` : ""}`);
     await page.close();
   }
 }

@@ -101,7 +101,12 @@ export type Org = {
   name: string;
   kind: "bigtech" | "startup" | "lab";
   parent?: string;
-  hq: { city: string; country: string; iso: string; lat: number; lon: number };
+  /**
+   * **可选。** 查不到有来源的总部就不填 —— R21 会一直警告，但**编一个城市比空着更糟**。
+   * 类型里原来写成必填，而数据早就允许缺（新收的几家小厂就没有），
+   * 于是「schema 说可选、类型说必填、代码当必填」，统计那行直接 `o.hq.country` 崩了。
+   */
+  hq?: { city: string; country: string; iso: string; lat: number; lon: number };
   /** 有来源才算核过。没有就是「按常识填的」。 */
   hq_src?: string;
   /** 定位精度：exact / province / ambiguous / null。10 家仍未定到城市级（待办 H2）。 */

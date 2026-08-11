@@ -105,7 +105,7 @@ function notes(w) {
   const alias = a.capabilities.find((c) => c.alias_bit_us) ?? a.capabilities.find((c) => (c.aliases ?? []).length >= 5);
   const older = (a.availability ?? []).filter((v) => v.match === "older").length;
   const geo = {};
-  for (const m of models) { const o = org(m); if (o) geo[o.hq.country] = (geo[o.hq.country] ?? 0) + 1; }
+  for (const m of models) { const o = org(m); if (o?.hq) geo[o.hq.country] = (geo[o.hq.country] ?? 0) + 1; }   // 同上
 
   const items = [
     [`⬜ 不是平摊的`,

@@ -853,6 +853,76 @@
     "lon": -122.4194
    },
    "note": "总部为公开常识，无官方来源"
+  },
+  {
+   "id": "microsoft",
+   "zh": "微软",
+   "name": "Microsoft",
+   "kind": "bigtech",
+   "hq": {
+    "city": "Redmond",
+    "country": "United States",
+    "iso": "US",
+    "lat": 47.674,
+    "lon": -122.122
+   },
+   "note": "Lens / Mage-Flow 出自 Microsoft Research；MAI-Image 是产品侧另一条线"
+  },
+  {
+   "id": "nvidia",
+   "zh": "英伟达",
+   "name": "NVIDIA",
+   "kind": "bigtech",
+   "hq": {
+    "city": "Santa Clara",
+    "country": "United States",
+    "iso": "US",
+    "lat": 37.354,
+    "lon": -121.955
+   },
+   "note": "PixelDiT：不走 VAE 的像素空间扩散，和主流 latent 那一支是两条路"
+  },
+  {
+   "id": "baidu",
+   "zh": "百度",
+   "name": "Baidu",
+   "kind": "bigtech",
+   "hq": {
+    "city": "Beijing",
+    "country": "中国",
+    "iso": "CN",
+    "lat": 40.057,
+    "lon": 116.307
+   },
+   "note": "文心 ERNIE 系列的出图分支"
+  },
+  {
+   "id": "hidream",
+   "zh": "智象未来",
+   "name": "HiDream.ai",
+   "kind": "startup",
+   "note": "HiDream-I1 / E1 / O1"
+  },
+  {
+   "id": "boogu",
+   "zh": "Boogu",
+   "name": "Boogu",
+   "kind": "startup",
+   "note": "Boogu-Image，Apache-2.0 的生成+编辑统一模型"
+  },
+  {
+   "id": "newbie",
+   "zh": "NewBie AI",
+   "name": "NewBie AI Lab",
+   "kind": "startup",
+   "note": "NewBie-image，二次元向"
+  },
+  {
+   "id": "circlestone",
+   "zh": "Circlestone Labs",
+   "name": "Circlestone Labs",
+   "kind": "startup",
+   "note": "Anima"
   }
  ],
  "$orgs": "公司是**一等实体**，不是模型上的一个字符串（此前 vendor 是字符串，结果阿里在库里成了两家）。产业链图、地球分布、投资关系全都挂在这一层上。\n**hq 只有 5 家有来源，其余 6 家仍然没有** —— 都是公开常识，但我们自己的规矩是「没有来源的结论就是猜的」，所以校验里 R21 会一直警告，前台也必须标出来。不许因为「大家都知道」就当成核过了。\n\n2026-08-08 补：从已有快照和官网拿到 5 家的可引证据，但**精度分三档**，写进 `hq_precision`：\n  exact     —— 页脚给出具体街道地址（只有字节）\n  province  —— **ICP 备案只证到省**（快手/MiniMax/阿里）。阿里那条只证到浙江，没证到杭州\n  ambiguous —— 招聘页同时列两个城市（Runway 的纽约与旧金山）\n\n剩下 6 家（生数、昆仑万维、Google DeepMind、OpenAI、Decart、Lightricks）没拿到：\n**生数官网 HTTPS 证书已过期**（ERR_CERT_DATE_INVALID）—— 这条本身就是信息；\n其余几家的 about/contact 页没有可机读的地址段。R21 会一直为它们报警告。\n\n**不许把 province 当成 exact 用。** 我们批评厂商「说了半句」的时候，自己不能也说半句。",
@@ -1604,6 +1674,162 @@
    "weights": "closed",
    "version_src": "recraft-docs",
    "status_note": "官方文档原文：「V4.1 is the latest generation」。⚠️ 官方文档未标发布日期，version_as_of 记的是核验日"
+  },
+  {
+   "id": "hidream",
+   "class": "still",
+   "family": "HiDream-I1",
+   "zh": "智象 HiDream",
+   "org": "hidream",
+   "version": "O1-Image",
+   "version_as_of": "2026-05-08",
+   "status": "active",
+   "tier": "extended",
+   "domain": "image",
+   "weights": "open",
+   "team": "HiDream.ai",
+   "arch": "dit",
+   "arch_basis": "common",
+   "weights_note": "I1 / E1 / O1 三代都是 MIT —— 这批里最宽松的一档",
+   "arch_note": "ComfyUI 官方教程写「17B parameters」并归在 DiT 那一支。"
+  },
+  {
+   "id": "ernie-image",
+   "class": "still",
+   "family": "ERNIE-Image",
+   "zh": "文心图像",
+   "org": "baidu",
+   "version": "Aes",
+   "version_as_of": "2026-05-18",
+   "status": "active",
+   "tier": "extended",
+   "domain": "image",
+   "weights": "open",
+   "team": "百度文心",
+   "arch": "dit",
+   "arch_basis": "common",
+   "weights_note": "apache-2.0",
+   "arch_note": "ComfyUI 官方教程：「Built on an 8B parameter Diffusion Transformer (DiT)」。"
+  },
+  {
+   "id": "ovis-image",
+   "class": "still",
+   "family": "Ovis-Image",
+   "zh": "Ovis 图像",
+   "org": "alibaba",
+   "version": "7B",
+   "version_as_of": "2025-11-28",
+   "status": "active",
+   "tier": "extended",
+   "domain": "image",
+   "weights": "open",
+   "team": "AIDC-AI",
+   "arch": "dit",
+   "arch_basis": "common",
+   "arch_note": "ComfyUI 官方教程：7B，建在 Ovis-U1 之上，专攻出字。"
+  },
+  {
+   "id": "lens",
+   "class": "still",
+   "family": "Lens",
+   "zh": "微软 Lens",
+   "org": "microsoft",
+   "version": "Lens",
+   "version_as_of": "2026-05-23",
+   "status": "active",
+   "tier": "extended",
+   "domain": "image",
+   "weights": "open",
+   "team": "Microsoft",
+   "arch": "dit",
+   "arch_basis": "common",
+   "weights_note": "MIT；官方 HF 仓库是 **gated**（要先同意条款），我们只拿到了 ComfyUI 镜像的日期",
+   "arch_note": "ComfyUI 官方教程：「dual-stream MMDiT 架构 + GPT-OSS-20B 文本编码器 + FLUX.2 semantic VAE」。"
+  },
+  {
+   "id": "mage-flow",
+   "class": "still",
+   "family": "Mage-Flow",
+   "zh": "Mage-Flow",
+   "org": "microsoft",
+   "version": "Mage-Flow",
+   "version_as_of": "2026-07-24",
+   "status": "active",
+   "tier": "extended",
+   "domain": "image",
+   "weights": "open",
+   "team": "Microsoft Research",
+   "arch": "dit",
+   "arch_basis": "common",
+   "weights_note": "官方 HF 仓库 gated，日期取 ComfyUI 镜像",
+   "arch_note": "ComfyUI 官方教程：「compact 4B-scale generative stack … two co-designed components」，出图与指令改图一体。"
+  },
+  {
+   "id": "pixeldit",
+   "class": "still",
+   "family": "PixelDiT",
+   "zh": "PixelDiT",
+   "org": "nvidia",
+   "version": "1300M-1024px",
+   "version_as_of": "2026-03-30",
+   "status": "active",
+   "tier": "extended",
+   "domain": "image",
+   "weights": "open",
+   "team": "NVIDIA",
+   "arch": "dit",
+   "arch_basis": "common",
+   "arch_note": "**不走 VAE 的像素空间 DiT** —— 官方教程原话「operates directly in pixel space: no VAE encode/decode required」，和主流 latent 扩散是两条路。"
+  },
+  {
+   "id": "anima",
+   "class": "still",
+   "family": "Anima",
+   "zh": "Anima",
+   "org": "circlestone",
+   "version": "Anima",
+   "version_as_of": "2026-01-29",
+   "status": "active",
+   "tier": "extended",
+   "domain": "image",
+   "weights": "open",
+   "team": "Circlestone Labs",
+   "weights_note": "HF 下载 75 万次 —— 这批新收里传播最广的一个"
+  },
+  {
+   "id": "boogu-image",
+   "class": "still",
+   "family": "Boogu-Image",
+   "zh": "Boogu 图像",
+   "org": "boogu",
+   "version": "0.1-Turbo",
+   "version_as_of": "2026-06-16",
+   "status": "active",
+   "tier": "extended",
+   "domain": "image",
+   "weights": "open",
+   "team": "Boogu",
+   "arch": "dit",
+   "arch_basis": "common",
+   "weights_note": "apache-2.0",
+   "arch_note": "ComfyUI 官方教程：「unified image generation and editing model family」，理解与生成一体。"
+  },
+  {
+   "id": "newbie-image",
+   "class": "still",
+   "family": "NewBie-image",
+   "zh": "NewBie 图像",
+   "org": "newbie",
+   "version": "Exp0.1",
+   "version_as_of": "2025-11-30",
+   "status": "active",
+   "tier": "extended",
+   "domain": "image",
+   "weights": "open",
+   "team": "NewBieAI Lab",
+   "arch": "dit",
+   "arch_basis": "common",
+   "arch_note": "ComfyUI 官方教程：「3.5B parameter DiT … Built on the Next-DiT architecture」，二次元向。"
   }
  ],
  "sources": {
@@ -6130,6 +6356,139 @@
    "src": "mj-updates",
    "quote": "V8 is an incredible model. It's much better at following detailed directions and will still surprise you when you ask.",
    "parent": "midjourney-V7-Draft Mode 与 Omni Reference"
+  },
+  {
+   "id": "hidream-HiDream-I1-17B 出图底座，MIT",
+   "m": "hidream",
+   "version": "HiDream-I1",
+   "date": "2025-04-06",
+   "added": "17B 出图底座，MIT",
+   "src": "comfy-docs",
+   "quote": "HiDream-I1 is a text-to-image model officially open-sourced by HiDream-ai on April 7, 2025. The model has 17B parameters and is released under the MIT license"
+  },
+  {
+   "id": "hidream-HiDream-E1.1-按指令改图的分支",
+   "m": "hidream",
+   "version": "HiDream-E1.1",
+   "date": "2025-07-16",
+   "added": "按指令改图的分支",
+   "src": "hf-image-org",
+   "quote": "HiDream-ai/HiDream-E1-1（官方 HF 组织 createdAt 2025-07-16，MIT）",
+   "parent": "hidream-HiDream-I1-17B 出图底座，MIT"
+  },
+  {
+   "id": "hidream-HiDream-O1-Image-这一代加了推理",
+   "m": "hidream",
+   "version": "HiDream-O1-Image",
+   "date": "2026-05-08",
+   "added": "这一代加了推理",
+   "src": "hf-image-org",
+   "quote": "HiDream-ai/HiDream-O1-Image（官方 HF 组织 createdAt 2026-05-08，MIT）",
+   "parent": "hidream-HiDream-E1.1-按指令改图的分支"
+  },
+  {
+   "id": "ernie-image-ERNIE-Image-Turbo-快档先出",
+   "m": "ernie-image",
+   "version": "ERNIE-Image-Turbo",
+   "date": "2026-04-02",
+   "added": "快档先出",
+   "src": "hf-image-org",
+   "quote": "baidu/ERNIE-Image-Turbo（官方 HF 组织 createdAt 2026-04-02）"
+  },
+  {
+   "id": "ernie-image-ERNIE-Image-8B DiT 正式档，apache-2.0",
+   "m": "ernie-image",
+   "version": "ERNIE-Image",
+   "date": "2026-04-07",
+   "added": "8B DiT 正式档，apache-2.0",
+   "src": "comfy-docs",
+   "quote": "ERNIE-Image is an open text-to-image model by Baidu, licensed under Apache-2.0. Built on an 8B parameter Diffusion Transformer (DiT)",
+   "parent": "ernie-image-ERNIE-Image-Turbo-快档先出"
+  },
+  {
+   "id": "ernie-image-ERNIE-Image-Aes-审美取向的调校档",
+   "m": "ernie-image",
+   "version": "ERNIE-Image-Aes",
+   "date": "2026-05-18",
+   "added": "审美取向的调校档",
+   "src": "hf-image-org",
+   "quote": "baidu/ERNIE-Image-Aes（官方 HF 组织 createdAt 2026-05-18，apache-2.0）",
+   "parent": "ernie-image-ERNIE-Image-8B DiT 正式档，apache-2.0"
+  },
+  {
+   "id": "ovis-image-Ovis-Image-7B-7B 专攻图上出字",
+   "m": "ovis-image",
+   "version": "Ovis-Image-7B",
+   "date": "2025-11-28",
+   "added": "7B 专攻图上出字",
+   "src": "comfy-docs",
+   "quote": "Ovis-Image is a 7B text-to-image model built upon Ovis-U1, specifically optimized for high-quality text rendering."
+  },
+  {
+   "id": "lens-Lens-双流 MMDiT + FLUX.2 的 VAE",
+   "m": "lens",
+   "version": "Lens",
+   "date": "2026-05-23",
+   "added": "双流 MMDiT + FLUX.2 的 VAE",
+   "src": "comfy-docs",
+   "quote": "Lens is an open text-to-image model by Microsoft, licensed under MIT. With 3.8 billion parameters, it uses a dual-stream MMDiT architecture with GPT-OSS-20B text encoder features and the FLUX.2 semantic VAE",
+   "note": "官方仓库 gated，日期取 ComfyUI 官方镜像 Comfy-Org/Lens 的 createdAt（2026-05-23）—— 误差在月内。"
+  },
+  {
+   "id": "mage-flow-Mage-Flow-4B 出图与指令改图一体",
+   "m": "mage-flow",
+   "version": "Mage-Flow",
+   "date": "2026-07-24",
+   "added": "4B 出图与指令改图一体",
+   "src": "comfy-docs",
+   "quote": "Mage-Flow is a compact 4B-scale generative stack from Microsoft Research for efficient text-to-image generation and instruction-based image editing.",
+   "note": "官方仓库 gated，日期取 ComfyUI 官方镜像 Comfy-Org/Mage-Flow 的 createdAt（2026-07-24）。"
+  },
+  {
+   "id": "pixeldit-PixelDiT-1300M-1024px-**不用 VAE，直接在像素空间扩散**",
+   "m": "pixeldit",
+   "version": "PixelDiT-1300M-1024px",
+   "date": "2026-03-30",
+   "added": "**不用 VAE，直接在像素空间扩散**",
+   "src": "comfy-docs",
+   "quote": "PixelDiT is NVIDIA's pixel-space diffusion transformer for 1024px text-to-image generation. It operates directly in pixel space: no VAE encode/decode required."
+  },
+  {
+   "id": "anima-Anima-—",
+   "m": "anima",
+   "version": "Anima",
+   "date": "2026-01-29",
+   "added": "—",
+   "src": "hf-image-org",
+   "quote": "circlestone-labs/Anima（官方 HF 组织 createdAt 2026-01-29，下载 75 万）"
+  },
+  {
+   "id": "boogu-image-Boogu-Image-0.1-生成与编辑合到一个模型，apache-2.0",
+   "m": "boogu-image",
+   "version": "Boogu-Image-0.1",
+   "date": "2026-06-16",
+   "added": "生成与编辑合到一个模型，apache-2.0",
+   "src": "comfy-docs",
+   "quote": "Boogu-Image-0.1 is an Apache-2.0 open-source unified image generation and editing model family."
+  },
+  {
+   "id": "boogu-image-Boogu-Image-0.1-Edit-Turbo-改图的快档",
+   "m": "boogu-image",
+   "version": "Boogu-Image-0.1-Edit-Turbo",
+   "date": "2026-06-30",
+   "added": "改图的快档",
+   "src": "hf-image-org",
+   "quote": "Boogu/Boogu-Image-0.1-Edit-Turbo（官方 HF 组织 createdAt 2026-06-30，apache-2.0）",
+   "parent": "boogu-image-Boogu-Image-0.1-生成与编辑合到一个模型，apache-2.0"
+  },
+  {
+   "id": "newbie-image-NewBie-image-Exp0.1-3.5B Next-DiT，二次元向",
+   "m": "newbie-image",
+   "version": "NewBie-image-Exp0.1",
+   "date": "2025-11-30",
+   "added": "3.5B Next-DiT，二次元向",
+   "src": "comfy-docs",
+   "quote": "NewBie-image-Exp0.1 is a 3.5B parameter DiT model developed by NewBieAI Lab for anime-style text-to-image generation. Built on the Next-DiT architecture"
   }
  ],
  "$versions": "版本谱系（演进图的数据）。**演进的主体是模型，不是能力。**\n\n原来那张演进图每行是一项能力、横轴是「我们能证明的最早时间」、粗细是几家支持。\n读者看完只得到「动作复刻 2025-12 出现、6/9 支持」—— 那是一次数据库查询的可视化，不涨知识。\n而且它得靠图注免责（「不是业界首次出现」）：**一张需要图注免责的图，说明它量错了东西。**\n\n这份数据画的是**厂商自己发布的版本和日期**，所以不需要免责。每条必须回答：\n**这一代新增了什么。** 只有版本号没有 added 的节点没有价值，不收。\n\n两个最好的来源，都不是「新闻」：\n  · **官方 Hugging Face 组织** —— 模型名本身就编码了能力与代际\n    （Wan2.1-FLF2V＝首尾帧、Wan2.2-S2V＝语音驱动、LTX 的 IC-LoRA-Ingredients＝角色参考），\n    发布时间由 HF API 给出，比任何新闻稿都准。\n  · **官方 API 更新日志** —— 可灵那份 31k 字符里有 170 条带日期的条目。\n\n覆盖不全是事实：万相和可灵能画出完整谱系，Runway/Vidu/Seedance 只有近期几个点，\nVeo/Sora/海螺/LTX 还没有。**图上要标出哪几条线是完整的、哪几条只是片段** ——\n画一条只有两个点的线却不说明，读者会以为这家两年只更新过两次。\n\n`cap` 把版本节点挂到能力 id 上，图上「点一项能力，看各家谁先谁后」靠它。\n**对不上的一律留空并写明理由（cap_skip），不硬凑** —— 硬凑一个 id，纵向那一刀就切错了。\n典型：Wan 的 S2V 是「语音驱动」，不等于我们轴上的「对口型」，两件事不合并；\n「换代」节点本身也不是新增单项能力。\n\n`id` + `parent` 把平铺记录变成**真的树**。分叉是真实存在的：\nWan2.1 底座上同时长出 FLF2V（首尾帧）和 VACE（统一编辑）两个变体，\nWan2.2 是换代接在 2.1 后面，Animate-2 又接在 Animate 后面。\n\n**没有父节点的就让它当根，不许为了让树好看硬接一条边** ——\nRunway 的 Aleph 是编辑线，不是 Gen 的后代，它自己是一棵树。\n\n⚠️ **日期必须取 HF 的 `createdAt`，不能取 `lastModified`。**\n第一版取错了字段，把「最后修改」当成了发布日期：Wan2.2 记成 2025-08-07（实际 2025-07-18）、\nAnimate 记成 2025-11-05（实际 2025-09-11）——**差了两个月**。\n仓库发布后还会被反复更新，两个字段根本不是一回事。\n这类错最阴：日期看着合理、图也画得出来，但整条时间线是歪的。\n\n覆盖不足要**写在数据里**，不是靠图上一句话糊过去：\n模型的 `lineage_note` 解释为什么它的节点少（太新 / 官方记录只回溯到某时）。\n校验 R58 强制：**核心模型少于 3 个节点却没写理由，就是错**。\n「我们没采到」和「它本来就没有」是两回事，读者有权知道是哪一种。",

@@ -84,7 +84,16 @@ const orgIds = new Set((a.orgs ?? []).map((o) => o.id));
 if (orgIds.size !== (a.orgs ?? []).length) errs.push("R20a orgs 里有重复 id");
 for (const o of a.orgs ?? []) {
   if (o.parent && !orgIds.has(o.parent) && o.parent !== "alphabet") errs.push(`R22 parent 指向不存在的公司：${o.id} → ${o.parent}`);
-  if (!o.hq?.lat || !o.hq?.lon) errs.push(`R23 缺经纬度，地球上画不出来：${o.id}`);
+  /**
+   * **「不知道它在哪」和「填了但填不全」是两回事。**
+   *
+   * 新收的几家小厂（HiDream / Boogu / NewBie / Circlestone）公开渠道查不到可靠总部 ——
+   * HiDream 的报道里合肥与北京都出现过。**与其钉一个可能错的城市，不如承认不知道**，
+   * 和 ⬜「官方没说」同一条纪律。所以整块 `hq` 缺失只警告，地球上先不画它；
+   * 填了却缺经纬度仍是错误，那是数据自己不自洽。
+   */
+  if (!o.hq) warns.push(`R23 总部未知，地球上先不画：${o.zh}`);
+  else if (!o.hq.lat || !o.hq.lon) errs.push(`R23 填了总部却缺经纬度，地球上画不出来：${o.id}`);
   // **不许因为「大家都知道」就当成核过了** —— 那正是我们批评别人的那件事。
   if (!o.hq_src) warns.push(`R21 总部没有来源，只是常识：${o.zh}`);
   // 有来源不等于证到位：ICP 备案只证到省，招聘页可能同时列两个城市。
@@ -389,7 +398,7 @@ for (const [cls, t] of Object.entries(perClass))
 const older = (a.availability ?? []).filter((v) => v.match === "older").length;
 console.log(`平台 ${(a.platforms ?? []).length} 个 · 可用性 ${(a.availability ?? []).length} 条（其中 ${older} 条上架的不是当前主力版本）`);
 const geo = {};
-for (const m of a.models) { const o = (a.orgs ?? []).find((x) => x.id === m.org); if (o) geo[o.hq.country] = (geo[o.hq.country] ?? 0) + 1; }
+for (const m of a.models) { const o = (a.orgs ?? []).find((x) => x.id === m.org); if (o?.hq) geo[o.hq.country] = (geo[o.hq.country] ?? 0) + 1; }   // hq 可缺 —— 缺就不进地理统计，别崩
 const d = {};
 for (const pf of a.platforms ?? []) d[pf.discloses] = (d[pf.discloses] ?? 0) + 1;
 console.log(`平台透明度：🟢公示 ${d.yes ?? 0} · 🟡部分 ${d.partial ?? 0} · 🔴不提 ${d.no ?? 0} · ⬜我们没看到 ${d.blocked ?? 0} · 不适用 ${d["n/a"] ?? 0}`);

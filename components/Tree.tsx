@@ -266,6 +266,8 @@ export default function Tree({ domain }: { domain: string }) {
     const offset = (usable - slotW * ordered.length) / 2;
     return ordered.map((l, i) => ({
       ...l,
+      idx: i,
+      slotW,
       cx: PAD.l + offset + slotW * (i + 0.5),
       band: slotW * 0.72,           // 带内分叉铺开的宽度，留 28% 做间隙
       color: ORG_HUE[l.model.org] ?? FALLBACK,
@@ -501,7 +503,16 @@ export default function Tree({ domain }: { domain: string }) {
        * 起点下方是整张图唯一空着的地方，挪过去这类争抢就不存在了。
        */
       const below = isBot;
-      const forceLeft = isTop && roomOnLeft(p.x, w);
+      /**
+       * **格子比标签还窄时，顶端标签要左右交替。**
+       *
+       * 末标签一律靠左的规矩是 16 条线时定的（每格 75px）。图像方向收到 22 条之后
+       * 每格只剩 47px，而标签宽七十来像素 —— **每一个都伸进左邻居家里**，
+       * 于是相邻两条线的顶端标签必然抢同一块地（Ovis-Image ⨯ NewBie-image）。
+       * 按序号奇偶分左右，相邻两条就朝相反方向让开。
+       */
+      const narrow = (l?.slotW ?? 999) < w;
+      const forceLeft = isTop && roomOnLeft(p.x, w) && !(narrow && (l?.idx ?? 0) % 2 === 1);
       let side: 1 | -1 | 0 = below ? 0 : forceLeft ? -1 : 1;
       let ny = below ? p.y + 15 : p.y;
       /**
@@ -524,6 +535,14 @@ export default function Tree({ domain }: { domain: string }) {
         placed.some((q) => Math.abs(yy - q.y) < q.h + MINE && x0 < q.x1 && q.x0 < x1);
       const xOf = () => (side === 0 ? p.x - w / 2 : side === 1 ? p.x + 7 : p.x - 7 - w);
       /**
+       * **上抬有天花板。** 22 条产品线时「Boogu-Image」一路让到 y = -8，
+       * 顶端被画布切掉一半 —— 而重叠检查照样是 0：**它量的是矩形有没有相交，
+       * 量不到「这块字已经不在画面里了」**。
+       * 撞到天花板就改成往下让；下方是自己那条线，挤但不至于看不见。
+       */
+      const TOP = 12;
+      let dir = -1;
+      /**
        * 试的次数从 16 提到 48。**16 次不是「够用」，是「放弃得早」** ——
        * 试满之后这个循环会带着最后一个（仍然撞着的）位置退出，**标签就原地落下、
        * 直接压在别人身上**。视频树的 Lightricks、轴压到 460 后图像树右侧那三个
@@ -533,10 +552,11 @@ export default function Tree({ domain }: { domain: string }) {
       for (let g = 0; g < 48; g++) {
         const x0 = xOf();
         if (!hit(x0, x0 + w, ny)) break;
+        if (ny + dir * BAND < TOP) dir = 1;              // 抬到头了，掉头往下让
         if (below) ny += BAND;                           // 起点标签往下让，那边是空的
-        else if (forceLeft) ny -= BAND;                  // 末标签只上抬，不翻到右边
+        else if (forceLeft) ny += dir * BAND;            // 末标签不翻到右边，只上下让
         else if (side === 1) side = -1;
-        else { side = 1; ny -= BAND; }
+        else { side = 1; ny += dir * BAND; }
       }
       const fx0 = xOf();
       placed.push({ x0: fx0, x1: fx0 + w, y: ny, h: MINE });
