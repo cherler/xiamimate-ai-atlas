@@ -40,26 +40,41 @@ export default async function DomainHome({ params }: { params: Promise<{ domain:
    */
   return (
     <main data-page="domain" className="max-w-[1400px] mx-auto px-6 py-8">
+      {/**
+       * **页面标题和分卷标题是两件事，之前挤在同一个 `<h1>` 里。**
+       *
+       * 原来第一卷没有自己的标题 —— 它的位置被「AI 视频 · 能力核验规格书」占了，
+       * 「第一卷 · 离线出片轨」被挤成一行 15px 的副标题；而第二卷因为不用带页面标题，
+       * 拿到的是一个 38px 的 `<h1>`。**同一层级的两卷，一个 15px 一个 38px**，
+       * 而且一页上出现了两个 `<h1>`。负责人 2026-08-11 一眼看出来。
+       *
+       * 现在页面标题独立成唯一的 `<h1>`，三个区块（第一卷 / 第二卷 / 自己上手查）
+       * 统一用 26px 的 `<h2>` —— 它们本来就是平级的。
+       */}
+      <header className="flex items-end gap-4 border-b-[2.5px] border-ink pb-2.5">
+        <h1 className="text-[38px] leading-[1.05] font-bold tracking-[-.01em]">
+          {d.name} · 能力核验规格书
+        </h1>
+        <div className="ml-auto text-right text-[12px] leading-[1.7] text-muted whitespace-nowrap">
+          核验于 {atlas.generated_at}
+          <br />
+          产品线 {models.length} 条
+          <br />
+          引用官方来源 {Object.keys(atlas.sources).length} 处
+        </div>
+      </header>
+
       {tracks.map((t, i) => (
-        <section key={t.id} className={i ? "mt-14" : ""}>
-          <header className="flex items-end gap-4 border-b-[2.5px] border-ink pb-2.5">
-            <h1 className="text-[38px] leading-[1.05] font-bold tracking-[-.01em]">
-              {i === 0 ? `${d.name} · 能力核验规格书` : `${t.volume ?? ""} · ${t.zh}`}
-              <span className="block text-[15px] leading-[1.3] font-normal text-muted mt-2">
-                {i === 0 ? [t.volume, t.zh].filter(Boolean).join(" · ") : ""}
-                {i === 0 && t.note ? ` —— ${t.note}` : ""}
-                {i > 0 ? t.note : ""}
-              </span>
-            </h1>
-            {i === 0 && (
-              <div className="ml-auto text-right text-[12px] leading-[1.7] text-muted whitespace-nowrap">
-                核验于 {atlas.generated_at}
-                <br />
-                产品线 {models.length} 条
-                <br />
-                引用官方来源 {Object.keys(atlas.sources).length} 处
-              </div>
-            )}
+        <section key={t.id} className={i ? "mt-14" : "mt-8"}>
+          <header className="border-b border-ink/45 pb-2">
+            <h2 className="text-[26px] leading-[1.15] font-bold tracking-[-.01em]">
+              {[t.volume, t.zh].filter(Boolean).join(" · ")}
+              {t.note && (
+                <span className="block text-[14px] leading-[1.4] font-normal text-muted mt-1.5">
+                  {t.note}
+                </span>
+              )}
+            </h2>
           </header>
           <div className="mt-4">
             <TruthTable k={t.id} />
@@ -82,10 +97,11 @@ export default async function DomainHome({ params }: { params: Promise<{ domain:
 
       {hasExplorer && (
         <section className="mt-14">
-          <header className="border-b-[2.5px] border-ink pb-2.5">
-            <h2 className="text-[38px] leading-[1.05] font-bold tracking-[-.01em]">
+          <header className="border-b border-ink/45 pb-2">
+            {/* 和上面两卷同一号字 —— 它们是平级的三个区块 */}
+            <h2 className="text-[26px] leading-[1.15] font-bold tracking-[-.01em]">
               自己上手查
-              <span className="block text-[15px] leading-[1.3] font-normal text-muted mt-2">
+              <span className="block text-[14px] leading-[1.4] font-normal text-muted mt-1.5">
                 点右边一项能力看谁实现了它，点左边两个模型比一比 —— 或者直接搜一个问题
               </span>
             </h2>
