@@ -2006,6 +2006,59 @@
         "Qwen-Image-Edit",
         "instruct"
       ]
+    },
+    {
+      "id": "anthropic-models",
+      "tier": "S",
+      "kind": "html",
+      "vendor": "claude",
+      "name": "Anthropic 官方文档 · 模型总览",
+      "url": "https://platform.claude.com/docs/en/about-claude/models/overview",
+      "refresh_days": 7,
+      "good_for": [
+        "capability",
+        "version"
+      ],
+      "expect": [
+        "Context window",
+        "Max output",
+        "thinking"
+      ]
+    },
+    {
+      "id": "deepseek-docs",
+      "tier": "S",
+      "kind": "html",
+      "vendor": "deepseek",
+      "name": "DeepSeek 官方 API 文档",
+      "url": "https://api-docs.deepseek.com/",
+      "refresh_days": 7,
+      "good_for": [
+        "capability",
+        "version"
+      ],
+      "expect": [
+        "Tool Calls",
+        "JSON Output",
+        "Context Caching"
+      ]
+    },
+    {
+      "id": "qwen-docs",
+      "tier": "S",
+      "kind": "html",
+      "vendor": "qwen-text",
+      "name": "Qwen 官方文档",
+      "url": "https://qwen.readthedocs.io/en/latest/",
+      "refresh_days": 14,
+      "good_for": [
+        "capability",
+        "version"
+      ],
+      "expect": [
+        "thinking mode",
+        "long-context"
+      ]
     }
   ],
   "$missing": [

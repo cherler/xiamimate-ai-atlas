@@ -54,7 +54,9 @@ export default async function ScenarioPage({ params }: { params: Promise<{ domai
         /* 应用层是逐个人工定的，图像方向还一个都没定 —— 说清楚，不摆空板子 */
         <div className="mt-6 border border-unknown/40 bg-unknown/6 p-5 text-[14px] leading-relaxed">
           <b>这个方向还没定应用。</b>
-          {" "}应用是「用户要交付的东西」（AI 短剧、带货视频那种），
+          {/* 别在这儿举别的方向的应用名当例子 —— 方向隔离检查会（正确地）判成串味。
+              这是我们自己的措辞，改词就好，不该去放宽检查。 */}
+          {" "}应用是「用户要交付的东西」，不是能力名的同义改写；
           得逐个从行业用词里核出来 —— {d.name}这边还一个都没定。
           <b className="text-ink"> 空着，不摆一块空板子装样子。</b>
         </div>

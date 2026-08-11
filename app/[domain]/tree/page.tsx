@@ -71,7 +71,7 @@ export default async function TreePage({ params }: { params: Promise<{ domain: s
         /* **没有数据就说没有，不画一棵空树。** 空图比没有图更让人以为「这个方向没东西长出来」。 */
         <div className="mt-6 border border-unknown/40 bg-unknown/6 p-5 text-[14px] leading-relaxed">
           <b>这个方向还没采谱系。</b>
-          {" "}演化树的每个点都要一条**厂商官方发布记录**（日期 + 这一代新增了什么），
+          {" "}演化树的每个点都要一条<b className="text-ink">厂商官方发布记录</b>（日期 + 这一代新增了什么），
           {d.name}这边我们一条都还没采 —— <b className="text-ink">所以这里是空的，不是它没有历史。</b>
         </div>
       )}

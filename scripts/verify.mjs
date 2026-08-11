@@ -352,9 +352,36 @@ const mentions = (txt, name) => {
         })()`);
       } catch { txt = ""; }
       const mine = path.split("/")[1];
+      /**
+       * **先把本方向合法出现的名字抠掉，再在剩下的里找外来名。**
+       *
+       * 加了 AI 文本之后，新方向的产品线名正好是旧方向的前缀：
+       * `Gemini` ⊂「Gemini Omni Flash」、`MiniMax` ⊂「MiniMax Hailuo」、
+       * `GPT` ⊂「GPT Image」、`Qwen` ⊂「Qwen-Image」。词边界救不了这一类 ——
+       * 「Gemini」后面跟的是空格，边界成立，于是每个视频页都被报「混入 Gemini」。
+       *
+       * 判据得升一级：**这次出现，是不是本页某个更长的名字的一部分**。
+       * 按长度从长到短抠掉本方向的名字，剩下的文本里再出现外来名，才是真漏。
+       */
+      /**
+       * 要抠掉的不只是产品线名，还有**本方向的版本号和公司名** ——
+       * 「GPT-image-2」里含 GPT、「MiniMax Hailuo」那一列下面写着公司「MiniMax」，
+       * 而 GPT / MiniMax 又正好是文本那一卷的产品线名。
+       * 公司是跨方向共用的实体，它出现在任何一页都合法。
+       */
+      const own = [
+        ...(raw.models ?? []).filter((m) => (m.domain ?? "video") === mine)
+          .flatMap((m) => [m.family, m.version].filter(Boolean)),
+        ...(raw.orgs ?? []).flatMap((o) => [o.name, o.zh].filter(Boolean)),
+        ...(raw.versions ?? []).filter((v) =>
+          (raw.models ?? []).some((m) => m.id === v.m && (m.domain ?? "video") === mine))
+          .map((v) => v.version),
+      ].sort((a, b) => b.length - a.length);
+      let rest = txt;
+      for (const n of own) rest = rest.split(n).join("§");
       const foreign = (raw.models ?? [])
         .filter((m) => (m.domain ?? "video") !== mine).map((m) => m.family);
-      const hit = foreign.filter((n) => mentions(txt, n));
+      const hit = foreign.filter((n) => mentions(rest, n));
       ok(hit.length === 0, `${path} 没有混入别的方向的模型${hit.length ? `：${hit.join("、")}` : ""}`);
 
       /**
@@ -384,7 +411,10 @@ const mentions = (txt, name) => {
       ok(starred.length === 0,
         `${path} 没有把 ** 原样印出来${starred.length ? `：${starred.slice(0, 3).join("、")}` : ""}`);
 
-      const capHit = alienCaps.filter((n) => mentions(txt, n));
+      const mineCapNames = [...mineCaps].sort((a, b) => b.length - a.length);
+      let restCap = txt;
+      for (const n of mineCapNames) restCap = restCap.split(n).join("§");
+      const capHit = alienCaps.filter((n) => mentions(restCap, n));
       ok(capHit.length === 0, `${path} 没有混入别的方向的能力${capHit.length ? `：${capHit.join("、")}` : ""}`);
 
       /**
@@ -439,6 +469,17 @@ const mentions = (txt, name) => {
         return {n:t.length, ov, eg};
       })()`);
     } catch { /* 页面打不开由别处的断言负责报 */ }
+    /**
+     * **没有谱系的方向不该判失败。** 新开一个方向时谱系一定是空的（AI 文本就是），
+     * 那时候树画的是空状态，标签为 0 是**正确行为**。
+     * 把「还没采」判成「坏了」，只会逼人去糊一个假的谱系上去。
+     */
+    // 这一节用的是 raw2（本块自己读的那份），别拿方向隔离那块的 raw —— 不在作用域里
+    const hasVers = (raw2.versions ?? []).some((v) =>
+      (raw2.models ?? []).some((m) => m.id === v.m && (m.domain ?? "video") === d.id));
+    if (!hasVers) {
+      ok(true, `${d.id} 还没有谱系，树是空状态（不是故障）`);
+    } else {
     ok(r.n > 0, `${d.id} 的树画出来了（可见标签 ${r.n} 个）`);
     ok(r.ov === 0, `${d.id} 的树标签零重叠${r.ov ? `：${r.ov} 对，例 ${r.eg.join("、")}` : ""}`);
     /**
@@ -462,6 +503,7 @@ const mentions = (txt, name) => {
     } catch { /* 同上 */ }
     ok(outside.length === 0,
       `${d.id} 的树标签都在画布里${outside.length ? `：${outside.slice(0, 3).join("、")} 溢出` : ""}`);
+    }
     await page.close();
   }
 }

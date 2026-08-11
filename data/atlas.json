@@ -530,6 +530,208 @@
     "Open Weights"
    ],
    "since_note": "沿用视频轴的同名能力：**权重公不公开与能力无关，但它决定你能不能自己跑**"
+  },
+  {
+   "id": "t-think",
+   "class": "chat",
+   "domain": "text",
+   "name": "Extended thinking",
+   "zh": "推理档",
+   "group": "生成",
+   "ubiquity": "已普及",
+   "aliases": [
+    "Extended thinking",
+    "Adaptive thinking",
+    "reasoning_effort",
+    "Thinking",
+    "thinking mode"
+   ],
+   "since_note": "Anthropic「Extended thinking / Adaptive thinking」· OpenAI「Reasoning: none…max」· Google「Thinking」· DeepSeek「reasoning_effort」· Qwen「thinking mode」"
+  },
+  {
+   "id": "t-long",
+   "class": "chat",
+   "domain": "text",
+   "name": "Context window",
+   "zh": "长上下文",
+   "group": "规格",
+   "ubiquity": "已普及",
+   "aliases": [
+    "Context window",
+    "Long context",
+    "长上下文"
+   ],
+   "since_note": "Anthropic 表头「Context window」· Google 指南「Long context」· Qwen「256K long-context, extensible to 1M」"
+  },
+  {
+   "id": "t-maxout",
+   "class": "chat",
+   "domain": "text",
+   "name": "Max output",
+   "zh": "长输出",
+   "group": "规格",
+   "ubiquity": "主流",
+   "aliases": [
+    "Max output"
+   ],
+   "since_note": "Anthropic 表头「Max output」（并注明 Batch API 上可到 300k）· OpenAI 表头「Max output」"
+  },
+  {
+   "id": "t-tools",
+   "class": "chat",
+   "domain": "text",
+   "name": "Function calling",
+   "zh": "工具调用",
+   "group": "工具",
+   "ubiquity": "已普及",
+   "aliases": [
+    "Function calling",
+    "Tool Calls",
+    "Functions",
+    "tool use"
+   ],
+   "since_note": "Google「Function calling」· DeepSeek「Tool Calls」· OpenAI「Tools: Functions」· Qwen「tool use」"
+  },
+  {
+   "id": "t-json",
+   "class": "chat",
+   "domain": "text",
+   "name": "Structured outputs",
+   "zh": "结构化输出",
+   "group": "输出",
+   "ubiquity": "主流",
+   "aliases": [
+    "Structured outputs",
+    "JSON Output",
+    "JSON mode"
+   ],
+   "since_note": "OpenAI / Google「Structured outputs」· DeepSeek「JSON Output」"
+  },
+  {
+   "id": "t-search",
+   "class": "chat",
+   "domain": "text",
+   "name": "Web search",
+   "zh": "内置联网检索",
+   "group": "工具",
+   "ubiquity": "主流",
+   "aliases": [
+    "Web search",
+    "Google Search",
+    "grounding"
+   ],
+   "since_note": "OpenAI「Tools: Web search」· Google「Grounding with Google Search」"
+  },
+  {
+   "id": "t-code",
+   "class": "chat",
+   "domain": "text",
+   "name": "Code execution",
+   "zh": "代码执行",
+   "group": "工具",
+   "ubiquity": "主流",
+   "aliases": [
+    "Code execution",
+    "Code Interpreter"
+   ],
+   "since_note": "Google 文档 Tools 下的「Code execution」· OpenAI 同名工具"
+  },
+  {
+   "id": "t-computer",
+   "class": "chat",
+   "domain": "text",
+   "name": "Computer use",
+   "zh": "计算机操作",
+   "group": "工具",
+   "ubiquity": "前沿",
+   "aliases": [
+    "Computer use"
+   ],
+   "since_note": "OpenAI「Tools: Computer use」· Anthropic 同名能力"
+  },
+  {
+   "id": "t-vision",
+   "class": "chat",
+   "domain": "text",
+   "name": "Vision",
+   "zh": "图像输入",
+   "group": "输入",
+   "ubiquity": "已普及",
+   "aliases": [
+    "Vision",
+    "image input"
+   ],
+   "since_note": "Anthropic「All current Claude models support text and image input … and vision」· OpenAI「vision input」"
+  },
+  {
+   "id": "t-audio",
+   "class": "chat",
+   "domain": "text",
+   "name": "Audio input",
+   "zh": "音频输入",
+   "group": "输入",
+   "ubiquity": "前沿",
+   "aliases": [
+    "Audio input"
+   ],
+   "since_note": "Gemini / GPT 侧的多模态输入。**入口是音频、产出仍是文本** —— 所以在这一卷，不在音频那一卷"
+  },
+  {
+   "id": "t-cache",
+   "class": "chat",
+   "domain": "text",
+   "name": "Prompt caching",
+   "zh": "提示词缓存",
+   "group": "工程",
+   "ubiquity": "已普及",
+   "aliases": [
+    "Prompt caching",
+    "Context caching",
+    "KV cache"
+   ],
+   "since_note": "Anthropic「prompt caching」· Google「Context caching」· DeepSeek「Context Caching（KV cache）」"
+  },
+  {
+   "id": "t-batch",
+   "class": "chat",
+   "domain": "text",
+   "name": "Batch API",
+   "zh": "批处理",
+   "group": "工程",
+   "ubiquity": "主流",
+   "aliases": [
+    "Batch API",
+    "Message Batches"
+   ],
+   "since_note": "Google「Batch API」· Anthropic「Message Batches API」"
+  },
+  {
+   "id": "t-fim",
+   "class": "chat",
+   "domain": "text",
+   "name": "FIM Completion",
+   "zh": "中间填充（FIM）",
+   "group": "生成",
+   "ubiquity": "前沿",
+   "aliases": [
+    "FIM Completion",
+    "Fill-In-Middle"
+   ],
+   "since_note": "DeepSeek「FIM Completion (Beta)」—— 写代码时补中间那一段，和续写不是一回事"
+  },
+  {
+   "id": "t-openweights",
+   "class": "chat",
+   "domain": "text",
+   "name": "open weights",
+   "zh": "开源权重",
+   "group": "获取",
+   "ubiquity": "主流",
+   "aliases": [
+    "open weights",
+    "开源"
+   ],
+   "since_note": "和另外两卷同一项：这一代的权重公不公开"
   }
  ],
  "orgs": [
@@ -923,6 +1125,104 @@
    "name": "Circlestone Labs",
    "kind": "startup",
    "note": "Anima"
+  },
+  {
+   "id": "anthropic",
+   "zh": "Anthropic",
+   "name": "Anthropic",
+   "kind": "startup",
+   "hq": {
+    "city": "San Francisco",
+    "country": "United States",
+    "iso": "US",
+    "lat": 37.775,
+    "lon": -122.418
+   },
+   "note": "Claude 系列"
+  },
+  {
+   "id": "deepseek",
+   "zh": "深度求索",
+   "name": "DeepSeek",
+   "kind": "startup",
+   "hq": {
+    "city": "Hangzhou",
+    "country": "中国",
+    "iso": "CN",
+    "lat": 30.274,
+    "lon": 120.155
+   },
+   "note": "DeepSeek 系列；幻方量化孵化"
+  },
+  {
+   "id": "moonshot",
+   "zh": "月之暗面",
+   "name": "Moonshot AI",
+   "kind": "startup",
+   "hq": {
+    "city": "Beijing",
+    "country": "中国",
+    "iso": "CN",
+    "lat": 39.984,
+    "lon": 116.307
+   },
+   "note": "Kimi 系列"
+  },
+  {
+   "id": "zhipu",
+   "zh": "智谱",
+   "name": "Z.ai / 智谱",
+   "kind": "startup",
+   "hq": {
+    "city": "Beijing",
+    "country": "中国",
+    "iso": "CN",
+    "lat": 40.003,
+    "lon": 116.326
+   },
+   "note": "GLM 系列"
+  },
+  {
+   "id": "meta",
+   "zh": "Meta",
+   "name": "Meta",
+   "kind": "bigtech",
+   "hq": {
+    "city": "Menlo Park",
+    "country": "United States",
+    "iso": "US",
+    "lat": 37.485,
+    "lon": -122.148
+   },
+   "note": "Llama 系列"
+  },
+  {
+   "id": "xai",
+   "zh": "xAI",
+   "name": "xAI",
+   "kind": "startup",
+   "hq": {
+    "city": "Palo Alto",
+    "country": "United States",
+    "iso": "US",
+    "lat": 37.442,
+    "lon": -122.143
+   },
+   "note": "Grok 系列"
+  },
+  {
+   "id": "mistral",
+   "zh": "Mistral AI",
+   "name": "Mistral AI",
+   "kind": "startup",
+   "hq": {
+    "city": "Paris",
+    "country": "France",
+    "iso": "FR",
+    "lat": 48.857,
+    "lon": 2.352
+   },
+   "note": "Mistral 系列"
   }
  ],
  "$orgs": "公司是**一等实体**，不是模型上的一个字符串（此前 vendor 是字符串，结果阿里在库里成了两家）。产业链图、地球分布、投资关系全都挂在这一层上。\n**hq 只有 5 家有来源，其余 6 家仍然没有** —— 都是公开常识，但我们自己的规矩是「没有来源的结论就是猜的」，所以校验里 R21 会一直警告，前台也必须标出来。不许因为「大家都知道」就当成核过了。\n\n2026-08-08 补：从已有快照和官网拿到 5 家的可引证据，但**精度分三档**，写进 `hq_precision`：\n  exact     —— 页脚给出具体街道地址（只有字节）\n  province  —— **ICP 备案只证到省**（快手/MiniMax/阿里）。阿里那条只证到浙江，没证到杭州\n  ambiguous —— 招聘页同时列两个城市（Runway 的纽约与旧金山）\n\n剩下 6 家（生数、昆仑万维、Google DeepMind、OpenAI、Decart、Lightricks）没拿到：\n**生数官网 HTTPS 证书已过期**（ERR_CERT_DATE_INVALID）—— 这条本身就是信息；\n其余几家的 about/contact 页没有可机读的地址段。R21 会一直为它们报警告。\n\n**不许把 province 当成 exact 用。** 我们批评厂商「说了半句」的时候，自己不能也说半句。",
@@ -1830,6 +2130,176 @@
    "arch": "dit",
    "arch_basis": "common",
    "arch_note": "ComfyUI 官方教程：「3.5B parameter DiT … Built on the Next-DiT architecture」，二次元向。"
+  },
+  {
+   "id": "claude",
+   "class": "chat",
+   "family": "Claude",
+   "zh": "Claude",
+   "org": "anthropic",
+   "version": "Opus 5",
+   "version_as_of": "2026-06-09",
+   "status": "active",
+   "tier": "core",
+   "domain": "text",
+   "weights": "closed",
+   "team": "Anthropic"
+  },
+  {
+   "id": "gpt",
+   "class": "chat",
+   "family": "GPT",
+   "zh": "GPT",
+   "org": "openai",
+   "version": "GPT-5.2",
+   "version_as_of": "2026-04-21",
+   "status": "active",
+   "tier": "core",
+   "domain": "text",
+   "weights": "closed",
+   "team": "OpenAI",
+   "status_note": "版本号以 developers.openai.com 的模型清单为准 —— openai.com 主站 403，抓不到"
+  },
+  {
+   "id": "gemini-text",
+   "class": "chat",
+   "family": "Gemini",
+   "zh": "Gemini",
+   "org": "google",
+   "version": "Gemini 3",
+   "version_as_of": "2025-11-20",
+   "status": "active",
+   "tier": "core",
+   "domain": "text",
+   "weights": "closed",
+   "team": "Google DeepMind"
+  },
+  {
+   "id": "qwen-text",
+   "class": "chat",
+   "family": "Qwen",
+   "zh": "通义千问",
+   "org": "alibaba",
+   "version": "Qwen3",
+   "version_as_of": "2025-04-29",
+   "status": "active",
+   "tier": "core",
+   "domain": "text",
+   "weights": "open",
+   "team": "通义 Qwen",
+   "weights_note": "Qwen3 系列多数档位 Apache-2.0 —— 中文侧开源力度最大的一家"
+  },
+  {
+   "id": "deepseek",
+   "class": "chat",
+   "family": "DeepSeek",
+   "zh": "深度求索",
+   "org": "deepseek",
+   "version": "V3",
+   "version_as_of": "2024-12-26",
+   "status": "active",
+   "tier": "core",
+   "domain": "text",
+   "weights": "open",
+   "team": "DeepSeek"
+  },
+  {
+   "id": "kimi",
+   "class": "chat",
+   "family": "Kimi",
+   "zh": "Kimi",
+   "org": "moonshot",
+   "version": "K2",
+   "version_as_of": "2025-07-11",
+   "status": "active",
+   "tier": "core",
+   "domain": "text",
+   "weights": "open",
+   "team": "Moonshot AI"
+  },
+  {
+   "id": "glm",
+   "class": "chat",
+   "family": "GLM",
+   "zh": "智谱 GLM",
+   "org": "zhipu",
+   "version": "GLM-4.5",
+   "version_as_of": "2025-07-28",
+   "status": "active",
+   "tier": "core",
+   "domain": "text",
+   "weights": "open",
+   "team": "Z.ai"
+  },
+  {
+   "id": "minimax-text",
+   "class": "chat",
+   "family": "MiniMax",
+   "zh": "MiniMax 文本",
+   "org": "minimax",
+   "version": "M2",
+   "version_as_of": "2025-10-27",
+   "status": "active",
+   "tier": "core",
+   "domain": "text",
+   "weights": "open",
+   "team": "MiniMax"
+  },
+  {
+   "id": "doubao",
+   "class": "chat",
+   "family": "Doubao",
+   "zh": "豆包",
+   "org": "bytedance",
+   "version": "1.6",
+   "version_as_of": "2025-06-11",
+   "status": "active",
+   "tier": "core",
+   "domain": "text",
+   "weights": "closed",
+   "team": "ByteDance Seed"
+  },
+  {
+   "id": "llama",
+   "class": "chat",
+   "family": "Llama",
+   "zh": "Llama",
+   "org": "meta",
+   "version": "4",
+   "version_as_of": "2025-04-05",
+   "status": "active",
+   "tier": "extended",
+   "domain": "text",
+   "weights": "open",
+   "team": "Meta AI"
+  },
+  {
+   "id": "grok",
+   "class": "chat",
+   "family": "Grok",
+   "zh": "Grok",
+   "org": "xai",
+   "version": "4",
+   "version_as_of": "2025-07-09",
+   "status": "active",
+   "tier": "extended",
+   "domain": "text",
+   "weights": "closed",
+   "team": "xAI"
+  },
+  {
+   "id": "mistral-text",
+   "class": "chat",
+   "family": "Mistral",
+   "zh": "Mistral",
+   "org": "mistral",
+   "version": "Large 3",
+   "version_as_of": "2025-12-02",
+   "status": "active",
+   "tier": "extended",
+   "domain": "text",
+   "weights": "open",
+   "team": "Mistral AI"
   }
  ],
  "sources": {
@@ -2536,6 +3006,21 @@
   "mj-updates": {
    "name": "Midjourney 官方更新日志",
    "url": "https://updates.midjourney.com/",
+   "tier": "official"
+  },
+  "anthropic-models": {
+   "name": "Anthropic 官方文档 · 模型总览",
+   "url": "https://platform.claude.com/docs/en/about-claude/models/overview",
+   "tier": "official"
+  },
+  "deepseek-docs": {
+   "name": "DeepSeek 官方 API 文档",
+   "url": "https://api-docs.deepseek.com/",
+   "tier": "official"
+  },
+  "qwen-docs": {
+   "name": "Qwen 官方文档",
+   "url": "https://qwen.readthedocs.io/en/latest/",
    "tier": "official"
   }
  },
@@ -4536,6 +5021,1098 @@
    "verified_for": "5.0 Pro",
    "src": "seedream-page",
    "note": "闭源。官方只提供产品与 API，未发布权重"
+  },
+  {
+   "m": "claude",
+   "c": "t-think",
+   "state": "yes",
+   "verified_for": "Opus 5",
+   "note": "表中「Adaptive thinking」Claude Opus 5 = Yes（Fable 5 为 always on）",
+   "src": "anthropic-models",
+   "via": "native"
+  },
+  {
+   "m": "claude",
+   "c": "t-long",
+   "state": "yes",
+   "verified_for": "Opus 5",
+   "note": "表中「Context window」= 1M tokens",
+   "src": "anthropic-models",
+   "via": "native"
+  },
+  {
+   "m": "claude",
+   "c": "t-maxout",
+   "state": "yes",
+   "verified_for": "Opus 5",
+   "note": "表中「Max output」= 128k tokens；脚注：Batch API 上经 output-300k beta 可到 300k",
+   "src": "anthropic-models",
+   "via": "native"
+  },
+  {
+   "m": "claude",
+   "c": "t-tools",
+   "state": "unknown",
+   "verified_for": "Opus 5"
+  },
+  {
+   "m": "claude",
+   "c": "t-json",
+   "state": "unknown",
+   "verified_for": "Opus 5"
+  },
+  {
+   "m": "claude",
+   "c": "t-search",
+   "state": "unknown",
+   "verified_for": "Opus 5"
+  },
+  {
+   "m": "claude",
+   "c": "t-code",
+   "state": "unknown",
+   "verified_for": "Opus 5"
+  },
+  {
+   "m": "claude",
+   "c": "t-computer",
+   "state": "unknown",
+   "verified_for": "Opus 5"
+  },
+  {
+   "m": "claude",
+   "c": "t-vision",
+   "state": "yes",
+   "verified_for": "Opus 5",
+   "note": "「All current Claude models support text and image input, text output, multilingual capabilities, and vision」",
+   "src": "anthropic-models",
+   "via": "native"
+  },
+  {
+   "m": "claude",
+   "c": "t-audio",
+   "state": "unknown",
+   "verified_for": "Opus 5"
+  },
+  {
+   "m": "claude",
+   "c": "t-cache",
+   "state": "yes",
+   "verified_for": "Opus 5",
+   "note": "脚注：「See Pricing for complete pricing information including Batch API discounts and prompt caching rates」",
+   "src": "anthropic-models",
+   "via": "native"
+  },
+  {
+   "m": "claude",
+   "c": "t-batch",
+   "state": "yes",
+   "verified_for": "Opus 5",
+   "note": "脚注提到「Message Batches API」与 Batch API 折扣",
+   "src": "anthropic-models",
+   "via": "native"
+  },
+  {
+   "m": "claude",
+   "c": "t-fim",
+   "state": "unknown",
+   "verified_for": "Opus 5"
+  },
+  {
+   "m": "claude",
+   "c": "t-openweights",
+   "state": "unknown",
+   "verified_for": "Opus 5"
+  },
+  {
+   "m": "gpt",
+   "c": "t-think",
+   "state": "yes",
+   "verified_for": "GPT-5.2",
+   "note": "模型对照表有「Reasoning」一列，取值从 none 到 max",
+   "src": "openai-models",
+   "via": "native"
+  },
+  {
+   "m": "gpt",
+   "c": "t-long",
+   "state": "yes",
+   "verified_for": "GPT-5.2",
+   "note": "模型对照表有「Context window」一列",
+   "src": "openai-models",
+   "via": "native"
+  },
+  {
+   "m": "gpt",
+   "c": "t-maxout",
+   "state": "yes",
+   "verified_for": "GPT-5.2",
+   "note": "模型对照表有「Max output」一列",
+   "src": "openai-models",
+   "via": "native"
+  },
+  {
+   "m": "gpt",
+   "c": "t-tools",
+   "state": "yes",
+   "verified_for": "GPT-5.2",
+   "note": "「Tools」一列列出 Functions",
+   "src": "openai-models",
+   "via": "native"
+  },
+  {
+   "m": "gpt",
+   "c": "t-json",
+   "state": "unknown",
+   "verified_for": "GPT-5.2"
+  },
+  {
+   "m": "gpt",
+   "c": "t-search",
+   "state": "yes",
+   "verified_for": "GPT-5.2",
+   "note": "「Tools」一列列出 Web search",
+   "src": "openai-models",
+   "via": "native"
+  },
+  {
+   "m": "gpt",
+   "c": "t-code",
+   "state": "unknown",
+   "verified_for": "GPT-5.2"
+  },
+  {
+   "m": "gpt",
+   "c": "t-computer",
+   "state": "yes",
+   "verified_for": "GPT-5.2",
+   "note": "「Tools」一列列出 Computer use",
+   "src": "openai-models",
+   "via": "native"
+  },
+  {
+   "m": "gpt",
+   "c": "t-vision",
+   "state": "unknown",
+   "verified_for": "GPT-5.2"
+  },
+  {
+   "m": "gpt",
+   "c": "t-audio",
+   "state": "unknown",
+   "verified_for": "GPT-5.2"
+  },
+  {
+   "m": "gpt",
+   "c": "t-cache",
+   "state": "unknown",
+   "verified_for": "GPT-5.2"
+  },
+  {
+   "m": "gpt",
+   "c": "t-batch",
+   "state": "unknown",
+   "verified_for": "GPT-5.2"
+  },
+  {
+   "m": "gpt",
+   "c": "t-fim",
+   "state": "unknown",
+   "verified_for": "GPT-5.2"
+  },
+  {
+   "m": "gpt",
+   "c": "t-openweights",
+   "state": "unknown",
+   "verified_for": "GPT-5.2"
+  },
+  {
+   "m": "gemini-text",
+   "c": "t-think",
+   "state": "yes",
+   "verified_for": "Gemini 3",
+   "note": "文档 Core capabilities 下列「Thinking」（含 Thought signatures）",
+   "src": "gemini-models",
+   "via": "native"
+  },
+  {
+   "m": "gemini-text",
+   "c": "t-long",
+   "state": "yes",
+   "verified_for": "Gemini 3",
+   "note": "指南单列「Long context」一节",
+   "src": "gemini-models",
+   "via": "native"
+  },
+  {
+   "m": "gemini-text",
+   "c": "t-maxout",
+   "state": "unknown",
+   "verified_for": "Gemini 3"
+  },
+  {
+   "m": "gemini-text",
+   "c": "t-tools",
+   "state": "yes",
+   "verified_for": "Gemini 3",
+   "note": "Tools 下列「Function calling」",
+   "src": "gemini-models",
+   "via": "native"
+  },
+  {
+   "m": "gemini-text",
+   "c": "t-json",
+   "state": "yes",
+   "verified_for": "Gemini 3",
+   "note": "Core capabilities 下列「Structured outputs」",
+   "src": "gemini-models",
+   "via": "native"
+  },
+  {
+   "m": "gemini-text",
+   "c": "t-search",
+   "state": "yes",
+   "verified_for": "Gemini 3",
+   "note": "Tools 下列「Google Search」（Grounding with Search）",
+   "src": "gemini-models",
+   "via": "native"
+  },
+  {
+   "m": "gemini-text",
+   "c": "t-code",
+   "state": "yes",
+   "verified_for": "Gemini 3",
+   "note": "Tools 下列「Code execution」",
+   "src": "gemini-models",
+   "via": "native"
+  },
+  {
+   "m": "gemini-text",
+   "c": "t-computer",
+   "state": "unknown",
+   "verified_for": "Gemini 3"
+  },
+  {
+   "m": "gemini-text",
+   "c": "t-vision",
+   "state": "unknown",
+   "verified_for": "Gemini 3"
+  },
+  {
+   "m": "gemini-text",
+   "c": "t-audio",
+   "state": "unknown",
+   "verified_for": "Gemini 3"
+  },
+  {
+   "m": "gemini-text",
+   "c": "t-cache",
+   "state": "yes",
+   "verified_for": "Gemini 3",
+   "note": "Optimization 下列「Context caching」",
+   "src": "gemini-models",
+   "via": "native"
+  },
+  {
+   "m": "gemini-text",
+   "c": "t-batch",
+   "state": "yes",
+   "verified_for": "Gemini 3",
+   "note": "Optimization 下列「Batch API」",
+   "src": "gemini-models",
+   "via": "native"
+  },
+  {
+   "m": "gemini-text",
+   "c": "t-fim",
+   "state": "unknown",
+   "verified_for": "Gemini 3"
+  },
+  {
+   "m": "gemini-text",
+   "c": "t-openweights",
+   "state": "unknown",
+   "verified_for": "Gemini 3"
+  },
+  {
+   "m": "qwen-text",
+   "c": "t-think",
+   "state": "yes",
+   "verified_for": "Qwen3",
+   "note": "「Seamless switching between thinking mode … and non-thinking mode … within a single model」",
+   "src": "qwen-docs",
+   "via": "native"
+  },
+  {
+   "m": "qwen-text",
+   "c": "t-long",
+   "state": "yes",
+   "verified_for": "Qwen3",
+   "note": "「Enhanced 256K long-context understanding, extensible to 1M」",
+   "src": "qwen-docs",
+   "via": "native"
+  },
+  {
+   "m": "qwen-text",
+   "c": "t-maxout",
+   "state": "unknown",
+   "verified_for": "Qwen3"
+  },
+  {
+   "m": "qwen-text",
+   "c": "t-tools",
+   "state": "yes",
+   "verified_for": "Qwen3",
+   "note": "「Expertise in agent capabilities, enabling precise integration with external tools」",
+   "src": "qwen-docs",
+   "via": "native"
+  },
+  {
+   "m": "qwen-text",
+   "c": "t-json",
+   "state": "unknown",
+   "verified_for": "Qwen3"
+  },
+  {
+   "m": "qwen-text",
+   "c": "t-search",
+   "state": "unknown",
+   "verified_for": "Qwen3"
+  },
+  {
+   "m": "qwen-text",
+   "c": "t-code",
+   "state": "unknown",
+   "verified_for": "Qwen3"
+  },
+  {
+   "m": "qwen-text",
+   "c": "t-computer",
+   "state": "unknown",
+   "verified_for": "Qwen3"
+  },
+  {
+   "m": "qwen-text",
+   "c": "t-vision",
+   "state": "unknown",
+   "verified_for": "Qwen3"
+  },
+  {
+   "m": "qwen-text",
+   "c": "t-audio",
+   "state": "unknown",
+   "verified_for": "Qwen3"
+  },
+  {
+   "m": "qwen-text",
+   "c": "t-cache",
+   "state": "unknown",
+   "verified_for": "Qwen3"
+  },
+  {
+   "m": "qwen-text",
+   "c": "t-batch",
+   "state": "unknown",
+   "verified_for": "Qwen3"
+  },
+  {
+   "m": "qwen-text",
+   "c": "t-fim",
+   "state": "unknown",
+   "verified_for": "Qwen3"
+  },
+  {
+   "m": "qwen-text",
+   "c": "t-openweights",
+   "state": "unknown",
+   "verified_for": "Qwen3"
+  },
+  {
+   "m": "deepseek",
+   "c": "t-think",
+   "state": "yes",
+   "verified_for": "V3",
+   "note": "文档示例使用 thinking: {type: enabled} 与 reasoning_effort: high",
+   "src": "deepseek-docs",
+   "via": "native"
+  },
+  {
+   "m": "deepseek",
+   "c": "t-long",
+   "state": "unknown",
+   "verified_for": "V3"
+  },
+  {
+   "m": "deepseek",
+   "c": "t-maxout",
+   "state": "unknown",
+   "verified_for": "V3"
+  },
+  {
+   "m": "deepseek",
+   "c": "t-tools",
+   "state": "yes",
+   "verified_for": "V3",
+   "note": "API Guides 列「Tool Calls」",
+   "src": "deepseek-docs",
+   "via": "native"
+  },
+  {
+   "m": "deepseek",
+   "c": "t-json",
+   "state": "yes",
+   "verified_for": "V3",
+   "note": "API Guides 列「JSON Output」",
+   "src": "deepseek-docs",
+   "via": "native"
+  },
+  {
+   "m": "deepseek",
+   "c": "t-search",
+   "state": "unknown",
+   "verified_for": "V3"
+  },
+  {
+   "m": "deepseek",
+   "c": "t-code",
+   "state": "unknown",
+   "verified_for": "V3"
+  },
+  {
+   "m": "deepseek",
+   "c": "t-computer",
+   "state": "unknown",
+   "verified_for": "V3"
+  },
+  {
+   "m": "deepseek",
+   "c": "t-vision",
+   "state": "unknown",
+   "verified_for": "V3"
+  },
+  {
+   "m": "deepseek",
+   "c": "t-audio",
+   "state": "unknown",
+   "verified_for": "V3"
+  },
+  {
+   "m": "deepseek",
+   "c": "t-cache",
+   "state": "yes",
+   "verified_for": "V3",
+   "note": "API Guides 列「Context Caching（KV cache）」",
+   "src": "deepseek-docs",
+   "via": "native"
+  },
+  {
+   "m": "deepseek",
+   "c": "t-batch",
+   "state": "unknown",
+   "verified_for": "V3"
+  },
+  {
+   "m": "deepseek",
+   "c": "t-fim",
+   "state": "yes",
+   "verified_for": "V3",
+   "note": "API Guides 列「FIM Completion (Beta)」",
+   "src": "deepseek-docs",
+   "via": "native"
+  },
+  {
+   "m": "deepseek",
+   "c": "t-openweights",
+   "state": "unknown",
+   "verified_for": "V3"
+  },
+  {
+   "m": "kimi",
+   "c": "t-think",
+   "state": "unknown",
+   "verified_for": "K2"
+  },
+  {
+   "m": "kimi",
+   "c": "t-long",
+   "state": "unknown",
+   "verified_for": "K2"
+  },
+  {
+   "m": "kimi",
+   "c": "t-maxout",
+   "state": "unknown",
+   "verified_for": "K2"
+  },
+  {
+   "m": "kimi",
+   "c": "t-tools",
+   "state": "unknown",
+   "verified_for": "K2"
+  },
+  {
+   "m": "kimi",
+   "c": "t-json",
+   "state": "unknown",
+   "verified_for": "K2"
+  },
+  {
+   "m": "kimi",
+   "c": "t-search",
+   "state": "unknown",
+   "verified_for": "K2"
+  },
+  {
+   "m": "kimi",
+   "c": "t-code",
+   "state": "unknown",
+   "verified_for": "K2"
+  },
+  {
+   "m": "kimi",
+   "c": "t-computer",
+   "state": "unknown",
+   "verified_for": "K2"
+  },
+  {
+   "m": "kimi",
+   "c": "t-vision",
+   "state": "unknown",
+   "verified_for": "K2"
+  },
+  {
+   "m": "kimi",
+   "c": "t-audio",
+   "state": "unknown",
+   "verified_for": "K2"
+  },
+  {
+   "m": "kimi",
+   "c": "t-cache",
+   "state": "unknown",
+   "verified_for": "K2"
+  },
+  {
+   "m": "kimi",
+   "c": "t-batch",
+   "state": "unknown",
+   "verified_for": "K2"
+  },
+  {
+   "m": "kimi",
+   "c": "t-fim",
+   "state": "unknown",
+   "verified_for": "K2"
+  },
+  {
+   "m": "kimi",
+   "c": "t-openweights",
+   "state": "unknown",
+   "verified_for": "K2"
+  },
+  {
+   "m": "glm",
+   "c": "t-think",
+   "state": "unknown",
+   "verified_for": "GLM-4.5"
+  },
+  {
+   "m": "glm",
+   "c": "t-long",
+   "state": "unknown",
+   "verified_for": "GLM-4.5"
+  },
+  {
+   "m": "glm",
+   "c": "t-maxout",
+   "state": "unknown",
+   "verified_for": "GLM-4.5"
+  },
+  {
+   "m": "glm",
+   "c": "t-tools",
+   "state": "unknown",
+   "verified_for": "GLM-4.5"
+  },
+  {
+   "m": "glm",
+   "c": "t-json",
+   "state": "unknown",
+   "verified_for": "GLM-4.5"
+  },
+  {
+   "m": "glm",
+   "c": "t-search",
+   "state": "unknown",
+   "verified_for": "GLM-4.5"
+  },
+  {
+   "m": "glm",
+   "c": "t-code",
+   "state": "unknown",
+   "verified_for": "GLM-4.5"
+  },
+  {
+   "m": "glm",
+   "c": "t-computer",
+   "state": "unknown",
+   "verified_for": "GLM-4.5"
+  },
+  {
+   "m": "glm",
+   "c": "t-vision",
+   "state": "unknown",
+   "verified_for": "GLM-4.5"
+  },
+  {
+   "m": "glm",
+   "c": "t-audio",
+   "state": "unknown",
+   "verified_for": "GLM-4.5"
+  },
+  {
+   "m": "glm",
+   "c": "t-cache",
+   "state": "unknown",
+   "verified_for": "GLM-4.5"
+  },
+  {
+   "m": "glm",
+   "c": "t-batch",
+   "state": "unknown",
+   "verified_for": "GLM-4.5"
+  },
+  {
+   "m": "glm",
+   "c": "t-fim",
+   "state": "unknown",
+   "verified_for": "GLM-4.5"
+  },
+  {
+   "m": "glm",
+   "c": "t-openweights",
+   "state": "unknown",
+   "verified_for": "GLM-4.5"
+  },
+  {
+   "m": "minimax-text",
+   "c": "t-think",
+   "state": "unknown",
+   "verified_for": "M2"
+  },
+  {
+   "m": "minimax-text",
+   "c": "t-long",
+   "state": "unknown",
+   "verified_for": "M2"
+  },
+  {
+   "m": "minimax-text",
+   "c": "t-maxout",
+   "state": "unknown",
+   "verified_for": "M2"
+  },
+  {
+   "m": "minimax-text",
+   "c": "t-tools",
+   "state": "unknown",
+   "verified_for": "M2"
+  },
+  {
+   "m": "minimax-text",
+   "c": "t-json",
+   "state": "unknown",
+   "verified_for": "M2"
+  },
+  {
+   "m": "minimax-text",
+   "c": "t-search",
+   "state": "unknown",
+   "verified_for": "M2"
+  },
+  {
+   "m": "minimax-text",
+   "c": "t-code",
+   "state": "unknown",
+   "verified_for": "M2"
+  },
+  {
+   "m": "minimax-text",
+   "c": "t-computer",
+   "state": "unknown",
+   "verified_for": "M2"
+  },
+  {
+   "m": "minimax-text",
+   "c": "t-vision",
+   "state": "unknown",
+   "verified_for": "M2"
+  },
+  {
+   "m": "minimax-text",
+   "c": "t-audio",
+   "state": "unknown",
+   "verified_for": "M2"
+  },
+  {
+   "m": "minimax-text",
+   "c": "t-cache",
+   "state": "unknown",
+   "verified_for": "M2"
+  },
+  {
+   "m": "minimax-text",
+   "c": "t-batch",
+   "state": "unknown",
+   "verified_for": "M2"
+  },
+  {
+   "m": "minimax-text",
+   "c": "t-fim",
+   "state": "unknown",
+   "verified_for": "M2"
+  },
+  {
+   "m": "minimax-text",
+   "c": "t-openweights",
+   "state": "unknown",
+   "verified_for": "M2"
+  },
+  {
+   "m": "doubao",
+   "c": "t-think",
+   "state": "unknown",
+   "verified_for": "1.6"
+  },
+  {
+   "m": "doubao",
+   "c": "t-long",
+   "state": "unknown",
+   "verified_for": "1.6"
+  },
+  {
+   "m": "doubao",
+   "c": "t-maxout",
+   "state": "unknown",
+   "verified_for": "1.6"
+  },
+  {
+   "m": "doubao",
+   "c": "t-tools",
+   "state": "unknown",
+   "verified_for": "1.6"
+  },
+  {
+   "m": "doubao",
+   "c": "t-json",
+   "state": "unknown",
+   "verified_for": "1.6"
+  },
+  {
+   "m": "doubao",
+   "c": "t-search",
+   "state": "unknown",
+   "verified_for": "1.6"
+  },
+  {
+   "m": "doubao",
+   "c": "t-code",
+   "state": "unknown",
+   "verified_for": "1.6"
+  },
+  {
+   "m": "doubao",
+   "c": "t-computer",
+   "state": "unknown",
+   "verified_for": "1.6"
+  },
+  {
+   "m": "doubao",
+   "c": "t-vision",
+   "state": "unknown",
+   "verified_for": "1.6"
+  },
+  {
+   "m": "doubao",
+   "c": "t-audio",
+   "state": "unknown",
+   "verified_for": "1.6"
+  },
+  {
+   "m": "doubao",
+   "c": "t-cache",
+   "state": "unknown",
+   "verified_for": "1.6"
+  },
+  {
+   "m": "doubao",
+   "c": "t-batch",
+   "state": "unknown",
+   "verified_for": "1.6"
+  },
+  {
+   "m": "doubao",
+   "c": "t-fim",
+   "state": "unknown",
+   "verified_for": "1.6"
+  },
+  {
+   "m": "doubao",
+   "c": "t-openweights",
+   "state": "unknown",
+   "verified_for": "1.6"
+  },
+  {
+   "m": "llama",
+   "c": "t-think",
+   "state": "unknown",
+   "verified_for": "4"
+  },
+  {
+   "m": "llama",
+   "c": "t-long",
+   "state": "unknown",
+   "verified_for": "4"
+  },
+  {
+   "m": "llama",
+   "c": "t-maxout",
+   "state": "unknown",
+   "verified_for": "4"
+  },
+  {
+   "m": "llama",
+   "c": "t-tools",
+   "state": "unknown",
+   "verified_for": "4"
+  },
+  {
+   "m": "llama",
+   "c": "t-json",
+   "state": "unknown",
+   "verified_for": "4"
+  },
+  {
+   "m": "llama",
+   "c": "t-search",
+   "state": "unknown",
+   "verified_for": "4"
+  },
+  {
+   "m": "llama",
+   "c": "t-code",
+   "state": "unknown",
+   "verified_for": "4"
+  },
+  {
+   "m": "llama",
+   "c": "t-computer",
+   "state": "unknown",
+   "verified_for": "4"
+  },
+  {
+   "m": "llama",
+   "c": "t-vision",
+   "state": "unknown",
+   "verified_for": "4"
+  },
+  {
+   "m": "llama",
+   "c": "t-audio",
+   "state": "unknown",
+   "verified_for": "4"
+  },
+  {
+   "m": "llama",
+   "c": "t-cache",
+   "state": "unknown",
+   "verified_for": "4"
+  },
+  {
+   "m": "llama",
+   "c": "t-batch",
+   "state": "unknown",
+   "verified_for": "4"
+  },
+  {
+   "m": "llama",
+   "c": "t-fim",
+   "state": "unknown",
+   "verified_for": "4"
+  },
+  {
+   "m": "llama",
+   "c": "t-openweights",
+   "state": "unknown",
+   "verified_for": "4"
+  },
+  {
+   "m": "grok",
+   "c": "t-think",
+   "state": "unknown",
+   "verified_for": "4"
+  },
+  {
+   "m": "grok",
+   "c": "t-long",
+   "state": "unknown",
+   "verified_for": "4"
+  },
+  {
+   "m": "grok",
+   "c": "t-maxout",
+   "state": "unknown",
+   "verified_for": "4"
+  },
+  {
+   "m": "grok",
+   "c": "t-tools",
+   "state": "unknown",
+   "verified_for": "4"
+  },
+  {
+   "m": "grok",
+   "c": "t-json",
+   "state": "unknown",
+   "verified_for": "4"
+  },
+  {
+   "m": "grok",
+   "c": "t-search",
+   "state": "unknown",
+   "verified_for": "4"
+  },
+  {
+   "m": "grok",
+   "c": "t-code",
+   "state": "unknown",
+   "verified_for": "4"
+  },
+  {
+   "m": "grok",
+   "c": "t-computer",
+   "state": "unknown",
+   "verified_for": "4"
+  },
+  {
+   "m": "grok",
+   "c": "t-vision",
+   "state": "unknown",
+   "verified_for": "4"
+  },
+  {
+   "m": "grok",
+   "c": "t-audio",
+   "state": "unknown",
+   "verified_for": "4"
+  },
+  {
+   "m": "grok",
+   "c": "t-cache",
+   "state": "unknown",
+   "verified_for": "4"
+  },
+  {
+   "m": "grok",
+   "c": "t-batch",
+   "state": "unknown",
+   "verified_for": "4"
+  },
+  {
+   "m": "grok",
+   "c": "t-fim",
+   "state": "unknown",
+   "verified_for": "4"
+  },
+  {
+   "m": "grok",
+   "c": "t-openweights",
+   "state": "unknown",
+   "verified_for": "4"
+  },
+  {
+   "m": "mistral-text",
+   "c": "t-think",
+   "state": "unknown",
+   "verified_for": "Large 3"
+  },
+  {
+   "m": "mistral-text",
+   "c": "t-long",
+   "state": "unknown",
+   "verified_for": "Large 3"
+  },
+  {
+   "m": "mistral-text",
+   "c": "t-maxout",
+   "state": "unknown",
+   "verified_for": "Large 3"
+  },
+  {
+   "m": "mistral-text",
+   "c": "t-tools",
+   "state": "unknown",
+   "verified_for": "Large 3"
+  },
+  {
+   "m": "mistral-text",
+   "c": "t-json",
+   "state": "unknown",
+   "verified_for": "Large 3"
+  },
+  {
+   "m": "mistral-text",
+   "c": "t-search",
+   "state": "unknown",
+   "verified_for": "Large 3"
+  },
+  {
+   "m": "mistral-text",
+   "c": "t-code",
+   "state": "unknown",
+   "verified_for": "Large 3"
+  },
+  {
+   "m": "mistral-text",
+   "c": "t-computer",
+   "state": "unknown",
+   "verified_for": "Large 3"
+  },
+  {
+   "m": "mistral-text",
+   "c": "t-vision",
+   "state": "unknown",
+   "verified_for": "Large 3"
+  },
+  {
+   "m": "mistral-text",
+   "c": "t-audio",
+   "state": "unknown",
+   "verified_for": "Large 3"
+  },
+  {
+   "m": "mistral-text",
+   "c": "t-cache",
+   "state": "unknown",
+   "verified_for": "Large 3"
+  },
+  {
+   "m": "mistral-text",
+   "c": "t-batch",
+   "state": "unknown",
+   "verified_for": "Large 3"
+  },
+  {
+   "m": "mistral-text",
+   "c": "t-fim",
+   "state": "unknown",
+   "verified_for": "Large 3"
+  },
+  {
+   "m": "mistral-text",
+   "c": "t-openweights",
+   "state": "unknown",
+   "verified_for": "Large 3"
   }
  ],
  "$aliases_why": "各家给同一个能力起不同的名字。**Kling 管角色参考叫 Element，我按 Character Reference 去找，找不到就标了「官方没说」—— 假阴性。** 采集时必须用整组别名去匹配，不能只用我们自己的叫法。这是原方案 §36 Entity Resolution 在能力维度上的对应物。\n\n`alias_bit_us` 标在**真把我们坑过的那一项**上（角色参考）。别名多不等于叫法分歧大：「首尾帧」也有 8 条别名，但全是 start/end frame 的描述性变体，谁都猜得到；而 Element / Ingredients / cameo 是厂商自造词，**不知道就永远搜不到**。选例子要选后者，靠数别名条数是挑不出来的 —— 所以标在数据里，不用启发式猜。",
@@ -4588,6 +6165,22 @@
     }
    ],
    "href": "/image"
+  },
+  {
+   "id": "text",
+   "name": "AI 文本",
+   "state": "planned",
+   "volume": "第三个方向",
+   "note": "第三个方向。**一轨** —— 文本这一卷里「对话」「推理」「写代码」是同一个模型的不同用法，不是两套坐标系；真要分轨得等出现产出物不同的那一类。",
+   "tracks": [
+    {
+     "id": "chat",
+     "zh": "文本生成轨",
+     "short": "文本生成",
+     "note": "给定提示与上下文，产出文本（含代码）"
+    }
+   ],
+   "href": "/text"
   }
  ],
  "$domains": "前端的方向切换从这里渲染。**现在只有一个，界面上就只显示一个** —— 不做占位 tab 假装有别的。加方向 = 往这个数组里加一条 + 给模型标 domain，不动代码。\n\n**能力轴按方向隔离**（规则二再往上推一层）：能力也带 domain。clip 和 realtime 已经不能共用能力轴，视频和文本更不能 —— 「首尾帧」对文本模型没有意义，硬塞进同一张表只会造出一整片假的 ⬜。校验 R26 拦跨方向的格子。",
@@ -6227,14 +7820,15 @@
    "parent": "gpt-image-gpt-image-1-API 首次开放出图"
   },
   {
-   "id": "gemini-image-Nano Banana Pro-接上 Gemini 3 Pro 的推理，4K 与复杂版面",
+   "id": "gemini-image-Nano Banana Pro-接上自家新一代大模型的推理，4K 与复杂版面",
    "m": "gemini-image",
    "version": "Nano Banana Pro",
    "date": "2025-11-20",
-   "added": "接上 Gemini 3 Pro 的推理，4K 与复杂版面",
+   "added": "接上自家新一代大模型的推理，4K 与复杂版面",
    "src": "google-nb-blog",
    "quote": "Today, we're introducing Nano Banana Pro (Gemini 3 Pro Image), our new state-of-the art image generation and editing model.",
-   "parent": "gemini-image-Nano Banana-对话式改图（多轮指令改同一张）"
+   "parent": "gemini-image-Nano Banana-对话式改图（多轮指令改同一张）",
+   "note": " 官方原文点名的是 Gemini 3 Pro（在 quote 里照留）——**摘要里不写别的方向的产品线名**：这条摘要会作为节点标签画在图上，而方向隔离检查（正确地）把那当成串味。"
   },
   {
    "id": "gemini-image-Nano Banana 2-Pro 的质量按 Flash 的速度和价钱出",
@@ -6244,7 +7838,7 @@
    "added": "Pro 的质量按 Flash 的速度和价钱出",
    "src": "google-nb-blog",
    "quote": "Introducing Nano Banana 2 (Gemini 3.1 Flash Image), our latest state-of-the-art image model.",
-   "parent": "gemini-image-Nano Banana Pro-接上 Gemini 3 Pro 的推理，4K 与复杂版面"
+   "parent": "gemini-image-Nano Banana Pro-接上自家新一代大模型的推理，4K 与复杂版面"
   },
   {
    "id": "seedream-Seedream 5.0 Pro-分层输出 + 圈画标注式改图",
