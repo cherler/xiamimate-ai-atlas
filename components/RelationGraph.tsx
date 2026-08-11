@@ -58,6 +58,20 @@ type Sel = { kind: "none" } | { kind: "org" | "model" | "cap"; id: string };
 export default function RelationGraph({ domain }: { domain: string }) {
   const [sel, setSel] = useState<Sel>({ kind: "none" });
 
+  /**
+   * 这个方向的能力轴。**提到组件级** —— 图里画一次、点开模型时还要用一次，
+   * 放在 useMemo 里面第二处就取不到，只能又写一遍 `capsOf("clip")`，
+   * 而那正是这个 bug 的来源：**同一份东西算两遍，迟早有一遍是旧的。**
+   */
+  const domainCaps = useMemo(() => {
+    const trackIds = new Set(
+      (atlas.domains.find((x) => x.id === domain)?.tracks ?? []).map((t) => t.id),
+    );
+    return atlas.capabilities.filter(
+      (c) => (c.domain ?? "video") === domain && (trackIds.has(c.class) || c.class === "both"),
+    );
+  }, [domain]);
+
   const g = useMemo(() => {
     /**
      * **全部模型都进图，不只主表 clip**（负责人：Decart 没出现）。
@@ -68,7 +82,12 @@ export default function RelationGraph({ domain }: { domain: string }) {
      */
     // **只画当前方向的模型** —— 混着画会把 AI 图像的产品线接到 AI 视频的能力上
     const models = domainModels(domain);
-    const caps = atlas.capabilities.filter((c) => ["clip", "realtime", "both"].includes(c.class));
+    /**
+     * 能力按方向过滤。**上一轮我只改了模型，把这一列漏了** ——
+     * 于是 /atlas/image/map 右侧列的是「文生视频 / 首尾帧 / 运镜控制 / 对口型」，
+     * 而左边挂的是 FLUX、Seedream。**半边对、半边错，比整页错更难发现。**
+     */
+    const caps = domainCaps;
     /**
      * 公司列 = 有模型的公司 + **投资方**。
      * ⚠️ investments.from 存的是**公司中文名字符串**，不是 org id —— 上一版按 id 过滤，
@@ -324,7 +343,8 @@ export default function RelationGraph({ domain }: { domain: string }) {
       })()}
       {sel.kind === "model" && (() => {
         const m = atlas.models.find((x) => x.id === sel.id)!;
-        const cs = capsOf("clip").filter((c) => cell(m.id, c.id).state === "yes");
+        // 同上：这里也不能写死 clip —— 点开一个图像模型会列出它「支持」的视频能力
+        const cs = domainCaps.filter((c) => cell(m.id, c.id).state === "yes");
         return (
           <p className="text-[15px] leading-relaxed">
             <Link href={modelHref(m)} className="font-semibold underline hover:text-yes-ink">{label(m)}</Link>

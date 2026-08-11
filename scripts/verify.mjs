@@ -305,6 +305,23 @@ for (const [vp, w, h] of [["桌面", 1440, 900], ["手机", 390, 844]]) {
         .filter((m) => (m.domain ?? "video") !== mine).map((m) => m.family);
       const hit = foreign.filter((n) => txt.includes(n));
       ok(hit.length === 0, `${path} 没有混入别的方向的模型${hit.length ? `：${hit.join("、")}` : ""}`);
+
+      /**
+       * **能力也要查，不只是模型。** 这一条是补上来的：
+       * 能力串方向已经漏过两次 —— capsOf 一次（图像表里冒出「开源权重」两行）、
+       * 关系图一次（左边挂 FLUX / Seedream，右边列「文生视频 / 运镜控制 / 对口型」）。
+       * **半边对、半边错，比整页错更难发现。**
+       *
+       * 注意去掉同名的：两个方向都有一条叫「开源权重」的能力，
+       * 按名字判断会报假阳性 —— 只算「本方向没有的名字」。
+       */
+      const mineCaps = new Set((raw.capabilities ?? [])
+        .filter((c) => (c.domain ?? "video") === mine).map((c) => c.zh));
+      const alienCaps = (raw.capabilities ?? [])
+        .filter((c) => (c.domain ?? "video") !== mine).map((c) => c.zh)
+        .filter((n) => !mineCaps.has(n));
+      const capHit = alienCaps.filter((n) => txt.includes(n));
+      ok(capHit.length === 0, `${path} 没有混入别的方向的能力${capHit.length ? `：${capHit.join("、")}` : ""}`);
       // **切换器标签必须跟着路由走。** 它自己去找 live 方向的话，
       // 站在 /atlas/image/* 上照样显示「AI 视频」—— 路由对、内容对，只有这块标签骗人。
       const chip = await page.evaluate(
