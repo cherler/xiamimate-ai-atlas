@@ -2821,6 +2821,73 @@
       "good_for": [
         "capability"
       ]
+    },
+    {
+      "id": "gemini-computer-use",
+      "tier": "S",
+      "kind": "spa",
+      "vendor": "gemini-text",
+      "name": "Gemini API · Computer Use",
+      "url": "https://ai.google.dev/gemini-api/docs/computer-use",
+      "refresh_days": 14,
+      "good_for": [
+        "capability",
+        "pricing"
+      ]
+    },
+    {
+      "id": "ark-pricing",
+      "tier": "S",
+      "kind": "spa",
+      "vendor": "doubao",
+      "name": "火山方舟 · 模型价格",
+      "url": "https://www.volcengine.com/docs/82379/1544106",
+      "refresh_days": 14,
+      "good_for": [
+        "capability",
+        "pricing"
+      ],
+      "lang": "zh-CN"
+    },
+    {
+      "id": "bailian-models-zh",
+      "tier": "S",
+      "kind": "spa",
+      "vendor": "qwen-text",
+      "name": "阿里云百炼 · 模型列表（中文站）",
+      "url": "https://help.aliyun.com/zh/model-studio/models",
+      "refresh_days": 7,
+      "good_for": [
+        "capability",
+        "version"
+      ],
+      "lang": "zh-CN"
+    },
+    {
+      "id": "glm-batch",
+      "tier": "S",
+      "kind": "html",
+      "vendor": "glm",
+      "name": "智谱开放平台 · 批量处理",
+      "url": "https://docs.bigmodel.cn/cn/guide/tools/batch.md",
+      "refresh_days": 7,
+      "good_for": [
+        "capability",
+        "version"
+      ]
+    },
+    {
+      "id": "glm-chat-api",
+      "tier": "S",
+      "kind": "html",
+      "vendor": "glm",
+      "name": "智谱开放平台 · 对话补全 API",
+      "url": "https://docs.bigmodel.cn/api-reference/模型-api/对话补全.md",
+      "refresh_days": 7,
+      "good_for": [
+        "capability",
+        "version"
+      ]
     }
   ],
   "$missing": [

@@ -59,10 +59,16 @@ for (const s of a.support) {
     if (s.sibling === m.version)
       errs.push(`R9d ${at} 的 sibling 填的就是当前版本 ${m.version} —— 那它不是别支，去掉这个字段`);
     if (!s.note) errs.push(`R9e 挂在同门别支却没写明白：${at} —— ✅ 不加说明会被当成旗舰就能做`);
-  } else if (s.verified_for !== m.version)
-    errs.push(`R9 版本对不上：${at} 记的是 ${s.verified_for}，但 ${m.family} 当前是 ${m.version}。` +
-      `升级后必须重新核验或退回 unknown，不许沿用旧版结论。` +
-      `（若这条能力本来就长在同门另一支型号上，那不是腐烂 —— 填 sibling 字段）`);
+  } else if (s.verified_for !== m.version) {
+    if (s.recheck === m.version) {
+      // 认了「核的是上一版」。**放行但记成待办** —— todo.mjs 会把它捞进待重核那一摞。
+      if (!s.note) errs.push(`R9f 标了待重核却没写说明：${at} —— 读者要知道旧结论为什么还留着`);
+    } else
+      errs.push(`R9 版本对不上：${at} 记的是 ${s.verified_for}，但 ${m.family} 当前是 ${m.version}。` +
+        `升级后必须重新核验或退回 unknown，不许沿用旧版结论。` +
+        `（本来就长在同门另一支型号上 → 填 sibling；` +
+        `厂商能力页还没跟上新版、暂时只能沿用旧版证据 → 填 recheck: "${m.version}"，它会进待办）`);
+  }
 }
 
 /**

@@ -103,7 +103,29 @@ try {
     });
 } catch { /* 候选文件坏了不该拖垮整张待办表 */ }
 
-/** ④ 收录候选（新面孔）。 */
+/**
+ * ④ 待重核：版本升了，格子还是上一版的证据。
+ *
+ * **这一摞存在的意义，是让 `recheck` 不能当静音键用。**
+ * 标了 recheck 校验就放行 —— 如果到此为止，它和「悄悄改 verified_for」没区别，
+ * 只是换了个地方烂。所以它必须每天出现在待办里，直到有人去重核。
+ */
+try {
+  const atlas = JSON.parse(read("data/atlas.json") || "{}");
+  const stale = (atlas.support ?? []).filter((s) => s.recheck && s.verified_for !== s.recheck);
+  const by = {};
+  for (const s of stale) by[s.m] = (by[s.m] ?? 0) + 1;
+  if (stale.length)
+    groups.push({
+      n: stale.length,
+      t: `待重核 ${stale.length} 格（${Object.entries(by).map(([k, v]) => `${k} ${v}`).join(" · ")}）`,
+      how: "去厂商能力页看新版是否已列入；列了就把 verified_for 改成新版并去掉 recheck，没列就留着",
+      why: "**厂商的能力页常常落后于它自己的模型清单。** 这些格子的证据是真的，只是核的是上一版 —— " +
+        "改 verified_for 是编，退回 ⬜ 是把真证据扔了，所以照实标着，但必须一直算作待办。",
+    });
+} catch { /* atlas 坏了会被 validate 拦，这里不重复报 */ }
+
+/** ⑤ 收录候选（新面孔）。 */
 const cm = read("data/candidates.md");
 const newFaces = (cm.match(/^\| /gm) ?? []).length;
 if (newFaces) groups.push({

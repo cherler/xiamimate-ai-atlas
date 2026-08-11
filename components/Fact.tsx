@@ -78,6 +78,11 @@ export function Fact({ m, c, label }: { m: string; c: string; label: string }) {
             <span className="px-1.5 py-px rounded bg-unknown/15 text-unknown text-[11px]">
               核在同门另一支：{f.sibling}
             </span>
+          ) : f.recheck ? (
+            /* 两个版本并排印 —— 只印「核验版本 3.7-max」，读者会以为那就是当前版本 */
+            <span className="px-1.5 py-px rounded bg-unknown/15 text-unknown text-[11px]">
+              核的是 {f.verified_for} · 现已是 {f.recheck}，未重核
+            </span>
           ) : (
             f.verified_for && <span>核验版本 {f.verified_for}</span>
           )}

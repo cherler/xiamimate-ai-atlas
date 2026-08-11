@@ -2224,7 +2224,7 @@
    "family": "Qwen",
    "zh": "通义千问",
    "org": "alibaba",
-   "version": "3.7-max",
+   "version": "3.8-max",
    "version_as_of": "2026-08-11",
    "status": "active",
    "tier": "core",
@@ -2232,9 +2232,9 @@
    "weights": "open",
    "team": "通义 Qwen",
    "weights_note": "Qwen3 系列多数档位 Apache-2.0 —— 中文侧开源力度最大的一家",
-   "version_src": "bailian-models",
-   "version_quote": "阿里云百炼支持的模型清单里列有 qwen3.7-max / qwen3.7-plus / qwen3.6-flash。**日期是核验日** —— 该页不标发布日；批量推理页的 Qwen-Max 清单同样以 qwen3.7-max 打头（第二个独立出处）",
-   "status_note": " ⚠️ **两条线要分清**：API 线已到 3.7-max，而**开源权重最新只到 Qwen3.6**（官方 HF 组织 2026-04-21）。演化树画的是开源那条，因为只有它有可核的发布日期。"
+   "version_src": "bailian-models-zh",
+   "version_quote": "中文站模型列表「文本生成」首条即 `qwen3.8-max`（同页 plus/flash 仍是 3.7）。⚠️ **英文站同一张清单当天还只到 qwen3.7-max** —— 两个语言版本不同步，以更新的为准",
+   "status_note": " ⚠️ **三条线要分清**：API 旗舰 qwen3.8-max，plus/flash 停在 3.7，而**开源权重最新只到 Qwen3.6**（官方 HF 组织 2026-04-21）。演化树画的是开源那条 —— 只有它有可核的发布日期。"
   },
   {
    "id": "deepseek",
@@ -3369,6 +3369,31 @@
   "minimax-openapi": {
    "name": "MiniMax 开放平台 · Chat Completions OpenAPI 规格",
    "url": "https://platform.minimaxi.com/docs/api-reference/text/api/openapi-chat-openai.json",
+   "tier": "official"
+  },
+  "gemini-computer-use": {
+   "name": "Gemini API · Computer Use",
+   "url": "https://ai.google.dev/gemini-api/docs/computer-use",
+   "tier": "official"
+  },
+  "ark-pricing": {
+   "name": "火山方舟 · 模型价格",
+   "url": "https://www.volcengine.com/docs/82379/1544106",
+   "tier": "official"
+  },
+  "bailian-models-zh": {
+   "name": "阿里云百炼 · 模型列表（中文站）",
+   "url": "https://help.aliyun.com/zh/model-studio/models",
+   "tier": "official"
+  },
+  "glm-batch": {
+   "name": "智谱开放平台 · 批量处理",
+   "url": "https://docs.bigmodel.cn/cn/guide/tools/batch.md",
+   "tier": "official"
+  },
+  "glm-chat-api": {
+   "name": "智谱开放平台 · 对话补全 API",
+   "url": "https://docs.bigmodel.cn/api-reference/模型-api/对话补全.md",
    "tier": "official"
   }
  },
@@ -5678,8 +5703,12 @@
   {
    "m": "gemini-text",
    "c": "t-computer",
-   "state": "unknown",
-   "verified_for": "Gemini 3.6 Flash"
+   "state": "yes",
+   "verified_for": "Gemini 3.6 Flash",
+   "src": "gemini-computer-use",
+   "note": "Computer Use 指南的 Model versions 一节列出 **gemini-3.6-flash**（与 3.5-flash-lite / 3.5-flash / 3-flash-preview 并列）；`environment` 支持 ENVIRONMENT_BROWSER / MOBILE / DESKTOP，另有 `enable_prompt_injection_detection` 等安全参数",
+   "via": "native",
+   "as_of": "2026-08-11"
   },
   {
    "m": "gemini-text",
@@ -5736,33 +5765,38 @@
    "c": "t-think",
    "state": "yes",
    "verified_for": "3.7-max",
-   "note": "「Seamless switching between thinking mode … and non-thinking mode … within a single model」",
+   "note": "「Seamless switching between thinking mode … and non-thinking mode … within a single model」。⚠️ **这一格核的是 3.7-max**：厂商的能力页当天仍只列到 3.7，没跟上模型清单里的 3.8-max",
    "src": "qwen-docs",
-   "via": "native"
+   "via": "native",
+   "recheck": "3.8-max"
   },
   {
    "m": "qwen-text",
    "c": "t-long",
    "state": "yes",
    "verified_for": "3.7-max",
-   "note": "「Enhanced 256K long-context understanding, extensible to 1M」",
+   "note": "「Enhanced 256K long-context understanding, extensible to 1M」。⚠️ **这一格核的是 3.7-max**：厂商的能力页当天仍只列到 3.7，没跟上模型清单里的 3.8-max",
    "src": "qwen-docs",
-   "via": "native"
+   "via": "native",
+   "recheck": "3.8-max"
   },
   {
    "m": "qwen-text",
    "c": "t-maxout",
    "state": "unknown",
-   "verified_for": "3.7-max"
+   "verified_for": "3.7-max",
+   "recheck": "3.8-max",
+   "note": "。⚠️ **这一格核的是 3.7-max**：厂商的能力页当天仍只列到 3.7，没跟上模型清单里的 3.8-max"
   },
   {
    "m": "qwen-text",
    "c": "t-tools",
    "state": "yes",
    "verified_for": "3.7-max",
-   "note": "「Expertise in agent capabilities, enabling precise integration with external tools」",
+   "note": "「Expertise in agent capabilities, enabling precise integration with external tools」。⚠️ **这一格核的是 3.7-max**：厂商的能力页当天仍只列到 3.7，没跟上模型清单里的 3.8-max",
    "src": "qwen-docs",
-   "via": "native"
+   "via": "native",
+   "recheck": "3.8-max"
   },
   {
    "m": "qwen-text",
@@ -5770,9 +5804,10 @@
    "state": "yes",
    "verified_for": "3.7-max",
    "src": "bailian-textgen",
-   "note": "Production Use 小节列出的特性含 structured output（与 RAG、tool calling、streaming output、deep thinking、prefix completion 并列）",
+   "note": "Production Use 小节列出的特性含 structured output（与 RAG、tool calling、streaming output、deep thinking、prefix completion 并列）。⚠️ **这一格核的是 3.7-max**：厂商的能力页当天仍只列到 3.7，没跟上模型清单里的 3.8-max",
    "via": "native",
-   "as_of": "2026-08-11"
+   "as_of": "2026-08-11",
+   "recheck": "3.8-max"
   },
   {
    "m": "qwen-text",
@@ -5781,20 +5816,25 @@
    "verified_for": "3.7-max",
    "src": "bailian-websearch",
    "via": "native",
-   "note": "三条通道各有写法：Chat Completions / DashScope 用 `enable_search: true`，Responses API 用 `tools: [{\"type\": \"web_search\"}]`；另有 `search_strategy: \"agent\" | \"agent_max\"` 与 `enable_source`。支持模型清单含 Qwen3.7-Max、Qwen3.7-Plus",
-   "as_of": "2026-08-11"
+   "note": "三条通道各有写法：Chat Completions / DashScope 用 `enable_search: true`，Responses API 用 `tools: [{\"type\": \"web_search\"}]`；另有 `search_strategy: \"agent\" | \"agent_max\"` 与 `enable_source`。支持模型清单含 Qwen3.7-Max、Qwen3.7-Plus。⚠️ **这一格核的是 3.7-max**：厂商的能力页当天仍只列到 3.7，没跟上模型清单里的 3.8-max",
+   "as_of": "2026-08-11",
+   "recheck": "3.8-max"
   },
   {
    "m": "qwen-text",
    "c": "t-code",
    "state": "unknown",
-   "verified_for": "3.7-max"
+   "verified_for": "3.7-max",
+   "recheck": "3.8-max",
+   "note": "。⚠️ **这一格核的是 3.7-max**：厂商的能力页当天仍只列到 3.7，没跟上模型清单里的 3.8-max"
   },
   {
    "m": "qwen-text",
    "c": "t-computer",
    "state": "unknown",
-   "verified_for": "3.7-max"
+   "verified_for": "3.7-max",
+   "recheck": "3.8-max",
+   "note": "。⚠️ **这一格核的是 3.7-max**：厂商的能力页当天仍只列到 3.7，没跟上模型清单里的 3.8-max"
   },
   {
    "m": "qwen-text",
@@ -5811,7 +5851,9 @@
    "m": "qwen-text",
    "c": "t-audio",
    "state": "unknown",
-   "verified_for": "3.7-max"
+   "verified_for": "3.7-max",
+   "recheck": "3.8-max",
+   "note": "。⚠️ **这一格核的是 3.7-max**：厂商的能力页当天仍只列到 3.7，没跟上模型清单里的 3.8-max"
   },
   {
    "m": "qwen-text",
@@ -5819,9 +5861,10 @@
    "state": "yes",
    "verified_for": "3.7-max",
    "src": "bailian-cache",
-   "note": "分显式与隐式两种：显式缓存用 `\"cache_control\": {\"type\": \"ephemeral\"}` 标记，命中计 10% 标准价（创建 125%），隐式命中计 20%",
+   "note": "分显式与隐式两种：显式缓存用 `\"cache_control\": {\"type\": \"ephemeral\"}` 标记，命中计 10% 标准价（创建 125%），隐式命中计 20%。⚠️ **这一格核的是 3.7-max**：厂商的能力页当天仍只列到 3.7，没跟上模型清单里的 3.8-max",
    "via": "native",
-   "as_of": "2026-08-11"
+   "as_of": "2026-08-11",
+   "recheck": "3.8-max"
   },
   {
    "m": "qwen-text",
@@ -5829,9 +5872,10 @@
    "state": "yes",
    "verified_for": "3.7-max",
    "src": "bailian-batch",
-   "note": "OpenAI 兼容 Batch API，「Costs are only 50% of real-time calls」，completion_window 24h–336h；支持模型清单含 qwen3.7-max",
+   "note": "OpenAI 兼容 Batch API，「Costs are only 50% of real-time calls」，completion_window 24h–336h；支持模型清单含 qwen3.7-max。⚠️ **这一格核的是 3.7-max**：厂商的能力页当天仍只列到 3.7，没跟上模型清单里的 3.8-max",
    "via": "native",
-   "as_of": "2026-08-11"
+   "as_of": "2026-08-11",
+   "recheck": "3.8-max"
   },
   {
    "m": "qwen-text",
@@ -5851,7 +5895,8 @@
    "verified_for": "3.7-max",
    "src": "hf-text-org",
    "via": "native",
-   "note": "官方 HF 组织下有可下载权重：Qwen/Qwen3.6-27B"
+   "note": "官方 HF 组织下有可下载权重：Qwen/Qwen3.6-27B。⚠️ **这一格核的是 3.7-max**：厂商的能力页当天仍只列到 3.7，没跟上模型清单里的 3.8-max",
+   "recheck": "3.8-max"
   },
   {
    "m": "deepseek",
@@ -6158,8 +6203,13 @@
   {
    "m": "glm",
    "c": "t-audio",
-   "state": "unknown",
-   "verified_for": "GLM-5.2"
+   "state": "yes",
+   "verified_for": "glm-4-voice",
+   "src": "glm-chat-api",
+   "note": "对话补全 API 的 OpenAPI 里有「音频对话示例」，`model: glm-4-voice`、内容块 `type: input_audio`。⚠️ **不是 GLM-5.2** —— 它自己的模型页写明输入输出模态均为 Text",
+   "via": "native",
+   "as_of": "2026-08-11",
+   "sibling": "glm-4-voice"
   },
   {
    "m": "glm",
@@ -6174,8 +6224,12 @@
   {
    "m": "glm",
    "c": "t-batch",
-   "state": "unknown",
-   "verified_for": "GLM-5.2"
+   "state": "yes",
+   "verified_for": "GLM-5.2",
+   "src": "glm-batch",
+   "note": "「Batch API 专为处理大规模数据请求而设计……通过文件提交大量任务，且**价格降低 50%**（GLM-4-Flash 免费）、无并发限制」；任务文件为 .jsonl，每行打到 `/v4/chat/completions`。⚠️ 该页**没有列支持模型清单**，示例用的是 GLM-4-PLUS —— 接口本身按 body 里的 model 走，但「GLM-5.2 能不能进批量」这一句官方没明写",
+   "via": "native",
+   "as_of": "2026-08-11"
   },
   {
    "m": "glm",
@@ -6430,8 +6484,12 @@
   {
    "m": "doubao",
    "c": "t-batch",
-   "state": "unknown",
-   "verified_for": "Seed-2.1 Pro"
+   "state": "yes",
+   "verified_for": "Seed-2.1 Pro",
+   "src": "ark-pricing",
+   "note": "价格页「批量推理」表**第一行就是 doubao-seed-2.1-pro**：输入长度 [0,256] 时输入 3.00、缓存命中 1.20、输出 15.00 元/百万 token —— 正好是在线推理（6.00 / 30.00）的一半。⚠️ 页面另一处「相比在线推理，价格低至50%」在**精调模型**那一段，不是这一行的依据",
+   "via": "native",
+   "as_of": "2026-08-11"
   },
   {
    "m": "doubao",
