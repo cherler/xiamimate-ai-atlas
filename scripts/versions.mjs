@@ -46,14 +46,34 @@ const atlas = JSON.parse(readFileSync(join(ROOT, "data/atlas.json"), "utf8"));
  * 不是「Runway 出了什么版本」——**两件事混进同一张演进图，图就废了。**
  */
 const OTHERS = /\b(seedance|seedream|gemini|nano banana|veo|kling|hailuo|minimax|wan|vidu|sora|ltx|luma|flux|seed audio|seed3d|seed-\d)\b/i;
+/**
+ * 每条 = 一份 changelog 快照 → 一条产品线。`d` 是方向。
+ *
+ * ⚠️ 原来这张表只有 7 条视频的。图像方向立起来之后这支脚本对它全空 ——
+ * **跑出来「没有新版本」不是结论，是没看**。2026-08-11 补上图像那批。
+ * 快照还没抓到的会被下面的 existsSync 跳过，日志里如实说一句。
+ */
 const SRC = [
-  { snap: "runway-changelog", m: "runway", resells: true, own: /\b(Gen-\d|Aleph|Act-One|Frames|Runway)\b/i, src: "rw-changelog" },
-  { snap: "kling-api-updates", m: "kling", resells: false, src: "kling-api-updates" },
-  { snap: "vidu-changelog", m: "vidu-q", resells: false, src: "vidu-changelog" },
-  { snap: "minimax-blog", m: "hailuo", resells: false, src: "minimax-blog" },
-  { snap: "seed-blog", m: "seedance", resells: true, own: /\b(seedance)\b/i, src: "seed-blog" },
-  { snap: "wan-gh-releases", m: "wan", resells: false, src: "wan-gh-releases" },
-  { snap: "ltx-gh", m: "ltx", resells: false, src: "ltx-gh" },
+  // ── AI 视频
+  { snap: "runway-changelog", m: "runway", d: "video", resells: true, own: /\b(Gen-\d|Aleph|Act-One|Frames|Runway)\b/i, src: "rw-changelog" },
+  { snap: "kling-api-updates", m: "kling", d: "video", resells: false, src: "kling-api-updates" },
+  { snap: "vidu-changelog", m: "vidu-q", d: "video", resells: false, src: "vidu-changelog" },
+  { snap: "minimax-blog", m: "hailuo", d: "video", resells: false, src: "minimax-blog" },
+  { snap: "seed-blog", m: "seedance", d: "video", resells: true, own: /\b(seedance)\b/i, src: "seed-blog" },
+  { snap: "wan-gh-releases", m: "wan", d: "video", resells: false, src: "wan-gh-releases" },
+  { snap: "ltx-gh", m: "ltx", d: "video", resells: false, src: "ltx-gh" },
+  // ── AI 图像
+  { snap: "seed-blog", m: "seedream", d: "image", resells: true, own: /\b(seedream)\b/i, src: "seed-blog" },
+  // ⚠️ `resells + own` 一定要写。第一版我漏了，结果从
+  //    「Recraft V4 Pro vs **GPT Image 1.5**」里抽出 v1.5 当成了 Recraft 的版本 ——
+  //    正是本文件开头警告的那种张冠李戴。
+  { snap: "recraft-blog", m: "recraft", d: "image", resells: true, own: /\brecraft\b/i, src: "recraft-blog" },
+  { snap: "mj-updates", m: "midjourney", d: "image", resells: false, src: "mj-updates" },
+  // Krea 的博客里大半在讲它转售的别家模型（Seedance / Seedream / FLUX），
+  // 不写 own 的话那些版本号会全记到 Krea 头上。
+  { snap: "krea-blog", m: "krea-img", d: "image", resells: true, own: /\bkrea\b/i, src: "krea-blog" },
+  { snap: "google-nb-blog", m: "gemini-image", d: "image", resells: false, src: "google-nb-blog" },
+  { snap: "kolors-gh", m: "kolors", d: "image", resells: false, src: "kolors-gh" },
 ];
 
 /** 英文月 + 中文日期两种写法都要认 —— 各家格式不统一，认一种就漏一半。 */

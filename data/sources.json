@@ -1946,6 +1946,66 @@
         "capability"
       ],
       "note": "**官方一手源，能抓。**之前只登记了被 Cloudflare 挡住的 docs.midjourney.com，就以为 Midjourney 整家抓不到、把版本年表退到了 Wikipedia —— **一个域名挡住不等于这家挡住**。"
+    },
+    {
+      "id": "aa-t2i",
+      "tier": "A",
+      "kind": "spa",
+      "vendor": "",
+      "name": "Artificial Analysis · 文生图竞技场",
+      "url": "https://artificialanalysis.ai/text-to-image/arena",
+      "refresh_days": 7,
+      "good_for": [
+        "discovery",
+        "benchmark"
+      ],
+      "not_for": [
+        "capability"
+      ],
+      "note": "出图侧的发现信号。和视频榜同一个毛病：只答「谁画得更好看」，不答「谁能按蒙版重绘」。榜上出现没见过的名字＝发现信号",
+      "expect": [
+        "Elo",
+        "FLUX",
+        "Imagen"
+      ]
+    },
+    {
+      "id": "hf-t2i",
+      "tier": "A",
+      "kind": "json",
+      "vendor": "",
+      "name": "Hugging Face · text-to-image 按下载量",
+      "url": "https://huggingface.co/api/models?filter=text-to-image&sort=downloads&direction=-1&limit=60",
+      "refresh_days": 3,
+      "good_for": [
+        "openweights",
+        "discovery"
+      ],
+      "note": "按 downloads 排，理由同 hf-t2v：按 lastModified 排会被个人搬运/量化号淹没",
+      "expect": [
+        "FLUX",
+        "stable-diffusion",
+        "Qwen-Image"
+      ]
+    },
+    {
+      "id": "hf-i2i",
+      "tier": "A",
+      "kind": "json",
+      "vendor": "",
+      "name": "Hugging Face · image-to-image 按下载量",
+      "url": "https://huggingface.co/api/models?filter=image-to-image&sort=downloads&direction=-1&limit=60",
+      "refresh_days": 3,
+      "good_for": [
+        "openweights",
+        "discovery"
+      ],
+      "note": "改图那一侧的开源采用度。和 t2i 分开看 —— 出图强的不一定改图强",
+      "expect": [
+        "Kontext",
+        "Qwen-Image-Edit",
+        "instruct"
+      ]
     }
   ],
   "$missing": [

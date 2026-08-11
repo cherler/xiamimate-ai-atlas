@@ -46,9 +46,24 @@ const isNew = (s) => {
   return ![...known].some((k) => low.includes(k) || k.includes(low));
 };
 
+/**
+ * **两个方向各有自己的两路证据。**
+ *
+ * 原来这里写死了 `aa-t2v` / `hf-t2v` 这几个视频快照 —— 图像方向立起来之后，
+ * 这支脚本对它是全空的：跑出来永远「没有新面孔」，而那**不是结论，是没看**。
+ * 加方向只要在这张表里加一行。
+ */
+const DOMAINS = [
+  { id: "video", zh: "AI 视频", boards: ["aa-t2v", "aa-i2v"], hf: ["hf-t2v", "hf-i2v", "hf-v2v"] },
+  { id: "image", zh: "AI 图像", boards: ["aa-t2i"], hf: ["hf-t2i", "hf-i2i"] },
+];
+
+const out = [];
+for (const D of DOMAINS) {
+
 // ── 一路：AA 榜。行格式是「名次 区间 厂商 模型名 Elo …… 发布月 价格/min」
 const rows = [];
-for (const id of ["aa-t2v", "aa-i2v"]) {
+for (const id of D.boards) {
   const t = snap(id)?.text ?? "";
   // 抓「厂商 模型名 …… 四位 Elo」这一段；Elo 是唯一稳定的锚点
   for (const m of t.matchAll(/([A-Z][\w.\- ]{2,28}?)\s+([A-Z][\w.\- ]{2,34}?)\s+(1,\d{3})\s/g)) {
@@ -64,7 +79,7 @@ const aaNew = [...byModel.values()].filter((r) => isNew(r.model)).sort((a, b) =>
 
 // ── 另一路：HF 下载量。组织名就是厂商，仓库数是它在开源侧的投入
 const orgs = new Map();
-for (const id of ["hf-t2v", "hf-i2v", "hf-v2v"]) {
+for (const id of D.hf) {
   for (const it of snap(id)?.items ?? []) {
     const repo = it.split("\t")[0];
     if (!repo.includes("/")) continue;
@@ -80,22 +95,15 @@ const hfNew = [...orgs.entries()]
   .filter((x) => x.n >= 2 && isNew(x.org))
   .sort((a, b) => b.n - a.n);
 
-const md = [
-  `# 收录候选 · ${atlas.generated_at}`,
+out.push([
+  `## 【${D.zh}】`,
   ``,
-  `> **这份名单是筛出来的，不是抄来的。** 现在 clip 轨那 9 个 Family 来自交接文档，`,
-  `> 而 AA 榜第 5、第 6 的 HappyHorse 我压根没听说过 —— 抄来的名单反映的是`,
-  `> 写文档那个人的视野，不是世界的实际分布。`,
-  ``,
-  `> 两路都只是**发现**。收不收按 ontology 规则一（是不是模型，不是模板/工具）`,
-  `> 与规则四（Core 每轨 ≤10，**加第 11 个之前先踢掉一个**）人工定。`,
-  ``,
-  `## 一、Artificial Analysis 榜上、我们没收的（闭源侧的「有人真在用」）`,
+  `### 一、Artificial Analysis 榜上、我们没收的（闭源侧的「有人真在用」）`,
   ``,
   aaNew.length ? `| 厂商 | 模型 | Elo |\n|---|---|---:|` : "（无）",
   ...aaNew.slice(0, 20).map((r) => `| ${r.vendor} | ${r.model} | ${r.elo} |`),
   ``,
-  `## 二、Hugging Face 下载量前列、我们没收的组织（开源侧的实际采用度）`,
+  `### 二、Hugging Face 下载量前列、我们没收的组织（开源侧的实际采用度）`,
   ``,
   hfNew.length ? `| 组织 | 仓库数 | 示例 |\n|---|---:|---|` : "（无）",
   ...hfNew.slice(0, 20).map((x) => `| ${x.org} | ${x.n} | \`${x.sample}\` |`),
@@ -105,15 +113,31 @@ const md = [
   `> 不要照单全收，也不要因为混了噪音就整路丢掉：Lightricks、nvidia、zai-org`,
   `> 都是这一路捞出来的，而它们在闭源榜上完全隐形。`,
   ``,
-  `## 当前 Core（clip 轨 ${atlas.models.filter((m) => m.class === "clip").length}/10，realtime 轨 ${atlas.models.filter((m) => m.class === "realtime").length}/10）`,
+  `### 当前 Core（clip 轨 ${atlas.models.filter((m) => m.class === "clip").length}/10，realtime 轨 ${atlas.models.filter((m) => m.class === "realtime").length}/10）`,
   ``,
   ...atlas.models.map((m) => `- \`${m.class}\` ${m.family} ${m.version}（${m.version_as_of}）${m.status && m.status !== "active" ? ` — **${m.status}**` : ""}`),
   ``,
   `> clip 轨只剩 1 个空位。按规则四，再进新的就必须先踢一个 ——`,
   `> 最该出去的是 **Sora 2**（已公告停服）。但**停服的模型不该从库里删**：`,
   `> 「它没了」本身是有用的信息，应降到 Extended 层，而不是消失。`,
-].join("\n");
+].join("\n"));
+
+console.log(`${D.zh}：AA 榜新面孔 ${aaNew.length} 个，HF 新组织 ${hfNew.length} 个`);
+for (const r of aaNew.slice(0, 6)) console.log(`  [AA ${r.elo}] ${r.vendor} · ${r.model}`);
+}   // ← 方向循环到此为止
+
+const md = [
+  `# 收录候选 · ${atlas.generated_at}`,
+  ``,
+  `> **这份名单是筛出来的，不是抄来的。**`,
+  `> 两路都只是**发现**。收不收按 ontology 规则一（是不是模型）`,
+  `> 与规则四（Core 每轨 ≤10，**加第 11 个之前先踢掉一个**）人工定。`,
+  `>`,
+  `> **按方向分开列** —— 混在一起时，图像那一半永远是空的，`,
+  `> 而空看起来像「没有新面孔」，其实是「没看」。`,
+  ``,
+  ...out,
+].join("\n\n");
 
 writeFileSync(`${ROOT}/data/candidates.md`, md);
-console.log(`AA 榜新面孔 ${aaNew.length} 个，HF 新组织 ${hfNew.length} 个 → data/candidates.md`);
-for (const r of aaNew.slice(0, 8)) console.log(`  [AA ${r.elo}] ${r.vendor} · ${r.model}`);
+console.log(`→ data/candidates.md`);

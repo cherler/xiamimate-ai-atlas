@@ -1,6 +1,6 @@
 # 信息源监视报告 · 2026-08-11
 
-本次检查 0 个到期源（共 93 个）：变化 0 · 首次 0 · 无变化 0 · **抓不到 0**
+本次检查 6 个到期源（共 146 个）：变化 0 · 首次 6 · 无变化 0 · **抓不到 0**
 
 > 这份报告是给人看的那 20 条待办的来源（§59.3 的负反馈：人每周要看的条目 ≤ 20）。
 > 「抓不到」不是失败，是**信息本身** —— 一个长期抓不到的官方源，说明那家厂商没有可 diff 的公开更新入口，
@@ -112,6 +112,59 @@
 | animate-anything-gh | C | json | 从未抓过 |
 | huobao-gh | C | json | 从未抓过 |
 | awesome-vd-gh | C | json | 从未抓过 |
-| seedream-page | S | html | 从未抓过 |
+| seedream-page | S | html | 首次 |
 | openai-models | S | html | 从未抓过 |
 | gemini-models | S | html | 从未抓过 |
+| google-gemini-blog | S | html | 从未抓过 |
+| azure-foundry-blog | B | html | 从未抓过 |
+| recraft-blog | S | html | 首次 |
+| kolors-gh | S | html | 首次 |
+| krea-blog | S | html | 首次 |
+| wiki-midjourney | B | html | 从未抓过 |
+| comfyui-gh | S | json | 从未抓过 |
+| sdwebui-gh | S | json | 从未抓过 |
+| fooocus-gh | S | json | 从未抓过 |
+| invokeai-gh | S | json | 从未抓过 |
+| iopaint-gh | S | json | 从未抓过 |
+| rembg-gh | S | json | 从未抓过 |
+| realesrgan-gh | S | json | 从未抓过 |
+| gfpgan-gh | S | json | 从未抓过 |
+| codeformer-gh | S | json | 从未抓过 |
+| oldphoto-gh | S | json | 从未抓过 |
+| controlnet-gh | S | json | 从未抓过 |
+| ipadapter-gh | S | json | 从未抓过 |
+| instantid-gh | S | json | 从未抓过 |
+| photomaker-gh | S | json | 从未抓过 |
+| iclight-gh | S | json | 从未抓过 |
+| idmvton-gh | S | json | 从未抓过 |
+| ootd-gh | S | json | 从未抓过 |
+| catvton-gh | S | json | 从未抓过 |
+| kritaai-gh | S | json | 从未抓过 |
+| omnigen-gh | S | json | 从未抓过 |
+| step1x-gh | S | json | 从未抓过 |
+| qwenimage-gh | S | json | 从未抓过 |
+| anytext-gh | S | json | 从未抓过 |
+| incontextlora-gh | S | json | 从未抓过 |
+| comictrans-gh | S | json | 从未抓过 |
+| manganinjia-gh | S | json | 从未抓过 |
+| starvector-gh | S | json | 从未抓过 |
+| svgdreamer-gh | S | json | 从未抓过 |
+| easyphoto-gh | S | json | 从未抓过 |
+| ipadapter-plus-gh | S | json | 从未抓过 |
+| controlnet-aux-gh | S | json | 从未抓过 |
+| ultimate-upscale-gh | S | json | 从未抓过 |
+| comfy-manager-gh | S | json | 从未抓过 |
+| comfy-examples-gh | S | json | 从未抓过 |
+| comfy-templates-gh | S | json | 从未抓过 |
+| hf-diffusion-class-gh | S | json | 从未抓过 |
+| fastai-course | S | html | 从未抓过 |
+| dreamtextures-gh | S | json | 从未抓过 |
+| char2d-gh | S | json | 从未抓过 |
+| hf-pixelart-lora | S | json | 从未抓过 |
+| google-nb-blog | S | html | 首次 |
+| ms-foundry-blog | B | html | 从未抓过 |
+| hf-image-org | S | json | 从未抓过 |
+| mj-updates | S | html | 首次 |
+| aa-t2i | A | spa | 未到期（上次 2026-08-11） |
+| hf-t2i | A | json | 未到期（上次 2026-08-11） |
+| hf-i2i | A | json | 未到期（上次 2026-08-11） |
