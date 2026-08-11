@@ -6489,6 +6489,229 @@
    "added": "3.5B Next-DiT，二次元向",
    "src": "comfy-docs",
    "quote": "NewBie-image-Exp0.1 is a 3.5B parameter DiT model developed by NewBieAI Lab for anime-style text-to-image generation. Built on the Next-DiT architecture"
+  },
+  {
+   "id": "flux-FLUX.1-Fill-dev-专做重绘与扩图的一档",
+   "m": "flux",
+   "version": "FLUX.1-Fill-dev",
+   "date": "2024-11-20",
+   "added": "专做重绘与扩图的一档",
+   "src": "hf-image-org",
+   "quote": "black-forest-labs/FLUX.1-Fill-dev（官方 HF 组织 createdAt 2024-11-20，下载 377,737）",
+   "parent": "flux-FLUX.1-schnell-首发，快档（少步数）"
+  },
+  {
+   "id": "flux-FLUX.1-Canny-dev-线稿控制档",
+   "m": "flux",
+   "version": "FLUX.1-Canny-dev",
+   "date": "2024-11-20",
+   "added": "线稿控制档",
+   "src": "hf-image-org",
+   "quote": "black-forest-labs/FLUX.1-Canny-dev（官方 HF 组织 createdAt 2024-11-20，下载 4,492）",
+   "parent": "flux-FLUX.1-schnell-首发，快档（少步数）"
+  },
+  {
+   "id": "flux-FLUX.1-Depth-dev-深度控制档",
+   "m": "flux",
+   "version": "FLUX.1-Depth-dev",
+   "date": "2024-11-20",
+   "added": "深度控制档",
+   "src": "hf-image-org",
+   "quote": "black-forest-labs/FLUX.1-Depth-dev（官方 HF 组织 createdAt 2024-11-20，下载 2,751）",
+   "parent": "flux-FLUX.1-schnell-首发，快档（少步数）"
+  },
+  {
+   "id": "flux-FLUX.1-Redux-dev-图生变体档",
+   "m": "flux",
+   "version": "FLUX.1-Redux-dev",
+   "date": "2024-11-20",
+   "added": "图生变体档",
+   "src": "hf-image-org",
+   "quote": "black-forest-labs/FLUX.1-Redux-dev（官方 HF 组织 createdAt 2024-11-20，下载 6,926）",
+   "parent": "flux-FLUX.1-schnell-首发，快档（少步数）"
+  },
+  {
+   "id": "flux-FLUX.2-klein-4B-同代的 4B 小档",
+   "m": "flux",
+   "version": "FLUX.2-klein-4B",
+   "date": "2026-01-14",
+   "added": "同代的 4B 小档",
+   "src": "hf-image-org",
+   "quote": "black-forest-labs/FLUX.2-klein-4B（官方 HF 组织 createdAt 2026-01-14，下载 354,074）",
+   "parent": "flux-FLUX.2-dev-第二代"
+  },
+  {
+   "id": "flux-FLUX.2-klein-base-4B-4B 的未后训基座",
+   "m": "flux",
+   "version": "FLUX.2-klein-base-4B",
+   "date": "2026-01-14",
+   "added": "4B 的未后训基座",
+   "src": "hf-image-org",
+   "quote": "black-forest-labs/FLUX.2-klein-base-4B（官方 HF 组织 createdAt 2026-01-14，下载 139,501）",
+   "parent": "flux-FLUX.2-dev-第二代"
+  },
+  {
+   "id": "flux-FLUX.2-klein-base-9B-9B 的未后训基座",
+   "m": "flux",
+   "version": "FLUX.2-klein-base-9B",
+   "date": "2026-01-14",
+   "added": "9B 的未后训基座",
+   "src": "hf-image-org",
+   "quote": "black-forest-labs/FLUX.2-klein-base-9B（官方 HF 组织 createdAt 2026-01-14，下载 104,782）",
+   "parent": "flux-FLUX.2-dev-第二代"
+  },
+  {
+   "id": "sd-SDXL 0.9-SDXL 的预览档",
+   "m": "sd",
+   "version": "SDXL 0.9",
+   "date": "2023-06-19",
+   "added": "SDXL 的预览档",
+   "src": "hf-image-org",
+   "quote": "stabilityai/stable-diffusion-xl-base-0.9（官方 HF 组织 createdAt 2023-06-19，下载 44）",
+   "parent": "sd-SD 1.4-首个广泛传播的开放权重出图模型"
+  },
+  {
+   "id": "sd-SDXL Turbo-少步数蒸馏，一步出图",
+   "m": "sd",
+   "version": "SDXL Turbo",
+   "date": "2023-11-27",
+   "added": "少步数蒸馏，一步出图",
+   "src": "hf-image-org",
+   "quote": "stabilityai/sdxl-turbo（官方 HF 组织 createdAt 2023-11-27，下载 1,226,446）",
+   "parent": "sd-SDXL 1.0-base + refiner 的专家集成流水线"
+  },
+  {
+   "id": "sd-SD 3.5 Large Turbo-3.5 的少步数档",
+   "m": "sd",
+   "version": "SD 3.5 Large Turbo",
+   "date": "2024-10-22",
+   "added": "3.5 的少步数档",
+   "src": "hf-image-org",
+   "quote": "stabilityai/stable-diffusion-3.5-large-turbo（官方 HF 组织 createdAt 2024-10-22，下载 7,470）",
+   "parent": "sd-SD 3 Medium-换 MMDiT 架构"
+  },
+  {
+   "id": "sd-SD 3.5 Medium-3.5 的中档",
+   "m": "sd",
+   "version": "SD 3.5 Medium",
+   "date": "2024-10-29",
+   "added": "3.5 的中档",
+   "src": "hf-image-org",
+   "quote": "stabilityai/stable-diffusion-3.5-medium（官方 HF 组织 createdAt 2024-10-29，下载 89,301）",
+   "parent": "sd-SD 3.5 Large-3.x 的大档"
+  },
+  {
+   "id": "hidream-HiDream-I1-Fast-I1 的快档",
+   "m": "hidream",
+   "version": "HiDream-I1-Fast",
+   "date": "2025-04-06",
+   "added": "I1 的快档",
+   "src": "hf-image-org",
+   "quote": "HiDream-ai/HiDream-I1-Fast（官方 HF 组织 createdAt 2025-04-06，下载 86,324）"
+  },
+  {
+   "id": "hidream-HiDream-I1-Dev-I1 的开发档",
+   "m": "hidream",
+   "version": "HiDream-I1-Dev",
+   "date": "2025-04-06",
+   "added": "I1 的开发档",
+   "src": "hf-image-org",
+   "quote": "HiDream-ai/HiDream-I1-Dev（官方 HF 组织 createdAt 2025-04-06，下载 573）"
+  },
+  {
+   "id": "hidream-HiDream-E1-Full-按指令改图的第一版",
+   "m": "hidream",
+   "version": "HiDream-E1-Full",
+   "date": "2025-04-27",
+   "added": "按指令改图的第一版",
+   "src": "hf-image-org",
+   "quote": "HiDream-ai/HiDream-E1-Full（官方 HF 组织 createdAt 2025-04-27，下载 174）",
+   "parent": "hidream-HiDream-I1-Fast-I1 的快档"
+  },
+  {
+   "id": "hidream-HiDream-O1-Image-Dev-O1 的开发档",
+   "m": "hidream",
+   "version": "HiDream-O1-Image-Dev",
+   "date": "2026-05-08",
+   "added": "O1 的开发档",
+   "src": "hf-image-org",
+   "quote": "HiDream-ai/HiDream-O1-Image-Dev（官方 HF 组织 createdAt 2026-05-08，下载 1,618）",
+   "parent": "hidream-HiDream-E1.1-按指令改图的分支"
+  },
+  {
+   "id": "hidream-HiDream-O1-Image-Dev-2604-O1 开发档的日期戳更新",
+   "m": "hidream",
+   "version": "HiDream-O1-Image-Dev-2604",
+   "date": "2026-05-13",
+   "added": "O1 开发档的日期戳更新",
+   "src": "hf-image-org",
+   "quote": "HiDream-ai/HiDream-O1-Image-Dev-2604（官方 HF 组织 createdAt 2026-05-13，下载 1,026）",
+   "parent": "hidream-HiDream-O1-Image-这一代加了推理"
+  },
+  {
+   "id": "hunyuan-image-HunyuanImage-2.1-3.0 的前一代",
+   "m": "hunyuan-image",
+   "version": "HunyuanImage-2.1",
+   "date": "2025-09-05",
+   "added": "3.0 的前一代",
+   "src": "hf-image-org",
+   "quote": "tencent/HunyuanImage-2.1（官方 HF 组织 createdAt 2025-09-05，下载 170）"
+  },
+  {
+   "id": "pixeldit-PixelDiT-ImageNet-ImageNet 上的对照档",
+   "m": "pixeldit",
+   "version": "PixelDiT-ImageNet",
+   "date": "2026-03-30",
+   "added": "ImageNet 上的对照档",
+   "src": "hf-image-org",
+   "quote": "nvidia/PixelDiT-ImageNet（官方 HF 组织 createdAt 2026-03-30，下载 0）"
+  },
+  {
+   "id": "boogu-image-Boogu-Image-0.1-Base-0.1 的基座档",
+   "m": "boogu-image",
+   "version": "Boogu-Image-0.1-Base",
+   "date": "2026-06-16",
+   "added": "0.1 的基座档",
+   "src": "hf-image-org",
+   "quote": "Boogu/Boogu-Image-0.1-Base（官方 HF 组织 createdAt 2026-06-16，下载 800）"
+  },
+  {
+   "id": "boogu-image-Boogu-Image-0.1-Edit-0.1 的改图档",
+   "m": "boogu-image",
+   "version": "Boogu-Image-0.1-Edit",
+   "date": "2026-06-16",
+   "added": "0.1 的改图档",
+   "src": "hf-image-org",
+   "quote": "Boogu/Boogu-Image-0.1-Edit（官方 HF 组织 createdAt 2026-06-16，下载 868）"
+  },
+  {
+   "id": "boogu-image-Boogu-Image-0.1-Turbo-0.1 的快档",
+   "m": "boogu-image",
+   "version": "Boogu-Image-0.1-Turbo",
+   "date": "2026-06-16",
+   "added": "0.1 的快档",
+   "src": "hf-image-org",
+   "quote": "Boogu/Boogu-Image-0.1-Turbo（官方 HF 组织 createdAt 2026-06-16，下载 870）"
+  },
+  {
+   "id": "boogu-image-Boogu-Image-0.0-Base-exp-pt-0.1 之前的实验档",
+   "m": "boogu-image",
+   "version": "Boogu-Image-0.0-Base-exp-pt",
+   "date": "2026-06-18",
+   "added": "0.1 之前的实验档",
+   "src": "hf-image-org",
+   "quote": "Boogu/Boogu-Image-0.0-Base-exp-pt（官方 HF 组织 createdAt 2026-06-18，下载 164）",
+   "parent": "boogu-image-Boogu-Image-0.1-生成与编辑合到一个模型，apache-2.0"
+  },
+  {
+   "id": "boogu-image-Boogu-Image-0.0-Edit-exp-pt-实验档的改图版",
+   "m": "boogu-image",
+   "version": "Boogu-Image-0.0-Edit-exp-pt",
+   "date": "2026-06-18",
+   "added": "实验档的改图版",
+   "src": "hf-image-org",
+   "quote": "Boogu/Boogu-Image-0.0-Edit-exp-pt（官方 HF 组织 createdAt 2026-06-18，下载 159）",
+   "parent": "boogu-image-Boogu-Image-0.1-生成与编辑合到一个模型，apache-2.0"
   }
  ],
  "$versions": "版本谱系（演进图的数据）。**演进的主体是模型，不是能力。**\n\n原来那张演进图每行是一项能力、横轴是「我们能证明的最早时间」、粗细是几家支持。\n读者看完只得到「动作复刻 2025-12 出现、6/9 支持」—— 那是一次数据库查询的可视化，不涨知识。\n而且它得靠图注免责（「不是业界首次出现」）：**一张需要图注免责的图，说明它量错了东西。**\n\n这份数据画的是**厂商自己发布的版本和日期**，所以不需要免责。每条必须回答：\n**这一代新增了什么。** 只有版本号没有 added 的节点没有价值，不收。\n\n两个最好的来源，都不是「新闻」：\n  · **官方 Hugging Face 组织** —— 模型名本身就编码了能力与代际\n    （Wan2.1-FLF2V＝首尾帧、Wan2.2-S2V＝语音驱动、LTX 的 IC-LoRA-Ingredients＝角色参考），\n    发布时间由 HF API 给出，比任何新闻稿都准。\n  · **官方 API 更新日志** —— 可灵那份 31k 字符里有 170 条带日期的条目。\n\n覆盖不全是事实：万相和可灵能画出完整谱系，Runway/Vidu/Seedance 只有近期几个点，\nVeo/Sora/海螺/LTX 还没有。**图上要标出哪几条线是完整的、哪几条只是片段** ——\n画一条只有两个点的线却不说明，读者会以为这家两年只更新过两次。\n\n`cap` 把版本节点挂到能力 id 上，图上「点一项能力，看各家谁先谁后」靠它。\n**对不上的一律留空并写明理由（cap_skip），不硬凑** —— 硬凑一个 id，纵向那一刀就切错了。\n典型：Wan 的 S2V 是「语音驱动」，不等于我们轴上的「对口型」，两件事不合并；\n「换代」节点本身也不是新增单项能力。\n\n`id` + `parent` 把平铺记录变成**真的树**。分叉是真实存在的：\nWan2.1 底座上同时长出 FLF2V（首尾帧）和 VACE（统一编辑）两个变体，\nWan2.2 是换代接在 2.1 后面，Animate-2 又接在 Animate 后面。\n\n**没有父节点的就让它当根，不许为了让树好看硬接一条边** ——\nRunway 的 Aleph 是编辑线，不是 Gen 的后代，它自己是一棵树。\n\n⚠️ **日期必须取 HF 的 `createdAt`，不能取 `lastModified`。**\n第一版取错了字段，把「最后修改」当成了发布日期：Wan2.2 记成 2025-08-07（实际 2025-07-18）、\nAnimate 记成 2025-11-05（实际 2025-09-11）——**差了两个月**。\n仓库发布后还会被反复更新，两个字段根本不是一回事。\n这类错最阴：日期看着合理、图也画得出来，但整条时间线是歪的。\n\n覆盖不足要**写在数据里**，不是靠图上一句话糊过去：\n模型的 `lineage_note` 解释为什么它的节点少（太新 / 官方记录只回溯到某时）。\n校验 R58 强制：**核心模型少于 3 个节点却没写理由，就是错**。\n「我们没采到」和「它本来就没有」是两回事，读者有权知道是哪一种。",

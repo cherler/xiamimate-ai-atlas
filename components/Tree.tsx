@@ -446,9 +446,17 @@ export default function Tree({ domain }: { domain: string }) {
       const left = lineNameLeft(pt.x, l.model.family);
       const x0 = left ? pt.x - w : pt.x;
       let ny = pt.y - 20;
+      /**
+       * **这个循环也要有天花板。** 节点标签那边加过了，这边漏了 ——
+       * 22 条线时最右那条的产品线名一路让到画布上方 18px，顶端被切掉，
+       * 而重叠检查照样是 0（它量相交，量不到「已经不在画面里」）。
+       * **同一个错，两个循环** —— 修一处不等于修完。
+       */
+      let dirN = -1;              // 先往上让；上面到顶了就掉头往下
       for (let g = 0; g < 48; g++) {
         if (!placed.some((q) => Math.abs(ny - q.y) < q.h + 12 && x0 < q.x1 && q.x0 < x0 + w)) break;
-        ny -= 9.5;   // 只往上让：下面是它自己那条线
+        if (ny + dirN * 9.5 < 14) dirN = 1;   // 撞天花板：掉头，别原地落下
+        ny += dirN * 9.5;
       }
       nameAt.set(l.m, ny);
       placed.push({ x0, x1: x0 + w, y: ny, h: 12 }); // 产品线名：9.5px 粗体
@@ -480,6 +488,13 @@ export default function Tree({ domain }: { domain: string }) {
 
     const gutter = PAD.l;   // 左侧刻度尺栏的右缘
     const roomOnLeft = (x: number, w: number) => x - 7 - w >= gutter;
+    /**
+     * **右边也是有边的。** 左边界当时做了，右边界漏了 ——
+     * 22 条线里最右那条（Mage-Flow）被「窄格交替」规则派到右侧，
+     * 直接伸出画布，顶端被切掉。上一次是上抬越界，这次是横向越界：
+     * **凡是「往某个方向让」的逻辑，都要问一句那个方向到哪儿为止。**
+     */
+    const roomOnRight = (x: number, w: number) => x + 7 + w <= W - 8;
     // 按 y 从上到下排，先来先占 —— 顺序稳定，结果才可复现
     const all = [...nodes].filter((n) => posOf.has(n.id))
       .sort((a, b) => (posOf.get(a.id)!.y - posOf.get(b.id)!.y));
@@ -512,7 +527,9 @@ export default function Tree({ domain }: { domain: string }) {
        * 按序号奇偶分左右，相邻两条就朝相反方向让开。
        */
       const narrow = (l?.slotW ?? 999) < w;
-      const forceLeft = isTop && roomOnLeft(p.x, w) && !(narrow && (l?.idx ?? 0) % 2 === 1);
+      const forceLeft =
+        isTop && roomOnLeft(p.x, w) &&
+        (!roomOnRight(p.x, w) || !(narrow && (l?.idx ?? 0) % 2 === 1));
       let side: 1 | -1 | 0 = below ? 0 : forceLeft ? -1 : 1;
       let ny = below ? p.y + 15 : p.y;
       /**
@@ -556,7 +573,7 @@ export default function Tree({ domain }: { domain: string }) {
         if (below) ny += BAND;                           // 起点标签往下让，那边是空的
         else if (forceLeft) ny += dir * BAND;            // 末标签不翻到右边，只上下让
         else if (side === 1) side = -1;
-        else { side = 1; ny += dir * BAND; }
+        else { side = roomOnRight(p.x, w) ? 1 : -1; ny += dir * BAND; }
       }
       const fx0 = xOf();
       placed.push({ x0: fx0, x1: fx0 + w, y: ny, h: MINE });
