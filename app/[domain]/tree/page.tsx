@@ -60,7 +60,12 @@ export default async function TreePage({ params }: { params: Promise<{ domain: s
               <p className="mt-4 text-[12.5px] text-muted leading-relaxed">
                 <b className="text-ink">另有 {missing.length} 条产品线没进这棵树</b>
                 （{missing.map((m) => m.family).join("、")}）——
-                <b className="text-ink">不是它们没发过版本，是官方页只写当前版本、不写发布日期</b>，
+                {/* **别替所有厂商给同一个理由。** 这句原来写死「官方页只写当前版本、不写发布日期」——
+                    对 GPT / Gemini / Grok / 豆包 成立，但 Claude 的文档是给了 GA 日期的
+                    （只是我们还没逐代采）。**「我们没采」和「厂商没写」是两回事**，
+                    混成一句就是把自己的缺口说成别人的毛病。 */}
+                <b className="text-ink">不是它们没发过版本，是我们还没把每一代的日期采全</b>
+                （闭源那几家多数只在官方页写当前版本，不列历史发布日），
                 而树上每个点都要一个日期。拿不到日期就不画，
                 <Link href={`/${d.id}/models`} className="underline ml-1 hover:text-ink">在全部模型里能看到它们 →</Link>
               </p>

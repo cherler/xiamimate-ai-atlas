@@ -8388,6 +8388,235 @@
    "src": "hf-image-org",
    "quote": "Boogu/Boogu-Image-0.0-Edit-exp-pt（官方 HF 组织 createdAt 2026-06-18，下载 159）",
    "parent": "boogu-image-Boogu-Image-0.1-生成与编辑合到一个模型，apache-2.0"
+  },
+  {
+   "id": "deepseek-V3.2-把算力效率和推理/Agent 表现放到一起",
+   "m": "deepseek",
+   "version": "V3.2",
+   "date": "2025-12-01",
+   "added": "把算力效率和推理/Agent 表现放到一起",
+   "src": "hf-text-org",
+   "quote": "We introduce DeepSeek-V3.2, a model that harmonizes high computational efficiency with superior reasoning and agent performance."
+  },
+  {
+   "id": "deepseek-V4-换代：Pro 1.6T（激活 49B）与 Flash 两档 MoE",
+   "m": "deepseek",
+   "version": "V4",
+   "date": "2026-04-22",
+   "added": "换代：Pro 1.6T（激活 49B）与 Flash 两档 MoE",
+   "src": "hf-text-org",
+   "quote": "We present a preview version of DeepSeek-V4 series, including two strong Mixture-of-Experts (MoE) language models — DeepSeek-V4-Pro with 1.6T parameters (49B activated) and DeepSeek-V4-Flash",
+   "parent": "deepseek-V3.2-把算力效率和推理/Agent 表现放到一起"
+  },
+  {
+   "id": "deepseek-V4-Flash-0731-Flash 档的日期戳更新",
+   "m": "deepseek",
+   "version": "V4-Flash-0731",
+   "date": "2026-07-31",
+   "added": "Flash 档的日期戳更新",
+   "src": "hf-text-org",
+   "quote": "deepseek-ai/DeepSeek-V4-Flash-0731（官方 HF 组织 createdAt 2026-07-31，下载 105 万）",
+   "parent": "deepseek-V4-换代：Pro 1.6T（激活 49B）与 Flash 两档 MoE"
+  },
+  {
+   "id": "glm-GLM-4.5-这一代的开放权重发布",
+   "m": "glm",
+   "version": "GLM-4.5",
+   "date": "2025-07-20",
+   "added": "这一代的开放权重发布",
+   "src": "hf-text-org",
+   "quote": "GLM-4.5 technical blog, technical report, and Zhipu AI technical documentation（模型卡首段）",
+   "note": "官方模型卡只给了博客链接，**没写这一代新增了什么** —— 这一条本身就是可记的事实"
+  },
+  {
+   "id": "glm-GLM-4.6-小版本迭代",
+   "m": "glm",
+   "version": "GLM-4.6",
+   "date": "2025-09-29",
+   "added": "小版本迭代",
+   "src": "hf-text-org",
+   "quote": "GLM-4.6 technical blog, technical report(GLM-4.5)",
+   "note": "官方模型卡只给了博客链接，**没写这一代新增了什么** —— 这一条本身就是可记的事实",
+   "parent": "glm-GLM-4.5-这一代的开放权重发布"
+  },
+  {
+   "id": "glm-GLM-4.7-小版本迭代",
+   "m": "glm",
+   "version": "GLM-4.7",
+   "date": "2025-12-22",
+   "added": "小版本迭代",
+   "src": "hf-text-org",
+   "quote": "GLM-4.7 technical blog, technical report(GLM-4.5)",
+   "note": "官方模型卡只给了博客链接，**没写这一代新增了什么** —— 这一条本身就是可记的事实",
+   "parent": "glm-GLM-4.6-小版本迭代"
+  },
+  {
+   "id": "glm-GLM-5-换代：冲复杂系统工程与长程 Agent 任务",
+   "m": "glm",
+   "version": "GLM-5",
+   "date": "2026-02-11",
+   "added": "换代：冲复杂系统工程与长程 Agent 任务",
+   "src": "hf-text-org",
+   "quote": "We are launching GLM-5, targeting complex systems engineering and long-horizon agentic tasks.",
+   "parent": "glm-GLM-4.7-小版本迭代"
+  },
+  {
+   "id": "glm-GLM-5.1-小版本迭代",
+   "m": "glm",
+   "version": "GLM-5.1",
+   "date": "2026-04-03",
+   "added": "小版本迭代",
+   "src": "hf-text-org",
+   "quote": "GLM-5.1 blog and GLM-5 Technical report",
+   "note": "官方模型卡只给了博客链接，**没写这一代新增了什么** —— 这一条本身就是可记的事实",
+   "parent": "glm-GLM-5-换代：冲复杂系统工程与长程 Agent 任务"
+  },
+  {
+   "id": "glm-GLM-5.2-小版本迭代",
+   "m": "glm",
+   "version": "GLM-5.2",
+   "date": "2026-06-16",
+   "added": "小版本迭代",
+   "src": "hf-text-org",
+   "quote": "GLM-5.2 blog and GLM-5 Technical report",
+   "note": "官方模型卡只给了博客链接，**没写这一代新增了什么** —— 这一条本身就是可记的事实",
+   "parent": "glm-GLM-5.1-小版本迭代"
+  },
+  {
+   "id": "kimi-K2-1T 参数 MoE（激活 32B），用 Muon 优化器训",
+   "m": "kimi",
+   "version": "K2",
+   "date": "2025-07-11",
+   "added": "1T 参数 MoE（激活 32B），用 Muon 优化器训",
+   "src": "hf-text-org",
+   "quote": "Kimi K2 is a state-of-the-art mixture-of-experts (MoE) language model with 32 billion activated parameters and 1 trillion total parameters. Trained with the Muon optimizer"
+  },
+  {
+   "id": "kimi-K2-Thinking-边推理边调工具的思考档",
+   "m": "kimi",
+   "version": "K2-Thinking",
+   "date": "2025-11-04",
+   "added": "边推理边调工具的思考档",
+   "src": "hf-text-org",
+   "quote": "Kimi K2 Thinking is the latest, most capable version of open-source thinking model … a thinking agent that reasons step-by-step while dynamically invoking tools",
+   "parent": "kimi-K2-1T 参数 MoE（激活 32B），用 Muon 优化器训"
+  },
+  {
+   "id": "kimi-K2.5-转原生多模态：在 K2-Base 上继续预训 15T 图文混合 token",
+   "m": "kimi",
+   "version": "K2.5",
+   "date": "2026-01-01",
+   "added": "转原生多模态：在 K2-Base 上继续预训 15T 图文混合 token",
+   "src": "hf-text-org",
+   "quote": "Kimi K2.5 is an open-source, native multimodal agentic model built through continual pretraining on approximately 15 trillion mixed visual and text tokens atop Kimi-K2-Base.",
+   "parent": "kimi-K2-Thinking-边推理边调工具的思考档"
+  },
+  {
+   "id": "kimi-K2.6-长程编码、自主执行与群体任务编排",
+   "m": "kimi",
+   "version": "K2.6",
+   "date": "2026-04-14",
+   "added": "长程编码、自主执行与群体任务编排",
+   "src": "hf-text-org",
+   "quote": "Kimi K2.6 … advances practical capabilities in long-horizon coding, coding-driven design, proactive autonomous execution, and swarm-based task orchestration",
+   "parent": "kimi-K2.5-转原生多模态：在 K2-Base 上继续预训 15T 图文混合 token"
+  },
+  {
+   "id": "kimi-K3-2.8T 参数，换新注意力（KDA + AttnRes）",
+   "m": "kimi",
+   "version": "K3",
+   "date": "2026-06-13",
+   "added": "2.8T 参数，换新注意力（KDA + AttnRes）",
+   "src": "hf-text-org",
+   "quote": "Kimi K3 is an open-weight, native multimodal agentic model and our most capable model to date. It is a 2.8T-parameter model built on Kimi Delta Attention (KDA) and Attention Residuals (AttnRes)",
+   "parent": "kimi-K2.6-长程编码、自主执行与群体任务编排"
+  },
+  {
+   "id": "llama-Llama 4-Scout 与 Maverick 两档 MoE",
+   "m": "llama",
+   "version": "Llama 4",
+   "date": "2025-04-02",
+   "added": "Scout 与 Maverick 两档 MoE",
+   "src": "hf-text-org",
+   "quote": "meta-llama/Llama-4-Scout-17B-16E-Instruct（官方 HF 组织 createdAt 2025-04-02，下载 46 万）。**模型卡是 gated，读不到正文**"
+  },
+  {
+   "id": "minimax-text-M2-主打写代码与 Agent 流程的小模型",
+   "m": "minimax-text",
+   "version": "M2",
+   "date": "2025-10-22",
+   "added": "主打写代码与 Agent 流程的小模型",
+   "src": "hf-text-org",
+   "quote": "Today, we release and open source MiniMax-M2, a Mini model built for Max coding & agentic workflows."
+  },
+  {
+   "id": "minimax-text-M2.5-小版本迭代",
+   "m": "minimax-text",
+   "version": "M2.5",
+   "date": "2026-02-12",
+   "added": "小版本迭代",
+   "src": "hf-text-org",
+   "quote": "Today we're introducing our latest model, MiniMax-M2.5.",
+   "note": "官方卡只有一句发布语，没展开这一代加了什么",
+   "parent": "minimax-text-M2-主打写代码与 Agent 流程的小模型"
+  },
+  {
+   "id": "minimax-text-M3-转原生多模态 + 1M 上下文（约 428B 参数、激活 23B）",
+   "m": "minimax-text",
+   "version": "M3",
+   "date": "2026-06-02",
+   "added": "转原生多模态 + 1M 上下文（约 428B 参数、激活 23B）",
+   "src": "hf-text-org",
+   "quote": "MiniMax-M3 is a native multimodal model with 1M context. It has ~428B parameters and ~23B activated parameters.",
+   "parent": "minimax-text-M2.5-小版本迭代"
+  },
+  {
+   "id": "mistral-text-Large 3-675B 总参 / 41B 激活的多模态细粒度 MoE",
+   "m": "mistral-text",
+   "version": "Large 3",
+   "date": "2025-11-28",
+   "added": "675B 总参 / 41B 激活的多模态细粒度 MoE",
+   "src": "hf-text-org",
+   "quote": "Mistral Large 3 is a state-of-the-art general-purpose Multimodal granular Mixture-of-Experts model with 41B active parameters and 675B total parameters"
+  },
+  {
+   "id": "mistral-text-Small 4-把 Instruct / Reasoning 等三支合成一个混合模型",
+   "m": "mistral-text",
+   "version": "Small 4",
+   "date": "2026-01-23",
+   "added": "把 Instruct / Reasoning 等三支合成一个混合模型",
+   "src": "hf-text-org",
+   "quote": "Mistral Small 4 is a powerful hybrid model capable of acting as both a general instruction model and a reasoning model. It unifies the capabilities of three different model families",
+   "parent": "mistral-text-Large 3-675B 总参 / 41B 激活的多模态细粒度 MoE"
+  },
+  {
+   "id": "mistral-text-Medium 3.5-第一个「合并」旗舰：128B 稠密 + 256k 上下文",
+   "m": "mistral-text",
+   "version": "Medium 3.5",
+   "date": "2026-03-31",
+   "added": "第一个「合并」旗舰：128B 稠密 + 256k 上下文",
+   "src": "hf-text-org",
+   "quote": "Mistral Medium 3.5 is our first flagship merged model. It is a dense 128B model with a 256k context window",
+   "parent": "mistral-text-Small 4-把 Instruct / Reasoning 等三支合成一个混合模型"
+  },
+  {
+   "id": "qwen-text-Qwen3.5-换代",
+   "m": "qwen-text",
+   "version": "Qwen3.5",
+   "date": "2026-02-24",
+   "added": "换代",
+   "src": "hf-text-org",
+   "quote": "Qwen3.5 represents a significant leap forward, integrating breakthroughs（模型卡首段）"
+  },
+  {
+   "id": "qwen-text-Qwen3.6-按社区反馈做稳定性与可靠性",
+   "m": "qwen-text",
+   "version": "Qwen3.6",
+   "date": "2026-04-15",
+   "added": "按社区反馈做稳定性与可靠性",
+   "src": "hf-text-org",
+   "quote": "Following the February release of the Qwen3.5 series, we're pleased to share the first open-weight variant of Qwen3.6. Built on direct feedback from the community, Qwen3.6 prioritizes stability and re…",
+   "parent": "qwen-text-Qwen3.5-换代"
   }
  ],
  "$versions": "版本谱系（演进图的数据）。**演进的主体是模型，不是能力。**\n\n原来那张演进图每行是一项能力、横轴是「我们能证明的最早时间」、粗细是几家支持。\n读者看完只得到「动作复刻 2025-12 出现、6/9 支持」—— 那是一次数据库查询的可视化，不涨知识。\n而且它得靠图注免责（「不是业界首次出现」）：**一张需要图注免责的图，说明它量错了东西。**\n\n这份数据画的是**厂商自己发布的版本和日期**，所以不需要免责。每条必须回答：\n**这一代新增了什么。** 只有版本号没有 added 的节点没有价值，不收。\n\n两个最好的来源，都不是「新闻」：\n  · **官方 Hugging Face 组织** —— 模型名本身就编码了能力与代际\n    （Wan2.1-FLF2V＝首尾帧、Wan2.2-S2V＝语音驱动、LTX 的 IC-LoRA-Ingredients＝角色参考），\n    发布时间由 HF API 给出，比任何新闻稿都准。\n  · **官方 API 更新日志** —— 可灵那份 31k 字符里有 170 条带日期的条目。\n\n覆盖不全是事实：万相和可灵能画出完整谱系，Runway/Vidu/Seedance 只有近期几个点，\nVeo/Sora/海螺/LTX 还没有。**图上要标出哪几条线是完整的、哪几条只是片段** ——\n画一条只有两个点的线却不说明，读者会以为这家两年只更新过两次。\n\n`cap` 把版本节点挂到能力 id 上，图上「点一项能力，看各家谁先谁后」靠它。\n**对不上的一律留空并写明理由（cap_skip），不硬凑** —— 硬凑一个 id，纵向那一刀就切错了。\n典型：Wan 的 S2V 是「语音驱动」，不等于我们轴上的「对口型」，两件事不合并；\n「换代」节点本身也不是新增单项能力。\n\n`id` + `parent` 把平铺记录变成**真的树**。分叉是真实存在的：\nWan2.1 底座上同时长出 FLF2V（首尾帧）和 VACE（统一编辑）两个变体，\nWan2.2 是换代接在 2.1 后面，Animate-2 又接在 Animate 后面。\n\n**没有父节点的就让它当根，不许为了让树好看硬接一条边** ——\nRunway 的 Aleph 是编辑线，不是 Gen 的后代，它自己是一棵树。\n\n⚠️ **日期必须取 HF 的 `createdAt`，不能取 `lastModified`。**\n第一版取错了字段，把「最后修改」当成了发布日期：Wan2.2 记成 2025-08-07（实际 2025-07-18）、\nAnimate 记成 2025-11-05（实际 2025-09-11）——**差了两个月**。\n仓库发布后还会被反复更新，两个字段根本不是一回事。\n这类错最阴：日期看着合理、图也画得出来，但整条时间线是歪的。\n\n覆盖不足要**写在数据里**，不是靠图上一句话糊过去：\n模型的 `lineage_note` 解释为什么它的节点少（太新 / 官方记录只回溯到某时）。\n校验 R58 强制：**核心模型少于 3 个节点却没写理由，就是错**。\n「我们没采到」和「它本来就没有」是两回事，读者有权知道是哪一种。",
