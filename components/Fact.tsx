@@ -81,7 +81,9 @@ export function Fact({ m, c, label }: { m: string; c: string; label: string }) {
           ) : (
             f.verified_for && <span>核验版本 {f.verified_for}</span>
           )}
-          <span>核验于 {atlas.generated_at}</span>
+          {/* 有这一格自己的核验日就说「核验于」；没有只能说「数据截至」——
+              拿数据集日期冒充逐格核验日，是在给旧结论刷新脸 */}
+          <span>{f.as_of ? `核验于 ${f.as_of}` : `数据截至 ${atlas.generated_at}`}</span>
           <span className="px-1.5 py-px rounded bg-unknown/15 text-unknown text-[11px]">机器录入</span>
         </p>
         {/* 报错入口就挂在每一条事实旁边 —— 放在页脚等于没有：

@@ -35,7 +35,7 @@ export default async function MapPage({ params }: { params: Promise<{ domain: st
           </span>
         </h1>
         <div className="ml-auto text-right text-[12px] leading-[1.7] text-muted whitespace-nowrap">
-          核验于 {atlas.generated_at}
+          数据截至 {atlas.generated_at}
           <br />
           公司 {n} 家 · 产品线 {lines} 条
           <br />

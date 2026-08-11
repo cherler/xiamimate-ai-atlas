@@ -36,7 +36,7 @@ export default function ReportIssue({ m, c }: { m?: string; c?: string }) {
     f && `我们现在写的是：${{ yes: "支持", no: "不支持", unknown: "官方没说" }[f.state]}`,
     f?.note && `说明：${f.note}`,
     src && `我们引的来源：${src.name} ${src.url}`,
-    `数据版本：${atlas.version}，核验于 ${atlas.generated_at}`,
+    `数据版本：${atlas.version}，数据截至 ${atlas.generated_at}`,
     "",
     "────────  以下请填  ────────",
     "实际应该是：",

@@ -34,7 +34,7 @@ export default async function ScenarioPage({ params }: { params: Promise<{ domai
           </span>
         </h1>
         <div className="text-left text-[12px] leading-[1.7] text-muted md:ml-auto md:text-right md:whitespace-nowrap">
-          核验于 {atlas.generated_at}
+          数据截至 {atlas.generated_at}
           <br />
           关联能力 {skillCount} 项
           <br />

@@ -86,7 +86,7 @@ export default async function ModelPage({ params }: { params: Promise<{ id: stri
           只用来撑「上游停服了平台还在卖」那类警告（/caveats）。 */}
 
       <footer className="border-t border-rule pt-5 text-[13px] text-muted leading-relaxed">
-        数据版本 {atlas.version} · 核验于 {atlas.generated_at} ·
+        数据版本 {atlas.version} · 数据截至 {atlas.generated_at} ·
         <b className="text-unknown"> 全部为机器录入</b>
       </footer>
     </main>

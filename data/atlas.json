@@ -1,6 +1,6 @@
 {
  "version": "1.7",
- "generated_at": "2026-08-07",
+ "generated_at": "2026-08-11",
  "note": "第九版。clip 轨九个 Family 已全部用厂商官方源逐格重核（86% 的格子挂官方来源）。全部由 Agent 录入，未经人工核验（§59.3 转述层）。模型按 version_as_of 降序；status 标生命周期。",
  "changelog": [
   "v1.7 公司升为一等实体（阿里此前在库里是两家）+ 能力轴按方向隔离 + 平台透明度四档（⬜「我们没看到」≠🔴「只字不提」）+ 价格（**七家七种计价方式，不可比才是结论**）",
@@ -5678,7 +5678,8 @@
    "verified_for": "3.7-max",
    "src": "bailian-textgen",
    "note": "Production Use 小节列出的特性含 structured output（与 RAG、tool calling、streaming output、deep thinking、prefix completion 并列）",
-   "via": "native"
+   "via": "native",
+   "as_of": "2026-08-11"
   },
   {
    "m": "qwen-text",
@@ -5687,7 +5688,8 @@
    "verified_for": "3.7-max",
    "src": "bailian-websearch",
    "via": "native",
-   "note": "三条通道各有写法：Chat Completions / DashScope 用 `enable_search: true`，Responses API 用 `tools: [{\"type\": \"web_search\"}]`；另有 `search_strategy: \"agent\" | \"agent_max\"` 与 `enable_source`。支持模型清单含 Qwen3.7-Max、Qwen3.7-Plus"
+   "note": "三条通道各有写法：Chat Completions / DashScope 用 `enable_search: true`，Responses API 用 `tools: [{\"type\": \"web_search\"}]`；另有 `search_strategy: \"agent\" | \"agent_max\"` 与 `enable_source`。支持模型清单含 Qwen3.7-Max、Qwen3.7-Plus",
+   "as_of": "2026-08-11"
   },
   {
    "m": "qwen-text",
@@ -5709,7 +5711,8 @@
    "src": "bailian-batch",
    "note": "批量页把 qwen3.7-plus 列在 Multimodal models → Image/video 一栏（与 qwen3-vl-plus 并列）",
    "via": "native",
-   "sibling": "3.7-plus"
+   "sibling": "3.7-plus",
+   "as_of": "2026-08-11"
   },
   {
    "m": "qwen-text",
@@ -5724,7 +5727,8 @@
    "verified_for": "3.7-max",
    "src": "bailian-cache",
    "note": "分显式与隐式两种：显式缓存用 `\"cache_control\": {\"type\": \"ephemeral\"}` 标记，命中计 10% 标准价（创建 125%），隐式命中计 20%",
-   "via": "native"
+   "via": "native",
+   "as_of": "2026-08-11"
   },
   {
    "m": "qwen-text",
@@ -5733,7 +5737,8 @@
    "verified_for": "3.7-max",
    "src": "bailian-batch",
    "note": "OpenAI 兼容 Batch API，「Costs are only 50% of real-time calls」，completion_window 24h–336h；支持模型清单含 qwen3.7-max",
-   "via": "native"
+   "via": "native",
+   "as_of": "2026-08-11"
   },
   {
    "m": "qwen-text",
@@ -5743,7 +5748,8 @@
    "src": "bailian-coder",
    "via": "native",
    "note": "Completions API 的 FIM 标记：`<|fim_prefix|>{prefix}<|fim_suffix|>{suffix}<|fim_middle|>`；另有 Partial Mode（`\"partial\": true`）做前缀续写。⚠️ 在 **qwen3-coder-next** 这支代码模型上，不是 qwen3.7-max",
-   "sibling": "qwen3-coder-next"
+   "sibling": "qwen3-coder-next",
+   "as_of": "2026-08-11"
   },
   {
    "m": "qwen-text",
@@ -5878,7 +5884,8 @@
    "verified_for": "K3",
    "src": "kimi-pricing",
    "note": "模型卡片：「Kimi K3 —— 旗舰模型，1M token 上下文」",
-   "via": "native"
+   "via": "native",
+   "as_of": "2026-08-11"
   },
   {
    "m": "kimi",
@@ -5911,7 +5918,8 @@
    "verified_for": "K3",
    "src": "kimi-websearch",
    "note": "「声明 $web_search」——以 builtin_function 类型声明的内置函数，模型把执行参数放在 tool_call.function.arguments 里回传",
-   "via": "native"
+   "via": "native",
+   "as_of": "2026-08-11"
   },
   {
    "m": "kimi",
@@ -5933,7 +5941,8 @@
    "src": "kimi-pricing",
    "note": "模型卡片：「Kimi K2.6 —— 支持视觉与文本输入」；K2.7 Code 标注为多模态模型",
    "via": "native",
-   "sibling": "K2.6"
+   "sibling": "K2.6",
+   "as_of": "2026-08-11"
   },
   {
    "m": "kimi",
@@ -5987,7 +5996,8 @@
    "verified_for": "GLM-5.2",
    "src": "glm-52-doc",
    "note": "文档规格表：Context Length = 1M",
-   "via": "native"
+   "via": "native",
+   "as_of": "2026-08-11"
   },
   {
    "m": "glm",
@@ -5996,7 +6006,8 @@
    "verified_for": "GLM-5.2",
    "src": "glm-52-doc",
    "note": "文档规格表：Maximum Output Tokens = 128K",
-   "via": "native"
+   "via": "native",
+   "as_of": "2026-08-11"
   },
   {
    "m": "glm",
@@ -6060,7 +6071,8 @@
    "verified_for": "GLM-5.2",
    "src": "glm-52-doc",
    "note": "Core Capabilities 列出 Context Caching（并列 Thinking Mode / Function Call / Structured Output / MCP）",
-   "via": "native"
+   "via": "native",
+   "as_of": "2026-08-11"
   },
   {
    "m": "glm",

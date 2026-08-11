@@ -56,7 +56,7 @@ export default async function DomainHome({ params }: { params: Promise<{ domain:
           {d.name} · 能力核验规格书
         </h1>
         <div className="ml-auto text-right text-[12px] leading-[1.7] text-muted whitespace-nowrap">
-          核验于 {atlas.generated_at}
+          数据截至 {atlas.generated_at}
           <br />
           产品线 {models.length} 条
           <br />
@@ -134,7 +134,7 @@ export default async function DomainHome({ params }: { params: Promise<{ domain:
       </nav>
 
       <footer className="mt-6 border-t-[.5px] border-rule pt-3 text-[12px] leading-[1.6] text-muted">
-        数据 {atlas.version} · 核验于 {atlas.generated_at} ·{" "}
+        数据 {atlas.version} · 数据截至 {atlas.generated_at} ·{" "}
         <Link href="/method#agent" className="underline hover:text-ink">机器录入</Link>
       </footer>
     </main>

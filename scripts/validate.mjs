@@ -65,6 +65,19 @@ for (const s of a.support) {
       `（若这条能力本来就长在同门另一支型号上，那不是腐烂 —— 填 sibling 字段）`);
 }
 
+/**
+ * R67 —— 数据集日期不能早于任何一格的核验日。
+ * 页脚印的「数据截至 X」是给读者的新鲜度承诺；有格子比它还新，那句话就是错的。
+ */
+{
+  const dated = a.support.filter((s) => s.as_of);
+  const newest = dated.map((s) => s.as_of).sort().at(-1);
+  if (newest && newest > a.generated_at)
+    errs.push(`R67 数据集日期 ${a.generated_at} 早于最新核验的格子 ${newest} —— 页脚那句「数据截至」会是错的`);
+  for (const s of dated)
+    if (!/^\d{4}-\d{2}-\d{2}$/.test(s.as_of)) errs.push(`R67a as_of 不是日期：${s.m} × ${s.c} = ${s.as_of}`);
+}
+
 // 缺格会被前台静默当成 unknown，那是**沉默的错**。
 for (const m of a.models)
   for (const c of a.capabilities)

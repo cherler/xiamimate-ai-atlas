@@ -42,7 +42,7 @@ export default function Method() {
         <BackLink />
         <h1 className="text-[30px] font-semibold leading-tight">这些数据是怎么来的</h1>
         <p className="text-muted text-[15px] leading-relaxed">
-          数据 {atlas.version} · 能力格核验于 {atlas.generated_at} · 共 {src.length} 条来源，其中官方 {off} 条。
+          数据 {atlas.version} · 能力格数据截至 {atlas.generated_at} · 共 {src.length} 条来源，其中官方 {off} 条。
         </p>
       </header>
 
