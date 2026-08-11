@@ -114,6 +114,25 @@ for (const m of a.models) if (!orgIds.has(m.org)) errs.push(`R20 模型挂到不
  * 规矩和能力格完全一致：**填了架构就必须给得出官方原文和来源**。
  */
 const ARCH = Object.keys(a.$arch ?? {});
+/**
+ * R66：**核心模型的版本号必须有来源。**
+ *
+ * 2026-08-11 负责人指出 AI 文本那一卷「GPT-5.6 了，你才找到 GPT-5.2」——
+ * 一查全线落后：GLM 记 4.5 实际 5.2、DeepSeek 记 V3 实际 V4、Kimi 记 K2 实际 K3。
+ * 根因不是采集难，是**我按记忆填了版本号**，而按记忆填 = 编。
+ * 这个产品唯一的本钱是「对得上」，所以这条不能靠自觉，得是一条过不去的规则。
+ *
+ * 只卡 core：extended 是「收了但没逐格核」，版本号可以先空着。
+ * `version_quote` 也要有 —— 只给一个来源 id 而摘不出原文，和没有来源一样。
+ */
+for (const m of a.models) {
+  if ((m.tier ?? "core") !== "core") continue;
+  const at = `${m.family}（${m.id}）`;
+  if (!m.version_src) errs.push(`R66 核心模型的版本号没有来源：${at} = ${m.version} —— **按记忆填版本号就是编**`);
+  else if (!srcIds.has(m.version_src)) errs.push(`R66 版本来源 id 不存在：${m.version_src}（${at}）`);
+  if (m.version_src && !m.version_quote) errs.push(`R66 有来源却摘不出原文：${at}`);
+}
+
 for (const m of a.models) {
   if (m.arch == null) { warns.push(`R59 架构未采：${m.id}（树上只能挂在「未标注」）`); continue; }
   if (!ARCH.includes(m.arch)) errs.push(`R60 非法架构族 ${m.arch}：${m.id} —— 只能是 ${ARCH.join("/")}`);

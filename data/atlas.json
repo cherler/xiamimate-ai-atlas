@@ -1407,7 +1407,9 @@
    "arch_src": null,
    "arch_quote": null,
    "arch_note": null,
-   "arch_basis": "common"
+   "arch_basis": "common",
+   "version_src": "seed-blog",
+   "version_quote": "谱系最新一代「2.5」（2026-08-05）：One-take Creation, Flexible Referencing: Introducing Seedance 2.5"
   },
   {
    "id": "hailuo",
@@ -1428,7 +1430,9 @@
    "arch_src": null,
    "arch_quote": null,
    "arch_note": null,
-   "arch_basis": "common"
+   "arch_basis": "common",
+   "version_src": "minimax-release-notes",
+   "version_quote": "谱系最新一代「H3」（2026-07-31）：A new-generation open general-purpose multimodal video model."
   },
   {
    "id": "gemini-omni",
@@ -1449,7 +1453,9 @@
    "arch_src": null,
    "arch_quote": null,
    "arch_note": null,
-   "arch_basis": "common"
+   "arch_basis": "common",
+   "version_src": "gemini-models",
+   "version_quote": "官方模型清单：「Gemini Omni Flash」endpoint gemini-omni-flash —— 「Fast, conversational video generation and editing」"
   },
   {
    "id": "wan",
@@ -1472,7 +1478,9 @@
    "arch_src": "wan-tr",
    "arch_quote": "Built upon the mainstream diffusion transformer paradigm, Wan achieves significant advancements in generative capabilities",
    "arch_note": null,
-   "arch_basis": "official"
+   "arch_basis": "official",
+   "version_src": "wan3-qbitai",
+   "version_quote": "2026-08-06 开启公测：单次可生成 30 秒，支持文本/图像/音频/视频与 doc、ppt、pdf 等输入。**官方 HF 组织里没有 3.0**（最新到 Wan2.2-Animate-2），这是闭源公测版"
   },
   {
    "id": "runway",
@@ -1483,7 +1491,7 @@
    "version": "Gen-4.5",
    "version_as_of": "2025-12-11",
    "status": "active",
-   "status_note": "官方 changelog：Gen-4.5 于 2025-12-11 发布。⚠️ Runway 同时也是平台 —— 2026-04-07 起在自家产品里提供 Seedance 2.0、WAN2.2 Animate、Sora 2 Pro 等第三方模型",
+   "status_note": "官方 changelog：Gen-4.5 于 2025-12-11 发布。⚠️ Runway 同时也是平台 —— 2026-04-07 起在自家产品里提供 Seedance 2.0、WAN2.2 Animate、Sora 2 Pro 等第三方模型 ⚠️ 谱系里已有更晚的一代（Aleph 2.0，2026-05-21）—— 当前主力是否已经换代**要人核**，不许照最新节点自动改：最新节点也可能只是同代的一个档位或分支。",
    "tier": "core",
    "domain": "video",
    "reach_cn": "ok",
@@ -1494,7 +1502,9 @@
    "arch_src": null,
    "arch_quote": null,
    "arch_note": null,
-   "arch_basis": "common"
+   "arch_basis": "common",
+   "version_src": "rw-changelog",
+   "version_quote": "谱系节点「4.5」（2026-01-21）：Gen-4.5 Image to Video You can now supply a first frame image alongside your"
   },
   {
    "id": "kling",
@@ -1514,7 +1524,9 @@
    "arch_src": null,
    "arch_quote": null,
    "arch_note": null,
-   "arch_basis": "common"
+   "arch_basis": "common",
+   "version_src": "kling-api-updates",
+   "version_quote": "谱系最新一代「3.0」（2026-06-17）：Kling 3.0 Turbo Officially Released Supports both text-to-video and i"
   },
   {
    "id": "vidu-q",
@@ -1535,7 +1547,9 @@
    "arch_src": null,
    "arch_quote": null,
    "arch_note": null,
-   "arch_basis": "common"
+   "arch_basis": "common",
+   "version_src": "vidu-changelog",
+   "version_quote": "谱系最新一代「Q3」（2026-04-13）：Support the addition of viduq3-mix、viduq3-turbo、viduq3 model for reference2video"
   },
   {
    "id": "veo",
@@ -1556,7 +1570,9 @@
    "arch_src": null,
    "arch_quote": null,
    "arch_note": null,
-   "arch_basis": "common"
+   "arch_basis": "common",
+   "version_src": "gemini-changelog",
+   "version_quote": "谱系最新一代「3.1」（2025-10-15）：Released Veo 3.1 and 3.1 Fast models in public preview"
   },
   {
    "id": "sora",
@@ -1597,7 +1613,9 @@
    "arch_src": null,
    "arch_quote": null,
    "arch_note": null,
-   "arch_basis": "common"
+   "arch_basis": "common",
+   "version_src": "vidu-s1-paper",
+   "version_quote": "谱系最新一代「S1」（2026-07-03）：Vidu S1 官方论文（作者：生数）"
   },
   {
    "id": "lucy",
@@ -1617,7 +1635,9 @@
    "arch_src": null,
    "arch_quote": null,
    "arch_note": null,
-   "arch_basis": "common"
+   "arch_basis": "common",
+   "version_src": "decart-site",
+   "version_quote": "谱系最新一代「Lucy 2.5」（2026-08-07）：官网首屏标 LUCY 2.5 IS LIVE"
   },
   {
    "id": "ltx",
@@ -1638,7 +1658,9 @@
    "arch_src": "ltx-tr",
    "arch_quote": "We introduce LTX-Video, a transformer-based latent diffusion model ... integrating the responsibilities of the Video-VAE and the denoising transformer",
    "arch_note": null,
-   "arch_basis": "official"
+   "arch_basis": "official",
+   "version_src": "hf-lineage",
+   "version_quote": "谱系最新一代「LTX-2.3」（2026-03-04）：Lightricks/LTX-2.3"
   },
   {
    "id": "happyhorse",
@@ -1779,7 +1801,10 @@
    "lineage_note": "FLUX.1-dev/schnell → FLUX.1-Kontext-dev（2025-05-28）→ FLUX.2 系列",
    "arch": "dit",
    "arch_basis": "common",
-   "arch_note": "⚠️ black-forest-labs/FLUX.2-dev 在 HF 上是**受限模型**（需登录授权），卡读不到。DiT / rectified flow 是这一支的领域常识，标 common —— **没读到就不标 official**。"
+   "arch_note": "⚠️ black-forest-labs/FLUX.2-dev 在 HF 上是**受限模型**（需登录授权），卡读不到。DiT / rectified flow 是这一支的领域常识，标 common —— **没读到就不标 official**。",
+   "version_src": "hf-lineage",
+   "version_quote": "谱系节点「FLUX.2-dev」（2025-11-22）：black-forest-labs/FLUX.2-dev",
+   "status_note": " ⚠️ 谱系里已有更晚的一代（FLUX.2-klein-base-9B，2026-01-14）—— 当前主力是否已经换代**要人核**，不许照最新节点自动改：最新节点也可能只是同代的一个档位或分支。"
   },
   {
    "id": "qwen-image",
@@ -1797,7 +1822,10 @@
    "weights_note": "Qwen/Qwen-Image（2025-08-02）与 Qwen-Image-Edit-2511（2025-12-17）均为 apache-2.0 —— **标准开源协议**，在这批里少见",
    "arch": "dit",
    "arch_basis": "common",
-   "arch_note": "官方卡没写架构族，技术报告里才有。标 common。"
+   "arch_note": "官方卡没写架构族，技术报告里才有。标 common。",
+   "version_src": "hf-image-org",
+   "version_quote": "谱系节点「Qwen-Image-Edit-2511」（2025-12-17）：Qwen/Qwen-Image-Edit-2511（官方 HF 组织 createdAt 2025-12-17，Apache-2.0）",
+   "status_note": " ⚠️ 谱系里已有更晚的一代（Qwen-Image-2512，2025-12-30）—— 当前主力是否已经换代**要人核**，不许照最新节点自动改：最新节点也可能只是同代的一个档位或分支。"
   },
   {
    "id": "z-image",
@@ -1816,7 +1844,10 @@
    "arch": "dit",
    "arch_basis": "official",
    "arch_src": "zimage-card",
-   "arch_quote": "An Efficient Image Generation Foundation Model with Single-Stream Diffusion Transformer"
+   "arch_quote": "An Efficient Image Generation Foundation Model with Single-Stream Diffusion Transformer",
+   "version_src": "hf-lineage",
+   "version_quote": "谱系节点「Z-Image-Turbo」（2025-11-25）：Tongyi-MAI/Z-Image-Turbo",
+   "status_note": " ⚠️ 谱系里已有更晚的一代（Z-Image，2026-01-23）—— 当前主力是否已经换代**要人核**，不许照最新节点自动改：最新节点也可能只是同代的一个档位或分支。"
   },
   {
    "id": "hunyuan-image",
@@ -1835,7 +1866,9 @@
    "arch_basis": "official",
    "arch_src": "hunyuan-image-card",
    "arch_quote": "Moving beyond the prevalent DiT-based architectures, HunyuanImage-3.0 employs a unified autoregressive framework",
-   "arch_note": "**这一条值得单独看**：图像侧默认都往 DiT 上靠，官方却明说自己不走那条路。"
+   "arch_note": "**这一条值得单独看**：图像侧默认都往 DiT 上靠，官方却明说自己不走那条路。",
+   "version_src": "hf-lineage",
+   "version_quote": "谱系最新一代「HunyuanImage-3.0」（2025-09-25）：tencent/HunyuanImage-3.0-Instruct"
   },
   {
    "id": "sd",
@@ -1885,7 +1918,8 @@
    "weights": "closed",
    "team": "Seed",
    "status_note": "官方页当前指向 Seedream 5.0 Pro（seed.bytedance.com/en/seedream5_0_pro）。⚠️ **官方页没写发布日期**，所以 version_as_of 记的是我们的核验日",
-   "version_src": "seedream-page"
+   "version_src": "seed-blog",
+   "version_quote": "谱系最新一代「Seedream 5.0 Pro」（2026-07-08）：Seedream 5.0 Pro is a multimodal image generation model that features advanced reasoning, efficient content cr"
   },
   {
    "id": "gemini-image",
@@ -1900,7 +1934,8 @@
    "domain": "image",
    "weights": "closed",
    "status_note": "官方模型列表原文：Nano Banana 2 → `gemini-3.1-flash-image`；另有 Nano Banana Pro → `gemini-3-pro-image`（4K 影棚级）。⚠️ 官方列表未标发布日期",
-   "version_src": "gemini-models"
+   "version_src": "gemini-models",
+   "version_quote": "谱系节点「Nano Banana 2」（2026-02-26）：Introducing Nano Banana 2 (Gemini 3.1 Flash Image), our latest state-of-the-art image model."
   },
   {
    "id": "gpt-image",
@@ -1915,7 +1950,8 @@
    "domain": "image",
    "weights": "closed",
    "status_note": "官方模型列表原文：GPT Image 2 / `gpt-image-2`，「State-of-the-art image generation model」。⚠️ 官方列表未标发布日期",
-   "version_src": "openai-models"
+   "version_src": "ms-foundry-blog",
+   "version_quote": "谱系最新一代「GPT-image-2」（2026-04-21）：GPT-image-2 brings real world intelligence, multilingual understanding, improved instruction following, increa"
   },
   {
    "id": "kolors",
@@ -1958,7 +1994,8 @@
    "domain": "image",
    "weights": "closed",
    "version_src": "ideogram-x",
-   "status_note": "官方账号公告原文：「You can now use Magic Fill and Extend with 3.0 in Ideogram Canvas to edit both uploaded and generated images」。以文字渲染见长"
+   "status_note": "官方账号公告原文：「You can now use Magic Fill and Extend with 3.0 in Ideogram Canvas to edit both uploaded and generated images」。以文字渲染见长 ⚠️ 谱系里已有更晚的一代（Ideogram 4，2026-05-30）—— 当前主力是否已经换代**要人核**，不许照最新节点自动改：最新节点也可能只是同代的一个档位或分支。",
+   "version_quote": "谱系节点「3.0」（2025-03-26）：You can now use Magic Fill and Extend with 3.0 in Ideogram Canvas to edit both uploaded and generated images"
   },
   {
    "id": "recraft",
@@ -1972,8 +2009,9 @@
    "tier": "core",
    "domain": "image",
    "weights": "closed",
-   "version_src": "recraft-docs",
-   "status_note": "官方文档原文：「V4.1 is the latest generation」。⚠️ 官方文档未标发布日期，version_as_of 记的是核验日"
+   "version_src": "recraft-blog",
+   "status_note": "官方文档原文：「V4.1 is the latest generation」。⚠️ 官方文档未标发布日期，version_as_of 记的是核验日",
+   "version_quote": "谱系最新一代「Recraft V4.1」（2026-05-14）：Give V4.1 just a few words, and it'll give you something worth keeping."
   },
   {
    "id": "hidream",
@@ -2137,13 +2175,15 @@
    "family": "Claude",
    "zh": "Claude",
    "org": "anthropic",
-   "version": "Opus 5",
+   "version": "Fable 5",
    "version_as_of": "2026-06-09",
    "status": "active",
    "tier": "core",
    "domain": "text",
    "weights": "closed",
-   "team": "Anthropic"
+   "team": "Anthropic",
+   "version_src": "anthropic-models",
+   "version_quote": "官方模型总览：「Claude Fable 5 is generally available … beginning June 9, 2026」；Opus 5 是推荐默认档"
   },
   {
    "id": "gpt",
@@ -2151,14 +2191,16 @@
    "family": "GPT",
    "zh": "GPT",
    "org": "openai",
-   "version": "GPT-5.2",
-   "version_as_of": "2026-04-21",
+   "version": "GPT-5.6",
+   "version_as_of": "2026-08-11",
    "status": "active",
    "tier": "core",
    "domain": "text",
    "weights": "closed",
    "team": "OpenAI",
-   "status_note": "版本号以 developers.openai.com 的模型清单为准 —— openai.com 主站 403，抓不到"
+   "status_note": "版本号以 developers.openai.com 的模型清单为准 —— openai.com 主站 403，抓不到",
+   "version_src": "openai-models",
+   "version_quote": "官方模型清单当前列的是 gpt-5.6-sol / -terra / -luna（知识截止 2026-02-16）。**这里的日期是核验日不是发布日** —— openai.com 403，拿不到发布公告"
   },
   {
    "id": "gemini-text",
@@ -2166,13 +2208,15 @@
    "family": "Gemini",
    "zh": "Gemini",
    "org": "google",
-   "version": "Gemini 3",
-   "version_as_of": "2025-11-20",
+   "version": "Gemini 3.6 Flash",
+   "version_as_of": "2026-08-11",
    "status": "active",
    "tier": "core",
    "domain": "text",
    "weights": "closed",
-   "team": "Google DeepMind"
+   "team": "Google DeepMind",
+   "version_src": "gemini-models",
+   "version_quote": "官方模型清单里最新的一档是 gemini-3.6-flash。**日期是核验日** —— 该页不标发布日"
   },
   {
    "id": "qwen-text",
@@ -2180,14 +2224,16 @@
    "family": "Qwen",
    "zh": "通义千问",
    "org": "alibaba",
-   "version": "Qwen3",
-   "version_as_of": "2025-04-29",
+   "version": "Qwen3.6",
+   "version_as_of": "2026-04-21",
    "status": "active",
    "tier": "core",
    "domain": "text",
    "weights": "open",
    "team": "通义 Qwen",
-   "weights_note": "Qwen3 系列多数档位 Apache-2.0 —— 中文侧开源力度最大的一家"
+   "weights_note": "Qwen3 系列多数档位 Apache-2.0 —— 中文侧开源力度最大的一家",
+   "version_src": "hf-text-org",
+   "version_quote": "Qwen/Qwen3.6-27B（官方 HF 组织 createdAt 2026-04-21，下载 657 万）"
   },
   {
    "id": "deepseek",
@@ -2195,13 +2241,15 @@
    "family": "DeepSeek",
    "zh": "深度求索",
    "org": "deepseek",
-   "version": "V3",
-   "version_as_of": "2024-12-26",
+   "version": "V4",
+   "version_as_of": "2026-07-31",
    "status": "active",
    "tier": "core",
    "domain": "text",
    "weights": "open",
-   "team": "DeepSeek"
+   "team": "DeepSeek",
+   "version_src": "hf-text-org",
+   "version_quote": "deepseek-ai/DeepSeek-V4-Flash-0731（官方 HF 组织 createdAt 2026-07-31，下载 105 万）"
   },
   {
    "id": "kimi",
@@ -2209,13 +2257,15 @@
    "family": "Kimi",
    "zh": "Kimi",
    "org": "moonshot",
-   "version": "K2",
-   "version_as_of": "2025-07-11",
+   "version": "K3",
+   "version_as_of": "2026-06-13",
    "status": "active",
    "tier": "core",
    "domain": "text",
    "weights": "open",
-   "team": "Moonshot AI"
+   "team": "Moonshot AI",
+   "version_src": "hf-text-org",
+   "version_quote": "moonshotai/Kimi-K3（官方 HF 组织 createdAt 2026-06-13，下载 157 万）"
   },
   {
    "id": "glm",
@@ -2223,13 +2273,15 @@
    "family": "GLM",
    "zh": "智谱 GLM",
    "org": "zhipu",
-   "version": "GLM-4.5",
-   "version_as_of": "2025-07-28",
+   "version": "GLM-5.2",
+   "version_as_of": "2026-06-16",
    "status": "active",
    "tier": "core",
    "domain": "text",
    "weights": "open",
-   "team": "Z.ai"
+   "team": "Z.ai",
+   "version_src": "hf-text-org",
+   "version_quote": "zai-org/GLM-5.2（官方 HF 组织 createdAt 2026-06-16，下载 252 万）"
   },
   {
    "id": "minimax-text",
@@ -2237,13 +2289,15 @@
    "family": "MiniMax",
    "zh": "MiniMax 文本",
    "org": "minimax",
-   "version": "M2",
-   "version_as_of": "2025-10-27",
+   "version": "M3",
+   "version_as_of": "2026-06-02",
    "status": "active",
    "tier": "core",
    "domain": "text",
    "weights": "open",
-   "team": "MiniMax"
+   "team": "MiniMax",
+   "version_src": "hf-text-org",
+   "version_quote": "MiniMaxAI/MiniMax-M3（官方 HF 组织 createdAt 2026-06-02）。**注意别取 MiniMax-H3** —— 那是视频那一卷的海螺，同组织不同卷"
   },
   {
    "id": "doubao",
@@ -2251,13 +2305,15 @@
    "family": "Doubao",
    "zh": "豆包",
    "org": "bytedance",
-   "version": "1.6",
-   "version_as_of": "2025-06-11",
+   "version": "Seed-2.1 Pro",
+   "version_as_of": "2026-06-23",
    "status": "active",
    "tier": "core",
    "domain": "text",
    "weights": "closed",
-   "team": "ByteDance Seed"
+   "team": "ByteDance Seed",
+   "version_src": "doubao-force-2026",
+   "version_quote": "火山引擎 2026 夏季 FORCE 大会发布 Doubao-Seed-2.1 Pro。**二手源**：火山方舟模型清单是 SPA，抓不到"
   },
   {
    "id": "llama",
@@ -2271,7 +2327,9 @@
    "tier": "extended",
    "domain": "text",
    "weights": "open",
-   "team": "Meta AI"
+   "team": "Meta AI",
+   "version_src": "hf-text-org",
+   "version_quote": "meta-llama/Llama-4-Maverick-17B-128E-Instruct（官方 HF 组织 createdAt 2025-04-04）"
   },
   {
    "id": "grok",
@@ -2279,13 +2337,15 @@
    "family": "Grok",
    "zh": "Grok",
    "org": "xai",
-   "version": "4",
-   "version_as_of": "2025-07-09",
+   "version": "4.5",
+   "version_as_of": "2026-08-11",
    "status": "active",
    "tier": "extended",
    "domain": "text",
    "weights": "closed",
-   "team": "xAI"
+   "team": "xAI",
+   "version_src": "xai-docs",
+   "version_quote": "官方模型清单：grok-4.5 为最新，知识截止 2026-02-01。**日期是核验日**"
   },
   {
    "id": "mistral-text",
@@ -2293,13 +2353,15 @@
    "family": "Mistral",
    "zh": "Mistral",
    "org": "mistral",
-   "version": "Large 3",
-   "version_as_of": "2025-12-02",
+   "version": "Medium 3.5",
+   "version_as_of": "2026-03-31",
    "status": "active",
    "tier": "extended",
    "domain": "text",
    "weights": "open",
-   "team": "Mistral AI"
+   "team": "Mistral AI",
+   "version_src": "hf-text-org",
+   "version_quote": "mistralai/Mistral-Medium-3.5-128B（官方 HF 组织 createdAt 2026-03-31）"
   }
  ],
  "sources": {
@@ -3022,6 +3084,26 @@
    "name": "Qwen 官方文档",
    "url": "https://qwen.readthedocs.io/en/latest/",
    "tier": "official"
+  },
+  "xai-docs": {
+   "name": "xAI 官方文档 · 模型清单",
+   "url": "https://docs.x.ai/docs/models",
+   "tier": "official"
+  },
+  "doubao-force-2026": {
+   "name": "新华网 · 豆包 2.1 Pro 发布",
+   "url": "https://www.news.cn/tech/20260623/acd6f2f27fc34459a7d1684c03278431/c.html",
+   "tier": "secondary"
+  },
+  "hf-text-org": {
+   "name": "Hugging Face 官方组织",
+   "url": "https://huggingface.co",
+   "tier": "official"
+  },
+  "wan3-qbitai": {
+   "name": "量子位 · Wan3.0 开启公测",
+   "url": "https://www.qbitai.com/2026/08/467877.html",
+   "tier": "secondary"
   }
  },
  "support": [
@@ -5026,7 +5108,7 @@
    "m": "claude",
    "c": "t-think",
    "state": "yes",
-   "verified_for": "Opus 5",
+   "verified_for": "Fable 5",
    "note": "表中「Adaptive thinking」Claude Opus 5 = Yes（Fable 5 为 always on）",
    "src": "anthropic-models",
    "via": "native"
@@ -5035,7 +5117,7 @@
    "m": "claude",
    "c": "t-long",
    "state": "yes",
-   "verified_for": "Opus 5",
+   "verified_for": "Fable 5",
    "note": "表中「Context window」= 1M tokens",
    "src": "anthropic-models",
    "via": "native"
@@ -5044,7 +5126,7 @@
    "m": "claude",
    "c": "t-maxout",
    "state": "yes",
-   "verified_for": "Opus 5",
+   "verified_for": "Fable 5",
    "note": "表中「Max output」= 128k tokens；脚注：Batch API 上经 output-300k beta 可到 300k",
    "src": "anthropic-models",
    "via": "native"
@@ -5053,37 +5135,37 @@
    "m": "claude",
    "c": "t-tools",
    "state": "unknown",
-   "verified_for": "Opus 5"
+   "verified_for": "Fable 5"
   },
   {
    "m": "claude",
    "c": "t-json",
    "state": "unknown",
-   "verified_for": "Opus 5"
+   "verified_for": "Fable 5"
   },
   {
    "m": "claude",
    "c": "t-search",
    "state": "unknown",
-   "verified_for": "Opus 5"
+   "verified_for": "Fable 5"
   },
   {
    "m": "claude",
    "c": "t-code",
    "state": "unknown",
-   "verified_for": "Opus 5"
+   "verified_for": "Fable 5"
   },
   {
    "m": "claude",
    "c": "t-computer",
    "state": "unknown",
-   "verified_for": "Opus 5"
+   "verified_for": "Fable 5"
   },
   {
    "m": "claude",
    "c": "t-vision",
    "state": "yes",
-   "verified_for": "Opus 5",
+   "verified_for": "Fable 5",
    "note": "「All current Claude models support text and image input, text output, multilingual capabilities, and vision」",
    "src": "anthropic-models",
    "via": "native"
@@ -5092,13 +5174,13 @@
    "m": "claude",
    "c": "t-audio",
    "state": "unknown",
-   "verified_for": "Opus 5"
+   "verified_for": "Fable 5"
   },
   {
    "m": "claude",
    "c": "t-cache",
    "state": "yes",
-   "verified_for": "Opus 5",
+   "verified_for": "Fable 5",
    "note": "脚注：「See Pricing for complete pricing information including Batch API discounts and prompt caching rates」",
    "src": "anthropic-models",
    "via": "native"
@@ -5107,7 +5189,7 @@
    "m": "claude",
    "c": "t-batch",
    "state": "yes",
-   "verified_for": "Opus 5",
+   "verified_for": "Fable 5",
    "note": "脚注提到「Message Batches API」与 Batch API 折扣",
    "src": "anthropic-models",
    "via": "native"
@@ -5116,19 +5198,19 @@
    "m": "claude",
    "c": "t-fim",
    "state": "unknown",
-   "verified_for": "Opus 5"
+   "verified_for": "Fable 5"
   },
   {
    "m": "claude",
    "c": "t-openweights",
    "state": "unknown",
-   "verified_for": "Opus 5"
+   "verified_for": "Fable 5"
   },
   {
    "m": "gpt",
    "c": "t-think",
    "state": "yes",
-   "verified_for": "GPT-5.2",
+   "verified_for": "GPT-5.6",
    "note": "模型对照表有「Reasoning」一列，取值从 none 到 max",
    "src": "openai-models",
    "via": "native"
@@ -5137,7 +5219,7 @@
    "m": "gpt",
    "c": "t-long",
    "state": "yes",
-   "verified_for": "GPT-5.2",
+   "verified_for": "GPT-5.6",
    "note": "模型对照表有「Context window」一列",
    "src": "openai-models",
    "via": "native"
@@ -5146,7 +5228,7 @@
    "m": "gpt",
    "c": "t-maxout",
    "state": "yes",
-   "verified_for": "GPT-5.2",
+   "verified_for": "GPT-5.6",
    "note": "模型对照表有「Max output」一列",
    "src": "openai-models",
    "via": "native"
@@ -5155,7 +5237,7 @@
    "m": "gpt",
    "c": "t-tools",
    "state": "yes",
-   "verified_for": "GPT-5.2",
+   "verified_for": "GPT-5.6",
    "note": "「Tools」一列列出 Functions",
    "src": "openai-models",
    "via": "native"
@@ -5164,13 +5246,13 @@
    "m": "gpt",
    "c": "t-json",
    "state": "unknown",
-   "verified_for": "GPT-5.2"
+   "verified_for": "GPT-5.6"
   },
   {
    "m": "gpt",
    "c": "t-search",
    "state": "yes",
-   "verified_for": "GPT-5.2",
+   "verified_for": "GPT-5.6",
    "note": "「Tools」一列列出 Web search",
    "src": "openai-models",
    "via": "native"
@@ -5179,13 +5261,13 @@
    "m": "gpt",
    "c": "t-code",
    "state": "unknown",
-   "verified_for": "GPT-5.2"
+   "verified_for": "GPT-5.6"
   },
   {
    "m": "gpt",
    "c": "t-computer",
    "state": "yes",
-   "verified_for": "GPT-5.2",
+   "verified_for": "GPT-5.6",
    "note": "「Tools」一列列出 Computer use",
    "src": "openai-models",
    "via": "native"
@@ -5194,43 +5276,43 @@
    "m": "gpt",
    "c": "t-vision",
    "state": "unknown",
-   "verified_for": "GPT-5.2"
+   "verified_for": "GPT-5.6"
   },
   {
    "m": "gpt",
    "c": "t-audio",
    "state": "unknown",
-   "verified_for": "GPT-5.2"
+   "verified_for": "GPT-5.6"
   },
   {
    "m": "gpt",
    "c": "t-cache",
    "state": "unknown",
-   "verified_for": "GPT-5.2"
+   "verified_for": "GPT-5.6"
   },
   {
    "m": "gpt",
    "c": "t-batch",
    "state": "unknown",
-   "verified_for": "GPT-5.2"
+   "verified_for": "GPT-5.6"
   },
   {
    "m": "gpt",
    "c": "t-fim",
    "state": "unknown",
-   "verified_for": "GPT-5.2"
+   "verified_for": "GPT-5.6"
   },
   {
    "m": "gpt",
    "c": "t-openweights",
    "state": "unknown",
-   "verified_for": "GPT-5.2"
+   "verified_for": "GPT-5.6"
   },
   {
    "m": "gemini-text",
    "c": "t-think",
    "state": "yes",
-   "verified_for": "Gemini 3",
+   "verified_for": "Gemini 3.6 Flash",
    "note": "文档 Core capabilities 下列「Thinking」（含 Thought signatures）",
    "src": "gemini-models",
    "via": "native"
@@ -5239,7 +5321,7 @@
    "m": "gemini-text",
    "c": "t-long",
    "state": "yes",
-   "verified_for": "Gemini 3",
+   "verified_for": "Gemini 3.6 Flash",
    "note": "指南单列「Long context」一节",
    "src": "gemini-models",
    "via": "native"
@@ -5248,13 +5330,13 @@
    "m": "gemini-text",
    "c": "t-maxout",
    "state": "unknown",
-   "verified_for": "Gemini 3"
+   "verified_for": "Gemini 3.6 Flash"
   },
   {
    "m": "gemini-text",
    "c": "t-tools",
    "state": "yes",
-   "verified_for": "Gemini 3",
+   "verified_for": "Gemini 3.6 Flash",
    "note": "Tools 下列「Function calling」",
    "src": "gemini-models",
    "via": "native"
@@ -5263,7 +5345,7 @@
    "m": "gemini-text",
    "c": "t-json",
    "state": "yes",
-   "verified_for": "Gemini 3",
+   "verified_for": "Gemini 3.6 Flash",
    "note": "Core capabilities 下列「Structured outputs」",
    "src": "gemini-models",
    "via": "native"
@@ -5272,7 +5354,7 @@
    "m": "gemini-text",
    "c": "t-search",
    "state": "yes",
-   "verified_for": "Gemini 3",
+   "verified_for": "Gemini 3.6 Flash",
    "note": "Tools 下列「Google Search」（Grounding with Search）",
    "src": "gemini-models",
    "via": "native"
@@ -5281,7 +5363,7 @@
    "m": "gemini-text",
    "c": "t-code",
    "state": "yes",
-   "verified_for": "Gemini 3",
+   "verified_for": "Gemini 3.6 Flash",
    "note": "Tools 下列「Code execution」",
    "src": "gemini-models",
    "via": "native"
@@ -5290,25 +5372,25 @@
    "m": "gemini-text",
    "c": "t-computer",
    "state": "unknown",
-   "verified_for": "Gemini 3"
+   "verified_for": "Gemini 3.6 Flash"
   },
   {
    "m": "gemini-text",
    "c": "t-vision",
    "state": "unknown",
-   "verified_for": "Gemini 3"
+   "verified_for": "Gemini 3.6 Flash"
   },
   {
    "m": "gemini-text",
    "c": "t-audio",
    "state": "unknown",
-   "verified_for": "Gemini 3"
+   "verified_for": "Gemini 3.6 Flash"
   },
   {
    "m": "gemini-text",
    "c": "t-cache",
    "state": "yes",
-   "verified_for": "Gemini 3",
+   "verified_for": "Gemini 3.6 Flash",
    "note": "Optimization 下列「Context caching」",
    "src": "gemini-models",
    "via": "native"
@@ -5317,7 +5399,7 @@
    "m": "gemini-text",
    "c": "t-batch",
    "state": "yes",
-   "verified_for": "Gemini 3",
+   "verified_for": "Gemini 3.6 Flash",
    "note": "Optimization 下列「Batch API」",
    "src": "gemini-models",
    "via": "native"
@@ -5326,19 +5408,19 @@
    "m": "gemini-text",
    "c": "t-fim",
    "state": "unknown",
-   "verified_for": "Gemini 3"
+   "verified_for": "Gemini 3.6 Flash"
   },
   {
    "m": "gemini-text",
    "c": "t-openweights",
    "state": "unknown",
-   "verified_for": "Gemini 3"
+   "verified_for": "Gemini 3.6 Flash"
   },
   {
    "m": "qwen-text",
    "c": "t-think",
    "state": "yes",
-   "verified_for": "Qwen3",
+   "verified_for": "Qwen3.6",
    "note": "「Seamless switching between thinking mode … and non-thinking mode … within a single model」",
    "src": "qwen-docs",
    "via": "native"
@@ -5347,7 +5429,7 @@
    "m": "qwen-text",
    "c": "t-long",
    "state": "yes",
-   "verified_for": "Qwen3",
+   "verified_for": "Qwen3.6",
    "note": "「Enhanced 256K long-context understanding, extensible to 1M」",
    "src": "qwen-docs",
    "via": "native"
@@ -5356,13 +5438,13 @@
    "m": "qwen-text",
    "c": "t-maxout",
    "state": "unknown",
-   "verified_for": "Qwen3"
+   "verified_for": "Qwen3.6"
   },
   {
    "m": "qwen-text",
    "c": "t-tools",
    "state": "yes",
-   "verified_for": "Qwen3",
+   "verified_for": "Qwen3.6",
    "note": "「Expertise in agent capabilities, enabling precise integration with external tools」",
    "src": "qwen-docs",
    "via": "native"
@@ -5371,67 +5453,67 @@
    "m": "qwen-text",
    "c": "t-json",
    "state": "unknown",
-   "verified_for": "Qwen3"
+   "verified_for": "Qwen3.6"
   },
   {
    "m": "qwen-text",
    "c": "t-search",
    "state": "unknown",
-   "verified_for": "Qwen3"
+   "verified_for": "Qwen3.6"
   },
   {
    "m": "qwen-text",
    "c": "t-code",
    "state": "unknown",
-   "verified_for": "Qwen3"
+   "verified_for": "Qwen3.6"
   },
   {
    "m": "qwen-text",
    "c": "t-computer",
    "state": "unknown",
-   "verified_for": "Qwen3"
+   "verified_for": "Qwen3.6"
   },
   {
    "m": "qwen-text",
    "c": "t-vision",
    "state": "unknown",
-   "verified_for": "Qwen3"
+   "verified_for": "Qwen3.6"
   },
   {
    "m": "qwen-text",
    "c": "t-audio",
    "state": "unknown",
-   "verified_for": "Qwen3"
+   "verified_for": "Qwen3.6"
   },
   {
    "m": "qwen-text",
    "c": "t-cache",
    "state": "unknown",
-   "verified_for": "Qwen3"
+   "verified_for": "Qwen3.6"
   },
   {
    "m": "qwen-text",
    "c": "t-batch",
    "state": "unknown",
-   "verified_for": "Qwen3"
+   "verified_for": "Qwen3.6"
   },
   {
    "m": "qwen-text",
    "c": "t-fim",
    "state": "unknown",
-   "verified_for": "Qwen3"
+   "verified_for": "Qwen3.6"
   },
   {
    "m": "qwen-text",
    "c": "t-openweights",
    "state": "unknown",
-   "verified_for": "Qwen3"
+   "verified_for": "Qwen3.6"
   },
   {
    "m": "deepseek",
    "c": "t-think",
    "state": "yes",
-   "verified_for": "V3",
+   "verified_for": "V4",
    "note": "文档示例使用 thinking: {type: enabled} 与 reasoning_effort: high",
    "src": "deepseek-docs",
    "via": "native"
@@ -5440,19 +5522,19 @@
    "m": "deepseek",
    "c": "t-long",
    "state": "unknown",
-   "verified_for": "V3"
+   "verified_for": "V4"
   },
   {
    "m": "deepseek",
    "c": "t-maxout",
    "state": "unknown",
-   "verified_for": "V3"
+   "verified_for": "V4"
   },
   {
    "m": "deepseek",
    "c": "t-tools",
    "state": "yes",
-   "verified_for": "V3",
+   "verified_for": "V4",
    "note": "API Guides 列「Tool Calls」",
    "src": "deepseek-docs",
    "via": "native"
@@ -5461,7 +5543,7 @@
    "m": "deepseek",
    "c": "t-json",
    "state": "yes",
-   "verified_for": "V3",
+   "verified_for": "V4",
    "note": "API Guides 列「JSON Output」",
    "src": "deepseek-docs",
    "via": "native"
@@ -5470,37 +5552,37 @@
    "m": "deepseek",
    "c": "t-search",
    "state": "unknown",
-   "verified_for": "V3"
+   "verified_for": "V4"
   },
   {
    "m": "deepseek",
    "c": "t-code",
    "state": "unknown",
-   "verified_for": "V3"
+   "verified_for": "V4"
   },
   {
    "m": "deepseek",
    "c": "t-computer",
    "state": "unknown",
-   "verified_for": "V3"
+   "verified_for": "V4"
   },
   {
    "m": "deepseek",
    "c": "t-vision",
    "state": "unknown",
-   "verified_for": "V3"
+   "verified_for": "V4"
   },
   {
    "m": "deepseek",
    "c": "t-audio",
    "state": "unknown",
-   "verified_for": "V3"
+   "verified_for": "V4"
   },
   {
    "m": "deepseek",
    "c": "t-cache",
    "state": "yes",
-   "verified_for": "V3",
+   "verified_for": "V4",
    "note": "API Guides 列「Context Caching（KV cache）」",
    "src": "deepseek-docs",
    "via": "native"
@@ -5509,13 +5591,13 @@
    "m": "deepseek",
    "c": "t-batch",
    "state": "unknown",
-   "verified_for": "V3"
+   "verified_for": "V4"
   },
   {
    "m": "deepseek",
    "c": "t-fim",
    "state": "yes",
-   "verified_for": "V3",
+   "verified_for": "V4",
    "note": "API Guides 列「FIM Completion (Beta)」",
    "src": "deepseek-docs",
    "via": "native"
@@ -5524,343 +5606,343 @@
    "m": "deepseek",
    "c": "t-openweights",
    "state": "unknown",
-   "verified_for": "V3"
+   "verified_for": "V4"
   },
   {
    "m": "kimi",
    "c": "t-think",
    "state": "unknown",
-   "verified_for": "K2"
+   "verified_for": "K3"
   },
   {
    "m": "kimi",
    "c": "t-long",
    "state": "unknown",
-   "verified_for": "K2"
+   "verified_for": "K3"
   },
   {
    "m": "kimi",
    "c": "t-maxout",
    "state": "unknown",
-   "verified_for": "K2"
+   "verified_for": "K3"
   },
   {
    "m": "kimi",
    "c": "t-tools",
    "state": "unknown",
-   "verified_for": "K2"
+   "verified_for": "K3"
   },
   {
    "m": "kimi",
    "c": "t-json",
    "state": "unknown",
-   "verified_for": "K2"
+   "verified_for": "K3"
   },
   {
    "m": "kimi",
    "c": "t-search",
    "state": "unknown",
-   "verified_for": "K2"
+   "verified_for": "K3"
   },
   {
    "m": "kimi",
    "c": "t-code",
    "state": "unknown",
-   "verified_for": "K2"
+   "verified_for": "K3"
   },
   {
    "m": "kimi",
    "c": "t-computer",
    "state": "unknown",
-   "verified_for": "K2"
+   "verified_for": "K3"
   },
   {
    "m": "kimi",
    "c": "t-vision",
    "state": "unknown",
-   "verified_for": "K2"
+   "verified_for": "K3"
   },
   {
    "m": "kimi",
    "c": "t-audio",
    "state": "unknown",
-   "verified_for": "K2"
+   "verified_for": "K3"
   },
   {
    "m": "kimi",
    "c": "t-cache",
    "state": "unknown",
-   "verified_for": "K2"
+   "verified_for": "K3"
   },
   {
    "m": "kimi",
    "c": "t-batch",
    "state": "unknown",
-   "verified_for": "K2"
+   "verified_for": "K3"
   },
   {
    "m": "kimi",
    "c": "t-fim",
    "state": "unknown",
-   "verified_for": "K2"
+   "verified_for": "K3"
   },
   {
    "m": "kimi",
    "c": "t-openweights",
    "state": "unknown",
-   "verified_for": "K2"
+   "verified_for": "K3"
   },
   {
    "m": "glm",
    "c": "t-think",
    "state": "unknown",
-   "verified_for": "GLM-4.5"
+   "verified_for": "GLM-5.2"
   },
   {
    "m": "glm",
    "c": "t-long",
    "state": "unknown",
-   "verified_for": "GLM-4.5"
+   "verified_for": "GLM-5.2"
   },
   {
    "m": "glm",
    "c": "t-maxout",
    "state": "unknown",
-   "verified_for": "GLM-4.5"
+   "verified_for": "GLM-5.2"
   },
   {
    "m": "glm",
    "c": "t-tools",
    "state": "unknown",
-   "verified_for": "GLM-4.5"
+   "verified_for": "GLM-5.2"
   },
   {
    "m": "glm",
    "c": "t-json",
    "state": "unknown",
-   "verified_for": "GLM-4.5"
+   "verified_for": "GLM-5.2"
   },
   {
    "m": "glm",
    "c": "t-search",
    "state": "unknown",
-   "verified_for": "GLM-4.5"
+   "verified_for": "GLM-5.2"
   },
   {
    "m": "glm",
    "c": "t-code",
    "state": "unknown",
-   "verified_for": "GLM-4.5"
+   "verified_for": "GLM-5.2"
   },
   {
    "m": "glm",
    "c": "t-computer",
    "state": "unknown",
-   "verified_for": "GLM-4.5"
+   "verified_for": "GLM-5.2"
   },
   {
    "m": "glm",
    "c": "t-vision",
    "state": "unknown",
-   "verified_for": "GLM-4.5"
+   "verified_for": "GLM-5.2"
   },
   {
    "m": "glm",
    "c": "t-audio",
    "state": "unknown",
-   "verified_for": "GLM-4.5"
+   "verified_for": "GLM-5.2"
   },
   {
    "m": "glm",
    "c": "t-cache",
    "state": "unknown",
-   "verified_for": "GLM-4.5"
+   "verified_for": "GLM-5.2"
   },
   {
    "m": "glm",
    "c": "t-batch",
    "state": "unknown",
-   "verified_for": "GLM-4.5"
+   "verified_for": "GLM-5.2"
   },
   {
    "m": "glm",
    "c": "t-fim",
    "state": "unknown",
-   "verified_for": "GLM-4.5"
+   "verified_for": "GLM-5.2"
   },
   {
    "m": "glm",
    "c": "t-openweights",
    "state": "unknown",
-   "verified_for": "GLM-4.5"
+   "verified_for": "GLM-5.2"
   },
   {
    "m": "minimax-text",
    "c": "t-think",
    "state": "unknown",
-   "verified_for": "M2"
+   "verified_for": "M3"
   },
   {
    "m": "minimax-text",
    "c": "t-long",
    "state": "unknown",
-   "verified_for": "M2"
+   "verified_for": "M3"
   },
   {
    "m": "minimax-text",
    "c": "t-maxout",
    "state": "unknown",
-   "verified_for": "M2"
+   "verified_for": "M3"
   },
   {
    "m": "minimax-text",
    "c": "t-tools",
    "state": "unknown",
-   "verified_for": "M2"
+   "verified_for": "M3"
   },
   {
    "m": "minimax-text",
    "c": "t-json",
    "state": "unknown",
-   "verified_for": "M2"
+   "verified_for": "M3"
   },
   {
    "m": "minimax-text",
    "c": "t-search",
    "state": "unknown",
-   "verified_for": "M2"
+   "verified_for": "M3"
   },
   {
    "m": "minimax-text",
    "c": "t-code",
    "state": "unknown",
-   "verified_for": "M2"
+   "verified_for": "M3"
   },
   {
    "m": "minimax-text",
    "c": "t-computer",
    "state": "unknown",
-   "verified_for": "M2"
+   "verified_for": "M3"
   },
   {
    "m": "minimax-text",
    "c": "t-vision",
    "state": "unknown",
-   "verified_for": "M2"
+   "verified_for": "M3"
   },
   {
    "m": "minimax-text",
    "c": "t-audio",
    "state": "unknown",
-   "verified_for": "M2"
+   "verified_for": "M3"
   },
   {
    "m": "minimax-text",
    "c": "t-cache",
    "state": "unknown",
-   "verified_for": "M2"
+   "verified_for": "M3"
   },
   {
    "m": "minimax-text",
    "c": "t-batch",
    "state": "unknown",
-   "verified_for": "M2"
+   "verified_for": "M3"
   },
   {
    "m": "minimax-text",
    "c": "t-fim",
    "state": "unknown",
-   "verified_for": "M2"
+   "verified_for": "M3"
   },
   {
    "m": "minimax-text",
    "c": "t-openweights",
    "state": "unknown",
-   "verified_for": "M2"
+   "verified_for": "M3"
   },
   {
    "m": "doubao",
    "c": "t-think",
    "state": "unknown",
-   "verified_for": "1.6"
+   "verified_for": "Seed-2.1 Pro"
   },
   {
    "m": "doubao",
    "c": "t-long",
    "state": "unknown",
-   "verified_for": "1.6"
+   "verified_for": "Seed-2.1 Pro"
   },
   {
    "m": "doubao",
    "c": "t-maxout",
    "state": "unknown",
-   "verified_for": "1.6"
+   "verified_for": "Seed-2.1 Pro"
   },
   {
    "m": "doubao",
    "c": "t-tools",
    "state": "unknown",
-   "verified_for": "1.6"
+   "verified_for": "Seed-2.1 Pro"
   },
   {
    "m": "doubao",
    "c": "t-json",
    "state": "unknown",
-   "verified_for": "1.6"
+   "verified_for": "Seed-2.1 Pro"
   },
   {
    "m": "doubao",
    "c": "t-search",
    "state": "unknown",
-   "verified_for": "1.6"
+   "verified_for": "Seed-2.1 Pro"
   },
   {
    "m": "doubao",
    "c": "t-code",
    "state": "unknown",
-   "verified_for": "1.6"
+   "verified_for": "Seed-2.1 Pro"
   },
   {
    "m": "doubao",
    "c": "t-computer",
    "state": "unknown",
-   "verified_for": "1.6"
+   "verified_for": "Seed-2.1 Pro"
   },
   {
    "m": "doubao",
    "c": "t-vision",
    "state": "unknown",
-   "verified_for": "1.6"
+   "verified_for": "Seed-2.1 Pro"
   },
   {
    "m": "doubao",
    "c": "t-audio",
    "state": "unknown",
-   "verified_for": "1.6"
+   "verified_for": "Seed-2.1 Pro"
   },
   {
    "m": "doubao",
    "c": "t-cache",
    "state": "unknown",
-   "verified_for": "1.6"
+   "verified_for": "Seed-2.1 Pro"
   },
   {
    "m": "doubao",
    "c": "t-batch",
    "state": "unknown",
-   "verified_for": "1.6"
+   "verified_for": "Seed-2.1 Pro"
   },
   {
    "m": "doubao",
    "c": "t-fim",
    "state": "unknown",
-   "verified_for": "1.6"
+   "verified_for": "Seed-2.1 Pro"
   },
   {
    "m": "doubao",
    "c": "t-openweights",
    "state": "unknown",
-   "verified_for": "1.6"
+   "verified_for": "Seed-2.1 Pro"
   },
   {
    "m": "llama",
@@ -5950,169 +6032,169 @@
    "m": "grok",
    "c": "t-think",
    "state": "unknown",
-   "verified_for": "4"
+   "verified_for": "4.5"
   },
   {
    "m": "grok",
    "c": "t-long",
    "state": "unknown",
-   "verified_for": "4"
+   "verified_for": "4.5"
   },
   {
    "m": "grok",
    "c": "t-maxout",
    "state": "unknown",
-   "verified_for": "4"
+   "verified_for": "4.5"
   },
   {
    "m": "grok",
    "c": "t-tools",
    "state": "unknown",
-   "verified_for": "4"
+   "verified_for": "4.5"
   },
   {
    "m": "grok",
    "c": "t-json",
    "state": "unknown",
-   "verified_for": "4"
+   "verified_for": "4.5"
   },
   {
    "m": "grok",
    "c": "t-search",
    "state": "unknown",
-   "verified_for": "4"
+   "verified_for": "4.5"
   },
   {
    "m": "grok",
    "c": "t-code",
    "state": "unknown",
-   "verified_for": "4"
+   "verified_for": "4.5"
   },
   {
    "m": "grok",
    "c": "t-computer",
    "state": "unknown",
-   "verified_for": "4"
+   "verified_for": "4.5"
   },
   {
    "m": "grok",
    "c": "t-vision",
    "state": "unknown",
-   "verified_for": "4"
+   "verified_for": "4.5"
   },
   {
    "m": "grok",
    "c": "t-audio",
    "state": "unknown",
-   "verified_for": "4"
+   "verified_for": "4.5"
   },
   {
    "m": "grok",
    "c": "t-cache",
    "state": "unknown",
-   "verified_for": "4"
+   "verified_for": "4.5"
   },
   {
    "m": "grok",
    "c": "t-batch",
    "state": "unknown",
-   "verified_for": "4"
+   "verified_for": "4.5"
   },
   {
    "m": "grok",
    "c": "t-fim",
    "state": "unknown",
-   "verified_for": "4"
+   "verified_for": "4.5"
   },
   {
    "m": "grok",
    "c": "t-openweights",
    "state": "unknown",
-   "verified_for": "4"
+   "verified_for": "4.5"
   },
   {
    "m": "mistral-text",
    "c": "t-think",
    "state": "unknown",
-   "verified_for": "Large 3"
+   "verified_for": "Medium 3.5"
   },
   {
    "m": "mistral-text",
    "c": "t-long",
    "state": "unknown",
-   "verified_for": "Large 3"
+   "verified_for": "Medium 3.5"
   },
   {
    "m": "mistral-text",
    "c": "t-maxout",
    "state": "unknown",
-   "verified_for": "Large 3"
+   "verified_for": "Medium 3.5"
   },
   {
    "m": "mistral-text",
    "c": "t-tools",
    "state": "unknown",
-   "verified_for": "Large 3"
+   "verified_for": "Medium 3.5"
   },
   {
    "m": "mistral-text",
    "c": "t-json",
    "state": "unknown",
-   "verified_for": "Large 3"
+   "verified_for": "Medium 3.5"
   },
   {
    "m": "mistral-text",
    "c": "t-search",
    "state": "unknown",
-   "verified_for": "Large 3"
+   "verified_for": "Medium 3.5"
   },
   {
    "m": "mistral-text",
    "c": "t-code",
    "state": "unknown",
-   "verified_for": "Large 3"
+   "verified_for": "Medium 3.5"
   },
   {
    "m": "mistral-text",
    "c": "t-computer",
    "state": "unknown",
-   "verified_for": "Large 3"
+   "verified_for": "Medium 3.5"
   },
   {
    "m": "mistral-text",
    "c": "t-vision",
    "state": "unknown",
-   "verified_for": "Large 3"
+   "verified_for": "Medium 3.5"
   },
   {
    "m": "mistral-text",
    "c": "t-audio",
    "state": "unknown",
-   "verified_for": "Large 3"
+   "verified_for": "Medium 3.5"
   },
   {
    "m": "mistral-text",
    "c": "t-cache",
    "state": "unknown",
-   "verified_for": "Large 3"
+   "verified_for": "Medium 3.5"
   },
   {
    "m": "mistral-text",
    "c": "t-batch",
    "state": "unknown",
-   "verified_for": "Large 3"
+   "verified_for": "Medium 3.5"
   },
   {
    "m": "mistral-text",
    "c": "t-fim",
    "state": "unknown",
-   "verified_for": "Large 3"
+   "verified_for": "Medium 3.5"
   },
   {
    "m": "mistral-text",
    "c": "t-openweights",
    "state": "unknown",
-   "verified_for": "Large 3"
+   "verified_for": "Medium 3.5"
   }
  ],
  "$aliases_why": "各家给同一个能力起不同的名字。**Kling 管角色参考叫 Element，我按 Character Reference 去找，找不到就标了「官方没说」—— 假阴性。** 采集时必须用整组别名去匹配，不能只用我们自己的叫法。这是原方案 §36 Entity Resolution 在能力维度上的对应物。\n\n`alias_bit_us` 标在**真把我们坑过的那一项**上（角色参考）。别名多不等于叫法分歧大：「首尾帧」也有 8 条别名，但全是 start/end frame 的描述性变体，谁都猜得到；而 Element / Ingredients / cameo 是厂商自造词，**不知道就永远搜不到**。选例子要选后者，靠数别名条数是挑不出来的 —— 所以标在数据里，不用启发式猜。",

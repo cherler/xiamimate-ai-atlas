@@ -2059,6 +2059,61 @@
         "thinking mode",
         "long-context"
       ]
+    },
+    {
+      "id": "xai-docs",
+      "tier": "S",
+      "kind": "html",
+      "vendor": "grok",
+      "name": "xAI 官方文档 · 模型清单",
+      "url": "https://docs.x.ai/docs/models",
+      "refresh_days": 7,
+      "good_for": [
+        "version",
+        "capability"
+      ],
+      "expect": [
+        "grok-4"
+      ]
+    },
+    {
+      "id": "doubao-force-2026",
+      "tier": "B",
+      "kind": "html",
+      "vendor": "doubao",
+      "name": "新华网 · 火山引擎 2026 夏季 FORCE 大会（豆包 2.1 Pro）",
+      "url": "https://www.news.cn/tech/20260623/acd6f2f27fc34459a7d1684c03278431/c.html",
+      "refresh_days": 90,
+      "good_for": [
+        "version"
+      ],
+      "note": "**降级取源**：火山方舟的模型清单页是 SPA，抓到的是导航壳（docs.volcengine.com/docs/82379/1330310）。豆包的当前版本只能退到媒体报道。"
+    },
+    {
+      "id": "hf-text-org",
+      "tier": "S",
+      "kind": "json",
+      "vendor": "多家",
+      "name": "Hugging Face 官方组织 · 文本模型",
+      "url": "https://huggingface.co/api/models",
+      "refresh_days": 3,
+      "good_for": [
+        "version",
+        "opensource"
+      ]
+    },
+    {
+      "id": "wan3-qbitai",
+      "tier": "B",
+      "kind": "html",
+      "vendor": "wan",
+      "name": "量子位 · 阿里 Wan3.0 开启公测",
+      "url": "https://www.qbitai.com/2026/08/467877.html",
+      "refresh_days": 90,
+      "good_for": [
+        "version"
+      ],
+      "note": "**降级取源**：Wan 3.0 是闭源公测版，官方 HF 组织里没有（那里最新只到 Wan2.2-Animate-2），阿里云百炼文档站是 SPA。当前版本只能退到媒体报道。"
     }
   ],
   "$missing": [

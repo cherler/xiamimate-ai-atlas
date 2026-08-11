@@ -76,6 +76,15 @@ const ORGS = [
   { org: "NewBie-AI", m: "newbie-image", zh: "NewBie AI", d: "image" },
   { org: "circlestone-labs", m: "anima", zh: "Circlestone · Anima", d: "image" },
   { org: "microsoft", m: "lens", zh: "微软 · Lens / Mage-Flow", d: "image" },
+  // ── AI 文本（2026-08-11 开）。闭源那几家（Claude / GPT / Gemini / 豆包 / Grok）
+  //    HF 上没有权重，谱系走各家官方文档，不在这张表里。
+  { org: "Qwen", m: "qwen-text", zh: "阿里 · 通义千问", d: "text" },
+  { org: "deepseek-ai", m: "deepseek", zh: "深度求索 · DeepSeek", d: "text" },
+  { org: "moonshotai", m: "kimi", zh: "月之暗面 · Kimi", d: "text" },
+  { org: "zai-org", m: "glm", zh: "智谱 · GLM", d: "text" },
+  { org: "MiniMaxAI", m: "minimax-text", zh: "MiniMax · 文本", d: "text" },
+  { org: "meta-llama", m: "llama", zh: "Meta · Llama", d: "text" },
+  { org: "mistralai", m: "mistral-text", zh: "Mistral", d: "text" },
 ];
 
 const VIDEO = /video|t2v|i2v|ti2v|s2v|flf|vace|animate|dance|mochi|cogvideo|allegro|hunyuanvideo|skyreels|ltx|wan\d/i;
@@ -85,6 +94,14 @@ const VIDEO = /video|t2v|i2v|ti2v|s2v|flf|vace|animate|dance|mochi|cogvideo|alle
  * 做法：先要求像出图模型（型号名或 image/t2i 之类），再用下面的 NOT_IMAGE 把
  * 明显是视频/3D/理解类的剔掉 —— **宁可多捞一点让人去看，也别静默漏掉一代**。
  */
+/**
+ * 文本那一卷。**主要靠排除**：这些组织下绝大多数就是语言模型，
+ * 真正要滤掉的是出图/视频/语音/嵌入这些**产出物不是文本**的旁支，
+ * 以及 base/instruct 之外的量化与端口档（交给 NOISE）。
+ */
+const TEXT = /.*/;
+const NOT_TEXT = /image|video|audio|speech|tts|asr|voice|vl$|-vl-|vision|embedding|rerank|guard|omni|diffusion|t2i|t2v/i;
+
 const IMAGE = /image|t2i|text-to-image|flux|stable-diffusion|sd3|sdxl|kolors|ideogram|hidream|ernie-image|ovis-image|pixeldit|anima|boogu|newbie|lens|mage-flow|krea/i;
 /**
  * 剔掉的：视频、**图生 3D**（TRELLIS 那一支产出的是网格不是图，已记在
@@ -130,11 +147,13 @@ for (const t of ORGS) {
     const j = await r.json();
     const hit = t.d === "image"
       ? (id) => IMAGE.test(id) && !NOT_IMAGE.test(id)
-      : (id) => VIDEO.test(id);
+      : t.d === "text"
+        ? (id) => TEXT.test(id) && !NOT_TEXT.test(id)
+        : (id) => VIDEO.test(id);
     const keep = j.filter((x) => hit(x.id) && !NOISE.test(x.id));
     // 回的条数逼近上限时**明说一句**：这时候「全部 N」不是这家的总数，是我们只看到了 N 个
     const capped = j.length >= 450 ? "（**已到 API 上限，可能还有没看到的**）" : "";
-    console.log(`\n══ ${t.zh}（${t.org}）—— ${t.d === "image" ? "出图" : "视频"}模型 ${keep.length} / 看到 ${j.length}${capped}`);
+    console.log(`\n══ ${t.zh}（${t.org}）—— ${{ image: "出图", text: "文本", video: "视频" }[t.d]}模型 ${keep.length} / 看到 ${j.length}${capped}`);
     for (const x of keep) {
       const row = {
         org: t.org, m: t.m, repo: x.id,

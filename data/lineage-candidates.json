@@ -2,6 +2,123 @@
   "note": "HF createdAt 采集的开源模型候选（每行带 domain：video / image），**未经人工核**，不要直接当数据用",
   "rows": [
     {
+      "org": "zai-org",
+      "m": "glm",
+      "repo": "zai-org/CogView2",
+      "domain": "text",
+      "date": "2022-06-22",
+      "downloads": 0,
+      "likes": 8
+    },
+    {
+      "org": "zai-org",
+      "m": "glm",
+      "repo": "zai-org/glm-10b",
+      "domain": "text",
+      "date": "2023-02-28",
+      "downloads": 353,
+      "likes": 33
+    },
+    {
+      "org": "zai-org",
+      "m": "glm",
+      "repo": "zai-org/glm-10b-chinese",
+      "domain": "text",
+      "date": "2023-02-28",
+      "downloads": 109,
+      "likes": 122
+    },
+    {
+      "org": "zai-org",
+      "m": "glm",
+      "repo": "zai-org/glm-roberta-large",
+      "domain": "text",
+      "date": "2023-03-01",
+      "downloads": 160,
+      "likes": 5
+    },
+    {
+      "org": "zai-org",
+      "m": "glm",
+      "repo": "zai-org/glm-large-chinese",
+      "domain": "text",
+      "date": "2023-03-01",
+      "downloads": 167,
+      "likes": 34
+    },
+    {
+      "org": "zai-org",
+      "m": "glm",
+      "repo": "zai-org/glm-2b",
+      "domain": "text",
+      "date": "2023-03-01",
+      "downloads": 152,
+      "likes": 16
+    },
+    {
+      "org": "zai-org",
+      "m": "glm",
+      "repo": "zai-org/chatglm-6b",
+      "domain": "text",
+      "date": "2023-03-13",
+      "downloads": 1782,
+      "likes": 2918
+    },
+    {
+      "org": "zai-org",
+      "m": "glm",
+      "repo": "zai-org/chatglm-6b-int4",
+      "domain": "text",
+      "date": "2023-03-19",
+      "downloads": 436,
+      "likes": 416
+    },
+    {
+      "org": "zai-org",
+      "m": "glm",
+      "repo": "zai-org/chatglm-6b-int4-qe",
+      "domain": "text",
+      "date": "2023-03-20",
+      "downloads": 93,
+      "likes": 80
+    },
+    {
+      "org": "zai-org",
+      "m": "glm",
+      "repo": "zai-org/chatglm-6b-int8",
+      "domain": "text",
+      "date": "2023-04-14",
+      "downloads": 112,
+      "likes": 70
+    },
+    {
+      "org": "zai-org",
+      "m": "glm",
+      "repo": "zai-org/visualglm-6b",
+      "domain": "text",
+      "date": "2023-05-17",
+      "downloads": 221,
+      "likes": 210
+    },
+    {
+      "org": "zai-org",
+      "m": "glm",
+      "repo": "zai-org/WebGLM",
+      "domain": "text",
+      "date": "2023-05-28",
+      "downloads": 83,
+      "likes": 48
+    },
+    {
+      "org": "zai-org",
+      "m": "glm",
+      "repo": "zai-org/WebGLM-2B",
+      "domain": "text",
+      "date": "2023-06-14",
+      "downloads": 82,
+      "likes": 28
+    },
+    {
       "org": "stabilityai",
       "m": "sd",
       "repo": "stabilityai/stable-diffusion-xl-base-0.9",
@@ -11,13 +128,337 @@
       "likes": 1419
     },
     {
+      "org": "zai-org",
+      "m": "glm",
+      "repo": "zai-org/chatglm2-6b",
+      "domain": "text",
+      "date": "2023-06-24",
+      "downloads": 420940,
+      "likes": 2058
+    },
+    {
+      "org": "zai-org",
+      "m": "glm",
+      "repo": "zai-org/chatglm2-6b-int4",
+      "domain": "text",
+      "date": "2023-06-25",
+      "downloads": 323,
+      "likes": 237
+    },
+    {
+      "org": "meta-llama",
+      "m": "llama",
+      "repo": "meta-llama/Llama-2-70b",
+      "domain": "text",
+      "date": "2023-07-09",
+      "downloads": 12,
+      "likes": 537
+    },
+    {
+      "org": "meta-llama",
+      "m": "llama",
+      "repo": "meta-llama/Llama-2-13b-chat",
+      "domain": "text",
+      "date": "2023-07-09",
+      "downloads": 9,
+      "likes": 295
+    },
+    {
+      "org": "meta-llama",
+      "m": "llama",
+      "repo": "meta-llama/Llama-2-13b",
+      "domain": "text",
+      "date": "2023-07-09",
+      "downloads": 29,
+      "likes": 353
+    },
+    {
+      "org": "meta-llama",
+      "m": "llama",
+      "repo": "meta-llama/Llama-2-7b-chat",
+      "domain": "text",
+      "date": "2023-07-09",
+      "downloads": 40,
+      "likes": 624
+    },
+    {
+      "org": "meta-llama",
+      "m": "llama",
+      "repo": "meta-llama/Llama-2-7b",
+      "domain": "text",
+      "date": "2023-07-09",
+      "downloads": 120,
+      "likes": 4522
+    },
+    {
+      "org": "meta-llama",
+      "m": "llama",
+      "repo": "meta-llama/Llama-2-70b-chat",
+      "domain": "text",
+      "date": "2023-07-14",
+      "downloads": 2,
+      "likes": 399
+    },
+    {
+      "org": "zai-org",
+      "m": "glm",
+      "repo": "zai-org/codegeex2-6b",
+      "domain": "text",
+      "date": "2023-07-19",
+      "downloads": 247,
+      "likes": 258
+    },
+    {
       "org": "stabilityai",
       "m": "sd",
       "repo": "stabilityai/stable-diffusion-xl-base-1.0",
       "domain": "image",
       "date": "2023-07-25",
       "downloads": 1373012,
-      "likes": 8033
+      "likes": 8034
+    },
+    {
+      "org": "zai-org",
+      "m": "glm",
+      "repo": "zai-org/codegeex2-6b-int4",
+      "domain": "text",
+      "date": "2023-07-26",
+      "downloads": 81,
+      "likes": 46
+    },
+    {
+      "org": "zai-org",
+      "m": "glm",
+      "repo": "zai-org/chatglm2-6b-32k",
+      "domain": "text",
+      "date": "2023-07-30",
+      "downloads": 1072,
+      "likes": 293
+    },
+    {
+      "org": "Qwen",
+      "m": "qwen-text",
+      "repo": "Qwen/Qwen-7B-Chat",
+      "domain": "text",
+      "date": "2023-08-03",
+      "downloads": 49099,
+      "likes": 791
+    },
+    {
+      "org": "Qwen",
+      "m": "qwen-text",
+      "repo": "Qwen/Qwen-7B",
+      "domain": "text",
+      "date": "2023-08-03",
+      "downloads": 20772,
+      "likes": 399
+    },
+    {
+      "org": "zai-org",
+      "m": "glm",
+      "repo": "zai-org/chatglm2-6b-32k-int4",
+      "domain": "text",
+      "date": "2023-08-04",
+      "downloads": 78,
+      "likes": 42
+    },
+    {
+      "org": "Qwen",
+      "m": "qwen-text",
+      "repo": "Qwen/Qwen-7B-Chat-Int4",
+      "domain": "text",
+      "date": "2023-08-20",
+      "downloads": 379,
+      "likes": 75
+    },
+    {
+      "org": "mistralai",
+      "m": "mistral-text",
+      "repo": "mistralai/Mistral-7B-v0.1",
+      "domain": "text",
+      "date": "2023-09-20",
+      "downloads": 629480,
+      "likes": 4138
+    },
+    {
+      "org": "zai-org",
+      "m": "glm",
+      "repo": "zai-org/MathGLM",
+      "domain": "text",
+      "date": "2023-09-21",
+      "downloads": 1,
+      "likes": 8
+    },
+    {
+      "org": "Qwen",
+      "m": "qwen-text",
+      "repo": "Qwen/Qwen-14B",
+      "domain": "text",
+      "date": "2023-09-24",
+      "downloads": 1995,
+      "likes": 214
+    },
+    {
+      "org": "Qwen",
+      "m": "qwen-text",
+      "repo": "Qwen/Qwen-14B-Chat",
+      "domain": "text",
+      "date": "2023-09-24",
+      "downloads": 4109,
+      "likes": 373
+    },
+    {
+      "org": "Qwen",
+      "m": "qwen-text",
+      "repo": "Qwen/Qwen-14B-Chat-Int4",
+      "domain": "text",
+      "date": "2023-09-24",
+      "downloads": 286,
+      "likes": 100
+    },
+    {
+      "org": "mistralai",
+      "m": "mistral-text",
+      "repo": "mistralai/Mistral-7B-Instruct-v0.1",
+      "domain": "text",
+      "date": "2023-09-27",
+      "downloads": 197889,
+      "likes": 1849
+    },
+    {
+      "org": "zai-org",
+      "m": "glm",
+      "repo": "zai-org/agentlm-70b",
+      "domain": "text",
+      "date": "2023-10-08",
+      "downloads": 124,
+      "likes": 82
+    },
+    {
+      "org": "zai-org",
+      "m": "glm",
+      "repo": "zai-org/agentlm-13b",
+      "domain": "text",
+      "date": "2023-10-08",
+      "downloads": 121,
+      "likes": 20
+    },
+    {
+      "org": "Qwen",
+      "m": "qwen-text",
+      "repo": "Qwen/Qwen-7B-Chat-Int8",
+      "domain": "text",
+      "date": "2023-10-11",
+      "downloads": 223,
+      "likes": 9
+    },
+    {
+      "org": "zai-org",
+      "m": "glm",
+      "repo": "zai-org/CogVLM",
+      "domain": "text",
+      "date": "2023-10-11",
+      "downloads": 0,
+      "likes": 135
+    },
+    {
+      "org": "Qwen",
+      "m": "qwen-text",
+      "repo": "Qwen/Qwen-14B-Chat-Int8",
+      "domain": "text",
+      "date": "2023-10-12",
+      "downloads": 129,
+      "likes": 7
+    },
+    {
+      "org": "zai-org",
+      "m": "glm",
+      "repo": "zai-org/agentlm-7b",
+      "domain": "text",
+      "date": "2023-10-16",
+      "downloads": 144,
+      "likes": 52
+    },
+    {
+      "org": "deepseek-ai",
+      "m": "deepseek",
+      "repo": "deepseek-ai/deepseek-coder-6.7b-base",
+      "domain": "text",
+      "date": "2023-10-23",
+      "downloads": 66100,
+      "likes": 125
+    },
+    {
+      "org": "zai-org",
+      "m": "glm",
+      "repo": "zai-org/chatglm3-6b",
+      "domain": "text",
+      "date": "2023-10-25",
+      "downloads": 83370,
+      "likes": 1166
+    },
+    {
+      "org": "zai-org",
+      "m": "glm",
+      "repo": "zai-org/chatglm3-6b-32k",
+      "domain": "text",
+      "date": "2023-10-26",
+      "downloads": 245,
+      "likes": 246
+    },
+    {
+      "org": "zai-org",
+      "m": "glm",
+      "repo": "zai-org/chatglm3-6b-base",
+      "domain": "text",
+      "date": "2023-10-26",
+      "downloads": 4124,
+      "likes": 88
+    },
+    {
+      "org": "deepseek-ai",
+      "m": "deepseek",
+      "repo": "deepseek-ai/deepseek-coder-33b-base",
+      "domain": "text",
+      "date": "2023-10-28",
+      "downloads": 2779,
+      "likes": 76
+    },
+    {
+      "org": "deepseek-ai",
+      "m": "deepseek",
+      "repo": "deepseek-ai/deepseek-coder-1.3b-base",
+      "domain": "text",
+      "date": "2023-10-28",
+      "downloads": 8848,
+      "likes": 111
+    },
+    {
+      "org": "deepseek-ai",
+      "m": "deepseek",
+      "repo": "deepseek-ai/deepseek-coder-1.3b-instruct",
+      "domain": "text",
+      "date": "2023-10-29",
+      "downloads": 105751,
+      "likes": 176
+    },
+    {
+      "org": "deepseek-ai",
+      "m": "deepseek",
+      "repo": "deepseek-ai/deepseek-coder-6.7b-instruct",
+      "domain": "text",
+      "date": "2023-10-29",
+      "downloads": 510214,
+      "likes": 507
+    },
+    {
+      "org": "deepseek-ai",
+      "m": "deepseek",
+      "repo": "deepseek-ai/deepseek-coder-5.7bmqa-base",
+      "domain": "text",
+      "date": "2023-10-31",
+      "downloads": 348,
+      "likes": 10
     },
     {
       "org": "stabilityai",
@@ -29,6 +470,33 @@
       "likes": 103
     },
     {
+      "org": "deepseek-ai",
+      "m": "deepseek",
+      "repo": "deepseek-ai/deepseek-coder-33b-instruct",
+      "domain": "text",
+      "date": "2023-11-01",
+      "downloads": 2667,
+      "likes": 580
+    },
+    {
+      "org": "zai-org",
+      "m": "glm",
+      "repo": "zai-org/BPO",
+      "domain": "text",
+      "date": "2023-11-20",
+      "downloads": 217,
+      "likes": 21
+    },
+    {
+      "org": "Qwen",
+      "m": "qwen-text",
+      "repo": "Qwen/Qwen-72B",
+      "domain": "text",
+      "date": "2023-11-26",
+      "downloads": 2436483,
+      "likes": 360
+    },
+    {
       "org": "stabilityai",
       "m": "sd",
       "repo": "stabilityai/sdxl-turbo",
@@ -36,6 +504,105 @@
       "date": "2023-11-27",
       "downloads": 1226446,
       "likes": 2615
+    },
+    {
+      "org": "Qwen",
+      "m": "qwen-text",
+      "repo": "Qwen/Qwen-72B-Chat",
+      "domain": "text",
+      "date": "2023-11-29",
+      "downloads": 379,
+      "likes": 156
+    },
+    {
+      "org": "deepseek-ai",
+      "m": "deepseek",
+      "repo": "deepseek-ai/deepseek-llm-67b-chat",
+      "domain": "text",
+      "date": "2023-11-29",
+      "downloads": 1129,
+      "likes": 207
+    },
+    {
+      "org": "deepseek-ai",
+      "m": "deepseek",
+      "repo": "deepseek-ai/deepseek-llm-67b-base",
+      "domain": "text",
+      "date": "2023-11-29",
+      "downloads": 8224,
+      "likes": 130
+    },
+    {
+      "org": "deepseek-ai",
+      "m": "deepseek",
+      "repo": "deepseek-ai/deepseek-llm-7b-chat",
+      "domain": "text",
+      "date": "2023-11-29",
+      "downloads": 47991,
+      "likes": 227
+    },
+    {
+      "org": "deepseek-ai",
+      "m": "deepseek",
+      "repo": "deepseek-ai/deepseek-llm-7b-base",
+      "domain": "text",
+      "date": "2023-11-29",
+      "downloads": 28236,
+      "likes": 145
+    },
+    {
+      "org": "Qwen",
+      "m": "qwen-text",
+      "repo": "Qwen/Qwen-72B-Chat-Int8",
+      "domain": "text",
+      "date": "2023-11-30",
+      "downloads": 135,
+      "likes": 17
+    },
+    {
+      "org": "Qwen",
+      "m": "qwen-text",
+      "repo": "Qwen/Qwen-72B-Chat-Int4",
+      "domain": "text",
+      "date": "2023-11-30",
+      "downloads": 152,
+      "likes": 47
+    },
+    {
+      "org": "Qwen",
+      "m": "qwen-text",
+      "repo": "Qwen/Qwen-1_8B-Chat-Int4",
+      "domain": "text",
+      "date": "2023-11-30",
+      "downloads": 312,
+      "likes": 36
+    },
+    {
+      "org": "Qwen",
+      "m": "qwen-text",
+      "repo": "Qwen/Qwen-1_8B-Chat-Int8",
+      "domain": "text",
+      "date": "2023-11-30",
+      "downloads": 164,
+      "likes": 5
+    },
+    {
+      "org": "Qwen",
+      "m": "qwen-text",
+      "repo": "Qwen/Qwen-1_8B",
+      "domain": "text",
+      "date": "2023-11-30",
+      "downloads": 1494,
+      "likes": 73
+    },
+    {
+      "org": "mistralai",
+      "m": "mistral-text",
+      "repo": "mistralai/Mixtral-8x7B-v0.1",
+      "domain": "text",
+      "date": "2023-12-01",
+      "downloads": 44518,
+      "likes": 1824
     },
     {
       "org": "Lightricks",
@@ -47,6 +614,825 @@
       "likes": 51
     },
     {
+      "org": "mistralai",
+      "m": "mistral-text",
+      "repo": "mistralai/Mixtral-8x7B-Instruct-v0.1",
+      "domain": "text",
+      "date": "2023-12-10",
+      "downloads": 701704,
+      "likes": 4720
+    },
+    {
+      "org": "mistralai",
+      "m": "mistral-text",
+      "repo": "mistralai/Mistral-7B-Instruct-v0.2",
+      "domain": "text",
+      "date": "2023-12-11",
+      "downloads": 1169540,
+      "likes": 3195
+    },
+    {
+      "org": "zai-org",
+      "m": "glm",
+      "repo": "zai-org/CogAgent",
+      "domain": "text",
+      "date": "2023-12-15",
+      "downloads": 0,
+      "likes": 19
+    },
+    {
+      "org": "deepseek-ai",
+      "m": "deepseek",
+      "repo": "deepseek-ai/deepseek-moe-16b-base",
+      "domain": "text",
+      "date": "2024-01-08",
+      "downloads": 26026,
+      "likes": 152
+    },
+    {
+      "org": "deepseek-ai",
+      "m": "deepseek",
+      "repo": "deepseek-ai/deepseek-moe-16b-chat",
+      "domain": "text",
+      "date": "2024-01-09",
+      "downloads": 13560,
+      "likes": 159
+    },
+    {
+      "org": "Qwen",
+      "m": "qwen-text",
+      "repo": "Qwen/Qwen1.5-14B",
+      "domain": "text",
+      "date": "2024-01-22",
+      "downloads": 14922,
+      "likes": 41
+    },
+    {
+      "org": "Qwen",
+      "m": "qwen-text",
+      "repo": "Qwen/Qwen1.5-7B",
+      "domain": "text",
+      "date": "2024-01-22",
+      "downloads": 97117,
+      "likes": 56
+    },
+    {
+      "org": "Qwen",
+      "m": "qwen-text",
+      "repo": "Qwen/Qwen1.5-4B",
+      "domain": "text",
+      "date": "2024-01-22",
+      "downloads": 13097,
+      "likes": 36
+    },
+    {
+      "org": "Qwen",
+      "m": "qwen-text",
+      "repo": "Qwen/Qwen1.5-1.8B",
+      "domain": "text",
+      "date": "2024-01-22",
+      "downloads": 42380,
+      "likes": 59
+    },
+    {
+      "org": "Qwen",
+      "m": "qwen-text",
+      "repo": "Qwen/Qwen1.5-0.5B",
+      "domain": "text",
+      "date": "2024-01-22",
+      "downloads": 41177,
+      "likes": 174
+    },
+    {
+      "org": "Qwen",
+      "m": "qwen-text",
+      "repo": "Qwen/Qwen1.5-72B",
+      "domain": "text",
+      "date": "2024-01-23",
+      "downloads": 10406,
+      "likes": 59
+    },
+    {
+      "org": "deepseek-ai",
+      "m": "deepseek",
+      "repo": "deepseek-ai/deepseek-coder-7b-instruct-v1.5",
+      "domain": "text",
+      "date": "2024-01-25",
+      "downloads": 614191,
+      "likes": 158
+    },
+    {
+      "org": "deepseek-ai",
+      "m": "deepseek",
+      "repo": "deepseek-ai/deepseek-coder-7b-base-v1.5",
+      "domain": "text",
+      "date": "2024-01-25",
+      "downloads": 805,
+      "likes": 50
+    },
+    {
+      "org": "zai-org",
+      "m": "glm",
+      "repo": "zai-org/LongAlign-13B-64k-base",
+      "domain": "text",
+      "date": "2024-01-29",
+      "downloads": 112,
+      "likes": 3
+    },
+    {
+      "org": "zai-org",
+      "m": "glm",
+      "repo": "zai-org/LongAlign-7B-64k-base",
+      "domain": "text",
+      "date": "2024-01-29",
+      "downloads": 115,
+      "likes": 4
+    },
+    {
+      "org": "zai-org",
+      "m": "glm",
+      "repo": "zai-org/LongAlign-6B-64k-base",
+      "domain": "text",
+      "date": "2024-01-29",
+      "downloads": 115,
+      "likes": 5
+    },
+    {
+      "org": "zai-org",
+      "m": "glm",
+      "repo": "zai-org/LongAlign-13B-64k",
+      "domain": "text",
+      "date": "2024-01-29",
+      "downloads": 126,
+      "likes": 13
+    },
+    {
+      "org": "zai-org",
+      "m": "glm",
+      "repo": "zai-org/LongAlign-6B-64k",
+      "domain": "text",
+      "date": "2024-01-29",
+      "downloads": 121,
+      "likes": 2
+    },
+    {
+      "org": "zai-org",
+      "m": "glm",
+      "repo": "zai-org/LongAlign-7B-64k",
+      "domain": "text",
+      "date": "2024-01-29",
+      "downloads": 125,
+      "likes": 3
+    },
+    {
+      "org": "Qwen",
+      "m": "qwen-text",
+      "repo": "Qwen/Qwen1.5-72B-Chat",
+      "domain": "text",
+      "date": "2024-01-30",
+      "downloads": 9923,
+      "likes": 218
+    },
+    {
+      "org": "Qwen",
+      "m": "qwen-text",
+      "repo": "Qwen/Qwen1.5-14B-Chat",
+      "domain": "text",
+      "date": "2024-01-30",
+      "downloads": 26924,
+      "likes": 112
+    },
+    {
+      "org": "Qwen",
+      "m": "qwen-text",
+      "repo": "Qwen/Qwen1.5-7B-Chat",
+      "domain": "text",
+      "date": "2024-01-30",
+      "downloads": 21429,
+      "likes": 186
+    },
+    {
+      "org": "Qwen",
+      "m": "qwen-text",
+      "repo": "Qwen/Qwen1.5-4B-Chat",
+      "domain": "text",
+      "date": "2024-01-30",
+      "downloads": 14565,
+      "likes": 46
+    },
+    {
+      "org": "Qwen",
+      "m": "qwen-text",
+      "repo": "Qwen/Qwen1.5-1.8B-Chat",
+      "domain": "text",
+      "date": "2024-01-30",
+      "downloads": 63281,
+      "likes": 75
+    },
+    {
+      "org": "zai-org",
+      "m": "glm",
+      "repo": "zai-org/chatglm3-6b-128k",
+      "domain": "text",
+      "date": "2024-01-30",
+      "downloads": 101,
+      "likes": 79
+    },
+    {
+      "org": "Qwen",
+      "m": "qwen-text",
+      "repo": "Qwen/Qwen1.5-0.5B-Chat",
+      "domain": "text",
+      "date": "2024-01-31",
+      "downloads": 176482,
+      "likes": 99
+    },
+    {
+      "org": "Qwen",
+      "m": "qwen-text",
+      "repo": "Qwen/Qwen1.5-4B-Chat-GGUF",
+      "domain": "text",
+      "date": "2024-02-03",
+      "downloads": 575,
+      "likes": 16
+    },
+    {
+      "org": "Qwen",
+      "m": "qwen-text",
+      "repo": "Qwen/Qwen1.5-1.8B-Chat-GGUF",
+      "domain": "text",
+      "date": "2024-02-03",
+      "downloads": 1314,
+      "likes": 21
+    },
+    {
+      "org": "Qwen",
+      "m": "qwen-text",
+      "repo": "Qwen/Qwen1.5-0.5B-Chat-GGUF",
+      "domain": "text",
+      "date": "2024-02-03",
+      "downloads": 14033,
+      "likes": 35
+    },
+    {
+      "org": "Qwen",
+      "m": "qwen-text",
+      "repo": "Qwen/Qwen1.5-14B-Chat-GGUF",
+      "domain": "text",
+      "date": "2024-02-03",
+      "downloads": 506,
+      "likes": 67
+    },
+    {
+      "org": "Qwen",
+      "m": "qwen-text",
+      "repo": "Qwen/Qwen1.5-7B-Chat-GGUF",
+      "domain": "text",
+      "date": "2024-02-03",
+      "downloads": 723,
+      "likes": 71
+    },
+    {
+      "org": "Qwen",
+      "m": "qwen-text",
+      "repo": "Qwen/Qwen1.5-72B-Chat-GGUF",
+      "domain": "text",
+      "date": "2024-02-03",
+      "downloads": 177,
+      "likes": 61
+    },
+    {
+      "org": "Qwen",
+      "m": "qwen-text",
+      "repo": "Qwen/Qwen1.5-0.5B-Chat-AWQ",
+      "domain": "text",
+      "date": "2024-02-03",
+      "downloads": 146,
+      "likes": 7
+    },
+    {
+      "org": "Qwen",
+      "m": "qwen-text",
+      "repo": "Qwen/Qwen1.5-1.8B-Chat-AWQ",
+      "domain": "text",
+      "date": "2024-02-03",
+      "downloads": 226,
+      "likes": 4
+    },
+    {
+      "org": "Qwen",
+      "m": "qwen-text",
+      "repo": "Qwen/Qwen1.5-4B-Chat-AWQ",
+      "domain": "text",
+      "date": "2024-02-03",
+      "downloads": 851,
+      "likes": 3
+    },
+    {
+      "org": "Qwen",
+      "m": "qwen-text",
+      "repo": "Qwen/Qwen1.5-7B-Chat-AWQ",
+      "domain": "text",
+      "date": "2024-02-03",
+      "downloads": 1516,
+      "likes": 13
+    },
+    {
+      "org": "Qwen",
+      "m": "qwen-text",
+      "repo": "Qwen/Qwen1.5-14B-Chat-AWQ",
+      "domain": "text",
+      "date": "2024-02-03",
+      "downloads": 327,
+      "likes": 23
+    },
+    {
+      "org": "Qwen",
+      "m": "qwen-text",
+      "repo": "Qwen/Qwen1.5-72B-Chat-AWQ",
+      "domain": "text",
+      "date": "2024-02-03",
+      "downloads": 3193,
+      "likes": 26
+    },
+    {
+      "org": "Qwen",
+      "m": "qwen-text",
+      "repo": "Qwen/Qwen1.5-0.5B-Chat-GPTQ-Int8",
+      "domain": "text",
+      "date": "2024-02-04",
+      "downloads": 118,
+      "likes": 4
+    },
+    {
+      "org": "Qwen",
+      "m": "qwen-text",
+      "repo": "Qwen/Qwen1.5-0.5B-Chat-GPTQ-Int4",
+      "domain": "text",
+      "date": "2024-02-04",
+      "downloads": 6418,
+      "likes": 13
+    },
+    {
+      "org": "Qwen",
+      "m": "qwen-text",
+      "repo": "Qwen/Qwen1.5-1.8B-Chat-GPTQ-Int4",
+      "domain": "text",
+      "date": "2024-02-04",
+      "downloads": 605,
+      "likes": 7
+    },
+    {
+      "org": "Qwen",
+      "m": "qwen-text",
+      "repo": "Qwen/Qwen1.5-1.8B-Chat-GPTQ-Int8",
+      "domain": "text",
+      "date": "2024-02-04",
+      "downloads": 92,
+      "likes": 2
+    },
+    {
+      "org": "Qwen",
+      "m": "qwen-text",
+      "repo": "Qwen/Qwen1.5-4B-Chat-GPTQ-Int4",
+      "domain": "text",
+      "date": "2024-02-04",
+      "downloads": 1571,
+      "likes": 6
+    },
+    {
+      "org": "Qwen",
+      "m": "qwen-text",
+      "repo": "Qwen/Qwen1.5-4B-Chat-GPTQ-Int8",
+      "domain": "text",
+      "date": "2024-02-04",
+      "downloads": 83,
+      "likes": 6
+    },
+    {
+      "org": "Qwen",
+      "m": "qwen-text",
+      "repo": "Qwen/Qwen1.5-7B-Chat-GPTQ-Int4",
+      "domain": "text",
+      "date": "2024-02-04",
+      "downloads": 417,
+      "likes": 18
+    },
+    {
+      "org": "Qwen",
+      "m": "qwen-text",
+      "repo": "Qwen/Qwen1.5-7B-Chat-GPTQ-Int8",
+      "domain": "text",
+      "date": "2024-02-04",
+      "downloads": 93,
+      "likes": 26
+    },
+    {
+      "org": "Qwen",
+      "m": "qwen-text",
+      "repo": "Qwen/Qwen1.5-14B-Chat-GPTQ-Int4",
+      "domain": "text",
+      "date": "2024-02-04",
+      "downloads": 109,
+      "likes": 21
+    },
+    {
+      "org": "Qwen",
+      "m": "qwen-text",
+      "repo": "Qwen/Qwen1.5-14B-Chat-GPTQ-Int8",
+      "domain": "text",
+      "date": "2024-02-04",
+      "downloads": 100,
+      "likes": 11
+    },
+    {
+      "org": "Qwen",
+      "m": "qwen-text",
+      "repo": "Qwen/Qwen1.5-72B-Chat-GPTQ-Int4",
+      "domain": "text",
+      "date": "2024-02-04",
+      "downloads": 6142,
+      "likes": 37
+    },
+    {
+      "org": "Qwen",
+      "m": "qwen-text",
+      "repo": "Qwen/Qwen1.5-72B-Chat-GPTQ-Int8",
+      "domain": "text",
+      "date": "2024-02-04",
+      "downloads": 92,
+      "likes": 7
+    },
+    {
+      "org": "deepseek-ai",
+      "m": "deepseek",
+      "repo": "deepseek-ai/deepseek-math-7b-rl",
+      "domain": "text",
+      "date": "2024-02-05",
+      "downloads": 1266,
+      "likes": 96
+    },
+    {
+      "org": "deepseek-ai",
+      "m": "deepseek",
+      "repo": "deepseek-ai/deepseek-math-7b-instruct",
+      "domain": "text",
+      "date": "2024-02-05",
+      "downloads": 8162,
+      "likes": 153
+    },
+    {
+      "org": "deepseek-ai",
+      "m": "deepseek",
+      "repo": "deepseek-ai/deepseek-math-7b-base",
+      "domain": "text",
+      "date": "2024-02-05",
+      "downloads": 1948,
+      "likes": 89
+    },
+    {
+      "org": "Qwen",
+      "m": "qwen-text",
+      "repo": "Qwen/Qwen1.5-MoE-A2.7B",
+      "domain": "text",
+      "date": "2024-02-29",
+      "downloads": 182760,
+      "likes": 228
+    },
+    {
+      "org": "Qwen",
+      "m": "qwen-text",
+      "repo": "Qwen/Qwen1.5-MoE-A2.7B-Chat",
+      "domain": "text",
+      "date": "2024-03-14",
+      "downloads": 41561,
+      "likes": 133
+    },
+    {
+      "org": "Qwen",
+      "m": "qwen-text",
+      "repo": "Qwen/Qwen1.5-MoE-A2.7B-Chat-GPTQ-Int4",
+      "domain": "text",
+      "date": "2024-03-20",
+      "downloads": 1888,
+      "likes": 50
+    },
+    {
+      "org": "Qwen",
+      "m": "qwen-text",
+      "repo": "Qwen/Qwen1.5-32B-Chat-GPTQ-Int4",
+      "domain": "text",
+      "date": "2024-04-01",
+      "downloads": 5933,
+      "likes": 31
+    },
+    {
+      "org": "Qwen",
+      "m": "qwen-text",
+      "repo": "Qwen/Qwen1.5-32B",
+      "domain": "text",
+      "date": "2024-04-01",
+      "downloads": 10031,
+      "likes": 85
+    },
+    {
+      "org": "Qwen",
+      "m": "qwen-text",
+      "repo": "Qwen/Qwen1.5-32B-Chat",
+      "domain": "text",
+      "date": "2024-04-03",
+      "downloads": 11090,
+      "likes": 108
+    },
+    {
+      "org": "Qwen",
+      "m": "qwen-text",
+      "repo": "Qwen/Qwen1.5-32B-Chat-AWQ",
+      "domain": "text",
+      "date": "2024-04-04",
+      "downloads": 23380,
+      "likes": 18
+    },
+    {
+      "org": "Qwen",
+      "m": "qwen-text",
+      "repo": "Qwen/Qwen1.5-32B-Chat-GGUF",
+      "domain": "text",
+      "date": "2024-04-04",
+      "downloads": 442,
+      "likes": 52
+    },
+    {
+      "org": "Qwen",
+      "m": "qwen-text",
+      "repo": "Qwen/CodeQwen1.5-7B-Chat-GGUF",
+      "domain": "text",
+      "date": "2024-04-15",
+      "downloads": 1094,
+      "likes": 111
+    },
+    {
+      "org": "Qwen",
+      "m": "qwen-text",
+      "repo": "Qwen/CodeQwen1.5-7B-Chat-AWQ",
+      "domain": "text",
+      "date": "2024-04-15",
+      "downloads": 121,
+      "likes": 14
+    },
+    {
+      "org": "Qwen",
+      "m": "qwen-text",
+      "repo": "Qwen/CodeQwen1.5-7B-Chat",
+      "domain": "text",
+      "date": "2024-04-15",
+      "downloads": 55800,
+      "likes": 353
+    },
+    {
+      "org": "Qwen",
+      "m": "qwen-text",
+      "repo": "Qwen/CodeQwen1.5-7B",
+      "domain": "text",
+      "date": "2024-04-15",
+      "downloads": 1795,
+      "likes": 105
+    },
+    {
+      "org": "mistralai",
+      "m": "mistral-text",
+      "repo": "mistralai/Mixtral-8x22B-Instruct-v0.1",
+      "domain": "text",
+      "date": "2024-04-16",
+      "downloads": 58447,
+      "likes": 756
+    },
+    {
+      "org": "mistralai",
+      "m": "mistral-text",
+      "repo": "mistralai/Mixtral-8x22B-v0.1",
+      "domain": "text",
+      "date": "2024-04-16",
+      "downloads": 24718,
+      "likes": 239
+    },
+    {
+      "org": "meta-llama",
+      "m": "llama",
+      "repo": "meta-llama/Meta-Llama-3-8B",
+      "domain": "text",
+      "date": "2024-04-17",
+      "downloads": 1891642,
+      "likes": 6625
+    },
+    {
+      "org": "meta-llama",
+      "m": "llama",
+      "repo": "meta-llama/Meta-Llama-3-8B-Instruct",
+      "domain": "text",
+      "date": "2024-04-17",
+      "downloads": 1796227,
+      "likes": 4808
+    },
+    {
+      "org": "meta-llama",
+      "m": "llama",
+      "repo": "meta-llama/Meta-Llama-3-70B-Instruct",
+      "domain": "text",
+      "date": "2024-04-17",
+      "downloads": 109006,
+      "likes": 1522
+    },
+    {
+      "org": "meta-llama",
+      "m": "llama",
+      "repo": "meta-llama/Meta-Llama-3-70B",
+      "domain": "text",
+      "date": "2024-04-17",
+      "downloads": 144033,
+      "likes": 878
+    },
+    {
+      "org": "Qwen",
+      "m": "qwen-text",
+      "repo": "Qwen/CodeQwen1.5-7B-AWQ",
+      "domain": "text",
+      "date": "2024-04-21",
+      "downloads": 82,
+      "likes": 2
+    },
+    {
+      "org": "deepseek-ai",
+      "m": "deepseek",
+      "repo": "deepseek-ai/DeepSeek-V2",
+      "domain": "text",
+      "date": "2024-04-22",
+      "downloads": 12110,
+      "likes": 334
+    },
+    {
+      "org": "Qwen",
+      "m": "qwen-text",
+      "repo": "Qwen/Qwen1.5-110B-Chat",
+      "domain": "text",
+      "date": "2024-04-25",
+      "downloads": 2982,
+      "likes": 130
+    },
+    {
+      "org": "Qwen",
+      "m": "qwen-text",
+      "repo": "Qwen/Qwen1.5-110B",
+      "domain": "text",
+      "date": "2024-04-25",
+      "downloads": 857,
+      "likes": 104
+    },
+    {
+      "org": "Qwen",
+      "m": "qwen-text",
+      "repo": "Qwen/Qwen1.5-110B-Chat-GPTQ-Int4",
+      "domain": "text",
+      "date": "2024-04-26",
+      "downloads": 81,
+      "likes": 18
+    },
+    {
+      "org": "Qwen",
+      "m": "qwen-text",
+      "repo": "Qwen/Qwen1.5-110B-Chat-AWQ",
+      "domain": "text",
+      "date": "2024-04-27",
+      "downloads": 187,
+      "likes": 9
+    },
+    {
+      "org": "Qwen",
+      "m": "qwen-text",
+      "repo": "Qwen/Qwen1.5-110B-Chat-GGUF",
+      "domain": "text",
+      "date": "2024-04-28",
+      "downloads": 124,
+      "likes": 14
+    },
+    {
+      "org": "deepseek-ai",
+      "m": "deepseek",
+      "repo": "deepseek-ai/DeepSeek-V2-Chat",
+      "domain": "text",
+      "date": "2024-04-28",
+      "downloads": 9667,
+      "likes": 462
+    },
+    {
+      "org": "deepseek-ai",
+      "m": "deepseek",
+      "repo": "deepseek-ai/DeepSeek-V2-Lite-Chat",
+      "domain": "text",
+      "date": "2024-05-15",
+      "downloads": 1197021,
+      "likes": 144
+    },
+    {
+      "org": "deepseek-ai",
+      "m": "deepseek",
+      "repo": "deepseek-ai/DeepSeek-V2-Lite",
+      "domain": "text",
+      "date": "2024-05-15",
+      "downloads": 449541,
+      "likes": 184
+    },
+    {
+      "org": "zai-org",
+      "m": "glm",
+      "repo": "zai-org/cogvlm2-llama3-chinese-chat-19B",
+      "domain": "text",
+      "date": "2024-05-16",
+      "downloads": 224,
+      "likes": 68
+    },
+    {
+      "org": "zai-org",
+      "m": "glm",
+      "repo": "zai-org/cogvlm2-llama3-chat-19B",
+      "domain": "text",
+      "date": "2024-05-16",
+      "downloads": 6423,
+      "likes": 220
+    },
+    {
+      "org": "Qwen",
+      "m": "qwen-text",
+      "repo": "Qwen/Qwen2-57B-A14B",
+      "domain": "text",
+      "date": "2024-05-22",
+      "downloads": 9845,
+      "likes": 58
+    },
+    {
+      "org": "Qwen",
+      "m": "qwen-text",
+      "repo": "Qwen/Qwen2-72B",
+      "domain": "text",
+      "date": "2024-05-22",
+      "downloads": 13519,
+      "likes": 199
+    },
+    {
+      "org": "mistralai",
+      "m": "mistral-text",
+      "repo": "mistralai/Mistral-7B-Instruct-v0.3",
+      "domain": "text",
+      "date": "2024-05-22",
+      "downloads": 4148422,
+      "likes": 2808
+    },
+    {
+      "org": "mistralai",
+      "m": "mistral-text",
+      "repo": "mistralai/Mistral-7B-v0.3",
+      "domain": "text",
+      "date": "2024-05-22",
+      "downloads": 368100,
+      "likes": 590
+    },
+    {
+      "org": "zai-org",
+      "m": "glm",
+      "repo": "zai-org/cogvlm2-llama3-chinese-chat-19B-int4",
+      "domain": "text",
+      "date": "2024-05-24",
+      "downloads": 89,
+      "likes": 11
+    },
+    {
+      "org": "zai-org",
+      "m": "glm",
+      "repo": "zai-org/cogvlm2-llama3-chat-19B-int4",
+      "domain": "text",
+      "date": "2024-05-24",
+      "downloads": 95,
+      "likes": 31
+    },
+    {
+      "org": "Qwen",
+      "m": "qwen-text",
+      "repo": "Qwen/Qwen2-72B-Instruct",
+      "domain": "text",
+      "date": "2024-05-28",
+      "downloads": 55332,
+      "likes": 718
+    },
+    {
+      "org": "mistralai",
+      "m": "mistral-text",
+      "repo": "mistralai/Codestral-22B-v0.1",
+      "domain": "text",
+      "date": "2024-05-29",
+      "downloads": 39337,
+      "likes": 1341
+    },
+    {
       "org": "stabilityai",
       "m": "sd",
       "repo": "stabilityai/stable-diffusion-3-medium",
@@ -54,6 +1440,24 @@
       "date": "2024-05-30",
       "downloads": 8470,
       "likes": 5010
+    },
+    {
+      "org": "Qwen",
+      "m": "qwen-text",
+      "repo": "Qwen/Qwen2-1.5B",
+      "domain": "text",
+      "date": "2024-05-31",
+      "downloads": 141345,
+      "likes": 102
+    },
+    {
+      "org": "Qwen",
+      "m": "qwen-text",
+      "repo": "Qwen/Qwen2-0.5B",
+      "domain": "text",
+      "date": "2024-05-31",
+      "downloads": 904802,
+      "likes": 170
     },
     {
       "org": "microsoft",
@@ -65,6 +1469,114 @@
       "likes": 5
     },
     {
+      "org": "Qwen",
+      "m": "qwen-text",
+      "repo": "Qwen/Qwen2-72B-Instruct-AWQ",
+      "domain": "text",
+      "date": "2024-06-03",
+      "downloads": 2440,
+      "likes": 41
+    },
+    {
+      "org": "Qwen",
+      "m": "qwen-text",
+      "repo": "Qwen/Qwen2-72B-Instruct-GPTQ-Int8",
+      "domain": "text",
+      "date": "2024-06-03",
+      "downloads": 339,
+      "likes": 15
+    },
+    {
+      "org": "Qwen",
+      "m": "qwen-text",
+      "repo": "Qwen/Qwen2-72B-Instruct-GPTQ-Int4",
+      "domain": "text",
+      "date": "2024-06-03",
+      "downloads": 144,
+      "likes": 33
+    },
+    {
+      "org": "Qwen",
+      "m": "qwen-text",
+      "repo": "Qwen/Qwen2-1.5B-Instruct",
+      "domain": "text",
+      "date": "2024-06-03",
+      "downloads": 2362983,
+      "likes": 164
+    },
+    {
+      "org": "Qwen",
+      "m": "qwen-text",
+      "repo": "Qwen/Qwen2-0.5B-Instruct",
+      "domain": "text",
+      "date": "2024-06-03",
+      "downloads": 297163,
+      "likes": 201
+    },
+    {
+      "org": "Qwen",
+      "m": "qwen-text",
+      "repo": "Qwen/Qwen2-7B",
+      "domain": "text",
+      "date": "2024-06-04",
+      "downloads": 102516,
+      "likes": 173
+    },
+    {
+      "org": "Qwen",
+      "m": "qwen-text",
+      "repo": "Qwen/Qwen2-7B-Instruct",
+      "domain": "text",
+      "date": "2024-06-04",
+      "downloads": 502752,
+      "likes": 687
+    },
+    {
+      "org": "Qwen",
+      "m": "qwen-text",
+      "repo": "Qwen/Qwen2-57B-A14B-Instruct",
+      "domain": "text",
+      "date": "2024-06-04",
+      "downloads": 14636,
+      "likes": 82
+    },
+    {
+      "org": "zai-org",
+      "m": "glm",
+      "repo": "zai-org/glm-4-9b-chat-1m",
+      "domain": "text",
+      "date": "2024-06-04",
+      "downloads": 16350,
+      "likes": 201
+    },
+    {
+      "org": "zai-org",
+      "m": "glm",
+      "repo": "zai-org/glm-4-9b-chat",
+      "domain": "text",
+      "date": "2024-06-04",
+      "downloads": 81564,
+      "likes": 708
+    },
+    {
+      "org": "zai-org",
+      "m": "glm",
+      "repo": "zai-org/glm-4-9b",
+      "domain": "text",
+      "date": "2024-06-04",
+      "downloads": 11393,
+      "likes": 144
+    },
+    {
+      "org": "zai-org",
+      "m": "glm",
+      "repo": "zai-org/glm-4v-9b",
+      "domain": "text",
+      "date": "2024-06-04",
+      "downloads": 88136,
+      "likes": 268
+    },
+    {
       "org": "Kwai-Kolors",
       "m": "kolors",
       "repo": "Kwai-Kolors/Kolors",
@@ -74,6 +1586,375 @@
       "likes": 860
     },
     {
+      "org": "Qwen",
+      "m": "qwen-text",
+      "repo": "Qwen/Qwen2-7B-Instruct-GGUF",
+      "domain": "text",
+      "date": "2024-06-06",
+      "downloads": 7541,
+      "likes": 180
+    },
+    {
+      "org": "Qwen",
+      "m": "qwen-text",
+      "repo": "Qwen/Qwen2-72B-Instruct-GGUF",
+      "domain": "text",
+      "date": "2024-06-06",
+      "downloads": 678,
+      "likes": 31
+    },
+    {
+      "org": "Qwen",
+      "m": "qwen-text",
+      "repo": "Qwen/Qwen2-1.5B-Instruct-MLX",
+      "domain": "text",
+      "date": "2024-06-06",
+      "downloads": 104,
+      "likes": 4
+    },
+    {
+      "org": "Qwen",
+      "m": "qwen-text",
+      "repo": "Qwen/Qwen2-0.5B-Instruct-GGUF",
+      "domain": "text",
+      "date": "2024-06-06",
+      "downloads": 10613,
+      "likes": 76
+    },
+    {
+      "org": "Qwen",
+      "m": "qwen-text",
+      "repo": "Qwen/Qwen2-0.5B-Instruct-MLX",
+      "domain": "text",
+      "date": "2024-06-06",
+      "downloads": 1170,
+      "likes": 10
+    },
+    {
+      "org": "Qwen",
+      "m": "qwen-text",
+      "repo": "Qwen/Qwen2-0.5B-Instruct-AWQ",
+      "domain": "text",
+      "date": "2024-06-06",
+      "downloads": 742,
+      "likes": 5
+    },
+    {
+      "org": "Qwen",
+      "m": "qwen-text",
+      "repo": "Qwen/Qwen2-0.5B-Instruct-GPTQ-Int8",
+      "domain": "text",
+      "date": "2024-06-06",
+      "downloads": 119,
+      "likes": 4
+    },
+    {
+      "org": "Qwen",
+      "m": "qwen-text",
+      "repo": "Qwen/Qwen2-0.5B-Instruct-GPTQ-Int4",
+      "domain": "text",
+      "date": "2024-06-06",
+      "downloads": 5276,
+      "likes": 15
+    },
+    {
+      "org": "Qwen",
+      "m": "qwen-text",
+      "repo": "Qwen/Qwen2-7B-Instruct-AWQ",
+      "domain": "text",
+      "date": "2024-06-06",
+      "downloads": 2145,
+      "likes": 23
+    },
+    {
+      "org": "Qwen",
+      "m": "qwen-text",
+      "repo": "Qwen/Qwen2-7B-Instruct-GPTQ-Int8",
+      "domain": "text",
+      "date": "2024-06-06",
+      "downloads": 1688,
+      "likes": 17
+    },
+    {
+      "org": "Qwen",
+      "m": "qwen-text",
+      "repo": "Qwen/Qwen2-7B-Instruct-GPTQ-Int4",
+      "domain": "text",
+      "date": "2024-06-06",
+      "downloads": 519,
+      "likes": 28
+    },
+    {
+      "org": "Qwen",
+      "m": "qwen-text",
+      "repo": "Qwen/Qwen2-1.5B-Instruct-AWQ",
+      "domain": "text",
+      "date": "2024-06-06",
+      "downloads": 53597,
+      "likes": 9
+    },
+    {
+      "org": "Qwen",
+      "m": "qwen-text",
+      "repo": "Qwen/Qwen2-1.5B-Instruct-GPTQ-Int8",
+      "domain": "text",
+      "date": "2024-06-06",
+      "downloads": 120,
+      "likes": 4
+    },
+    {
+      "org": "Qwen",
+      "m": "qwen-text",
+      "repo": "Qwen/Qwen2-1.5B-Instruct-GPTQ-Int4",
+      "domain": "text",
+      "date": "2024-06-06",
+      "downloads": 25237,
+      "likes": 6
+    },
+    {
+      "org": "Qwen",
+      "m": "qwen-text",
+      "repo": "Qwen/Qwen2-57B-A14B-Instruct-GPTQ-Int4",
+      "domain": "text",
+      "date": "2024-06-06",
+      "downloads": 52185,
+      "likes": 23
+    },
+    {
+      "org": "Qwen",
+      "m": "qwen-text",
+      "repo": "Qwen/Qwen2-1.5B-Instruct-GGUF",
+      "domain": "text",
+      "date": "2024-06-07",
+      "downloads": 15804,
+      "likes": 31
+    },
+    {
+      "org": "zai-org",
+      "m": "glm",
+      "repo": "zai-org/cogvlm2-llama3-chat-19B-tgi",
+      "domain": "text",
+      "date": "2024-06-08",
+      "downloads": 87,
+      "likes": 4
+    },
+    {
+      "org": "zai-org",
+      "m": "glm",
+      "repo": "zai-org/cogvlm2-llama3-chinese-chat-19B-tgi",
+      "domain": "text",
+      "date": "2024-06-08",
+      "downloads": 98,
+      "likes": 3
+    },
+    {
+      "org": "zai-org",
+      "m": "glm",
+      "repo": "zai-org/MSAGPT",
+      "domain": "text",
+      "date": "2024-06-11",
+      "downloads": 0,
+      "likes": 2
+    },
+    {
+      "org": "deepseek-ai",
+      "m": "deepseek",
+      "repo": "deepseek-ai/DeepSeek-Coder-V2-Lite-Instruct",
+      "domain": "text",
+      "date": "2024-06-14",
+      "downloads": 545517,
+      "likes": 630
+    },
+    {
+      "org": "deepseek-ai",
+      "m": "deepseek",
+      "repo": "deepseek-ai/DeepSeek-Coder-V2-Lite-Base",
+      "domain": "text",
+      "date": "2024-06-14",
+      "downloads": 6780,
+      "likes": 114
+    },
+    {
+      "org": "deepseek-ai",
+      "m": "deepseek",
+      "repo": "deepseek-ai/DeepSeek-Coder-V2-Instruct",
+      "domain": "text",
+      "date": "2024-06-14",
+      "downloads": 6836,
+      "likes": 698
+    },
+    {
+      "org": "deepseek-ai",
+      "m": "deepseek",
+      "repo": "deepseek-ai/DeepSeek-Coder-V2-Base",
+      "domain": "text",
+      "date": "2024-06-14",
+      "downloads": 2200,
+      "likes": 82
+    },
+    {
+      "org": "Qwen",
+      "m": "qwen-text",
+      "repo": "Qwen/Qwen2-57B-A14B-Instruct-GGUF",
+      "domain": "text",
+      "date": "2024-06-15",
+      "downloads": 1657,
+      "likes": 17
+    },
+    {
+      "org": "deepseek-ai",
+      "m": "deepseek",
+      "repo": "deepseek-ai/ESFT-token-summary-lite",
+      "domain": "text",
+      "date": "2024-07-04",
+      "downloads": 120,
+      "likes": 4
+    },
+    {
+      "org": "deepseek-ai",
+      "m": "deepseek",
+      "repo": "deepseek-ai/ESFT-gate-summary-lite",
+      "domain": "text",
+      "date": "2024-07-04",
+      "downloads": 115,
+      "likes": 3
+    },
+    {
+      "org": "deepseek-ai",
+      "m": "deepseek",
+      "repo": "deepseek-ai/ESFT-token-translation-lite",
+      "domain": "text",
+      "date": "2024-07-04",
+      "downloads": 127,
+      "likes": 3
+    },
+    {
+      "org": "deepseek-ai",
+      "m": "deepseek",
+      "repo": "deepseek-ai/ESFT-gate-translation-lite",
+      "domain": "text",
+      "date": "2024-07-04",
+      "downloads": 123,
+      "likes": 4
+    },
+    {
+      "org": "deepseek-ai",
+      "m": "deepseek",
+      "repo": "deepseek-ai/ESFT-token-math-lite",
+      "domain": "text",
+      "date": "2024-07-04",
+      "downloads": 123,
+      "likes": 4
+    },
+    {
+      "org": "deepseek-ai",
+      "m": "deepseek",
+      "repo": "deepseek-ai/ESFT-gate-math-lite",
+      "domain": "text",
+      "date": "2024-07-04",
+      "downloads": 119,
+      "likes": 3
+    },
+    {
+      "org": "deepseek-ai",
+      "m": "deepseek",
+      "repo": "deepseek-ai/ESFT-token-law-lite",
+      "domain": "text",
+      "date": "2024-07-04",
+      "downloads": 124,
+      "likes": 6
+    },
+    {
+      "org": "deepseek-ai",
+      "m": "deepseek",
+      "repo": "deepseek-ai/ESFT-gate-law-lite",
+      "domain": "text",
+      "date": "2024-07-04",
+      "downloads": 112,
+      "likes": 4
+    },
+    {
+      "org": "deepseek-ai",
+      "m": "deepseek",
+      "repo": "deepseek-ai/ESFT-token-code-lite",
+      "domain": "text",
+      "date": "2024-07-04",
+      "downloads": 128,
+      "likes": 4
+    },
+    {
+      "org": "deepseek-ai",
+      "m": "deepseek",
+      "repo": "deepseek-ai/ESFT-gate-code-lite",
+      "domain": "text",
+      "date": "2024-07-04",
+      "downloads": 120,
+      "likes": 3
+    },
+    {
+      "org": "deepseek-ai",
+      "m": "deepseek",
+      "repo": "deepseek-ai/ESFT-token-intent-lite",
+      "domain": "text",
+      "date": "2024-07-04",
+      "downloads": 128,
+      "likes": 3
+    },
+    {
+      "org": "deepseek-ai",
+      "m": "deepseek",
+      "repo": "deepseek-ai/ESFT-gate-intent-lite",
+      "domain": "text",
+      "date": "2024-07-04",
+      "downloads": 128,
+      "likes": 4
+    },
+    {
+      "org": "deepseek-ai",
+      "m": "deepseek",
+      "repo": "deepseek-ai/ESFT-vanilla-lite",
+      "domain": "text",
+      "date": "2024-07-04",
+      "downloads": 150,
+      "likes": 20
+    },
+    {
+      "org": "zai-org",
+      "m": "glm",
+      "repo": "zai-org/codegeex4-all-9b",
+      "domain": "text",
+      "date": "2024-07-05",
+      "downloads": 9512,
+      "likes": 272
+    },
+    {
+      "org": "zai-org",
+      "m": "glm",
+      "repo": "zai-org/codegeex4-all-9b-GGUF",
+      "domain": "text",
+      "date": "2024-07-13",
+      "downloads": 1036,
+      "likes": 25
+    },
+    {
+      "org": "meta-llama",
+      "m": "llama",
+      "repo": "meta-llama/Llama-3.1-70B",
+      "domain": "text",
+      "date": "2024-07-14",
+      "downloads": 37549,
+      "likes": 431
+    },
+    {
+      "org": "meta-llama",
+      "m": "llama",
+      "repo": "meta-llama/Llama-3.1-8B",
+      "domain": "text",
+      "date": "2024-07-14",
+      "downloads": 1205339,
+      "likes": 2360
+    },
+    {
       "org": "Kwai-Kolors",
       "m": "kolors",
       "repo": "Kwai-Kolors/Kolors-IP-Adapter-Plus",
@@ -81,6 +1962,123 @@
       "date": "2024-07-15",
       "downloads": 956,
       "likes": 118
+    },
+    {
+      "org": "meta-llama",
+      "m": "llama",
+      "repo": "meta-llama/Llama-3.1-405B-Instruct",
+      "domain": "text",
+      "date": "2024-07-16",
+      "downloads": 19610,
+      "likes": 595
+    },
+    {
+      "org": "meta-llama",
+      "m": "llama",
+      "repo": "meta-llama/Llama-3.1-70B-Instruct",
+      "domain": "text",
+      "date": "2024-07-16",
+      "downloads": 755706,
+      "likes": 942
+    },
+    {
+      "org": "meta-llama",
+      "m": "llama",
+      "repo": "meta-llama/Llama-3.1-405B",
+      "domain": "text",
+      "date": "2024-07-16",
+      "downloads": 94728,
+      "likes": 983
+    },
+    {
+      "org": "mistralai",
+      "m": "mistral-text",
+      "repo": "mistralai/Mamba-Codestral-7B-v0.1",
+      "domain": "text",
+      "date": "2024-07-16",
+      "downloads": 27770,
+      "likes": 616
+    },
+    {
+      "org": "mistralai",
+      "m": "mistral-text",
+      "repo": "mistralai/Mathstral-7B-v0.1",
+      "domain": "text",
+      "date": "2024-07-16",
+      "downloads": 19679,
+      "likes": 244
+    },
+    {
+      "org": "mistralai",
+      "m": "mistral-text",
+      "repo": "mistralai/Mistral-Nemo-Instruct-2407",
+      "domain": "text",
+      "date": "2024-07-17",
+      "downloads": 413480,
+      "likes": 1693
+    },
+    {
+      "org": "deepseek-ai",
+      "m": "deepseek",
+      "repo": "deepseek-ai/DeepSeek-V2-Chat-0628",
+      "domain": "text",
+      "date": "2024-07-18",
+      "downloads": 5125,
+      "likes": 179
+    },
+    {
+      "org": "meta-llama",
+      "m": "llama",
+      "repo": "meta-llama/Llama-3.1-8B-Instruct",
+      "domain": "text",
+      "date": "2024-07-18",
+      "downloads": 7345657,
+      "likes": 6577
+    },
+    {
+      "org": "mistralai",
+      "m": "mistral-text",
+      "repo": "mistralai/Mistral-Nemo-Base-2407",
+      "domain": "text",
+      "date": "2024-07-18",
+      "downloads": 109393,
+      "likes": 348
+    },
+    {
+      "org": "meta-llama",
+      "m": "llama",
+      "repo": "meta-llama/Llama-3.1-405B-FP8",
+      "domain": "text",
+      "date": "2024-07-20",
+      "downloads": 452482,
+      "likes": 124
+    },
+    {
+      "org": "meta-llama",
+      "m": "llama",
+      "repo": "meta-llama/Llama-3.1-405B-Instruct-FP8",
+      "domain": "text",
+      "date": "2024-07-20",
+      "downloads": 6405,
+      "likes": 193
+    },
+    {
+      "org": "zai-org",
+      "m": "glm",
+      "repo": "zai-org/apar-13b",
+      "domain": "text",
+      "date": "2024-07-22",
+      "downloads": 89,
+      "likes": 1
+    },
+    {
+      "org": "zai-org",
+      "m": "glm",
+      "repo": "zai-org/apar-7b",
+      "domain": "text",
+      "date": "2024-07-22",
+      "downloads": 87,
+      "likes": 0
     },
     {
       "org": "Kwai-Kolors",
@@ -110,6 +2108,15 @@
       "likes": 23
     },
     {
+      "org": "mistralai",
+      "m": "mistral-text",
+      "repo": "mistralai/Mistral-Large-Instruct-2407",
+      "domain": "text",
+      "date": "2024-07-24",
+      "downloads": 4714,
+      "likes": 865
+    },
+    {
       "org": "Kwai-Kolors",
       "m": "kolors",
       "repo": "Kwai-Kolors/Kolors-IP-Adapter-FaceID-Plus",
@@ -125,7 +2132,7 @@
       "domain": "image",
       "date": "2024-07-31",
       "downloads": 475396,
-      "likes": 14086
+      "likes": 14088
     },
     {
       "org": "black-forest-labs",
@@ -134,7 +2141,7 @@
       "domain": "image",
       "date": "2024-07-31",
       "downloads": 197931,
-      "likes": 5516
+      "likes": 5517
     },
     {
       "org": "Kwai-Kolors",
@@ -146,6 +2153,798 @@
       "likes": 10
     },
     {
+      "org": "Qwen",
+      "m": "qwen-text",
+      "repo": "Qwen/Qwen2-Math-1.5B",
+      "domain": "text",
+      "date": "2024-08-08",
+      "downloads": 1988,
+      "likes": 14
+    },
+    {
+      "org": "Qwen",
+      "m": "qwen-text",
+      "repo": "Qwen/Qwen2-Math-7B",
+      "domain": "text",
+      "date": "2024-08-08",
+      "downloads": 259,
+      "likes": 14
+    },
+    {
+      "org": "Qwen",
+      "m": "qwen-text",
+      "repo": "Qwen/Qwen2-Math-72B",
+      "domain": "text",
+      "date": "2024-08-08",
+      "downloads": 94,
+      "likes": 30
+    },
+    {
+      "org": "Qwen",
+      "m": "qwen-text",
+      "repo": "Qwen/Qwen2-Math-1.5B-Instruct",
+      "domain": "text",
+      "date": "2024-08-08",
+      "downloads": 248,
+      "likes": 21
+    },
+    {
+      "org": "Qwen",
+      "m": "qwen-text",
+      "repo": "Qwen/Qwen2-Math-7B-Instruct",
+      "domain": "text",
+      "date": "2024-08-08",
+      "downloads": 573,
+      "likes": 44
+    },
+    {
+      "org": "Qwen",
+      "m": "qwen-text",
+      "repo": "Qwen/Qwen2-Math-72B-Instruct",
+      "domain": "text",
+      "date": "2024-08-08",
+      "downloads": 159,
+      "likes": 89
+    },
+    {
+      "org": "zai-org",
+      "m": "glm",
+      "repo": "zai-org/LongWriter-glm4-9b",
+      "domain": "text",
+      "date": "2024-08-12",
+      "downloads": 263,
+      "likes": 132
+    },
+    {
+      "org": "zai-org",
+      "m": "glm",
+      "repo": "zai-org/LongWriter-llama3.1-8b",
+      "domain": "text",
+      "date": "2024-08-12",
+      "downloads": 245,
+      "likes": 65
+    },
+    {
+      "org": "deepseek-ai",
+      "m": "deepseek",
+      "repo": "deepseek-ai/DeepSeek-Prover-V1.5-RL",
+      "domain": "text",
+      "date": "2024-08-15",
+      "downloads": 1535,
+      "likes": 65
+    },
+    {
+      "org": "deepseek-ai",
+      "m": "deepseek",
+      "repo": "deepseek-ai/DeepSeek-Prover-V1.5-SFT",
+      "domain": "text",
+      "date": "2024-08-15",
+      "downloads": 12132,
+      "likes": 14
+    },
+    {
+      "org": "deepseek-ai",
+      "m": "deepseek",
+      "repo": "deepseek-ai/DeepSeek-Prover-V1.5-Base",
+      "domain": "text",
+      "date": "2024-08-15",
+      "downloads": 365,
+      "likes": 19
+    },
+    {
+      "org": "deepseek-ai",
+      "m": "deepseek",
+      "repo": "deepseek-ai/DeepSeek-Prover-V1",
+      "domain": "text",
+      "date": "2024-08-16",
+      "downloads": 125,
+      "likes": 12
+    },
+    {
+      "org": "zai-org",
+      "m": "glm",
+      "repo": "zai-org/LongCite-llama3.1-8b",
+      "domain": "text",
+      "date": "2024-09-02",
+      "downloads": 147,
+      "likes": 30
+    },
+    {
+      "org": "zai-org",
+      "m": "glm",
+      "repo": "zai-org/LongCite-glm4-9b",
+      "domain": "text",
+      "date": "2024-09-02",
+      "downloads": 134,
+      "likes": 34
+    },
+    {
+      "org": "deepseek-ai",
+      "m": "deepseek",
+      "repo": "deepseek-ai/DeepSeek-Coder-V2-Instruct-0724",
+      "domain": "text",
+      "date": "2024-09-05",
+      "downloads": 507,
+      "likes": 117
+    },
+    {
+      "org": "deepseek-ai",
+      "m": "deepseek",
+      "repo": "deepseek-ai/DeepSeek-V2.5",
+      "domain": "text",
+      "date": "2024-09-05",
+      "downloads": 5792,
+      "likes": 734
+    },
+    {
+      "org": "mistralai",
+      "m": "mistral-text",
+      "repo": "mistralai/Pixtral-12B-2409",
+      "domain": "text",
+      "date": "2024-09-11",
+      "downloads": 7708,
+      "likes": 693
+    },
+    {
+      "org": "Qwen",
+      "m": "qwen-text",
+      "repo": "Qwen/Qwen2.5-72B",
+      "domain": "text",
+      "date": "2024-09-15",
+      "downloads": 28942,
+      "likes": 102
+    },
+    {
+      "org": "Qwen",
+      "m": "qwen-text",
+      "repo": "Qwen/Qwen2.5-32B",
+      "domain": "text",
+      "date": "2024-09-15",
+      "downloads": 56622,
+      "likes": 181
+    },
+    {
+      "org": "Qwen",
+      "m": "qwen-text",
+      "repo": "Qwen/Qwen2.5-14B",
+      "domain": "text",
+      "date": "2024-09-15",
+      "downloads": 99586,
+      "likes": 157
+    },
+    {
+      "org": "Qwen",
+      "m": "qwen-text",
+      "repo": "Qwen/Qwen2.5-7B",
+      "domain": "text",
+      "date": "2024-09-15",
+      "downloads": 683940,
+      "likes": 302
+    },
+    {
+      "org": "Qwen",
+      "m": "qwen-text",
+      "repo": "Qwen/Qwen2.5-3B",
+      "domain": "text",
+      "date": "2024-09-15",
+      "downloads": 280508,
+      "likes": 200
+    },
+    {
+      "org": "Qwen",
+      "m": "qwen-text",
+      "repo": "Qwen/Qwen2.5-1.5B",
+      "domain": "text",
+      "date": "2024-09-15",
+      "downloads": 814213,
+      "likes": 203
+    },
+    {
+      "org": "Qwen",
+      "m": "qwen-text",
+      "repo": "Qwen/Qwen2.5-0.5B",
+      "domain": "text",
+      "date": "2024-09-15",
+      "downloads": 2331542,
+      "likes": 436
+    },
+    {
+      "org": "Qwen",
+      "m": "qwen-text",
+      "repo": "Qwen/Qwen2.5-Math-72B-Instruct",
+      "domain": "text",
+      "date": "2024-09-16",
+      "downloads": 1923,
+      "likes": 31
+    },
+    {
+      "org": "Qwen",
+      "m": "qwen-text",
+      "repo": "Qwen/Qwen2.5-Math-72B",
+      "domain": "text",
+      "date": "2024-09-16",
+      "downloads": 311,
+      "likes": 18
+    },
+    {
+      "org": "Qwen",
+      "m": "qwen-text",
+      "repo": "Qwen/Qwen2.5-Math-7B",
+      "domain": "text",
+      "date": "2024-09-16",
+      "downloads": 66474,
+      "likes": 116
+    },
+    {
+      "org": "Qwen",
+      "m": "qwen-text",
+      "repo": "Qwen/Qwen2.5-Math-1.5B-Instruct",
+      "domain": "text",
+      "date": "2024-09-16",
+      "downloads": 158559,
+      "likes": 57
+    },
+    {
+      "org": "Qwen",
+      "m": "qwen-text",
+      "repo": "Qwen/Qwen2.5-Math-1.5B",
+      "domain": "text",
+      "date": "2024-09-16",
+      "downloads": 468451,
+      "likes": 111
+    },
+    {
+      "org": "Qwen",
+      "m": "qwen-text",
+      "repo": "Qwen/Qwen2.5-Coder-7B",
+      "domain": "text",
+      "date": "2024-09-16",
+      "downloads": 802470,
+      "likes": 161
+    },
+    {
+      "org": "Qwen",
+      "m": "qwen-text",
+      "repo": "Qwen/Qwen2.5-72B-Instruct",
+      "domain": "text",
+      "date": "2024-09-16",
+      "downloads": 415104,
+      "likes": 970
+    },
+    {
+      "org": "Qwen",
+      "m": "qwen-text",
+      "repo": "Qwen/Qwen2.5-14B-Instruct",
+      "domain": "text",
+      "date": "2024-09-16",
+      "downloads": 2998377,
+      "likes": 358
+    },
+    {
+      "org": "Qwen",
+      "m": "qwen-text",
+      "repo": "Qwen/Qwen2.5-7B-Instruct",
+      "domain": "text",
+      "date": "2024-09-16",
+      "downloads": 11218582,
+      "likes": 1535
+    },
+    {
+      "org": "Qwen",
+      "m": "qwen-text",
+      "repo": "Qwen/Qwen2.5-0.5B-Instruct",
+      "domain": "text",
+      "date": "2024-09-16",
+      "downloads": 6203017,
+      "likes": 587
+    },
+    {
+      "org": "Qwen",
+      "m": "qwen-text",
+      "repo": "Qwen/Qwen2.5-1.5B-Instruct",
+      "domain": "text",
+      "date": "2024-09-17",
+      "downloads": 12108126,
+      "likes": 792
+    },
+    {
+      "org": "Qwen",
+      "m": "qwen-text",
+      "repo": "Qwen/Qwen2.5-3B-Instruct",
+      "domain": "text",
+      "date": "2024-09-17",
+      "downloads": 5461209,
+      "likes": 547
+    },
+    {
+      "org": "Qwen",
+      "m": "qwen-text",
+      "repo": "Qwen/Qwen2.5-72B-Instruct-GGUF",
+      "domain": "text",
+      "date": "2024-09-17",
+      "downloads": 2618,
+      "likes": 46
+    },
+    {
+      "org": "Qwen",
+      "m": "qwen-text",
+      "repo": "Qwen/Qwen2.5-32B-Instruct-GGUF",
+      "domain": "text",
+      "date": "2024-09-17",
+      "downloads": 5177,
+      "likes": 45
+    },
+    {
+      "org": "Qwen",
+      "m": "qwen-text",
+      "repo": "Qwen/Qwen2.5-14B-Instruct-GGUF",
+      "domain": "text",
+      "date": "2024-09-17",
+      "downloads": 24036,
+      "likes": 63
+    },
+    {
+      "org": "Qwen",
+      "m": "qwen-text",
+      "repo": "Qwen/Qwen2.5-7B-Instruct-GGUF",
+      "domain": "text",
+      "date": "2024-09-17",
+      "downloads": 76308,
+      "likes": 171
+    },
+    {
+      "org": "Qwen",
+      "m": "qwen-text",
+      "repo": "Qwen/Qwen2.5-3B-Instruct-GGUF",
+      "domain": "text",
+      "date": "2024-09-17",
+      "downloads": 176631,
+      "likes": 158
+    },
+    {
+      "org": "Qwen",
+      "m": "qwen-text",
+      "repo": "Qwen/Qwen2.5-1.5B-Instruct-GGUF",
+      "domain": "text",
+      "date": "2024-09-17",
+      "downloads": 174539,
+      "likes": 141
+    },
+    {
+      "org": "Qwen",
+      "m": "qwen-text",
+      "repo": "Qwen/Qwen2.5-0.5B-Instruct-GGUF",
+      "domain": "text",
+      "date": "2024-09-17",
+      "downloads": 153325,
+      "likes": 119
+    },
+    {
+      "org": "Qwen",
+      "m": "qwen-text",
+      "repo": "Qwen/Qwen2.5-72B-Instruct-AWQ",
+      "domain": "text",
+      "date": "2024-09-17",
+      "downloads": 1072317,
+      "likes": 78
+    },
+    {
+      "org": "Qwen",
+      "m": "qwen-text",
+      "repo": "Qwen/Qwen2.5-32B-Instruct-AWQ",
+      "domain": "text",
+      "date": "2024-09-17",
+      "downloads": 653078,
+      "likes": 102
+    },
+    {
+      "org": "Qwen",
+      "m": "qwen-text",
+      "repo": "Qwen/Qwen2.5-14B-Instruct-AWQ",
+      "domain": "text",
+      "date": "2024-09-17",
+      "downloads": 2373039,
+      "likes": 37
+    },
+    {
+      "org": "Qwen",
+      "m": "qwen-text",
+      "repo": "Qwen/Qwen2.5-7B-Instruct-AWQ",
+      "domain": "text",
+      "date": "2024-09-17",
+      "downloads": 4367410,
+      "likes": 49
+    },
+    {
+      "org": "Qwen",
+      "m": "qwen-text",
+      "repo": "Qwen/Qwen2.5-3B-Instruct-AWQ",
+      "domain": "text",
+      "date": "2024-09-17",
+      "downloads": 332357,
+      "likes": 16
+    },
+    {
+      "org": "Qwen",
+      "m": "qwen-text",
+      "repo": "Qwen/Qwen2.5-1.5B-Instruct-AWQ",
+      "domain": "text",
+      "date": "2024-09-17",
+      "downloads": 752835,
+      "likes": 7
+    },
+    {
+      "org": "Qwen",
+      "m": "qwen-text",
+      "repo": "Qwen/Qwen2.5-0.5B-Instruct-AWQ",
+      "domain": "text",
+      "date": "2024-09-17",
+      "downloads": 30834,
+      "likes": 11
+    },
+    {
+      "org": "Qwen",
+      "m": "qwen-text",
+      "repo": "Qwen/Qwen2.5-Coder-7B-Instruct",
+      "domain": "text",
+      "date": "2024-09-17",
+      "downloads": 1836222,
+      "likes": 769
+    },
+    {
+      "org": "Qwen",
+      "m": "qwen-text",
+      "repo": "Qwen/Qwen2.5-72B-Instruct-GPTQ-Int8",
+      "domain": "text",
+      "date": "2024-09-17",
+      "downloads": 2042,
+      "likes": 28
+    },
+    {
+      "org": "Qwen",
+      "m": "qwen-text",
+      "repo": "Qwen/Qwen2.5-72B-Instruct-GPTQ-Int4",
+      "domain": "text",
+      "date": "2024-09-17",
+      "downloads": 51098,
+      "likes": 44
+    },
+    {
+      "org": "Qwen",
+      "m": "qwen-text",
+      "repo": "Qwen/Qwen2.5-32B-Instruct-GPTQ-Int8",
+      "domain": "text",
+      "date": "2024-09-17",
+      "downloads": 114446,
+      "likes": 14
+    },
+    {
+      "org": "Qwen",
+      "m": "qwen-text",
+      "repo": "Qwen/Qwen2.5-32B-Instruct-GPTQ-Int4",
+      "domain": "text",
+      "date": "2024-09-17",
+      "downloads": 468640,
+      "likes": 40
+    },
+    {
+      "org": "Qwen",
+      "m": "qwen-text",
+      "repo": "Qwen/Qwen2.5-14B-Instruct-GPTQ-Int8",
+      "domain": "text",
+      "date": "2024-09-17",
+      "downloads": 1861,
+      "likes": 26
+    },
+    {
+      "org": "Qwen",
+      "m": "qwen-text",
+      "repo": "Qwen/Qwen2.5-14B-Instruct-GPTQ-Int4",
+      "domain": "text",
+      "date": "2024-09-17",
+      "downloads": 60056,
+      "likes": 27
+    },
+    {
+      "org": "Qwen",
+      "m": "qwen-text",
+      "repo": "Qwen/Qwen2.5-7B-Instruct-GPTQ-Int8",
+      "domain": "text",
+      "date": "2024-09-17",
+      "downloads": 2506,
+      "likes": 18
+    },
+    {
+      "org": "Qwen",
+      "m": "qwen-text",
+      "repo": "Qwen/Qwen2.5-7B-Instruct-GPTQ-Int4",
+      "domain": "text",
+      "date": "2024-09-17",
+      "downloads": 211091,
+      "likes": 32
+    },
+    {
+      "org": "Qwen",
+      "m": "qwen-text",
+      "repo": "Qwen/Qwen2.5-3B-Instruct-GPTQ-Int8",
+      "domain": "text",
+      "date": "2024-09-17",
+      "downloads": 544,
+      "likes": 3
+    },
+    {
+      "org": "Qwen",
+      "m": "qwen-text",
+      "repo": "Qwen/Qwen2.5-3B-Instruct-GPTQ-Int4",
+      "domain": "text",
+      "date": "2024-09-17",
+      "downloads": 3985,
+      "likes": 2
+    },
+    {
+      "org": "Qwen",
+      "m": "qwen-text",
+      "repo": "Qwen/Qwen2.5-1.5B-Instruct-GPTQ-Int8",
+      "domain": "text",
+      "date": "2024-09-17",
+      "downloads": 888,
+      "likes": 6
+    },
+    {
+      "org": "Qwen",
+      "m": "qwen-text",
+      "repo": "Qwen/Qwen2.5-1.5B-Instruct-GPTQ-Int4",
+      "domain": "text",
+      "date": "2024-09-17",
+      "downloads": 4561,
+      "likes": 3
+    },
+    {
+      "org": "Qwen",
+      "m": "qwen-text",
+      "repo": "Qwen/Qwen2.5-0.5B-Instruct-GPTQ-Int8",
+      "domain": "text",
+      "date": "2024-09-17",
+      "downloads": 646,
+      "likes": 10
+    },
+    {
+      "org": "Qwen",
+      "m": "qwen-text",
+      "repo": "Qwen/Qwen2.5-0.5B-Instruct-GPTQ-Int4",
+      "domain": "text",
+      "date": "2024-09-17",
+      "downloads": 2282,
+      "likes": 9
+    },
+    {
+      "org": "Qwen",
+      "m": "qwen-text",
+      "repo": "Qwen/Qwen2-Math-RM-72B",
+      "domain": "text",
+      "date": "2024-09-17",
+      "downloads": 88,
+      "likes": 7
+    },
+    {
+      "org": "Qwen",
+      "m": "qwen-text",
+      "repo": "Qwen/Qwen2.5-Math-RM-72B",
+      "domain": "text",
+      "date": "2024-09-17",
+      "downloads": 49594,
+      "likes": 83
+    },
+    {
+      "org": "Qwen",
+      "m": "qwen-text",
+      "repo": "Qwen/Qwen2.5-32B-Instruct",
+      "domain": "text",
+      "date": "2024-09-17",
+      "downloads": 1734769,
+      "likes": 356
+    },
+    {
+      "org": "mistralai",
+      "m": "mistral-text",
+      "repo": "mistralai/Mistral-Small-Instruct-2409",
+      "domain": "text",
+      "date": "2024-09-17",
+      "downloads": 5389,
+      "likes": 392
+    },
+    {
+      "org": "Qwen",
+      "m": "qwen-text",
+      "repo": "Qwen/Qwen2.5-Coder-1.5B-Instruct-GGUF",
+      "domain": "text",
+      "date": "2024-09-18",
+      "downloads": 54923,
+      "likes": 90
+    },
+    {
+      "org": "Qwen",
+      "m": "qwen-text",
+      "repo": "Qwen/Qwen2.5-Coder-7B-Instruct-GGUF",
+      "domain": "text",
+      "date": "2024-09-18",
+      "downloads": 170999,
+      "likes": 370
+    },
+    {
+      "org": "Qwen",
+      "m": "qwen-text",
+      "repo": "Qwen/Qwen2.5-Coder-1.5B-Instruct",
+      "domain": "text",
+      "date": "2024-09-18",
+      "downloads": 720530,
+      "likes": 135
+    },
+    {
+      "org": "Qwen",
+      "m": "qwen-text",
+      "repo": "Qwen/Qwen2.5-Coder-1.5B",
+      "domain": "text",
+      "date": "2024-09-18",
+      "downloads": 188579,
+      "likes": 95
+    },
+    {
+      "org": "Qwen",
+      "m": "qwen-text",
+      "repo": "Qwen/Qwen2-7B-Instruct-MLX",
+      "domain": "text",
+      "date": "2024-09-18",
+      "downloads": 107,
+      "likes": 7
+    },
+    {
+      "org": "zai-org",
+      "m": "glm",
+      "repo": "zai-org/cogvlm2-llama3-caption",
+      "domain": "text",
+      "date": "2024-09-18",
+      "downloads": 565,
+      "likes": 119
+    },
+    {
+      "org": "meta-llama",
+      "m": "llama",
+      "repo": "meta-llama/Llama-3.2-3B",
+      "domain": "text",
+      "date": "2024-09-18",
+      "downloads": 478520,
+      "likes": 887
+    },
+    {
+      "org": "meta-llama",
+      "m": "llama",
+      "repo": "meta-llama/Llama-3.2-3B-Instruct",
+      "domain": "text",
+      "date": "2024-09-18",
+      "downloads": 1166788,
+      "likes": 2408
+    },
+    {
+      "org": "meta-llama",
+      "m": "llama",
+      "repo": "meta-llama/Llama-3.2-1B-Instruct",
+      "domain": "text",
+      "date": "2024-09-18",
+      "downloads": 9198251,
+      "likes": 1561
+    },
+    {
+      "org": "meta-llama",
+      "m": "llama",
+      "repo": "meta-llama/Llama-3.2-1B",
+      "domain": "text",
+      "date": "2024-09-18",
+      "downloads": 1563892,
+      "likes": 2525
+    },
+    {
+      "org": "Qwen",
+      "m": "qwen-text",
+      "repo": "Qwen/Qwen2.5-Math-7B-Instruct",
+      "domain": "text",
+      "date": "2024-09-19",
+      "downloads": 69803,
+      "likes": 90
+    },
+    {
+      "org": "Qwen",
+      "m": "qwen-text",
+      "repo": "Qwen/Qwen2.5-Coder-1.5B-Instruct-AWQ",
+      "domain": "text",
+      "date": "2024-09-20",
+      "downloads": 2711,
+      "likes": 4
+    },
+    {
+      "org": "Qwen",
+      "m": "qwen-text",
+      "repo": "Qwen/Qwen2.5-Coder-7B-Instruct-AWQ",
+      "domain": "text",
+      "date": "2024-09-20",
+      "downloads": 423114,
+      "likes": 26
+    },
+    {
+      "org": "Qwen",
+      "m": "qwen-text",
+      "repo": "Qwen/Qwen2.5-Coder-7B-Instruct-GPTQ-Int8",
+      "domain": "text",
+      "date": "2024-09-20",
+      "downloads": 904,
+      "likes": 5
+    },
+    {
+      "org": "Qwen",
+      "m": "qwen-text",
+      "repo": "Qwen/Qwen2.5-Coder-7B-Instruct-GPTQ-Int4",
+      "domain": "text",
+      "date": "2024-09-20",
+      "downloads": 521451,
+      "likes": 15
+    },
+    {
+      "org": "Qwen",
+      "m": "qwen-text",
+      "repo": "Qwen/Qwen2.5-Coder-1.5B-Instruct-GPTQ-Int8",
+      "domain": "text",
+      "date": "2024-09-20",
+      "downloads": 539,
+      "likes": 3
+    },
+    {
+      "org": "Qwen",
+      "m": "qwen-text",
+      "repo": "Qwen/Qwen2.5-Coder-1.5B-Instruct-GPTQ-Int4",
+      "domain": "text",
+      "date": "2024-09-20",
+      "downloads": 502,
+      "likes": 2
+    },
+    {
+      "org": "zai-org",
+      "m": "glm",
+      "repo": "zai-org/CogView3-Plus-3B",
+      "domain": "text",
+      "date": "2024-10-04",
+      "downloads": 86,
+      "likes": 32
+    },
+    {
+      "org": "mistralai",
+      "m": "mistral-text",
+      "repo": "mistralai/Ministral-8B-Instruct-2410",
+      "domain": "text",
+      "date": "2024-10-15",
+      "downloads": 394245,
+      "likes": 584
+    },
+    {
       "org": "rhymes-ai",
       "m": null,
       "repo": "rhymes-ai/Allegro",
@@ -153,6 +2952,24 @@
       "date": "2024-10-16",
       "downloads": 89,
       "likes": 263
+    },
+    {
+      "org": "mistralai",
+      "m": "mistral-text",
+      "repo": "mistralai/Pixtral-12B-Base-2409",
+      "domain": "text",
+      "date": "2024-10-17",
+      "downloads": 25,
+      "likes": 108
+    },
+    {
+      "org": "deepseek-ai",
+      "m": "deepseek",
+      "repo": "deepseek-ai/Janus-1.3B",
+      "domain": "text",
+      "date": "2024-10-18",
+      "downloads": 2346,
+      "likes": 598
     },
     {
       "org": "genmo",
@@ -179,7 +2996,61 @@
       "domain": "image",
       "date": "2024-10-22",
       "downloads": 62942,
-      "likes": 3690
+      "likes": 3691
+    },
+    {
+      "org": "zai-org",
+      "m": "glm",
+      "repo": "zai-org/LongReward-llama3.1-8b-DPO",
+      "domain": "text",
+      "date": "2024-10-22",
+      "downloads": 92,
+      "likes": 2
+    },
+    {
+      "org": "meta-llama",
+      "m": "llama",
+      "repo": "meta-llama/Llama-3.2-3B-Instruct-SpinQuant_INT4_EO8",
+      "domain": "text",
+      "date": "2024-10-23",
+      "downloads": 33,
+      "likes": 40
+    },
+    {
+      "org": "meta-llama",
+      "m": "llama",
+      "repo": "meta-llama/Llama-3.2-3B-Instruct-QLORA_INT4_EO8",
+      "domain": "text",
+      "date": "2024-10-23",
+      "downloads": 76,
+      "likes": 74
+    },
+    {
+      "org": "meta-llama",
+      "m": "llama",
+      "repo": "meta-llama/Llama-3.2-1B-Instruct-SpinQuant_INT4_EO8",
+      "domain": "text",
+      "date": "2024-10-23",
+      "downloads": 71,
+      "likes": 41
+    },
+    {
+      "org": "meta-llama",
+      "m": "llama",
+      "repo": "meta-llama/Llama-3.2-1B-Instruct-QLORA_INT4_EO8",
+      "domain": "text",
+      "date": "2024-10-23",
+      "downloads": 57,
+      "likes": 49
+    },
+    {
+      "org": "zai-org",
+      "m": "glm",
+      "repo": "zai-org/LongReward-glm4-9b-DPO",
+      "domain": "text",
+      "date": "2024-10-28",
+      "downloads": 113,
+      "likes": 1
     },
     {
       "org": "stabilityai",
@@ -198,6 +3069,276 @@
       "date": "2024-10-31",
       "downloads": 532388,
       "likes": 2257
+    },
+    {
+      "org": "zai-org",
+      "m": "glm",
+      "repo": "zai-org/webrl-glm-4-9b",
+      "domain": "text",
+      "date": "2024-11-04",
+      "downloads": 85,
+      "likes": 8
+    },
+    {
+      "org": "zai-org",
+      "m": "glm",
+      "repo": "zai-org/webrl-llama-3.1-70b",
+      "domain": "text",
+      "date": "2024-11-05",
+      "downloads": 84,
+      "likes": 4
+    },
+    {
+      "org": "zai-org",
+      "m": "glm",
+      "repo": "zai-org/webrl-llama-3.1-8b",
+      "domain": "text",
+      "date": "2024-11-05",
+      "downloads": 172,
+      "likes": 4
+    },
+    {
+      "org": "Qwen",
+      "m": "qwen-text",
+      "repo": "Qwen/Qwen2.5-Coder-32B-Instruct",
+      "domain": "text",
+      "date": "2024-11-06",
+      "downloads": 1148893,
+      "likes": 2101
+    },
+    {
+      "org": "Qwen",
+      "m": "qwen-text",
+      "repo": "Qwen/Qwen2.5-Coder-14B-Instruct",
+      "domain": "text",
+      "date": "2024-11-06",
+      "downloads": 2455195,
+      "likes": 180
+    },
+    {
+      "org": "Qwen",
+      "m": "qwen-text",
+      "repo": "Qwen/Qwen2.5-Coder-3B-Instruct",
+      "domain": "text",
+      "date": "2024-11-06",
+      "downloads": 111804,
+      "likes": 123
+    },
+    {
+      "org": "Qwen",
+      "m": "qwen-text",
+      "repo": "Qwen/Qwen2.5-Coder-0.5B-Instruct",
+      "domain": "text",
+      "date": "2024-11-06",
+      "downloads": 82521,
+      "likes": 76
+    },
+    {
+      "org": "Qwen",
+      "m": "qwen-text",
+      "repo": "Qwen/Qwen2.5-Coder-32B",
+      "domain": "text",
+      "date": "2024-11-08",
+      "downloads": 2478,
+      "likes": 160
+    },
+    {
+      "org": "Qwen",
+      "m": "qwen-text",
+      "repo": "Qwen/Qwen2.5-Coder-14B",
+      "domain": "text",
+      "date": "2024-11-08",
+      "downloads": 100690,
+      "likes": 86
+    },
+    {
+      "org": "Qwen",
+      "m": "qwen-text",
+      "repo": "Qwen/Qwen2.5-Coder-3B",
+      "domain": "text",
+      "date": "2024-11-08",
+      "downloads": 33991,
+      "likes": 57
+    },
+    {
+      "org": "Qwen",
+      "m": "qwen-text",
+      "repo": "Qwen/Qwen2.5-Coder-0.5B",
+      "domain": "text",
+      "date": "2024-11-08",
+      "downloads": 26353,
+      "likes": 58
+    },
+    {
+      "org": "Qwen",
+      "m": "qwen-text",
+      "repo": "Qwen/Qwen2.5-Coder-0.5B-Instruct-GGUF",
+      "domain": "text",
+      "date": "2024-11-09",
+      "downloads": 13560,
+      "likes": 26
+    },
+    {
+      "org": "Qwen",
+      "m": "qwen-text",
+      "repo": "Qwen/Qwen2.5-Coder-0.5B-Instruct-AWQ",
+      "domain": "text",
+      "date": "2024-11-09",
+      "downloads": 455,
+      "likes": 3
+    },
+    {
+      "org": "Qwen",
+      "m": "qwen-text",
+      "repo": "Qwen/Qwen2.5-Coder-3B-Instruct-GGUF",
+      "domain": "text",
+      "date": "2024-11-09",
+      "downloads": 47673,
+      "likes": 105
+    },
+    {
+      "org": "Qwen",
+      "m": "qwen-text",
+      "repo": "Qwen/Qwen2.5-Coder-3B-Instruct-AWQ",
+      "domain": "text",
+      "date": "2024-11-09",
+      "downloads": 10015,
+      "likes": 8
+    },
+    {
+      "org": "Qwen",
+      "m": "qwen-text",
+      "repo": "Qwen/Qwen2.5-Coder-14B-Instruct-GGUF",
+      "domain": "text",
+      "date": "2024-11-09",
+      "downloads": 63604,
+      "likes": 184
+    },
+    {
+      "org": "Qwen",
+      "m": "qwen-text",
+      "repo": "Qwen/Qwen2.5-Coder-14B-Instruct-AWQ",
+      "domain": "text",
+      "date": "2024-11-09",
+      "downloads": 518741,
+      "likes": 21
+    },
+    {
+      "org": "Qwen",
+      "m": "qwen-text",
+      "repo": "Qwen/Qwen2.5-Coder-32B-Instruct-GGUF",
+      "domain": "text",
+      "date": "2024-11-09",
+      "downloads": 80852,
+      "likes": 219
+    },
+    {
+      "org": "Qwen",
+      "m": "qwen-text",
+      "repo": "Qwen/Qwen2.5-Coder-32B-Instruct-AWQ",
+      "domain": "text",
+      "date": "2024-11-09",
+      "downloads": 1494605,
+      "likes": 38
+    },
+    {
+      "org": "Qwen",
+      "m": "qwen-text",
+      "repo": "Qwen/Qwen2.5-Coder-32B-Instruct-GPTQ-Int4",
+      "domain": "text",
+      "date": "2024-11-09",
+      "downloads": 7487,
+      "likes": 24
+    },
+    {
+      "org": "Qwen",
+      "m": "qwen-text",
+      "repo": "Qwen/Qwen2.5-Coder-32B-Instruct-GPTQ-Int8",
+      "domain": "text",
+      "date": "2024-11-09",
+      "downloads": 657,
+      "likes": 24
+    },
+    {
+      "org": "Qwen",
+      "m": "qwen-text",
+      "repo": "Qwen/Qwen2.5-Coder-14B-Instruct-GPTQ-Int4",
+      "domain": "text",
+      "date": "2024-11-09",
+      "downloads": 232716,
+      "likes": 7
+    },
+    {
+      "org": "Qwen",
+      "m": "qwen-text",
+      "repo": "Qwen/Qwen2.5-Coder-14B-Instruct-GPTQ-Int8",
+      "domain": "text",
+      "date": "2024-11-09",
+      "downloads": 1454,
+      "likes": 7
+    },
+    {
+      "org": "Qwen",
+      "m": "qwen-text",
+      "repo": "Qwen/Qwen2.5-Coder-3B-Instruct-GPTQ-Int4",
+      "domain": "text",
+      "date": "2024-11-09",
+      "downloads": 894,
+      "likes": 1
+    },
+    {
+      "org": "Qwen",
+      "m": "qwen-text",
+      "repo": "Qwen/Qwen2.5-Coder-3B-Instruct-GPTQ-Int8",
+      "domain": "text",
+      "date": "2024-11-09",
+      "downloads": 246,
+      "likes": 1
+    },
+    {
+      "org": "Qwen",
+      "m": "qwen-text",
+      "repo": "Qwen/Qwen2.5-Coder-0.5B-Instruct-GPTQ-Int4",
+      "domain": "text",
+      "date": "2024-11-09",
+      "downloads": 326,
+      "likes": 1
+    },
+    {
+      "org": "Qwen",
+      "m": "qwen-text",
+      "repo": "Qwen/Qwen2.5-Coder-0.5B-Instruct-GPTQ-Int8",
+      "domain": "text",
+      "date": "2024-11-09",
+      "downloads": 117,
+      "likes": 1
+    },
+    {
+      "org": "deepseek-ai",
+      "m": "deepseek",
+      "repo": "deepseek-ai/JanusFlow-1.3B",
+      "domain": "text",
+      "date": "2024-11-12",
+      "downloads": 2111,
+      "likes": 153
+    },
+    {
+      "org": "mistralai",
+      "m": "mistral-text",
+      "repo": "mistralai/Pixtral-Large-Instruct-2411",
+      "domain": "text",
+      "date": "2024-11-14",
+      "downloads": 59,
+      "likes": 434
+    },
+    {
+      "org": "mistralai",
+      "m": "mistral-text",
+      "repo": "mistralai/Mistral-Large-Instruct-2411",
+      "domain": "text",
+      "date": "2024-11-14",
+      "downloads": 11952,
+      "likes": 265
     },
     {
       "org": "black-forest-labs",
@@ -236,6 +3377,24 @@
       "likes": 1131
     },
     {
+      "org": "zai-org",
+      "m": "glm",
+      "repo": "zai-org/glm-edge-4b-chat",
+      "domain": "text",
+      "date": "2024-11-20",
+      "downloads": 18389,
+      "likes": 13
+    },
+    {
+      "org": "zai-org",
+      "m": "glm",
+      "repo": "zai-org/glm-edge-1.5b-chat",
+      "domain": "text",
+      "date": "2024-11-20",
+      "downloads": 4106,
+      "likes": 20
+    },
+    {
       "org": "rhymes-ai",
       "m": null,
       "repo": "rhymes-ai/Allegro-TI2V",
@@ -243,6 +3402,78 @@
       "date": "2024-11-21",
       "downloads": 22,
       "likes": 60
+    },
+    {
+      "org": "zai-org",
+      "m": "glm",
+      "repo": "zai-org/glm-edge-v-5b",
+      "domain": "text",
+      "date": "2024-11-24",
+      "downloads": 193,
+      "likes": 16
+    },
+    {
+      "org": "zai-org",
+      "m": "glm",
+      "repo": "zai-org/glm-edge-v-2b",
+      "domain": "text",
+      "date": "2024-11-24",
+      "downloads": 986,
+      "likes": 17
+    },
+    {
+      "org": "meta-llama",
+      "m": "llama",
+      "repo": "meta-llama/Llama-3.3-70B-Instruct",
+      "domain": "text",
+      "date": "2024-11-26",
+      "downloads": 334517,
+      "likes": 2948
+    },
+    {
+      "org": "Qwen",
+      "m": "qwen-text",
+      "repo": "Qwen/QwQ-32B-Preview",
+      "domain": "text",
+      "date": "2024-11-27",
+      "downloads": 39840,
+      "likes": 1742
+    },
+    {
+      "org": "zai-org",
+      "m": "glm",
+      "repo": "zai-org/glm-edge-4b-chat-gguf",
+      "domain": "text",
+      "date": "2024-11-27",
+      "downloads": 771,
+      "likes": 10
+    },
+    {
+      "org": "zai-org",
+      "m": "glm",
+      "repo": "zai-org/glm-edge-1.5b-chat-gguf",
+      "domain": "text",
+      "date": "2024-11-27",
+      "downloads": 854,
+      "likes": 8
+    },
+    {
+      "org": "zai-org",
+      "m": "glm",
+      "repo": "zai-org/glm-edge-v-2b-gguf",
+      "domain": "text",
+      "date": "2024-11-27",
+      "downloads": 534,
+      "likes": 17
+    },
+    {
+      "org": "zai-org",
+      "m": "glm",
+      "repo": "zai-org/glm-edge-v-5b-gguf",
+      "domain": "text",
+      "date": "2024-11-27",
+      "downloads": 703,
+      "likes": 12
     },
     {
       "org": "tencent",
@@ -263,6 +3494,51 @@
       "likes": 1
     },
     {
+      "org": "zai-org",
+      "m": "glm",
+      "repo": "zai-org/webrl-orm-llama-3.1-8b",
+      "domain": "text",
+      "date": "2024-12-09",
+      "downloads": 109,
+      "likes": 1
+    },
+    {
+      "org": "deepseek-ai",
+      "m": "deepseek",
+      "repo": "deepseek-ai/DeepSeek-V2.5-1210",
+      "domain": "text",
+      "date": "2024-12-10",
+      "downloads": 668,
+      "likes": 257
+    },
+    {
+      "org": "deepseek-ai",
+      "m": "deepseek",
+      "repo": "deepseek-ai/deepseek-vl2",
+      "domain": "text",
+      "date": "2024-12-13",
+      "downloads": 3607,
+      "likes": 388
+    },
+    {
+      "org": "deepseek-ai",
+      "m": "deepseek",
+      "repo": "deepseek-ai/deepseek-vl2-small",
+      "domain": "text",
+      "date": "2024-12-13",
+      "downloads": 6980,
+      "likes": 180
+    },
+    {
+      "org": "deepseek-ai",
+      "m": "deepseek",
+      "repo": "deepseek-ai/deepseek-vl2-tiny",
+      "domain": "text",
+      "date": "2024-12-13",
+      "downloads": 1070421,
+      "likes": 248
+    },
+    {
       "org": "rhymes-ai",
       "m": null,
       "repo": "rhymes-ai/Allegro-T2V-40x720P",
@@ -279,6 +3555,204 @@
       "date": "2024-12-17",
       "downloads": 28,
       "likes": 2
+    },
+    {
+      "org": "zai-org",
+      "m": "glm",
+      "repo": "zai-org/cogagent-9b-20241220",
+      "domain": "text",
+      "date": "2024-12-20",
+      "downloads": 1608,
+      "likes": 54
+    },
+    {
+      "org": "Qwen",
+      "m": "qwen-text",
+      "repo": "Qwen/QVQ-72B-Preview",
+      "domain": "text",
+      "date": "2024-12-24",
+      "downloads": 8566,
+      "likes": 610
+    },
+    {
+      "org": "deepseek-ai",
+      "m": "deepseek",
+      "repo": "deepseek-ai/DeepSeek-V3",
+      "domain": "text",
+      "date": "2024-12-25",
+      "downloads": 979034,
+      "likes": 4170
+    },
+    {
+      "org": "deepseek-ai",
+      "m": "deepseek",
+      "repo": "deepseek-ai/DeepSeek-V3-Base",
+      "domain": "text",
+      "date": "2024-12-25",
+      "downloads": 31718,
+      "likes": 1701
+    },
+    {
+      "org": "MiniMaxAI",
+      "m": "minimax-text",
+      "repo": "MiniMaxAI/MiniMax-Text-01",
+      "domain": "text",
+      "date": "2025-01-12",
+      "downloads": 2892,
+      "likes": 657
+    },
+    {
+      "org": "Qwen",
+      "m": "qwen-text",
+      "repo": "Qwen/Qwen2.5-Math-PRM-7B",
+      "domain": "text",
+      "date": "2025-01-13",
+      "downloads": 223582,
+      "likes": 89
+    },
+    {
+      "org": "Qwen",
+      "m": "qwen-text",
+      "repo": "Qwen/Qwen2.5-Math-PRM-72B",
+      "domain": "text",
+      "date": "2025-01-13",
+      "downloads": 133,
+      "likes": 77
+    },
+    {
+      "org": "Qwen",
+      "m": "qwen-text",
+      "repo": "Qwen/Qwen2.5-Math-7B-PRM800K",
+      "domain": "text",
+      "date": "2025-01-13",
+      "downloads": 135,
+      "likes": 21
+    },
+    {
+      "org": "deepseek-ai",
+      "m": "deepseek",
+      "repo": "deepseek-ai/DeepSeek-R1-Distill-Qwen-32B",
+      "domain": "text",
+      "date": "2025-01-20",
+      "downloads": 657380,
+      "likes": 1588
+    },
+    {
+      "org": "deepseek-ai",
+      "m": "deepseek",
+      "repo": "deepseek-ai/DeepSeek-R1-Distill-Qwen-14B",
+      "domain": "text",
+      "date": "2025-01-20",
+      "downloads": 807517,
+      "likes": 668
+    },
+    {
+      "org": "deepseek-ai",
+      "m": "deepseek",
+      "repo": "deepseek-ai/DeepSeek-R1-Distill-Qwen-7B",
+      "domain": "text",
+      "date": "2025-01-20",
+      "downloads": 250406,
+      "likes": 870
+    },
+    {
+      "org": "deepseek-ai",
+      "m": "deepseek",
+      "repo": "deepseek-ai/DeepSeek-R1-Distill-Llama-70B",
+      "domain": "text",
+      "date": "2025-01-20",
+      "downloads": 277869,
+      "likes": 797
+    },
+    {
+      "org": "deepseek-ai",
+      "m": "deepseek",
+      "repo": "deepseek-ai/DeepSeek-R1-Distill-Llama-8B",
+      "domain": "text",
+      "date": "2025-01-20",
+      "downloads": 326870,
+      "likes": 872
+    },
+    {
+      "org": "deepseek-ai",
+      "m": "deepseek",
+      "repo": "deepseek-ai/DeepSeek-R1-Distill-Qwen-1.5B",
+      "domain": "text",
+      "date": "2025-01-20",
+      "downloads": 579747,
+      "likes": 1559
+    },
+    {
+      "org": "deepseek-ai",
+      "m": "deepseek",
+      "repo": "deepseek-ai/DeepSeek-R1",
+      "domain": "text",
+      "date": "2025-01-20",
+      "downloads": 8523653,
+      "likes": 13560
+    },
+    {
+      "org": "deepseek-ai",
+      "m": "deepseek",
+      "repo": "deepseek-ai/DeepSeek-R1-Zero",
+      "domain": "text",
+      "date": "2025-01-20",
+      "downloads": 6009,
+      "likes": 959
+    },
+    {
+      "org": "Qwen",
+      "m": "qwen-text",
+      "repo": "Qwen/Qwen2.5-7B-Instruct-1M",
+      "domain": "text",
+      "date": "2025-01-23",
+      "downloads": 75332,
+      "likes": 376
+    },
+    {
+      "org": "Qwen",
+      "m": "qwen-text",
+      "repo": "Qwen/Qwen2.5-14B-Instruct-1M",
+      "domain": "text",
+      "date": "2025-01-23",
+      "downloads": 7147,
+      "likes": 342
+    },
+    {
+      "org": "mistralai",
+      "m": "mistral-text",
+      "repo": "mistralai/Mistral-Small-24B-Base-2501",
+      "domain": "text",
+      "date": "2025-01-23",
+      "downloads": 4087,
+      "likes": 265
+    },
+    {
+      "org": "deepseek-ai",
+      "m": "deepseek",
+      "repo": "deepseek-ai/Janus-Pro-1B",
+      "domain": "text",
+      "date": "2025-01-26",
+      "downloads": 14219,
+      "likes": 482
+    },
+    {
+      "org": "deepseek-ai",
+      "m": "deepseek",
+      "repo": "deepseek-ai/Janus-Pro-7B",
+      "domain": "text",
+      "date": "2025-01-26",
+      "downloads": 13237,
+      "likes": 3643
+    },
+    {
+      "org": "mistralai",
+      "m": "mistral-text",
+      "repo": "mistralai/Mistral-Small-24B-Instruct-2501",
+      "domain": "text",
+      "date": "2025-01-28",
+      "downloads": 55619,
+      "likes": 964
     },
     {
       "org": "Skywork",
@@ -315,6 +3789,24 @@
       "date": "2025-02-21",
       "downloads": 6,
       "likes": 0
+    },
+    {
+      "org": "moonshotai",
+      "m": "kimi",
+      "repo": "moonshotai/Moonlight-16B-A3B-Instruct",
+      "domain": "text",
+      "date": "2025-02-22",
+      "downloads": 34501,
+      "likes": 202
+    },
+    {
+      "org": "moonshotai",
+      "m": "kimi",
+      "repo": "moonshotai/Moonlight-16B-A3B",
+      "domain": "text",
+      "date": "2025-02-22",
+      "downloads": 12696,
+      "likes": 116
     },
     {
       "org": "Wan-AI",
@@ -362,6 +3854,15 @@
       "likes": 8
     },
     {
+      "org": "zai-org",
+      "m": "glm",
+      "repo": "zai-org/CogView4-6B",
+      "domain": "text",
+      "date": "2025-03-03",
+      "downloads": 8008,
+      "likes": 256
+    },
+    {
       "org": "tencent",
       "m": null,
       "repo": "tencent/HunyuanVideo-I2V",
@@ -371,6 +3872,33 @@
       "likes": 356
     },
     {
+      "org": "Qwen",
+      "m": "qwen-text",
+      "repo": "Qwen/QwQ-32B-GGUF",
+      "domain": "text",
+      "date": "2025-03-05",
+      "downloads": 20204,
+      "likes": 211
+    },
+    {
+      "org": "Qwen",
+      "m": "qwen-text",
+      "repo": "Qwen/QwQ-32B",
+      "domain": "text",
+      "date": "2025-03-05",
+      "downloads": 94023,
+      "likes": 2961
+    },
+    {
+      "org": "Qwen",
+      "m": "qwen-text",
+      "repo": "Qwen/QwQ-32B-AWQ",
+      "domain": "text",
+      "date": "2025-03-05",
+      "downloads": 30089,
+      "likes": 136
+    },
+    {
       "org": "hpcai-tech",
       "m": null,
       "repo": "hpcai-tech/Open-Sora-v2-Video-DC-AE",
@@ -378,6 +3906,15 @@
       "date": "2025-03-10",
       "downloads": 0,
       "likes": 6
+    },
+    {
+      "org": "mistralai",
+      "m": "mistral-text",
+      "repo": "mistralai/Mistral-Small-3.1-24B-Instruct-2503",
+      "domain": "text",
+      "date": "2025-03-11",
+      "downloads": 275287,
+      "likes": 1378
     },
     {
       "org": "Lightricks",
@@ -398,6 +3935,33 @@
       "likes": 30
     },
     {
+      "org": "mistralai",
+      "m": "mistral-text",
+      "repo": "mistralai/Mistral-Small-3.1-24B-Base-2503",
+      "domain": "text",
+      "date": "2025-03-16",
+      "downloads": 1352,
+      "likes": 272
+    },
+    {
+      "org": "mistralai",
+      "m": "mistral-text",
+      "repo": "mistralai/Mistral-Nemo-Instruct-FP8-2407",
+      "domain": "text",
+      "date": "2025-03-21",
+      "downloads": 184,
+      "likes": 26
+    },
+    {
+      "org": "deepseek-ai",
+      "m": "deepseek",
+      "repo": "deepseek-ai/DeepSeek-V3-0324",
+      "domain": "text",
+      "date": "2025-03-24",
+      "downloads": 1112997,
+      "likes": 3152
+    },
+    {
       "org": "HiDream-ai",
       "m": "hidream",
       "repo": "HiDream-ai/MotionPro",
@@ -414,6 +3978,96 @@
       "date": "2025-03-30",
       "downloads": 29,
       "likes": 139
+    },
+    {
+      "org": "meta-llama",
+      "m": "llama",
+      "repo": "meta-llama/Llama-4-Maverick-17B-128E-Instruct",
+      "domain": "text",
+      "date": "2025-04-01",
+      "downloads": 28396,
+      "likes": 504
+    },
+    {
+      "org": "meta-llama",
+      "m": "llama",
+      "repo": "meta-llama/Llama-4-Maverick-17B-128E-Instruct-FP8",
+      "domain": "text",
+      "date": "2025-04-01",
+      "downloads": 104572,
+      "likes": 174
+    },
+    {
+      "org": "meta-llama",
+      "m": "llama",
+      "repo": "meta-llama/Llama-4-Maverick-17B-128E",
+      "domain": "text",
+      "date": "2025-04-02",
+      "downloads": 3341,
+      "likes": 96
+    },
+    {
+      "org": "meta-llama",
+      "m": "llama",
+      "repo": "meta-llama/Llama-4-Scout-17B-16E",
+      "domain": "text",
+      "date": "2025-04-02",
+      "downloads": 18733,
+      "likes": 261
+    },
+    {
+      "org": "meta-llama",
+      "m": "llama",
+      "repo": "meta-llama/Llama-4-Scout-17B-16E-Instruct",
+      "domain": "text",
+      "date": "2025-04-02",
+      "downloads": 460443,
+      "likes": 1332
+    },
+    {
+      "org": "meta-llama",
+      "m": "llama",
+      "repo": "meta-llama/Llama-4-Maverick-17B-128E-Original",
+      "domain": "text",
+      "date": "2025-04-03",
+      "downloads": 11,
+      "likes": 83
+    },
+    {
+      "org": "meta-llama",
+      "m": "llama",
+      "repo": "meta-llama/Llama-4-Scout-17B-16E-Instruct-Original",
+      "domain": "text",
+      "date": "2025-04-03",
+      "downloads": 6,
+      "likes": 55
+    },
+    {
+      "org": "meta-llama",
+      "m": "llama",
+      "repo": "meta-llama/Llama-4-Scout-17B-16E-Original",
+      "domain": "text",
+      "date": "2025-04-03",
+      "downloads": 4,
+      "likes": 61
+    },
+    {
+      "org": "meta-llama",
+      "m": "llama",
+      "repo": "meta-llama/Llama-4-Maverick-17B-128E-Instruct-FP8-Original",
+      "domain": "text",
+      "date": "2025-04-04",
+      "downloads": 6,
+      "likes": 37
+    },
+    {
+      "org": "meta-llama",
+      "m": "llama",
+      "repo": "meta-llama/Llama-4-Maverick-17B-128E-Instruct-Original",
+      "domain": "text",
+      "date": "2025-04-04",
+      "downloads": 6,
+      "likes": 40
     },
     {
       "org": "HiDream-ai",
@@ -441,6 +4095,96 @@
       "date": "2025-04-06",
       "downloads": 573,
       "likes": 173
+    },
+    {
+      "org": "zai-org",
+      "m": "glm",
+      "repo": "zai-org/SWE-Dev-9B",
+      "domain": "text",
+      "date": "2025-04-06",
+      "downloads": 83,
+      "likes": 13
+    },
+    {
+      "org": "zai-org",
+      "m": "glm",
+      "repo": "zai-org/SWE-Dev-32B",
+      "domain": "text",
+      "date": "2025-04-06",
+      "downloads": 129,
+      "likes": 30
+    },
+    {
+      "org": "zai-org",
+      "m": "glm",
+      "repo": "zai-org/SWE-Dev-7B",
+      "domain": "text",
+      "date": "2025-04-06",
+      "downloads": 79,
+      "likes": 6
+    },
+    {
+      "org": "zai-org",
+      "m": "glm",
+      "repo": "zai-org/GLM-4-32B-Base-0414",
+      "domain": "text",
+      "date": "2025-04-07",
+      "downloads": 845,
+      "likes": 37
+    },
+    {
+      "org": "zai-org",
+      "m": "glm",
+      "repo": "zai-org/GLM-4-32B-0414",
+      "domain": "text",
+      "date": "2025-04-07",
+      "downloads": 11126,
+      "likes": 489
+    },
+    {
+      "org": "zai-org",
+      "m": "glm",
+      "repo": "zai-org/GLM-4-9B-0414",
+      "domain": "text",
+      "date": "2025-04-07",
+      "downloads": 34935,
+      "likes": 109
+    },
+    {
+      "org": "zai-org",
+      "m": "glm",
+      "repo": "zai-org/GLM-Z1-32B-0414",
+      "domain": "text",
+      "date": "2025-04-08",
+      "downloads": 7497,
+      "likes": 196
+    },
+    {
+      "org": "zai-org",
+      "m": "glm",
+      "repo": "zai-org/GLM-Z1-9B-0414",
+      "domain": "text",
+      "date": "2025-04-08",
+      "downloads": 3938,
+      "likes": 90
+    },
+    {
+      "org": "moonshotai",
+      "m": "kimi",
+      "repo": "moonshotai/MoonViT-SO-400M",
+      "domain": "text",
+      "date": "2025-04-10",
+      "downloads": 2552,
+      "likes": 93
+    },
+    {
+      "org": "zai-org",
+      "m": "glm",
+      "repo": "zai-org/GLM-Z1-Rumination-32B-0414",
+      "domain": "text",
+      "date": "2025-04-13",
+      "downloads": 260,
+      "likes": 118
     },
     {
       "org": "Wan-AI",
@@ -569,6 +4313,375 @@
       "likes": 216
     },
     {
+      "org": "Qwen",
+      "m": "qwen-text",
+      "repo": "Qwen/Qwen3-235B-A22B",
+      "domain": "text",
+      "date": "2025-04-27",
+      "downloads": 529674,
+      "likes": 1107
+    },
+    {
+      "org": "Qwen",
+      "m": "qwen-text",
+      "repo": "Qwen/Qwen3-32B",
+      "domain": "text",
+      "date": "2025-04-27",
+      "downloads": 7595153,
+      "likes": 729
+    },
+    {
+      "org": "Qwen",
+      "m": "qwen-text",
+      "repo": "Qwen/Qwen3-30B-A3B",
+      "domain": "text",
+      "date": "2025-04-27",
+      "downloads": 2481310,
+      "likes": 918
+    },
+    {
+      "org": "Qwen",
+      "m": "qwen-text",
+      "repo": "Qwen/Qwen3-14B",
+      "domain": "text",
+      "date": "2025-04-27",
+      "downloads": 2195507,
+      "likes": 439
+    },
+    {
+      "org": "Qwen",
+      "m": "qwen-text",
+      "repo": "Qwen/Qwen3-8B",
+      "domain": "text",
+      "date": "2025-04-27",
+      "downloads": 15207936,
+      "likes": 1287
+    },
+    {
+      "org": "Qwen",
+      "m": "qwen-text",
+      "repo": "Qwen/Qwen3-4B",
+      "domain": "text",
+      "date": "2025-04-27",
+      "downloads": 4357227,
+      "likes": 675
+    },
+    {
+      "org": "Qwen",
+      "m": "qwen-text",
+      "repo": "Qwen/Qwen3-1.7B",
+      "domain": "text",
+      "date": "2025-04-27",
+      "downloads": 7390848,
+      "likes": 516
+    },
+    {
+      "org": "Qwen",
+      "m": "qwen-text",
+      "repo": "Qwen/Qwen3-0.6B",
+      "domain": "text",
+      "date": "2025-04-27",
+      "downloads": 27629624,
+      "likes": 1504
+    },
+    {
+      "org": "Qwen",
+      "m": "qwen-text",
+      "repo": "Qwen/Qwen3-235B-A22B-FP8",
+      "domain": "text",
+      "date": "2025-04-28",
+      "downloads": 66537,
+      "likes": 94
+    },
+    {
+      "org": "Qwen",
+      "m": "qwen-text",
+      "repo": "Qwen/Qwen3-30B-A3B-FP8",
+      "domain": "text",
+      "date": "2025-04-28",
+      "downloads": 151984,
+      "likes": 87
+    },
+    {
+      "org": "Qwen",
+      "m": "qwen-text",
+      "repo": "Qwen/Qwen3-32B-FP8",
+      "domain": "text",
+      "date": "2025-04-28",
+      "downloads": 76151,
+      "likes": 85
+    },
+    {
+      "org": "Qwen",
+      "m": "qwen-text",
+      "repo": "Qwen/Qwen3-14B-FP8",
+      "domain": "text",
+      "date": "2025-04-28",
+      "downloads": 236588,
+      "likes": 48
+    },
+    {
+      "org": "Qwen",
+      "m": "qwen-text",
+      "repo": "Qwen/Qwen3-8B-FP8",
+      "domain": "text",
+      "date": "2025-04-28",
+      "downloads": 673378,
+      "likes": 63
+    },
+    {
+      "org": "Qwen",
+      "m": "qwen-text",
+      "repo": "Qwen/Qwen3-4B-FP8",
+      "domain": "text",
+      "date": "2025-04-28",
+      "downloads": 122103,
+      "likes": 39
+    },
+    {
+      "org": "Qwen",
+      "m": "qwen-text",
+      "repo": "Qwen/Qwen3-1.7B-FP8",
+      "domain": "text",
+      "date": "2025-04-28",
+      "downloads": 64360,
+      "likes": 36
+    },
+    {
+      "org": "Qwen",
+      "m": "qwen-text",
+      "repo": "Qwen/Qwen3-0.6B-FP8",
+      "domain": "text",
+      "date": "2025-04-28",
+      "downloads": 1183224,
+      "likes": 62
+    },
+    {
+      "org": "Qwen",
+      "m": "qwen-text",
+      "repo": "Qwen/Qwen3-0.6B-Base",
+      "domain": "text",
+      "date": "2025-04-28",
+      "downloads": 747918,
+      "likes": 183
+    },
+    {
+      "org": "Qwen",
+      "m": "qwen-text",
+      "repo": "Qwen/Qwen3-14B-Base",
+      "domain": "text",
+      "date": "2025-04-28",
+      "downloads": 157836,
+      "likes": 55
+    },
+    {
+      "org": "Qwen",
+      "m": "qwen-text",
+      "repo": "Qwen/Qwen3-1.7B-Base",
+      "domain": "text",
+      "date": "2025-04-28",
+      "downloads": 920220,
+      "likes": 75
+    },
+    {
+      "org": "Qwen",
+      "m": "qwen-text",
+      "repo": "Qwen/Qwen3-4B-Base",
+      "domain": "text",
+      "date": "2025-04-28",
+      "downloads": 712259,
+      "likes": 96
+    },
+    {
+      "org": "Qwen",
+      "m": "qwen-text",
+      "repo": "Qwen/Qwen3-8B-Base",
+      "domain": "text",
+      "date": "2025-04-28",
+      "downloads": 406718,
+      "likes": 114
+    },
+    {
+      "org": "Qwen",
+      "m": "qwen-text",
+      "repo": "Qwen/Qwen3-30B-A3B-Base",
+      "domain": "text",
+      "date": "2025-04-28",
+      "downloads": 111329,
+      "likes": 74
+    },
+    {
+      "org": "deepseek-ai",
+      "m": "deepseek",
+      "repo": "deepseek-ai/DeepSeek-Prover-V2-7B",
+      "domain": "text",
+      "date": "2025-04-30",
+      "downloads": 106344,
+      "likes": 148
+    },
+    {
+      "org": "deepseek-ai",
+      "m": "deepseek",
+      "repo": "deepseek-ai/DeepSeek-Prover-V2-671B",
+      "domain": "text",
+      "date": "2025-04-30",
+      "downloads": 703,
+      "likes": 831
+    },
+    {
+      "org": "Qwen",
+      "m": "qwen-text",
+      "repo": "Qwen/Qwen3-14B-AWQ",
+      "domain": "text",
+      "date": "2025-05-01",
+      "downloads": 2108185,
+      "likes": 71
+    },
+    {
+      "org": "Qwen",
+      "m": "qwen-text",
+      "repo": "Qwen/Qwen3-32B-AWQ",
+      "domain": "text",
+      "date": "2025-05-01",
+      "downloads": 604646,
+      "likes": 138
+    },
+    {
+      "org": "Qwen",
+      "m": "qwen-text",
+      "repo": "Qwen/Qwen3-14B-GGUF",
+      "domain": "text",
+      "date": "2025-05-01",
+      "downloads": 105527,
+      "likes": 120
+    },
+    {
+      "org": "Qwen",
+      "m": "qwen-text",
+      "repo": "Qwen/Qwen3-32B-GGUF",
+      "domain": "text",
+      "date": "2025-05-01",
+      "downloads": 30188,
+      "likes": 69
+    },
+    {
+      "org": "Qwen",
+      "m": "qwen-text",
+      "repo": "Qwen/Qwen3-8B-GGUF",
+      "domain": "text",
+      "date": "2025-05-03",
+      "downloads": 228816,
+      "likes": 240
+    },
+    {
+      "org": "Qwen",
+      "m": "qwen-text",
+      "repo": "Qwen/Qwen3-8B-AWQ",
+      "domain": "text",
+      "date": "2025-05-03",
+      "downloads": 1354177,
+      "likes": 52
+    },
+    {
+      "org": "Qwen",
+      "m": "qwen-text",
+      "repo": "Qwen/Qwen3-4B-AWQ",
+      "domain": "text",
+      "date": "2025-05-05",
+      "downloads": 406838,
+      "likes": 32
+    },
+    {
+      "org": "Qwen",
+      "m": "qwen-text",
+      "repo": "Qwen/Qwen3-0.6B-GGUF",
+      "domain": "text",
+      "date": "2025-05-05",
+      "downloads": 44213,
+      "likes": 66
+    },
+    {
+      "org": "Qwen",
+      "m": "qwen-text",
+      "repo": "Qwen/Qwen3-1.7B-GGUF",
+      "domain": "text",
+      "date": "2025-05-05",
+      "downloads": 89838,
+      "likes": 57
+    },
+    {
+      "org": "Qwen",
+      "m": "qwen-text",
+      "repo": "Qwen/Qwen3-30B-A3B-GPTQ-Int4",
+      "domain": "text",
+      "date": "2025-05-05",
+      "downloads": 170666,
+      "likes": 55
+    },
+    {
+      "org": "Qwen",
+      "m": "qwen-text",
+      "repo": "Qwen/Qwen3-4B-GGUF",
+      "domain": "text",
+      "date": "2025-05-05",
+      "downloads": 239597,
+      "likes": 140
+    },
+    {
+      "org": "Qwen",
+      "m": "qwen-text",
+      "repo": "Qwen/Qwen3-30B-A3B-GGUF",
+      "domain": "text",
+      "date": "2025-05-05",
+      "downloads": 30358,
+      "likes": 77
+    },
+    {
+      "org": "Qwen",
+      "m": "qwen-text",
+      "repo": "Qwen/Qwen3-0.6B-GPTQ-Int8",
+      "domain": "text",
+      "date": "2025-05-08",
+      "downloads": 1878,
+      "likes": 9
+    },
+    {
+      "org": "Qwen",
+      "m": "qwen-text",
+      "repo": "Qwen/Qwen3-1.7B-GPTQ-Int8",
+      "domain": "text",
+      "date": "2025-05-08",
+      "downloads": 1932,
+      "likes": 7
+    },
+    {
+      "org": "Qwen",
+      "m": "qwen-text",
+      "repo": "Qwen/Qwen3-235B-A22B-GPTQ-Int4",
+      "domain": "text",
+      "date": "2025-05-10",
+      "downloads": 3681,
+      "likes": 27
+    },
+    {
+      "org": "Qwen",
+      "m": "qwen-text",
+      "repo": "Qwen/Qwen3-235B-A22B-GGUF",
+      "domain": "text",
+      "date": "2025-05-11",
+      "downloads": 1313,
+      "likes": 10
+    },
+    {
+      "org": "mistralai",
+      "m": "mistral-text",
+      "repo": "mistralai/Devstral-Small-2505",
+      "domain": "text",
+      "date": "2025-05-12",
+      "downloads": 2379,
+      "likes": 867
+    },
+    {
       "org": "Wan-AI",
       "m": "wan",
       "repo": "Wan-AI/Wan2.1-VACE-14B",
@@ -605,6 +4718,51 @@
       "likes": 60
     },
     {
+      "org": "Qwen",
+      "m": "qwen-text",
+      "repo": "Qwen/WorldPM-72B-RLHFLow",
+      "domain": "text",
+      "date": "2025-05-16",
+      "downloads": 80,
+      "likes": 11
+    },
+    {
+      "org": "Qwen",
+      "m": "qwen-text",
+      "repo": "Qwen/WorldPM-72B-UltraFeedback",
+      "domain": "text",
+      "date": "2025-05-16",
+      "downloads": 83,
+      "likes": 7
+    },
+    {
+      "org": "Qwen",
+      "m": "qwen-text",
+      "repo": "Qwen/WorldPM-72B-HelpSteer2",
+      "domain": "text",
+      "date": "2025-05-16",
+      "downloads": 86,
+      "likes": 10
+    },
+    {
+      "org": "Qwen",
+      "m": "qwen-text",
+      "repo": "Qwen/WorldPM-72B",
+      "domain": "text",
+      "date": "2025-05-16",
+      "downloads": 141,
+      "likes": 82
+    },
+    {
+      "org": "mistralai",
+      "m": "mistral-text",
+      "repo": "mistralai/Devstral-Small-2505_gguf",
+      "domain": "text",
+      "date": "2025-05-19",
+      "downloads": 2021,
+      "likes": 79
+    },
+    {
       "org": "HiDream-ai",
       "m": "hidream",
       "repo": "HiDream-ai/Hi-MAR",
@@ -612,6 +4770,177 @@
       "date": "2025-05-22",
       "downloads": 0,
       "likes": 8
+    },
+    {
+      "org": "Qwen",
+      "m": "qwen-text",
+      "repo": "Qwen/Qwen3-14B-MLX-4bit",
+      "domain": "text",
+      "date": "2025-05-23",
+      "downloads": 1527,
+      "likes": 15
+    },
+    {
+      "org": "Qwen",
+      "m": "qwen-text",
+      "repo": "Qwen/Qwen3-4B-MLX-4bit",
+      "domain": "text",
+      "date": "2025-05-23",
+      "downloads": 2263,
+      "likes": 31
+    },
+    {
+      "org": "Qwen",
+      "m": "qwen-text",
+      "repo": "Qwen/Qwen3-4B-MLX-6bit",
+      "domain": "text",
+      "date": "2025-05-23",
+      "downloads": 122,
+      "likes": 4
+    },
+    {
+      "org": "Qwen",
+      "m": "qwen-text",
+      "repo": "Qwen/Qwen3-14B-MLX-6bit",
+      "domain": "text",
+      "date": "2025-05-23",
+      "downloads": 512,
+      "likes": 3
+    },
+    {
+      "org": "Qwen",
+      "m": "qwen-text",
+      "repo": "Qwen/Qwen3-4B-MLX-8bit",
+      "domain": "text",
+      "date": "2025-05-23",
+      "downloads": 509,
+      "likes": 3
+    },
+    {
+      "org": "Qwen",
+      "m": "qwen-text",
+      "repo": "Qwen/Qwen3-14B-MLX-8bit",
+      "domain": "text",
+      "date": "2025-05-23",
+      "downloads": 687,
+      "likes": 5
+    },
+    {
+      "org": "Qwen",
+      "m": "qwen-text",
+      "repo": "Qwen/Qwen3-4B-MLX-bf16",
+      "domain": "text",
+      "date": "2025-05-23",
+      "downloads": 141,
+      "likes": 5
+    },
+    {
+      "org": "Qwen",
+      "m": "qwen-text",
+      "repo": "Qwen/Qwen3-8B-MLX-bf16",
+      "domain": "text",
+      "date": "2025-05-23",
+      "downloads": 176,
+      "likes": 9
+    },
+    {
+      "org": "Qwen",
+      "m": "qwen-text",
+      "repo": "Qwen/Qwen3-8B-MLX-8bit",
+      "domain": "text",
+      "date": "2025-05-23",
+      "downloads": 529,
+      "likes": 8
+    },
+    {
+      "org": "Qwen",
+      "m": "qwen-text",
+      "repo": "Qwen/Qwen3-8B-MLX-4bit",
+      "domain": "text",
+      "date": "2025-05-23",
+      "downloads": 1600,
+      "likes": 11
+    },
+    {
+      "org": "Qwen",
+      "m": "qwen-text",
+      "repo": "Qwen/Qwen3-1.7B-MLX-4bit",
+      "domain": "text",
+      "date": "2025-05-23",
+      "downloads": 854,
+      "likes": 4
+    },
+    {
+      "org": "Qwen",
+      "m": "qwen-text",
+      "repo": "Qwen/Qwen3-1.7B-MLX-8bit",
+      "domain": "text",
+      "date": "2025-05-23",
+      "downloads": 629,
+      "likes": 3
+    },
+    {
+      "org": "Qwen",
+      "m": "qwen-text",
+      "repo": "Qwen/Qwen3-1.7B-MLX-6bit",
+      "domain": "text",
+      "date": "2025-05-23",
+      "downloads": 152,
+      "likes": 3
+    },
+    {
+      "org": "Qwen",
+      "m": "qwen-text",
+      "repo": "Qwen/Qwen3-8B-MLX-6bit",
+      "domain": "text",
+      "date": "2025-05-23",
+      "downloads": 153,
+      "likes": 6
+    },
+    {
+      "org": "Qwen",
+      "m": "qwen-text",
+      "repo": "Qwen/Qwen3-1.7B-MLX-bf16",
+      "domain": "text",
+      "date": "2025-05-23",
+      "downloads": 175,
+      "likes": 7
+    },
+    {
+      "org": "Qwen",
+      "m": "qwen-text",
+      "repo": "Qwen/Qwen3-0.6B-MLX-8bit",
+      "domain": "text",
+      "date": "2025-05-23",
+      "downloads": 649,
+      "likes": 5
+    },
+    {
+      "org": "Qwen",
+      "m": "qwen-text",
+      "repo": "Qwen/Qwen3-0.6B-MLX-bf16",
+      "domain": "text",
+      "date": "2025-05-23",
+      "downloads": 166,
+      "likes": 6
+    },
+    {
+      "org": "Qwen",
+      "m": "qwen-text",
+      "repo": "Qwen/Qwen3-0.6B-MLX-6bit",
+      "domain": "text",
+      "date": "2025-05-23",
+      "downloads": 221,
+      "likes": 6
+    },
+    {
+      "org": "Qwen",
+      "m": "qwen-text",
+      "repo": "Qwen/Qwen3-0.6B-MLX-4bit",
+      "domain": "text",
+      "date": "2025-05-23",
+      "downloads": 1577,
+      "likes": 23
     },
     {
       "org": "tencent",
@@ -632,6 +4961,87 @@
       "likes": 2763
     },
     {
+      "org": "deepseek-ai",
+      "m": "deepseek",
+      "repo": "deepseek-ai/DeepSeek-R1-0528",
+      "domain": "text",
+      "date": "2025-05-28",
+      "downloads": 154907,
+      "likes": 2458
+    },
+    {
+      "org": "zai-org",
+      "m": "glm",
+      "repo": "zai-org/androidgen-llama-3-70b",
+      "domain": "text",
+      "date": "2025-05-28",
+      "downloads": 93,
+      "likes": 2
+    },
+    {
+      "org": "zai-org",
+      "m": "glm",
+      "repo": "zai-org/androidgen-glm-4-9b",
+      "domain": "text",
+      "date": "2025-05-28",
+      "downloads": 106,
+      "likes": 2
+    },
+    {
+      "org": "deepseek-ai",
+      "m": "deepseek",
+      "repo": "deepseek-ai/DeepSeek-R1-0528-Qwen3-8B",
+      "domain": "text",
+      "date": "2025-05-29",
+      "downloads": 1342480,
+      "likes": 1083
+    },
+    {
+      "org": "MiniMaxAI",
+      "m": "minimax-text",
+      "repo": "MiniMaxAI/SynLogic-Mix-3-32B",
+      "domain": "text",
+      "date": "2025-05-30",
+      "downloads": 156,
+      "likes": 20
+    },
+    {
+      "org": "MiniMaxAI",
+      "m": "minimax-text",
+      "repo": "MiniMaxAI/SynLogic-32B",
+      "domain": "text",
+      "date": "2025-05-30",
+      "downloads": 151,
+      "likes": 17
+    },
+    {
+      "org": "MiniMaxAI",
+      "m": "minimax-text",
+      "repo": "MiniMaxAI/SynLogic-7B",
+      "domain": "text",
+      "date": "2025-06-03",
+      "downloads": 316,
+      "likes": 28
+    },
+    {
+      "org": "mistralai",
+      "m": "mistral-text",
+      "repo": "mistralai/Magistral-Small-2506",
+      "domain": "text",
+      "date": "2025-06-04",
+      "downloads": 55975,
+      "likes": 610
+    },
+    {
+      "org": "MiniMaxAI",
+      "m": "minimax-text",
+      "repo": "MiniMaxAI/MiniMax-M1-40k",
+      "domain": "text",
+      "date": "2025-06-05",
+      "downloads": 3799,
+      "likes": 184
+    },
+    {
       "org": "NewBie-AI",
       "m": "newbie-image",
       "repo": "NewBie-AI/Newbie-exp",
@@ -639,6 +5049,159 @@
       "date": "2025-06-08",
       "downloads": 0,
       "likes": 0
+    },
+    {
+      "org": "mistralai",
+      "m": "mistral-text",
+      "repo": "mistralai/Magistral-Small-2506_gguf",
+      "domain": "text",
+      "date": "2025-06-09",
+      "downloads": 1262,
+      "likes": 70
+    },
+    {
+      "org": "Qwen",
+      "m": "qwen-text",
+      "repo": "Qwen/Qwen3-235B-A22B-MLX-8bit",
+      "domain": "text",
+      "date": "2025-06-11",
+      "downloads": 184,
+      "likes": 9
+    },
+    {
+      "org": "Qwen",
+      "m": "qwen-text",
+      "repo": "Qwen/Qwen3-235B-A22B-MLX-6bit",
+      "domain": "text",
+      "date": "2025-06-11",
+      "downloads": 115,
+      "likes": 4
+    },
+    {
+      "org": "Qwen",
+      "m": "qwen-text",
+      "repo": "Qwen/Qwen3-235B-A22B-MLX-4bit",
+      "domain": "text",
+      "date": "2025-06-11",
+      "downloads": 336,
+      "likes": 16
+    },
+    {
+      "org": "Qwen",
+      "m": "qwen-text",
+      "repo": "Qwen/Qwen3-235B-A22B-MLX-bf16",
+      "domain": "text",
+      "date": "2025-06-11",
+      "downloads": 145,
+      "likes": 6
+    },
+    {
+      "org": "Qwen",
+      "m": "qwen-text",
+      "repo": "Qwen/Qwen3-30B-A3B-MLX-4bit",
+      "domain": "text",
+      "date": "2025-06-11",
+      "downloads": 479,
+      "likes": 12
+    },
+    {
+      "org": "Qwen",
+      "m": "qwen-text",
+      "repo": "Qwen/Qwen3-30B-A3B-MLX-6bit",
+      "domain": "text",
+      "date": "2025-06-11",
+      "downloads": 153,
+      "likes": 5
+    },
+    {
+      "org": "Qwen",
+      "m": "qwen-text",
+      "repo": "Qwen/Qwen3-30B-A3B-MLX-8bit",
+      "domain": "text",
+      "date": "2025-06-11",
+      "downloads": 177,
+      "likes": 9
+    },
+    {
+      "org": "Qwen",
+      "m": "qwen-text",
+      "repo": "Qwen/Qwen3-30B-A3B-MLX-bf16",
+      "domain": "text",
+      "date": "2025-06-11",
+      "downloads": 148,
+      "likes": 8
+    },
+    {
+      "org": "Qwen",
+      "m": "qwen-text",
+      "repo": "Qwen/Qwen3-32B-MLX-4bit",
+      "domain": "text",
+      "date": "2025-06-11",
+      "downloads": 561,
+      "likes": 8
+    },
+    {
+      "org": "Qwen",
+      "m": "qwen-text",
+      "repo": "Qwen/Qwen3-32B-MLX-6bit",
+      "domain": "text",
+      "date": "2025-06-11",
+      "downloads": 188,
+      "likes": 4
+    },
+    {
+      "org": "Qwen",
+      "m": "qwen-text",
+      "repo": "Qwen/Qwen3-32B-MLX-8bit",
+      "domain": "text",
+      "date": "2025-06-11",
+      "downloads": 517,
+      "likes": 12
+    },
+    {
+      "org": "Qwen",
+      "m": "qwen-text",
+      "repo": "Qwen/Qwen3-32B-MLX-bf16",
+      "domain": "text",
+      "date": "2025-06-11",
+      "downloads": 322,
+      "likes": 9
+    },
+    {
+      "org": "Qwen",
+      "m": "qwen-text",
+      "repo": "Qwen/Qwen3-14B-MLX-bf16",
+      "domain": "text",
+      "date": "2025-06-12",
+      "downloads": 282,
+      "likes": 6
+    },
+    {
+      "org": "MiniMaxAI",
+      "m": "minimax-text",
+      "repo": "MiniMaxAI/MiniMax-M1-80k",
+      "domain": "text",
+      "date": "2025-06-13",
+      "downloads": 655,
+      "likes": 692
+    },
+    {
+      "org": "moonshotai",
+      "m": "kimi",
+      "repo": "moonshotai/Kimi-Dev-72B",
+      "domain": "text",
+      "date": "2025-06-16",
+      "downloads": 3295,
+      "likes": 390
+    },
+    {
+      "org": "mistralai",
+      "m": "mistral-text",
+      "repo": "mistralai/Mistral-Small-3.2-24B-Instruct-2506",
+      "domain": "text",
+      "date": "2025-06-19",
+      "downloads": 301090,
+      "likes": 602
     },
     {
       "org": "NewBie-AI",
@@ -668,6 +5231,42 @@
       "likes": 12
     },
     {
+      "org": "zai-org",
+      "m": "glm",
+      "repo": "zai-org/GLM-4.1V-9B-Thinking",
+      "domain": "text",
+      "date": "2025-06-28",
+      "downloads": 374714,
+      "likes": 785
+    },
+    {
+      "org": "zai-org",
+      "m": "glm",
+      "repo": "zai-org/GLM-4.1V-9B-Base",
+      "domain": "text",
+      "date": "2025-06-28",
+      "downloads": 1591,
+      "likes": 68
+    },
+    {
+      "org": "mistralai",
+      "m": "mistral-text",
+      "repo": "mistralai/Voxtral-Small-24B-2507",
+      "domain": "text",
+      "date": "2025-07-01",
+      "downloads": 245801,
+      "likes": 519
+    },
+    {
+      "org": "mistralai",
+      "m": "mistral-text",
+      "repo": "mistralai/Voxtral-Mini-3B-2507",
+      "domain": "text",
+      "date": "2025-07-01",
+      "downloads": 514158,
+      "likes": 669
+    },
+    {
       "org": "NewBie-AI",
       "m": "newbie-image",
       "repo": "NewBie-AI/Newbie-Ai-Training",
@@ -677,6 +5276,24 @@
       "likes": 10
     },
     {
+      "org": "moonshotai",
+      "m": "kimi",
+      "repo": "moonshotai/Kimi-K2-Base",
+      "domain": "text",
+      "date": "2025-07-03",
+      "downloads": 7939,
+      "likes": 306
+    },
+    {
+      "org": "mistralai",
+      "m": "mistral-text",
+      "repo": "mistralai/Devstral-Small-2507",
+      "domain": "text",
+      "date": "2025-07-04",
+      "downloads": 102191,
+      "likes": 368
+    },
+    {
       "org": "black-forest-labs",
       "m": "flux",
       "repo": "black-forest-labs/FLUX.1-Krea-dev",
@@ -684,6 +5301,24 @@
       "date": "2025-07-07",
       "downloads": 43758,
       "likes": 890
+    },
+    {
+      "org": "mistralai",
+      "m": "mistral-text",
+      "repo": "mistralai/Devstral-Small-2507_gguf",
+      "domain": "text",
+      "date": "2025-07-07",
+      "downloads": 4107,
+      "likes": 49
+    },
+    {
+      "org": "moonshotai",
+      "m": "kimi",
+      "repo": "moonshotai/Kimi-K2-Instruct",
+      "domain": "text",
+      "date": "2025-07-11",
+      "downloads": 150338,
+      "likes": 2374
     },
     {
       "org": "HiDream-ai",
@@ -713,6 +5348,114 @@
       "likes": 741
     },
     {
+      "org": "mistralai",
+      "m": "mistral-text",
+      "repo": "mistralai/Magistral-Small-2507",
+      "domain": "text",
+      "date": "2025-07-18",
+      "downloads": 624,
+      "likes": 104
+    },
+    {
+      "org": "zai-org",
+      "m": "glm",
+      "repo": "zai-org/GLM-4.5-Base",
+      "domain": "text",
+      "date": "2025-07-20",
+      "downloads": 1077,
+      "likes": 61
+    },
+    {
+      "org": "zai-org",
+      "m": "glm",
+      "repo": "zai-org/GLM-4.5-Air-FP8",
+      "domain": "text",
+      "date": "2025-07-20",
+      "downloads": 169008,
+      "likes": 82
+    },
+    {
+      "org": "zai-org",
+      "m": "glm",
+      "repo": "zai-org/GLM-4.5-FP8",
+      "domain": "text",
+      "date": "2025-07-20",
+      "downloads": 889,
+      "likes": 78
+    },
+    {
+      "org": "zai-org",
+      "m": "glm",
+      "repo": "zai-org/GLM-4.5-Air",
+      "domain": "text",
+      "date": "2025-07-20",
+      "downloads": 330394,
+      "likes": 629
+    },
+    {
+      "org": "zai-org",
+      "m": "glm",
+      "repo": "zai-org/GLM-4.5",
+      "domain": "text",
+      "date": "2025-07-20",
+      "downloads": 117615,
+      "likes": 1408
+    },
+    {
+      "org": "zai-org",
+      "m": "glm",
+      "repo": "zai-org/GLM-4.5-Air-Base",
+      "domain": "text",
+      "date": "2025-07-20",
+      "downloads": 624,
+      "likes": 46
+    },
+    {
+      "org": "Qwen",
+      "m": "qwen-text",
+      "repo": "Qwen/Qwen3-235B-A22B-Instruct-2507-FP8",
+      "domain": "text",
+      "date": "2025-07-21",
+      "downloads": 51224,
+      "likes": 147
+    },
+    {
+      "org": "Qwen",
+      "m": "qwen-text",
+      "repo": "Qwen/Qwen3-235B-A22B-Instruct-2507",
+      "domain": "text",
+      "date": "2025-07-21",
+      "downloads": 42124,
+      "likes": 793
+    },
+    {
+      "org": "Qwen",
+      "m": "qwen-text",
+      "repo": "Qwen/Qwen3-Coder-480B-A35B-Instruct-FP8",
+      "domain": "text",
+      "date": "2025-07-22",
+      "downloads": 329849,
+      "likes": 159
+    },
+    {
+      "org": "Qwen",
+      "m": "qwen-text",
+      "repo": "Qwen/Qwen3-Coder-480B-A35B-Instruct",
+      "domain": "text",
+      "date": "2025-07-22",
+      "downloads": 88721,
+      "likes": 1358
+    },
+    {
+      "org": "mistralai",
+      "m": "mistral-text",
+      "repo": "mistralai/Magistral-Small-2507-GGUF",
+      "domain": "text",
+      "date": "2025-07-23",
+      "downloads": 636,
+      "likes": 13
+    },
+    {
       "org": "Wan-AI",
       "m": "wan",
       "repo": "Wan-AI/Wan2.2-T2V-A14B",
@@ -732,12 +5475,138 @@
     },
     {
       "org": "Qwen",
+      "m": "qwen-text",
+      "repo": "Qwen/Qwen3-235B-A22B-Thinking-2507-FP8",
+      "domain": "text",
+      "date": "2025-07-25",
+      "downloads": 45973,
+      "likes": 86
+    },
+    {
+      "org": "Qwen",
+      "m": "qwen-text",
+      "repo": "Qwen/Qwen3-235B-A22B-Thinking-2507",
+      "domain": "text",
+      "date": "2025-07-25",
+      "downloads": 28606,
+      "likes": 408
+    },
+    {
+      "org": "Qwen",
+      "m": "qwen-text",
+      "repo": "Qwen/Qwen3-30B-A3B-Instruct-2507-FP8",
+      "domain": "text",
+      "date": "2025-07-28",
+      "downloads": 496769,
+      "likes": 130
+    },
+    {
+      "org": "Qwen",
+      "m": "qwen-text",
+      "repo": "Qwen/Qwen3-30B-A3B-Instruct-2507",
+      "domain": "text",
+      "date": "2025-07-28",
+      "downloads": 1746523,
+      "likes": 825
+    },
+    {
+      "org": "Qwen",
+      "m": "qwen-text",
+      "repo": "Qwen/Qwen3-30B-A3B-Thinking-2507-FP8",
+      "domain": "text",
+      "date": "2025-07-29",
+      "downloads": 74483,
+      "likes": 67
+    },
+    {
+      "org": "Qwen",
+      "m": "qwen-text",
+      "repo": "Qwen/Qwen3-30B-A3B-Thinking-2507",
+      "domain": "text",
+      "date": "2025-07-29",
+      "downloads": 67858,
+      "likes": 378
+    },
+    {
+      "org": "Qwen",
+      "m": "qwen-text",
+      "repo": "Qwen/Qwen3-Coder-30B-A3B-Instruct-FP8",
+      "domain": "text",
+      "date": "2025-07-31",
+      "downloads": 1342914,
+      "likes": 192
+    },
+    {
+      "org": "Qwen",
+      "m": "qwen-text",
+      "repo": "Qwen/Qwen3-Coder-30B-A3B-Instruct",
+      "domain": "text",
+      "date": "2025-07-31",
+      "downloads": 1245731,
+      "likes": 1194
+    },
+    {
+      "org": "Qwen",
       "m": "qwen-image",
       "repo": "Qwen/Qwen-Image",
       "domain": "image",
       "date": "2025-08-02",
       "downloads": 189687,
       "likes": 2572
+    },
+    {
+      "org": "Qwen",
+      "m": "qwen-text",
+      "repo": "Qwen/Qwen3-4B-Thinking-2507",
+      "domain": "text",
+      "date": "2025-08-05",
+      "downloads": 362561,
+      "likes": 608
+    },
+    {
+      "org": "Qwen",
+      "m": "qwen-text",
+      "repo": "Qwen/Qwen3-4B-Instruct-2507",
+      "domain": "text",
+      "date": "2025-08-05",
+      "downloads": 2982669,
+      "likes": 912
+    },
+    {
+      "org": "Qwen",
+      "m": "qwen-text",
+      "repo": "Qwen/Qwen3-4B-Instruct-2507-FP8",
+      "domain": "text",
+      "date": "2025-08-06",
+      "downloads": 1104784,
+      "likes": 78
+    },
+    {
+      "org": "Qwen",
+      "m": "qwen-text",
+      "repo": "Qwen/Qwen3-4B-Thinking-2507-FP8",
+      "domain": "text",
+      "date": "2025-08-06",
+      "downloads": 183118,
+      "likes": 66
+    },
+    {
+      "org": "zai-org",
+      "m": "glm",
+      "repo": "zai-org/GLM-4.5V",
+      "domain": "text",
+      "date": "2025-08-10",
+      "downloads": 133410,
+      "likes": 720
+    },
+    {
+      "org": "zai-org",
+      "m": "glm",
+      "repo": "zai-org/GLM-4.5V-FP8",
+      "domain": "text",
+      "date": "2025-08-10",
+      "downloads": 4322,
+      "likes": 43
     },
     {
       "org": "HiDream-ai",
@@ -758,6 +5627,15 @@
       "likes": 2475
     },
     {
+      "org": "deepseek-ai",
+      "m": "deepseek",
+      "repo": "deepseek-ai/DeepSeek-V3.1-Base",
+      "domain": "text",
+      "date": "2025-08-19",
+      "downloads": 24011,
+      "likes": 1010
+    },
+    {
       "org": "tencent",
       "m": null,
       "repo": "tencent/HunyuanVideo-Foley",
@@ -765,6 +5643,15 @@
       "date": "2025-08-21",
       "downloads": 293,
       "likes": 171
+    },
+    {
+      "org": "deepseek-ai",
+      "m": "deepseek",
+      "repo": "deepseek-ai/DeepSeek-V3.1",
+      "domain": "text",
+      "date": "2025-08-21",
+      "downloads": 224432,
+      "likes": 825
     },
     {
       "org": "Wan-AI",
@@ -776,6 +5663,15 @@
       "likes": 458
     },
     {
+      "org": "moonshotai",
+      "m": "kimi",
+      "repo": "moonshotai/Kimi-K2-Instruct-0905",
+      "domain": "text",
+      "date": "2025-09-03",
+      "downloads": 60063,
+      "likes": 787
+    },
+    {
       "org": "tencent",
       "m": "hunyuan-image",
       "repo": "tencent/HunyuanImage-2.1",
@@ -783,6 +5679,24 @@
       "date": "2025-09-05",
       "downloads": 170,
       "likes": 651
+    },
+    {
+      "org": "Qwen",
+      "m": "qwen-text",
+      "repo": "Qwen/Qwen3-Next-80B-A3B-Thinking",
+      "domain": "text",
+      "date": "2025-09-09",
+      "downloads": 30968,
+      "likes": 493
+    },
+    {
+      "org": "Qwen",
+      "m": "qwen-text",
+      "repo": "Qwen/Qwen3-Next-80B-A3B-Instruct",
+      "domain": "text",
+      "date": "2025-09-09",
+      "downloads": 267790,
+      "likes": 1042
     },
     {
       "org": "Wan-AI",
@@ -794,13 +5708,58 @@
       "likes": 1237
     },
     {
+      "org": "mistralai",
+      "m": "mistral-text",
+      "repo": "mistralai/Magistral-Small-2509-GGUF",
+      "domain": "text",
+      "date": "2025-09-12",
+      "downloads": 1585,
+      "likes": 74
+    },
+    {
+      "org": "mistralai",
+      "m": "mistral-text",
+      "repo": "mistralai/Magistral-Small-2509",
+      "domain": "text",
+      "date": "2025-09-12",
+      "downloads": 23587,
+      "likes": 305
+    },
+    {
       "org": "Qwen",
       "m": "qwen-image",
       "repo": "Qwen/Qwen-Image-Edit-2509",
       "domain": "image",
       "date": "2025-09-22",
       "downloads": 405413,
-      "likes": 1228
+      "likes": 1229
+    },
+    {
+      "org": "Qwen",
+      "m": "qwen-text",
+      "repo": "Qwen/Qwen3-Next-80B-A3B-Thinking-FP8",
+      "domain": "text",
+      "date": "2025-09-22",
+      "downloads": 4921,
+      "likes": 54
+    },
+    {
+      "org": "Qwen",
+      "m": "qwen-text",
+      "repo": "Qwen/Qwen3-Next-80B-A3B-Instruct-FP8",
+      "domain": "text",
+      "date": "2025-09-22",
+      "downloads": 297256,
+      "likes": 89
+    },
+    {
+      "org": "deepseek-ai",
+      "m": "deepseek",
+      "repo": "deepseek-ai/DeepSeek-V3.1-Terminus",
+      "domain": "text",
+      "date": "2025-09-22",
+      "downloads": 18517,
+      "likes": 366
     },
     {
       "org": "tencent",
@@ -821,6 +5780,60 @@
       "likes": 1105
     },
     {
+      "org": "mistralai",
+      "m": "mistral-text",
+      "repo": "mistralai/Mistral-Large-3-675B-Instruct-2512-BF16",
+      "domain": "text",
+      "date": "2025-09-28",
+      "downloads": 56,
+      "likes": 13
+    },
+    {
+      "org": "deepseek-ai",
+      "m": "deepseek",
+      "repo": "deepseek-ai/DeepSeek-V3.2-Exp",
+      "domain": "text",
+      "date": "2025-09-29",
+      "downloads": 184856,
+      "likes": 995
+    },
+    {
+      "org": "deepseek-ai",
+      "m": "deepseek",
+      "repo": "deepseek-ai/DeepSeek-V3.2-Exp-Base",
+      "domain": "text",
+      "date": "2025-09-29",
+      "downloads": 462,
+      "likes": 68
+    },
+    {
+      "org": "zai-org",
+      "m": "glm",
+      "repo": "zai-org/GLM-4.6",
+      "domain": "text",
+      "date": "2025-09-29",
+      "downloads": 27062,
+      "likes": 1229
+    },
+    {
+      "org": "zai-org",
+      "m": "glm",
+      "repo": "zai-org/GLM-4.6-FP8",
+      "domain": "text",
+      "date": "2025-09-29",
+      "downloads": 17590,
+      "likes": 97
+    },
+    {
+      "org": "Qwen",
+      "m": "qwen-text",
+      "repo": "Qwen/Qwen3-4B-SafeRL",
+      "domain": "text",
+      "date": "2025-09-30",
+      "downloads": 748,
+      "likes": 44
+    },
+    {
       "org": "Kwai-Kolors",
       "m": "kolors",
       "repo": "Kwai-Kolors/CoTyle",
@@ -828,6 +5841,258 @@
       "date": "2025-10-15",
       "downloads": 39,
       "likes": 22
+    },
+    {
+      "org": "deepseek-ai",
+      "m": "deepseek",
+      "repo": "deepseek-ai/DeepSeek-OCR",
+      "domain": "text",
+      "date": "2025-10-17",
+      "downloads": 2105083,
+      "likes": 3335
+    },
+    {
+      "org": "MiniMaxAI",
+      "m": "minimax-text",
+      "repo": "MiniMaxAI/MiniMax-M2",
+      "domain": "text",
+      "date": "2025-10-22",
+      "downloads": 140849,
+      "likes": 1500
+    },
+    {
+      "org": "zai-org",
+      "m": "glm",
+      "repo": "zai-org/Glyph",
+      "domain": "text",
+      "date": "2025-10-25",
+      "downloads": 715,
+      "likes": 74
+    },
+    {
+      "org": "zai-org",
+      "m": "glm",
+      "repo": "zai-org/Kaleido-14B-S2V",
+      "domain": "text",
+      "date": "2025-10-27",
+      "downloads": 0,
+      "likes": 20
+    },
+    {
+      "org": "moonshotai",
+      "m": "kimi",
+      "repo": "moonshotai/Kimi-Linear-48B-A3B-Base",
+      "domain": "text",
+      "date": "2025-10-30",
+      "downloads": 2434,
+      "likes": 81
+    },
+    {
+      "org": "moonshotai",
+      "m": "kimi",
+      "repo": "moonshotai/Kimi-Linear-48B-A3B-Instruct",
+      "domain": "text",
+      "date": "2025-10-30",
+      "downloads": 121536,
+      "likes": 574
+    },
+    {
+      "org": "mistralai",
+      "m": "mistral-text",
+      "repo": "mistralai/Ministral-3-14B-Reasoning-2512-GGUF",
+      "domain": "text",
+      "date": "2025-10-31",
+      "downloads": 2953,
+      "likes": 44
+    },
+    {
+      "org": "mistralai",
+      "m": "mistral-text",
+      "repo": "mistralai/Ministral-3-14B-Instruct-2512-GGUF",
+      "domain": "text",
+      "date": "2025-10-31",
+      "downloads": 7904,
+      "likes": 62
+    },
+    {
+      "org": "mistralai",
+      "m": "mistral-text",
+      "repo": "mistralai/Ministral-3-8B-Reasoning-2512-GGUF",
+      "domain": "text",
+      "date": "2025-10-31",
+      "downloads": 2515,
+      "likes": 41
+    },
+    {
+      "org": "mistralai",
+      "m": "mistral-text",
+      "repo": "mistralai/Ministral-3-8B-Instruct-2512-GGUF",
+      "domain": "text",
+      "date": "2025-10-31",
+      "downloads": 8383,
+      "likes": 62
+    },
+    {
+      "org": "mistralai",
+      "m": "mistral-text",
+      "repo": "mistralai/Ministral-3-3B-Reasoning-2512-GGUF",
+      "domain": "text",
+      "date": "2025-10-31",
+      "downloads": 2480,
+      "likes": 41
+    },
+    {
+      "org": "mistralai",
+      "m": "mistral-text",
+      "repo": "mistralai/Ministral-3-3B-Instruct-2512-GGUF",
+      "domain": "text",
+      "date": "2025-10-31",
+      "downloads": 12297,
+      "likes": 71
+    },
+    {
+      "org": "mistralai",
+      "m": "mistral-text",
+      "repo": "mistralai/Ministral-3-3B-Instruct-2512",
+      "domain": "text",
+      "date": "2025-10-31",
+      "downloads": 322387,
+      "likes": 273
+    },
+    {
+      "org": "mistralai",
+      "m": "mistral-text",
+      "repo": "mistralai/Ministral-3-8B-Instruct-2512",
+      "domain": "text",
+      "date": "2025-10-31",
+      "downloads": 70488,
+      "likes": 194
+    },
+    {
+      "org": "mistralai",
+      "m": "mistral-text",
+      "repo": "mistralai/Ministral-3-14B-Instruct-2512",
+      "domain": "text",
+      "date": "2025-10-31",
+      "downloads": 204395,
+      "likes": 313
+    },
+    {
+      "org": "mistralai",
+      "m": "mistral-text",
+      "repo": "mistralai/Ministral-3-14B-Reasoning-2512",
+      "domain": "text",
+      "date": "2025-10-31",
+      "downloads": 21907,
+      "likes": 146
+    },
+    {
+      "org": "mistralai",
+      "m": "mistral-text",
+      "repo": "mistralai/Ministral-3-14B-Instruct-2512-BF16",
+      "domain": "text",
+      "date": "2025-10-31",
+      "downloads": 30224,
+      "likes": 30
+    },
+    {
+      "org": "mistralai",
+      "m": "mistral-text",
+      "repo": "mistralai/Ministral-3-14B-Base-2512",
+      "domain": "text",
+      "date": "2025-10-31",
+      "downloads": 5579,
+      "likes": 60
+    },
+    {
+      "org": "mistralai",
+      "m": "mistral-text",
+      "repo": "mistralai/Ministral-3-8B-Reasoning-2512",
+      "domain": "text",
+      "date": "2025-10-31",
+      "downloads": 24159,
+      "likes": 95
+    },
+    {
+      "org": "mistralai",
+      "m": "mistral-text",
+      "repo": "mistralai/Ministral-3-8B-Instruct-2512-BF16",
+      "domain": "text",
+      "date": "2025-10-31",
+      "downloads": 12894,
+      "likes": 23
+    },
+    {
+      "org": "mistralai",
+      "m": "mistral-text",
+      "repo": "mistralai/Ministral-3-8B-Base-2512",
+      "domain": "text",
+      "date": "2025-10-31",
+      "downloads": 15862,
+      "likes": 48
+    },
+    {
+      "org": "mistralai",
+      "m": "mistral-text",
+      "repo": "mistralai/Ministral-3-3B-Reasoning-2512",
+      "domain": "text",
+      "date": "2025-10-31",
+      "downloads": 118338,
+      "likes": 117
+    },
+    {
+      "org": "mistralai",
+      "m": "mistral-text",
+      "repo": "mistralai/Ministral-3-3B-Instruct-2512-BF16",
+      "domain": "text",
+      "date": "2025-10-31",
+      "downloads": 173590,
+      "likes": 34
+    },
+    {
+      "org": "mistralai",
+      "m": "mistral-text",
+      "repo": "mistralai/Ministral-3-3B-Base-2512",
+      "domain": "text",
+      "date": "2025-10-31",
+      "downloads": 8439,
+      "likes": 73
+    },
+    {
+      "org": "moonshotai",
+      "m": "kimi",
+      "repo": "moonshotai/Kimi-K2-Thinking",
+      "domain": "text",
+      "date": "2025-11-04",
+      "downloads": 45043,
+      "likes": 1714
+    },
+    {
+      "org": "mistralai",
+      "m": "mistral-text",
+      "repo": "mistralai/Mistral-Large-3-675B-Instruct-2512-Eagle",
+      "domain": "text",
+      "date": "2025-11-10",
+      "downloads": 72,
+      "likes": 28
+    },
+    {
+      "org": "zai-org",
+      "m": "glm",
+      "repo": "zai-org/UI2Code_N",
+      "domain": "text",
+      "date": "2025-11-11",
+      "downloads": 345,
+      "likes": 24
+    },
+    {
+      "org": "zai-org",
+      "m": "glm",
+      "repo": "zai-org/WebVIA-Agent",
+      "domain": "text",
+      "date": "2025-11-12",
+      "downloads": 160,
+      "likes": 20
     },
     {
       "org": "tencent",
@@ -845,7 +6110,16 @@
       "domain": "image",
       "date": "2025-11-22",
       "downloads": 996762,
-      "likes": 2007
+      "likes": 2008
+    },
+    {
+      "org": "mistralai",
+      "m": "mistral-text",
+      "repo": "mistralai/Ministral-3-3B-Instruct-2512-ONNX",
+      "domain": "text",
+      "date": "2025-11-24",
+      "downloads": 446,
+      "likes": 32
     },
     {
       "org": "Tongyi-MAI",
@@ -857,6 +6131,15 @@
       "likes": 5101
     },
     {
+      "org": "deepseek-ai",
+      "m": "deepseek",
+      "repo": "deepseek-ai/DeepSeek-Math-V2",
+      "domain": "text",
+      "date": "2025-11-27",
+      "downloads": 453,
+      "likes": 706
+    },
+    {
       "org": "ATH-MaaS",
       "m": "ovis-image",
       "repo": "ATH-MaaS/Ovis-Image-7B",
@@ -866,6 +6149,51 @@
       "likes": 208
     },
     {
+      "org": "deepseek-ai",
+      "m": "deepseek",
+      "repo": "deepseek-ai/DeepSeek-V3.2-Speciale",
+      "domain": "text",
+      "date": "2025-11-28",
+      "downloads": 5447,
+      "likes": 720
+    },
+    {
+      "org": "mistralai",
+      "m": "mistral-text",
+      "repo": "mistralai/Mistral-Large-3-675B-Instruct-2512",
+      "domain": "text",
+      "date": "2025-11-28",
+      "downloads": 1177,
+      "likes": 242
+    },
+    {
+      "org": "mistralai",
+      "m": "mistral-text",
+      "repo": "mistralai/Mistral-Large-3-675B-Instruct-2512-NVFP4",
+      "domain": "text",
+      "date": "2025-11-28",
+      "downloads": 10634,
+      "likes": 60
+    },
+    {
+      "org": "mistralai",
+      "m": "mistral-text",
+      "repo": "mistralai/Devstral-2-123B-Instruct-2512",
+      "domain": "text",
+      "date": "2025-11-28",
+      "downloads": 38043,
+      "likes": 331
+    },
+    {
+      "org": "mistralai",
+      "m": "mistral-text",
+      "repo": "mistralai/Devstral-Small-2-24B-Instruct-2512",
+      "domain": "text",
+      "date": "2025-11-28",
+      "downloads": 186418,
+      "likes": 640
+    },
+    {
       "org": "NewBie-AI",
       "m": "newbie-image",
       "repo": "NewBie-AI/NewBie-image-Exp0.1",
@@ -873,6 +6201,132 @@
       "date": "2025-11-30",
       "downloads": 196,
       "likes": 297
+    },
+    {
+      "org": "mistralai",
+      "m": "mistral-text",
+      "repo": "mistralai/Mistral-Large-3-675B-Base-2512",
+      "domain": "text",
+      "date": "2025-11-30",
+      "downloads": 80,
+      "likes": 45
+    },
+    {
+      "org": "deepseek-ai",
+      "m": "deepseek",
+      "repo": "deepseek-ai/DeepSeek-V3.2",
+      "domain": "text",
+      "date": "2025-12-01",
+      "downloads": 1093344,
+      "likes": 1465
+    },
+    {
+      "org": "Qwen",
+      "m": "qwen-text",
+      "repo": "Qwen/Qwen3-Next-80B-A3B-Thinking-GGUF",
+      "domain": "text",
+      "date": "2025-12-03",
+      "downloads": 2957,
+      "likes": 31
+    },
+    {
+      "org": "Qwen",
+      "m": "qwen-text",
+      "repo": "Qwen/Qwen3-Next-80B-A3B-Instruct-GGUF",
+      "domain": "text",
+      "date": "2025-12-03",
+      "downloads": 27859,
+      "likes": 31
+    },
+    {
+      "org": "zai-org",
+      "m": "glm",
+      "repo": "zai-org/SSVAE",
+      "domain": "text",
+      "date": "2025-12-04",
+      "downloads": 0,
+      "likes": 13
+    },
+    {
+      "org": "zai-org",
+      "m": "glm",
+      "repo": "zai-org/GLM-4.6V-FP8",
+      "domain": "text",
+      "date": "2025-12-07",
+      "downloads": 10269,
+      "likes": 32
+    },
+    {
+      "org": "zai-org",
+      "m": "glm",
+      "repo": "zai-org/GLM-4.6V",
+      "domain": "text",
+      "date": "2025-12-07",
+      "downloads": 9265,
+      "likes": 395
+    },
+    {
+      "org": "zai-org",
+      "m": "glm",
+      "repo": "zai-org/GLM-4.6V-Flash",
+      "domain": "text",
+      "date": "2025-12-07",
+      "downloads": 175202,
+      "likes": 625
+    },
+    {
+      "org": "zai-org",
+      "m": "glm",
+      "repo": "zai-org/SCAIL-Preview",
+      "domain": "text",
+      "date": "2025-12-08",
+      "downloads": 0,
+      "likes": 110
+    },
+    {
+      "org": "zai-org",
+      "m": "glm",
+      "repo": "zai-org/AutoGLM-Phone-9B",
+      "domain": "text",
+      "date": "2025-12-08",
+      "downloads": 23165,
+      "likes": 442
+    },
+    {
+      "org": "zai-org",
+      "m": "glm",
+      "repo": "zai-org/AutoGLM-Phone-9B-Multilingual",
+      "domain": "text",
+      "date": "2025-12-09",
+      "downloads": 395,
+      "likes": 240
+    },
+    {
+      "org": "MiniMaxAI",
+      "m": "minimax-text",
+      "repo": "MiniMaxAI/VTP-Large-f16d64",
+      "domain": "text",
+      "date": "2025-12-16",
+      "downloads": 427,
+      "likes": 17
+    },
+    {
+      "org": "MiniMaxAI",
+      "m": "minimax-text",
+      "repo": "MiniMaxAI/VTP-Base-f16d64",
+      "domain": "text",
+      "date": "2025-12-16",
+      "downloads": 128,
+      "likes": 21
+    },
+    {
+      "org": "MiniMaxAI",
+      "m": "minimax-text",
+      "repo": "MiniMaxAI/VTP-Small-f16d64",
+      "domain": "text",
+      "date": "2025-12-16",
+      "downloads": 140,
+      "likes": 15
     },
     {
       "org": "Qwen",
@@ -890,7 +6344,7 @@
       "domain": "image",
       "date": "2025-12-17",
       "downloads": 185253,
-      "likes": 1257
+      "likes": 1258
     },
     {
       "org": "HiDream-ai",
@@ -900,6 +6354,33 @@
       "date": "2025-12-17",
       "downloads": 0,
       "likes": 22
+    },
+    {
+      "org": "MiniMaxAI",
+      "m": "minimax-text",
+      "repo": "MiniMaxAI/MiniMax-M2.1",
+      "domain": "text",
+      "date": "2025-12-20",
+      "downloads": 15808,
+      "likes": 1358
+    },
+    {
+      "org": "zai-org",
+      "m": "glm",
+      "repo": "zai-org/GLM-4.7-FP8",
+      "domain": "text",
+      "date": "2025-12-22",
+      "downloads": 29361,
+      "likes": 125
+    },
+    {
+      "org": "zai-org",
+      "m": "glm",
+      "repo": "zai-org/GLM-4.7",
+      "domain": "text",
+      "date": "2025-12-22",
+      "downloads": 67332,
+      "likes": 2052
     },
     {
       "org": "Qwen",
@@ -917,7 +6398,7 @@
       "domain": "image",
       "date": "2025-12-31",
       "downloads": 5913,
-      "likes": 100
+      "likes": 101
     },
     {
       "org": "black-forest-labs",
@@ -947,6 +6428,15 @@
       "likes": 14
     },
     {
+      "org": "moonshotai",
+      "m": "kimi",
+      "repo": "moonshotai/Kimi-K2.5",
+      "domain": "text",
+      "date": "2026-01-01",
+      "downloads": 855995,
+      "likes": 2863
+    },
+    {
       "org": "Lightricks",
       "m": "ltx",
       "repo": "Lightricks/LTX-2",
@@ -971,7 +6461,7 @@
       "domain": "image",
       "date": "2026-01-14",
       "downloads": 354074,
-      "likes": 846
+      "likes": 847
     },
     {
       "org": "black-forest-labs",
@@ -1028,13 +6518,40 @@
       "likes": 16
     },
     {
+      "org": "zai-org",
+      "m": "glm",
+      "repo": "zai-org/GLM-4.7-Flash",
+      "domain": "text",
+      "date": "2026-01-19",
+      "downloads": 1865359,
+      "likes": 1806
+    },
+    {
+      "org": "mistralai",
+      "m": "mistral-text",
+      "repo": "mistralai/Voxtral-Mini-4B-Realtime-2602",
+      "domain": "text",
+      "date": "2026-01-21",
+      "downloads": 2149554,
+      "likes": 942
+    },
+    {
       "org": "Tongyi-MAI",
       "m": "z-image",
       "repo": "Tongyi-MAI/Z-Image",
       "domain": "image",
       "date": "2026-01-23",
       "downloads": 22210,
-      "likes": 1201
+      "likes": 1202
+    },
+    {
+      "org": "mistralai",
+      "m": "mistral-text",
+      "repo": "mistralai/Mistral-Small-4-119B-2603",
+      "domain": "text",
+      "date": "2026-01-23",
+      "downloads": 136567,
+      "likes": 414
     },
     {
       "org": "tencent",
@@ -1046,6 +6563,24 @@
       "likes": 66
     },
     {
+      "org": "deepseek-ai",
+      "m": "deepseek",
+      "repo": "deepseek-ai/DeepSeek-OCR-2",
+      "domain": "text",
+      "date": "2026-01-27",
+      "downloads": 1458376,
+      "likes": 1074
+    },
+    {
+      "org": "Qwen",
+      "m": "qwen-text",
+      "repo": "Qwen/Qwen3-ForcedAligner-0.6B",
+      "domain": "text",
+      "date": "2026-01-28",
+      "downloads": 395246,
+      "likes": 151
+    },
+    {
       "org": "circlestone-labs",
       "m": "anima",
       "repo": "circlestone-labs/Anima",
@@ -1053,6 +6588,159 @@
       "date": "2026-01-29",
       "downloads": 747839,
       "likes": 2041
+    },
+    {
+      "org": "Qwen",
+      "m": "qwen-text",
+      "repo": "Qwen/Qwen3-Coder-Next",
+      "domain": "text",
+      "date": "2026-01-30",
+      "downloads": 514709,
+      "likes": 1580
+    },
+    {
+      "org": "zai-org",
+      "m": "glm",
+      "repo": "zai-org/GLM-OCR",
+      "domain": "text",
+      "date": "2026-01-30",
+      "downloads": 3346606,
+      "likes": 1975
+    },
+    {
+      "org": "Qwen",
+      "m": "qwen-text",
+      "repo": "Qwen/Qwen3-Coder-Next-Base",
+      "domain": "text",
+      "date": "2026-02-01",
+      "downloads": 7941,
+      "likes": 70
+    },
+    {
+      "org": "Qwen",
+      "m": "qwen-text",
+      "repo": "Qwen/Qwen3-Coder-Next-FP8",
+      "domain": "text",
+      "date": "2026-02-01",
+      "downloads": 1474734,
+      "likes": 168
+    },
+    {
+      "org": "Qwen",
+      "m": "qwen-text",
+      "repo": "Qwen/Qwen3-Coder-Next-GGUF",
+      "domain": "text",
+      "date": "2026-02-02",
+      "downloads": 23442,
+      "likes": 274
+    },
+    {
+      "org": "zai-org",
+      "m": "glm",
+      "repo": "zai-org/GLM-5",
+      "domain": "text",
+      "date": "2026-02-11",
+      "downloads": 113139,
+      "likes": 2119
+    },
+    {
+      "org": "zai-org",
+      "m": "glm",
+      "repo": "zai-org/GLM-5-FP8",
+      "domain": "text",
+      "date": "2026-02-11",
+      "downloads": 911703,
+      "likes": 182
+    },
+    {
+      "org": "MiniMaxAI",
+      "m": "minimax-text",
+      "repo": "MiniMaxAI/MiniMax-M2.5",
+      "domain": "text",
+      "date": "2026-02-12",
+      "downloads": 699232,
+      "likes": 1502
+    },
+    {
+      "org": "Qwen",
+      "m": "qwen-text",
+      "repo": "Qwen/WebWorld-32B",
+      "domain": "text",
+      "date": "2026-02-13",
+      "downloads": 457,
+      "likes": 76
+    },
+    {
+      "org": "Qwen",
+      "m": "qwen-text",
+      "repo": "Qwen/WebWorld-14B",
+      "domain": "text",
+      "date": "2026-02-13",
+      "downloads": 525,
+      "likes": 29
+    },
+    {
+      "org": "Qwen",
+      "m": "qwen-text",
+      "repo": "Qwen/WebWorld-8B",
+      "domain": "text",
+      "date": "2026-02-13",
+      "downloads": 683,
+      "likes": 65
+    },
+    {
+      "org": "Qwen",
+      "m": "qwen-text",
+      "repo": "Qwen/Qwen3.5-397B-A17B",
+      "domain": "text",
+      "date": "2026-02-16",
+      "downloads": 315709,
+      "likes": 1550
+    },
+    {
+      "org": "Qwen",
+      "m": "qwen-text",
+      "repo": "Qwen/Qwen3.5-397B-A17B-FP8",
+      "domain": "text",
+      "date": "2026-02-18",
+      "downloads": 835774,
+      "likes": 182
+    },
+    {
+      "org": "Qwen",
+      "m": "qwen-text",
+      "repo": "Qwen/Qwen3.5-122B-A10B",
+      "domain": "text",
+      "date": "2026-02-24",
+      "downloads": 2136969,
+      "likes": 605
+    },
+    {
+      "org": "Qwen",
+      "m": "qwen-text",
+      "repo": "Qwen/Qwen3.5-35B-A3B-Base",
+      "domain": "text",
+      "date": "2026-02-24",
+      "downloads": 156535,
+      "likes": 140
+    },
+    {
+      "org": "Qwen",
+      "m": "qwen-text",
+      "repo": "Qwen/Qwen3.5-27B",
+      "domain": "text",
+      "date": "2026-02-24",
+      "downloads": 2514731,
+      "likes": 1029
+    },
+    {
+      "org": "Qwen",
+      "m": "qwen-text",
+      "repo": "Qwen/Qwen3.5-35B-A3B",
+      "domain": "text",
+      "date": "2026-02-24",
+      "downloads": 2093399,
+      "likes": 1484
     },
     {
       "org": "stabilityai",
@@ -1073,6 +6761,150 @@
       "likes": 2
     },
     {
+      "org": "Qwen",
+      "m": "qwen-text",
+      "repo": "Qwen/Qwen3.5-35B-A3B-FP8",
+      "domain": "text",
+      "date": "2026-02-25",
+      "downloads": 943547,
+      "likes": 153
+    },
+    {
+      "org": "Qwen",
+      "m": "qwen-text",
+      "repo": "Qwen/Qwen3.5-27B-FP8",
+      "domain": "text",
+      "date": "2026-02-25",
+      "downloads": 700414,
+      "likes": 137
+    },
+    {
+      "org": "Qwen",
+      "m": "qwen-text",
+      "repo": "Qwen/Qwen3.5-122B-A10B-FP8",
+      "domain": "text",
+      "date": "2026-02-25",
+      "downloads": 1338814,
+      "likes": 112
+    },
+    {
+      "org": "Qwen",
+      "m": "qwen-text",
+      "repo": "Qwen/Qwen3.5-9B-Base",
+      "domain": "text",
+      "date": "2026-02-26",
+      "downloads": 331033,
+      "likes": 98
+    },
+    {
+      "org": "Qwen",
+      "m": "qwen-text",
+      "repo": "Qwen/Qwen3.5-4B",
+      "domain": "text",
+      "date": "2026-02-27",
+      "downloads": 6645412,
+      "likes": 803
+    },
+    {
+      "org": "Qwen",
+      "m": "qwen-text",
+      "repo": "Qwen/Qwen3.5-4B-Base",
+      "domain": "text",
+      "date": "2026-02-27",
+      "downloads": 219907,
+      "likes": 79
+    },
+    {
+      "org": "Qwen",
+      "m": "qwen-text",
+      "repo": "Qwen/Qwen3.5-9B",
+      "domain": "text",
+      "date": "2026-02-27",
+      "downloads": 12423514,
+      "likes": 1802
+    },
+    {
+      "org": "Qwen",
+      "m": "qwen-text",
+      "repo": "Qwen/Qwen3.5-0.8B-Base",
+      "domain": "text",
+      "date": "2026-02-28",
+      "downloads": 832016,
+      "likes": 92
+    },
+    {
+      "org": "Qwen",
+      "m": "qwen-text",
+      "repo": "Qwen/Qwen3.5-2B-Base",
+      "domain": "text",
+      "date": "2026-02-28",
+      "downloads": 871704,
+      "likes": 82
+    },
+    {
+      "org": "Qwen",
+      "m": "qwen-text",
+      "repo": "Qwen/Qwen3.5-0.8B",
+      "domain": "text",
+      "date": "2026-02-28",
+      "downloads": 2795693,
+      "likes": 657
+    },
+    {
+      "org": "Qwen",
+      "m": "qwen-text",
+      "repo": "Qwen/Qwen3.5-2B",
+      "domain": "text",
+      "date": "2026-02-28",
+      "downloads": 2655265,
+      "likes": 354
+    },
+    {
+      "org": "Qwen",
+      "m": "qwen-text",
+      "repo": "Qwen/Qwen3.5-35B-A3B-GPTQ-Int4",
+      "domain": "text",
+      "date": "2026-03-03",
+      "downloads": 405476,
+      "likes": 92
+    },
+    {
+      "org": "Qwen",
+      "m": "qwen-text",
+      "repo": "Qwen/Qwen3.5-27B-GPTQ-Int4",
+      "domain": "text",
+      "date": "2026-03-03",
+      "downloads": 107680,
+      "likes": 57
+    },
+    {
+      "org": "Qwen",
+      "m": "qwen-text",
+      "repo": "Qwen/Qwen3.5-397B-A17B-GPTQ-Int4",
+      "domain": "text",
+      "date": "2026-03-03",
+      "downloads": 21029,
+      "likes": 35
+    },
+    {
+      "org": "Qwen",
+      "m": "qwen-text",
+      "repo": "Qwen/Qwen3.5-122B-A10B-GPTQ-Int4",
+      "domain": "text",
+      "date": "2026-03-03",
+      "downloads": 550413,
+      "likes": 48
+    },
+    {
+      "org": "mistralai",
+      "m": "mistral-text",
+      "repo": "mistralai/Mistral-Small-4-119B-2603-NVFP4",
+      "domain": "text",
+      "date": "2026-03-03",
+      "downloads": 3971,
+      "likes": 111
+    },
+    {
       "org": "Lightricks",
       "m": "ltx",
       "repo": "Lightricks/LTX-2.3",
@@ -1080,6 +6912,24 @@
       "date": "2026-03-04",
       "downloads": 1611689,
       "likes": 1790
+    },
+    {
+      "org": "mistralai",
+      "m": "mistral-text",
+      "repo": "mistralai/Mistral-Small-4-119B-2603-eagle",
+      "domain": "text",
+      "date": "2026-03-04",
+      "downloads": 3065,
+      "likes": 57
+    },
+    {
+      "org": "mistralai",
+      "m": "mistral-text",
+      "repo": "mistralai/Leanstral-2603",
+      "domain": "text",
+      "date": "2026-03-11",
+      "downloads": 83,
+      "likes": 168
     },
     {
       "org": "nvidia",
@@ -1100,6 +6950,15 @@
       "likes": 47
     },
     {
+      "org": "mistralai",
+      "m": "mistral-text",
+      "repo": "mistralai/Mistral-Medium-3.5-128B",
+      "domain": "text",
+      "date": "2026-03-31",
+      "downloads": 80744,
+      "likes": 418
+    },
+    {
       "org": "baidu",
       "m": "ernie-image",
       "repo": "baidu/ERNIE-Image-Turbo",
@@ -1109,6 +6968,24 @@
       "likes": 403
     },
     {
+      "org": "zai-org",
+      "m": "glm",
+      "repo": "zai-org/GLM-5.1-FP8",
+      "domain": "text",
+      "date": "2026-04-03",
+      "downloads": 459945,
+      "likes": 120
+    },
+    {
+      "org": "zai-org",
+      "m": "glm",
+      "repo": "zai-org/GLM-5.1",
+      "domain": "text",
+      "date": "2026-04-03",
+      "downloads": 68363,
+      "likes": 1839
+    },
+    {
       "org": "baidu",
       "m": "ernie-image",
       "repo": "baidu/ERNIE-Image",
@@ -1116,6 +6993,231 @@
       "date": "2026-04-07",
       "downloads": 1868,
       "likes": 670
+    },
+    {
+      "org": "MiniMaxAI",
+      "m": "minimax-text",
+      "repo": "MiniMaxAI/MiniMax-M2.7",
+      "domain": "text",
+      "date": "2026-04-09",
+      "downloads": 861627,
+      "likes": 1237
+    },
+    {
+      "org": "moonshotai",
+      "m": "kimi",
+      "repo": "moonshotai/Kimi-K2.6",
+      "domain": "text",
+      "date": "2026-04-14",
+      "downloads": 785559,
+      "likes": 1586
+    },
+    {
+      "org": "Qwen",
+      "m": "qwen-text",
+      "repo": "Qwen/Qwen3.6-35B-A3B-FP8",
+      "domain": "text",
+      "date": "2026-04-15",
+      "downloads": 9469365,
+      "likes": 344
+    },
+    {
+      "org": "Qwen",
+      "m": "qwen-text",
+      "repo": "Qwen/Qwen3.6-35B-A3B",
+      "domain": "text",
+      "date": "2026-04-15",
+      "downloads": 5311070,
+      "likes": 2663
+    },
+    {
+      "org": "Qwen",
+      "m": "qwen-text",
+      "repo": "Qwen/Qwen3.6-27B-FP8",
+      "domain": "text",
+      "date": "2026-04-21",
+      "downloads": 7946833,
+      "likes": 342
+    },
+    {
+      "org": "Qwen",
+      "m": "qwen-text",
+      "repo": "Qwen/Qwen3.6-27B",
+      "domain": "text",
+      "date": "2026-04-21",
+      "downloads": 6577318,
+      "likes": 2227
+    },
+    {
+      "org": "deepseek-ai",
+      "m": "deepseek",
+      "repo": "deepseek-ai/DeepSeek-V4-Pro",
+      "domain": "text",
+      "date": "2026-04-22",
+      "downloads": 1411583,
+      "likes": 5398
+    },
+    {
+      "org": "deepseek-ai",
+      "m": "deepseek",
+      "repo": "deepseek-ai/DeepSeek-V4-Pro-Base",
+      "domain": "text",
+      "date": "2026-04-22",
+      "downloads": 14769,
+      "likes": 326
+    },
+    {
+      "org": "deepseek-ai",
+      "m": "deepseek",
+      "repo": "deepseek-ai/DeepSeek-V4-Flash",
+      "domain": "text",
+      "date": "2026-04-22",
+      "downloads": 2283943,
+      "likes": 2080
+    },
+    {
+      "org": "deepseek-ai",
+      "m": "deepseek",
+      "repo": "deepseek-ai/DeepSeek-V4-Flash-Base",
+      "domain": "text",
+      "date": "2026-04-22",
+      "downloads": 344747,
+      "likes": 291
+    },
+    {
+      "org": "Qwen",
+      "m": "qwen-text",
+      "repo": "Qwen/SAE-Res-Qwen3.5-35B-A3B-Base-W128K-L0_100",
+      "domain": "text",
+      "date": "2026-04-27",
+      "downloads": 161,
+      "likes": 9
+    },
+    {
+      "org": "Qwen",
+      "m": "qwen-text",
+      "repo": "Qwen/SAE-Res-Qwen3.5-35B-A3B-Base-W32K-L0_50",
+      "domain": "text",
+      "date": "2026-04-27",
+      "downloads": 125,
+      "likes": 9
+    },
+    {
+      "org": "Qwen",
+      "m": "qwen-text",
+      "repo": "Qwen/SAE-Res-Qwen3-30B-A3B-Base-W128K-L0_100",
+      "domain": "text",
+      "date": "2026-04-27",
+      "downloads": 102,
+      "likes": 4
+    },
+    {
+      "org": "Qwen",
+      "m": "qwen-text",
+      "repo": "Qwen/SAE-Res-Qwen3-30B-A3B-Base-W32K-L0_50",
+      "domain": "text",
+      "date": "2026-04-27",
+      "downloads": 96,
+      "likes": 3
+    },
+    {
+      "org": "Qwen",
+      "m": "qwen-text",
+      "repo": "Qwen/SAE-Res-Qwen3.5-27B-W80K-L0_100",
+      "domain": "text",
+      "date": "2026-04-27",
+      "downloads": 136,
+      "likes": 13
+    },
+    {
+      "org": "Qwen",
+      "m": "qwen-text",
+      "repo": "Qwen/SAE-Res-Qwen3.5-27B-W80K-L0_50",
+      "domain": "text",
+      "date": "2026-04-27",
+      "downloads": 6072,
+      "likes": 38
+    },
+    {
+      "org": "Qwen",
+      "m": "qwen-text",
+      "repo": "Qwen/SAE-Res-Qwen3.5-9B-Base-W64K-L0_100",
+      "domain": "text",
+      "date": "2026-04-27",
+      "downloads": 178,
+      "likes": 7
+    },
+    {
+      "org": "Qwen",
+      "m": "qwen-text",
+      "repo": "Qwen/SAE-Res-Qwen3.5-9B-Base-W64K-L0_50",
+      "domain": "text",
+      "date": "2026-04-27",
+      "downloads": 221,
+      "likes": 10
+    },
+    {
+      "org": "Qwen",
+      "m": "qwen-text",
+      "repo": "Qwen/SAE-Res-Qwen3.5-2B-Base-W32K-L0_100",
+      "domain": "text",
+      "date": "2026-04-27",
+      "downloads": 141,
+      "likes": 5
+    },
+    {
+      "org": "Qwen",
+      "m": "qwen-text",
+      "repo": "Qwen/SAE-Res-Qwen3.5-2B-Base-W32K-L0_50",
+      "domain": "text",
+      "date": "2026-04-27",
+      "downloads": 174,
+      "likes": 14
+    },
+    {
+      "org": "Qwen",
+      "m": "qwen-text",
+      "repo": "Qwen/SAE-Res-Qwen3-8B-Base-W64K-L0_100",
+      "domain": "text",
+      "date": "2026-04-27",
+      "downloads": 314,
+      "likes": 7
+    },
+    {
+      "org": "Qwen",
+      "m": "qwen-text",
+      "repo": "Qwen/SAE-Res-Qwen3-8B-Base-W64K-L0_50",
+      "domain": "text",
+      "date": "2026-04-27",
+      "downloads": 858,
+      "likes": 6
+    },
+    {
+      "org": "Qwen",
+      "m": "qwen-text",
+      "repo": "Qwen/SAE-Res-Qwen3-1.7B-Base-W32K-L0_100",
+      "domain": "text",
+      "date": "2026-04-27",
+      "downloads": 170,
+      "likes": 4
+    },
+    {
+      "org": "Qwen",
+      "m": "qwen-text",
+      "repo": "Qwen/SAE-Res-Qwen3-1.7B-Base-W32K-L0_50",
+      "domain": "text",
+      "date": "2026-04-27",
+      "downloads": 660,
+      "likes": 5
+    },
+    {
+      "org": "mistralai",
+      "m": "mistral-text",
+      "repo": "mistralai/Mistral-Medium-3.5-128B-EAGLE",
+      "domain": "text",
+      "date": "2026-04-27",
+      "downloads": 175,
+      "likes": 57
     },
     {
       "org": "stabilityai",
@@ -1151,7 +7253,7 @@
       "domain": "image",
       "date": "2026-05-08",
       "downloads": 7766,
-      "likes": 519
+      "likes": 520
     },
     {
       "org": "nvidia",
@@ -1217,6 +7319,24 @@
       "likes": 454
     },
     {
+      "org": "MiniMaxAI",
+      "m": "minimax-text",
+      "repo": "MiniMaxAI/MiniMax-M3-MXFP8",
+      "domain": "text",
+      "date": "2026-06-02",
+      "downloads": 474056,
+      "likes": 51
+    },
+    {
+      "org": "MiniMaxAI",
+      "m": "minimax-text",
+      "repo": "MiniMaxAI/MiniMax-M3",
+      "domain": "text",
+      "date": "2026-06-02",
+      "downloads": 156125,
+      "likes": 1449
+    },
+    {
       "org": "nvidia",
       "m": "pixeldit",
       "repo": "nvidia/NL-Diffusion-Image",
@@ -1224,6 +7344,33 @@
       "date": "2026-06-03",
       "downloads": 116,
       "likes": 12
+    },
+    {
+      "org": "zai-org",
+      "m": "glm",
+      "repo": "zai-org/SCAIL-2",
+      "domain": "text",
+      "date": "2026-06-09",
+      "downloads": 1908,
+      "likes": 326
+    },
+    {
+      "org": "moonshotai",
+      "m": "kimi",
+      "repo": "moonshotai/Kimi-K2.7-Code",
+      "domain": "text",
+      "date": "2026-06-11",
+      "downloads": 644787,
+      "likes": 1355
+    },
+    {
+      "org": "moonshotai",
+      "m": "kimi",
+      "repo": "moonshotai/Kimi-K3",
+      "domain": "text",
+      "date": "2026-06-13",
+      "downloads": 1565484,
+      "likes": 10497
     },
     {
       "org": "Boogu",
@@ -1253,6 +7400,24 @@
       "likes": 70
     },
     {
+      "org": "zai-org",
+      "m": "glm",
+      "repo": "zai-org/GLM-5.2",
+      "domain": "text",
+      "date": "2026-06-16",
+      "downloads": 2517575,
+      "likes": 4926
+    },
+    {
+      "org": "zai-org",
+      "m": "glm",
+      "repo": "zai-org/GLM-5.2-FP8",
+      "domain": "text",
+      "date": "2026-06-16",
+      "downloads": 2028218,
+      "likes": 249
+    },
+    {
       "org": "Boogu",
       "m": "boogu-image",
       "repo": "Boogu/Boogu-Image-0.0-Base-exp-pt",
@@ -1271,6 +7436,141 @@
       "likes": 4
     },
     {
+      "org": "Qwen",
+      "m": "qwen-text",
+      "repo": "Qwen/Qwen-AgentWorld-35B-A3B",
+      "domain": "text",
+      "date": "2026-06-22",
+      "downloads": 66831,
+      "likes": 667
+    },
+    {
+      "org": "deepseek-ai",
+      "m": "deepseek",
+      "repo": "deepseek-ai/DeepSeek-V4-Pro-DSpark",
+      "domain": "text",
+      "date": "2026-06-27",
+      "downloads": 25090,
+      "likes": 537
+    },
+    {
+      "org": "deepseek-ai",
+      "m": "deepseek",
+      "repo": "deepseek-ai/DeepSeek-V4-Flash-DSpark",
+      "domain": "text",
+      "date": "2026-06-27",
+      "downloads": 481630,
+      "likes": 247
+    },
+    {
+      "org": "deepseek-ai",
+      "m": "deepseek",
+      "repo": "deepseek-ai/eagle3_gemma4_12b_ttt7",
+      "domain": "text",
+      "date": "2026-06-28",
+      "downloads": 365,
+      "likes": 11
+    },
+    {
+      "org": "deepseek-ai",
+      "m": "deepseek",
+      "repo": "deepseek-ai/eagle3_qwen3_14b_ttt7",
+      "domain": "text",
+      "date": "2026-06-28",
+      "downloads": 256,
+      "likes": 2
+    },
+    {
+      "org": "deepseek-ai",
+      "m": "deepseek",
+      "repo": "deepseek-ai/eagle3_qwen3_8b_ttt7",
+      "domain": "text",
+      "date": "2026-06-28",
+      "downloads": 430,
+      "likes": 3
+    },
+    {
+      "org": "deepseek-ai",
+      "m": "deepseek",
+      "repo": "deepseek-ai/eagle3_qwen3_4b_ttt7",
+      "domain": "text",
+      "date": "2026-06-28",
+      "downloads": 539,
+      "likes": 3
+    },
+    {
+      "org": "deepseek-ai",
+      "m": "deepseek",
+      "repo": "deepseek-ai/dflash_gemma4_12b_block7",
+      "domain": "text",
+      "date": "2026-06-28",
+      "downloads": 336,
+      "likes": 7
+    },
+    {
+      "org": "deepseek-ai",
+      "m": "deepseek",
+      "repo": "deepseek-ai/dflash_qwen3_14b_block7",
+      "domain": "text",
+      "date": "2026-06-28",
+      "downloads": 505,
+      "likes": 6
+    },
+    {
+      "org": "deepseek-ai",
+      "m": "deepseek",
+      "repo": "deepseek-ai/dflash_qwen3_8b_block7",
+      "domain": "text",
+      "date": "2026-06-28",
+      "downloads": 803,
+      "likes": 4
+    },
+    {
+      "org": "deepseek-ai",
+      "m": "deepseek",
+      "repo": "deepseek-ai/dflash_qwen3_4b_block7",
+      "domain": "text",
+      "date": "2026-06-28",
+      "downloads": 1428,
+      "likes": 2
+    },
+    {
+      "org": "deepseek-ai",
+      "m": "deepseek",
+      "repo": "deepseek-ai/dspark_gemma4_12b_block7",
+      "domain": "text",
+      "date": "2026-06-28",
+      "downloads": 1918,
+      "likes": 42
+    },
+    {
+      "org": "deepseek-ai",
+      "m": "deepseek",
+      "repo": "deepseek-ai/dspark_qwen3_14b_block7",
+      "domain": "text",
+      "date": "2026-06-28",
+      "downloads": 2244,
+      "likes": 13
+    },
+    {
+      "org": "deepseek-ai",
+      "m": "deepseek",
+      "repo": "deepseek-ai/dspark_qwen3_8b_block7",
+      "domain": "text",
+      "date": "2026-06-28",
+      "downloads": 4556,
+      "likes": 14
+    },
+    {
+      "org": "deepseek-ai",
+      "m": "deepseek",
+      "repo": "deepseek-ai/dspark_qwen3_4b_block7",
+      "domain": "text",
+      "date": "2026-06-28",
+      "downloads": 5170,
+      "likes": 41
+    },
+    {
       "org": "Boogu",
       "m": "boogu-image",
       "repo": "Boogu/Boogu-Image-0.1-Edit-Turbo",
@@ -1287,6 +7587,15 @@
       "date": "2026-07-01",
       "downloads": 1014,
       "likes": 85
+    },
+    {
+      "org": "mistralai",
+      "m": "mistral-text",
+      "repo": "mistralai/Leanstral-1.5-119B-A6B",
+      "domain": "text",
+      "date": "2026-07-01",
+      "downloads": 291,
+      "likes": 212
     },
     {
       "org": "nvidia",
@@ -1322,7 +7631,34 @@
       "domain": "video",
       "date": "2026-07-14",
       "downloads": 0,
-      "likes": 84
+      "likes": 87
+    },
+    {
+      "org": "mistralai",
+      "m": "mistral-text",
+      "repo": "mistralai/Shieldstral-1.0-3B",
+      "domain": "text",
+      "date": "2026-07-16",
+      "downloads": 6769,
+      "likes": 225
+    },
+    {
+      "org": "MiniMaxAI",
+      "m": "minimax-text",
+      "repo": "MiniMaxAI/MiniMax-H3",
+      "domain": "text",
+      "date": "2026-07-28",
+      "downloads": 59368,
+      "likes": 3509
+    },
+    {
+      "org": "deepseek-ai",
+      "m": "deepseek",
+      "repo": "deepseek-ai/DeepSeek-V4-Flash-0731",
+      "domain": "text",
+      "date": "2026-07-31",
+      "downloads": 1048685,
+      "likes": 3112
     }
   ]
 }
