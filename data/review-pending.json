@@ -1,0 +1,16 @@
+{
+  "$note": "人审认可、但**信息不够落库**的条目。它是采集单，不是数据 —— 不要读进前端。",
+  "rows": [
+    {
+      "id": "2026-08-07::kling-api-updates::kling 3.0 turbo::new-model::Kling 3.0 Turbo 模型正式发布（K",
+      "at": "2026-08-11 09:13:21",
+      "who": "刘振海",
+      "claim": "Kling 3.0 Turbo 模型正式发布（Kling 3.0 Turbo Officially Released）",
+      "quote": "Kling 3.0 Turbo Officially Released",
+      "source": "kling-api-updates",
+      "missing": [
+        "没落到具体能力上"
+      ]
+    }
+  ]
+}

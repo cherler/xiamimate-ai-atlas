@@ -1,0 +1,16 @@
+{
+  "$note": "人审流水，**只增不改**。git commit 是 Revision，diff 是 ChangeEvent（§59.4.c）。",
+  "rows": [
+    {
+      "id": "2026-08-07::kling-api-updates::kling 3.0 turbo::new-model::Kling 3.0 Turbo 模型正式发布（K",
+      "at": "2026-08-11 09:13:21",
+      "who": "刘振海",
+      "verdict": "pass-pending",
+      "why": "",
+      "claim": "Kling 3.0 Turbo 模型正式发布（Kling 3.0 Turbo Officially Released）",
+      "missing": [
+        "没落到具体能力上"
+      ]
+    }
+  ]
+}
