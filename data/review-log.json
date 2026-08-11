@@ -55,6 +55,17 @@
       "missing": [
         "库里没有这条产品线（要先建实体：公司 / 轨 / 层级 / 架构依据）"
       ]
+    },
+    {
+      "id": "2026-08-07::vidu-changelog::viduq3-turbo::i2v::viduq3-turbo 模型支持 image2",
+      "at": "2026-08-11 12:28:30",
+      "who": "admin",
+      "verdict": "pass-pending",
+      "why": "",
+      "claim": "viduq3-turbo 模型支持 image2video",
+      "missing": [
+        "库里没有这条产品线（要先建实体：公司 / 轨 / 层级 / 架构依据）"
+      ]
     }
   ]
 }
