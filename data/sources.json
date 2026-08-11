@@ -2161,6 +2161,306 @@
         "capability"
       ],
       "note": "**抓到了但没内容**：整站 SPA，纯 HTTP 拿到的只有标题「MiniMax-与用户共创智能」。这一列的 ⬜ 是我们读不到，不是它没有。"
+    },
+    {
+      "id": "langchain-gh",
+      "tier": "S",
+      "kind": "json",
+      "vendor": "langchain-ai",
+      "name": "LangChain · 官方仓库",
+      "url": "https://github.com/langchain-ai/langchain",
+      "refresh_days": 30,
+      "good_for": [
+        "opensource"
+      ]
+    },
+    {
+      "id": "langgraph-gh",
+      "tier": "S",
+      "kind": "json",
+      "vendor": "langchain-ai",
+      "name": "LangGraph · 官方仓库",
+      "url": "https://github.com/langchain-ai/langgraph",
+      "refresh_days": 30,
+      "good_for": [
+        "opensource"
+      ]
+    },
+    {
+      "id": "llamaindex-gh",
+      "tier": "S",
+      "kind": "json",
+      "vendor": "run-llama",
+      "name": "LlamaIndex · 官方仓库",
+      "url": "https://github.com/run-llama/llama_index",
+      "refresh_days": 30,
+      "good_for": [
+        "opensource"
+      ]
+    },
+    {
+      "id": "vllm-gh",
+      "tier": "S",
+      "kind": "json",
+      "vendor": "vllm-project",
+      "name": "vLLM · 官方仓库",
+      "url": "https://github.com/vllm-project/vllm",
+      "refresh_days": 30,
+      "good_for": [
+        "opensource"
+      ]
+    },
+    {
+      "id": "llamacpp-gh",
+      "tier": "S",
+      "kind": "json",
+      "vendor": "ggml-org",
+      "name": "llama.cpp · 官方仓库",
+      "url": "https://github.com/ggml-org/llama.cpp",
+      "refresh_days": 30,
+      "good_for": [
+        "opensource"
+      ]
+    },
+    {
+      "id": "ollama-gh",
+      "tier": "S",
+      "kind": "json",
+      "vendor": "ollama",
+      "name": "Ollama · 官方仓库",
+      "url": "https://github.com/ollama/ollama",
+      "refresh_days": 30,
+      "good_for": [
+        "opensource"
+      ]
+    },
+    {
+      "id": "ragflow-gh",
+      "tier": "S",
+      "kind": "json",
+      "vendor": "infiniflow",
+      "name": "RAGFlow · 官方仓库",
+      "url": "https://github.com/infiniflow/ragflow",
+      "refresh_days": 30,
+      "good_for": [
+        "opensource"
+      ]
+    },
+    {
+      "id": "dify-gh",
+      "tier": "S",
+      "kind": "json",
+      "vendor": "langgenius",
+      "name": "Dify · 官方仓库",
+      "url": "https://github.com/langgenius/dify",
+      "refresh_days": 30,
+      "good_for": [
+        "opensource"
+      ]
+    },
+    {
+      "id": "n8n-gh",
+      "tier": "S",
+      "kind": "json",
+      "vendor": "n8n-io",
+      "name": "n8n · 官方仓库",
+      "url": "https://github.com/n8n-io/n8n",
+      "refresh_days": 30,
+      "good_for": [
+        "opensource"
+      ]
+    },
+    {
+      "id": "openwebui-gh",
+      "tier": "S",
+      "kind": "json",
+      "vendor": "open-webui",
+      "name": "Open WebUI · 官方仓库",
+      "url": "https://github.com/open-webui/open-webui",
+      "refresh_days": 30,
+      "good_for": [
+        "opensource"
+      ]
+    },
+    {
+      "id": "autogen-gh",
+      "tier": "S",
+      "kind": "json",
+      "vendor": "microsoft",
+      "name": "AutoGen · 官方仓库",
+      "url": "https://github.com/microsoft/autogen",
+      "refresh_days": 30,
+      "good_for": [
+        "opensource"
+      ]
+    },
+    {
+      "id": "crewai-gh",
+      "tier": "S",
+      "kind": "json",
+      "vendor": "crewaiinc",
+      "name": "CrewAI · 官方仓库",
+      "url": "https://github.com/crewAIInc/crewAI",
+      "refresh_days": 30,
+      "good_for": [
+        "opensource"
+      ]
+    },
+    {
+      "id": "litellm-gh",
+      "tier": "S",
+      "kind": "json",
+      "vendor": "berriai",
+      "name": "LiteLLM · 官方仓库",
+      "url": "https://github.com/BerriAI/litellm",
+      "refresh_days": 30,
+      "good_for": [
+        "opensource"
+      ]
+    },
+    {
+      "id": "transformers-gh",
+      "tier": "S",
+      "kind": "json",
+      "vendor": "huggingface",
+      "name": "Transformers · 官方仓库",
+      "url": "https://github.com/huggingface/transformers",
+      "refresh_days": 30,
+      "good_for": [
+        "opensource"
+      ]
+    },
+    {
+      "id": "unsloth-gh",
+      "tier": "S",
+      "kind": "json",
+      "vendor": "unslothai",
+      "name": "Unsloth · 官方仓库",
+      "url": "https://github.com/unslothai/unsloth",
+      "refresh_days": 30,
+      "good_for": [
+        "opensource"
+      ]
+    },
+    {
+      "id": "llamafactory-gh",
+      "tier": "S",
+      "kind": "json",
+      "vendor": "hiyouga",
+      "name": "LLaMA-Factory · 官方仓库",
+      "url": "https://github.com/hiyouga/LlamaFactory",
+      "refresh_days": 30,
+      "good_for": [
+        "opensource"
+      ]
+    },
+    {
+      "id": "aider-gh",
+      "tier": "S",
+      "kind": "json",
+      "vendor": "aider-ai",
+      "name": "Aider · 官方仓库",
+      "url": "https://github.com/Aider-AI/aider",
+      "refresh_days": 30,
+      "good_for": [
+        "opensource"
+      ]
+    },
+    {
+      "id": "cline-gh",
+      "tier": "S",
+      "kind": "json",
+      "vendor": "cline",
+      "name": "Cline · 官方仓库",
+      "url": "https://github.com/cline/cline",
+      "refresh_days": 30,
+      "good_for": [
+        "opensource"
+      ]
+    },
+    {
+      "id": "continue-gh",
+      "tier": "S",
+      "kind": "json",
+      "vendor": "continuedev",
+      "name": "Continue · 官方仓库",
+      "url": "https://github.com/continuedev/continue",
+      "refresh_days": 30,
+      "good_for": [
+        "opensource"
+      ]
+    },
+    {
+      "id": "openhands-gh",
+      "tier": "S",
+      "kind": "json",
+      "vendor": "openhands",
+      "name": "OpenHands · 官方仓库",
+      "url": "https://github.com/OpenHands/OpenHands",
+      "refresh_days": 30,
+      "good_for": [
+        "opensource"
+      ]
+    },
+    {
+      "id": "browseruse-gh",
+      "tier": "S",
+      "kind": "json",
+      "vendor": "browser-use",
+      "name": "browser-use · 官方仓库",
+      "url": "https://github.com/browser-use/browser-use",
+      "refresh_days": 30,
+      "good_for": [
+        "opensource"
+      ]
+    },
+    {
+      "id": "markitdown-gh",
+      "tier": "S",
+      "kind": "json",
+      "vendor": "microsoft",
+      "name": "MarkItDown · 官方仓库",
+      "url": "https://github.com/microsoft/markitdown",
+      "refresh_days": 30,
+      "good_for": [
+        "opensource"
+      ]
+    },
+    {
+      "id": "unstructured-gh",
+      "tier": "S",
+      "kind": "json",
+      "vendor": "unstructured-io",
+      "name": "Unstructured · 官方仓库",
+      "url": "https://github.com/Unstructured-IO/unstructured",
+      "refresh_days": 30,
+      "good_for": [
+        "opensource"
+      ]
+    },
+    {
+      "id": "mineru-gh",
+      "tier": "S",
+      "kind": "json",
+      "vendor": "opendatalab",
+      "name": "MinerU · 官方仓库",
+      "url": "https://github.com/opendatalab/MinerU",
+      "refresh_days": 30,
+      "good_for": [
+        "opensource"
+      ]
+    },
+    {
+      "id": "mcpservers-gh",
+      "tier": "S",
+      "kind": "json",
+      "vendor": "modelcontextprotocol",
+      "name": "MCP Servers · 官方仓库",
+      "url": "https://github.com/modelcontextprotocol/servers",
+      "refresh_days": 30,
+      "good_for": [
+        "opensource"
+      ]
     }
   ],
   "$missing": [

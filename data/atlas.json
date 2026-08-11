@@ -3114,6 +3114,131 @@
    "name": "Z.ai 官方 API 参考",
    "url": "https://docs.z.ai/api-reference/llm/chat-completion",
    "tier": "official"
+  },
+  "langchain-gh": {
+   "name": "GitHub · langchain-ai/langchain",
+   "url": "https://github.com/langchain-ai/langchain",
+   "tier": "official"
+  },
+  "langgraph-gh": {
+   "name": "GitHub · langchain-ai/langgraph",
+   "url": "https://github.com/langchain-ai/langgraph",
+   "tier": "official"
+  },
+  "llamaindex-gh": {
+   "name": "GitHub · run-llama/llama_index",
+   "url": "https://github.com/run-llama/llama_index",
+   "tier": "official"
+  },
+  "vllm-gh": {
+   "name": "GitHub · vllm-project/vllm",
+   "url": "https://github.com/vllm-project/vllm",
+   "tier": "official"
+  },
+  "llamacpp-gh": {
+   "name": "GitHub · ggml-org/llama.cpp",
+   "url": "https://github.com/ggml-org/llama.cpp",
+   "tier": "official"
+  },
+  "ollama-gh": {
+   "name": "GitHub · ollama/ollama",
+   "url": "https://github.com/ollama/ollama",
+   "tier": "official"
+  },
+  "ragflow-gh": {
+   "name": "GitHub · infiniflow/ragflow",
+   "url": "https://github.com/infiniflow/ragflow",
+   "tier": "official"
+  },
+  "dify-gh": {
+   "name": "GitHub · langgenius/dify",
+   "url": "https://github.com/langgenius/dify",
+   "tier": "official"
+  },
+  "n8n-gh": {
+   "name": "GitHub · n8n-io/n8n",
+   "url": "https://github.com/n8n-io/n8n",
+   "tier": "official"
+  },
+  "openwebui-gh": {
+   "name": "GitHub · open-webui/open-webui",
+   "url": "https://github.com/open-webui/open-webui",
+   "tier": "official"
+  },
+  "autogen-gh": {
+   "name": "GitHub · microsoft/autogen",
+   "url": "https://github.com/microsoft/autogen",
+   "tier": "official"
+  },
+  "crewai-gh": {
+   "name": "GitHub · crewAIInc/crewAI",
+   "url": "https://github.com/crewAIInc/crewAI",
+   "tier": "official"
+  },
+  "litellm-gh": {
+   "name": "GitHub · BerriAI/litellm",
+   "url": "https://github.com/BerriAI/litellm",
+   "tier": "official"
+  },
+  "transformers-gh": {
+   "name": "GitHub · huggingface/transformers",
+   "url": "https://github.com/huggingface/transformers",
+   "tier": "official"
+  },
+  "unsloth-gh": {
+   "name": "GitHub · unslothai/unsloth",
+   "url": "https://github.com/unslothai/unsloth",
+   "tier": "official"
+  },
+  "llamafactory-gh": {
+   "name": "GitHub · hiyouga/LlamaFactory",
+   "url": "https://github.com/hiyouga/LlamaFactory",
+   "tier": "official"
+  },
+  "aider-gh": {
+   "name": "GitHub · Aider-AI/aider",
+   "url": "https://github.com/Aider-AI/aider",
+   "tier": "official"
+  },
+  "cline-gh": {
+   "name": "GitHub · cline/cline",
+   "url": "https://github.com/cline/cline",
+   "tier": "official"
+  },
+  "continue-gh": {
+   "name": "GitHub · continuedev/continue",
+   "url": "https://github.com/continuedev/continue",
+   "tier": "official"
+  },
+  "openhands-gh": {
+   "name": "GitHub · OpenHands/OpenHands",
+   "url": "https://github.com/OpenHands/OpenHands",
+   "tier": "official"
+  },
+  "browseruse-gh": {
+   "name": "GitHub · browser-use/browser-use",
+   "url": "https://github.com/browser-use/browser-use",
+   "tier": "official"
+  },
+  "markitdown-gh": {
+   "name": "GitHub · microsoft/markitdown",
+   "url": "https://github.com/microsoft/markitdown",
+   "tier": "official"
+  },
+  "unstructured-gh": {
+   "name": "GitHub · Unstructured-IO/unstructured",
+   "url": "https://github.com/Unstructured-IO/unstructured",
+   "tier": "official"
+  },
+  "mineru-gh": {
+   "name": "GitHub · opendatalab/MinerU",
+   "url": "https://github.com/opendatalab/MinerU",
+   "tier": "official"
+  },
+  "mcpservers-gh": {
+   "name": "GitHub · modelcontextprotocol/servers",
+   "url": "https://github.com/modelcontextprotocol/servers",
+   "tier": "official"
   }
  },
  "support": [
@@ -9635,6 +9760,473 @@
    "quote": "IDM-VTON / OOTDiffusion / CatVTON 的 LICENSE 正文均为 CC BY-NC-SA 4.0（NonCommercial）",
    "verified_at": "2026-08-11",
    "domain": "image"
+  },
+  {
+   "id": "t-toolcall",
+   "zh": "让模型调工具",
+   "en": "Tool Calling",
+   "io": {
+    "in": [
+     "工具的 JSON 描述",
+     "一轮对话"
+    ],
+    "out": "模型选好工具并给出参数"
+   },
+   "native": [
+    "deepseek",
+    "gemini-text",
+    "glm",
+    "gpt",
+    "kimi",
+    "qwen-text"
+   ],
+   "opensource": [
+    {
+     "name": "MCP Servers（官方工具服务器合集）",
+     "url": "https://github.com/modelcontextprotocol/servers",
+     "src": "mcpservers-gh",
+     "quote": "modelcontextprotocol/servers：Model Context Protocol Servers（★89,435）",
+     "license": "正从 MIT 迁往 Apache-2.0",
+     "note": "LICENSE 正文：项目**正在从 MIT 迁移到 Apache-2.0**，新代码按 Apache-2.0 授权 —— 引用时要看清你用的是哪一部分"
+    },
+    {
+     "name": "LangGraph（有状态的 Agent 图）",
+     "url": "https://github.com/langchain-ai/langgraph",
+     "src": "langgraph-gh",
+     "quote": "langchain-ai/langgraph：Build resilient agents.（★39,445）",
+     "license": "MIT"
+    },
+    {
+     "name": "CrewAI（角色分工的 Agent 团队）",
+     "url": "https://github.com/crewAIInc/crewAI",
+     "src": "crewai-gh",
+     "quote": "crewAIInc/crewAI：Framework for orchestrating role-playing, autonomous AI agents（★56,934）",
+     "license": "MIT"
+    }
+   ],
+   "platform_feature": [],
+   "limits": [
+    "**模型只负责「选哪个工具、填什么参数」，执行是你的事** —— 它不会真去调",
+    "工具一多准确率就掉；先减工具，再怪模型",
+    "MCP 那套正在从 MIT 迁往 Apache-2.0，引用前看清你用的是哪部分"
+   ],
+   "cases": [
+    "查数据库",
+    "调内部 API",
+    "操作浏览器"
+   ],
+   "src": "hf-text-org",
+   "quote": "各家都把它叫 Function calling / Tool Calls；MCP 是近两年收敛出的工具描述协议",
+   "verified_at": "2026-08-11",
+   "domain": "text",
+   "cap": "t-tools"
+  },
+  {
+   "id": "t-struct",
+   "zh": "让输出能被程序读",
+   "en": "Structured Output",
+   "io": {
+    "in": [
+     "JSON Schema"
+    ],
+    "out": "严格符合 schema 的结果"
+   },
+   "native": [
+    "deepseek",
+    "gemini-text",
+    "glm",
+    "kimi"
+   ],
+   "opensource": [
+    {
+     "name": "LangChain（Agent 编排框架）",
+     "url": "https://github.com/langchain-ai/langchain",
+     "src": "langchain-gh",
+     "quote": "langchain-ai/langchain：The agent engineering platform.（★143,970）",
+     "license": "MIT"
+    },
+    {
+     "name": "LlamaIndex（文档 Agent 与 OCR）",
+     "url": "https://github.com/run-llama/llama_index",
+     "src": "llamaindex-gh",
+     "quote": "run-llama/llama_index：LlamaIndex is the leading document agent and OCR platform（★51,556）",
+     "license": "MIT"
+    }
+   ],
+   "platform_feature": [],
+   "limits": [
+    "**「像 JSON」和「一定是 JSON」是两回事** —— 要开 strict 那一档才有保证",
+    "schema 越复杂越容易退化成自由文本，字段多就拆两次调用"
+   ],
+   "cases": [
+    "抽取字段",
+    "分类打标",
+    "填表"
+   ],
+   "src": "hf-text-org",
+   "quote": "OpenAI / Google 叫 Structured outputs，DeepSeek 叫 JSON Output，Kimi 叫 JSON Mode",
+   "verified_at": "2026-08-11",
+   "domain": "text",
+   "cap": "t-json"
+  },
+  {
+   "id": "t-rag",
+   "zh": "让模型读你的资料",
+   "en": "RAG / Long Context",
+   "io": {
+    "in": [
+     "你的文档库",
+     "一个问题"
+    ],
+    "out": "带出处的回答"
+   },
+   "native": [],
+   "opensource": [
+    {
+     "name": "RAGFlow（RAG 引擎）",
+     "url": "https://github.com/infiniflow/ragflow",
+     "src": "ragflow-gh",
+     "quote": "infiniflow/ragflow：a leading open-source Retrieval-Augmented Generation (RAG) engine that fuses cutting-edge RAG with Agent capabilities（★87,254）",
+     "license": "Apache-2.0"
+    },
+    {
+     "name": "LlamaIndex（文档 Agent 与 OCR）",
+     "url": "https://github.com/run-llama/llama_index",
+     "src": "llamaindex-gh",
+     "quote": "run-llama/llama_index：LlamaIndex is the leading document agent and OCR platform（★51,556）",
+     "license": "MIT"
+    },
+    {
+     "name": "MarkItDown（各种文档转 Markdown）",
+     "url": "https://github.com/microsoft/markitdown",
+     "src": "markitdown-gh",
+     "quote": "microsoft/markitdown：Python tool for converting files and office documents to Markdown.（★173,092）",
+     "license": "MIT"
+    },
+    {
+     "name": "MinerU（PDF/Office 转 LLM 可读）",
+     "url": "https://github.com/opendatalab/MinerU",
+     "src": "mineru-gh",
+     "quote": "opendatalab/MinerU：Transforms complex documents like PDFs and Office docs into LLM-ready markdown/JSON（★77,355）",
+     "license": "Apache-2.0 + 附加条款",
+     "note": "**看着像标准开源，其实有附加条件** —— 商用前把 LICENSE 读完：LICENSE 写的是「Apache License 2.0 and is subject to the additional terms below」"
+    },
+    {
+     "name": "Unstructured（文档转结构化数据）",
+     "url": "https://github.com/Unstructured-IO/unstructured",
+     "src": "unstructured-gh",
+     "quote": "Unstructured-IO/unstructured：open-source ETL solution for transforming complex documents into clean, structured formats for language models（★15,294）",
+     "license": "Apache-2.0"
+    }
+   ],
+   "platform_feature": [],
+   "limits": [
+    "**上下文变长不等于能用长** —— 中段信息经常被忽略，长文要靠检索而不是硬塞",
+    "**先解决「文档怎么变成干净文本」** —— 大多数 RAG 效果差是卡在这一步，不是模型不行",
+    "MinerU 是 Apache-2.0 **加附加条款**；Dify 禁止未经授权做多租户"
+   ],
+   "cases": [
+    "企业知识库",
+    "合同问答",
+    "论文速读"
+   ],
+   "src": "hf-text-org",
+   "quote": "文档解析这一环有 MarkItDown / MinerU / Unstructured 三条路，产出都是给模型读的干净文本",
+   "verified_at": "2026-08-11",
+   "domain": "text"
+  },
+  {
+   "id": "t-local",
+   "zh": "在自己机器上跑",
+   "en": "Local Inference",
+   "io": {
+    "in": [
+     "开源权重",
+     "显卡或 Mac"
+    ],
+    "out": "不出网的推理服务"
+   },
+   "native": [],
+   "opensource": [
+    {
+     "name": "Ollama（一条命令跑起来）",
+     "url": "https://github.com/ollama/ollama",
+     "src": "ollama-gh",
+     "quote": "ollama/ollama：Get up and running with Kimi-K2.6, GLM-5.2, MiniMax, DeepSeek, gpt-oss, Qwen, Gemma and other models.（★178,259）",
+     "license": "MIT"
+    },
+    {
+     "name": "llama.cpp（C/C++ 本地推理）",
+     "url": "https://github.com/ggml-org/llama.cpp",
+     "src": "llamacpp-gh",
+     "quote": "ggml-org/llama.cpp：LLM inference in C/C++（★123,436）",
+     "license": "MIT"
+    },
+    {
+     "name": "vLLM（高吞吐推理服务）",
+     "url": "https://github.com/vllm-project/vllm",
+     "src": "vllm-gh",
+     "quote": "vllm-project/vllm：A high-throughput and memory-efficient inference and serving engine for LLMs（★88,764）",
+     "license": "Apache-2.0"
+    },
+    {
+     "name": "Open WebUI（自建对话界面）",
+     "url": "https://github.com/open-webui/open-webui",
+     "src": "openwebui-gh",
+     "quote": "open-webui/open-webui：User-friendly AI Interface (Supports Ollama, OpenAI API, ...)（★148,467）",
+     "license": "自定义 Open WebUI License",
+     "note": "**看着像标准开源，其实有附加条件** —— 商用前把 LICENSE 读完：不是 BSD/MIT，是厂商自拟的许可，含品牌相关条款"
+    },
+    {
+     "name": "Transformers（模型定义与训练）",
+     "url": "https://github.com/huggingface/transformers",
+     "src": "transformers-gh",
+     "quote": "huggingface/transformers：the model-definition framework for state-of-the-art machine learning models（★163,595）",
+     "license": "Apache-2.0"
+    }
+   ],
+   "platform_feature": [],
+   "limits": [
+    "**开源权重 ≠ 可商用** —— 逐个看许可证，这一卷里非标准许可比想象多",
+    "Open WebUI 是厂商自拟许可，不是 BSD/MIT",
+    "vLLM 面向吞吐，llama.cpp 面向单机；选错方向调参再多也追不回来"
+   ],
+   "cases": [
+    "数据不出网",
+    "离线环境",
+    "省 API 钱"
+   ],
+   "src": "hf-text-org",
+   "quote": "Ollama 的自述里直接列着 Kimi-K2.6、GLM-5.2、DeepSeek、Qwen —— 开源那半边的落地入口",
+   "verified_at": "2026-08-11",
+   "domain": "text",
+   "cap": "t-openweights"
+  },
+  {
+   "id": "t-finetune",
+   "zh": "把模型调成你要的样子",
+   "en": "Fine-tuning",
+   "io": {
+    "in": [
+     "你的数据",
+     "开源权重"
+    ],
+    "out": "微调后的权重"
+   },
+   "native": [],
+   "opensource": [
+    {
+     "name": "LLaMA-Factory（统一微调 100+ 模型）",
+     "url": "https://github.com/hiyouga/LlamaFactory",
+     "src": "llamafactory-gh",
+     "quote": "hiyouga/LlamaFactory：Unified Efficient Fine-Tuning of 100+ LLMs & VLMs (ACL 2024)（★73,993）",
+     "license": "Apache-2.0"
+    },
+    {
+     "name": "Unsloth（省显存的微调）",
+     "url": "https://github.com/unslothai/unsloth",
+     "src": "unsloth-gh",
+     "quote": "unslothai/unsloth：Local UI to run and train LLMs and diffusion models, including Kimi K3, MiniMax-H3, Gemma 4, Qwen3.6, DeepSeek-V4（★69,905）",
+     "license": "Apache-2.0"
+    },
+    {
+     "name": "Transformers（模型定义与训练）",
+     "url": "https://github.com/huggingface/transformers",
+     "src": "transformers-gh",
+     "quote": "huggingface/transformers：the model-definition framework for state-of-the-art machine learning models（★163,595）",
+     "license": "Apache-2.0"
+    }
+   ],
+   "platform_feature": [],
+   "limits": [
+    "**先用提示词和 RAG 试到底** —— 多数「需要微调」的场景其实不需要",
+    "微调改的是风格与格式，不是知识；缺知识该走检索",
+    "改完要留住评测集，否则你不知道是变好还是变坏"
+   ],
+   "cases": [
+    "固定输出格式",
+    "行业术语",
+    "风格对齐"
+   ],
+   "src": "hf-text-org",
+   "quote": "LLaMA-Factory 自述「Unified Efficient Fine-Tuning of 100+ LLMs & VLMs」",
+   "verified_at": "2026-08-11",
+   "domain": "text"
+  },
+  {
+   "id": "t-agent",
+   "zh": "让它自己把活干完",
+   "en": "Agentic Workflow",
+   "io": {
+    "in": [
+     "一个目标",
+     "一组工具"
+    ],
+    "out": "多步执行的结果"
+   },
+   "native": [],
+   "opensource": [
+    {
+     "name": "LangGraph（有状态的 Agent 图）",
+     "url": "https://github.com/langchain-ai/langgraph",
+     "src": "langgraph-gh",
+     "quote": "langchain-ai/langgraph：Build resilient agents.（★39,445）",
+     "license": "MIT"
+    },
+    {
+     "name": "Dify（可视化搭 Agent 与 RAG）",
+     "url": "https://github.com/langgenius/dify",
+     "src": "dify-gh",
+     "quote": "langgenius/dify：Build Agentic workflows, RAG pipelines, with rich AI model and tool support on one collaborative workspace（★152,085）",
+     "license": "改过的 Apache-2.0（有附加条件）",
+     "note": "**看着像标准开源，其实有附加条件** —— 商用前把 LICENSE 读完：LICENSE 正文写明**未经书面授权不得用它运营多租户环境**，且**不许移除或修改前端的 LOGO 与版权信息**"
+    },
+    {
+     "name": "n8n（工作流自动化）",
+     "url": "https://github.com/n8n-io/n8n",
+     "src": "n8n-gh",
+     "quote": "n8n-io/n8n：Fair-code workflow automation platform with native AI capabilities … 400+ integrations（★200,203）",
+     "license": "Sustainable Use License（fair-code）",
+     "note": "**看着像标准开源，其实有附加条件** —— 商用前把 LICENSE 读完：**主分支以外的分支不授权**；文件名含 `.ee.` 的要另持企业许可"
+    },
+    {
+     "name": "AutoGen（多 Agent 编程框架）",
+     "url": "https://github.com/microsoft/autogen",
+     "src": "autogen-gh",
+     "quote": "microsoft/autogen：A programming framework for agentic AI（★60,356）",
+     "license": "CC-BY-4.0",
+     "note": "**许可是 CC-BY-4.0** —— 那是给作品用的知识共享协议，不是常见的软件许可，用前想清楚"
+    },
+    {
+     "name": "CrewAI（角色分工的 Agent 团队）",
+     "url": "https://github.com/crewAIInc/crewAI",
+     "src": "crewai-gh",
+     "quote": "crewAIInc/crewAI：Framework for orchestrating role-playing, autonomous AI agents（★56,934）",
+     "license": "MIT"
+    },
+    {
+     "name": "browser-use（让 Agent 操作网页）",
+     "url": "https://github.com/browser-use/browser-use",
+     "src": "browseruse-gh",
+     "quote": "browser-use/browser-use：Make websites accessible for AI agents. Automate tasks online with ease.（★108,756）",
+     "license": "MIT"
+    },
+    {
+     "name": "OpenHands（让 AI 跑完整开发流程）",
+     "url": "https://github.com/OpenHands/OpenHands",
+     "src": "openhands-gh",
+     "quote": "OpenHands/OpenHands：AI-Driven Development（★83,695）",
+     "license": "MIT"
+    }
+   ],
+   "platform_feature": [],
+   "limits": [
+    "**步数越多越容易跑偏** —— 先把流程写死，再让模型在节点里做决定",
+    "Dify 的许可禁止未经授权运营多租户；n8n 是 fair-code，主分支以外不授权",
+    "AutoGen 的许可是 **CC-BY-4.0**，那是给作品用的协议不是软件许可"
+   ],
+   "cases": [
+    "自动化流程",
+    "批量处理",
+    "调研任务"
+   ],
+   "src": "hf-text-org",
+   "quote": "这一摞的许可证差异最大 —— 挑框架时先看能不能商用，再看好不好用",
+   "verified_at": "2026-08-11",
+   "domain": "text"
+  },
+  {
+   "id": "t-code",
+   "zh": "让它写代码",
+   "en": "Coding Agent",
+   "io": {
+    "in": [
+     "代码库",
+     "一句需求"
+    ],
+    "out": "改动与提交"
+   },
+   "native": [],
+   "opensource": [
+    {
+     "name": "Aider（终端里结对写代码）",
+     "url": "https://github.com/Aider-AI/aider",
+     "src": "aider-gh",
+     "quote": "Aider-AI/aider：aider is AI pair programming in your terminal（★48,119）",
+     "license": "Apache-2.0"
+    },
+    {
+     "name": "Cline（自主编码 Agent）",
+     "url": "https://github.com/cline/cline",
+     "src": "cline-gh",
+     "quote": "cline/cline：Autonomous coding agent as an SDK, IDE extension, or CLI assistant.（★65,994）",
+     "license": "Apache-2.0"
+    },
+    {
+     "name": "Continue（开源编码 Agent）",
+     "url": "https://github.com/continuedev/continue",
+     "src": "continue-gh",
+     "quote": "continuedev/continue：open-source coding agent（★35,432）",
+     "license": "Apache-2.0"
+    },
+    {
+     "name": "OpenHands（让 AI 跑完整开发流程）",
+     "url": "https://github.com/OpenHands/OpenHands",
+     "src": "openhands-gh",
+     "quote": "OpenHands/OpenHands：AI-Driven Development（★83,695）",
+     "license": "MIT"
+    }
+   ],
+   "platform_feature": [],
+   "limits": [
+    "**它改得动，不代表改得对** —— 没有测试的仓库不要放手让它改",
+    "上下文放不下整个仓库，检索到的片段决定改得准不准"
+   ],
+   "cases": [
+    "改 bug",
+    "写测试",
+    "重构"
+   ],
+   "src": "hf-text-org",
+   "quote": "Aider 自述「AI pair programming in your terminal」；Cline 是「Autonomous coding agent」",
+   "verified_at": "2026-08-11",
+   "domain": "text"
+  },
+  {
+   "id": "t-gateway",
+   "zh": "接多家模型、控成本",
+   "en": "Model Gateway",
+   "io": {
+    "in": [
+     "多家 API key"
+    ],
+    "out": "统一接口 + 用量账"
+   },
+   "native": [],
+   "opensource": [
+    {
+     "name": "LiteLLM（一个接口调 100+ 模型）",
+     "url": "https://github.com/BerriAI/litellm",
+     "src": "litellm-gh",
+     "quote": "BerriAI/litellm：Call 100+ LLM APIs in OpenAI (or native) format with cost tracking, guardrails, load balancing, and logging（★56,102）",
+     "license": "MIT（enterprise/ 目录除外）",
+     "note": "`enterprise/` 目录下的内容**另有许可**，不在开源部分里"
+    }
+   ],
+   "platform_feature": [],
+   "limits": [
+    "**统一接口会抹掉各家的特性** —— 缓存、推理档这些参数常常传不过去",
+    "LiteLLM 的 `enterprise/` 目录另有许可，不在开源部分"
+   ],
+   "cases": [
+    "多模型比价",
+    "灰度切换",
+    "成本核算"
+   ],
+   "src": "hf-text-org",
+   "quote": "LiteLLM 自述「Call 100+ LLM APIs in OpenAI (or native) format with cost tracking」",
+   "verified_at": "2026-08-11",
+   "domain": "text"
   }
  ],
  "applications": [
@@ -10693,6 +11285,387 @@
     "贴图"
    ],
    "domain": "image"
+  },
+  {
+   "id": "code-assistant",
+   "zh": "代码助手",
+   "en": "Coding Assistant",
+   "intro": "让 AI 读你的仓库、改代码、跑测试。",
+   "inputs": [
+    "代码库",
+    "一句需求"
+   ],
+   "output": "可审阅的改动",
+   "skills": [
+    "t-code",
+    "t-toolcall"
+   ],
+   "resources": [
+    {
+     "kind": "project",
+     "name": "Aider（终端里结对写代码）",
+     "url": "https://github.com/Aider-AI/aider",
+     "src": "aider-gh",
+     "quote": "Aider-AI/aider：aider is AI pair programming in your terminal（★48,119）",
+     "license": "Apache-2.0"
+    },
+    {
+     "kind": "project",
+     "name": "Cline（自主编码 Agent）",
+     "url": "https://github.com/cline/cline",
+     "src": "cline-gh",
+     "quote": "cline/cline：Autonomous coding agent as an SDK, IDE extension, or CLI assistant.（★65,994）",
+     "license": "Apache-2.0"
+    },
+    {
+     "kind": "project",
+     "name": "Continue（开源编码 Agent）",
+     "url": "https://github.com/continuedev/continue",
+     "src": "continue-gh",
+     "quote": "continuedev/continue：open-source coding agent（★35,432）",
+     "license": "Apache-2.0"
+    },
+    {
+     "kind": "project",
+     "name": "OpenHands（让 AI 跑完整开发流程）",
+     "url": "https://github.com/OpenHands/OpenHands",
+     "src": "openhands-gh",
+     "quote": "OpenHands/OpenHands：AI-Driven Development（★83,695）",
+     "license": "MIT"
+    }
+   ],
+   "aliases": [
+    "AI 编程",
+    "结对编程",
+    "代码补全",
+    "自动改 bug"
+   ],
+   "domain": "text"
+  },
+  {
+   "id": "kb-qa",
+   "zh": "企业知识库问答",
+   "en": "Knowledge Base QA",
+   "intro": "把内部文档变成能问答、且答案带出处的东西。",
+   "inputs": [
+    "文档库",
+    "一个问题"
+   ],
+   "output": "带出处的回答",
+   "skills": [
+    "t-rag",
+    "t-struct"
+   ],
+   "resources": [
+    {
+     "kind": "project",
+     "name": "RAGFlow（RAG 引擎）",
+     "url": "https://github.com/infiniflow/ragflow",
+     "src": "ragflow-gh",
+     "quote": "infiniflow/ragflow：a leading open-source Retrieval-Augmented Generation (RAG) engine that fuses cutting-edge RAG with Agent capabilities（★87,254）",
+     "license": "Apache-2.0"
+    },
+    {
+     "kind": "project",
+     "name": "Dify（可视化搭 Agent 与 RAG）",
+     "url": "https://github.com/langgenius/dify",
+     "src": "dify-gh",
+     "quote": "langgenius/dify：Build Agentic workflows, RAG pipelines, with rich AI model and tool support on one collaborative workspace（★152,085）",
+     "license": "改过的 Apache-2.0（有附加条件）",
+     "note": "**看着像标准开源，其实有附加条件** —— 商用前把 LICENSE 读完：LICENSE 正文写明**未经书面授权不得用它运营多租户环境**，且**不许移除或修改前端的 LOGO 与版权信息**"
+    },
+    {
+     "kind": "project",
+     "name": "LlamaIndex（文档 Agent 与 OCR）",
+     "url": "https://github.com/run-llama/llama_index",
+     "src": "llamaindex-gh",
+     "quote": "run-llama/llama_index：LlamaIndex is the leading document agent and OCR platform（★51,556）",
+     "license": "MIT"
+    },
+    {
+     "kind": "project",
+     "name": "MinerU（PDF/Office 转 LLM 可读）",
+     "url": "https://github.com/opendatalab/MinerU",
+     "src": "mineru-gh",
+     "quote": "opendatalab/MinerU：Transforms complex documents like PDFs and Office docs into LLM-ready markdown/JSON（★77,355）",
+     "license": "Apache-2.0 + 附加条款",
+     "note": "**看着像标准开源，其实有附加条件** —— 商用前把 LICENSE 读完：LICENSE 写的是「Apache License 2.0 and is subject to the additional terms below」"
+    }
+   ],
+   "aliases": [
+    "知识库",
+    "RAG",
+    "文档问答",
+    "智能客服"
+   ],
+   "domain": "text"
+  },
+  {
+   "id": "doc-extract",
+   "zh": "文档转结构化",
+   "en": "Document to Data",
+   "intro": "把 PDF、Office、扫描件变成程序能读的字段。",
+   "inputs": [
+    "各类文档"
+   ],
+   "output": "结构化数据",
+   "skills": [
+    "t-rag",
+    "t-struct"
+   ],
+   "resources": [
+    {
+     "kind": "project",
+     "name": "MarkItDown（各种文档转 Markdown）",
+     "url": "https://github.com/microsoft/markitdown",
+     "src": "markitdown-gh",
+     "quote": "microsoft/markitdown：Python tool for converting files and office documents to Markdown.（★173,092）",
+     "license": "MIT"
+    },
+    {
+     "kind": "project",
+     "name": "MinerU（PDF/Office 转 LLM 可读）",
+     "url": "https://github.com/opendatalab/MinerU",
+     "src": "mineru-gh",
+     "quote": "opendatalab/MinerU：Transforms complex documents like PDFs and Office docs into LLM-ready markdown/JSON（★77,355）",
+     "license": "Apache-2.0 + 附加条款",
+     "note": "**看着像标准开源，其实有附加条件** —— 商用前把 LICENSE 读完：LICENSE 写的是「Apache License 2.0 and is subject to the additional terms below」"
+    },
+    {
+     "kind": "project",
+     "name": "Unstructured（文档转结构化数据）",
+     "url": "https://github.com/Unstructured-IO/unstructured",
+     "src": "unstructured-gh",
+     "quote": "Unstructured-IO/unstructured：open-source ETL solution for transforming complex documents into clean, structured formats for language models（★15,294）",
+     "license": "Apache-2.0"
+    },
+    {
+     "kind": "project",
+     "name": "LlamaIndex（文档 Agent 与 OCR）",
+     "url": "https://github.com/run-llama/llama_index",
+     "src": "llamaindex-gh",
+     "quote": "run-llama/llama_index：LlamaIndex is the leading document agent and OCR platform（★51,556）",
+     "license": "MIT"
+    }
+   ],
+   "aliases": [
+    "OCR",
+    "版面还原",
+    "表格抽取",
+    "发票识别",
+    "简历解析"
+   ],
+   "domain": "text"
+  },
+  {
+   "id": "agent-flow",
+   "zh": "Agent 工作流",
+   "en": "Agentic Workflow",
+   "intro": "把一件多步的活交给它自己跑完。",
+   "inputs": [
+    "一个目标",
+    "一组工具"
+   ],
+   "output": "多步执行的结果",
+   "skills": [
+    "t-agent",
+    "t-toolcall"
+   ],
+   "resources": [
+    {
+     "kind": "project",
+     "name": "LangGraph（有状态的 Agent 图）",
+     "url": "https://github.com/langchain-ai/langgraph",
+     "src": "langgraph-gh",
+     "quote": "langchain-ai/langgraph：Build resilient agents.（★39,445）",
+     "license": "MIT"
+    },
+    {
+     "kind": "project",
+     "name": "Dify（可视化搭 Agent 与 RAG）",
+     "url": "https://github.com/langgenius/dify",
+     "src": "dify-gh",
+     "quote": "langgenius/dify：Build Agentic workflows, RAG pipelines, with rich AI model and tool support on one collaborative workspace（★152,085）",
+     "license": "改过的 Apache-2.0（有附加条件）",
+     "note": "**看着像标准开源，其实有附加条件** —— 商用前把 LICENSE 读完：LICENSE 正文写明**未经书面授权不得用它运营多租户环境**，且**不许移除或修改前端的 LOGO 与版权信息**"
+    },
+    {
+     "kind": "project",
+     "name": "n8n（工作流自动化）",
+     "url": "https://github.com/n8n-io/n8n",
+     "src": "n8n-gh",
+     "quote": "n8n-io/n8n：Fair-code workflow automation platform with native AI capabilities … 400+ integrations（★200,203）",
+     "license": "Sustainable Use License（fair-code）",
+     "note": "**看着像标准开源，其实有附加条件** —— 商用前把 LICENSE 读完：**主分支以外的分支不授权**；文件名含 `.ee.` 的要另持企业许可"
+    },
+    {
+     "kind": "project",
+     "name": "CrewAI（角色分工的 Agent 团队）",
+     "url": "https://github.com/crewAIInc/crewAI",
+     "src": "crewai-gh",
+     "quote": "crewAIInc/crewAI：Framework for orchestrating role-playing, autonomous AI agents（★56,934）",
+     "license": "MIT"
+    },
+    {
+     "kind": "project",
+     "name": "AutoGen（多 Agent 编程框架）",
+     "url": "https://github.com/microsoft/autogen",
+     "src": "autogen-gh",
+     "quote": "microsoft/autogen：A programming framework for agentic AI（★60,356）",
+     "license": "CC-BY-4.0",
+     "note": "**许可是 CC-BY-4.0** —— 那是给作品用的知识共享协议，不是常见的软件许可，用前想清楚"
+    },
+    {
+     "kind": "project",
+     "name": "browser-use（让 Agent 操作网页）",
+     "url": "https://github.com/browser-use/browser-use",
+     "src": "browseruse-gh",
+     "quote": "browser-use/browser-use：Make websites accessible for AI agents. Automate tasks online with ease.（★108,756）",
+     "license": "MIT"
+    }
+   ],
+   "aliases": [
+    "智能体",
+    "自动化",
+    "工作流编排",
+    "RPA"
+   ],
+   "domain": "text"
+  },
+  {
+   "id": "self-host",
+   "zh": "本地部署跑开源模型",
+   "en": "Self-hosted LLM",
+   "intro": "数据不出网，在自己机器或内网上跑。",
+   "inputs": [
+    "开源权重",
+    "显卡"
+   ],
+   "output": "自己的推理服务",
+   "skills": [
+    "t-local"
+   ],
+   "resources": [
+    {
+     "kind": "project",
+     "name": "Ollama（一条命令跑起来）",
+     "url": "https://github.com/ollama/ollama",
+     "src": "ollama-gh",
+     "quote": "ollama/ollama：Get up and running with Kimi-K2.6, GLM-5.2, MiniMax, DeepSeek, gpt-oss, Qwen, Gemma and other models.（★178,259）",
+     "license": "MIT"
+    },
+    {
+     "kind": "project",
+     "name": "vLLM（高吞吐推理服务）",
+     "url": "https://github.com/vllm-project/vllm",
+     "src": "vllm-gh",
+     "quote": "vllm-project/vllm：A high-throughput and memory-efficient inference and serving engine for LLMs（★88,764）",
+     "license": "Apache-2.0"
+    },
+    {
+     "kind": "project",
+     "name": "llama.cpp（C/C++ 本地推理）",
+     "url": "https://github.com/ggml-org/llama.cpp",
+     "src": "llamacpp-gh",
+     "quote": "ggml-org/llama.cpp：LLM inference in C/C++（★123,436）",
+     "license": "MIT"
+    },
+    {
+     "kind": "project",
+     "name": "Open WebUI（自建对话界面）",
+     "url": "https://github.com/open-webui/open-webui",
+     "src": "openwebui-gh",
+     "quote": "open-webui/open-webui：User-friendly AI Interface (Supports Ollama, OpenAI API, ...)（★148,467）",
+     "license": "自定义 Open WebUI License",
+     "note": "**看着像标准开源，其实有附加条件** —— 商用前把 LICENSE 读完：不是 BSD/MIT，是厂商自拟的许可，含品牌相关条款"
+    }
+   ],
+   "aliases": [
+    "私有化部署",
+    "本地大模型",
+    "离线",
+    "内网"
+   ],
+   "domain": "text"
+  },
+  {
+   "id": "finetune",
+   "zh": "把模型调成自己的",
+   "en": "Fine-tuning",
+   "intro": "用自己的数据把输出风格和格式固定下来。",
+   "inputs": [
+    "标注数据",
+    "开源权重"
+   ],
+   "output": "微调后的权重",
+   "skills": [
+    "t-finetune",
+    "t-local"
+   ],
+   "resources": [
+    {
+     "kind": "project",
+     "name": "LLaMA-Factory（统一微调 100+ 模型）",
+     "url": "https://github.com/hiyouga/LlamaFactory",
+     "src": "llamafactory-gh",
+     "quote": "hiyouga/LlamaFactory：Unified Efficient Fine-Tuning of 100+ LLMs & VLMs (ACL 2024)（★73,993）",
+     "license": "Apache-2.0"
+    },
+    {
+     "kind": "project",
+     "name": "Unsloth（省显存的微调）",
+     "url": "https://github.com/unslothai/unsloth",
+     "src": "unsloth-gh",
+     "quote": "unslothai/unsloth：Local UI to run and train LLMs and diffusion models, including Kimi K3, MiniMax-H3, Gemma 4, Qwen3.6, DeepSeek-V4（★69,905）",
+     "license": "Apache-2.0"
+    },
+    {
+     "kind": "project",
+     "name": "Transformers（模型定义与训练）",
+     "url": "https://github.com/huggingface/transformers",
+     "src": "transformers-gh",
+     "quote": "huggingface/transformers：the model-definition framework for state-of-the-art machine learning models（★163,595）",
+     "license": "Apache-2.0"
+    }
+   ],
+   "aliases": [
+    "微调",
+    "LoRA",
+    "SFT",
+    "模型定制"
+   ],
+   "domain": "text"
+  },
+  {
+   "id": "multi-model",
+   "zh": "多模型接入与控成本",
+   "en": "Model Gateway",
+   "intro": "一个接口调各家，算清每一笔花在哪。",
+   "inputs": [
+    "多家 API key"
+   ],
+   "output": "统一接口 + 用量账",
+   "skills": [
+    "t-gateway"
+   ],
+   "resources": [
+    {
+     "kind": "project",
+     "name": "LiteLLM（一个接口调 100+ 模型）",
+     "url": "https://github.com/BerriAI/litellm",
+     "src": "litellm-gh",
+     "quote": "BerriAI/litellm：Call 100+ LLM APIs in OpenAI (or native) format with cost tracking, guardrails, load balancing, and logging（★56,102）",
+     "license": "MIT（enterprise/ 目录除外）",
+     "note": "`enterprise/` 目录下的内容**另有许可**，不在开源部分里"
+    }
+   ],
+   "aliases": [
+    "模型网关",
+    "多模型",
+    "成本控制",
+    "灰度"
+   ],
+   "domain": "text"
   }
  ],
  "$applications": "应用是用户要交付的东西，不是能力名的同义改写。字段：{id, zh, en, intro, inputs[], output, skills[], resources[{kind, name, url, src, quote, note?}]}。应用层不下效果或适用性结论；资源分 project / skill / course / docs 四类，项目与工作流从关联 Skill 自动汇总，避免重复维护。场景页默认按 project → skill → docs → course 排序，同类官方来源优先；排序不是质量或效果评分。治理规则见 docs/应用开源资源治理.md。",
