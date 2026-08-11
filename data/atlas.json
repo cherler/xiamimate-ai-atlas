@@ -3239,6 +3239,21 @@
    "name": "GitHub · modelcontextprotocol/servers",
    "url": "https://github.com/modelcontextprotocol/servers",
    "tier": "official"
+  },
+  "anthropic-features": {
+   "name": "Anthropic 官方文档 · Features overview",
+   "url": "https://platform.claude.com/docs/en/build-with-claude/overview",
+   "tier": "official"
+  },
+  "openai-docs": {
+   "name": "OpenAI 开发者文档",
+   "url": "https://developers.openai.com/api/docs",
+   "tier": "official"
+  },
+  "deepseek-pricing": {
+   "name": "DeepSeek 官方文档 · 模型与价格",
+   "url": "https://api-docs.deepseek.com/quick_start/pricing",
+   "tier": "official"
   }
  },
  "support": [
@@ -5269,32 +5284,47 @@
   {
    "m": "claude",
    "c": "t-tools",
-   "state": "unknown",
-   "verified_for": "Fable 5"
+   "state": "yes",
+   "verified_for": "Fable 5",
+   "src": "anthropic-features",
+   "note": "Tools 一节：「Built-in tools that Claude invokes through tool_use」；另有 MCP connector 与 Tool search",
+   "via": "native"
   },
   {
    "m": "claude",
    "c": "t-json",
-   "state": "unknown",
-   "verified_for": "Fable 5"
+   "state": "yes",
+   "verified_for": "Fable 5",
+   "src": "anthropic-features",
+   "note": "「Structured outputs — Guarantee schema conformance with two approaches: JSON outputs for structured data responses, and strict tool use for validated tool inputs」",
+   "via": "native"
   },
   {
    "m": "claude",
    "c": "t-search",
-   "state": "unknown",
-   "verified_for": "Fable 5"
+   "state": "yes",
+   "verified_for": "Fable 5",
+   "src": "anthropic-features",
+   "note": "服务端工具「Web search — Augment Claude's comprehensive knowledge with current, real-world data from across the web」",
+   "via": "native"
   },
   {
    "m": "claude",
    "c": "t-code",
-   "state": "unknown",
-   "verified_for": "Fable 5"
+   "state": "yes",
+   "verified_for": "Fable 5",
+   "src": "anthropic-features",
+   "note": "服务端工具「Code execution — Run code in a sandboxed environment for advanced data analysis, calculations, and file processing」",
+   "via": "native"
   },
   {
    "m": "claude",
    "c": "t-computer",
-   "state": "unknown",
-   "verified_for": "Fable 5"
+   "state": "yes",
+   "verified_for": "Fable 5",
+   "src": "anthropic-features",
+   "note": "客户端工具「Computer use — Control computer interfaces by taking screenshots and issuing mouse and keyboard commands」（Beta）",
+   "via": "native"
   },
   {
    "m": "claude",
@@ -5395,8 +5425,11 @@
   {
    "m": "gpt",
    "c": "t-code",
-   "state": "unknown",
-   "verified_for": "GPT-5.6"
+   "state": "yes",
+   "verified_for": "GPT-5.6",
+   "src": "openai-docs",
+   "note": "指南索引里列有「Code Interpreter」与「代码生成」",
+   "via": "native"
   },
   {
    "m": "gpt",
@@ -5428,8 +5461,11 @@
   {
    "m": "gpt",
    "c": "t-batch",
-   "state": "unknown",
-   "verified_for": "GPT-5.6"
+   "state": "yes",
+   "verified_for": "GPT-5.6",
+   "src": "openai-docs",
+   "note": "指南索引里列有「Batch API」",
+   "via": "native"
   },
   {
    "m": "gpt",
@@ -5641,8 +5677,11 @@
   {
    "m": "qwen-text",
    "c": "t-openweights",
-   "state": "unknown",
-   "verified_for": "Qwen3.6"
+   "state": "yes",
+   "verified_for": "Qwen3.6",
+   "src": "hf-text-org",
+   "via": "native",
+   "note": "官方 HF 组织下有可下载权重：Qwen/Qwen3.6-27B"
   },
   {
    "m": "deepseek",
@@ -5656,14 +5695,20 @@
   {
    "m": "deepseek",
    "c": "t-long",
-   "state": "unknown",
-   "verified_for": "V4"
+   "state": "yes",
+   "verified_for": "V4",
+   "src": "deepseek-pricing",
+   "note": "模型与价格表：Context Length = 1M",
+   "via": "native"
   },
   {
    "m": "deepseek",
    "c": "t-maxout",
-   "state": "unknown",
-   "verified_for": "V4"
+   "state": "yes",
+   "verified_for": "V4",
+   "src": "deepseek-pricing",
+   "note": "模型与价格表：Max Output = 384K",
+   "via": "native"
   },
   {
    "m": "deepseek",
@@ -5740,8 +5785,11 @@
   {
    "m": "deepseek",
    "c": "t-openweights",
-   "state": "unknown",
-   "verified_for": "V4"
+   "state": "yes",
+   "verified_for": "V4",
+   "src": "hf-text-org",
+   "via": "native",
+   "note": "官方 HF 组织下有可下载权重：deepseek-ai/DeepSeek-V4-Flash"
   },
   {
    "m": "kimi",
@@ -5836,8 +5884,11 @@
   {
    "m": "kimi",
    "c": "t-openweights",
-   "state": "unknown",
-   "verified_for": "K3"
+   "state": "yes",
+   "verified_for": "K3",
+   "src": "hf-text-org",
+   "via": "native",
+   "note": "官方 HF 组织下有可下载权重：moonshotai/Kimi-K3"
   },
   {
    "m": "glm",
@@ -5932,8 +5983,11 @@
   {
    "m": "glm",
    "c": "t-openweights",
-   "state": "unknown",
-   "verified_for": "GLM-5.2"
+   "state": "yes",
+   "verified_for": "GLM-5.2",
+   "src": "hf-text-org",
+   "via": "native",
+   "note": "官方 HF 组织下有可下载权重：zai-org/GLM-5.2"
   },
   {
    "m": "minimax-text",
@@ -6016,8 +6070,11 @@
   {
    "m": "minimax-text",
    "c": "t-openweights",
-   "state": "unknown",
-   "verified_for": "M3"
+   "state": "yes",
+   "verified_for": "M3",
+   "src": "hf-text-org",
+   "via": "native",
+   "note": "官方 HF 组织下有可下载权重：MiniMaxAI/MiniMax-M3"
   },
   {
    "m": "doubao",

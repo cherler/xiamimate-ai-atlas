@@ -2461,6 +2461,57 @@
       "good_for": [
         "opensource"
       ]
+    },
+    {
+      "id": "anthropic-features",
+      "tier": "S",
+      "kind": "html",
+      "vendor": "claude",
+      "name": "Anthropic 官方文档 · Features overview",
+      "url": "https://platform.claude.com/docs/en/build-with-claude/overview",
+      "refresh_days": 7,
+      "good_for": [
+        "capability"
+      ],
+      "expect": [
+        "Structured outputs",
+        "Web search",
+        "Code execution",
+        "Computer use"
+      ]
+    },
+    {
+      "id": "openai-docs",
+      "tier": "S",
+      "kind": "html",
+      "vendor": "gpt",
+      "name": "OpenAI 开发者文档 · 指南索引",
+      "url": "https://developers.openai.com/api/docs",
+      "refresh_days": 7,
+      "good_for": [
+        "capability"
+      ],
+      "expect": [
+        "Function calling",
+        "Batch API"
+      ]
+    },
+    {
+      "id": "deepseek-pricing",
+      "tier": "S",
+      "kind": "html",
+      "vendor": "deepseek",
+      "name": "DeepSeek 官方文档 · 模型与价格",
+      "url": "https://api-docs.deepseek.com/quick_start/pricing",
+      "refresh_days": 7,
+      "good_for": [
+        "capability",
+        "pricing"
+      ],
+      "expect": [
+        "Context Length",
+        "Max Output"
+      ]
     }
   ],
   "$missing": [
