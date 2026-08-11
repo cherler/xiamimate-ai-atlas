@@ -240,7 +240,7 @@ export default function RelationGraph({ domain }: { domain: string }) {
         )}
       </div>
 
-      <div className="bg-card border border-rule overflow-x-auto">
+      <div className="bg-card border border-rule rounded-xl rounded-xl overflow-x-auto">
         <svg viewBox={`${-LEFT} 0 ${W + LEFT} ${g.H + PAD.t + PAD.b}`} className="w-full min-w-[980px]">
           <text x={COL.inv} y={20} textAnchor="end" fontSize="8.5" fontWeight="700" fill="#b04a72">投资方</text>
           <text x={COL.org} y={20} textAnchor="end" fontSize="11" fontWeight="700" fill="var(--color-muted)">公司</text>

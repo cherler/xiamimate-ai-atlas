@@ -1,5 +1,6 @@
 import { Fragment } from "react";
 import Link from "next/link";
+import Mark from "./Mark";
 import { Rich } from "./Fact";
 import { atlas, capsOf, cell, label, modelsOf, orgOf, STATUS, type Klass } from "@/lib/atlas";
 import { capHref, modelHref } from "@/lib/slug";
@@ -57,7 +58,7 @@ export default function TruthTable({ k }: { k: Klass }) {
   if (ungrouped.length) groups.push(["未分组", ungrouped] as const);
 
   return (
-    <div className="hidden md:block bg-card border border-rule px-5 pt-4 pb-1">
+    <div className="hidden md:block bg-card border border-rule rounded-xl rounded-xl px-5 pt-4 pb-1">
       <div className="overflow-x-auto">
         {/* table-fixed + 能力列固定 320px：其余列均分剩余、紧贴能力列。
             此前 w-full auto-layout 把能力列拉到近半宽，能力名右边空一大片。 */}
@@ -124,15 +125,10 @@ export default function TruthTable({ k }: { k: Klass }) {
                           <td key={m.id} className="text-center border-b-[.5px] border-l-[.5px] border-rule" title={f.note ?? ""}>
                             {/* 绿勾 / 红叉 / 灰块 —— 三态一目了然（负责人拍板，2026-08-09）。
                                 此前用「蓝块=有出处、斜线=没说」，立场纯粹但一眼看不出三态，弃。 */}
-                            {f.state === "yes" && (
-                              <span className="text-[17px] leading-none">
-                                ✅
-                                {f.via === "separate-task" && <sup className="text-[10px] text-unknown ml-px">*</sup>}
-                              </span>
-                            )}
-                            {f.state === "no" && <span className="text-[17px] leading-none">❌</span>}
-                            {f.state === "unknown" && (
-                              <span className="inline-block w-[15px] h-[15px] align-middle" style={{ background: "var(--color-unknown)", opacity: 0.28 }} />
+                            {/* 画出来的标记，不用 emoji —— 理由见 components/Mark.tsx */}
+                            <Mark state={f.state} size={15} />
+                            {f.state === "yes" && f.via === "separate-task" && (
+                              <sup className="text-[10px] text-unknown ml-px">*</sup>
                             )}
                           </td>
                         );
@@ -151,7 +147,7 @@ export default function TruthTable({ k }: { k: Klass }) {
           每条前面标「模型 · 能力」，对应表里那个 ✅。 */}
       <details className="mt-7 border-t-[2.5px] border-ink">
         <summary className="cursor-pointer py-2.5 text-[13px] text-muted hover:text-ink select-none">
-          {notes.length} 条厂商原文 —— 每个 ✅ 都能在这儿查到出处
+          {notes.length} 条厂商原文 —— 每个 <Mark state="yes" /> 都能在这儿查到出处
         </summary>
       <div data-quote className="pt-1 pb-3 [column-count:2] [column-gap:34px] [column-rule:.5px_solid_var(--color-rule)]">
         {notes.map((n) => {
@@ -184,12 +180,9 @@ export default function TruthTable({ k }: { k: Klass }) {
 export function Legend() {
   return (
     <div className="hidden md:flex flex-wrap items-center gap-x-6 gap-y-1.5 mt-5 pt-3 border-t-[.5px] border-rule text-[12px] text-muted">
-      <span className="flex items-center gap-1.5"><i className="not-italic">✅</i>厂商官方文档写明支持</span>
-      <span className="flex items-center gap-1.5"><i className="not-italic">❌</i>厂商明确说不支持</span>
-      <span className="flex items-center gap-1.5">
-        <i className="inline-block w-[11px] h-[11px] not-italic" style={{ background: "var(--color-unknown)", opacity: 0.28 }} />
-        厂商没说过 —— 和「不支持」不是一回事
-      </span>
+      <span className="flex items-center gap-1.5"><Mark state="yes" />厂商官方文档写明支持</span>
+      <span className="flex items-center gap-1.5"><Mark state="no" />厂商明确说不支持</span>
+      <span className="flex items-center gap-1.5"><Mark state="unknown" />厂商没说过 —— 和「不支持」不是一回事</span>
       <span className="flex items-center gap-1.5"><i className="not-italic text-unknown">*</i>平台另一个接口，不是生成时一步</span>
       <Link href="/method#states" className="underline hover:text-ink">
         口径 →

@@ -1,4 +1,14 @@
 import type { Metadata } from "next";
+/**
+ * **和主站同一份 Geist**（`geist` 官方包把 woff2 随 npm 本地分发，构建不请求外网）。
+ *
+ * 为什么要专门加：平台令牌 `--xm-font-sans` 里**根本没有 Geist**，它是
+ * `"PingFang SC", "Microsoft YaHei", system-ui…`；主站是在 `<body>` 上另外套了
+ * next/font 的 Geist。于是**照着令牌做的子应用，字体和主站不一样** ——
+ * 拉丁字母和数字全变样，而这一站满屏是型号名和日期。
+ * 令牌文件自己写着「一处不同，用户切模块时就会觉得跳到别的网站了」，这就是那一处。
+ */
+import { GeistSans } from "geist/font/sans";
 import { BRAND } from "@/lib/brand";
 import "./globals.css";
 import Nav from "@/components/Nav";
@@ -42,7 +52,7 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="zh-CN">
+    <html lang="zh-CN" className={GeistSans.variable}>
       <body>
         {/* 平台页眉页脚：加载主站 /chrome 制品。取不到就整个不渲染（本地 dev 即如此）。 */}
         <ChromeHeader />

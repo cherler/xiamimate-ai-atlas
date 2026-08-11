@@ -47,7 +47,7 @@ export default async function TreePage({ params }: { params: Promise<{ domain: s
 
       {vs.length ? (
         <>
-          <div className="mt-6 bg-card border border-rule p-4">
+          <div className="mt-6 bg-card border border-rule rounded-xl rounded-xl p-4">
             <Tree domain={d.id} />
           </div>
           {/* **树上少了谁，页面要自己说。** 上表 9 条产品线、树上只有 6 条，

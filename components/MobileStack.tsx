@@ -4,6 +4,7 @@ import Link from "next/link";
 import { atlas, capsOf, cell, label, modelsOf, transparency, vendorName , type Klass} from "@/lib/atlas";
 import { capHref, modelHref } from "@/lib/slug";
 import { MARK, TONE } from "./Fact";
+import Mark from "./Mark";
 
 /**
  * 移动端叙事版（方案 §12）。
@@ -64,7 +65,7 @@ export default function MobileStack({ k = "clip" }: { k?: Klass }) {
       <section className="flex flex-col gap-3">
         <h2 className="text-[20px] font-semibold">每项能力，谁做到了</h2>
         <p className="text-muted text-[13px] leading-relaxed">
-          点开看名字。<b className="text-ink">⬜ 是「官方没说」，不是「不支持」</b> —— 两回事。
+          点开看名字。<b className="text-ink"><Mark state="unknown" /> 是「官方没说」，不是「不支持」</b> —— 两回事。
         </p>
         {caps.map((c) => {
           const yes = models.filter((m) => cell(m.id, c.id).state === "yes");
@@ -90,7 +91,7 @@ export default function MobileStack({ k = "clip" }: { k?: Klass }) {
                     const f = cell(m.id, c.id);
                     return (
                       <Link key={m.id} href={modelHref(m)} className={TONE[f.state]}>
-                        {MARK[f.state]} {label(m)}
+                        <Mark state={f.state} /> {label(m)}
                       </Link>
                     );
                   })}
@@ -107,7 +108,7 @@ export default function MobileStack({ k = "clip" }: { k?: Klass }) {
       <section className="flex flex-col gap-2">
         <h2 className="text-[20px] font-semibold">谁最不透明</h2>
         <p className="text-muted text-[13px] leading-relaxed">
-          九家都用厂商官方文档逐格核过之后，<b className="text-ink">剩下的 ⬜ 就是这家没公开说的部分</b>。
+          九家都用厂商官方文档逐格核过之后，<b className="text-ink">剩下的 <Mark state="unknown" /> 就是这家没公开说的部分</b>。
           别看总数，看分布。
         </p>
         {transparency("clip").map(({ model, unknown, caps: n }) => (

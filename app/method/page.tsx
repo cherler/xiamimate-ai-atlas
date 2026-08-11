@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Mark, { Dot } from "@/components/Mark";
 import Link from "next/link";
 import { atlas } from "@/lib/atlas";
 import BackLink from "@/components/BackLink";
@@ -20,7 +21,8 @@ const CN = ["一", "二", "三", "四", "五", "六", "七", "八", "九", "十"
 
 // 层级要一眼看得出：粗顶线分节 + 大号中文序号。原来 8 个 h2 一样大，滚动时分不清
 // 到了第几节。序号用青绿，和正文拉开。
-const S = ({ id, n, t, children }: { id: string; n: number; t: string; children: React.ReactNode }) => (
+// `t` 收 ReactNode 而不是 string —— 标题里要放画出来的三态标记，不再是纯文字
+const S = ({ id, n, t, children }: { id: string; n: number; t: React.ReactNode; children: React.ReactNode }) => (
   <section id={id} className="border-t-[2.5px] border-ink pt-4 scroll-mt-6">
     <h2 className="text-[23px] font-bold leading-tight flex items-baseline gap-3">
       <span className="text-[18px] text-yes-ink font-bold shrink-0">{CN[n - 1]}</span>
@@ -44,15 +46,15 @@ export default function Method() {
         </p>
       </header>
 
-      <S id="states" n={1} t="✅ ❌ ⬜ 三种状态">
-        <p><b>✅</b> 厂商官方文档明确写了支持，并且我们摘得出那句原文。</p>
-        <p><b>❌</b> 厂商官方明确写了不支持。这一档比 ✅ 少见得多 —— 没人爱写自己不能做什么。</p>
+      <S id="states" n={1} t={<span className="inline-flex items-center gap-1.5"><Mark state="yes" /><Mark state="no" /><Mark state="unknown" /> 三种状态</span>}>
+        <p><b><Mark state="yes" /></b> 厂商官方文档明确写了支持，并且我们摘得出那句原文。</p>
+        <p><b><Mark state="no" /></b> 厂商官方明确写了不支持。这一档比 <Mark state="yes" /> 少见得多 —— 没人爱写自己不能做什么。</p>
         <p>
-          <b>⬜ 是「官方没说」，不是「不支持」。</b>
-          我们查了公开渠道，没找到明确说法，就记 ⬜。它可能支持只是没写，也可能确实不支持。
+          <b><Mark state="unknown" /> 是「官方没说」，不是「不支持」。</b>
+          我们查了公开渠道，没找到明确说法，就记 <Mark state="unknown" />。它可能支持只是没写，也可能确实不支持。
         </p>
         <p className="text-muted">
-          ⬜ 的分布比总数有用得多：万相 10/11 项没说，Vidu 只有 1 项。
+          <Mark state="unknown" /> 的分布比总数有用得多：万相 10/11 项没说，Vidu 只有 1 项。
           <b className="text-ink">总数告诉你「有多少不确定」，分布告诉你「哪家不爱写文档」。</b>
         </p>
       </S>
@@ -69,15 +71,15 @@ export default function Method() {
         </p>
       </S>
 
-      <S id="transparency" n={3} t="平台透明度：⬜ 和 🔴 是两回事">
-        <p><b>🟢</b> 读到了页面，它点名了底层模型（必须有原文）。</p>
-        <p><b>🔴</b> <b className="text-ink">读完了整页，它确实没提。</b>这一档的门槛是「读过」。</p>
+      <S id="transparency" n={3} t={<span className="inline-flex items-center gap-1">平台透明度：<Dot tone="unknown" /> 和 <Dot tone="no" /> 是两回事</span>}>
+        <p><b><Dot tone="yes" /></b> 读到了页面，它点名了底层模型（必须有原文）。</p>
+        <p><b><Dot tone="no" /></b> <b className="text-ink">读完了整页，它确实没提。</b>这一档的门槛是「读过」。</p>
         <p>
-          <b>⬜ 我们没看到</b> —— 采集器没拿到页面（限流、超时、站点打不开）。
+          <b><Dot tone="unknown" /> 我们没看到</b> —— 采集器没拿到页面（限流、超时、站点打不开）。
           <b className="text-ink">这一格空着是我们的缺口，不是它在藏。</b>
         </p>
         <p className="text-muted">
-          目前 🔴 是 0 家 —— 我们怀疑的那几家，恰好就是读不到的那几家。
+          目前 <Dot tone="no" /> 是 0 家 —— 我们怀疑的那几家，恰好就是读不到的那几家。
         </p>
       </S>
 

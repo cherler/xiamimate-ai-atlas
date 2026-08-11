@@ -1,5 +1,6 @@
 import { atlas, cell, type State } from "@/lib/atlas";
 import ReportIssue from "./ReportIssue";
+import Mark from "./Mark";
 
 /**
  * 一条事实的完整呈现：状态 + 说明 + 来源 + 官方/第三方 + 核验版本 + 录入身份。
@@ -7,6 +8,11 @@ import ReportIssue from "./ReportIssue";
  * **从 page.tsx 抽出来共用** —— 首页、模型页、能力页三处都要它。
  * 抽出来的动机不是「代码复用」，是**口径不能有第二份**：
  * 三个地方各写一遍，早晚有一处忘了标「机器录入」。
+ */
+/**
+ * **保留这张表只为兼容纯文本场合**（分享图脚本、复制出去的文本）。
+ * 页面上一律用 `<Mark/>` 画 —— emoji 的字形由操作系统决定，
+ * 一个卖「对得上」的站不该让核心符号长成什么样取决于读者用什么电脑。
  */
 export const MARK: Record<State, string> = { yes: "✅", no: "❌", unknown: "⬜" };
 export const TONE: Record<State, string> = { yes: "text-yes", no: "text-no", unknown: "text-unknown" };
@@ -44,8 +50,8 @@ export function Fact({ m, c, label }: { m: string; c: string; label: string }) {
   const src = f.src ? atlas.sources[f.src] : null;
   return (
     <div className="border-t border-rule py-3 flex gap-4 text-[15px]">
-      <span className={`${TONE[f.state]} font-semibold shrink-0 w-[190px]`}>
-        {MARK[f.state]} {label}
+      <span className={`${TONE[f.state]} font-semibold shrink-0 w-[190px] flex items-start gap-1.5`}>
+        <Mark state={f.state} className="mt-[3px]" /> {label}
         <ViaTag via={f.via} />
       </span>
       <div className="min-w-0 flex-1">

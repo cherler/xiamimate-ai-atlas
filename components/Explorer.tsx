@@ -27,7 +27,7 @@ export default function Explorer() {
           大一圈，SVG 又按容器宽放大显示，于是看着明显更大、和上面两张表不协调。
           外框保持满宽（与真值表框对齐），把 SVG 收窄居中等比缩小 —— 不动内部比例，
           字号视觉就落回真值表量级。 */}
-      <div className="bg-card border border-rule p-4">
+      <div className="bg-card border border-rule rounded-xl rounded-xl p-4">
         <div className="max-w-[900px] mx-auto">
           <Bipartite sel={sel} onSel={setSel} />
         </div>

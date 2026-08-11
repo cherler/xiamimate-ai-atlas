@@ -821,7 +821,7 @@ export default function Tree({ domain }: { domain: string }) {
       {/* 虚点点开后的清单。**不做弹窗** —— 弹窗会盖住图，而这些条目本来就是图的一部分，
           就近展开、能同时看到图和清单更合适。 */}
       {early && earlier.length > 0 && (
-        <div className="border border-rule bg-card px-4 py-3 mb-3 text-[13px] leading-relaxed">
+        <div className="border border-rule rounded-xl bg-card px-4 py-3 mb-3 text-[13px] leading-relaxed">
           <p className="font-semibold mb-1.5">
             轴外更早的发布（{earlier.length} 条）
             <span className="font-normal text-muted ml-2">

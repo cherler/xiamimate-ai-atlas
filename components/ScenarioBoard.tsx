@@ -192,7 +192,7 @@ function ApplicationRow({ app }: { app: Application }) {
  */
 export default function ScenarioBoard({ domain }: { domain: string }) {
   return (
-    <div className="bg-card border border-rule">
+    <div className="bg-card border border-rule rounded-xl rounded-xl rounded-xl">
       <div className="px-4 py-4 bg-yes/5 border-b border-rule flex flex-wrap items-baseline justify-between gap-2">
         <div>
           <p className="text-[11px] tracking-[.14em] uppercase text-yes-ink">Application Atlas</p>

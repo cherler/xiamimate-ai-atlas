@@ -118,7 +118,7 @@ export default async function SkillPage({ params }: { params: Promise<{ id: stri
 
       {/* §10 的首屏就是输入 → 输出。**先让人看懂这件事长什么样**，再谈谁能做。 */}
       {s.io && (
-        <div className="border border-rule bg-card p-4 flex flex-wrap items-center justify-center gap-3 text-[15px]">
+        <div className="border border-rule rounded-xl bg-card p-4 flex flex-wrap items-center justify-center gap-3 text-[15px]">
           {s.io.in.map((x, i) => (
             <span key={x} className="flex items-center gap-3">
               {i > 0 && <span className="text-muted">+</span>}

@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { Fact, MARK, TONE } from "@/components/Fact";
+import Mark from "@/components/Mark";
 import { atlas, capsOf, cell, label, modelsOf, orgOf, STATUS } from "@/lib/atlas";
 import { modelHref } from "@/lib/slug";
 import BackLink from "@/components/BackLink";
@@ -174,7 +175,7 @@ export default async function ComparePage({ params }: { params: Promise<{ pair: 
                   <th className="text-left py-1.5 pr-4 font-medium text-[13px] text-muted">{c.zh}</th>
                   {[fa, fb].map((f, i) => (
                     <td key={i} className={`py-1.5 pr-4 text-[14px] ${TONE[f.state]}`}>
-                      {MARK[f.state]}
+                      <Mark state={f.state} />
                       {f.via === "separate-task" && <span className="text-unknown text-[11px] align-super">*</span>}
                     </td>
                   ))}

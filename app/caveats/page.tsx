@@ -52,7 +52,7 @@ export default function CaveatsPage() {
           {byKind.get(k)!.map((c, i) => {
             const src = c.src ? atlas.sources[c.src] : null;
             return (
-              <div key={i} className="border border-rule bg-card p-3 flex flex-col gap-1">
+              <div key={i} className="border border-rule rounded-xl bg-card p-3 flex flex-col gap-1">
                 <p className="text-[15px]">
                   {c.m ? (
                     <Link href={modelHref(c.m)} className="underline hover:text-yes">{c.what}</Link>

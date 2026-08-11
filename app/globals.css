@@ -24,7 +24,10 @@
  */
 @theme {
   /* 表面：取主站那套 —— 页底浅灰，内容区纯白 */
-  --color-paper: #f4f6f9;
+  /* 页底纯白 —— 主站与虾米跨境实测都是 #fff（.app-shell 透明、body 白）。
+     上一版这里是 #f4f6f9，白卡靠灰底浮起来；平台其余各处靠的是 1px 细边，
+     **灰底是这一站独有的那一点，也是切过来最先看出的色差**。 */
+  --color-paper: #ffffff;
   --color-card: #ffffff;
   --color-ink: #16212c;
   --color-muted: #647587;
@@ -39,23 +42,34 @@
   --color-unknown: #8a95a1;
   --color-hatch: #c3c9d0; /* 加深一档：太淡的斜线在纸底上等于消失，⬜ 是主角得看得见 */
 
-  /* 零圆角。datasheet 的性格来自直角与规则线；
-     平台令牌里的 --xm-radius 是给控件用的，本站不铺到内容区。 */
-  --radius-xs: 0px;
-  --radius-sm: 0px;
-  --radius-md: 0px;
-  --radius-lg: 0px;
-  --radius-xl: 0px;
-  --radius-2xl: 0px;
-  --radius-3xl: 0px;
-  --radius-4xl: 0px;
+  /*
+   * **外框跟平台走圆角，内部网格保持直角。**
+   *
+   * 上一版全站零圆角，理由是「datasheet 的性格来自直角与规则线」—— 性格没错，
+   * 但**性格在网格里，不在外框上**。虾米跨境的卡实测是 12px 圆角 + 1px #e2e6ec + 无阴影；
+   * 一整页直角框摆在它旁边，切过来第一眼就是「换了个网站」。
+   *
+   * 所以只把**容器**这一层对齐：外框 12px（`rounded-xl`），小控件 6~10px。
+   * 真值表的格子、发丝线、演化树一律仍是直角 —— 那才是这一站的性格。
+   */
+  --radius-xs: 4px;
+  --radius-sm: 6px;
+  --radius-md: 8px;
+  --radius-lg: 10px;
+  --radius-xl: 12px;   /* 卡片外框：和虾米跨境实测一致 */
+  --radius-2xl: 14px;
+  --radius-3xl: 16px;
+  --radius-4xl: 20px;
 }
 
 html,
 body {
   background: var(--color-paper);
   color: var(--color-ink);
-  font-family: var(--xm-font-sans);
+  /* Geist 打头、中文回落 PingFang —— **和主站、虾米跨境同一条链**。
+     `--xm-font-sans` 令牌里没有 Geist（见 layout.tsx 的说明），所以在这里补上；
+     令牌仍作为回落，字体没加载出来时行为不变。 */
+  font-family: var(--font-geist-sans), var(--xm-font-sans);
   -webkit-font-smoothing: antialiased;
 }
 

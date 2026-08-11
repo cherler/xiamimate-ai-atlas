@@ -37,7 +37,7 @@ export default function Pick() {
           const yes = cells.filter((s) => s.state === "yes").length;
           return (
             <Link key={d.id} href={`/${d.id}`}
-              className="border border-rule bg-card px-5 py-5 hover:border-yes hover:bg-yes/5 flex flex-wrap items-baseline gap-x-4 gap-y-2">
+              className="border border-rule rounded-xl bg-card px-5 py-5 hover:border-yes hover:bg-yes/5 flex flex-wrap items-baseline gap-x-4 gap-y-2">
               <span className="text-[26px] font-bold">{d.name}</span>
               {d.state !== "live" && (
                 <span className="text-[11px] px-1.5 py-0.5 bg-unknown/20 text-unknown">建设中</span>
