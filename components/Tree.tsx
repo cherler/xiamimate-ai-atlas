@@ -139,6 +139,8 @@ export default function Tree({ domain }: { domain: string }) {
   const [pin, setPin] = useState<string | null>(null);
   const [cap, setCap] = useState<string | null>(null);
   const [cut, setCut] = useState(100);
+  /** 轴外「更早的发布」是否展开。 */
+  const [early, setEarly] = useState(false);
   const [playing, setPlaying] = useState(false);
   const raf = useRef(0);
 
@@ -558,9 +560,41 @@ export default function Tree({ domain }: { domain: string }) {
 
           {/* 靠左对齐，不能用 end —— end 会把「2023-12 起」推出画布左边（刚才裁成了「3-12 起」）。
               另：JSX 注释不能和元素并列当兄弟，这个错今天犯了第三次。 */}
+          {/**
+            * **轴外的更早节点做成虚点，钉在轴底、点得开。**
+            *
+            * 之前只在角落写一行「更早还有 N 条」—— 那等于告诉你有东西但不给你看。
+            * AI 图像这边尤其明显：SD 1.4 是 2022-08，比轴起点早了快一年，
+            * 线性铺开会让整张图空掉一半，可它又是这条线的起点、不能不画。
+            * 折中：在它所属那条线的 x 上画一个**虚线空心点**贴着轴底，
+            * 点一下把这些更早的发布列出来（日期 + 这一代加了什么）。
+            */}
+          {earlier.map((n) => {
+            const l = lines.find((x) => x.m === n.m);
+            const p = l ? posOf.get(l.ns.find((k) => MS(k.date) >= t0)?.id ?? "") : null;
+            if (!l || !p) return null;
+            return (
+              <g key={`early-${n.id}`} style={{ cursor: "pointer" }}
+                onClick={() => setEarly((v) => !v)}>
+                {/**
+                  * **命中区要单独给。** 上面那个虚点是 `fill="none"` ——
+                  * SVG 里没有填充的图形**内部不接收点击**，只有描边那一圈能点到。
+                  * 实测：Playwright 点圆心毫无反应，点旁边的文字却好使；
+                  * 真人点圆心同样点不中。铺一个透明的大圆当热区。
+                  */}
+                <circle cx={p.x} cy={PAD.t + AXIS_H + 14} r={11} fill="transparent" />
+                <circle cx={p.x} cy={PAD.t + AXIS_H + 14} r={4.5} pointerEvents="none"
+                  fill="none" stroke={l.color} strokeWidth={1.4} strokeDasharray="2.5 2" />
+                <line x1={p.x} y1={PAD.t + AXIS_H + 9} x2={p.x} y2={y(ymd(t0))}
+                  stroke={l.color} strokeWidth={1} strokeDasharray="2 3" opacity={0.45} />
+              </g>
+            );
+          })}
           {earlier.length > 0 && (
-            <text x={6} y={PAD.t + AXIS_H + 24} fontSize="11" fill="var(--color-muted)">
+            <text x={6} y={PAD.t + AXIS_H + 32} fontSize="11" fill="var(--color-muted)"
+              style={{ cursor: "pointer" }} onClick={() => setEarly((v) => !v)}>
               轴起于 {ymd(t0).slice(0, 7)}；更早还有 {earlier.length} 条（{ymd(Math.min(...earlier.map((n) => MS(n.date)))).slice(0, 7)}）
+              {" "}—— 点虚点{early ? "收起" : "展开"}
             </text>
           )}
 
@@ -594,6 +628,30 @@ export default function Tree({ domain }: { domain: string }) {
         </svg>
       </div>
 
+      {/* 虚点点开后的清单。**不做弹窗** —— 弹窗会盖住图，而这些条目本来就是图的一部分，
+          就近展开、能同时看到图和清单更合适。 */}
+      {early && earlier.length > 0 && (
+        <div className="border border-rule bg-card px-4 py-3 mb-3 text-[13px] leading-relaxed">
+          <p className="font-semibold mb-1.5">
+            轴外更早的发布（{earlier.length} 条）
+            <span className="font-normal text-muted ml-2">
+              早于 {ymd(t0).slice(0, 7)}，铺进主轴会让整张图空掉一半，所以单列
+            </span>
+          </p>
+          {[...earlier].sort((a, b) => MS(a.date) - MS(b.date)).map((n) => {
+            const l = lines.find((x) => x.m === n.m);
+            return (
+              <p key={n.id} className="flex flex-wrap items-baseline gap-x-2 border-t border-rule pt-1.5 mt-1.5">
+                <span className="tabular-nums text-muted text-[12px] w-[80px]">{n.date}</span>
+                <b style={{ color: l?.color }}>{SHORT(l?.model.family ?? n.m)}</b>
+                <span>{n.version}</span>
+                <span className="text-muted">{n.added}</span>
+              </p>
+            );
+          })}
+        </div>
+      )}
+
       <div className="flex flex-wrap items-center gap-x-5 gap-y-2 text-[12px] text-muted">
         {/*
           **开不开源只看实心/空心，不看颜色。**
@@ -601,7 +659,7 @@ export default function Tree({ domain }: { domain: string }) {
           两套都叫开源/闭源，结论还能相反（MiniMax 紫色=闭源家族，但 H3 是实心=权重公开），
           负责人当场问「公开权重不就是开源吗」。**是分类有毛病，不是他没看懂。**
           真相：开不开源是**逐代变**的（万相开源起家、3.0 转闭源；海螺闭源起家、H3 放权重），
-          按「家族」贴死标签本身就错。所以颜色退回只做一件事：区分 14 条线。
+          按「家族」贴死标签本身就错。所以颜色退回只做一件事：区分各条产品线。
         */}
         <span>
           <b className="text-ink">实心</b> = 这一代权重公开，<b className="text-ink">空心</b> = 没公开。

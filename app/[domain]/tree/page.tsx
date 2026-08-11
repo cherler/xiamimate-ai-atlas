@@ -46,9 +46,27 @@ export default async function TreePage({ params }: { params: Promise<{ domain: s
       </header>
 
       {vs.length ? (
-        <div className="mt-6 bg-card border border-rule p-4">
-          <Tree domain={d.id} />
-        </div>
+        <>
+          <div className="mt-6 bg-card border border-rule p-4">
+            <Tree domain={d.id} />
+          </div>
+          {/* **树上少了谁，页面要自己说。** 上表 9 条产品线、树上只有 6 条，
+              不说明的话读者会以为「那几家没发过版本」。 */}
+          {(() => {
+            const withV = new Set(atlas.versions.map((v) => v.m));
+            const missing = domainModels(d.id).filter((m) => !withV.has(m.id));
+            if (!missing.length) return null;
+            return (
+              <p className="mt-4 text-[12.5px] text-muted leading-relaxed">
+                <b className="text-ink">另有 {missing.length} 条产品线没进这棵树</b>
+                （{missing.map((m) => m.family).join("、")}）——
+                <b className="text-ink">不是它们没发过版本，是官方页只写当前版本、不写发布日期</b>，
+                而树上每个点都要一个日期。拿不到日期就不画，
+                <Link href={`/${d.id}/models`} className="underline ml-1 hover:text-ink">在全部模型里能看到它们 →</Link>
+              </p>
+            );
+          })()}
+        </>
       ) : (
         /* **没有数据就说没有，不画一棵空树。** 空图比没有图更让人以为「这个方向没东西长出来」。 */
         <div className="mt-6 border border-unknown/40 bg-unknown/6 p-5 text-[14px] leading-relaxed">

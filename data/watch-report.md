@@ -1,6 +1,6 @@
-# 信息源监视报告 · 2026-08-10
+# 信息源监视报告 · 2026-08-11
 
-本次检查 0 个到期源（共 62 个）：变化 0 · 首次 0 · 无变化 0 · **抓不到 0**
+本次检查 0 个到期源（共 93 个）：变化 0 · 首次 0 · 无变化 0 · **抓不到 0**
 
 > 这份报告是给人看的那 20 条待办的来源（§59.3 的负反馈：人每周要看的条目 ≤ 20）。
 > 「抓不到」不是失败，是**信息本身** —— 一个长期抓不到的官方源，说明那家厂商没有可 diff 的公开更新入口，
@@ -84,3 +84,34 @@
 | vidu-price | S | spa | 未到期（上次 2026-08-08） |
 | fal-ltx-price | S | spa | 未到期（上次 2026-08-08） |
 | replicate-price | A | html | 未到期（上次 2026-08-08） |
+| hf-course | S | html | 从未抓过 |
+| comfy-docs | S | spa | 从未抓过 |
+| h3-card | S | html | 从未抓过 |
+| hf-lineage | S | json | 从未抓过 |
+| vacetools-gh | C | json | 从未抓过 |
+| framepack-gh | S | json | 从未抓过 |
+| fpwrapper-gh | C | json | 从未抓过 |
+| latentsync-gh | S | json | 从未抓过 |
+| lswrapper-gh | C | json | 从未抓过 |
+| float-gh | C | json | 从未抓过 |
+| sviflf-gh | C | json | 从未抓过 |
+| flflatent-gh | C | json | 从未抓过 |
+| mm-blog | S | html | 从未抓过 |
+| wanwrapper-gh | C | json | 从未抓过 |
+| comfy-org-hf | S | json | 从未抓过 |
+| ltx-comfy-gh | S | json | 从未抓过 |
+| mpt-gh | C | json | 从未抓过 |
+| manim-gh | C | json | 从未抓过 |
+| pyvideotrans-gh | C | json | 从未抓过 |
+| duix-gh | C | json | 从未抓过 |
+| fay-gh | C | json | 从未抓过 |
+| narrato-gh | C | json | 从未抓过 |
+| zho-wf-gh | C | json | 从未抓过 |
+| echomimic-gh | C | json | 从未抓过 |
+| linly-talker-gh | C | json | 从未抓过 |
+| animate-anything-gh | C | json | 从未抓过 |
+| huobao-gh | C | json | 从未抓过 |
+| awesome-vd-gh | C | json | 从未抓过 |
+| seedream-page | S | html | 从未抓过 |
+| openai-models | S | html | 从未抓过 |
+| gemini-models | S | html | 从未抓过 |
