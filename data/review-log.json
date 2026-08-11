@@ -220,6 +220,16 @@
       "missing": [
         "库里没有这条产品线（要先建实体：公司 / 轨 / 层级 / 架构依据）"
       ]
+    },
+    {
+      "id": "2026-08-07::kling-api-updates::kling 3.0 turbo::t2v::Kling 3.0 Turbo 支持文生视频（7",
+      "at": "2026-08-11 12:34:59",
+      "who": "刘振海",
+      "verdict": "duplicate",
+      "why": "",
+      "claim": "Kling 3.0 Turbo 支持文生视频（720P 与 1080P）",
+      "cell": "kling×t2v",
+      "note": "已有结论一致（yes）。这条的核验版本是 2026-08-07，库里那条是 3.0"
     }
   ]
 }
