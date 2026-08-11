@@ -240,6 +240,16 @@
       "claim": "Kling 3.0 Turbo 支持图生视频（720P 与 1080P）",
       "cell": "kling×i2v",
       "note": "已有结论一致（yes）。这条的核验版本是 2026-08-07，库里那条是 3.0"
+    },
+    {
+      "id": "2026-08-07::vidu-changelog::vidu q2::t2v::Vidu Q2 模型支持 9 秒和 10 秒时长",
+      "at": "2026-08-11 12:44:26",
+      "who": "admin",
+      "verdict": "duplicate",
+      "why": "",
+      "claim": "Vidu Q2 模型支持 9 秒和 10 秒时长，覆盖 Text to Video、Reference to Video、Image to Video 接口",
+      "cell": "vidu-q×t2v",
+      "note": "已有结论一致（yes）。这条的核验版本是 2026-08-07，库里那条是 Q3"
     }
   ]
 }
