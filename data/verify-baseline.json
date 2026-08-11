@@ -23,7 +23,7 @@
     "/video|桌面": 677,
     "/video/tree|桌面": 408,
     "/video/map|桌面": 258,
-    "/video/scenario|桌面": 401,
+    "/video/scenario|桌面": 382,
     "/video/models|桌面": 423,
     "/image|桌面": 432,
     "/image/tree|桌面": 149,
@@ -33,13 +33,13 @@
     "/video|手机": 440,
     "/video/tree|手机": 408,
     "/video/map|手机": 258,
-    "/video/scenario|手机": 401,
+    "/video/scenario|手机": 382,
     "/video/models|手机": 423,
     "/image|手机": 382,
     "/image/tree|手机": 149,
     "/image/map|手机": 242,
     "/image/models|手机": 244,
-    "/image/scenario|桌面": 301,
-    "/image/scenario|手机": 301
+    "/image/scenario|桌面": 341,
+    "/image/scenario|手机": 341
   }
 }

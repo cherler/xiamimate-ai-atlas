@@ -302,7 +302,35 @@ for (const [vp, w, h] of [["桌面", 1440, 900], ["手机", 390, 844]]) {
         await page.goto(`${ORIGIN}${BASE}${path === "/" ? "" : path}`,
           { waitUntil: DEV ? "domcontentloaded" : "networkidle", timeout: 45000 });
         await page.waitForTimeout(DEV ? 1800 : 900);
-        txt = await page.evaluate('document.querySelector("main")?.innerText ?? ""');
+        /**
+         * **扫描前先摘掉原文引用。**
+         *
+         * 一条上游项目的英文标语里出现别家模型的名字是**正常的** ——
+         * LatentSync 的自述就是「Taming Stable Diffusion for Lip Sync」，
+         * 这句话出现在 AI 视频的场景页上，不代表 Stable Diffusion 这条
+         * 图像产品线漏进来了，它就是引用本身。
+         *
+         * 引用是证据，**不能为了让检查变绿去改它**（改原文比放宽检查更糟）。
+         * 而 `[data-quote]` 这个记号已经存在 —— 中文字数那条棘轮减的就是它，
+         * 因为「不放旁白」管的也只是我们自己写的字。同一条边界，两处共用。
+         */
+        /**
+         * ⚠️ 别用 `cloneNode` 再取 `innerText`：克隆出来的节点**不在文档里**，
+         * `innerText` 会退化成 `textContent` —— 连 `display:none` 的内容一起算进来。
+         * 第一版就是这么写的，结果 /image 立刻「混入」了九条视频产品线
+         * （它们在移动端那一份里是隐藏的）。**读文本也要读「看得见的那一份」**，
+         * 和量标签重叠时只量可见矩形是同一条纪律。
+         */
+        txt = await page.evaluate(`(() => {
+          const m = document.querySelector("main");
+          if (!m) return "";
+          const q = [...m.querySelectorAll("[data-quote]")];
+          const keep = q.map((e) => e.style.display);
+          q.forEach((e) => { e.style.display = "none"; });
+          const t = m.innerText;
+          q.forEach((e, i) => { e.style.display = keep[i]; });
+          return t;
+        })()`);
       } catch { txt = ""; }
       const mine = path.split("/")[1];
       const foreign = (raw.models ?? [])

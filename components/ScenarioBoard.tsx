@@ -65,15 +65,24 @@ function ResourceCard({ resource }: { resource: ApplicationResource }) {
         * 和 ⬜「官方没说」同一条纪律：标出来，别抹掉。
         */}
       <p className="text-[10.5px] leading-snug mt-2 flex items-center gap-1.5">
-        {resource.license ? (
-          <span className="text-yes-ink shrink-0">{resource.license}</span>
-        ) : resource.license === null ? (
-          // 查过，作者确实没放 —— 这是一条事实，红着标
-          <span className="shrink-0 px-1 bg-no/10 text-no font-medium">无许可证 · 未授权使用</span>
-        ) : (
-          // 我们还没采 —— 这是我们的缺口，不是对方的问题，用 ⬜ 那一档的灰
-          <span className="shrink-0 text-unknown">许可证未采</span>
-        )}
+        {/**
+          * **许可证只对「能拿走跑的东西」才是一个问题。**
+          * 一篇官方教程页、一门公开课程没有「许可证」这回事 —— 在它们下面印
+          * 「许可证未采」是把字段的缺席当成了一条缺口，属于分类错用；
+          * 而且这几个字会在每一张文档卡上重复一遍，纯噪音。
+          * 所以只有 project / skill 这两类才显示这一栏。
+          */}
+        {resource.kind === "project" || resource.kind === "skill" ? (
+          resource.license ? (
+            <span className="text-yes-ink shrink-0">{resource.license}</span>
+          ) : resource.license === null ? (
+            // 查过，作者确实没放 —— 这是一条事实，红着标
+            <span className="shrink-0 px-1 bg-no/10 text-no font-medium">无许可证 · 未授权使用</span>
+          ) : (
+            // 我们还没采 —— 这是我们的缺口，不是对方的问题，用 ⬜ 那一档的灰
+            <span className="shrink-0 text-unknown">许可证未采</span>
+          )
+        ) : null}
         <span data-quote className="text-muted truncate">{source}</span>
       </p>
     </a>

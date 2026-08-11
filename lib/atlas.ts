@@ -574,7 +574,10 @@ export function applicationResources(app: Application): ApplicationResource[] {
           url: w.url,
           src: w.src,
           quote: w.quote,
-          note: w.kind === "community" ? "社区维护；先看依赖和显存要求" : "官方公开教程或工作流",
+          // 官方那句原来写的是「官方公开教程或工作流」—— **「文档」那个标签已经说了同一件事**，
+          // 而它会在每一张官方卡上重复一遍。复述不是强调，是噪音；社区那句留着，
+          // 因为「先看依赖和显存」是能照着做的事。
+          note: w.kind === "community" ? "社区维护；先看依赖和显存要求" : undefined,
           evidence: [],
         }),
         { skill_id: s.id, skill_zh: s.zh, quote: w.quote });
