@@ -34,7 +34,7 @@ import { modelHref } from "@/lib/slug";
  * 67 个标签同时铺在图上，只会变成一团噪音。
  */
 const W = 1240;
-const PAD = { t: 56, b: 48, l: 78, r: 120 };  // r 加大：末节点标签写在右侧，别溢出画布
+const PAD = { t: 56, b: 76, l: 78, r: 120 };  // b 加大：起点公司名改画在起点下方，轴底要留出一栏  // r 加大：末节点标签写在右侧，别溢出画布
 const AXIS_H = 560;
 
 const MS = (d: string) => new Date(`${d.length === 7 ? `${d}-01` : d}T00:00:00Z`).getTime();
@@ -116,6 +116,17 @@ const SHORT = (t: string) =>
     .replace(/-v\?$/, "")
     .slice(0, 12);
 
+/**
+ * 产品线名（画在线顶）的宽度与靠边方向。**布局占位和实际绘制各算一遍必然算歪**，
+ * 所以做成一个函数两处调用 —— 和 `labelText` 同一条纪律。
+ *
+ * 靠左会伸进左侧刻度尺栏时就翻到右边：最左那条线左边只有尺子，
+ * 硬靠左就是压在「10月」上面。
+ */
+const lineNameW = (family: string) =>
+  SHORT(family).replace(/[^\x00-\xff]/g, "aa").length * 5.2 + 8;
+const lineNameLeft = (x: number, family: string) => x - lineNameW(family) >= PAD.l;
+
 /** 一个节点该显示什么字。**只此一处** —— 布局与渲染各算一遍必然会算歪。 */
 const labelText = (
   n: { version?: string; added?: string },
@@ -194,30 +205,19 @@ export default function Tree({ domain }: { domain: string }) {
     }).filter((l) => l.model).sort((a, b) => a.first.localeCompare(b.first));
 
     /**
-     * **早夭的短线挪到队尾**（负责人：Open-Sora 右侧那个时间段空白一片）。
-     * 纯按首发时间排，Open-Sora / Mochi / Allegro 这些只活在 2025 年初、之后再没
-     * 更新的线会卡在中间，把右上角（2026 的密集期）挤空。把「节点少且早就停更」的
-     * 挪到队尾 —— 右下正好是它们的时间段，空白被填上，中段也不再被短线切断。
+     * **横向就是首次出现的先后，没有例外**（负责人 2026-08-11：
+     * 「把右侧的 stability 放在最左侧」）。
+     *
+     * 上一版有条「早夭的短线挪到队尾」的规则，是为了补 AI 视频右下角的空白。
+     * 但它把 AI 图像里最老的 Stable Diffusion（2022）扔到了最右边 ——
+     * **左到右不再是时间顺序，图就没法读了**。补空白是次要的，
+     * 轴的语义是首要的：一条规则要么两个方向都成立，要么不要。
+     *
+     * 实时交互轨仍排队尾 —— 那不是「排得晚」，是**另一套坐标系**
+     * （边生成边看 vs 出片再看），混在中间会被当成同一类比。
      */
-    /**
-     * 阈值**从数据算**，不写死日期。原来写的是 "2025-07-01" ——
-     * 那是照着 AI 视频的数据调出来的，搬到 AI 图像就把最老的两条线
-     * （Stable Diffusion 2023、Ideogram 2025-03）推到了最右边，
-     * **读起来时间是倒着的**。改成「跨度的前 40%」，两个方向都成立。
-     */
-    const spanEnd = MS(arr[arr.length - 1].ns[arr[arr.length - 1].ns.length - 1].date);
-    const spanStart = MS(arr[0].first);
-    const cutoff = spanStart + (spanEnd - spanStart) * 0.4;
-    const stale = (l: (typeof arr)[number]) =>
-      l.ns.length <= 2 && MS(l.ns[l.ns.length - 1].date) < cutoff;
-    // **实时交互轨排到最后** —— Vidu S / Lucy 是另一套坐标系（边生成边看），
-    // 插在离线轨中间会让人以为是同一类。放队尾，和右下的短线待在一起。
     const rt = (l: (typeof arr)[number]) => l.model.class === "realtime";
-    const ordered = [
-      ...arr.filter((l) => !stale(l) && !rt(l)),
-      ...arr.filter((l) => stale(l) && !rt(l)),
-      ...arr.filter(rt),
-    ];
+    const ordered = [...arr.filter((l) => !rt(l)), ...arr.filter(rt)];
 
     /**
      * **横向均匀铺开**：每条线占等宽的一格，格宽 = 可用宽度 / 条数。
@@ -342,7 +342,7 @@ export default function Tree({ domain }: { domain: string }) {
    * 结果仍有 10 对重叠。**布局不能靠渲染副作用**，这里用 useMemo 算成纯数据。
    */
   const labelAt = useMemo(() => {
-    const out = new Map<string, { x: number; y: number; side: 1 | -1 }>();
+    const out = new Map<string, { x: number; y: number; side: 1 | -1 | 0 }>();
     /**
      * `h` = 这块东西的**半高**。判定用「两块半高之和」，
      * 上抬步长另有其数 —— **一个常量身兼两职，调它必然按下葫芦浮起瓢**
@@ -363,13 +363,52 @@ export default function Tree({ domain }: { domain: string }) {
       const yy = y(new Date(Date.UTC(yr, 0, 1)).toISOString().slice(0, 10));
       placed.push({ x0: -9999, x1: PAD.l - 4, y: yy, h: 8 });   // 年份刻度：11px 字
     }
+    /**
+     * **月份刻度也要占位。** 上一版只占了年份 —— 于是 AI 图像左下角
+     * 「SDXL 1.0」「Stable Diffu」两个标签压在「10月」上面。
+     * 同一类漏法犯第二次了：**凡是画在图上的字都得进这个数组**，
+     * 不能只想着「主要的那些」。
+     */
+    for (const ms of months) {
+      const mo = new Date(ms).getUTCMonth() + 1;
+      if (!(mo % 3 === 1 && mo !== 1)) continue;   // 只有 4/7/10 月标了数字，其余是空刻度
+      placed.push({ x0: -9999, x1: PAD.l - 4, y: y(new Date(ms).toISOString().slice(0, 10)), h: 6 });
+    }
     for (const l of lines) {
       const top = l.ns[l.ns.length - 1];
       const pt = posOf.get(top.id);
       if (!pt) continue;
-      const w = SHORT(l.model.family).replace(/[^\x00-\xff]/g, "aa").length * 5.2 + 8;
-      placed.push({ x0: pt.x - w, x1: pt.x, y: pt.y - 20, h: 9 }); // 产品线名：9.5px 粗体，占位比字高留一点余量
+      const w = lineNameW(l.model.family);
+      const left = lineNameLeft(pt.x, l.model.family);
+      placed.push({ x0: left ? pt.x - w : pt.x, x1: left ? pt.x : pt.x + w, y: pt.y - 20, h: 12 }); // 产品线名：9.5px 粗体
+      // h 从 9 提到 12：占位框的中心按基线算，实际字框中心还要再高 3px 左右 ——
+      // 差这 3px，视频树的「Lightricks」就贴着「Allegro」擦过去了。**h 只做判定带，
+      // 不是上抬步长**（步长是 BAND），所以调它不会引发上一次那种连锁反弹。
     }
+    /**
+     * **左边不是无限宽的。**
+     *
+     * 首末标签原本写死「一律靠左」。最左那条产品线（AI 图像里是 Stability）
+     * 左边只有刻度尺栏，标签整个伸进去压住「10月」；而它想上抬避让时，
+     * 上面又被第二条线（Midjourney）的左侧标签占满 —— **两个标签为同一块
+     * 根本不存在的空地打架**。
+     *
+     * 判据不是「第几条线」，是**这块字放下去会不会越过刻度栏的右缘**。
+     * 越过就翻到节点右侧 —— 最左那条线右侧一定是空的（它右边隔着一整格）。
+     */
+    /**
+     * 轴底那一栏也有东西：**「更早的发布」虚点**（画在轴下 14px）和**脚注**。
+     * 起点公司名改到起点下方之后正好落进这一栏 —— 不占位就直接压上去。
+     */
+    for (const l of lines) {
+      const p0 = posOf.get(l.ns[0].id);
+      if (p0 && nodes.some((n) => n.m === l.m && MS(n.date) < t0))
+        placed.push({ x0: p0.x - 7, x1: p0.x + 7, y: PAD.t + AXIS_H + 14, h: 7 });
+    }
+    if (earlier.length) placed.push({ x0: -9999, x1: 9999, y: PAD.t + AXIS_H + 56, h: 8 });
+
+    const gutter = PAD.l;   // 左侧刻度尺栏的右缘
+    const roomOnLeft = (x: number, w: number) => x - 7 - w >= gutter;
     // 按 y 从上到下排，先来先占 —— 顺序稳定，结果才可复现
     const all = [...nodes].filter((n) => posOf.has(n.id))
       .sort((a, b) => (posOf.get(a.id)!.y - posOf.get(b.id)!.y));
@@ -383,9 +422,18 @@ export default function Tree({ domain }: { domain: string }) {
       const w = txt.replace(/[^\x00-\xff]/g, "aa").length * 5.2 + 10;
       // **首末标签一律放左侧**（负责人：LongAnimDiff 和 HY-Video 放节点左侧）。
       // 末标签右边正好是产品线名，放右侧会压住它；首标签在最左那条线上会顶出画布。
-      const forceLeft = isTop || isBot;
-      let side: 1 | -1 = forceLeft ? -1 : 1;
-      let ny = p.y;
+      /**
+       * **起点的公司名画在起点下方、居中**（负责人 2026-08-11：「看着更顺眼」）。
+       *
+       * 顺带解决一个实打实的布局故障：起点在图的最下沿，它左右两侧同时挤着
+       * 左邻线的产品线名和左侧刻度尺 —— 视频树里「Lightricks」试满 16 个位置
+       * 都没找到空地，于是**原地落下、直接压在「Allegro」上**。
+       * 起点下方是整张图唯一空着的地方，挪过去这类争抢就不存在了。
+       */
+      const below = isBot;
+      const forceLeft = isTop && roomOnLeft(p.x, w);
+      let side: 1 | -1 | 0 = below ? 0 : forceLeft ? -1 : 1;
+      let ny = below ? p.y + 15 : p.y;
       /**
        * 碰撞判定带 = 真实字高，不是拍脑袋的数。
        * 原来 ±9.5 判不到「顶端节点标签 vs 产品线名」那一对 ——
@@ -404,19 +452,21 @@ export default function Tree({ domain }: { domain: string }) {
       const MINE = 7;        // 节点标签自己的半高（8.5~10.5px 字，含升降部）
       const hit = (x0: number, x1: number, yy: number) =>
         placed.some((q) => Math.abs(yy - q.y) < q.h + MINE && x0 < q.x1 && q.x0 < x1);
+      const xOf = () => (side === 0 ? p.x - w / 2 : side === 1 ? p.x + 7 : p.x - 7 - w);
       for (let g = 0; g < 16; g++) {
-        const x0 = side === 1 ? p.x + 7 : p.x - 7 - w;
+        const x0 = xOf();
         if (!hit(x0, x0 + w, ny)) break;
-        if (forceLeft) ny -= BAND;                       // 首末只上抬，不翻到右边
+        if (below) ny += BAND;                           // 起点标签往下让，那边是空的
+        else if (forceLeft) ny -= BAND;                  // 末标签只上抬，不翻到右边
         else if (side === 1) side = -1;
         else { side = 1; ny -= BAND; }
       }
-      const fx0 = side === 1 ? p.x + 7 : p.x - 7 - w;
+      const fx0 = xOf();
       placed.push({ x0: fx0, x1: fx0 + w, y: ny, h: MINE });
       out.set(n.id, { x: p.x, y: ny, side });
     }
     return out;
-  }, [nodes, posOf, lines]);
+  }, [nodes, posOf, lines, t0, earlier.length]);   // years/months 由 t0/t1 决定，t0/t1 又由 nodes 决定，不必单列
 
   const hot = pin ? nodes.find((n) => n.id === pin) : null;
 
@@ -570,7 +620,8 @@ export default function Tree({ domain }: { domain: string }) {
                   // 末节点例外：那里要的是产品线当前版本号。
                   return (
                     <g key={`n-${n.id}`} opacity={showLabel ? 1 : 0} style={{ transition: "opacity .3s" }}>
-                      <text x={p.x + side * 8} y={ny + 3} textAnchor={side === 1 ? "start" : "end"}
+                      <text x={p.x + side * 8} y={ny + 3}
+                        textAnchor={side === 0 ? "middle" : side === 1 ? "start" : "end"}
                         fontSize={isTop ? 10.5 : isBot || pin === n.id ? 9.5 : 8.5}
                         fontWeight={isTop || isBot || pin === n.id ? 700 : 400}
                         fill={isTop || isBot || pin === n.id ? l.color : "var(--color-muted)"}
@@ -588,7 +639,9 @@ export default function Tree({ domain }: { domain: string }) {
                     /* -20 而不是 -12：与顶端节点标签拉开真实间距。
                        12px 的间距在两个字框（10.5px + 9.5px 字号，含升降部）下是叠的，
                        靠调碰撞带宽去救会连累整张图 —— 源头拉开才对。 */
-                    <text x={pt.x} y={pt.y - 20} textAnchor="end" fontSize="9.5" fontWeight="700"
+                    <text x={pt.x} y={pt.y - 20}
+                      textAnchor={lineNameLeft(pt.x, l.model.family) ? "end" : "start"}
+                      fontSize="9.5" fontWeight="700"
                       fill={l.color} opacity={on ? 1 : 0.15} style={{ transition: "opacity .35s" }}>
                       {SHORT(l.model.family)}
                     </text>
@@ -631,7 +684,7 @@ export default function Tree({ domain }: { domain: string }) {
             );
           })}
           {earlier.length > 0 && (
-            <text x={6} y={PAD.t + AXIS_H + 32} fontSize="11" fill="var(--color-muted)"
+            <text x={6} y={PAD.t + AXIS_H + 56} fontSize="11" fill="var(--color-muted)"
               style={{ cursor: "pointer" }} onClick={() => setEarly((v) => !v)}>
               轴起于 {ymd(t0).slice(0, 7)}；更早还有 {earlier.length} 条（{ymd(Math.min(...earlier.map((n) => MS(n.date)))).slice(0, 7)}）
               {" "}—— 点虚点{early ? "收起" : "展开"}

@@ -20,7 +20,7 @@
    "id": "seed-blog",
    "tier": "S",
    "kind": "html",
-   "vendor": "seedance",
+   "vendor": "seedance,seedream",
    "name": "ByteDance Seed · 官方博客",
    "url": "https://seed.bytedance.com/en/blog",
    "refresh_days": 7,
@@ -1335,6 +1335,84 @@
     "version"
    ],
    "note": "AI 图像方向的版本真源。**官方页只写当前版本、不写发布日期** —— 日期缺就缺着"
+  },
+  {
+   "id": "google-gemini-blog",
+   "tier": "S",
+   "kind": "html",
+   "vendor": "gemini-image",
+   "name": "Google 官方博客 · Gemini",
+   "url": "https://blog.google/products/gemini/updated-image-editing-model/",
+   "refresh_days": 14,
+   "good_for": [
+    "version",
+    "capability"
+   ]
+  },
+  {
+   "id": "azure-foundry-blog",
+   "tier": "B",
+   "kind": "html",
+   "vendor": "gpt-image",
+   "name": "Microsoft Azure AI Foundry 博客",
+   "url": "https://azure.microsoft.com/en-us/blog/unveiling-gpt-image-1-rising-to-new-heights-with-image-generation-in-azure-ai-foundry/",
+   "refresh_days": 30,
+   "good_for": [
+    "version"
+   ],
+   "note": "**不是模型厂商自己的页**。openai.com 有 403 反爬（见 $blocked），gpt-image-1 的发布日只能从同日上线的 Azure 一侧取 —— 平台方与模型方同日发布，日期可信，但口径是二手的。"
+  },
+  {
+   "id": "recraft-blog",
+   "tier": "S",
+   "kind": "html",
+   "vendor": "recraft",
+   "name": "Recraft 官方博客",
+   "url": "https://www.recraft.ai/blog",
+   "refresh_days": 30,
+   "good_for": [
+    "version",
+    "capability"
+   ]
+  },
+  {
+   "id": "kolors-gh",
+   "tier": "S",
+   "kind": "html",
+   "vendor": "kolors",
+   "name": "Kolors 官方 GitHub（含发布日志）",
+   "url": "https://github.com/Kwai-Kolors/Kolors",
+   "refresh_days": 30,
+   "good_for": [
+    "version",
+    "capability"
+   ]
+  },
+  {
+   "id": "krea-blog",
+   "tier": "S",
+   "kind": "html",
+   "vendor": "krea-img",
+   "name": "Krea 官方博客",
+   "url": "https://www.krea.ai/blog",
+   "refresh_days": 14,
+   "good_for": [
+    "version",
+    "capability"
+   ]
+  },
+  {
+   "id": "wiki-midjourney",
+   "tier": "B",
+   "kind": "html",
+   "vendor": "midjourney",
+   "name": "Wikipedia · Midjourney（版本年表）",
+   "url": "https://en.wikipedia.org/wiki/Midjourney",
+   "refresh_days": 60,
+   "good_for": [
+    "version"
+   ],
+   "note": "**降级取源**。Midjourney 官方文档站 docs.midjourney.com 挂 Cloudflare 挑战，浏览器外一律 403；官方没有可抓的 changelog。版本年表只能取 B 级。"
   }
  ],
  "$missing": [
@@ -1347,7 +1425,8 @@
  ],
  "$blocked": [
   "openai.com：403 反爬，S 级源但抓不到 —— Sora 的状态只能靠人工看",
-  "fal.ai / aiwiki.ai：429 限流，需要加退避重试后再评估"
+  "fal.ai / aiwiki.ai：429 限流，需要加退避重试后再评估",
+  "docs.midjourney.com：Cloudflare 挑战，浏览器外一律 403 —— Midjourney 版本年表只能退到 B 级源"
  ],
  "$silent_failure": "抓取成功 ≠ 抓到内容。AA 榜单与 Vidu 文档都是 SPA，纯 HTTP 抓回来的 4000 字全是导航壳，监视器却报「无变化」—— **静默的成功比失败更危险**，因为失败会喊，成功不会。故给源加 expect 关键词，抓到但一个都不含就报警。 又一例：Runway 的 changelog 抓回来是整页 cookie 同意书，而 expect 里的「Gen」恰好被同意书里的词命中，自检没拦住 —— **关键词要挑那种只可能出现在正文里的**（改成 Gen-4 / Act-One / Aleph）。",
  "$corrections": [
