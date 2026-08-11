@@ -176,6 +176,17 @@
       "missing": [
         "库里没有这条产品线（要先建实体：公司 / 轨 / 层级 / 架构依据）"
       ]
+    },
+    {
+      "id": "2026-08-07::vidu-changelog::vidu reference to video / image to video::audio::Reference to Video 和 Ima",
+      "at": "2026-08-11 12:30:15",
+      "who": "admin",
+      "verdict": "pass-pending",
+      "why": "",
+      "claim": "Reference to Video 和 Image to Video 支持音视频直接输出（原生音频），可通过 subjects 和 audio 参数配置主体与台词",
+      "missing": [
+        "库里没有这条产品线（要先建实体：公司 / 轨 / 层级 / 架构依据）"
+      ]
     }
   ]
 }
