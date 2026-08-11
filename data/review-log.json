@@ -22,6 +22,17 @@
       "missing": [
         "没落到具体能力上"
       ]
+    },
+    {
+      "id": "2026-08-07::vidu-changelog::viduq3-mix::multiref::viduq3-mix 模型支持 referenc",
+      "at": "2026-08-11 12:27:37",
+      "who": "admin",
+      "verdict": "pass-pending",
+      "why": "",
+      "claim": "viduq3-mix 模型支持 reference2video（多参考/主体参考生视频）",
+      "missing": [
+        "库里没有这条产品线（要先建实体：公司 / 轨 / 层级 / 架构依据）"
+      ]
     }
   ]
 }
