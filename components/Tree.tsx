@@ -35,7 +35,6 @@ import { modelHref } from "@/lib/slug";
  */
 const W = 1240;
 const PAD = { t: 56, b: 76, l: 78, r: 120 };  // b 加大：起点公司名改画在起点下方，轴底要留出一栏  // r 加大：末节点标签写在右侧，别溢出画布
-const AXIS_H = 560;
 
 const MS = (d: string) => new Date(`${d.length === 7 ? `${d}-01` : d}T00:00:00Z`).getTime();
 const ymd = (ms: number) => new Date(ms).toISOString().slice(0, 10);
@@ -123,8 +122,15 @@ const SHORT = (t: string) =>
  * 靠左会伸进左侧刻度尺栏时就翻到右边：最左那条线左边只有尺子，
  * 硬靠左就是压在「10月」上面。
  */
-const lineNameW = (family: string) =>
-  SHORT(family).replace(/[^\x00-\xff]/g, "aa").length * 5.2 + 8;
+/**
+ * 估一块字有多宽。**必须带字号** —— 原来一个系数 5.2 套了 10.5 / 9.5 / 8.5 三种字号，
+ * 最大那档被估窄了约 1px/字：12 个字就差 12px，于是「产品线名」和邻线的顶端标签
+ * **只差 2px 地压在一起**，而避让算法看自己的估算值以为没事。
+ * 0.58 是按渲染实测反推的（"HunyuanImage" 12 字 @10.5px 实测 74px），末尾再留一点余量。
+ */
+const textW = (t: string, fs: number) =>
+  t.replace(/[^\x00-\xff]/g, "aa").length * fs * 0.58 + 10;
+const lineNameW = (family: string) => textW(SHORT(family), 9.5);
 const lineNameLeft = (x: number, family: string) => x - lineNameW(family) >= PAD.l;
 
 /** 一个节点该显示什么字。**只此一处** —— 布局与渲染各算一遍必然会算歪。 */
@@ -164,6 +170,18 @@ export default function Tree({ domain }: { domain: string }) {
    * 取第二早的做起点，更早的那些贴在轴底单独标出来 —— **不删数据，只是不让它撑空版面**。
    */
   const t0 = all[1] ?? all[0], t1 = all[all.length - 1];
+  /**
+   * **轴高按节点数给**（负责人 2026-08-11：图像那张「卡片稍微压缩一下高度」）。
+   *
+   * 原来两个方向都写死 560。视频 69 个节点撑得满，图像只有 25 个 ——
+   * 同样的高度落到图像上就是**一屏里三分之一在放空**；纵轴本来就按密度调过间距，
+   * 再撑高也不会多出信息。算下来图像 395、视频 562（封顶 560，那棵不变形）。
+   *
+   * 下限 360 是安全网，不是调出来的效果值。**压缩这件事真正的代价在标签避让上** ——
+   * 轴一短，相邻线的顶端就挤到一起，实测在 380 以下逼出了三处重叠，
+   * 而那三处全是既有避让逻辑本来就漏的（见下面 textW / 产品线名避让 / 刻度压制）。
+   */
+  const AXIS_H = Math.max(360, Math.min(560, Math.round(300 + nodes.length * 3.8)));
   const earlier = nodes.filter((n) => MS(n.date) < t0);
   const cutMs = t0 + ((t1 - t0) * cut) / 100;
 
@@ -317,6 +335,28 @@ export default function Tree({ domain }: { domain: string }) {
     d = nx.getTime();
   }
   /**
+   * 哪些月份刻度**标数字**。季度（4/7/10 月）标，但**离年份标签太近的不标** ——
+   * 轴一压缩，「4月」就和「2024」挤在同一行上。
+   * 占位与绘制共用这一个判断，两边各写一次必然对不上。
+   */
+  /**
+   * 两个标签**不是画在各自那条线上的**：年份在线上方（基线 `y-3`，12px 字），
+   * 月份在线下方（基线 `y+3`，8px 字）。所以拿两条线的 y 相减比的不是字框 ——
+   * 实测线距 18.6px 时，两个字框只差 11.6px，照样叠着。
+   * **先把基线偏移和字框中心算出来再比**，阈值才有意义。
+   */
+  const YEAR_C = (yy: number) => yy - 3 - 3.5;   // 基线 -3；12px 字的框中心再高 3.5
+  const MONTH_C = (yy: number) => yy + 3 - 2.5;  // 基线 +3；8px 字的框中心再高 2.5
+  const GAP = 8.5 + 5.5;                         // 两块字框的半高之和
+  const yearYs = years.map((yr) => y(new Date(Date.UTC(yr, 0, 1)).toISOString().slice(0, 10)));
+  const tickLabeled = (ms: number) => {
+    const mo = new Date(ms).getUTCMonth() + 1;
+    if (!(mo % 3 === 1 && mo !== 1)) return false;      // 1 月不标，年份标签已经在那儿
+    const c = MONTH_C(y(ymd(ms)));
+    return !yearYs.some((v) => Math.abs(YEAR_C(v) - c) < GAP);
+  };
+
+  /**
    * **下粗上细**（负责人：既然是树，有分支的该下粗上细）。
    * 一个节点的粗细 = 它下面还挂着多少后代 —— 底座托着整条线所以最粗，
    * 末梢没有后代所以最细。这是真实树干的力学，也是谱系的信息量。
@@ -341,8 +381,9 @@ export default function Tree({ domain }: { domain: string }) {
    * 上一版在渲染过程里往数组 push，React 重渲时数组不清空、顺序也不保证 ——
    * 结果仍有 10 对重叠。**布局不能靠渲染副作用**，这里用 useMemo 算成纯数据。
    */
-  const labelAt = useMemo(() => {
+  const { out: labelAt, nameAt } = useMemo(() => {
     const out = new Map<string, { x: number; y: number; side: 1 | -1 | 0 }>();
+    const nameAt = new Map<string, number>();   // 产品线名让到哪一行，绘制处要用同一个数
     /**
      * `h` = 这块东西的**半高**。判定用「两块半高之和」，
      * 上抬步长另有其数 —— **一个常量身兼两职，调它必然按下葫芦浮起瓢**
@@ -370,17 +411,31 @@ export default function Tree({ domain }: { domain: string }) {
      * 不能只想着「主要的那些」。
      */
     for (const ms of months) {
-      const mo = new Date(ms).getUTCMonth() + 1;
-      if (!(mo % 3 === 1 && mo !== 1)) continue;   // 只有 4/7/10 月标了数字，其余是空刻度
-      placed.push({ x0: -9999, x1: PAD.l - 4, y: y(new Date(ms).toISOString().slice(0, 10)), h: 6 });
+      if (!tickLabeled(ms)) continue;   // 没标数字的刻度是根短线，不占字的地方
+      placed.push({ x0: -9999, x1: PAD.l - 4, y: y(ymd(ms)), h: 6 });
     }
+    /**
+     * **产品线名也要避让，不能只占位。**
+     *
+     * 它一直是「算个框塞进 placed 就完事」—— 别人躲它，它不躲别人。
+     * 轴高写死 560 时相邻线的顶端隔得开，看不出问题；一旦按节点数把轴压短，
+     * 右侧三条线的顶端挤到一起，「Nano Banana」「HunyuanImage」「Z-Image-Turb」
+     * 就直接叠上了。**只占位不避让 = 只在稀疏的数据下成立。**
+     */
     for (const l of lines) {
       const top = l.ns[l.ns.length - 1];
       const pt = posOf.get(top.id);
       if (!pt) continue;
       const w = lineNameW(l.model.family);
       const left = lineNameLeft(pt.x, l.model.family);
-      placed.push({ x0: left ? pt.x - w : pt.x, x1: left ? pt.x : pt.x + w, y: pt.y - 20, h: 12 }); // 产品线名：9.5px 粗体
+      const x0 = left ? pt.x - w : pt.x;
+      let ny = pt.y - 20;
+      for (let g = 0; g < 48; g++) {
+        if (!placed.some((q) => Math.abs(ny - q.y) < q.h + 12 && x0 < q.x1 && q.x0 < x0 + w)) break;
+        ny -= 9.5;   // 只往上让：下面是它自己那条线
+      }
+      nameAt.set(l.m, ny);
+      placed.push({ x0, x1: x0 + w, y: ny, h: 12 }); // 产品线名：9.5px 粗体
       // h 从 9 提到 12：占位框的中心按基线算，实际字框中心还要再高 3px 左右 ——
       // 差这 3px，视频树的「Lightricks」就贴着「Allegro」擦过去了。**h 只做判定带，
       // 不是上抬步长**（步长是 BAND），所以调它不会引发上一次那种连锁反弹。
@@ -419,7 +474,8 @@ export default function Tree({ domain }: { domain: string }) {
       const isBot = l ? n.id === l.ns[0].id && l.ns.length > 1 : false;
       // 宽度必须按**渲染时那一份文字**算 —— 两处各算一遍，避让就是算歪的
       const txt = l ? labelText(n, l.model.org, l.model.zh, isTop, isBot) : "";
-      const w = txt.replace(/[^\x00-\xff]/g, "aa").length * 5.2 + 10;
+      // 字号和下面绘制处**必须是同一套**：估宽用错字号，避让就是照着假尺寸算的
+      const w = textW(txt, isTop ? 10.5 : isBot || pin === n.id ? 9.5 : 8.5);
       // **首末标签一律放左侧**（负责人：LongAnimDiff 和 HY-Video 放节点左侧）。
       // 末标签右边正好是产品线名，放右侧会压住它；首标签在最左那条线上会顶出画布。
       /**
@@ -453,7 +509,14 @@ export default function Tree({ domain }: { domain: string }) {
       const hit = (x0: number, x1: number, yy: number) =>
         placed.some((q) => Math.abs(yy - q.y) < q.h + MINE && x0 < q.x1 && q.x0 < x1);
       const xOf = () => (side === 0 ? p.x - w / 2 : side === 1 ? p.x + 7 : p.x - 7 - w);
-      for (let g = 0; g < 16; g++) {
+      /**
+       * 试的次数从 16 提到 48。**16 次不是「够用」，是「放弃得早」** ——
+       * 试满之后这个循环会带着最后一个（仍然撞着的）位置退出，**标签就原地落下、
+       * 直接压在别人身上**。视频树的 Lightricks、轴压到 460 后图像树右侧那三个
+       * 顶端标签，都是这么撞上的：不是避让算错，是根本没试够。
+       * 一次 hit 判定只是几十次数组比较，多试三十几轮的代价可以忽略。
+       */
+      for (let g = 0; g < 48; g++) {
         const x0 = xOf();
         if (!hit(x0, x0 + w, ny)) break;
         if (below) ny += BAND;                           // 起点标签往下让，那边是空的
@@ -465,8 +528,8 @@ export default function Tree({ domain }: { domain: string }) {
       placed.push({ x0: fx0, x1: fx0 + w, y: ny, h: MINE });
       out.set(n.id, { x: p.x, y: ny, side });
     }
-    return out;
-  }, [nodes, posOf, lines, t0, earlier.length]);   // years/months 由 t0/t1 决定，t0/t1 又由 nodes 决定，不必单列
+    return { out, nameAt };
+  }, [nodes, posOf, lines, t0, earlier.length, AXIS_H]);   // years/months 由 t0/t1 决定，t0/t1 又由 nodes 决定，不必单列
 
   const hot = pin ? nodes.find((n) => n.id === pin) : null;
 
@@ -510,7 +573,7 @@ export default function Tree({ domain }: { domain: string }) {
           {months.map((ms) => {
             const yy = y(ymd(ms));
             const mo = new Date(ms).getUTCMonth() + 1;
-            const quarter = mo % 3 === 1 && mo !== 1; // 4/7/10 —— 1 月不标，年份标签已经在那儿了
+            const quarter = tickLabeled(ms);
             return (
               <g key={`mo-${ms}`}>
                 <line x1={PAD.l - 34} x2={PAD.l - (quarter ? 26 : 30)} y1={yy} y2={yy} stroke="var(--color-rule)" />
@@ -639,7 +702,7 @@ export default function Tree({ domain }: { domain: string }) {
                     /* -20 而不是 -12：与顶端节点标签拉开真实间距。
                        12px 的间距在两个字框（10.5px + 9.5px 字号，含升降部）下是叠的，
                        靠调碰撞带宽去救会连累整张图 —— 源头拉开才对。 */
-                    <text x={pt.x} y={pt.y - 20}
+                    <text x={pt.x} y={nameAt.get(l.m) ?? pt.y - 20}
                       textAnchor={lineNameLeft(pt.x, l.model.family) ? "end" : "start"}
                       fontSize="9.5" fontWeight="700"
                       fill={l.color} opacity={on ? 1 : 0.15} style={{ transition: "opacity .35s" }}>
