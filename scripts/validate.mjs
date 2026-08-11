@@ -84,6 +84,45 @@ for (const s of a.support) {
     if (!/^\d{4}-\d{2}-\d{2}$/.test(s.as_of)) errs.push(`R67a as_of 不是日期：${s.m} × ${s.c} = ${s.as_of}`);
 }
 
+/**
+ * R68 —— **三个公共页必须覆盖每一个已上线的方向。**
+ *
+ * `/caveats`（能力对了未必用得上）、`/changes`（最近有什么变化）、`/toolkit`（去哪个站）
+ * 这三页是跨方向的：加一卷 AI 工具，内容就得跟着进这三页。
+ * 但它们和「某一卷自己的页面」不一样 —— 做完一卷的现在页/演进树，
+ * 人会很自然地以为收工了，**没人会记得回头补这三页**。
+ * 负责人 2026-08-11 指出时，图像卷在 /caveats 上是空的、文本卷在三页上全是空的。
+ *
+ * 所以把「记得」这件事从人的脑子里挪出来，变成一条过不去的规则。
+ *
+ * 允许有缺口，**但缺口必须写明理由**（`domains[].gaps`）——
+ * 和 R58「少于 3 个谱系节点要写原因」同一条纪律：
+ * **「还没做」和「本来就没有」是两回事**，不许都表现成一片空白然后不解释。
+ */
+{
+  const changes = existsSync(new URL("../data/changes.json", import.meta.url))
+    ? JSON.parse(readFileSync(new URL("../data/changes.json", import.meta.url), "utf8"))
+    : { events: [] };
+  const domOf = new Map(a.models.map((m) => [m.id, m.domain ?? "video"]));
+  const has = {
+    // caveats 是现算的，没法在这里跑 —— 查它的**输入**：这一卷有没有可用性/价格/可达性数据
+    caveats: (d) =>
+      (a.availability ?? []).some((v) => domOf.get(v.m) === d) ||
+      (a.pricing ?? []).some((q) => domOf.get(q.m) === d) ||
+      a.models.some((m) => (m.domain ?? "video") === d && m.reach_cn === "blocked" && (m.tier ?? "core") === "core"),
+    changes: (d) => (changes.events ?? []).some((e) => e.domain === d),
+    toolkit: (d) => (a.toolkit ?? []).some((t) => t.domain === d),
+  };
+  for (const d of a.domains.filter((x) => x.state === "live")) {
+    for (const [page, ok] of Object.entries(has)) {
+      if (ok(d.id)) continue;
+      const why = d.gaps?.[page];
+      if (!why) errs.push(`R68 ${d.name} 在 /${page} 上没有任何内容 —— 三个公共页要覆盖每一卷。补内容，或在 domains[${d.id}].gaps.${page} 写明为什么没有`);
+      else warns.push(`R68 ${d.name} 在 /${page} 上是空的（已写明原因：${String(why).slice(0, 46)}…）`);
+    }
+  }
+}
+
 // 缺格会被前台静默当成 unknown，那是**沉默的错**。
 for (const m of a.models)
   for (const c of a.capabilities)

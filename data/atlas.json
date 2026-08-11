@@ -1804,7 +1804,9 @@
    "arch_note": "⚠️ black-forest-labs/FLUX.2-dev 在 HF 上是**受限模型**（需登录授权），卡读不到。DiT / rectified flow 是这一支的领域常识，标 common —— **没读到就不标 official**。",
    "version_src": "hf-lineage",
    "version_quote": "谱系节点「FLUX.2-dev」（2025-11-22）：black-forest-labs/FLUX.2-dev",
-   "status_note": " ⚠️ 谱系里已有更晚的一代（FLUX.2-klein-base-9B，2026-01-14）—— 当前主力是否已经换代**要人核**，不许照最新节点自动改：最新节点也可能只是同代的一个档位或分支。"
+   "status_note": " ⚠️ 谱系里已有更晚的一代（FLUX.2-klein-base-9B，2026-01-14）—— 当前主力是否已经换代**要人核**，不许照最新节点自动改：最新节点也可能只是同代的一个档位或分支。",
+   "reach_cn": "ok",
+   "reach_note": "blackforestlabs.ai 直连 301；⚠️ 但**权重在 huggingface.co，该域直连不可达** —— 想自部署得先解决可达性。本机直连实测 2026-08-11（关代理、浏览器 UA）"
   },
   {
    "id": "qwen-image",
@@ -1825,7 +1827,9 @@
    "arch_note": "官方卡没写架构族，技术报告里才有。标 common。",
    "version_src": "hf-image-org",
    "version_quote": "谱系节点「Qwen-Image-Edit-2511」（2025-12-17）：Qwen/Qwen-Image-Edit-2511（官方 HF 组织 createdAt 2025-12-17，Apache-2.0）",
-   "status_note": " ⚠️ 谱系里已有更晚的一代（Qwen-Image-2512，2025-12-30）—— 当前主力是否已经换代**要人核**，不许照最新节点自动改：最新节点也可能只是同代的一个档位或分支。"
+   "status_note": " ⚠️ 谱系里已有更晚的一代（Qwen-Image-2512，2025-12-30）—— 当前主力是否已经换代**要人核**，不许照最新节点自动改：最新节点也可能只是同代的一个档位或分支。",
+   "reach_cn": "ok",
+   "reach_note": "help.aliyun.com 直连 302。本机直连实测 2026-08-11（关代理、浏览器 UA）"
   },
   {
    "id": "z-image",
@@ -1847,7 +1851,9 @@
    "arch_quote": "An Efficient Image Generation Foundation Model with Single-Stream Diffusion Transformer",
    "version_src": "hf-lineage",
    "version_quote": "谱系节点「Z-Image-Turbo」（2025-11-25）：Tongyi-MAI/Z-Image-Turbo",
-   "status_note": " ⚠️ 谱系里已有更晚的一代（Z-Image，2026-01-23）—— 当前主力是否已经换代**要人核**，不许照最新节点自动改：最新节点也可能只是同代的一个档位或分支。"
+   "status_note": " ⚠️ 谱系里已有更晚的一代（Z-Image，2026-01-23）—— 当前主力是否已经换代**要人核**，不许照最新节点自动改：最新节点也可能只是同代的一个档位或分支。",
+   "reach_cn": "ok",
+   "reach_note": "tongyi.aliyun.com 直连 200。本机直连实测 2026-08-11（关代理、浏览器 UA）"
   },
   {
    "id": "hunyuan-image",
@@ -1868,7 +1874,9 @@
    "arch_quote": "Moving beyond the prevalent DiT-based architectures, HunyuanImage-3.0 employs a unified autoregressive framework",
    "arch_note": "**这一条值得单独看**：图像侧默认都往 DiT 上靠，官方却明说自己不走那条路。",
    "version_src": "hf-lineage",
-   "version_quote": "谱系最新一代「HunyuanImage-3.0」（2025-09-25）：tencent/HunyuanImage-3.0-Instruct"
+   "version_quote": "谱系最新一代「HunyuanImage-3.0」（2025-09-25）：tencent/HunyuanImage-3.0-Instruct",
+   "reach_cn": "ok",
+   "reach_note": "hunyuan.tencent.com 直连 200。本机直连实测 2026-08-11（关代理、浏览器 UA）"
   },
   {
    "id": "sd",
@@ -1919,7 +1927,9 @@
    "team": "Seed",
    "status_note": "官方页当前指向 Seedream 5.0 Pro（seed.bytedance.com/en/seedream5_0_pro）。⚠️ **官方页没写发布日期**，所以 version_as_of 记的是我们的核验日",
    "version_src": "seed-blog",
-   "version_quote": "谱系最新一代「Seedream 5.0 Pro」（2026-07-08）：Seedream 5.0 Pro is a multimodal image generation model that features advanced reasoning, efficient content cr"
+   "version_quote": "谱系最新一代「Seedream 5.0 Pro」（2026-07-08）：Seedream 5.0 Pro is a multimodal image generation model that features advanced reasoning, efficient content cr",
+   "reach_cn": "ok",
+   "reach_note": "www.volcengine.com 直连 200。本机直连实测 2026-08-11（关代理、浏览器 UA）"
   },
   {
    "id": "gemini-image",
@@ -1951,7 +1961,9 @@
    "weights": "closed",
    "status_note": "官方模型列表原文：GPT Image 2 / `gpt-image-2`，「State-of-the-art image generation model」。⚠️ 官方列表未标发布日期",
    "version_src": "ms-foundry-blog",
-   "version_quote": "谱系最新一代「GPT-image-2」（2026-04-21）：GPT-image-2 brings real world intelligence, multilingual understanding, improved instruction following, increa"
+   "version_quote": "谱系最新一代「GPT-image-2」（2026-04-21）：GPT-image-2 brings real world intelligence, multilingual understanding, improved instruction following, increa",
+   "reach_cn": "blocked",
+   "reach_note": "developers.openai.com 返回 403（换浏览器 UA 仍是 403，是拒绝不是不通）。本机直连实测 2026-08-11（关代理、浏览器 UA）"
   },
   {
    "id": "kolors",
@@ -1995,7 +2007,9 @@
    "weights": "closed",
    "version_src": "ideogram-x",
    "status_note": "官方账号公告原文：「You can now use Magic Fill and Extend with 3.0 in Ideogram Canvas to edit both uploaded and generated images」。以文字渲染见长 ⚠️ 谱系里已有更晚的一代（Ideogram 4，2026-05-30）—— 当前主力是否已经换代**要人核**，不许照最新节点自动改：最新节点也可能只是同代的一个档位或分支。",
-   "version_quote": "谱系节点「3.0」（2025-03-26）：You can now use Magic Fill and Extend with 3.0 in Ideogram Canvas to edit both uploaded and generated images"
+   "version_quote": "谱系节点「3.0」（2025-03-26）：You can now use Magic Fill and Extend with 3.0 in Ideogram Canvas to edit both uploaded and generated images",
+   "reach_cn": "blocked",
+   "reach_note": "ideogram.ai 直连不通（连接失败）。本机直连实测 2026-08-11（关代理、浏览器 UA）"
   },
   {
    "id": "recraft",
@@ -2011,7 +2025,9 @@
    "weights": "closed",
    "version_src": "recraft-blog",
    "status_note": "官方文档原文：「V4.1 is the latest generation」。⚠️ 官方文档未标发布日期，version_as_of 记的是核验日",
-   "version_quote": "谱系最新一代「Recraft V4.1」（2026-05-14）：Give V4.1 just a few words, and it'll give you something worth keeping."
+   "version_quote": "谱系最新一代「Recraft V4.1」（2026-05-14）：Give V4.1 just a few words, and it'll give you something worth keeping.",
+   "reach_cn": "ok",
+   "reach_note": "www.recraft.ai 直连 200。本机直连实测 2026-08-11（关代理、浏览器 UA）"
   },
   {
    "id": "hidream",
@@ -2183,7 +2199,9 @@
    "weights": "closed",
    "team": "Anthropic",
    "version_src": "anthropic-models",
-   "version_quote": "官方模型总览：「Claude Fable 5 is generally available … beginning June 9, 2026」；Opus 5 是推荐默认档"
+   "version_quote": "官方模型总览：「Claude Fable 5 is generally available … beginning June 9, 2026」；Opus 5 是推荐默认档",
+   "reach_cn": "blocked",
+   "reach_note": "platform.claude.com 直连不通（连接失败）。本机直连实测 2026-08-11（关代理、浏览器 UA）"
   },
   {
    "id": "gpt",
@@ -2200,7 +2218,9 @@
    "team": "OpenAI",
    "status_note": "版本号以 developers.openai.com 的模型清单为准 —— openai.com 主站 403，抓不到",
    "version_src": "openai-models",
-   "version_quote": "官方模型清单当前列的是 gpt-5.6-sol / -terra / -luna（知识截止 2026-02-16）。**这里的日期是核验日不是发布日** —— openai.com 403，拿不到发布公告"
+   "version_quote": "官方模型清单当前列的是 gpt-5.6-sol / -terra / -luna（知识截止 2026-02-16）。**这里的日期是核验日不是发布日** —— openai.com 403，拿不到发布公告",
+   "reach_cn": "blocked",
+   "reach_note": "developers.openai.com 返回 403，换浏览器 UA 仍是 403 —— **是拒绝，不是不通**。本机直连实测 2026-08-11（关代理、浏览器 UA）"
   },
   {
    "id": "gemini-text",
@@ -2216,7 +2236,9 @@
    "weights": "closed",
    "team": "Google DeepMind",
    "version_src": "gemini-models",
-   "version_quote": "官方模型清单里最新的一档是 gemini-3.6-flash。**日期是核验日** —— 该页不标发布日"
+   "version_quote": "官方模型清单里最新的一档是 gemini-3.6-flash。**日期是核验日** —— 该页不标发布日",
+   "reach_cn": "blocked",
+   "reach_note": "ai.google.dev 直连不通（连接失败）—— 读官方文档要出境。本机直连实测 2026-08-11（关代理、浏览器 UA）"
   },
   {
    "id": "qwen-text",
@@ -2234,7 +2256,9 @@
    "weights_note": "Qwen3 系列多数档位 Apache-2.0 —— 中文侧开源力度最大的一家",
    "version_src": "bailian-models-zh",
    "version_quote": "中文站模型列表「文本生成」首条即 `qwen3.8-max`（同页 plus/flash 仍是 3.7）。⚠️ **英文站同一张清单当天还只到 qwen3.7-max** —— 两个语言版本不同步，以更新的为准",
-   "status_note": " ⚠️ **三条线要分清**：API 旗舰 qwen3.8-max，plus/flash 停在 3.7，而**开源权重最新只到 Qwen3.6**（官方 HF 组织 2026-04-21）。演化树画的是开源那条 —— 只有它有可核的发布日期。"
+   "status_note": " ⚠️ **三条线要分清**：API 旗舰 qwen3.8-max，plus/flash 停在 3.7，而**开源权重最新只到 Qwen3.6**（官方 HF 组织 2026-04-21）。演化树画的是开源那条 —— 只有它有可核的发布日期。",
+   "reach_cn": "ok",
+   "reach_note": "help.aliyun.com 直连 302。本机直连实测 2026-08-11（关代理、浏览器 UA）"
   },
   {
    "id": "deepseek",
@@ -2250,7 +2274,9 @@
    "weights": "open",
    "team": "DeepSeek",
    "version_src": "hf-text-org",
-   "version_quote": "deepseek-ai/DeepSeek-V4-Flash-0731（官方 HF 组织 createdAt 2026-07-31，下载 105 万）"
+   "version_quote": "deepseek-ai/DeepSeek-V4-Flash-0731（官方 HF 组织 createdAt 2026-07-31，下载 105 万）",
+   "reach_cn": "ok",
+   "reach_note": "api-docs.deepseek.com 直连 200。本机直连实测 2026-08-11（关代理、浏览器 UA）"
   },
   {
    "id": "kimi",
@@ -2266,7 +2292,9 @@
    "weights": "open",
    "team": "Moonshot AI",
    "version_src": "hf-text-org",
-   "version_quote": "moonshotai/Kimi-K3（官方 HF 组织 createdAt 2026-06-13，下载 157 万）"
+   "version_quote": "moonshotai/Kimi-K3（官方 HF 组织 createdAt 2026-06-13，下载 157 万）",
+   "reach_cn": "ok",
+   "reach_note": "platform.kimi.com 直连 200。本机直连实测 2026-08-11（关代理、浏览器 UA）"
   },
   {
    "id": "glm",
@@ -2282,7 +2310,9 @@
    "weights": "open",
    "team": "Z.ai",
    "version_src": "hf-text-org",
-   "version_quote": "zai-org/GLM-5.2（官方 HF 组织 createdAt 2026-06-16，下载 252 万）"
+   "version_quote": "zai-org/GLM-5.2（官方 HF 组织 createdAt 2026-06-16，下载 252 万）",
+   "reach_cn": "ok",
+   "reach_note": "docs.bigmodel.cn 直连 308。本机直连实测 2026-08-11（关代理、浏览器 UA）"
   },
   {
    "id": "minimax-text",
@@ -2298,7 +2328,9 @@
    "weights": "open",
    "team": "MiniMax",
    "version_src": "hf-text-org",
-   "version_quote": "MiniMaxAI/MiniMax-M3（官方 HF 组织 createdAt 2026-06-02）。**注意别取 MiniMax-H3** —— 那是视频那一卷的海螺，同组织不同卷"
+   "version_quote": "MiniMaxAI/MiniMax-M3（官方 HF 组织 createdAt 2026-06-02）。**注意别取 MiniMax-H3** —— 那是视频那一卷的海螺，同组织不同卷",
+   "reach_cn": "ok",
+   "reach_note": "platform.minimaxi.com 直连 307。本机直连实测 2026-08-11（关代理、浏览器 UA）"
   },
   {
    "id": "doubao",
@@ -2314,7 +2346,9 @@
    "weights": "closed",
    "team": "ByteDance Seed",
    "version_src": "doubao-force-2026",
-   "version_quote": "火山引擎 2026 夏季 FORCE 大会发布 Doubao-Seed-2.1 Pro。**二手源**：火山方舟模型清单是 SPA，抓不到"
+   "version_quote": "火山引擎 2026 夏季 FORCE 大会发布 Doubao-Seed-2.1 Pro。**二手源**：火山方舟模型清单是 SPA，抓不到",
+   "reach_cn": "ok",
+   "reach_note": "www.volcengine.com 直连 200。本机直连实测 2026-08-11（关代理、浏览器 UA）"
   },
   {
    "id": "llama",
@@ -2346,7 +2380,9 @@
    "weights": "closed",
    "team": "xAI",
    "version_src": "xai-docs",
-   "version_quote": "官方模型清单：grok-4.5 为最新，知识截止 2026-02-01。**日期是核验日**"
+   "version_quote": "官方模型清单：grok-4.5 为最新，知识截止 2026-02-01。**日期是核验日**",
+   "reach_cn": "blocked",
+   "reach_note": "docs.x.ai 直连不通（连接失败）。本机直连实测 2026-08-11（关代理、浏览器 UA）"
   },
   {
    "id": "mistral-text",
@@ -6809,8 +6845,8 @@
   {
    "id": "image",
    "name": "AI 图像",
-   "state": "planned",
-   "note": "第二个方向。**只有一轨** —— 图像没有「离线渲染 vs 边生成边看」那种分法，这正好用来检验「轨是方向的属性」这次改造对不对。",
+   "state": "live",
+   "note": "第二个方向。**只有一轨** —— 图像没有「离线渲染 vs 边生成边看」那种分法，这正好用来检验「轨是方向的属性」这次改造对不对。 **2026-08-11 由 planned 改为 live** —— 页面、能力矩阵、演进树都已上线，字段却还停在立项时的值。",
    "volume": "第二个方向",
    "tracks": [
     {
@@ -6825,9 +6861,9 @@
   {
    "id": "text",
    "name": "AI 文本",
-   "state": "planned",
+   "state": "live",
    "volume": "第三个方向",
-   "note": "第三个方向。**一轨** —— 文本这一卷里「对话」「推理」「写代码」是同一个模型的不同用法，不是两套坐标系；真要分轨得等出现产出物不同的那一类。",
+   "note": "第三个方向。**一轨** —— 文本这一卷里「对话」「推理」「写代码」是同一个模型的不同用法，不是两套坐标系；真要分轨得等出现产出物不同的那一类。 **2026-08-11 由 planned 改为 live** —— 页面、能力矩阵、演进树都已上线，字段却还停在立项时的值。",
    "tracks": [
     {
      "id": "chat",
@@ -9112,7 +9148,8 @@
    "date": "2025-04-02",
    "added": "Scout 与 Maverick 两档 MoE",
    "src": "hf-text-org",
-   "quote": "meta-llama/Llama-4-Scout-17B-16E-Instruct（官方 HF 组织 createdAt 2025-04-02，下载 46 万）。**模型卡是 gated，读不到正文**"
+   "quote": "meta-llama/Llama-4-Scout-17B-16E-Instruct（官方 HF 组织 createdAt 2025-04-02，下载 46 万）。**模型卡是 gated，读不到正文**",
+   "parent": "llama-Llama 3.3-只发 70B Ins"
   },
   {
    "id": "minimax-text-M2-主打写代码与 Agent 流程的小模型",
@@ -9180,7 +9217,8 @@
    "date": "2026-02-24",
    "added": "换代",
    "src": "hf-text-org",
-   "quote": "Qwen3.5 represents a significant leap forward, integrating breakthroughs（模型卡首段）"
+   "quote": "Qwen3.5 represents a significant leap forward, integrating breakthroughs（模型卡首段）",
+   "parent": "qwen-text-Qwen3-Next-新架构试验档 80B"
   },
   {
    "id": "qwen-text-Qwen3.6-按社区反馈做稳定性与可靠性",
@@ -9604,6 +9642,136 @@
    "quote": "发布说明 2026 年 7 月：grok-4.5（同月还有 grok-imagine-video-1.5、grok-voice-think-fast-2.0）",
    "note": "xAI 官方 API 发布说明按月分节；**只精确到月**，日期统一记为当月 1 日",
    "parent": "grok-Grok 4.1-加 fast 档"
+  },
+  {
+   "id": "qwen-text-Qwen-7B-这条线的第一代开放权",
+   "m": "qwen-text",
+   "version": "Qwen-7B",
+   "date": "2023-08-03",
+   "added": "这条线的第一代开放权重",
+   "src": "hf-text-org",
+   "quote": "官方 HF 组织 Qwen/Qwen-7B，createdAt 2023-08-03（同代 6 个仓库）",
+   "note": "日期取官方 HF 组织的 createdAt（**不是 lastModified**）；同一代的多个尺寸档与量化档已折成一个节点"
+  },
+  {
+   "id": "qwen-text-Qwen1.5-铺开 0.5B 到 ",
+   "m": "qwen-text",
+   "version": "Qwen1.5",
+   "date": "2024-01-22",
+   "added": "铺开 0.5B 到 110B 的尺寸档",
+   "src": "hf-text-org",
+   "quote": "Qwen/Qwen1.5-0.5B 起，createdAt 2024-01-22（同代 16 个仓库）",
+   "note": "日期取官方 HF 组织的 createdAt（**不是 lastModified**）；同一代的多个尺寸档与量化档已折成一个节点",
+   "parent": "qwen-text-Qwen-7B-这条线的第一代开放权"
+  },
+  {
+   "id": "qwen-text-Qwen2-加 MoE（57B-",
+   "m": "qwen-text",
+   "version": "Qwen2",
+   "date": "2024-05-22",
+   "added": "加 MoE（57B-A14B）",
+   "src": "hf-text-org",
+   "quote": "Qwen/Qwen2-72B 与 Qwen2-57B-A14B，createdAt 2024-05-22",
+   "note": "日期取官方 HF 组织的 createdAt（**不是 lastModified**）；同一代的多个尺寸档与量化档已折成一个节点",
+   "parent": "qwen-text-Qwen1.5-铺开 0.5B 到 "
+  },
+  {
+   "id": "qwen-text-Qwen2.5-同期分出 Coder",
+   "m": "qwen-text",
+   "version": "Qwen2.5",
+   "date": "2024-09-15",
+   "added": "同期分出 Coder 支线",
+   "src": "hf-text-org",
+   "quote": "Qwen/Qwen2.5-0.5B 起 createdAt 2024-09-15；次日 Qwen2.5-Coder-7B",
+   "note": "日期取官方 HF 组织的 createdAt（**不是 lastModified**）；同一代的多个尺寸档与量化档已折成一个节点",
+   "parent": "qwen-text-Qwen2-加 MoE（57B-"
+  },
+  {
+   "id": "qwen-text-QwQ-专做推理的支线（Pr",
+   "m": "qwen-text",
+   "version": "QwQ",
+   "date": "2025-03-05",
+   "added": "专做推理的支线（Preview 2024-11-27 起）",
+   "src": "hf-text-org",
+   "quote": "Qwen/QwQ-32B createdAt 2025-03-05（♥2961）；Preview 版 2024-11-27",
+   "note": "日期取官方 HF 组织的 createdAt（**不是 lastModified**）；同一代的多个尺寸档与量化档已折成一个节点",
+   "parent": "qwen-text-Qwen2.5-同期分出 Coder"
+  },
+  {
+   "id": "qwen-text-Qwen3-换代；同年 7 月拆",
+   "m": "qwen-text",
+   "version": "Qwen3",
+   "date": "2025-04-27",
+   "added": "换代；同年 7 月拆出 Instruct / Thinking 两条",
+   "src": "hf-text-org",
+   "quote": "Qwen/Qwen3-0.6B 起 createdAt 2025-04-27（同代 11 个仓库）",
+   "note": "日期取官方 HF 组织的 createdAt（**不是 lastModified**）；同一代的多个尺寸档与量化档已折成一个节点",
+   "parent": "qwen-text-QwQ-专做推理的支线（Pr"
+  },
+  {
+   "id": "qwen-text-Qwen3-Next-新架构试验档 80B",
+   "m": "qwen-text",
+   "version": "Qwen3-Next",
+   "date": "2025-09-09",
+   "added": "新架构试验档 80B-A3B",
+   "src": "hf-text-org",
+   "quote": "Qwen/Qwen3-Next-80B-A3B-Instruct 与 -Thinking，createdAt 2025-09-09",
+   "note": "日期取官方 HF 组织的 createdAt（**不是 lastModified**）；同一代的多个尺寸档与量化档已折成一个节点",
+   "parent": "qwen-text-Qwen3-换代；同年 7 月拆"
+  },
+  {
+   "id": "llama-Llama 2-这条线在 HF 上的",
+   "m": "llama",
+   "version": "Llama 2",
+   "date": "2023-07-09",
+   "added": "这条线在 HF 上的第一代",
+   "src": "hf-text-org",
+   "quote": "meta-llama/Llama-2-7b createdAt 2023-07-09（♥4522，同代 6 个仓库）",
+   "note": "日期取官方 HF 组织的 createdAt（**不是 lastModified**）；同一代的多个尺寸档与量化档已折成一个节点"
+  },
+  {
+   "id": "llama-Llama 3-换代",
+   "m": "llama",
+   "version": "Llama 3",
+   "date": "2024-04-17",
+   "added": "换代",
+   "src": "hf-text-org",
+   "quote": "meta-llama/Meta-Llama-3-70B createdAt 2024-04-17",
+   "note": "日期取官方 HF 组织的 createdAt（**不是 lastModified**）；同一代的多个尺寸档与量化档已折成一个节点",
+   "parent": "llama-Llama 2-这条线在 HF 上的"
+  },
+  {
+   "id": "llama-Llama 3.1-405B 档",
+   "m": "llama",
+   "version": "Llama 3.1",
+   "date": "2024-07-14",
+   "added": "405B 档",
+   "src": "hf-text-org",
+   "quote": "meta-llama/Llama-3.1-8B 起 createdAt 2024-07-14（同代 6 个仓库）",
+   "note": "日期取官方 HF 组织的 createdAt（**不是 lastModified**）；同一代的多个尺寸档与量化档已折成一个节点",
+   "parent": "llama-Llama 3-换代"
+  },
+  {
+   "id": "llama-Llama 3.2-下探到 1B / 3",
+   "m": "llama",
+   "version": "Llama 3.2",
+   "date": "2024-09-18",
+   "added": "下探到 1B / 3B 端侧档",
+   "src": "hf-text-org",
+   "quote": "meta-llama/Llama-3.2-1B 起 createdAt 2024-09-18",
+   "note": "日期取官方 HF 组织的 createdAt（**不是 lastModified**）；同一代的多个尺寸档与量化档已折成一个节点",
+   "parent": "llama-Llama 3.1-405B 档"
+  },
+  {
+   "id": "llama-Llama 3.3-只发 70B Ins",
+   "m": "llama",
+   "version": "Llama 3.3",
+   "date": "2024-11-26",
+   "added": "只发 70B Instruct",
+   "src": "hf-text-org",
+   "quote": "meta-llama/Llama-3.3-70B-Instruct createdAt 2024-11-26（♥2948）",
+   "note": "日期取官方 HF 组织的 createdAt（**不是 lastModified**）；同一代的多个尺寸档与量化档已折成一个节点",
+   "parent": "llama-Llama 3.2-下探到 1B / 3"
   }
  ],
  "$versions": "版本谱系（演进图的数据）。**演进的主体是模型，不是能力。**\n\n原来那张演进图每行是一项能力、横轴是「我们能证明的最早时间」、粗细是几家支持。\n读者看完只得到「动作复刻 2025-12 出现、6/9 支持」—— 那是一次数据库查询的可视化，不涨知识。\n而且它得靠图注免责（「不是业界首次出现」）：**一张需要图注免责的图，说明它量错了东西。**\n\n这份数据画的是**厂商自己发布的版本和日期**，所以不需要免责。每条必须回答：\n**这一代新增了什么。** 只有版本号没有 added 的节点没有价值，不收。\n\n两个最好的来源，都不是「新闻」：\n  · **官方 Hugging Face 组织** —— 模型名本身就编码了能力与代际\n    （Wan2.1-FLF2V＝首尾帧、Wan2.2-S2V＝语音驱动、LTX 的 IC-LoRA-Ingredients＝角色参考），\n    发布时间由 HF API 给出，比任何新闻稿都准。\n  · **官方 API 更新日志** —— 可灵那份 31k 字符里有 170 条带日期的条目。\n\n覆盖不全是事实：万相和可灵能画出完整谱系，Runway/Vidu/Seedance 只有近期几个点，\nVeo/Sora/海螺/LTX 还没有。**图上要标出哪几条线是完整的、哪几条只是片段** ——\n画一条只有两个点的线却不说明，读者会以为这家两年只更新过两次。\n\n`cap` 把版本节点挂到能力 id 上，图上「点一项能力，看各家谁先谁后」靠它。\n**对不上的一律留空并写明理由（cap_skip），不硬凑** —— 硬凑一个 id，纵向那一刀就切错了。\n典型：Wan 的 S2V 是「语音驱动」，不等于我们轴上的「对口型」，两件事不合并；\n「换代」节点本身也不是新增单项能力。\n\n`id` + `parent` 把平铺记录变成**真的树**。分叉是真实存在的：\nWan2.1 底座上同时长出 FLF2V（首尾帧）和 VACE（统一编辑）两个变体，\nWan2.2 是换代接在 2.1 后面，Animate-2 又接在 Animate 后面。\n\n**没有父节点的就让它当根，不许为了让树好看硬接一条边** ——\nRunway 的 Aleph 是编辑线，不是 Gen 的后代，它自己是一棵树。\n\n⚠️ **日期必须取 HF 的 `createdAt`，不能取 `lastModified`。**\n第一版取错了字段，把「最后修改」当成了发布日期：Wan2.2 记成 2025-08-07（实际 2025-07-18）、\nAnimate 记成 2025-11-05（实际 2025-09-11）——**差了两个月**。\n仓库发布后还会被反复更新，两个字段根本不是一回事。\n这类错最阴：日期看着合理、图也画得出来，但整条时间线是歪的。\n\n覆盖不足要**写在数据里**，不是靠图上一句话糊过去：\n模型的 `lineage_note` 解释为什么它的节点少（太新 / 官方记录只回溯到某时）。\n校验 R58 强制：**核心模型少于 3 个节点却没写理由，就是错**。\n「我们没采到」和「它本来就没有」是两回事，读者有权知道是哪一种。",
@@ -12589,6 +12757,42 @@
    "verdict": "出图侧的官方工作流最全的一处：局部重绘、扩图、放大、ControlNet、各家新模型都有原生教程。",
    "caveat": "它写的是**怎么跑**，不是**效果怎么样** —— 教程里出现某个模型不代表它好用。而且模型自己的架构说明常常也只在这儿有，那属于第三方转述，不是厂商原话。",
    "checked_at": "2026-08-11"
+  },
+  {
+   "task": "想系统学 AI 文本这条线（中文）",
+   "site": "Datawhale",
+   "url": "https://www.datawhale.cn/",
+   "verdict": "2018 年起的开源学习组织，GitHub 上 215 个仓库，前十个仓库都在 1 万星以上，且大多数今年仍在更新。中文教程里少见的**成体系**——从大模型基础到智能体、RAG、微调部署各有一本。",
+   "caveat": "**先看许可证再拿去用。** 星数最高的 hello-agents、happy-llm 在 GitHub 上是 NOASSERTION（自定义许可，机器认不出来），llm-cookbook、llm-universe、all-in-rag **压根没有 license 文件** —— 没有许可证等于默认保留所有权利，自学没问题，**印进课程或商用要先问过**。",
+   "checked_at": "2026-08-11",
+   "domain": "text"
+  },
+  {
+   "task": "想从零搞懂智能体怎么搭",
+   "site": "Datawhale · hello-agents",
+   "url": "https://github.com/datawhalechina/hello-agents",
+   "verdict": "《从零开始构建智能体》，72,278 星，是这个组织里最高的一个，2026-08-10 还在更新。讲原理也讲实践。",
+   "caveat": "许可证是 NOASSERTION —— GitHub 认不出它用的是哪一种，**转载或二次分发前得自己去仓库里翻 LICENSE 原文**。",
+   "checked_at": "2026-08-11",
+   "domain": "text"
+  },
+  {
+   "task": "想自己微调 / 部署开源大模型",
+   "site": "Datawhale · self-llm",
+   "url": "https://github.com/datawhalechina/self-llm",
+   "verdict": "《开源大模型食用指南》，31,671 星，覆盖全参数与 LoRA 微调、Linux 环境部署。**这一批里唯一许可证清楚的（Apache-2.0）**，要拿去做内部材料就用它。",
+   "caveat": "最后更新 2026-07-30，跟得上；但它教的是**具体型号的具体跑法**，模型换代后命令和参数会先过期 —— 照着敲之前先对一眼版本号。",
+   "checked_at": "2026-08-11",
+   "domain": "text"
+  },
+  {
+   "task": "想看吴恩达那套课的中文版",
+   "site": "Datawhale · llm-cookbook",
+   "url": "https://github.com/datawhalechina/llm-cookbook",
+   "verdict": "吴恩达大模型系列课程的中文版，24,532 星，入门口碑好。",
+   "caveat": "**最后一次更新是 2025-06-12，一年多没动了**，而这一年里 API 换了好几轮（Responses API、结构化输出、缓存）。原理照旧管用，**代码别照抄**。而且它没有 license 文件。",
+   "checked_at": "2026-08-11",
+   "domain": "text"
   }
  ],
  "$toolkit": "资源导航（方案 §16）。原话：**「不要做一排 Logo 的 hao123」，要「导航 + 判断」。**\n字段：{task, site, url, verdict, caveat, checked_at}\n**verdict 和 caveat 都必填（R49）** —— caveat 是负面结论，「Epoch AI 不收视频模型」这种我们真查过才知道的话，才是这一页的价值。 每条带 domain：这一页是全站公共的，按方向分组显示。",

@@ -43,6 +43,18 @@ const HAS_CHROME = existsSync(CHROME_DIR);
 const PORT = 4319;
 const BASE = "/atlas";
 const DEV = process.argv.includes("--dev");
+
+/**
+ * **断言跟着数据走，别钉死一句会过期的文案。**
+ *
+ * 「这个方向还在建」这一栏只在**有 planned 方向**时才该出现。
+ * 2026-08-11 把 AI 图像与 AI 文本从 planned 改成 live（它们早就全站上线了，
+ * 字段还停在立项时的值），这一栏随之消失，而写死的断言立刻报错 ——
+ * **它断言的是我们的数据状态，不是页面对不对。**
+ * 这类断言比没有断言更糟：它会在正确的改动上报警，久了人就开始忽略红色。
+ */
+const PLANNED = JSON.parse(readFileSync(join(ROOT, "data/atlas.json"), "utf8"))
+  .domains.filter((d) => d.state !== "live" && !d.href).length > 0;
 const ORIGIN = DEV ? "http://127.0.0.1:3400" : `http://127.0.0.1:${PORT}`;
 
 /**
@@ -62,7 +74,7 @@ const ROUTES = [
   { path: "/video/map", must: "谁和谁有关系", zh: 2400, built: true },
   { path: "/video/scenario", must: "我想做什么", zh: 260, per: "article", built: true, also: ["公开路线", "需要的能力", "输入 → 输出"] },
   { path: "/video/models", must: "全部模型", zh: 1200, built: true },
-  { path: "/image", must: "AI 图像", zh: 900, built: true, also: ["出图轨", "文字渲染", "这个方向还在建"] },
+  { path: "/image", must: "AI 图像", zh: 900, built: true, also: ["出图轨", "文字渲染", ...(PLANNED ? ["这个方向还在建"] : [])] },
   // 断言跟着数据走：图像谱系已经采了 13 条，「还没采谱系」那句空状态不该再出现。
   // 钉一个只有图像树才有的产品线名，比钉空状态文案稳。
   { path: "/image/tree", must: "长出了什么", zh: 800, built: true, also: ["FLUX", "Z-Image"] },
@@ -246,12 +258,40 @@ for (const [vp, w, h] of [["桌面", 1440, 900], ["手机", 390, 844]]) {
      * 所以：**只许降不许升** —— 超过上次记录的基线就失败，
      * 同时把「离目标还差多少」打出来，让欠账一直可见。
      */
-    // 列表页按条均摊 —— 见路由表里的 `per`
-    const items = r.per
-      ? await page.evaluate(`document.querySelectorAll(${JSON.stringify(r.per)}).length`)
-      : 1;
+    /**
+     * 列表页量**条目自己的字数**，不拿整页除以条数。
+     *
+     * ⚠️ 原来是 `整页中文 ÷ 条数`，2026-08-11 撞到了它的毛病：
+     * /caveats 按负责人要求去掉转售商那两家，条目 11 → 4，
+     * **页面一个字没改，每条却从 35 涨到 96** —— 因为开场白和口径说明
+     * 这些固定文案被摊到了越来越少的条目头上。
+     *
+     * 这条预算想管的是「每条里我们自己说了多少话」，
+     * 那就该只量条目内部。**页面固定文案不是任何一条的旁白。**
+     */
     const zhOf = (t) => (t.match(/[一-龥]/g) ?? []).length;
-    const zhAll = Math.max(0, zhOf(mainText) - zhOf(quoted));
+    let items = 1, zhAll;
+    if (r.per) {
+      const texts = await page.evaluate(
+        `(function () {
+           var all = [...document.querySelectorAll(${JSON.stringify(r.per)})];
+           // **父子都命中就会把同一段文字数两遍。** /changes 的选择器是
+           // "article, section > div"，外层 div 里裹着 article，两个都匹配 ——
+           // 于是每条 78 一下子变成 152，**页面一个字没动**。
+           // 只留**最内层**（真正的条目）：还包着别的命中元素的，是容器不是条目，丢掉。
+           // ⚠️ 反过来留最外层是错的 —— /changes 会塌成 3 个大容器，每条变成 690 字。
+           var top = all.filter(function (e) { return !all.some(function (o) { return o !== e && e.contains(o) }) });
+           return top.map(function (e) {
+             var c = e.cloneNode(true);
+             c.querySelectorAll("[data-quote]").forEach(function (q) { q.remove() });
+             return c.textContent || "";
+           });
+         })()`);
+      items = texts.length;
+      zhAll = texts.reduce((n, t) => n + zhOf(t), 0);
+    } else {
+      zhAll = Math.max(0, zhOf(mainText) - zhOf(quoted));
+    }
     const zh = r.per ? Math.round(zhAll / Math.max(1, items)) : zhAll;
     const key = `${r.path}|${vp}`;
     const base = BASE_ZH[key] ?? Infinity;

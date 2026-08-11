@@ -28,18 +28,44 @@ const pf = (id: string) => atlas.platforms.find((x) => x.id === id)?.name ?? id;
 const md = (id: string) => atlas.models.find((x) => x.id === id);
 const nm = (id: string) => { const m = md(id); return m ? label(m) : id; };
 
+/**
+ * **这一页不讲转售商。**（负责人 2026-08-11 定：把 Replicate 与 APIYI 从这页去掉）
+ *
+ * 它们是 API 市场与聚合商，不是模型的来源。把「Replicate 还挂着已停服的 Sora 2」
+ * 写成一条告诫，实际效果是**告诉读者去哪儿还能买到停服的模型** ——
+ * 那不是这一页要干的事。这一页要回答的是「厂商这边有什么坑」。
+ *
+ * ⚠️ **只在这一页过滤，不删数据。** `availability` 里那 12 条照旧留着，
+ * `/where` 仍然照实告诉你哪些平台上架了什么 —— **少一条事实和换个地方说，是两回事**。
+ *
+ * 判据用平台的 `kind` 而不是写死 id：以后再接一家聚合商，不用回来改这里。
+ */
+const MIDDLEMAN = /市场|聚合/;
+const isMiddleman = (pid?: string) =>
+  !!pid && MIDDLEMAN.test(atlas.platforms.find((x) => x.id === pid)?.kind ?? "");
+
 export function caveats(): Caveat[] {
   const out: Caveat[] = [];
 
+  /**
+   * **在入口就把转售商滤掉，不在出口筛。**
+   * 出口筛漏得掉「各平台不同价」那一类 —— 它没有 `p` 字段，
+   * 平台名藏在拼出来的 quote 里，按 `p` 过滤根本碰不到它。
+   * 从输入滤，比价时那一边就只剩厂商渠道，只剩一家自然也就不成其为「不同价」。
+   */
+  const availability = atlas.availability.filter((v) => !isMiddleman(v.p));
+  const pricing = atlas.pricing.filter((q) => !isMiddleman(q.p));
+  const discount = atlas.discount.filter((d) => !isMiddleman(d.p));
+
   // ① 上架的不是当前主力版本 —— 能力表说「支持」，你买到的却是上一代
-  for (const v of atlas.availability.filter((x) => x.match === "older"))
+  for (const v of availability.filter((x) => x.match === "older"))
     out.push({
       kind: "stale-version", m: v.m, p: v.p, src: v.src, quote: v.quote,
       what: `${pf(v.p)} 上架的是「${v.listed}」，不是当前的 ${nm(v.m)}`,
     });
 
   // ② 上游已经停服，平台还在卖 —— 这一条最能造成实际损失
-  for (const v of atlas.availability) {
+  for (const v of availability) {
     const m = md(v.m);
     if (m?.status === "discontinued" && v.status !== "gone")
       out.push({
@@ -52,7 +78,7 @@ export function caveats(): Caveat[] {
   }
 
   // ③ 标着 coming soon，还不能用
-  for (const v of atlas.availability.filter((x) => x.status === "coming-soon"))
+  for (const v of availability.filter((x) => x.status === "coming-soon"))
     out.push({
       kind: "coming-soon", m: v.m, p: v.p, src: v.src, quote: v.quote,
       what: `${pf(v.p)} 的 ${nm(v.m)} 标着 coming soon，现在还调不了`,
@@ -60,7 +86,7 @@ export function caveats(): Caveat[] {
 
   // ④ 同一个模型，不同平台不是一个价 —— 不指定平台，「多少钱」就没有答案
   const byModel = new Map<string, typeof atlas.pricing>();
-  for (const q of atlas.pricing.filter((x) => x.unit === "per-second"))
+  for (const q of pricing.filter((x) => x.unit === "per-second"))
     byModel.set(q.m, [...(byModel.get(q.m) ?? []), q]);
   for (const [m, qs] of byModel)
     if (qs.length > 1)
@@ -79,7 +105,7 @@ export function caveats(): Caveat[] {
     });
 
   // ⑥ 折扣陷阱：有折扣，但不覆盖它自己的主力
-  for (const d of atlas.discount)
+  for (const d of discount)
     if (/不支持|暂不/.test(d.off + d.rule))
       out.push({
         kind: "discount-trap", m: d.m, p: d.p, src: d.src, quote: d.quote,

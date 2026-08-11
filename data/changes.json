@@ -366,6 +366,94 @@
    "models": [
     "midjourney"
    ]
+  },
+  {
+   "id": "qwen-3.8-max-2026-08-11",
+   "date": "2026-08-11",
+   "side": "world",
+   "kind": "version",
+   "subject": "Qwen",
+   "before": "库里记的是 qwen3.7-max（当天早上从英文站取的）",
+   "after": "中文站的模型清单已经是 **qwen3.8-max**",
+   "why": "**两个语言版本不同步**：同一天，help.aliyun.com 中文站列的是 3.8-max，alibabacloud.com 英文站还停在 3.7-max。取英文站就会慢一拍 —— 而慢一拍的版本号，站上看不出来。",
+   "impact": [
+    "qwen-text"
+   ],
+   "src": "bailian-models-zh",
+   "models": [
+    "qwen-text"
+   ],
+   "domain": "text"
+  },
+  {
+   "id": "kimi-moonshot-v1-eol-2026-08-31",
+   "date": "2026-08-31",
+   "side": "world",
+   "kind": "status",
+   "subject": "Kimi",
+   "before": "Moonshot V1 系列（8k / 32k / 128k 及其 vision 版）在售",
+   "after": "官方价格页写明「预计 8 月 31 日全平台下线」",
+   "why": "这是这条产品线的第一代，下线之后 Kimi 的可用型号只剩 K2.x / K3。**在用旧接口的要提前迁**。",
+   "impact": [
+    "kimi"
+   ],
+   "src": "kimi-pricing",
+   "models": [
+    "kimi"
+   ],
+   "domain": "text"
+  },
+  {
+   "id": "gpt-5.6-2026-07-09",
+   "date": "2026-07-09",
+   "side": "world",
+   "kind": "version",
+   "subject": "GPT",
+   "before": "GPT-5.5 / 5.5-pro",
+   "after": "GPT-5.6 上线，改成 Sol / Terra / Luna 三档命名",
+   "why": "命名从「数字 + mini/nano」换成了代号，**按名字猜档次的做法从这一代起失效**。",
+   "impact": [
+    "gpt"
+   ],
+   "src": "openai-changelog",
+   "models": [
+    "gpt"
+   ],
+   "domain": "text"
+  },
+  {
+   "id": "sampling-params-deprecated-2026-07-21",
+   "date": "2026-07-21",
+   "side": "world",
+   "kind": "capability",
+   "subject": "Gemini 与 Claude 同时弃用采样参数",
+   "before": "temperature / top_p / top_k 是通用的输出控制手段",
+   "after": "Gemini 3.6 在发布同一天宣布弃用这三个参数；Claude 从 Opus 4.7 起，这三个参数设成非默认值直接返回 400",
+   "why": "**两家在同一个季度做了同一个决定**，这不是巧合：模型转向自适应思考之后，采样温度这一层控制反而会破坏推理。对使用者是硬变更 —— 老代码里传了 temperature 的，在 Claude 上会直接报错。",
+   "impact": [
+    "gemini-text",
+    "claude"
+   ],
+   "src": "gemini-changelog",
+   "models": [
+    "gemini-text",
+    "claude"
+   ],
+   "domain": "text"
+  },
+  {
+   "id": "ours-text-volume-2026-08-11",
+   "date": "2026-08-11",
+   "side": "ours",
+   "kind": "scope",
+   "subject": "AI 文本卷上线",
+   "before": "站上只有 AI 视频与 AI 图像两卷",
+   "after": "加 AI 文本一卷：14 项能力 × 9 个核心模型，谱系 73 个节点（含闭源五家）",
+   "why": "**闭源那五家一开始上不了演进树**，不是它们没发过版本，是我们没找到每一代的日期。后来发现日期藏在弃用表、更新日志和模型 ID 尾部 —— 这条记下来，是因为它会再次发生在下一个方向上。",
+   "impact": [],
+   "src": "claude-deprecations",
+   "models": [],
+   "domain": "text"
   }
  ]
 }
