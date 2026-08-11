@@ -209,6 +209,17 @@
       "missing": [
         "库里没有这条产品线（要先建实体：公司 / 轨 / 层级 / 架构依据）"
       ]
+    },
+    {
+      "id": "2026-08-07::vidu-changelog::viduq2-pro::multiref::viduq2-pro 模型支持 Referenc",
+      "at": "2026-08-11 12:31:54",
+      "who": "admin",
+      "verdict": "pass-pending",
+      "why": "",
+      "claim": "viduq2-pro 模型支持 Reference To Video（原视频编辑、图片参考视频、视频参考视频等）",
+      "missing": [
+        "库里没有这条产品线（要先建实体：公司 / 轨 / 层级 / 架构依据）"
+      ]
     }
   ]
 }
