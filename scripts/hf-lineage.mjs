@@ -100,7 +100,18 @@ const VIDEO = /video|t2v|i2v|ti2v|s2v|flf|vace|animate|dance|mochi|cogvideo|alle
  * 以及 base/instruct 之外的量化与端口档（交给 NOISE）。
  */
 const TEXT = /.*/;
-const NOT_TEXT = /image|video|audio|speech|tts|asr|voice|vl$|-vl-|vision|embedding|rerank|guard|omni|diffusion|t2i|t2v/i;
+const NOT_TEXT = new RegExp([
+  "image", "video", "audio", "speech", "tts", "asr", "voice", "vl$", "-vl-", "vision",
+  "embedding", "rerank", "guard", "omni", "diffusion", "t2i", "t2v",
+  /**
+   * ⚠️ 2026-08-11 收口。开文本方向那天 `NOT_TEXT` 只有上面一行，
+   * 结果候选一次涌出 696 条 —— **一个人审不完的清单等于没有清单**（§59.3）。
+   * 逐条看过之后，混进来的是这几类，它们的共同点是**产出物不是文本**或**根本不是模型**：
+   */
+  "cogview", "kaleido", "-s2v", "cogagent",   // 出图 / 视频 / GUI 智能体，挂在同一个组织下
+  "ocr", "-math$", "-math-",                  // 单任务衍生，不是这一代的发布本体
+  "^esft-", "sae-", "-sae", "probe", "reward", // 研究产物：专家微调、稀疏自编码器、探针、奖励模型
+].join("|"), "i");
 
 const IMAGE = /image|t2i|text-to-image|flux|stable-diffusion|sd3|sdxl|kolors|ideogram|hidream|ernie-image|ovis-image|pixeldit|anima|boogu|newbie|lens|mage-flow|krea/i;
 /**
@@ -128,7 +139,57 @@ const NOISE = new RegExp([
   //    sdxl-turbo、FLUX.2-klein-4B 就是那一代的发布本体。
   "-onnx$", "tensorrt", "_amdgpu$", "ryzen-ai", "-kv$",
   "vae$", "-refiner", "controlnet", "decoder$",
-].join("|"));
+  // ── 文本那一卷的量化与格式档（2026-08-11 补）。同一个判据：**换个精度不是新模型**。
+  //    文本模型的量化衍生比视频多一个数量级 —— 光这一类就占了 704 条里的 242 条。
+  "gguf", "gptq", "awq", "-mlx", "mlx-", "bnb-", "-4bit", "-8bit", "nf4",
+  "int4", "int8", "fp4", "mxfp", "-w4a", "-w8a", "-quant", "-bf16", "-tgi",
+  //    推测解码的草稿模型（eagle / dspark / dflash）**是给某一代提速的配件**，
+  //    和 vae、controlnet 同一类：它不是新的一代，没有它那一代照样存在。
+  "eagle", "dspark", "dflash",
+].join("|"), "i");
+
+/**
+ * **冷门产物地板。** 收口到这一步还剩一堆研究产物：ESFT、SAE、LongWriter、webrl、
+ * MathGLM、SCAIL、MSAGPT…… 一条条列黑名单是没有尽头的活，下次换个名字又漏。
+ * 换成看热度指标 —— 一代正经发布不可能没人关注。
+ *
+ * ⚠️ **只看下载量会系统性杀掉旗舰。** 第一版设了 ↓5000 的地板，
+ * 结果把 `Mistral-Large-3-675B`（↓1177）滤掉了 —— 它是 Mistral 当时的旗舰。
+ * 原因不是它不重要，是**没人在自己机器上跑 675B**：
+ * **下载量量的是「跑不跑得动」，不是「重不重要」。** 这个假设正好反了。
+ *
+ * likes 量的才是关注度，实测分得干净：
+ *   该留 —— Mistral-Large-3 ♥242、Shieldstral ♥227、DeepSeek-V4-Pro ♥326、GLM-5.2 ♥4926
+ *   该滤 —— MathGLM ♥8、MSAGPT ♥2、webrl ♥8、ESFT ♥20、UI2Code ♥24
+ * 所以两条地板**过一条就留**，再加一条豁免：
+ * `NEW_DAYS` 天内新建的一律留下 —— **刚发布的那一代还没来得及攒任何指标，
+ * 而它恰恰是这张表最该抓住的东西**。
+ */
+const FLOOR_DL = 5000;
+const FLOOR_LIKE = 150;
+const NEW_DAYS = 120;
+const FRESH = Date.now() - NEW_DAYS * 86400000;
+
+/**
+ * **代际键：把同一代的一堆 SKU 折成一个。**
+ *
+ * 这是这支脚本真正缺的那一步 —— 文件头写着「代际去重交给下游按版本号归组」，
+ * 可下游根本没有这一步，于是 Qwen3 的 8 个尺寸 × 4 种量化 = 32 行全躺在候选里。
+ * **谱系树的一个节点是「一个产品线的一代」，不是一个 SKU。**
+ *
+ * 只剥三类**不改变身份**的后缀：参数量、精度/格式、base/instruct/chat。
+ * **能力后缀一个都不能剥** —— Wan2.1-FLF2V（首尾帧）和 Wan2.1-I2V（图生视频）
+ * 是两项不同能力，折在一起就把演化树最有信息量的那部分抹掉了。
+ */
+const genKey = (repo) =>
+  repo
+    .replace(/^[^/]+\//, "")
+    .replace(/[-_]?\d+(\.\d+)?[BbMm](?![a-z])/g, "")   // 7B / 1.5B / 235B / 80m
+    .replace(/[-_]?A\d+(\.\d+)?B/gi, "")               // MoE 激活量 A22B / A3B
+    .replace(/[-_](base|instruct|chat|it|hf)$/i, "")
+    .replace(/[-_]\d{4}(-\d{2})?$/, "")                // 尾部日期戳 2507 / 2026-03
+    .replace(/[-_]{2,}/g, "-").replace(/[-_]+$/, "")
+    .toLowerCase();
 
 const rows = [];
 for (const t of ORGS) {
@@ -150,10 +211,30 @@ for (const t of ORGS) {
       : t.d === "text"
         ? (id) => TEXT.test(id) && !NOT_TEXT.test(id)
         : (id) => VIDEO.test(id);
-    const keep = j.filter((x) => hit(x.id) && !NOISE.test(x.id));
+    const raw = j.filter((x) => hit(x.id) && !NOISE.test(x.id));
+    /**
+     * **折代际。** 每个代际键只留一条，代表选**最早的那个仓库** ——
+     * 那是这一代的首发；后来补的尺寸档和 -Instruct 都晚于它。
+     * 折掉多少条要**报出来**：静默的合并和静默的截断一样危险，
+     * 人看到「1 条」时得知道背后是 1 个还是 32 个。
+     */
+    const groups = new Map();
+    for (const x of raw) {
+      const k = genKey(x.id);
+      const g = groups.get(k);
+      if (!g || (x.createdAt ?? "") < (g.createdAt ?? "")) groups.set(k, { ...x, _n: (g?._n ?? 0) + 1 });
+      else g._n += 1;
+    }
+    const folded0 = [...groups.values()].sort((a, b) => (a.createdAt ?? "").localeCompare(b.createdAt ?? ""));
+    const keep = folded0.filter((x) =>
+      (x.downloads ?? 0) >= FLOOR_DL || (x.likes ?? 0) >= FLOOR_LIKE || Date.parse(x.createdAt ?? 0) >= FRESH);
+    const folded = raw.length - folded0.length;
+    const thin = folded0.length - keep.length;
     // 回的条数逼近上限时**明说一句**：这时候「全部 N」不是这家的总数，是我们只看到了 N 个
     const capped = j.length >= 450 ? "（**已到 API 上限，可能还有没看到的**）" : "";
-    console.log(`\n══ ${t.zh}（${t.org}）—— ${{ image: "出图", text: "文本", video: "视频" }[t.d]}模型 ${keep.length} / 看到 ${j.length}${capped}`);
+    console.log(`\n══ ${t.zh}（${t.org}）—— ${{ image: "出图", text: "文本", video: "视频" }[t.d]}模型 ${keep.length} 代`
+      + `（由 ${raw.length} 个仓库折成：省掉 ${folded} 个尺寸/精度档、`
+      + `${thin} 个没人关注的冷门产物）/ 看到 ${j.length}${capped}`);
     for (const x of keep) {
       const row = {
         org: t.org, m: t.m, repo: x.id,
@@ -163,9 +244,12 @@ for (const t of ORGS) {
         // **createdAt，不是 lastModified** —— 见文件头
         date: (x.createdAt ?? "").slice(0, 10),
         downloads: x.downloads ?? 0, likes: x.likes ?? 0,
+        // 这一代折进来多少个仓库。**1 和 32 对人审的意义完全不同** ——
+        // 只发过一个仓库的多半是实验品，几十个 SKU 的才是正经一代
+        skus: x._n ?? 1,
       };
       rows.push(row);
-      console.log(`  ${row.date}  ${row.repo.padEnd(46)} ↓${row.downloads}`);
+      console.log(`  ${row.date}  ${row.repo.padEnd(46)} ↓${row.downloads}${row.skus > 1 ? `  ×${row.skus} 档` : ""}`);
     }
   } catch (e) {
     console.log(`${t.zh.padEnd(22)} 抓不到：${String(e.message).slice(0, 60)}`);
@@ -177,6 +261,6 @@ console.log(`\n共 ${rows.length} 条，最早 ${rows[0]?.date}，最新 ${rows[
 
 if (process.argv.includes("--json")) {
   writeFileSync(join(ROOT, "data/lineage-candidates.json"),
-    JSON.stringify({ note: "HF createdAt 采集的开源模型候选（每行带 domain：video / image），**未经人工核**，不要直接当数据用", rows }, null, 2) + "\n");
+    JSON.stringify({ note: "HF createdAt 采集的开源模型候选（每行带 domain 与 skus=这一代折进来几个仓库），**未经人工核**，不要直接当数据用", rows }, null, 2) + "\n");
   console.log("→ data/lineage-candidates.json（没有写 atlas.json）");
 }
