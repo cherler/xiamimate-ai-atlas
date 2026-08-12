@@ -423,6 +423,19 @@ const mentions = (txt, name) => {
         ...(raw.versions ?? []).filter((v) =>
           (raw.models ?? []).some((m) => m.id === v.m && (m.domain ?? "video") === mine))
           .map((v) => v.version),
+        /**
+         * **我们引用的第三方开源项目名，也要先抠掉。**
+         *
+         * 2026-08-12 给声音卷补开源资源时栽的第三次：`/sound/scenario` 上出现
+         * `GPT-SoVITS`（一个声音复刻项目），而 `GPT` 是文本卷的产品线名 ——
+         * 词边界拦不住，因为 GPT 后面跟的是连字符。
+         *
+         * 不能靠「把连字符也算进边界」来躲：那样真漏进来的 `GPT-5.6` 也一起放过了。
+         * 正确的判据还是同一条 —— **这次出现是不是某个更长的已知名字的一部分**。
+         * 仓库名从数据里的 GitHub 链接现取，所以以后再引哪个项目都不用回来改。
+         */
+        ...[...JSON.stringify(raw).matchAll(/github\.com\/([A-Za-z0-9_.-]+)\/([A-Za-z0-9_.-]+)/g)]
+          .flatMap((m) => [`${m[1]}/${m[2]}`, m[2]]),
       ].sort((a, b) => b.length - a.length);
       let rest = txt;
       /**

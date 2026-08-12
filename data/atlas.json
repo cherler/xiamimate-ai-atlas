@@ -1227,7 +1227,7 @@
     "city": "Freiburg",
     "country": "Germany",
     "iso": "DE",
-    "lat": 48.0,
+    "lat": 48,
     "lon": 7.85
    },
    "note": "FLUX 系列。创始团队来自 Stable Diffusion 原班人马"
@@ -2694,7 +2694,7 @@
    "weights": "closed",
    "version_src": "elevenlabs-models",
    "version_quote": "模型页：「Eleven v3 —— Human-like and expressive speech generation」，70+ 语言、单次 5,000 字符",
-   "lineage_note": "声音卷 2026-08-12 才立项，谱系还没采 —— 这是「没采到」，不是「它没有历史」",
+   "lineage_note": "**谱系空着是因为拿不到日期，不是它没有历史**：官方模型页把 Flash v2 / Multilingual v2 / Flash v2.5 / Eleven v3 四代并列，但**不标发布日**；elevenlabs.io/docs/changelog 当天 404。宁可树上少一条，也不要一条编出来的时间线（2026-08-12 我一度用占位日期建过，随即撤掉）。",
    "reach_cn": "ok",
    "reach_note": "elevenlabs.io 直连 200（本机实测 08-12）"
   },
@@ -2797,7 +2797,7 @@
    "weights": "closed",
    "version_src": "elevenlabs-models",
    "version_quote": "模型页 Music Generation：「Eleven Music v2 —— Studio-grade music with natural language prompts in any style」",
-   "lineage_note": "声音卷 2026-08-12 才立项，谱系还没采 —— 这是「没采到」，不是「它没有历史」",
+   "lineage_note": "**谱系空着是因为拿不到日期，不是它没有历史**：官方模型页把 Flash v2 / Multilingual v2 / Flash v2.5 / Eleven v3 四代并列，但**不标发布日**；elevenlabs.io/docs/changelog 当天 404。宁可树上少一条，也不要一条编出来的时间线（2026-08-12 我一度用占位日期建过，随即撤掉）。",
    "reach_cn": "ok",
    "reach_note": "elevenlabs.io 直连 200（同一平台）（本机实测 08-12）"
   },
@@ -4095,6 +4095,121 @@
    "name": "Hugging Face · Wan2.2-T2V-A14B 模型卡",
    "url": "https://huggingface.co/Wan-AI/Wan2.2-T2V-A14B",
    "tier": "official"
+  },
+  "minimax-release": {
+   "name": "MiniMax 开放平台 · 模型发布记录",
+   "url": "https://platform.minimaxi.com/docs/release-notes/models",
+   "tier": "official"
+  },
+  "s-e2ab-gh": {
+   "name": "GitHub · DrewThomasson/ebook2audiobook（星标 19,666，许可 Apache-2.0）",
+   "url": "https://github.com/DrewThomasson/ebook2audiobook",
+   "tier": "third-party"
+  },
+  "s-abogen-gh": {
+   "name": "GitHub · denizsafak/abogen（星标 5,661，许可 MIT）",
+   "url": "https://github.com/denizsafak/abogen",
+   "tier": "third-party"
+  },
+  "s-epub2tts-gh": {
+   "name": "GitHub · aedocw/epub2tts（星标 951，许可 Apache-2.0）",
+   "url": "https://github.com/aedocw/epub2tts",
+   "tier": "third-party"
+  },
+  "s-abcreator-gh": {
+   "name": "GitHub · prakharsr/audiobook-creator（星标 521，许可 GPL-3.0）",
+   "url": "https://github.com/prakharsr/audiobook-creator",
+   "tier": "third-party"
+  },
+  "s-pvt-gh": {
+   "name": "GitHub · jianchang512/pyvideotrans（星标 18,655，许可 GPL-3.0）",
+   "url": "https://github.com/jianchang512/pyvideotrans",
+   "tier": "third-party"
+  },
+  "s-smartsub-gh": {
+   "name": "GitHub · buxuku/SmartSub（星标 4,604，许可 MIT）",
+   "url": "https://github.com/buxuku/SmartSub",
+   "tier": "third-party"
+  },
+  "s-youdub-gh": {
+   "name": "GitHub · liuzhao1225/YouDub（星标 614，许可 Apache-2.0）",
+   "url": "https://github.com/liuzhao1225/YouDub",
+   "tier": "third-party"
+  },
+  "s-pipecat-gh": {
+   "name": "GitHub · pipecat-ai/pipecat（星标 14,068，许可 BSD-2-Clause）",
+   "url": "https://github.com/pipecat-ai/pipecat",
+   "tier": "third-party"
+  },
+  "s-livekit-gh": {
+   "name": "GitHub · livekit/agents（星标 12,940，许可 Apache-2.0）",
+   "url": "https://github.com/livekit/agents",
+   "tier": "third-party"
+  },
+  "s-hfs2s-gh": {
+   "name": "GitHub · huggingface/speech-to-speech（星标 12,332，许可 Apache-2.0）",
+   "url": "https://github.com/huggingface/speech-to-speech",
+   "tier": "third-party"
+  },
+  "s-moshi-gh": {
+   "name": "GitHub · kyutai-labs/moshi（星标 10,849，许可 Apache-2.0）",
+   "url": "https://github.com/kyutai-labs/moshi",
+   "tier": "third-party"
+  },
+  "s-acestep15-gh": {
+   "name": "GitHub · ace-step/ACE-Step-1.5（星标 12,151，许可 MIT）",
+   "url": "https://github.com/ace-step/ACE-Step-1.5",
+   "tier": "third-party"
+  },
+  "s-acestep-gh": {
+   "name": "GitHub · ace-step/ACE-Step（星标 4,748，许可 Apache-2.0）",
+   "url": "https://github.com/ace-step/ACE-Step",
+   "tier": "third-party"
+  },
+  "s-yue-gh": {
+   "name": "GitHub · multimodal-art-projection/YuE（星标 6,375，许可 Apache-2.0）",
+   "url": "https://github.com/multimodal-art-projection/YuE",
+   "tier": "third-party"
+  },
+  "s-audiocraft-gh": {
+   "name": "GitHub · facebookresearch/audiocraft（星标 23,555，许可 代码 MIT / 权重 CC-BY-NC 4.0）",
+   "url": "https://github.com/facebookresearch/audiocraft",
+   "tier": "third-party"
+  },
+  "s-gptsovits-gh": {
+   "name": "GitHub · RVC-Boss/GPT-SoVITS（星标 60,756，许可 MIT）",
+   "url": "https://github.com/RVC-Boss/GPT-SoVITS",
+   "tier": "third-party"
+  },
+  "s-rvc-gh": {
+   "name": "GitHub · RVC-Project/Retrieval-based-Voice-Conversion-WebUI（星标 37,287，许可 MIT）",
+   "url": "https://github.com/RVC-Project/Retrieval-based-Voice-Conversion-WebUI",
+   "tier": "third-party"
+  },
+  "s-fishspeech-gh": {
+   "name": "GitHub · fishaudio/fish-speech（星标 32,158，许可 Fish Audio 研究许可（商用需另谈））",
+   "url": "https://github.com/fishaudio/fish-speech",
+   "tier": "third-party"
+  },
+  "s-indextts-gh": {
+   "name": "GitHub · index-tts/index-tts（星标 22,677，许可 bilibili 自定义模型许可）",
+   "url": "https://github.com/index-tts/index-tts",
+   "tier": "third-party"
+  },
+  "s-cosyvoice-gh": {
+   "name": "GitHub · QwenAudio/CosyVoice（星标 22,710，许可 Apache-2.0）",
+   "url": "https://github.com/QwenAudio/CosyVoice",
+   "tier": "third-party"
+  },
+  "s-f5tts-gh": {
+   "name": "GitHub · SWivid/F5-TTS（星标 15,112，许可 MIT）",
+   "url": "https://github.com/SWivid/F5-TTS",
+   "tier": "third-party"
+  },
+  "s-qwen3omni-gh": {
+   "name": "GitHub · QwenLM/Qwen3-Omni（星标 3,946，许可 Apache-2.0）",
+   "url": "https://github.com/QwenLM/Qwen3-Omni",
+   "tier": "third-party"
   }
  },
  "support": [
@@ -9348,7 +9463,7 @@
     },
     {
      "label": "4K",
-     "v": 3.0
+     "v": 3
     },
     {
      "label": "720P 有声",
@@ -9403,7 +9518,7 @@
     },
     {
      "label": "1080P",
-     "v": 1.0
+     "v": 1
     }
    ],
    "src": "bailian-price",
@@ -12914,6 +13029,176 @@
     "hexgrad/Kokoro-82M-v1.1-zh"
    ],
    "parent": "kokoro-Kokoro-82M-这条线的起点，82M"
+  },
+  {
+   "id": "gemini-tts-2.5 Preview TTS-这条线的第一代：2.",
+   "m": "gemini-tts",
+   "version": "2.5 Preview TTS",
+   "date": "2025-05-20",
+   "added": "这条线的第一代：2.5 Flash / Pro 两支预览版同日出现",
+   "src": "gemini-changelog",
+   "quote": "发布说明 2025-05-20 同时出现 gemini-2.5-flash-preview-tts 与 gemini-2.5-pro-preview-tts",
+   "note": "日期取 Gemini API 官方发布说明里该型号**最早出现**的那一天（预览版早于 GA，这里记预览）"
+  },
+  {
+   "id": "gemini-tts-3.1 Flash TTS Preview-加流式语音生成 ——",
+   "m": "gemini-tts",
+   "version": "3.1 Flash TTS Preview",
+   "date": "2026-06-17",
+   "added": "加流式语音生成 —— **只有 3.1 有**",
+   "src": "gemini-changelog",
+   "quote": "发布说明 2026-06-17：「Streaming via streamGenerateContent … is now supported for the gemini-3.1-flash-tts-preview model」",
+   "note": "日期取 Gemini API 官方发布说明里该型号**最早出现**的那一天（预览版早于 GA，这里记预览）",
+   "parent": "gemini-tts-2.5 Preview TTS-这条线的第一代：2."
+  },
+  {
+   "id": "lyria-3 Preview-Clip 与 Pro",
+   "m": "lyria",
+   "version": "3 Preview",
+   "date": "2026-03-25",
+   "added": "Clip 与 Pro 两支同日出现：Clip 固定 30 秒，Pro 出整首",
+   "src": "gemini-changelog",
+   "quote": "发布说明 2026-03-25 同时出现 lyria-3-clip-preview 与 lyria-3-pro-preview",
+   "note": "日期取 Gemini API 官方发布说明里该型号**最早出现**的那一天（预览版早于 GA，这里记预览）"
+  },
+  {
+   "id": "mm-speech-speech-02-这条线在接口文档里最",
+   "m": "mm-speech",
+   "version": "speech-02",
+   "date": "2025-01-01",
+   "added": "这条线在接口文档里最早并列的一代（hd / turbo 两档）",
+   "src": "minimax-api-overview",
+   "quote": "语音模型表列出 speech-02-hd 与 speech-02-turbo。⚠️ 该表**不标发布日**，这里按代际排序，日期是占位",
+   "note": "MiniMax 官方接口概览的语音模型表把各代并列（speech-02 / 2.6 / 2.8），版本号即代际"
+  },
+  {
+   "id": "grok-voice-think-fast-1.0-这条线的第一代",
+   "m": "grok-voice",
+   "version": "think-fast-1.0",
+   "date": "2026-04-01",
+   "added": "这条线的第一代",
+   "src": "xai-release-notes",
+   "quote": "API 发布说明 2026 年 4 月：grok-voice-think-fast-1.0",
+   "note": "xAI 官方 API 发布说明按月分节，只精确到月，日期记当月 1 日"
+  },
+  {
+   "id": "grok-voice-think-fast-2.0-换代",
+   "m": "grok-voice",
+   "version": "think-fast-2.0",
+   "date": "2026-07-01",
+   "added": "换代",
+   "src": "xai-release-notes",
+   "quote": "API 发布说明 2026 年 7 月：grok-voice-think-fast-2.0",
+   "note": "xAI 官方 API 发布说明按月分节，只精确到月，日期记当月 1 日",
+   "parent": "grok-voice-think-fast-1.0-这条线的第一代"
+  },
+  {
+   "id": "mm-speech-Speech-2.5-这条线在官方发布记录",
+   "m": "mm-speech",
+   "version": "Speech-2.5",
+   "date": "2025-08-06",
+   "added": "这条线在官方发布记录里最早的一代",
+   "src": "minimax-release",
+   "quote": "官方模型发布记录：2025-08-06 Speech-2.5",
+   "note": "日期取 MiniMax 官方「模型发布记录」页；该页按发布日逐条列出"
+  },
+  {
+   "id": "mm-speech-Speech-2.6-「韵律表现出色，极致",
+   "m": "mm-speech",
+   "version": "Speech-2.6",
+   "date": "2025-10-29",
+   "added": "「韵律表现出色，极致音质与韵律表现」",
+   "src": "minimax-release",
+   "quote": "官方模型发布记录：2025-10-29 Speech-2.6",
+   "note": "日期取 MiniMax 官方「模型发布记录」页；该页按发布日逐条列出",
+   "parent": "mm-speech-Speech-2.5-这条线在官方发布记录"
+  },
+  {
+   "id": "mm-speech-Speech-2.8-「情绪渲染融合语气词",
+   "m": "mm-speech",
+   "version": "Speech-2.8",
+   "date": "2026-01-23",
+   "added": "「情绪渲染融合语气词，重塑自然听感」",
+   "src": "minimax-release",
+   "quote": "官方模型发布记录：2026-01-23 Speech-2.8",
+   "note": "日期取 MiniMax 官方「模型发布记录」页；该页按发布日逐条列出",
+   "parent": "mm-speech-Speech-2.6-「韵律表现出色，极致"
+  },
+  {
+   "id": "mm-music-Music-1.5 Beta-这条线的起点（Bet",
+   "m": "mm-music",
+   "version": "Music-1.5 Beta",
+   "date": "2025-06-20",
+   "added": "这条线的起点（Beta）",
+   "src": "minimax-release",
+   "quote": "官方模型发布记录：2025-06-20 Music-1.5 Beta",
+   "note": "日期取 MiniMax 官方「模型发布记录」页；该页按发布日逐条列出"
+  },
+  {
+   "id": "mm-music-Music-1.5-转正式版",
+   "m": "mm-music",
+   "version": "Music-1.5",
+   "date": "2025-09-11",
+   "added": "转正式版",
+   "src": "minimax-release",
+   "quote": "官方模型发布记录：2025-09-11 Music-1.5",
+   "note": "日期取 MiniMax 官方「模型发布记录」页；该页按发布日逐条列出",
+   "parent": "mm-music-Music-1.5 Beta-这条线的起点（Bet"
+  },
+  {
+   "id": "mm-music-Music-2.0-换代",
+   "m": "mm-music",
+   "version": "Music-2.0",
+   "date": "2025-10-30",
+   "added": "换代",
+   "src": "minimax-release",
+   "quote": "官方模型发布记录：2025-10-30 Music-2.0",
+   "note": "日期取 MiniMax 官方「模型发布记录」页；该页按发布日逐条列出",
+   "parent": "mm-music-Music-1.5-转正式版"
+  },
+  {
+   "id": "mm-music-Music-2.5-换代",
+   "m": "mm-music",
+   "version": "Music-2.5",
+   "date": "2026-01-16",
+   "added": "换代",
+   "src": "minimax-release",
+   "quote": "官方模型发布记录：2026-01-16 Music-2.5",
+   "note": "日期取 MiniMax 官方「模型发布记录」页；该页按发布日逐条列出",
+   "parent": "mm-music-Music-2.0-换代"
+  },
+  {
+   "id": "mm-music-Music-2.5+-小版本迭代（该页只标",
+   "m": "mm-music",
+   "version": "Music-2.5+",
+   "date": "2026-03-01",
+   "added": "小版本迭代（该页只标到月）",
+   "src": "minimax-release",
+   "quote": "官方模型发布记录：2026-03-01 Music-2.5+",
+   "note": "日期取 MiniMax 官方「模型发布记录」页；该页按发布日逐条列出",
+   "parent": "mm-music-Music-2.5-换代"
+  },
+  {
+   "id": "mm-music-Music-2.6-小版本迭代（该页只标",
+   "m": "mm-music",
+   "version": "Music-2.6",
+   "date": "2026-04-01",
+   "added": "小版本迭代（该页只标到月）",
+   "src": "minimax-release",
+   "quote": "官方模型发布记录：2026-04-01 Music-2.6",
+   "note": "日期取 MiniMax 官方「模型发布记录」页；该页按发布日逐条列出",
+   "parent": "mm-music-Music-2.5+-小版本迭代（该页只标"
+  },
+  {
+   "id": "mm-music-Music-3.0-换代：输入音乐灵感与",
+   "m": "mm-music",
+   "version": "Music-3.0",
+   "date": "2026-07-16",
+   "added": "换代：输入音乐灵感与歌词，生成人声歌曲",
+   "src": "minimax-release",
+   "quote": "官方模型发布记录：2026-07-16 Music-3.0",
+   "note": "日期取 MiniMax 官方「模型发布记录」页；该页按发布日逐条列出",
+   "parent": "mm-music-Music-2.6-小版本迭代（该页只标"
   }
  ],
  "$versions": "版本谱系（演进图的数据）。**演进的主体是模型，不是能力。**\n\n原来那张演进图每行是一项能力、横轴是「我们能证明的最早时间」、粗细是几家支持。\n读者看完只得到「动作复刻 2025-12 出现、6/9 支持」—— 那是一次数据库查询的可视化，不涨知识。\n而且它得靠图注免责（「不是业界首次出现」）：**一张需要图注免责的图，说明它量错了东西。**\n\n这份数据画的是**厂商自己发布的版本和日期**，所以不需要免责。每条必须回答：\n**这一代新增了什么。** 只有版本号没有 added 的节点没有价值，不收。\n\n两个最好的来源，都不是「新闻」：\n  · **官方 Hugging Face 组织** —— 模型名本身就编码了能力与代际\n    （Wan2.1-FLF2V＝首尾帧、Wan2.2-S2V＝语音驱动、LTX 的 IC-LoRA-Ingredients＝角色参考），\n    发布时间由 HF API 给出，比任何新闻稿都准。\n  · **官方 API 更新日志** —— 可灵那份 31k 字符里有 170 条带日期的条目。\n\n覆盖不全是事实：万相和可灵能画出完整谱系，Runway/Vidu/Seedance 只有近期几个点，\nVeo/Sora/海螺/LTX 还没有。**图上要标出哪几条线是完整的、哪几条只是片段** ——\n画一条只有两个点的线却不说明，读者会以为这家两年只更新过两次。\n\n`cap` 把版本节点挂到能力 id 上，图上「点一项能力，看各家谁先谁后」靠它。\n**对不上的一律留空并写明理由（cap_skip），不硬凑** —— 硬凑一个 id，纵向那一刀就切错了。\n典型：Wan 的 S2V 是「语音驱动」，不等于我们轴上的「对口型」，两件事不合并；\n「换代」节点本身也不是新增单项能力。\n\n`id` + `parent` 把平铺记录变成**真的树**。分叉是真实存在的：\nWan2.1 底座上同时长出 FLF2V（首尾帧）和 VACE（统一编辑）两个变体，\nWan2.2 是换代接在 2.1 后面，Animate-2 又接在 Animate 后面。\n\n**没有父节点的就让它当根，不许为了让树好看硬接一条边** ——\nRunway 的 Aleph 是编辑线，不是 Gen 的后代，它自己是一棵树。\n\n⚠️ **日期必须取 HF 的 `createdAt`，不能取 `lastModified`。**\n第一版取错了字段，把「最后修改」当成了发布日期：Wan2.2 记成 2025-08-07（实际 2025-07-18）、\nAnimate 记成 2025-11-05（实际 2025-09-11）——**差了两个月**。\n仓库发布后还会被反复更新，两个字段根本不是一回事。\n这类错最阴：日期看着合理、图也画得出来，但整条时间线是歪的。\n\n覆盖不足要**写在数据里**，不是靠图上一句话糊过去：\n模型的 `lineage_note` 解释为什么它的节点少（太新 / 官方记录只回溯到某时）。\n校验 R58 强制：**核心模型少于 3 个节点却没写理由，就是错**。\n「我们没采到」和「它本来就没有」是两回事，读者有权知道是哪一种。",
@@ -14383,13 +14668,42 @@
      "name": "Fish Speech s2-pro（权重公开）",
      "url": "https://huggingface.co/fishaudio/s2-pro",
      "src": "hf-sound-org",
-     "quote": "fishaudio/s2-pro，createdAt 2026-03-09（♥1232）"
+     "quote": "fishaudio/s2-pro，createdAt 2026-03-09（♥1232）",
+     "note": "⚠️ 权重公开 ≠ 可商用：Fish Audio 研究许可写明商用需单独授权（见 https://github.com/fishaudio/fish-speech/blob/main/LICENSE）"
     },
     {
      "name": "Qwen3-TTS CustomVoice（权重公开）",
      "url": "https://huggingface.co/Qwen/Qwen3-TTS-12Hz-1.7B-CustomVoice",
      "src": "hf-sound-org",
      "quote": "Qwen/Qwen3-TTS-12Hz-1.7B-CustomVoice，createdAt 2026-01-21（♥1871）"
+    },
+    {
+     "name": "GPT-SoVITS（1 分钟素材训音色，MIT）",
+     "url": "https://github.com/RVC-Boss/GPT-SoVITS",
+     "src": "s-gptsovits-gh",
+     "quote": "RVC-Boss/GPT-SoVITS：1 min voice data can also be used to train a good TTS model! (few shot voice cloning)（★60,756，许可 MIT）",
+     "note": "中文场景下最好上手的一支"
+    },
+    {
+     "name": "F5-TTS（零样本复刻，MIT）",
+     "url": "https://github.com/SWivid/F5-TTS",
+     "src": "s-f5tts-gh",
+     "quote": "SWivid/F5-TTS：F5-TTS: A Fairytaler that Fakes Fluent and Faithful Speech with Flow Matching（★15,112，许可 MIT）",
+     "note": "被多数开源配音工具拿去当默认后端"
+    },
+    {
+     "name": "CosyVoice（阿里，Apache-2.0）",
+     "url": "https://github.com/QwenAudio/CosyVoice",
+     "src": "s-cosyvoice-gh",
+     "quote": "QwenAudio/CosyVoice：Multi-lingual large voice generation model, providing inference, training and deployment full-stack ability（★22,710，许可 Apache-2.0）",
+     "note": "多语种；仓库已迁到 QwenAudio 名下"
+    },
+    {
+     "name": "IndexTTS（B 站）",
+     "url": "https://github.com/index-tts/index-tts",
+     "src": "s-indextts-gh",
+     "quote": "index-tts/index-tts：An Industrial-Level Controllable and Efficient Zero-Shot Text-To-Speech System（★22,677，许可 bilibili 自定义模型许可）",
+     "note": "⚠️ bilibili 自定义许可，明文禁止拿它去改进别的 AI 模型"
     }
    ],
    "note": "**各家的门槛差很多**：GLM-TTS-Clone 只要 3 秒样本，xAI 的自定义音色上限 120 秒参考音频，MiniMax 则要求先完成个人或企业实名认证、且产出的是**临时音色**（7 天不用就删）。复刻别人的声音涉及人格权，各家的合规要求不是形式。",
@@ -14398,7 +14712,8 @@
     "各家门槛差很多：3 秒（GLM）~ 120 秒（xAI）参考音频，MiniMax 还要实名认证",
     "MiniMax 产出的是**临时音色**：7 天内不使用会被删除",
     "复刻他人声音涉及人格权，合规要求不是形式"
-   ]
+   ],
+   "domain": "sound"
   },
   {
    "id": "s-rt-skill",
@@ -14418,6 +14733,27 @@
      "url": "https://huggingface.co/zai-org/glm-4-voice-9b",
      "src": "glm-voice-doc",
      "quote": "模型页：「首个端到端语音模型……实现实时语音对话」；上下文 8K、最大输出 4K"
+    },
+    {
+     "name": "Moshi（端到端全双工，Apache-2.0）",
+     "url": "https://github.com/kyutai-labs/moshi",
+     "src": "s-moshi-gh",
+     "quote": "kyutai-labs/moshi：Moshi is a speech-text foundation model and full-duplex spoken dialogue framework（★10,849，许可 Apache-2.0）",
+     "note": "不拆成 STT→LLM→TTS，所以打断是真的即时"
+    },
+    {
+     "name": "Qwen3-Omni（原生全模态，Apache-2.0）",
+     "url": "https://github.com/QwenLM/Qwen3-Omni",
+     "src": "s-qwen3omni-gh",
+     "quote": "QwenLM/Qwen3-Omni：Qwen3-Omni is a natively end-to-end, omni-modal LLM（★3,946，许可 Apache-2.0）",
+     "note": "权重公开的一条，语音进语音出"
+    },
+    {
+     "name": "Pipecat（编排框架，BSD-2-Clause）",
+     "url": "https://github.com/pipecat-ai/pipecat",
+     "src": "s-pipecat-gh",
+     "quote": "pipecat-ai/pipecat：Open Source framework for voice agents, multimodal（★14,068，许可 BSD-2-Clause）",
+     "note": "不是模型，是把三段拼起来还能打断的那层"
     }
    ],
    "note": "**接入方式比模型更决定成败**：OpenAI 给了 WebRTC / WebSocket / SIP 三种，SIP 那条意味着能直接接电话系统；xAI 只给 WebSocket。选型时先看这一栏。",
@@ -14426,7 +14762,8 @@
     "接入方式各家不同：OpenAI 给 WebRTC/WebSocket/SIP，xAI 只给 WebSocket",
     "GLM-4-Voice 上下文只有 8K，长对话撑不住",
     "OpenAI 与 xAI 的域名在大陆直连都不通"
-   ]
+   ],
+   "domain": "sound"
   },
   {
    "id": "s-music-skill",
@@ -14441,14 +14778,37 @@
     ],
     "out": "音乐片段（人声可选）"
    },
-   "opensource": [],
+   "opensource": [
+    {
+     "name": "ACE-Step 1.5（MIT，本地 4GB 显存可跑）",
+     "url": "https://github.com/ace-step/ACE-Step-1.5",
+     "src": "s-acestep15-gh",
+     "quote": "ace-step/ACE-Step-1.5：The most powerful local music generation model that outperforms almost all commercial alternatives（★12,151，许可 MIT）",
+     "note": "自部署做 BGM 目前最现实的一支"
+    },
+    {
+     "name": "YuE（Apache-2.0，整曲含人声）",
+     "url": "https://github.com/multimodal-art-projection/YuE",
+     "src": "s-yue-gh",
+     "quote": "multimodal-art-projection/YuE：YuE: Open Full-song Music Generation Foundation Model（★6,375，许可 Apache-2.0）",
+     "note": "带唱的，不只是伴奏"
+    },
+    {
+     "name": "MusicGen / Audiocraft（Meta）",
+     "url": "https://github.com/facebookresearch/audiocraft",
+     "src": "s-audiocraft-gh",
+     "quote": "facebookresearch/audiocraft：Audiocraft is a library for audio processing and generation with deep learning（含 MusicGen）（★23,555，许可 代码 MIT / 权重 CC-BY-NC 4.0）",
+     "note": "⚠️ **代码 MIT，权重 CC-BY-NC 4.0 —— 权重不许商用**"
+    }
+   ],
    "note": "**先看能不能商用**：Lyria 3 生成的音频一律带 SynthID 水印，且请求特定艺人嗓音或受版权歌词会被拒。这一类的限制写在文档里，不是潜规则。",
    "verified_at": "2026-08-12",
    "limits": [
     "Lyria 3 生成的音频一律带 SynthID 水印",
     "请求特定艺人嗓音或受版权歌词会被直接拒绝",
     "Lyria 是单轮生成，不支持迭代修改"
-   ]
+   ],
+   "domain": "sound"
   }
  ],
  "applications": [
@@ -15907,7 +16267,44 @@
     "有声阅读",
     "听书"
    ],
-   "resources": []
+   "resources": [
+    {
+     "kind": "project",
+     "name": "ebook2audiobook（电子书直接转有声书，带声音复刻）",
+     "url": "https://github.com/DrewThomasson/ebook2audiobook",
+     "src": "s-e2ab-gh",
+     "quote": "DrewThomasson/ebook2audiobook：Generate audiobooks from e-books, voice cloning & 1158+ languages!（★19,666，许可 Apache-2.0）",
+     "license": "Apache-2.0",
+     "note": "声音卷这一类里星标最高的一支，仍在活跃更新。Apache-2.0，商用无附加条件 —— 但它只是**调度层**，真正发声的模型许可要另看"
+    },
+    {
+     "kind": "project",
+     "name": "abogen（EPUB/PDF → 音频 + 同步字幕）",
+     "url": "https://github.com/denizsafak/abogen",
+     "src": "s-abogen-gh",
+     "quote": "denizsafak/abogen：Generate audiobooks from EPUBs, PDFs and text with synchronized captions.（★5,661，许可 MIT）",
+     "license": "MIT",
+     "note": "输出带逐句时间戳，做「听读同步」这类产品时省掉一次强制对齐"
+    },
+    {
+     "kind": "project",
+     "name": "epub2tts（按章切分，可接 Coqui / OpenAI / Edge TTS）",
+     "url": "https://github.com/aedocw/epub2tts",
+     "src": "s-epub2tts-gh",
+     "quote": "aedocw/epub2tts：Turn an epub or text file into an audiobook（★951，许可 Apache-2.0）",
+     "license": "Apache-2.0",
+     "note": "2026-02 之后没有新推送，**属于能用但没人维护的那一档**"
+    },
+    {
+     "kind": "project",
+     "name": "audiobook-creator（用大模型认角色，多音色分角朗读）",
+     "url": "https://github.com/prakharsr/audiobook-creator",
+     "src": "s-abcreator-gh",
+     "quote": "prakharsr/audiobook-creator：converts books (EPUB, PDF, TXT etc.) into fully voiced audiobooks with intelligent character voice attribution（★521，许可 GPL-3.0）",
+     "license": "GPL-3.0",
+     "note": "GPL-3.0 是**传染性许可**：你把它嵌进自家产品，产品的分发也要开源。只想做内部工具没问题，要做商品先问法务"
+    }
+   ]
   },
   {
    "id": "dubbing",
@@ -15928,7 +16325,35 @@
     "译制",
     "配音"
    ],
-   "resources": []
+   "resources": [
+    {
+     "kind": "project",
+     "name": "pyvideotrans（识别→翻译→合成→回封装的整条流水线）",
+     "url": "https://github.com/jianchang512/pyvideotrans",
+     "src": "s-pvt-gh",
+     "quote": "jianchang512/pyvideotrans：Translate the video from one language to another and embed dubbing & subtitles.（★18,655，许可 GPL-3.0）",
+     "license": "GPL-3.0",
+     "note": "中文侧配音工具里最完整的一支，声音复刻可挂 F5-TTS / CosyVoice / GPT-SoVITS。**GPL-3.0，传染性许可**"
+    },
+    {
+     "kind": "project",
+     "name": "SmartSub 妙幕（桌面端，本地 Whisper 转写 + 配音 + 字幕烧录）",
+     "url": "https://github.com/buxuku/SmartSub",
+     "src": "s-smartsub-gh",
+     "quote": "buxuku/SmartSub：视频转字幕、字幕翻译、AI 配音与声音克隆、字幕烧录——免费开源的一站式桌面工具（★4,604，许可 MIT）",
+     "license": "MIT",
+     "note": "MIT，且是**装了就能用的桌面应用**，不需要自己搭 Python 环境 —— 给不写代码的人时选它"
+    },
+    {
+     "kind": "project",
+     "name": "YouDub（把 YouTube 视频翻译配音成中文，保留原音色）",
+     "url": "https://github.com/liuzhao1225/YouDub",
+     "src": "s-youdub-gh",
+     "quote": "liuzhao1225/YouDub：自动化地将优质的 YouTube 视频进行翻译和配音（★614，许可 Apache-2.0）",
+     "license": "Apache-2.0",
+     "note": "**最后推送停在 2024-05-14，两年多没动。** 收它是因为它把「保留原 UP 主音色」这条链路讲清楚了，直接跑起来大概率要自己修依赖"
+    }
+   ]
   },
   {
    "id": "voice-agent",
@@ -15949,7 +16374,44 @@
     "语音代理",
     "实时语音"
    ],
-   "resources": []
+   "resources": [
+    {
+     "kind": "project",
+     "name": "Pipecat（语音 Agent 编排框架，可换任意 STT/LLM/TTS）",
+     "url": "https://github.com/pipecat-ai/pipecat",
+     "src": "s-pipecat-gh",
+     "quote": "pipecat-ai/pipecat：Open Source framework for voice agents, multimodal（★14,068，许可 BSD-2-Clause）",
+     "license": "BSD-2-Clause",
+     "note": "BSD-2-Clause，限制最少的一档。打断（barge-in）、并发、电话接入这些实时语音的脏活它都做了"
+    },
+    {
+     "kind": "project",
+     "name": "LiveKit Agents（跑在 WebRTC 上的实时语音 Agent 框架）",
+     "url": "https://github.com/livekit/agents",
+     "src": "s-livekit-gh",
+     "quote": "livekit/agents：A framework for building realtime voice AI agents（★12,940，许可 Apache-2.0）",
+     "license": "Apache-2.0",
+     "note": "它的强项在**传输层**：网络抖动、回声消除、多人房间。要做的是网页/App 里的对话，这条比自己搭 WebSocket 稳"
+    },
+    {
+     "kind": "project",
+     "name": "huggingface/speech-to-speech（全开源模型拼出的本地语音对话）",
+     "url": "https://github.com/huggingface/speech-to-speech",
+     "src": "s-hfs2s-gh",
+     "quote": "huggingface/speech-to-speech：Build local voice agents with open-source models（★12,332，许可 Apache-2.0）",
+     "license": "Apache-2.0",
+     "note": "价值在**演示「不联网也能做」**：整条链路每一段都是可下载的权重。延迟比商用实时接口高，但数据不出机器"
+    },
+    {
+     "kind": "project",
+     "name": "Moshi（端到端全双工语音模型，不走 STT→LLM→TTS 三段）",
+     "url": "https://github.com/kyutai-labs/moshi",
+     "src": "s-moshi-gh",
+     "quote": "kyutai-labs/moshi：Moshi is a speech-text foundation model and full-duplex spoken dialogue framework（★10,849，许可 Apache-2.0）",
+     "license": "Apache-2.0",
+     "note": "和上面三条是**两种做法**：它把语音直接吃进模型，所以能真正做到「你说话它当场停」。代价是内容能力弱于文本大模型"
+    }
+   ]
   },
   {
    "id": "bgm",
@@ -15970,7 +16432,44 @@
     "BGM",
     "配乐"
    ],
-   "resources": []
+   "resources": [
+    {
+     "kind": "project",
+     "name": "ACE-Step 1.5（本地跑的整曲音乐生成）",
+     "url": "https://github.com/ace-step/ACE-Step-1.5",
+     "src": "s-acestep15-gh",
+     "quote": "ace-step/ACE-Step-1.5：The most powerful local music generation model that outperforms almost all commercial alternatives（★12,151，许可 MIT）",
+     "license": "MIT",
+     "note": "MIT，且官方称 4GB 显存就能跑、可用几首曲子训 LoRA 学风格。**做 BGM 这一类里目前最现实的自部署选项**"
+    },
+    {
+     "kind": "project",
+     "name": "ACE-Step（1.5 的上一代，Apache-2.0）",
+     "url": "https://github.com/ace-step/ACE-Step",
+     "src": "s-acestep-gh",
+     "quote": "ace-step/ACE-Step：ACE-Step: A Step Towards Music Generation Foundation Model（★4,748，许可 Apache-2.0）",
+     "license": "Apache-2.0",
+     "note": "留着是因为许可不同（Apache-2.0 带专利授权条款，MIT 没有）—— 有些公司的法务只认这一种"
+    },
+    {
+     "kind": "project",
+     "name": "YuE（整曲生成，含人声演唱）",
+     "url": "https://github.com/multimodal-art-projection/YuE",
+     "src": "s-yue-gh",
+     "quote": "multimodal-art-projection/YuE：YuE: Open Full-song Music Generation Foundation Model（★6,375，许可 Apache-2.0）",
+     "license": "Apache-2.0",
+     "note": "**带唱的**，不只是伴奏。2025-06 之后没有新推送"
+    },
+    {
+     "kind": "project",
+     "name": "Audiocraft / MusicGen（Meta 出品）",
+     "url": "https://github.com/facebookresearch/audiocraft",
+     "src": "s-audiocraft-gh",
+     "quote": "facebookresearch/audiocraft：Audiocraft is a library for audio processing and generation with deep learning（含 MusicGen）（★23,555，许可 代码 MIT / 权重 CC-BY-NC 4.0）",
+     "license": "代码 MIT / 权重 CC-BY-NC 4.0",
+     "note": "**这条要看清楚：代码是 MIT，模型权重是 CC-BY-NC 4.0 —— 权重不允许商用。** 拿它出的 BGM 放进要卖的片子里是违约的，这一条最常被忽略"
+    }
+   ]
   },
   {
    "id": "voice-ip",
@@ -15990,7 +16489,62 @@
     "声音复刻",
     "虚拟主播"
    ],
-   "resources": []
+   "resources": [
+    {
+     "kind": "project",
+     "name": "GPT-SoVITS（1 分钟素材就能训出可用音色）",
+     "url": "https://github.com/RVC-Boss/GPT-SoVITS",
+     "src": "s-gptsovits-gh",
+     "quote": "RVC-Boss/GPT-SoVITS：1 min voice data can also be used to train a good TTS model! (few shot voice cloning)（★60,756，许可 MIT）",
+     "license": "MIT",
+     "note": "声音复刻这一类里星标最高的，MIT。中文社区教程最多，出问题最容易搜到答案"
+    },
+    {
+     "kind": "project",
+     "name": "CosyVoice（阿里，多语种，推理/训练/部署全栈）",
+     "url": "https://github.com/QwenAudio/CosyVoice",
+     "src": "s-cosyvoice-gh",
+     "quote": "QwenAudio/CosyVoice：Multi-lingual large voice generation model, providing inference, training and deployment full-stack ability（★22,710，许可 Apache-2.0）",
+     "license": "Apache-2.0",
+     "note": "Apache-2.0。⚠️ 仓库归属已从 FunAudioLLM 迁到 QwenAudio，老链接会跳转"
+    },
+    {
+     "kind": "project",
+     "name": "F5-TTS（流匹配，零样本复刻）",
+     "url": "https://github.com/SWivid/F5-TTS",
+     "src": "s-f5tts-gh",
+     "quote": "SWivid/F5-TTS：F5-TTS: A Fairytaler that Fakes Fluent and Faithful Speech with Flow Matching（★15,112，许可 MIT）",
+     "license": "MIT",
+     "note": "MIT，模型小、推理快，常被上面那些配音工具当作默认合成后端"
+    },
+    {
+     "kind": "project",
+     "name": "RVC WebUI（音色转换：把 A 的说话换成 B 的音色）",
+     "url": "https://github.com/RVC-Project/Retrieval-based-Voice-Conversion-WebUI",
+     "src": "s-rvc-gh",
+     "quote": "RVC-Project/Retrieval-based-Voice-Conversion-WebUI：Easily train a good VC model with voice data <= 10 mins!（★37,287，许可 MIT）",
+     "license": "MIT",
+     "note": "和复刻不是一回事 —— 它改的是**已有音频**的音色，语气节奏还是原来那个人的。要保留演绎、只换嗓子时用它"
+    },
+    {
+     "kind": "project",
+     "name": "Fish Speech（效果第一梯队）",
+     "url": "https://github.com/fishaudio/fish-speech",
+     "src": "s-fishspeech-gh",
+     "quote": "fishaudio/fish-speech：SOTA Open Source TTS（★32,158，许可 Fish Audio 研究许可（商用需另谈））",
+     "license": "Fish Audio 研究许可（商用需另谈）",
+     "note": "⚠️ **许可不是开源许可。** LICENSE 原文：「This Agreement is intended to allow research and non-commercial uses of the Materials free of charge. Any Commercial use of the Materials requires a separate license from Fish Audio.」—— 商用要单独找它买"
+    },
+    {
+     "kind": "project",
+     "name": "IndexTTS（B 站，工业级零样本 TTS）",
+     "url": "https://github.com/index-tts/index-tts",
+     "src": "s-indextts-gh",
+     "quote": "index-tts/index-tts：An Industrial-Level Controllable and Efficient Zero-Shot Text-To-Speech System（★22,677，许可 bilibili 自定义模型许可）",
+     "license": "bilibili 自定义模型许可",
+     "note": "⚠️ 用的是 bilibili 自定义许可，不是标准开源许可。原文：「You may not Use the bilibili indextts2 or any Derivative Work to improve any AI model, except for the bilibili indextts2 itself, its Derivative Works，or non-commercial AI models.」—— **不能拿它的输出去训自己的模型**"
+    }
+   ]
   }
  ],
  "$applications": "应用是用户要交付的东西，不是能力名的同义改写。字段：{id, zh, en, intro, inputs[], output, skills[], resources[{kind, name, url, src, quote, note?}]}。应用层不下效果或适用性结论；资源分 project / skill / course / docs 四类，项目与工作流从关联 Skill 自动汇总，避免重复维护。场景页默认按 project → skill → docs → course 排序，同类官方来源优先；排序不是质量或效果评分。治理规则见 docs/应用开源资源治理.md。",
@@ -16156,6 +16710,33 @@
    "url": "https://developers.openai.com/api/docs/guides/realtime",
    "verdict": "把会话分成 voice-agent / translation / transcription 三类，连接方式给了 WebRTC / WebSocket / SIP 三种 —— SIP 那条意味着能直接接电话系统。",
    "caveat": "**大陆直连返回 403**（是拒绝不是不通）。另外三类会话的模型不同，别以为一个 `gpt-realtime-2.1` 全包。",
+   "checked_at": "2026-08-12",
+   "domain": "sound"
+  },
+  {
+   "task": "想自己部署一个能出整首 BGM 的模型",
+   "site": "ACE-Step 1.5（GitHub）",
+   "url": "https://github.com/ace-step/ACE-Step-1.5",
+   "verdict": "MIT 许可、★12,151，官方称 4GB 显存能跑、可用几首曲子训 LoRA 学风格。**做自部署 BGM 目前最现实的一支** —— 其余开源音乐模型不是停更就是权重不许商用。",
+   "caveat": "**别把它和 MusicGen 混为一谈。** Meta 的 audiocraft 代码是 MIT、**权重却是 CC-BY-NC 4.0，不允许商用** —— 拿 MusicGen 出的曲子放进要卖的片子里是违约的。ACE-Step 没有这个问题，但上一代 ACE-Step 是 Apache-2.0、1.5 才是 MIT，法务只认某一种时要看清版本。",
+   "checked_at": "2026-08-12",
+   "domain": "sound"
+  },
+  {
+   "task": "想复刻一个人的音色，又不想把样本传上云",
+   "site": "GPT-SoVITS（GitHub）",
+   "url": "https://github.com/RVC-Boss/GPT-SoVITS",
+   "verdict": "★60,756、MIT，声音复刻这一类里星标最高的一支，作者自述 1 分钟素材就能训出可用音色。中文教程最多，卡住了最容易搜到答案。",
+   "caveat": "**开源不等于可商用，这一类尤其乱。** 同类里 Fish Speech 是研究许可（商用要单独找它买）、IndexTTS 是 B 站自定义许可（明文禁止拿它去改进别的 AI 模型）。挑之前先读 LICENSE，别只看 star。另外**音色复刻本身有法律与伦理边界** —— 复刻真人要拿到本人授权。",
+   "checked_at": "2026-08-12",
+   "domain": "sound"
+  },
+  {
+   "task": "想做能被打断的实时语音对话",
+   "site": "Pipecat（GitHub）",
+   "url": "https://github.com/pipecat-ai/pipecat",
+   "verdict": "★14,068、BSD-2-Clause（限制最少的一档）。打断、并发、电话接入这些实时语音的脏活它做完了，STT/LLM/TTS 三段可以随便换。",
+   "caveat": "**它是编排层，不是模型。** 真正的时延与效果取决于你接的那三段；换句话说它省的是工程量，不是模型钱。要「说话当场停」那种真全双工，得换成 Moshi 那类端到端语音模型 —— 代价是内容能力弱于文本大模型。",
    "checked_at": "2026-08-12",
    "domain": "sound"
   }
