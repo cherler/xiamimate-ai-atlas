@@ -4373,6 +4373,16 @@
    "name": "腾讯官方 Hugging Face · HunyuanImage-3.0 模型卡",
    "url": "https://huggingface.co/tencent/HunyuanImage-3.0",
    "tier": "official"
+  },
+  "bfl-flux2-overview": {
+   "name": "Black Forest Labs 官方文档 · FLUX.2 概览",
+   "url": "https://docs.bfl.ai/flux_2/flux2_overview",
+   "tier": "official"
+  },
+  "ark-seedream-api": {
+   "name": "火山方舟 API 参考 · 图片生成 API（Doubao Seedream 5.0 pro）",
+   "url": "https://www.volcengine.com/docs/82379/1541523",
+   "tier": "official"
   }
  },
  "support": [
@@ -5960,7 +5970,8 @@
    "c": "i-multiturn",
    "state": "unknown",
    "verified_for": "2-dev",
-   "note": "BFL 官方文档索引通篇没提这一条 —— 读完没找到，不是没读"
+   "note": "官方文档里没有会话 / 多轮承接的概念，编辑是一次一发（给参考图 + 提示词）。",
+   "as_of": "2026-08-12"
   },
   {
    "m": "flux",
@@ -5983,7 +5994,8 @@
    "c": "i-canvas",
    "state": "unknown",
    "verified_for": "2-dev",
-   "note": "BFL 官方文档索引通篇没提这一条 —— 读完没找到，不是没读"
+   "note": "BFL 只提供 API 与 playground，没有画布类端点或功能页。",
+   "as_of": "2026-08-12"
   },
   {
    "m": "flux",
@@ -5998,35 +6010,46 @@
    "c": "i-styleref",
    "state": "unknown",
    "verified_for": "2-dev",
-   "note": "BFL 官方文档索引通篇没提这一条 —— 读完没找到，不是没读"
+   "note": "**有风格这个词，但不是「给一张图学它的风格」。** 官方的 Multi-Reference 讲的是元素与身份一致（faces / models stay consistent），Structured Prompting 里的 `\"style\"` 是**提示词里的一个文字字段**（示例值 `\"digital art, high contrast\"`），max 档自述的「faithful style representation」说的是听不听得懂提示词。三处都不是图像风格参考 —— 读完没找到，不是没读。",
+   "as_of": "2026-08-12"
   },
   {
    "m": "flux",
    "c": "i-fidelity",
-   "state": "unknown",
+   "state": "yes",
    "verified_for": "2-dev",
-   "note": "BFL 官方文档索引通篇没提这一条 —— 读完没找到，不是没读"
+   "note": "**最多 10 张参考图**，官方给的例子是「8 个角色从参考图里保持一致」。这一格是靠多图参考锁身份，不是靠一个相似度旋钮。",
+   "as_of": "2026-08-12",
+   "src": "bfl-flux2-overview",
+   "quote": "Multi-Reference 一节：「Combine elements from multiple images **while maintaining identity across complex scenes**. Create ad variants with **consistent faces**, product mockups in any context, or fashion editorials where **models stay consistent**.」；概览首段写「edit existing images by referencing **up to 10 sources simultaneously**」"
   },
   {
    "m": "flux",
    "c": "i-textrender",
-   "state": "unknown",
+   "state": "yes",
    "verified_for": "2-dev",
-   "note": "BFL 官方文档索引通篇没提这一条 —— 读完没找到，不是没读"
+   "note": "官方点名的场景是信息图、UI 稿、营销物料 —— 都是**要成段文字和版面**的活。",
+   "as_of": "2026-08-12",
+   "src": "bfl-flux2-overview",
+   "quote": "官方把能力归成六个 Tab，其中一个就叫 **Typography & Text**：「Reliable text rendering for infographics, UI mockups, and marketing materials.」；另有一档变体自述「**Specialized for typography.** Best for text rendering and preserving small details.」"
   },
   {
    "m": "flux",
    "c": "i-upscale",
    "state": "unknown",
    "verified_for": "2-dev",
-   "note": "**没有顺着写。** FLUX Tools 里有 Erase / Deblur，但 **Deblur 是去模糊不是放大** —— 官方没有超分端点"
+   "note": "文档里没有放大 / 超分端点。要更大的图是在生成时提高分辨率，而上限是 4MP。",
+   "as_of": "2026-08-12"
   },
   {
    "m": "flux",
    "c": "i-4k",
-   "state": "unknown",
+   "state": "no",
    "verified_for": "2-dev",
-   "note": "BFL 官方文档索引通篇没提这一条 —— 读完没找到，不是没读"
+   "note": "**4MP 是 400 万像素，4K（3840×2160）是 829 万 —— 差一倍多。** 官方给的上限就在这儿，所以这一格是 ❌（官方说到此为止），不是 ⬜（没找到）。⚠️ 别被「4MP」和「4K」两个词的相似骗了，它们不是一回事。",
+   "as_of": "2026-08-12",
+   "src": "bfl-flux2-overview",
+   "quote": "官方对 FLUX.2 家族的一句总述：「from sub-second generation to highest quality, with multi-reference editing, color control, and **up to 4MP output**」"
   },
   {
    "m": "flux",
@@ -6403,49 +6426,60 @@
    "c": "i-multiturn",
    "state": "unknown",
    "verified_for": "5.0 Pro",
-   "note": "Seedream 官方页只讲了四条卖点，没提这一条 —— 读完没找到"
+   "note": "请求参数表 11 个字段（model / prompt / image / size / optimize_prompt_options / output_format / response_format / sequential_image_generation / stream / tools / watermark）里**没有会话或上下文承接**。`sequential_image_generation` 是「一次生成一组内容关联的图」，不是多轮对话改图，而且 5.0 pro 明确不支持它。",
+   "as_of": "2026-08-12"
   },
   {
    "m": "seedream",
    "c": "i-inpaint",
-   "state": "unknown",
+   "state": "yes",
    "verified_for": "5.0 Pro",
-   "note": "Seedream 官方页只讲了四条卖点，没提这一条 —— 读完没找到"
+   "note": "**不是传统的蒙版图**（请求参数里没有 mask 字段），而是用坐标 / 框选 / 箭头指位置。能达到「只改这一块」的效果，但接法和 Ideogram、Recraft 的 mask 端点不一样，迁移时要重写。",
+   "as_of": "2026-08-12",
+   "src": "ark-seedream-api",
+   "quote": "「模型能力 · Seedream 5.0 pro」一节：「**交互编辑：支持通过坐标、框选、箭头等多种方式指定编辑位置，精准编辑图片。**」"
   },
   {
    "m": "seedream",
    "c": "i-outpaint",
    "state": "unknown",
    "verified_for": "5.0 Pro",
-   "note": "Seedream 官方页只讲了四条卖点，没提这一条 —— 读完没找到"
+   "note": "请求参数表里没有扩图 / 外扩画布相关字段 —— 读完没找到，不是没读。",
+   "as_of": "2026-08-12"
   },
   {
    "m": "seedream",
    "c": "i-canvas",
    "state": "unknown",
    "verified_for": "5.0 Pro",
-   "note": "**没有顺着写。** 官方说「layer separation（图层分离）」，那是图层不是画布 —— 两个都属于「编辑器形态」，但不是同一件事"
+   "note": "API 里没有画布概念。「交互编辑」是在请求里给坐标框选，不是一块可持续操作的画布。",
+   "as_of": "2026-08-12"
   },
   {
    "m": "seedream",
    "c": "i-multiref",
-   "state": "unknown",
+   "state": "yes",
    "verified_for": "5.0 Pro",
-   "note": "Seedream 官方页只讲了四条卖点，没提这一条 —— 读完没找到"
+   "note": "上限 **10 张**。⚠️ 同页写明 5.0 pro 与 lite/4.5/4.0 的能力不同：lite 那几档收 2-14 张、还能出组图，**pro 反而「暂不支持组图生成、联网搜索、流式输出」** —— 同一条产品线里 pro 不是处处都更强。",
+   "as_of": "2026-08-12",
+   "src": "ark-seedream-api",
+   "quote": "「模型能力 · Seedream 5.0 pro」一节：「**多图生图：输入多张参考图片（2-10）+ 文本提示词，生成单张图片。**」"
   },
   {
    "m": "seedream",
    "c": "i-styleref",
    "state": "unknown",
    "verified_for": "5.0 Pro",
-   "note": "Seedream 官方页只讲了四条卖点，没提这一条 —— 读完没找到"
+   "note": "参数表里没有风格参考字段；`image` 收的是参考图，官方描述的用途是多图生图与交互编辑，没说可以拿来指定风格。",
+   "as_of": "2026-08-12"
   },
   {
    "m": "seedream",
    "c": "i-fidelity",
    "state": "unknown",
    "verified_for": "5.0 Pro",
-   "note": "Seedream 官方页只讲了四条卖点，没提这一条 —— 读完没找到"
+   "note": "参数表里没有相似度 / 强度 / 角色参考类字段。多图生图能给多张参考图，但官方没有关于一致性的说明或开关。",
+   "as_of": "2026-08-12"
   },
   {
    "m": "seedream",
@@ -6460,14 +6494,16 @@
    "c": "i-upscale",
    "state": "unknown",
    "verified_for": "5.0 Pro",
-   "note": "Seedream 官方页只讲了四条卖点，没提这一条 —— 读完没找到"
+   "note": "没有放大 / 超分端点或参数。",
+   "as_of": "2026-08-12"
   },
   {
    "m": "seedream",
    "c": "i-4k",
    "state": "unknown",
    "verified_for": "5.0 Pro",
-   "note": "Seedream 官方页只讲了四条卖点，没提这一条 —— 读完没找到"
+   "note": "**拿不到 size 的取值清单** —— 那张表在文档里是折叠的，渲染后也没展开。能看到的只有官方示例：请求 `\"size\": \"2K\"`、返回 `\"size\": \"3104x1312\"`（约 407 万像素）。**没有 4K 的证据，也没有上限说明**，所以不填。",
+   "as_of": "2026-08-12"
   },
   {
    "m": "seedream",
@@ -8933,7 +8969,7 @@
    "state": "unknown",
    "verified_for": "5.0 Pro",
    "as_of": "2026-08-12",
-   "note": "**我们自己的谱系里写着 Seedream 5.0 Pro「分层输出」，但拿不出厂商原话。** 那条节点的引文是官方博客的一句通用介绍（「advanced reasoning, efficient content creation, and professional production capabilities」），压根没提分层。seed.bytedance.com 的产品页是前端渲染的，直接抓与 SPA 渲染抓到的正文都是 0 个字符。**没有原文就不记 ✅**，这一格留 ⬜ 并把那条谱系记录一并改掉。"
+   "note": "参数表与响应字段里都没有图层 / 分层输出。⚠️ 我们自己的谱系里一度写着 5.0 Pro「分层输出」，但那句话在任何官方文档里都找不到依据，2026-08-12 已改掉。"
   },
   {
    "m": "gemini-image",
@@ -8957,7 +8993,7 @@
    "state": "unknown",
    "verified_for": "2-dev",
    "as_of": "2026-08-12",
-   "note": "官方权重里没有分层输出的变体（Fill / Canny / Depth / Redux 四个变体分别做重绘扩图、线稿、深度、图生变体）。"
+   "note": "官方文档里没有图层 / RGBA 分层的返回结构。FLUX.1 时代有过 Fill / Canny / Depth / Redux 四个专用变体，但都不产出分层。"
   },
   {
    "m": "z-image",
@@ -11195,12 +11231,12 @@
    "m": "seedream",
    "version": "Seedream 5.0 Pro",
    "date": "2026-07-08",
-   "added": "多模态出图与专业生产向",
+   "added": "交互编辑：坐标 / 框选 / 箭头指定编辑位置",
    "src": "seed-blog",
    "quote": "Seedream 5.0 Pro is a multimodal image generation model that features advanced reasoning, efficient content creation, and professional production capabilities.",
    "parent": "seedream-Seedream 4.0-出图与改图并进一个模型",
-   "cap_skip": "引文只讲通用定位，没有可挂到轴上的具体能力",
-   "note": "⚠️ **这条原来写的是「分层输出 + 圈画标注式改图」，2026-08-12 改掉了** —— 那两句在这条节点的引文里都找不到依据，是转述。seed.bytedance.com 是前端渲染的，直接抓与 SPA 渲染抓到的正文都是 0 字符，拿不到厂商原话。**宁可这一代少写一句，也不留一句没出处的。**"
+   "note": "⚠️ 这条 2026-08-12 改过两次：原来写「分层输出 + 圈画标注式改图」，两句都拿不出出处，先改成了引文支持得住的通用描述；当天晚些时候在火山方舟的图片生成 API 页（要 SPA 渲染才看得到）找到了官方原文「交互编辑：支持通过坐标、框选、箭头等多种方式指定编辑位置」，**于是把「圈画标注式改图」那一半按原话加了回来**。「分层输出」那一半仍然没有出处，不加。",
+   "cap": "i-inpaint"
   },
   {
    "id": "qwen-image-Qwen-Image-Layered-分层输出（图层可分开拿）",

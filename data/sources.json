@@ -3936,6 +3936,33 @@
     "capability"
    ],
    "note": "⚠️ 抓的是 API 端点；给读者点的网页地址在 atlas.sources 里（R72 卡的就是这一对不能混）"
+  },
+  {
+   "id": "bfl-flux2-overview",
+   "tier": "A",
+   "kind": "html",
+   "vendor": "flux",
+   "name": "Black Forest Labs 官方文档 · FLUX.2 概览",
+   "url": "https://docs.bfl.ml/flux_2/flux2_overview.md",
+   "refresh_days": 21,
+   "good_for": [
+    "capability"
+   ],
+   "note": "BFL 文档站每页都有 `.md` 版，全量索引在 docs.bfl.ai/llms.txt。⚠️ 抓的是 docs.bfl.**ml** —— 官方 llms.txt 里给的就是这个域名，docs.bfl.ai 会返回整站壳"
+  },
+  {
+   "id": "ark-seedream-api",
+   "tier": "A",
+   "kind": "spa",
+   "vendor": "seedream",
+   "lang": "zh-CN",
+   "name": "火山方舟 API 参考 · 图片生成 API",
+   "url": "https://www.volcengine.com/docs/82379/1541523",
+   "refresh_days": 14,
+   "good_for": [
+    "capability"
+   ],
+   "note": "⚠️ **必须走 SPA 渲染**：裸抓只有 3,839 字的导航壳（页面明写 You need to enable JavaScript）。渲染后 2,700 字，模型能力与参数表都在里面"
   }
  ],
  "$missing": [
