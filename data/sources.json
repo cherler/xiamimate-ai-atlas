@@ -3004,6 +3004,132 @@
         "version",
         "capability"
       ]
+    },
+    {
+      "id": "elevenlabs-tts",
+      "tier": "S",
+      "kind": "html",
+      "vendor": "elevenlabs",
+      "name": "ElevenLabs · Text to Speech",
+      "url": "https://elevenlabs.io/docs/capabilities/text-to-speech",
+      "refresh_days": 14,
+      "good_for": [
+        "capability"
+      ]
+    },
+    {
+      "id": "bailian-omni",
+      "tier": "S",
+      "kind": "html",
+      "vendor": "qwen-omni",
+      "name": "阿里云百炼 · Qwen-Omni",
+      "url": "https://www.alibabacloud.com/help/en/model-studio/qwen-omni",
+      "refresh_days": 14,
+      "good_for": [
+        "capability"
+      ]
+    },
+    {
+      "id": "elevenlabs-remix",
+      "tier": "S",
+      "kind": "html",
+      "vendor": "elevenlabs",
+      "name": "ElevenLabs · Voice remixing",
+      "url": "https://elevenlabs.io/docs/capabilities/voice-remixing",
+      "refresh_days": 14,
+      "good_for": [
+        "capability"
+      ]
+    },
+    {
+      "id": "openai-tts",
+      "tier": "S",
+      "kind": "html",
+      "vendor": "openai-tts",
+      "name": "OpenAI · Text to speech",
+      "url": "https://developers.openai.com/api/docs/guides/text-to-speech",
+      "refresh_days": 14,
+      "good_for": [
+        "capability",
+        "version"
+      ]
+    },
+    {
+      "id": "gemini-music",
+      "tier": "S",
+      "kind": "html",
+      "vendor": "lyria",
+      "name": "Gemini API · Music generation（Lyria 3）",
+      "url": "https://ai.google.dev/gemini-api/docs/music-generation",
+      "refresh_days": 14,
+      "good_for": [
+        "capability",
+        "version"
+      ]
+    },
+    {
+      "id": "glm-tts-doc",
+      "tier": "S",
+      "kind": "html",
+      "vendor": "glm-tts",
+      "name": "智谱 · GLM-TTS",
+      "url": "https://docs.bigmodel.cn/cn/guide/models/sound-and-video/glm-tts.md",
+      "refresh_days": 14,
+      "good_for": [
+        "capability",
+        "version"
+      ]
+    },
+    {
+      "id": "glm-tts-clone-doc",
+      "tier": "S",
+      "kind": "html",
+      "vendor": "glm-tts",
+      "name": "智谱 · GLM-TTS-Clone",
+      "url": "https://docs.bigmodel.cn/cn/guide/models/sound-and-video/glm-tts-clone.md",
+      "refresh_days": 14,
+      "good_for": [
+        "capability",
+        "version"
+      ]
+    },
+    {
+      "id": "glm-voice-doc",
+      "tier": "S",
+      "kind": "html",
+      "vendor": "glm-voice",
+      "name": "智谱 · GLM-4-Voice",
+      "url": "https://docs.bigmodel.cn/cn/guide/models/sound-and-video/glm-4-voice.md",
+      "refresh_days": 14,
+      "good_for": [
+        "capability",
+        "version"
+      ]
+    },
+    {
+      "id": "xai-voice",
+      "tier": "S",
+      "kind": "html",
+      "vendor": "grok-voice",
+      "name": "xAI · Voice APIs",
+      "url": "https://docs.x.ai/docs/guides/voice",
+      "refresh_days": 14,
+      "good_for": [
+        "capability",
+        "version"
+      ]
+    },
+    {
+      "id": "hf-sound-org",
+      "tier": "S",
+      "kind": "json",
+      "name": "Hugging Face · 官方组织（声音）",
+      "url": "https://huggingface.co/api/models",
+      "refresh_days": 7,
+      "good_for": [
+        "version",
+        "lineage"
+      ]
     }
   ],
   "$missing": [

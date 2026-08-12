@@ -90,6 +90,9 @@ const FALLBACK = "#5c6a78";
  * 就是复述。写公司才补上一条新信息：**这条线是谁家的**。
  * 取的是 orgs[].zh 的可辨认前缀，不是自由发挥 —— 对不上就退回 orgs[].name。
  */
+/** 公司的中文名。**从 orgs 表查，不从 model 上取** —— model 上没有 zh 这个字段。 */
+const orgZh = (id: string) => atlas.orgs.find((o) => o.id === id)?.zh ?? id;
+
 const ORG_SHORT: Record<string, string> = {
   bytedance: "字节", alibaba: "阿里", kuaishou: "快手", tencent: "腾讯",
   kunlun: "昆仑万维", shengshu: "生数", minimax: "MiniMax", hpcai: "潞晨",
@@ -155,7 +158,15 @@ const labelText = (
   isTop: boolean,
   isBot: boolean,
 ) => {
-  if (isBot) return ORG_SHORT[org] ?? orgName;
+  /**
+   * ⚠️ **兜底不能落到 undefined。** 这里原来是 `ORG_SHORT[org] ?? orgName`，
+   * 而调用方传的是 `l.model.zh` —— **模型上根本没有 `zh` 字段**。
+   * 一直不崩只是因为 ORG_SHORT 恰好收全了所有公司；
+   * 2026-08-12 声音卷新收 hexgrad 与 fishaudio 两家，它当场返回 undefined，
+   * 一路传到 `textW()` 的 `t.replace(...)` 上 —— 声音卷那张树的预渲染**直接失败**。
+   * 加一家公司就会崩的表，等于一颗定时炸弹。
+   */
+  if (isBot) return ORG_SHORT[org] ?? orgName ?? org;
   if (isTop) return SHORT(n.version || n.added || "");
   return SHORT(n.added || n.version || "");
 };
@@ -520,7 +531,7 @@ export default function Tree({ domain }: { domain: string }) {
       const isTop = l ? n.id === l.ns[l.ns.length - 1].id : false;
       const isBot = l ? n.id === l.ns[0].id && l.ns.length > 1 : false;
       // 宽度必须按**渲染时那一份文字**算 —— 两处各算一遍，避让就是算歪的
-      const txt = l ? labelText(n, l.model.org, l.model.zh, isTop, isBot) : "";
+      const txt = l ? labelText(n, l.model.org, orgZh(l.model.org), isTop, isBot) : "";
       // 字号和下面绘制处**必须是同一套**：估宽用错字号，避让就是照着假尺寸算的
       const w = textW(txt, isTop ? 10.5 : isBot || pin === n.id ? 9.5 : 8.5);
       // **首末标签一律放左侧**（负责人：LongAnimDiff 和 HY-Video 放节点左侧）。
@@ -750,7 +761,7 @@ export default function Tree({ domain }: { domain: string }) {
                   // **起点写公司简称**（负责人定），末端写当前版本，中间写这一代新增了什么。
                   // 起点原来写的是首版本名，而 HY / Veo 的首版本名就等于产品线名 ——
                   // 线尾已经标着产品线名，起点再写一遍是复述；写公司才是新信息。
-                  const txt = labelText(n, l.model.org, l.model.zh, isTop, isBot);
+                  const txt = labelText(n, l.model.org, orgZh(l.model.org), isTop, isBot);
                   const lp = labelAt.get(n.id) ?? { x: p.x, y: p.y, side: 1 as 1 | -1 };
                   const side = lp.side, ny = lp.y;
                   // **不用 version** —— 同一条线里它大量重复（HunyuanVideo 出现 5 次、

@@ -85,6 +85,13 @@ const ORGS = [
   { org: "MiniMaxAI", m: "minimax-text", zh: "MiniMax · 文本", d: "text" },
   { org: "meta-llama", m: "llama", zh: "Meta · Llama", d: "text" },
   { org: "mistralai", m: "mistral-text", zh: "Mistral", d: "text" },
+  // ── AI 声音（2026-08-12 开）。闭源那几家（ElevenLabs / OpenAI / Gemini TTS /
+  //    Lyria / Grok Voice）HF 上没有权重，谱系走各家官方文档。
+  { org: "zai-org", m: "glm-voice", zh: "智谱 · 语音", d: "sound" },
+  { org: "Qwen", m: "qwen-omni", zh: "阿里 · Qwen 语音", d: "sound" },
+  { org: "FunAudioLLM", m: null, zh: "阿里 · FunAudio（CosyVoice）", d: "sound" },
+  { org: "fishaudio", m: null, zh: "Fish Audio", d: "sound" },
+  { org: "hexgrad", m: null, zh: "Kokoro", d: "sound" },
 ];
 
 const VIDEO = /video|t2v|i2v|ti2v|s2v|flf|vace|animate|dance|mochi|cogvideo|allegro|hunyuanvideo|skyreels|ltx|wan\d/i;
@@ -124,6 +131,15 @@ const NOT_TEXT = new RegExp([
   "forcedaligner",                             // 音频对齐
   "minimax-h3",                                // **它是视频模型**，只是挂在 MiniMax 同一个组织下
 ].join("|"), "i");
+
+/**
+ * 声音那一卷。**收产出物是音频的**：TTS、音色克隆、音乐、端到端语音对话。
+ * ⚠️ **ASR 明确不收**（ontology 规则十一）—— 它产出的是文本，
+ * 而且文本卷的 `t-audio` 已经记了同一件事。所以 whisper / asr / stt / paraformer
+ * 这些全在 NOT_SOUND 里，**这是边界不是漏采**。
+ */
+const SOUND = /voice|speech|tts|audio|cosy|sensevoice|kokoro|fish|music|sing|song|vocal|omni/i;
+const NOT_SOUND = /asr|whisper|-stt|paraformer|transcri|vad$|punc|denoise|separat|embedding|rerank|image|video|-vl-|vl$/i;
 
 const IMAGE = /image|t2i|text-to-image|flux|stable-diffusion|sd3|sdxl|kolors|ideogram|hidream|ernie-image|ovis-image|pixeldit|anima|boogu|newbie|lens|mage-flow|krea/i;
 /**
@@ -222,7 +238,9 @@ for (const t of ORGS) {
       ? (id) => IMAGE.test(id) && !NOT_IMAGE.test(id)
       : t.d === "text"
         ? (id) => TEXT.test(id) && !NOT_TEXT.test(id)
-        : (id) => VIDEO.test(id);
+        : t.d === "sound"
+          ? (id) => SOUND.test(id) && !NOT_SOUND.test(id)
+          : (id) => VIDEO.test(id);
     const raw = j.filter((x) => hit(x.id) && !NOISE.test(x.id));
     /**
      * **折代际。** 每个代际键只留一条，代表选**最早的那个仓库** ——
@@ -244,7 +262,7 @@ for (const t of ORGS) {
     const thin = folded0.length - keep.length;
     // 回的条数逼近上限时**明说一句**：这时候「全部 N」不是这家的总数，是我们只看到了 N 个
     const capped = j.length >= 450 ? "（**已到 API 上限，可能还有没看到的**）" : "";
-    console.log(`\n══ ${t.zh}（${t.org}）—— ${{ image: "出图", text: "文本", video: "视频" }[t.d]}模型 ${keep.length} 代`
+    console.log(`\n══ ${t.zh}（${t.org}）—— ${{ image: "出图", text: "文本", video: "视频", sound: "声音" }[t.d]}模型 ${keep.length} 代`
       + `（由 ${raw.length} 个仓库折成：省掉 ${folded} 个尺寸/精度档、`
       + `${thin} 个没人关注的冷门产物）/ 看到 ${j.length}${capped}`);
     for (const x of keep) {

@@ -1475,6 +1475,18 @@
    "zh": "ElevenLabs",
    "en": "ElevenLabs",
    "kind": "模型厂商"
+  },
+  {
+   "id": "fishaudio",
+   "zh": "Fish Audio",
+   "en": "Fish Audio",
+   "kind": "模型厂商"
+  },
+  {
+   "id": "hexgrad",
+   "zh": "hexgrad（Kokoro）",
+   "en": "hexgrad（Kokoro）",
+   "kind": "模型厂商"
   }
  ],
  "$orgs": "公司是**一等实体**，不是模型上的一个字符串（此前 vendor 是字符串，结果阿里在库里成了两家）。产业链图、地球分布、投资关系全都挂在这一层上。\n**hq 只有 5 家有来源，其余 6 家仍然没有** —— 都是公开常识，但我们自己的规矩是「没有来源的结论就是猜的」，所以校验里 R21 会一直警告，前台也必须标出来。不许因为「大家都知道」就当成核过了。\n\n2026-08-08 补：从已有快照和官网拿到 5 家的可引证据，但**精度分三档**，写进 `hq_precision`：\n  exact     —— 页脚给出具体街道地址（只有字节）\n  province  —— **ICP 备案只证到省**（快手/MiniMax/阿里）。阿里那条只证到浙江，没证到杭州\n  ambiguous —— 招聘页同时列两个城市（Runway 的纽约与旧金山）\n\n剩下 6 家（生数、昆仑万维、Google DeepMind、OpenAI、Decart、Lightricks）没拿到：\n**生数官网 HTTPS 证书已过期**（ERR_CERT_DATE_INVALID）—— 这条本身就是信息；\n其余几家的 about/contact 页没有可机读的地址段。R21 会一直为它们报警告。\n\n**不许把 province 当成 exact 用。** 我们批评厂商「说了半句」的时候，自己不能也说半句。",
@@ -2714,7 +2726,7 @@
   },
   {
    "id": "glm-voice",
-   "class": "tts",
+   "class": "voice-rt",
    "family": "GLM Voice",
    "org": "zhipu",
    "version": "glm-4-voice",
@@ -2723,9 +2735,10 @@
    "tier": "core",
    "domain": "sound",
    "weights": "open",
-   "version_src": "glm-chat-api",
-   "version_quote": "对话补全 OpenAPI 的「音频对话示例」用的是 `model: glm-4-voice`，内容块 `type: input_audio`",
-   "lineage_note": "声音卷 2026-08-12 才立项，谱系还没采 —— 这是「没采到」，不是「它没有历史」"
+   "version_src": "glm-voice-doc",
+   "version_quote": "模型页：「GLM-4-Voice 是智谱推出的**首个端到端语音模型**……直接理解和生成中英文语音，实现**实时语音对话**」；输入 音频+文本、输出 音频",
+   "lineage_note": "声音卷 2026-08-12 才立项，谱系还没采 —— 这是「没采到」，不是「它没有历史」",
+   "status_note": "⚠️ 2026-08-12 从语音合成轨改到实时语音轨 —— 它的输入输出都是音频，不是「文本进、语音出」。智谱的 TTS 是另一支 GLM-TTS。"
   },
   {
    "id": "qwen-omni",
@@ -2816,6 +2829,63 @@
    "version_src": "xai-release-notes",
    "version_quote": "API 发布说明 2026 年 7 月：grok-voice-think-fast-2.0",
    "lineage_note": "声音卷 2026-08-12 才立项，谱系还没采 —— 这是「没采到」，不是「它没有历史」"
+  },
+  {
+   "id": "glm-tts",
+   "class": "tts",
+   "family": "GLM-TTS",
+   "org": "zhipu",
+   "version": "GLM-TTS",
+   "version_as_of": "2026-08-12",
+   "status": "active",
+   "tier": "core",
+   "domain": "sound",
+   "weights": "open",
+   "version_src": "glm-tts-doc",
+   "version_quote": "模型页标题即 GLM-TTS；「输入模态 文本 / 输出模态 音频」；官方 HF 组织 zai-org/GLM-TTS（createdAt 2025-12-10）也放了权重",
+   "lineage_note": "声音卷 2026-08-12 立项，谱系还没采 —— 「没采到」不是「没有历史」"
+  },
+  {
+   "id": "cosyvoice",
+   "class": "tts",
+   "family": "CosyVoice",
+   "org": "alibaba",
+   "version": "Fun-CosyVoice3-0.5B-2512",
+   "version_as_of": "2025-12-11",
+   "status": "active",
+   "tier": "core",
+   "domain": "sound",
+   "weights": "open",
+   "version_src": "hf-sound-org",
+   "version_quote": "官方 HF 组织 FunAudioLLM/Fun-CosyVoice3-0.5B-2512，createdAt 2025-12-11（♥615）"
+  },
+  {
+   "id": "fish-speech",
+   "class": "tts",
+   "family": "Fish Speech",
+   "org": "fishaudio",
+   "version": "s2-pro",
+   "version_as_of": "2026-03-09",
+   "status": "active",
+   "tier": "core",
+   "domain": "sound",
+   "weights": "open",
+   "version_src": "hf-sound-org",
+   "version_quote": "官方 HF 组织 fishaudio/s2-pro，createdAt 2026-03-09（♥1232）"
+  },
+  {
+   "id": "kokoro",
+   "class": "tts",
+   "family": "Kokoro",
+   "org": "hexgrad",
+   "version": "82M v1.1-zh",
+   "version_as_of": "2025-02-27",
+   "status": "active",
+   "tier": "core",
+   "domain": "sound",
+   "weights": "open",
+   "version_src": "hf-sound-org",
+   "version_quote": "官方 HF 组织 hexgrad/Kokoro-82M-v1.1-zh，createdAt 2025-02-27（♥222）"
   }
  ],
  "sources": {
@@ -3892,6 +3962,56 @@
   "gemini-tts": {
    "name": "Gemini API · Speech generation",
    "url": "https://ai.google.dev/gemini-api/docs/speech-generation",
+   "tier": "official"
+  },
+  "elevenlabs-tts": {
+   "name": "ElevenLabs · Text to Speech",
+   "url": "https://elevenlabs.io/docs/capabilities/text-to-speech",
+   "tier": "official"
+  },
+  "bailian-omni": {
+   "name": "阿里云百炼 · Qwen-Omni",
+   "url": "https://www.alibabacloud.com/help/en/model-studio/qwen-omni",
+   "tier": "official"
+  },
+  "elevenlabs-remix": {
+   "name": "ElevenLabs · Voice remixing",
+   "url": "https://elevenlabs.io/docs/capabilities/voice-remixing",
+   "tier": "official"
+  },
+  "openai-tts": {
+   "name": "OpenAI · Text to speech",
+   "url": "https://developers.openai.com/api/docs/guides/text-to-speech",
+   "tier": "official"
+  },
+  "gemini-music": {
+   "name": "Gemini API · Music generation（Lyria 3）",
+   "url": "https://ai.google.dev/gemini-api/docs/music-generation",
+   "tier": "official"
+  },
+  "glm-tts-doc": {
+   "name": "智谱 · GLM-TTS",
+   "url": "https://docs.bigmodel.cn/cn/guide/models/sound-and-video/glm-tts.md",
+   "tier": "official"
+  },
+  "glm-tts-clone-doc": {
+   "name": "智谱 · GLM-TTS-Clone",
+   "url": "https://docs.bigmodel.cn/cn/guide/models/sound-and-video/glm-tts-clone.md",
+   "tier": "official"
+  },
+  "glm-voice-doc": {
+   "name": "智谱 · GLM-4-Voice",
+   "url": "https://docs.bigmodel.cn/cn/guide/models/sound-and-video/glm-4-voice.md",
+   "tier": "official"
+  },
+  "xai-voice": {
+   "name": "xAI · Voice APIs",
+   "url": "https://docs.x.ai/docs/guides/voice",
+   "tier": "official"
+  },
+  "hf-sound-org": {
+   "name": "Hugging Face · 官方组织（声音）",
+   "url": "https://huggingface.co/api/models",
    "tier": "official"
   }
  },
@@ -7386,8 +7506,12 @@
   {
    "m": "elevenlabs",
    "c": "s-clone",
-   "state": "unknown",
-   "verified_for": "Eleven v3"
+   "state": "yes",
+   "verified_for": "Eleven v3",
+   "src": "elevenlabs-remix",
+   "via": "native",
+   "as_of": "2026-08-12",
+   "note": "混音页在「可用的音色来源」里写明：「Any cloned voice that you personally own (**Instant Voice Clone or Professional Voice Clone**)」——两档克隆都存在。⚠️ 这是从**别的功能页顺带证到的**：官方的 voice-cloning 专页当天 404"
   },
   {
    "m": "elevenlabs",
@@ -7398,14 +7522,22 @@
   {
    "m": "elevenlabs",
    "c": "s-style",
-   "state": "unknown",
-   "verified_for": "Eleven v3"
+   "state": "yes",
+   "verified_for": "Eleven v3",
+   "src": "elevenlabs-tts",
+   "note": "`stability` 与 `similarity` 控一致性；文本里的描述词会影响情绪（文档举例 “she said excitedly”）；另有 `seed` 与 `previous_text`/`next_text` 维持长文韵律",
+   "via": "native",
+   "as_of": "2026-08-12"
   },
   {
    "m": "elevenlabs",
    "c": "s-multi",
-   "state": "unknown",
-   "verified_for": "Eleven v3"
+   "state": "yes",
+   "verified_for": "Eleven v3",
+   "src": "elevenlabs-tts",
+   "note": "「Support for natural multi-speaker dialogue」—— ⚠️ 文档标着**仅 Eleven v3** —— 而 v3 正是我们记的当前版本，所以这一格对当前版本成立",
+   "via": "native",
+   "as_of": "2026-08-12"
   },
   {
    "m": "elevenlabs",
@@ -7420,8 +7552,12 @@
   {
    "m": "elevenlabs",
    "c": "s-stream",
-   "state": "unknown",
-   "verified_for": "Eleven v3"
+   "state": "yes",
+   "verified_for": "Eleven v3",
+   "src": "elevenlabs-tts",
+   "note": "「Stream real-time audio from text」",
+   "via": "native",
+   "as_of": "2026-08-12"
   },
   {
    "m": "elevenlabs",
@@ -7438,8 +7574,12 @@
   {
    "m": "elevenlabs",
    "c": "s-format",
-   "state": "unknown",
-   "verified_for": "Eleven v3"
+   "state": "yes",
+   "verified_for": "Eleven v3",
+   "src": "elevenlabs-tts",
+   "note": "MP3（默认）/ PCM(S16LE) / μ-law / A-law / Opus；PCM 采样率 8k–48kHz，MP3 22.05–44.1kHz",
+   "via": "native",
+   "as_of": "2026-08-12"
   },
   {
    "m": "gemini-tts",
@@ -7524,8 +7664,12 @@
   {
    "m": "openai-tts",
    "c": "s-voices",
-   "state": "unknown",
-   "verified_for": "GPT-4o mini TTS"
+   "state": "yes",
+   "verified_for": "GPT-4o mini TTS",
+   "src": "openai-tts",
+   "note": "**13 种内置音色**：alloy、ash、ballad、coral、echo、fable、nova、onyx、sage、shimmer、verse、marin、cedar。⚠️ 老的 tts-1 / tts-1-hd 只支持其中 9 种",
+   "via": "native",
+   "as_of": "2026-08-12"
   },
   {
    "m": "openai-tts",
@@ -7542,8 +7686,12 @@
   {
    "m": "openai-tts",
    "c": "s-style",
-   "state": "unknown",
-   "verified_for": "GPT-4o mini TTS"
+   "state": "yes",
+   "verified_for": "GPT-4o mini TTS",
+   "src": "openai-tts",
+   "note": "`instructions` 参数「控制语音特性（口音、情感范围、语调、语速、语气等）」—— 用自然语言下指令，不是固定档位",
+   "via": "native",
+   "as_of": "2026-08-12"
   },
   {
    "m": "openai-tts",
@@ -7560,8 +7708,12 @@
   {
    "m": "openai-tts",
    "c": "s-stream",
-   "state": "unknown",
-   "verified_for": "GPT-4o mini TTS"
+   "state": "yes",
+   "verified_for": "GPT-4o mini TTS",
+   "src": "openai-tts",
+   "note": "「chunk transfer encoding」实时流播：「the audio can be played before the full file is generated」",
+   "via": "native",
+   "as_of": "2026-08-12"
   },
   {
    "m": "openai-tts",
@@ -7578,86 +7730,42 @@
   {
    "m": "openai-tts",
    "c": "s-format",
-   "state": "unknown",
-   "verified_for": "GPT-4o mini TTS"
-  },
-  {
-   "m": "glm-voice",
-   "c": "s-voices",
-   "state": "unknown",
-   "verified_for": "glm-4-voice"
-  },
-  {
-   "m": "glm-voice",
-   "c": "s-clone",
-   "state": "unknown",
-   "verified_for": "glm-4-voice"
-  },
-  {
-   "m": "glm-voice",
-   "c": "s-design",
-   "state": "unknown",
-   "verified_for": "glm-4-voice"
-  },
-  {
-   "m": "glm-voice",
-   "c": "s-style",
-   "state": "unknown",
-   "verified_for": "glm-4-voice"
-  },
-  {
-   "m": "glm-voice",
-   "c": "s-multi",
-   "state": "unknown",
-   "verified_for": "glm-4-voice"
-  },
-  {
-   "m": "glm-voice",
-   "c": "s-lang",
-   "state": "unknown",
-   "verified_for": "glm-4-voice"
-  },
-  {
-   "m": "glm-voice",
-   "c": "s-stream",
-   "state": "unknown",
-   "verified_for": "glm-4-voice"
-  },
-  {
-   "m": "glm-voice",
-   "c": "s-long",
-   "state": "unknown",
-   "verified_for": "glm-4-voice"
-  },
-  {
-   "m": "glm-voice",
-   "c": "s-timestamp",
-   "state": "unknown",
-   "verified_for": "glm-4-voice"
-  },
-  {
-   "m": "glm-voice",
-   "c": "s-format",
-   "state": "unknown",
-   "verified_for": "glm-4-voice"
+   "state": "yes",
+   "verified_for": "GPT-4o mini TTS",
+   "src": "openai-tts",
+   "note": "`response_format`：mp3、opus、aac、flac、wav、pcm",
+   "via": "native",
+   "as_of": "2026-08-12"
   },
   {
    "m": "qwen-omni",
    "c": "s-voices",
-   "state": "unknown",
-   "verified_for": "3.5-omni-plus"
+   "state": "yes",
+   "verified_for": "3.5-omni-plus",
+   "src": "bailian-omni",
+   "note": "`audio.voice` 指定音色（文档示例 “Tina”）—— ⚠️ 这一页**没给音色总数**，只证明可选",
+   "via": "native",
+   "as_of": "2026-08-12"
   },
   {
    "m": "qwen-omni",
    "c": "s-clone",
-   "state": "unknown",
-   "verified_for": "3.5-omni-plus"
+   "state": "yes",
+   "verified_for": "3.5-omni-plus",
+   "src": "bailian-omni",
+   "note": "Qwen3.5-Omni 系列的支持特性里含**语音克隆**（Qwen3-Omni-Flash 没有）",
+   "via": "native",
+   "as_of": "2026-08-12"
   },
   {
    "m": "qwen-omni",
    "c": "s-design",
-   "state": "unknown",
-   "verified_for": "3.5-omni-plus"
+   "state": "yes",
+   "verified_for": "3.5-omni-plus",
+   "src": "hf-sound-org",
+   "note": "官方 HF 组织有 `Qwen/Qwen3-TTS-12Hz-1.7B-**VoiceDesign**`（2026-01-21）—— 型号名本身就是能力声明",
+   "via": "native",
+   "as_of": "2026-08-12"
   },
   {
    "m": "qwen-omni",
@@ -7674,14 +7782,22 @@
   {
    "m": "qwen-omni",
    "c": "s-lang",
-   "state": "unknown",
-   "verified_for": "3.5-omni-plus"
+   "state": "yes",
+   "verified_for": "3.5-omni-plus",
+   "src": "bailian-omni",
+   "note": "「输出 74 种语言和 39 种方言」",
+   "via": "native",
+   "as_of": "2026-08-12"
   },
   {
    "m": "qwen-omni",
    "c": "s-stream",
-   "state": "unknown",
-   "verified_for": "3.5-omni-plus"
+   "state": "yes",
+   "verified_for": "3.5-omni-plus",
+   "src": "bailian-omni",
+   "note": "请求参数含 `stream` 与 `stream_options`",
+   "via": "native",
+   "as_of": "2026-08-12"
   },
   {
    "m": "qwen-omni",
@@ -7698,8 +7814,12 @@
   {
    "m": "qwen-omni",
    "c": "s-format",
-   "state": "unknown",
-   "verified_for": "3.5-omni-plus"
+   "state": "yes",
+   "verified_for": "3.5-omni-plus",
+   "src": "bailian-omni",
+   "note": "`audio.format` 指定输出格式（文档示例 `wav`）",
+   "via": "native",
+   "as_of": "2026-08-12"
   },
   {
    "m": "mm-music",
@@ -7740,14 +7860,22 @@
   {
    "m": "lyria",
    "c": "s-m-prompt",
-   "state": "unknown",
-   "verified_for": "3 Pro Preview"
+   "state": "yes",
+   "verified_for": "3 Pro Preview",
+   "src": "gemini-music",
+   "note": "Lyria 3 Pro「Full-length songs with verses, choruses, bridges」，时长「A couple of minutes (controllable using prompt)」；Clip 版固定 30 秒。都输出 44.1kHz 高保真立体声，可多模态输入（文本 + 最多 10 张图）",
+   "via": "native",
+   "as_of": "2026-08-12"
   },
   {
    "m": "lyria",
    "c": "s-m-lyrics",
-   "state": "unknown",
-   "verified_for": "3 Pro Preview"
+   "state": "yes",
+   "verified_for": "3 Pro Preview",
+   "src": "gemini-music",
+   "note": "能力点含「Generation of lyrics alongside audio」，也可只出纯器乐。⚠️ 两条硬限制：所有音频带 **SynthID 水印**；请求特定艺人嗓音或受版权歌词会被拒绝",
+   "via": "native",
+   "as_of": "2026-08-12"
   },
   {
    "m": "gpt-realtime",
@@ -7788,14 +7916,22 @@
   {
    "m": "grok-voice",
    "c": "s-rt-duplex",
-   "state": "unknown",
-   "verified_for": "think-fast-2.0"
+   "state": "yes",
+   "verified_for": "think-fast-2.0",
+   "src": "xai-voice",
+   "note": "Voice API 的「Speech to Speech」：实时语音对话代理，「低延迟轮转与工具使用」，语音检测用 `server_vad`",
+   "via": "native",
+   "as_of": "2026-08-12"
   },
   {
    "m": "grok-voice",
    "c": "s-rt-tools",
-   "state": "unknown",
-   "verified_for": "think-fast-2.0"
+   "state": "yes",
+   "verified_for": "think-fast-2.0",
+   "src": "xai-voice",
+   "note": "Speech to Speech 支持工具，文档点名 `web_search`",
+   "via": "native",
+   "as_of": "2026-08-12"
   },
   {
    "m": "grok-voice",
@@ -7806,8 +7942,293 @@
   {
    "m": "grok-voice",
    "c": "s-rt-transport",
+   "state": "yes",
+   "verified_for": "think-fast-2.0",
+   "src": "xai-voice",
+   "note": "传输方式：**WebSocket**（TTS 另可单次请求）",
+   "via": "native",
+   "as_of": "2026-08-12"
+  },
+  {
+   "m": "glm-voice",
+   "c": "s-rt-duplex",
+   "state": "yes",
+   "verified_for": "glm-4-voice",
+   "src": "glm-voice-doc",
+   "note": "「首个端到端语音模型……实现实时语音对话，并可根据用户指令灵活调整语音的**情感、语调、语速和方言**」；上下文 8K、最大输出 4K",
+   "via": "native",
+   "as_of": "2026-08-12"
+  },
+  {
+   "m": "glm-voice",
+   "c": "s-rt-tools",
    "state": "unknown",
-   "verified_for": "think-fast-2.0"
+   "verified_for": "glm-4-voice"
+  },
+  {
+   "m": "glm-voice",
+   "c": "s-rt-translate",
+   "state": "unknown",
+   "verified_for": "glm-4-voice"
+  },
+  {
+   "m": "glm-voice",
+   "c": "s-rt-transport",
+   "state": "unknown",
+   "verified_for": "glm-4-voice"
+  },
+  {
+   "m": "glm-tts",
+   "c": "s-voices",
+   "state": "unknown",
+   "verified_for": "GLM-TTS"
+  },
+  {
+   "m": "glm-tts",
+   "c": "s-clone",
+   "state": "yes",
+   "verified_for": "GLM-TTS-Clone",
+   "src": "glm-tts-clone-doc",
+   "note": "「GLM-TTS-Clone……只需 **3 秒语音样本**，即可学习说话者的音色与语气习惯」，产出音色 ID 供合成时使用",
+   "via": "native",
+   "as_of": "2026-08-12",
+   "sibling": "GLM-TTS-Clone"
+  },
+  {
+   "m": "glm-tts",
+   "c": "s-design",
+   "state": "unknown",
+   "verified_for": "GLM-TTS"
+  },
+  {
+   "m": "glm-tts",
+   "c": "s-style",
+   "state": "yes",
+   "verified_for": "GLM-TTS",
+   "src": "glm-tts-doc",
+   "note": "「通过**上下文智能预判文本情绪与语调**，显著提升语音自然度与表现力」；两阶段生成 + GRPO 强化学习，自称在「字错误率」与「情感表达」上取得开源 SOTA",
+   "via": "native",
+   "as_of": "2026-08-12"
+  },
+  {
+   "m": "glm-tts",
+   "c": "s-multi",
+   "state": "unknown",
+   "verified_for": "GLM-TTS"
+  },
+  {
+   "m": "glm-tts",
+   "c": "s-lang",
+   "state": "unknown",
+   "verified_for": "GLM-TTS"
+  },
+  {
+   "m": "glm-tts",
+   "c": "s-stream",
+   "state": "unknown",
+   "verified_for": "GLM-TTS"
+  },
+  {
+   "m": "glm-tts",
+   "c": "s-long",
+   "state": "unknown",
+   "verified_for": "GLM-TTS"
+  },
+  {
+   "m": "glm-tts",
+   "c": "s-timestamp",
+   "state": "unknown",
+   "verified_for": "GLM-TTS"
+  },
+  {
+   "m": "glm-tts",
+   "c": "s-format",
+   "state": "unknown",
+   "verified_for": "GLM-TTS"
+  },
+  {
+   "m": "cosyvoice",
+   "c": "s-voices",
+   "state": "unknown",
+   "verified_for": "Fun-CosyVoice3-0.5B-2512"
+  },
+  {
+   "m": "cosyvoice",
+   "c": "s-clone",
+   "state": "unknown",
+   "verified_for": "Fun-CosyVoice3-0.5B-2512"
+  },
+  {
+   "m": "cosyvoice",
+   "c": "s-design",
+   "state": "unknown",
+   "verified_for": "Fun-CosyVoice3-0.5B-2512"
+  },
+  {
+   "m": "cosyvoice",
+   "c": "s-style",
+   "state": "unknown",
+   "verified_for": "Fun-CosyVoice3-0.5B-2512"
+  },
+  {
+   "m": "cosyvoice",
+   "c": "s-multi",
+   "state": "unknown",
+   "verified_for": "Fun-CosyVoice3-0.5B-2512"
+  },
+  {
+   "m": "cosyvoice",
+   "c": "s-lang",
+   "state": "unknown",
+   "verified_for": "Fun-CosyVoice3-0.5B-2512"
+  },
+  {
+   "m": "cosyvoice",
+   "c": "s-stream",
+   "state": "unknown",
+   "verified_for": "Fun-CosyVoice3-0.5B-2512"
+  },
+  {
+   "m": "cosyvoice",
+   "c": "s-long",
+   "state": "unknown",
+   "verified_for": "Fun-CosyVoice3-0.5B-2512"
+  },
+  {
+   "m": "cosyvoice",
+   "c": "s-timestamp",
+   "state": "unknown",
+   "verified_for": "Fun-CosyVoice3-0.5B-2512"
+  },
+  {
+   "m": "cosyvoice",
+   "c": "s-format",
+   "state": "unknown",
+   "verified_for": "Fun-CosyVoice3-0.5B-2512"
+  },
+  {
+   "m": "fish-speech",
+   "c": "s-voices",
+   "state": "unknown",
+   "verified_for": "s2-pro"
+  },
+  {
+   "m": "fish-speech",
+   "c": "s-clone",
+   "state": "unknown",
+   "verified_for": "s2-pro"
+  },
+  {
+   "m": "fish-speech",
+   "c": "s-design",
+   "state": "unknown",
+   "verified_for": "s2-pro"
+  },
+  {
+   "m": "fish-speech",
+   "c": "s-style",
+   "state": "unknown",
+   "verified_for": "s2-pro"
+  },
+  {
+   "m": "fish-speech",
+   "c": "s-multi",
+   "state": "unknown",
+   "verified_for": "s2-pro"
+  },
+  {
+   "m": "fish-speech",
+   "c": "s-lang",
+   "state": "unknown",
+   "verified_for": "s2-pro"
+  },
+  {
+   "m": "fish-speech",
+   "c": "s-stream",
+   "state": "unknown",
+   "verified_for": "s2-pro"
+  },
+  {
+   "m": "fish-speech",
+   "c": "s-long",
+   "state": "unknown",
+   "verified_for": "s2-pro"
+  },
+  {
+   "m": "fish-speech",
+   "c": "s-timestamp",
+   "state": "unknown",
+   "verified_for": "s2-pro"
+  },
+  {
+   "m": "fish-speech",
+   "c": "s-format",
+   "state": "unknown",
+   "verified_for": "s2-pro"
+  },
+  {
+   "m": "kokoro",
+   "c": "s-voices",
+   "state": "unknown",
+   "verified_for": "82M v1.1-zh"
+  },
+  {
+   "m": "kokoro",
+   "c": "s-clone",
+   "state": "unknown",
+   "verified_for": "82M v1.1-zh"
+  },
+  {
+   "m": "kokoro",
+   "c": "s-design",
+   "state": "unknown",
+   "verified_for": "82M v1.1-zh"
+  },
+  {
+   "m": "kokoro",
+   "c": "s-style",
+   "state": "unknown",
+   "verified_for": "82M v1.1-zh"
+  },
+  {
+   "m": "kokoro",
+   "c": "s-multi",
+   "state": "unknown",
+   "verified_for": "82M v1.1-zh"
+  },
+  {
+   "m": "kokoro",
+   "c": "s-lang",
+   "state": "yes",
+   "verified_for": "82M v1.1-zh",
+   "src": "hf-sound-org",
+   "note": "`hexgrad/Kokoro-82M-v1.1-zh`（2025-02-27）在 82M 基础上加中文 —— 型号名里的 `-zh` 即依据。⚠️ 这只证明「有中文」，**没有语言总数**",
+   "via": "native",
+   "as_of": "2026-08-12"
+  },
+  {
+   "m": "kokoro",
+   "c": "s-stream",
+   "state": "unknown",
+   "verified_for": "82M v1.1-zh"
+  },
+  {
+   "m": "kokoro",
+   "c": "s-long",
+   "state": "unknown",
+   "verified_for": "82M v1.1-zh"
+  },
+  {
+   "m": "kokoro",
+   "c": "s-timestamp",
+   "state": "unknown",
+   "verified_for": "82M v1.1-zh"
+  },
+  {
+   "m": "kokoro",
+   "c": "s-format",
+   "state": "unknown",
+   "verified_for": "82M v1.1-zh"
   }
  ],
  "$aliases_why": "各家给同一个能力起不同的名字。**Kling 管角色参考叫 Element，我按 Character Reference 去找，找不到就标了「官方没说」—— 假阴性。** 采集时必须用整组别名去匹配，不能只用我们自己的叫法。这是原方案 §36 Entity Resolution 在能力维度上的对应物。\n\n`alias_bit_us` 标在**真把我们坑过的那一项**上（角色参考）。别名多不等于叫法分歧大：「首尾帧」也有 8 条别名，但全是 start/end frame 的描述性变体，谁都猜得到；而 Element / Ingredients / cameo 是厂商自造词，**不知道就永远搜不到**。选例子要选后者，靠数别名条数是挑不出来的 —— 所以标在数据里，不用启发式猜。",
@@ -12093,6 +12514,239 @@
     "mistralai/Leanstral-1.5-119B-A6B"
    ],
    "parent": "mistral-text-Leanstral-定理证明支线"
+  },
+  {
+   "id": "qwen-omni-Qwen-Audio-这条线的起点：音频理",
+   "m": "qwen-omni",
+   "version": "Qwen-Audio",
+   "date": "2023-11-30",
+   "added": "这条线的起点：音频理解",
+   "src": "hf-sound-org",
+   "quote": "官方 HF 组织 Qwen/Qwen-Audio，createdAt 2023-11-30",
+   "note": "日期取官方 HF 组织的 createdAt（**不是 lastModified**）；同一代的尺寸档与量化档折成一个节点。⚠️ **ASR 不在这棵树上**（ontology 规则十一）—— SenseVoice、Qwen-Audio 的识别向分支产出的是文本。",
+   "repos": [
+    "Qwen/Qwen-Audio"
+   ]
+  },
+  {
+   "id": "qwen-omni-Qwen2-Audio-换代",
+   "m": "qwen-omni",
+   "version": "Qwen2-Audio",
+   "date": "2024-07-16",
+   "added": "换代",
+   "src": "hf-sound-org",
+   "quote": "官方 HF 组织 Qwen/Qwen2-Audio-7B，createdAt 2024-07-16",
+   "note": "日期取官方 HF 组织的 createdAt（**不是 lastModified**）；同一代的尺寸档与量化档折成一个节点。⚠️ **ASR 不在这棵树上**（ontology 规则十一）—— SenseVoice、Qwen-Audio 的识别向分支产出的是文本。",
+   "repos": [
+    "Qwen/Qwen2-Audio-7B"
+   ],
+   "parent": "qwen-omni-Qwen-Audio-这条线的起点：音频理"
+  },
+  {
+   "id": "qwen-omni-Qwen2.5-Omni-转 Omni：多模态",
+   "m": "qwen-omni",
+   "version": "Qwen2.5-Omni",
+   "date": "2025-03-22",
+   "added": "转 Omni：多模态进、文本或语音出",
+   "src": "hf-sound-org",
+   "quote": "官方 HF 组织 Qwen/Qwen2.5-Omni-7B，createdAt 2025-03-22",
+   "note": "日期取官方 HF 组织的 createdAt（**不是 lastModified**）；同一代的尺寸档与量化档折成一个节点。⚠️ **ASR 不在这棵树上**（ontology 规则十一）—— SenseVoice、Qwen-Audio 的识别向分支产出的是文本。",
+   "repos": [
+    "Qwen/Qwen2.5-Omni-7B"
+   ],
+   "parent": "qwen-omni-Qwen2-Audio-换代"
+  },
+  {
+   "id": "qwen-omni-Qwen3-Omni-换代到 30B-A3",
+   "m": "qwen-omni",
+   "version": "Qwen3-Omni",
+   "date": "2025-09-20",
+   "added": "换代到 30B-A3B，分 Instruct / Thinking / Captioner 三支",
+   "src": "hf-sound-org",
+   "quote": "官方 HF 组织 Qwen/Qwen3-Omni-30B-A3B-Instruct，createdAt 2025-09-20",
+   "note": "日期取官方 HF 组织的 createdAt（**不是 lastModified**）；同一代的尺寸档与量化档折成一个节点。⚠️ **ASR 不在这棵树上**（ontology 规则十一）—— SenseVoice、Qwen-Audio 的识别向分支产出的是文本。",
+   "repos": [
+    "Qwen/Qwen3-Omni-30B-A3B-Instruct"
+   ],
+   "parent": "qwen-omni-Qwen2.5-Omni-转 Omni：多模态"
+  },
+  {
+   "id": "qwen-omni-Qwen3-TTS-分出专门的 TTS ",
+   "m": "qwen-omni",
+   "version": "Qwen3-TTS",
+   "date": "2026-01-21",
+   "added": "分出专门的 TTS 支线，含 CustomVoice 与 VoiceDesign 两个变体",
+   "src": "hf-sound-org",
+   "quote": "官方 HF 组织 Qwen/Qwen3-TTS-12Hz-1.7B-Base，createdAt 2026-01-21",
+   "note": "日期取官方 HF 组织的 createdAt（**不是 lastModified**）；同一代的尺寸档与量化档折成一个节点。⚠️ **ASR 不在这棵树上**（ontology 规则十一）—— SenseVoice、Qwen-Audio 的识别向分支产出的是文本。",
+   "repos": [
+    "Qwen/Qwen3-TTS-12Hz-1.7B-Base"
+   ],
+   "parent": "qwen-omni-Qwen3-Omni-换代到 30B-A3"
+  },
+  {
+   "id": "glm-tts-GLM-TTS-这一代的开放权重发布",
+   "m": "glm-tts",
+   "version": "GLM-TTS",
+   "date": "2025-12-10",
+   "added": "这一代的开放权重发布",
+   "src": "hf-sound-org",
+   "quote": "官方 HF 组织 zai-org/GLM-TTS，createdAt 2025-12-10",
+   "note": "日期取官方 HF 组织的 createdAt（**不是 lastModified**）；同一代的尺寸档与量化档折成一个节点。⚠️ **ASR 不在这棵树上**（ontology 规则十一）—— SenseVoice、Qwen-Audio 的识别向分支产出的是文本。",
+   "repos": [
+    "zai-org/GLM-TTS"
+   ]
+  },
+  {
+   "id": "cosyvoice-SenseVoiceSmall-这个组织在 HF 上",
+   "m": "cosyvoice",
+   "version": "SenseVoiceSmall",
+   "date": "2024-07-03",
+   "added": "这个组织在 HF 上最早的发布",
+   "src": "hf-sound-org",
+   "quote": "官方 HF 组织 FunAudioLLM/SenseVoiceSmall，createdAt 2024-07-03",
+   "note": "日期取官方 HF 组织的 createdAt（**不是 lastModified**）；同一代的尺寸档与量化档折成一个节点。⚠️ **ASR 不在这棵树上**（ontology 规则十一）—— SenseVoice、Qwen-Audio 的识别向分支产出的是文本。",
+   "repos": [
+    "FunAudioLLM/SenseVoiceSmall"
+   ]
+  },
+  {
+   "id": "cosyvoice-Fun-CosyVoice3-CosyVoice ",
+   "m": "cosyvoice",
+   "version": "Fun-CosyVoice3",
+   "date": "2025-12-11",
+   "added": "CosyVoice 第三代（0.5B）",
+   "src": "hf-sound-org",
+   "quote": "官方 HF 组织 FunAudioLLM/Fun-CosyVoice3-0.5B-2512，createdAt 2025-12-11",
+   "note": "日期取官方 HF 组织的 createdAt（**不是 lastModified**）；同一代的尺寸档与量化档折成一个节点。⚠️ **ASR 不在这棵树上**（ontology 规则十一）—— SenseVoice、Qwen-Audio 的识别向分支产出的是文本。",
+   "repos": [
+    "FunAudioLLM/Fun-CosyVoice3-0.5B-2512"
+   ],
+   "parent": "cosyvoice-SenseVoiceSmall-这个组织在 HF 上"
+  },
+  {
+   "id": "cosyvoice-Fun-Audio-Chat-语音对话向的 8B",
+   "m": "cosyvoice",
+   "version": "Fun-Audio-Chat",
+   "date": "2025-12-23",
+   "added": "语音对话向的 8B",
+   "src": "hf-sound-org",
+   "quote": "官方 HF 组织 FunAudioLLM/Fun-Audio-Chat-8B，createdAt 2025-12-23",
+   "note": "日期取官方 HF 组织的 createdAt（**不是 lastModified**）；同一代的尺寸档与量化档折成一个节点。⚠️ **ASR 不在这棵树上**（ontology 规则十一）—— SenseVoice、Qwen-Audio 的识别向分支产出的是文本。",
+   "repos": [
+    "FunAudioLLM/Fun-Audio-Chat-8B"
+   ],
+   "parent": "cosyvoice-Fun-CosyVoice3-CosyVoice "
+  },
+  {
+   "id": "fish-speech-fish-speech 1.2-这条线在 HF 上最",
+   "m": "fish-speech",
+   "version": "fish-speech 1.2",
+   "date": "2024-07-02",
+   "added": "这条线在 HF 上最早的发布",
+   "src": "hf-sound-org",
+   "quote": "官方 HF 组织 fishaudio/fish-speech-1.2，createdAt 2024-07-02",
+   "note": "日期取官方 HF 组织的 createdAt（**不是 lastModified**）；同一代的尺寸档与量化档折成一个节点。⚠️ **ASR 不在这棵树上**（ontology 规则十一）—— SenseVoice、Qwen-Audio 的识别向分支产出的是文本。",
+   "repos": [
+    "fishaudio/fish-speech-1.2"
+   ]
+  },
+  {
+   "id": "fish-speech-fish-speech 1.4-换代",
+   "m": "fish-speech",
+   "version": "fish-speech 1.4",
+   "date": "2024-09-10",
+   "added": "换代",
+   "src": "hf-sound-org",
+   "quote": "官方 HF 组织 fishaudio/fish-speech-1.4，createdAt 2024-09-10",
+   "note": "日期取官方 HF 组织的 createdAt（**不是 lastModified**）；同一代的尺寸档与量化档折成一个节点。⚠️ **ASR 不在这棵树上**（ontology 规则十一）—— SenseVoice、Qwen-Audio 的识别向分支产出的是文本。",
+   "repos": [
+    "fishaudio/fish-speech-1.4"
+   ],
+   "parent": "fish-speech-fish-speech 1.2-这条线在 HF 上最"
+  },
+  {
+   "id": "fish-speech-fish-speech 1.5-换代",
+   "m": "fish-speech",
+   "version": "fish-speech 1.5",
+   "date": "2024-11-24",
+   "added": "换代",
+   "src": "hf-sound-org",
+   "quote": "官方 HF 组织 fishaudio/fish-speech-1.5，createdAt 2024-11-24",
+   "note": "日期取官方 HF 组织的 createdAt（**不是 lastModified**）；同一代的尺寸档与量化档折成一个节点。⚠️ **ASR 不在这棵树上**（ontology 规则十一）—— SenseVoice、Qwen-Audio 的识别向分支产出的是文本。",
+   "repos": [
+    "fishaudio/fish-speech-1.5"
+   ],
+   "parent": "fish-speech-fish-speech 1.4-换代"
+  },
+  {
+   "id": "fish-speech-fish-agent-语音智能体支线（3B",
+   "m": "fish-speech",
+   "version": "fish-agent",
+   "date": "2024-10-29",
+   "added": "语音智能体支线（3B）",
+   "src": "hf-sound-org",
+   "quote": "官方 HF 组织 fishaudio/fish-agent-v0.1-3b，createdAt 2024-10-29",
+   "note": "日期取官方 HF 组织的 createdAt（**不是 lastModified**）；同一代的尺寸档与量化档折成一个节点。⚠️ **ASR 不在这棵树上**（ontology 规则十一）—— SenseVoice、Qwen-Audio 的识别向分支产出的是文本。",
+   "repos": [
+    "fishaudio/fish-agent-v0.1-3b"
+   ],
+   "parent": "fish-speech-fish-speech 1.4-换代"
+  },
+  {
+   "id": "fish-speech-s1-mini-改名 s 系列",
+   "m": "fish-speech",
+   "version": "s1-mini",
+   "date": "2025-05-31",
+   "added": "改名 s 系列",
+   "src": "hf-sound-org",
+   "quote": "官方 HF 组织 fishaudio/s1-mini，createdAt 2025-05-31",
+   "note": "日期取官方 HF 组织的 createdAt（**不是 lastModified**）；同一代的尺寸档与量化档折成一个节点。⚠️ **ASR 不在这棵树上**（ontology 规则十一）—— SenseVoice、Qwen-Audio 的识别向分支产出的是文本。",
+   "repos": [
+    "fishaudio/s1-mini"
+   ],
+   "parent": "fish-speech-fish-speech 1.5-换代"
+  },
+  {
+   "id": "fish-speech-s2-pro-s 系列换代",
+   "m": "fish-speech",
+   "version": "s2-pro",
+   "date": "2026-03-09",
+   "added": "s 系列换代",
+   "src": "hf-sound-org",
+   "quote": "官方 HF 组织 fishaudio/s2-pro，createdAt 2026-03-09",
+   "note": "日期取官方 HF 组织的 createdAt（**不是 lastModified**）；同一代的尺寸档与量化档折成一个节点。⚠️ **ASR 不在这棵树上**（ontology 规则十一）—— SenseVoice、Qwen-Audio 的识别向分支产出的是文本。",
+   "repos": [
+    "fishaudio/s2-pro"
+   ],
+   "parent": "fish-speech-s1-mini-改名 s 系列"
+  },
+  {
+   "id": "kokoro-Kokoro-82M-这条线的起点，82M",
+   "m": "kokoro",
+   "version": "Kokoro-82M",
+   "date": "2024-12-26",
+   "added": "这条线的起点，82M 小模型（♥6677，声音卷里最热的开源仓库）",
+   "src": "hf-sound-org",
+   "quote": "官方 HF 组织 hexgrad/Kokoro-82M，createdAt 2024-12-26",
+   "note": "日期取官方 HF 组织的 createdAt（**不是 lastModified**）；同一代的尺寸档与量化档折成一个节点。⚠️ **ASR 不在这棵树上**（ontology 规则十一）—— SenseVoice、Qwen-Audio 的识别向分支产出的是文本。",
+   "repos": [
+    "hexgrad/Kokoro-82M"
+   ]
+  },
+  {
+   "id": "kokoro-Kokoro 82M v1.1-zh-加中文",
+   "m": "kokoro",
+   "version": "Kokoro 82M v1.1-zh",
+   "date": "2025-02-27",
+   "added": "加中文",
+   "src": "hf-sound-org",
+   "quote": "官方 HF 组织 hexgrad/Kokoro-82M-v1.1-zh，createdAt 2025-02-27",
+   "note": "日期取官方 HF 组织的 createdAt（**不是 lastModified**）；同一代的尺寸档与量化档折成一个节点。⚠️ **ASR 不在这棵树上**（ontology 规则十一）—— SenseVoice、Qwen-Audio 的识别向分支产出的是文本。",
+   "repos": [
+    "hexgrad/Kokoro-82M-v1.1-zh"
+   ],
+   "parent": "kokoro-Kokoro-82M-这条线的起点，82M"
   }
  ],
  "$versions": "版本谱系（演进图的数据）。**演进的主体是模型，不是能力。**\n\n原来那张演进图每行是一项能力、横轴是「我们能证明的最早时间」、粗细是几家支持。\n读者看完只得到「动作复刻 2025-12 出现、6/9 支持」—— 那是一次数据库查询的可视化，不涨知识。\n而且它得靠图注免责（「不是业界首次出现」）：**一张需要图注免责的图，说明它量错了东西。**\n\n这份数据画的是**厂商自己发布的版本和日期**，所以不需要免责。每条必须回答：\n**这一代新增了什么。** 只有版本号没有 added 的节点没有价值，不收。\n\n两个最好的来源，都不是「新闻」：\n  · **官方 Hugging Face 组织** —— 模型名本身就编码了能力与代际\n    （Wan2.1-FLF2V＝首尾帧、Wan2.2-S2V＝语音驱动、LTX 的 IC-LoRA-Ingredients＝角色参考），\n    发布时间由 HF API 给出，比任何新闻稿都准。\n  · **官方 API 更新日志** —— 可灵那份 31k 字符里有 170 条带日期的条目。\n\n覆盖不全是事实：万相和可灵能画出完整谱系，Runway/Vidu/Seedance 只有近期几个点，\nVeo/Sora/海螺/LTX 还没有。**图上要标出哪几条线是完整的、哪几条只是片段** ——\n画一条只有两个点的线却不说明，读者会以为这家两年只更新过两次。\n\n`cap` 把版本节点挂到能力 id 上，图上「点一项能力，看各家谁先谁后」靠它。\n**对不上的一律留空并写明理由（cap_skip），不硬凑** —— 硬凑一个 id，纵向那一刀就切错了。\n典型：Wan 的 S2V 是「语音驱动」，不等于我们轴上的「对口型」，两件事不合并；\n「换代」节点本身也不是新增单项能力。\n\n`id` + `parent` 把平铺记录变成**真的树**。分叉是真实存在的：\nWan2.1 底座上同时长出 FLF2V（首尾帧）和 VACE（统一编辑）两个变体，\nWan2.2 是换代接在 2.1 后面，Animate-2 又接在 Animate 后面。\n\n**没有父节点的就让它当根，不许为了让树好看硬接一条边** ——\nRunway 的 Aleph 是编辑线，不是 Gen 的后代，它自己是一棵树。\n\n⚠️ **日期必须取 HF 的 `createdAt`，不能取 `lastModified`。**\n第一版取错了字段，把「最后修改」当成了发布日期：Wan2.2 记成 2025-08-07（实际 2025-07-18）、\nAnimate 记成 2025-11-05（实际 2025-09-11）——**差了两个月**。\n仓库发布后还会被反复更新，两个字段根本不是一回事。\n这类错最阴：日期看着合理、图也画得出来，但整条时间线是歪的。\n\n覆盖不足要**写在数据里**，不是靠图上一句话糊过去：\n模型的 `lineage_note` 解释为什么它的节点少（太新 / 官方记录只回溯到某时）。\n校验 R58 强制：**核心模型少于 3 个节点却没写理由，就是错**。\n「我们没采到」和「它本来就没有」是两回事，读者有权知道是哪一种。",
