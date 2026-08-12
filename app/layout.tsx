@@ -53,14 +53,27 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="zh-CN" className={GeistSans.variable}>
-      <body>
+      {/**
+        * `min-h-screen` + 纵向 flex：**内容不够一屏时，把空白留在页脚之上**。
+        *
+        * 2026-08-12 负责人在 /atlas 首页上问「页脚怎么会突然变那么高了，只有首页有」——
+        * 量下来页脚一直是 65px，和别的页一样。真相是首页内容只有 654px，
+        * 页脚画到 860px 就结束了，而视口有 1000px：**下面那 140px 白**紧贴着页脚的底色，
+        * 看起来就像页脚被撑高了。别的页内容长过一屏，所以看不出来。
+        *
+        * `flex-1` 给的是内容区（children 与它后面的 NextSteps 一起），
+        * 让它吃掉多余高度，页脚自然沉到底。
+        */}
+      <body className="min-h-screen flex flex-col">
         {/* 平台页眉页脚：加载主站 /chrome 制品。取不到就整个不渲染（本地 dev 即如此）。 */}
         <ChromeHeader />
         {/* Nav 和 NextSteps 挂在 layout 上 —— **每一页都有，否则总有页面是死路**。 */}
         <Nav />
-        {children}
-        <div className="max-w-[1240px] mx-auto px-5 pb-10">
-          <NextSteps />
+        <div className="flex-1">
+          {children}
+          <div className="max-w-[1240px] mx-auto px-5 pb-10">
+            <NextSteps />
+          </div>
         </div>
         <ChromeFooter />
       </body>

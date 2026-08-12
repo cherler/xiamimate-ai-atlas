@@ -64,6 +64,25 @@ export default function Pick() {
         多的那个是我们还没读完那些文档 —— 这一点在方向页里也写着。
         <Link href="/method" className="underline ml-1 hover:text-ink">口径 →</Link>
       </p>
+
+      {/**
+        * 公共页入口。**和四个方向首页那一排完全一样、顺序也一样** ——
+        * 负责人 2026-08-12 提：这几条应该在首页也能看到。
+        *
+        * 为什么值得在这里再放一遍：这一页是**进站第一屏**，而它原来只有四个方向卡片，
+        * 一个还没决定看哪个方向的人，从这里出不去别的地方。
+        * 顺序不变（/basics 打头）：连 FP8 是什么都不知道的人，后面三条对他都用不上。
+        */}
+      <nav className="mt-10 border-t-[.5px] border-rule pt-3 flex flex-wrap gap-x-6 gap-y-2 text-[13px] text-muted">
+        {[
+          ["/basics", "看不懂那些词？先看这里"],
+          ["/changes", "最近有什么变化"],
+          ["/caveats", "能力对了，未必用得上"],
+          ["/toolkit", "想查一件事，去哪个站"],
+        ].map(([href, zh]) => (
+          <Link key={href} href={href} className="hover:text-ink underline">{zh} →</Link>
+        ))}
+      </nav>
     </main>
   );
 }

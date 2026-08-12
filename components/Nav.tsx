@@ -90,7 +90,13 @@ export default function Nav() {
    * （四个主链接仍要有落点，用 live 方向；这是导航选择，不是身份声明。）
    */
   const CROSS = ["changes", "method", "toolkit", "caveats", "basics"];
-  const cross = CROSS.includes(seg);
+  /**
+   * **根页 `/` 也不属于任何方向** —— 它就是方向选择页（「先选一个方向」）。
+   * 2026-08-12 负责人截图指出：站在 /atlas 上，左上角却写着「AI 视频」。
+   * 原因是 `seg` 为空串，既不在 CROSS 里、也不是方向 id，于是退回了第一个 live 方向。
+   * **一个让你选方向的页面，自己顶着某个方向的名字，是在骗人。**
+   */
+  const cross = CROSS.includes(seg) || seg === "";
   const dom = atlas.domains.some((d) => d.id === seg)
     ? seg
     : owner && atlas.domains.some((d) => d.id === owner)
