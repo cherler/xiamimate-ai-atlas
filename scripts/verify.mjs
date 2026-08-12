@@ -363,6 +363,18 @@ const mentions = (txt, name) => {
   };
   if (existsSync(OUT)) walk(OUT);
   const html = new Map(files.map((f) => [f, readFileSync(f, "utf8")]));
+  /**
+   * 顺便查标题里的站名重复。
+   * `layout.tsx` 用 `template: "%s｜虾米看AI"` 自动补站名，页面自己再写一遍就重了 ——
+   * 2026-08-12 `/basics` 上线当天的标题就是「…｜虾米看AI｜虾米看AI」。
+   * 这种错只出现在 `<title>` 里，页面上一个字都看不出来，**只有查才发现**。
+   */
+  for (const [f, t] of html) {
+    const title = (t.match(/<title>([^<]*)<\/title>/) || [])[1] ?? "";
+    const n = title.split("虾米看AI").length - 1;
+    if (n > 1) ok(false, `${f.replace(OUT, "")} 的标题里站名出现 ${n} 次：${title.slice(0, 60)}`);
+  }
+
   for (const r of ROUTES) {
     if (r.path === "/") continue;                       // 根页是入口，没人链它是正常的
     const self = join(OUT, `${r.path.slice(1)}.html`);

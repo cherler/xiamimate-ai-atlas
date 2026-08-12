@@ -24,7 +24,13 @@ import glossary from "@/data/glossary.json";
  *    不先讲这条，把十个术语背下来也照样会挑错文件。
  */
 export const metadata: Metadata = {
-  title: "大模型入门：公开教程导航 + 本地部署要懂的词｜虾米看AI",
+  /**
+   * ⚠️ **标题里不要写站名。** `app/layout.tsx` 有
+   * `template: "%s｜${BRAND.short}"`，站名由模板补 ——
+   * 这里再写一遍就出现「…｜虾米看AI｜虾米看AI」，2026-08-12 上线当天就是这样。
+   * 站上另外四个跨方向页都只写正文，只有这一页手写了后缀。
+   */
+  title: "大模型入门：公开教程导航 + 本地部署要懂的词",
   description:
     "从「什么是大模型」到本地部署与微调，13 个公开开源教程，逐个核过星标、许可与最后更新日。附站上会撞见的术语速查（FP8 / INT8 / GGUF / LoRA），每条带论文出处。",
   openGraph: { images: [{ url: "/atlas/og/index-16x9.png", width: 1200, height: 675 }] },
