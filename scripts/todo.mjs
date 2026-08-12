@@ -134,6 +134,28 @@ try {
     });
 } catch { /* atlas 坏了会被 validate 拦，这里不重复报 */ }
 
+/**
+ * ④之二 谱系节点没判能力（R71）。
+ *
+ * 树上那排「谁先谁后」的按钮是从 `cap` 现算的 —— 一个方向一条都没挂，
+ * **整排按钮就不出现**，而页面不会说它为什么不见了。这一摞让那件事有个数。
+ */
+try {
+  const atlas = JSON.parse(read("data/atlas.json") || "{}");
+  const bare = (atlas.versions ?? []).filter((v) => !v.cap && !v.cap_skip);
+  const by = {};
+  for (const v of bare) by[atlas.models.find((m) => m.id === v.m)?.domain ?? "video"] =
+    (by[atlas.models.find((m) => m.id === v.m)?.domain ?? "video"] ?? 0) + 1;
+  if (bare.length)
+    groups.push({
+      n: bare.length,
+      t: `谱系节点没判能力 ${bare.length} 条（${Object.entries(by).map(([k, v]) => `${k} ${v}`).join(" · ")}）`,
+      how: "读节点的 `added`：声明了「这一代新增了 X」就挂 `cap`，没有就写 `cap_skip` 说明理由",
+      why: "**挂错比不挂更糟。** 树上的「谁先谁后」取每条产品线最早带该 cap 的节点 —— " +
+        "拿「这一代的 API 发布」硬凑一个，整条线的位次就排错了，而它看起来像个结论。",
+    });
+} catch { /* atlas 坏了会被 validate 拦 */ }
+
 /** ⑤ 收录候选（新面孔）。 */
 const cm = read("data/candidates.md");
 const newFaces = (cm.match(/^\| /gm) ?? []).length;

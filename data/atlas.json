@@ -10494,7 +10494,8 @@
    "src": "hf-lineage",
    "quote": "black-forest-labs/FLUX.1-schnell",
    "note": "日期取自官方 HF 仓库的 createdAt（**不是 lastModified**）。",
-   "parent": "flux-FLUX.1-dev-首发，质量档"
+   "parent": "flux-FLUX.1-dev-首发，质量档",
+   "cap_skip": "尺寸 / 速度 / 价格档位，不是新增能力"
   },
   {
    "id": "flux-FLUX.1-dev-首发，质量档",
@@ -10504,7 +10505,8 @@
    "added": "首发，质量档",
    "src": "hf-lineage",
    "quote": "black-forest-labs/FLUX.1-dev",
-   "note": "日期取自官方 HF 仓库的 createdAt（**不是 lastModified**）。"
+   "note": "日期取自官方 HF 仓库的 createdAt（**不是 lastModified**）。",
+   "cap_skip": "尺寸 / 速度 / 价格档位，不是新增能力"
   },
   {
    "id": "flux-FLUX.1-Kontext-dev-上下文编辑（Kontext）",
@@ -10515,7 +10517,8 @@
    "src": "hf-lineage",
    "quote": "black-forest-labs/FLUX.1-Kontext-dev",
    "note": "日期取自官方 HF 仓库的 createdAt（**不是 lastModified**）。",
-   "parent": "flux-FLUX.1-schnell-首发，快档（少步数）"
+   "parent": "flux-FLUX.1-schnell-首发，快档（少步数）",
+   "cap": "i-edit"
   },
   {
    "id": "flux-FLUX.2-dev-第二代",
@@ -10526,7 +10529,8 @@
    "src": "hf-lineage",
    "quote": "black-forest-labs/FLUX.2-dev",
    "note": "日期取自官方 HF 仓库的 createdAt（**不是 lastModified**）。",
-   "parent": "flux-FLUX.1-Kontext-dev-上下文编辑（Kontext）"
+   "parent": "flux-FLUX.1-Kontext-dev-上下文编辑（Kontext）",
+   "cap_skip": "发布记录或形态调整，没有声明能力轴上的新增项"
   },
   {
    "id": "flux-FLUX.2-klein-9B-小尺寸档（9B）",
@@ -10537,7 +10541,8 @@
    "src": "hf-lineage",
    "quote": "black-forest-labs/FLUX.2-klein-9B",
    "note": "日期取自官方 HF 仓库的 createdAt（**不是 lastModified**）。",
-   "parent": "flux-FLUX.2-dev-第二代"
+   "parent": "flux-FLUX.2-dev-第二代",
+   "cap_skip": "尺寸 / 速度 / 价格档位，不是新增能力"
   },
   {
    "id": "qwen-image-Qwen-Image-首发；复杂文字渲染与精确编辑",
@@ -10547,7 +10552,8 @@
    "added": "首发；复杂文字渲染与精确编辑",
    "src": "hf-lineage",
    "quote": "Qwen/Qwen-Image",
-   "note": "日期取自官方 HF 仓库的 createdAt（**不是 lastModified**）。"
+   "note": "日期取自官方 HF 仓库的 createdAt（**不是 lastModified**）。",
+   "cap": "i-textrender"
   },
   {
    "id": "qwen-image-Qwen-Image-Edit-专做图像编辑的变体",
@@ -10558,7 +10564,8 @@
    "src": "hf-lineage",
    "quote": "Qwen/Qwen-Image-Edit",
    "note": "日期取自官方 HF 仓库的 createdAt（**不是 lastModified**）。",
-   "parent": "qwen-image-Qwen-Image-首发；复杂文字渲染与精确编辑"
+   "parent": "qwen-image-Qwen-Image-首发；复杂文字渲染与精确编辑",
+   "cap": "i-edit"
   },
   {
    "id": "qwen-image-Qwen-Image-Edit-2509-编辑版迭代",
@@ -10569,7 +10576,8 @@
    "src": "hf-lineage",
    "quote": "Qwen/Qwen-Image-Edit-2509",
    "note": "日期取自官方 HF 仓库的 createdAt（**不是 lastModified**）。",
-   "parent": "qwen-image-Qwen-Image-Edit-专做图像编辑的变体"
+   "parent": "qwen-image-Qwen-Image-Edit-专做图像编辑的变体",
+   "cap_skip": "发布记录或形态调整，没有声明能力轴上的新增项"
   },
   {
    "id": "qwen-image-Qwen-Image-Edit-2511-抑制图像漂移、角色一致性、集成 LoRA",
@@ -10583,7 +10591,8 @@
    "parent": "qwen-image-Qwen-Image-Edit-2509-编辑版迭代",
    "repos": [
     "Qwen/Qwen-Image-Edit-2511"
-   ]
+   ],
+   "cap": "i-fidelity"
   },
   {
    "id": "z-image-Z-Image-Turbo-6B、8 步出图、16G 显存可跑；中英双语文字渲染",
@@ -10593,7 +10602,8 @@
    "added": "6B、8 步出图、16G 显存可跑；中英双语文字渲染",
    "src": "hf-lineage",
    "quote": "Tongyi-MAI/Z-Image-Turbo",
-   "note": "日期取自官方 HF 仓库的 createdAt（**不是 lastModified**）。"
+   "note": "日期取自官方 HF 仓库的 createdAt（**不是 lastModified**）。",
+   "cap": "i-textrender"
   },
   {
    "id": "hunyuan-image-HunyuanImage-3.0-80B MoE，统一自回归架构",
@@ -10603,7 +10613,8 @@
    "added": "80B MoE，统一自回归架构",
    "src": "hf-lineage",
    "quote": "tencent/HunyuanImage-3.0-Instruct",
-   "note": "日期取自官方 HF 仓库的 createdAt（**不是 lastModified**）。"
+   "note": "日期取自官方 HF 仓库的 createdAt（**不是 lastModified**）。",
+   "cap_skip": "架构或规模变化，能力轴上没有对应项"
   },
   {
    "id": "sd-SD 1.4-首个广泛传播的开放权重出图模型",
@@ -10613,7 +10624,8 @@
    "added": "首个广泛传播的开放权重出图模型",
    "src": "hf-lineage",
    "quote": "CompVis/stable-diffusion-v1-4",
-   "note": "日期取自官方 HF 仓库的 createdAt（**不是 lastModified**）。"
+   "note": "日期取自官方 HF 仓库的 createdAt（**不是 lastModified**）。",
+   "cap": "i-openweights"
   },
   {
    "id": "sd-SDXL 1.0-base + refiner 的专家集成流水线",
@@ -10624,7 +10636,8 @@
    "src": "hf-lineage",
    "quote": "stabilityai/stable-diffusion-xl-base-1.0",
    "note": "日期取自官方 HF 仓库的 createdAt（**不是 lastModified**）。",
-   "parent": "sd-SD 1.4-首个广泛传播的开放权重出图模型"
+   "parent": "sd-SD 1.4-首个广泛传播的开放权重出图模型",
+   "cap_skip": "发布记录或形态调整，没有声明能力轴上的新增项"
   },
   {
    "id": "ideogram-3.0-画布编辑（Magic Fill / Extend）",
@@ -10634,7 +10647,8 @@
    "added": "画布编辑：Magic Fill 局部重绘 + Extend 扩图",
    "src": "ideogram-x",
    "quote": "You can now use Magic Fill and Extend with 3.0 in Ideogram Canvas to edit both uploaded and generated images",
-   "note": "**这是图像侧唯一一条能进树的闭源产品线** —— 因为官方公告里带了日期。其余闭源几家的官方页只写当前版本、不写发布日期，没有日期就画不上时间轴。"
+   "note": "**这是图像侧唯一一条能进树的闭源产品线** —— 因为官方公告里带了日期。其余闭源几家的官方页只写当前版本、不写发布日期，没有日期就画不上时间轴。",
+   "cap": "i-canvas"
   },
   {
    "id": "gpt-image-gpt-image-1-API 首次开放出图",
@@ -10644,7 +10658,8 @@
    "added": "API 首次开放出图",
    "src": "azure-foundry-blog",
    "quote": "the launch of GPT-image-1, the latest and most advanced image generation model",
-   "note": "OpenAI 自家公告页抓不到（403），日期取同日上线的 Azure 一侧。日期取「公开可查到它的第一天」（官方公告日），不是内部完成日 —— 演化树只用来看先后，月内误差在图上看不出来。负责人 2026-08-11 定的口径。"
+   "note": "OpenAI 自家公告页抓不到（403），日期取同日上线的 Azure 一侧。日期取「公开可查到它的第一天」（官方公告日），不是内部完成日 —— 演化树只用来看先后，月内误差在图上看不出来。负责人 2026-08-11 定的口径。",
+   "cap": "i-t2i"
   },
   {
    "id": "gemini-image-Nano Banana-对话式改图（多轮指令改同一张）",
@@ -10654,7 +10669,8 @@
    "added": "对话式改图（多轮指令改同一张）",
    "src": "google-gemini-blog",
    "quote": "Today in the Gemini app, we're unveiling a new image editing model from Google DeepMind.",
-   "note": "官方公告里只叫 Nano Banana，没写 Gemini 2.5 Flash Image 这个名字 —— 我们跟官方口径。日期取「公开可查到它的第一天」（官方公告日），不是内部完成日 —— 演化树只用来看先后，月内误差在图上看不出来。负责人 2026-08-11 定的口径。"
+   "note": "官方公告里只叫 Nano Banana，没写 Gemini 2.5 Flash Image 这个名字 —— 我们跟官方口径。日期取「公开可查到它的第一天」（官方公告日），不是内部完成日 —— 演化树只用来看先后，月内误差在图上看不出来。负责人 2026-08-11 定的口径。",
+   "cap": "i-multiturn"
   },
   {
    "id": "seedream-Seedream 3.0-原生 2K 直出 + 小字排版变准",
@@ -10664,7 +10680,8 @@
    "added": "原生 2K 直出 + 小字排版变准",
    "src": "seed-blog",
    "quote": "native 2K output for diverse aspect ratios; improved small text accuracy and typography",
-   "note": "日期取「公开可查到它的第一天」（官方公告日），不是内部完成日 —— 演化树只用来看先后，月内误差在图上看不出来。负责人 2026-08-11 定的口径。"
+   "note": "日期取「公开可查到它的第一天」（官方公告日），不是内部完成日 —— 演化树只用来看先后，月内误差在图上看不出来。负责人 2026-08-11 定的口径。",
+   "cap": "i-textrender"
   },
   {
    "id": "seedream-Seedream 4.0-出图与改图并进一个模型",
@@ -10675,7 +10692,8 @@
    "src": "seed-blog",
    "quote": "a new-gen image creation model developed by the ByteDance Seed team",
    "note": "日期取「公开可查到它的第一天」（官方公告日），不是内部完成日 —— 演化树只用来看先后，月内误差在图上看不出来。负责人 2026-08-11 定的口径。",
-   "parent": "seedream-Seedream 3.0-原生 2K 直出 + 小字排版变准"
+   "parent": "seedream-Seedream 3.0-原生 2K 直出 + 小字排版变准",
+   "cap": "i-edit"
   },
   {
    "id": "recraft-Recraft V3-长段文字 + 文字位置和大小可指定",
@@ -10685,7 +10703,8 @@
    "added": "长段文字 + 文字位置和大小可指定",
    "src": "recraft-blog",
    "quote": "Recraft V3 is the only model in the world that can generate images with long texts, as opposed to just one or a couple of words. The new model allows specifying the exact positions and sizes of text on a design.",
-   "note": "日期取「公开可查到它的第一天」（官方公告日），不是内部完成日 —— 演化树只用来看先后，月内误差在图上看不出来。负责人 2026-08-11 定的口径。"
+   "note": "日期取「公开可查到它的第一天」（官方公告日），不是内部完成日 —— 演化树只用来看先后，月内误差在图上看不出来。负责人 2026-08-11 定的口径。",
+   "cap": "i-textrender"
   },
   {
    "id": "kolors-Kolors-中英双语出图的开放权重底座",
@@ -10695,7 +10714,8 @@
    "added": "中英双语出图的开放权重底座",
    "src": "kolors-gh",
    "quote": "We release Kolors, a large text-to-image model trained on billions of text-image pairs. This model is bilingual in both Chinese and English",
-   "note": "日期取官方 README 自己的发布日志行（2024.07.06）；GitHub 仓库建库是 07-05。日期取「公开可查到它的第一天」（官方公告日），不是内部完成日 —— 演化树只用来看先后，月内误差在图上看不出来。负责人 2026-08-11 定的口径。"
+   "note": "日期取官方 README 自己的发布日志行（2024.07.06）；GitHub 仓库建库是 07-05。日期取「公开可查到它的第一天」（官方公告日），不是内部完成日 —— 演化树只用来看先后，月内误差在图上看不出来。负责人 2026-08-11 定的口径。",
+   "cap": "i-openweights"
   },
   {
    "id": "midjourney-V6-这一代起大幅改善提示词跟随",
@@ -10705,7 +10725,8 @@
    "added": "这一代起大幅改善提示词跟随",
    "src": "wiki-midjourney",
    "quote": "V6 ... December 21, 2023 (alpha)",
-   "note": "日期取「公开可查到它的第一天」（官方公告日），不是内部完成日 —— 演化树只用来看先后，月内误差在图上看不出来。负责人 2026-08-11 定的口径。"
+   "note": "日期取「公开可查到它的第一天」（官方公告日），不是内部完成日 —— 演化树只用来看先后，月内误差在图上看不出来。负责人 2026-08-11 定的口径。",
+   "cap_skip": "效果或速度的改善，能力轴上没有对应项（轴记的是「能不能做」，不是「做得多好」）"
   },
   {
    "id": "midjourney-V6.1-画质与细节一致性迭代",
@@ -10716,7 +10737,8 @@
    "src": "wiki-midjourney",
    "quote": "V6.1 ... July 31, 2024",
    "note": "日期取「公开可查到它的第一天」（官方公告日），不是内部完成日 —— 演化树只用来看先后，月内误差在图上看不出来。负责人 2026-08-11 定的口径。",
-   "parent": "midjourney-V6-这一代起大幅改善提示词跟随"
+   "parent": "midjourney-V6-这一代起大幅改善提示词跟随",
+   "cap_skip": "效果或速度的改善，能力轴上没有对应项（轴记的是「能不能做」，不是「做得多好」）"
   },
   {
    "id": "midjourney-V7-Draft Mode 与 Omni Reference",
@@ -10727,7 +10749,8 @@
    "src": "wiki-midjourney",
    "quote": "V7 ... April 4, 2025 (alpha)",
    "note": "日期取「公开可查到它的第一天」（官方公告日），不是内部完成日 —— 演化树只用来看先后，月内误差在图上看不出来。负责人 2026-08-11 定的口径。",
-   "parent": "midjourney-V6.1-画质与细节一致性迭代"
+   "parent": "midjourney-V6.1-画质与细节一致性迭代",
+   "cap": "i-multiref"
   },
   {
    "id": "krea-img-FLUX.1 Krea-把自家审美调校的权重开放出来",
@@ -10737,7 +10760,8 @@
    "added": "把自家审美调校的权重开放出来",
    "src": "krea-blog",
    "quote": "Releasing Open Weights for FLUX.1 Krea",
-   "note": "日期取「公开可查到它的第一天」（官方公告日），不是内部完成日 —— 演化树只用来看先后，月内误差在图上看不出来。负责人 2026-08-11 定的口径。"
+   "note": "日期取「公开可查到它的第一天」（官方公告日），不是内部完成日 —— 演化树只用来看先后，月内误差在图上看不出来。负责人 2026-08-11 定的口径。",
+   "cap": "i-openweights"
   },
   {
    "id": "krea-img-Krea 2-第一个完全从零训练的自研基座",
@@ -10748,7 +10772,8 @@
    "src": "krea-blog",
    "quote": "our first foundation image model built completely from scratch",
    "note": "日期取「公开可查到它的第一天」（官方公告日），不是内部完成日 —— 演化树只用来看先后，月内误差在图上看不出来。负责人 2026-08-11 定的口径。",
-   "parent": "krea-img-FLUX.1 Krea-把自家审美调校的权重开放出来"
+   "parent": "krea-img-FLUX.1 Krea-把自家审美调校的权重开放出来",
+   "cap_skip": "尺寸 / 速度 / 价格档位，不是新增能力"
   },
   {
    "id": "gpt-image-GPT-image-2-4K + 生成前先想（能自查、能搜网）",
@@ -10759,7 +10784,8 @@
    "src": "ms-foundry-blog",
    "quote": "GPT-image-2 brings real world intelligence, multilingual understanding, improved instruction following, increased resolution support, and an intelligent routing layer",
    "note": "OpenAI 自家公告页与帮助中心都抓不到（403），日期取同日上线的 Microsoft Foundry 一侧。",
-   "parent": "gpt-image-gpt-image-1-API 首次开放出图"
+   "parent": "gpt-image-gpt-image-1-API 首次开放出图",
+   "cap": "i-4k"
   },
   {
    "id": "gemini-image-Nano Banana Pro-接上自家新一代大模型的推理，4K 与复杂版面",
@@ -10770,7 +10796,8 @@
    "src": "google-nb-blog",
    "quote": "Today, we're introducing Nano Banana Pro (Gemini 3 Pro Image), our new state-of-the art image generation and editing model.",
    "parent": "gemini-image-Nano Banana-对话式改图（多轮指令改同一张）",
-   "note": " 官方原文点名的是 Gemini 3 Pro（在 quote 里照留）——**摘要里不写别的方向的产品线名**：这条摘要会作为节点标签画在图上，而方向隔离检查（正确地）把那当成串味。"
+   "note": " 官方原文点名的是 Gemini 3 Pro（在 quote 里照留）——**摘要里不写别的方向的产品线名**：这条摘要会作为节点标签画在图上，而方向隔离检查（正确地）把那当成串味。",
+   "cap": "i-4k"
   },
   {
    "id": "gemini-image-Nano Banana 2-Pro 的质量按 Flash 的速度和价钱出",
@@ -10780,7 +10807,8 @@
    "added": "Pro 的质量按 Flash 的速度和价钱出",
    "src": "google-nb-blog",
    "quote": "Introducing Nano Banana 2 (Gemini 3.1 Flash Image), our latest state-of-the-art image model.",
-   "parent": "gemini-image-Nano Banana Pro-接上自家新一代大模型的推理，4K 与复杂版面"
+   "parent": "gemini-image-Nano Banana Pro-接上自家新一代大模型的推理，4K 与复杂版面",
+   "cap_skip": "效果或速度的改善，能力轴上没有对应项（轴记的是「能不能做」，不是「做得多好」）"
   },
   {
    "id": "seedream-Seedream 5.0 Pro-分层输出 + 圈画标注式改图",
@@ -10790,7 +10818,8 @@
    "added": "分层输出 + 圈画标注式改图",
    "src": "seed-blog",
    "quote": "Seedream 5.0 Pro is a multimodal image generation model that features advanced reasoning, efficient content creation, and professional production capabilities.",
-   "parent": "seedream-Seedream 4.0-出图与改图并进一个模型"
+   "parent": "seedream-Seedream 4.0-出图与改图并进一个模型",
+   "cap_skip": "同上：「分层输出」不在图像卷的能力轴上；「圈画标注式改图」是我们的转述，不是厂商对蒙版重绘的原话"
   },
   {
    "id": "qwen-image-Qwen-Image-Layered-分层输出（图层可分开拿）",
@@ -10800,7 +10829,8 @@
    "added": "分层输出（图层可分开拿）",
    "src": "hf-image-org",
    "quote": "Qwen/Qwen-Image-Layered（官方 HF 组织 createdAt 2025-12-17，Apache-2.0）",
-   "parent": "qwen-image-Qwen-Image-Edit-2511-抑制图像漂移、角色一致性、集成 LoRA"
+   "parent": "qwen-image-Qwen-Image-Edit-2511-抑制图像漂移、角色一致性、集成 LoRA",
+   "cap_skip": "**图像卷的能力轴上没有「分层输出」这一项** —— 阿里与字节两家都发了（Qwen-Image-Layered / Seedream 5.0 Pro），轴该补"
   },
   {
    "id": "qwen-image-Qwen-Image-2512-底座换代",
@@ -10810,7 +10840,8 @@
    "added": "底座换代",
    "src": "hf-image-org",
    "quote": "Qwen/Qwen-Image-2512（官方 HF 组织 createdAt 2025-12-30，Apache-2.0）",
-   "parent": "qwen-image-Qwen-Image-Layered-分层输出（图层可分开拿）"
+   "parent": "qwen-image-Qwen-Image-Layered-分层输出（图层可分开拿）",
+   "cap_skip": "发布记录或形态调整，没有声明能力轴上的新增项"
   },
   {
    "id": "z-image-Z-Image-Turbo 之外的完整档",
@@ -10820,7 +10851,8 @@
    "added": "Turbo 之外的完整档",
    "src": "hf-image-org",
    "quote": "Tongyi-MAI/Z-Image（官方 HF 组织 createdAt 2026-01-23）",
-   "parent": "z-image-Z-Image-Turbo-6B、8 步出图、16G 显存可跑；中英双语文字渲染"
+   "parent": "z-image-Z-Image-Turbo-6B、8 步出图、16G 显存可跑；中英双语文字渲染",
+   "cap_skip": "尺寸 / 速度 / 价格档位，不是新增能力"
   },
   {
    "id": "ideogram-Ideogram 4-这一代把权重放了出来",
@@ -10836,7 +10868,8 @@
     "ideogram-ai/ideogram-4-fp8",
     "ideogram-ai/ideogram-4-nf4",
     "ideogram-ai/ideogram-4-nf4-diffusers"
-   ]
+   ],
+   "cap": "i-openweights"
   },
   {
    "id": "sd-SD 3 Medium-换 MMDiT 架构",
@@ -10846,7 +10879,8 @@
    "added": "换 MMDiT 架构",
    "src": "hf-image-org",
    "quote": "stabilityai/stable-diffusion-3-medium（官方 HF 组织 createdAt 2024-05-30）",
-   "parent": "sd-SDXL 1.0-base + refiner 的专家集成流水线"
+   "parent": "sd-SDXL 1.0-base + refiner 的专家集成流水线",
+   "cap_skip": "架构或规模变化，能力轴上没有对应项"
   },
   {
    "id": "sd-SD 3.5 Large-3.x 的大档",
@@ -10856,7 +10890,8 @@
    "added": "3.x 的大档",
    "src": "hf-image-org",
    "quote": "stabilityai/stable-diffusion-3.5-large（官方 HF 组织 createdAt 2024-10-22）",
-   "parent": "sd-SD 3 Medium-换 MMDiT 架构"
+   "parent": "sd-SD 3 Medium-换 MMDiT 架构",
+   "cap_skip": "尺寸 / 速度 / 价格档位，不是新增能力"
   },
   {
    "id": "recraft-Recraft V4-按设计审美重训的一代",
@@ -10866,7 +10901,8 @@
    "added": "按设计审美重训的一代",
    "src": "recraft-blog",
    "quote": "Recraft V4 … brings true visual taste to AI image generation",
-   "parent": "recraft-Recraft V3-长段文字 + 文字位置和大小可指定"
+   "parent": "recraft-Recraft V3-长段文字 + 文字位置和大小可指定",
+   "cap_skip": "效果或速度的改善，能力轴上没有对应项（轴记的是「能不能做」，不是「做得多好」）"
   },
   {
    "id": "recraft-Recraft V4.1-写实更自然、短提示词也能懂",
@@ -10876,7 +10912,8 @@
    "added": "写实更自然、短提示词也能懂",
    "src": "recraft-blog",
    "quote": "Give V4.1 just a few words, and it'll give you something worth keeping.",
-   "parent": "recraft-Recraft V4-按设计审美重训的一代"
+   "parent": "recraft-Recraft V4-按设计审美重训的一代",
+   "cap_skip": "效果或速度的改善，能力轴上没有对应项（轴记的是「能不能做」，不是「做得多好」）"
   },
   {
    "id": "midjourney-V8 Alpha-出图快约 5 倍 + 原生 2K（--hd）",
@@ -10886,7 +10923,8 @@
    "added": "出图快约 5 倍 + 原生 2K（--hd）",
    "src": "mj-updates",
    "quote": "V8 is an incredible model. It's much better at following detailed directions and will still surprise you when you ask.",
-   "parent": "midjourney-V7-Draft Mode 与 Omni Reference"
+   "parent": "midjourney-V7-Draft Mode 与 Omni Reference",
+   "cap_skip": "效果或速度的改善，能力轴上没有对应项（轴记的是「能不能做」，不是「做得多好」）"
   },
   {
    "id": "hidream-HiDream-I1-17B 出图底座，MIT",
@@ -10895,7 +10933,8 @@
    "date": "2025-04-06",
    "added": "17B 出图底座，MIT",
    "src": "comfy-docs",
-   "quote": "HiDream-I1 is a text-to-image model officially open-sourced by HiDream-ai on April 7, 2025. The model has 17B parameters and is released under the MIT license"
+   "quote": "HiDream-I1 is a text-to-image model officially open-sourced by HiDream-ai on April 7, 2025. The model has 17B parameters and is released under the MIT license",
+   "cap": "i-openweights"
   },
   {
    "id": "hidream-HiDream-E1.1-按指令改图的分支",
@@ -10905,7 +10944,8 @@
    "added": "按指令改图的分支",
    "src": "hf-image-org",
    "quote": "HiDream-ai/HiDream-E1-1（官方 HF 组织 createdAt 2025-07-16，MIT）",
-   "parent": "hidream-HiDream-I1-17B 出图底座，MIT"
+   "parent": "hidream-HiDream-I1-17B 出图底座，MIT",
+   "cap": "i-edit"
   },
   {
    "id": "hidream-HiDream-O1-Image-这一代加了推理",
@@ -10915,7 +10955,8 @@
    "added": "这一代加了推理",
    "src": "hf-image-org",
    "quote": "HiDream-ai/HiDream-O1-Image（官方 HF 组织 createdAt 2026-05-08，MIT）",
-   "parent": "hidream-HiDream-E1.1-按指令改图的分支"
+   "parent": "hidream-HiDream-E1.1-按指令改图的分支",
+   "cap_skip": "待挂：上一轮挂错了方向，撤回重判"
   },
   {
    "id": "ernie-image-ERNIE-Image-Turbo-快档先出",
@@ -10924,7 +10965,8 @@
    "date": "2026-04-02",
    "added": "快档先出",
    "src": "hf-image-org",
-   "quote": "baidu/ERNIE-Image-Turbo（官方 HF 组织 createdAt 2026-04-02）"
+   "quote": "baidu/ERNIE-Image-Turbo（官方 HF 组织 createdAt 2026-04-02）",
+   "cap_skip": "速度档，不是新增能力"
   },
   {
    "id": "ernie-image-ERNIE-Image-8B DiT 正式档，apache-2.0",
@@ -10934,7 +10976,8 @@
    "added": "8B DiT 正式档，apache-2.0",
    "src": "comfy-docs",
    "quote": "ERNIE-Image is an open text-to-image model by Baidu, licensed under Apache-2.0. Built on an 8B parameter Diffusion Transformer (DiT)",
-   "parent": "ernie-image-ERNIE-Image-Turbo-快档先出"
+   "parent": "ernie-image-ERNIE-Image-Turbo-快档先出",
+   "cap": "i-openweights"
   },
   {
    "id": "ernie-image-ERNIE-Image-Aes-审美取向的调校档",
@@ -10944,7 +10987,8 @@
    "added": "审美取向的调校档",
    "src": "hf-image-org",
    "quote": "baidu/ERNIE-Image-Aes（官方 HF 组织 createdAt 2026-05-18，apache-2.0）",
-   "parent": "ernie-image-ERNIE-Image-8B DiT 正式档，apache-2.0"
+   "parent": "ernie-image-ERNIE-Image-8B DiT 正式档，apache-2.0",
+   "cap_skip": "尺寸 / 速度 / 价格档位，不是新增能力"
   },
   {
    "id": "ovis-image-Ovis-Image-7B-7B 专攻图上出字",
@@ -10953,7 +10997,8 @@
    "date": "2025-11-28",
    "added": "7B 专攻图上出字",
    "src": "comfy-docs",
-   "quote": "Ovis-Image is a 7B text-to-image model built upon Ovis-U1, specifically optimized for high-quality text rendering."
+   "quote": "Ovis-Image is a 7B text-to-image model built upon Ovis-U1, specifically optimized for high-quality text rendering.",
+   "cap": "i-textrender"
   },
   {
    "id": "lens-Lens-双流 MMDiT + FLUX.2 的 VAE",
@@ -10963,7 +11008,8 @@
    "added": "双流 MMDiT + FLUX.2 的 VAE",
    "src": "comfy-docs",
    "quote": "Lens is an open text-to-image model by Microsoft, licensed under MIT. With 3.8 billion parameters, it uses a dual-stream MMDiT architecture with GPT-OSS-20B text encoder features and the FLUX.2 semantic VAE",
-   "note": "官方仓库 gated，日期取 ComfyUI 官方镜像 Comfy-Org/Lens 的 createdAt（2026-05-23）—— 误差在月内。"
+   "note": "官方仓库 gated，日期取 ComfyUI 官方镜像 Comfy-Org/Lens 的 createdAt（2026-05-23）—— 误差在月内。",
+   "cap_skip": "架构或规模变化，能力轴上没有对应项"
   },
   {
    "id": "mage-flow-Mage-Flow-4B 出图与指令改图一体",
@@ -10973,7 +11019,8 @@
    "added": "4B 出图与指令改图一体",
    "src": "comfy-docs",
    "quote": "Mage-Flow is a compact 4B-scale generative stack from Microsoft Research for efficient text-to-image generation and instruction-based image editing.",
-   "note": "官方仓库 gated，日期取 ComfyUI 官方镜像 Comfy-Org/Mage-Flow 的 createdAt（2026-07-24）。"
+   "note": "官方仓库 gated，日期取 ComfyUI 官方镜像 Comfy-Org/Mage-Flow 的 createdAt（2026-07-24）。",
+   "cap": "i-edit"
   },
   {
    "id": "pixeldit-PixelDiT-1300M-1024px-不用 VAE，直接在像素空间扩散",
@@ -10982,7 +11029,8 @@
    "date": "2026-03-30",
    "added": "不用 VAE，直接在像素空间扩散",
    "src": "comfy-docs",
-   "quote": "PixelDiT is NVIDIA's pixel-space diffusion transformer for 1024px text-to-image generation. It operates directly in pixel space: no VAE encode/decode required."
+   "quote": "PixelDiT is NVIDIA's pixel-space diffusion transformer for 1024px text-to-image generation. It operates directly in pixel space: no VAE encode/decode required.",
+   "cap_skip": "架构或规模变化，能力轴上没有对应项"
   },
   {
    "id": "anima-Anima-—",
@@ -10991,7 +11039,8 @@
    "date": "2026-01-29",
    "added": "—",
    "src": "hf-image-org",
-   "quote": "circlestone-labs/Anima（官方 HF 组织 createdAt 2026-01-29，下载 75 万）"
+   "quote": "circlestone-labs/Anima（官方 HF 组织 createdAt 2026-01-29，下载 75 万）",
+   "cap_skip": "这一代没采到「新增了什么」，added 是空的"
   },
   {
    "id": "boogu-image-Boogu-Image-0.1-生成与编辑合到一个模型，apache-2.0",
@@ -11000,7 +11049,8 @@
    "date": "2026-06-16",
    "added": "生成与编辑合到一个模型，apache-2.0",
    "src": "comfy-docs",
-   "quote": "Boogu-Image-0.1 is an Apache-2.0 open-source unified image generation and editing model family."
+   "quote": "Boogu-Image-0.1 is an Apache-2.0 open-source unified image generation and editing model family.",
+   "cap": "i-edit"
   },
   {
    "id": "boogu-image-Boogu-Image-0.1-Edit-Turbo-改图的快档",
@@ -11010,7 +11060,8 @@
    "added": "改图的快档",
    "src": "hf-image-org",
    "quote": "Boogu/Boogu-Image-0.1-Edit-Turbo（官方 HF 组织 createdAt 2026-06-30，apache-2.0）",
-   "parent": "boogu-image-Boogu-Image-0.1-生成与编辑合到一个模型，apache-2.0"
+   "parent": "boogu-image-Boogu-Image-0.1-生成与编辑合到一个模型，apache-2.0",
+   "cap_skip": "尺寸 / 速度 / 价格档位，不是新增能力"
   },
   {
    "id": "newbie-image-NewBie-image-Exp0.1-3.5B Next-DiT，二次元向",
@@ -11019,7 +11070,8 @@
    "date": "2025-11-30",
    "added": "3.5B Next-DiT，二次元向",
    "src": "comfy-docs",
-   "quote": "NewBie-image-Exp0.1 is a 3.5B parameter DiT model developed by NewBieAI Lab for anime-style text-to-image generation. Built on the Next-DiT architecture"
+   "quote": "NewBie-image-Exp0.1 is a 3.5B parameter DiT model developed by NewBieAI Lab for anime-style text-to-image generation. Built on the Next-DiT architecture",
+   "cap_skip": "发布记录或形态调整，没有声明能力轴上的新增项"
   },
   {
    "id": "flux-FLUX.1-Fill-dev-专做重绘与扩图的一档",
@@ -11029,7 +11081,8 @@
    "added": "专做重绘与扩图的一档",
    "src": "hf-image-org",
    "quote": "black-forest-labs/FLUX.1-Fill-dev（官方 HF 组织 createdAt 2024-11-20，下载 377,737）",
-   "parent": "flux-FLUX.1-schnell-首发，快档（少步数）"
+   "parent": "flux-FLUX.1-schnell-首发，快档（少步数）",
+   "cap": "i-inpaint"
   },
   {
    "id": "flux-FLUX.1-Canny-dev-线稿控制档",
@@ -11039,7 +11092,8 @@
    "added": "线稿控制档",
    "src": "hf-image-org",
    "quote": "black-forest-labs/FLUX.1-Canny-dev（官方 HF 组织 createdAt 2024-11-20，下载 4,492）",
-   "parent": "flux-FLUX.1-schnell-首发，快档（少步数）"
+   "parent": "flux-FLUX.1-schnell-首发，快档（少步数）",
+   "cap_skip": "尺寸 / 速度 / 价格档位，不是新增能力"
   },
   {
    "id": "flux-FLUX.1-Depth-dev-深度控制档",
@@ -11049,7 +11103,8 @@
    "added": "深度控制档",
    "src": "hf-image-org",
    "quote": "black-forest-labs/FLUX.1-Depth-dev（官方 HF 组织 createdAt 2024-11-20，下载 2,751）",
-   "parent": "flux-FLUX.1-schnell-首发，快档（少步数）"
+   "parent": "flux-FLUX.1-schnell-首发，快档（少步数）",
+   "cap_skip": "尺寸 / 速度 / 价格档位，不是新增能力"
   },
   {
    "id": "flux-FLUX.1-Redux-dev-图生变体档",
@@ -11059,7 +11114,8 @@
    "added": "图生变体档",
    "src": "hf-image-org",
    "quote": "black-forest-labs/FLUX.1-Redux-dev（官方 HF 组织 createdAt 2024-11-20，下载 6,926）",
-   "parent": "flux-FLUX.1-schnell-首发，快档（少步数）"
+   "parent": "flux-FLUX.1-schnell-首发，快档（少步数）",
+   "cap": "i-i2i"
   },
   {
    "id": "flux-FLUX.2-klein-4B-同代的 4B 小档",
@@ -11069,7 +11125,8 @@
    "added": "同代的 4B 小档",
    "src": "hf-image-org",
    "quote": "black-forest-labs/FLUX.2-klein-4B（官方 HF 组织 createdAt 2026-01-14，下载 354,074）",
-   "parent": "flux-FLUX.2-dev-第二代"
+   "parent": "flux-FLUX.2-dev-第二代",
+   "cap_skip": "尺寸 / 速度 / 价格档位，不是新增能力"
   },
   {
    "id": "flux-FLUX.2-klein-base-4B-4B 的未后训基座",
@@ -11079,7 +11136,8 @@
    "added": "4B 的未后训基座",
    "src": "hf-image-org",
    "quote": "black-forest-labs/FLUX.2-klein-base-4B（官方 HF 组织 createdAt 2026-01-14，下载 139,501）",
-   "parent": "flux-FLUX.2-dev-第二代"
+   "parent": "flux-FLUX.2-dev-第二代",
+   "cap_skip": "尺寸 / 速度 / 价格档位，不是新增能力"
   },
   {
    "id": "flux-FLUX.2-klein-base-9B-9B 的未后训基座",
@@ -11089,7 +11147,8 @@
    "added": "9B 的未后训基座",
    "src": "hf-image-org",
    "quote": "black-forest-labs/FLUX.2-klein-base-9B（官方 HF 组织 createdAt 2026-01-14，下载 104,782）",
-   "parent": "flux-FLUX.2-dev-第二代"
+   "parent": "flux-FLUX.2-dev-第二代",
+   "cap_skip": "尺寸 / 速度 / 价格档位，不是新增能力"
   },
   {
    "id": "sd-SDXL 0.9-SDXL 的预览档",
@@ -11099,7 +11158,8 @@
    "added": "SDXL 的预览档",
    "src": "hf-image-org",
    "quote": "stabilityai/stable-diffusion-xl-base-0.9（官方 HF 组织 createdAt 2023-06-19，下载 44）",
-   "parent": "sd-SD 1.4-首个广泛传播的开放权重出图模型"
+   "parent": "sd-SD 1.4-首个广泛传播的开放权重出图模型",
+   "cap_skip": "尺寸 / 速度 / 价格档位，不是新增能力"
   },
   {
    "id": "sd-SDXL Turbo-少步数蒸馏，一步出图",
@@ -11109,7 +11169,8 @@
    "added": "少步数蒸馏，一步出图",
    "src": "hf-image-org",
    "quote": "stabilityai/sdxl-turbo（官方 HF 组织 createdAt 2023-11-27，下载 1,226,446）",
-   "parent": "sd-SDXL 1.0-base + refiner 的专家集成流水线"
+   "parent": "sd-SDXL 1.0-base + refiner 的专家集成流水线",
+   "cap_skip": "尺寸 / 速度 / 价格档位，不是新增能力"
   },
   {
    "id": "sd-SD 3.5 Large Turbo-3.5 的少步数档",
@@ -11119,7 +11180,8 @@
    "added": "3.5 的少步数档",
    "src": "hf-image-org",
    "quote": "stabilityai/stable-diffusion-3.5-large-turbo（官方 HF 组织 createdAt 2024-10-22，下载 7,470）",
-   "parent": "sd-SD 3 Medium-换 MMDiT 架构"
+   "parent": "sd-SD 3 Medium-换 MMDiT 架构",
+   "cap_skip": "尺寸 / 速度 / 价格档位，不是新增能力"
   },
   {
    "id": "sd-SD 3.5 Medium-3.5 的中档",
@@ -11129,7 +11191,8 @@
    "added": "3.5 的中档",
    "src": "hf-image-org",
    "quote": "stabilityai/stable-diffusion-3.5-medium（官方 HF 组织 createdAt 2024-10-29，下载 89,301）",
-   "parent": "sd-SD 3.5 Large-3.x 的大档"
+   "parent": "sd-SD 3.5 Large-3.x 的大档",
+   "cap_skip": "尺寸 / 速度 / 价格档位，不是新增能力"
   },
   {
    "id": "hidream-HiDream-I1-Fast-I1 的快档",
@@ -11138,7 +11201,8 @@
    "date": "2025-04-06",
    "added": "I1 的快档",
    "src": "hf-image-org",
-   "quote": "HiDream-ai/HiDream-I1-Fast（官方 HF 组织 createdAt 2025-04-06，下载 86,324）"
+   "quote": "HiDream-ai/HiDream-I1-Fast（官方 HF 组织 createdAt 2025-04-06，下载 86,324）",
+   "cap_skip": "尺寸 / 速度 / 价格档位，不是新增能力"
   },
   {
    "id": "hidream-HiDream-I1-Dev-I1 的开发档",
@@ -11147,7 +11211,8 @@
    "date": "2025-04-06",
    "added": "I1 的开发档",
    "src": "hf-image-org",
-   "quote": "HiDream-ai/HiDream-I1-Dev（官方 HF 组织 createdAt 2025-04-06，下载 573）"
+   "quote": "HiDream-ai/HiDream-I1-Dev（官方 HF 组织 createdAt 2025-04-06，下载 573）",
+   "cap_skip": "尺寸 / 速度 / 价格档位，不是新增能力"
   },
   {
    "id": "hidream-HiDream-E1-Full-按指令改图的第一版",
@@ -11157,7 +11222,8 @@
    "added": "按指令改图的第一版",
    "src": "hf-image-org",
    "quote": "HiDream-ai/HiDream-E1-Full（官方 HF 组织 createdAt 2025-04-27，下载 174）",
-   "parent": "hidream-HiDream-I1-Fast-I1 的快档"
+   "parent": "hidream-HiDream-I1-Fast-I1 的快档",
+   "cap": "i-edit"
   },
   {
    "id": "hidream-HiDream-O1-Image-Dev-O1 的开发档",
@@ -11167,7 +11233,8 @@
    "added": "O1 的开发档",
    "src": "hf-image-org",
    "quote": "HiDream-ai/HiDream-O1-Image-Dev（官方 HF 组织 createdAt 2026-05-08，下载 1,618）",
-   "parent": "hidream-HiDream-E1.1-按指令改图的分支"
+   "parent": "hidream-HiDream-E1.1-按指令改图的分支",
+   "cap_skip": "尺寸 / 速度 / 价格档位，不是新增能力"
   },
   {
    "id": "hidream-HiDream-O1-Image-Dev-2604-O1 开发档的日期戳更新",
@@ -11177,7 +11244,8 @@
    "added": "O1 开发档的日期戳更新",
    "src": "hf-image-org",
    "quote": "HiDream-ai/HiDream-O1-Image-Dev-2604（官方 HF 组织 createdAt 2026-05-13，下载 1,026）",
-   "parent": "hidream-HiDream-O1-Image-这一代加了推理"
+   "parent": "hidream-HiDream-O1-Image-这一代加了推理",
+   "cap_skip": "换代或小版本记录，没有声明新增能力"
   },
   {
    "id": "hunyuan-image-HunyuanImage-2.1-3.0 的前一代",
@@ -11186,7 +11254,8 @@
    "date": "2025-09-05",
    "added": "3.0 的前一代",
    "src": "hf-image-org",
-   "quote": "tencent/HunyuanImage-2.1（官方 HF 组织 createdAt 2025-09-05，下载 170）"
+   "quote": "tencent/HunyuanImage-2.1（官方 HF 组织 createdAt 2025-09-05，下载 170）",
+   "cap_skip": "发布记录或形态调整，没有声明能力轴上的新增项"
   },
   {
    "id": "pixeldit-PixelDiT-ImageNet-ImageNet 上的对照档",
@@ -11195,7 +11264,8 @@
    "date": "2026-03-30",
    "added": "ImageNet 上的对照档",
    "src": "hf-image-org",
-   "quote": "nvidia/PixelDiT-ImageNet（官方 HF 组织 createdAt 2026-03-30，下载 0）"
+   "quote": "nvidia/PixelDiT-ImageNet（官方 HF 组织 createdAt 2026-03-30，下载 0）",
+   "cap_skip": "尺寸 / 速度 / 价格档位，不是新增能力"
   },
   {
    "id": "boogu-image-Boogu-Image-0.1-Base-0.1 的基座档",
@@ -11204,7 +11274,8 @@
    "date": "2026-06-16",
    "added": "0.1 的基座档",
    "src": "hf-image-org",
-   "quote": "Boogu/Boogu-Image-0.1-Base（官方 HF 组织 createdAt 2026-06-16，下载 800）"
+   "quote": "Boogu/Boogu-Image-0.1-Base（官方 HF 组织 createdAt 2026-06-16，下载 800）",
+   "cap_skip": "尺寸 / 速度 / 价格档位，不是新增能力"
   },
   {
    "id": "boogu-image-Boogu-Image-0.1-Edit-0.1 的改图档",
@@ -11213,7 +11284,8 @@
    "date": "2026-06-16",
    "added": "0.1 的改图档",
    "src": "hf-image-org",
-   "quote": "Boogu/Boogu-Image-0.1-Edit（官方 HF 组织 createdAt 2026-06-16，下载 868）"
+   "quote": "Boogu/Boogu-Image-0.1-Edit（官方 HF 组织 createdAt 2026-06-16，下载 868）",
+   "cap_skip": "尺寸 / 速度 / 价格档位，不是新增能力"
   },
   {
    "id": "boogu-image-Boogu-Image-0.1-Turbo-0.1 的快档",
@@ -11222,7 +11294,8 @@
    "date": "2026-06-16",
    "added": "0.1 的快档",
    "src": "hf-image-org",
-   "quote": "Boogu/Boogu-Image-0.1-Turbo（官方 HF 组织 createdAt 2026-06-16，下载 870）"
+   "quote": "Boogu/Boogu-Image-0.1-Turbo（官方 HF 组织 createdAt 2026-06-16，下载 870）",
+   "cap_skip": "尺寸 / 速度 / 价格档位，不是新增能力"
   },
   {
    "id": "boogu-image-Boogu-Image-0.0-Base-exp-pt-0.1 之前的实验档",
@@ -11232,7 +11305,8 @@
    "added": "0.1 之前的实验档",
    "src": "hf-image-org",
    "quote": "Boogu/Boogu-Image-0.0-Base-exp-pt（官方 HF 组织 createdAt 2026-06-18，下载 164）",
-   "parent": "boogu-image-Boogu-Image-0.1-生成与编辑合到一个模型，apache-2.0"
+   "parent": "boogu-image-Boogu-Image-0.1-生成与编辑合到一个模型，apache-2.0",
+   "cap_skip": "尺寸 / 速度 / 价格档位，不是新增能力"
   },
   {
    "id": "boogu-image-Boogu-Image-0.0-Edit-exp-pt-实验档的改图版",
@@ -11242,7 +11316,8 @@
    "added": "实验档的改图版",
    "src": "hf-image-org",
    "quote": "Boogu/Boogu-Image-0.0-Edit-exp-pt（官方 HF 组织 createdAt 2026-06-18，下载 159）",
-   "parent": "boogu-image-Boogu-Image-0.1-生成与编辑合到一个模型，apache-2.0"
+   "parent": "boogu-image-Boogu-Image-0.1-生成与编辑合到一个模型，apache-2.0",
+   "cap_skip": "尺寸 / 速度 / 价格档位，不是新增能力"
   },
   {
    "id": "deepseek-V3.2-把算力效率和推理/Agent 表现放到一起",
@@ -11256,7 +11331,8 @@
    "repos": [
     "deepseek-ai/DeepSeek-V3.2",
     "deepseek-ai/DeepSeek-V3.2-Speciale"
-   ]
+   ],
+   "cap_skip": "发布记录或形态调整，没有声明能力轴上的新增项"
   },
   {
    "id": "deepseek-V4-换代：Pro 1.6T（激活 49B）与 Flash 两档 MoE",
@@ -11270,7 +11346,8 @@
    "repos": [
     "deepseek-ai/DeepSeek-V4-Flash-Base",
     "deepseek-ai/DeepSeek-V4-Pro-Base"
-   ]
+   ],
+   "cap_skip": "换代或小版本记录，没有声明新增能力"
   },
   {
    "id": "deepseek-V4-Flash-0731-Flash 档的日期戳更新",
@@ -11280,7 +11357,8 @@
    "added": "Flash 档的日期戳更新",
    "src": "hf-text-org",
    "quote": "deepseek-ai/DeepSeek-V4-Flash-0731（官方 HF 组织 createdAt 2026-07-31，下载 105 万）",
-   "parent": "deepseek-V4-换代：Pro 1.6T（激活 49B）与 Flash 两档 MoE"
+   "parent": "deepseek-V4-换代：Pro 1.6T（激活 49B）与 Flash 两档 MoE",
+   "cap_skip": "换代或小版本记录，没有声明新增能力"
   },
   {
    "id": "glm-GLM-4.5-这一代的开放权重发布",
@@ -11294,7 +11372,8 @@
    "parent": "glm-GLM-4-改名 GLM-4，脱",
    "repos": [
     "zai-org/GLM-4.5"
-   ]
+   ],
+   "cap": "t-openweights"
   },
   {
    "id": "glm-GLM-4.6-小版本迭代",
@@ -11308,7 +11387,8 @@
    "parent": "glm-GLM-4.5-这一代的开放权重发布",
    "repos": [
     "zai-org/GLM-4.6"
-   ]
+   ],
+   "cap_skip": "换代或小版本记录，没有声明新增能力"
   },
   {
    "id": "glm-GLM-4.7-小版本迭代",
@@ -11319,7 +11399,8 @@
    "src": "hf-text-org",
    "quote": "GLM-4.7 technical blog, technical report(GLM-4.5)",
    "note": "官方模型卡只给了博客链接，**没写这一代新增了什么** —— 这一条本身就是可记的事实",
-   "parent": "glm-GLM-4.6-小版本迭代"
+   "parent": "glm-GLM-4.6-小版本迭代",
+   "cap_skip": "换代或小版本记录，没有声明新增能力"
   },
   {
    "id": "glm-GLM-5-换代：冲复杂系统工程与长程 Agent 任务",
@@ -11332,7 +11413,8 @@
    "parent": "glm-GLM-4.7-小版本迭代",
    "repos": [
     "zai-org/GLM-5"
-   ]
+   ],
+   "cap_skip": "换代或小版本记录，没有声明新增能力"
   },
   {
    "id": "glm-GLM-5.1-小版本迭代",
@@ -11346,7 +11428,8 @@
    "parent": "glm-GLM-5-换代：冲复杂系统工程与长程 Agent 任务",
    "repos": [
     "zai-org/GLM-5.1"
-   ]
+   ],
+   "cap_skip": "换代或小版本记录，没有声明新增能力"
   },
   {
    "id": "glm-GLM-5.2-小版本迭代",
@@ -11360,7 +11443,8 @@
    "parent": "glm-GLM-5.1-小版本迭代",
    "repos": [
     "zai-org/GLM-5.2"
-   ]
+   ],
+   "cap_skip": "换代或小版本记录，没有声明新增能力"
   },
   {
    "id": "kimi-K2-1T 参数 MoE（激活 32B），用 Muon 优化器训",
@@ -11373,7 +11457,8 @@
    "parent": "kimi-Kimi-Dev-面向软件工程任务的专",
    "repos": [
     "moonshotai/Kimi-K2-Base"
-   ]
+   ],
+   "cap_skip": "架构或规模变化，能力轴上没有对应项"
   },
   {
    "id": "kimi-K2-Thinking-边推理边调工具的思考档",
@@ -11386,7 +11471,8 @@
    "parent": "kimi-K2-1T 参数 MoE（激活 32B），用 Muon 优化器训",
    "repos": [
     "moonshotai/Kimi-K2-Thinking"
-   ]
+   ],
+   "cap": "t-tools"
   },
   {
    "id": "kimi-K2.5-转原生多模态：在 K2-Base 上继续预训 15T 图文混合 token",
@@ -11399,7 +11485,8 @@
    "parent": "kimi-K2-Thinking-边推理边调工具的思考档",
    "repos": [
     "moonshotai/Kimi-K2.5"
-   ]
+   ],
+   "cap": "t-vision"
   },
   {
    "id": "kimi-K2.6-长程编码、自主执行与群体任务编排",
@@ -11412,7 +11499,8 @@
    "parent": "kimi-K2.5-转原生多模态：在 K2-Base 上继续预训 15T 图文混合 token",
    "repos": [
     "moonshotai/Kimi-K2.6"
-   ]
+   ],
+   "cap_skip": "发布记录或形态调整，没有声明能力轴上的新增项"
   },
   {
    "id": "kimi-K3-2.8T 参数，换新注意力（KDA + AttnRes）",
@@ -11425,7 +11513,8 @@
    "parent": "kimi-K2.6-长程编码、自主执行与群体任务编排",
    "repos": [
     "moonshotai/Kimi-K3"
-   ]
+   ],
+   "cap_skip": "架构或规模变化，能力轴上没有对应项"
   },
   {
    "id": "llama-Llama 4-Scout 与 Maverick 两档 MoE",
@@ -11439,7 +11528,8 @@
    "repos": [
     "meta-llama/Llama-4-Maverick-17B-128E-Instruct",
     "meta-llama/Llama-4-Scout-17B-16E-Instruct"
-   ]
+   ],
+   "cap_skip": "尺寸 / 速度 / 价格档位，不是新增能力"
   },
   {
    "id": "minimax-text-M2-主打写代码与 Agent 流程的小模型",
@@ -11452,7 +11542,8 @@
    "parent": "minimax-text-M1-推理模型，按",
    "repos": [
     "MiniMaxAI/MiniMax-M2"
-   ]
+   ],
+   "cap_skip": "开出专门支线，能力轴上没有对应项"
   },
   {
    "id": "minimax-text-M2.5-小版本迭代",
@@ -11466,7 +11557,8 @@
    "parent": "minimax-text-M2.1-小版本迭代",
    "repos": [
     "MiniMaxAI/MiniMax-M2.5"
-   ]
+   ],
+   "cap_skip": "换代或小版本记录，没有声明新增能力"
   },
   {
    "id": "minimax-text-M3-转原生多模态 + 1M 上下文（约 428B 参数、激活 23B）",
@@ -11479,7 +11571,8 @@
    "parent": "minimax-text-M2.7-小版本迭代",
    "repos": [
     "MiniMaxAI/MiniMax-M3"
-   ]
+   ],
+   "cap": "t-vision"
   },
   {
    "id": "mistral-text-Large 3-675B 总参 / 41B 激活的多模态细粒度 MoE",
@@ -11492,7 +11585,8 @@
    "parent": "mistral-text-Ministral 3-端侧档换代；同日放出",
    "repos": [
     "mistralai/Mistral-Large-3-675B-Instruct-2512"
-   ]
+   ],
+   "cap_skip": "架构或规模变化，能力轴上没有对应项"
   },
   {
    "id": "mistral-text-Small 4-把 Instruct / Reasoning 等三支合成一个混合模型",
@@ -11505,7 +11599,8 @@
    "parent": "mistral-text-Large 3-675B 总参 / 41B 激活的多模态细粒度 MoE",
    "repos": [
     "mistralai/Mistral-Small-4-119B-2603"
-   ]
+   ],
+   "cap_skip": "发布记录或形态调整，没有声明能力轴上的新增项"
   },
   {
    "id": "mistral-text-Medium 3.5-第一个「合并」旗舰：128B 稠密 + 256k 上下文",
@@ -11518,7 +11613,8 @@
    "parent": "mistral-text-Leanstral-定理证明支线",
    "repos": [
     "mistralai/Mistral-Medium-3.5-128B"
-   ]
+   ],
+   "cap_skip": "架构或规模变化，能力轴上没有对应项"
   },
   {
    "id": "qwen-text-Qwen3.5-换代",
@@ -11532,7 +11628,8 @@
    "repos": [
     "Qwen/Qwen3.5-27B",
     "Qwen/Qwen3.5-397B-A17B"
-   ]
+   ],
+   "cap_skip": "换代或小版本记录，没有声明新增能力"
   },
   {
    "id": "qwen-text-Qwen3.6-按社区反馈做稳定性与可靠性",
@@ -11546,7 +11643,8 @@
    "repos": [
     "Qwen/Qwen3.6-27B",
     "Qwen/Qwen3.6-35B-A3B"
-   ]
+   ],
+   "cap_skip": "效果或速度的改善，能力轴上没有对应项（轴记的是「能不能做」，不是「做得多好」）"
   },
   {
    "id": "claude-Claude 3-这一代的 API 发",
@@ -11556,7 +11654,8 @@
    "added": "这一代的 API 发布",
    "src": "claude-deprecations",
    "quote": "弃用表：`claude-3-sonnet-20240229`（ID 尾部即发布日）",
-   "note": "Anthropic 的弃用表**只登记日期，不写这一代新增了什么** —— 这一条本身就是可记的事实。4.6 之后 ID 不再带日期，日期由「退役不早于」减一年推得（**这是推算不是原文**）：Fable 5 官方写明 GA 2026-06-09、退役不早于 2027-06-09，Sonnet 4.5 的 ID 是 20250929、退役 2026-09-29，两个锚点都正好一年；误差最大的 Opus 4.5 也只差 23 天，月份级可用"
+   "note": "Anthropic 的弃用表**只登记日期，不写这一代新增了什么** —— 这一条本身就是可记的事实。4.6 之后 ID 不再带日期，日期由「退役不早于」减一年推得（**这是推算不是原文**）：Fable 5 官方写明 GA 2026-06-09、退役不早于 2027-06-09，Sonnet 4.5 的 ID 是 20250929、退役 2026-09-29，两个锚点都正好一年；误差最大的 Opus 4.5 也只差 23 天，月份级可用",
+   "cap_skip": "换代或小版本记录，没有声明新增能力"
   },
   {
    "id": "claude-Claude 3.5-这一代的 API 发",
@@ -11567,7 +11666,8 @@
    "src": "claude-deprecations",
    "quote": "弃用表：`claude-3-5-sonnet-20240620`",
    "note": "Anthropic 的弃用表**只登记日期，不写这一代新增了什么** —— 这一条本身就是可记的事实。4.6 之后 ID 不再带日期，日期由「退役不早于」减一年推得（**这是推算不是原文**）：Fable 5 官方写明 GA 2026-06-09、退役不早于 2027-06-09，Sonnet 4.5 的 ID 是 20250929、退役 2026-09-29，两个锚点都正好一年；误差最大的 Opus 4.5 也只差 23 天，月份级可用",
-   "parent": "claude-Claude 3-这一代的 API 发"
+   "parent": "claude-Claude 3-这一代的 API 发",
+   "cap_skip": "换代或小版本记录，没有声明新增能力"
   },
   {
    "id": "claude-Claude 3.7-这一代的 API 发",
@@ -11578,7 +11678,8 @@
    "src": "claude-deprecations",
    "quote": "弃用表：`claude-3-7-sonnet-20250219`",
    "note": "Anthropic 的弃用表**只登记日期，不写这一代新增了什么** —— 这一条本身就是可记的事实。4.6 之后 ID 不再带日期，日期由「退役不早于」减一年推得（**这是推算不是原文**）：Fable 5 官方写明 GA 2026-06-09、退役不早于 2027-06-09，Sonnet 4.5 的 ID 是 20250929、退役 2026-09-29，两个锚点都正好一年；误差最大的 Opus 4.5 也只差 23 天，月份级可用",
-   "parent": "claude-Claude 3.5-这一代的 API 发"
+   "parent": "claude-Claude 3.5-这一代的 API 发",
+   "cap_skip": "换代或小版本记录，没有声明新增能力"
   },
   {
    "id": "claude-Claude 4-这一代的 API 发",
@@ -11589,7 +11690,8 @@
    "src": "claude-deprecations",
    "quote": "弃用表：`claude-sonnet-4-20250514`、`claude-opus-4-20250514`",
    "note": "Anthropic 的弃用表**只登记日期，不写这一代新增了什么** —— 这一条本身就是可记的事实。4.6 之后 ID 不再带日期，日期由「退役不早于」减一年推得（**这是推算不是原文**）：Fable 5 官方写明 GA 2026-06-09、退役不早于 2027-06-09，Sonnet 4.5 的 ID 是 20250929、退役 2026-09-29，两个锚点都正好一年；误差最大的 Opus 4.5 也只差 23 天，月份级可用",
-   "parent": "claude-Claude 3.7-这一代的 API 发"
+   "parent": "claude-Claude 3.7-这一代的 API 发",
+   "cap_skip": "换代或小版本记录，没有声明新增能力"
   },
   {
    "id": "claude-Claude 4.1-Opus 小版本",
@@ -11600,7 +11702,8 @@
    "src": "claude-deprecations",
    "quote": "弃用表：`claude-opus-4-1-20250805`",
    "note": "Anthropic 的弃用表**只登记日期，不写这一代新增了什么** —— 这一条本身就是可记的事实。4.6 之后 ID 不再带日期，日期由「退役不早于」减一年推得（**这是推算不是原文**）：Fable 5 官方写明 GA 2026-06-09、退役不早于 2027-06-09，Sonnet 4.5 的 ID 是 20250929、退役 2026-09-29，两个锚点都正好一年；误差最大的 Opus 4.5 也只差 23 天，月份级可用",
-   "parent": "claude-Claude 4-这一代的 API 发"
+   "parent": "claude-Claude 4-这一代的 API 发",
+   "cap_skip": "发布记录或形态调整，没有声明能力轴上的新增项"
   },
   {
    "id": "claude-Claude 4.5-这一代的 API 发",
@@ -11611,7 +11714,8 @@
    "src": "claude-deprecations",
    "quote": "弃用表：`claude-sonnet-4-5-20250929`、`claude-haiku-4-5-20251001`、`claude-opus-4-5-20251101`",
    "note": "Anthropic 的弃用表**只登记日期，不写这一代新增了什么** —— 这一条本身就是可记的事实。4.6 之后 ID 不再带日期，日期由「退役不早于」减一年推得（**这是推算不是原文**）：Fable 5 官方写明 GA 2026-06-09、退役不早于 2027-06-09，Sonnet 4.5 的 ID 是 20250929、退役 2026-09-29，两个锚点都正好一年；误差最大的 Opus 4.5 也只差 23 天，月份级可用",
-   "parent": "claude-Claude 4.1-Opus 小版本"
+   "parent": "claude-Claude 4.1-Opus 小版本",
+   "cap_skip": "换代或小版本记录，没有声明新增能力"
   },
   {
    "id": "claude-Claude 4.6-ID 改为无日期的定",
@@ -11622,7 +11726,8 @@
    "src": "claude-deprecations",
    "quote": "弃用表：`claude-opus-4-6` 退役不早于 2027-02-05（**日期为减一年推算**）",
    "note": "Anthropic 的弃用表**只登记日期，不写这一代新增了什么** —— 这一条本身就是可记的事实。4.6 之后 ID 不再带日期，日期由「退役不早于」减一年推得（**这是推算不是原文**）：Fable 5 官方写明 GA 2026-06-09、退役不早于 2027-06-09，Sonnet 4.5 的 ID 是 20250929、退役 2026-09-29，两个锚点都正好一年；误差最大的 Opus 4.5 也只差 23 天，月份级可用",
-   "parent": "claude-Claude 4.5-这一代的 API 发"
+   "parent": "claude-Claude 4.5-这一代的 API 发",
+   "cap_skip": "换代或小版本记录，没有声明新增能力"
   },
   {
    "id": "claude-Claude 4.7-起用新分词器；tem",
@@ -11633,7 +11738,8 @@
    "src": "claude-deprecations",
    "quote": "弃用表：`claude-opus-4-7` 退役不早于 2027-04-16（推算）；参数弃用表写明「Deprecated (Claude Opus 4.7 and later)」",
    "note": "Anthropic 的弃用表**只登记日期，不写这一代新增了什么** —— 这一条本身就是可记的事实。4.6 之后 ID 不再带日期，日期由「退役不早于」减一年推得（**这是推算不是原文**）：Fable 5 官方写明 GA 2026-06-09、退役不早于 2027-06-09，Sonnet 4.5 的 ID 是 20250929、退役 2026-09-29，两个锚点都正好一年；误差最大的 Opus 4.5 也只差 23 天，月份级可用",
-   "parent": "claude-Claude 4.6-ID 改为无日期的定"
+   "parent": "claude-Claude 4.6-ID 改为无日期的定",
+   "cap_skip": "架构或规模变化，能力轴上没有对应项"
   },
   {
    "id": "claude-Claude 4.8-effort 参数在",
@@ -11644,7 +11750,8 @@
    "src": "claude-deprecations",
    "quote": "弃用表：`claude-opus-4-8` 退役不早于 2027-05-28（推算）",
    "note": "Anthropic 的弃用表**只登记日期，不写这一代新增了什么** —— 这一条本身就是可记的事实。4.6 之后 ID 不再带日期，日期由「退役不早于」减一年推得（**这是推算不是原文**）：Fable 5 官方写明 GA 2026-06-09、退役不早于 2027-06-09，Sonnet 4.5 的 ID 是 20250929、退役 2026-09-29，两个锚点都正好一年；误差最大的 Opus 4.5 也只差 23 天，月份级可用",
-   "parent": "claude-Claude 4.7-起用新分词器；tem"
+   "parent": "claude-Claude 4.7-起用新分词器；tem",
+   "cap_skip": "架构或规模变化，能力轴上没有对应项"
   },
   {
    "id": "claude-Claude 5-1M 上下文 + 1",
@@ -11655,7 +11762,8 @@
    "src": "claude-deprecations",
    "quote": "弃用表：`claude-sonnet-5` 退役不早于 2027-06-30、`claude-opus-5` 不早于 2027-07-24（推算）",
    "note": "Anthropic 的弃用表**只登记日期，不写这一代新增了什么** —— 这一条本身就是可记的事实。4.6 之后 ID 不再带日期，日期由「退役不早于」减一年推得（**这是推算不是原文**）：Fable 5 官方写明 GA 2026-06-09、退役不早于 2027-06-09，Sonnet 4.5 的 ID 是 20250929、退役 2026-09-29，两个锚点都正好一年；误差最大的 Opus 4.5 也只差 23 天，月份级可用",
-   "parent": "claude-Claude 4.8-effort 参数在"
+   "parent": "claude-Claude 4.8-effort 参数在",
+   "cap": "t-maxout"
   },
   {
    "id": "claude-Claude Fable 5-面向长程智能体；自适",
@@ -11666,7 +11774,8 @@
    "src": "claude-deprecations",
    "quote": "模型总览页原文：「Claude Fable 5 is generally available on the Claude API … beginning June 9, 2026」（**这一条是原文，不是推算**）",
    "note": "Anthropic 的弃用表**只登记日期，不写这一代新增了什么** —— 这一条本身就是可记的事实。4.6 之后 ID 不再带日期，日期由「退役不早于」减一年推得（**这是推算不是原文**）：Fable 5 官方写明 GA 2026-06-09、退役不早于 2027-06-09，Sonnet 4.5 的 ID 是 20250929、退役 2026-09-29，两个锚点都正好一年；误差最大的 Opus 4.5 也只差 23 天，月份级可用。⚠️ **它和 Claude 5 是同一波的两支，不是父子**：Fable 5 的 GA（06-09，原文）早于推算出的 Sonnet 5（06-30）",
-   "parent": "claude-Claude 4.8-effort 参数在"
+   "parent": "claude-Claude 4.8-effort 参数在",
+   "cap_skip": "开出专门支线，能力轴上没有对应项"
   },
   {
    "id": "gpt-GPT-4 Turbo-这一代的 API 发",
@@ -11676,7 +11785,8 @@
    "added": "这一代的 API 发布",
    "src": "openai-changelog",
    "quote": "changelog 2023-11-06：GPT-4 Turbo、GPT-3.5 Turbo、DALL·E 3",
-   "note": "OpenAI 官方 API changelog 按日列出当天上线的模型 id；取每一代**最早**出现的那一天"
+   "note": "OpenAI 官方 API changelog 按日列出当天上线的模型 id；取每一代**最早**出现的那一天",
+   "cap_skip": "换代或小版本记录，没有声明新增能力"
   },
   {
    "id": "gpt-GPT-4o-原生多模态",
@@ -11687,7 +11797,8 @@
    "src": "openai-changelog",
    "quote": "changelog 2024-05-13：GPT-4o",
    "note": "OpenAI 官方 API changelog 按日列出当天上线的模型 id；取每一代**最早**出现的那一天",
-   "parent": "gpt-GPT-4 Turbo-这一代的 API 发"
+   "parent": "gpt-GPT-4 Turbo-这一代的 API 发",
+   "cap": "t-vision"
   },
   {
    "id": "gpt-GPT-4.1-三档分级 mini ",
@@ -11698,7 +11809,8 @@
    "src": "openai-changelog",
    "quote": "changelog 2025-04-14：gpt-4.1、gpt-4.1-mini、gpt-4.1-nano",
    "note": "OpenAI 官方 API changelog 按日列出当天上线的模型 id；取每一代**最早**出现的那一天",
-   "parent": "gpt-GPT-4o-原生多模态"
+   "parent": "gpt-GPT-4o-原生多模态",
+   "cap_skip": "尺寸 / 速度 / 价格档位，不是新增能力"
   },
   {
    "id": "gpt-GPT-5-这一代的 API 发",
@@ -11709,7 +11821,8 @@
    "src": "openai-changelog",
    "quote": "changelog 2025-08-07：gpt-5、gpt-5-mini、gpt-5-nano",
    "note": "OpenAI 官方 API changelog 按日列出当天上线的模型 id；取每一代**最早**出现的那一天",
-   "parent": "gpt-GPT-4.1-三档分级 mini "
+   "parent": "gpt-GPT-4.1-三档分级 mini ",
+   "cap_skip": "换代或小版本记录，没有声明新增能力"
   },
   {
    "id": "gpt-GPT-5.1-加 codex 系列",
@@ -11720,7 +11833,8 @@
    "src": "openai-changelog",
    "quote": "changelog 2025-11-13：gpt-5.1、gpt-5.1-codex、gpt-5.1-chat-latest、gpt-5.1-codex-mini",
    "note": "OpenAI 官方 API changelog 按日列出当天上线的模型 id；取每一代**最早**出现的那一天",
-   "parent": "gpt-GPT-5-这一代的 API 发"
+   "parent": "gpt-GPT-5-这一代的 API 发",
+   "cap_skip": "发布记录或形态调整，没有声明能力轴上的新增项"
   },
   {
    "id": "gpt-GPT-5.2-小版本迭代",
@@ -11731,7 +11845,8 @@
    "src": "openai-changelog",
    "quote": "changelog 2025-12-11：gpt-5.2、gpt-5.2-chat-latest",
    "note": "OpenAI 官方 API changelog 按日列出当天上线的模型 id；取每一代**最早**出现的那一天",
-   "parent": "gpt-GPT-5.1-加 codex 系列"
+   "parent": "gpt-GPT-5.1-加 codex 系列",
+   "cap_skip": "换代或小版本记录，没有声明新增能力"
   },
   {
    "id": "gpt-GPT-5.3-先出 codex 变",
@@ -11742,7 +11857,8 @@
    "src": "openai-changelog",
    "quote": "changelog 2026-02-24：gpt-5.3-codex（基础型号未单独列出，故取此日）",
    "note": "OpenAI 官方 API changelog 按日列出当天上线的模型 id；取每一代**最早**出现的那一天",
-   "parent": "gpt-GPT-5.2-小版本迭代"
+   "parent": "gpt-GPT-5.2-小版本迭代",
+   "cap_skip": "发布记录或形态调整，没有声明能力轴上的新增项"
   },
   {
    "id": "gpt-GPT-5.4-加 pro 档",
@@ -11753,7 +11869,8 @@
    "src": "openai-changelog",
    "quote": "changelog 2026-03-05：gpt-5.4、gpt-5.4-pro",
    "note": "OpenAI 官方 API changelog 按日列出当天上线的模型 id；取每一代**最早**出现的那一天",
-   "parent": "gpt-GPT-5.3-先出 codex 变"
+   "parent": "gpt-GPT-5.3-先出 codex 变",
+   "cap_skip": "尺寸 / 速度 / 价格档位，不是新增能力"
   },
   {
    "id": "gpt-GPT-5.5-小版本迭代",
@@ -11764,7 +11881,8 @@
    "src": "openai-changelog",
    "quote": "changelog 2026-04-24：gpt-5.5、gpt-5.5-pro",
    "note": "OpenAI 官方 API changelog 按日列出当天上线的模型 id；取每一代**最早**出现的那一天",
-   "parent": "gpt-GPT-5.4-加 pro 档"
+   "parent": "gpt-GPT-5.4-加 pro 档",
+   "cap_skip": "换代或小版本记录，没有声明新增能力"
   },
   {
    "id": "gpt-GPT-5.6-改为 Sol / T",
@@ -11775,7 +11893,8 @@
    "src": "openai-changelog",
    "quote": "changelog 2026-07-09：gpt-5.6-sol、gpt-5.6-terra、gpt-5.6-luna",
    "note": "OpenAI 官方 API changelog 按日列出当天上线的模型 id；取每一代**最早**出现的那一天",
-   "parent": "gpt-GPT-5.5-小版本迭代"
+   "parent": "gpt-GPT-5.5-小版本迭代",
+   "cap_skip": "尺寸 / 速度 / 价格档位，不是新增能力"
   },
   {
    "id": "gemini-text-Gemini 1.5-长上下文",
@@ -11785,7 +11904,8 @@
    "added": "长上下文",
    "src": "gemini-changelog",
    "quote": "「Released Gemini 1.5 Pro (gemini-1.5-pro-latest) in preview.」",
-   "note": "Gemini API 官方发布说明；取每一代在日志里**最早**出现的那一天（预览版早于 GA，这里记预览）"
+   "note": "Gemini API 官方发布说明；取每一代在日志里**最早**出现的那一天（预览版早于 GA，这里记预览）",
+   "cap": "t-long"
   },
   {
    "id": "gemini-text-Gemini 2.0-加思考型号",
@@ -11796,7 +11916,8 @@
    "src": "gemini-changelog",
    "quote": "「Released gemini-2.0-flash-thinking-exp-01-21, the latest preview version…」",
    "note": "Gemini API 官方发布说明；取每一代在日志里**最早**出现的那一天（预览版早于 GA，这里记预览）",
-   "parent": "gemini-text-Gemini 1.5-长上下文"
+   "parent": "gemini-text-Gemini 1.5-长上下文",
+   "cap": "t-think"
   },
   {
    "id": "gemini-text-Gemini 2.5-这一代的实验版发布",
@@ -11807,7 +11928,8 @@
    "src": "gemini-changelog",
    "quote": "「Released gemini-2.5-pro-exp-03-25, a public experimental Gemini model…」",
    "note": "Gemini API 官方发布说明；取每一代在日志里**最早**出现的那一天（预览版早于 GA，这里记预览）",
-   "parent": "gemini-text-Gemini 2.0-加思考型号"
+   "parent": "gemini-text-Gemini 2.0-加思考型号",
+   "cap_skip": "换代或小版本记录，没有声明新增能力"
   },
   {
    "id": "gemini-text-Gemini 3-这一代首个型号",
@@ -11818,7 +11940,8 @@
    "src": "gemini-changelog",
    "quote": "「Launched the first Gemini 3 series model, gemini-3-pro-preview…」",
    "note": "Gemini API 官方发布说明；取每一代在日志里**最早**出现的那一天（预览版早于 GA，这里记预览）",
-   "parent": "gemini-text-Gemini 2.5-这一代的实验版发布"
+   "parent": "gemini-text-Gemini 2.5-这一代的实验版发布",
+   "cap_skip": "换代或小版本记录，没有声明新增能力"
   },
   {
    "id": "gemini-text-Gemini 3.1-自定义工具独立端点",
@@ -11829,7 +11952,8 @@
    "src": "gemini-changelog",
    "quote": "「Launched a separate endpoint gemini-3.1-pro-preview-customtools…」",
    "note": "Gemini API 官方发布说明；取每一代在日志里**最早**出现的那一天（预览版早于 GA，这里记预览）",
-   "parent": "gemini-text-Gemini 3-这一代首个型号"
+   "parent": "gemini-text-Gemini 3-这一代首个型号",
+   "cap": "t-tools"
   },
   {
    "id": "gemini-text-Gemini 3.5-转向长程智能体与编码",
@@ -11840,7 +11964,8 @@
    "src": "gemini-changelog",
    "quote": "「Released gemini-3.5-flash, the generally available (GA) version…」",
    "note": "Gemini API 官方发布说明；取每一代在日志里**最早**出现的那一天（预览版早于 GA，这里记预览）",
-   "parent": "gemini-text-Gemini 3.1-自定义工具独立端点"
+   "parent": "gemini-text-Gemini 3.1-自定义工具独立端点",
+   "cap_skip": "发布记录或形态调整，没有声明能力轴上的新增项"
   },
   {
    "id": "gemini-text-Gemini 3.6-token 效率与智",
@@ -11851,7 +11976,8 @@
    "src": "gemini-changelog",
    "quote": "「Gemini 3.6 Flash (gemini-3.6-flash): Features improved token efficiency and code/agentic planning capabilities…」",
    "note": "Gemini API 官方发布说明；取每一代在日志里**最早**出现的那一天（预览版早于 GA，这里记预览）",
-   "parent": "gemini-text-Gemini 3.5-转向长程智能体与编码"
+   "parent": "gemini-text-Gemini 3.5-转向长程智能体与编码",
+   "cap_skip": "架构或规模变化，能力轴上没有对应项"
   },
   {
    "id": "doubao-Seed 1.6-这一代的 API 发",
@@ -11861,7 +11987,8 @@
    "added": "这一代的 API 发布",
    "src": "ark-models",
    "quote": "模型清单：`doubao-seed-1-6-250615`",
-   "note": "火山方舟模型列表页的**模型 ID 尾部就是发布日**（YYMMDD），与 Claude 同一个路子；这里只取文本那条 seed 线"
+   "note": "火山方舟模型列表页的**模型 ID 尾部就是发布日**（YYMMDD），与 Claude 同一个路子；这里只取文本那条 seed 线",
+   "cap_skip": "换代或小版本记录，没有声明新增能力"
   },
   {
    "id": "doubao-Seed 1.6 Vision-加 GUI 任务处理",
@@ -11872,7 +11999,8 @@
    "src": "ark-models",
    "quote": "模型清单：`doubao-seed-1-6-vision-250815`，能力支持列含「GUI 任务处理」",
    "note": "火山方舟模型列表页的**模型 ID 尾部就是发布日**（YYMMDD），与 Claude 同一个路子；这里只取文本那条 seed 线",
-   "parent": "doubao-Seed 1.6-这一代的 API 发"
+   "parent": "doubao-Seed 1.6-这一代的 API 发",
+   "cap": "t-computer"
   },
   {
    "id": "doubao-Seed 1.8-小版本迭代",
@@ -11883,7 +12011,8 @@
    "src": "ark-models",
    "quote": "模型清单：`doubao-seed-1-8-251228`",
    "note": "火山方舟模型列表页的**模型 ID 尾部就是发布日**（YYMMDD），与 Claude 同一个路子；这里只取文本那条 seed 线",
-   "parent": "doubao-Seed 1.6 Vision-加 GUI 任务处理"
+   "parent": "doubao-Seed 1.6 Vision-加 GUI 任务处理",
+   "cap_skip": "换代或小版本记录，没有声明新增能力"
   },
   {
    "id": "doubao-Seed 2.0-分 pro / li",
@@ -11894,7 +12023,8 @@
    "src": "ark-models",
    "quote": "模型清单：`doubao-seed-2-0-pro-260215`、`-lite-260215`、`-mini-260215`",
    "note": "火山方舟模型列表页的**模型 ID 尾部就是发布日**（YYMMDD），与 Claude 同一个路子；这里只取文本那条 seed 线",
-   "parent": "doubao-Seed 1.8-小版本迭代"
+   "parent": "doubao-Seed 1.8-小版本迭代",
+   "cap_skip": "尺寸 / 速度 / 价格档位，不是新增能力"
   },
   {
    "id": "doubao-Seed 2.1-256k 上下文与最",
@@ -11905,7 +12035,8 @@
    "src": "ark-models",
    "quote": "模型清单：`doubao-seed-2-1-pro-260628`、`doubao-seed-2-1-turbo-260628`",
    "note": "火山方舟模型列表页的**模型 ID 尾部就是发布日**（YYMMDD），与 Claude 同一个路子；这里只取文本那条 seed 线",
-   "parent": "doubao-Seed 2.0-分 pro / li"
+   "parent": "doubao-Seed 2.0-分 pro / li",
+   "cap": "t-json"
   },
   {
    "id": "grok-Grok 2-这一代的 API 发",
@@ -11915,7 +12046,8 @@
    "added": "这一代的 API 发布",
    "src": "xai-release-notes",
    "quote": "发布说明 2024 年 12 月：grok-2-1212、grok-2-vision-1212",
-   "note": "xAI 官方 API 发布说明按月分节；**只精确到月**，日期统一记为当月 1 日"
+   "note": "xAI 官方 API 发布说明按月分节；**只精确到月**，日期统一记为当月 1 日",
+   "cap_skip": "换代或小版本记录，没有声明新增能力"
   },
   {
    "id": "grok-Grok 3-这一代的 API 发",
@@ -11926,7 +12058,8 @@
    "src": "xai-release-notes",
    "quote": "发布说明 2025 年 4 月：grok-3",
    "note": "xAI 官方 API 发布说明按月分节；**只精确到月**，日期统一记为当月 1 日",
-   "parent": "grok-Grok 2-这一代的 API 发"
+   "parent": "grok-Grok 2-这一代的 API 发",
+   "cap_skip": "换代或小版本记录，没有声明新增能力"
   },
   {
    "id": "grok-Grok 4-这一代的 API 发",
@@ -11937,7 +12070,8 @@
    "src": "xai-release-notes",
    "quote": "发布说明 2025 年 7 月：grok-4",
    "note": "xAI 官方 API 发布说明按月分节；**只精确到月**，日期统一记为当月 1 日",
-   "parent": "grok-Grok 3-这一代的 API 发"
+   "parent": "grok-Grok 3-这一代的 API 发",
+   "cap_skip": "换代或小版本记录，没有声明新增能力"
   },
   {
    "id": "grok-Grok 4.1-加 fast 档",
@@ -11948,7 +12082,8 @@
    "src": "xai-release-notes",
    "quote": "发布说明 2025 年 11 月：grok-4.1-fast",
    "note": "xAI 官方 API 发布说明按月分节；**只精确到月**，日期统一记为当月 1 日",
-   "parent": "grok-Grok 4-这一代的 API 发"
+   "parent": "grok-Grok 4-这一代的 API 发",
+   "cap_skip": "尺寸 / 速度 / 价格档位，不是新增能力"
   },
   {
    "id": "grok-Grok 4.5-500k 上下文",
@@ -11959,7 +12094,8 @@
    "src": "xai-release-notes",
    "quote": "发布说明 2026 年 7 月：grok-4.5（同月还有 grok-imagine-video-1.5、grok-voice-think-fast-2.0）",
    "note": "xAI 官方 API 发布说明按月分节；**只精确到月**，日期统一记为当月 1 日",
-   "parent": "grok-Grok 4.1-加 fast 档"
+   "parent": "grok-Grok 4.1-加 fast 档",
+   "cap": "t-long"
   },
   {
    "id": "qwen-text-Qwen-7B-这条线的第一代开放权",
@@ -11972,7 +12108,8 @@
    "note": "日期取官方 HF 组织的 createdAt（**不是 lastModified**）；同一代的多个尺寸档与量化档已折成一个节点",
    "repos": [
     "Qwen/Qwen-7B"
-   ]
+   ],
+   "cap": "t-openweights"
   },
   {
    "id": "qwen-text-Qwen1.5-铺开 0.5B 到 ",
@@ -11983,7 +12120,8 @@
    "src": "hf-text-org",
    "quote": "Qwen/Qwen1.5-0.5B 起，createdAt 2024-01-22（同代 16 个仓库）",
    "note": "日期取官方 HF 组织的 createdAt（**不是 lastModified**）；同一代的多个尺寸档与量化档已折成一个节点",
-   "parent": "qwen-text-Qwen-7B-这条线的第一代开放权"
+   "parent": "qwen-text-Qwen-7B-这条线的第一代开放权",
+   "cap_skip": "尺寸 / 速度 / 价格档位，不是新增能力"
   },
   {
    "id": "qwen-text-Qwen2-加 MoE（57B-",
@@ -11998,7 +12136,8 @@
    "repos": [
     "Qwen/Qwen2-57B-A14B",
     "Qwen/Qwen2-72B"
-   ]
+   ],
+   "cap_skip": "架构或规模变化，能力轴上没有对应项"
   },
   {
    "id": "qwen-text-Qwen2.5-同期分出 Coder",
@@ -12009,7 +12148,8 @@
    "src": "hf-text-org",
    "quote": "Qwen/Qwen2.5-0.5B 起 createdAt 2024-09-15；次日 Qwen2.5-Coder-7B",
    "note": "日期取官方 HF 组织的 createdAt（**不是 lastModified**）；同一代的多个尺寸档与量化档已折成一个节点",
-   "parent": "qwen-text-Qwen2-加 MoE（57B-"
+   "parent": "qwen-text-Qwen2-加 MoE（57B-",
+   "cap_skip": "开出专门支线，能力轴上没有对应项"
   },
   {
    "id": "qwen-text-QwQ-专做推理的支线（Pr",
@@ -12024,7 +12164,8 @@
    "repos": [
     "Qwen/QwQ-32B",
     "Qwen/QwQ-32B-Preview"
-   ]
+   ],
+   "cap_skip": "开出专门支线，能力轴上没有对应项"
   },
   {
    "id": "qwen-text-Qwen3-换代；同年 7 月拆",
@@ -12039,7 +12180,8 @@
    "repos": [
     "Qwen/Qwen3-0.6B",
     "Qwen/Qwen3-30B-A3B"
-   ]
+   ],
+   "cap_skip": "换代或小版本记录，没有声明新增能力"
   },
   {
    "id": "qwen-text-Qwen3-Next-新架构试验档 80B",
@@ -12054,7 +12196,8 @@
    "repos": [
     "Qwen/Qwen3-Next-80B-A3B-Instruct",
     "Qwen/Qwen3-Next-80B-A3B-Thinking"
-   ]
+   ],
+   "cap_skip": "架构或规模变化，能力轴上没有对应项"
   },
   {
    "id": "llama-Llama 2-这条线在 HF 上的",
@@ -12067,7 +12210,8 @@
    "note": "日期取官方 HF 组织的 createdAt（**不是 lastModified**）；同一代的多个尺寸档与量化档已折成一个节点",
    "repos": [
     "meta-llama/Llama-2-7b"
-   ]
+   ],
+   "cap": "t-openweights"
   },
   {
    "id": "llama-Llama 3-换代",
@@ -12081,7 +12225,8 @@
    "parent": "llama-Llama 2-这条线在 HF 上的",
    "repos": [
     "meta-llama/Meta-Llama-3-70B"
-   ]
+   ],
+   "cap_skip": "换代或小版本记录，没有声明新增能力"
   },
   {
    "id": "llama-Llama 3.1-405B 档",
@@ -12095,7 +12240,8 @@
    "parent": "llama-Llama 3-换代",
    "repos": [
     "meta-llama/Llama-3.1-8B"
-   ]
+   ],
+   "cap_skip": "尺寸 / 速度 / 价格档位，不是新增能力"
   },
   {
    "id": "llama-Llama 3.2-下探到 1B / 3",
@@ -12109,7 +12255,8 @@
    "parent": "llama-Llama 3.1-405B 档",
    "repos": [
     "meta-llama/Llama-3.2-1B"
-   ]
+   ],
+   "cap_skip": "尺寸 / 速度 / 价格档位，不是新增能力"
   },
   {
    "id": "llama-Llama 3.3-只发 70B Ins",
@@ -12123,7 +12270,8 @@
    "parent": "llama-Llama 3.2-下探到 1B / 3",
    "repos": [
     "meta-llama/Llama-3.3-70B-Instruct"
-   ]
+   ],
+   "cap_skip": "发布记录或形态调整，没有声明能力轴上的新增项"
   },
   {
    "id": "qwen-text-Qwen1.5-MoE-这条线的第一个 Mo",
@@ -12138,7 +12286,8 @@
    "repos": [
     "Qwen/Qwen1.5-0.5B",
     "Qwen/Qwen1.5-MoE-A2.7B"
-   ]
+   ],
+   "cap_skip": "架构或规模变化，能力轴上没有对应项"
   },
   {
    "id": "qwen-text-Qwen2.5-Coder-分出代码支线",
@@ -12153,7 +12302,8 @@
    "repos": [
     "Qwen/Qwen2.5-0.5B",
     "Qwen/Qwen2.5-Coder-7B"
-   ]
+   ],
+   "cap_skip": "开出专门支线，能力轴上没有对应项"
   },
   {
    "id": "qwen-text-Qwen3-2507-Instruct",
@@ -12168,7 +12318,8 @@
    "repos": [
     "Qwen/Qwen3-235B-A22B-Instruct-2507",
     "Qwen/Qwen3-235B-A22B-Thinking-2507"
-   ]
+   ],
+   "cap_skip": "发布记录或形态调整，没有声明能力轴上的新增项"
   },
   {
    "id": "qwen-text-Qwen3-Coder-代码支线跟进到 Qw",
@@ -12184,7 +12335,8 @@
     "Qwen/Qwen3-4B-Instruct-2507",
     "Qwen/Qwen3-4B-Thinking-2507",
     "Qwen/Qwen3-Coder-480B-A35B-Instruct"
-   ]
+   ],
+   "cap_skip": "开出专门支线，能力轴上没有对应项"
   },
   {
    "id": "qwen-text-Qwen3-Coder-Next-代码支线接上 Nex",
@@ -12198,7 +12350,8 @@
    "parent": "qwen-text-Qwen3-Coder-代码支线跟进到 Qw",
    "repos": [
     "Qwen/Qwen3-Coder-Next"
-   ]
+   ],
+   "cap_skip": "架构或规模变化，能力轴上没有对应项"
   },
   {
    "id": "qwen-text-Qwen-AgentWorld-面向智能体环境的专门",
@@ -12212,7 +12365,8 @@
    "parent": "qwen-text-Qwen3.6-按社区反馈做稳定性与可靠性",
    "repos": [
     "Qwen/Qwen-AgentWorld-35B-A3B"
-   ]
+   ],
+   "cap_skip": "开出专门支线，能力轴上没有对应项"
   },
   {
    "id": "deepseek-deepseek-coder-这条线在 HF 上最",
@@ -12225,7 +12379,8 @@
    "note": "日期取官方 HF 组织的 createdAt（**不是 lastModified**）；同一代的多个尺寸档与量化档已折成一个节点。跨模态支线（视觉 / 音频 / 图像生成）不在这棵树上 —— 它们的产出物不是文本。",
    "repos": [
     "deepseek-ai/deepseek-coder-6.7b-base"
-   ]
+   ],
+   "cap": "t-openweights"
   },
   {
    "id": "deepseek-deepseek-llm-第一个通用语言模型",
@@ -12239,7 +12394,8 @@
    "parent": "deepseek-deepseek-coder-这条线在 HF 上最",
    "repos": [
     "deepseek-ai/deepseek-llm-7b-base"
-   ]
+   ],
+   "cap_skip": "产品线起点或同日并列发布，不代表某一项能力首次出现"
   },
   {
    "id": "deepseek-deepseek-moe-转 MoE 架构",
@@ -12253,7 +12409,8 @@
    "parent": "deepseek-deepseek-llm-第一个通用语言模型",
    "repos": [
     "deepseek-ai/deepseek-moe-16b-base"
-   ]
+   ],
+   "cap_skip": "架构或规模变化，能力轴上没有对应项"
   },
   {
    "id": "deepseek-V2-换代；同月出 Lit",
@@ -12269,7 +12426,8 @@
     "deepseek-ai/DeepSeek-V2",
     "deepseek-ai/DeepSeek-V2-Chat-0628",
     "deepseek-ai/DeepSeek-V2-Lite"
-   ]
+   ],
+   "cap_skip": "换代或小版本记录，没有声明新增能力"
   },
   {
    "id": "deepseek-Coder-V2-代码支线跟到 V2",
@@ -12283,7 +12441,8 @@
    "parent": "deepseek-V2-换代；同月出 Lit",
    "repos": [
     "deepseek-ai/DeepSeek-Coder-V2-Lite-Base"
-   ]
+   ],
+   "cap_skip": "开出专门支线，能力轴上没有对应项"
   },
   {
    "id": "deepseek-V2.5-把通用与代码两条线合",
@@ -12297,7 +12456,8 @@
    "parent": "deepseek-V2-换代；同月出 Lit",
    "repos": [
     "deepseek-ai/DeepSeek-V2.5"
-   ]
+   ],
+   "cap_skip": "开出专门支线，能力轴上没有对应项"
   },
   {
    "id": "deepseek-V3-换代",
@@ -12311,7 +12471,8 @@
    "parent": "deepseek-V2.5-把通用与代码两条线合",
    "repos": [
     "deepseek-ai/DeepSeek-V3-Base"
-   ]
+   ],
+   "cap_skip": "换代或小版本记录，没有声明新增能力"
   },
   {
    "id": "deepseek-R1-推理模型：同",
@@ -12328,7 +12489,8 @@
     "deepseek-ai/DeepSeek-R1-Distill-Llama-8B",
     "deepseek-ai/DeepSeek-R1-Distill-Qwen-1.5B",
     "deepseek-ai/DeepSeek-R1-Zero"
-   ]
+   ],
+   "cap": "t-think"
   },
   {
    "id": "deepseek-V3.1-换代；同年 9 月出",
@@ -12343,7 +12505,8 @@
    "repos": [
     "deepseek-ai/DeepSeek-V3.1-Base",
     "deepseek-ai/DeepSeek-V3.1-Terminus"
-   ]
+   ],
+   "cap_skip": "换代或小版本记录，没有声明新增能力"
   },
   {
    "id": "glm-ChatGLM-6B-这条线的起点，中文开",
@@ -12356,7 +12519,8 @@
    "note": "日期取官方 HF 组织的 createdAt（**不是 lastModified**）；同一代的多个尺寸档与量化档已折成一个节点。跨模态支线（视觉 / 音频 / 图像生成）不在这棵树上 —— 它们的产出物不是文本。",
    "repos": [
     "zai-org/chatglm-6b"
-   ]
+   ],
+   "cap": "t-openweights"
   },
   {
    "id": "glm-ChatGLM2-换代；同年 7 月出",
@@ -12371,7 +12535,8 @@
    "repos": [
     "zai-org/chatglm2-6b",
     "zai-org/chatglm2-6b-32k"
-   ]
+   ],
+   "cap_skip": "换代或小版本记录，没有声明新增能力"
   },
   {
    "id": "glm-ChatGLM3-换代；同期出 32k",
@@ -12386,7 +12551,8 @@
    "repos": [
     "zai-org/chatglm3-6b",
     "zai-org/chatglm3-6b-32k"
-   ]
+   ],
+   "cap_skip": "换代或小版本记录，没有声明新增能力"
   },
   {
    "id": "glm-GLM-4-改名 GLM-4，脱",
@@ -12400,7 +12566,8 @@
    "parent": "glm-ChatGLM3-换代；同期出 32k",
    "repos": [
     "zai-org/glm-4-9b"
-   ]
+   ],
+   "cap_skip": "换代或小版本记录，没有声明新增能力"
   },
   {
    "id": "glm-CodeGeeX2-代码支线",
@@ -12414,7 +12581,8 @@
    "parent": "glm-ChatGLM2-换代；同年 7 月出",
    "repos": [
     "zai-org/codegeex2-6b"
-   ]
+   ],
+   "cap_skip": "开出专门支线，能力轴上没有对应项"
   },
   {
    "id": "glm-CodeGeeX4-代码支线跟到 GLM",
@@ -12428,7 +12596,8 @@
    "parent": "glm-CodeGeeX2-代码支线",
    "repos": [
     "zai-org/codegeex4-all-9b"
-   ]
+   ],
+   "cap_skip": "开出专门支线，能力轴上没有对应项"
   },
   {
    "id": "glm-GLM-4.7-Flash-4.7 的轻量档（♥",
@@ -12443,7 +12612,8 @@
    "repos": [
     "zai-org/GLM-4.7",
     "zai-org/GLM-4.7-Flash"
-   ]
+   ],
+   "cap_skip": "尺寸 / 速度 / 价格档位，不是新增能力"
   },
   {
    "id": "kimi-Moonlight-这条线在 HF 上最",
@@ -12456,7 +12626,8 @@
    "note": "日期取官方 HF 组织的 createdAt（**不是 lastModified**）；同一代的多个尺寸档与量化档已折成一个节点。跨模态支线（视觉 / 音频 / 图像生成）不在这棵树上 —— 它们的产出物不是文本。",
    "repos": [
     "moonshotai/Moonlight-16B-A3B"
-   ]
+   ],
+   "cap": "t-openweights"
   },
   {
    "id": "kimi-Kimi-Dev-面向软件工程任务的专",
@@ -12470,7 +12641,8 @@
    "parent": "kimi-Moonlight-这条线在 HF 上最",
    "repos": [
     "moonshotai/Kimi-Dev-72B"
-   ]
+   ],
+   "cap_skip": "开出专门支线，能力轴上没有对应项"
   },
   {
    "id": "kimi-K2-0905-K2 的日期戳更新",
@@ -12484,7 +12656,8 @@
    "parent": "kimi-K2-1T 参数 MoE（激活 32B），用 Muon 优化器训",
    "repos": [
     "moonshotai/Kimi-K2-Instruct-0905"
-   ]
+   ],
+   "cap_skip": "换代或小版本记录，没有声明新增能力"
   },
   {
    "id": "kimi-Kimi-Linear-线性注意力试验档",
@@ -12498,7 +12671,8 @@
    "parent": "kimi-K2-1T 参数 MoE（激活 32B），用 Muon 优化器训",
    "repos": [
     "moonshotai/Kimi-Linear-48B-A3B-Instruct"
-   ]
+   ],
+   "cap_skip": "架构或规模变化，能力轴上没有对应项"
   },
   {
    "id": "kimi-K2.7-Code-代码专用档，官方标为",
@@ -12512,7 +12686,8 @@
    "parent": "kimi-K2.6-长程编码、自主执行与群体任务编排",
    "repos": [
     "moonshotai/Kimi-K2.7-Code"
-   ]
+   ],
+   "cap_skip": "开出专门支线，能力轴上没有对应项"
   },
   {
    "id": "minimax-text-Text-01-这条线的第一代",
@@ -12525,7 +12700,8 @@
    "note": "日期取官方 HF 组织的 createdAt（**不是 lastModified**）；同一代的多个尺寸档与量化档已折成一个节点。跨模态支线（视觉 / 音频 / 图像生成）不在这棵树上 —— 它们的产出物不是文本。",
    "repos": [
     "MiniMaxAI/MiniMax-Text-01"
-   ]
+   ],
+   "cap_skip": "产品线起点或同日并列发布，不代表某一项能力首次出现"
   },
   {
    "id": "minimax-text-M1-推理模型，按",
@@ -12540,7 +12716,8 @@
    "repos": [
     "MiniMaxAI/MiniMax-M1-40k",
     "MiniMaxAI/MiniMax-M1-80k"
-   ]
+   ],
+   "cap_skip": "尺寸 / 速度 / 价格档位，不是新增能力"
   },
   {
    "id": "minimax-text-M2.1-小版本迭代",
@@ -12554,7 +12731,8 @@
    "parent": "minimax-text-M2-主打写代码与 Agent 流程的小模型",
    "repos": [
     "MiniMaxAI/MiniMax-M2.1"
-   ]
+   ],
+   "cap_skip": "换代或小版本记录，没有声明新增能力"
   },
   {
    "id": "minimax-text-M2.7-小版本迭代",
@@ -12568,7 +12746,8 @@
    "parent": "minimax-text-M2.5-小版本迭代",
    "repos": [
     "MiniMaxAI/MiniMax-M2.7"
-   ]
+   ],
+   "cap_skip": "换代或小版本记录，没有声明新增能力"
   },
   {
    "id": "mistral-text-Mistral 7B-这条线的起点，7B ",
@@ -12583,7 +12762,8 @@
     "mistralai/Mistral-7B-Instruct-v0.1",
     "mistralai/Mistral-7B-Instruct-v0.2",
     "mistralai/Mistral-7B-v0.1"
-   ]
+   ],
+   "cap_skip": "架构或规模变化，能力轴上没有对应项"
   },
   {
    "id": "mistral-text-Mixtral 8x7B-稀疏 MoE",
@@ -12598,7 +12778,8 @@
    "repos": [
     "mistralai/Mixtral-8x7B-Instruct-v0.1",
     "mistralai/Mixtral-8x7B-v0.1"
-   ]
+   ],
+   "cap_skip": "架构或规模变化，能力轴上没有对应项"
   },
   {
    "id": "mistral-text-Mistral 7B v0.3-扩词表并加函数调用",
@@ -12613,7 +12794,8 @@
    "repos": [
     "mistralai/Mistral-7B-Instruct-v0.3",
     "mistralai/Mistral-7B-v0.3"
-   ]
+   ],
+   "cap": "t-tools"
   },
   {
    "id": "mistral-text-Codestral-分出代码支线（22B",
@@ -12627,7 +12809,8 @@
    "parent": "mistral-text-Mistral 7B v0.3-扩词表并加函数调用",
    "repos": [
     "mistralai/Codestral-22B-v0.1"
-   ]
+   ],
+   "cap_skip": "开出专门支线，能力轴上没有对应项"
   },
   {
    "id": "mistral-text-Mistral Nemo-与 NVIDIA 合",
@@ -12642,7 +12825,8 @@
    "repos": [
     "mistralai/Mistral-Nemo-Base-2407",
     "mistralai/Mistral-Nemo-Instruct-2407"
-   ]
+   ],
+   "cap_skip": "发布记录或形态调整，没有声明能力轴上的新增项"
   },
   {
    "id": "mistral-text-Mistral Large-第一代旗舰",
@@ -12656,7 +12840,8 @@
    "parent": "mistral-text-Mistral Nemo-与 NVIDIA 合",
    "repos": [
     "mistralai/Mistral-Large-Instruct-2407"
-   ]
+   ],
+   "cap_skip": "产品线起点或同日并列发布，不代表某一项能力首次出现"
   },
   {
    "id": "mistral-text-Mistral Small-中档产品线开张",
@@ -12670,7 +12855,8 @@
    "parent": "mistral-text-Mistral Large-第一代旗舰",
    "repos": [
     "mistralai/Mistral-Small-Instruct-2409"
-   ]
+   ],
+   "cap_skip": "产品线起点或同日并列发布，不代表某一项能力首次出现"
   },
   {
    "id": "mistral-text-Ministral-端侧档（8B）",
@@ -12684,7 +12870,8 @@
    "parent": "mistral-text-Mistral Small-中档产品线开张",
    "repos": [
     "mistralai/Ministral-8B-Instruct-2410"
-   ]
+   ],
+   "cap_skip": "尺寸 / 速度 / 价格档位，不是新增能力"
   },
   {
    "id": "mistral-text-Mistral Small 3-换代到 24B",
@@ -12698,7 +12885,8 @@
    "parent": "mistral-text-Ministral-端侧档（8B）",
    "repos": [
     "mistralai/Mistral-Small-24B-Base-2501"
-   ]
+   ],
+   "cap_skip": "换代或小版本记录，没有声明新增能力"
   },
   {
    "id": "mistral-text-Mistral Small 3.1-小版本迭代",
@@ -12713,7 +12901,8 @@
    "repos": [
     "mistralai/Mistral-Small-3.1-24B-Base-2503",
     "mistralai/Mistral-Small-3.1-24B-Instruct-2503"
-   ]
+   ],
+   "cap_skip": "换代或小版本记录，没有声明新增能力"
   },
   {
    "id": "mistral-text-Devstral-分出软件工程支线",
@@ -12727,7 +12916,8 @@
    "parent": "mistral-text-Codestral-分出代码支线（22B",
    "repos": [
     "mistralai/Devstral-Small-2505"
-   ]
+   ],
+   "cap_skip": "开出专门支线，能力轴上没有对应项"
   },
   {
    "id": "mistral-text-Magistral-推理支线",
@@ -12741,7 +12931,8 @@
    "parent": "mistral-text-Mistral Small 3.1-小版本迭代",
    "repos": [
     "mistralai/Magistral-Small-2506"
-   ]
+   ],
+   "cap_skip": "开出专门支线，能力轴上没有对应项"
   },
   {
    "id": "mistral-text-Mistral Small 3.2-小版本迭代",
@@ -12755,7 +12946,8 @@
    "parent": "mistral-text-Magistral-推理支线",
    "repos": [
     "mistralai/Mistral-Small-3.2-24B-Instruct-2506"
-   ]
+   ],
+   "cap_skip": "换代或小版本记录，没有声明新增能力"
   },
   {
    "id": "mistral-text-Ministral 3-端侧档换代；同日放出",
@@ -12771,7 +12963,8 @@
     "mistralai/Ministral-3-14B-Instruct-2512",
     "mistralai/Ministral-3-3B-Base-2512",
     "mistralai/Ministral-3-3B-Reasoning-2512"
-   ]
+   ],
+   "cap_skip": "尺寸 / 速度 / 价格档位，不是新增能力"
   },
   {
    "id": "mistral-text-Devstral 2-软件工程支线换代（1",
@@ -12786,7 +12979,8 @@
    "repos": [
     "mistralai/Devstral-2-123B-Instruct-2512",
     "mistralai/Devstral-Small-2-24B-Instruct-2512"
-   ]
+   ],
+   "cap_skip": "开出专门支线，能力轴上没有对应项"
   },
   {
    "id": "mistral-text-Leanstral-定理证明支线",
@@ -12800,7 +12994,8 @@
    "parent": "mistral-text-Small 4-把 Instruct / Reasoning 等三支合成一个混合模型",
    "repos": [
     "mistralai/Leanstral-2603"
-   ]
+   ],
+   "cap_skip": "开出专门支线，能力轴上没有对应项"
   },
   {
    "id": "mistral-text-Shieldstral-安全护栏支线",
@@ -12814,7 +13009,8 @@
    "parent": "mistral-text-Medium 3.5-第一个「合并」旗舰：128B 稠密 + 256k 上下文",
    "repos": [
     "mistralai/Shieldstral-1.0-3B"
-   ]
+   ],
+   "cap_skip": "开出专门支线，能力轴上没有对应项"
   },
   {
    "id": "deepseek-Coder-v1.5-代码支线的 v1.5",
@@ -12828,7 +13024,8 @@
    "repos": [
     "deepseek-ai/deepseek-coder-7b-instruct-v1.5"
    ],
-   "parent": "deepseek-deepseek-coder-这条线在 HF 上最"
+   "parent": "deepseek-deepseek-coder-这条线在 HF 上最",
+   "cap_skip": "换代或小版本记录，没有声明新增能力"
   },
   {
    "id": "deepseek-R1-0528-R1 的 5 月修订",
@@ -12842,7 +13039,8 @@
    "repos": [
     "deepseek-ai/DeepSeek-R1-0528-Qwen3-8B"
    ],
-   "parent": "deepseek-R1-推理模型：同"
+   "parent": "deepseek-R1-推理模型：同",
+   "cap_skip": "发布记录或形态调整，没有声明能力轴上的新增项"
   },
   {
    "id": "mistral-text-Mathstral-数学专用支线",
@@ -12856,7 +13054,8 @@
    "repos": [
     "mistralai/Mathstral-7B-v0.1"
    ],
-   "parent": "mistral-text-Mistral 7B v0.3-扩词表并加函数调用"
+   "parent": "mistral-text-Mistral 7B v0.3-扩词表并加函数调用",
+   "cap_skip": "开出专门支线，能力轴上没有对应项"
   },
   {
    "id": "mistral-text-Mamba-Codestral-代码支线的 Mamb",
@@ -12870,7 +13069,8 @@
    "repos": [
     "mistralai/Mamba-Codestral-7B-v0.1"
    ],
-   "parent": "mistral-text-Codestral-分出代码支线（22B"
+   "parent": "mistral-text-Codestral-分出代码支线（22B",
+   "cap_skip": "尺寸 / 速度 / 价格档位，不是新增能力"
   },
   {
    "id": "mistral-text-Leanstral 1.5-定理证明支线换代（1",
@@ -12884,7 +13084,8 @@
    "repos": [
     "mistralai/Leanstral-1.5-119B-A6B"
    ],
-   "parent": "mistral-text-Leanstral-定理证明支线"
+   "parent": "mistral-text-Leanstral-定理证明支线",
+   "cap_skip": "开出专门支线，能力轴上没有对应项"
   },
   {
    "id": "qwen-omni-Qwen-Audio-这条线的起点：音频理",
@@ -12897,7 +13098,8 @@
    "note": "日期取官方 HF 组织的 createdAt（**不是 lastModified**）；同一代的尺寸档与量化档折成一个节点。⚠️ **ASR 不在这棵树上**（ontology 规则十一）—— SenseVoice、Qwen-Audio 的识别向分支产出的是文本。",
    "repos": [
     "Qwen/Qwen-Audio"
-   ]
+   ],
+   "cap_skip": "产品线起点，不代表某一项能力首次出现"
   },
   {
    "id": "qwen-omni-Qwen2-Audio-换代",
@@ -12911,7 +13113,8 @@
    "repos": [
     "Qwen/Qwen2-Audio-7B"
    ],
-   "parent": "qwen-omni-Qwen-Audio-这条线的起点：音频理"
+   "parent": "qwen-omni-Qwen-Audio-这条线的起点：音频理",
+   "cap_skip": "换代或小版本记录，没有声明新增能力"
   },
   {
    "id": "qwen-omni-Qwen2.5-Omni-转 Omni：多模态",
@@ -12925,7 +13128,8 @@
    "repos": [
     "Qwen/Qwen2.5-Omni-7B"
    ],
-   "parent": "qwen-omni-Qwen2-Audio-换代"
+   "parent": "qwen-omni-Qwen2-Audio-换代",
+   "cap_skip": "发布记录或形态调整，没有声明能力轴上的新增项"
   },
   {
    "id": "qwen-omni-Qwen3-Omni-换代到 30B-A3",
@@ -12940,7 +13144,8 @@
     "Qwen/Qwen3-Omni-30B-A3B-Instruct",
     "Qwen/Qwen3-Omni-30B-A3B-Thinking"
    ],
-   "parent": "qwen-omni-Qwen2.5-Omni-转 Omni：多模态"
+   "parent": "qwen-omni-Qwen2.5-Omni-转 Omni：多模态",
+   "cap_skip": "换代或小版本记录，没有声明新增能力"
   },
   {
    "id": "qwen-omni-Qwen3-TTS-分出专门的 TTS ",
@@ -12956,7 +13161,8 @@
     "Qwen/Qwen3-TTS-12Hz-1.7B-CustomVoice",
     "Qwen/Qwen3-TTS-12Hz-1.7B-VoiceDesign"
    ],
-   "parent": "qwen-omni-Qwen3-Omni-换代到 30B-A3"
+   "parent": "qwen-omni-Qwen3-Omni-换代到 30B-A3",
+   "cap": "s-clone"
   },
   {
    "id": "glm-tts-GLM-TTS-这一代的开放权重发布",
@@ -12969,7 +13175,8 @@
    "note": "日期取官方 HF 组织的 createdAt（**不是 lastModified**）；同一代的尺寸档与量化档折成一个节点。⚠️ **ASR 不在这棵树上**（ontology 规则十一）—— SenseVoice、Qwen-Audio 的识别向分支产出的是文本。",
    "repos": [
     "zai-org/GLM-TTS"
-   ]
+   ],
+   "cap_skip": "**声音卷的能力轴上没有「开源权重」这一项**（视频/图像/文本三卷都有）—— 不是这个节点没能力，是轴缺一格"
   },
   {
    "id": "cosyvoice-SenseVoiceSmall-这个组织在 HF 上",
@@ -12982,7 +13189,8 @@
    "note": "日期取官方 HF 组织的 createdAt（**不是 lastModified**）；同一代的尺寸档与量化档折成一个节点。⚠️ **ASR 不在这棵树上**（ontology 规则十一）—— SenseVoice、Qwen-Audio 的识别向分支产出的是文本。",
    "repos": [
     "FunAudioLLM/SenseVoiceSmall"
-   ]
+   ],
+   "cap_skip": "产品线起点，不代表某一项能力首次出现"
   },
   {
    "id": "cosyvoice-Fun-CosyVoice3-CosyVoice ",
@@ -12996,7 +13204,8 @@
    "repos": [
     "FunAudioLLM/Fun-CosyVoice3-0.5B-2512"
    ],
-   "parent": "cosyvoice-SenseVoiceSmall-这个组织在 HF 上"
+   "parent": "cosyvoice-SenseVoiceSmall-这个组织在 HF 上",
+   "cap_skip": "发布记录或形态调整，没有声明能力轴上的新增项"
   },
   {
    "id": "cosyvoice-Fun-Audio-Chat-语音对话向的 8B",
@@ -13010,7 +13219,8 @@
    "repos": [
     "FunAudioLLM/Fun-Audio-Chat-8B"
    ],
-   "parent": "cosyvoice-Fun-CosyVoice3-CosyVoice "
+   "parent": "cosyvoice-Fun-CosyVoice3-CosyVoice ",
+   "cap_skip": "发布记录或形态调整，没有声明能力轴上的新增项"
   },
   {
    "id": "fish-speech-fish-speech 1.2-这条线在 HF 上最",
@@ -13023,7 +13233,8 @@
    "note": "日期取官方 HF 组织的 createdAt（**不是 lastModified**）；同一代的尺寸档与量化档折成一个节点。⚠️ **ASR 不在这棵树上**（ontology 规则十一）—— SenseVoice、Qwen-Audio 的识别向分支产出的是文本。",
    "repos": [
     "fishaudio/fish-speech-1.2"
-   ]
+   ],
+   "cap_skip": "产品线起点，不代表某一项能力首次出现"
   },
   {
    "id": "fish-speech-fish-speech 1.4-换代",
@@ -13037,7 +13248,8 @@
    "repos": [
     "fishaudio/fish-speech-1.4"
    ],
-   "parent": "fish-speech-fish-speech 1.2-这条线在 HF 上最"
+   "parent": "fish-speech-fish-speech 1.2-这条线在 HF 上最",
+   "cap_skip": "换代或小版本记录，没有声明新增能力"
   },
   {
    "id": "fish-speech-fish-speech 1.5-换代",
@@ -13051,7 +13263,8 @@
    "repos": [
     "fishaudio/fish-speech-1.5"
    ],
-   "parent": "fish-speech-fish-speech 1.4-换代"
+   "parent": "fish-speech-fish-speech 1.4-换代",
+   "cap_skip": "换代或小版本记录，没有声明新增能力"
   },
   {
    "id": "fish-speech-fish-agent-语音智能体支线（3B",
@@ -13065,7 +13278,8 @@
    "repos": [
     "fishaudio/fish-agent-v0.1-3b"
    ],
-   "parent": "fish-speech-fish-speech 1.4-换代"
+   "parent": "fish-speech-fish-speech 1.4-换代",
+   "cap_skip": "开出专门支线，能力轴上没有对应项"
   },
   {
    "id": "fish-speech-s1-mini-改名 s 系列",
@@ -13079,7 +13293,8 @@
    "repos": [
     "fishaudio/s1-mini"
    ],
-   "parent": "fish-speech-fish-speech 1.5-换代"
+   "parent": "fish-speech-fish-speech 1.5-换代",
+   "cap_skip": "换代或小版本记录，没有声明新增能力"
   },
   {
    "id": "fish-speech-s2-pro-s 系列换代",
@@ -13093,7 +13308,8 @@
    "repos": [
     "fishaudio/s2-pro"
    ],
-   "parent": "fish-speech-s1-mini-改名 s 系列"
+   "parent": "fish-speech-s1-mini-改名 s 系列",
+   "cap_skip": "发布记录或形态调整，没有声明能力轴上的新增项"
   },
   {
    "id": "kokoro-Kokoro-82M-这条线的起点，82M",
@@ -13106,7 +13322,8 @@
    "note": "日期取官方 HF 组织的 createdAt（**不是 lastModified**）；同一代的尺寸档与量化档折成一个节点。⚠️ **ASR 不在这棵树上**（ontology 规则十一）—— SenseVoice、Qwen-Audio 的识别向分支产出的是文本。",
    "repos": [
     "hexgrad/Kokoro-82M"
-   ]
+   ],
+   "cap_skip": "产品线起点，不代表某一项能力首次出现"
   },
   {
    "id": "kokoro-Kokoro 82M v1.1-zh-加中文",
@@ -13120,7 +13337,8 @@
    "repos": [
     "hexgrad/Kokoro-82M-v1.1-zh"
    ],
-   "parent": "kokoro-Kokoro-82M-这条线的起点，82M"
+   "parent": "kokoro-Kokoro-82M-这条线的起点，82M",
+   "cap": "s-lang"
   },
   {
    "id": "gemini-tts-2.5 Preview TTS-这条线的第一代：2.",
@@ -13130,7 +13348,8 @@
    "added": "这条线的第一代：2.5 Flash / Pro 两支预览版同日出现",
    "src": "gemini-changelog",
    "quote": "发布说明 2025-05-20 同时出现 gemini-2.5-flash-preview-tts 与 gemini-2.5-pro-preview-tts",
-   "note": "日期取 Gemini API 官方发布说明里该型号**最早出现**的那一天（预览版早于 GA，这里记预览）"
+   "note": "日期取 Gemini API 官方发布说明里该型号**最早出现**的那一天（预览版早于 GA，这里记预览）",
+   "cap_skip": "产品线起点或同日并列发布，不代表某一项能力首次出现"
   },
   {
    "id": "gemini-tts-3.1 Flash TTS Preview-加流式语音生成 ——",
@@ -13141,7 +13360,8 @@
    "src": "gemini-changelog",
    "quote": "发布说明 2026-06-17：「Streaming via streamGenerateContent … is now supported for the gemini-3.1-flash-tts-preview model」",
    "note": "日期取 Gemini API 官方发布说明里该型号**最早出现**的那一天（预览版早于 GA，这里记预览）",
-   "parent": "gemini-tts-2.5 Preview TTS-这条线的第一代：2."
+   "parent": "gemini-tts-2.5 Preview TTS-这条线的第一代：2.",
+   "cap": "s-stream"
   },
   {
    "id": "lyria-3 Preview-Clip 与 Pro",
@@ -13151,7 +13371,8 @@
    "added": "Clip 与 Pro 两支同日出现：Clip 固定 30 秒，Pro 出整首",
    "src": "gemini-changelog",
    "quote": "发布说明 2026-03-25 同时出现 lyria-3-clip-preview 与 lyria-3-pro-preview",
-   "note": "日期取 Gemini API 官方发布说明里该型号**最早出现**的那一天（预览版早于 GA，这里记预览）"
+   "note": "日期取 Gemini API 官方发布说明里该型号**最早出现**的那一天（预览版早于 GA，这里记预览）",
+   "cap_skip": "产品线起点或同日并列发布，不代表某一项能力首次出现"
   },
   {
    "id": "mm-speech-speech-02-这条线在接口文档里最",
@@ -13161,7 +13382,8 @@
    "added": "这条线在接口文档里最早并列的一代（hd / turbo 两档）",
    "src": "minimax-api-overview",
    "quote": "语音模型表列出 speech-02-hd 与 speech-02-turbo。⚠️ 该表**不标发布日**，这里按代际排序，日期是占位",
-   "note": "MiniMax 官方接口概览的语音模型表把各代并列（speech-02 / 2.6 / 2.8），版本号即代际"
+   "note": "MiniMax 官方接口概览的语音模型表把各代并列（speech-02 / 2.6 / 2.8），版本号即代际",
+   "cap_skip": "尺寸 / 速度 / 价格档位，不是新增能力"
   },
   {
    "id": "grok-voice-think-fast-1.0-这条线的第一代",
@@ -13171,7 +13393,8 @@
    "added": "这条线的第一代",
    "src": "xai-release-notes",
    "quote": "API 发布说明 2026 年 4 月：grok-voice-think-fast-1.0",
-   "note": "xAI 官方 API 发布说明按月分节，只精确到月，日期记当月 1 日"
+   "note": "xAI 官方 API 发布说明按月分节，只精确到月，日期记当月 1 日",
+   "cap_skip": "产品线起点或同日并列发布，不代表某一项能力首次出现"
   },
   {
    "id": "grok-voice-think-fast-2.0-换代",
@@ -13182,7 +13405,8 @@
    "src": "xai-release-notes",
    "quote": "API 发布说明 2026 年 7 月：grok-voice-think-fast-2.0",
    "note": "xAI 官方 API 发布说明按月分节，只精确到月，日期记当月 1 日",
-   "parent": "grok-voice-think-fast-1.0-这条线的第一代"
+   "parent": "grok-voice-think-fast-1.0-这条线的第一代",
+   "cap_skip": "换代或小版本记录，没有声明新增能力"
   },
   {
    "id": "mm-speech-Speech-2.5-这条线在官方发布记录",
@@ -13192,7 +13416,8 @@
    "added": "这条线在官方发布记录里最早的一代",
    "src": "minimax-release",
    "quote": "官方模型发布记录：2025-08-06 Speech-2.5",
-   "note": "日期取 MiniMax 官方「模型发布记录」页；该页按发布日逐条列出"
+   "note": "日期取 MiniMax 官方「模型发布记录」页；该页按发布日逐条列出",
+   "cap_skip": "产品线在官方发布记录里的起点，不代表某一项能力首次出现"
   },
   {
    "id": "mm-speech-Speech-2.6-「韵律表现出色，极致",
@@ -13203,7 +13428,8 @@
    "src": "minimax-release",
    "quote": "官方模型发布记录：2025-10-29 Speech-2.6",
    "note": "日期取 MiniMax 官方「模型发布记录」页；该页按发布日逐条列出",
-   "parent": "mm-speech-Speech-2.5-这条线在官方发布记录"
+   "parent": "mm-speech-Speech-2.5-这条线在官方发布记录",
+   "cap_skip": "效果或速度的改善，能力轴上没有对应项（轴记的是「能不能做」，不是「做得多好」）"
   },
   {
    "id": "mm-speech-Speech-2.8-「情绪渲染融合语气词",
@@ -13214,7 +13440,8 @@
    "src": "minimax-release",
    "quote": "官方模型发布记录：2026-01-23 Speech-2.8",
    "note": "日期取 MiniMax 官方「模型发布记录」页；该页按发布日逐条列出",
-   "parent": "mm-speech-Speech-2.6-「韵律表现出色，极致"
+   "parent": "mm-speech-Speech-2.6-「韵律表现出色，极致",
+   "cap": "s-style"
   },
   {
    "id": "mm-music-Music-1.5 Beta-这条线的起点（Bet",
@@ -13224,7 +13451,8 @@
    "added": "这条线的起点（Beta）",
    "src": "minimax-release",
    "quote": "官方模型发布记录：2025-06-20 Music-1.5 Beta",
-   "note": "日期取 MiniMax 官方「模型发布记录」页；该页按发布日逐条列出"
+   "note": "日期取 MiniMax 官方「模型发布记录」页；该页按发布日逐条列出",
+   "cap_skip": "产品线起点，不代表某一项能力首次出现"
   },
   {
    "id": "mm-music-Music-1.5-转正式版",
@@ -13235,7 +13463,8 @@
    "src": "minimax-release",
    "quote": "官方模型发布记录：2025-09-11 Music-1.5",
    "note": "日期取 MiniMax 官方「模型发布记录」页；该页按发布日逐条列出",
-   "parent": "mm-music-Music-1.5 Beta-这条线的起点（Bet"
+   "parent": "mm-music-Music-1.5 Beta-这条线的起点（Bet",
+   "cap_skip": "换代或小版本记录，没有声明新增能力"
   },
   {
    "id": "mm-music-Music-2.0-换代",
@@ -13246,7 +13475,8 @@
    "src": "minimax-release",
    "quote": "官方模型发布记录：2025-10-30 Music-2.0",
    "note": "日期取 MiniMax 官方「模型发布记录」页；该页按发布日逐条列出",
-   "parent": "mm-music-Music-1.5-转正式版"
+   "parent": "mm-music-Music-1.5-转正式版",
+   "cap_skip": "换代或小版本记录，没有声明新增能力"
   },
   {
    "id": "mm-music-Music-2.5-换代",
@@ -13257,7 +13487,8 @@
    "src": "minimax-release",
    "quote": "官方模型发布记录：2026-01-16 Music-2.5",
    "note": "日期取 MiniMax 官方「模型发布记录」页；该页按发布日逐条列出",
-   "parent": "mm-music-Music-2.0-换代"
+   "parent": "mm-music-Music-2.0-换代",
+   "cap_skip": "换代或小版本记录，没有声明新增能力"
   },
   {
    "id": "mm-music-Music-2.5+-小版本迭代（该页只标",
@@ -13268,7 +13499,8 @@
    "src": "minimax-release",
    "quote": "官方模型发布记录：2026-03-01 Music-2.5+",
    "note": "日期取 MiniMax 官方「模型发布记录」页；该页按发布日逐条列出",
-   "parent": "mm-music-Music-2.5-换代"
+   "parent": "mm-music-Music-2.5-换代",
+   "cap_skip": "换代或小版本记录，没有声明新增能力"
   },
   {
    "id": "mm-music-Music-2.6-小版本迭代（该页只标",
@@ -13279,7 +13511,8 @@
    "src": "minimax-release",
    "quote": "官方模型发布记录：2026-04-01 Music-2.6",
    "note": "日期取 MiniMax 官方「模型发布记录」页；该页按发布日逐条列出",
-   "parent": "mm-music-Music-2.5+-小版本迭代（该页只标"
+   "parent": "mm-music-Music-2.5+-小版本迭代（该页只标",
+   "cap_skip": "换代或小版本记录，没有声明新增能力"
   },
   {
    "id": "mm-music-Music-3.0-换代：输入音乐灵感与",
@@ -13290,7 +13523,8 @@
    "src": "minimax-release",
    "quote": "官方模型发布记录：2026-07-16 Music-3.0",
    "note": "日期取 MiniMax 官方「模型发布记录」页；该页按发布日逐条列出",
-   "parent": "mm-music-Music-2.6-小版本迭代（该页只标"
+   "parent": "mm-music-Music-2.6-小版本迭代（该页只标",
+   "cap": "s-m-lyrics"
   }
  ],
  "$versions": "版本谱系（演进图的数据）。**演进的主体是模型，不是能力。**\n\n原来那张演进图每行是一项能力、横轴是「我们能证明的最早时间」、粗细是几家支持。\n读者看完只得到「动作复刻 2025-12 出现、6/9 支持」—— 那是一次数据库查询的可视化，不涨知识。\n而且它得靠图注免责（「不是业界首次出现」）：**一张需要图注免责的图，说明它量错了东西。**\n\n这份数据画的是**厂商自己发布的版本和日期**，所以不需要免责。每条必须回答：\n**这一代新增了什么。** 只有版本号没有 added 的节点没有价值，不收。\n\n两个最好的来源，都不是「新闻」：\n  · **官方 Hugging Face 组织** —— 模型名本身就编码了能力与代际\n    （Wan2.1-FLF2V＝首尾帧、Wan2.2-S2V＝语音驱动、LTX 的 IC-LoRA-Ingredients＝角色参考），\n    发布时间由 HF API 给出，比任何新闻稿都准。\n  · **官方 API 更新日志** —— 可灵那份 31k 字符里有 170 条带日期的条目。\n\n覆盖不全是事实：万相和可灵能画出完整谱系，Runway/Vidu/Seedance 只有近期几个点，\nVeo/Sora/海螺/LTX 还没有。**图上要标出哪几条线是完整的、哪几条只是片段** ——\n画一条只有两个点的线却不说明，读者会以为这家两年只更新过两次。\n\n`cap` 把版本节点挂到能力 id 上，图上「点一项能力，看各家谁先谁后」靠它。\n**对不上的一律留空并写明理由（cap_skip），不硬凑** —— 硬凑一个 id，纵向那一刀就切错了。\n典型：Wan 的 S2V 是「语音驱动」，不等于我们轴上的「对口型」，两件事不合并；\n「换代」节点本身也不是新增单项能力。\n\n`id` + `parent` 把平铺记录变成**真的树**。分叉是真实存在的：\nWan2.1 底座上同时长出 FLF2V（首尾帧）和 VACE（统一编辑）两个变体，\nWan2.2 是换代接在 2.1 后面，Animate-2 又接在 Animate 后面。\n\n**没有父节点的就让它当根，不许为了让树好看硬接一条边** ——\nRunway 的 Aleph 是编辑线，不是 Gen 的后代，它自己是一棵树。\n\n⚠️ **日期必须取 HF 的 `createdAt`，不能取 `lastModified`。**\n第一版取错了字段，把「最后修改」当成了发布日期：Wan2.2 记成 2025-08-07（实际 2025-07-18）、\nAnimate 记成 2025-11-05（实际 2025-09-11）——**差了两个月**。\n仓库发布后还会被反复更新，两个字段根本不是一回事。\n这类错最阴：日期看着合理、图也画得出来，但整条时间线是歪的。\n\n覆盖不足要**写在数据里**，不是靠图上一句话糊过去：\n模型的 `lineage_note` 解释为什么它的节点少（太新 / 官方记录只回溯到某时）。\n校验 R58 强制：**核心模型少于 3 个节点却没写理由，就是错**。\n「我们没采到」和「它本来就没有」是两回事，读者有权知道是哪一种。",

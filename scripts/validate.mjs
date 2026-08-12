@@ -178,6 +178,35 @@ for (const s of a.support) {
   }
 }
 
+/**
+ * R71 —— **谱系节点既没挂能力、也没写为什么不挂。**
+ *
+ * 树上那排「谁先谁后」的筛选按钮是从节点的 `cap` 现算的：
+ * 挂了 cap 的能力才会出现一个按钮。所以一个方向如果没有任何节点挂 cap，
+ * **那一排按钮整个不出现** —— 负责人 2026-08-12 就是这样发现图像/文本/声音三卷都没有的。
+ *
+ * 光有 `cap` 不够，还要有 `cap_skip`：
+ * 「这一代确实没新增能力轴上的东西」和「还没人判过」必须分得开。
+ * 只看空不空，前者会被永远当成待办；只看 cap，后者会永远没人发现。
+ *
+ * 是警告不是错误 —— 判一个节点算不算某项能力的首现要读原文，堵不住提交；
+ * 但它必须进 todo.mjs，一直摆在眼前。
+ */
+{
+  const bare = (a.versions ?? []).filter((v) => !v.cap && !v.cap_skip);
+  const by = {};
+  for (const v of bare) {
+    const d = a.models.find((m) => m.id === v.m)?.domain ?? "video";
+    by[d] = (by[d] ?? 0) + 1;
+  }
+  if (bare.length)
+    warns.push(
+      `R71 谱系节点没判能力：${bare.length} 条（${Object.entries(by).map(([k, v]) => `${k} ${v}`).join(" · ")}）—— ` +
+      `挂 \`cap\` 或写 \`cap_skip\` 说明为什么不挂。**判据是 added 自己有没有声明「这一代新增了 X」**，` +
+      `别拿「这一代的 API 发布」硬凑 —— 树上的「谁先谁后」取每条线最早带该 cap 的节点，挂错一个整条排错`,
+    );
+}
+
 // 缺格会被前台静默当成 unknown，那是**沉默的错**。
 for (const m of a.models)
   for (const c of a.capabilities)
