@@ -3345,11 +3345,6 @@
    "url": "https://docs.bfl.ai/llms.txt",
    "tier": "official"
   },
-  "qwen-image-card": {
-   "name": "Qwen-Image 官方模型卡（Hugging Face）",
-   "url": "https://huggingface.co/Qwen/Qwen-Image",
-   "tier": "official"
-  },
   "zimage-card": {
    "name": "Z-Image 官方模型卡（Hugging Face）",
    "url": "https://huggingface.co/Tongyi-MAI/Z-Image-Turbo",
@@ -3640,11 +3635,6 @@
    "url": "https://api-docs.deepseek.com/",
    "tier": "official"
   },
-  "qwen-docs": {
-   "name": "Qwen 官方文档",
-   "url": "https://qwen.readthedocs.io/en/latest/",
-   "tier": "official"
-  },
   "xai-docs": {
    "name": "xAI 官方文档 · 模型清单",
    "url": "https://docs.x.ai/docs/models",
@@ -3830,24 +3820,9 @@
    "url": "https://docs.z.ai/guides/llm/glm-5.2",
    "tier": "official"
   },
-  "bailian-textgen": {
-   "name": "阿里云百炼 · 文本生成",
-   "url": "https://www.alibabacloud.com/help/en/model-studio/text-generation",
-   "tier": "official"
-  },
   "kimi-websearch": {
    "name": "Kimi 开放平台 · 联网搜索",
    "url": "https://platform.kimi.com/docs/guide/use-web-search",
-   "tier": "official"
-  },
-  "bailian-cache": {
-   "name": "阿里云百炼 · 上下文缓存",
-   "url": "https://www.alibabacloud.com/help/en/model-studio/context-cache",
-   "tier": "official"
-  },
-  "bailian-batch": {
-   "name": "阿里云百炼 · OpenAI 兼容批量推理",
-   "url": "https://www.alibabacloud.com/help/en/model-studio/batch-interfaces-compatible-with-openai",
    "tier": "official"
   },
   "bailian-websearch": {
@@ -4253,6 +4228,41 @@
   "ideogram-hf": {
    "name": "Ideogram 官方 Hugging Face 组织 · ideogram-4-fp8",
    "url": "https://huggingface.co/ideogram-ai/ideogram-4-fp8",
+   "tier": "official"
+  },
+  "bailian-qimg3": {
+   "name": "阿里云百炼 · 千问-图像生成与编辑3.0 API参考",
+   "url": "https://help.aliyun.com/zh/model-studio/qwen-image-generation-and-editing-api-reference",
+   "tier": "official"
+  },
+  "bailian-qimg": {
+   "name": "阿里云百炼 · 千问-文生图API参考（模型概览）",
+   "url": "https://help.aliyun.com/zh/model-studio/qwen-image-api",
+   "tier": "official"
+  },
+  "bailian-textgen-zh": {
+   "name": "阿里云百炼中文站 · 文本生成（推荐模型能力表）",
+   "url": "https://help.aliyun.com/zh/model-studio/text-generation-model/",
+   "tier": "official"
+  },
+  "bailian-thinking-zh": {
+   "name": "阿里云百炼中文站 · 深度思考",
+   "url": "https://help.aliyun.com/zh/model-studio/deep-thinking",
+   "tier": "official"
+  },
+  "bailian-cache-zh": {
+   "name": "阿里云百炼中文站 · 上下文缓存",
+   "url": "https://help.aliyun.com/zh/model-studio/context-cache",
+   "tier": "official"
+  },
+  "bailian-batch-zh": {
+   "name": "阿里云百炼中文站 · 批量推理",
+   "url": "https://help.aliyun.com/zh/model-studio/batch-interfaces-compatible-with-openai",
+   "tier": "official"
+  },
+  "bailian-websearch-zh": {
+   "name": "阿里云百炼中文站 · 联网搜索",
+   "url": "https://help.aliyun.com/zh/model-studio/web-search",
    "tier": "official"
   }
  },
@@ -5881,119 +5891,130 @@
    "m": "qwen-image",
    "c": "i-t2i",
    "state": "yes",
-   "verified_for": "Edit-2511",
-   "src": "qwen-image-card",
-   "note": "官方原文：「an image generation foundation model in the Qwen series」。⚠️ **这一格核的是 Edit-2511**，当时那是我们认定的当前版本",
-   "recheck": "3.0-pro"
+   "verified_for": "3.0-pro",
+   "src": "bailian-qimg3",
+   "note": "T2I 时 content 里只放一个 `{\"text\": \"...\"}`；提示词支持中英文，官方建议不超过 4500 Token。",
+   "as_of": "2026-08-12",
+   "quote": "「千问-图像生成与编辑 3.0 模型同时支持文生图（T2I）和图生图/图像编辑（I2I），可根据文本提示词直接生成图像」"
   },
   {
    "m": "qwen-image",
    "c": "i-i2i",
    "state": "yes",
-   "verified_for": "Edit-2511",
-   "src": "qwen-image-card",
-   "note": "官方原文：「precise image editing」。⚠️ **这一格核的是 Edit-2511**，当时那是我们认定的当前版本",
-   "recheck": "3.0-pro"
+   "verified_for": "3.0-pro",
+   "src": "bailian-qimg3",
+   "note": "输入图收 JPG/JPEG/PNG/BMP/TIFF/WEBP/GIF，单张不超过 10MB，官方建议宽高都在 384~2048 像素之间。",
+   "as_of": "2026-08-12",
+   "quote": "「同时支持文生图（T2I）和图生图/图像编辑（I2I）」；I2I 的 content「包含 1-3 个 {\"image\": \"...\"} 对象和 1 个 {\"text\": \"...\"} 对象」"
   },
   {
    "m": "qwen-image",
    "c": "i-edit",
    "state": "yes",
-   "verified_for": "Edit-2511",
-   "src": "qwen-image-card",
-   "note": "官方原文：「achieves significant advances in complex text rendering and precise image editing」。⚠️ **这一格核的是 Edit-2511**，当时那是我们认定的当前版本",
-   "recheck": "3.0-pro"
+   "verified_for": "3.0-pro",
+   "src": "bailian-qimg3",
+   "note": "编辑与图生图在 3.0 上是**同一个端点、同一个模型名**，靠 content 里有没有 image 区分 —— 不像 Ideogram 那样分成不同端点。",
+   "as_of": "2026-08-12",
+   "quote": "「也可基于 1-3 张参考图结合编辑指令进行精确编辑」"
   },
   {
    "m": "qwen-image",
    "c": "i-multiturn",
-   "state": "unknown",
-   "verified_for": "Edit-2511",
-   "note": "Qwen-Image 官方模型卡没提这一条 —— 读完没找到。⚠️ **这一格核的是 Edit-2511**，当时那是我们认定的当前版本",
-   "recheck": "3.0-pro"
+   "state": "no",
+   "verified_for": "3.0-pro",
+   "note": "**这是官方明说不支持，不是我们没找到。** 接口长得像对话（messages / role / content），但一次只能发一轮 —— 想连续改图得自己把上一轮的产出图再喂回去，那是另一次计费的 I2I。",
+   "as_of": "2026-08-12",
+   "src": "bailian-qimg3",
+   "quote": "「messages array（必选）请求内容数组。**当前仅支持单轮对话**，因此数组内**有且只有一个对象**」"
   },
   {
    "m": "qwen-image",
    "c": "i-inpaint",
    "state": "unknown",
-   "verified_for": "Edit-2511",
-   "note": "Qwen-Image 官方模型卡没提这一条 —— 读完没找到。⚠️ **这一格核的是 Edit-2511**，当时那是我们认定的当前版本",
-   "recheck": "3.0-pro"
+   "verified_for": "3.0-pro",
+   "note": "**3.0 的请求参数表里没有蒙版（mask）相关字段。** 完整的 `parameters` 只有 prompt_extend / prompt_extend_mode / n / size / negative_prompt / seed / watermark 七个，content 里只收 image 与 text —— 读完没找到，不是没读。",
+   "as_of": "2026-08-12"
   },
   {
    "m": "qwen-image",
    "c": "i-outpaint",
    "state": "unknown",
-   "verified_for": "Edit-2511",
-   "note": "Qwen-Image 官方模型卡没提这一条 —— 读完没找到。⚠️ **这一格核的是 Edit-2511**，当时那是我们认定的当前版本",
-   "recheck": "3.0-pro"
+   "verified_for": "3.0-pro",
+   "note": "**3.0 的请求参数表里没有扩图 / 外扩画布相关字段。** 完整的 `parameters` 只有 prompt_extend / prompt_extend_mode / n / size / negative_prompt / seed / watermark 七个，content 里只收 image 与 text —— 读完没找到，不是没读。",
+   "as_of": "2026-08-12"
   },
   {
    "m": "qwen-image",
    "c": "i-canvas",
    "state": "unknown",
-   "verified_for": "Edit-2511",
-   "note": "Qwen-Image 官方模型卡没提这一条 —— 读完没找到。⚠️ **这一格核的是 Edit-2511**，当时那是我们认定的当前版本",
-   "recheck": "3.0-pro"
+   "verified_for": "3.0-pro",
+   "note": "**3.0 的请求参数表里没有画布类字段。** 完整的 `parameters` 只有 prompt_extend / prompt_extend_mode / n / size / negative_prompt / seed / watermark 七个，content 里只收 image 与 text —— 读完没找到，不是没读。",
+   "as_of": "2026-08-12"
   },
   {
    "m": "qwen-image",
    "c": "i-multiref",
    "state": "yes",
-   "verified_for": "Edit-2511",
-   "src": "hf-lineage",
-   "note": "官方原文：「Edit-2511 官方示例直接传两张图：pipeline 入参 \"image\": [image1, image2]」。⚠️ **这一格核的是 Edit-2511**，当时那是我们认定的当前版本",
-   "recheck": "3.0-pro"
+   "verified_for": "3.0-pro",
+   "src": "bailian-qimg3",
+   "note": "上限是 **3 张**，而且官方明说顺序有意义（按数组顺序）。这一格原来核在开源那一支上，现在换成 API 这一支的原文。",
+   "as_of": "2026-08-12",
+   "quote": "「image string（可选）……**I2I 场景下支持传入 1-3 张图像。多图输入时，按照数组顺序定义图像顺序。**」"
   },
   {
    "m": "qwen-image",
    "c": "i-styleref",
    "state": "unknown",
-   "verified_for": "Edit-2511",
-   "note": "Qwen-Image 官方模型卡没提这一条 —— 读完没找到。⚠️ **这一格核的是 Edit-2511**，当时那是我们认定的当前版本",
-   "recheck": "3.0-pro"
+   "verified_for": "3.0-pro",
+   "note": "**3.0 的请求参数表里没有风格参考图字段。** 完整的 `parameters` 只有 prompt_extend / prompt_extend_mode / n / size / negative_prompt / seed / watermark 七个，content 里只收 image 与 text —— 读完没找到，不是没读。",
+   "as_of": "2026-08-12"
   },
   {
    "m": "qwen-image",
    "c": "i-fidelity",
    "state": "unknown",
-   "verified_for": "Edit-2511",
-   "note": "**没有顺着写。** 官方说「mitigate image drift、improved character consistency」，那是**效果变好**；我们这一格问的是**有没有一个控制保真强度的旋钮**（OpenAI 的 input fidelity 那种）。两回事。⚠️ **这一格核的是 Edit-2511**，当时那是我们认定的当前版本",
-   "recheck": "3.0-pro"
+   "verified_for": "3.0-pro",
+   "note": "**3.0 的请求参数表里没有角色 / 人脸参考字段。** 完整的 `parameters` 只有 prompt_extend / prompt_extend_mode / n / size / negative_prompt / seed / watermark 七个，content 里只收 image 与 text —— 读完没找到，不是没读。⚠️ 文档的 I2I 示例提示词里确实写着「完美保留输入图片中这位年轻女性的面部特征」，但那是**提示词里的一句话，不是一个参数**，也没有任何关于一致性的承诺 —— 不足以记 ✅。",
+   "as_of": "2026-08-12"
   },
   {
    "m": "qwen-image",
    "c": "i-textrender",
    "state": "yes",
-   "verified_for": "Edit-2511",
-   "src": "qwen-image-card",
-   "note": "官方原文：「exceptional performance in text rendering, especially for Chinese」。⚠️ **这一格核的是 Edit-2511**，当时那是我们认定的当前版本",
-   "recheck": "3.0-pro"
+   "verified_for": "3.0-pro",
+   "src": "bailian-qimg",
+   "note": "这句话在**产品线概览页**上，讲的是 Qwen-Image 这条线整体，不是单点在 3.0-pro 上。",
+   "as_of": "2026-08-12",
+   "quote": "模型概览页开篇：「千问-文生图模型（Qwen-Image）是一款通用图像生成模型，支持多种艺术风格，**尤其擅长复杂文本渲染**。模型支持多行布局、段落级文本生成以及细粒度细节刻画，可实现复杂的图文混合布局设计。」"
   },
   {
    "m": "qwen-image",
    "c": "i-upscale",
    "state": "unknown",
-   "verified_for": "Edit-2511",
-   "note": "Qwen-Image 官方模型卡没提这一条 —— 读完没找到。⚠️ **这一格核的是 Edit-2511**，当时那是我们认定的当前版本",
-   "recheck": "3.0-pro"
+   "verified_for": "3.0-pro",
+   "note": "**3.0 的请求参数表里没有放大 / 超分字段。** 完整的 `parameters` 只有 prompt_extend / prompt_extend_mode / n / size / negative_prompt / seed / watermark 七个，content 里只收 image 与 text —— 读完没找到，不是没读。",
+   "as_of": "2026-08-12"
   },
   {
    "m": "qwen-image",
    "c": "i-4k",
-   "state": "unknown",
-   "verified_for": "Edit-2511",
-   "note": "Qwen-Image 官方模型卡没提这一条 —— 读完没找到。⚠️ **这一格核的是 Edit-2511**，当时那是我们认定的当前版本",
-   "recheck": "3.0-pro"
+   "state": "no",
+   "verified_for": "3.0-pro",
+   "note": "**官方把上限写死了：最大 2048×2048 = 4,194,304 像素。** 4K（3840×2160）是 8,294,400 像素，正好是它的两倍 —— 所以这一格是 ❌（官方说不支持），不是 ⬜（没找到）。计费档位也印证：面积 >2,250,000 就算 `qima_output_2k`，官方自己的最高档就叫 2k。",
+   "as_of": "2026-08-12",
+   "src": "bailian-qimg3",
+   "quote": "「size string（可选）……文生图（T2I）：**像素面积范围 512*512 至 2048*2048**，宽高比限制 1:8 至 8:1。图生图（I2I）：像素面积范围 512*512 至 2048*2048」"
   },
   {
    "m": "qwen-image",
    "c": "i-openweights",
    "state": "yes",
-   "verified_for": "Edit-2511",
+   "verified_for": "Qwen-Image-2512",
    "src": "hf-lineage",
-   "note": "官方原文：「Qwen/Qwen-Image 与 Qwen-Image-Edit-2511 均为 **apache-2.0**，标准开源协议」。⚠️ **这一格核的是 Edit-2511**，当时那是我们认定的当前版本",
-   "recheck": "3.0-pro"
+   "note": "**权重长在同门的上一代上。** 当前主力 `qwen-image-3.0-pro` 是只在百炼上调的 API 模型，官方没有放出它的权重；要自部署只能用 2512 那一代。**「这条产品线开源」和「你现在用的这一版开源」不是一回事。**",
+   "as_of": "2026-08-12",
+   "sibling": "Qwen-Image-2512",
+   "quote": "官方 HF 组织最新的开源权重是 `Qwen/Qwen-Image-2512`（↓77,756 ♥925）；3.0 系列在 HF 上没有对应仓库"
   },
   {
    "m": "z-image",
@@ -6673,118 +6694,123 @@
    "m": "qwen-text",
    "c": "t-think",
    "state": "yes",
-   "verified_for": "3.7-max",
-   "note": "「Seamless switching between thinking mode … and non-thinking mode … within a single model」。⚠️ **这一格核的是 3.7-max**：厂商的能力页当天仍只列到 3.7，没跟上模型清单里的 3.8-max",
-   "src": "qwen-docs",
+   "verified_for": "3.8-max",
+   "note": "混合思考模式：`enable_thinking` 设 true 先思考再回复、设 false 直接回复；走 Responses API 时改用 `reasoning.effort` 控制开关与深度。",
+   "src": "bailian-thinking-zh",
    "via": "native",
-   "recheck": "3.8-max"
+   "as_of": "2026-08-12",
+   "quote": "深度思考页的调用示例直接写 `model=\"qwen3.8-max\"` 配 `extra_body={\"enable_thinking\":True}`；文本生成页也写「所有 Qwen3 及以上模型均支持，大多数为混合模式，可按请求灵活切换」。文本生成页「推荐模型」表：|模型 ID|上下文|思考模式|Function Calling|内置工具|结构化输出| → |qwen3.8-max|1M|支持|支持|支持|支持|"
   },
   {
    "m": "qwen-text",
    "c": "t-long",
    "state": "yes",
-   "verified_for": "3.7-max",
-   "note": "「Enhanced 256K long-context understanding, extensible to 1M」。⚠️ **这一格核的是 3.7-max**：厂商的能力页当天仍只列到 3.7，没跟上模型清单里的 3.8-max",
-   "src": "qwen-docs",
+   "verified_for": "3.8-max",
+   "note": "官方给的换算：「100 万 Token 约相当于 70 万个汉字或 10 本小说」。⚠️ 同页还提到 `qwen-long` 上下文到 1000 万 Token —— 那是另一支专做超长文档的型号，不是 max。",
+   "src": "bailian-textgen-zh",
    "via": "native",
-   "recheck": "3.8-max"
+   "as_of": "2026-08-12",
+   "quote": "文本生成页「推荐模型」表：|模型 ID|上下文|思考模式|Function Calling|内置工具|结构化输出| → |qwen3.8-max|1M|支持|支持|支持|支持|同页正文：「长文档或大型代码库：qwen3.8-max / qwen3.7-plus / qwen3.7-flash（100 万）。常规任务：128k-256k 已足够。」"
   },
   {
    "m": "qwen-text",
    "c": "t-maxout",
    "state": "unknown",
-   "verified_for": "3.7-max",
-   "recheck": "3.8-max",
-   "note": "。⚠️ **这一格核的是 3.7-max**：厂商的能力页当天仍只列到 3.7，没跟上模型清单里的 3.8-max"
+   "verified_for": "3.8-max",
+   "note": "**最大输出长度官方文档页不登。** 中文站的文本生成、深度思考、批量推理几页都只给上下文窗口（1M），没有任何一页列 max output；官方那句「模型的上下文信息请前往模型广场查看」把这栏推给了要登录的控制台 —— 拿不到公开原文就不填。",
+   "as_of": "2026-08-12"
   },
   {
    "m": "qwen-text",
    "c": "t-tools",
    "state": "yes",
-   "verified_for": "3.7-max",
-   "note": "「Expertise in agent capabilities, enabling precise integration with external tools」。⚠️ **这一格核的是 3.7-max**：厂商的能力页当天仍只列到 3.7，没跟上模型清单里的 3.8-max",
-   "src": "qwen-docs",
+   "verified_for": "3.8-max",
+   "note": "百炼把工具分两类：Function Calling（你自己声明的函数）与内置工具（联网搜索、代码解释器、网页抓取）。这一格记的是前者，后者见「代码执行」那格。",
+   "src": "bailian-textgen-zh",
    "via": "native",
-   "recheck": "3.8-max"
+   "as_of": "2026-08-12",
+   "quote": "文本生成页「推荐模型」表：|模型 ID|上下文|思考模式|Function Calling|内置工具|结构化输出| → |qwen3.8-max|1M|支持|支持|支持|支持|同页正文：「Function Calling（自定义工具，模型调用）：**所有通用模型均支持**。」"
   },
   {
    "m": "qwen-text",
    "c": "t-json",
    "state": "yes",
-   "verified_for": "3.7-max",
-   "src": "bailian-textgen",
-   "note": "Production Use 小节列出的特性含 structured output（与 RAG、tool calling、streaming output、deep thinking、prefix completion 并列）。⚠️ **这一格核的是 3.7-max**：厂商的能力页当天仍只列到 3.7，没跟上模型清单里的 3.8-max",
+   "verified_for": "3.8-max",
+   "src": "bailian-textgen-zh",
+   "note": "表里 qwen3.8-max 这一栏是「支持」。⚠️ 同表里 deepseek-v4-pro / deepseek-v4-flash / kimi-k2.7-code 在这一栏都是「不支持」—— **在百炼上并不是每个模型都有**。",
    "via": "native",
-   "as_of": "2026-08-11",
-   "recheck": "3.8-max"
+   "as_of": "2026-08-12",
+   "quote": "文本生成页「推荐模型」表：|模型 ID|上下文|思考模式|Function Calling|内置工具|结构化输出| → |qwen3.8-max|1M|支持|支持|支持|支持|同页正文：「结构化输出 —— 获取有效的 JSON 返回，例如从文本中提取姓名和地址。」"
   },
   {
    "m": "qwen-text",
    "c": "t-search",
    "state": "yes",
-   "verified_for": "3.7-max",
-   "src": "bailian-websearch",
+   "verified_for": "3.8-max",
+   "src": "bailian-websearch-zh",
    "via": "native",
-   "note": "三条通道各有写法：Chat Completions / DashScope 用 `enable_search: true`，Responses API 用 `tools: [{\"type\": \"web_search\"}]`；另有 `search_strategy: \"agent\" | \"agent_max\"` 与 `enable_source`。支持模型清单含 Qwen3.7-Max、Qwen3.7-Plus。⚠️ **这一格核的是 3.7-max**：厂商的能力页当天仍只列到 3.7，没跟上模型清单里的 3.8-max",
-   "as_of": "2026-08-11",
-   "recheck": "3.8-max"
+   "note": "名单是逐个型号列的，qwen3.8-max 明确在内。⚠️ 多模态模型开启联网搜索时官方要求用流式调用。",
+   "as_of": "2026-08-12",
+   "quote": "联网搜索页「支持的模型 · 华北 2（北京）」：「千问 Max **Qwen3.8-Max：qwen3.8-max**、Qwen3.7-Max：qwen3.7-max……」"
   },
   {
    "m": "qwen-text",
    "c": "t-code",
-   "state": "unknown",
-   "verified_for": "3.7-max",
-   "recheck": "3.8-max",
-   "note": "。⚠️ **这一格核的是 3.7-max**：厂商的能力页当天仍只列到 3.7，没跟上模型清单里的 3.8-max"
+   "state": "yes",
+   "verified_for": "3.8-max",
+   "note": "**这一格是从「内置工具 = 支持」推到「有代码解释器」的**，官方没有单列一张代码执行的型号名单。同表里 deepseek / kimi / MiniMax 在内置工具这一栏都是「不支持」，所以这一栏确实是逐模型区分的、不是全都有。",
+   "as_of": "2026-08-12",
+   "src": "bailian-textgen-zh",
+   "quote": "文本生成页「推荐模型」表：|模型 ID|上下文|思考模式|Function Calling|内置工具|结构化输出| → |qwen3.8-max|1M|支持|支持|支持|支持|同页对「内置工具」的定义：「内置工具（**联网搜索、代码解释器、网页抓取**等，无需复杂配置）」"
   },
   {
    "m": "qwen-text",
    "c": "t-computer",
    "state": "unknown",
-   "verified_for": "3.7-max",
-   "recheck": "3.8-max",
-   "note": "。⚠️ **这一格核的是 3.7-max**：厂商的能力页当天仍只列到 3.7，没跟上模型清单里的 3.8-max"
+   "verified_for": "3.8-max",
+   "note": "**百炼中文站没有「计算机操作 / Computer use」这类工具。** 文本生成页把内置工具枚举为「联网搜索、代码解释器、网页抓取等」，没有操作浏览器或桌面的那一类；其余几页也没有 —— 读完没找到，不是没读。",
+   "as_of": "2026-08-12"
   },
   {
    "m": "qwen-text",
    "c": "t-vision",
    "state": "yes",
-   "verified_for": "3.7-plus",
-   "src": "bailian-batch",
-   "note": "批量页把 qwen3.7-plus 列在 Multimodal models → Image/video 一栏（与 qwen3-vl-plus 并列）",
+   "verified_for": "3.8-max",
+   "src": "bailian-batch-zh",
+   "note": "**原来这一格挂着 sibling=3.7-plus**（视觉在 plus 那一支）。中文站的批量页现在把 qwen3.8-max 自己也列进了图像与视频理解那一栏，与 qwen3-vl-plus 并列 —— 旗舰这一版已经原生收图，sibling 去掉。",
    "via": "native",
-   "sibling": "3.7-plus",
-   "as_of": "2026-08-11"
+   "as_of": "2026-08-12",
+   "quote": "批量推理页「适用范围 · 华北 2（北京） 支持的模型」→「多模态模型 **图像与视频理解**：**qwen3.8-max**、qwen3.7-plus、qwen3.6-plus、qwen3.7-flash……qwen3-vl-plus、qwen3-vl-flash」"
   },
   {
    "m": "qwen-text",
    "c": "t-audio",
    "state": "unknown",
-   "verified_for": "3.7-max",
-   "recheck": "3.8-max",
-   "note": "。⚠️ **这一格核的是 3.7-max**：厂商的能力页当天仍只列到 3.7，没跟上模型清单里的 3.8-max"
+   "verified_for": "3.8-max",
+   "note": "**音频输入长在另一条产品线上。** 批量推理页把 qwen3.8-max 列在「多模态模型 → **图像与视频理解**」一栏（没有音频）；能吃音频的是 Qwen3.5-Omni / Qwen3-Omni-Flash / Qwen-Audio 那一系（全模态页：「全模态模型能同时理解文本、音频、图片和视频」）。那是**另一个模型**，不是 qwen3.8-max 的同门版本，所以不填 sibling，照实留 ⬜。",
+   "as_of": "2026-08-12"
   },
   {
    "m": "qwen-text",
    "c": "t-cache",
    "state": "yes",
-   "verified_for": "3.7-max",
-   "src": "bailian-cache",
-   "note": "分显式与隐式两种：显式缓存用 `\"cache_control\": {\"type\": \"ephemeral\"}` 标记，命中计 10% 标准价（创建 125%），隐式命中计 20%。⚠️ **这一格核的是 3.7-max**：厂商的能力页当天仍只列到 3.7，没跟上模型清单里的 3.8-max",
+   "verified_for": "3.8-max",
+   "src": "bailian-cache-zh",
+   "note": "官方描述的命中规则：缓存块命中后有效期重置为 5 分钟，且中间插入的 message 超过 20 条就不再命中 —— 用它省钱前要先看这两条。",
    "via": "native",
-   "as_of": "2026-08-11",
-   "recheck": "3.8-max"
+   "as_of": "2026-08-12",
+   "quote": "上下文缓存页「支持的模型 · 华北 2（北京）」：「千问 Max：**qwen3.8-max**、qwen3.7-max、qwen3.7-max-2026-05-20、qwen3.7-max-2026-06-08、qwen3.6-max-preview、qwen3-max」"
   },
   {
    "m": "qwen-text",
    "c": "t-batch",
    "state": "yes",
-   "verified_for": "3.7-max",
-   "src": "bailian-batch",
-   "note": "OpenAI 兼容 Batch API，「Costs are only 50% of real-time calls」，completion_window 24h–336h；支持模型清单含 qwen3.7-max。⚠️ **这一格核的是 3.7-max**：厂商的能力页当天仍只列到 3.7，没跟上模型清单里的 3.8-max",
+   "verified_for": "3.8-max",
+   "src": "bailian-batch-zh",
+   "note": "同页还把 qwen3.8-max 列进「多模态模型 → 图像与视频理解」，也就是说批量通道上它可以收图。",
    "via": "native",
-   "as_of": "2026-08-11",
-   "recheck": "3.8-max"
+   "as_of": "2026-08-12",
+   "quote": "批量推理页「适用范围 · 华北 2（北京） 支持的模型：文本生成模型 千问 Max：**qwen3.8-max**、qwen3.7-max、qwen3-max」"
   },
   {
    "m": "qwen-text",
@@ -6801,11 +6827,13 @@
    "m": "qwen-text",
    "c": "t-openweights",
    "state": "yes",
-   "verified_for": "3.7-max",
+   "verified_for": "Qwen3.6",
    "src": "hf-text-org",
    "via": "native",
-   "note": "官方 HF 组织下有可下载权重：Qwen/Qwen3.6-27B。⚠️ **这一格核的是 3.7-max**：厂商的能力页当天仍只列到 3.7，没跟上模型清单里的 3.8-max",
-   "recheck": "3.8-max"
+   "note": "**权重长在同门的上一代上。** 当前主力 `qwen3.8-max` 是只在百炼上调的闭源模型；要自部署最新只能到 Qwen3.6。**「Qwen 开源」和「你现在调的这一版开源」不是一回事** —— 这条产品线上这两件事差了两代。（另有 2026-06-22 的 Qwen-AgentWorld-35B-A3B 开了权重，但那是 Agent 专用支线，不是通用主线。）",
+   "as_of": "2026-08-12",
+   "sibling": "Qwen3.6",
+   "quote": "官方 HF 组织最新的通用开源权重是 `Qwen/Qwen3.6-27B`（2026-04-21，↓6,577,318 ♥2,232）与 `Qwen/Qwen3.6-35B-A3B`（2026-04-15，↓5,311,070）；3.7 / 3.8 系列在 HF 上没有对应仓库"
   },
   {
    "m": "deepseek",

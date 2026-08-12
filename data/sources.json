@@ -2044,23 +2044,6 @@
    ]
   },
   {
-   "id": "qwen-docs",
-   "tier": "S",
-   "kind": "html",
-   "vendor": "qwen-text",
-   "name": "Qwen 官方文档",
-   "url": "https://qwen.readthedocs.io/en/latest/",
-   "refresh_days": 14,
-   "good_for": [
-    "capability",
-    "version"
-   ],
-   "expect": [
-    "thinking mode",
-    "long-context"
-   ]
-  },
-  {
    "id": "xai-docs",
    "tier": "S",
    "kind": "html",
@@ -2560,18 +2543,6 @@
    ]
   },
   {
-   "id": "bailian-textgen",
-   "tier": "S",
-   "kind": "html",
-   "vendor": "qwen-text",
-   "name": "阿里云百炼 · 文本生成",
-   "url": "https://www.alibabacloud.com/help/en/model-studio/text-generation",
-   "refresh_days": 14,
-   "good_for": [
-    "capability"
-   ]
-  },
-  {
    "id": "kimi-websearch",
    "tier": "S",
    "kind": "html",
@@ -2593,32 +2564,6 @@
    "refresh_days": 14,
    "good_for": [
     "capability"
-   ]
-  },
-  {
-   "id": "bailian-cache",
-   "tier": "S",
-   "kind": "html",
-   "vendor": "qwen-text",
-   "name": "阿里云百炼 · 上下文缓存",
-   "url": "https://www.alibabacloud.com/help/en/model-studio/context-cache",
-   "refresh_days": 14,
-   "good_for": [
-    "capability",
-    "pricing"
-   ]
-  },
-  {
-   "id": "bailian-batch",
-   "tier": "S",
-   "kind": "html",
-   "vendor": "qwen-text",
-   "name": "阿里云百炼 · OpenAI 兼容批量推理",
-   "url": "https://www.alibabacloud.com/help/en/model-studio/batch-interfaces-compatible-with-openai",
-   "refresh_days": 14,
-   "good_for": [
-    "capability",
-    "pricing"
    ]
   },
   {
@@ -3679,6 +3624,97 @@
     "capability"
    ],
    "note": "文档站每页都有 `.md` 版（URL 后加 .md），全量索引在 developer.ideogram.ai/llms.txt —— 抓这个比抓渲染后的 HTML 稳"
+  },
+  {
+   "id": "bailian-qimg3",
+   "tier": "A",
+   "kind": "html",
+   "vendor": "alibaba",
+   "name": "阿里云百炼 · 千问-图像生成与编辑3.0 API参考",
+   "url": "https://help.aliyun.com/zh/model-studio/qwen-image-generation-and-editing-api-reference",
+   "refresh_days": 14,
+   "good_for": [
+    "capability"
+   ],
+   "note": "百炼中文文档是**静态 HTML，直接 curl 就能拿到全文**（不必走 SPA 抓取）。⚠️ 中英文站不同步，以中文站为准"
+  },
+  {
+   "id": "bailian-qimg",
+   "tier": "A",
+   "kind": "html",
+   "vendor": "alibaba",
+   "name": "阿里云百炼 · 千问-文生图API参考（模型概览）",
+   "url": "https://help.aliyun.com/zh/model-studio/qwen-image-api",
+   "refresh_days": 14,
+   "good_for": [
+    "capability"
+   ],
+   "note": "百炼中文文档是**静态 HTML，直接 curl 就能拿到全文**（不必走 SPA 抓取）。⚠️ 中英文站不同步，以中文站为准"
+  },
+  {
+   "id": "bailian-textgen-zh",
+   "tier": "A",
+   "kind": "html",
+   "vendor": "alibaba",
+   "name": "阿里云百炼中文站 · 文本生成（推荐模型能力表）",
+   "url": "https://help.aliyun.com/zh/model-studio/text-generation-model/",
+   "refresh_days": 14,
+   "good_for": [
+    "capability"
+   ],
+   "note": "⚠️ **和 alibabacloud.com 的英文站不同步，以中文站为准**（版本号那一栏已经栽过一次）。静态 HTML，直接 curl 即可"
+  },
+  {
+   "id": "bailian-thinking-zh",
+   "tier": "A",
+   "kind": "html",
+   "vendor": "alibaba",
+   "name": "阿里云百炼中文站 · 深度思考",
+   "url": "https://help.aliyun.com/zh/model-studio/deep-thinking",
+   "refresh_days": 14,
+   "good_for": [
+    "capability"
+   ],
+   "note": "⚠️ **和 alibabacloud.com 的英文站不同步，以中文站为准**（版本号那一栏已经栽过一次）。静态 HTML，直接 curl 即可"
+  },
+  {
+   "id": "bailian-cache-zh",
+   "tier": "A",
+   "kind": "html",
+   "vendor": "alibaba",
+   "name": "阿里云百炼中文站 · 上下文缓存",
+   "url": "https://help.aliyun.com/zh/model-studio/context-cache",
+   "refresh_days": 14,
+   "good_for": [
+    "capability"
+   ],
+   "note": "⚠️ **和 alibabacloud.com 的英文站不同步，以中文站为准**（版本号那一栏已经栽过一次）。静态 HTML，直接 curl 即可"
+  },
+  {
+   "id": "bailian-batch-zh",
+   "tier": "A",
+   "kind": "html",
+   "vendor": "alibaba",
+   "name": "阿里云百炼中文站 · 批量推理",
+   "url": "https://help.aliyun.com/zh/model-studio/batch-interfaces-compatible-with-openai",
+   "refresh_days": 14,
+   "good_for": [
+    "capability"
+   ],
+   "note": "⚠️ **和 alibabacloud.com 的英文站不同步，以中文站为准**（版本号那一栏已经栽过一次）。静态 HTML，直接 curl 即可"
+  },
+  {
+   "id": "bailian-websearch-zh",
+   "tier": "A",
+   "kind": "html",
+   "vendor": "alibaba",
+   "name": "阿里云百炼中文站 · 联网搜索",
+   "url": "https://help.aliyun.com/zh/model-studio/web-search",
+   "refresh_days": 14,
+   "good_for": [
+    "capability"
+   ],
+   "note": "⚠️ **和 alibabacloud.com 的英文站不同步，以中文站为准**（版本号那一栏已经栽过一次）。静态 HTML，直接 curl 即可"
   }
  ],
  "$missing": [
