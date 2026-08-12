@@ -64,10 +64,32 @@ Caddy 配置见 `caddy-snippet.conf` —— 加到线上 Caddyfile 的 `:8080 { 
 （**不是兜底给的首页** —— 那才是这套路由最容易出的错）；
 尾斜杠 308 到规范地址；`_next` 静态资源 200；107 张分享图抽查 200。
 
-**hydration 由负责人在浏览器里点过节点确认正常**。
-这一条本机验不了：这台开发机的 Chromium 连主站首页都超时（curl 直连正常），
-是本地网络那一层的事。`verify.mjs` 能抓 hydration 报错、也确实没报，
-但它**不点节点** —— 所以「点了有反应」只能靠人在浏览器里确认。
+**hydration 已验：** 点演进树上的节点，正文从 1966 字变成 2144 字，控制台无报错。
+
+## ⚠️ 对线上做浏览器验收，必须用**有头**浏览器
+
+SafeLine 会掐掉无头浏览器的连接 —— 表现是 `net::ERR_CONNECTION_CLOSED`，
+**而同一时刻 curl 直连是 200**。实测：
+
+| 方式 | 结果 |
+|---|---|
+| curl 直连（任意 UA）| 200 |
+| Playwright headless（哪怕换成真 UA）| ERR_CONNECTION_CLOSED |
+| Playwright `headless: false` | 200 |
+
+**这是反爬在正常工作，不是故障。** 但它极易被误判 ——
+2026-08-12 我为此绕了两圈：第一次记成「本地网络那层的事」就没往下查，
+第二次直接怀疑到自己刚动过的服务器上，还一度断定是
+「在生产机上跑 next build 把 SafeLine 撑 OOM 了」。
+**手上有个变更，就容易把什么都归到它头上。**
+
+所以线上验收的正确姿势：
+
+```js
+const b = await chromium.launch({ headless: false, args: ["--no-proxy-server"] });
+```
+
+`--no-proxy-server` 也是必需的：本机若开着系统代理，浏览器走代理同样连不上。
 
 ## 上线前必须过的三条
 
