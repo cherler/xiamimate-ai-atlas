@@ -126,6 +126,44 @@ console.log(`${D.zh}：AA 榜新面孔 ${aaNew.length} 个，HF 新组织 ${hfNe
 for (const r of aaNew.slice(0, 6)) console.log(`  [AA ${r.elo}] ${r.vendor} · ${r.model}`);
 }   // ← 方向循环到此为止
 
+/**
+ * **人工发现的候选也要有落脚处。**
+ *
+ * 两条自动路各有盲区：AA 榜只收上了竞技场的闭源模型，HF 那一路只看开源权重。
+ * 2026-08-13 撞上一个两边都看不见的 —— Black Forest Labs 的 FLUX 3 从图像跨进了视频，
+ * 而它是闭源 API、不在文生图榜上。**这类只能人看见。**
+ *
+ * 之前这种发现无处可写：`data/candidates.md` 是这支脚本每次重跑覆盖的，
+ * 手写进去等于没写。所以另立 `data/candidates-manual.json`，在这里并进来。
+ */
+const manual = existsSync(`${ROOT}/data/candidates-manual.json`)
+  ? JSON.parse(readFileSync(`${ROOT}/data/candidates-manual.json`, "utf8")).rows ?? []
+  : [];
+const manualMd = manual.length
+  ? [
+      `## 人工发现的（自动那两路看不见的）`,
+      ``,
+      `> 两条自动路各有盲区：AA 榜只收上了竞技场的闭源模型，HF 那一路只看开源权重。`,
+      `> **落在两边之外的，只能人看见** —— 写在 \`data/candidates-manual.json\` 里，不会被重跑冲掉。`,
+      ``,
+      ...manual.flatMap((r) => [
+        `### \`${r.domain}\` ${r.org} · ${r.family}（${r.found_at} 发现）`,
+        ``,
+        `**为什么两路都捞不到**：${r.why}`,
+        ``,
+        `**怎么撞见的**：${r.how}`,
+        ``,
+        ...(r.evidence ?? []).map((e) => `- ${e}`),
+        ``,
+        `来源：${r.src}`,
+        ``,
+        `**${r.decision}**`,
+        ...(r.note ? ["", `> ${r.note}`] : []),
+        ``,
+      ]),
+    ].join("\n")
+  : "";
+
 const md = [
   `# 收录候选 · ${atlas.generated_at}`,
   ``,
@@ -137,6 +175,7 @@ const md = [
   `> 而空看起来像「没有新面孔」，其实是「没看」。`,
   ``,
   ...out,
+  ...(manualMd ? [manualMd] : []),
 ].join("\n\n");
 
 writeFileSync(`${ROOT}/data/candidates.md`, md);

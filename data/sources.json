@@ -4095,6 +4095,20 @@
     "openweights"
    ],
    "note": "⚠️ 抓的是 API 端点，给读者点的网页地址在 atlas.sources 里（R72）。**GitHub README 比 HF 模型卡写得全** —— 模型表、分辨率上限这些只在仓库里"
+  },
+  {
+   "id": "skyreels-gh",
+   "tier": "A",
+   "kind": "json",
+   "vendor": "skywork",
+   "name": "SkyworkAI/SkyReels-V3 官方仓库",
+   "url": "https://api.github.com/repos/SkyworkAI/SkyReels-V3",
+   "refresh_days": 14,
+   "good_for": [
+    "capability",
+    "openweights"
+   ],
+   "note": "盯这条源的首要目的是**等 V4 出现**。2026-08-13 核过：官方组织下只有 V1/V2/V3，没有 V4"
   }
  ],
  "$missing": [

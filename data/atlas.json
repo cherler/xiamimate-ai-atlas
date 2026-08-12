@@ -2007,7 +2007,7 @@
    "zh": "SkyReels",
    "org": "kunlun",
    "team": "Skywork",
-   "version": "V4",
+   "version": "V3",
    "version_as_of": "2026-03",
    "status": "active",
    "status_note": "⚠️ AA 榜 Elo 1107。官方 HF 组织 Skywork 有 SkyReels-V3-A2V-19B，但榜上是 V4 —— **两边对不上**，待核",
@@ -2019,7 +2019,10 @@
    "arch_src": "skyreels-tr",
    "arch_quote": "synergizes Multi-modal Large Language Model (MLLM), Multi-stage Pretraining, Reinforcement Learning, and Diffusion Forcing Framework",
    "arch_note": "Diffusion Forcing 把扩散与自回归式续写结合，用于无限长生成 —— 因此记 hybrid 而不是纯 dit。",
-   "arch_basis": "official"
+   "arch_basis": "official",
+   "version_src": "skyreels-gh",
+   "version_quote": "官方仓库 `SkyworkAI/SkyReels-V3` 的描述即「SkyReels V3: Multimodal Video Generation Model」（★533，最后推送 2026-01-30）；官方 HF 组织下最新的一支是 `Skywork/SkyReels-V3-A2V-19B`（createdAt 2026-01-19）",
+   "version_note": "⚠️ **2026-08-13 从 V4 改回 V3。** 原来记的 V4 **既没有 version_src 也没有 version_quote** —— R66 那条「按记忆填版本号就是编」只卡 core 层，skyreels 是 extended，于是它溜了过去。这次逐个查：官方 GitHub 组织 SkyworkAI 下只有 SkyReels-V1/V2/V3（另有 A1/A2/Text 几个支线），Hugging Face 上搜 SkyReels-V4 零结果。**V4 目前不存在。** 待办 #100「SkyReels V4 已存在，我们库里最新只到 V3」本身就是错的 —— 很可能正是照着那条待办把版本号改上去的。"
   },
   {
    "id": "hunyuan-video",
@@ -4451,6 +4454,11 @@
    "name": "Tencent-Hunyuan/HunyuanImage-3.0 官方仓库",
    "url": "https://github.com/Tencent-Hunyuan/HunyuanImage-3.0",
    "tier": "official"
+  },
+  "skyreels-gh": {
+   "name": "SkyworkAI/SkyReels-V3 官方仓库",
+   "url": "https://github.com/SkyworkAI/SkyReels-V3",
+   "tier": "official"
   }
  },
  "support": [
@@ -5466,7 +5474,7 @@
    "m": "skyreels",
    "c": "t2v",
    "state": "yes",
-   "verified_for": "V4",
+   "verified_for": "V3",
    "src": "aa-board",
    "note": "榜单上有它（Elo 1107），说明能出片、且有人在用。**其余能力一格未核** —— Extended 层只保证「它存在」，不保证核过"
   },
@@ -5483,7 +5491,7 @@
    "m": "skyreels",
    "c": "openweights",
    "state": "yes",
-   "verified_for": "V4",
+   "verified_for": "V3",
    "src": "hf-lineage",
    "quote": "Skywork/SkyReels-V2-T2V-14B-720P",
    "note": "证据是官方 HF 组织上的公开权重仓库。**许可条款未逐条核** —— 「权重公开」不等于标准开源协议。"
