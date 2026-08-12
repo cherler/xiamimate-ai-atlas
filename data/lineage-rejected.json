@@ -1,210 +1,215 @@
 {
-  "$note": "**看过并否决的谱系候选。** 没有这本账，候选表里被否掉的那些会永远留在待办里，**这张表从第一天起就不会收敛** —— 而收敛正是 §59.3 负反馈想要的。\n否决不是删除：记下来才能在它改名或升级时重新认出来，也才说得清「为什么没收它」。",
-  "$reviewed_at": "2026-08-11",
-  "rows": [
-    {
-      "repo": "stabilityai/japanese-stable-diffusion-xl",
-      "why": "确实是图像模型，但**不属于我们给这个组织挂的那条产品线** —— 该作为新产品线候选另议",
-      "bucket": "D"
-    },
-    {
-      "repo": "HiDream-ai/MotionPro",
-      "why": "确实是图像模型，但**不属于我们给这个组织挂的那条产品线** —— 该作为新产品线候选另议",
-      "bucket": "D"
-    },
-    {
-      "repo": "nvidia/Cosmos-Predict2-14B-Text2Image",
-      "why": "确实是图像模型，但**不属于我们给这个组织挂的那条产品线** —— 该作为新产品线候选另议",
-      "bucket": "D"
-    },
-    {
-      "repo": "nvidia/Cosmos-Predict2-2B-Text2Image",
-      "why": "确实是图像模型，但**不属于我们给这个组织挂的那条产品线** —— 该作为新产品线候选另议",
-      "bucket": "D"
-    },
-    {
-      "repo": "nvidia/Cosmos-Predict2-0.6B-Text2Image",
-      "why": "确实是图像模型，但**不属于我们给这个组织挂的那条产品线** —— 该作为新产品线候选另议",
-      "bucket": "D"
-    },
-    {
-      "repo": "nvidia/Qwen-Image-Edit-NVPCB-OVSL2SL",
-      "why": "确实是图像模型，但**不属于我们给这个组织挂的那条产品线** —— 该作为新产品线候选另议",
-      "bucket": "D"
-    },
-    {
-      "repo": "nvidia/Cosmos3-Super-Text2Image",
-      "why": "确实是图像模型，但**不属于我们给这个组织挂的那条产品线** —— 该作为新产品线候选另议",
-      "bucket": "D"
-    },
-    {
-      "repo": "nvidia/NL-Diffusion-Image",
-      "why": "确实是图像模型，但**不属于我们给这个组织挂的那条产品线** —— 该作为新产品线候选另议",
-      "bucket": "D"
-    },
-    {
-      "repo": "nvidia/Qwen-Image-Flash",
-      "why": "确实是图像模型，但**不属于我们给这个组织挂的那条产品线** —— 该作为新产品线候选另议",
-      "bucket": "D"
-    },
-    {
-      "repo": "nvidia/Cosmos3-Super-Text2Image-4Step",
-      "why": "确实是图像模型，但**不属于我们给这个组织挂的那条产品线** —— 该作为新产品线候选另议",
-      "bucket": "D"
-    },
-    {
-      "repo": "microsoft/stable-diffusion-v1.5-webnn",
-      "why": "端口或量化档 —— 换推理后端，不是新一代",
-      "bucket": "B"
-    },
-    {
-      "repo": "black-forest-labs/FLUX.2-dev-NVFP4",
-      "why": "端口或量化档 —— 换推理后端，不是新一代",
-      "bucket": "B"
-    },
-    {
-      "repo": "black-forest-labs/FLUX.1-Kontext-dev-NVFP4",
-      "why": "端口或量化档 —— 换推理后端，不是新一代",
-      "bucket": "B"
-    },
-    {
-      "repo": "black-forest-labs/FLUX.1-dev-FP8",
-      "why": "端口或量化档 —— 换推理后端，不是新一代",
-      "bucket": "B"
-    },
-    {
-      "repo": "black-forest-labs/FLUX.1-dev-NVFP4",
-      "why": "端口或量化档 —— 换推理后端，不是新一代",
-      "bucket": "B"
-    },
-    {
-      "repo": "tencent/HunyuanImage-3.0-Instruct-Distil",
-      "why": "端口或量化档 —— 换推理后端，不是新一代",
-      "bucket": "B"
-    },
-    {
-      "repo": "stabilityai/sdxl-base-amdnpu",
-      "why": "端口或量化档 —— 换推理后端，不是新一代",
-      "bucket": "B"
-    },
-    {
-      "repo": "stabilityai/sdxl-turbo-amdnpu",
-      "why": "端口或量化档 —— 换推理后端，不是新一代",
-      "bucket": "B"
-    },
-    {
-      "repo": "stabilityai/stable-diffusion-3.5-medium-amdnpu",
-      "why": "端口或量化档 —— 换推理后端，不是新一代",
-      "bucket": "B"
-    },
-    {
-      "repo": "stabilityai/stable-diffusion-3-medium-amdnpu",
-      "why": "端口或量化档 —— 换推理后端，不是新一代",
-      "bucket": "B"
-    },
-    {
-      "repo": "Kwai-Kolors/Kolors-IP-Adapter-Plus",
-      "why": "配件或研究件（ControlNet / IP-Adapter / 编码器 / 训练代码 / 评测集），不是发布本体",
-      "bucket": "C"
-    },
-    {
-      "repo": "Kwai-Kolors/Kolors-Inpainting",
-      "why": "配件或研究件（ControlNet / IP-Adapter / 编码器 / 训练代码 / 评测集），不是发布本体",
-      "bucket": "C"
-    },
-    {
-      "repo": "Kwai-Kolors/Kolors-ControlNet-Depth",
-      "why": "配件或研究件（ControlNet / IP-Adapter / 编码器 / 训练代码 / 评测集），不是发布本体",
-      "bucket": "C"
-    },
-    {
-      "repo": "Kwai-Kolors/Kolors-ControlNet-Canny",
-      "why": "配件或研究件（ControlNet / IP-Adapter / 编码器 / 训练代码 / 评测集），不是发布本体",
-      "bucket": "C"
-    },
-    {
-      "repo": "Kwai-Kolors/Kolors-IP-Adapter-FaceID-Plus",
-      "why": "配件或研究件（ControlNet / IP-Adapter / 编码器 / 训练代码 / 评测集），不是发布本体",
-      "bucket": "C"
-    },
-    {
-      "repo": "Kwai-Kolors/Kolors-ControlNet-Pose",
-      "why": "配件或研究件（ControlNet / IP-Adapter / 编码器 / 训练代码 / 评测集），不是发布本体",
-      "bucket": "C"
-    },
-    {
-      "repo": "HiDream-ai/SPM-Diff",
-      "why": "配件或研究件（ControlNet / IP-Adapter / 编码器 / 训练代码 / 评测集），不是发布本体",
-      "bucket": "C"
-    },
-    {
-      "repo": "HiDream-ai/Hi-MAR",
-      "why": "配件或研究件（ControlNet / IP-Adapter / 编码器 / 训练代码 / 评测集），不是发布本体",
-      "bucket": "C"
-    },
-    {
-      "repo": "NewBie-AI/Newbie-exp",
-      "why": "配件或研究件（ControlNet / IP-Adapter / 编码器 / 训练代码 / 评测集），不是发布本体",
-      "bucket": "C"
-    },
-    {
-      "repo": "NewBie-AI/Newbie_CLIP",
-      "why": "配件或研究件（ControlNet / IP-Adapter / 编码器 / 训练代码 / 评测集），不是发布本体",
-      "bucket": "C"
-    },
-    {
-      "repo": "NewBie-AI/NewBie-image-v0.1-exp-model-repo",
-      "why": "配件或研究件（ControlNet / IP-Adapter / 编码器 / 训练代码 / 评测集），不是发布本体",
-      "bucket": "C"
-    },
-    {
-      "repo": "NewBie-AI/Newbie-Ai-Training",
-      "why": "配件或研究件（ControlNet / IP-Adapter / 编码器 / 训练代码 / 评测集），不是发布本体",
-      "bucket": "C"
-    },
-    {
-      "repo": "HiDream-ai/VAREdit",
-      "why": "配件或研究件（ControlNet / IP-Adapter / 编码器 / 训练代码 / 评测集），不是发布本体",
-      "bucket": "C"
-    },
-    {
-      "repo": "Kwai-Kolors/CoTyle",
-      "why": "配件或研究件（ControlNet / IP-Adapter / 编码器 / 训练代码 / 评测集），不是发布本体",
-      "bucket": "C"
-    },
-    {
-      "repo": "HiDream-ai/ReCo",
-      "why": "配件或研究件（ControlNet / IP-Adapter / 编码器 / 训练代码 / 评测集），不是发布本体",
-      "bucket": "C"
-    },
-    {
-      "repo": "HiDream-ai/Prompt-Refine",
-      "why": "配件或研究件（ControlNet / IP-Adapter / 编码器 / 训练代码 / 评测集），不是发布本体",
-      "bucket": "C"
-    },
-    {
-      "repo": "Qwen/Qwen-Image-Bench",
-      "why": "配件或研究件（ControlNet / IP-Adapter / 编码器 / 训练代码 / 评测集），不是发布本体",
-      "bucket": "C"
-    },
-    {
-      "repo": "Kwai-Kolors/MetaView",
-      "why": "配件或研究件（ControlNet / IP-Adapter / 编码器 / 训练代码 / 评测集），不是发布本体",
-      "bucket": "C"
-    },
-    {
-      "repo": "deepseek-ai/DeepSeek-Prover-V2-671B",
-      "why": "定理证明专用线，产出的是 Lean 证明脚本而不是通用文本；和 Mathstral 一样属于单任务衍生，不进这棵树",
-      "by": "human-curated",
-      "at": "2026-08-12",
-      "domain": "text"
-    },
-    {
-      "repo": "deepseek-ai/DeepSeek-Prover-V1.5-SFT",
-      "why": "同上；且这是 SFT 中间档，不是发布本体",
-      "by": "human-curated",
-      "at": "2026-08-12",
-      "domain": "text"
-    }
-  ]
+ "$note": "**看过并否决的谱系候选。** 没有这本账，候选表里被否掉的那些会永远留在待办里，**这张表从第一天起就不会收敛** —— 而收敛正是 §59.3 负反馈想要的。\n否决不是删除：记下来才能在它改名或升级时重新认出来，也才说得清「为什么没收它」。",
+ "$reviewed_at": "2026-08-11",
+ "rows": [
+  {
+   "repo": "stabilityai/japanese-stable-diffusion-xl",
+   "why": "确实是图像模型，但**不属于我们给这个组织挂的那条产品线** —— 该作为新产品线候选另议",
+   "bucket": "D"
+  },
+  {
+   "repo": "HiDream-ai/MotionPro",
+   "why": "确实是图像模型，但**不属于我们给这个组织挂的那条产品线** —— 该作为新产品线候选另议",
+   "bucket": "D"
+  },
+  {
+   "repo": "nvidia/Cosmos-Predict2-14B-Text2Image",
+   "why": "确实是图像模型，但**不属于我们给这个组织挂的那条产品线** —— 该作为新产品线候选另议",
+   "bucket": "D"
+  },
+  {
+   "repo": "nvidia/Cosmos-Predict2-2B-Text2Image",
+   "why": "确实是图像模型，但**不属于我们给这个组织挂的那条产品线** —— 该作为新产品线候选另议",
+   "bucket": "D"
+  },
+  {
+   "repo": "nvidia/Cosmos-Predict2-0.6B-Text2Image",
+   "why": "确实是图像模型，但**不属于我们给这个组织挂的那条产品线** —— 该作为新产品线候选另议",
+   "bucket": "D"
+  },
+  {
+   "repo": "nvidia/Qwen-Image-Edit-NVPCB-OVSL2SL",
+   "why": "确实是图像模型，但**不属于我们给这个组织挂的那条产品线** —— 该作为新产品线候选另议",
+   "bucket": "D"
+  },
+  {
+   "repo": "nvidia/Cosmos3-Super-Text2Image",
+   "why": "确实是图像模型，但**不属于我们给这个组织挂的那条产品线** —— 该作为新产品线候选另议",
+   "bucket": "D"
+  },
+  {
+   "repo": "nvidia/NL-Diffusion-Image",
+   "why": "确实是图像模型，但**不属于我们给这个组织挂的那条产品线** —— 该作为新产品线候选另议",
+   "bucket": "D"
+  },
+  {
+   "repo": "nvidia/Qwen-Image-Flash",
+   "why": "确实是图像模型，但**不属于我们给这个组织挂的那条产品线** —— 该作为新产品线候选另议",
+   "bucket": "D"
+  },
+  {
+   "repo": "nvidia/Cosmos3-Super-Text2Image-4Step",
+   "why": "确实是图像模型，但**不属于我们给这个组织挂的那条产品线** —— 该作为新产品线候选另议",
+   "bucket": "D"
+  },
+  {
+   "repo": "microsoft/stable-diffusion-v1.5-webnn",
+   "why": "端口或量化档 —— 换推理后端，不是新一代",
+   "bucket": "B"
+  },
+  {
+   "repo": "black-forest-labs/FLUX.2-dev-NVFP4",
+   "why": "端口或量化档 —— 换推理后端，不是新一代",
+   "bucket": "B"
+  },
+  {
+   "repo": "black-forest-labs/FLUX.1-Kontext-dev-NVFP4",
+   "why": "端口或量化档 —— 换推理后端，不是新一代",
+   "bucket": "B"
+  },
+  {
+   "repo": "black-forest-labs/FLUX.1-dev-FP8",
+   "why": "端口或量化档 —— 换推理后端，不是新一代",
+   "bucket": "B"
+  },
+  {
+   "repo": "black-forest-labs/FLUX.1-dev-NVFP4",
+   "why": "端口或量化档 —— 换推理后端，不是新一代",
+   "bucket": "B"
+  },
+  {
+   "repo": "tencent/HunyuanImage-3.0-Instruct-Distil",
+   "why": "端口或量化档 —— 换推理后端，不是新一代",
+   "bucket": "B"
+  },
+  {
+   "repo": "stabilityai/sdxl-base-amdnpu",
+   "why": "端口或量化档 —— 换推理后端，不是新一代",
+   "bucket": "B"
+  },
+  {
+   "repo": "stabilityai/sdxl-turbo-amdnpu",
+   "why": "端口或量化档 —— 换推理后端，不是新一代",
+   "bucket": "B"
+  },
+  {
+   "repo": "stabilityai/stable-diffusion-3.5-medium-amdnpu",
+   "why": "端口或量化档 —— 换推理后端，不是新一代",
+   "bucket": "B"
+  },
+  {
+   "repo": "stabilityai/stable-diffusion-3-medium-amdnpu",
+   "why": "端口或量化档 —— 换推理后端，不是新一代",
+   "bucket": "B"
+  },
+  {
+   "repo": "Kwai-Kolors/Kolors-IP-Adapter-Plus",
+   "why": "配件或研究件（ControlNet / IP-Adapter / 编码器 / 训练代码 / 评测集），不是发布本体",
+   "bucket": "C"
+  },
+  {
+   "repo": "Kwai-Kolors/Kolors-Inpainting",
+   "why": "配件或研究件（ControlNet / IP-Adapter / 编码器 / 训练代码 / 评测集），不是发布本体",
+   "bucket": "C"
+  },
+  {
+   "repo": "Kwai-Kolors/Kolors-ControlNet-Depth",
+   "why": "配件或研究件（ControlNet / IP-Adapter / 编码器 / 训练代码 / 评测集），不是发布本体",
+   "bucket": "C"
+  },
+  {
+   "repo": "Kwai-Kolors/Kolors-ControlNet-Canny",
+   "why": "配件或研究件（ControlNet / IP-Adapter / 编码器 / 训练代码 / 评测集），不是发布本体",
+   "bucket": "C"
+  },
+  {
+   "repo": "Kwai-Kolors/Kolors-IP-Adapter-FaceID-Plus",
+   "why": "配件或研究件（ControlNet / IP-Adapter / 编码器 / 训练代码 / 评测集），不是发布本体",
+   "bucket": "C"
+  },
+  {
+   "repo": "Kwai-Kolors/Kolors-ControlNet-Pose",
+   "why": "配件或研究件（ControlNet / IP-Adapter / 编码器 / 训练代码 / 评测集），不是发布本体",
+   "bucket": "C"
+  },
+  {
+   "repo": "HiDream-ai/SPM-Diff",
+   "why": "配件或研究件（ControlNet / IP-Adapter / 编码器 / 训练代码 / 评测集），不是发布本体",
+   "bucket": "C"
+  },
+  {
+   "repo": "HiDream-ai/Hi-MAR",
+   "why": "配件或研究件（ControlNet / IP-Adapter / 编码器 / 训练代码 / 评测集），不是发布本体",
+   "bucket": "C"
+  },
+  {
+   "repo": "NewBie-AI/Newbie-exp",
+   "why": "配件或研究件（ControlNet / IP-Adapter / 编码器 / 训练代码 / 评测集），不是发布本体",
+   "bucket": "C"
+  },
+  {
+   "repo": "NewBie-AI/Newbie_CLIP",
+   "why": "配件或研究件（ControlNet / IP-Adapter / 编码器 / 训练代码 / 评测集），不是发布本体",
+   "bucket": "C"
+  },
+  {
+   "repo": "NewBie-AI/NewBie-image-v0.1-exp-model-repo",
+   "why": "配件或研究件（ControlNet / IP-Adapter / 编码器 / 训练代码 / 评测集），不是发布本体",
+   "bucket": "C"
+  },
+  {
+   "repo": "NewBie-AI/Newbie-Ai-Training",
+   "why": "配件或研究件（ControlNet / IP-Adapter / 编码器 / 训练代码 / 评测集），不是发布本体",
+   "bucket": "C"
+  },
+  {
+   "repo": "HiDream-ai/VAREdit",
+   "why": "配件或研究件（ControlNet / IP-Adapter / 编码器 / 训练代码 / 评测集），不是发布本体",
+   "bucket": "C"
+  },
+  {
+   "repo": "Kwai-Kolors/CoTyle",
+   "why": "配件或研究件（ControlNet / IP-Adapter / 编码器 / 训练代码 / 评测集），不是发布本体",
+   "bucket": "C"
+  },
+  {
+   "repo": "HiDream-ai/ReCo",
+   "why": "配件或研究件（ControlNet / IP-Adapter / 编码器 / 训练代码 / 评测集），不是发布本体",
+   "bucket": "C"
+  },
+  {
+   "repo": "HiDream-ai/Prompt-Refine",
+   "why": "配件或研究件（ControlNet / IP-Adapter / 编码器 / 训练代码 / 评测集），不是发布本体",
+   "bucket": "C"
+  },
+  {
+   "repo": "Qwen/Qwen-Image-Bench",
+   "why": "配件或研究件（ControlNet / IP-Adapter / 编码器 / 训练代码 / 评测集），不是发布本体",
+   "bucket": "C"
+  },
+  {
+   "repo": "Kwai-Kolors/MetaView",
+   "why": "配件或研究件（ControlNet / IP-Adapter / 编码器 / 训练代码 / 评测集），不是发布本体",
+   "bucket": "C"
+  },
+  {
+   "repo": "deepseek-ai/DeepSeek-Prover-V2-671B",
+   "why": "定理证明专用线，产出的是 Lean 证明脚本而不是通用文本；和 Mathstral 一样属于单任务衍生，不进这棵树",
+   "by": "human-curated",
+   "at": "2026-08-12",
+   "domain": "text"
+  },
+  {
+   "repo": "deepseek-ai/DeepSeek-Prover-V1.5-SFT",
+   "why": "同上；且这是 SFT 中间档，不是发布本体",
+   "by": "human-curated",
+   "at": "2026-08-12",
+   "domain": "text"
+  },
+  {
+   "repo": "Qwen/Qwen3-Omni-30B-A3B-Captioner",
+   "bucket": "D",
+   "why": "音频**理解**侧（给音频写描述），不是生成 —— 按 ontology 规则十一，AI 声音这一卷不收 ASR 与音频理解。同代的 Instruct / Thinking 已折进 Qwen3-Omni 节点的 repos"
+  }
+ ]
 }

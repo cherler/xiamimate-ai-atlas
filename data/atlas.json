@@ -10488,8 +10488,11 @@
    "added": "抑制图像漂移、角色一致性、集成 LoRA",
    "src": "hf-lineage",
    "quote": "Qwen/Qwen-Image-Edit-2511",
-   "note": "日期取自官方 HF 仓库的 createdAt（**不是 lastModified**）。",
-   "parent": "qwen-image-Qwen-Image-Edit-2509-编辑版迭代"
+   "note": "日期取自官方 HF 仓库的 createdAt（**不是 lastModified**）。（同一次发布另有一条从 hf-image-org 录入的重复节点，2026-08-12 合并；那一条的引文：Qwen/Qwen-Image-Edit-2511（官方 HF 组织 createdAt 2025-12-17，Apache-2.0））",
+   "parent": "qwen-image-Qwen-Image-Edit-2509-编辑版迭代",
+   "repos": [
+    "Qwen/Qwen-Image-Edit-2511"
+   ]
   },
   {
    "id": "z-image-Z-Image-Turbo-6B、8 步出图、16G 显存可跑；中英双语文字渲染",
@@ -10699,16 +10702,6 @@
    "parent": "seedream-Seedream 4.0-出图与改图并进一个模型"
   },
   {
-   "id": "qwen-image-Qwen-Image-Edit-2511-改图一致性再拧一轮",
-   "m": "qwen-image",
-   "version": "Qwen-Image-Edit-2511",
-   "date": "2025-12-17",
-   "added": "改图一致性再拧一轮",
-   "src": "hf-image-org",
-   "quote": "Qwen/Qwen-Image-Edit-2511（官方 HF 组织 createdAt 2025-12-17，Apache-2.0）",
-   "parent": "qwen-image-Qwen-Image-Edit-2511-抑制图像漂移、角色一致性、集成 LoRA"
-  },
-  {
    "id": "qwen-image-Qwen-Image-Layered-分层输出（图层可分开拿）",
    "m": "qwen-image",
    "version": "Qwen-Image-Layered",
@@ -10716,7 +10709,7 @@
    "added": "分层输出（图层可分开拿）",
    "src": "hf-image-org",
    "quote": "Qwen/Qwen-Image-Layered（官方 HF 组织 createdAt 2025-12-17，Apache-2.0）",
-   "parent": "qwen-image-Qwen-Image-Edit-2511-改图一致性再拧一轮"
+   "parent": "qwen-image-Qwen-Image-Edit-2511-抑制图像漂移、角色一致性、集成 LoRA"
   },
   {
    "id": "qwen-image-Qwen-Image-2512-底座换代",
@@ -12848,7 +12841,8 @@
    "quote": "官方 HF 组织 Qwen/Qwen3-Omni-30B-A3B-Instruct，createdAt 2025-09-20",
    "note": "日期取官方 HF 组织的 createdAt（**不是 lastModified**）；同一代的尺寸档与量化档折成一个节点。⚠️ **ASR 不在这棵树上**（ontology 规则十一）—— SenseVoice、Qwen-Audio 的识别向分支产出的是文本。",
    "repos": [
-    "Qwen/Qwen3-Omni-30B-A3B-Instruct"
+    "Qwen/Qwen3-Omni-30B-A3B-Instruct",
+    "Qwen/Qwen3-Omni-30B-A3B-Thinking"
    ],
    "parent": "qwen-omni-Qwen2.5-Omni-转 Omni：多模态"
   },
@@ -12862,7 +12856,9 @@
    "quote": "官方 HF 组织 Qwen/Qwen3-TTS-12Hz-1.7B-Base，createdAt 2026-01-21",
    "note": "日期取官方 HF 组织的 createdAt（**不是 lastModified**）；同一代的尺寸档与量化档折成一个节点。⚠️ **ASR 不在这棵树上**（ontology 规则十一）—— SenseVoice、Qwen-Audio 的识别向分支产出的是文本。",
    "repos": [
-    "Qwen/Qwen3-TTS-12Hz-1.7B-Base"
+    "Qwen/Qwen3-TTS-12Hz-1.7B-Base",
+    "Qwen/Qwen3-TTS-12Hz-1.7B-CustomVoice",
+    "Qwen/Qwen3-TTS-12Hz-1.7B-VoiceDesign"
    ],
    "parent": "qwen-omni-Qwen3-Omni-换代到 30B-A3"
   },

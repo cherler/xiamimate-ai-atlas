@@ -147,6 +147,37 @@ for (const s of a.support) {
   }
 }
 
+/**
+ * R70 —— **同一次发布被两个源各录了一遍。**
+ *
+ * 2026-08-12 在树上抓到：`Qwen-Image-Edit-2511` 有两个节点，同版本号、同日期，
+ * 一个来自 `hf-lineage`、一个来自 `hf-image-org`，而且后录的被挂成先录的**子节点** ——
+ * 于是树上画出一条 `2511 → 2511` 的边，看上去像「这一代迭代了两次」。
+ *
+ * 判据必须精确到「来源不同」这一条：同型号同日发多个能力变体是**合法的**
+ * （SkyReels V2 当天出 I2V / T2V / DF 三支，SkyReels V3 出 V2V / 参考 / 音频驱动三支），
+ * 那几组都同版本同日期，但同出一源、`added` 各不相同。
+ * 只有**两个源各说了一次同一件事**，才是重录。
+ *
+ * 是警告不是错误：偶尔确有同日双发，人看一眼就能判。但它必须出现在眼前。
+ */
+{
+  const byKey = new Map();
+  for (const v of a.versions ?? []) {
+    const k = `${v.m}|${(v.version ?? "").toLowerCase()}|${v.date ?? ""}`;
+    byKey.set(k, [...(byKey.get(k) ?? []), v]);
+  }
+  for (const [k, g] of byKey) {
+    if (g.length < 2) continue;
+    if (new Set(g.map((v) => v.src)).size < 2) continue;   // 同源同日 = 合法的变体群
+    warns.push(
+      `R70 同一次发布疑似录了两遍：${k.split("|").slice(0, 2).join(" ")} —— ` +
+      `${g.length} 个节点、来源 ${[...new Set(g.map((v) => v.src))].join(" / ")}。` +
+      `合成一个（repos 合并、另一条的引文并进 note），别让树上出现自己指向自己的边`,
+    );
+  }
+}
+
 // 缺格会被前台静默当成 unknown，那是**沉默的错**。
 for (const m of a.models)
   for (const c of a.capabilities)
