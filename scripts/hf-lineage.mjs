@@ -111,6 +111,18 @@ const NOT_TEXT = new RegExp([
   "cogview", "kaleido", "-s2v", "cogagent",   // 出图 / 视频 / GUI 智能体，挂在同一个组织下
   "ocr", "-math$", "-math-",                  // 单任务衍生，不是这一代的发布本体
   "^esft-", "sae-", "-sae", "probe", "reward", // 研究产物：专家微调、稀疏自编码器、探针、奖励模型
+  /**
+   * ⚠️ 2026-08-12 第二次收口。上面那批只挡住了名字里明写 image/video/vision 的，
+   * 可各家给跨模态支线起的**是产品名，不是功能名** —— 光看名字看不出它产出什么：
+   */
+  "janus",                                    // DeepSeek 的图像生成线（Janus / JanusFlow / Janus-Pro）
+  "pixtral", "voxtral",                        // Mistral 的视觉线与音频线
+  "visualglm", "cogvlm", "vlm",                // 智谱的视觉线
+  "\\d+\\.?\\d*v(-|$)", "-v-flash",            // glm-4v / GLM-4.5V / GLM-4.6V-Flash：**版本号后面那个 v 就是 vision**
+  "qvq",                                       // 通义的视觉推理线
+  "autoglm", "scail",                          // GUI 智能体 / 未公开说明的研究预览
+  "forcedaligner",                             // 音频对齐
+  "minimax-h3",                                // **它是视频模型**，只是挂在 MiniMax 同一个组织下
 ].join("|"), "i");
 
 const IMAGE = /image|t2i|text-to-image|flux|stable-diffusion|sd3|sdxl|kolors|ideogram|hidream|ernie-image|ovis-image|pixeldit|anima|boogu|newbie|lens|mage-flow|krea/i;

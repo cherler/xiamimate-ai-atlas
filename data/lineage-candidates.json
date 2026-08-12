@@ -12,16 +12,6 @@
       "skus": 1
     },
     {
-      "org": "zai-org",
-      "m": "glm",
-      "repo": "zai-org/visualglm-6b",
-      "domain": "text",
-      "date": "2023-05-17",
-      "downloads": 221,
-      "likes": 210,
-      "skus": 1
-    },
-    {
       "org": "stabilityai",
       "m": "sd",
       "repo": "stabilityai/stable-diffusion-xl-base-0.9",
@@ -68,7 +58,7 @@
       "domain": "image",
       "date": "2023-07-25",
       "downloads": 1373012,
-      "likes": 8034,
+      "likes": 8035,
       "skus": 1
     },
     {
@@ -98,7 +88,7 @@
       "domain": "text",
       "date": "2023-09-20",
       "downloads": 629480,
-      "likes": 4138,
+      "likes": 4139,
       "skus": 1
     },
     {
@@ -198,7 +188,7 @@
       "domain": "text",
       "date": "2024-01-08",
       "downloads": 26026,
-      "likes": 152,
+      "likes": 153,
       "skus": 2
     },
     {
@@ -262,16 +252,6 @@
       "skus": 2
     },
     {
-      "org": "zai-org",
-      "m": "glm",
-      "repo": "zai-org/cogvlm2-llama3-chat-19B",
-      "domain": "text",
-      "date": "2024-05-16",
-      "downloads": 6423,
-      "likes": 220,
-      "skus": 1
-    },
-    {
       "org": "Qwen",
       "m": "qwen-text",
       "repo": "Qwen/Qwen2-72B",
@@ -308,7 +288,7 @@
       "domain": "text",
       "date": "2024-05-22",
       "downloads": 4148422,
-      "likes": 2809,
+      "likes": 2811,
       "skus": 1
     },
     {
@@ -328,17 +308,7 @@
       "domain": "image",
       "date": "2024-05-30",
       "downloads": 8470,
-      "likes": 5010,
-      "skus": 1
-    },
-    {
-      "org": "zai-org",
-      "m": "glm",
-      "repo": "zai-org/glm-4v-9b",
-      "domain": "text",
-      "date": "2024-06-04",
-      "downloads": 88136,
-      "likes": 268,
+      "likes": 5011,
       "skus": 1
     },
     {
@@ -388,7 +358,7 @@
       "domain": "text",
       "date": "2024-07-14",
       "downloads": 1205339,
-      "likes": 2360,
+      "likes": 2361,
       "skus": 6
     },
     {
@@ -458,7 +428,7 @@
       "domain": "image",
       "date": "2024-07-31",
       "downloads": 197931,
-      "likes": 5518,
+      "likes": 5523,
       "skus": 1
     },
     {
@@ -468,7 +438,7 @@
       "domain": "image",
       "date": "2024-07-31",
       "downloads": 475396,
-      "likes": 14089,
+      "likes": 14095,
       "skus": 1
     },
     {
@@ -490,16 +460,6 @@
       "downloads": 5792,
       "likes": 734,
       "skus": 2
-    },
-    {
-      "org": "mistralai",
-      "m": "mistral-text",
-      "repo": "mistralai/Pixtral-12B-2409",
-      "domain": "text",
-      "date": "2024-09-11",
-      "downloads": 7708,
-      "likes": 693,
-      "skus": 1
     },
     {
       "org": "Qwen",
@@ -562,16 +522,6 @@
       "skus": 1
     },
     {
-      "org": "deepseek-ai",
-      "m": "deepseek",
-      "repo": "deepseek-ai/Janus-1.3B",
-      "domain": "text",
-      "date": "2024-10-18",
-      "downloads": 2346,
-      "likes": 598,
-      "skus": 1
-    },
-    {
       "org": "genmo",
       "m": null,
       "repo": "genmo/mochi-1-preview",
@@ -588,7 +538,7 @@
       "domain": "image",
       "date": "2024-10-22",
       "downloads": 62942,
-      "likes": 3691,
+      "likes": 3693,
       "skus": 1
     },
     {
@@ -598,7 +548,7 @@
       "domain": "image",
       "date": "2024-10-22",
       "downloads": 7470,
-      "likes": 693,
+      "likes": 694,
       "skus": 1
     },
     {
@@ -608,7 +558,7 @@
       "domain": "image",
       "date": "2024-10-29",
       "downloads": 89301,
-      "likes": 1034,
+      "likes": 1036,
       "skus": 1
     },
     {
@@ -618,27 +568,7 @@
       "domain": "video",
       "date": "2024-10-31",
       "downloads": 532388,
-      "likes": 2257,
-      "skus": 1
-    },
-    {
-      "org": "deepseek-ai",
-      "m": "deepseek",
-      "repo": "deepseek-ai/JanusFlow-1.3B",
-      "domain": "text",
-      "date": "2024-11-12",
-      "downloads": 2111,
-      "likes": 153,
-      "skus": 1
-    },
-    {
-      "org": "mistralai",
-      "m": "mistral-text",
-      "repo": "mistralai/Pixtral-Large-Instruct-2411",
-      "domain": "text",
-      "date": "2024-11-14",
-      "downloads": 59,
-      "likes": 434,
+      "likes": 2258,
       "skus": 1
     },
     {
@@ -688,7 +618,7 @@
       "domain": "text",
       "date": "2024-11-26",
       "downloads": 334517,
-      "likes": 2948,
+      "likes": 2949,
       "skus": 1
     },
     {
@@ -708,7 +638,7 @@
       "domain": "video",
       "date": "2024-12-01",
       "downloads": 790,
-      "likes": 2242,
+      "likes": 2243,
       "skus": 1
     },
     {
@@ -739,16 +669,6 @@
       "date": "2024-12-13",
       "downloads": 3607,
       "likes": 388,
-      "skus": 1
-    },
-    {
-      "org": "Qwen",
-      "m": "qwen-text",
-      "repo": "Qwen/QVQ-72B-Preview",
-      "domain": "text",
-      "date": "2024-12-24",
-      "downloads": 8566,
-      "likes": 610,
       "skus": 1
     },
     {
@@ -788,7 +708,7 @@
       "domain": "text",
       "date": "2025-01-20",
       "downloads": 8523653,
-      "likes": 13560,
+      "likes": 13561,
       "skus": 2
     },
     {
@@ -822,16 +742,6 @@
       "skus": 1
     },
     {
-      "org": "deepseek-ai",
-      "m": "deepseek",
-      "repo": "deepseek-ai/Janus-Pro-7B",
-      "domain": "text",
-      "date": "2025-01-26",
-      "downloads": 13237,
-      "likes": 3643,
-      "skus": 2
-    },
-    {
       "org": "Skywork",
       "m": "skyreels",
       "repo": "Skywork/SkyReels-V1-Hunyuan-I2V",
@@ -858,7 +768,7 @@
       "domain": "video",
       "date": "2025-02-25",
       "downloads": 27403,
-      "likes": 1545,
+      "likes": 1546,
       "skus": 2
     },
     {
@@ -878,7 +788,7 @@
       "domain": "video",
       "date": "2025-02-25",
       "downloads": 21216,
-      "likes": 594,
+      "likes": 595,
       "skus": 1
     },
     {
@@ -998,7 +908,7 @@
       "domain": "text",
       "date": "2025-04-27",
       "downloads": 27629624,
-      "likes": 1504,
+      "likes": 1505,
       "skus": 11
     },
     {
@@ -1058,7 +968,7 @@
       "domain": "text",
       "date": "2025-05-29",
       "downloads": 1342480,
-      "likes": 1083,
+      "likes": 1084,
       "skus": 1
     },
     {
@@ -1112,36 +1022,6 @@
       "skus": 1
     },
     {
-      "org": "zai-org",
-      "m": "glm",
-      "repo": "zai-org/GLM-4.1V-9B-Thinking",
-      "domain": "text",
-      "date": "2025-06-28",
-      "downloads": 374714,
-      "likes": 784,
-      "skus": 1
-    },
-    {
-      "org": "mistralai",
-      "m": "mistral-text",
-      "repo": "mistralai/Voxtral-Mini-3B-2507",
-      "domain": "text",
-      "date": "2025-07-01",
-      "downloads": 514158,
-      "likes": 668,
-      "skus": 1
-    },
-    {
-      "org": "mistralai",
-      "m": "mistral-text",
-      "repo": "mistralai/Voxtral-Small-24B-2507",
-      "domain": "text",
-      "date": "2025-07-01",
-      "downloads": 245801,
-      "likes": 519,
-      "skus": 1
-    },
-    {
       "org": "moonshotai",
       "m": "kimi",
       "repo": "moonshotai/Kimi-K2-Base",
@@ -1158,7 +1038,7 @@
       "domain": "image",
       "date": "2025-07-07",
       "downloads": 43758,
-      "likes": 890,
+      "likes": 891,
       "skus": 1
     },
     {
@@ -1198,7 +1078,7 @@
       "domain": "text",
       "date": "2025-07-21",
       "downloads": 42124,
-      "likes": 793,
+      "likes": 794,
       "skus": 2
     },
     {
@@ -1228,7 +1108,7 @@
       "domain": "video",
       "date": "2025-07-24",
       "downloads": 8951,
-      "likes": 535,
+      "likes": 536,
       "skus": 1
     },
     {
@@ -1258,7 +1138,7 @@
       "domain": "text",
       "date": "2025-08-05",
       "downloads": 2982669,
-      "likes": 912,
+      "likes": 913,
       "skus": 1
     },
     {
@@ -1272,23 +1152,13 @@
       "skus": 1
     },
     {
-      "org": "zai-org",
-      "m": "glm",
-      "repo": "zai-org/GLM-4.5V",
-      "domain": "text",
-      "date": "2025-08-10",
-      "downloads": 133410,
-      "likes": 720,
-      "skus": 1
-    },
-    {
       "org": "Qwen",
       "m": "qwen-image",
       "repo": "Qwen/Qwen-Image-Edit",
       "domain": "image",
       "date": "2025-08-17",
       "downloads": 99269,
-      "likes": 2475,
+      "likes": 2476,
       "skus": 3
     },
     {
@@ -1368,7 +1238,7 @@
       "domain": "video",
       "date": "2025-09-11",
       "downloads": 19671,
-      "likes": 1237,
+      "likes": 1238,
       "skus": 1
     },
     {
@@ -1478,7 +1348,7 @@
       "domain": "image",
       "date": "2025-11-22",
       "downloads": 996762,
-      "likes": 2011,
+      "likes": 2012,
       "skus": 1
     },
     {
@@ -1488,7 +1358,7 @@
       "domain": "image",
       "date": "2025-11-25",
       "downloads": 962234,
-      "likes": 5101,
+      "likes": 5103,
       "skus": 1
     },
     {
@@ -1558,47 +1428,7 @@
       "domain": "text",
       "date": "2025-12-01",
       "downloads": 1093344,
-      "likes": 1465,
-      "skus": 1
-    },
-    {
-      "org": "zai-org",
-      "m": "glm",
-      "repo": "zai-org/GLM-4.6V-Flash",
-      "domain": "text",
-      "date": "2025-12-07",
-      "downloads": 175202,
-      "likes": 626,
-      "skus": 1
-    },
-    {
-      "org": "zai-org",
-      "m": "glm",
-      "repo": "zai-org/GLM-4.6V",
-      "domain": "text",
-      "date": "2025-12-07",
-      "downloads": 9265,
-      "likes": 396,
-      "skus": 1
-    },
-    {
-      "org": "zai-org",
-      "m": "glm",
-      "repo": "zai-org/AutoGLM-Phone-9B",
-      "domain": "text",
-      "date": "2025-12-08",
-      "downloads": 23165,
-      "likes": 442,
-      "skus": 1
-    },
-    {
-      "org": "zai-org",
-      "m": "glm",
-      "repo": "zai-org/AutoGLM-Phone-9B-Multilingual",
-      "domain": "text",
-      "date": "2025-12-09",
-      "downloads": 395,
-      "likes": 240,
+      "likes": 1466,
       "skus": 1
     },
     {
@@ -1648,7 +1478,7 @@
       "domain": "video",
       "date": "2026-01-03",
       "downloads": 376883,
-      "likes": 1771,
+      "likes": 1772,
       "skus": 1
     },
     {
@@ -1658,7 +1488,7 @@
       "domain": "image",
       "date": "2026-01-14",
       "downloads": 301221,
-      "likes": 1190,
+      "likes": 1194,
       "skus": 4
     },
     {
@@ -1669,16 +1499,6 @@
       "date": "2026-01-19",
       "downloads": 1865359,
       "likes": 1806,
-      "skus": 1
-    },
-    {
-      "org": "mistralai",
-      "m": "mistral-text",
-      "repo": "mistralai/Voxtral-Mini-4B-Realtime-2602",
-      "domain": "text",
-      "date": "2026-01-21",
-      "downloads": 2149554,
-      "likes": 942,
       "skus": 1
     },
     {
@@ -1702,23 +1522,13 @@
       "skus": 1
     },
     {
-      "org": "Qwen",
-      "m": "qwen-text",
-      "repo": "Qwen/Qwen3-ForcedAligner-0.6B",
-      "domain": "text",
-      "date": "2026-01-28",
-      "downloads": 395246,
-      "likes": 151,
-      "skus": 1
-    },
-    {
       "org": "circlestone-labs",
       "m": "anima",
       "repo": "circlestone-labs/Anima",
       "domain": "image",
       "date": "2026-01-29",
       "downloads": 747839,
-      "likes": 2044,
+      "likes": 2045,
       "skus": 1
     },
     {
@@ -1728,7 +1538,7 @@
       "domain": "text",
       "date": "2026-01-30",
       "downloads": 514709,
-      "likes": 1580,
+      "likes": 1582,
       "skus": 2
     },
     {
@@ -1778,7 +1588,7 @@
       "domain": "video",
       "date": "2026-03-04",
       "downloads": 1611689,
-      "likes": 1791,
+      "likes": 1795,
       "skus": 1
     },
     {
@@ -1858,7 +1668,7 @@
       "domain": "text",
       "date": "2026-04-15",
       "downloads": 5311070,
-      "likes": 2663,
+      "likes": 2664,
       "skus": 1
     },
     {
@@ -1868,7 +1678,7 @@
       "domain": "text",
       "date": "2026-04-21",
       "downloads": 6577318,
-      "likes": 2227,
+      "likes": 2230,
       "skus": 1
     },
     {
@@ -1878,7 +1688,7 @@
       "domain": "text",
       "date": "2026-04-22",
       "downloads": 344747,
-      "likes": 291,
+      "likes": 292,
       "skus": 3
     },
     {
@@ -1988,7 +1798,7 @@
       "domain": "text",
       "date": "2026-06-02",
       "downloads": 156125,
-      "likes": 1450,
+      "likes": 1453,
       "skus": 1
     },
     {
@@ -2002,23 +1812,13 @@
       "skus": 1
     },
     {
-      "org": "zai-org",
-      "m": "glm",
-      "repo": "zai-org/SCAIL-2",
-      "domain": "text",
-      "date": "2026-06-09",
-      "downloads": 1908,
-      "likes": 326,
-      "skus": 1
-    },
-    {
       "org": "moonshotai",
       "m": "kimi",
       "repo": "moonshotai/Kimi-K2.7-Code",
       "domain": "text",
       "date": "2026-06-11",
       "downloads": 644787,
-      "likes": 1355,
+      "likes": 1358,
       "skus": 1
     },
     {
@@ -2028,7 +1828,7 @@
       "domain": "text",
       "date": "2026-06-13",
       "downloads": 1565484,
-      "likes": 10502,
+      "likes": 10532,
       "skus": 1
     },
     {
@@ -2068,7 +1868,7 @@
       "domain": "text",
       "date": "2026-06-16",
       "downloads": 2517575,
-      "likes": 4926,
+      "likes": 4931,
       "skus": 1
     },
     {
@@ -2098,7 +1898,7 @@
       "domain": "text",
       "date": "2026-06-22",
       "downloads": 66831,
-      "likes": 667,
+      "likes": 668,
       "skus": 1
     },
     {
@@ -2148,7 +1948,7 @@
       "domain": "video",
       "date": "2026-07-10",
       "downloads": 4560,
-      "likes": 182,
+      "likes": 183,
       "skus": 1
     },
     {
@@ -2168,7 +1968,7 @@
       "domain": "video",
       "date": "2026-07-14",
       "downloads": 0,
-      "likes": 91,
+      "likes": 101,
       "skus": 1
     },
     {
@@ -2178,17 +1978,27 @@
       "domain": "text",
       "date": "2026-07-16",
       "downloads": 6769,
-      "likes": 227,
+      "likes": 232,
       "skus": 1
     },
     {
-      "org": "MiniMaxAI",
-      "m": "minimax-text",
-      "repo": "MiniMaxAI/MiniMax-H3",
-      "domain": "text",
-      "date": "2026-07-28",
-      "downloads": 59368,
-      "likes": 3524,
+      "org": "Lightricks",
+      "m": "ltx",
+      "repo": "Lightricks/LTX-2.5",
+      "domain": "video",
+      "date": "2026-07-23",
+      "downloads": 39,
+      "likes": 253,
+      "skus": 1
+    },
+    {
+      "org": "Lightricks",
+      "m": "ltx",
+      "repo": "Lightricks/LTX-2.5-Pre-Trained",
+      "domain": "video",
+      "date": "2026-08-10",
+      "downloads": 0,
+      "likes": 14,
       "skus": 1
     }
   ]
