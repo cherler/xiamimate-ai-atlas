@@ -48,16 +48,11 @@ export default async function TreePage({ params }: { params: Promise<{ domain: s
           </span>
         </h1>
         <div className="ml-auto text-right text-[12px] leading-[1.7] text-muted whitespace-nowrap">
-          数据截至 {atlas.generated_at}
-          <br />
-          发布记录 {vs.length} 次
+          数据截至 {atlas.generated_at} · 发布记录 {vs.length} 次
           <br />
           最早 {since}
-          {/* 分享挂在页头右上那块统计下面 —— **放页脚等于没有**
-              （负责人 2026-08-12：「放在右下角谁也看不到咧」） */}
-          <div className="mt-1.5">
-            <Share og={`/atlas/og/tree-${domain}-16x9.png`} title={`${d.name} · 谁在什么时候，长出了什么`} />
-          </div>
+          <span className="mx-1.5 text-rule">|</span>
+          <Share og={`/atlas/og/tree-${domain}-16x9.png`} title={`${d.name} · 谁在什么时候，长出了什么`} />
         </div>
       </header>
 

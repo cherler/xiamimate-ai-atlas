@@ -69,17 +69,18 @@ export default async function DomainHome({ params }: { params: Promise<{ domain:
         <h1 className="text-[38px] leading-[1.05] font-bold tracking-[-.01em]">
           {d.name} · 能力核验规格书
         </h1>
+        {/**
+          * **两行，不是四行。** 页头是 `items-end` 对齐 ——
+          * 右边这块比标题高多少，标题上方就空出多少。
+          * 加了分享按钮之后它从三行变四行，于是每一页顶上都多出一片空白
+          * （负责人 2026-08-12 截图指出）。三项统计合并成两行，分享按钮同排。
+          */}
         <div className="ml-auto text-right text-[12px] leading-[1.7] text-muted whitespace-nowrap">
-          数据截至 {atlas.generated_at}
-          <br />
-          产品线 {models.length} 条
+          数据截至 {atlas.generated_at} · 产品线 {models.length} 条
           <br />
           引用官方来源 {Object.keys(atlas.sources).length} 处
-          {/* 分享挂在页头右上那块统计下面 —— **放页脚等于没有**
-              （负责人 2026-08-12：「放在右下角谁也看不到咧」） */}
-          <div className="mt-1.5">
-            <Share og={`/atlas/og/domain-${domain}-16x9.png`} title={`${d.name} · 能力核验规格书`} />
-          </div>
+          <span className="mx-1.5 text-rule">|</span>
+          <Share og={`/atlas/og/domain-${domain}-16x9.png`} title={`${d.name} · 能力核验规格书`} />
         </div>
       </header>
 
