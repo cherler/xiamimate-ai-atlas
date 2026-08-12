@@ -2273,7 +2273,11 @@
    "status_note": "官方账号公告原文：「You can now use Magic Fill and Extend with 3.0 in Ideogram Canvas to edit both uploaded and generated images」。以文字渲染见长 ⚠️ 谱系里已有更晚的一代（Ideogram 4，2026-05-30）—— 当前主力是否已经换代**要人核**，不许照最新节点自动改：最新节点也可能只是同代的一个档位或分支。 ⚠️ **2026-08-12 更正**：原记 3.0 已过期。是第三方榜（AA 文生图榜第 22 名 Ideogram 4.0）先照出来的，再回官方 API 文档核实。",
    "version_quote": "官方 API 文档标题即 Ideogram 4.0，端点 `POST https://api.ideogram.ai/v1/ideogram-v4/generate`；参数 `json_prompt` 说明写「符合 Ideogram 4.0 JSON 规范」",
    "reach_cn": "blocked",
-   "reach_note": "ideogram.ai 直连不通（连接失败）（本机实测 08-11）"
+   "reach_note": "ideogram.ai 直连不通（连接失败）（本机实测 08-11）",
+   "arch": "dit",
+   "arch_basis": "official",
+   "arch_src": "ideogram-hf",
+   "arch_quote": "官方模型卡 ideogram-ai/ideogram-4-fp8 的 tags：`text-to-image, image-generation, diffusion, flow-matching, dit`（厂商自己在自家仓库打的标签，不是散文描述）"
   },
   {
    "id": "recraft",
@@ -4210,6 +4214,46 @@
    "name": "GitHub · QwenLM/Qwen3-Omni（星标 3,946，许可 Apache-2.0）",
    "url": "https://github.com/QwenLM/Qwen3-Omni",
    "tier": "third-party"
+  },
+  "ideogram-overview": {
+   "name": "Ideogram 官方 API 概览（能力总览）",
+   "url": "https://developer.ideogram.ai/ideogram-api/api-overview",
+   "tier": "official"
+  },
+  "ideogram-v4-remix": {
+   "name": "Ideogram 官方 API 参考 · Remix with Ideogram 4.0",
+   "url": "https://developer.ideogram.ai/api-reference/api-reference/remix-v4",
+   "tier": "official"
+  },
+  "ideogram-v3-inpaint": {
+   "name": "Ideogram 官方 API 参考 · Inpaint with Ideogram 3.0",
+   "url": "https://developer.ideogram.ai/api-reference/api-reference/inpaint-v3",
+   "tier": "official"
+  },
+  "ideogram-v3-reframe": {
+   "name": "Ideogram 官方 API 参考 · Reframe with Ideogram 3.0",
+   "url": "https://developer.ideogram.ai/api-reference/api-reference/reframe-v3",
+   "tier": "official"
+  },
+  "ideogram-v3-generate": {
+   "name": "Ideogram 官方 API 参考 · Generate with Ideogram 3.0",
+   "url": "https://developer.ideogram.ai/api-reference/api-reference/generate-v3",
+   "tier": "official"
+  },
+  "ideogram-edit": {
+   "name": "Ideogram 官方 API 参考 · Edit images with a prompt",
+   "url": "https://developer.ideogram.ai/api-reference/api-reference/edit-with-prompt",
+   "tier": "official"
+  },
+  "ideogram-upscale": {
+   "name": "Ideogram 官方 API 参考 · Upscale",
+   "url": "https://developer.ideogram.ai/api-reference/api-reference/upscale",
+   "tier": "official"
+  },
+  "ideogram-hf": {
+   "name": "Ideogram 官方 Hugging Face 组织 · ideogram-4-fp8",
+   "url": "https://huggingface.co/ideogram-ai/ideogram-4-fp8",
+   "tier": "official"
   }
  },
  "support": [
@@ -5492,120 +5536,139 @@
    "m": "ideogram",
    "c": "i-t2i",
    "state": "yes",
-   "verified_for": "3.0",
-   "src": "ideogram-x",
-   "note": "官方原文：「Ideogram 3.0」。⚠️ **这一格核的是 3.0**，当时那是我们认定的当前版本",
-   "recheck": "4.0"
+   "verified_for": "4.0",
+   "src": "ideogram-api",
+   "note": "参数只有 `text_prompt` / `json_prompt` / `resolution` / `rendering_speed` / `enable_copyright_detection` 五个。`json_prompt` 是 4.0 新增的结构化提示词，官方说它「is consumed by the diffusion model directly」（绕开 magic-prompt 改写）。",
+   "as_of": "2026-08-12",
+   "quote": "POST https://api.ideogram.ai/v1/ideogram-v4/generate —— 「Generates images synchronously using the Ideogram 4.0 model.」"
   },
   {
    "m": "ideogram",
    "c": "i-i2i",
    "state": "yes",
-   "verified_for": "3.0",
-   "src": "ideogram-x",
-   "note": "官方原文：「edit both uploaded and generated images」。⚠️ **这一格核的是 3.0**，当时那是我们认定的当前版本",
-   "recheck": "4.0"
+   "verified_for": "4.0",
+   "src": "ideogram-v4-remix",
+   "note": "有 `image_weight`：「How strongly the output should resemble the input image.」输入图上限 10MB，只收 JPEG / WebP / PNG。",
+   "as_of": "2026-08-12",
+   "quote": "POST /v1/ideogram-v4/remix —— 「Remix an image synchronously using the Ideogram 4.0 model with an initial image and a prompt.」"
   },
   {
    "m": "ideogram",
    "c": "i-edit",
    "state": "yes",
-   "verified_for": "3.0",
-   "src": "ideogram-x",
-   "note": "官方原文：「Magic Fill … to edit both uploaded and generated images」。⚠️ **这一格核的是 3.0**，当时那是我们认定的当前版本",
-   "recheck": "4.0"
+   "verified_for": "4.0",
+   "src": "ideogram-edit",
+   "note": "⚠️ **这个端点路径不带版本号**，官方没说它跑的是哪一代模型 —— 它对任意图片可用，4.0 的产出也能喂进去，但不能算作「4.0 独有」。能力本身是确实的：概览里 Edit 一节写「Take a starting image and modify a part of an image while keeping the rest intact.」，还额外说明可以拿它做换脸（Face Swapping）。",
+   "as_of": "2026-08-12",
+   "quote": "POST /v1/edit —— 「Edit one or more images using a text prompt.」；API 概览把 4.0 描述为「Prompt fidelity, crystal-clear type, reliable editing, and production-ready image workflows」"
   },
   {
    "m": "ideogram",
    "c": "i-multiturn",
    "state": "unknown",
-   "verified_for": "3.0",
-   "note": "官方那条公告只讲了 3.0 与画布编辑，没提这一条 —— 读完没找到，不是没读。⚠️ **这一格核的是 3.0**，当时那是我们认定的当前版本",
-   "recheck": "4.0"
+   "verified_for": "4.0",
+   "note": "**API 里没有会话概念。** 五个 v4 端点全是一次一发的同步/异步调用，没有 session / conversation / 上下文承接类参数，概览里也没有对应小节 —— 读完没找到，不是没读。",
+   "as_of": "2026-08-12"
   },
   {
    "m": "ideogram",
    "c": "i-inpaint",
    "state": "yes",
    "verified_for": "3.0",
-   "src": "ideogram-x",
-   "note": "官方原文：「Magic Fill」。⚠️ **这一格核的是 3.0**，当时那是我们认定的当前版本",
-   "recheck": "4.0"
+   "src": "ideogram-v3-inpaint",
+   "note": "**这个能力长在 3.0 那一支上。** 官方文档索引（llms.txt）里 v4 只有 generate / generate-async / remix / magic-prompt / describe 五个端点，**没有 inpaint**；带蒙版的局部重绘只有 `ideogram-v3` 路径，端点自己就把版本写在 URL 里。",
+   "as_of": "2026-08-12",
+   "sibling": "3.0",
+   "quote": "POST /v1/ideogram-v3/inpaint —— 「Inpaint a given image synchronously using the provided mask with Ideogram 3.0.」"
   },
   {
    "m": "ideogram",
    "c": "i-outpaint",
    "state": "yes",
    "verified_for": "3.0",
-   "src": "ideogram-x",
-   "note": "官方原文：「Extend」。⚠️ **这一格核的是 3.0**，当时那是我们认定的当前版本",
-   "recheck": "4.0"
+   "src": "ideogram-v3-reframe",
+   "note": "**同样只在 3.0 那一支。** 扩图在 Ideogram 叫 Reframe，概览里写「Take a starting image and extend it to match your desired resolution.」v4 没有对应端点。",
+   "as_of": "2026-08-12",
+   "sibling": "3.0",
+   "quote": "POST /v1/ideogram-v3/reframe —— 「Reframe a square image to a chosen resolution with Ideogram 3.0.」"
   },
   {
    "m": "ideogram",
    "c": "i-canvas",
-   "state": "yes",
-   "verified_for": "3.0",
-   "src": "ideogram-x",
-   "note": "官方原文：「in Ideogram Canvas」。⚠️ **这一格核的是 3.0**，当时那是我们认定的当前版本",
-   "recheck": "4.0"
+   "state": "unknown",
+   "verified_for": "4.0",
+   "note": "**降回 ⬜ 是因为原来的 ✅ 来自一条讲 3.0 网页版的推文。** 官方 API 参考与 API 概览都没有画布（Canvas）这个概念；网页版的 Ideogram Canvas 现在跑的是哪一代，官方没有说 —— 找过没找到。",
+   "as_of": "2026-08-12"
   },
   {
    "m": "ideogram",
    "c": "i-multiref",
-   "state": "unknown",
-   "verified_for": "3.0",
-   "note": "官方那条公告只讲了 3.0 与画布编辑，没提这一条 —— 读完没找到，不是没读。⚠️ **这一格核的是 3.0**，当时那是我们认定的当前版本",
-   "recheck": "4.0"
+   "state": "yes",
+   "verified_for": "4.0",
+   "note": "⚠️ **这个端点路径不带版本号**，官方没说它跑的是哪一代模型 —— 它对任意图片可用，4.0 的产出也能喂进去，但不能算作「4.0 独有」。另外注意这是**编辑端点上的多图参考**，不是「生成时给多张参考图」—— 后者的 `style_reference_images` / `character_reference_images` 只在 v3 生成端点上有。",
+   "as_of": "2026-08-12",
+   "src": "ideogram-edit",
+   "quote": "POST /v1/edit 的 `image_urls`：「URLs to Ideogram images to use as references (max 10).」；`images`：「Images to edit (max 10 images, max size 10MB each)」"
   },
   {
    "m": "ideogram",
    "c": "i-styleref",
-   "state": "unknown",
+   "state": "yes",
    "verified_for": "3.0",
-   "note": "**没有顺着写。** 二手报道普遍说 3.0 引入 Style References，但**官方那条公告原文里没有这个词** —— 二手说法不足以记 ✅。⚠️ **这一格核的是 3.0**，当时那是我们认定的当前版本",
-   "recheck": "4.0"
+   "note": "**风格参考整套都在 3.0 那一支**：`style_reference_images`、`style_codes`（8 位十六进制风格码）、`style_preset`、`color_palette` —— v4 的 generate 端点一个都没有。概览那句「Using any of the API **V3** endpoints」是官方自己把这组能力钉在 v3 上。",
+   "as_of": "2026-08-12",
+   "sibling": "3.0",
+   "src": "ideogram-v3-generate",
+   "quote": "generate-v3 的 `style_reference_images`：「A set of images to use as style references (maximum total size 10MB across all style references).」；API 概览的 Style Presets 一节写「Using any of the API V3 endpoints, you can use a style_preset」"
   },
   {
    "m": "ideogram",
    "c": "i-fidelity",
-   "state": "unknown",
+   "state": "yes",
    "verified_for": "3.0",
-   "note": "官方那条公告只讲了 3.0 与画布编辑，没提这一条 —— 读完没找到，不是没读。⚠️ **这一格核的是 3.0**，当时那是我们认定的当前版本",
-   "recheck": "4.0"
+   "note": "**角色一致性也只在 3.0 那一支**，且官方明说当前只支持**一张**角色参考图，还要另计费（「Generations with character reference are subject to the character reference pricing」）。v4 的 generate 没有这个参数。",
+   "as_of": "2026-08-12",
+   "sibling": "3.0",
+   "src": "ideogram-v3-generate",
+   "quote": "generate-v3 的 `character_reference_images`：「A set of images to use as character references … currently only supports 1 character reference image.」，另有 `character_reference_images_mask`"
   },
   {
    "m": "ideogram",
    "c": "i-textrender",
-   "state": "unknown",
-   "verified_for": "3.0",
-   "note": "Ideogram 以文字渲染见长是行业共识，但**这条公告里没写** —— 要记 ✅ 得找到厂商自己的原话。⚠️ **这一格核的是 3.0**，当时那是我们认定的当前版本",
-   "recheck": "4.0"
+   "state": "yes",
+   "verified_for": "4.0",
+   "note": "**原来这格是 ⬜，理由是「行业共识但厂商没写」。** 这次在官方文档里找到了厂商自己的原话（4.0 那条里的 `crystal-clear type`），所以改 ✅ —— 换的是证据，不是标准。",
+   "as_of": "2026-08-12",
+   "src": "ideogram-overview",
+   "quote": "API 概览的 Ideogram 4.0 一条：「Prompt fidelity, crystal-clear type, reliable editing, and production-ready image workflows across the app, API, MCP, and open weights.」；Typography 一节：「Ideogram excels at integrating text into images for logos, branding, POD, or design layouts.」"
   },
   {
    "m": "ideogram",
    "c": "i-upscale",
-   "state": "unknown",
-   "verified_for": "3.0",
-   "note": "官方那条公告只讲了 3.0 与画布编辑，没提这一条 —— 读完没找到，不是没读。⚠️ **这一格核的是 3.0**，当时那是我们认定的当前版本",
-   "recheck": "4.0"
+   "state": "yes",
+   "verified_for": "4.0",
+   "note": "⚠️ **这个端点路径不带版本号**，官方没说它跑的是哪一代模型 —— 它对任意图片可用，4.0 的产出也能喂进去，但不能算作「4.0 独有」。",
+   "as_of": "2026-08-12",
+   "src": "ideogram-upscale",
+   "quote": "POST https://api.ideogram.ai/upscale —— 「Upscale provided images synchronously with an optional prompt.」，请求体里有 `resemblance` 与 `detail` 两个调节量"
   },
   {
    "m": "ideogram",
    "c": "i-4k",
    "state": "unknown",
-   "verified_for": "3.0",
-   "note": "官方那条公告只讲了 3.0 与画布编辑，没提这一条 —— 读完没找到，不是没读。⚠️ **这一格核的是 3.0**，当时那是我们认定的当前版本",
-   "recheck": "4.0"
+   "verified_for": "4.0",
+   "note": "**没拿到 4.0 的分辨率档位。** generate-v4 的 `resolution` 是个 enum，但官方 `.md` 版文档里没有把可选值列出来（那份枚举是前端渲染的）；能拿到全量枚举的是 reframe-v3，最大一档在 1536 一线，够不着 4K。**枚举拿不到就不填**，别拿 v3 的档位替 v4 说话。",
+   "as_of": "2026-08-12"
   },
   {
    "m": "ideogram",
    "c": "i-openweights",
-   "state": "no",
-   "verified_for": "3.0",
-   "src": "ideogram-x",
-   "note": "闭源，官方未发布权重。⚠️ **这一格核的是 3.0**，当时那是我们认定的当前版本",
-   "recheck": "4.0"
+   "state": "yes",
+   "verified_for": "4.0",
+   "src": "ideogram-hf",
+   "note": "**这一格原来是 ❌「闭源，官方未发布权重」—— 那是 3.0 时代的事实，4.0 变了。** 两条要跟着看清楚：① 许可叫 `ideogram-4-non-commercial`，**权重公开但不许商用**；② HF 上这两个仓库是 gated 的，要先接受许可才下得动（未登录取 README 返回「Access to model … is restricted」）。",
+   "as_of": "2026-08-12",
+   "quote": "官方 HF 组织 ideogram-ai 下的 `ideogram-4-fp8`（createdAt 2026-05-30，↓31,707 ♥741）与 `ideogram-4-nf4`；模型卡 `license_name: ideogram-4-non-commercial`。API 概览也写明 4.0 覆盖「across the app, API, MCP, and open weights」"
   },
   {
    "m": "recraft",
@@ -10740,7 +10803,12 @@
    "src": "hf-image-org",
    "quote": "ideogram-ai/ideogram-4-fp8 与 ideogram-4-nf4（官方 HF 组织 createdAt 2026-05-30，下载 3.2 万 / 4.0 万）",
    "note": "ComfyUI 官方教程也写「released as an open-source model that runs entirely on your own hardware」。",
-   "parent": "ideogram-3.0-画布编辑（Magic Fill / Extend）"
+   "parent": "ideogram-3.0-画布编辑（Magic Fill / Extend）",
+   "repos": [
+    "ideogram-ai/ideogram-4-fp8",
+    "ideogram-ai/ideogram-4-nf4",
+    "ideogram-ai/ideogram-4-nf4-diffusers"
+   ]
   },
   {
    "id": "sd-SD 3 Medium-换 MMDiT 架构",

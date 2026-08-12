@@ -3575,6 +3575,110 @@
     "openweights"
    ],
    "note": "声音卷场景页公开资源。2026-08-12 收录时 ★3,946，许可 Apache-2.0，最后推送 2026-04-23。星标只用于排序兜底，不作可信度"
+  },
+  {
+   "id": "ideogram-overview",
+   "tier": "A",
+   "kind": "html",
+   "vendor": "ideogram",
+   "name": "Ideogram 官方 API 概览（能力总览）",
+   "url": "https://developer.ideogram.ai/ideogram-api/api-overview",
+   "refresh_days": 14,
+   "good_for": [
+    "capability"
+   ],
+   "note": "文档站每页都有 `.md` 版（URL 后加 .md），全量索引在 developer.ideogram.ai/llms.txt —— 抓这个比抓渲染后的 HTML 稳"
+  },
+  {
+   "id": "ideogram-v4-remix",
+   "tier": "A",
+   "kind": "html",
+   "vendor": "ideogram",
+   "name": "Ideogram 官方 API 参考 · Remix with Ideogram 4.0",
+   "url": "https://developer.ideogram.ai/api-reference/api-reference/remix-v4",
+   "refresh_days": 14,
+   "good_for": [
+    "capability"
+   ],
+   "note": "文档站每页都有 `.md` 版（URL 后加 .md），全量索引在 developer.ideogram.ai/llms.txt —— 抓这个比抓渲染后的 HTML 稳"
+  },
+  {
+   "id": "ideogram-v3-inpaint",
+   "tier": "A",
+   "kind": "html",
+   "vendor": "ideogram",
+   "name": "Ideogram 官方 API 参考 · Inpaint with Ideogram 3.0",
+   "url": "https://developer.ideogram.ai/api-reference/api-reference/inpaint-v3",
+   "refresh_days": 14,
+   "good_for": [
+    "capability"
+   ],
+   "note": "文档站每页都有 `.md` 版（URL 后加 .md），全量索引在 developer.ideogram.ai/llms.txt —— 抓这个比抓渲染后的 HTML 稳"
+  },
+  {
+   "id": "ideogram-v3-reframe",
+   "tier": "A",
+   "kind": "html",
+   "vendor": "ideogram",
+   "name": "Ideogram 官方 API 参考 · Reframe with Ideogram 3.0",
+   "url": "https://developer.ideogram.ai/api-reference/api-reference/reframe-v3",
+   "refresh_days": 14,
+   "good_for": [
+    "capability"
+   ],
+   "note": "文档站每页都有 `.md` 版（URL 后加 .md），全量索引在 developer.ideogram.ai/llms.txt —— 抓这个比抓渲染后的 HTML 稳"
+  },
+  {
+   "id": "ideogram-v3-generate",
+   "tier": "A",
+   "kind": "html",
+   "vendor": "ideogram",
+   "name": "Ideogram 官方 API 参考 · Generate with Ideogram 3.0",
+   "url": "https://developer.ideogram.ai/api-reference/api-reference/generate-v3",
+   "refresh_days": 14,
+   "good_for": [
+    "capability"
+   ],
+   "note": "文档站每页都有 `.md` 版（URL 后加 .md），全量索引在 developer.ideogram.ai/llms.txt —— 抓这个比抓渲染后的 HTML 稳"
+  },
+  {
+   "id": "ideogram-edit",
+   "tier": "A",
+   "kind": "html",
+   "vendor": "ideogram",
+   "name": "Ideogram 官方 API 参考 · Edit images with a prompt",
+   "url": "https://developer.ideogram.ai/api-reference/api-reference/edit-with-prompt",
+   "refresh_days": 14,
+   "good_for": [
+    "capability"
+   ],
+   "note": "文档站每页都有 `.md` 版（URL 后加 .md），全量索引在 developer.ideogram.ai/llms.txt —— 抓这个比抓渲染后的 HTML 稳"
+  },
+  {
+   "id": "ideogram-upscale",
+   "tier": "A",
+   "kind": "html",
+   "vendor": "ideogram",
+   "name": "Ideogram 官方 API 参考 · Upscale",
+   "url": "https://developer.ideogram.ai/api-reference/api-reference/upscale",
+   "refresh_days": 14,
+   "good_for": [
+    "capability"
+   ],
+   "note": "文档站每页都有 `.md` 版（URL 后加 .md），全量索引在 developer.ideogram.ai/llms.txt —— 抓这个比抓渲染后的 HTML 稳"
+  },
+  {
+   "id": "ideogram-hf",
+   "tier": "A",
+   "kind": "html",
+   "vendor": "ideogram",
+   "name": "Ideogram 官方 Hugging Face 组织 · ideogram-4-fp8",
+   "url": "https://huggingface.co/ideogram-ai/ideogram-4-fp8",
+   "refresh_days": 14,
+   "good_for": [
+    "capability"
+   ],
+   "note": "文档站每页都有 `.md` 版（URL 后加 .md），全量索引在 developer.ideogram.ai/llms.txt —— 抓这个比抓渲染后的 HTML 稳"
   }
  ],
  "$missing": [
