@@ -1814,8 +1814,8 @@
    "family": "Qwen-Image",
    "zh": "通义千问图像",
    "org": "alibaba",
-   "version": "Edit-2511",
-   "version_as_of": "2025-12-17",
+   "version": "3.0-pro",
+   "version_as_of": "2026-08-12",
    "status": "active",
    "tier": "core",
    "domain": "image",
@@ -1825,9 +1825,9 @@
    "arch": "dit",
    "arch_basis": "common",
    "arch_note": "官方卡没写架构族，技术报告里才有。标 common。",
-   "version_src": "hf-image-org",
-   "version_quote": "谱系节点「Qwen-Image-Edit-2511」（2025-12-17）：Qwen/Qwen-Image-Edit-2511（官方 HF 组织 createdAt 2025-12-17，Apache-2.0）",
-   "status_note": " ⚠️ 谱系里已有更晚的一代（Qwen-Image-2512，2025-12-30）—— 当前主力是否已经换代**要人核**，不许照最新节点自动改：最新节点也可能只是同代的一个档位或分支。",
+   "version_src": "bailian-models-zh",
+   "version_quote": "阿里云百炼中文站模型清单里为 `qwen-image-3.0-pro`",
+   "status_note": " ⚠️ 谱系里已有更晚的一代（Qwen-Image-2512，2025-12-30）—— 当前主力是否已经换代**要人核**，不许照最新节点自动改：最新节点也可能只是同代的一个档位或分支。 ⚠️ **三条线要分清**（和 Qwen 文本同一个情况）：API 线 qwen-image-3.0-pro；第三方榜上还只到 Qwen Image 2.0 Pro（2026-04-22）；**开源权重最新是 Qwen-Image-2512**（官方 HF，2025-12-31）。原记的 Edit-2511 是开源线上更早的一个编辑变体，两头都不是最新。",
    "reach_cn": "ok",
    "reach_note": "help.aliyun.com 直连 302。本机直连实测 2026-08-11（关代理、浏览器 UA）"
   },
@@ -1999,15 +1999,15 @@
    "family": "Ideogram",
    "zh": "Ideogram",
    "org": "ideogram",
-   "version": "3.0",
-   "version_as_of": "2025-03-26",
+   "version": "4.0",
+   "version_as_of": "2026-08-12",
    "status": "active",
    "tier": "core",
    "domain": "image",
    "weights": "closed",
-   "version_src": "ideogram-x",
-   "status_note": "官方账号公告原文：「You can now use Magic Fill and Extend with 3.0 in Ideogram Canvas to edit both uploaded and generated images」。以文字渲染见长 ⚠️ 谱系里已有更晚的一代（Ideogram 4，2026-05-30）—— 当前主力是否已经换代**要人核**，不许照最新节点自动改：最新节点也可能只是同代的一个档位或分支。",
-   "version_quote": "谱系节点「3.0」（2025-03-26）：You can now use Magic Fill and Extend with 3.0 in Ideogram Canvas to edit both uploaded and generated images",
+   "version_src": "ideogram-api",
+   "status_note": "官方账号公告原文：「You can now use Magic Fill and Extend with 3.0 in Ideogram Canvas to edit both uploaded and generated images」。以文字渲染见长 ⚠️ 谱系里已有更晚的一代（Ideogram 4，2026-05-30）—— 当前主力是否已经换代**要人核**，不许照最新节点自动改：最新节点也可能只是同代的一个档位或分支。 ⚠️ **2026-08-12 更正**：原记 3.0 已过期。是第三方榜（AA 文生图榜第 22 名 Ideogram 4.0）先照出来的，再回官方 API 文档核实。",
+   "version_quote": "官方 API 文档标题即 Ideogram 4.0，端点 `POST https://api.ideogram.ai/v1/ideogram-v4/generate`；参数 `json_prompt` 说明写「符合 Ideogram 4.0 JSON 规范」",
    "reach_cn": "blocked",
    "reach_note": "ideogram.ai 直连不通（连接失败）。本机直连实测 2026-08-11（关代理、浏览器 UA）"
   },
@@ -3446,6 +3446,21 @@
    "name": "xAI · API Release Notes",
    "url": "https://docs.x.ai/developers/release-notes",
    "tier": "official"
+  },
+  "aa-llm": {
+   "name": "Artificial Analysis · LLM 智能分数榜",
+   "url": "https://artificialanalysis.ai/leaderboards/models",
+   "tier": "third-party"
+  },
+  "aa-t2i": {
+   "name": "Artificial Analysis · 文生图 Elo 榜",
+   "url": "https://artificialanalysis.ai/image/leaderboard/text-to-image",
+   "tier": "third-party"
+  },
+  "ideogram-api": {
+   "name": "Ideogram · API 文档（generate v4）",
+   "url": "https://developer.ideogram.ai/api-reference/api-reference/generate-v4",
+   "tier": "official"
   }
  },
  "support": [
@@ -4727,7 +4742,8 @@
    "state": "yes",
    "verified_for": "3.0",
    "src": "ideogram-x",
-   "note": "官方原文：「Ideogram 3.0」"
+   "note": "官方原文：「Ideogram 3.0」。⚠️ **这一格核的是 3.0**，当时那是我们认定的当前版本",
+   "recheck": "4.0"
   },
   {
    "m": "ideogram",
@@ -4735,7 +4751,8 @@
    "state": "yes",
    "verified_for": "3.0",
    "src": "ideogram-x",
-   "note": "官方原文：「edit both uploaded and generated images」"
+   "note": "官方原文：「edit both uploaded and generated images」。⚠️ **这一格核的是 3.0**，当时那是我们认定的当前版本",
+   "recheck": "4.0"
   },
   {
    "m": "ideogram",
@@ -4743,14 +4760,16 @@
    "state": "yes",
    "verified_for": "3.0",
    "src": "ideogram-x",
-   "note": "官方原文：「Magic Fill … to edit both uploaded and generated images」"
+   "note": "官方原文：「Magic Fill … to edit both uploaded and generated images」。⚠️ **这一格核的是 3.0**，当时那是我们认定的当前版本",
+   "recheck": "4.0"
   },
   {
    "m": "ideogram",
    "c": "i-multiturn",
    "state": "unknown",
    "verified_for": "3.0",
-   "note": "官方那条公告只讲了 3.0 与画布编辑，没提这一条 —— 读完没找到，不是没读"
+   "note": "官方那条公告只讲了 3.0 与画布编辑，没提这一条 —— 读完没找到，不是没读。⚠️ **这一格核的是 3.0**，当时那是我们认定的当前版本",
+   "recheck": "4.0"
   },
   {
    "m": "ideogram",
@@ -4758,7 +4777,8 @@
    "state": "yes",
    "verified_for": "3.0",
    "src": "ideogram-x",
-   "note": "官方原文：「Magic Fill」"
+   "note": "官方原文：「Magic Fill」。⚠️ **这一格核的是 3.0**，当时那是我们认定的当前版本",
+   "recheck": "4.0"
   },
   {
    "m": "ideogram",
@@ -4766,7 +4786,8 @@
    "state": "yes",
    "verified_for": "3.0",
    "src": "ideogram-x",
-   "note": "官方原文：「Extend」"
+   "note": "官方原文：「Extend」。⚠️ **这一格核的是 3.0**，当时那是我们认定的当前版本",
+   "recheck": "4.0"
   },
   {
    "m": "ideogram",
@@ -4774,49 +4795,56 @@
    "state": "yes",
    "verified_for": "3.0",
    "src": "ideogram-x",
-   "note": "官方原文：「in Ideogram Canvas」"
+   "note": "官方原文：「in Ideogram Canvas」。⚠️ **这一格核的是 3.0**，当时那是我们认定的当前版本",
+   "recheck": "4.0"
   },
   {
    "m": "ideogram",
    "c": "i-multiref",
    "state": "unknown",
    "verified_for": "3.0",
-   "note": "官方那条公告只讲了 3.0 与画布编辑，没提这一条 —— 读完没找到，不是没读"
+   "note": "官方那条公告只讲了 3.0 与画布编辑，没提这一条 —— 读完没找到，不是没读。⚠️ **这一格核的是 3.0**，当时那是我们认定的当前版本",
+   "recheck": "4.0"
   },
   {
    "m": "ideogram",
    "c": "i-styleref",
    "state": "unknown",
    "verified_for": "3.0",
-   "note": "**没有顺着写。** 二手报道普遍说 3.0 引入 Style References，但**官方那条公告原文里没有这个词** —— 二手说法不足以记 ✅"
+   "note": "**没有顺着写。** 二手报道普遍说 3.0 引入 Style References，但**官方那条公告原文里没有这个词** —— 二手说法不足以记 ✅。⚠️ **这一格核的是 3.0**，当时那是我们认定的当前版本",
+   "recheck": "4.0"
   },
   {
    "m": "ideogram",
    "c": "i-fidelity",
    "state": "unknown",
    "verified_for": "3.0",
-   "note": "官方那条公告只讲了 3.0 与画布编辑，没提这一条 —— 读完没找到，不是没读"
+   "note": "官方那条公告只讲了 3.0 与画布编辑，没提这一条 —— 读完没找到，不是没读。⚠️ **这一格核的是 3.0**，当时那是我们认定的当前版本",
+   "recheck": "4.0"
   },
   {
    "m": "ideogram",
    "c": "i-textrender",
    "state": "unknown",
    "verified_for": "3.0",
-   "note": "Ideogram 以文字渲染见长是行业共识，但**这条公告里没写** —— 要记 ✅ 得找到厂商自己的原话"
+   "note": "Ideogram 以文字渲染见长是行业共识，但**这条公告里没写** —— 要记 ✅ 得找到厂商自己的原话。⚠️ **这一格核的是 3.0**，当时那是我们认定的当前版本",
+   "recheck": "4.0"
   },
   {
    "m": "ideogram",
    "c": "i-upscale",
    "state": "unknown",
    "verified_for": "3.0",
-   "note": "官方那条公告只讲了 3.0 与画布编辑，没提这一条 —— 读完没找到，不是没读"
+   "note": "官方那条公告只讲了 3.0 与画布编辑，没提这一条 —— 读完没找到，不是没读。⚠️ **这一格核的是 3.0**，当时那是我们认定的当前版本",
+   "recheck": "4.0"
   },
   {
    "m": "ideogram",
    "c": "i-4k",
    "state": "unknown",
    "verified_for": "3.0",
-   "note": "官方那条公告只讲了 3.0 与画布编辑，没提这一条 —— 读完没找到，不是没读"
+   "note": "官方那条公告只讲了 3.0 与画布编辑，没提这一条 —— 读完没找到，不是没读。⚠️ **这一格核的是 3.0**，当时那是我们认定的当前版本",
+   "recheck": "4.0"
   },
   {
    "m": "ideogram",
@@ -4824,7 +4852,8 @@
    "state": "no",
    "verified_for": "3.0",
    "src": "ideogram-x",
-   "note": "闭源，官方未发布权重"
+   "note": "闭源，官方未发布权重。⚠️ **这一格核的是 3.0**，当时那是我们认定的当前版本",
+   "recheck": "4.0"
   },
   {
    "m": "recraft",
@@ -5039,7 +5068,8 @@
    "state": "yes",
    "verified_for": "Edit-2511",
    "src": "qwen-image-card",
-   "note": "官方原文：「an image generation foundation model in the Qwen series」"
+   "note": "官方原文：「an image generation foundation model in the Qwen series」。⚠️ **这一格核的是 Edit-2511**，当时那是我们认定的当前版本",
+   "recheck": "3.0-pro"
   },
   {
    "m": "qwen-image",
@@ -5047,7 +5077,8 @@
    "state": "yes",
    "verified_for": "Edit-2511",
    "src": "qwen-image-card",
-   "note": "官方原文：「precise image editing」"
+   "note": "官方原文：「precise image editing」。⚠️ **这一格核的是 Edit-2511**，当时那是我们认定的当前版本",
+   "recheck": "3.0-pro"
   },
   {
    "m": "qwen-image",
@@ -5055,35 +5086,40 @@
    "state": "yes",
    "verified_for": "Edit-2511",
    "src": "qwen-image-card",
-   "note": "官方原文：「achieves significant advances in complex text rendering and precise image editing」"
+   "note": "官方原文：「achieves significant advances in complex text rendering and precise image editing」。⚠️ **这一格核的是 Edit-2511**，当时那是我们认定的当前版本",
+   "recheck": "3.0-pro"
   },
   {
    "m": "qwen-image",
    "c": "i-multiturn",
    "state": "unknown",
    "verified_for": "Edit-2511",
-   "note": "Qwen-Image 官方模型卡没提这一条 —— 读完没找到"
+   "note": "Qwen-Image 官方模型卡没提这一条 —— 读完没找到。⚠️ **这一格核的是 Edit-2511**，当时那是我们认定的当前版本",
+   "recheck": "3.0-pro"
   },
   {
    "m": "qwen-image",
    "c": "i-inpaint",
    "state": "unknown",
    "verified_for": "Edit-2511",
-   "note": "Qwen-Image 官方模型卡没提这一条 —— 读完没找到"
+   "note": "Qwen-Image 官方模型卡没提这一条 —— 读完没找到。⚠️ **这一格核的是 Edit-2511**，当时那是我们认定的当前版本",
+   "recheck": "3.0-pro"
   },
   {
    "m": "qwen-image",
    "c": "i-outpaint",
    "state": "unknown",
    "verified_for": "Edit-2511",
-   "note": "Qwen-Image 官方模型卡没提这一条 —— 读完没找到"
+   "note": "Qwen-Image 官方模型卡没提这一条 —— 读完没找到。⚠️ **这一格核的是 Edit-2511**，当时那是我们认定的当前版本",
+   "recheck": "3.0-pro"
   },
   {
    "m": "qwen-image",
    "c": "i-canvas",
    "state": "unknown",
    "verified_for": "Edit-2511",
-   "note": "Qwen-Image 官方模型卡没提这一条 —— 读完没找到"
+   "note": "Qwen-Image 官方模型卡没提这一条 —— 读完没找到。⚠️ **这一格核的是 Edit-2511**，当时那是我们认定的当前版本",
+   "recheck": "3.0-pro"
   },
   {
    "m": "qwen-image",
@@ -5091,21 +5127,24 @@
    "state": "yes",
    "verified_for": "Edit-2511",
    "src": "hf-lineage",
-   "note": "官方原文：「Edit-2511 官方示例直接传两张图：pipeline 入参 \"image\": [image1, image2]」"
+   "note": "官方原文：「Edit-2511 官方示例直接传两张图：pipeline 入参 \"image\": [image1, image2]」。⚠️ **这一格核的是 Edit-2511**，当时那是我们认定的当前版本",
+   "recheck": "3.0-pro"
   },
   {
    "m": "qwen-image",
    "c": "i-styleref",
    "state": "unknown",
    "verified_for": "Edit-2511",
-   "note": "Qwen-Image 官方模型卡没提这一条 —— 读完没找到"
+   "note": "Qwen-Image 官方模型卡没提这一条 —— 读完没找到。⚠️ **这一格核的是 Edit-2511**，当时那是我们认定的当前版本",
+   "recheck": "3.0-pro"
   },
   {
    "m": "qwen-image",
    "c": "i-fidelity",
    "state": "unknown",
    "verified_for": "Edit-2511",
-   "note": "**没有顺着写。** 官方说「mitigate image drift、improved character consistency」，那是**效果变好**；我们这一格问的是**有没有一个控制保真强度的旋钮**（OpenAI 的 input fidelity 那种）。两回事"
+   "note": "**没有顺着写。** 官方说「mitigate image drift、improved character consistency」，那是**效果变好**；我们这一格问的是**有没有一个控制保真强度的旋钮**（OpenAI 的 input fidelity 那种）。两回事。⚠️ **这一格核的是 Edit-2511**，当时那是我们认定的当前版本",
+   "recheck": "3.0-pro"
   },
   {
    "m": "qwen-image",
@@ -5113,21 +5152,24 @@
    "state": "yes",
    "verified_for": "Edit-2511",
    "src": "qwen-image-card",
-   "note": "官方原文：「exceptional performance in text rendering, especially for Chinese」"
+   "note": "官方原文：「exceptional performance in text rendering, especially for Chinese」。⚠️ **这一格核的是 Edit-2511**，当时那是我们认定的当前版本",
+   "recheck": "3.0-pro"
   },
   {
    "m": "qwen-image",
    "c": "i-upscale",
    "state": "unknown",
    "verified_for": "Edit-2511",
-   "note": "Qwen-Image 官方模型卡没提这一条 —— 读完没找到"
+   "note": "Qwen-Image 官方模型卡没提这一条 —— 读完没找到。⚠️ **这一格核的是 Edit-2511**，当时那是我们认定的当前版本",
+   "recheck": "3.0-pro"
   },
   {
    "m": "qwen-image",
    "c": "i-4k",
    "state": "unknown",
    "verified_for": "Edit-2511",
-   "note": "Qwen-Image 官方模型卡没提这一条 —— 读完没找到"
+   "note": "Qwen-Image 官方模型卡没提这一条 —— 读完没找到。⚠️ **这一格核的是 Edit-2511**，当时那是我们认定的当前版本",
+   "recheck": "3.0-pro"
   },
   {
    "m": "qwen-image",
@@ -5135,7 +5177,8 @@
    "state": "yes",
    "verified_for": "Edit-2511",
    "src": "hf-lineage",
-   "note": "官方原文：「Qwen/Qwen-Image 与 Qwen-Image-Edit-2511 均为 **apache-2.0**，标准开源协议」"
+   "note": "官方原文：「Qwen/Qwen-Image 与 Qwen-Image-Edit-2511 均为 **apache-2.0**，标准开源协议」。⚠️ **这一格核的是 Edit-2511**，当时那是我们认定的当前版本",
+   "recheck": "3.0-pro"
   },
   {
    "m": "z-image",
@@ -7076,6 +7119,106 @@
    "url": "https://ai.google.dev",
    "discloses": "n/a",
    "discloses_why": "厂商自有 API 平台，卖的是自家模型，「公不公示底层模型」这个问题不适用。"
+  },
+  {
+   "id": "anthropic-api",
+   "name": "Anthropic · Claude API",
+   "kind": "厂商自有 API 平台",
+   "kind2": "vendor-own",
+   "region": "全球",
+   "url": "https://platform.claude.com",
+   "discloses": "n/a",
+   "discloses_why": "厂商自有 API 平台，卖的是自家模型，「公不公示底层模型」这个问题不适用。"
+  },
+  {
+   "id": "bedrock",
+   "name": "Amazon Bedrock",
+   "kind": "云厂商托管",
+   "kind2": "cloud",
+   "region": "全球",
+   "url": "https://aws.amazon.com/bedrock/",
+   "discloses": "n/a",
+   "discloses_why": "云厂商托管：卖的是别家的模型但明确署名（型号 id 里就带厂商名），「公不公示底层模型」不适用。"
+  },
+  {
+   "id": "vertex",
+   "name": "Google Cloud（Vertex AI）",
+   "kind": "云厂商托管",
+   "kind2": "cloud",
+   "region": "全球",
+   "url": "https://cloud.google.com/vertex-ai",
+   "discloses": "n/a",
+   "discloses_why": "云厂商托管：卖的是别家的模型但明确署名（型号 id 里就带厂商名），「公不公示底层模型」不适用。"
+  },
+  {
+   "id": "ms-foundry",
+   "name": "Microsoft Foundry",
+   "kind": "云厂商托管",
+   "kind2": "cloud",
+   "region": "全球",
+   "url": "https://ai.azure.com",
+   "discloses": "n/a",
+   "discloses_why": "云厂商托管：卖的是别家的模型但明确署名（型号 id 里就带厂商名），「公不公示底层模型」不适用。"
+  },
+  {
+   "id": "openai-api",
+   "name": "OpenAI API",
+   "kind": "厂商自有 API 平台",
+   "kind2": "vendor-own",
+   "region": "全球",
+   "url": "https://developers.openai.com",
+   "discloses": "n/a",
+   "discloses_why": "厂商自有 API 平台，卖的是自家模型，「公不公示底层模型」这个问题不适用。"
+  },
+  {
+   "id": "xai-api",
+   "name": "xAI API",
+   "kind": "厂商自有 API 平台",
+   "kind2": "vendor-own",
+   "region": "全球",
+   "url": "https://docs.x.ai",
+   "discloses": "n/a",
+   "discloses_why": "厂商自有 API 平台，卖的是自家模型，「公不公示底层模型」这个问题不适用。"
+  },
+  {
+   "id": "deepseek-api",
+   "name": "DeepSeek 开放平台",
+   "kind": "厂商自有 API 平台",
+   "kind2": "vendor-own",
+   "region": "中国大陆",
+   "url": "https://platform.deepseek.com",
+   "discloses": "n/a",
+   "discloses_why": "厂商自有 API 平台，卖的是自家模型，「公不公示底层模型」这个问题不适用。"
+  },
+  {
+   "id": "kimi-api",
+   "name": "Kimi 开放平台",
+   "kind": "厂商自有 API 平台",
+   "kind2": "vendor-own",
+   "region": "中国大陆",
+   "url": "https://platform.kimi.com",
+   "discloses": "n/a",
+   "discloses_why": "厂商自有 API 平台，卖的是自家模型，「公不公示底层模型」这个问题不适用。"
+  },
+  {
+   "id": "zhipu-api",
+   "name": "智谱开放平台",
+   "kind": "厂商自有 API 平台",
+   "kind2": "vendor-own",
+   "region": "中国大陆",
+   "url": "https://open.bigmodel.cn",
+   "discloses": "n/a",
+   "discloses_why": "厂商自有 API 平台，卖的是自家模型，「公不公示底层模型」这个问题不适用。"
+  },
+  {
+   "id": "ideogram-api",
+   "name": "Ideogram API",
+   "kind": "厂商自有 API 平台",
+   "kind2": "vendor-own",
+   "region": "全球",
+   "url": "https://developer.ideogram.ai",
+   "discloses": "n/a",
+   "discloses_why": "厂商自有 API 平台，卖的是自家模型，「公不公示底层模型」这个问题不适用。"
   }
  ],
  "availability": [
@@ -7269,6 +7412,314 @@
    "plan": "unknown",
    "valid_from": "unknown",
    "valid_to": "unknown"
+  },
+  {
+   "p": "anthropic-api",
+   "m": "claude",
+   "listed": "claude-fable-5",
+   "src": "claude-models",
+   "quote": "「Claude Fable 5 is generally available on the Claude API … beginning June 9, 2026」",
+   "region": "全球",
+   "status": "available",
+   "match": "same",
+   "access_type": "api",
+   "plan": "unknown",
+   "valid_from": "unknown",
+   "valid_to": "unknown"
+  },
+  {
+   "p": "bedrock",
+   "m": "claude",
+   "listed": "anthropic.claude-fable-5",
+   "src": "claude-models",
+   "quote": "模型总览表 AWS Bedrock ID 一行：`anthropic.claude-fable-5`",
+   "region": "全球",
+   "status": "available",
+   "match": "same",
+   "access_type": "api",
+   "plan": "unknown",
+   "valid_from": "unknown",
+   "valid_to": "unknown"
+  },
+  {
+   "p": "vertex",
+   "m": "claude",
+   "listed": "claude-fable-5",
+   "src": "claude-models",
+   "quote": "模型总览表 Google Cloud ID 一行：`claude-fable-5`",
+   "region": "全球",
+   "status": "available",
+   "match": "same",
+   "access_type": "api",
+   "plan": "unknown",
+   "valid_from": "unknown",
+   "valid_to": "unknown"
+  },
+  {
+   "p": "ms-foundry",
+   "m": "claude",
+   "listed": "claude-fable-5",
+   "src": "claude-models",
+   "quote": "「Models are available through the Claude API, Amazon Bedrock, Claude Platform on AWS, Google Cloud, and Microsoft Foundry」",
+   "region": "全球",
+   "status": "available",
+   "match": "same",
+   "access_type": "api",
+   "plan": "unknown",
+   "valid_from": "unknown",
+   "valid_to": "unknown"
+  },
+  {
+   "p": "openai-api",
+   "m": "gpt",
+   "listed": "gpt-5.6-sol",
+   "src": "openai-models",
+   "quote": "「All latest OpenAI models … are available via the Responses API and our Client SDKs.」模型卡 Model ID 为 `gpt-5.6-sol`",
+   "region": "全球",
+   "status": "available",
+   "match": "same",
+   "access_type": "api",
+   "plan": "unknown",
+   "valid_from": "unknown",
+   "valid_to": "unknown"
+  },
+  {
+   "p": "google-ai",
+   "m": "gemini-text",
+   "listed": "gemini-3.6-flash",
+   "src": "gemini-changelog",
+   "quote": "发布说明 2026-07-21：「Gemini 3.6 Flash (gemini-3.6-flash)」正式版发布",
+   "region": "全球",
+   "status": "available",
+   "match": "same",
+   "access_type": "api",
+   "plan": "unknown",
+   "valid_from": "unknown",
+   "valid_to": "unknown"
+  },
+  {
+   "p": "xai-api",
+   "m": "grok",
+   "listed": "grok-4.5",
+   "src": "xai-release-notes",
+   "quote": "API 发布说明 2026 年 7 月：grok-4.5",
+   "region": "全球",
+   "status": "available",
+   "match": "same",
+   "access_type": "api",
+   "plan": "unknown",
+   "valid_from": "unknown",
+   "valid_to": "unknown"
+  },
+  {
+   "p": "deepseek-api",
+   "m": "deepseek",
+   "listed": "deepseek-v4-pro",
+   "src": "deepseek-chat-api",
+   "quote": "Chat Completions 的 model 参数说明：deepseek-v4-flash 或 deepseek-v4-pro",
+   "region": "中国大陆",
+   "status": "available",
+   "match": "same",
+   "access_type": "api",
+   "plan": "unknown",
+   "valid_from": "unknown",
+   "valid_to": "unknown"
+  },
+  {
+   "p": "kimi-api",
+   "m": "kimi",
+   "listed": "kimi-k3",
+   "src": "kimi-pricing",
+   "quote": "模型卡片：「Kimi K3 —— 旗舰模型，1M token 上下文」",
+   "region": "中国大陆",
+   "status": "available",
+   "match": "same",
+   "access_type": "api",
+   "plan": "unknown",
+   "valid_from": "unknown",
+   "valid_to": "unknown"
+  },
+  {
+   "p": "zhipu-api",
+   "m": "glm",
+   "listed": "glm-5.2",
+   "src": "glm-52-doc",
+   "quote": "模型文档标题即 GLM-5.2，快速开始示例 `model: \"glm-5.2\"`",
+   "region": "中国大陆",
+   "status": "available",
+   "match": "same",
+   "access_type": "api",
+   "plan": "unknown",
+   "valid_from": "unknown",
+   "valid_to": "unknown"
+  },
+  {
+   "p": "minimax-api",
+   "m": "minimax-text",
+   "listed": "MiniMax-M3",
+   "src": "minimax-openai-api",
+   "quote": "支持模型表：MiniMax-M3，上下文窗口 1,000,000",
+   "region": "中国大陆",
+   "status": "available",
+   "match": "same",
+   "access_type": "api",
+   "plan": "unknown",
+   "valid_from": "unknown",
+   "valid_to": "unknown"
+  },
+  {
+   "p": "ark",
+   "m": "doubao",
+   "listed": "doubao-seed-2-1-pro-260628",
+   "src": "ark-models",
+   "quote": "模型清单「模型推荐」首条 Doubao Seed 2.1，型号 `doubao-seed-2-1-pro-260628`",
+   "region": "中国大陆",
+   "status": "available",
+   "match": "same",
+   "access_type": "api",
+   "plan": "unknown",
+   "valid_from": "unknown",
+   "valid_to": "unknown"
+  },
+  {
+   "p": "bailian",
+   "m": "qwen-text",
+   "listed": "qwen3.8-max",
+   "src": "bailian-models-zh",
+   "quote": "阿里云百炼提供千问及第三方模型服务，覆盖文本、图像、音频、视频等多种模态。文本生成首条即 `qwen3.8-max`",
+   "region": "中国大陆",
+   "status": "available",
+   "match": "same",
+   "access_type": "api",
+   "plan": "unknown",
+   "valid_from": "unknown",
+   "valid_to": "unknown"
+  },
+  {
+   "p": "bailian",
+   "m": "deepseek",
+   "listed": "deepseek-v4-pro",
+   "src": "bailian-models-zh",
+   "quote": "阿里云百炼提供千问及第三方模型服务，覆盖文本、图像、音频、视频等多种模态。清单含 `deepseek-v4-pro`、`deepseek-v4-flash-0731`",
+   "region": "中国大陆",
+   "status": "available",
+   "match": "same",
+   "access_type": "api",
+   "plan": "unknown",
+   "valid_from": "unknown",
+   "valid_to": "unknown"
+  },
+  {
+   "p": "bailian",
+   "m": "kimi",
+   "listed": "kimi/kimi-k3",
+   "src": "bailian-models-zh",
+   "quote": "阿里云百炼提供千问及第三方模型服务，覆盖文本、图像、音频、视频等多种模态。清单里 `kimi/kimi-k3` 一条**标着「三方直供」**",
+   "region": "中国大陆",
+   "status": "available",
+   "match": "same",
+   "access_type": "api",
+   "plan": "unknown",
+   "valid_from": "unknown",
+   "valid_to": "unknown"
+  },
+  {
+   "p": "bailian",
+   "m": "glm",
+   "listed": "glm-5.2",
+   "src": "bailian-models-zh",
+   "quote": "阿里云百炼提供千问及第三方模型服务，覆盖文本、图像、音频、视频等多种模态。清单含 `glm-5.2`（华北2 / 新加坡 / 法兰克福 / 弗吉尼亚）",
+   "region": "中国大陆",
+   "status": "available",
+   "match": "same",
+   "access_type": "api",
+   "plan": "unknown",
+   "valid_from": "unknown",
+   "valid_to": "unknown"
+  },
+  {
+   "p": "bailian",
+   "m": "minimax-text",
+   "listed": "MiniMax/MiniMax-M3",
+   "src": "bailian-models-zh",
+   "quote": "阿里云百炼提供千问及第三方模型服务，覆盖文本、图像、音频、视频等多种模态。清单里 `MiniMax/MiniMax-M3` **标着「三方直供」**",
+   "region": "中国大陆",
+   "status": "available",
+   "match": "same",
+   "access_type": "api",
+   "plan": "unknown",
+   "valid_from": "unknown",
+   "valid_to": "unknown"
+  },
+  {
+   "p": "bailian",
+   "m": "qwen-image",
+   "listed": "qwen-image-3.0-pro",
+   "src": "bailian-models-zh",
+   "quote": "清单「生成」一栏：`qwen-image-3.0-pro`（华北2 / 新加坡）",
+   "region": "中国大陆",
+   "status": "available",
+   "match": "same",
+   "access_type": "api",
+   "plan": "unknown",
+   "valid_from": "unknown",
+   "valid_to": "unknown"
+  },
+  {
+   "p": "ark",
+   "m": "seedream",
+   "listed": "doubao-seedream-5-0-pro-260628",
+   "src": "ark-models",
+   "quote": "模型清单含 `doubao-seedream-5-0-pro-260628`",
+   "region": "中国大陆",
+   "status": "available",
+   "match": "same",
+   "access_type": "api",
+   "plan": "unknown",
+   "valid_from": "unknown",
+   "valid_to": "unknown"
+  },
+  {
+   "p": "google-ai",
+   "m": "gemini-image",
+   "listed": "gemini-3.1-flash-image",
+   "src": "gemini-changelog",
+   "quote": "发布说明 2026-05-28：「Released gemini-3.1-flash-image (Nano Banana 2) … generally available (GA)」",
+   "region": "全球",
+   "status": "available",
+   "match": "same",
+   "access_type": "api",
+   "plan": "unknown",
+   "valid_from": "unknown",
+   "valid_to": "unknown"
+  },
+  {
+   "p": "openai-api",
+   "m": "gpt-image",
+   "listed": "gpt-image-2",
+   "src": "openai-models",
+   "quote": "模型页 Image Generation 一栏：GPT Image 2",
+   "region": "全球",
+   "status": "available",
+   "match": "same",
+   "access_type": "api",
+   "plan": "unknown",
+   "valid_from": "unknown",
+   "valid_to": "unknown"
+  },
+  {
+   "p": "ideogram-api",
+   "m": "ideogram",
+   "listed": "ideogram-v4",
+   "src": "ideogram-api",
+   "quote": "API 端点 `POST https://api.ideogram.ai/v1/ideogram-v4/generate`",
+   "region": "全球",
+   "status": "available",
+   "match": "same",
+   "access_type": "api",
+   "plan": "unknown",
+   "valid_from": "unknown",
+   "valid_to": "unknown"
   }
  ],
  "$availability": "§9.3 明确要求「✓ 不能只是布尔值」。这里每格带：上架的**具体版本名**、状态、原文引用、来源。**最有用的一列是 match** —— 平台上架的常常不是当前主力版本（Replicate 上是 Hailuo 2.3 与初代 ltx-video，APIYI 上是 Seedance 2.0）。只答「有没有」会让人以为能用上当前版本的能力，那是错的。另外两类要标出来：coming-soon（还不能用）与上游已停服（平台还挂着不代表还能用多久）。\n\n补齐 §9.3 要求的五个字段。**能从平台属性推出来的才推**（access_type 由 platform.kind2、region 由 platform.region），**推不出来的一律 unknown，不许猜** —— plan / valid_from / valid_to 三项目前全是 unknown，那是事实不是遗漏。",
@@ -7298,7 +7749,8 @@
    ],
    "src": "google-ai-price",
    "as_of": "2026-08-08",
-   "quote": "Veo 3.1 Standard video with audio price (default) … $0.40 (720p and 1080p) $0.60 (4k)"
+   "quote": "Veo 3.1 Standard video with audio price (default) … $0.40 (720p and 1080p) $0.60 (4k)",
+   "frozen": "一次性快照，不再维护（ontology 规则十，2026-08-12）"
   },
   {
    "p": "klingai-api",
@@ -7331,7 +7783,8 @@
    "src": "kling-price",
    "as_of": "2026-08-08",
    "quote": "Kling 3.0 按秒收费 无声 0.6积分（¥0.6）/秒 0.8积分（¥0.8）/秒 3.0积分（¥3.0）/秒",
-   "note": "标价用「积分」，但官方写明**1 积分等于 1 元（原价）** —— 所以标价可比。折扣见折扣栏。"
+   "note": "标价用「积分」，但官方写明**1 积分等于 1 元（原价）** —— 所以标价可比。折扣见折扣栏。",
+   "frozen": "一次性快照，不再维护（ontology 规则十，2026-08-12）"
   },
   {
    "p": "vidu-api",
@@ -7355,7 +7808,8 @@
    ],
    "src": "vidu-price",
    "as_of": "2026-08-08",
-   "quote": "Vidu Q3-pro - img2video - text2video - start-end2video 1-16S 1080P 24 /Second $0.12 / Second"
+   "quote": "Vidu Q3-pro - img2video - text2video - start-end2video 1-16S 1080P 24 /Second $0.12 / Second",
+   "frozen": "一次性快照，不再维护（ontology 规则十，2026-08-12）"
   },
   {
    "p": "bailian",
@@ -7376,7 +7830,8 @@
    "src": "bailian-price",
    "as_of": "2026-08-08",
    "quote": "wan2.7-t2v 720P 0.6元/秒 50秒 1080P 1元/秒",
-   "note": "⚠️ **百炼价格页上最新是 wan2.7，没有我们记的 3.0。** 这条价格属于 2.7，不能挂到 3.0 名下 —— 见 ontology 规则三之一。"
+   "note": "⚠️ **百炼价格页上最新是 wan2.7，没有我们记的 3.0。** 这条价格属于 2.7，不能挂到 3.0 名下 —— 见 ontology 规则三之一。",
+   "frozen": "一次性快照，不再维护（ontology 规则十，2026-08-12）"
   },
   {
    "p": "minimax-api",
@@ -7401,7 +7856,8 @@
    "src": "minimax-price",
    "as_of": "2026-08-08",
    "quote": "[MiniMax-Hailuo-02] [MiniMax-Hailuo-2.3]，生成单条1080p，6s视频，扣减2视频点数",
-   "note": "⚠️ 记的是「视频点数」不是钱，**换不成每秒单价**。而且官方明写「视频资源包支持 Hailuo 系列视频模型，**暂不支持 MiniMax H3**」—— H3 正是我们记的当前主力。"
+   "note": "⚠️ 记的是「视频点数」不是钱，**换不成每秒单价**。而且官方明写「视频资源包支持 Hailuo 系列视频模型，**暂不支持 MiniMax H3**」—— H3 正是我们记的当前主力。",
+   "frozen": "一次性快照，不再维护（ontology 规则十，2026-08-12）"
   },
   {
    "p": "runway",
@@ -7418,7 +7874,8 @@
    "src": "runway-price",
    "as_of": "2026-08-08",
    "quote": "$15 $12 /month 625 credits /mo 625 credits monthly = 52s of Gen-4.5",
-   "note": "**只卖订阅，不卖秒。** 官方自己写了「625 credits = 52 秒 Gen-4.5」，但把 12÷52 算成每秒单价是**我们做的推算，不是它说的** —— 按 §26 不录。"
+   "note": "**只卖订阅，不卖秒。** 官方自己写了「625 credits = 52 秒 Gen-4.5」，但把 12÷52 算成每秒单价是**我们做的推算，不是它说的** —— 按 §26 不录。",
+   "frozen": "一次性快照，不再维护（ontology 规则十，2026-08-12）"
   },
   {
    "p": "ark",
@@ -7428,7 +7885,8 @@
    "src": "volcengine-ark-price",
    "as_of": "2026-08-08",
    "quote": "火山方舟视频生成模型价格快查表",
-   "note": "⚠️ 文档站的「模型价格」页只有文本模型 token 单价；**视频模型价格被放在飞书多维表里**（bytedance.larkoffice.com），我们抓不到，也不该去抓别人的协作文档。这一格空着是事实，不是遗漏。"
+   "note": "⚠️ 文档站的「模型价格」页只有文本模型 token 单价；**视频模型价格被放在飞书多维表里**（bytedance.larkoffice.com），我们抓不到，也不该去抓别人的协作文档。这一格空着是事实，不是遗漏。",
+   "frozen": "一次性快照，不再维护（ontology 规则十，2026-08-12）"
   },
   {
    "p": "replicate",
@@ -7449,7 +7907,8 @@
    "src": "replicate-t2v",
    "as_of": "2026-08-08",
    "quote": "wavespeedai / wan-2.1-i2v-720p … $0.25 / second of output video",
-   "note": "⚠️ 同一个万相，**百炼上 720P 是 ¥0.6/秒，Replicate 上 720P 是 $0.25/秒** —— 而且 Replicate 卖的还是 2.1，不是当前的 3.0。**「多少钱」这个问题，不指定平台就没有答案。**"
+   "note": "⚠️ 同一个万相，**百炼上 720P 是 ¥0.6/秒，Replicate 上 720P 是 $0.25/秒** —— 而且 Replicate 卖的还是 2.1，不是当前的 3.0。**「多少钱」这个问题，不指定平台就没有答案。**",
+   "frozen": "一次性快照，不再维护（ontology 规则十，2026-08-12）"
   },
   {
    "p": "fal",
@@ -7459,7 +7918,8 @@
    "src": "fal-ltx-price",
    "as_of": "2026-08-09",
    "quote": "（本轮未在官方页上找到逐条价格）",
-   "note": "⚠️ LTX 的权重公开，但 Lightricks 没有自营 API 定价页；平台侧 fal 的定价页未按模型逐条标价。"
+   "note": "⚠️ LTX 的权重公开，但 Lightricks 没有自营 API 定价页；平台侧 fal 的定价页未按模型逐条标价。",
+   "frozen": "一次性快照，不再维护（ontology 规则十，2026-08-12）"
   },
   {
    "p": "libtv",
@@ -7469,7 +7929,8 @@
    "src": "decart-site",
    "as_of": "2026-08-09",
    "quote": "（本轮未在官方页上找到逐条价格）",
-   "note": "⚠️ Decart 官网未见公开定价页，也未见 API 价目。"
+   "note": "⚠️ Decart 官网未见公开定价页，也未见 API 价目。",
+   "frozen": "一次性快照，不再维护（ontology 规则十，2026-08-12）"
   },
   {
    "p": "replicate",
@@ -7479,7 +7940,8 @@
    "src": "replicate-t2v",
    "as_of": "2026-08-09",
    "quote": "（本轮未在官方页上找到逐条价格）",
-   "note": "⚠️ OpenAI 的 Sora API 已公告 2026-09-24 停服；定价页对我们的采集器返回 403，未能一手复核。"
+   "note": "⚠️ OpenAI 的 Sora API 已公告 2026-09-24 停服；定价页对我们的采集器返回 403，未能一手复核。",
+   "frozen": "一次性快照，不再维护（ontology 规则十，2026-08-12）"
   }
  ],
  "$pricing": "价格（G5）。**只取厂商官方价格页，Artificial Analysis 只做交叉校验。**\n\n## 这一栏最重要的结论是「价格根本不可比」\n\n七家、七种计价方式：Veo 和 Vidu 按秒标美元，Kling 和万相按秒标人民币，\n海螺记「视频点数」，Runway 只卖订阅，Seedance 把视频价放在飞书多维表里。\n**把它们并成一列数字，那一列一定是编的。**\n\n所以 unit 是一等字段：per-second / points / subscription / unavailable。\n只有 unit=per-second 且带 currency 的才允许横向比，而且**人民币和美元不换算** ——\n汇率是我们加的假设，不是厂商说的。\n\n## 价格挂在「平台 × 模型」上，不是挂在模型上\n\n**同一个模型在不同平台不是一个价**（项目负责人 2026-08-08 指出）。\n万相在百炼 720P ¥0.6/秒，在 Replicate 720P $0.25/秒，而且 Replicate 卖的还是 2.1。\n所以 `pricing` 的主键是 (p, m)：**「多少钱」这个问题，不指定平台就没有答案。**\n\n厂商自有的 API 平台（火山方舟 / 百炼 / 可灵开放平台 / Vidu / MiniMax / Google AI）\n因此也进了 platforms —— 它们本来就是平台，只是此前只收了第三方那一类。\n\n## 维度不能丢\n\n同一个模型，720P 和 4K 能差 5 倍（Kling ¥0.6 vs ¥3.0），有声无声再差 50%。\n**记成一个数字必然是错的**，所以 tiers 是数组不是标量。",
@@ -13672,7 +14134,8 @@
    "value": "文生视频 Elo 榜 第 1（1244）",
    "quote": "Models are ranked using an Elo rating system derived from blind user votes comparing videos generated from identical prompts",
    "as_of": "2026-08-09",
-   "url": "https://artificialanalysis.ai/video/leaderboard/text-to-video"
+   "url": "https://artificialanalysis.ai/video/leaderboard/text-to-video",
+   "src": null
   },
   {
    "m": "hailuo",
@@ -13681,7 +14144,8 @@
    "value": "第 2（1240）",
    "quote": "Models are ranked using an Elo rating system derived from blind user votes comparing videos generated from identical prompts",
    "as_of": "2026-08-09",
-   "url": "https://artificialanalysis.ai/video/leaderboard/text-to-video"
+   "url": "https://artificialanalysis.ai/video/leaderboard/text-to-video",
+   "src": null
   },
   {
    "m": "seedance",
@@ -13691,7 +14155,8 @@
    "quote": "Models are ranked using an Elo rating system derived from blind user votes comparing videos generated from identical prompts",
    "as_of": "2026-08-09",
    "url": "https://artificialanalysis.ai/video/leaderboard/text-to-video",
-   "note": "⚠️ 榜上是 **Seedance 2.0**，不是我们记的当前主力 2.5 —— 榜单和当前版本对不上，是常态。"
+   "note": "⚠️ 榜上是 **Seedance 2.0**，不是我们记的当前主力 2.5 —— 榜单和当前版本对不上，是常态。",
+   "src": null
   },
   {
    "m": "wan",
@@ -13701,7 +14166,8 @@
    "quote": "Models are ranked using an Elo rating system derived from blind user votes comparing videos generated from identical prompts",
    "as_of": "2026-08-09",
    "url": "https://artificialanalysis.ai/video/leaderboard/text-to-video",
-   "note": "⚠️ 榜上是 **Wan 2.7**，不是我们记的 3.0。"
+   "note": "⚠️ 榜上是 **Wan 2.7**，不是我们记的 3.0。",
+   "src": null
   },
   {
    "m": "kling",
@@ -13710,7 +14176,8 @@
    "value": "第 8（1111，3.0 1080p Pro）",
    "quote": "Models are ranked using an Elo rating system derived from blind user votes comparing videos generated from identical prompts",
    "as_of": "2026-08-09",
-   "url": "https://artificialanalysis.ai/video/leaderboard/text-to-video"
+   "url": "https://artificialanalysis.ai/video/leaderboard/text-to-video",
+   "src": null
   },
   {
    "m": "skyreels",
@@ -13720,7 +14187,8 @@
    "quote": "Models are ranked using an Elo rating system derived from blind user votes comparing videos generated from identical prompts",
    "as_of": "2026-08-09",
    "url": "https://artificialanalysis.ai/video/leaderboard/text-to-video",
-   "note": "⚠️ 榜上已是 **SkyReels V4**，我们库里最新只到 V3 —— **这是我们的采集缺口**。"
+   "note": "⚠️ 榜上已是 **SkyReels V4**，我们库里最新只到 V3 —— **这是我们的采集缺口**。",
+   "src": null
   },
   {
    "m": "veo",
@@ -13729,7 +14197,8 @@
    "value": "第 11（1093）",
    "quote": "Models are ranked using an Elo rating system derived from blind user votes comparing videos generated from identical prompts",
    "as_of": "2026-08-09",
-   "url": "https://artificialanalysis.ai/video/leaderboard/text-to-video"
+   "url": "https://artificialanalysis.ai/video/leaderboard/text-to-video",
+   "src": null
   },
   {
    "m": "vidu-q",
@@ -13738,7 +14207,8 @@
    "value": "第 16（1079，Q3 Pro）",
    "quote": "Models are ranked using an Elo rating system derived from blind user votes comparing videos generated from identical prompts",
    "as_of": "2026-08-09",
-   "url": "https://artificialanalysis.ai/video/leaderboard/text-to-video"
+   "url": "https://artificialanalysis.ai/video/leaderboard/text-to-video",
+   "src": null
   },
   {
    "m": "runway",
@@ -13748,7 +14218,8 @@
    "quote": "Models are ranked using an Elo rating system derived from blind user votes comparing videos generated from identical prompts",
    "as_of": "2026-08-09",
    "url": "https://artificialanalysis.ai/video/leaderboard/text-to-video",
-   "note": "**对照厂商自述看**：Runway 官方称 Gen-4.5 是「the world's best video model」，而这份盲测榜前 20 里没有它。我们不评判谁对，只把两句话放在一起。"
+   "note": "**对照厂商自述看**：Runway 官方称 Gen-4.5 是「the world's best video model」，而这份盲测榜前 20 里没有它。我们不评判谁对，只把两句话放在一起。",
+   "src": null
   },
   {
    "m": "runway",
@@ -13785,6 +14256,223 @@
    "quote": "A new-generation open general-purpose multimodal video model.",
    "as_of": "2026-08-09",
    "src": "minimax-release-notes"
+  },
+  {
+   "m": "claude",
+   "kind": "third-party",
+   "who": "Artificial Analysis",
+   "value": "Claude Fable 5（with fallback）智能分 62，总榜第 3",
+   "quote": "Artificial Analysis 的 Intelligence Index 是把多个公开评测合成的单一分数；同一个模型按 reasoning effort 分档单独上榜（max / xhigh / high / medium）",
+   "as_of": "2026-08-12",
+   "url": "https://artificialanalysis.ai/leaderboards/models",
+   "src": "aa-llm"
+  },
+  {
+   "m": "gpt",
+   "kind": "third-party",
+   "who": "Artificial Analysis",
+   "value": "GPT-5.6 Sol（max）智能分 61，总榜第 5",
+   "quote": "Artificial Analysis 的 Intelligence Index 是把多个公开评测合成的单一分数；同一个模型按 reasoning effort 分档单独上榜（max / xhigh / high / medium）",
+   "as_of": "2026-08-12",
+   "url": "https://artificialanalysis.ai/leaderboards/models",
+   "src": "aa-llm"
+  },
+  {
+   "m": "kimi",
+   "kind": "third-party",
+   "who": "Artificial Analysis",
+   "value": "Kimi K3（max）智能分 60，总榜第 6",
+   "quote": "Artificial Analysis 的 Intelligence Index 是把多个公开评测合成的单一分数；同一个模型按 reasoning effort 分档单独上榜（max / xhigh / high / medium）",
+   "as_of": "2026-08-12",
+   "url": "https://artificialanalysis.ai/leaderboards/models",
+   "src": "aa-llm"
+  },
+  {
+   "m": "qwen-text",
+   "kind": "third-party",
+   "who": "Artificial Analysis",
+   "value": "Qwen3.8 Max 智能分 58，总榜第 9",
+   "quote": "Artificial Analysis 的 Intelligence Index 是把多个公开评测合成的单一分数；同一个模型按 reasoning effort 分档单独上榜（max / xhigh / high / medium）",
+   "as_of": "2026-08-12",
+   "url": "https://artificialanalysis.ai/leaderboards/models",
+   "note": "⚠️ 顺带印证了版本：**第三方榜上也是 3.8 Max**，和我们从中文站取到的一致",
+   "src": "aa-llm"
+  },
+  {
+   "m": "grok",
+   "kind": "third-party",
+   "who": "Artificial Analysis",
+   "value": "Grok 4.5（high）智能分 56，总榜第 13",
+   "quote": "Artificial Analysis 的 Intelligence Index 是把多个公开评测合成的单一分数；同一个模型按 reasoning effort 分档单独上榜（max / xhigh / high / medium）",
+   "as_of": "2026-08-12",
+   "url": "https://artificialanalysis.ai/leaderboards/models",
+   "src": "aa-llm"
+  },
+  {
+   "m": "glm",
+   "kind": "third-party",
+   "who": "Artificial Analysis",
+   "value": "GLM-5.2（max）智能分 53",
+   "quote": "Artificial Analysis 的 Intelligence Index 是把多个公开评测合成的单一分数；同一个模型按 reasoning effort 分档单独上榜（max / xhigh / high / medium）",
+   "as_of": "2026-08-12",
+   "url": "https://artificialanalysis.ai/leaderboards/models",
+   "src": "aa-llm"
+  },
+  {
+   "m": "gemini-text",
+   "kind": "third-party",
+   "who": "Artificial Analysis",
+   "value": "Gemini 3.6 Flash 智能分 52",
+   "quote": "Artificial Analysis 的 Intelligence Index 是把多个公开评测合成的单一分数；同一个模型按 reasoning effort 分档单独上榜（max / xhigh / high / medium）",
+   "as_of": "2026-08-12",
+   "url": "https://artificialanalysis.ai/leaderboards/models",
+   "src": "aa-llm"
+  },
+  {
+   "m": "deepseek",
+   "kind": "third-party",
+   "who": "Artificial Analysis",
+   "value": "DeepSeek V4 Flash 0731（max）智能分 52；V4 Pro（max）45",
+   "quote": "Artificial Analysis 的 Intelligence Index 是把多个公开评测合成的单一分数；同一个模型按 reasoning effort 分档单独上榜（max / xhigh / high / medium）",
+   "as_of": "2026-08-12",
+   "url": "https://artificialanalysis.ai/leaderboards/models",
+   "note": "⚠️ **Flash 分数高于 Pro** —— 榜上如此，不是笔误；两者定位不同，别当成「Pro 更弱」",
+   "src": "aa-llm"
+  },
+  {
+   "m": "minimax-text",
+   "kind": "third-party",
+   "who": "Artificial Analysis",
+   "value": "MiniMax-M3 智能分 45",
+   "quote": "Artificial Analysis 的 Intelligence Index 是把多个公开评测合成的单一分数；同一个模型按 reasoning effort 分档单独上榜（max / xhigh / high / medium）",
+   "as_of": "2026-08-12",
+   "url": "https://artificialanalysis.ai/leaderboards/models",
+   "src": "aa-llm"
+  },
+  {
+   "m": "mistral-text",
+   "kind": "third-party",
+   "who": "Artificial Analysis",
+   "value": "Mistral Medium 3.5 智能分 30",
+   "quote": "Artificial Analysis 的 Intelligence Index 是把多个公开评测合成的单一分数；同一个模型按 reasoning effort 分档单独上榜（max / xhigh / high / medium）",
+   "as_of": "2026-08-12",
+   "url": "https://artificialanalysis.ai/leaderboards/models",
+   "src": "aa-llm"
+  },
+  {
+   "m": "llama",
+   "kind": "third-party",
+   "who": "Artificial Analysis",
+   "value": "Llama 4 Maverick 智能分 14；Scout 10",
+   "quote": "Artificial Analysis 的 Intelligence Index 是把多个公开评测合成的单一分数；同一个模型按 reasoning effort 分档单独上榜（max / xhigh / high / medium）",
+   "as_of": "2026-08-12",
+   "url": "https://artificialanalysis.ai/leaderboards/models",
+   "src": "aa-llm"
+  },
+  {
+   "m": "doubao",
+   "kind": "third-party",
+   "who": "Artificial Analysis",
+   "value": "Doubao Seed Code 智能分 26",
+   "quote": "Artificial Analysis 的 Intelligence Index 是把多个公开评测合成的单一分数；同一个模型按 reasoning effort 分档单独上榜（max / xhigh / high / medium）",
+   "as_of": "2026-08-12",
+   "url": "https://artificialanalysis.ai/leaderboards/models",
+   "note": "⚠️ **榜上没有我们记的旗舰 Seed 2.1 Pro**，只有 Doubao Seed Code 这一支代码模型 —— 拿它代表整条产品线是不成立的，这一条只说明「AA 收了豆包的一个型号」",
+   "src": "aa-llm"
+  },
+  {
+   "m": "gpt-image",
+   "kind": "third-party",
+   "who": "Artificial Analysis",
+   "value": "GPT Image 2（high）Elo 1371，**总榜第 1**",
+   "quote": "Elo rating system derived from blind user votes comparing images generated from identical prompts（榜共 145 行）",
+   "as_of": "2026-08-12",
+   "url": "https://artificialanalysis.ai/image/leaderboard/text-to-image",
+   "src": "aa-t2i"
+  },
+  {
+   "m": "gemini-image",
+   "kind": "third-party",
+   "who": "Artificial Analysis",
+   "value": "Nano Banana 2 Elo 1322，第 3；Nano Banana Pro 1300，第 6",
+   "quote": "Elo rating system derived from blind user votes comparing images generated from identical prompts（榜共 145 行）",
+   "as_of": "2026-08-12",
+   "url": "https://artificialanalysis.ai/image/leaderboard/text-to-image",
+   "src": "aa-t2i"
+  },
+  {
+   "m": "seedream",
+   "kind": "third-party",
+   "who": "Artificial Analysis",
+   "value": "Seedream 5.0 Pro Elo 1282，第 8；4.0 为 1224，第 15",
+   "quote": "Elo rating system derived from blind user votes comparing images generated from identical prompts（榜共 145 行）",
+   "as_of": "2026-08-12",
+   "url": "https://artificialanalysis.ai/image/leaderboard/text-to-image",
+   "src": "aa-t2i"
+  },
+  {
+   "m": "qwen-image",
+   "kind": "third-party",
+   "who": "Artificial Analysis",
+   "value": "Qwen Image 2.0 Pro（2026-04-22）Elo 1231，第 10；2.0（2026-03-03）1135，第 64",
+   "quote": "Elo rating system derived from blind user votes comparing images generated from identical prompts（榜共 145 行）",
+   "as_of": "2026-08-12",
+   "url": "https://artificialanalysis.ai/image/leaderboard/text-to-image",
+   "note": "⚠️ **榜上是「Qwen Image 2.0 Pro」，而我们记的版本是 Edit-2511** —— 待核：2.0 是不是已经换代",
+   "src": "aa-t2i"
+  },
+  {
+   "m": "flux",
+   "kind": "third-party",
+   "who": "Artificial Analysis",
+   "value": "FLUX.2 [max] Elo 1230，第 11；[pro] 1210，第 26",
+   "quote": "Elo rating system derived from blind user votes comparing images generated from identical prompts（榜共 145 行）",
+   "as_of": "2026-08-12",
+   "url": "https://artificialanalysis.ai/image/leaderboard/text-to-image",
+   "note": "⚠️ 榜上是 [max] / [pro] 两个档，我们记的是 2-dev —— 同代不同 SKU",
+   "src": "aa-t2i"
+  },
+  {
+   "m": "recraft",
+   "kind": "third-party",
+   "who": "Artificial Analysis",
+   "value": "Recraft V4.1 Utility Elo 1218，第 20；Utility Pro 1217，第 21",
+   "quote": "Elo rating system derived from blind user votes comparing images generated from identical prompts（榜共 145 行）",
+   "as_of": "2026-08-12",
+   "url": "https://artificialanalysis.ai/image/leaderboard/text-to-image",
+   "src": "aa-t2i"
+  },
+  {
+   "m": "ideogram",
+   "kind": "third-party",
+   "who": "Artificial Analysis",
+   "value": "Ideogram 4.0 Elo 1216，第 22；3.0 为 1099，第 82",
+   "quote": "Elo rating system derived from blind user votes comparing images generated from identical prompts（榜共 145 行）",
+   "as_of": "2026-08-12",
+   "url": "https://artificialanalysis.ai/image/leaderboard/text-to-image",
+   "note": "⚠️ **榜上已有 4.0，我们记的是 3.0** —— 待核，多半是我们落后了",
+   "src": "aa-t2i"
+  },
+  {
+   "m": "z-image",
+   "kind": "third-party",
+   "who": "Artificial Analysis",
+   "value": "Z-Image Base Elo 1064，第 102",
+   "quote": "Elo rating system derived from blind user votes comparing images generated from identical prompts（榜共 145 行）",
+   "as_of": "2026-08-12",
+   "url": "https://artificialanalysis.ai/image/leaderboard/text-to-image",
+   "src": "aa-t2i"
+  },
+  {
+   "m": "hunyuan-image",
+   "kind": "third-party",
+   "who": "Artificial Analysis",
+   "value": "**不在这张榜上** —— 145 行里没有 Hunyuan 任何型号",
+   "quote": "Elo rating system derived from blind user votes comparing images generated from identical prompts（榜共 145 行）",
+   "as_of": "2026-08-12",
+   "url": "https://artificialanalysis.ai/image/leaderboard/text-to-image",
+   "note": "不在榜不等于弱：AA 只收它拿得到、且投票量够的模型。**这一条记的是「查了没有」，不是评价**",
+   "src": "aa-t2i"
   }
  ],
  "$effect": "效果。**我们自己不打分，只转述并标明是谁说的**（负责人 2026-08-08 拍板）。\n字段：{m, kind: third-party|vendor-claim, who, value, url?, quote, as_of}\nR50 who 必填。注：Artificial Analysis 没有公开使用条款（terms 页 404），只取位次 + 回源链接，不整站搬。\n\n采到之后照出三件事，都记在 note 里：\n1. **榜单排的常常不是当前版本** —— AA 榜上是 Seedance 2.0（当前 2.5）、Wan 2.7（当前 3.0）\n2. **SkyReels V4 已存在，我们库里还是 V3** —— 这是我们的采集缺口，不是它的问题\n3. **厂商自述与第三方榜单的落差** —— Runway 官方称 Gen-4.5 是「世界最好的视频模型」，\n   而这份盲测榜前 20 里没有它。**我们不评判谁对，只把两句话放在一起，让读者自己看。**\n\nAA 量的是**画质偏好**（盲测投票的 Elo），不是能力 —— 它和我们的能力格是两回事，不能互相替代。",
@@ -13795,7 +14483,8 @@
    "rule": "买 ≥30000 积分",
    "off": "9 折（0.9 元/积分）",
    "src": "kling-price",
-   "quote": "直降 10%，折后单价 0.9元/积分 30000 积分 有效期180天"
+   "quote": "直降 10%，折后单价 0.9元/积分 30000 积分 有效期180天",
+   "frozen": "一次性快照，不再维护（ontology 规则十，2026-08-12）"
   },
   {
    "p": "minimax-api",
@@ -13803,7 +14492,8 @@
    "rule": "买视频资源包",
    "off": "按包折扣（**但不支持 H3**）",
    "src": "minimax-price",
-   "quote": "视频资源包支持 Hailuo 系列视频模型，暂不支持 MiniMax H3。"
+   "quote": "视频资源包支持 Hailuo 系列视频模型，暂不支持 MiniMax H3。",
+   "frozen": "一次性快照，不再维护（ontology 规则十，2026-08-12）"
   }
  ],
  "$discount": "折扣。此前埋在 pricing.note 里，结构化出来才能在对比表里并排看。\n字段：{p, m, rule, off, src, quote}\n\n第一批两条。海螺那条是**负面折扣**：资源包确实有折扣，但官方明写「暂不支持 MiniMax H3」——**而 H3 正是它的当前主力**。只写「有折扣」会把人骗进去。",
@@ -13825,5 +14515,10 @@
    "zh": "混合",
    "note": "同时用了上面两支的做法，且厂商自己说明了。"
   }
+ },
+ "$frozen": {
+  "pricing": "一次性快照，不再维护（ontology 规则十，2026-08-12）",
+  "discount": "一次性快照，不再维护（ontology 规则十，2026-08-12）",
+  "why": "价格与折扣实时变动且无法自动核验，挂在一个卖「每条事实都对得上」的站上是负债；平台可用性与效果值继续采。"
  }
 }

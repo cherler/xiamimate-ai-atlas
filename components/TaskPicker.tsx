@@ -33,7 +33,9 @@ export default function TaskPicker() {
     const q = atlas.pricing.find((x) => x.m === id && x.unit === "per-second" && x.tiers?.length);
     if (!q) return null;
     const t = q.tiers!.find((x) => x.label.includes("1080")) ?? q.tiers![0];
-    return `${SYM[q.currency ?? ""] ?? ""}${t.v}/秒 · ${t.label}`;
+    // **带上核验日**。价格这一类已封存不再维护（ontology 规则十），
+    // 不写日期就等于宣称它是今天的价 —— 那是我们最不该犯的错。
+    return `${SYM[q.currency ?? ""] ?? ""}${t.v}/秒 · ${t.label} · ${q.as_of} 快照`;
   };
   const where = (id: string) => {
     const v = atlas.availability.filter((x) => x.m === id);

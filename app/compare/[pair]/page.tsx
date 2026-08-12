@@ -70,9 +70,13 @@ export default async function ComparePage({ params }: { params: Promise<{ pair: 
 
   const Price = ({ id }: { id: string }) => {
     const qs = priceOf(id);
-    if (!qs.length) return <span className="text-unknown">官方页上还没拿到</span>;
+    if (!qs.length) return <span className="text-unknown">这一类已封存，没有采</span>;
     return (
       <div className="flex flex-col gap-1.5">
+        {/* 封存的数据必须自己说出来 —— 读者没义务去猜哪一栏还在维护 */}
+        <span className="text-[11.5px] text-unknown">
+          一次性快照，不再维护（价格实时变动，无法自动核验）
+        </span>
         {qs.map((q) => (
           <div key={q.p}>
             <span className="text-muted text-[12px]">

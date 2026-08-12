@@ -123,6 +123,30 @@ for (const s of a.support) {
   }
 }
 
+/**
+ * R69 —— **价格与折扣封存，不许再长。**
+ *
+ * 负责人 2026-08-12 拍板不再采价格与折扣（ontology 规则十）：
+ * 它是唯一一类**必然过期又没法自动核**的数据，挂在一个卖「每条事实都对得上」的站上
+ * 是负债不是资产；而且 `/caveats` 的「各平台不同价」是从它算的 —— 价格一旧，
+ * 那条告诫就成了错的告诫。
+ *
+ * 光写进 ontology 不够 —— **一句写在文档里的决定，挡不住下一次「顺手补两条」**。
+ * 所以钉成数字：现有 11 条价格、2 条折扣封存，多一条就报错。
+ * 真要重开这一类，改这里的数字并同时改 ontology 规则十，让两处一起动。
+ */
+{
+  const FROZEN = { pricing: 11, discount: 2 };
+  for (const [k, n] of Object.entries(FROZEN)) {
+    const cur = (a[k] ?? []).length;
+    if (cur > n)
+      errs.push(`R69 ${k} 从 ${n} 条长到 ${cur} 条 —— 这一类**已封存不再采**（ontology 规则十）。` +
+        `真要重开，改 validate 里的 FROZEN 并同步改 ontology，别只加数据`);
+    for (const r of a[k] ?? [])
+      if (!r.frozen) errs.push(`R69a ${k} 有一条没标 frozen：${r.m} × ${r.p} —— 封存的数据要让读者看得出来`);
+  }
+}
+
 // 缺格会被前台静默当成 unknown，那是**沉默的错**。
 for (const m of a.models)
   for (const c of a.capabilities)
@@ -462,6 +486,13 @@ const used = new Set([
   // 谱系节点的来源。**漏了这一条会误报** —— 闭源那五家（Claude / GPT / Gemini /
   // 豆包 / Grok）的官方弃用表与更新日志**只被谱系引用**，不挂在任何能力格上。
   ...(a.versions ?? []).map((v) => v.src),
+  /**
+   * 效果值的来源。**这个 `used` 集合已经漏过三次**（平台透明度、谱系、效果值），
+   * 每次都表现成「某个源登记了却没人引用」的假警告 ——
+   * 而假警告的代价是：真的没人引用时，没人再当回事。
+   * 加新的一类带 src 的数据时，**记得回到这里加一行**。
+   */
+  ...(a.effect ?? []).map((e) => e.src),
   ...(a.pricing ?? []).map((q) => q.src),
 ].filter(Boolean));
 for (const id of srcIds) if (!used.has(id)) warns.push(`R10 来源登记了但没被引用：${id}`);
