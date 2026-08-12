@@ -3130,6 +3130,129 @@
         "version",
         "lineage"
       ]
+    },
+    {
+      "id": "kokoro-card",
+      "tier": "S",
+      "kind": "html",
+      "vendor": "kokoro",
+      "name": "Hugging Face · hexgrad/Kokoro-82M 模型卡",
+      "url": "https://huggingface.co/hexgrad/Kokoro-82M",
+      "refresh_days": 14,
+      "good_for": [
+        "capability",
+        "version"
+      ]
+    },
+    {
+      "id": "xai-models",
+      "tier": "S",
+      "kind": "html",
+      "vendor": "grok",
+      "name": "xAI · Models",
+      "url": "https://docs.x.ai/docs/models",
+      "refresh_days": 14,
+      "good_for": [
+        "capability",
+        "version"
+      ]
+    },
+    {
+      "id": "mistral-models",
+      "tier": "S",
+      "kind": "html",
+      "vendor": "mistral-text",
+      "name": "Mistral · Models overview",
+      "url": "https://docs.mistral.ai/getting-started/models/models_overview/",
+      "refresh_days": 14,
+      "good_for": [
+        "capability",
+        "version"
+      ]
+    },
+    {
+      "id": "mistral-tools",
+      "tier": "S",
+      "kind": "html",
+      "vendor": "mistral-text",
+      "name": "Mistral · Function calling",
+      "url": "https://docs.mistral.ai/capabilities/function_calling/",
+      "refresh_days": 14,
+      "good_for": [
+        "capability"
+      ]
+    },
+    {
+      "id": "mistral-vision",
+      "tier": "S",
+      "kind": "html",
+      "vendor": "mistral-text",
+      "name": "Mistral · Vision",
+      "url": "https://docs.mistral.ai/capabilities/vision/",
+      "refresh_days": 14,
+      "good_for": [
+        "capability"
+      ]
+    },
+    {
+      "id": "fish-s2pro-card",
+      "tier": "S",
+      "kind": "html",
+      "vendor": "fish-speech",
+      "name": "Hugging Face · fishaudio/s2-pro 模型卡",
+      "url": "https://huggingface.co/fishaudio/s2-pro",
+      "refresh_days": 14,
+      "good_for": [
+        "capability"
+      ]
+    },
+    {
+      "id": "cosyvoice-card",
+      "tier": "S",
+      "kind": "html",
+      "vendor": "cosyvoice",
+      "name": "Hugging Face · Fun-CosyVoice3-0.5B-2512 模型卡",
+      "url": "https://huggingface.co/FunAudioLLM/Fun-CosyVoice3-0.5B-2512",
+      "refresh_days": 14,
+      "good_for": [
+        "capability"
+      ]
+    },
+    {
+      "id": "llama-card",
+      "tier": "S",
+      "kind": "html",
+      "vendor": "llama",
+      "name": "Meta · Llama 4 模型卡与提示格式",
+      "url": "https://developer.meta.com/ai/docs/model-cards-and-prompt-formats/llama4/",
+      "refresh_days": 14,
+      "good_for": [
+        "capability"
+      ]
+    },
+    {
+      "id": "elevenlabs-voices",
+      "tier": "S",
+      "kind": "html",
+      "vendor": "elevenlabs",
+      "name": "ElevenLabs · Voices",
+      "url": "https://elevenlabs.io/docs/capabilities/voices",
+      "refresh_days": 14,
+      "good_for": [
+        "capability"
+      ]
+    },
+    {
+      "id": "wan-t2v-card",
+      "tier": "S",
+      "kind": "html",
+      "vendor": "wan",
+      "name": "Hugging Face · Wan2.2-T2V-A14B 模型卡",
+      "url": "https://huggingface.co/Wan-AI/Wan2.2-T2V-A14B",
+      "refresh_days": 14,
+      "good_for": [
+        "capability"
+      ]
     }
   ],
   "$missing": [

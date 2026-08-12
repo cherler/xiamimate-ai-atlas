@@ -2883,7 +2883,8 @@
    "version_src": "hf-sound-org",
    "version_quote": "官方 HF 组织 FunAudioLLM/Fun-CosyVoice3-0.5B-2512，createdAt 2025-12-11（♥615）",
    "reach_cn": "blocked",
-   "reach_note": "funaudiollm.github.io 返回 404；权重在 huggingface.co，该域直连不可达（本机实测 08-12）"
+   "reach_note": "funaudiollm.github.io 返回 404；权重在 huggingface.co，该域直连不可达（本机实测 08-12）",
+   "status_note": "许可证 **Apache-2.0**（和 Kokoro 一样可商用；对比 Fish Speech 的研究许可 —— 同为「权重公开」，能不能做产品完全不同）。"
   },
   {
    "id": "fish-speech",
@@ -2899,7 +2900,8 @@
    "version_src": "hf-sound-org",
    "version_quote": "官方 HF 组织 fishaudio/s2-pro，createdAt 2026-03-09（♥1232）",
    "reach_cn": "blocked",
-   "reach_note": "fish.audio 直连不通（连接失败）（本机实测 08-12）"
+   "reach_note": "fish.audio 直连不通（连接失败）（本机实测 08-12）",
+   "status_note": "⚠️ **许可证是 Fish Audio Research License，不是开源许可**：研究与非商用免费，**商用要单独向 Fish Audio 授权**（business@fish.audio）。「权重公开」不等于「可以拿去做产品」。"
   },
   {
    "id": "kokoro",
@@ -4043,6 +4045,56 @@
    "name": "Hugging Face · 官方组织（声音）",
    "url": "https://huggingface.co/api/models",
    "tier": "official"
+  },
+  "kokoro-card": {
+   "name": "Hugging Face · hexgrad/Kokoro-82M 模型卡",
+   "url": "https://huggingface.co/hexgrad/Kokoro-82M",
+   "tier": "official"
+  },
+  "xai-models": {
+   "name": "xAI · Models",
+   "url": "https://docs.x.ai/docs/models",
+   "tier": "official"
+  },
+  "mistral-models": {
+   "name": "Mistral · Models overview",
+   "url": "https://docs.mistral.ai/getting-started/models/models_overview/",
+   "tier": "official"
+  },
+  "mistral-tools": {
+   "name": "Mistral · Function calling",
+   "url": "https://docs.mistral.ai/capabilities/function_calling/",
+   "tier": "official"
+  },
+  "mistral-vision": {
+   "name": "Mistral · Vision",
+   "url": "https://docs.mistral.ai/capabilities/vision/",
+   "tier": "official"
+  },
+  "fish-s2pro-card": {
+   "name": "Hugging Face · fishaudio/s2-pro 模型卡",
+   "url": "https://huggingface.co/fishaudio/s2-pro",
+   "tier": "official"
+  },
+  "cosyvoice-card": {
+   "name": "Hugging Face · Fun-CosyVoice3-0.5B-2512 模型卡",
+   "url": "https://huggingface.co/FunAudioLLM/Fun-CosyVoice3-0.5B-2512",
+   "tier": "official"
+  },
+  "llama-card": {
+   "name": "Meta · Llama 4 模型卡与提示格式",
+   "url": "https://developer.meta.com/ai/docs/model-cards-and-prompt-formats/llama4/",
+   "tier": "official"
+  },
+  "elevenlabs-voices": {
+   "name": "ElevenLabs · Voices",
+   "url": "https://elevenlabs.io/docs/capabilities/voices",
+   "tier": "official"
+  },
+  "wan-t2v-card": {
+   "name": "Hugging Face · Wan2.2-T2V-A14B 模型卡",
+   "url": "https://huggingface.co/Wan-AI/Wan2.2-T2V-A14B",
+   "tier": "official"
   }
  },
  "support": [
@@ -4420,9 +4472,12 @@
   {
    "m": "wan",
    "c": "t2v",
-   "state": "unknown",
+   "state": "yes",
    "verified_for": "3.0",
-   "src": "wan-site"
+   "src": "wan-t2v-card",
+   "note": "模型卡：文本生成视频，**480P 与 720P**、时长 5 秒；MoE 架构在去噪过程中按时间步分离专家",
+   "via": "native",
+   "as_of": "2026-08-12"
   },
   {
    "m": "wan",
@@ -7188,8 +7243,12 @@
   {
    "m": "llama",
    "c": "t-long",
-   "state": "unknown",
-   "verified_for": "4"
+   "state": "yes",
+   "verified_for": "4",
+   "src": "llama-card",
+   "note": "Scout「Maximum Context Length: **10M tokens**」；Maverick 为 1M",
+   "via": "native",
+   "as_of": "2026-08-12"
   },
   {
    "m": "llama",
@@ -7200,8 +7259,12 @@
   {
    "m": "llama",
    "c": "t-tools",
-   "state": "unknown",
-   "verified_for": "4"
+   "state": "yes",
+   "verified_for": "4",
+   "src": "llama-card",
+   "note": "「zero-shot function calling」，Python 与 JSON 两种格式，文档给了完整示例",
+   "via": "native",
+   "as_of": "2026-08-12"
   },
   {
    "m": "llama",
@@ -7230,8 +7293,12 @@
   {
    "m": "llama",
    "c": "t-vision",
-   "state": "unknown",
-   "verified_for": "4"
+   "state": "yes",
+   "verified_for": "4",
+   "src": "llama-card",
+   "note": "输入是「Text + **up to 5 images**」，输出仅文本。⚠️ 文档写明**图像理解只支持英文**，虽然文本是多语的",
+   "via": "native",
+   "as_of": "2026-08-12"
   },
   {
    "m": "llama",
@@ -7272,8 +7339,12 @@
   {
    "m": "grok",
    "c": "t-long",
-   "state": "unknown",
-   "verified_for": "4.5"
+   "state": "yes",
+   "verified_for": "4.5",
+   "src": "xai-models",
+   "note": "模型页 grok-4.5：**上下文 500k tokens**；≥200k prompt 走另一档价",
+   "via": "native",
+   "as_of": "2026-08-12"
   },
   {
    "m": "grok",
@@ -7326,8 +7397,12 @@
   {
    "m": "grok",
    "c": "t-cache",
-   "state": "unknown",
-   "verified_for": "4.5"
+   "state": "yes",
+   "verified_for": "4.5",
+   "src": "xai-models",
+   "note": "模型页给了独立的**缓存输入价**（$0.30/1M，≥200k 时 $0.60）—— 有缓存计价即支持缓存",
+   "via": "native",
+   "as_of": "2026-08-12"
   },
   {
    "m": "grok",
@@ -7368,8 +7443,12 @@
   {
    "m": "mistral-text",
    "c": "t-tools",
-   "state": "unknown",
-   "verified_for": "Medium 3.5"
+   "state": "yes",
+   "verified_for": "Medium 3.5",
+   "src": "mistral-tools",
+   "via": "native",
+   "as_of": "2026-08-12",
+   "note": "支持模型清单含 **Mistral Medium 3.5**（`mistral-medium-latest`）；参数 `tool_choice`（auto/any/none）与 `parallel_tool_calls`。⚠️ 该页自称是「non-exhaustive list」"
   },
   {
    "m": "mistral-text",
@@ -7398,8 +7477,13 @@
   {
    "m": "mistral-text",
    "c": "t-vision",
-   "state": "unknown",
-   "verified_for": "Medium 3.5"
+   "state": "yes",
+   "verified_for": "Mistral Medium 3.1",
+   "src": "mistral-vision",
+   "note": "视觉页的推荐模型清单：Mistral Large 3、**Mistral Medium 3.1**、Small 3.2、Ministral 3 三档。⚠️ 清单上是 **3.1**，而我们记的当前版本是 Medium 3.5 —— 总览页称 3.5 为「frontier-class multimodal model」，但视觉页当天没把 3.5 列进去",
+   "via": "native",
+   "as_of": "2026-08-12",
+   "sibling": "Mistral Medium 3.1"
   },
   {
    "m": "mistral-text",
@@ -7530,8 +7614,12 @@
   {
    "m": "elevenlabs",
    "c": "s-voices",
-   "state": "unknown",
-   "verified_for": "Eleven v3"
+   "state": "yes",
+   "verified_for": "Eleven v3",
+   "src": "elevenlabs-voices",
+   "note": "Voice Library「包含超过 **10,000 个**由社区共享的音色」，分三类：社区音色 / 克隆音色 / 语音设计音色。⚠️ 两条限制：**免费层无法通过 API 使用音色库里的音色**；社区音色是他人上传的，商用前要看清授权",
+   "via": "native",
+   "as_of": "2026-08-12"
   },
   {
    "m": "elevenlabs",
@@ -7546,8 +7634,12 @@
   {
    "m": "elevenlabs",
    "c": "s-design",
-   "state": "unknown",
-   "verified_for": "Eleven v3"
+   "state": "yes",
+   "verified_for": "Eleven v3",
+   "src": "elevenlabs-voices",
+   "note": "音色分类里明确列有「**Voice Design 音色** —— 用文本提示生成的音色」",
+   "via": "native",
+   "as_of": "2026-08-12"
   },
   {
    "m": "elevenlabs",
@@ -8010,8 +8102,12 @@
   {
    "m": "glm-tts",
    "c": "s-voices",
-   "state": "unknown",
-   "verified_for": "GLM-TTS"
+   "state": "yes",
+   "verified_for": "GLM-TTS",
+   "src": "glm-tts-doc",
+   "note": "模型页列出 **7 个音色**：彤彤（默认）、小陈、锤锤、jam、kazi、douji、luodo；调用时用 `voice` 指定",
+   "via": "native",
+   "as_of": "2026-08-12"
   },
   {
    "m": "glm-tts",
@@ -8055,8 +8151,12 @@
   {
    "m": "glm-tts",
    "c": "s-stream",
-   "state": "unknown",
-   "verified_for": "GLM-TTS"
+   "state": "yes",
+   "verified_for": "GLM-TTS",
+   "src": "glm-tts-doc",
+   "note": "「支持非流式、流式接口」两种调用，**流式首帧可达 400ms 以内**；参数 `stream`",
+   "via": "native",
+   "as_of": "2026-08-12"
   },
   {
    "m": "glm-tts",
@@ -8073,8 +8173,12 @@
   {
    "m": "glm-tts",
    "c": "s-format",
-   "state": "unknown",
-   "verified_for": "GLM-TTS"
+   "state": "yes",
+   "verified_for": "GLM-TTS",
+   "src": "glm-tts-doc",
+   "note": "`response_format` 支持 **wav / pcm**，`encode_format` 可选 base64；流式响应里 `return_sample_rate: 24000`",
+   "via": "native",
+   "as_of": "2026-08-12"
   },
   {
    "m": "cosyvoice",
@@ -8085,8 +8189,12 @@
   {
    "m": "cosyvoice",
    "c": "s-clone",
-   "state": "unknown",
-   "verified_for": "Fun-CosyVoice3-0.5B-2512"
+   "state": "yes",
+   "verified_for": "Fun-CosyVoice3-0.5B-2512",
+   "src": "cosyvoice-card",
+   "note": "支持跨语言的**零样本音色克隆** —— 给一段参考音频即可用其音色合成",
+   "via": "native",
+   "as_of": "2026-08-12"
   },
   {
    "m": "cosyvoice",
@@ -8109,14 +8217,22 @@
   {
    "m": "cosyvoice",
    "c": "s-lang",
-   "state": "unknown",
-   "verified_for": "Fun-CosyVoice3-0.5B-2512"
+   "state": "yes",
+   "verified_for": "Fun-CosyVoice3-0.5B-2512",
+   "src": "cosyvoice-card",
+   "note": "「Covers **9 common languages**（中英日韩德西法意俄），**18+ 中文方言/口音**」，并支持跨语言零样本",
+   "via": "native",
+   "as_of": "2026-08-12"
   },
   {
    "m": "cosyvoice",
    "c": "s-stream",
-   "state": "unknown",
-   "verified_for": "Fun-CosyVoice3-0.5B-2512"
+   "state": "yes",
+   "verified_for": "Fun-CosyVoice3-0.5B-2512",
+   "src": "cosyvoice-card",
+   "note": "「Support both **text-in streaming and audio-out streaming**，achieves latency as low as **150ms**」—— 双向流式，明写",
+   "via": "native",
+   "as_of": "2026-08-12"
   },
   {
    "m": "cosyvoice",
@@ -8157,8 +8273,12 @@
   {
    "m": "fish-speech",
    "c": "s-style",
-   "state": "unknown",
-   "verified_for": "s2-pro"
+   "state": "yes",
+   "verified_for": "s2-pro",
+   "src": "fish-s2pro-card",
+   "note": "行内 `[tag]` 控制，**接受自由描述**而非固定标签（文档举例 `[whisper in small voice]`、`[professional broadcast tone]`），自称支持 15,000+ 种韵律与情绪标签，可细到词级",
+   "via": "native",
+   "as_of": "2026-08-12"
   },
   {
    "m": "fish-speech",
@@ -8169,14 +8289,22 @@
   {
    "m": "fish-speech",
    "c": "s-lang",
-   "state": "unknown",
-   "verified_for": "s2-pro"
+   "state": "yes",
+   "verified_for": "s2-pro",
+   "src": "fish-s2pro-card",
+   "note": "模型卡：**80+ 种语言**，分档标注（一档 日/英/中，二档 韩/西/葡/阿/俄/法/德）",
+   "via": "native",
+   "as_of": "2026-08-12"
   },
   {
    "m": "fish-speech",
    "c": "s-stream",
-   "state": "unknown",
-   "verified_for": "s2-pro"
+   "state": "yes",
+   "verified_for": "s2-pro",
+   "src": "fish-s2pro-card",
+   "note": "给的是流式才有意义的指标：**首音频时延约 100 毫秒**、实时率 0.195（H200）、吞吐 3,000+ 声学 token/秒。⚠️ 模型卡**没有明写「支持流式接口」**，这一格是从这三个指标推的",
+   "via": "native",
+   "as_of": "2026-08-12"
   },
   {
    "m": "fish-speech",
@@ -8199,8 +8327,13 @@
   {
    "m": "kokoro",
    "c": "s-voices",
-   "state": "unknown",
-   "verified_for": "82M v1.1-zh"
+   "state": "yes",
+   "verified_for": "82M v1.0",
+   "src": "kokoro-card",
+   "note": "模型卡的发布表：v1.0 为「**8 种语言 & 54 个音色**」",
+   "via": "native",
+   "as_of": "2026-08-12",
+   "sibling": "82M v1.0"
   },
   {
    "m": "kokoro",
@@ -8257,8 +8390,12 @@
   {
    "m": "kokoro",
    "c": "s-format",
-   "state": "unknown",
-   "verified_for": "82M v1.1-zh"
+   "state": "yes",
+   "verified_for": "82M v1.1-zh",
+   "src": "kokoro-card",
+   "note": "输出采样率 **24,000 Hz**。⚠️ 模型卡**没写**是否支持流式与更多格式 —— 那一格照旧 ⬜",
+   "via": "native",
+   "as_of": "2026-08-12"
   }
  ],
  "$aliases_why": "各家给同一个能力起不同的名字。**Kling 管角色参考叫 Element，我按 Character Reference 去找，找不到就标了「官方没说」—— 假阴性。** 采集时必须用整组别名去匹配，不能只用我们自己的叫法。这是原方案 §36 Entity Resolution 在能力维度上的对应物。\n\n`alias_bit_us` 标在**真把我们坑过的那一项**上（角色参考）。别名多不等于叫法分歧大：「首尾帧」也有 8 条别名，但全是 start/end frame 的描述性变体，谁都猜得到；而 Element / Ingredients / cameo 是厂商自造词，**不知道就永远搜不到**。选例子要选后者，靠数别名条数是挑不出来的 —— 所以标在数据里，不用启发式猜。",
