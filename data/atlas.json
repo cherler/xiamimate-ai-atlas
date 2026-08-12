@@ -1012,6 +1012,24 @@
     "Layer decomposition"
    ],
    "since_note": "阿里 Qwen-Image-Layered（2025-12-17）与 Ideogram 的 Layerize Text 端点都在做这件事：**产出的不是一张平图，而是可以分开改的若干层**。它和「蒙版重绘」不同 —— 后者是在一张平图上圈一块重画，前者是模型直接把图拆成层，改一层不动别层。"
+  },
+  {
+   "id": "v2v",
+   "class": "clip",
+   "domain": "video",
+   "name": "Video-to-Video",
+   "zh": "视频转视频",
+   "group": "编辑",
+   "ubiquity": "少数",
+   "aliases": [
+    "视频转视频",
+    "V2V",
+    "video-to-video",
+    "统一编辑",
+    "对话式剪辑",
+    "video editing"
+   ],
+   "since_note": "**给一段已有视频 + 指令，产出改过的视频** —— 不是从零生成。2026-08-13 补这一格，因为三家都有了：Gemini Omni Flash 的对话式剪辑、Wan2.1 的 VACE 统一编辑、SkyReels-V3-V2V。⚠️ **它和「图生视频」不是一回事**：i2v 的输入是一张静态图，这里的输入是一段视频，要保住的是原视频的时序与运动。"
   }
  ],
  "orgs": [
@@ -9091,6 +9109,83 @@
    "verified_for": "V4.1",
    "as_of": "2026-08-12",
    "note": "Recraft 有 `POST /v1/images/vectorize`（转矢量）—— 矢量图天然是分层的，**但那是格式转换，不是模型直接产出可分开改的图层**。和 Qwen-Image-Layered 那种「一次生成就拆成若干 RGBA 层」不是一件事，所以不记 ✅。"
+  },
+  {
+   "m": "gemini-omni",
+   "c": "v2v",
+   "state": "yes",
+   "verified_for": "Flash",
+   "as_of": "2026-08-13",
+   "note": "官方把它和「视频生成」并列写成两件事 —— 说明改视频是独立的一路，不是生成的副产品。",
+   "src": "gemini-changelog",
+   "quote": "官方变更日志：「Released gemini-omni-flash-preview, a high-performance multimodal model designed for high-speed video generation and **conversational video editing**.」"
+  },
+  {
+   "m": "wan",
+   "c": "v2v",
+   "state": "yes",
+   "verified_for": "Wan2.1",
+   "as_of": "2026-08-13",
+   "note": "⚠️ **这一格核的是 Wan2.1 的 VACE 变体，不是当前主力 3.0** —— 官方没说 3.0 的 API 里也有。等 3.0 侧有文档再改 verified_for。",
+   "src": "hf-lineage",
+   "quote": "官方 HF 组织发布 `Wan-AI/Wan2.1-VACE-1.3B` 与 `Wan-AI/Wan2.1-VACE-14B`（VACE = 统一视频编辑）；我们的谱系里这一代记的就是「统一编辑」",
+   "sibling": "Wan2.1"
+  },
+  {
+   "m": "seedance",
+   "c": "v2v",
+   "state": "unknown",
+   "verified_for": "2.5",
+   "as_of": "2026-08-13",
+   "note": "官方文档里没有「拿一段视频进去、改完再出来」这一路的端点或参数。⚠️ **别和图生视频（i2v）混**：那是给一张静态图；也别和「视频延长」混：那是接着往后长，不是改已有的内容。—— 读完没找到，不是没读。"
+  },
+  {
+   "m": "hailuo",
+   "c": "v2v",
+   "state": "unknown",
+   "verified_for": "H3",
+   "as_of": "2026-08-13",
+   "note": "官方文档里没有「拿一段视频进去、改完再出来」这一路的端点或参数。⚠️ **别和图生视频（i2v）混**：那是给一张静态图；也别和「视频延长」混：那是接着往后长，不是改已有的内容。—— 读完没找到，不是没读。"
+  },
+  {
+   "m": "runway",
+   "c": "v2v",
+   "state": "unknown",
+   "verified_for": "Gen-4.5",
+   "as_of": "2026-08-13",
+   "note": "官方文档里没有「拿一段视频进去、改完再出来」这一路的端点或参数。⚠️ **别和图生视频（i2v）混**：那是给一张静态图；也别和「视频延长」混：那是接着往后长，不是改已有的内容。—— 读完没找到，不是没读。"
+  },
+  {
+   "m": "kling",
+   "c": "v2v",
+   "state": "unknown",
+   "verified_for": "3.0",
+   "as_of": "2026-08-13",
+   "note": "官方文档里没有「拿一段视频进去、改完再出来」这一路的端点或参数。⚠️ **别和图生视频（i2v）混**：那是给一张静态图；也别和「视频延长」混：那是接着往后长，不是改已有的内容。—— 读完没找到，不是没读。"
+  },
+  {
+   "m": "vidu-q",
+   "c": "v2v",
+   "state": "unknown",
+   "verified_for": "Q3",
+   "as_of": "2026-08-13",
+   "note": "官方文档里没有「拿一段视频进去、改完再出来」这一路的端点或参数。⚠️ **别和图生视频（i2v）混**：那是给一张静态图；也别和「视频延长」混：那是接着往后长，不是改已有的内容。—— 读完没找到，不是没读。"
+  },
+  {
+   "m": "veo",
+   "c": "v2v",
+   "state": "unknown",
+   "verified_for": "3.1",
+   "as_of": "2026-08-13",
+   "note": "官方文档里没有「拿一段视频进去、改完再出来」这一路的端点或参数。⚠️ **别和图生视频（i2v）混**：那是给一张静态图；也别和「视频延长」混：那是接着往后长，不是改已有的内容。—— 读完没找到，不是没读。"
+  },
+  {
+   "m": "ltx",
+   "c": "v2v",
+   "state": "unknown",
+   "verified_for": "2.3",
+   "as_of": "2026-08-13",
+   "note": "官方文档里没有「拿一段视频进去、改完再出来」这一路的端点或参数。⚠️ **别和图生视频（i2v）混**：那是给一张静态图；也别和「视频延长」混：那是接着往后长，不是改已有的内容。—— 读完没找到，不是没读。"
   }
  ],
  "$aliases_why": "各家给同一个能力起不同的名字。**Kling 管角色参考叫 Element，我按 Character Reference 去找，找不到就标了「官方没说」—— 假阴性。** 采集时必须用整组别名去匹配，不能只用我们自己的叫法。这是原方案 §36 Entity Resolution 在能力维度上的对应物。\n\n`alias_bit_us` 标在**真把我们坑过的那一项**上（角色参考）。别名多不等于叫法分歧大：「首尾帧」也有 8 条别名，但全是 start/end frame 的描述性变体，谁都猜得到；而 Element / Ingredients / cameo 是厂商自造词，**不知道就永远搜不到**。选例子要选后者，靠数别名条数是挑不出来的 —— 所以标在数据里，不用启发式猜。",
@@ -10229,7 +10324,8 @@
    "added": "Allegro",
    "src": "hf-lineage",
    "quote": "rhymes-ai/Allegro",
-   "note": "日期取自官方 HF 组织的 createdAt（**不是 lastModified**）。"
+   "note": "日期取自官方 HF 组织的 createdAt（**不是 lastModified**）。",
+   "cap_skip": "added 就是版本名本身 —— **这一代新增了什么没采到**，不是没有新增。等补采到再判"
   },
   {
    "id": "allegro-Allegro-TI2V-图文混合生视频",
@@ -10240,7 +10336,8 @@
    "src": "hf-lineage",
    "quote": "rhymes-ai/Allegro-TI2V",
    "note": "日期取自官方 HF 组织的 createdAt（**不是 lastModified**）。",
-   "parent": "allegro-Allegro-Allegro"
+   "parent": "allegro-Allegro-Allegro",
+   "cap": "i2v"
   },
   {
    "id": "allegro-Allegro-T2V-文生视频",
@@ -10261,7 +10358,8 @@
    "date": "2026-06-30",
    "added": "高速视频生成 + 对话式剪辑",
    "src": "gemini-changelog",
-   "quote": "Released gemini-omni-flash-preview, a high-performance multimodal model designed for high-speed video generation and conversational video editing."
+   "quote": "Released gemini-omni-flash-preview, a high-performance multimodal model designed for high-speed video generation and conversational video editing.",
+   "cap": "v2v"
   },
   {
    "id": "hailuo-01-运镜控制",
@@ -10281,7 +10379,8 @@
    "added": "换代 02：1080p",
    "src": "minimax-release-notes",
    "quote": "Released MiniMax Hailuo 02, a next-generation video generation model with support for 1080p resolution.",
-   "parent": "hailuo-01-运镜控制"
+   "parent": "hailuo-01-运镜控制",
+   "cap_skip": "换代记录，没有声明新增了能力轴上的项"
   },
   {
    "id": "hailuo-2.3-换代2.3：肢体动作与表情",
@@ -10291,7 +10390,8 @@
    "added": "换代 2.3：肢体动作与表情",
    "src": "minimax-release-notes",
    "quote": "Released MiniMax-Hailuo-2.3 & 2.3-Fast, featuring breakthroughs in body movement, facial expressions, physical realism.",
-   "parent": "hailuo-02-换代02：1080p"
+   "parent": "hailuo-02-换代02：1080p",
+   "cap_skip": "换代记录，没有声明新增了能力轴上的项"
   },
   {
    "id": "hailuo-H3-换代H3：开放权重的通用多模态",
@@ -10301,7 +10401,8 @@
    "added": "换代 H3：开放权重的通用多模态",
    "src": "minimax-release-notes",
    "quote": "A new-generation open general-purpose multimodal video model.",
-   "parent": "hailuo-2.3-换代2.3：肢体动作与表情"
+   "parent": "hailuo-2.3-换代2.3：肢体动作与表情",
+   "cap": "openweights"
   },
   {
    "id": "hunyuan-video-HunyuanVideo-HunyuanVideo",
@@ -10311,7 +10412,8 @@
    "added": "HunyuanVideo",
    "src": "hf-lineage",
    "quote": "tencent/HunyuanVideo",
-   "note": "日期取自官方 HF 组织的 createdAt（**不是 lastModified**）。"
+   "note": "日期取自官方 HF 组织的 createdAt（**不是 lastModified**）。",
+   "cap_skip": "added 就是版本名本身 —— **这一代新增了什么没采到**，不是没有新增。等补采到再判"
   },
   {
    "id": "hunyuan-video-HunyuanVideo-图生视频",
@@ -10334,7 +10436,8 @@
    "src": "hf-lineage",
    "quote": "tencent/HunyuanVideo-Avatar",
    "note": "日期取自官方 HF 组织的 createdAt（**不是 lastModified**）。",
-   "parent": "hunyuan-video-HunyuanVideo-HunyuanVideo"
+   "parent": "hunyuan-video-HunyuanVideo-HunyuanVideo",
+   "cap": "lipsync"
   },
   {
    "id": "hunyuan-video-HunyuanVideo-音效生成",
@@ -10357,7 +10460,8 @@
    "src": "hf-lineage",
    "quote": "tencent/HunyuanVideo-1.5",
    "note": "日期取自官方 HF 组织的 createdAt（**不是 lastModified**）。",
-   "parent": "hunyuan-video-HunyuanVideo-HunyuanVideo"
+   "parent": "hunyuan-video-HunyuanVideo-HunyuanVideo",
+   "cap_skip": "added 就是版本名本身 —— **这一代新增了什么没采到**，不是没有新增。等补采到再判"
   },
   {
    "id": "hunyuan-video-HY-Video-视频生成",
@@ -10368,7 +10472,8 @@
    "src": "hf-lineage",
    "quote": "tencent/HY-Video-PRFL",
    "note": "日期取自官方 HF 组织的 createdAt（**不是 lastModified**）。",
-   "parent": "hunyuan-video-HunyuanVideo-1.5-HunyuanVideo-1.5"
+   "parent": "hunyuan-video-HunyuanVideo-1.5-HunyuanVideo-1.5",
+   "cap_skip": "换代记录，没有声明新增了能力轴上的项"
   },
   {
    "m": "kling",
@@ -10443,7 +10548,8 @@
    "added": "LongAnimateDiff",
    "src": "hf-lineage",
    "quote": "Lightricks/LongAnimateDiff",
-   "note": "日期取自官方 HF 组织的 createdAt（**不是 lastModified**）。"
+   "note": "日期取自官方 HF 组织的 createdAt（**不是 lastModified**）。",
+   "cap_skip": "added 就是版本名本身 —— **这一代新增了什么没采到**，不是没有新增。等补采到再判"
   },
   {
    "id": "ltx-LTX-Video-视频生成",
@@ -10454,7 +10560,8 @@
    "src": "hf-lineage",
    "quote": "Lightricks/LTX-Video",
    "note": "日期取自官方 HF 组织的 createdAt（**不是 lastModified**）。",
-   "parent": "ltx-LongAnimateDiff-LongAnimateDiff"
+   "parent": "ltx-LongAnimateDiff-LongAnimateDiff",
+   "cap_skip": "换代记录，没有声明新增了能力轴上的项"
   },
   {
    "id": "ltx-0.9.5-视频生成",
@@ -10465,7 +10572,8 @@
    "src": "hf-lineage",
    "quote": "Lightricks/LTX-Video-0.9.5",
    "note": "日期取自官方 HF 组织的 createdAt（**不是 lastModified**）。",
-   "parent": "ltx-LTX-Video-视频生成"
+   "parent": "ltx-LTX-Video-视频生成",
+   "cap_skip": "换代记录，没有声明新增了能力轴上的项"
   },
   {
    "id": "ltx-0.9.6-视频生成",
@@ -10476,7 +10584,8 @@
    "src": "hf-lineage",
    "quote": "Lightricks/LTX-Video-2B-0.9.6-Dev-04-25",
    "note": "日期取自官方 HF 组织的 createdAt（**不是 lastModified**）。",
-   "parent": "ltx-0.9.5-视频生成"
+   "parent": "ltx-0.9.5-视频生成",
+   "cap_skip": "换代记录，没有声明新增了能力轴上的项"
   },
   {
    "id": "ltx-0.9.7-视频生成",
@@ -10487,7 +10596,8 @@
    "src": "hf-lineage",
    "quote": "Lightricks/LTX-Video-0.9.7-dev",
    "note": "日期取自官方 HF 组织的 createdAt（**不是 lastModified**）。",
-   "parent": "ltx-0.9.6-视频生成"
+   "parent": "ltx-0.9.6-视频生成",
+   "cap_skip": "换代记录，没有声明新增了能力轴上的项"
   },
   {
    "id": "ltx-0.9.8-视频生成",
@@ -10498,7 +10608,8 @@
    "src": "hf-lineage",
    "quote": "Lightricks/LTX-Video-0.9.8-13B-distilled",
    "note": "日期取自官方 HF 组织的 createdAt（**不是 lastModified**）。",
-   "parent": "ltx-0.9.7-视频生成"
+   "parent": "ltx-0.9.7-视频生成",
+   "cap_skip": "换代记录，没有声明新增了能力轴上的项"
   },
   {
    "id": "ltx-LTX-2-LTX-2",
@@ -10509,7 +10620,8 @@
    "src": "hf-lineage",
    "quote": "Lightricks/LTX-2",
    "note": "日期取自官方 HF 组织的 createdAt（**不是 lastModified**）。",
-   "parent": "ltx-0.9.8-视频生成"
+   "parent": "ltx-0.9.8-视频生成",
+   "cap_skip": "added 就是版本名本身 —— **这一代新增了什么没采到**，不是没有新增。等补采到再判"
   },
   {
    "id": "ltx-LTX-2.3-LTX-2.3",
@@ -10520,7 +10632,8 @@
    "src": "hf-lineage",
    "quote": "Lightricks/LTX-2.3",
    "note": "日期取自官方 HF 组织的 createdAt（**不是 lastModified**）。",
-   "parent": "ltx-LTX-2-LTX-2"
+   "parent": "ltx-LTX-2-LTX-2",
+   "cap_skip": "added 就是版本名本身 —— **这一代新增了什么没采到**，不是没有新增。等补采到再判"
   },
   {
    "id": "mochi-mochi-1-mochi-1",
@@ -10530,7 +10643,8 @@
    "added": "mochi-1",
    "src": "hf-lineage",
    "quote": "genmo/mochi-1-preview",
-   "note": "日期取自官方 HF 组织的 createdAt（**不是 lastModified**）。"
+   "note": "日期取自官方 HF 组织的 createdAt（**不是 lastModified**）。",
+   "cap_skip": "added 就是版本名本身 —— **这一代新增了什么没采到**，不是没有新增。等补采到再判"
   },
   {
    "id": "open-sora-OpenSora-STDiT-v4-图生视频",
@@ -10552,7 +10666,8 @@
    "src": "hf-lineage",
    "quote": "hpcai-tech/Open-Sora-v2-Video-DC-AE",
    "note": "日期取自官方 HF 组织的 createdAt（**不是 lastModified**）。",
-   "parent": "open-sora-OpenSora-STDiT-v4-图生视频"
+   "parent": "open-sora-OpenSora-STDiT-v4-图生视频",
+   "cap_skip": "换代记录，没有声明新增了能力轴上的项"
   },
   {
    "m": "runway",
@@ -10604,7 +10719,8 @@
    "added": "换代 2.0：四种输入模态",
    "parent": "seedance-1.5-音视频联合生成",
    "src": "seed-blog-2_0",
-   "quote": "Built with a unified multimodal audio-video joint generation architecture, Seedance 2.0 supports four input modalities: text, image, audio, and video."
+   "quote": "Built with a unified multimodal audio-video joint generation architecture, Seedance 2.0 supports four input modalities: text, image, audio, and video.",
+   "cap_skip": "换代记录，没有声明新增了能力轴上的项"
   },
   {
    "m": "seedance",
@@ -10625,7 +10741,8 @@
    "added": "表情驱动",
    "src": "hf-lineage",
    "quote": "Skywork/SkyReels-A1",
-   "note": "日期取自官方 HF 组织的 createdAt（**不是 lastModified**）。"
+   "note": "日期取自官方 HF 组织的 createdAt（**不是 lastModified**）。",
+   "cap": "motion"
   },
   {
    "id": "skyreels-SkyReels-V1-文生视频",
@@ -10684,7 +10801,8 @@
    "src": "hf-lineage",
    "quote": "Skywork/SkyReels-V2-DF-1.3B-540P",
    "note": "日期取自官方 HF 组织的 createdAt（**不是 lastModified**）。",
-   "parent": "skyreels-SkyReels-V2-图生视频"
+   "parent": "skyreels-SkyReels-V2-图生视频",
+   "cap": "extend"
   },
   {
    "id": "skyreels-SkyReels-V2-文生视频",
@@ -10707,7 +10825,8 @@
    "src": "hf-lineage",
    "quote": "Skywork/SkyReels-V3-V2V-14B",
    "note": "日期取自官方 HF 组织的 createdAt（**不是 lastModified**）。",
-   "parent": "skyreels-SkyReels-V2-图生视频"
+   "parent": "skyreels-SkyReels-V2-图生视频",
+   "cap": "v2v"
   },
   {
    "id": "skyreels-SkyReels-V3-参考生视频",
@@ -10762,7 +10881,8 @@
    "added": "正式版：分辨率/宽高比/种子",
    "src": "gemini-changelog",
    "quote": "Launched Veo 3 and Veo 3 Fast GA, with lower pricing and new options for aspect ratios, resolution, and seeding.",
-   "parent": "veo-3.0-原生音频"
+   "parent": "veo-3.0-原生音频",
+   "cap_skip": "分辨率、参数或档位，能力轴上没有对应项（轴记的是「能不能做」，不是「做到多少」）"
   },
   {
    "id": "veo-3.1-换代3.1：视频延长+参考图",
@@ -10793,7 +10913,8 @@
    "added": "换代 Q2：pro 与 turbo 两档",
    "src": "vidu-changelog",
    "quote": "Added viduq2-pro and viduq2-turbo models",
-   "parent": "vidu-q-Q1-参考生视频"
+   "parent": "vidu-q-Q1-参考生视频",
+   "cap_skip": "换代记录，没有声明新增了能力轴上的项"
   },
   {
    "m": "vidu-q",
@@ -10814,7 +10935,8 @@
    "added": "换代 Q3：文生 + 图生",
    "src": "vidu-changelog",
    "quote": "Support the addition of viduq3-pro models for both Wensheng and Tusheng",
-   "parent": "vidu-q-Q2-换代Q2：pro与turbo两档"
+   "parent": "vidu-q-Q2-换代Q2：pro与turbo两档",
+   "cap_skip": "换代记录，没有声明新增了能力轴上的项"
   },
   {
    "id": "vidu-q-Q3-首尾帧",
@@ -10882,7 +11004,8 @@
    "src": "hf-lineage",
    "quote": "Wan-AI/Wan2.1-VACE-1.3B",
    "note": "日期取自官方 HF 组织的 createdAt（**不是 lastModified**）。",
-   "parent": "wan-Wan2.1-文生视频"
+   "parent": "wan-Wan2.1-文生视频",
+   "cap": "v2v"
   },
   {
    "id": "wan-Wan2.2-图文混合生视频",
@@ -10893,7 +11016,8 @@
    "src": "hf-lineage",
    "quote": "Wan-AI/Wan2.2-TI2V-5B",
    "note": "日期取自官方 HF 组织的 createdAt（**不是 lastModified**）。",
-   "parent": "wan-Wan2.1-文生视频"
+   "parent": "wan-Wan2.1-文生视频",
+   "cap": "i2v"
   },
   {
    "id": "wan-Wan2.2-图生视频",
@@ -10928,7 +11052,8 @@
    "src": "hf-lineage",
    "quote": "Wan-AI/Wan2.2-S2V-14B",
    "note": "日期取自官方 HF 组织的 createdAt（**不是 lastModified**）。",
-   "parent": "wan-Wan2.2-图文混合生视频"
+   "parent": "wan-Wan2.2-图文混合生视频",
+   "cap": "lipsync"
   },
   {
    "id": "wan-Wan2.2-动作复刻",
@@ -10962,7 +11087,8 @@
    "added": "实时交互生成",
    "src": "vidu-s1-paper",
    "quote": "Vidu S1 官方论文（作者：生数）",
-   "note": "生数在 Vidu Q（离线出片）之外另起的**实时交互线**。日期取模型页登记的当前版本日期。"
+   "note": "生数在 Vidu Q（离线出片）之外另起的**实时交互线**。日期取模型页登记的当前版本日期。",
+   "cap": "rt-interact"
   },
   {
    "id": "lucy-Lucy2.5-Lucy2.5",
@@ -10972,7 +11098,8 @@
    "added": "实时交互生成",
    "src": "decart-site",
    "quote": "官网首屏标 LUCY 2.5 IS LIVE",
-   "note": "Decart 的实时交互线。2.5 的逐项能力差异**待重核**（见模型页 status_note）。"
+   "note": "Decart 的实时交互线。2.5 的逐项能力差异**待重核**（见模型页 status_note）。",
+   "cap": "rt-interact"
   },
   {
    "id": "flux-FLUX.1-schnell-首发，快档（少步数）",
