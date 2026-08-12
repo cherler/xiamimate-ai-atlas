@@ -116,7 +116,7 @@ export default function Nav() {
        * 只是**一个字都看不见**。又一个「查 DOM 查不出来」的坑。
        */}
       <div className="max-w-[1240px] mx-auto px-5 h-12 flex items-center gap-1">
-        <DomainSwitch brand={BRAND.short} current={cross ? undefined : dom} neutral={cross} />
+        <DomainSwitch brand={BRAND.short} current={cross ? undefined : dom} neutral={cross} home={seg === ""} />
         <div className="flex items-center gap-1 min-w-0 flex-1 overflow-x-auto">
           {MAIN.map((m) => {
             const href = `${base}${m.seg}`;

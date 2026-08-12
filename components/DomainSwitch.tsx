@@ -21,9 +21,14 @@ import { atlas } from "@/lib/atlas";
  *   之前这里自己 `find(d => d.state === "live")` —— 于是站在 /atlas/image/* 上，
  *   切换器照样显示「AI 视频」：**路由对、内容对、只有这块标签在骗人**。
  */
+/**
+ * @param home 当前就在根页（`/atlas`，那张「先选一个方向」）。
+ *   **和 `neutral` 不是一回事**：`/changes`、`/toolkit` 也不属于任何方向（neutral），
+ *   但你并不在首页 —— 那里写「首页」是错的。所以按钮上：根页写「首页」、其余跨方向页写「全站」。
+ */
 export default function DomainSwitch({
-  brand, current, neutral = false,
-}: { brand: string; current?: string; neutral?: boolean }) {
+  brand, current, neutral = false, home = false,
+}: { brand: string; current?: string; neutral?: boolean; home?: boolean }) {
   const [open, setOpen] = useState(false);
   /**
    * 平台页眉挂上时收起品牌字样。
@@ -78,7 +83,7 @@ export default function DomainSwitch({
             <span className="opacity-55">·</span>
           </>
         )}
-        <span className={chrome ? "" : "font-normal"}>{neutral ? "全站" : now?.name}</span>
+        <span className={chrome ? "" : "font-normal"}>{home ? "首页" : neutral ? "全站" : now?.name}</span>
         <span className={`text-[9px] transition-transform ${open ? "rotate-180" : ""}`}>▼</span>
       </button>
 
@@ -92,6 +97,25 @@ export default function DomainSwitch({
             * 之前无差别标「还没开始」，是因为那时确实只有一个方向；
             * 现在 AI 图像已经有页面了 —— 还标「还没开始」就是骗人。
             */}
+          {/**
+            * **回首页的那一条 —— 之前整个菜单里没有。**
+            *
+            * 负责人 2026-08-12：「我找不到切换回首页的『全站』」。
+            * 确实找不到：菜单里只列四个方向，而「先选一个方向」那张页
+            * （`/atlas`）没有任何入口指回去 —— 点进某个方向之后就出不来了，
+            * 只能改地址栏。**一个切换器不能只让你换台、不让你回台标。**
+            *
+            * 放在最上面并用一条分隔线和方向们隔开：它不是第五个方向。
+            */}
+          <Link href="/" role="menuitem" onClick={() => setOpen(false)}
+            className={`px-3 py-1.5 text-[13px] flex items-center gap-2 border-b border-rule mb-1 hover:bg-rule/30 ${
+              home ? "font-semibold" : "text-muted"
+            }`}>
+            <span className={home ? "text-yes-ink" : "text-unknown"}>{home ? "●" : "○"}</span>
+            首页
+            <span className="ml-auto text-[11px] text-muted">先选一个方向</span>
+          </Link>
+
           {atlas.domains.map((d) => {
             /**
              * **实心点 = 你现在在这里，不是「这个方向是 live」。**
@@ -125,23 +149,18 @@ export default function DomainSwitch({
               <div key={d.id} role="menuitem" className={cls}>{inner}</div>
             );
           })}
-          {/* **不许悄悄留白。** 只有一卷就把这句写出来，别让人以为菜单坏了。 */}
           {/**
-            * 这句话的条件写错过一次：原来只看 `planned.length`，
-            * 而 planned 现在把「有页面的建设中方向」排除掉了 ——
-            * 于是加上 AI 图像之后，菜单里明明列着两卷，底下还写着「目前只有这一卷」。
-            * **实测点开菜单才看见的。** 条件改成看方向总数。
+            * **「建设中」那条脚注删掉了**（负责人 2026-08-12：「建设中根本不会上线」）。
+            *
+            * 它解释的是一个不会发生的状态：四个方向现在全是 live，
+            * 而按负责人的做法，一卷没核完就不会挂上去 —— 那条脚注是在给一个空集写注释。
+            * 下拉菜单是导航，不是说明书；每多一行都在挤真正要点的那几条。
+            *
+            * ⚠️ **右侧那个「建设中 / 还没开始」的角标本身留着**：它是从 `d.state` 现算的，
+            * 真出现非 live 的方向时仍会显示。删的是那句解释，不是那个事实。
+            *
+            * 「目前只有这一卷」那句也一并去掉 —— 现在四卷，它永远不会出现。
             */}
-          {atlas.domains.length <= 1 ? (
-            <p className="px-3 pt-1.5 pb-1 mt-1 border-t border-rule text-[11px] text-muted leading-snug">
-              目前只有这一卷。下一个方向没开工，就不在这里摆一个灰名字。
-            </p>
-          ) : (
-            <p className="px-3 pt-1.5 pb-1 mt-1 border-t border-rule text-[11px] text-muted leading-snug">
-              「建设中」= 页面能看，但数据还没核完 ——{" "}
-              <span className="text-ink">⬜ 多不代表厂商不透明，是我们还没读完。</span>
-            </p>
-          )}
         </div>
       )}
     </div>
