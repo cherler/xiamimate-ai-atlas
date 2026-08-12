@@ -42,7 +42,9 @@ export async function generateMetadata({ params }: { params: Promise<{ pair: str
   if (!a || !b) return {};
   return {
     title: `${label(a)} 还是 ${label(b)}？逐项对比`,
-    description: `能力、价格、上架平台、折扣、大陆可达性放在同一张表里。每一格带厂商官方来源。`,
+    // **描述要跟着表走。** 价格与折扣已封存、只有视频卷有，
+    // 描述里却一直写着「价格、折扣」—— 对图像和文本两卷是在承诺表里没有的东西。
+    description: `能力、效果、上架平台、大陆可达性放在同一张表里。每一格带厂商官方来源。`,
     openGraph: { images: [{ url: `/atlas/og/model-${a.id}-16x9.png`, width: 1200, height: 675 }] },
   };
 }
@@ -165,8 +167,20 @@ export default async function ComparePage({ params }: { params: Promise<{ pair: 
               l={<>{orgOf(a)?.zh}<span className="text-muted"> · {a.version_as_of}</span></>}
               r={<>{orgOf(b)?.zh}<span className="text-muted"> · {b.version_as_of}</span></>} />
             <Row t="效果" l={<Effect id={a.id} />} r={<Effect id={b.id} />} />
-            <Row t="价格" l={<Price id={a.id} />} r={<Price id={b.id} />} />
-            <Row t="折扣" l={<Disc id={a.id} />} r={<Disc id={b.id} />} />
+            {/**
+              * **价格与折扣这两栏，两边都没有就整行不出。**
+              *
+              * 这一类已封存不再采（ontology 规则十），只有视频卷留着当年的快照。
+              * 图像和文本两卷永远是空的 —— 留着一行「没有采」，
+              * 读者会以为是我们漏了，而事实是**我们决定不做**。
+              * 空栏不该占地方；真要解释「为什么没有」，那是 /method 的活。
+              */}
+            {(priceOf(a.id).length || priceOf(b.id).length) ? (
+              <Row t="价格" l={<Price id={a.id} />} r={<Price id={b.id} />} />
+            ) : null}
+            {(discOf(a.id).length || discOf(b.id).length) ? (
+              <Row t="折扣" l={<Disc id={a.id} />} r={<Disc id={b.id} />} />
+            ) : null}
             <Row t="去哪用" l={<Where id={a.id} />} r={<Where id={b.id} />} />
             <Row t="大陆直连"
               l={a.reach_cn === "blocked" ? <b className="text-no">不通</b> : a.reach_cn === "ok" ? "通" : "没测"}
