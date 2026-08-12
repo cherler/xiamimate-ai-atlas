@@ -3715,6 +3715,174 @@
     "capability"
    ],
    "note": "⚠️ **和 alibabacloud.com 的英文站不同步，以中文站为准**（版本号那一栏已经栽过一次）。静态 HTML，直接 curl 即可"
+  },
+  {
+   "id": "hf-kokoro",
+   "tier": "A",
+   "kind": "json",
+   "vendor": "",
+   "name": "Hugging Face · hexgrad/Kokoro-82M",
+   "url": "https://huggingface.co/hexgrad/Kokoro-82M",
+   "refresh_days": 30,
+   "good_for": [
+    "openweights",
+    "capability"
+   ],
+   "note": "权重仓库。许可要看模型卡的 license_name，**不能只看 GitHub 上写的那个**"
+  },
+  {
+   "id": "hf-cosyvoice2",
+   "tier": "A",
+   "kind": "json",
+   "vendor": "",
+   "name": "Hugging Face · FunAudioLLM/CosyVoice2-0.5B",
+   "url": "https://huggingface.co/FunAudioLLM/CosyVoice2-0.5B",
+   "refresh_days": 30,
+   "good_for": [
+    "openweights",
+    "capability"
+   ],
+   "note": "权重仓库。许可要看模型卡的 license_name，**不能只看 GitHub 上写的那个**"
+  },
+  {
+   "id": "hf-glmtts",
+   "tier": "A",
+   "kind": "json",
+   "vendor": "",
+   "name": "Hugging Face · zai-org/GLM-TTS",
+   "url": "https://huggingface.co/zai-org/GLM-TTS",
+   "refresh_days": 30,
+   "good_for": [
+    "openweights",
+    "capability"
+   ],
+   "note": "权重仓库。许可要看模型卡的 license_name，**不能只看 GitHub 上写的那个**"
+  },
+  {
+   "id": "hf-glm4voice",
+   "tier": "A",
+   "kind": "json",
+   "vendor": "",
+   "name": "Hugging Face · zai-org/glm-4-voice-9b",
+   "url": "https://huggingface.co/zai-org/glm-4-voice-9b",
+   "refresh_days": 30,
+   "good_for": [
+    "openweights",
+    "capability"
+   ],
+   "note": "权重仓库。许可要看模型卡的 license_name，**不能只看 GitHub 上写的那个**"
+  },
+  {
+   "id": "hf-fishspeech15",
+   "tier": "A",
+   "kind": "json",
+   "vendor": "",
+   "name": "Hugging Face · fishaudio/fish-speech-1.5",
+   "url": "https://huggingface.co/fishaudio/fish-speech-1.5",
+   "refresh_days": 30,
+   "good_for": [
+    "openweights",
+    "capability"
+   ],
+   "note": "权重仓库。许可要看模型卡的 license_name，**不能只看 GitHub 上写的那个**"
+  },
+  {
+   "id": "hf-qwen3omni",
+   "tier": "A",
+   "kind": "json",
+   "vendor": "",
+   "name": "Hugging Face · Qwen/Qwen3-Omni-30B-A3B-Instruct",
+   "url": "https://huggingface.co/Qwen/Qwen3-Omni-30B-A3B-Instruct",
+   "refresh_days": 30,
+   "good_for": [
+    "openweights",
+    "capability"
+   ],
+   "note": "权重仓库。许可要看模型卡的 license_name，**不能只看 GitHub 上写的那个**"
+  },
+  {
+   "id": "hf-qwen-layered",
+   "tier": "A",
+   "kind": "json",
+   "vendor": "",
+   "name": "Hugging Face · Qwen/Qwen-Image-Layered（官方模型卡）",
+   "url": "https://huggingface.co/Qwen/Qwen-Image-Layered",
+   "refresh_days": 30,
+   "good_for": [
+    "openweights",
+    "capability"
+   ],
+   "note": "权重仓库。许可要看模型卡的 license_name，**不能只看 GitHub 上写的那个**"
+  },
+  {
+   "id": "hf-org-minimax",
+   "tier": "A",
+   "kind": "json",
+   "vendor": "",
+   "name": "Hugging Face · MiniMaxAI 官方组织（全量仓库清单）",
+   "url": "https://huggingface.co/MiniMaxAI",
+   "refresh_days": 30,
+   "good_for": [
+    "openweights",
+    "capability"
+   ],
+   "note": "**盯这条源是为了等它变**：今天组织里没有这一类权重，是我们判 ❌ 的依据；哪天多出来一个，那一格就该翻"
+  },
+  {
+   "id": "hf-org-xai",
+   "tier": "A",
+   "kind": "json",
+   "vendor": "",
+   "name": "Hugging Face · xai-org 官方组织（全量仓库清单）",
+   "url": "https://huggingface.co/xai-org",
+   "refresh_days": 30,
+   "good_for": [
+    "openweights",
+    "capability"
+   ],
+   "note": "**盯这条源是为了等它变**：今天组织里没有这一类权重，是我们判 ❌ 的依据；哪天多出来一个，那一格就该翻"
+  },
+  {
+   "id": "hf-org-elevenlabs",
+   "tier": "A",
+   "kind": "json",
+   "vendor": "",
+   "name": "Hugging Face · elevenlabs 官方组织（全量仓库清单）",
+   "url": "https://huggingface.co/elevenlabs",
+   "refresh_days": 30,
+   "good_for": [
+    "openweights",
+    "capability"
+   ],
+   "note": "**盯这条源是为了等它变**：今天组织里没有这一类权重，是我们判 ❌ 的依据；哪天多出来一个，那一格就该翻"
+  },
+  {
+   "id": "hf-org-openai",
+   "tier": "A",
+   "kind": "json",
+   "vendor": "",
+   "name": "Hugging Face · openai 官方组织（全量仓库清单）",
+   "url": "https://huggingface.co/openai",
+   "refresh_days": 30,
+   "good_for": [
+    "openweights",
+    "capability"
+   ],
+   "note": "**盯这条源是为了等它变**：今天组织里没有这一类权重，是我们判 ❌ 的依据；哪天多出来一个，那一格就该翻"
+  },
+  {
+   "id": "ideogram-layerize",
+   "tier": "A",
+   "kind": "json",
+   "vendor": "",
+   "name": "Ideogram 官方 API 参考 · Layerize Text",
+   "url": "https://developer.ideogram.ai/api-reference/api-reference/layerize-text-v3",
+   "refresh_days": 30,
+   "good_for": [
+    "openweights",
+    "capability"
+   ],
+   "note": "权重仓库。许可要看模型卡的 license_name，**不能只看 GitHub 上写的那个**"
   }
  ],
  "$missing": [

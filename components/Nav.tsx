@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { atlas } from "@/lib/atlas";
+import { modelBySlug, capBySlug } from "@/lib/slug";
 import DomainSwitch from "./DomainSwitch";
 import { BRAND } from "@/lib/brand";
 
@@ -64,8 +65,21 @@ export default function Nav() {
    * 「AI 视频」的导航显示 —— 和之前 /atlas/image/map 显示视频是同一类错。
    * 实体自己知道自己属于谁，就问它。
    */
-  const owner = seg === "skill"
-    ? atlas.skills.find((k) => k.id === parts[1])?.domain
+  /**
+   * ⚠️ **同样的道理对 `/model/[id]` 与 `/capability/[id]` 也成立，之前只修了 skill。**
+   *
+   * 2026-08-12 给能力页加方向隔离检查时一次性照出来：`/capability/s-openweights`、
+   * `/capability/t-think`、`/model/qwen-image`、`/model/kokoro` —— **全都顶着「AI 视频」**。
+   * 四卷合计 60 多个能力页、50 多个模型页，除了视频那部分全错。
+   *
+   * 这一处的教训不是「又漏了一个路由」，是**修 bug 时只修了报出来的那一个**：
+   * 当时 skill 页被发现顶错方向，改法是给 skill 加一条特判，
+   * 而没问「还有哪些页也是不带方向前缀、却属于某个方向的」。
+   */
+  const owner =
+    seg === "skill" ? atlas.skills.find((k) => k.id === parts[1])?.domain
+    : seg === "model" ? modelBySlug(parts[1] ?? "")?.domain
+    : seg === "capability" ? capBySlug(parts[1] ?? "")?.domain
     : undefined;
   /**
    * **有些页本来就不属于任何一个方向**：变更记录、方法、工具站、注意事项 ——

@@ -978,6 +978,40 @@
     "SIP"
    ],
    "since_note": "OpenAI Realtime 列出 WebRTC / WebSocket / SIP 三种连接方式"
+  },
+  {
+   "id": "s-openweights",
+   "class": "both",
+   "domain": "sound",
+   "name": "Open Weights",
+   "zh": "开源权重",
+   "group": "获取",
+   "ubiquity": "部分",
+   "aliases": [
+    "开源权重",
+    "权重公开",
+    "开放权重",
+    "Open Weights"
+   ],
+   "since_note": "沿用视频 / 图像 / 文本三卷的同名能力。**声音卷原来漏了这一格** —— 而它在这一卷比别处更要紧：TTS 与音色复刻常涉及真人声音，能不能把权重放在自己机器上跑，直接决定样本要不要出门。"
+  },
+  {
+   "id": "i-layered",
+   "class": "still",
+   "domain": "image",
+   "name": "Layered Output",
+   "zh": "分层输出",
+   "group": "规格",
+   "ubiquity": "少数",
+   "aliases": [
+    "分层输出",
+    "图层",
+    "图层分解",
+    "RGBA 图层",
+    "Layered",
+    "Layer decomposition"
+   ],
+   "since_note": "阿里 Qwen-Image-Layered（2025-12-17）与 Ideogram 的 Layerize Text 端点都在做这件事：**产出的不是一张平图，而是可以分开改的若干层**。它和「蒙版重绘」不同 —— 后者是在一张平图上圈一块重画，前者是模型直接把图拆成层，改一层不动别层。"
   }
  ],
  "orgs": [
@@ -4263,6 +4297,66 @@
   "bailian-websearch-zh": {
    "name": "阿里云百炼中文站 · 联网搜索",
    "url": "https://help.aliyun.com/zh/model-studio/web-search",
+   "tier": "official"
+  },
+  "hf-kokoro": {
+   "name": "Hugging Face · hexgrad/Kokoro-82M",
+   "url": "https://huggingface.co/hexgrad/Kokoro-82M",
+   "tier": "official"
+  },
+  "hf-cosyvoice2": {
+   "name": "Hugging Face · FunAudioLLM/CosyVoice2-0.5B",
+   "url": "https://huggingface.co/FunAudioLLM/CosyVoice2-0.5B",
+   "tier": "official"
+  },
+  "hf-glmtts": {
+   "name": "Hugging Face · zai-org/GLM-TTS",
+   "url": "https://huggingface.co/zai-org/GLM-TTS",
+   "tier": "official"
+  },
+  "hf-glm4voice": {
+   "name": "Hugging Face · zai-org/glm-4-voice-9b",
+   "url": "https://huggingface.co/zai-org/glm-4-voice-9b",
+   "tier": "official"
+  },
+  "hf-fishspeech15": {
+   "name": "Hugging Face · fishaudio/fish-speech-1.5",
+   "url": "https://huggingface.co/fishaudio/fish-speech-1.5",
+   "tier": "official"
+  },
+  "hf-qwen3omni": {
+   "name": "Hugging Face · Qwen/Qwen3-Omni-30B-A3B-Instruct",
+   "url": "https://huggingface.co/Qwen/Qwen3-Omni-30B-A3B-Instruct",
+   "tier": "official"
+  },
+  "hf-qwen-layered": {
+   "name": "Hugging Face · Qwen/Qwen-Image-Layered（官方模型卡）",
+   "url": "https://huggingface.co/Qwen/Qwen-Image-Layered",
+   "tier": "official"
+  },
+  "hf-org-minimax": {
+   "name": "Hugging Face · MiniMaxAI 官方组织（全量仓库清单）",
+   "url": "https://huggingface.co/MiniMaxAI",
+   "tier": "official"
+  },
+  "hf-org-xai": {
+   "name": "Hugging Face · xai-org 官方组织（全量仓库清单）",
+   "url": "https://huggingface.co/xai-org",
+   "tier": "official"
+  },
+  "hf-org-elevenlabs": {
+   "name": "Hugging Face · elevenlabs 官方组织（全量仓库清单）",
+   "url": "https://huggingface.co/elevenlabs",
+   "tier": "official"
+  },
+  "hf-org-openai": {
+   "name": "Hugging Face · openai 官方组织（全量仓库清单）",
+   "url": "https://huggingface.co/openai",
+   "tier": "official"
+  },
+  "ideogram-layerize": {
+   "name": "Ideogram 官方 API 参考 · Layerize Text",
+   "url": "https://developer.ideogram.ai/api-reference/api-reference/layerize-text-v3",
    "tier": "official"
   }
  },
@@ -8602,6 +8696,234 @@
    "note": "输出采样率 **24,000 Hz**。⚠️ 模型卡**没写**是否支持流式与更多格式 —— 那一格照旧 ⬜",
    "via": "native",
    "as_of": "2026-08-12"
+  },
+  {
+   "m": "kokoro",
+   "c": "s-openweights",
+   "state": "yes",
+   "verified_for": "82M v1.1-zh",
+   "as_of": "2026-08-12",
+   "note": "**这一卷下载量最大的权重**，82M 参数，普通机器就能跑。Apache-2.0，商用无附加条件。",
+   "src": "hf-kokoro",
+   "quote": "hexgrad/Kokoro-82M：模型卡 `license: apache-2.0`，createdAt 2024-12-26，↓11,186,136 ♥6,679"
+  },
+  {
+   "m": "cosyvoice",
+   "c": "s-openweights",
+   "state": "yes",
+   "verified_for": "Fun-CosyVoice3-0.5B-2512",
+   "as_of": "2026-08-12",
+   "note": "Apache-2.0。⚠️ 代码仓库已从 FunAudioLLM 迁到 QwenAudio 名下，权重仓库仍在旧组织。",
+   "src": "hf-cosyvoice2",
+   "quote": "FunAudioLLM/CosyVoice2-0.5B：模型卡 `license: apache-2.0`，createdAt 2025-07-29"
+  },
+  {
+   "m": "glm-tts",
+   "c": "s-openweights",
+   "state": "yes",
+   "verified_for": "GLM-TTS",
+   "as_of": "2026-08-12",
+   "note": "MIT，限制最少的一档。",
+   "src": "hf-glmtts",
+   "quote": "zai-org/GLM-TTS：模型卡 `license: mit`，createdAt 2025-12-10，♥348"
+  },
+  {
+   "m": "glm-voice",
+   "c": "s-openweights",
+   "state": "yes",
+   "verified_for": "glm-4-voice",
+   "as_of": "2026-08-12",
+   "note": "⚠️ **模型卡上没写许可**（接口返回的 license 是空的）。权重下得到，但拿它做产品前要先找官方确认授权 —— 「能下载」和「能用」是两回事。",
+   "src": "hf-glm4voice",
+   "quote": "zai-org/glm-4-voice-9b：createdAt 2024-10-24，↓3,525 ♥119，仓库未 gated"
+  },
+  {
+   "m": "fish-speech",
+   "c": "s-openweights",
+   "state": "yes",
+   "verified_for": "s2-pro",
+   "as_of": "2026-08-12",
+   "note": "⚠️ **权重公开但不许商用**，而且两处许可写法还不一样：HF 模型卡是 CC-BY-NC-SA-4.0，GitHub 仓库是「Fish Audio 研究许可」（原文：Any Commercial use of the Materials requires a separate license from Fish Audio）。两个都指向同一件事 —— 商用要另谈。",
+   "src": "hf-fishspeech15",
+   "quote": "fishaudio/fish-speech-1.5：模型卡 `license: cc-by-nc-sa-4.0`，createdAt 2024-11-24，♥768"
+  },
+  {
+   "m": "qwen-omni",
+   "c": "s-openweights",
+   "state": "yes",
+   "verified_for": "3.5-omni-plus",
+   "as_of": "2026-08-12",
+   "note": "Apache-2.0，全模态与 TTS 两支都放了权重。",
+   "src": "hf-qwen3omni",
+   "quote": "Qwen/Qwen3-Omni-30B-A3B-Instruct：模型卡 `license: apache-2.0`，createdAt 2025-09-20，↓1,074,630 ♥975；同组织的 Qwen/Qwen3-TTS-12Hz-1.7B-Base 也是 apache-2.0（↓2,643,138）"
+  },
+  {
+   "m": "mm-speech",
+   "c": "s-openweights",
+   "state": "no",
+   "verified_for": "speech-2.8-hd",
+   "as_of": "2026-08-12",
+   "note": "判据是去它自己的组织下把仓库列全再数，不是印象。哪天多出一个语音仓库，这一格就该翻 —— 所以这条源进了监视清单。",
+   "src": "hf-org-minimax",
+   "quote": "MiniMax 官方 HF 组织 MiniMaxAI 下 20 个仓库全部是文本 / 视觉 / 视频（MiniMax-M1~M3、VL-01、VTP、MiniMax-H3 等），**没有任何语音或音乐权重**"
+  },
+  {
+   "m": "mm-music",
+   "c": "s-openweights",
+   "state": "no",
+   "verified_for": "music-3.0",
+   "as_of": "2026-08-12",
+   "note": "和语音那格同一条依据。",
+   "src": "hf-org-minimax",
+   "quote": "同上：MiniMaxAI 组织下 20 个仓库里没有音乐生成权重"
+  },
+  {
+   "m": "elevenlabs",
+   "c": "s-openweights",
+   "state": "no",
+   "verified_for": "Eleven v3",
+   "as_of": "2026-08-12",
+   "note": "这家把权重完全留在自己手里，只出 API。",
+   "src": "hf-org-elevenlabs",
+   "quote": "ElevenLabs 官方 HF 组织下**只有 1 个仓库 `elevenlabs/xi-metrics`**（评测指标，不是模型权重）"
+  },
+  {
+   "m": "eleven-music",
+   "c": "s-openweights",
+   "state": "no",
+   "verified_for": "v2",
+   "as_of": "2026-08-12",
+   "note": "和语音那格同一条依据。",
+   "src": "hf-org-elevenlabs",
+   "quote": "同上：elevenlabs 组织下没有任何模型权重"
+  },
+  {
+   "m": "openai-tts",
+   "c": "s-openweights",
+   "state": "no",
+   "verified_for": "GPT-4o mini TTS",
+   "as_of": "2026-08-12",
+   "note": "⚠️ Whisper 是**语音转文字**，按 ontology 规则十一不在这一卷收录范围内 —— 它的存在不能算作「OpenAI 开放了语音生成权重」。",
+   "src": "hf-org-openai",
+   "quote": "OpenAI 官方 HF 组织下沾音频的 12 个仓库**全部是 Whisper**（automatic-speech-recognition），没有 TTS 权重"
+  },
+  {
+   "m": "gpt-realtime",
+   "c": "s-openweights",
+   "state": "no",
+   "verified_for": "2.1",
+   "as_of": "2026-08-12",
+   "note": "和 TTS 那格同一条依据。",
+   "src": "hf-org-openai",
+   "quote": "同上：openai 组织下没有实时语音模型的权重，只有 Whisper（ASR）与 gpt-oss（文本）"
+  },
+  {
+   "m": "grok-voice",
+   "c": "s-openweights",
+   "state": "no",
+   "verified_for": "think-fast-2.0",
+   "as_of": "2026-08-12",
+   "note": "xAI 确实开过权重 —— 但只开文本那条线，语音这条没有。**「这家开源」和「这个模型开源」不是一回事。**",
+   "src": "hf-org-xai",
+   "quote": "xAI 官方 HF 组织 xai-org 下**只有 2 个仓库**：grok-1（2024-03-17）与 grok-2（2025-08-22），都是文本模型"
+  },
+  {
+   "m": "gemini-tts",
+   "c": "s-openweights",
+   "state": "no",
+   "verified_for": "3.1 Flash TTS Preview",
+   "as_of": "2026-08-12",
+   "note": "⚠️ **这一格的依据比 MiniMax / xAI 那几格弱**：Google 的 HF 组织有上千个仓库，接口一次只返回 200 个，我按音频关键词在这 200 个里没找到 —— 那不足以证明「全都没有」。所以这里靠的是官方文档只提供 API 这一点。",
+   "src": "gemini-tts",
+   "quote": "官方文档只给 API 调用方式（generateContent 配 responseModalities: [\"AUDIO\"]），全篇没有权重下载入口"
+  },
+  {
+   "m": "lyria",
+   "c": "s-openweights",
+   "state": "no",
+   "verified_for": "3 Pro Preview",
+   "as_of": "2026-08-12",
+   "note": "同上：Google 组织仓库过多列不全，依据是官方文档只提供 API。另外 HF 上搜 lyria 出来的都是同名的第三方仓库，没有一个属于 Google。",
+   "src": "gemini-music",
+   "quote": "官方音乐生成文档只给 API（Gemini API / Vertex AI），没有权重发布入口"
+  },
+  {
+   "m": "qwen-image",
+   "c": "i-layered",
+   "state": "yes",
+   "verified_for": "Qwen-Image-Layered",
+   "as_of": "2026-08-12",
+   "note": "官方给的用法很具体：层数可变（同一张图可拆 3 层或 8 层）、可**递归**再拆、改完某一层其余内容原样不动（「physically isolating it from the rest of the content」）。⚠️ **这个能力在 Qwen-Image-Layered 这个单独的开源模型上**，不是当前主力 `qwen-image-3.0-pro`（3.0 的 API 参数表里没有任何分层字段）。",
+   "src": "hf-qwen-layered",
+   "quote": "官方模型卡：「We are excited to introduce **Qwen-Image-Layered**, a model capable of decomposing an image into multiple RGBA layers. This layered representation unlocks **inherent editability**: each layer can be independently edited」；`license: apache-2.0`，createdAt 2025-12-17，↓36,125 ♥1,135",
+   "sibling": "Qwen-Image-Layered"
+  },
+  {
+   "m": "ideogram",
+   "c": "i-layered",
+   "state": "yes",
+   "verified_for": "3.0",
+   "as_of": "2026-08-12",
+   "note": "**只拆文字这一类图层**，不是把整图拆成任意层 —— 它给的是「去掉字的底图 + 每块文字的位置/内容/字体/样式」，适合把生成的海报拿去改文案。和 Ideogram 的重绘、扩图一样，这个端点只在 **3.0** 那一支下，v4 没有。",
+   "src": "ideogram-layerize",
+   "quote": "POST /v1/ideogram-v3/layerize-text —— 「Analyzes an image to detect text regions, then returns each detected text block with its position, content, font information, and styling. The response includes a **text-erased base image** (background with all text removed) and a flat list of detected text blocks.」",
+   "sibling": "3.0"
+  },
+  {
+   "m": "seedream",
+   "c": "i-layered",
+   "state": "unknown",
+   "verified_for": "5.0 Pro",
+   "as_of": "2026-08-12",
+   "note": "**我们自己的谱系里写着 Seedream 5.0 Pro「分层输出」，但拿不出厂商原话。** 那条节点的引文是官方博客的一句通用介绍（「advanced reasoning, efficient content creation, and professional production capabilities」），压根没提分层。seed.bytedance.com 的产品页是前端渲染的，直接抓与 SPA 渲染抓到的正文都是 0 个字符。**没有原文就不记 ✅**，这一格留 ⬜ 并把那条谱系记录一并改掉。"
+  },
+  {
+   "m": "gemini-image",
+   "c": "i-layered",
+   "state": "unknown",
+   "verified_for": "2（gemini-3.1-flash-image）",
+   "as_of": "2026-08-12",
+   "note": "官方图像文档里没有图层 / RGBA 分层相关的返回结构 —— 读完没找到，不是没读。"
+  },
+  {
+   "m": "gpt-image",
+   "c": "i-layered",
+   "state": "unknown",
+   "verified_for": "2（gpt-image-2）",
+   "as_of": "2026-08-12",
+   "note": "官方图像 API 的返回只有整张图（含透明背景选项），没有分层 —— 透明背景不等于分层。"
+  },
+  {
+   "m": "flux",
+   "c": "i-layered",
+   "state": "unknown",
+   "verified_for": "2-dev",
+   "as_of": "2026-08-12",
+   "note": "官方权重里没有分层输出的变体（Fill / Canny / Depth / Redux 四个变体分别做重绘扩图、线稿、深度、图生变体）。"
+  },
+  {
+   "m": "z-image",
+   "c": "i-layered",
+   "state": "unknown",
+   "verified_for": "Turbo",
+   "as_of": "2026-08-12",
+   "note": "官方发布的 Turbo 与完整档都只出整图。"
+  },
+  {
+   "m": "hunyuan-image",
+   "c": "i-layered",
+   "state": "unknown",
+   "verified_for": "3.0",
+   "as_of": "2026-08-12",
+   "note": "官方发布里没有分层相关的模型或参数。"
+  },
+  {
+   "m": "recraft",
+   "c": "i-layered",
+   "state": "unknown",
+   "verified_for": "V4.1",
+   "as_of": "2026-08-12",
+   "note": "⚠️ Recraft 的产品侧一直强调矢量与设计工作流，**分层是它最可能有的一项**，但我们没有拿到写明这件事的官方文档 —— 留 ⬜ 是「没找到」，不是「它没有」。"
   }
  ],
  "$aliases_why": "各家给同一个能力起不同的名字。**Kling 管角色参考叫 Element，我按 Character Reference 去找，找不到就标了「官方没说」—— 假阴性。** 采集时必须用整组别名去匹配，不能只用我们自己的叫法。这是原方案 §36 Entity Resolution 在能力维度上的对应物。\n\n`alias_bit_us` 标在**真把我们坑过的那一项**上（角色参考）。别名多不等于叫法分歧大：「首尾帧」也有 8 条别名，但全是 start/end frame 的描述性变体，谁都猜得到；而 Element / Ingredients / cameo 是厂商自造词，**不知道就永远搜不到**。选例子要选后者，靠数别名条数是挑不出来的 —— 所以标在数据里，不用启发式猜。",
@@ -10815,11 +11137,12 @@
    "m": "seedream",
    "version": "Seedream 5.0 Pro",
    "date": "2026-07-08",
-   "added": "分层输出 + 圈画标注式改图",
+   "added": "多模态出图与专业生产向",
    "src": "seed-blog",
    "quote": "Seedream 5.0 Pro is a multimodal image generation model that features advanced reasoning, efficient content creation, and professional production capabilities.",
    "parent": "seedream-Seedream 4.0-出图与改图并进一个模型",
-   "cap_skip": "同上：「分层输出」不在图像卷的能力轴上；「圈画标注式改图」是我们的转述，不是厂商对蒙版重绘的原话"
+   "cap_skip": "引文只讲通用定位，没有可挂到轴上的具体能力",
+   "note": "⚠️ **这条原来写的是「分层输出 + 圈画标注式改图」，2026-08-12 改掉了** —— 那两句在这条节点的引文里都找不到依据，是转述。seed.bytedance.com 是前端渲染的，直接抓与 SPA 渲染抓到的正文都是 0 字符，拿不到厂商原话。**宁可这一代少写一句，也不留一句没出处的。**"
   },
   {
    "id": "qwen-image-Qwen-Image-Layered-分层输出（图层可分开拿）",
@@ -10830,7 +11153,7 @@
    "src": "hf-image-org",
    "quote": "Qwen/Qwen-Image-Layered（官方 HF 组织 createdAt 2025-12-17，Apache-2.0）",
    "parent": "qwen-image-Qwen-Image-Edit-2511-抑制图像漂移、角色一致性、集成 LoRA",
-   "cap_skip": "**图像卷的能力轴上没有「分层输出」这一项** —— 阿里与字节两家都发了（Qwen-Image-Layered / Seedream 5.0 Pro），轴该补"
+   "cap": "i-layered"
   },
   {
    "id": "qwen-image-Qwen-Image-2512-底座换代",
@@ -13176,7 +13499,7 @@
    "repos": [
     "zai-org/GLM-TTS"
    ],
-   "cap_skip": "**声音卷的能力轴上没有「开源权重」这一项**（视频/图像/文本三卷都有）—— 不是这个节点没能力，是轴缺一格"
+   "cap": "s-openweights"
   },
   {
    "id": "cosyvoice-SenseVoiceSmall-这个组织在 HF 上",

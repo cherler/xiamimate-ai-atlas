@@ -17,9 +17,11 @@ import Mark from "./Mark";
 export const MARK: Record<State, string> = { yes: "✅", no: "❌", unknown: "⬜" };
 export const TONE: Record<State, string> = { yes: "text-yes", no: "text-no", unknown: "text-unknown" };
 
-export function Rich({ text, className = "" }: { text: string; className?: string }) {
+export function Rich(
+  { text, className = "", ...rest }: { text: string; className?: string } & Record<string, unknown>,
+) {
   return (
-    <span className={className}>
+    <span className={className} {...rest}>
       {text.split(/\*\*(.+?)\*\*/g).map((part, i) =>
         i % 2 ? (
           <b key={i} className="text-ink">
@@ -55,7 +57,15 @@ export function Fact({ m, c, label }: { m: string; c: string; label: string }) {
         <ViaTag via={f.via} />
       </span>
       <div className="min-w-0 flex-1">
-        {f.note && <Rich text={f.note} className="text-ink leading-relaxed block" />}
+        {/**
+          * `data-prose` = **我们自己写的散文**，方向隔离扫描要跳过它。
+          *
+          * 判据是「这一页**列**了哪些模型」，而不是「这一页的文字里出现过谁的名字」——
+          * 后者天天合法：`闭源，仅经 Gemini API / Vertex AI 提供` 是视频模型 Veo 的 note，
+          * 里面的 Gemini 指的是交付渠道，不是文本卷那条产品线漏进来了。
+          * 上面那行 `{label}` 是真正的「列」，照旧扫。
+          */}
+        {f.note && <Rich text={f.note} data-prose className="text-ink leading-relaxed block" />}
         <p className="text-muted text-[13px] mt-1 flex flex-wrap gap-x-3 gap-y-1 items-center">
           {src ? (
             <>

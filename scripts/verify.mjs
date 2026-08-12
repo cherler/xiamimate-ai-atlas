@@ -360,8 +360,24 @@ const mentions = (txt, name) => {
      * 却全绿。**测试跟着重构一起改，否则它保护的是上一版的代码。**
      */
     const pages = raw.domains.flatMap((d) =>
-      ["", "/tree", "/map", "/scenario", "/models"].map((seg) => `/${d.id}${seg}`));
-    for (const path of pages) {
+      ["", "/tree", "/map", "/scenario", "/models"].map((seg) => ({ path: `/${d.id}${seg}`, mine: d.id })));
+    /**
+     * **能力页也要查，而且它的方向不在 URL 里。**
+     *
+     * 2026-08-12 给声音卷加「开源权重」（`class: "both"`）时炸出来：
+     * `/capability/s-openweights` 整页列的是 Seedance、Hailuo、Wan、Runway、Kling、Vidu、Veo ——
+     * 七个**视频**模型，每格 ⬜。页面把 `both` 写死展开成了视频那两条轨。
+     * 看着像「声音的开源权重没人做」，其实是列错了一批模型 —— **最坏的一种错：它有结论的样子。**
+     *
+     * 这一页的 URL 是 `/capability/<id>`，方向得从数据里查，所以 `mine` 必须显式带上，
+     * 不能再靠 `path.split("/")[1]` 猜。每个方向抽两个能力，够覆盖 `both` 与单轨两种展开。
+     */
+    for (const d of raw.domains) {
+      const cs = (raw.capabilities ?? []).filter((c) => (c.domain ?? "video") === d.id);
+      for (const c of [cs.find((x) => x.class === "both") ?? cs[0], cs.at(-1)].filter(Boolean))
+        pages.push({ path: `/capability/${c.id}`, mine: d.id });
+    }
+    for (const { path, mine } of pages) {
       const page = await browser.newPage({ viewport: { width: 1440, height: 900 } });
       let txt = "";
       try {
@@ -390,7 +406,7 @@ const mentions = (txt, name) => {
         txt = await page.evaluate(`(() => {
           const m = document.querySelector("main");
           if (!m) return "";
-          const q = [...m.querySelectorAll("[data-quote]")];
+          const q = [...m.querySelectorAll("[data-quote], [data-prose]")];
           const keep = q.map((e) => e.style.display);
           q.forEach((e) => { e.style.display = "none"; });
           const t = m.innerText;
@@ -398,7 +414,6 @@ const mentions = (txt, name) => {
           return t;
         })()`);
       } catch { txt = ""; }
-      const mine = path.split("/")[1];
       /**
        * **先把本方向合法出现的名字抠掉，再在剩下的里找外来名。**
        *
@@ -420,6 +435,15 @@ const mentions = (txt, name) => {
         ...(raw.models ?? []).filter((m) => (m.domain ?? "video") === mine)
           .flatMap((m) => [m.family, m.version].filter(Boolean)),
         ...(raw.orgs ?? []).flatMap((o) => [o.name, o.zh].filter(Boolean)),
+        /**
+         * **`team` 也是页面上印出来的名字。**
+         * `vendorName()` 拼的是 `${org.zh} · ${model.team}` —— 于是 Qwen-Image 那一行
+         * 显示成「阿里巴巴 · **通义 Qwen**」。org 名抠掉了、family 抠掉了，
+         * 唯独这个中间名没人抠，剩下一个裸的 `Qwen` 命中文本卷的产品线名。
+         * 只抠本方向的 team，别把别的方向的一起抠掉 —— 那会把真漏也一起放过。
+         */
+        ...(raw.models ?? []).filter((m) => (m.domain ?? "video") === mine)
+          .map((m) => m.team).filter(Boolean),
         ...(raw.versions ?? []).filter((v) =>
           (raw.models ?? []).some((m) => m.id === v.m && (m.domain ?? "video") === mine))
           .map((v) => v.version),
@@ -435,6 +459,20 @@ const mentions = (txt, name) => {
          * 仓库名从数据里的 GitHub 链接现取，所以以后再引哪个项目都不用回来改。
          */
         ...[...JSON.stringify(raw).matchAll(/github\.com\/([A-Za-z0-9_.-]+)\/([A-Za-z0-9_.-]+)/g)]
+          .flatMap((m) => [`${m[1]}/${m[2]}`, m[2]]),
+        /**
+         * **来源名也要先抠掉 —— 它是别人文档的标题，不是我们的主张。**
+         *
+         * 2026-08-12 能力页纳入扫描后炸出来的最后一类：
+         * `/capability/s-openweights`（声音）上引的来源叫
+         * 「Gemini API · Speech generation」、「Hugging Face · Qwen/Qwen3-Omni-30B-A3B-Instruct」——
+         * 里面的 Gemini 与 Qwen 是**这条声音能力的真实出处**，不是文本卷漏进来了。
+         *
+         * 顺带把 HF 仓库路径也收进来：上一版只抠了 github.com 的，
+         * 而声音与图像两卷的权重证据大多挂在 huggingface.co 上。
+         */
+        ...Object.values(raw.sources ?? {}).map((s) => s.name).filter(Boolean),
+        ...[...JSON.stringify(raw).matchAll(/huggingface\.co\/([A-Za-z0-9_.-]+)\/([A-Za-z0-9_.-]+)/g)]
           .flatMap((m) => [`${m[1]}/${m[2]}`, m[2]]),
       ].sort((a, b) => b.length - a.length);
       let rest = txt;
