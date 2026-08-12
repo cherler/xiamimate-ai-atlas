@@ -3963,6 +3963,110 @@
     "capability"
    ],
    "note": "⚠️ **必须走 SPA 渲染**：裸抓只有 3,839 字的导航壳（页面明写 You need to enable JavaScript）。渲染后 2,700 字，模型能力与参数表都在里面"
+  },
+  {
+   "id": "arxiv-fp8",
+   "tier": "A",
+   "kind": "html",
+   "vendor": "",
+   "name": "arXiv:2209.05433 · FP8 Formats for Deep Learning（2022-09-12）",
+   "url": "https://arxiv.org/abs/2209.05433",
+   "refresh_days": 180,
+   "good_for": [
+    "capability"
+   ],
+   "note": "论文页，内容不会变（arXiv 有版本号，改动会另发新版）—— 半年看一次即可"
+  },
+  {
+   "id": "arxiv-int8",
+   "tier": "A",
+   "kind": "html",
+   "vendor": "",
+   "name": "arXiv:2208.07339 · LLM.int8(): 8-bit Matrix Multiplication for Transformers at Scale（2022-08-15）",
+   "url": "https://arxiv.org/abs/2208.07339",
+   "refresh_days": 180,
+   "good_for": [
+    "capability"
+   ],
+   "note": "论文页，内容不会变（arXiv 有版本号，改动会另发新版）—— 半年看一次即可"
+  },
+  {
+   "id": "arxiv-qlora",
+   "tier": "A",
+   "kind": "html",
+   "vendor": "",
+   "name": "arXiv:2305.14314 · QLoRA: Efficient Finetuning of Quantized LLMs（2023-05-23）",
+   "url": "https://arxiv.org/abs/2305.14314",
+   "refresh_days": 180,
+   "good_for": [
+    "capability"
+   ],
+   "note": "论文页，内容不会变（arXiv 有版本号，改动会另发新版）—— 半年看一次即可"
+  },
+  {
+   "id": "arxiv-gptq",
+   "tier": "A",
+   "kind": "html",
+   "vendor": "",
+   "name": "arXiv:2210.17323 · GPTQ: Accurate Post-Training Quantization（2022-10-31）",
+   "url": "https://arxiv.org/abs/2210.17323",
+   "refresh_days": 180,
+   "good_for": [
+    "capability"
+   ],
+   "note": "论文页，内容不会变（arXiv 有版本号，改动会另发新版）—— 半年看一次即可"
+  },
+  {
+   "id": "arxiv-awq",
+   "tier": "A",
+   "kind": "html",
+   "vendor": "",
+   "name": "arXiv:2306.00978 · AWQ: Activation-aware Weight Quantization（2023-06-01）",
+   "url": "https://arxiv.org/abs/2306.00978",
+   "refresh_days": 180,
+   "good_for": [
+    "capability"
+   ],
+   "note": "论文页，内容不会变（arXiv 有版本号，改动会另发新版）—— 半年看一次即可"
+  },
+  {
+   "id": "arxiv-lora",
+   "tier": "A",
+   "kind": "html",
+   "vendor": "",
+   "name": "arXiv:2106.09685 · LoRA: Low-Rank Adaptation of Large Language Models（2021-06-17）",
+   "url": "https://arxiv.org/abs/2106.09685",
+   "refresh_days": 180,
+   "good_for": [
+    "capability"
+   ],
+   "note": "论文页，内容不会变（arXiv 有版本号，改动会另发新版）—— 半年看一次即可"
+  },
+  {
+   "id": "hf-gguf-doc",
+   "tier": "A",
+   "kind": "html",
+   "vendor": "",
+   "name": "Hugging Face 官方文档 · GGUF 格式说明",
+   "url": "https://huggingface.co/docs/hub/en/gguf",
+   "refresh_days": 180,
+   "good_for": [
+    "capability"
+   ],
+   "note": "官方文档，跟着工具链更新"
+  },
+  {
+   "id": "hf-diffusers-memory",
+   "tier": "A",
+   "kind": "html",
+   "vendor": "",
+   "name": "Hugging Face diffusers 官方文档 · 显存优化",
+   "url": "https://huggingface.co/docs/diffusers/main/en/optimization/memory",
+   "refresh_days": 180,
+   "good_for": [
+    "capability"
+   ],
+   "note": "官方文档，跟着工具链更新"
   }
  ],
  "$missing": [

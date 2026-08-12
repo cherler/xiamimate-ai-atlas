@@ -4383,6 +4383,46 @@
    "name": "火山方舟 API 参考 · 图片生成 API（Doubao Seedream 5.0 pro）",
    "url": "https://www.volcengine.com/docs/82379/1541523",
    "tier": "official"
+  },
+  "arxiv-fp8": {
+   "name": "arXiv:2209.05433 · FP8 Formats for Deep Learning（2022-09-12）",
+   "url": "https://arxiv.org/abs/2209.05433",
+   "tier": "official"
+  },
+  "arxiv-int8": {
+   "name": "arXiv:2208.07339 · LLM.int8(): 8-bit Matrix Multiplication for Transformers at Scale（2022-08-15）",
+   "url": "https://arxiv.org/abs/2208.07339",
+   "tier": "official"
+  },
+  "arxiv-qlora": {
+   "name": "arXiv:2305.14314 · QLoRA: Efficient Finetuning of Quantized LLMs（2023-05-23）",
+   "url": "https://arxiv.org/abs/2305.14314",
+   "tier": "official"
+  },
+  "arxiv-gptq": {
+   "name": "arXiv:2210.17323 · GPTQ: Accurate Post-Training Quantization（2022-10-31）",
+   "url": "https://arxiv.org/abs/2210.17323",
+   "tier": "official"
+  },
+  "arxiv-awq": {
+   "name": "arXiv:2306.00978 · AWQ: Activation-aware Weight Quantization（2023-06-01）",
+   "url": "https://arxiv.org/abs/2306.00978",
+   "tier": "official"
+  },
+  "arxiv-lora": {
+   "name": "arXiv:2106.09685 · LoRA: Low-Rank Adaptation of Large Language Models（2021-06-17）",
+   "url": "https://arxiv.org/abs/2106.09685",
+   "tier": "official"
+  },
+  "hf-gguf-doc": {
+   "name": "Hugging Face 官方文档 · GGUF 格式说明",
+   "url": "https://huggingface.co/docs/hub/en/gguf",
+   "tier": "official"
+  },
+  "hf-diffusers-memory": {
+   "name": "Hugging Face diffusers 官方文档 · 显存优化",
+   "url": "https://huggingface.co/docs/diffusers/main/en/optimization/memory",
+   "tier": "official"
   }
  },
  "support": [

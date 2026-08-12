@@ -1,0 +1,334 @@
+{
+ "note": "本地跑模型时会撞见的词。每条都要有出处 —— 这一页是科普，而科普最容易凭记忆写，写错了读者还没处对。sources 里的 id 指向 atlas.json 的 sources 表。",
+ "generated_at": "2026-08-12",
+ "groups": [
+  {
+   "id": "precision",
+   "zh": "精度：同一个模型，为什么有好几个体积",
+   "intro": "一个模型的「参数」就是一大堆数字。**用几个字节存一个数字，就是精度。** 存得越省，文件越小、显存要得越少，代价是数字变粗、画质与遵循度可能下降。厂商发权重时常常一次发好几档，让你按自己的显卡挑。"
+  },
+  {
+   "id": "quant",
+   "zh": "量化：把精度降下来的几种做法",
+   "intro": "直接把数字截短最简单，但会掉效果。所以有一批方法专门研究「**怎么降得聪明**」—— 哪些数字必须保住、哪些可以粗一点。名字（GPTQ / AWQ / GGUF）指的是**做法或文件格式**，不是模型本身。"
+  },
+  {
+   "id": "adapt",
+   "zh": "改模型：不重训也能让它学新东西",
+   "intro": "从头训一个模型要几百上千万，但让已有模型学一种画风、一个人的脸，有便宜得多的办法。"
+  },
+  {
+   "id": "run",
+   "zh": "跑起来要多少显存",
+   "intro": "这是决定「我这张卡行不行」的唯一硬指标。**算法很简单，但有两个坑**：一是要按精度算不是按参数量算，二是权重只是一部分。"
+  }
+ ],
+ "terms": [
+  {
+   "id": "fp16",
+   "term": "FP16 / BF16",
+   "group": "precision",
+   "aliases": [
+    "fp16",
+    "bf16",
+    "float16",
+    "bfloat16",
+    "半精度"
+   ],
+   "bytes": 2,
+   "one_line": "**大多数模型发布时的原始精度**，一个数字占 2 个字节。你看到的「原版权重」基本都是这一档。",
+   "why": "它是所有其它档位的**基准**：说「量化到一半大小」，指的就是从这里往下降。BF16 和 FP16 都是 2 字节，区别在于把这 16 位怎么分给指数与尾数 —— BF16 表示范围更大、精度更粗，训练时更不容易溢出。",
+   "src": "arxiv-fp8",
+   "quote": "FP8 论文开篇即以此为参照：「FP8 is a natural progression for accelerating deep learning training inference beyond the **16-bit formats common in modern processors**.」"
+  },
+  {
+   "id": "fp8",
+   "term": "FP8",
+   "group": "precision",
+   "aliases": [
+    "fp8",
+    "float8",
+    "E4M3",
+    "E5M2"
+   ],
+   "bytes": 1,
+   "one_line": "一个数字占 **1 个字节**，体积与显存约为 FP16 的一半。仍然是「浮点数」，所以动态范围比 INT8 好。",
+   "why": "**它有两种编码，不是一个东西**：E4M3（4 位指数 3 位尾数）和 E5M2（5 位指数 2 位尾数）。前者精度细、范围小，后者反过来。仓库名里通常不写是哪一种，要看模型卡。",
+   "src": "arxiv-fp8",
+   "quote": "「we propose an 8-bit floating point (FP8) binary interchange format consisting of **two encodings - E4M3 (4-bit exponent and 3-bit mantissa) and E5M2 (5-bit exponent and 2-bit mantissa)**」（arXiv:2209.05433，2022-09-12）"
+  },
+  {
+   "id": "int8",
+   "term": "INT8",
+   "group": "precision",
+   "aliases": [
+    "int8",
+    "8-bit",
+    "8bit"
+   ],
+   "bytes": 1,
+   "one_line": "同样 **1 个字节**，但存的是整数不是浮点数。体积和 FP8 一样，实现方式与硬件支持不同。",
+   "why": "整数没有指数位，遇到特别大或特别小的数会更吃亏 —— 所以 INT8 的做法里通常要额外记一组「缩放系数」把数值拉回可表示的范围。这也是为什么同样叫 8-bit，不同仓库效果能差不少。",
+   "src": "arxiv-int8",
+   "quote": "「We develop a procedure for Int8 matrix multiplication for feed-forward and attention projection layers in transformers, which **cut the memory needed for inference by half while retaining full precision performance**.」（arXiv:2208.07339，2022-08-15）"
+  },
+  {
+   "id": "int4",
+   "term": "INT4 / NF4",
+   "group": "precision",
+   "aliases": [
+    "int4",
+    "nf4",
+    "4-bit",
+    "4bit",
+    "q4"
+   ],
+   "bytes": 0.5,
+   "one_line": "一个数字只占 **半个字节**，体积约为 FP16 的四分之一。这是消费级显卡能跑大模型的主要原因。",
+   "why": "NF4（NormalFloat4）不是简单截断，而是**按参数的实际分布**设计的 4 位格式。它出自 QLoRA 那篇论文 —— 那篇的重点是「在 4 位模型上微调」，NF4 是其中的一项发明。",
+   "src": "arxiv-qlora",
+   "quote": "「QLoRA backpropagates gradients through a **frozen, 4-bit quantized** pretrained language model into Low Rank Adapters」，论文自述可「finetune a 65B parameter model on a single 48GB GPU」（arXiv:2305.14314，2023-05-23）"
+  },
+  {
+   "id": "gptq",
+   "term": "GPTQ",
+   "group": "quant",
+   "aliases": [
+    "gptq"
+   ],
+   "one_line": "一种**训练完之后再压**的量化方法（post-training），压的时候会用少量样本数据校准，尽量让压完的输出和原来接近。",
+   "why": "仓库名里带 GPTQ，说明作者用的是这套方法，**不代表位宽** —— 还要看是 4bit 还是 8bit、group size 多少。",
+   "src": "arxiv-gptq",
+   "quote": "标题即「GPTQ: **Accurate Post-Training Quantization** for Generative Pre-trained Transformers」（arXiv:2210.17323，2022-10-31）"
+  },
+  {
+   "id": "awq",
+   "term": "AWQ",
+   "group": "quant",
+   "aliases": [
+    "awq"
+   ],
+   "one_line": "另一套量化方法，思路是「**不是所有参数一样重要**」，把那一小撮关键参数保护起来，其余压狠一点。",
+   "why": "它的出发点就是本地/端侧部署，论文开篇讲的就是「跑在自己设备上省云费用、保护隐私」。",
+   "src": "arxiv-awq",
+   "quote": "「AWQ finds that **not all weights in an LLM are equally important. Protecting only 1% salient weights can greatly reduce quantization error.**」；同篇开篇：「running LLMs locally on edge devices can reduce the cloud computing cost and protect users privacy」（arXiv:2306.00978，2023-06-01）"
+  },
+  {
+   "id": "gguf",
+   "term": "GGUF",
+   "group": "quant",
+   "aliases": [
+    "gguf",
+    "ggml"
+   ],
+   "one_line": "**一种文件格式，不是一种精度。** 一个 .gguf 文件把模型权重和跑它需要的元信息打包在一起，llama.cpp 那一系工具直接读它。",
+   "why": "所以「GGUF 版」这三个字**没说清楚它是几位的** —— 同一个模型的 GGUF 仓库里通常并排放着 Q4_K_M、Q5_K_S、Q8_0 十几个文件，位宽写在文件名里。挑错了，要么跑不动，要么白白牺牲效果。",
+   "src": "hf-gguf-doc",
+   "quote": "Hugging Face 官方文档把它列为一种模型文件格式，配套说明如何在 Hub 上浏览 GGUF 文件的元信息"
+  },
+  {
+   "id": "lora",
+   "term": "LoRA",
+   "group": "adapt",
+   "aliases": [
+    "lora",
+    "低秩"
+   ],
+   "one_line": "**不动原模型**，另外训一小块「补丁」挂上去。补丁通常只有几十 MB，而效果是让模型学会一种画风、一个角色、一种版式。",
+   "why": "这是本地玩法里最实用的一条：原模型下一次就够了，之后想要什么风格就换补丁。**它也解释了为什么很多仓库叫「XX-LoRA」而体积特别小** —— 那不是完整模型，单独下下来跑不起来。",
+   "src": "arxiv-lora",
+   "quote": "「LoRA, which **freezes the pre-trained model weights** and injects trainable rank decomposition matrices into each layer」（arXiv:2106.09685，2021-06-17）"
+  },
+  {
+   "id": "distill",
+   "term": "蒸馏 / Turbo / Fast / Flash 档",
+   "group": "adapt",
+   "aliases": [
+    "distill",
+    "蒸馏",
+    "turbo",
+    "schnell",
+    "flash",
+    "步数"
+   ],
+   "one_line": "让一个模型去**模仿**另一个更慢更好的模型，换来大幅提速。出图模型上常见的表现是「原来要 50 步，现在 4 步甚至 1 步」。",
+   "why": "厂商名字里的 Turbo / Fast / Flash / schnell（德语「快」）大多是这一类。**它们是速度与价格档，不是新一代能力** —— 我们给谱系节点判能力时，这类一律记 `cap_skip`，因为它没有新增能力轴上的东西。",
+   "src": null,
+   "quote": null,
+   "note": "这一条**没有单一权威出处**，它是一类做法的统称。站上能对上的实例：Z-Image-Turbo（官方自述 8 步出图）、SDXL Turbo（「少步数蒸馏，一步出图」）、FLUX.1-schnell（首发的快档）。"
+  },
+  {
+   "id": "vram",
+   "term": "显存怎么估",
+   "group": "run",
+   "aliases": [
+    "显存",
+    "vram",
+    "显卡"
+   ],
+   "one_line": "**权重占用 ≈ 参数量 × 每个参数的字节数。** 20B 的模型：FP16 要约 40GB，FP8/INT8 约 20GB，INT4/NF4 约 10GB。",
+   "why": "两个坑。**一是别拿参数量当显存**：「20B」说的是参数个数，不是 GB。**二是权重只是一部分** —— 推理时还要放中间结果（出图模型是特征图，文本模型是 KV 缓存），分辨率越高、上下文越长，这一块越大。所以「刚好等于显存」的配置通常跑不起来，留 20~30% 余量比较稳。",
+   "src": "hf-diffusers-memory",
+   "quote": "Hugging Face diffusers 官方有一整页讲显存优化手段（分块、卸载到内存、注意力切片等）—— **这些手段的存在本身就说明「权重装得下」不等于「跑得动」**"
+  }
+ ],
+ "tutorials_note": "这一页**不自己写教程**。下面每一条都是别人做的公开教程，我们只负责：核实它还活着、说清它的许可、并诚实标出它适合谁。星标只用于排序兜底，不作推荐结论。",
+ "tutorials": [
+  {
+   "group": "从零开始搞懂「大模型是什么」",
+   "items": [
+    {
+     "name": "生成式 AI 入门 21 讲（微软官方）",
+     "repo": "microsoft/generative-ai-for-beginners",
+     "stars": 117592,
+     "license": "MIT",
+     "pushed": "2026-08-06",
+     "lang": "英文（有中文翻译分支）",
+     "why": "**从「什么是生成式 AI」讲起**，21 课，每课带可运行代码。微软官方维护、更新到本月 —— 完全没有基础时先看这个。",
+     "caveat": "内容偏向微软自家的 Azure OpenAI，学概念没问题，照着搭生产环境要注意它默认的是哪家云。"
+    },
+    {
+     "name": "大模型基础（so-large-lm）",
+     "repo": "datawhalechina/so-large-lm",
+     "stars": 7570,
+     "license": null,
+     "pushed": "2026-06-22",
+     "lang": "中文",
+     "why": "Datawhale 出的中文教材，**专讲基础概念**：什么是大模型、能力从哪来、有哪些局限。你说的「解释什么是大模型」正是它的定位。",
+     "caveat": "⚠️ **仓库里没有 LICENSE 文件** —— 能读能学，但拿它的内容去做二次分发或商用课件，得先联系作者。"
+    },
+    {
+     "name": "动手学深度学习（中文版）",
+     "repo": "d2l-ai/d2l-zh",
+     "stars": 79628,
+     "license": "Apache-2.0",
+     "pushed": "2024-07-30",
+     "lang": "中文",
+     "why": "**比大模型更底层的那一层**：神经网络到底在算什么。中英文版被 70 多个国家 500 多所大学用于教学，是这一类里最经得起推敲的。",
+     "caveat": "⚠️ **最后推送停在 2024-07**，讲的是深度学习基础而不是 2026 年的大模型工程。当基础课看，别当最新实践看。"
+    }
+   ]
+  },
+  {
+   "group": "想自己把模型跑起来 / 微调",
+   "items": [
+    {
+     "name": "开源大模型食用指南（self-llm）",
+     "repo": "datawhalechina/self-llm",
+     "stars": 31689,
+     "license": "Apache-2.0",
+     "pushed": "2026-07-30",
+     "lang": "中文",
+     "why": "**这一条最贴你的问题**：基于 Linux 环境，讲国内外开源模型怎么部署、怎么全参数/LoRA 微调。Apache-2.0，本月还在更新。",
+     "caveat": "以 Linux + N 卡为前提。Mac 或 Windows 上要自己换等价步骤。"
+    },
+    {
+     "name": "大模型技术原理与实战（llm-action）",
+     "repo": "liguodongiot/llm-action",
+     "stars": 24890,
+     "license": "Apache-2.0",
+     "pushed": "2026-07-19",
+     "lang": "中文",
+     "why": "**量化、推理加速、显存优化这些词的中文出处**大多能在这里找到成篇的讲解 —— 正好接上你看不懂 FP8/INT8 的那个问题。",
+     "caveat": "偏工程、密度大，适合已经知道自己要解决什么问题时来查，不适合从头顺读。"
+    },
+    {
+     "name": "LLM Course",
+     "repo": "mlabonne/llm-course",
+     "stars": 81630,
+     "license": "Apache-2.0",
+     "pushed": "2026-02-05",
+     "lang": "英文",
+     "why": "分三条路线（基础 / 科学家 / 工程师），**量化与部署单独成章**，配 Colab 笔记本可以直接跑。",
+     "caveat": "英文；最后推送 2026-02，比上面两条旧半年。"
+    }
+   ]
+  },
+  {
+   "group": "想弄明白它内部怎么运作",
+   "items": [
+    {
+     "name": "从零构建大模型（LLMs-from-scratch）",
+     "repo": "rasbt/LLMs-from-scratch",
+     "stars": 102494,
+     "license": "Apache-2.0（GitHub 判为 Other，实为 Apache 2.0 正文）",
+     "pushed": "2026-08-10",
+     "lang": "英文",
+     "why": "用 PyTorch **一行一行手写一个 ChatGPT 式模型**。这一类里星标最高、且本月仍在更新。想真正理解而不是会调 API，是这条。",
+     "caveat": "要求会 Python 与基本的深度学习概念，不是入门第一站。"
+    },
+    {
+     "name": "Neural Networks: Zero to Hero",
+     "repo": "karpathy/nn-zero-to-hero",
+     "stars": 23957,
+     "license": "MIT",
+     "pushed": "2024-08-18",
+     "lang": "英文（视频课）",
+     "why": "Karpathy 的视频课，**从反向传播一路手搓到 GPT**。讲解质量公认极高。",
+     "caveat": "⚠️ 最后推送 2024-08，内容停在 GPT-2 那个尺度。学原理够用，别指望覆盖今天的工程实践。"
+    },
+    {
+     "name": "大模型白盒子构建指南（tiny-universe）",
+     "repo": "datawhalechina/tiny-universe",
+     "stars": 5010,
+     "license": null,
+     "pushed": "2026-02-12",
+     "lang": "中文",
+     "why": "中文版的「全手搓」，把 RAG、Agent、模型结构都做成能跑的最小实现。",
+     "caveat": "⚠️ **仓库里没有 LICENSE 文件**，同 so-large-lm。"
+    },
+    {
+     "name": "从零开始构建大模型（happy-llm）",
+     "repo": "datawhalechina/happy-llm",
+     "stars": 32903,
+     "license": "CC BY-NC-SA 4.0",
+     "pushed": "2026-08-08",
+     "lang": "中文",
+     "why": "Datawhale 系里更新最勤的一本（本月还在推），中文，从零讲到能跑。",
+     "caveat": "⚠️ **许可是 CC BY-NC-SA 4.0 —— 不许商用**。自己学没问题，做成公司内训材料或付费课要先看清这一条。"
+    }
+   ]
+  },
+  {
+   "group": "厂商官方课",
+   "items": [
+    {
+     "name": "Hugging Face Transformers 课程",
+     "repo": "huggingface/course",
+     "stars": 4120,
+     "license": "Apache-2.0",
+     "pushed": "2026-07-06",
+     "lang": "英文（社区有中文翻译）",
+     "why": "**你在 HF 上看到的那些概念的官方解释出处**：模型卡怎么读、pipeline 怎么用、数据集怎么处理。站上大量证据链接指向 HF，看懂这门课等于看懂那些页面。",
+     "caveat": "围绕 HF 生态展开，不覆盖别家工具链。"
+    },
+    {
+     "name": "smol-course（小模型对齐）",
+     "repo": "huggingface/smol-course",
+     "stars": 6724,
+     "license": "Apache-2.0",
+     "pushed": "2026-05-26",
+     "lang": "英文",
+     "why": "HF 官方，**专讲在消费级硬件上做对齐/微调** —— 和「本地部署」这条线直接相关。",
+     "caveat": "进阶内容，默认你已经跑通过一次推理。"
+    }
+   ]
+  },
+  {
+   "group": "中文侧的组织入口",
+   "items": [
+    {
+     "name": "Datawhale 官网 / GitHub 组织",
+     "repo": null,
+     "url": "https://www.datawhale.cn/",
+     "stars": null,
+     "license": null,
+     "pushed": null,
+     "lang": "中文",
+     "why": "上面五条里有四条出自这家。**负责人自己点名的一家**（2026-08-11：「它们家的质量还是 ok 的」）。组织地址 github.com/datawhalechina，教程还在持续出。",
+     "caveat": "是社区组织不是厂商，**各仓库许可不统一** —— 上面已经逐个标了，别默认都能商用。"
+    }
+   ]
+  }
+ ]
+}

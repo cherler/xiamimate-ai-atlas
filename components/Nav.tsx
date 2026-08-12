@@ -89,7 +89,7 @@ export default function Nav() {
    * **不属于谁就别声称属于谁。** 切换器在这些页显示「全站」，菜单里两个方向都不实心。
    * （四个主链接仍要有落点，用 live 方向；这是导航选择，不是身份声明。）
    */
-  const CROSS = ["changes", "method", "toolkit", "caveats"];
+  const CROSS = ["changes", "method", "toolkit", "caveats", "basics"];
   const cross = CROSS.includes(seg);
   const dom = atlas.domains.some((d) => d.id === seg)
     ? seg

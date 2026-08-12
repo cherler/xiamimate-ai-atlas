@@ -29,6 +29,18 @@ export default function ToolkitPage() {
         </p>
       </header>
 
+      {/* **完全没有基础的人，来这一页是走错门了。** 这页答的是「查一件事去哪个站」，
+          而负责人 2026-08-12 的问题是「FP8 是什么意思，我完全搞不懂」——
+          那是另一件事，得先有个地方从头讲起。所以在最前面给一条明路。 */}
+      <Link href="/basics"
+        className="border border-yes/50 bg-yes/6 px-4 py-3 hover:bg-yes/10 transition-colors">
+        <p className="text-[15px] font-semibold">还不知道 FP8 / GGUF / LoRA 是什么？先看这一页 →</p>
+        <p className="text-[13px] text-muted mt-1">
+          13 个公开开源教程（从「什么是大模型」讲起）+ 本地部署要懂的词。<b className="text-ink">教程不是我们写的</b>，
+          我们只核实它还活着、说清许可、标出适合谁。
+        </p>
+      </Link>
+
       {/* 按方向分组 —— 三个公共页同一条规矩，顺序来自 atlas.domains（见 groupByDomain） */}
       {groupByDomain(atlas.toolkit, (t) => (t as { domain?: string }).domain).map((g, _gi, gs) => (
       <div key={g.id || "rest"} className="flex flex-col">

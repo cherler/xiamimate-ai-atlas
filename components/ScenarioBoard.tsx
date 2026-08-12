@@ -9,6 +9,7 @@ import {
 // `Rich` 把数据里的 `**重点**` 渲染成 <b>。**全库都这么写重点**，
 // 漏用不会报错，只会把星号原样印在页面上（手机端截图才发现「**直接对得上这件事**」）。
 import { Rich } from "./Fact";
+import ResourceFilter from "./ResourceFilter";
 
 const KIND: Record<ApplicationResourceKind, { label: string; className: string }> = {
   project: { label: "项目", className: "bg-yes/10 text-yes-ink" },
@@ -154,25 +155,19 @@ function ApplicationRow({ app }: { app: Application }) {
       <div className="min-w-0">
         <div className="flex flex-wrap items-end justify-between gap-3 pb-3 border-b border-rule">
           <p className="text-[16px] font-semibold">公开路线</p>
-          <div className="flex flex-wrap gap-1.5">
-            {counts(resources).map(({ kind, n }) => (
-              <span key={kind} className="text-[11px] border border-rule px-2 py-1 text-muted">
-                {KIND[kind].label} <b className="text-ink">{n}</b>
-              </span>
-            ))}
-          </div>
+          {/* 这排标签原来只是计数，长得像筛选器却点不动 —— 负责人 2026-08-12 直接去点了。
+              **一个长得像按钮的东西不响应点击，比没有它更糟。** 现在交给客户端组件，
+              卡片仍在这里（服务端）渲染好再传过去，不把 atlas 打包进前端。 */}
         </div>
 
-        <div
-          className="mt-3 h-[500px] md:h-[560px] overflow-y-auto overscroll-contain border border-rule bg-paper/35 p-2.5"
-          tabIndex={0}
-          role="region"
-          aria-label={`${app.zh}公开资源列表`}
-        >
-          <div className="grid gap-2.5 sm:grid-cols-2">
-            {resources.map((resource) => <ResourceCard key={resource.url} resource={resource} />)}
-          </div>
-        </div>
+        <ResourceFilter
+          label={`${app.zh}公开资源列表`}
+          counts={counts(resources).map(({ kind, n }) => ({ kind, label: KIND[kind].label, n }))}
+          items={resources.map((resource) => ({
+            kind: resource.kind,
+            node: <ResourceCard key={resource.url} resource={resource} />,
+          }))}
+        />
 
       </div>
     </article>
