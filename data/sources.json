@@ -2965,6 +2965,45 @@
         "version",
         "capability"
       ]
+    },
+    {
+      "id": "elevenlabs-models",
+      "tier": "S",
+      "kind": "html",
+      "vendor": "elevenlabs",
+      "name": "ElevenLabs · Models",
+      "url": "https://elevenlabs.io/docs/models",
+      "refresh_days": 14,
+      "good_for": [
+        "version",
+        "capability"
+      ]
+    },
+    {
+      "id": "openai-realtime",
+      "tier": "S",
+      "kind": "html",
+      "vendor": "gpt",
+      "name": "OpenAI · Realtime API 指南",
+      "url": "https://developers.openai.com/api/docs/guides/realtime",
+      "refresh_days": 14,
+      "good_for": [
+        "version",
+        "capability"
+      ]
+    },
+    {
+      "id": "gemini-tts",
+      "tier": "S",
+      "kind": "html",
+      "vendor": "gemini-text",
+      "name": "Gemini API · Speech generation",
+      "url": "https://ai.google.dev/gemini-api/docs/speech-generation",
+      "refresh_days": 14,
+      "good_for": [
+        "version",
+        "capability"
+      ]
     }
   ],
   "$missing": [

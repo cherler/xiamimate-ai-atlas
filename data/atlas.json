@@ -1,6 +1,6 @@
 {
  "version": "1.7",
- "generated_at": "2026-08-11",
+ "generated_at": "2026-08-12",
  "note": "第九版。clip 轨九个 Family 已全部用厂商官方源逐格重核（86% 的格子挂官方来源）。全部由 Agent 录入，未经人工核验（§59.3 转述层）。模型按 version_as_of 降序；status 标生命周期。",
  "changelog": [
   "v1.7 公司升为一等实体（阿里此前在库里是两家）+ 能力轴按方向隔离 + 平台透明度四档（⬜「我们没看到」≠🔴「只字不提」）+ 价格（**七家七种计价方式，不可比才是结论**）",
@@ -732,6 +732,252 @@
     "开源"
    ],
    "since_note": "和另外两卷同一项：这一代的权重公不公开"
+  },
+  {
+   "id": "s-voices",
+   "class": "tts",
+   "domain": "sound",
+   "name": "Preset voice library",
+   "zh": "预置音色",
+   "group": "音色",
+   "ubiquity": "已普及",
+   "aliases": [
+    "system voices",
+    "预置音色",
+    "voice library",
+    "preset voices"
+   ],
+   "since_note": "MiniMax「300+ 系统音色」· Google「30 种预设音色」· ElevenLabs 音色库"
+  },
+  {
+   "id": "s-clone",
+   "class": "tts",
+   "domain": "sound",
+   "name": "Voice cloning",
+   "zh": "音色复刻",
+   "group": "音色",
+   "ubiquity": "部分",
+   "aliases": [
+    "voice cloning",
+    "音色快速复刻",
+    "instant voice clone",
+    "voice_id"
+   ],
+   "since_note": "MiniMax「音色快速复刻」（需实名认证）· ElevenLabs Instant Voice Cloning"
+  },
+  {
+   "id": "s-design",
+   "class": "tts",
+   "domain": "sound",
+   "name": "Voice design from description",
+   "zh": "音色设计",
+   "group": "音色",
+   "ubiquity": "少数",
+   "aliases": [
+    "voice design",
+    "音色设计",
+    "从描述生成音色"
+   ],
+   "since_note": "MiniMax「音色设计」：用声音描述 prompt 生成个性化音色"
+  },
+  {
+   "id": "s-style",
+   "class": "tts",
+   "domain": "sound",
+   "name": "Style / emotion control",
+   "zh": "情绪与风格控制",
+   "group": "控制",
+   "ubiquity": "已普及",
+   "aliases": [
+    "style control",
+    "情绪渲染",
+    "controllable style",
+    "audio tags",
+    "语气词"
+   ],
+   "since_note": "Google「用自然语言控制音色、口音、节奏和语调」+ 音频标签 · MiniMax「情绪渲染融合语气词」"
+  },
+  {
+   "id": "s-multi",
+   "class": "tts",
+   "domain": "sound",
+   "name": "Multi-speaker",
+   "zh": "多说话人",
+   "group": "控制",
+   "ubiquity": "少数",
+   "aliases": [
+    "multi-speaker",
+    "多说话人",
+    "speaker config"
+   ],
+   "since_note": "Google「最多 2 位说话人」"
+  },
+  {
+   "id": "s-lang",
+   "class": "tts",
+   "domain": "sound",
+   "name": "Multilingual",
+   "zh": "多语言",
+   "group": "覆盖",
+   "ubiquity": "已普及",
+   "aliases": [
+    "multilingual",
+    "支持语种",
+    "languages"
+   ],
+   "since_note": "MiniMax 40 种 · Google 59 种 · ElevenLabs 70+"
+  },
+  {
+   "id": "s-stream",
+   "class": "tts",
+   "domain": "sound",
+   "name": "Streaming output",
+   "zh": "流式输出",
+   "group": "工程",
+   "ubiquity": "已普及",
+   "aliases": [
+    "streaming",
+    "流式输出",
+    "stream"
+   ],
+   "since_note": "MiniMax「支持流式输出」· Google「流式语音生成（仅 3.1）」"
+  },
+  {
+   "id": "s-long",
+   "class": "tts",
+   "domain": "sound",
+   "name": "Long-form / async",
+   "zh": "长文本异步",
+   "group": "工程",
+   "ubiquity": "部分",
+   "aliases": [
+    "async",
+    "异步长文本",
+    "long-form"
+   ],
+   "since_note": "MiniMax 异步接口「单次最大 100 万字符」（同步接口 10,000 字符）"
+  },
+  {
+   "id": "s-timestamp",
+   "class": "tts",
+   "domain": "sound",
+   "name": "Word/sentence timestamps",
+   "zh": "时间戳字幕",
+   "group": "工程",
+   "ubiquity": "部分",
+   "aliases": [
+    "timestamps",
+    "时间戳",
+    "字幕"
+   ],
+   "since_note": "MiniMax 异步长文本「支持时间戳（字幕）返回，精确到句」"
+  },
+  {
+   "id": "s-format",
+   "class": "tts",
+   "domain": "sound",
+   "name": "Audio format & rate control",
+   "zh": "格式与采样率",
+   "group": "工程",
+   "ubiquity": "已普及",
+   "aliases": [
+    "mp3",
+    "pcm",
+    "flac",
+    "wav",
+    "采样率",
+    "bitrate"
+   ],
+   "since_note": "MiniMax「mp3, pcm, flac, wav」并可调比特率与采样率"
+  },
+  {
+   "id": "s-m-prompt",
+   "class": "music",
+   "domain": "sound",
+   "name": "Prompt-to-music",
+   "zh": "描述生成音乐",
+   "group": "生成",
+   "ubiquity": "已普及",
+   "aliases": [
+    "text to music",
+    "音乐灵感",
+    "natural language prompts"
+   ],
+   "since_note": "MiniMax music-3.0「输入音乐灵感和歌词」· ElevenLabs Eleven Music v2"
+  },
+  {
+   "id": "s-m-lyrics",
+   "class": "music",
+   "domain": "sound",
+   "name": "Lyrics & vocals",
+   "zh": "歌词与人声",
+   "group": "生成",
+   "ubiquity": "部分",
+   "aliases": [
+    "lyrics",
+    "歌词",
+    "vocals",
+    "人声"
+   ],
+   "since_note": "MiniMax「根据歌曲描述与歌词，生成一首人声的歌曲」"
+  },
+  {
+   "id": "s-rt-duplex",
+   "class": "voice-rt",
+   "domain": "sound",
+   "name": "Full-duplex speech",
+   "zh": "全双工语音对话",
+   "group": "交互",
+   "ubiquity": "已普及",
+   "aliases": [
+    "realtime",
+    "全双工",
+    "speech to speech"
+   ],
+   "since_note": "OpenAI Realtime「Voice-agent sessions」· 智谱 glm-4-voice"
+  },
+  {
+   "id": "s-rt-tools",
+   "class": "voice-rt",
+   "domain": "sound",
+   "name": "Tool calls mid-conversation",
+   "zh": "对话中调工具",
+   "group": "交互",
+   "ubiquity": "部分",
+   "aliases": [
+    "function calling",
+    "tool call"
+   ],
+   "since_note": "OpenAI Realtime 的 voice agent 会话支持工具调用"
+  },
+  {
+   "id": "s-rt-translate",
+   "class": "voice-rt",
+   "domain": "sound",
+   "name": "Live translation",
+   "zh": "实时翻译",
+   "group": "交互",
+   "ubiquity": "少数",
+   "aliases": [
+    "live translation",
+    "translation session"
+   ],
+   "since_note": "OpenAI「gpt-realtime-translate」与 `/v1/realtime/translations` 端点"
+  },
+  {
+   "id": "s-rt-transport",
+   "class": "voice-rt",
+   "domain": "sound",
+   "name": "Transport options",
+   "zh": "接入方式",
+   "group": "工程",
+   "ubiquity": "部分",
+   "aliases": [
+    "WebRTC",
+    "WebSocket",
+    "SIP"
+   ],
+   "since_note": "OpenAI Realtime 列出 WebRTC / WebSocket / SIP 三种连接方式"
   }
  ],
  "orgs": [
@@ -1223,6 +1469,12 @@
     "lon": 2.352
    },
    "note": "Mistral 系列"
+  },
+  {
+   "id": "elevenlabs",
+   "zh": "ElevenLabs",
+   "en": "ElevenLabs",
+   "kind": "模型厂商"
   }
  ],
  "$orgs": "公司是**一等实体**，不是模型上的一个字符串（此前 vendor 是字符串，结果阿里在库里成了两家）。产业链图、地球分布、投资关系全都挂在这一层上。\n**hq 只有 5 家有来源，其余 6 家仍然没有** —— 都是公开常识，但我们自己的规矩是「没有来源的结论就是猜的」，所以校验里 R21 会一直警告，前台也必须标出来。不许因为「大家都知道」就当成核过了。\n\n2026-08-08 补：从已有快照和官网拿到 5 家的可引证据，但**精度分三档**，写进 `hq_precision`：\n  exact     —— 页脚给出具体街道地址（只有字节）\n  province  —— **ICP 备案只证到省**（快手/MiniMax/阿里）。阿里那条只证到浙江，没证到杭州\n  ambiguous —— 招聘页同时列两个城市（Runway 的纽约与旧金山）\n\n剩下 6 家（生数、昆仑万维、Google DeepMind、OpenAI、Decart、Lightricks）没拿到：\n**生数官网 HTTPS 证书已过期**（ERR_CERT_DATE_INVALID）—— 这条本身就是信息；\n其余几家的 about/contact 页没有可机读的地址段。R21 会一直为它们报警告。\n\n**不许把 province 当成 exact 用。** 我们批评厂商「说了半句」的时候，自己不能也说半句。",
@@ -2399,6 +2651,171 @@
    "team": "Mistral AI",
    "version_src": "hf-text-org",
    "version_quote": "mistralai/Mistral-Medium-3.5-128B（官方 HF 组织 createdAt 2026-03-31）"
+  },
+  {
+   "id": "mm-speech",
+   "class": "tts",
+   "family": "MiniMax Speech",
+   "org": "minimax",
+   "version": "speech-2.8-hd",
+   "version_as_of": "2026-08-12",
+   "status": "active",
+   "tier": "core",
+   "domain": "sound",
+   "weights": "closed",
+   "version_src": "minimax-api-overview",
+   "version_quote": "接口概览的语音模型表：「speech-2.8-hd —— 最新的 HD 模型，情绪渲染融合语气词，重塑自然听感」",
+   "lineage_note": "声音卷 2026-08-12 才立项，谱系还没采 —— 这是「没采到」，不是「它没有历史」"
+  },
+  {
+   "id": "elevenlabs",
+   "class": "tts",
+   "family": "ElevenLabs",
+   "org": "elevenlabs",
+   "version": "Eleven v3",
+   "version_as_of": "2026-08-12",
+   "status": "active",
+   "tier": "core",
+   "domain": "sound",
+   "weights": "closed",
+   "version_src": "elevenlabs-models",
+   "version_quote": "模型页：「Eleven v3 —— Human-like and expressive speech generation」，70+ 语言、单次 5,000 字符",
+   "lineage_note": "声音卷 2026-08-12 才立项，谱系还没采 —— 这是「没采到」，不是「它没有历史」"
+  },
+  {
+   "id": "gemini-tts",
+   "class": "tts",
+   "family": "Gemini TTS",
+   "org": "google",
+   "version": "3.1 Flash TTS Preview",
+   "version_as_of": "2026-08-12",
+   "status": "active",
+   "tier": "core",
+   "domain": "sound",
+   "weights": "closed",
+   "version_src": "gemini-tts",
+   "version_quote": "语音生成指南列出 Gemini 3.1 Flash TTS Preview / 2.5 Flash Preview TTS / 2.5 Pro Preview TTS；30 种预设音色、59 种语言",
+   "lineage_note": "声音卷 2026-08-12 才立项，谱系还没采 —— 这是「没采到」，不是「它没有历史」"
+  },
+  {
+   "id": "openai-tts",
+   "class": "tts",
+   "family": "GPT TTS",
+   "org": "openai",
+   "version": "GPT-4o mini TTS",
+   "version_as_of": "2026-08-12",
+   "status": "active",
+   "tier": "core",
+   "domain": "sound",
+   "weights": "closed",
+   "version_src": "openai-models",
+   "version_quote": "模型页 Speech Generation 一栏只列了 GPT-4o mini TTS",
+   "lineage_note": "声音卷 2026-08-12 才立项，谱系还没采 —— 这是「没采到」，不是「它没有历史」"
+  },
+  {
+   "id": "glm-voice",
+   "class": "tts",
+   "family": "GLM Voice",
+   "org": "zhipu",
+   "version": "glm-4-voice",
+   "version_as_of": "2026-08-12",
+   "status": "active",
+   "tier": "core",
+   "domain": "sound",
+   "weights": "open",
+   "version_src": "glm-chat-api",
+   "version_quote": "对话补全 OpenAPI 的「音频对话示例」用的是 `model: glm-4-voice`，内容块 `type: input_audio`",
+   "lineage_note": "声音卷 2026-08-12 才立项，谱系还没采 —— 这是「没采到」，不是「它没有历史」"
+  },
+  {
+   "id": "qwen-omni",
+   "class": "tts",
+   "family": "Qwen Omni",
+   "org": "alibaba",
+   "version": "3.5-omni-plus",
+   "version_as_of": "2026-08-12",
+   "status": "active",
+   "tier": "core",
+   "domain": "sound",
+   "weights": "closed",
+   "version_src": "bailian-websearch",
+   "version_quote": "百炼联网搜索页的支持模型清单含「Qwen-Omni series（qwen3.5-omni-plus, qwen3.5-omni-flash）」",
+   "lineage_note": "声音卷 2026-08-12 才立项，谱系还没采 —— 这是「没采到」，不是「它没有历史」"
+  },
+  {
+   "id": "mm-music",
+   "class": "music",
+   "family": "MiniMax Music",
+   "org": "minimax",
+   "version": "music-3.0",
+   "version_as_of": "2026-08-12",
+   "status": "active",
+   "tier": "core",
+   "domain": "sound",
+   "weights": "closed",
+   "version_src": "minimax-api-overview",
+   "version_quote": "音乐生成一节：「music-3.0 —— 最新音乐生成模型，支持用户输入音乐灵感和歌词，生成 AI 音乐」",
+   "lineage_note": "声音卷 2026-08-12 才立项，谱系还没采 —— 这是「没采到」，不是「它没有历史」"
+  },
+  {
+   "id": "eleven-music",
+   "class": "music",
+   "family": "Eleven Music",
+   "org": "elevenlabs",
+   "version": "v2",
+   "version_as_of": "2026-08-12",
+   "status": "active",
+   "tier": "core",
+   "domain": "sound",
+   "weights": "closed",
+   "version_src": "elevenlabs-models",
+   "version_quote": "模型页 Music Generation：「Eleven Music v2 —— Studio-grade music with natural language prompts in any style」",
+   "lineage_note": "声音卷 2026-08-12 才立项，谱系还没采 —— 这是「没采到」，不是「它没有历史」"
+  },
+  {
+   "id": "lyria",
+   "class": "music",
+   "family": "Lyria",
+   "org": "google",
+   "version": "3 Pro Preview",
+   "version_as_of": "2026-08-12",
+   "status": "active",
+   "tier": "core",
+   "domain": "sound",
+   "weights": "closed",
+   "version_src": "gemini-changelog",
+   "version_quote": "Interactions API 的支持模型表列有 lyria-3-pro-preview 与 lyria-3-clip-preview",
+   "lineage_note": "声音卷 2026-08-12 才立项，谱系还没采 —— 这是「没采到」，不是「它没有历史」"
+  },
+  {
+   "id": "gpt-realtime",
+   "class": "voice-rt",
+   "family": "GPT Realtime",
+   "org": "openai",
+   "version": "2.1",
+   "version_as_of": "2026-08-12",
+   "status": "active",
+   "tier": "core",
+   "domain": "sound",
+   "weights": "closed",
+   "version_src": "openai-realtime",
+   "version_quote": "Realtime 指南列出 gpt-realtime-2.1、gpt-realtime-translate、gpt-live-transcribe 三支；会话分 voice-agent / translation / transcription",
+   "lineage_note": "声音卷 2026-08-12 才立项，谱系还没采 —— 这是「没采到」，不是「它没有历史」"
+  },
+  {
+   "id": "grok-voice",
+   "class": "voice-rt",
+   "family": "Grok Voice",
+   "org": "xai",
+   "version": "think-fast-2.0",
+   "version_as_of": "2026-08-12",
+   "status": "active",
+   "tier": "core",
+   "domain": "sound",
+   "weights": "closed",
+   "version_src": "xai-release-notes",
+   "version_quote": "API 发布说明 2026 年 7 月：grok-voice-think-fast-2.0",
+   "lineage_note": "声音卷 2026-08-12 才立项，谱系还没采 —— 这是「没采到」，不是「它没有历史」"
   }
  ],
  "sources": {
@@ -3460,6 +3877,21 @@
   "ideogram-api": {
    "name": "Ideogram · API 文档（generate v4）",
    "url": "https://developer.ideogram.ai/api-reference/api-reference/generate-v4",
+   "tier": "official"
+  },
+  "elevenlabs-models": {
+   "name": "ElevenLabs · Models",
+   "url": "https://elevenlabs.io/docs/models",
+   "tier": "official"
+  },
+  "openai-realtime": {
+   "name": "OpenAI · Realtime API 指南",
+   "url": "https://developers.openai.com/api/docs/guides/realtime",
+   "tier": "official"
+  },
+  "gemini-tts": {
+   "name": "Gemini API · Speech generation",
+   "url": "https://ai.google.dev/gemini-api/docs/speech-generation",
    "tier": "official"
   }
  },
@@ -6848,6 +7280,534 @@
    "c": "t-openweights",
    "state": "unknown",
    "verified_for": "Medium 3.5"
+  },
+  {
+   "m": "mm-speech",
+   "c": "s-voices",
+   "state": "yes",
+   "verified_for": "speech-2.8-hd",
+   "src": "minimax-api-overview",
+   "note": "接口概览「同步语音合成」一节：「支持 300+ 系统音色、复刻音色自主选择」",
+   "via": "native",
+   "as_of": "2026-08-12"
+  },
+  {
+   "m": "mm-speech",
+   "c": "s-clone",
+   "state": "yes",
+   "verified_for": "speech-2.8-hd",
+   "src": "minimax-api-overview",
+   "note": "「音色快速复刻」接口：上传音频 + 可选示例音频 → 克隆音色。⚠️ **需完成个人或企业实名认证**；产出的是临时音色，7 天内不使用会被删除",
+   "via": "native",
+   "as_of": "2026-08-12"
+  },
+  {
+   "m": "mm-speech",
+   "c": "s-design",
+   "state": "yes",
+   "verified_for": "speech-2.8-hd",
+   "src": "minimax-api-overview",
+   "note": "「音色设计」接口：基于声音描述 prompt 生成个性化音色，可在合成接口里用",
+   "via": "native",
+   "as_of": "2026-08-12"
+  },
+  {
+   "m": "mm-speech",
+   "c": "s-style",
+   "state": "yes",
+   "verified_for": "speech-2.8-hd",
+   "src": "minimax-api-overview",
+   "note": "模型表：「speech-2.8-hd —— 情绪渲染融合语气词，重塑自然听感」；接口概览「同步语音合成」一节另有音量/语调/语速调整",
+   "via": "native",
+   "as_of": "2026-08-12"
+  },
+  {
+   "m": "mm-speech",
+   "c": "s-multi",
+   "state": "unknown",
+   "verified_for": "speech-2.8-hd"
+  },
+  {
+   "m": "mm-speech",
+   "c": "s-lang",
+   "state": "yes",
+   "verified_for": "speech-2.8-hd",
+   "src": "minimax-api-overview",
+   "note": "「全面支持 40 种全球广泛使用的语言」，页面列了 40 个语种",
+   "via": "native",
+   "as_of": "2026-08-12"
+  },
+  {
+   "m": "mm-speech",
+   "c": "s-stream",
+   "state": "yes",
+   "verified_for": "speech-2.8-hd",
+   "src": "minimax-api-overview",
+   "note": "接口概览「同步语音合成」一节：「支持流式输出」",
+   "via": "native",
+   "as_of": "2026-08-12"
+  },
+  {
+   "m": "mm-speech",
+   "c": "s-long",
+   "state": "yes",
+   "verified_for": "speech-2.8-hd",
+   "src": "minimax-api-overview",
+   "note": "异步长文本一节：「单次文本生成传输最大支持 100 万字符」（同步接口上限 10,000 字符）",
+   "via": "native",
+   "as_of": "2026-08-12"
+  },
+  {
+   "m": "mm-speech",
+   "c": "s-timestamp",
+   "state": "yes",
+   "verified_for": "speech-2.8-hd",
+   "src": "minimax-api-overview",
+   "note": "异步长文本一节：「支持时间戳（字幕）返回，精确到句」",
+   "via": "native",
+   "as_of": "2026-08-12"
+  },
+  {
+   "m": "mm-speech",
+   "c": "s-format",
+   "state": "yes",
+   "verified_for": "speech-2.8-hd",
+   "src": "minimax-api-overview",
+   "note": "接口概览「同步语音合成」一节：「支持多种音频规格、格式，包括：mp3, pcm, flac, wav」，并可调比特率与采样率",
+   "via": "native",
+   "as_of": "2026-08-12"
+  },
+  {
+   "m": "elevenlabs",
+   "c": "s-voices",
+   "state": "unknown",
+   "verified_for": "Eleven v3"
+  },
+  {
+   "m": "elevenlabs",
+   "c": "s-clone",
+   "state": "unknown",
+   "verified_for": "Eleven v3"
+  },
+  {
+   "m": "elevenlabs",
+   "c": "s-design",
+   "state": "unknown",
+   "verified_for": "Eleven v3"
+  },
+  {
+   "m": "elevenlabs",
+   "c": "s-style",
+   "state": "unknown",
+   "verified_for": "Eleven v3"
+  },
+  {
+   "m": "elevenlabs",
+   "c": "s-multi",
+   "state": "unknown",
+   "verified_for": "Eleven v3"
+  },
+  {
+   "m": "elevenlabs",
+   "c": "s-lang",
+   "state": "yes",
+   "verified_for": "Eleven v3",
+   "src": "elevenlabs-models",
+   "note": "模型页：Eleven v3 支持 70+ 语言；Flash v2.5 为 32 种；Multilingual v2 为 29 种",
+   "via": "native",
+   "as_of": "2026-08-12"
+  },
+  {
+   "m": "elevenlabs",
+   "c": "s-stream",
+   "state": "unknown",
+   "verified_for": "Eleven v3"
+  },
+  {
+   "m": "elevenlabs",
+   "c": "s-long",
+   "state": "unknown",
+   "verified_for": "Eleven v3"
+  },
+  {
+   "m": "elevenlabs",
+   "c": "s-timestamp",
+   "state": "unknown",
+   "verified_for": "Eleven v3"
+  },
+  {
+   "m": "elevenlabs",
+   "c": "s-format",
+   "state": "unknown",
+   "verified_for": "Eleven v3"
+  },
+  {
+   "m": "gemini-tts",
+   "c": "s-voices",
+   "state": "yes",
+   "verified_for": "3.1 Flash TTS Preview",
+   "src": "gemini-tts",
+   "note": "「30 种预设音色」，含 Zephyr、Puck、Charon、Kore 等",
+   "via": "native",
+   "as_of": "2026-08-12"
+  },
+  {
+   "m": "gemini-tts",
+   "c": "s-clone",
+   "state": "unknown",
+   "verified_for": "3.1 Flash TTS Preview"
+  },
+  {
+   "m": "gemini-tts",
+   "c": "s-design",
+   "state": "unknown",
+   "verified_for": "3.1 Flash TTS Preview"
+  },
+  {
+   "m": "gemini-tts",
+   "c": "s-style",
+   "state": "yes",
+   "verified_for": "3.1 Flash TTS Preview",
+   "src": "gemini-tts",
+   "note": "「可控的风格生成 —— 通过自然语言控制音色、口音、节奏和语调」，另支持 `[whispers]`、`[laughs]` 这类音频标签",
+   "via": "native",
+   "as_of": "2026-08-12"
+  },
+  {
+   "m": "gemini-tts",
+   "c": "s-multi",
+   "state": "yes",
+   "verified_for": "3.1 Flash TTS Preview",
+   "src": "gemini-tts",
+   "note": "「多说话人音频生成」，**最多 2 位**",
+   "via": "native",
+   "as_of": "2026-08-12"
+  },
+  {
+   "m": "gemini-tts",
+   "c": "s-lang",
+   "state": "yes",
+   "verified_for": "3.1 Flash TTS Preview",
+   "src": "gemini-tts",
+   "note": "支持 59 种语言（含普通话、繁体中文、日语、韩语等）",
+   "via": "native",
+   "as_of": "2026-08-12"
+  },
+  {
+   "m": "gemini-tts",
+   "c": "s-stream",
+   "state": "yes",
+   "verified_for": "3.1 Flash TTS Preview",
+   "src": "gemini-tts",
+   "note": "「流式语音生成」—— ⚠️ **仅 3.1 版本模型**",
+   "via": "native",
+   "as_of": "2026-08-12"
+  },
+  {
+   "m": "gemini-tts",
+   "c": "s-long",
+   "state": "unknown",
+   "verified_for": "3.1 Flash TTS Preview"
+  },
+  {
+   "m": "gemini-tts",
+   "c": "s-timestamp",
+   "state": "unknown",
+   "verified_for": "3.1 Flash TTS Preview"
+  },
+  {
+   "m": "gemini-tts",
+   "c": "s-format",
+   "state": "unknown",
+   "verified_for": "3.1 Flash TTS Preview"
+  },
+  {
+   "m": "openai-tts",
+   "c": "s-voices",
+   "state": "unknown",
+   "verified_for": "GPT-4o mini TTS"
+  },
+  {
+   "m": "openai-tts",
+   "c": "s-clone",
+   "state": "unknown",
+   "verified_for": "GPT-4o mini TTS"
+  },
+  {
+   "m": "openai-tts",
+   "c": "s-design",
+   "state": "unknown",
+   "verified_for": "GPT-4o mini TTS"
+  },
+  {
+   "m": "openai-tts",
+   "c": "s-style",
+   "state": "unknown",
+   "verified_for": "GPT-4o mini TTS"
+  },
+  {
+   "m": "openai-tts",
+   "c": "s-multi",
+   "state": "unknown",
+   "verified_for": "GPT-4o mini TTS"
+  },
+  {
+   "m": "openai-tts",
+   "c": "s-lang",
+   "state": "unknown",
+   "verified_for": "GPT-4o mini TTS"
+  },
+  {
+   "m": "openai-tts",
+   "c": "s-stream",
+   "state": "unknown",
+   "verified_for": "GPT-4o mini TTS"
+  },
+  {
+   "m": "openai-tts",
+   "c": "s-long",
+   "state": "unknown",
+   "verified_for": "GPT-4o mini TTS"
+  },
+  {
+   "m": "openai-tts",
+   "c": "s-timestamp",
+   "state": "unknown",
+   "verified_for": "GPT-4o mini TTS"
+  },
+  {
+   "m": "openai-tts",
+   "c": "s-format",
+   "state": "unknown",
+   "verified_for": "GPT-4o mini TTS"
+  },
+  {
+   "m": "glm-voice",
+   "c": "s-voices",
+   "state": "unknown",
+   "verified_for": "glm-4-voice"
+  },
+  {
+   "m": "glm-voice",
+   "c": "s-clone",
+   "state": "unknown",
+   "verified_for": "glm-4-voice"
+  },
+  {
+   "m": "glm-voice",
+   "c": "s-design",
+   "state": "unknown",
+   "verified_for": "glm-4-voice"
+  },
+  {
+   "m": "glm-voice",
+   "c": "s-style",
+   "state": "unknown",
+   "verified_for": "glm-4-voice"
+  },
+  {
+   "m": "glm-voice",
+   "c": "s-multi",
+   "state": "unknown",
+   "verified_for": "glm-4-voice"
+  },
+  {
+   "m": "glm-voice",
+   "c": "s-lang",
+   "state": "unknown",
+   "verified_for": "glm-4-voice"
+  },
+  {
+   "m": "glm-voice",
+   "c": "s-stream",
+   "state": "unknown",
+   "verified_for": "glm-4-voice"
+  },
+  {
+   "m": "glm-voice",
+   "c": "s-long",
+   "state": "unknown",
+   "verified_for": "glm-4-voice"
+  },
+  {
+   "m": "glm-voice",
+   "c": "s-timestamp",
+   "state": "unknown",
+   "verified_for": "glm-4-voice"
+  },
+  {
+   "m": "glm-voice",
+   "c": "s-format",
+   "state": "unknown",
+   "verified_for": "glm-4-voice"
+  },
+  {
+   "m": "qwen-omni",
+   "c": "s-voices",
+   "state": "unknown",
+   "verified_for": "3.5-omni-plus"
+  },
+  {
+   "m": "qwen-omni",
+   "c": "s-clone",
+   "state": "unknown",
+   "verified_for": "3.5-omni-plus"
+  },
+  {
+   "m": "qwen-omni",
+   "c": "s-design",
+   "state": "unknown",
+   "verified_for": "3.5-omni-plus"
+  },
+  {
+   "m": "qwen-omni",
+   "c": "s-style",
+   "state": "unknown",
+   "verified_for": "3.5-omni-plus"
+  },
+  {
+   "m": "qwen-omni",
+   "c": "s-multi",
+   "state": "unknown",
+   "verified_for": "3.5-omni-plus"
+  },
+  {
+   "m": "qwen-omni",
+   "c": "s-lang",
+   "state": "unknown",
+   "verified_for": "3.5-omni-plus"
+  },
+  {
+   "m": "qwen-omni",
+   "c": "s-stream",
+   "state": "unknown",
+   "verified_for": "3.5-omni-plus"
+  },
+  {
+   "m": "qwen-omni",
+   "c": "s-long",
+   "state": "unknown",
+   "verified_for": "3.5-omni-plus"
+  },
+  {
+   "m": "qwen-omni",
+   "c": "s-timestamp",
+   "state": "unknown",
+   "verified_for": "3.5-omni-plus"
+  },
+  {
+   "m": "qwen-omni",
+   "c": "s-format",
+   "state": "unknown",
+   "verified_for": "3.5-omni-plus"
+  },
+  {
+   "m": "mm-music",
+   "c": "s-m-prompt",
+   "state": "yes",
+   "verified_for": "music-3.0",
+   "src": "minimax-api-overview",
+   "note": "「music-3.0 —— 支持用户输入音乐灵感和歌词，生成 AI 音乐」",
+   "via": "native",
+   "as_of": "2026-08-12"
+  },
+  {
+   "m": "mm-music",
+   "c": "s-m-lyrics",
+   "state": "yes",
+   "verified_for": "music-3.0",
+   "src": "minimax-api-overview",
+   "note": "音乐生成一节：「根据歌曲描述（prompt）和歌词（lyrics），生成一首**人声**的歌曲」",
+   "via": "native",
+   "as_of": "2026-08-12"
+  },
+  {
+   "m": "eleven-music",
+   "c": "s-m-prompt",
+   "state": "yes",
+   "verified_for": "v2",
+   "src": "elevenlabs-models",
+   "note": "「Eleven Music v2 —— Studio-grade music with natural language prompts in any style」",
+   "via": "native",
+   "as_of": "2026-08-12"
+  },
+  {
+   "m": "eleven-music",
+   "c": "s-m-lyrics",
+   "state": "unknown",
+   "verified_for": "v2"
+  },
+  {
+   "m": "lyria",
+   "c": "s-m-prompt",
+   "state": "unknown",
+   "verified_for": "3 Pro Preview"
+  },
+  {
+   "m": "lyria",
+   "c": "s-m-lyrics",
+   "state": "unknown",
+   "verified_for": "3 Pro Preview"
+  },
+  {
+   "m": "gpt-realtime",
+   "c": "s-rt-duplex",
+   "state": "yes",
+   "verified_for": "2.1",
+   "src": "openai-realtime",
+   "note": "Realtime 指南的会话类型含「Voice-agent sessions」，响应事件有 `response.output_audio.delta`",
+   "via": "native",
+   "as_of": "2026-08-12"
+  },
+  {
+   "m": "gpt-realtime",
+   "c": "s-rt-tools",
+   "state": "unknown",
+   "verified_for": "2.1"
+  },
+  {
+   "m": "gpt-realtime",
+   "c": "s-rt-translate",
+   "state": "yes",
+   "verified_for": "2.1",
+   "src": "openai-realtime",
+   "note": "专门的「Translation sessions」与 `gpt-realtime-translate` 模型，端点 `/v1/realtime/translations`",
+   "via": "native",
+   "as_of": "2026-08-12"
+  },
+  {
+   "m": "gpt-realtime",
+   "c": "s-rt-transport",
+   "state": "yes",
+   "verified_for": "2.1",
+   "src": "openai-realtime",
+   "note": "「Choose a connection method」列出 **WebRTC / WebSocket / SIP** 三种",
+   "via": "native",
+   "as_of": "2026-08-12"
+  },
+  {
+   "m": "grok-voice",
+   "c": "s-rt-duplex",
+   "state": "unknown",
+   "verified_for": "think-fast-2.0"
+  },
+  {
+   "m": "grok-voice",
+   "c": "s-rt-tools",
+   "state": "unknown",
+   "verified_for": "think-fast-2.0"
+  },
+  {
+   "m": "grok-voice",
+   "c": "s-rt-translate",
+   "state": "unknown",
+   "verified_for": "think-fast-2.0"
+  },
+  {
+   "m": "grok-voice",
+   "c": "s-rt-transport",
+   "state": "unknown",
+   "verified_for": "think-fast-2.0"
   }
  ],
  "$aliases_why": "各家给同一个能力起不同的名字。**Kling 管角色参考叫 Element，我按 Character Reference 去找，找不到就标了「官方没说」—— 假阴性。** 采集时必须用整组别名去匹配，不能只用我们自己的叫法。这是原方案 §36 Entity Resolution 在能力维度上的对应物。\n\n`alias_bit_us` 标在**真把我们坑过的那一项**上（角色参考）。别名多不等于叫法分歧大：「首尾帧」也有 8 条别名，但全是 start/end frame 的描述性变体，谁都猜得到；而 Element / Ingredients / cameo 是厂商自造词，**不知道就永远搜不到**。选例子要选后者，靠数别名条数是挑不出来的 —— 所以标在数据里，不用启发式猜。",
@@ -6916,6 +7876,37 @@
     }
    ],
    "href": "/text"
+  },
+  {
+   "id": "sound",
+   "name": "AI 声音",
+   "state": "planned",
+   "volume": "第四个方向",
+   "note": "第四个方向。**三轨** —— 语音合成、音乐生成、实时语音各有一套坐标系：「音色数量」对音乐模型没意义、「曲风」对 TTS 没意义，硬并成一张表会把两边都讲错（规则二）。⚠️ **不收 ASR**：产出物是文本，按规则一归文本方向，而且文本卷的 `t-audio` 已经记了同一件事。",
+   "tracks": [
+    {
+     "id": "tts",
+     "zh": "语音合成轨",
+     "short": "语音合成",
+     "volume": "第一卷",
+     "note": "给定文本，产出一段语音"
+    },
+    {
+     "id": "music",
+     "zh": "音乐生成轨",
+     "short": "音乐生成",
+     "volume": "第二卷",
+     "note": "给定描述或歌词，产出一段音乐"
+    },
+    {
+     "id": "voice-rt",
+     "zh": "实时语音轨",
+     "short": "实时语音",
+     "volume": "第三卷",
+     "note": "边说边听：语音进、语音出，可打断"
+    }
+   ],
+   "href": "/sound"
   }
  ],
  "$domains": "前端的方向切换从这里渲染。**现在只有一个，界面上就只显示一个** —— 不做占位 tab 假装有别的。加方向 = 往这个数组里加一条 + 给模型标 domain，不动代码。\n\n**能力轴按方向隔离**（规则二再往上推一层）：能力也带 domain。clip 和 realtime 已经不能共用能力轴，视频和文本更不能 —— 「首尾帧」对文本模型没有意义，硬塞进同一张表只会造出一整片假的 ⬜。校验 R26 拦跨方向的格子。",

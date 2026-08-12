@@ -59,10 +59,22 @@ const label = (m) => {
  * 标题还写着「9 个 AI 视频模型」。和 R68 拦的是同一类问题：
  * 做完一卷就以为收工，跨方向的东西没人记得回来补。
  */
-const DOMAINS = a.domains.filter((d) => d.state === "live");
+/**
+ * **判据是「有没有数据」，不是「上没上线」。**
+ * 原来按 `state === "live"` 筛 —— 可 planned 的方向页照样能打开、照样声明
+ * 自己的 og:image（页面代码是通用的），于是新立的声音卷一进来就缺两张图，
+ * 被出站检查逮个正着。页面存在，它的卡就该存在。
+ */
+const DOMAINS = a.domains.filter((d) => a.models.some((m) => (m.domain ?? "video") === d.id));
 const domName = (dom) => a.domains.find((d) => d.id === dom)?.name ?? dom;
 /** 一卷的主轨：视频有两轨，取离线出片那条（另一条模型太少，画出来是张空表）。 */
-const mainClass = (dom) => ({ video: "clip", image: "still", text: "chat" })[dom] ?? "clip";
+/**
+ * 一卷的主轨 = 它 tracks 里的第一条。**别再写死映射表** ——
+ * 原来是 `{video:"clip", image:"still", text:"chat"}`，加声音卷时它落到兜底的 "clip"，
+ * 于是 modelsOfDom 返回空数组，notes() 里 `unk[0].m` 直接崩。
+ * 加一卷就要回来改一次的表，迟早会漏改；从 domains 里读就不会。
+ */
+const mainClass = (dom) => a.domains.find((d) => d.id === dom)?.tracks?.[0]?.id ?? "clip";
 const capsOf = (cls, dom = "video") =>
   a.capabilities.filter((c) => (c.domain ?? "video") === dom && (c.class === "both" || c.class === cls));
 const modelsOfDom = (dom) =>
@@ -121,6 +133,8 @@ const shell = (w, h, body, foot) => `<!doctype html><meta charset="utf-8">
 function notes(w, dom = "video") {
   const caps = capsOf(mainClass(dom), dom);
   const models = modelsOfDom(dom);
+  // 新立的卷可能还没有模型/能力 —— **空数据要让位，不是崩掉整批出图**
+  if (!models.length || !caps.length) return "";
   // ⬜ 的分布：只报总数会骗人 —— 集中在一两家和平摊到九家，是完全不同的两件事
   const unk = models
     .map((m) => ({ m, n: caps.filter((c) => cell(m.id, c.id).state === "unknown").length }))
