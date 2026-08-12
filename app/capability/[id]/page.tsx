@@ -4,6 +4,7 @@ import { Fact } from "@/components/Fact";
 import { atlas, cell, label, modelsOf, vendorName, type Klass , trackName} from "@/lib/atlas";
 import { modelHref } from "@/lib/slug";
 import BackLink from "@/components/BackLink";
+import Share from "@/components/Share";
 
 /**
  * 能力页。回答 §1.4 里最常被问的那类问题：「我想做人物动作复刻，有哪些模型？」
@@ -107,9 +108,13 @@ export default async function CapabilityPage({ params }: { params: Promise<{ id:
         </section>
       ))}
 
-      <footer className="border-t border-rule pt-5 text-[13px] text-muted leading-relaxed">
-        数据版本 {atlas.version} · 数据截至 {atlas.generated_at} ·
-        <b className="text-unknown"> 全部为机器录入</b>
+      <footer className="border-t border-rule pt-5 text-[13px] text-muted leading-relaxed flex flex-wrap items-baseline justify-between gap-3">
+        <span>
+          数据版本 {atlas.version} · 数据截至 {atlas.generated_at} ·
+          <b className="text-unknown"> 全部为机器录入</b>
+        </span>
+        {/* 分享放在页脚：**读完才是想分享的时刻**，放顶上会跟返回、标题抢注意力 */}
+        <Share og={`/atlas/og/capability-${id}-16x9.png`} title={c.zh} />
       </footer>
     </main>
   );
