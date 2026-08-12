@@ -63,7 +63,16 @@ const shell = (w, h, body, foot) => `<!doctype html><meta charset="utf-8">
   *{margin:0;padding:0;box-sizing:border-box}
   body{width:${w}px;height:${h}px;background:${C.paper};color:${C.ink};
     font:400 16px/1.5 "PingFang SC","Hiragino Sans GB","Microsoft YaHei",-apple-system,sans-serif;
-    display:flex;flex-direction:column;padding:${Math.round(w * 0.045)}px;overflow:hidden}
+    display:flex;flex-direction:column;padding:${Math.round(w * 0.045)}px;overflow:hidden;position:relative}
+  /**
+   * 水印。**页脚那行地址会被裁掉** —— 转发的人截图、二次裁剪，第一个没的就是页脚，
+   * 于是图脱离了出处继续流传，而「带出处」正是这个产品的全部价值。
+   * 所以在内容区里再留一处，**独立于页脚**：淡、小、贴着上边缘，
+   * 不抢内容（负责人 2026-08-12：「不要太明显」），但裁掉页脚它还在。
+   */
+  .wm{position:absolute;top:${Math.round(h * 0.016)}px;right:${Math.round(w * 0.02)}px;
+    font-size:${Math.round(w * 0.0115)}px;letter-spacing:.06em;color:${C.muted};opacity:.42;
+    font-weight:500;pointer-events:none}
   .grow{flex:1;min-height:0}  /* 不设 overflow:hidden —— 那会**悄悄裁掉内容**，
      结果就是标题写「11 项能力」、表里只画 7 行，图自己跟自己打架。
      宁可让它溢出被下面的自适应循环量出来，也不要被静静剪掉。 */
@@ -74,6 +83,7 @@ const shell = (w, h, body, foot) => `<!doctype html><meta charset="utf-8">
   b{font-weight:600}
   .yes{color:${C.yes}} .no{color:${C.no}} .unk{color:${C.unknown}} .mut{color:${C.muted}}
 </style>
+<div class="wm">xiamimate.com/atlas</div>
 <div class="grow">${body}</div>
 <div class="foot">
   <div>${foot}</div>
