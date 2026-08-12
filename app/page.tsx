@@ -21,13 +21,17 @@ export const metadata: Metadata = {
 export default function Pick() {
   return (
     <main data-page="home" className="max-w-[1000px] mx-auto px-6 py-12">
-      <header className="border-b-[2.5px] border-ink pb-3">
+      <header className="flex items-end gap-4 border-b-[2.5px] border-ink pb-3">
         <h1 className="text-[38px] leading-[1.05] font-bold tracking-[-.01em]">
           先选一个方向
           <span className="block text-[15px] leading-[1.3] font-normal text-muted mt-2">
             每个方向一套独立的能力轴 —— 硬并成一张表会把两边都讲错
           </span>
         </h1>
+        {/* 右上角，和其余各页同一个位置 —— 一个每页都在别处的按钮，等于每页都要重新找 */}
+        <div className="ml-auto whitespace-nowrap">
+          <Share og="/atlas/og/index-16x9.png" title="虾米看AI · AI 能力核验" />
+        </div>
       </header>
 
       <div className="mt-8 flex flex-col gap-4">
@@ -60,10 +64,6 @@ export default function Pick() {
         多的那个是我们还没读完那些文档 —— 这一点在方向页里也写着。
         <Link href="/method" className="underline ml-1 hover:text-ink">口径 →</Link>
       </p>
-      <div className="mt-8 flex justify-end border-t border-rule pt-4">
-        {/* 首页那张四个比例都有，竖版是给手动发社交媒体用的 */}
-        <Share og="/atlas/og/index-16x9.png" title="虾米看AI · AI 能力核验" />
-      </div>
     </main>
   );
 }

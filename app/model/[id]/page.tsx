@@ -52,7 +52,12 @@ export default async function ModelPage({ params }: { params: Promise<{ id: stri
 
   return (
     <main className="max-w-[980px] mx-auto px-8 pt-5 pb-10 flex flex-col gap-8">
-      <BackLink />
+      {/* 分享和「返回」同一行、一左一右。**放页脚等于没有** ——
+          负责人 2026-08-12：「放在右下角谁也看不到咧」。 */}
+      <div className="flex items-baseline justify-between gap-3">
+        <BackLink />
+        <Share og={`/atlas/og/model-${id}-16x9.png`} title={label(m)} />
+      </div>
 
       <header className="flex flex-col gap-2">
         <h1 className="text-[40px] leading-tight font-semibold">
@@ -86,13 +91,9 @@ export default async function ModelPage({ params }: { params: Promise<{ id: stri
           Replicate / fal / APIYI 这些第三方 API 货架做免费曝光。数据层保留，
           只用来撑「上游停服了平台还在卖」那类警告（/caveats）。 */}
 
-      <footer className="border-t border-rule pt-5 text-[13px] text-muted leading-relaxed flex flex-wrap items-baseline justify-between gap-3">
-        <span>
-          数据版本 {atlas.version} · 数据截至 {atlas.generated_at} ·
-          <b className="text-unknown"> 全部为机器录入</b>
-        </span>
-        {/* 分享放在页脚：**读完才是想分享的时刻**，放顶上会跟返回、标题抢注意力 */}
-        <Share og={`/atlas/og/model-${id}-16x9.png`} title={label(m)} />
+      <footer className="border-t border-rule pt-5 text-[13px] text-muted leading-relaxed">
+        数据版本 {atlas.version} · 数据截至 {atlas.generated_at} ·
+        <b className="text-unknown"> 全部为机器录入</b>
       </footer>
     </main>
   );

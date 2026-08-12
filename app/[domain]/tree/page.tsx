@@ -53,6 +53,11 @@ export default async function TreePage({ params }: { params: Promise<{ domain: s
           发布记录 {vs.length} 次
           <br />
           最早 {since}
+          {/* 分享挂在页头右上那块统计下面 —— **放页脚等于没有**
+              （负责人 2026-08-12：「放在右下角谁也看不到咧」） */}
+          <div className="mt-1.5">
+            <Share og={`/atlas/og/tree-${domain}-16x9.png`} title={`${d.name} · 谁在什么时候，长出了什么`} />
+          </div>
         </div>
       </header>
 
@@ -92,16 +97,12 @@ export default async function TreePage({ params }: { params: Promise<{ domain: s
         </div>
       )}
 
-      <div className="mt-6 flex flex-wrap items-baseline justify-between gap-3">
-        <p className="text-[12px] text-muted">
-          每个点＝厂商官方发布记录里的一次发布，日期与「新增了什么」都取自官方原文。
-          <Link href="/method#genealogy" className="underline ml-1 hover:text-ink">
-            口径 →
-          </Link>
-        </p>
-        {/* 这一页自己的注释写着「这一页是分发引擎」—— 那它更该有个能把图带走的入口 */}
-        <Share og={`/atlas/og/tree-${domain}-16x9.png`} title={`${d.name} · 谁在什么时候，长出了什么`} />
-      </div>
+      <p className="mt-6 text-[12px] text-muted">
+        每个点＝厂商官方发布记录里的一次发布，日期与「新增了什么」都取自官方原文。
+        <Link href="/method#genealogy" className="underline ml-1 hover:text-ink">
+          口径 →
+        </Link>
+      </p>
     </main>
   );
 }

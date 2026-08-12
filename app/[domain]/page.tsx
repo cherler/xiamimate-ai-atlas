@@ -75,6 +75,11 @@ export default async function DomainHome({ params }: { params: Promise<{ domain:
           产品线 {models.length} 条
           <br />
           引用官方来源 {Object.keys(atlas.sources).length} 处
+          {/* 分享挂在页头右上那块统计下面 —— **放页脚等于没有**
+              （负责人 2026-08-12：「放在右下角谁也看不到咧」） */}
+          <div className="mt-1.5">
+            <Share og={`/atlas/og/domain-${domain}-16x9.png`} title={`${d.name} · 能力核验规格书`} />
+          </div>
         </div>
       </header>
 
@@ -147,12 +152,9 @@ export default async function DomainHome({ params }: { params: Promise<{ domain:
         ))}
       </nav>
 
-      <footer className="mt-6 flex flex-wrap items-baseline justify-between gap-3 border-t-[.5px] border-rule pt-3 text-[12px] leading-[1.6] text-muted">
-        <span>
+      <footer className="mt-6 border-t-[.5px] border-rule pt-3 text-[12px] leading-[1.6] text-muted">
         数据 {atlas.version} · 数据截至 {atlas.generated_at} ·{" "}
         <Link href="/method#agent" className="underline hover:text-ink">机器录入</Link>
-        </span>
-        <Share og={`/atlas/og/domain-${domain}-16x9.png`} title={`${d.name} · 能力核验规格书`} />
       </footer>
     </main>
   );

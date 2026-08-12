@@ -34,7 +34,12 @@ export default function CaveatsPage() {
 
   return (
     <main className="max-w-[900px] mx-auto px-5 pt-5 pb-8 flex flex-col gap-8">
-      <BackLink />
+      {/* 分享和「返回」同一行、一左一右。**放页脚等于没有** ——
+          负责人 2026-08-12：「放在右下角谁也看不到咧」。 */}
+      <div className="flex items-baseline justify-between gap-3">
+        <BackLink />
+        <Share og="/atlas/og/caveats-16x9.png" title="能力对了，你未必用得上 —— 下单前先看这几条" />
+      </div>
       <header className="flex flex-col gap-2 border-b-[2.5px] border-ink pb-4">
         <h1 className="text-[38px] font-bold leading-tight tracking-[-.01em]">能力对了，你未必用得上</h1>
         <p className="text-muted text-[15px]">
@@ -89,10 +94,6 @@ export default function CaveatsPage() {
           ))}
         </section>
       ))}
-      <div className="mt-8 flex justify-end border-t border-rule pt-4">
-        {/* 这一页最有转发价值 —— 它讲的是别处不会告诉你的坑 */}
-        <Share og="/atlas/og/caveats-16x9.png" title="能力对了，你未必用得上 —— 下单前先看这几条" />
-      </div>
     </main>
   );
 }
