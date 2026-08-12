@@ -9007,7 +9007,11 @@
    "added": "把算力效率和推理/Agent 表现放到一起",
    "src": "hf-text-org",
    "quote": "We introduce DeepSeek-V3.2, a model that harmonizes high computational efficiency with superior reasoning and agent performance.",
-   "parent": "deepseek-V3.1-换代；同年 9 月出"
+   "parent": "deepseek-V3.1-换代；同年 9 月出",
+   "repos": [
+    "deepseek-ai/DeepSeek-V3.2",
+    "deepseek-ai/DeepSeek-V3.2-Speciale"
+   ]
   },
   {
    "id": "deepseek-V4-换代：Pro 1.6T（激活 49B）与 Flash 两档 MoE",
@@ -9017,7 +9021,11 @@
    "added": "换代：Pro 1.6T（激活 49B）与 Flash 两档 MoE",
    "src": "hf-text-org",
    "quote": "We present a preview version of DeepSeek-V4 series, including two strong Mixture-of-Experts (MoE) language models — DeepSeek-V4-Pro with 1.6T parameters (49B activated) and DeepSeek-V4-Flash",
-   "parent": "deepseek-V3.2-把算力效率和推理/Agent 表现放到一起"
+   "parent": "deepseek-V3.2-把算力效率和推理/Agent 表现放到一起",
+   "repos": [
+    "deepseek-ai/DeepSeek-V4-Flash-Base",
+    "deepseek-ai/DeepSeek-V4-Pro-Base"
+   ]
   },
   {
    "id": "deepseek-V4-Flash-0731-Flash 档的日期戳更新",
@@ -9038,7 +9046,10 @@
    "src": "hf-text-org",
    "quote": "GLM-4.5 technical blog, technical report, and Zhipu AI technical documentation（模型卡首段）",
    "note": "官方模型卡只给了博客链接，**没写这一代新增了什么** —— 这一条本身就是可记的事实",
-   "parent": "glm-GLM-4-改名 GLM-4，脱"
+   "parent": "glm-GLM-4-改名 GLM-4，脱",
+   "repos": [
+    "zai-org/GLM-4.5"
+   ]
   },
   {
    "id": "glm-GLM-4.6-小版本迭代",
@@ -9049,7 +9060,10 @@
    "src": "hf-text-org",
    "quote": "GLM-4.6 technical blog, technical report(GLM-4.5)",
    "note": "官方模型卡只给了博客链接，**没写这一代新增了什么** —— 这一条本身就是可记的事实",
-   "parent": "glm-GLM-4.5-这一代的开放权重发布"
+   "parent": "glm-GLM-4.5-这一代的开放权重发布",
+   "repos": [
+    "zai-org/GLM-4.6"
+   ]
   },
   {
    "id": "glm-GLM-4.7-小版本迭代",
@@ -9070,7 +9084,10 @@
    "added": "换代：冲复杂系统工程与长程 Agent 任务",
    "src": "hf-text-org",
    "quote": "We are launching GLM-5, targeting complex systems engineering and long-horizon agentic tasks.",
-   "parent": "glm-GLM-4.7-小版本迭代"
+   "parent": "glm-GLM-4.7-小版本迭代",
+   "repos": [
+    "zai-org/GLM-5"
+   ]
   },
   {
    "id": "glm-GLM-5.1-小版本迭代",
@@ -9081,7 +9098,10 @@
    "src": "hf-text-org",
    "quote": "GLM-5.1 blog and GLM-5 Technical report",
    "note": "官方模型卡只给了博客链接，**没写这一代新增了什么** —— 这一条本身就是可记的事实",
-   "parent": "glm-GLM-5-换代：冲复杂系统工程与长程 Agent 任务"
+   "parent": "glm-GLM-5-换代：冲复杂系统工程与长程 Agent 任务",
+   "repos": [
+    "zai-org/GLM-5.1"
+   ]
   },
   {
    "id": "glm-GLM-5.2-小版本迭代",
@@ -9092,7 +9112,10 @@
    "src": "hf-text-org",
    "quote": "GLM-5.2 blog and GLM-5 Technical report",
    "note": "官方模型卡只给了博客链接，**没写这一代新增了什么** —— 这一条本身就是可记的事实",
-   "parent": "glm-GLM-5.1-小版本迭代"
+   "parent": "glm-GLM-5.1-小版本迭代",
+   "repos": [
+    "zai-org/GLM-5.2"
+   ]
   },
   {
    "id": "kimi-K2-1T 参数 MoE（激活 32B），用 Muon 优化器训",
@@ -9102,7 +9125,10 @@
    "added": "1T 参数 MoE（激活 32B），用 Muon 优化器训",
    "src": "hf-text-org",
    "quote": "Kimi K2 is a state-of-the-art mixture-of-experts (MoE) language model with 32 billion activated parameters and 1 trillion total parameters. Trained with the Muon optimizer",
-   "parent": "kimi-Kimi-Dev-面向软件工程任务的专"
+   "parent": "kimi-Kimi-Dev-面向软件工程任务的专",
+   "repos": [
+    "moonshotai/Kimi-K2-Base"
+   ]
   },
   {
    "id": "kimi-K2-Thinking-边推理边调工具的思考档",
@@ -9112,7 +9138,10 @@
    "added": "边推理边调工具的思考档",
    "src": "hf-text-org",
    "quote": "Kimi K2 Thinking is the latest, most capable version of open-source thinking model … a thinking agent that reasons step-by-step while dynamically invoking tools",
-   "parent": "kimi-K2-1T 参数 MoE（激活 32B），用 Muon 优化器训"
+   "parent": "kimi-K2-1T 参数 MoE（激活 32B），用 Muon 优化器训",
+   "repos": [
+    "moonshotai/Kimi-K2-Thinking"
+   ]
   },
   {
    "id": "kimi-K2.5-转原生多模态：在 K2-Base 上继续预训 15T 图文混合 token",
@@ -9122,7 +9151,10 @@
    "added": "转原生多模态：在 K2-Base 上继续预训 15T 图文混合 token",
    "src": "hf-text-org",
    "quote": "Kimi K2.5 is an open-source, native multimodal agentic model built through continual pretraining on approximately 15 trillion mixed visual and text tokens atop Kimi-K2-Base.",
-   "parent": "kimi-K2-Thinking-边推理边调工具的思考档"
+   "parent": "kimi-K2-Thinking-边推理边调工具的思考档",
+   "repos": [
+    "moonshotai/Kimi-K2.5"
+   ]
   },
   {
    "id": "kimi-K2.6-长程编码、自主执行与群体任务编排",
@@ -9132,7 +9164,10 @@
    "added": "长程编码、自主执行与群体任务编排",
    "src": "hf-text-org",
    "quote": "Kimi K2.6 … advances practical capabilities in long-horizon coding, coding-driven design, proactive autonomous execution, and swarm-based task orchestration",
-   "parent": "kimi-K2.5-转原生多模态：在 K2-Base 上继续预训 15T 图文混合 token"
+   "parent": "kimi-K2.5-转原生多模态：在 K2-Base 上继续预训 15T 图文混合 token",
+   "repos": [
+    "moonshotai/Kimi-K2.6"
+   ]
   },
   {
    "id": "kimi-K3-2.8T 参数，换新注意力（KDA + AttnRes）",
@@ -9142,7 +9177,10 @@
    "added": "2.8T 参数，换新注意力（KDA + AttnRes）",
    "src": "hf-text-org",
    "quote": "Kimi K3 is an open-weight, native multimodal agentic model and our most capable model to date. It is a 2.8T-parameter model built on Kimi Delta Attention (KDA) and Attention Residuals (AttnRes)",
-   "parent": "kimi-K2.6-长程编码、自主执行与群体任务编排"
+   "parent": "kimi-K2.6-长程编码、自主执行与群体任务编排",
+   "repos": [
+    "moonshotai/Kimi-K3"
+   ]
   },
   {
    "id": "llama-Llama 4-Scout 与 Maverick 两档 MoE",
@@ -9152,7 +9190,11 @@
    "added": "Scout 与 Maverick 两档 MoE",
    "src": "hf-text-org",
    "quote": "meta-llama/Llama-4-Scout-17B-16E-Instruct（官方 HF 组织 createdAt 2025-04-02，下载 46 万）。**模型卡是 gated，读不到正文**",
-   "parent": "llama-Llama 3.3-只发 70B Ins"
+   "parent": "llama-Llama 3.3-只发 70B Ins",
+   "repos": [
+    "meta-llama/Llama-4-Maverick-17B-128E-Instruct",
+    "meta-llama/Llama-4-Scout-17B-16E-Instruct"
+   ]
   },
   {
    "id": "minimax-text-M2-主打写代码与 Agent 流程的小模型",
@@ -9162,7 +9204,10 @@
    "added": "主打写代码与 Agent 流程的小模型",
    "src": "hf-text-org",
    "quote": "Today, we release and open source MiniMax-M2, a Mini model built for Max coding & agentic workflows.",
-   "parent": "minimax-text-M1-推理模型，按"
+   "parent": "minimax-text-M1-推理模型，按",
+   "repos": [
+    "MiniMaxAI/MiniMax-M2"
+   ]
   },
   {
    "id": "minimax-text-M2.5-小版本迭代",
@@ -9173,7 +9218,10 @@
    "src": "hf-text-org",
    "quote": "Today we're introducing our latest model, MiniMax-M2.5.",
    "note": "官方卡只有一句发布语，没展开这一代加了什么",
-   "parent": "minimax-text-M2.1-小版本迭代"
+   "parent": "minimax-text-M2.1-小版本迭代",
+   "repos": [
+    "MiniMaxAI/MiniMax-M2.5"
+   ]
   },
   {
    "id": "minimax-text-M3-转原生多模态 + 1M 上下文（约 428B 参数、激活 23B）",
@@ -9183,7 +9231,10 @@
    "added": "转原生多模态 + 1M 上下文（约 428B 参数、激活 23B）",
    "src": "hf-text-org",
    "quote": "MiniMax-M3 is a native multimodal model with 1M context. It has ~428B parameters and ~23B activated parameters.",
-   "parent": "minimax-text-M2.7-小版本迭代"
+   "parent": "minimax-text-M2.7-小版本迭代",
+   "repos": [
+    "MiniMaxAI/MiniMax-M3"
+   ]
   },
   {
    "id": "mistral-text-Large 3-675B 总参 / 41B 激活的多模态细粒度 MoE",
@@ -9193,7 +9244,10 @@
    "added": "675B 总参 / 41B 激活的多模态细粒度 MoE",
    "src": "hf-text-org",
    "quote": "Mistral Large 3 is a state-of-the-art general-purpose Multimodal granular Mixture-of-Experts model with 41B active parameters and 675B total parameters",
-   "parent": "mistral-text-Ministral 3-端侧档换代；同日放出"
+   "parent": "mistral-text-Ministral 3-端侧档换代；同日放出",
+   "repos": [
+    "mistralai/Mistral-Large-3-675B-Instruct-2512"
+   ]
   },
   {
    "id": "mistral-text-Small 4-把 Instruct / Reasoning 等三支合成一个混合模型",
@@ -9203,7 +9257,10 @@
    "added": "把 Instruct / Reasoning 等三支合成一个混合模型",
    "src": "hf-text-org",
    "quote": "Mistral Small 4 is a powerful hybrid model capable of acting as both a general instruction model and a reasoning model. It unifies the capabilities of three different model families",
-   "parent": "mistral-text-Large 3-675B 总参 / 41B 激活的多模态细粒度 MoE"
+   "parent": "mistral-text-Large 3-675B 总参 / 41B 激活的多模态细粒度 MoE",
+   "repos": [
+    "mistralai/Mistral-Small-4-119B-2603"
+   ]
   },
   {
    "id": "mistral-text-Medium 3.5-第一个「合并」旗舰：128B 稠密 + 256k 上下文",
@@ -9213,7 +9270,10 @@
    "added": "第一个「合并」旗舰：128B 稠密 + 256k 上下文",
    "src": "hf-text-org",
    "quote": "Mistral Medium 3.5 is our first flagship merged model. It is a dense 128B model with a 256k context window",
-   "parent": "mistral-text-Leanstral-定理证明支线"
+   "parent": "mistral-text-Leanstral-定理证明支线",
+   "repos": [
+    "mistralai/Mistral-Medium-3.5-128B"
+   ]
   },
   {
    "id": "qwen-text-Qwen3.5-换代",
@@ -9223,7 +9283,11 @@
    "added": "换代",
    "src": "hf-text-org",
    "quote": "Qwen3.5 represents a significant leap forward, integrating breakthroughs（模型卡首段）",
-   "parent": "qwen-text-Qwen3-Next-新架构试验档 80B"
+   "parent": "qwen-text-Qwen3-Next-新架构试验档 80B",
+   "repos": [
+    "Qwen/Qwen3.5-27B",
+    "Qwen/Qwen3.5-397B-A17B"
+   ]
   },
   {
    "id": "qwen-text-Qwen3.6-按社区反馈做稳定性与可靠性",
@@ -9233,7 +9297,11 @@
    "added": "按社区反馈做稳定性与可靠性",
    "src": "hf-text-org",
    "quote": "Following the February release of the Qwen3.5 series, we're pleased to share the first open-weight variant of Qwen3.6. Built on direct feedback from the community, Qwen3.6 prioritizes stability and re…",
-   "parent": "qwen-text-Qwen3.5-换代"
+   "parent": "qwen-text-Qwen3.5-换代",
+   "repos": [
+    "Qwen/Qwen3.6-27B",
+    "Qwen/Qwen3.6-35B-A3B"
+   ]
   },
   {
    "id": "claude-Claude 3-这一代的 API 发",
@@ -9656,7 +9724,10 @@
    "added": "这条线的第一代开放权重",
    "src": "hf-text-org",
    "quote": "官方 HF 组织 Qwen/Qwen-7B，createdAt 2023-08-03（同代 6 个仓库）",
-   "note": "日期取官方 HF 组织的 createdAt（**不是 lastModified**）；同一代的多个尺寸档与量化档已折成一个节点"
+   "note": "日期取官方 HF 组织的 createdAt（**不是 lastModified**）；同一代的多个尺寸档与量化档已折成一个节点",
+   "repos": [
+    "Qwen/Qwen-7B"
+   ]
   },
   {
    "id": "qwen-text-Qwen1.5-铺开 0.5B 到 ",
@@ -9678,7 +9749,11 @@
    "src": "hf-text-org",
    "quote": "Qwen/Qwen2-72B 与 Qwen2-57B-A14B，createdAt 2024-05-22",
    "note": "日期取官方 HF 组织的 createdAt（**不是 lastModified**）；同一代的多个尺寸档与量化档已折成一个节点",
-   "parent": "qwen-text-Qwen1.5-铺开 0.5B 到 "
+   "parent": "qwen-text-Qwen1.5-铺开 0.5B 到 ",
+   "repos": [
+    "Qwen/Qwen2-57B-A14B",
+    "Qwen/Qwen2-72B"
+   ]
   },
   {
    "id": "qwen-text-Qwen2.5-同期分出 Coder",
@@ -9700,7 +9775,11 @@
    "src": "hf-text-org",
    "quote": "Qwen/QwQ-32B createdAt 2025-03-05（♥2961）；Preview 版 2024-11-27",
    "note": "日期取官方 HF 组织的 createdAt（**不是 lastModified**）；同一代的多个尺寸档与量化档已折成一个节点",
-   "parent": "qwen-text-Qwen2.5-同期分出 Coder"
+   "parent": "qwen-text-Qwen2.5-同期分出 Coder",
+   "repos": [
+    "Qwen/QwQ-32B",
+    "Qwen/QwQ-32B-Preview"
+   ]
   },
   {
    "id": "qwen-text-Qwen3-换代；同年 7 月拆",
@@ -9711,7 +9790,11 @@
    "src": "hf-text-org",
    "quote": "Qwen/Qwen3-0.6B 起 createdAt 2025-04-27（同代 11 个仓库）",
    "note": "日期取官方 HF 组织的 createdAt（**不是 lastModified**）；同一代的多个尺寸档与量化档已折成一个节点",
-   "parent": "qwen-text-QwQ-专做推理的支线（Pr"
+   "parent": "qwen-text-QwQ-专做推理的支线（Pr",
+   "repos": [
+    "Qwen/Qwen3-0.6B",
+    "Qwen/Qwen3-30B-A3B"
+   ]
   },
   {
    "id": "qwen-text-Qwen3-Next-新架构试验档 80B",
@@ -9722,7 +9805,11 @@
    "src": "hf-text-org",
    "quote": "Qwen/Qwen3-Next-80B-A3B-Instruct 与 -Thinking，createdAt 2025-09-09",
    "note": "日期取官方 HF 组织的 createdAt（**不是 lastModified**）；同一代的多个尺寸档与量化档已折成一个节点",
-   "parent": "qwen-text-Qwen3-换代；同年 7 月拆"
+   "parent": "qwen-text-Qwen3-换代；同年 7 月拆",
+   "repos": [
+    "Qwen/Qwen3-Next-80B-A3B-Instruct",
+    "Qwen/Qwen3-Next-80B-A3B-Thinking"
+   ]
   },
   {
    "id": "llama-Llama 2-这条线在 HF 上的",
@@ -9732,7 +9819,10 @@
    "added": "这条线在 HF 上的第一代",
    "src": "hf-text-org",
    "quote": "meta-llama/Llama-2-7b createdAt 2023-07-09（♥4522，同代 6 个仓库）",
-   "note": "日期取官方 HF 组织的 createdAt（**不是 lastModified**）；同一代的多个尺寸档与量化档已折成一个节点"
+   "note": "日期取官方 HF 组织的 createdAt（**不是 lastModified**）；同一代的多个尺寸档与量化档已折成一个节点",
+   "repos": [
+    "meta-llama/Llama-2-7b"
+   ]
   },
   {
    "id": "llama-Llama 3-换代",
@@ -9743,7 +9833,10 @@
    "src": "hf-text-org",
    "quote": "meta-llama/Meta-Llama-3-70B createdAt 2024-04-17",
    "note": "日期取官方 HF 组织的 createdAt（**不是 lastModified**）；同一代的多个尺寸档与量化档已折成一个节点",
-   "parent": "llama-Llama 2-这条线在 HF 上的"
+   "parent": "llama-Llama 2-这条线在 HF 上的",
+   "repos": [
+    "meta-llama/Meta-Llama-3-70B"
+   ]
   },
   {
    "id": "llama-Llama 3.1-405B 档",
@@ -9754,7 +9847,10 @@
    "src": "hf-text-org",
    "quote": "meta-llama/Llama-3.1-8B 起 createdAt 2024-07-14（同代 6 个仓库）",
    "note": "日期取官方 HF 组织的 createdAt（**不是 lastModified**）；同一代的多个尺寸档与量化档已折成一个节点",
-   "parent": "llama-Llama 3-换代"
+   "parent": "llama-Llama 3-换代",
+   "repos": [
+    "meta-llama/Llama-3.1-8B"
+   ]
   },
   {
    "id": "llama-Llama 3.2-下探到 1B / 3",
@@ -9765,7 +9861,10 @@
    "src": "hf-text-org",
    "quote": "meta-llama/Llama-3.2-1B 起 createdAt 2024-09-18",
    "note": "日期取官方 HF 组织的 createdAt（**不是 lastModified**）；同一代的多个尺寸档与量化档已折成一个节点",
-   "parent": "llama-Llama 3.1-405B 档"
+   "parent": "llama-Llama 3.1-405B 档",
+   "repos": [
+    "meta-llama/Llama-3.2-1B"
+   ]
   },
   {
    "id": "llama-Llama 3.3-只发 70B Ins",
@@ -9776,7 +9875,10 @@
    "src": "hf-text-org",
    "quote": "meta-llama/Llama-3.3-70B-Instruct createdAt 2024-11-26（♥2948）",
    "note": "日期取官方 HF 组织的 createdAt（**不是 lastModified**）；同一代的多个尺寸档与量化档已折成一个节点",
-   "parent": "llama-Llama 3.2-下探到 1B / 3"
+   "parent": "llama-Llama 3.2-下探到 1B / 3",
+   "repos": [
+    "meta-llama/Llama-3.3-70B-Instruct"
+   ]
   },
   {
    "id": "qwen-text-Qwen1.5-MoE-这条线的第一个 Mo",
@@ -9787,7 +9889,11 @@
    "src": "hf-text-org",
    "quote": "官方 HF 组织 Qwen/Qwen1.5-MoE-A2.7B，createdAt 2024-02-29（同代 2 个仓库）",
    "note": "日期取官方 HF 组织的 createdAt（**不是 lastModified**）；同一代的多个尺寸档与量化档已折成一个节点。跨模态支线（视觉 / 音频 / 图像生成）不在这棵树上 —— 它们的产出物不是文本。",
-   "parent": "qwen-text-Qwen1.5-铺开 0.5B 到 "
+   "parent": "qwen-text-Qwen1.5-铺开 0.5B 到 ",
+   "repos": [
+    "Qwen/Qwen1.5-0.5B",
+    "Qwen/Qwen1.5-MoE-A2.7B"
+   ]
   },
   {
    "id": "qwen-text-Qwen2.5-Coder-分出代码支线",
@@ -9798,7 +9904,11 @@
    "src": "hf-text-org",
    "quote": "官方 HF 组织 Qwen/Qwen2.5-Coder-7B，createdAt 2024-09-16（同代 12 个仓库）",
    "note": "日期取官方 HF 组织的 createdAt（**不是 lastModified**）；同一代的多个尺寸档与量化档已折成一个节点。跨模态支线（视觉 / 音频 / 图像生成）不在这棵树上 —— 它们的产出物不是文本。",
-   "parent": "qwen-text-Qwen2.5-同期分出 Coder"
+   "parent": "qwen-text-Qwen2.5-同期分出 Coder",
+   "repos": [
+    "Qwen/Qwen2.5-0.5B",
+    "Qwen/Qwen2.5-Coder-7B"
+   ]
   },
   {
    "id": "qwen-text-Qwen3-2507-Instruct",
@@ -9809,7 +9919,11 @@
    "src": "hf-text-org",
    "quote": "官方 HF 组织 Qwen/Qwen3-235B-A22B-Instruct-2507，createdAt 2025-07-21（同代 2 个仓库）",
    "note": "日期取官方 HF 组织的 createdAt（**不是 lastModified**）；同一代的多个尺寸档与量化档已折成一个节点。跨模态支线（视觉 / 音频 / 图像生成）不在这棵树上 —— 它们的产出物不是文本。",
-   "parent": "qwen-text-Qwen3-换代；同年 7 月拆"
+   "parent": "qwen-text-Qwen3-换代；同年 7 月拆",
+   "repos": [
+    "Qwen/Qwen3-235B-A22B-Instruct-2507",
+    "Qwen/Qwen3-235B-A22B-Thinking-2507"
+   ]
   },
   {
    "id": "qwen-text-Qwen3-Coder-代码支线跟进到 Qw",
@@ -9820,7 +9934,12 @@
    "src": "hf-text-org",
    "quote": "官方 HF 组织 Qwen/Qwen3-Coder-480B-A35B-Instruct，createdAt 2025-07-22（同代 2 个仓库）",
    "note": "日期取官方 HF 组织的 createdAt（**不是 lastModified**）；同一代的多个尺寸档与量化档已折成一个节点。跨模态支线（视觉 / 音频 / 图像生成）不在这棵树上 —— 它们的产出物不是文本。",
-   "parent": "qwen-text-Qwen3-换代；同年 7 月拆"
+   "parent": "qwen-text-Qwen3-换代；同年 7 月拆",
+   "repos": [
+    "Qwen/Qwen3-4B-Instruct-2507",
+    "Qwen/Qwen3-4B-Thinking-2507",
+    "Qwen/Qwen3-Coder-480B-A35B-Instruct"
+   ]
   },
   {
    "id": "qwen-text-Qwen3-Coder-Next-代码支线接上 Nex",
@@ -9831,7 +9950,10 @@
    "src": "hf-text-org",
    "quote": "官方 HF 组织 Qwen/Qwen3-Coder-Next，createdAt 2026-01-30（同代 2 个仓库）",
    "note": "日期取官方 HF 组织的 createdAt（**不是 lastModified**）；同一代的多个尺寸档与量化档已折成一个节点。跨模态支线（视觉 / 音频 / 图像生成）不在这棵树上 —— 它们的产出物不是文本。",
-   "parent": "qwen-text-Qwen3-Coder-代码支线跟进到 Qw"
+   "parent": "qwen-text-Qwen3-Coder-代码支线跟进到 Qw",
+   "repos": [
+    "Qwen/Qwen3-Coder-Next"
+   ]
   },
   {
    "id": "qwen-text-Qwen-AgentWorld-面向智能体环境的专门",
@@ -9842,7 +9964,10 @@
    "src": "hf-text-org",
    "quote": "官方 HF 组织 Qwen/Qwen-AgentWorld-35B-A3B，createdAt 2026-06-22",
    "note": "日期取官方 HF 组织的 createdAt（**不是 lastModified**）；同一代的多个尺寸档与量化档已折成一个节点。跨模态支线（视觉 / 音频 / 图像生成）不在这棵树上 —— 它们的产出物不是文本。",
-   "parent": "qwen-text-Qwen3.6-按社区反馈做稳定性与可靠性"
+   "parent": "qwen-text-Qwen3.6-按社区反馈做稳定性与可靠性",
+   "repos": [
+    "Qwen/Qwen-AgentWorld-35B-A3B"
+   ]
   },
   {
    "id": "deepseek-deepseek-coder-这条线在 HF 上最",
@@ -9852,7 +9977,10 @@
    "added": "这条线在 HF 上最早的发布，从代码模型起步",
    "src": "hf-text-org",
    "quote": "官方 HF 组织 deepseek-ai/deepseek-coder-6.7b-base，createdAt 2023-10-23（同代 6 个仓库）",
-   "note": "日期取官方 HF 组织的 createdAt（**不是 lastModified**）；同一代的多个尺寸档与量化档已折成一个节点。跨模态支线（视觉 / 音频 / 图像生成）不在这棵树上 —— 它们的产出物不是文本。"
+   "note": "日期取官方 HF 组织的 createdAt（**不是 lastModified**）；同一代的多个尺寸档与量化档已折成一个节点。跨模态支线（视觉 / 音频 / 图像生成）不在这棵树上 —— 它们的产出物不是文本。",
+   "repos": [
+    "deepseek-ai/deepseek-coder-6.7b-base"
+   ]
   },
   {
    "id": "deepseek-deepseek-llm-第一个通用语言模型",
@@ -9863,7 +9991,10 @@
    "src": "hf-text-org",
    "quote": "官方 HF 组织 deepseek-ai/deepseek-llm-7b-base，createdAt 2023-11-29（同代 4 个仓库）",
    "note": "日期取官方 HF 组织的 createdAt（**不是 lastModified**）；同一代的多个尺寸档与量化档已折成一个节点。跨模态支线（视觉 / 音频 / 图像生成）不在这棵树上 —— 它们的产出物不是文本。",
-   "parent": "deepseek-deepseek-coder-这条线在 HF 上最"
+   "parent": "deepseek-deepseek-coder-这条线在 HF 上最",
+   "repos": [
+    "deepseek-ai/deepseek-llm-7b-base"
+   ]
   },
   {
    "id": "deepseek-deepseek-moe-转 MoE 架构",
@@ -9874,7 +10005,10 @@
    "src": "hf-text-org",
    "quote": "官方 HF 组织 deepseek-ai/deepseek-moe-16b-base，createdAt 2024-01-08（同代 2 个仓库）",
    "note": "日期取官方 HF 组织的 createdAt（**不是 lastModified**）；同一代的多个尺寸档与量化档已折成一个节点。跨模态支线（视觉 / 音频 / 图像生成）不在这棵树上 —— 它们的产出物不是文本。",
-   "parent": "deepseek-deepseek-llm-第一个通用语言模型"
+   "parent": "deepseek-deepseek-llm-第一个通用语言模型",
+   "repos": [
+    "deepseek-ai/deepseek-moe-16b-base"
+   ]
   },
   {
    "id": "deepseek-V2-换代；同月出 Lit",
@@ -9885,7 +10019,12 @@
    "src": "hf-text-org",
    "quote": "官方 HF 组织 deepseek-ai/DeepSeek-V2，createdAt 2024-04-22（同代 2 个仓库）",
    "note": "日期取官方 HF 组织的 createdAt（**不是 lastModified**）；同一代的多个尺寸档与量化档已折成一个节点。跨模态支线（视觉 / 音频 / 图像生成）不在这棵树上 —— 它们的产出物不是文本。",
-   "parent": "deepseek-deepseek-moe-转 MoE 架构"
+   "parent": "deepseek-deepseek-moe-转 MoE 架构",
+   "repos": [
+    "deepseek-ai/DeepSeek-V2",
+    "deepseek-ai/DeepSeek-V2-Chat-0628",
+    "deepseek-ai/DeepSeek-V2-Lite"
+   ]
   },
   {
    "id": "deepseek-Coder-V2-代码支线跟到 V2",
@@ -9896,7 +10035,10 @@
    "src": "hf-text-org",
    "quote": "官方 HF 组织 deepseek-ai/DeepSeek-Coder-V2-Lite-Base，createdAt 2024-06-14（同代 2 个仓库）",
    "note": "日期取官方 HF 组织的 createdAt（**不是 lastModified**）；同一代的多个尺寸档与量化档已折成一个节点。跨模态支线（视觉 / 音频 / 图像生成）不在这棵树上 —— 它们的产出物不是文本。",
-   "parent": "deepseek-V2-换代；同月出 Lit"
+   "parent": "deepseek-V2-换代；同月出 Lit",
+   "repos": [
+    "deepseek-ai/DeepSeek-Coder-V2-Lite-Base"
+   ]
   },
   {
    "id": "deepseek-V2.5-把通用与代码两条线合",
@@ -9907,7 +10049,10 @@
    "src": "hf-text-org",
    "quote": "官方 HF 组织 deepseek-ai/DeepSeek-V2.5，createdAt 2024-09-05（同代 2 个仓库）",
    "note": "日期取官方 HF 组织的 createdAt（**不是 lastModified**）；同一代的多个尺寸档与量化档已折成一个节点。跨模态支线（视觉 / 音频 / 图像生成）不在这棵树上 —— 它们的产出物不是文本。",
-   "parent": "deepseek-V2-换代；同月出 Lit"
+   "parent": "deepseek-V2-换代；同月出 Lit",
+   "repos": [
+    "deepseek-ai/DeepSeek-V2.5"
+   ]
   },
   {
    "id": "deepseek-V3-换代",
@@ -9918,7 +10063,10 @@
    "src": "hf-text-org",
    "quote": "官方 HF 组织 deepseek-ai/DeepSeek-V3-Base，createdAt 2024-12-25（同代 3 个仓库）",
    "note": "日期取官方 HF 组织的 createdAt（**不是 lastModified**）；同一代的多个尺寸档与量化档已折成一个节点。跨模态支线（视觉 / 音频 / 图像生成）不在这棵树上 —— 它们的产出物不是文本。",
-   "parent": "deepseek-V2.5-把通用与代码两条线合"
+   "parent": "deepseek-V2.5-把通用与代码两条线合",
+   "repos": [
+    "deepseek-ai/DeepSeek-V3-Base"
+   ]
   },
   {
    "id": "deepseek-R1-推理模型：同",
@@ -9929,7 +10077,13 @@
    "src": "hf-text-org",
    "quote": "官方 HF 组织 deepseek-ai/DeepSeek-R1，createdAt 2025-01-20（同代 2 个仓库）",
    "note": "日期取官方 HF 组织的 createdAt（**不是 lastModified**）；同一代的多个尺寸档与量化档已折成一个节点。跨模态支线（视觉 / 音频 / 图像生成）不在这棵树上 —— 它们的产出物不是文本。",
-   "parent": "deepseek-V3-换代"
+   "parent": "deepseek-V3-换代",
+   "repos": [
+    "deepseek-ai/DeepSeek-R1",
+    "deepseek-ai/DeepSeek-R1-Distill-Llama-8B",
+    "deepseek-ai/DeepSeek-R1-Distill-Qwen-1.5B",
+    "deepseek-ai/DeepSeek-R1-Zero"
+   ]
   },
   {
    "id": "deepseek-V3.1-换代；同年 9 月出",
@@ -9940,7 +10094,11 @@
    "src": "hf-text-org",
    "quote": "官方 HF 组织 deepseek-ai/DeepSeek-V3.1-Base，createdAt 2025-08-19（同代 2 个仓库）",
    "note": "日期取官方 HF 组织的 createdAt（**不是 lastModified**）；同一代的多个尺寸档与量化档已折成一个节点。跨模态支线（视觉 / 音频 / 图像生成）不在这棵树上 —— 它们的产出物不是文本。",
-   "parent": "deepseek-R1-推理模型：同"
+   "parent": "deepseek-R1-推理模型：同",
+   "repos": [
+    "deepseek-ai/DeepSeek-V3.1-Base",
+    "deepseek-ai/DeepSeek-V3.1-Terminus"
+   ]
   },
   {
    "id": "glm-ChatGLM-6B-这条线的起点，中文开",
@@ -9950,7 +10108,10 @@
    "added": "这条线的起点，中文开源对话模型",
    "src": "hf-text-org",
    "quote": "官方 HF 组织 zai-org/chatglm-6b，createdAt 2023-03-13",
-   "note": "日期取官方 HF 组织的 createdAt（**不是 lastModified**）；同一代的多个尺寸档与量化档已折成一个节点。跨模态支线（视觉 / 音频 / 图像生成）不在这棵树上 —— 它们的产出物不是文本。"
+   "note": "日期取官方 HF 组织的 createdAt（**不是 lastModified**）；同一代的多个尺寸档与量化档已折成一个节点。跨模态支线（视觉 / 音频 / 图像生成）不在这棵树上 —— 它们的产出物不是文本。",
+   "repos": [
+    "zai-org/chatglm-6b"
+   ]
   },
   {
    "id": "glm-ChatGLM2-换代；同年 7 月出",
@@ -9961,7 +10122,11 @@
    "src": "hf-text-org",
    "quote": "官方 HF 组织 zai-org/chatglm2-6b，createdAt 2023-06-24",
    "note": "日期取官方 HF 组织的 createdAt（**不是 lastModified**）；同一代的多个尺寸档与量化档已折成一个节点。跨模态支线（视觉 / 音频 / 图像生成）不在这棵树上 —— 它们的产出物不是文本。",
-   "parent": "glm-ChatGLM-6B-这条线的起点，中文开"
+   "parent": "glm-ChatGLM-6B-这条线的起点，中文开",
+   "repos": [
+    "zai-org/chatglm2-6b",
+    "zai-org/chatglm2-6b-32k"
+   ]
   },
   {
    "id": "glm-ChatGLM3-换代；同期出 32k",
@@ -9972,7 +10137,11 @@
    "src": "hf-text-org",
    "quote": "官方 HF 组织 zai-org/chatglm3-6b，createdAt 2023-10-25（同代 2 个仓库）",
    "note": "日期取官方 HF 组织的 createdAt（**不是 lastModified**）；同一代的多个尺寸档与量化档已折成一个节点。跨模态支线（视觉 / 音频 / 图像生成）不在这棵树上 —— 它们的产出物不是文本。",
-   "parent": "glm-ChatGLM2-换代；同年 7 月出"
+   "parent": "glm-ChatGLM2-换代；同年 7 月出",
+   "repos": [
+    "zai-org/chatglm3-6b",
+    "zai-org/chatglm3-6b-32k"
+   ]
   },
   {
    "id": "glm-GLM-4-改名 GLM-4，脱",
@@ -9983,7 +10152,10 @@
    "src": "hf-text-org",
    "quote": "官方 HF 组织 zai-org/glm-4-9b，createdAt 2024-06-04（同代 5 个仓库）",
    "note": "日期取官方 HF 组织的 createdAt（**不是 lastModified**）；同一代的多个尺寸档与量化档已折成一个节点。跨模态支线（视觉 / 音频 / 图像生成）不在这棵树上 —— 它们的产出物不是文本。",
-   "parent": "glm-ChatGLM3-换代；同期出 32k"
+   "parent": "glm-ChatGLM3-换代；同期出 32k",
+   "repos": [
+    "zai-org/glm-4-9b"
+   ]
   },
   {
    "id": "glm-CodeGeeX2-代码支线",
@@ -9994,7 +10166,10 @@
    "src": "hf-text-org",
    "quote": "官方 HF 组织 zai-org/codegeex2-6b，createdAt 2023-07-19",
    "note": "日期取官方 HF 组织的 createdAt（**不是 lastModified**）；同一代的多个尺寸档与量化档已折成一个节点。跨模态支线（视觉 / 音频 / 图像生成）不在这棵树上 —— 它们的产出物不是文本。",
-   "parent": "glm-ChatGLM2-换代；同年 7 月出"
+   "parent": "glm-ChatGLM2-换代；同年 7 月出",
+   "repos": [
+    "zai-org/codegeex2-6b"
+   ]
   },
   {
    "id": "glm-CodeGeeX4-代码支线跟到 GLM",
@@ -10005,7 +10180,10 @@
    "src": "hf-text-org",
    "quote": "官方 HF 组织 zai-org/codegeex4-all-9b，createdAt 2024-07-05",
    "note": "日期取官方 HF 组织的 createdAt（**不是 lastModified**）；同一代的多个尺寸档与量化档已折成一个节点。跨模态支线（视觉 / 音频 / 图像生成）不在这棵树上 —— 它们的产出物不是文本。",
-   "parent": "glm-CodeGeeX2-代码支线"
+   "parent": "glm-CodeGeeX2-代码支线",
+   "repos": [
+    "zai-org/codegeex4-all-9b"
+   ]
   },
   {
    "id": "glm-GLM-4.7-Flash-4.7 的轻量档（♥",
@@ -10016,7 +10194,11 @@
    "src": "hf-text-org",
    "quote": "官方 HF 组织 zai-org/GLM-4.7-Flash，createdAt 2026-01-19",
    "note": "日期取官方 HF 组织的 createdAt（**不是 lastModified**）；同一代的多个尺寸档与量化档已折成一个节点。跨模态支线（视觉 / 音频 / 图像生成）不在这棵树上 —— 它们的产出物不是文本。",
-   "parent": "glm-GLM-4.7-小版本迭代"
+   "parent": "glm-GLM-4.7-小版本迭代",
+   "repos": [
+    "zai-org/GLM-4.7",
+    "zai-org/GLM-4.7-Flash"
+   ]
   },
   {
    "id": "kimi-Moonlight-这条线在 HF 上最",
@@ -10026,7 +10208,10 @@
    "added": "这条线在 HF 上最早的发布，16B MoE（激活 3B）",
    "src": "hf-text-org",
    "quote": "官方 HF 组织 moonshotai/Moonlight-16B-A3B，createdAt 2025-02-22（同代 2 个仓库）",
-   "note": "日期取官方 HF 组织的 createdAt（**不是 lastModified**）；同一代的多个尺寸档与量化档已折成一个节点。跨模态支线（视觉 / 音频 / 图像生成）不在这棵树上 —— 它们的产出物不是文本。"
+   "note": "日期取官方 HF 组织的 createdAt（**不是 lastModified**）；同一代的多个尺寸档与量化档已折成一个节点。跨模态支线（视觉 / 音频 / 图像生成）不在这棵树上 —— 它们的产出物不是文本。",
+   "repos": [
+    "moonshotai/Moonlight-16B-A3B"
+   ]
   },
   {
    "id": "kimi-Kimi-Dev-面向软件工程任务的专",
@@ -10037,7 +10222,10 @@
    "src": "hf-text-org",
    "quote": "官方 HF 组织 moonshotai/Kimi-Dev-72B，createdAt 2025-06-16",
    "note": "日期取官方 HF 组织的 createdAt（**不是 lastModified**）；同一代的多个尺寸档与量化档已折成一个节点。跨模态支线（视觉 / 音频 / 图像生成）不在这棵树上 —— 它们的产出物不是文本。",
-   "parent": "kimi-Moonlight-这条线在 HF 上最"
+   "parent": "kimi-Moonlight-这条线在 HF 上最",
+   "repos": [
+    "moonshotai/Kimi-Dev-72B"
+   ]
   },
   {
    "id": "kimi-K2-0905-K2 的日期戳更新",
@@ -10048,7 +10236,10 @@
    "src": "hf-text-org",
    "quote": "官方 HF 组织 moonshotai/Kimi-K2-Instruct-0905，createdAt 2025-09-03",
    "note": "日期取官方 HF 组织的 createdAt（**不是 lastModified**）；同一代的多个尺寸档与量化档已折成一个节点。跨模态支线（视觉 / 音频 / 图像生成）不在这棵树上 —— 它们的产出物不是文本。",
-   "parent": "kimi-K2-1T 参数 MoE（激活 32B），用 Muon 优化器训"
+   "parent": "kimi-K2-1T 参数 MoE（激活 32B），用 Muon 优化器训",
+   "repos": [
+    "moonshotai/Kimi-K2-Instruct-0905"
+   ]
   },
   {
    "id": "kimi-Kimi-Linear-线性注意力试验档",
@@ -10059,7 +10250,10 @@
    "src": "hf-text-org",
    "quote": "官方 HF 组织 moonshotai/Kimi-Linear-48B-A3B-Instruct，createdAt 2025-10-30（同代 2 个仓库）",
    "note": "日期取官方 HF 组织的 createdAt（**不是 lastModified**）；同一代的多个尺寸档与量化档已折成一个节点。跨模态支线（视觉 / 音频 / 图像生成）不在这棵树上 —— 它们的产出物不是文本。",
-   "parent": "kimi-K2-1T 参数 MoE（激活 32B），用 Muon 优化器训"
+   "parent": "kimi-K2-1T 参数 MoE（激活 32B），用 Muon 优化器训",
+   "repos": [
+    "moonshotai/Kimi-Linear-48B-A3B-Instruct"
+   ]
   },
   {
    "id": "kimi-K2.7-Code-代码专用档，官方标为",
@@ -10070,7 +10264,10 @@
    "src": "hf-text-org",
    "quote": "官方 HF 组织 moonshotai/Kimi-K2.7-Code，createdAt 2026-06-11",
    "note": "日期取官方 HF 组织的 createdAt（**不是 lastModified**）；同一代的多个尺寸档与量化档已折成一个节点。跨模态支线（视觉 / 音频 / 图像生成）不在这棵树上 —— 它们的产出物不是文本。",
-   "parent": "kimi-K2.6-长程编码、自主执行与群体任务编排"
+   "parent": "kimi-K2.6-长程编码、自主执行与群体任务编排",
+   "repos": [
+    "moonshotai/Kimi-K2.7-Code"
+   ]
   },
   {
    "id": "minimax-text-Text-01-这条线的第一代",
@@ -10080,7 +10277,10 @@
    "added": "这条线的第一代",
    "src": "hf-text-org",
    "quote": "官方 HF 组织 MiniMaxAI/MiniMax-Text-01，createdAt 2025-01-12",
-   "note": "日期取官方 HF 组织的 createdAt（**不是 lastModified**）；同一代的多个尺寸档与量化档已折成一个节点。跨模态支线（视觉 / 音频 / 图像生成）不在这棵树上 —— 它们的产出物不是文本。"
+   "note": "日期取官方 HF 组织的 createdAt（**不是 lastModified**）；同一代的多个尺寸档与量化档已折成一个节点。跨模态支线（视觉 / 音频 / 图像生成）不在这棵树上 —— 它们的产出物不是文本。",
+   "repos": [
+    "MiniMaxAI/MiniMax-Text-01"
+   ]
   },
   {
    "id": "minimax-text-M1-推理模型，按",
@@ -10091,7 +10291,11 @@
    "src": "hf-text-org",
    "quote": "官方 HF 组织 MiniMaxAI/MiniMax-M1-80k，createdAt 2025-06-13",
    "note": "日期取官方 HF 组织的 createdAt（**不是 lastModified**）；同一代的多个尺寸档与量化档已折成一个节点。跨模态支线（视觉 / 音频 / 图像生成）不在这棵树上 —— 它们的产出物不是文本。",
-   "parent": "minimax-text-Text-01-这条线的第一代"
+   "parent": "minimax-text-Text-01-这条线的第一代",
+   "repos": [
+    "MiniMaxAI/MiniMax-M1-40k",
+    "MiniMaxAI/MiniMax-M1-80k"
+   ]
   },
   {
    "id": "minimax-text-M2.1-小版本迭代",
@@ -10102,7 +10306,10 @@
    "src": "hf-text-org",
    "quote": "官方 HF 组织 MiniMaxAI/MiniMax-M2.1，createdAt 2025-12-20",
    "note": "日期取官方 HF 组织的 createdAt（**不是 lastModified**）；同一代的多个尺寸档与量化档已折成一个节点。跨模态支线（视觉 / 音频 / 图像生成）不在这棵树上 —— 它们的产出物不是文本。",
-   "parent": "minimax-text-M2-主打写代码与 Agent 流程的小模型"
+   "parent": "minimax-text-M2-主打写代码与 Agent 流程的小模型",
+   "repos": [
+    "MiniMaxAI/MiniMax-M2.1"
+   ]
   },
   {
    "id": "minimax-text-M2.7-小版本迭代",
@@ -10113,7 +10320,10 @@
    "src": "hf-text-org",
    "quote": "官方 HF 组织 MiniMaxAI/MiniMax-M2.7，createdAt 2026-04-09",
    "note": "日期取官方 HF 组织的 createdAt（**不是 lastModified**）；同一代的多个尺寸档与量化档已折成一个节点。跨模态支线（视觉 / 音频 / 图像生成）不在这棵树上 —— 它们的产出物不是文本。",
-   "parent": "minimax-text-M2.5-小版本迭代"
+   "parent": "minimax-text-M2.5-小版本迭代",
+   "repos": [
+    "MiniMaxAI/MiniMax-M2.7"
+   ]
   },
   {
    "id": "mistral-text-Mistral 7B-这条线的起点，7B ",
@@ -10123,7 +10333,12 @@
    "added": "这条线的起点，7B 稠密",
    "src": "hf-text-org",
    "quote": "官方 HF 组织 mistralai/Mistral-7B-v0.1，createdAt 2023-09-20",
-   "note": "日期取官方 HF 组织的 createdAt（**不是 lastModified**）；同一代的多个尺寸档与量化档已折成一个节点。跨模态支线（视觉 / 音频 / 图像生成）不在这棵树上 —— 它们的产出物不是文本。"
+   "note": "日期取官方 HF 组织的 createdAt（**不是 lastModified**）；同一代的多个尺寸档与量化档已折成一个节点。跨模态支线（视觉 / 音频 / 图像生成）不在这棵树上 —— 它们的产出物不是文本。",
+   "repos": [
+    "mistralai/Mistral-7B-Instruct-v0.1",
+    "mistralai/Mistral-7B-Instruct-v0.2",
+    "mistralai/Mistral-7B-v0.1"
+   ]
   },
   {
    "id": "mistral-text-Mixtral 8x7B-稀疏 MoE",
@@ -10134,7 +10349,11 @@
    "src": "hf-text-org",
    "quote": "官方 HF 组织 mistralai/Mixtral-8x7B-v0.1，createdAt 2023-12-01（同代 2 个仓库）",
    "note": "日期取官方 HF 组织的 createdAt（**不是 lastModified**）；同一代的多个尺寸档与量化档已折成一个节点。跨模态支线（视觉 / 音频 / 图像生成）不在这棵树上 —— 它们的产出物不是文本。",
-   "parent": "mistral-text-Mistral 7B-这条线的起点，7B "
+   "parent": "mistral-text-Mistral 7B-这条线的起点，7B ",
+   "repos": [
+    "mistralai/Mixtral-8x7B-Instruct-v0.1",
+    "mistralai/Mixtral-8x7B-v0.1"
+   ]
   },
   {
    "id": "mistral-text-Mistral 7B v0.3-扩词表并加函数调用",
@@ -10145,7 +10364,11 @@
    "src": "hf-text-org",
    "quote": "官方 HF 组织 mistralai/Mistral-7B-v0.3，createdAt 2024-05-22",
    "note": "日期取官方 HF 组织的 createdAt（**不是 lastModified**）；同一代的多个尺寸档与量化档已折成一个节点。跨模态支线（视觉 / 音频 / 图像生成）不在这棵树上 —— 它们的产出物不是文本。",
-   "parent": "mistral-text-Mixtral 8x7B-稀疏 MoE"
+   "parent": "mistral-text-Mixtral 8x7B-稀疏 MoE",
+   "repos": [
+    "mistralai/Mistral-7B-Instruct-v0.3",
+    "mistralai/Mistral-7B-v0.3"
+   ]
   },
   {
    "id": "mistral-text-Codestral-分出代码支线（22B",
@@ -10156,7 +10379,10 @@
    "src": "hf-text-org",
    "quote": "官方 HF 组织 mistralai/Codestral-22B-v0.1，createdAt 2024-05-29",
    "note": "日期取官方 HF 组织的 createdAt（**不是 lastModified**）；同一代的多个尺寸档与量化档已折成一个节点。跨模态支线（视觉 / 音频 / 图像生成）不在这棵树上 —— 它们的产出物不是文本。",
-   "parent": "mistral-text-Mistral 7B v0.3-扩词表并加函数调用"
+   "parent": "mistral-text-Mistral 7B v0.3-扩词表并加函数调用",
+   "repos": [
+    "mistralai/Codestral-22B-v0.1"
+   ]
   },
   {
    "id": "mistral-text-Mistral Nemo-与 NVIDIA 合",
@@ -10167,7 +10393,11 @@
    "src": "hf-text-org",
    "quote": "官方 HF 组织 mistralai/Mistral-Nemo-Base-2407，createdAt 2024-07-18",
    "note": "日期取官方 HF 组织的 createdAt（**不是 lastModified**）；同一代的多个尺寸档与量化档已折成一个节点。跨模态支线（视觉 / 音频 / 图像生成）不在这棵树上 —— 它们的产出物不是文本。",
-   "parent": "mistral-text-Mistral 7B v0.3-扩词表并加函数调用"
+   "parent": "mistral-text-Mistral 7B v0.3-扩词表并加函数调用",
+   "repos": [
+    "mistralai/Mistral-Nemo-Base-2407",
+    "mistralai/Mistral-Nemo-Instruct-2407"
+   ]
   },
   {
    "id": "mistral-text-Mistral Large-第一代旗舰",
@@ -10178,7 +10408,10 @@
    "src": "hf-text-org",
    "quote": "官方 HF 组织 mistralai/Mistral-Large-Instruct-2407，createdAt 2024-07-24（同代 2 个仓库）",
    "note": "日期取官方 HF 组织的 createdAt（**不是 lastModified**）；同一代的多个尺寸档与量化档已折成一个节点。跨模态支线（视觉 / 音频 / 图像生成）不在这棵树上 —— 它们的产出物不是文本。",
-   "parent": "mistral-text-Mistral Nemo-与 NVIDIA 合"
+   "parent": "mistral-text-Mistral Nemo-与 NVIDIA 合",
+   "repos": [
+    "mistralai/Mistral-Large-Instruct-2407"
+   ]
   },
   {
    "id": "mistral-text-Mistral Small-中档产品线开张",
@@ -10189,7 +10422,10 @@
    "src": "hf-text-org",
    "quote": "官方 HF 组织 mistralai/Mistral-Small-Instruct-2409，createdAt 2024-09-17（同代 2 个仓库）",
    "note": "日期取官方 HF 组织的 createdAt（**不是 lastModified**）；同一代的多个尺寸档与量化档已折成一个节点。跨模态支线（视觉 / 音频 / 图像生成）不在这棵树上 —— 它们的产出物不是文本。",
-   "parent": "mistral-text-Mistral Large-第一代旗舰"
+   "parent": "mistral-text-Mistral Large-第一代旗舰",
+   "repos": [
+    "mistralai/Mistral-Small-Instruct-2409"
+   ]
   },
   {
    "id": "mistral-text-Ministral-端侧档（8B）",
@@ -10200,7 +10436,10 @@
    "src": "hf-text-org",
    "quote": "官方 HF 组织 mistralai/Ministral-8B-Instruct-2410，createdAt 2024-10-15",
    "note": "日期取官方 HF 组织的 createdAt（**不是 lastModified**）；同一代的多个尺寸档与量化档已折成一个节点。跨模态支线（视觉 / 音频 / 图像生成）不在这棵树上 —— 它们的产出物不是文本。",
-   "parent": "mistral-text-Mistral Small-中档产品线开张"
+   "parent": "mistral-text-Mistral Small-中档产品线开张",
+   "repos": [
+    "mistralai/Ministral-8B-Instruct-2410"
+   ]
   },
   {
    "id": "mistral-text-Mistral Small 3-换代到 24B",
@@ -10211,7 +10450,10 @@
    "src": "hf-text-org",
    "quote": "官方 HF 组织 mistralai/Mistral-Small-24B-Base-2501，createdAt 2025-01-23",
    "note": "日期取官方 HF 组织的 createdAt（**不是 lastModified**）；同一代的多个尺寸档与量化档已折成一个节点。跨模态支线（视觉 / 音频 / 图像生成）不在这棵树上 —— 它们的产出物不是文本。",
-   "parent": "mistral-text-Ministral-端侧档（8B）"
+   "parent": "mistral-text-Ministral-端侧档（8B）",
+   "repos": [
+    "mistralai/Mistral-Small-24B-Base-2501"
+   ]
   },
   {
    "id": "mistral-text-Mistral Small 3.1-小版本迭代",
@@ -10222,7 +10464,11 @@
    "src": "hf-text-org",
    "quote": "官方 HF 组织 mistralai/Mistral-Small-3.1-24B-Instruct-2503，createdAt 2025-03-11",
    "note": "日期取官方 HF 组织的 createdAt（**不是 lastModified**）；同一代的多个尺寸档与量化档已折成一个节点。跨模态支线（视觉 / 音频 / 图像生成）不在这棵树上 —— 它们的产出物不是文本。",
-   "parent": "mistral-text-Mistral Small 3-换代到 24B"
+   "parent": "mistral-text-Mistral Small 3-换代到 24B",
+   "repos": [
+    "mistralai/Mistral-Small-3.1-24B-Base-2503",
+    "mistralai/Mistral-Small-3.1-24B-Instruct-2503"
+   ]
   },
   {
    "id": "mistral-text-Devstral-分出软件工程支线",
@@ -10233,7 +10479,10 @@
    "src": "hf-text-org",
    "quote": "官方 HF 组织 mistralai/Devstral-Small-2505，createdAt 2025-05-12（同代 2 个仓库）",
    "note": "日期取官方 HF 组织的 createdAt（**不是 lastModified**）；同一代的多个尺寸档与量化档已折成一个节点。跨模态支线（视觉 / 音频 / 图像生成）不在这棵树上 —— 它们的产出物不是文本。",
-   "parent": "mistral-text-Codestral-分出代码支线（22B"
+   "parent": "mistral-text-Codestral-分出代码支线（22B",
+   "repos": [
+    "mistralai/Devstral-Small-2505"
+   ]
   },
   {
    "id": "mistral-text-Magistral-推理支线",
@@ -10244,7 +10493,10 @@
    "src": "hf-text-org",
    "quote": "官方 HF 组织 mistralai/Magistral-Small-2506，createdAt 2025-06-04（同代 3 个仓库）",
    "note": "日期取官方 HF 组织的 createdAt（**不是 lastModified**）；同一代的多个尺寸档与量化档已折成一个节点。跨模态支线（视觉 / 音频 / 图像生成）不在这棵树上 —— 它们的产出物不是文本。",
-   "parent": "mistral-text-Mistral Small 3.1-小版本迭代"
+   "parent": "mistral-text-Mistral Small 3.1-小版本迭代",
+   "repos": [
+    "mistralai/Magistral-Small-2506"
+   ]
   },
   {
    "id": "mistral-text-Mistral Small 3.2-小版本迭代",
@@ -10255,7 +10507,10 @@
    "src": "hf-text-org",
    "quote": "官方 HF 组织 mistralai/Mistral-Small-3.2-24B-Instruct-2506，createdAt 2025-06-19",
    "note": "日期取官方 HF 组织的 createdAt（**不是 lastModified**）；同一代的多个尺寸档与量化档已折成一个节点。跨模态支线（视觉 / 音频 / 图像生成）不在这棵树上 —— 它们的产出物不是文本。",
-   "parent": "mistral-text-Magistral-推理支线"
+   "parent": "mistral-text-Magistral-推理支线",
+   "repos": [
+    "mistralai/Mistral-Small-3.2-24B-Instruct-2506"
+   ]
   },
   {
    "id": "mistral-text-Ministral 3-端侧档换代；同日放出",
@@ -10266,7 +10521,12 @@
    "src": "hf-text-org",
    "quote": "官方 HF 组织 mistralai/Ministral-3-3B-Base-2512，createdAt 2025-10-31（同代 3 个仓库）",
    "note": "日期取官方 HF 组织的 createdAt（**不是 lastModified**）；同一代的多个尺寸档与量化档已折成一个节点。跨模态支线（视觉 / 音频 / 图像生成）不在这棵树上 —— 它们的产出物不是文本。",
-   "parent": "mistral-text-Mistral Small 3.2-小版本迭代"
+   "parent": "mistral-text-Mistral Small 3.2-小版本迭代",
+   "repos": [
+    "mistralai/Ministral-3-14B-Instruct-2512",
+    "mistralai/Ministral-3-3B-Base-2512",
+    "mistralai/Ministral-3-3B-Reasoning-2512"
+   ]
   },
   {
    "id": "mistral-text-Devstral 2-软件工程支线换代（1",
@@ -10277,7 +10537,11 @@
    "src": "hf-text-org",
    "quote": "官方 HF 组织 mistralai/Devstral-2-123B-Instruct-2512，createdAt 2025-11-28",
    "note": "日期取官方 HF 组织的 createdAt（**不是 lastModified**）；同一代的多个尺寸档与量化档已折成一个节点。跨模态支线（视觉 / 音频 / 图像生成）不在这棵树上 —— 它们的产出物不是文本。",
-   "parent": "mistral-text-Devstral-分出软件工程支线"
+   "parent": "mistral-text-Devstral-分出软件工程支线",
+   "repos": [
+    "mistralai/Devstral-2-123B-Instruct-2512",
+    "mistralai/Devstral-Small-2-24B-Instruct-2512"
+   ]
   },
   {
    "id": "mistral-text-Leanstral-定理证明支线",
@@ -10288,7 +10552,10 @@
    "src": "hf-text-org",
    "quote": "官方 HF 组织 mistralai/Leanstral-2603，createdAt 2026-03-11",
    "note": "日期取官方 HF 组织的 createdAt（**不是 lastModified**）；同一代的多个尺寸档与量化档已折成一个节点。跨模态支线（视觉 / 音频 / 图像生成）不在这棵树上 —— 它们的产出物不是文本。",
-   "parent": "mistral-text-Small 4-把 Instruct / Reasoning 等三支合成一个混合模型"
+   "parent": "mistral-text-Small 4-把 Instruct / Reasoning 等三支合成一个混合模型",
+   "repos": [
+    "mistralai/Leanstral-2603"
+   ]
   },
   {
    "id": "mistral-text-Shieldstral-安全护栏支线",
@@ -10299,7 +10566,80 @@
    "src": "hf-text-org",
    "quote": "官方 HF 组织 mistralai/Shieldstral-1.0-3B，createdAt 2026-07-16",
    "note": "日期取官方 HF 组织的 createdAt（**不是 lastModified**）；同一代的多个尺寸档与量化档已折成一个节点。跨模态支线（视觉 / 音频 / 图像生成）不在这棵树上 —— 它们的产出物不是文本。",
-   "parent": "mistral-text-Medium 3.5-第一个「合并」旗舰：128B 稠密 + 256k 上下文"
+   "parent": "mistral-text-Medium 3.5-第一个「合并」旗舰：128B 稠密 + 256k 上下文",
+   "repos": [
+    "mistralai/Shieldstral-1.0-3B"
+   ]
+  },
+  {
+   "id": "deepseek-Coder-v1.5-代码支线的 v1.5",
+   "m": "deepseek",
+   "version": "Coder-v1.5",
+   "date": "2024-01-25",
+   "added": "代码支线的 v1.5 修订",
+   "src": "hf-text-org",
+   "quote": "官方 HF 组织 deepseek-ai/deepseek-coder-7b-instruct-v1.5，createdAt 2024-01-25",
+   "note": "日期取官方 HF 组织的 createdAt（**不是 lastModified**）；同一代的多个尺寸档与量化档已折成一个节点，`repos` 列出这一代覆盖了哪些仓库。跨模态支线（视觉 / 音频 / 图像生成）不在这棵树上 —— 它们的产出物不是文本。",
+   "repos": [
+    "deepseek-ai/deepseek-coder-7b-instruct-v1.5"
+   ],
+   "parent": "deepseek-deepseek-coder-这条线在 HF 上最"
+  },
+  {
+   "id": "deepseek-R1-0528-R1 的 5 月修订",
+   "m": "deepseek",
+   "version": "R1-0528",
+   "date": "2025-05-29",
+   "added": "R1 的 5 月修订，并蒸馏到 Qwen3-8B",
+   "src": "hf-text-org",
+   "quote": "官方 HF 组织 deepseek-ai/DeepSeek-R1-0528-Qwen3-8B，createdAt 2025-05-29",
+   "note": "日期取官方 HF 组织的 createdAt（**不是 lastModified**）；同一代的多个尺寸档与量化档已折成一个节点，`repos` 列出这一代覆盖了哪些仓库。跨模态支线（视觉 / 音频 / 图像生成）不在这棵树上 —— 它们的产出物不是文本。",
+   "repos": [
+    "deepseek-ai/DeepSeek-R1-0528-Qwen3-8B"
+   ],
+   "parent": "deepseek-R1-推理模型：同"
+  },
+  {
+   "id": "mistral-text-Mathstral-数学专用支线",
+   "m": "mistral-text",
+   "version": "Mathstral",
+   "date": "2024-07-16",
+   "added": "数学专用支线",
+   "src": "hf-text-org",
+   "quote": "官方 HF 组织 mistralai/Mathstral-7B-v0.1，createdAt 2024-07-16",
+   "note": "日期取官方 HF 组织的 createdAt（**不是 lastModified**）；同一代的多个尺寸档与量化档已折成一个节点，`repos` 列出这一代覆盖了哪些仓库。跨模态支线（视觉 / 音频 / 图像生成）不在这棵树上 —— 它们的产出物不是文本。",
+   "repos": [
+    "mistralai/Mathstral-7B-v0.1"
+   ],
+   "parent": "mistral-text-Mistral 7B v0.3-扩词表并加函数调用"
+  },
+  {
+   "id": "mistral-text-Mamba-Codestral-代码支线的 Mamb",
+   "m": "mistral-text",
+   "version": "Mamba-Codestral",
+   "date": "2024-07-16",
+   "added": "代码支线的 Mamba 架构试验档",
+   "src": "hf-text-org",
+   "quote": "官方 HF 组织 mistralai/Mamba-Codestral-7B-v0.1，createdAt 2024-07-16",
+   "note": "日期取官方 HF 组织的 createdAt（**不是 lastModified**）；同一代的多个尺寸档与量化档已折成一个节点，`repos` 列出这一代覆盖了哪些仓库。跨模态支线（视觉 / 音频 / 图像生成）不在这棵树上 —— 它们的产出物不是文本。",
+   "repos": [
+    "mistralai/Mamba-Codestral-7B-v0.1"
+   ],
+   "parent": "mistral-text-Codestral-分出代码支线（22B"
+  },
+  {
+   "id": "mistral-text-Leanstral 1.5-定理证明支线换代（1",
+   "m": "mistral-text",
+   "version": "Leanstral 1.5",
+   "date": "2026-07-01",
+   "added": "定理证明支线换代（119B-A6B）",
+   "src": "hf-text-org",
+   "quote": "官方 HF 组织 mistralai/Leanstral-1.5-119B-A6B，createdAt 2026-07-01",
+   "note": "日期取官方 HF 组织的 createdAt（**不是 lastModified**）；同一代的多个尺寸档与量化档已折成一个节点，`repos` 列出这一代覆盖了哪些仓库。跨模态支线（视觉 / 音频 / 图像生成）不在这棵树上 —— 它们的产出物不是文本。",
+   "repos": [
+    "mistralai/Leanstral-1.5-119B-A6B"
+   ],
+   "parent": "mistral-text-Leanstral-定理证明支线"
   }
  ],
  "$versions": "版本谱系（演进图的数据）。**演进的主体是模型，不是能力。**\n\n原来那张演进图每行是一项能力、横轴是「我们能证明的最早时间」、粗细是几家支持。\n读者看完只得到「动作复刻 2025-12 出现、6/9 支持」—— 那是一次数据库查询的可视化，不涨知识。\n而且它得靠图注免责（「不是业界首次出现」）：**一张需要图注免责的图，说明它量错了东西。**\n\n这份数据画的是**厂商自己发布的版本和日期**，所以不需要免责。每条必须回答：\n**这一代新增了什么。** 只有版本号没有 added 的节点没有价值，不收。\n\n两个最好的来源，都不是「新闻」：\n  · **官方 Hugging Face 组织** —— 模型名本身就编码了能力与代际\n    （Wan2.1-FLF2V＝首尾帧、Wan2.2-S2V＝语音驱动、LTX 的 IC-LoRA-Ingredients＝角色参考），\n    发布时间由 HF API 给出，比任何新闻稿都准。\n  · **官方 API 更新日志** —— 可灵那份 31k 字符里有 170 条带日期的条目。\n\n覆盖不全是事实：万相和可灵能画出完整谱系，Runway/Vidu/Seedance 只有近期几个点，\nVeo/Sora/海螺/LTX 还没有。**图上要标出哪几条线是完整的、哪几条只是片段** ——\n画一条只有两个点的线却不说明，读者会以为这家两年只更新过两次。\n\n`cap` 把版本节点挂到能力 id 上，图上「点一项能力，看各家谁先谁后」靠它。\n**对不上的一律留空并写明理由（cap_skip），不硬凑** —— 硬凑一个 id，纵向那一刀就切错了。\n典型：Wan 的 S2V 是「语音驱动」，不等于我们轴上的「对口型」，两件事不合并；\n「换代」节点本身也不是新增单项能力。\n\n`id` + `parent` 把平铺记录变成**真的树**。分叉是真实存在的：\nWan2.1 底座上同时长出 FLF2V（首尾帧）和 VACE（统一编辑）两个变体，\nWan2.2 是换代接在 2.1 后面，Animate-2 又接在 Animate 后面。\n\n**没有父节点的就让它当根，不许为了让树好看硬接一条边** ——\nRunway 的 Aleph 是编辑线，不是 Gen 的后代，它自己是一棵树。\n\n⚠️ **日期必须取 HF 的 `createdAt`，不能取 `lastModified`。**\n第一版取错了字段，把「最后修改」当成了发布日期：Wan2.2 记成 2025-08-07（实际 2025-07-18）、\nAnimate 记成 2025-11-05（实际 2025-09-11）——**差了两个月**。\n仓库发布后还会被反复更新，两个字段根本不是一回事。\n这类错最阴：日期看着合理、图也画得出来，但整条时间线是歪的。\n\n覆盖不足要**写在数据里**，不是靠图上一句话糊过去：\n模型的 `lineage_note` 解释为什么它的节点少（太新 / 官方记录只回溯到某时）。\n校验 R58 强制：**核心模型少于 3 个节点却没写理由，就是错**。\n「我们没采到」和「它本来就没有」是两回事，读者有权知道是哪一种。",

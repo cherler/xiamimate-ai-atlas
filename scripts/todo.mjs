@@ -74,6 +74,15 @@ try {
   const known = new Set();
   for (const v of atlas.versions ?? []) {
     known.add(v.version.toLowerCase());
+    /**
+     * **`repos` 是精确的那一份，扫引文只是兜底。**
+     *
+     * 原来只靠「repo 名有没有出现在 quote/note 里」猜，于是 Kimi-K3、Qwen3.6-27B
+     * 这种树上早就有、却是从别的源录进来的，**永远显示成待办** ——
+     * 一摞永远不收敛的待办，人看两次就不看了，等于没有待办。
+     * 现在每个谱系节点显式记下它覆盖了哪些仓库（同一代的不同尺寸档算同一个节点）。
+     */
+    for (const r of v.repos ?? []) known.add(r.toLowerCase());
     for (const m of `${v.quote ?? ""} ${v.note ?? ""}`.matchAll(/[A-Za-z0-9_.-]+\/[A-Za-z0-9_.-]+/g))
       known.add(m[0].toLowerCase());
   }

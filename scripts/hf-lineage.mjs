@@ -117,7 +117,7 @@ const NOT_TEXT = new RegExp([
    */
   "janus",                                    // DeepSeek 的图像生成线（Janus / JanusFlow / Janus-Pro）
   "pixtral", "voxtral",                        // Mistral 的视觉线与音频线
-  "visualglm", "cogvlm", "vlm",                // 智谱的视觉线
+  "visualglm", "cogvlm", "vlm", "vl\\d",        // 智谱的视觉线；vl\d 收的是 deepseek-vl2 那种「vl+代号」
   "\\d+\\.?\\d*v(-|$)", "-v-flash",            // glm-4v / GLM-4.5V / GLM-4.6V-Flash：**版本号后面那个 v 就是 vision**
   "qvq",                                       // 通义的视觉推理线
   "autoglm", "scail",                          // GUI 智能体 / 未公开说明的研究预览
