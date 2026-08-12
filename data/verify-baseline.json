@@ -40,6 +40,8 @@
     "/changes|手机": 82,
     "/toolkit|手机": 93,
     "/caveats|桌面": 31,
-    "/caveats|手机": 31
+    "/caveats|手机": 31,
+    "/basics|桌面": 76,
+    "/basics|手机": 76
   }
 }

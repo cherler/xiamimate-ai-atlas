@@ -106,6 +106,13 @@ const ROUTES = [
   // 对它用整页上限，等于「多收一个真实应用算退步」—— 和 /changes 当初那个错一样。
   // 所以按条均摊（每条 = 一个应用卡）。
   { path: "/toolkit", must: "该去哪个站", zh: 300, per: "main > div > section", built: true },
+  /**
+   * `/basics` 是教程导航 + 术语速查。**字数按「每条教程」均摊**，
+   * 和 /changes、/caveats 同一个道理：多收一条真教程不该算退步。
+   * `also` 钉的是三样最容易掉的东西：教程标题、许可提醒、那个真实的反面例子。
+   */
+  { path: "/basics", must: "去读哪些公开教程", zh: 260, per: "section > div > div > a", built: true,
+    also: ["无 LICENSE 文件", "ConvRot", "术语速查"] },
   // 第二个方向。**用的是和首页同一个 TruthTable**，只换了轨 ——
   // 这一条红了，说明「轨是方向的属性」那次重构又被人破坏了。
 ];
@@ -331,6 +338,42 @@ const mentions = (txt, name) => {
     ? new RegExp(`(?<![A-Za-z0-9])${esc}(?![A-Za-z0-9])`).test(txt)
     : txt.includes(name);
 };
+
+// ── 新页不许是孤儿 ────────────────────────────────────────────────
+/**
+ * **一个没人链到的页面，等于没做。**
+ *
+ * 2026-08-12 `/basics` 上线当天只有 `/toolkit` 一处链它 —— 而 /toolkit 自己
+ * 还在方向首页的次级入口里，等于埋了两层。负责人当场就问「入口在哪里」。
+ * 对照同类跨方向页：/changes 被 961 页链、/method 481、/caveats 32、/toolkit 7，
+ * **它 1**。这个差距肉眼看不出来，只有数一遍才知道。
+ *
+ * 所以：路由表里的每一页，**必须至少被另外一页链到**。
+ * 阈值定 1 而不是更高 —— 这条要拦的是「彻底没人链」，不是替页面排名。
+ */
+{
+  console.log("\n══════ 新页不许是孤儿 ══════");
+  const files = [];
+  const walk = (d) => {
+    for (const e of readdirSync(d, { withFileTypes: true })) {
+      const f = join(d, e.name);
+      if (e.isDirectory()) walk(f);
+      else if (e.name.endsWith(".html")) files.push(f);
+    }
+  };
+  if (existsSync(OUT)) walk(OUT);
+  const html = new Map(files.map((f) => [f, readFileSync(f, "utf8")]));
+  for (const r of ROUTES) {
+    if (r.path === "/") continue;                       // 根页是入口，没人链它是正常的
+    const self = join(OUT, `${r.path.slice(1)}.html`);
+    let n = 0;
+    for (const [f, t] of html) {
+      if (f === self) continue;
+      if (t.includes(`${BASE}${r.path}"`) || t.includes(`${BASE}${r.path}#`)) n++;
+    }
+    ok(n > 0, `${r.path} 有页面链到它（${n} 处）`);
+  }
+}
 
 // ── 方向隔离：别的方向的模型不许出现在当前方向的页面上 ─────────────────
 /**

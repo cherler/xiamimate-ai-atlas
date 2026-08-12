@@ -144,6 +144,18 @@ export default async function DomainHome({ params }: { params: Promise<{ domain:
 
       <nav className="mt-12 border-t-[.5px] border-rule pt-3 flex flex-wrap gap-x-6 gap-y-2 text-[13px] text-muted">
         {[
+          /**
+           * **`/basics` 排在第一位，因为它服务的是「还没入门」的人。**
+           *
+           * 2026-08-12 这一页刚上线时只有 `/toolkit` 一处链它 —— 而 /toolkit 自己
+           * 也在这排次级入口里，等于埋了两层，负责人当天就问「入口在哪里」。
+           * 对照：/changes 被 961 页链、/method 481 页、/caveats 32 页、/toolkit 7 页，
+           * **它只有 1 页。**
+           *
+           * 顺序不是随手排的：一个连 FP8 是什么都不知道的人，
+           * 「最近有什么变化」「去哪个站查」对他全都用不上。
+           */
+          ["/basics", "看不懂那些词？先看这里"],
           ["/changes", "最近有什么变化"],
           ["/caveats", "能力对了，未必用得上"],
           ["/toolkit", "想查一件事，去哪个站"],

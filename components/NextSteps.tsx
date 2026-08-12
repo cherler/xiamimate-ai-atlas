@@ -23,6 +23,7 @@ const LABEL: Record<string, string> = {
   "/changes": "最近变了什么",
   "/toolkit": "该去哪个站查",
   "/caveats": "下单前先看这几条",
+  "/basics": "看不懂那些词",
 };
 
 export default function NextSteps() {
