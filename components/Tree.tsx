@@ -489,6 +489,22 @@ export default function Tree({ domain }: { domain: string }) {
     const gutter = PAD.l;   // 左侧刻度尺栏的右缘
     const roomOnLeft = (x: number, w: number) => x - 7 - w >= gutter;
     /**
+     * **左边不只有画布边界，还有隔壁那条线。**
+     *
+     * 顶端标签一律靠左是 16 条线时定的规矩（右边紧挨着产品线名，放右会压住它）。
+     * 但 `roomOnLeft` 量的是**画布左边界** —— 于是文本卷里
+     * Gemini 的「Gemini 3.6」向左伸了 54px，直接落在 Claude 那一列上；
+     * 豆包的「Seed 2.1」同样压住 Kimi。负责人 2026-08-12 圈出的就是这两处。
+     *
+     * 注意它和 `narrow` 那条交替规则**互补**：交替只在「格子比标签还窄」时才启动，
+     * 而这两个标签都比格子窄，于是从来没轮到交替，一路走「靠左」。
+     * **窄标签同样会撞邻居，只是撞的是线不是字** —— 0 重叠的检查照不出来。
+     *
+     * 所以左侧要留到**上一条线的中轴**为止，不是留到画布边。
+     */
+    const laneL = new Map(lines.map((l, i) => [l.m, i === 0 ? gutter : lines[i - 1].cx + 8]));
+    const roomOnLeftOfLane = (m: string, x: number, w: number) => x - 7 - w >= (laneL.get(m) ?? gutter);
+    /**
      * **右边也是有边的。** 左边界当时做了，右边界漏了 ——
      * 22 条线里最右那条（Mage-Flow）被「窄格交替」规则派到右侧，
      * 直接伸出画布，顶端被切掉。上一次是上抬越界，这次是横向越界：
@@ -529,6 +545,8 @@ export default function Tree({ domain }: { domain: string }) {
       const narrow = (l?.slotW ?? 999) < w;
       const forceLeft =
         isTop && roomOnLeft(p.x, w) &&
+        // 左边够不到上一条线才准靠左；够得到就翻到右边去（右边是自己那条线的空档）
+        (roomOnLeftOfLane(n.m, p.x, w) || !roomOnRight(p.x, w)) &&
         (!roomOnRight(p.x, w) || !(narrow && (l?.idx ?? 0) % 2 === 1));
       let side: 1 | -1 | 0 = below ? 0 : forceLeft ? -1 : 1;
       let ny = below ? p.y + 15 : p.y;
