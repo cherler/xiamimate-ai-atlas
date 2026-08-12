@@ -4067,6 +4067,34 @@
     "capability"
    ],
    "note": "官方文档，跟着工具链更新"
+  },
+  {
+   "id": "zimage-gh",
+   "tier": "A",
+   "kind": "json",
+   "vendor": "",
+   "name": "Tongyi-MAI/Z-Image 官方仓库（模型表与规格）",
+   "url": "https://api.github.com/repos/Tongyi-MAI/Z-Image",
+   "refresh_days": 21,
+   "good_for": [
+    "capability",
+    "openweights"
+   ],
+   "note": "⚠️ 抓的是 API 端点，给读者点的网页地址在 atlas.sources 里（R72）。**GitHub README 比 HF 模型卡写得全** —— 模型表、分辨率上限这些只在仓库里"
+  },
+  {
+   "id": "hunyuan-image-gh",
+   "tier": "A",
+   "kind": "json",
+   "vendor": "",
+   "name": "Tencent-Hunyuan/HunyuanImage-3.0 官方仓库",
+   "url": "https://api.github.com/repos/Tencent-Hunyuan/HunyuanImage-3.0",
+   "refresh_days": 21,
+   "good_for": [
+    "capability",
+    "openweights"
+   ],
+   "note": "⚠️ 抓的是 API 端点，给读者点的网页地址在 atlas.sources 里（R72）。**GitHub README 比 HF 模型卡写得全** —— 模型表、分辨率上限这些只在仓库里"
   }
  ],
  "$missing": [

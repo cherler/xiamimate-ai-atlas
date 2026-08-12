@@ -1,6 +1,6 @@
 {
  "version": "1.7",
- "generated_at": "2026-08-12",
+ "generated_at": "2026-08-13",
  "note": "第九版。clip 轨九个 Family 已全部用厂商官方源逐格重核（86% 的格子挂官方来源）。全部由 Agent 录入，未经人工核验（§59.3 转述层）。模型按 version_as_of 降序；status 标生命周期。",
  "changelog": [
   "v1.7 公司升为一等实体（阿里此前在库里是两家）+ 能力轴按方向隔离 + 平台透明度四档（⬜「我们没看到」≠🔴「只字不提」）+ 价格（**七家七种计价方式，不可比才是结论**）",
@@ -4423,6 +4423,16 @@
    "name": "Hugging Face diffusers 官方文档 · 显存优化",
    "url": "https://huggingface.co/docs/diffusers/main/en/optimization/memory",
    "tier": "official"
+  },
+  "zimage-gh": {
+   "name": "Tongyi-MAI/Z-Image 官方仓库（模型表与规格）",
+   "url": "https://github.com/Tongyi-MAI/Z-Image",
+   "tier": "official"
+  },
+  "hunyuan-image-gh": {
+   "name": "Tencent-Hunyuan/HunyuanImage-3.0 官方仓库",
+   "url": "https://github.com/Tencent-Hunyuan/HunyuanImage-3.0",
+   "tier": "official"
   }
  },
  "support": [
@@ -6239,67 +6249,78 @@
   {
    "m": "z-image",
    "c": "i-i2i",
-   "state": "yes",
+   "state": "no",
    "verified_for": "Turbo",
-   "src": "zimage-card",
-   "note": "官方原文：「Z-Image-Edit … supports creative image-to-image generation」"
+   "src": "zimage-gh",
+   "note": "⚠️ **这一格原来是 ✅，是错的。** 它引的是「Z-Image-Edit … supports creative image-to-image generation」—— 而 Z-Image-Edit **还没发布**。我们收的是 Z-Image Turbo，官方模型表把它的 Task 明确写作 `Gen.`。**「这条产品线将会有」和「你现在下得到的这个能有」是两件事**，混了就是在替厂商许诺。",
+   "as_of": "2026-08-13",
+   "quote": "官方仓库的模型表：`Z-Image-Turbo` 与 `Z-Image` 两档 **Task 栏都是 `Gen.`**；能做编辑的两档 —— `Z-Image-Omni-Base`（Task `Gen. / Editing`）与 `Z-Image-Edit`（Task `Editing`）—— **Hugging Face 与 ModelScope 两栏都写着 *To be released***"
   },
   {
    "m": "z-image",
    "c": "i-edit",
-   "state": "yes",
+   "state": "no",
    "verified_for": "Turbo",
-   "src": "zimage-card",
-   "note": "官方原文：「allowing for precise edits based on natural language prompts」"
+   "src": "zimage-gh",
+   "note": "⚠️ **同上，原来的 ✅ 也是错的**：引文「allowing for precise edits based on natural language prompts」讲的是 Z-Image-Edit。等它真放出来，这一格该改成 ✅ 并填 `sibling`。",
+   "as_of": "2026-08-13",
+   "quote": "官方仓库的模型表：`Z-Image-Turbo` 与 `Z-Image` 两档 **Task 栏都是 `Gen.`**；能做编辑的两档 —— `Z-Image-Omni-Base`（Task `Gen. / Editing`）与 `Z-Image-Edit`（Task `Editing`）—— **Hugging Face 与 ModelScope 两栏都写着 *To be released***"
   },
   {
    "m": "z-image",
    "c": "i-multiturn",
    "state": "unknown",
    "verified_for": "Turbo",
-   "note": "Z-Image 官方模型卡没提这一条 —— 读完没找到"
+   "note": "**已发布的两档都是纯生成。** 官方仓库的模型表：`Z-Image-Turbo` 与 `Z-Image` 两档 Task 栏都是 `Gen.`；能做编辑的两档 —— `Z-Image-Omni-Base`（Task `Gen. / Editing`）与 `Z-Image-Edit`（Task `Editing`）—— Hugging Face 与 ModelScope 两栏都写着 *To be released*。仓库通篇没有蒙版、扩图、参考图、放大、分层这些参数或小节 —— 读完没找到，不是没读。编辑那一支放出来之后要整批重核。",
+   "as_of": "2026-08-13"
   },
   {
    "m": "z-image",
    "c": "i-inpaint",
    "state": "unknown",
    "verified_for": "Turbo",
-   "note": "Z-Image 官方模型卡没提这一条 —— 读完没找到"
+   "note": "**已发布的两档都是纯生成。** 官方仓库的模型表：`Z-Image-Turbo` 与 `Z-Image` 两档 Task 栏都是 `Gen.`；能做编辑的两档 —— `Z-Image-Omni-Base`（Task `Gen. / Editing`）与 `Z-Image-Edit`（Task `Editing`）—— Hugging Face 与 ModelScope 两栏都写着 *To be released*。仓库通篇没有蒙版、扩图、参考图、放大、分层这些参数或小节 —— 读完没找到，不是没读。编辑那一支放出来之后要整批重核。",
+   "as_of": "2026-08-13"
   },
   {
    "m": "z-image",
    "c": "i-outpaint",
    "state": "unknown",
    "verified_for": "Turbo",
-   "note": "Z-Image 官方模型卡没提这一条 —— 读完没找到"
+   "note": "**已发布的两档都是纯生成。** 官方仓库的模型表：`Z-Image-Turbo` 与 `Z-Image` 两档 Task 栏都是 `Gen.`；能做编辑的两档 —— `Z-Image-Omni-Base`（Task `Gen. / Editing`）与 `Z-Image-Edit`（Task `Editing`）—— Hugging Face 与 ModelScope 两栏都写着 *To be released*。仓库通篇没有蒙版、扩图、参考图、放大、分层这些参数或小节 —— 读完没找到，不是没读。编辑那一支放出来之后要整批重核。",
+   "as_of": "2026-08-13"
   },
   {
    "m": "z-image",
    "c": "i-canvas",
    "state": "unknown",
    "verified_for": "Turbo",
-   "note": "Z-Image 官方模型卡没提这一条 —— 读完没找到"
+   "note": "**已发布的两档都是纯生成。** 官方仓库的模型表：`Z-Image-Turbo` 与 `Z-Image` 两档 Task 栏都是 `Gen.`；能做编辑的两档 —— `Z-Image-Omni-Base`（Task `Gen. / Editing`）与 `Z-Image-Edit`（Task `Editing`）—— Hugging Face 与 ModelScope 两栏都写着 *To be released*。仓库通篇没有蒙版、扩图、参考图、放大、分层这些参数或小节 —— 读完没找到，不是没读。编辑那一支放出来之后要整批重核。",
+   "as_of": "2026-08-13"
   },
   {
    "m": "z-image",
    "c": "i-multiref",
    "state": "unknown",
    "verified_for": "Turbo",
-   "note": "Z-Image 官方模型卡没提这一条 —— 读完没找到"
+   "note": "**已发布的两档都是纯生成。** 官方仓库的模型表：`Z-Image-Turbo` 与 `Z-Image` 两档 Task 栏都是 `Gen.`；能做编辑的两档 —— `Z-Image-Omni-Base`（Task `Gen. / Editing`）与 `Z-Image-Edit`（Task `Editing`）—— Hugging Face 与 ModelScope 两栏都写着 *To be released*。仓库通篇没有蒙版、扩图、参考图、放大、分层这些参数或小节 —— 读完没找到，不是没读。编辑那一支放出来之后要整批重核。",
+   "as_of": "2026-08-13"
   },
   {
    "m": "z-image",
    "c": "i-styleref",
    "state": "unknown",
    "verified_for": "Turbo",
-   "note": "**没有顺着写。** 官方说「supports a wide range of artistic styles」——那是**风格多**，不是**能拿一张图当风格参考**。这一格问的是后者"
+   "note": "**已发布的两档都是纯生成。** 官方仓库的模型表：`Z-Image-Turbo` 与 `Z-Image` 两档 Task 栏都是 `Gen.`；能做编辑的两档 —— `Z-Image-Omni-Base`（Task `Gen. / Editing`）与 `Z-Image-Edit`（Task `Editing`）—— Hugging Face 与 ModelScope 两栏都写着 *To be released*。仓库通篇没有蒙版、扩图、参考图、放大、分层这些参数或小节 —— 读完没找到，不是没读。编辑那一支放出来之后要整批重核。",
+   "as_of": "2026-08-13"
   },
   {
    "m": "z-image",
    "c": "i-fidelity",
    "state": "unknown",
    "verified_for": "Turbo",
-   "note": "Z-Image 官方模型卡没提这一条 —— 读完没找到"
+   "note": "**已发布的两档都是纯生成。** 官方仓库的模型表：`Z-Image-Turbo` 与 `Z-Image` 两档 Task 栏都是 `Gen.`；能做编辑的两档 —— `Z-Image-Omni-Base`（Task `Gen. / Editing`）与 `Z-Image-Edit`（Task `Editing`）—— Hugging Face 与 ModelScope 两栏都写着 *To be released*。仓库通篇没有蒙版、扩图、参考图、放大、分层这些参数或小节 —— 读完没找到，不是没读。编辑那一支放出来之后要整批重核。",
+   "as_of": "2026-08-13"
   },
   {
    "m": "z-image",
@@ -6314,14 +6335,18 @@
    "c": "i-upscale",
    "state": "unknown",
    "verified_for": "Turbo",
-   "note": "Z-Image 官方模型卡没提这一条 —— 读完没找到"
+   "note": "**已发布的两档都是纯生成。** 官方仓库的模型表：`Z-Image-Turbo` 与 `Z-Image` 两档 Task 栏都是 `Gen.`；能做编辑的两档 —— `Z-Image-Omni-Base`（Task `Gen. / Editing`）与 `Z-Image-Edit`（Task `Editing`）—— Hugging Face 与 ModelScope 两栏都写着 *To be released*。仓库通篇没有蒙版、扩图、参考图、放大、分层这些参数或小节 —— 读完没找到，不是没读。编辑那一支放出来之后要整批重核。",
+   "as_of": "2026-08-13"
   },
   {
    "m": "z-image",
    "c": "i-4k",
-   "state": "unknown",
+   "state": "no",
    "verified_for": "Turbo",
-   "note": "Z-Image 官方模型卡没提这一条 —— 读完没找到"
+   "note": "**上限 2048×2048 = 419 万像素，4K（3840×2160）是 829 万 —— 差一倍。** 官方把话说死了，所以是 ❌ 不是 ⬜。注意它说的是「总像素面积」，所以 1024×4096 这种长条也在范围内。",
+   "as_of": "2026-08-13",
+   "src": "zimage-gh",
+   "quote": "官方仓库的规格：「**Resolution: 512×512 to 2048×2048** (total pixel area, any aspect ratio)」"
   },
   {
    "m": "z-image",
@@ -6362,29 +6387,32 @@
    "verified_for": "3.0",
    "note": "**这是官方自己列的待办，还没勾。** 一份逐项打勾的开源计划比「文档里没提」强得多 —— 它明确告诉你这一项在计划内、但还没有。哪天勾上了，这一格就该翻。",
    "as_of": "2026-08-12",
-   "src": "hunyuan-image-hf",
-   "quote": "官方模型卡的「📑 Open-source Plan」清单：`- [x] Image-to-Image Generation` / **`- [ ] Multi-turn Interaction`**（同一份清单里 Inference、Checkpoints、vLLM Support、Distilled Checkpoints、Image-to-Image 五项都已勾选）"
+   "src": "hunyuan-image-gh",
+   "quote": "官方仓库 README 的「📑 Open-source Plan」清单：`- [x] Inference` / `- [x] HunyuanImage-3.0 Checkpoints` / `- [x] HunyuanImage-3.0-Instruct Checkpoints (with reasoning)` / `- [x] vLLM Support` / `- [x] Distilled Checkpoints` / `- [x] Image-to-Image Generation` / **`- [ ] Multi-turn Interaction`**（HF 模型卡上是同一份清单）"
   },
   {
    "m": "hunyuan-image",
    "c": "i-inpaint",
    "state": "unknown",
    "verified_for": "3.0",
-   "note": "混元图像官方模型卡没提这一条 —— 读完没找到"
+   "note": "官方仓库通篇没有蒙版、扩图、画布、风格参考、放大、分层这些参数或小节。它的编辑能力集中在 `HunyuanImage-3.0-Instruct` 一档，官方描述是「Instruction reasoning and Image-to-image generation, including editing and multi-image fusion」—— **按指令改与多图融合，不是按区域改**。",
+   "as_of": "2026-08-13"
   },
   {
    "m": "hunyuan-image",
    "c": "i-outpaint",
    "state": "unknown",
    "verified_for": "3.0",
-   "note": "混元图像官方模型卡没提这一条 —— 读完没找到"
+   "note": "官方仓库通篇没有蒙版、扩图、画布、风格参考、放大、分层这些参数或小节。它的编辑能力集中在 `HunyuanImage-3.0-Instruct` 一档，官方描述是「Instruction reasoning and Image-to-image generation, including editing and multi-image fusion」—— **按指令改与多图融合，不是按区域改**。",
+   "as_of": "2026-08-13"
   },
   {
    "m": "hunyuan-image",
    "c": "i-canvas",
    "state": "unknown",
    "verified_for": "3.0",
-   "note": "混元图像官方模型卡没提这一条 —— 读完没找到"
+   "note": "官方仓库通篇没有蒙版、扩图、画布、风格参考、放大、分层这些参数或小节。它的编辑能力集中在 `HunyuanImage-3.0-Instruct` 一档，官方描述是「Instruction reasoning and Image-to-image generation, including editing and multi-image fusion」—— **按指令改与多图融合，不是按区域改**。",
+   "as_of": "2026-08-13"
   },
   {
    "m": "hunyuan-image",
@@ -6399,35 +6427,40 @@
    "c": "i-styleref",
    "state": "unknown",
    "verified_for": "3.0",
-   "note": "混元图像官方模型卡没提这一条 —— 读完没找到"
+   "note": "官方仓库通篇没有蒙版、扩图、画布、风格参考、放大、分层这些参数或小节。它的编辑能力集中在 `HunyuanImage-3.0-Instruct` 一档，官方描述是「Instruction reasoning and Image-to-image generation, including editing and multi-image fusion」—— **按指令改与多图融合，不是按区域改**。",
+   "as_of": "2026-08-13"
   },
   {
    "m": "hunyuan-image",
    "c": "i-fidelity",
    "state": "unknown",
    "verified_for": "3.0",
-   "note": "混元图像官方模型卡没提这一条 —— 读完没找到"
+   "note": "官方仓库通篇没有蒙版、扩图、画布、风格参考、放大、分层这些参数或小节。它的编辑能力集中在 `HunyuanImage-3.0-Instruct` 一档，官方描述是「Instruction reasoning and Image-to-image generation, including editing and multi-image fusion」—— **按指令改与多图融合，不是按区域改**。",
+   "as_of": "2026-08-13"
   },
   {
    "m": "hunyuan-image",
    "c": "i-textrender",
    "state": "unknown",
    "verified_for": "3.0",
-   "note": "混元图像官方模型卡没提这一条 —— 读完没找到"
+   "note": "官方 README 的「✨ Key Features」四条讲的是统一自回归架构、80B MoE 规模、生成质量、世界知识推理，**没有一条讲文字渲染**；技术报告标题与开源计划清单里也没有。—— 读完没找到，不是没读。",
+   "as_of": "2026-08-13"
   },
   {
    "m": "hunyuan-image",
    "c": "i-upscale",
    "state": "unknown",
    "verified_for": "3.0",
-   "note": "混元图像官方模型卡没提这一条 —— 读完没找到"
+   "note": "官方仓库通篇没有蒙版、扩图、画布、风格参考、放大、分层这些参数或小节。它的编辑能力集中在 `HunyuanImage-3.0-Instruct` 一档，官方描述是「Instruction reasoning and Image-to-image generation, including editing and multi-image fusion」—— **按指令改与多图融合，不是按区域改**。",
+   "as_of": "2026-08-13"
   },
   {
    "m": "hunyuan-image",
    "c": "i-4k",
    "state": "unknown",
    "verified_for": "3.0",
-   "note": "混元图像官方模型卡没提这一条 —— 读完没找到"
+   "note": "**没有分辨率上限的说明。** 命令行参数只写「`--image-size` Image resolution. Can be `auto`, like `1280x768` or `16:9`」，示例用的是 1024×1024。既没有可选值清单也没有最大值，**拿不到数就不填**。",
+   "as_of": "2026-08-13"
   },
   {
    "m": "hunyuan-image",
@@ -9040,16 +9073,16 @@
    "c": "i-layered",
    "state": "unknown",
    "verified_for": "Turbo",
-   "as_of": "2026-08-12",
-   "note": "官方发布的 Turbo 与完整档都只出整图。"
+   "as_of": "2026-08-13",
+   "note": "**已发布的两档都是纯生成。** 官方仓库的模型表：`Z-Image-Turbo` 与 `Z-Image` 两档 Task 栏都是 `Gen.`；能做编辑的两档 —— `Z-Image-Omni-Base`（Task `Gen. / Editing`）与 `Z-Image-Edit`（Task `Editing`）—— Hugging Face 与 ModelScope 两栏都写着 *To be released*。仓库通篇没有蒙版、扩图、参考图、放大、分层这些参数或小节 —— 读完没找到，不是没读。编辑那一支放出来之后要整批重核。"
   },
   {
    "m": "hunyuan-image",
    "c": "i-layered",
    "state": "unknown",
    "verified_for": "3.0",
-   "as_of": "2026-08-12",
-   "note": "官方发布里没有分层相关的模型或参数。"
+   "as_of": "2026-08-13",
+   "note": "官方仓库通篇没有蒙版、扩图、画布、风格参考、放大、分层这些参数或小节。它的编辑能力集中在 `HunyuanImage-3.0-Instruct` 一档，官方描述是「Instruction reasoning and Image-to-image generation, including editing and multi-image fusion」—— **按指令改与多图融合，不是按区域改**。"
   },
   {
    "m": "recraft",
