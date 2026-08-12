@@ -9,18 +9,40 @@
 跑一个 Node 进程只是多一个要守着的东西，换不来任何动态能力：
 不占内存、不用 pm2、不会挂、更新就是覆盖一批文件。
 
-## 三步
+## 实际做法（2026-08-12 首次部署跑通的那一版）
+
+服务器上有仓库的 checkout（`/srv/xiamimate/xiamimate-ai-atlas`，从 GitHub 拉），
+**在服务器上构建**，形态与 frontend / stocks 一致。
 
 ```bash
-npm run package          # 校验数据 → 重出矩阵图 → 构建 → 打 tar.gz（约 330KB）
-scp dist/atlas-*.tar.gz <server>:/tmp/
-# 服务器上：
-D=/srv/xiamimate/atlas/$(date +%Y%m%d-%H%M%S)
-sudo mkdir -p $D && sudo tar -xzf /tmp/atlas-*.tar.gz -C $D
-sudo ln -sfn $D /srv/xiamimate/atlas/current    # current 是软链
+# 本机：分享图要浏览器，服务器上没有 —— 这一步只能在本机做
+node scripts/make-matrix.mjs && node scripts/make-share.mjs && node scripts/make-feed.mjs
+tar -czf /tmp/atlas-og.tar.gz -C public og && scp /tmp/atlas-og.tar.gz <server>:/tmp/
+
+# 服务器：
+cd /srv/xiamimate/xiamimate-ai-atlas
+sudo git fetch --all && sudo git reset --hard origin/main
+sudo PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD=1 npm ci --no-audit --no-fund
+sudo tar -xzf /tmp/atlas-og.tar.gz -C public      # 先放分享图，再构建
+sudo node scripts/validate.mjs                    # 硬闸：数据坏了就不该有产物
+sudo npx next build
+
+TS=$(date +%Y%m%d-%H%M%S)
+sudo mv /srv/xiamimate/atlas/current /srv/xiamimate/atlas/backup-$TS
+sudo cp -r out /srv/xiamimate/atlas/current
 ```
 
-**回滚就是把软链指回上一个目录**，不用重新构建、不用回滚代码。
+**回滚就是把 `current` 换回某个 `backup-*`。**
+
+> ⚠️ 三条与旧版文档不符的地方，都是这次真部署照出来的：
+>
+> 1. **`current` 是实目录，不是软链。** admin / frontend / stocks 三个都这样，
+>    回滚靠 `backup-时间戳`。文档原来写「current 是软链」——跟着写会和现场不一致。
+> 2. **服务器上出不了分享图。** `make-share.mjs` 要 Playwright 浏览器，
+>    生产机上没装、也不值得为一个静态站装。所以 `public/og` 在本机生成后传过去，
+>    **而且必须在 `next build` 之前放好** —— 它是靠构建拷进 out 的。
+> 3. **`npm run package` 在服务器上跑不了**（最后一步 `verify.mjs` 要浏览器）。
+>    服务器上只跑 `validate` + `next build`。
 
 Caddy 配置见 `caddy-snippet.conf` —— 加到线上 Caddyfile 的 `:8080 { }` 块里，
 **必须排在主站 `handle { }` 兜底之前**，否则 /atlas 全落到主站静态页。
