@@ -1,0 +1,9 @@
+{
+  "url": "https://huggingface.co/api/models?author=elevenlabs&limit=100",
+  "kind": "json",
+  "fetched_at": "2026-08-12",
+  "digest": "3576581f231a23f5",
+  "items": [
+    "elevenlabs/xi-metrics\t"
+  ]
+}

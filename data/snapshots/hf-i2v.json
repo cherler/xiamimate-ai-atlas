@@ -1,8 +1,8 @@
 {
   "url": "https://huggingface.co/api/models?filter=image-to-video&sort=downloads&direction=-1&limit=60",
   "kind": "json",
-  "fetched_at": "2026-08-11",
-  "digest": "7b8d3051b8a490ab",
+  "fetched_at": "2026-08-12",
+  "digest": "3fade88ee002d87b",
   "items": [
     "Abiray/LTX-2.3-22B-DISTILLED-1.1-GGUF\t",
     "Abiray/LTX2.3-10Eros-1.4-Split-GGUF\t",
@@ -38,7 +38,7 @@
     "bullerwins/Wan2.2-I2V-A14B-GGUF\t",
     "calcuis/ltxv-gguf\t",
     "city96/Wan2.1-I2V-14B-480P-gguf\t",
-    "ibyteohdear/Lightricks-LTX-2.3-DISTILLED-10-Eros\t",
+    "ibyteohdear/Lightricks-LTX-2-DISTILLED-10-Eros\t",
     "jayn7/WAN2.2-I2V_A14B-DISTILL-LIGHTX2V-4STEP-GGUF\t",
     "joeygambino/MiniMax-H3-GGUF\t",
     "joeygambino/MiniMax-H3-curve-GGUF\t",

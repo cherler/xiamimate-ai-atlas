@@ -1,7 +1,7 @@
 {
   "url": "https://huggingface.co/api/models?filter=image-to-image&sort=downloads&direction=-1&limit=60",
   "kind": "json",
-  "fetched_at": "2026-08-11",
+  "fetched_at": "2026-08-12",
   "digest": "c76ae9b4b24ec3f1",
   "items": [
     "1038lab/Qwen-Image-Edit-2511-FP8\t",

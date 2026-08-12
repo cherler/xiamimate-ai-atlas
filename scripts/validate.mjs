@@ -207,6 +207,41 @@ for (const s of a.support) {
     );
 }
 
+/**
+ * R72 —— **登记成 json 的源，URL 却指着网页版。**
+ *
+ * 抓回来是 HTML，`JSON.parse` 报 `Unexpected token '<', "<!doctype "…`，
+ * 而这句报错在 watch 报告里长得和「这个源坏了」一模一样 —— `hf-pixelart-lora`
+ * 就这么在「抓不到（要处理）」里躺了很久，其实是**我们自己把网页地址填进了 json 源**。
+ *
+ * 2026-08-12 查清并修好它之后，我在同一天新加的 12 条 HF 源上**又犯了一遍** ——
+ * 所以这条不能靠自觉，得是一条过不去的规则。
+ *
+ * ⚠️ **判据只认 Hugging Face，不认 GitHub** —— 这一条是差点写错的地方。
+ * 规则第一版把两家一起卡，一上来报 63 个错，而那 63 条**全都在正常工作**。
+ * 实测原因：**GitHub 会做内容协商**，带 `Accept: application/json` 请求
+ * `github.com/<org>/<repo>` 返回的就是 JSON（92KB，`content-type: application/json`）；
+ * 而 Hugging Face 不管你要什么都给 HTML。
+ *
+ * 所以：HF 必须显式走 `huggingface.co/api/models/<org>/<repo>`；GitHub 网页地址本身就能用。
+ *
+ * **一条一上来报 63 个错的规则，只会被人无视 —— 那比没有规则更糟。**
+ */
+{
+  const reg = watchRegistry.sources ?? [];
+  for (const s of reg) {
+    if (s.kind !== "json") continue;
+    let u;
+    try { u = new URL(s.url); } catch { errs.push(`R72 源的 URL 不合法：${s.id} → ${s.url}`); continue; }
+    if (u.hostname === "huggingface.co" && !u.pathname.startsWith("/api/"))
+      errs.push(
+        `R72 ${s.id} 登记成 kind=json，URL 却是 Hugging Face 的网页版：${s.url} —— ` +
+        `HF 不做内容协商，抓回来必是 HTML，会报「Unexpected token '<'」，` +
+        `而那句话在报告里长得和「源坏了」一模一样。改成 huggingface.co/api/models/<org>/<repo>`,
+      );
+  }
+}
+
 // 缺格会被前台静默当成 unknown，那是**沉默的错**。
 for (const m of a.models)
   for (const c of a.capabilities)

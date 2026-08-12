@@ -116,7 +116,7 @@
   {
    "id": "openai-sora-eol",
    "tier": "S",
-   "kind": "html",
+   "kind": "spa",
    "vendor": "sora",
    "name": "OpenAI 帮助中心 · Sora 停服说明",
    "url": "https://help.openai.com/en/articles/20001152-what-to-know-about-the-sora-discontinuation",
@@ -124,19 +124,22 @@
    "good_for": [
     "status"
    ],
-   "note": "盯停服日期是否变化、是否宣布继任"
+   "note": "盯停服日期是否变化、是否宣布继任。2026-08-12 由 html 改为 spa⚠️ **2026-08-12 查清：这两页在 Cloudflare 人机验证后面**（失败现场的页面标题是「Just a moment...」）。裸 fetch 回 403、浏览器有时能过有时被挡 —— **换抓法救不了，也不该去绕**（那是反爬在正常工作）。这条源标为人工核：Sora 的停服状态本来就低频变化，人隔阵子打开看一眼即可",
+   "manual": true
   },
   {
    "id": "openai-sora-2",
    "tier": "S",
-   "kind": "html",
+   "kind": "spa",
    "vendor": "sora",
    "name": "OpenAI · Sora 2 发布页",
    "url": "https://openai.com/index/sora-2/",
    "refresh_days": 30,
    "good_for": [
     "capability"
-   ]
+   ],
+   "note": "2026-08-12 由 html 改为 spa⚠️ **2026-08-12 查清：这两页在 Cloudflare 人机验证后面**（失败现场的页面标题是「Just a moment...」）。裸 fetch 回 403、浏览器有时能过有时被挡 —— **换抓法救不了，也不该去绕**（那是反爬在正常工作）。这条源标为人工核：Sora 的停服状态本来就低频变化，人隔阵子打开看一眼即可",
+   "manual": true
   },
   {
    "id": "wan-gh-releases",
@@ -457,7 +460,7 @@
   {
    "id": "fal-video",
    "tier": "S",
-   "kind": "html",
+   "kind": "spa",
    "vendor": "",
    "name": "fal · 视频模型目录",
    "url": "https://fal.ai/models?categories=text-to-video",
@@ -465,7 +468,7 @@
    "good_for": [
     "availability"
    ],
-   "note": "「去哪用」矩阵的直接来源。API 需 token，先抓页面"
+   "note": "「去哪用」矩阵的直接来源。API 需 token，先抓页面。⚠️ **裸 fetch 会拿到 403/429，走浏览器就是 200** —— 那不是封禁，是缺浏览器指纹。2026-08-12 由 html 改为 spa"
   },
   {
    "id": "replicate-t2v",
@@ -482,7 +485,7 @@
   {
    "id": "aiwiki",
    "tier": "B",
-   "kind": "html",
+   "kind": "spa",
    "vendor": "",
    "name": "AI Wiki",
    "url": "https://aiwiki.ai/",
@@ -492,7 +495,8 @@
    ],
    "not_for": [
     "capability"
-   ]
+   ],
+   "note": "⚠️ **裸 fetch 会拿到 403/429，走浏览器就是 200** —— 那不是封禁，是缺浏览器指纹。2026-08-12 由 html 改为 spa"
   },
   {
    "id": "futurepedia",
@@ -750,14 +754,15 @@
   {
    "id": "picsart-video",
    "tier": "C",
-   "kind": "spa",
+   "kind": "html",
    "vendor": "",
    "name": "Picsart AI 视频",
    "url": "https://picsart.com/ai-video-generator/",
    "refresh_days": 30,
    "good_for": [
     "platform"
-   ]
+   ],
+   "note": "⚠️ **大陆直连不通，本机经代理才 200** —— 那是可达性事实，不是抓取故障。裸 HTML 有 7,491 字正文，2026-08-12 由 spa 改 html"
   },
   {
    "id": "libtv",
@@ -769,12 +774,16 @@
    "refresh_days": 30,
    "good_for": [
     "platform"
-   ]
+   ],
+   "retired": {
+    "at": "2026-08-12",
+    "why": "三个观测点（本机直连 / 本机走代理 / 大陆服务器）全部失败，**TCP 443 都不通** —— 不是拒绝，是没有服务在监听。站点已消失"
+   }
   },
   {
    "id": "dreamina",
    "tier": "S",
-   "kind": "spa",
+   "kind": "html",
    "vendor": "seedance",
    "name": "即梦 Dreamina（字节自有产品）",
    "url": "https://dreamina.capcut.com/",
@@ -782,12 +791,13 @@
    "good_for": [
     "platform",
     "availability"
-   ]
+   ],
+   "note": "2026-08-12：原标 spa，Playwright 45 秒超时；实测裸 HTML 就有 25,078 字正文，改回 html"
   },
   {
    "id": "hailuo-video",
    "tier": "S",
-   "kind": "spa",
+   "kind": "html",
    "vendor": "hailuo",
    "name": "海螺视频（MiniMax 自有产品）",
    "url": "https://hailuoai.video/",
@@ -795,7 +805,9 @@
    "good_for": [
     "platform",
     "availability"
-   ]
+   ],
+   "expect": 400,
+   "note": "⚠️ 2026-08-12：spa 抓法 45 秒超时，改 html 后能抓到 —— **但正文只有约 570 字，全是导航与营销词**。这是个图片驱动的落地页，没有可 diff 的能力描述。**换抓法救不了它**，能力证据得去 MiniMax 开放平台文档取"
   },
   {
    "id": "volcengine-ark-price",
@@ -1888,11 +1900,12 @@
    "kind": "json",
    "vendor": "nerijs",
    "name": "Hugging Face · nerijs/pixel-art-xl",
-   "url": "https://huggingface.co/nerijs/pixel-art-xl",
+   "url": "https://huggingface.co/api/models/nerijs/pixel-art-xl",
    "refresh_days": 60,
    "good_for": [
     "opensource"
-   ]
+   ],
+   "note": "⚠️ 2026-08-12 换 URL：原来填的是**网页版**模型页，而这条源登记的 kind 是 json —— 拿回 HTML 自然报「Unexpected token '<'」。那不是抓不到，是我们自己填错了地址"
   },
   {
    "id": "google-nb-blog",
@@ -2088,7 +2101,7 @@
   {
    "id": "wan3-qbitai",
    "tier": "B",
-   "kind": "html",
+   "kind": "spa",
    "vendor": "wan",
    "name": "量子位 · 阿里 Wan3.0 开启公测",
    "url": "https://www.qbitai.com/2026/08/467877.html",
@@ -2096,7 +2109,8 @@
    "good_for": [
     "version"
    ],
-   "note": "**降级取源**：Wan 3.0 是闭源公测版，官方 HF 组织里没有（那里最新只到 Wan2.2-Animate-2），阿里云百炼文档站是 SPA。当前版本只能退到媒体报道。"
+   "note": "盯 Wan3.0 公测的中文报道。⚠️ **2026-08-12 查清：两层原因叠在一起，都不是「这家没了公开入口」**。① 本机 DNS 把 www.qbitai.com 解析到 `127.0.0.1`（换 223.5.5.5 / 114.114.114.114 / 8.8.8.8 都一样，hosts 文件里没有），所以本机怎么抓都是连不上；服务器解析到 183.134.9.99，正常。② 服务器上用我们裸抓那串诚实 UA 拿到 403，带浏览器 UA 才 200（49,064 字）。**这条源标为人工核**：它是 B 级二手报道、90 天才看一次，为它单开一条抓取例外不划算。",
+   "manual": true
   },
   {
    "id": "kimi-api",
@@ -2135,15 +2149,15 @@
   {
    "id": "minimax-platform",
    "tier": "S",
-   "kind": "spa",
+   "kind": "html",
    "vendor": "minimax-text",
-   "name": "MiniMax 开放平台文档",
-   "url": "https://platform.minimaxi.com/document/platform",
+   "name": "MiniMax 开放平台文档 · 视频生成指南",
+   "url": "https://platform.minimaxi.com/docs/guides/video-generation",
    "refresh_days": 14,
    "good_for": [
     "capability"
    ],
-   "note": "**抓到了但没内容**：整站 SPA，纯 HTTP 拿到的只有标题「MiniMax-与用户共创智能」。这一列的 ⬜ 是我们读不到，不是它没有。"
+   "note": "**抓到了但没内容**：整站 SPA，纯 HTTP 拿到的只有标题「MiniMax-与用户共创智能」。这一列的 ⬜ 是我们读不到，不是它没有。。⚠️ 2026-08-12 换 URL：原来指向 /document/platform，那是**入口页**，渲染后只有 15 个字（「MiniMax-与用户共创智能」）。正文在 /docs/ 下面，改指视频生成指南（9,360 字）。另有 /docs/release-notes/models（2,753 字）是发布记录，声音卷的谱系日期就取自那里"
   },
   {
    "id": "langchain-gh",
@@ -3722,13 +3736,13 @@
    "kind": "json",
    "vendor": "",
    "name": "Hugging Face · hexgrad/Kokoro-82M",
-   "url": "https://huggingface.co/hexgrad/Kokoro-82M",
+   "url": "https://huggingface.co/api/models/hexgrad/Kokoro-82M",
    "refresh_days": 30,
    "good_for": [
     "openweights",
     "capability"
    ],
-   "note": "权重仓库。许可要看模型卡的 license_name，**不能只看 GitHub 上写的那个**"
+   "note": "权重仓库。许可要看模型卡的 license_name，**不能只看 GitHub 上写的那个**。⚠️ 2026-08-12 修：这里填的必须是 **API 端点**，给读者点的网页地址在 atlas.sources 里（两份 URL 不是同一个，mpt-gh 就是这么分的）"
   },
   {
    "id": "hf-cosyvoice2",
@@ -3736,13 +3750,13 @@
    "kind": "json",
    "vendor": "",
    "name": "Hugging Face · FunAudioLLM/CosyVoice2-0.5B",
-   "url": "https://huggingface.co/FunAudioLLM/CosyVoice2-0.5B",
+   "url": "https://huggingface.co/api/models/FunAudioLLM/CosyVoice2-0.5B",
    "refresh_days": 30,
    "good_for": [
     "openweights",
     "capability"
    ],
-   "note": "权重仓库。许可要看模型卡的 license_name，**不能只看 GitHub 上写的那个**"
+   "note": "权重仓库。许可要看模型卡的 license_name，**不能只看 GitHub 上写的那个**。⚠️ 2026-08-12 修：这里填的必须是 **API 端点**，给读者点的网页地址在 atlas.sources 里（两份 URL 不是同一个，mpt-gh 就是这么分的）"
   },
   {
    "id": "hf-glmtts",
@@ -3750,13 +3764,13 @@
    "kind": "json",
    "vendor": "",
    "name": "Hugging Face · zai-org/GLM-TTS",
-   "url": "https://huggingface.co/zai-org/GLM-TTS",
+   "url": "https://huggingface.co/api/models/zai-org/GLM-TTS",
    "refresh_days": 30,
    "good_for": [
     "openweights",
     "capability"
    ],
-   "note": "权重仓库。许可要看模型卡的 license_name，**不能只看 GitHub 上写的那个**"
+   "note": "权重仓库。许可要看模型卡的 license_name，**不能只看 GitHub 上写的那个**。⚠️ 2026-08-12 修：这里填的必须是 **API 端点**，给读者点的网页地址在 atlas.sources 里（两份 URL 不是同一个，mpt-gh 就是这么分的）"
   },
   {
    "id": "hf-glm4voice",
@@ -3764,13 +3778,13 @@
    "kind": "json",
    "vendor": "",
    "name": "Hugging Face · zai-org/glm-4-voice-9b",
-   "url": "https://huggingface.co/zai-org/glm-4-voice-9b",
+   "url": "https://huggingface.co/api/models/zai-org/glm-4-voice-9b",
    "refresh_days": 30,
    "good_for": [
     "openweights",
     "capability"
    ],
-   "note": "权重仓库。许可要看模型卡的 license_name，**不能只看 GitHub 上写的那个**"
+   "note": "权重仓库。许可要看模型卡的 license_name，**不能只看 GitHub 上写的那个**。⚠️ 2026-08-12 修：这里填的必须是 **API 端点**，给读者点的网页地址在 atlas.sources 里（两份 URL 不是同一个，mpt-gh 就是这么分的）"
   },
   {
    "id": "hf-fishspeech15",
@@ -3778,13 +3792,13 @@
    "kind": "json",
    "vendor": "",
    "name": "Hugging Face · fishaudio/fish-speech-1.5",
-   "url": "https://huggingface.co/fishaudio/fish-speech-1.5",
+   "url": "https://huggingface.co/api/models/fishaudio/fish-speech-1.5",
    "refresh_days": 30,
    "good_for": [
     "openweights",
     "capability"
    ],
-   "note": "权重仓库。许可要看模型卡的 license_name，**不能只看 GitHub 上写的那个**"
+   "note": "权重仓库。许可要看模型卡的 license_name，**不能只看 GitHub 上写的那个**。⚠️ 2026-08-12 修：这里填的必须是 **API 端点**，给读者点的网页地址在 atlas.sources 里（两份 URL 不是同一个，mpt-gh 就是这么分的）"
   },
   {
    "id": "hf-qwen3omni",
@@ -3792,13 +3806,13 @@
    "kind": "json",
    "vendor": "",
    "name": "Hugging Face · Qwen/Qwen3-Omni-30B-A3B-Instruct",
-   "url": "https://huggingface.co/Qwen/Qwen3-Omni-30B-A3B-Instruct",
+   "url": "https://huggingface.co/api/models/Qwen/Qwen3-Omni-30B-A3B-Instruct",
    "refresh_days": 30,
    "good_for": [
     "openweights",
     "capability"
    ],
-   "note": "权重仓库。许可要看模型卡的 license_name，**不能只看 GitHub 上写的那个**"
+   "note": "权重仓库。许可要看模型卡的 license_name，**不能只看 GitHub 上写的那个**。⚠️ 2026-08-12 修：这里填的必须是 **API 端点**，给读者点的网页地址在 atlas.sources 里（两份 URL 不是同一个，mpt-gh 就是这么分的）"
   },
   {
    "id": "hf-qwen-layered",
@@ -3806,13 +3820,13 @@
    "kind": "json",
    "vendor": "",
    "name": "Hugging Face · Qwen/Qwen-Image-Layered（官方模型卡）",
-   "url": "https://huggingface.co/Qwen/Qwen-Image-Layered",
+   "url": "https://huggingface.co/api/models/Qwen/Qwen-Image-Layered",
    "refresh_days": 30,
    "good_for": [
     "openweights",
     "capability"
    ],
-   "note": "权重仓库。许可要看模型卡的 license_name，**不能只看 GitHub 上写的那个**"
+   "note": "权重仓库。许可要看模型卡的 license_name，**不能只看 GitHub 上写的那个**。⚠️ 2026-08-12 修：这里填的必须是 **API 端点**，给读者点的网页地址在 atlas.sources 里（两份 URL 不是同一个，mpt-gh 就是这么分的）"
   },
   {
    "id": "hf-org-minimax",
@@ -3820,13 +3834,13 @@
    "kind": "json",
    "vendor": "",
    "name": "Hugging Face · MiniMaxAI 官方组织（全量仓库清单）",
-   "url": "https://huggingface.co/MiniMaxAI",
+   "url": "https://huggingface.co/api/models?author=MiniMaxAI&limit=100",
    "refresh_days": 30,
    "good_for": [
     "openweights",
     "capability"
    ],
-   "note": "**盯这条源是为了等它变**：今天组织里没有这一类权重，是我们判 ❌ 的依据；哪天多出来一个，那一格就该翻"
+   "note": "**盯这条源是为了等它变**：今天组织里没有这一类权重，是我们判 ❌ 的依据；哪天多出来一个，那一格就该翻。⚠️ 2026-08-12 修：这里填的必须是 **API 端点**，给读者点的网页地址在 atlas.sources 里（两份 URL 不是同一个，mpt-gh 就是这么分的）"
   },
   {
    "id": "hf-org-xai",
@@ -3834,13 +3848,13 @@
    "kind": "json",
    "vendor": "",
    "name": "Hugging Face · xai-org 官方组织（全量仓库清单）",
-   "url": "https://huggingface.co/xai-org",
+   "url": "https://huggingface.co/api/models?author=xai-org&limit=100",
    "refresh_days": 30,
    "good_for": [
     "openweights",
     "capability"
    ],
-   "note": "**盯这条源是为了等它变**：今天组织里没有这一类权重，是我们判 ❌ 的依据；哪天多出来一个，那一格就该翻"
+   "note": "**盯这条源是为了等它变**：今天组织里没有这一类权重，是我们判 ❌ 的依据；哪天多出来一个，那一格就该翻。⚠️ 2026-08-12 修：这里填的必须是 **API 端点**，给读者点的网页地址在 atlas.sources 里（两份 URL 不是同一个，mpt-gh 就是这么分的）"
   },
   {
    "id": "hf-org-elevenlabs",
@@ -3848,13 +3862,13 @@
    "kind": "json",
    "vendor": "",
    "name": "Hugging Face · elevenlabs 官方组织（全量仓库清单）",
-   "url": "https://huggingface.co/elevenlabs",
+   "url": "https://huggingface.co/api/models?author=elevenlabs&limit=100",
    "refresh_days": 30,
    "good_for": [
     "openweights",
     "capability"
    ],
-   "note": "**盯这条源是为了等它变**：今天组织里没有这一类权重，是我们判 ❌ 的依据；哪天多出来一个，那一格就该翻"
+   "note": "**盯这条源是为了等它变**：今天组织里没有这一类权重，是我们判 ❌ 的依据；哪天多出来一个，那一格就该翻。⚠️ 2026-08-12 修：这里填的必须是 **API 端点**，给读者点的网页地址在 atlas.sources 里（两份 URL 不是同一个，mpt-gh 就是这么分的）"
   },
   {
    "id": "hf-org-openai",
@@ -3862,27 +3876,66 @@
    "kind": "json",
    "vendor": "",
    "name": "Hugging Face · openai 官方组织（全量仓库清单）",
-   "url": "https://huggingface.co/openai",
+   "url": "https://huggingface.co/api/models?author=openai&limit=200",
    "refresh_days": 30,
    "good_for": [
     "openweights",
     "capability"
    ],
-   "note": "**盯这条源是为了等它变**：今天组织里没有这一类权重，是我们判 ❌ 的依据；哪天多出来一个，那一格就该翻"
+   "note": "**盯这条源是为了等它变**：今天组织里没有这一类权重，是我们判 ❌ 的依据；哪天多出来一个，那一格就该翻。⚠️ 2026-08-12 修：这里填的必须是 **API 端点**，给读者点的网页地址在 atlas.sources 里（两份 URL 不是同一个，mpt-gh 就是这么分的）"
   },
   {
    "id": "ideogram-layerize",
    "tier": "A",
-   "kind": "json",
+   "kind": "html",
    "vendor": "",
    "name": "Ideogram 官方 API 参考 · Layerize Text",
-   "url": "https://developer.ideogram.ai/api-reference/api-reference/layerize-text-v3",
+   "url": "https://developer.ideogram.ai/api-reference/api-reference/layerize-text-v3.md",
    "refresh_days": 30,
    "good_for": [
     "openweights",
     "capability"
    ],
-   "note": "权重仓库。许可要看模型卡的 license_name，**不能只看 GitHub 上写的那个**"
+   "note": "权重仓库。许可要看模型卡的 license_name，**不能只看 GitHub 上写的那个**。⚠️ 2026-08-12 修：原来登记成 json 却指着 HTML 页。改抓官方提供的 `.md` 版（页面 URL 后加 .md），正文干净、不需要浏览器"
+  },
+  {
+   "id": "recraft-endpoints",
+   "tier": "A",
+   "kind": "html",
+   "vendor": "",
+   "name": "Recraft 官方 API 参考 · Endpoints",
+   "url": "https://www.recraft.ai/docs/api-reference/endpoints.md",
+   "refresh_days": 21,
+   "good_for": [
+    "capability"
+   ],
+   "note": "Recraft 文档站每页都有 `.md` 版（URL 后加 .md），全量索引在 www.recraft.ai/docs/llms.txt —— 抓 .md 比抓渲染后的 HTML 干净得多"
+  },
+  {
+   "id": "recraft-nl-edit",
+   "tier": "A",
+   "kind": "html",
+   "vendor": "",
+   "name": "Recraft Studio 文档 · 用自然语言改图",
+   "url": "https://www.recraft.ai/docs/recraft-studio/image-editing/editing-images-with-natural-language.md",
+   "refresh_days": 21,
+   "good_for": [
+    "capability"
+   ],
+   "note": "Recraft 文档站每页都有 `.md` 版（URL 后加 .md），全量索引在 www.recraft.ai/docs/llms.txt —— 抓 .md 比抓渲染后的 HTML 干净得多"
+  },
+  {
+   "id": "hunyuan-image-hf",
+   "tier": "A",
+   "kind": "json",
+   "vendor": "",
+   "name": "腾讯官方 Hugging Face · HunyuanImage-3.0 模型卡",
+   "url": "https://huggingface.co/api/models/tencent/HunyuanImage-3.0",
+   "refresh_days": 21,
+   "good_for": [
+    "capability"
+   ],
+   "note": "⚠️ 抓的是 API 端点；给读者点的网页地址在 atlas.sources 里（R72 卡的就是这一对不能混）"
   }
  ],
  "$missing": [

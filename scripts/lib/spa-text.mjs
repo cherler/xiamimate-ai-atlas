@@ -47,6 +47,22 @@ export async function spaText(page, { wait = 3500, sel } = {}) {
     const t = await page.$eval(s, extractFrom).catch(() => "");
     if (t && t.replace(/\s/g, "").length > SHELL_FLOOR) return { text: t, used: s };
   }
-  const dense = await page.evaluate(() => document.body.innerText.replace(/\s/g, "").length).catch(() => 0);
-  throw new Error(`还是壳：渲染后正文只有 ${dense} 个字符`);
+  /**
+   * **「被人机验证挡住」和「这页是个壳」必须分开报。**
+   *
+   * 2026-08-12：OpenAI 帮助中心那条源长期报「还是壳：渲染后正文只有 4 个字符」，
+   * 读起来像是**厂商那页没内容**。插桩到失败现场才看见 `title: "Just a moment..."` ——
+   * 那是 Cloudflare 的人机验证页，我们根本没进到内容页。
+   *
+   * 两件事在下游的处置完全相反：壳要换 URL 或换抓法；
+   * 被验证挡住则是**这条源只能人工核**，换多少种抓法都一样，
+   * 而且我们不该去绕它 —— 那是反爬在正常工作。
+   */
+  const st = await page.evaluate(() => ({
+    title: document.title || "",
+    body: (document.body?.innerText || "").replace(/\s/g, "").length,
+  })).catch(() => ({ title: "", body: 0 }));
+  if (/just a moment|checking your browser|attention required|verify you are human|请稍候|人机验证/i.test(st.title))
+    throw new Error(`被人机验证挡住（页面标题「${st.title.slice(0, 30)}」）—— 这条源只能人工核，别再换抓法`);
+  throw new Error(`还是壳：渲染后正文只有 ${st.body} 个字符`);
 }

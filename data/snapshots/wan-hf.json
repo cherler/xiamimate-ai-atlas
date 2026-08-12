@@ -1,8 +1,8 @@
 {
   "url": "https://huggingface.co/api/models?author=Wan-AI&sort=lastModified&direction=-1&limit=40",
   "kind": "json",
-  "fetched_at": "2026-08-08",
-  "digest": "c6c98ebd62c0b93f",
+  "fetched_at": "2026-08-12",
+  "digest": "4ee2175dd616a92f",
   "items": [
     "Wan-AI/Wan-Dancer-14B\t2026-07-17T09:01:53.000Z",
     "Wan-AI/Wan2.1-FLF2V-14B-720P\t2025-04-17T14:13:10.000Z",
@@ -21,7 +21,7 @@
     "Wan-AI/Wan2.1-VACE-14B-diffusers\t2025-06-06T02:20:34.000Z",
     "Wan-AI/Wan2.2-Animate-14B\t2025-11-05T10:15:40.000Z",
     "Wan-AI/Wan2.2-Animate-14B-Diffusers\t2025-11-13T02:20:51.000Z",
-    "Wan-AI/Wan2.2-Animate-2-14B\t2026-08-07T13:13:22.000Z",
+    "Wan-AI/Wan2.2-Animate-2-14B\t2026-08-09T04:09:19.000Z",
     "Wan-AI/Wan2.2-Animate-2-14B-Diffusers\t2026-08-07T13:29:05.000Z",
     "Wan-AI/Wan2.2-Animate-2-14B-Distilled-Diffusers\t2026-08-07T13:29:41.000Z",
     "Wan-AI/Wan2.2-I2V-A14B\t2025-08-07T09:42:48.000Z",

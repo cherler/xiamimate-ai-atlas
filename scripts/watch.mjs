@@ -163,8 +163,44 @@ async function fetchSpa(s) {
      * 硬给它们塞 en-US，抓回来的会是另一份译文，diff 全是噪音。
      */
     const lang = s.lang ?? "en-US";
-    const p = await b.newPage({ locale: lang, extraHTTPHeaders: { "accept-language": `${lang},${lang.split("-")[0]};q=0.9` } });
-    await p.goto(s.url, { waitUntil: "networkidle", timeout: 45000 });
+    /**
+     * **浏览器这一路不设自定义 UA —— 用 Playwright 的默认值。**
+     *
+     * 2026-08-12 一度以为 fal / aiwiki 的 429 是「缺浏览器指纹」，给这里加了条真实 Chrome UA。
+     * 实测把三种 UA 摆在一起才看清楚：
+     *
+     * | UA | fal.ai | aiwiki |
+     * |---|---|---|
+     * | 我们裸抓用的诚实标识 `xiamimate-ai-atlas/0.1 (…)` | 429「Vercel Security Checkpoint」| 429 同上 |
+     * | Playwright 默认（含 HeadlessChrome）| 200，82,857 字 | 200，6,150 字 |
+     *
+     * **也就是说问题不是「要不要伪装成浏览器」，是我们那串自定义 UA 本身被 Vercel 的 bot 墙拦了。**
+     * 默认值就够用，那就别自己编一个 —— 裸抓那条路的注释写着「不伪装成别人」，
+     * 这里没有理由走反方向。
+     */
+    const p = await b.newPage({
+      locale: lang,
+      extraHTTPHeaders: { "accept-language": `${lang},${lang.split("-")[0]};q=0.9` },
+    });
+    /**
+     * **`networkidle` 等不到的站，不等于抓不到。**
+     *
+     * 2026-08-12：OpenAI 的帮助页与 Sora 2 发布页在 watch 里一直报
+     * `page.goto: Timeout 45000ms exceeded`，写在报告里就成了「抓不到（要处理）」。
+     * 但同一个 URL 用 `domcontentloaded` 打开、等 2.5 秒，正文分别是 2,251 与 11,564 字 ——
+     * **它们只是永远不会「网络空闲」**（埋点、长轮询、第三方脚本一直在跑）。
+     *
+     * 所以：先按原样等 networkidle（多数 SPA 靠它才渲染完），
+     * **超时就退回 domcontentloaded 再试一次**，而不是把整条源判死。
+     * 退回这一路仍然要过 `spaText` 的壳判定 —— 拿到壳照样算抓不到，不会因此放水。
+     */
+    try {
+      await p.goto(s.url, { waitUntil: "networkidle", timeout: 45000 });
+    } catch (e) {
+      if (!/Timeout/i.test(String(e.message))) throw e;
+      await p.goto(s.url, { waitUntil: "domcontentloaded", timeout: 30000 });
+      await p.waitForTimeout(2500);
+    }
     // Cookie 同意墙。不点掉的话抓回来的是隐私政策，而不是更新日志 ——
     // Runway 就是这么让我抓到一整页「Consent Selection」的。
     for (const t of ["Allow all", "Accept all", "同意", "接受全部", "Agree", "Got it"]) {
@@ -205,7 +241,37 @@ const prevOf = (id) => {
   return existsSync(f) ? JSON.parse(readFileSync(f, "utf8")) : null;
 };
 
+/**
+ * **退役的源跳过，但要如实报出来。**
+ *
+ * 2026-08-12 `libtv` 三个观测点（本机直连 / 本机走代理 / 大陆服务器）全部失败，
+ * **连 TCP 443 都不通** —— 站没了。删掉它最省事，但那样一来
+ * 「我们曾经收过这个源」这件事就消失了，它哪天活过来也没人认得出。
+ *
+ * 所以标 `retired` 而不删：不抓、不进待办、**但每次跑都在开头报一声还有几条退役的**。
+ * 静默跳过和删掉没区别 —— 都是让人忘掉它。
+ */
+const retired = reg.sources.filter((s) => s.retired);
+if (retired.length)
+  console.log(`退役源 ${retired.length} 条，本轮跳过：` +
+    retired.map((s) => `${s.id}（${s.retired.at}：${String(s.retired.why).replace(/\*/g, "").slice(0, 40)}…）`).join("；"));
+
+/**
+ * **人工核的源同样跳过，同样要报出来。**
+ *
+ * 有些源不是「抓不到」，是**不该再让机器去撞**：
+ * OpenAI 那两页在 Cloudflare 人机验证后面（换抓法救不了，也不该去绕）；
+ * 量子位那条本机 DNS 被劫持、且拒我们的诚实 UA。
+ *
+ * 它们留在册子上、留在报告里，只是不再每天进「抓不到（要处理）」那一摞 ——
+ * 一摞永远红着又无从下手的待办，会让人连真的那几条也不看了（§59.3 的负反馈）。
+ */
+const manual = reg.sources.filter((s) => s.manual && !s.retired);
+if (manual.length)
+  console.log(`人工核的源 ${manual.length} 条，本轮跳过：${manual.map((s) => s.id).join("、")}（原因见 data/sources.json 各自的 note）`);
+
 const list = reg.sources.filter((s) => {
+  if (s.retired || s.manual) return false;
   if (only) return only.split(",").includes(s.id);
   if (!dueOnly) return true;
   const p = prevOf(s.id);
@@ -225,7 +291,7 @@ if (list.length === 0) {
     process.exit(2);
   }
   if (!dueOnly) { console.error(`源表是空的：data/sources.json 里一个源都没有`); process.exit(2); }
-  const never = reg.sources.filter((s) => !prevOf(s.id)).length;
+  const never = reg.sources.filter((s) => !s.retired && !s.manual && !prevOf(s.id)).length;
   if (never > 0) {
     // 「到期 0 个」和「有 149 个从来没抓过」不可能同时成立 —— 同时出现就是选择逻辑坏了
     console.error(`选出 0 个到期源，但有 ${never} 个源从来没抓过 —— **这两件事不可能同时成立**，选择逻辑坏了`);
@@ -322,7 +388,26 @@ const md = [
   ...rows.map((r) => `| ${r.id} | ${r.tier} | ${r.kind} | ${r.status}${r.error ? `（${r.error}）` : ""} |`),
   ``,
 ].join("\n");
-writeFileSync(`${ROOT}/data/watch-report.md`, md);
+/**
+ * **`--only` 不许覆盖全量报告。**
+ *
+ * 2026-08-12 栽在这：修完一批源后用 `--only` 单点验证了 12 条、又单点验证了 1 条，
+ * 于是 `data/watch-report.md` 变成「本次检查 1 个到期源……**抓不到 0**」，
+ * 而 `todo.mjs` 是读这份报告的 —— 待办里「抓不到」那一摞**整个消失了**。
+ *
+ * 看上去像刚才那轮修复大获全胜，实际上只是**把体温计换成了一支只量一根手指的**。
+ * 和「serve -s 对任何路径都回 200」「curl 报错却去 grep 上一轮的残留文件」同一类错：
+ * **量的东西换了，读数却还当成原来那个用。**
+ *
+ * 所以 `--only` 写到单独的 partial 文件，主报告只由全量跑更新。
+ */
+const partial = Boolean(only);
+const reportPath = partial ? "data/watch-report.partial.md" : "data/watch-report.md";
+writeFileSync(`${ROOT}/${reportPath}`,
+  partial
+    ? `> ⚠️ **这是 \`--only\` 的局部结果，不是全量。** 全量报告在 data/watch-report.md，` +
+      `\`todo.mjs\` 只读那一份。本次只查了：${only}\n\n${md}`
+    : md);
 
 console.log(`\n变化 ${byStatus("变了").length} · 首次 ${byStatus("首次").length} · 无变化 ${byStatus("无变化").length} · 抓不到 ${byStatus("抓不到").length}`);
-console.log(`报告写在 data/watch-report.md`);
+console.log(`报告写在 ${reportPath}${partial ? "（局部结果，未动全量报告）" : ""}`);

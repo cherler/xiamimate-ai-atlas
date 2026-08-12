@@ -1,11 +1,10 @@
 {
   "url": "https://huggingface.co/api/models?author=Lightricks&sort=downloads&direction=-1&limit=40",
   "kind": "json",
-  "fetched_at": "2026-08-11",
-  "digest": "9787f70a4d2caa14",
+  "fetched_at": "2026-08-12",
+  "digest": "b845f422b6dd61e4",
   "items": [
     "Lightricks/LTX-2\t",
-    "Lightricks/LTX-2-19b-IC-LoRA-Canny-Control\t",
     "Lightricks/LTX-2.3\t",
     "Lightricks/LTX-2.3-22b-IC-LoRA-Clean-Plate\t",
     "Lightricks/LTX-2.3-22b-IC-LoRA-Colorization\t",
@@ -25,6 +24,7 @@
     "Lightricks/LTX-2.3-22b-LoRA-Foley-V2A\t",
     "Lightricks/LTX-2.3-fp8\t",
     "Lightricks/LTX-2.3-nvfp4\t",
+    "Lightricks/LTX-2.5\t",
     "Lightricks/LTX-Video\t",
     "Lightricks/LTX-Video-0.9.1\t",
     "Lightricks/LTX-Video-0.9.5\t",

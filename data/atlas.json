@@ -4358,6 +4358,21 @@
    "name": "Ideogram 官方 API 参考 · Layerize Text",
    "url": "https://developer.ideogram.ai/api-reference/api-reference/layerize-text-v3",
    "tier": "official"
+  },
+  "recraft-endpoints": {
+   "name": "Recraft 官方 API 参考 · Endpoints",
+   "url": "https://www.recraft.ai/docs/api-reference/endpoints.md",
+   "tier": "official"
+  },
+  "recraft-nl-edit": {
+   "name": "Recraft Studio 文档 · 用自然语言改图",
+   "url": "https://www.recraft.ai/docs/recraft-studio/image-editing/editing-images-with-natural-language.md",
+   "tier": "official"
+  },
+  "hunyuan-image-hf": {
+   "name": "腾讯官方 Hugging Face · HunyuanImage-3.0 模型卡",
+   "url": "https://huggingface.co/tencent/HunyuanImage-3.0",
+   "tier": "official"
   }
  },
  "support": [
@@ -5467,14 +5482,16 @@
    "c": "i-outpaint",
    "state": "unknown",
    "verified_for": "2（gemini-3.1-flash-image）",
-   "note": "官方图像文档通篇未提及这一条 —— **是我们读完没找到，不是没读**"
+   "note": "官方图像文档里没有扩图 / 外扩画布的参数或小节 —— 读完没找到，不是没读。",
+   "as_of": "2026-08-12"
   },
   {
    "m": "gemini-image",
    "c": "i-canvas",
    "state": "unknown",
    "verified_for": "2（gemini-3.1-flash-image）",
-   "note": "官方图像文档通篇未提及这一条 —— **是我们读完没找到，不是没读**"
+   "note": "API 里没有画布概念（文档中出现的 canvas 一词都在提示词示例里，指画面背景，不是编辑画布）。",
+   "as_of": "2026-08-12"
   },
   {
    "m": "gemini-image",
@@ -5503,16 +5520,20 @@
   {
    "m": "gemini-image",
    "c": "i-textrender",
-   "state": "unknown",
+   "state": "yes",
    "verified_for": "2（gemini-3.1-flash-image）",
-   "note": "官方图像文档通篇未提及这一条 —— **是我们读完没找到，不是没读**"
+   "note": "官方点名的场景是信息图、菜单、图表、营销素材 —— 都是**成段文字与版面**，不只是几个词。",
+   "as_of": "2026-08-12",
+   "src": "gemini-image-docs",
+   "quote": "官方能力清单：「**Advanced text rendering**: Capable of generating legible, stylized text for infographics, menus, diagrams, and marketing assets」"
   },
   {
    "m": "gemini-image",
    "c": "i-upscale",
    "state": "unknown",
    "verified_for": "2（gemini-3.1-flash-image）",
-   "note": "官方图像文档通篇未提及这一条 —— **是我们读完没找到，不是没读**"
+   "note": "没有单独的放大端点；要更大的图是在生成时把 `image_size` 指到 2K / 4K。",
+   "as_of": "2026-08-12"
   },
   {
    "m": "gemini-image",
@@ -5520,7 +5541,9 @@
    "state": "yes",
    "verified_for": "2（gemini-3.1-flash-image）",
    "src": "gemini-image-docs",
-   "note": "官方原文：「Generate images up to 4K resolution」"
+   "note": "分辨率通过 `response_format.image_size` 指定（文档示例里出现 `\"image_size\": \"2K\"`），不是随便填像素数。",
+   "as_of": "2026-08-12",
+   "quote": "官方能力清单：「**High-resolution output**: Built-in generation capabilities for 1K, 2K, and 4K visuals」；模型介绍一句「It balances speed with **state-of-the-art 4K generation**, world knowledge, and reliable text rendering」"
   },
   {
    "m": "gemini-image",
@@ -5575,14 +5598,16 @@
    "c": "i-outpaint",
    "state": "unknown",
    "verified_for": "2（gpt-image-2）",
-   "note": "官方图像文档通篇未提及这一条 —— **是我们读完没找到，不是没读**"
+   "note": "图像指南里只有生成与编辑（编辑走 `mask` 做局部重绘），**没有扩图 / 外扩画布的端点或参数** —— 读完没找到，不是没读。",
+   "as_of": "2026-08-12"
   },
   {
    "m": "gpt-image",
    "c": "i-canvas",
    "state": "unknown",
    "verified_for": "2（gpt-image-2）",
-   "note": "官方图像文档通篇未提及这一条 —— **是我们读完没找到，不是没读**"
+   "note": "API 里没有画布概念（ChatGPT 网页版的图像编辑界面是产品侧的事，官方文档没说它跑的是哪一版模型）。",
+   "as_of": "2026-08-12"
   },
   {
    "m": "gpt-image",
@@ -5597,7 +5622,8 @@
    "c": "i-styleref",
    "state": "unknown",
    "verified_for": "2（gpt-image-2）",
-   "note": "官方图像文档通篇未提及这一条 —— **是我们读完没找到，不是没读**"
+   "note": "官方示例是「we'll use 4 input images to generate a new image of a gift basket containing the items in the reference images」—— 那是**把参考图里的东西放进新图**（多图参考），不是「学这张图的风格」。**没有 style reference 这一类参数**，两件事不该混。",
+   "as_of": "2026-08-12"
   },
   {
    "m": "gpt-image",
@@ -5610,23 +5636,30 @@
   {
    "m": "gpt-image",
    "c": "i-textrender",
-   "state": "unknown",
+   "state": "yes",
    "verified_for": "2（gpt-image-2）",
-   "note": "官方图像文档通篇未提及这一条 —— **是我们读完没找到，不是没读**"
+   "note": "**这条 ✅ 来自厂商自己写的「限制」小节** —— 它承认这是模型的一项能力（而且比上一代明显改善），同时明说位置与清晰度仍然会出问题。照实记，两半都留着。",
+   "as_of": "2026-08-12",
+   "src": "openai-image-docs",
+   "quote": "官方在模型的已知限制里单列了一条：「**Text Rendering**: Although significantly improved, the model can still struggle with precise text placement and clarity」"
   },
   {
    "m": "gpt-image",
    "c": "i-upscale",
    "state": "unknown",
    "verified_for": "2（gpt-image-2）",
-   "note": "官方图像文档通篇未提及这一条 —— **是我们读完没找到，不是没读**"
+   "note": "图像指南里没有放大 / 超分端点。要更大的图是在生成时直接指定 size（最长边可到 3840px），不是先出小图再放大。",
+   "as_of": "2026-08-12"
   },
   {
    "m": "gpt-image",
    "c": "i-4k",
-   "state": "unknown",
+   "state": "yes",
    "verified_for": "2（gpt-image-2）",
-   "note": "官方只写 Size customization（灵活选分辨率），**没有 4K 这个断言** —— 有尺寸参数不等于官方承诺 4K"
+   "note": "⚠️ **但官方同一页给了降温的一句**：「Outputs that contain more than 2560x1440 (3,686,400) total pixels, typically referred to as 2K, are considered experimental」—— 也就是说 **2K 以上官方自己标为实验性**。能出 4K 是真的，稳不稳定是另一回事。",
+   "as_of": "2026-08-12",
+   "src": "openai-image-docs",
+   "quote": "官方尺寸表把 `3840x2160 (4K landscape)` 与 `2160x3840 (4K portrait)` 直接列进 Popular sizes；尺寸约束写明「Maximum edge length must be less than or equal to 3840px」"
   },
   {
    "m": "gpt-image",
@@ -5785,51 +5818,66 @@
   {
    "m": "recraft",
    "c": "i-i2i",
-   "state": "unknown",
+   "state": "yes",
    "verified_for": "V4.1",
-   "note": "Recraft 官方文档这一页没提 —— 读完没找到，不是没读"
+   "note": "用 `strength` 调相似度（官方：「Use prompt to describe the new image and strength to define similarity level」）。另有 `POST /v1/images/variateImage`（Remix）做**不给提示词**的同概念变体。",
+   "as_of": "2026-08-12",
+   "src": "recraft-endpoints",
+   "quote": "`POST /v1/images/imageToImage` —— 「Image-to-image operation tool allows you to create images similar to a given image, preserving certain aspects like composition, color, or subject identity while altering others based on the prompt.」"
   },
   {
    "m": "recraft",
    "c": "i-edit",
-   "state": "unknown",
+   "state": "no",
    "verified_for": "V4.1",
-   "note": "Recraft 官方文档这一页没提 —— 读完没找到，不是没读"
+   "note": "**「Recraft 能按指令改图」这句话是对的，但改图的不是 Recraft 的模型。** 官方自己把这一条列成「集成的外部模型」，逐个点名了五家。API 那边也没有按指令编辑的端点（imageToImage 是给一张图+提示词出相似图，靠 strength 调，不是「把红裙子改成蓝的」）。**这一格记在 Recraft V4.1 名下就是错的。**",
+   "as_of": "2026-08-12",
+   "src": "recraft-nl-edit",
+   "quote": "Recraft Studio 文档原文：「Recraft Studio supports targeted image editing using **integrated external models Google Nano Banana, OpenAI GPT-4o, Seedream, Flux Kontext, and Qwen-Image** that respond to natural language prompts and optional reference images.」"
   },
   {
    "m": "recraft",
    "c": "i-multiturn",
    "state": "unknown",
    "verified_for": "V4.1",
-   "note": "Recraft 官方文档这一页没提 —— 读完没找到，不是没读"
+   "note": "**API 里没有会话概念。** 18 个端点全是一次一发，没有 session / conversation / 上下文承接类参数 —— 读完没找到，不是没读。",
+   "as_of": "2026-08-12"
   },
   {
    "m": "recraft",
    "c": "i-inpaint",
-   "state": "unknown",
+   "state": "yes",
    "verified_for": "V4.1",
-   "note": "**官方文档这一页明确没有 inpainting** —— 但「这一页没写」不等于「产品没有」，所以记 ⬜ 不记 ❌"
+   "note": "蒙版语义写得很明确：**白色是要重画的、黑色是要保留的**。另有 `POST /v1/images/eraseRegion` 专做「擦掉一块」。",
+   "as_of": "2026-08-12",
+   "src": "recraft-endpoints",
+   "quote": "`POST /v1/images/inpaint` —— 「Inpainting lets you regenerate specific parts of an image while keeping the rest intact. … It uses a mask to identify the areas to be filled in, where white pixels represent the regions to inpaint, and black pixels indicate the areas to keep intact」"
   },
   {
    "m": "recraft",
    "c": "i-outpaint",
-   "state": "unknown",
+   "state": "yes",
    "verified_for": "V4.1",
-   "note": "Recraft 官方文档这一页没提 —— 读完没找到，不是没读"
+   "note": "四边可以分别指定扩多少像素，不是只能按比例整体扩。",
+   "as_of": "2026-08-12",
+   "src": "recraft-endpoints",
+   "quote": "`POST /v1/images/outpaint` —— 「Outpainting extends an image beyond its original boundaries by generating new content around it. … The area to be generated can be specified either by per-side pixel margins via `expand_left`, `expand_right`, `expand_top`, `expand_bottom`」"
   },
   {
    "m": "recraft",
    "c": "i-canvas",
    "state": "unknown",
    "verified_for": "V4.1",
-   "note": "Recraft 官方文档这一页没提 —— 读完没找到，不是没读"
+   "note": "Recraft Studio 确实有画布（官方文档有 Canvas 与 Canvas tools 两个专页），**但 API 里没有任何画布端点**，文档也没说画布上的操作跑的是哪个模型 —— 而同一份文档已经说明自然语言编辑用的是外部模型。**产品有画布 ≠ Recraft V4.1 这个模型有画布编辑能力**，所以留 ⬜。",
+   "as_of": "2026-08-12"
   },
   {
    "m": "recraft",
    "c": "i-multiref",
    "state": "unknown",
    "verified_for": "V4.1",
-   "note": "Recraft 官方文档这一页没提 —— 读完没找到，不是没读"
+   "note": "唯一收多张图的是 `POST /v1/styles`（Create style，字段 `files` / `image_urls` 收数组）—— 那是**用多张图训一个风格**，训完得到一个 style id 再去生成，不是「生成时给几张参考图」。两件事不该混，所以这一格留 ⬜。",
+   "as_of": "2026-08-12"
   },
   {
    "m": "recraft",
@@ -5842,9 +5890,12 @@
   {
    "m": "recraft",
    "c": "i-fidelity",
-   "state": "unknown",
+   "state": "yes",
    "verified_for": "V4.1",
-   "note": "Recraft 官方文档这一页没提 —— 读完没找到，不是没读"
+   "note": "⚠️ 这是**图生图那条路上的保真控制**（给一张图、调相似度），不是「给几张参考图锁定同一个角色」那种角色一致性 —— Recraft 的 API 里没有专门的角色参考字段。",
+   "as_of": "2026-08-12",
+   "src": "recraft-endpoints",
+   "quote": "imageToImage 的官方描述里明写「preserving certain aspects like composition, color, or **subject identity**」，并提供 `strength` 参数「to define similarity level」"
   },
   {
    "m": "recraft",
@@ -5857,16 +5908,20 @@
   {
    "m": "recraft",
    "c": "i-upscale",
-   "state": "unknown",
+   "state": "yes",
    "verified_for": "V4.1",
-   "note": "Recraft 官方文档这一页没提 —— 读完没找到，不是没读"
+   "note": "**两档语义不同**：crisp 是保守放大（更锐更干净），creative 会重绘细节与人脸 —— 后者会改变画面内容，用在人像上要当心。",
+   "as_of": "2026-08-12",
+   "src": "recraft-endpoints",
+   "quote": "两个端点：`POST /v1/images/crispUpscale`（「increasing image resolution, making the image sharper and cleaner」）与 `POST /v1/images/creativeUpscale`（「boosting resolution with a focus on refining small details and faces」）"
   },
   {
    "m": "recraft",
    "c": "i-4k",
    "state": "unknown",
    "verified_for": "V4.1",
-   "note": "官方只写 Pro 变体「outputs at higher resolution, for print-ready assets」—— **「更高分辨率」不是 4K 这个断言**"
+   "note": "**官方文档没给分辨率上限。** endpoints 通篇只在示例里出现 `size: '1024x1024'`，没有可选值清单、也没有最大值说明；`creativeUpscale` 说「boosting resolution」但没说到多少。**拿不到数就不填**，别拿放大端点的存在替「原生 4K」说话。",
+   "as_of": "2026-08-12"
   },
   {
    "m": "recraft",
@@ -6240,9 +6295,12 @@
   {
    "m": "hunyuan-image",
    "c": "i-multiturn",
-   "state": "unknown",
+   "state": "no",
    "verified_for": "3.0",
-   "note": "混元图像官方模型卡没提这一条 —— 读完没找到"
+   "note": "**这是官方自己列的待办，还没勾。** 一份逐项打勾的开源计划比「文档里没提」强得多 —— 它明确告诉你这一项在计划内、但还没有。哪天勾上了，这一格就该翻。",
+   "as_of": "2026-08-12",
+   "src": "hunyuan-image-hf",
+   "quote": "官方模型卡的「📑 Open-source Plan」清单：`- [x] Image-to-Image Generation` / **`- [ ] Multi-turn Interaction`**（同一份清单里 Inference、Checkpoints、vLLM Support、Distilled Checkpoints、Image-to-Image 五项都已勾选）"
   },
   {
    "m": "hunyuan-image",
@@ -8883,7 +8941,7 @@
    "state": "unknown",
    "verified_for": "2（gemini-3.1-flash-image）",
    "as_of": "2026-08-12",
-   "note": "官方图像文档里没有图层 / RGBA 分层相关的返回结构 —— 读完没找到，不是没读。"
+   "note": "官方文档里没有图层 / RGBA 分层的返回结构 —— 读完没找到，不是没读。"
   },
   {
    "m": "gpt-image",
@@ -8891,7 +8949,7 @@
    "state": "unknown",
    "verified_for": "2（gpt-image-2）",
    "as_of": "2026-08-12",
-   "note": "官方图像 API 的返回只有整张图（含透明背景选项），没有分层 —— 透明背景不等于分层。"
+   "note": "**没有分层输出的说法，而且连透明背景都不支持**：官方原文「gpt-image-2 doesn't currently support transparent backgrounds」「Requests with `background: transparent` aren't supported for this model」。透明背景不等于分层，所以不据此判 ❌，但它是同一个方向上的强证据 —— 读完没找到分层，不是没读。"
   },
   {
    "m": "flux",
@@ -8923,7 +8981,7 @@
    "state": "unknown",
    "verified_for": "V4.1",
    "as_of": "2026-08-12",
-   "note": "⚠️ Recraft 的产品侧一直强调矢量与设计工作流，**分层是它最可能有的一项**，但我们没有拿到写明这件事的官方文档 —— 留 ⬜ 是「没找到」，不是「它没有」。"
+   "note": "Recraft 有 `POST /v1/images/vectorize`（转矢量）—— 矢量图天然是分层的，**但那是格式转换，不是模型直接产出可分开改的图层**。和 Qwen-Image-Layered 那种「一次生成就拆成若干 RGBA 层」不是一件事，所以不记 ✅。"
   }
  ],
  "$aliases_why": "各家给同一个能力起不同的名字。**Kling 管角色参考叫 Element，我按 Character Reference 去找，找不到就标了「官方没说」—— 假阴性。** 采集时必须用整组别名去匹配，不能只用我们自己的叫法。这是原方案 §36 Entity Resolution 在能力维度上的对应物。\n\n`alias_bit_us` 标在**真把我们坑过的那一项**上（角色参考）。别名多不等于叫法分歧大：「首尾帧」也有 8 条别名，但全是 start/end frame 的描述性变体，谁都猜得到；而 Element / Ingredients / cameo 是厂商自造词，**不知道就永远搜不到**。选例子要选后者，靠数别名条数是挑不出来的 —— 所以标在数据里，不用启发式猜。",

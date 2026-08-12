@@ -1,7 +1,9 @@
 {
   "url": "https://api.github.com/repos/Lightricks/LTX-2/releases",
   "kind": "json",
-  "fetched_at": "2026-08-08",
-  "digest": "e3b0c44298fc1c14",
-  "items": []
+  "fetched_at": "2026-08-12",
+  "digest": "949235520463f49e",
+  "items": [
+    "368787927\t2026-08-11T20:01:32Z"
+  ]
 }

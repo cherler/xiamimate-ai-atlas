@@ -27,3 +27,4 @@ assets/*.mp4
 assets/*.webm
 assets/*.png
 assets/demo-raw*/
+data/watch-report.partial.md

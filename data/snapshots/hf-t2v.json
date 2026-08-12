@@ -1,8 +1,8 @@
 {
   "url": "https://huggingface.co/api/models?filter=text-to-video&sort=downloads&direction=-1&limit=60",
   "kind": "json",
-  "fetched_at": "2026-08-11",
-  "digest": "68e9ef30db8910b3",
+  "fetched_at": "2026-08-12",
+  "digest": "d4b2b650a339fcb7",
   "items": [
     "Abiray/LTX-2.3-22B-DISTILLED-1.1-GGUF\t",
     "Abiray/MiniMax-H3-GGUF\t",
@@ -45,7 +45,7 @@
     "calcuis/wan2-gguf\t",
     "cerspense/zeroscope_v2_576w\t",
     "city96/Wan2.1-T2V-14B-gguf\t",
-    "ibyteohdear/Lightricks-LTX-2.3-DISTILLED-10-Eros\t",
+    "ibyteohdear/Lightricks-LTX-2-DISTILLED-10-Eros\t",
     "joeygambino/MiniMax-H3-GGUF\t",
     "joeygambino/MiniMax-H3-curve-GGUF\t",
     "joeygambino/MiniMax-H3-encoder-GGUF\t",
