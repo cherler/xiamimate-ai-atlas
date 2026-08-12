@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { atlas, domainModels, tracksOf } from "@/lib/atlas";
+import Share from "@/components/Share";
 
 /**
  * `/atlas` 根路径 = **方向选择页**。
@@ -59,6 +60,10 @@ export default function Pick() {
         多的那个是我们还没读完那些文档 —— 这一点在方向页里也写着。
         <Link href="/method" className="underline ml-1 hover:text-ink">口径 →</Link>
       </p>
+      <div className="mt-8 flex justify-end border-t border-rule pt-4">
+        {/* 首页那张四个比例都有，竖版是给手动发社交媒体用的 */}
+        <Share og="/atlas/og/index-16x9.png" title="虾米看AI · AI 能力核验" />
+      </div>
     </main>
   );
 }

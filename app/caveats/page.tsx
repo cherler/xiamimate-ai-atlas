@@ -4,6 +4,7 @@ import { atlas, label, groupByDomain, domainOfModel } from "@/lib/atlas";
 import { caveats, CAVEAT_ZH, type Caveat } from "@/lib/caveats";
 import { modelHref } from "@/lib/slug";
 import BackLink from "@/components/BackLink";
+import Share from "@/components/Share";
 
 /**
  * 「能力对了 ≠ 你用得上」。**这一页是三条动线的交汇点，也是这个产品最值钱的内容。**
@@ -88,6 +89,10 @@ export default function CaveatsPage() {
           ))}
         </section>
       ))}
+      <div className="mt-8 flex justify-end border-t border-rule pt-4">
+        {/* 这一页最有转发价值 —— 它讲的是别处不会告诉你的坑 */}
+        <Share og="/atlas/og/caveats-16x9.png" title="能力对了，你未必用得上 —— 下单前先看这几条" />
+      </div>
     </main>
   );
 }

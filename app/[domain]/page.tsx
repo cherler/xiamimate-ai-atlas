@@ -7,6 +7,7 @@ import TaskPicker from "@/components/TaskPicker";
 import Search from "@/components/Search";
 import { atlas, domainModels, tracksOf } from "@/lib/atlas";
 import { domainOf } from "./dom";
+import Share from "@/components/Share";
 
 /**
  * 方向首页 = 那个方向的能力核验规格书。
@@ -18,15 +19,28 @@ import { domainOf } from "./dom";
 export async function generateMetadata(
   { params }: { params: Promise<{ domain: string }> },
 ): Promise<Metadata> {
-  const d = domainOf((await params).domain);
+  const { domain } = await params;
+  const d = domainOf(domain);
   return {
     title: `${d.name} · 能力核验规格书`,
     description: `${d.name}：谁能做什么、什么时候长出来的、拿什么跑。每一格都带厂商官方原文与核验日期。`,
+    /**
+     * **每一卷用自己的卡。** 在这之前三卷都没写 openGraph，全继承根 layout ——
+     * 于是把 /atlas/text 分享出去，别人看到的是 og:url 指向站首页、
+     * 标题写着「9 个 AI 视频模型」、图是一张 AI 视频的表。
+     */
+    openGraph: {
+      title: `${d.name} · 能力核验规格书`,
+      url: `https://xiamimate.com/atlas/${domain}`,
+      images: [{ url: `/atlas/og/domain-${domain}-16x9.png`, width: 1200, height: 675 }],
+    },
+    twitter: { card: "summary_large_image", images: [`/atlas/og/domain-${domain}-16x9.png`] },
   };
 }
 
 export default async function DomainHome({ params }: { params: Promise<{ domain: string }> }) {
-  const d = domainOf((await params).domain);
+  const { domain } = await params;
+  const d = domainOf(domain);
   const tracks = tracksOf(d);
   const models = domainModels(d.id);
   /** 第三卷那套交互目前只服务视频（Explorer / TaskPicker 的能力轴钉在 clip 上）。 */
@@ -133,9 +147,12 @@ export default async function DomainHome({ params }: { params: Promise<{ domain:
         ))}
       </nav>
 
-      <footer className="mt-6 border-t-[.5px] border-rule pt-3 text-[12px] leading-[1.6] text-muted">
+      <footer className="mt-6 flex flex-wrap items-baseline justify-between gap-3 border-t-[.5px] border-rule pt-3 text-[12px] leading-[1.6] text-muted">
+        <span>
         数据 {atlas.version} · 数据截至 {atlas.generated_at} ·{" "}
         <Link href="/method#agent" className="underline hover:text-ink">机器录入</Link>
+        </span>
+        <Share og={`/atlas/og/domain-${domain}-16x9.png`} title={`${d.name} · 能力核验规格书`} />
       </footer>
     </main>
   );

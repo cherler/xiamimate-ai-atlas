@@ -50,7 +50,23 @@ const label = (m) => {
   const last = m.family.split(" ").pop();
   return m.version.startsWith(last) ? `${m.family.slice(0, -last.length).trim()} ${m.version}` : `${m.family} ${m.version}`;
 };
-const capsOf = (cls) => a.capabilities.filter((c) => (c.domain ?? "video") === "video" && (c.class === "both" || c.class === cls));
+/**
+ * **一卷一张卡，不是全站一张。**
+ *
+ * 原来 capsOf 和 matrixCard 都写死了 `domain === "video"` / `class === "clip"` ——
+ * 那是只有一卷时的写法。图像与文本上线后没人回头改它，后果是
+ * **把 /atlas/text 分享出去，别人看到的是一张 AI 视频的表**，
+ * 标题还写着「9 个 AI 视频模型」。和 R68 拦的是同一类问题：
+ * 做完一卷就以为收工，跨方向的东西没人记得回来补。
+ */
+const DOMAINS = a.domains.filter((d) => d.state === "live");
+const domName = (dom) => a.domains.find((d) => d.id === dom)?.name ?? dom;
+/** 一卷的主轨：视频有两轨，取离线出片那条（另一条模型太少，画出来是张空表）。 */
+const mainClass = (dom) => ({ video: "clip", image: "still", text: "chat" })[dom] ?? "clip";
+const capsOf = (cls, dom = "video") =>
+  a.capabilities.filter((c) => (c.domain ?? "video") === dom && (c.class === "both" || c.class === cls));
+const modelsOfDom = (dom) =>
+  a.models.filter((m) => (m.domain ?? "video") === dom && m.class === mainClass(dom) && (m.tier ?? "core") === "core");
 const esc = (s) => String(s).replace(/[&<>]/g, (ch) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;" })[ch]);
 
 /**
@@ -102,9 +118,9 @@ const shell = (w, h, body, foot) => `<!doctype html><meta charset="utf-8">
  * 但**不能拿装饰去填**。填的必须是这张表本身讲不出、而读者真该知道的事，
  * 而且和表里的数字一样，全部从 atlas.json 算出来 —— 一个手写数字都不许有。
  */
-function notes(w) {
-  const caps = capsOf("clip");
-  const models = a.models.filter((m) => m.class === "clip" && (m.tier ?? "core") === "core");
+function notes(w, dom = "video") {
+  const caps = capsOf(mainClass(dom), dom);
+  const models = modelsOfDom(dom);
   // ⬜ 的分布：只报总数会骗人 —— 集中在一两家和平摊到九家，是完全不同的两件事
   const unk = models
     .map((m) => ({ m, n: caps.filter((c) => cell(m.id, c.id).state === "unknown").length }))
@@ -143,9 +159,9 @@ function notes(w) {
 }
 
 /** 首页/总表卡：整张能力矩阵。这是唯一真会被人手动转发的一张。 */
-function matrixCard(w, h) {
-  const models = a.models.filter((m) => m.class === "clip" && (m.tier ?? "core") === "core");
-  const caps = capsOf("clip");
+function matrixCard(w, h, dom = "video") {
+  const models = modelsOfDom(dom);
+  const caps = capsOf(mainClass(dom), dom);
   const tall = h / w > 1.1; // 竖版：转置，模型作行 —— 硬缩会把字压没
   const t = { yes: 0, no: 0, unknown: 0 };
   for (const m of models) for (const c of caps) t[cell(m.id, c.id).state] += 1;
@@ -168,7 +184,7 @@ function matrixCard(w, h) {
 
   return shell(w, h, `
     <div style="font-size:${Math.round(w * 0.033)}px;font-weight:700;line-height:1.25;margin-bottom:${Math.round(w * 0.012)}px">
-      ${models.length} 个 AI 视频模型 × ${caps.length} 项能力，谁能做什么
+      ${models.length} 个${esc(domName(dom))}模型 × ${caps.length} 项能力，谁能做什么
     </div>
     <div style="font-size:${Math.round(w * 0.0155)}px;color:${C.muted};margin-bottom:${Math.round(w * 0.022)}px">
       ✅ ${t.yes} 项有官方依据 · ❌ ${t.no} 项官方明说不支持 ·
@@ -191,7 +207,7 @@ function matrixCard(w, h) {
     <div style="font-size:${Math.round(w * 0.0125)}px;color:${C.muted};margin-top:${Math.round(w * 0.014)}px">
       * = 平台的另一个接口，不是生成时的一步
     </div>
-    ${tall ? notes(w) : ""}`,
+    ${tall ? notes(w, dom) : ""}`,
     `每一格都能点开看厂商官方原文与核验日期`);
 }
 
@@ -200,16 +216,36 @@ function matrixCard(w, h) {
  * 不画完整的树（67 个节点缩到 1200 宽会糊成一团），画它的**结论**：
  * 哪几条线在开源侧、哪几条在闭源侧、各自迭代了多少次、谁在中间换了向。
  */
-function treeCard(w, h) {
+function treeCard(w, h, dom = "video") {
+  /**
+   * ⚠️ 只画这一卷。原来 `for (const v of a.versions)` 是**全站**的产品线 ——
+   * 从 9 条涨到 30 多条之后，16:9 怎么缩都装不下，
+   * 于是 `tree-16x9.png` **一直没生成出来**（跑批时那句「1 张装不下，没出」说的就是它），
+   * 而线上引用它的地方返回 200 + 首页 HTML（那个坑已另行修掉）。
+   * 按方向切开之后每卷十几条，自然装得下。
+   */
+  const inDom = new Set(a.models.filter((m) => (m.domain ?? "video") === dom).map((m) => m.id));
   const by = new Map();
-  for (const v of a.versions) by.set(v.m, (by.get(v.m) ?? 0) + 1);
+  for (const v of a.versions) if (inDom.has(v.m)) by.set(v.m, (by.get(v.m) ?? 0) + 1);
   const rows = [...by.entries()].map(([m, n]) => {
     const mm = a.models.find((x) => x.id === m);
     const ds = a.versions.filter((v) => v.m === m).map((v) => v.date).sort();
     return { m, n, model: mm, first: ds[0], last: ds[ds.length - 1], w: mm?.weights };
   }).filter((r) => r.model).sort((x, y) => y.n - x.n);
-  const open = rows.filter((r) => r.w === "open" || r.m === "wan");
-  const closed = rows.filter((r) => !(r.w === "open" || r.m === "wan"));
+  /**
+   * **一张卡放不下的时候，砍掉尾巴 —— 但要把砍了多少说出来。**
+   *
+   * 图像卷有 22 条产品线，16:9 怎么缩都装不下（`tree-image-16x9` 就是这么丢的：
+   * 跑批时那句「1 张装不下，没出」）。而**静默截断是这个项目最忌讳的事** ——
+   * 读者看到 12 条，会以为这一卷只有 12 条。
+   * 所以按发布次数保留前 N 条，并在图的脚注里写明还有多少条没画。
+   * 和 hf-lineage 那条纪律一样：砍了就要报出来。
+   */
+  const CAP = 12;
+  const cut = Math.max(0, rows.length - CAP);
+  const shown = rows.slice(0, CAP);
+  const open = shown.filter((r) => r.w === "open" || r.m === "wan");
+  const closed = shown.filter((r) => !(r.w === "open" || r.m === "wan"));
   const span = `${rows.map((r) => r.first).sort()[0]} → ${rows.map((r) => r.last).sort().pop()}`;
   const maxN = Math.max(...rows.map((r) => r.n));
   // 条的**长度**才是发布次数。第一版把 n 映射到了高度，10 次和 1 次几乎一样长 ——
@@ -240,7 +276,7 @@ function treeCard(w, h) {
       <b>两条主干中间是交叉的。</b>万相 2.1/2.2 在官方 HF 上有权重、2.5 之后没有；
       海螺反过来，只有最新的 H3 放了权重。
     </div>`,
-    `每次发布都写明这一代新增了什么`);
+    `每次发布都写明这一代新增了什么${cut ? ` · 图上按发布次数取前 ${CAP} 条，另有 ${cut} 条没画` : ""}`);
 }
 
 /** 「别踩坑」卡：这个产品最值钱的那一页，压成一张图。 */
@@ -323,10 +359,21 @@ const jobs = [];
 const add = (name, fn, ratios) => { for (const r of ratios) jobs.push({ name: `${name}-${r}`, fn, r }); };
 const EVERY = ALL ? Object.keys(RATIOS) : ["16x9"];
 
-// 首页/总表：**四个比例都出** —— 这是唯一真会被人手动转发的一张
-add("index", matrixCard, Object.keys(RATIOS));
-// 演化树与「别踩坑」也出四个比例 —— **这两张才是最有转发潜力的**
-add("tree", treeCard, Object.keys(RATIOS));
+/**
+ * **每一卷都要有自己的三张**：能力总表、演化树、以及站上对应的页面。
+ * 这是 2026-08-12 补的 —— 此前只有视频那一卷，图像与文本分享出去
+ * 拿到的是视频的表（见文件上方 DOMAINS 那段注释）。
+ */
+for (const d of DOMAINS) {
+  const dom = d.id;
+  add(`domain-${dom}`, (w, h) => matrixCard(w, h, dom), Object.keys(RATIOS));
+  add(`tree-${dom}`, (w, h) => treeCard(w, h, dom), Object.keys(RATIOS));
+}
+// 站首页仍用视频那张当默认（它是第一卷、也是最完整的一卷）——
+// **但这是一个选择，不是遗留**：首页要的是「这站是干什么的」，
+// 而三卷里视频的格子填得最满，最能说明白那件事。
+add("index", (w, h) => matrixCard(w, h, "video"), Object.keys(RATIOS));
+// 「别踩坑」是跨方向的，本来就该是一张
 add("caveats", caveatCard, Object.keys(RATIOS));
 for (const m of a.models) add(`model-${m.id}`, (w, h) => modelCard(m, w, h), EVERY);
 for (const c of a.capabilities) add(`capability-${c.id}`, (w, h) => capCard(c, w, h), EVERY);

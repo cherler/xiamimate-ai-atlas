@@ -26,7 +26,7 @@
  */
 import { createServer } from "node:http";
 import { readFile } from "node:fs/promises";
-import { existsSync, readFileSync, writeFileSync } from "node:fs";
+import { existsSync, readFileSync, readdirSync, writeFileSync } from "node:fs";
 import { extname, join, dirname } from "node:path";
 import { fileURLToPath } from "node:url";
 
@@ -546,6 +546,39 @@ const mentions = (txt, name) => {
     }
     await page.close();
   }
+}
+
+/**
+ * ── 分享图必须真的存在 ────────────────────────────────────────────
+ *
+ * **这条是被线上咬出来的（2026-08-12）。**
+ * `tree-16x9.png` 一直没生成成功（跑批时那句「1 张装不下，没出」），
+ * 而线上 Caddy 当时还带着 SPA 兜底 —— 于是请求它返回 **200 + 首页 HTML**，
+ * content-type 是 text/html。图挂了，可谁都看不出来：
+ * 状态码是绿的、监控是绿的、点开还有内容。
+ *
+ * 两头都修了（去掉兜底、按方向出卡），但**修完还得有人一直盯着**：
+ * 页面声明的 og:image 与 <a download> 指向的图，必须在产物里真的躺着。
+ * 少一张就报错 —— 否则下一次又会变成「按钮在、下载下来是个 HTML」。
+ */
+{
+  const ogDir = join(OUT, "og");
+  const have = new Set(existsSync(ogDir) ? readdirSync(ogDir) : []);
+  const missing = new Map();
+  const walk = (dir) => {
+    for (const f of readdirSync(dir, { withFileTypes: true })) {
+      const full = join(dir, f.name);
+      if (f.isDirectory()) { if (f.name !== "og" && f.name !== "_next") walk(full); continue; }
+      if (!f.name.endsWith(".html")) continue;
+      const html = readFileSync(full, "utf8");
+      for (const m of html.matchAll(/\/atlas\/og\/([A-Za-z0-9._-]+\.png)/g))
+        if (!have.has(m[1])) missing.set(m[1], (missing.get(m[1]) ?? 0) + 1);
+    }
+  };
+  walk(OUT);
+  ok(missing.size === 0,
+    `页面引用的分享图都在（${have.size} 张）` +
+    (missing.size ? ` —— **缺 ${missing.size} 张**：${[...missing.keys()].slice(0, 4).join("、")}` : ""));
 }
 
 // ── 动线可达性：从任意页出发，≤2 次点击能到三条动线的起点 ─────────────

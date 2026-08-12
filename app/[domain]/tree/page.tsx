@@ -3,20 +3,31 @@ import Link from "next/link";
 import Tree from "@/components/Tree";
 import { atlas, domainModels } from "@/lib/atlas";
 import { domainOf } from "../dom";
+import Share from "@/components/Share";
 
 /** 演化树。**这一页是分发引擎** —— 分享图带来的人落在这里，所以它必须有出口。 */
 export async function generateMetadata(
   { params }: { params: Promise<{ domain: string }> },
 ): Promise<Metadata> {
-  const d = domainOf((await params).domain);
+  const { domain } = await params;
+  const d = domainOf(domain);
   return {
     title: `${d.name} · 谁在什么时候，长出了什么`,
     description: "每个节点是一次发布，写明这一代新增了什么。日期取自厂商官方发布记录。",
+    // 这一卷自己的演化树卡。**图上按发布次数取前 12 条，砍掉的条数写在卡的脚注里**
+    // —— 静默截断会让读者以为这一卷就这么多（见 make-share.mjs 的 CAP）。
+    openGraph: {
+      title: `${d.name} · 谁在什么时候，长出了什么`,
+      url: `https://xiamimate.com/atlas/${domain}/tree`,
+      images: [{ url: `/atlas/og/tree-${domain}-16x9.png`, width: 1200, height: 675 }],
+    },
+    twitter: { card: "summary_large_image", images: [`/atlas/og/tree-${domain}-16x9.png`] },
   };
 }
 
 export default async function TreePage({ params }: { params: Promise<{ domain: string }> }) {
-  const d = domainOf((await params).domain);
+  const { domain } = await params;
+  const d = domainOf(domain);
   const mine = new Set(domainModels(d.id).map((m) => m.id));
   const vs = atlas.versions.filter((v) => mine.has(v.m));
   const lines = new Set(vs.map((v) => v.m)).size;
@@ -81,12 +92,16 @@ export default async function TreePage({ params }: { params: Promise<{ domain: s
         </div>
       )}
 
-      <p className="mt-6 text-[12px] text-muted">
-        每个点＝厂商官方发布记录里的一次发布，日期与「新增了什么」都取自官方原文。
-        <Link href="/method#genealogy" className="underline ml-1 hover:text-ink">
-          口径 →
-        </Link>
-      </p>
+      <div className="mt-6 flex flex-wrap items-baseline justify-between gap-3">
+        <p className="text-[12px] text-muted">
+          每个点＝厂商官方发布记录里的一次发布，日期与「新增了什么」都取自官方原文。
+          <Link href="/method#genealogy" className="underline ml-1 hover:text-ink">
+            口径 →
+          </Link>
+        </p>
+        {/* 这一页自己的注释写着「这一页是分发引擎」—— 那它更该有个能把图带走的入口 */}
+        <Share og={`/atlas/og/tree-${domain}-16x9.png`} title={`${d.name} · 谁在什么时候，长出了什么`} />
+      </div>
     </main>
   );
 }
