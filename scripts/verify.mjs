@@ -91,7 +91,14 @@ const ROUTES = [
   { path: "/changes", must: "最近有什么变化", zh: 130, per: "article, section > div", built: true },
   { path: "/model/wan", must: "阿里巴巴", zh: 1200, built: true },
   { path: "/capability/flf", must: "首尾帧", zh: 1200, built: true },
-  { path: "/caveats", must: "你未必用得上", zh: 90, per: "section > div", built: true },
+  /**
+   * ⚠️ `per` 从 `section > div`（一种坑一段）改成 `section > div > div`（一条一格）。
+   * 前者量的是**每种坑的总字数**，而坑的种类是固定的六类 ——
+   * 于是每加一卷，同一段里塞进更多条，数字必然涨：
+   * 2026-08-12 加声音卷之后从 84 涨到 107，**页面一个字没改**。
+   * 「多记真内容反而算退步」是错的度量，和 /changes 当初那个错同一类。
+   */
+  { path: "/caveats", must: "你未必用得上", zh: 90, per: "section > div > div", built: true },
   { path: "/compare/kling-vs-seedance", must: "还是", zh: 800, built: true },
   { path: "/skill/motion", must: "动作复刻", zh: 1400, built: true, also: ["拿什么跑", "原生模型就能做", "得用它的变体", "自己部署", "Motion Control 是独立模型"] },
   { path: "/skill/openweights", must: "开源自部署", zh: 1600, built: true, also: ["拿什么跑", "家能做这件事"] },
@@ -418,7 +425,15 @@ const mentions = (txt, name) => {
           .map((v) => v.version),
       ].sort((a, b) => b.length - a.length);
       let rest = txt;
-      for (const n of own) rest = rest.split(n).join("§");
+      /**
+       * **剥自家名字要忽略大小写。** 2026-08-12 声音卷栽在这：
+       * 页面上写的是 `GLM-4-Voice`，而我们记的 version 是小写 `glm-4-voice`，
+       * `split()` 大小写敏感就没剥掉，接着「GLM」（文本卷）作为子串命中，
+       * 报出一条**假的跨方向混入**。
+       * 假警告的代价是真警告没人看 —— 这个检查已经因为前缀问题误报过一次了。
+       */
+      for (const n of own)
+        rest = rest.replace(new RegExp(n.replace(/[.*+?^${}()|[\]\\]/g, "\\$&"), "gi"), "§");
       const foreign = (raw.models ?? [])
         .filter((m) => (m.domain ?? "video") !== mine).map((m) => m.family);
       const hit = foreign.filter((n) => mentions(rest, n));

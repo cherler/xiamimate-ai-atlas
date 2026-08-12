@@ -2070,7 +2070,7 @@
    "version_quote": "谱系节点「FLUX.2-dev」（2025-11-22）：black-forest-labs/FLUX.2-dev",
    "status_note": " ⚠️ 谱系里已有更晚的一代（FLUX.2-klein-base-9B，2026-01-14）—— 当前主力是否已经换代**要人核**，不许照最新节点自动改：最新节点也可能只是同代的一个档位或分支。",
    "reach_cn": "ok",
-   "reach_note": "blackforestlabs.ai 直连 301；⚠️ 但**权重在 huggingface.co，该域直连不可达** —— 想自部署得先解决可达性。本机直连实测 2026-08-11（关代理、浏览器 UA）"
+   "reach_note": "blackforestlabs.ai 直连 301；⚠️ 但**权重在 huggingface.co，该域直连不可达** —— 想自部署得先解决可达性（本机实测 08-11）"
   },
   {
    "id": "qwen-image",
@@ -2093,7 +2093,7 @@
    "version_quote": "阿里云百炼中文站模型清单里为 `qwen-image-3.0-pro`",
    "status_note": " ⚠️ 谱系里已有更晚的一代（Qwen-Image-2512，2025-12-30）—— 当前主力是否已经换代**要人核**，不许照最新节点自动改：最新节点也可能只是同代的一个档位或分支。 ⚠️ **三条线要分清**（和 Qwen 文本同一个情况）：API 线 qwen-image-3.0-pro；第三方榜上还只到 Qwen Image 2.0 Pro（2026-04-22）；**开源权重最新是 Qwen-Image-2512**（官方 HF，2025-12-31）。原记的 Edit-2511 是开源线上更早的一个编辑变体，两头都不是最新。",
    "reach_cn": "ok",
-   "reach_note": "help.aliyun.com 直连 302。本机直连实测 2026-08-11（关代理、浏览器 UA）"
+   "reach_note": "help.aliyun.com 直连 302（本机实测 08-11）"
   },
   {
    "id": "z-image",
@@ -2117,7 +2117,7 @@
    "version_quote": "谱系节点「Z-Image-Turbo」（2025-11-25）：Tongyi-MAI/Z-Image-Turbo",
    "status_note": " ⚠️ 谱系里已有更晚的一代（Z-Image，2026-01-23）—— 当前主力是否已经换代**要人核**，不许照最新节点自动改：最新节点也可能只是同代的一个档位或分支。",
    "reach_cn": "ok",
-   "reach_note": "tongyi.aliyun.com 直连 200。本机直连实测 2026-08-11（关代理、浏览器 UA）"
+   "reach_note": "tongyi.aliyun.com 直连 200（本机实测 08-11）"
   },
   {
    "id": "hunyuan-image",
@@ -2140,7 +2140,7 @@
    "version_src": "hf-lineage",
    "version_quote": "谱系最新一代「HunyuanImage-3.0」（2025-09-25）：tencent/HunyuanImage-3.0-Instruct",
    "reach_cn": "ok",
-   "reach_note": "hunyuan.tencent.com 直连 200。本机直连实测 2026-08-11（关代理、浏览器 UA）"
+   "reach_note": "hunyuan.tencent.com 直连 200（本机实测 08-11）"
   },
   {
    "id": "sd",
@@ -2193,7 +2193,7 @@
    "version_src": "seed-blog",
    "version_quote": "谱系最新一代「Seedream 5.0 Pro」（2026-07-08）：Seedream 5.0 Pro is a multimodal image generation model that features advanced reasoning, efficient content cr",
    "reach_cn": "ok",
-   "reach_note": "www.volcengine.com 直连 200。本机直连实测 2026-08-11（关代理、浏览器 UA）"
+   "reach_note": "www.volcengine.com 直连 200（本机实测 08-11）"
   },
   {
    "id": "gemini-image",
@@ -2227,7 +2227,7 @@
    "version_src": "ms-foundry-blog",
    "version_quote": "谱系最新一代「GPT-image-2」（2026-04-21）：GPT-image-2 brings real world intelligence, multilingual understanding, improved instruction following, increa",
    "reach_cn": "blocked",
-   "reach_note": "developers.openai.com 返回 403（换浏览器 UA 仍是 403，是拒绝不是不通）。本机直连实测 2026-08-11（关代理、浏览器 UA）"
+   "reach_note": "developers.openai.com 返回 403（换真 UA 仍 403，是拒绝不是不通）（本机实测 08-11）"
   },
   {
    "id": "kolors",
@@ -2273,7 +2273,7 @@
    "status_note": "官方账号公告原文：「You can now use Magic Fill and Extend with 3.0 in Ideogram Canvas to edit both uploaded and generated images」。以文字渲染见长 ⚠️ 谱系里已有更晚的一代（Ideogram 4，2026-05-30）—— 当前主力是否已经换代**要人核**，不许照最新节点自动改：最新节点也可能只是同代的一个档位或分支。 ⚠️ **2026-08-12 更正**：原记 3.0 已过期。是第三方榜（AA 文生图榜第 22 名 Ideogram 4.0）先照出来的，再回官方 API 文档核实。",
    "version_quote": "官方 API 文档标题即 Ideogram 4.0，端点 `POST https://api.ideogram.ai/v1/ideogram-v4/generate`；参数 `json_prompt` 说明写「符合 Ideogram 4.0 JSON 规范」",
    "reach_cn": "blocked",
-   "reach_note": "ideogram.ai 直连不通（连接失败）。本机直连实测 2026-08-11（关代理、浏览器 UA）"
+   "reach_note": "ideogram.ai 直连不通（连接失败）（本机实测 08-11）"
   },
   {
    "id": "recraft",
@@ -2291,7 +2291,7 @@
    "status_note": "官方文档原文：「V4.1 is the latest generation」。⚠️ 官方文档未标发布日期，version_as_of 记的是核验日",
    "version_quote": "谱系最新一代「Recraft V4.1」（2026-05-14）：Give V4.1 just a few words, and it'll give you something worth keeping.",
    "reach_cn": "ok",
-   "reach_note": "www.recraft.ai 直连 200。本机直连实测 2026-08-11（关代理、浏览器 UA）"
+   "reach_note": "www.recraft.ai 直连 200（本机实测 08-11）"
   },
   {
    "id": "hidream",
@@ -2465,7 +2465,7 @@
    "version_src": "anthropic-models",
    "version_quote": "官方模型总览：「Claude Fable 5 is generally available … beginning June 9, 2026」；Opus 5 是推荐默认档",
    "reach_cn": "blocked",
-   "reach_note": "platform.claude.com 直连不通（连接失败）。本机直连实测 2026-08-11（关代理、浏览器 UA）"
+   "reach_note": "platform.claude.com 直连不通（连接失败）（本机实测 08-11）"
   },
   {
    "id": "gpt",
@@ -2484,7 +2484,7 @@
    "version_src": "openai-models",
    "version_quote": "官方模型清单当前列的是 gpt-5.6-sol / -terra / -luna（知识截止 2026-02-16）。**这里的日期是核验日不是发布日** —— openai.com 403，拿不到发布公告",
    "reach_cn": "blocked",
-   "reach_note": "developers.openai.com 返回 403，换浏览器 UA 仍是 403 —— **是拒绝，不是不通**。本机直连实测 2026-08-11（关代理、浏览器 UA）"
+   "reach_note": "developers.openai.com 返回 403（换真 UA 仍 403，是拒绝不是不通）（本机实测 08-11）"
   },
   {
    "id": "gemini-text",
@@ -2502,7 +2502,7 @@
    "version_src": "gemini-models",
    "version_quote": "官方模型清单里最新的一档是 gemini-3.6-flash。**日期是核验日** —— 该页不标发布日",
    "reach_cn": "blocked",
-   "reach_note": "ai.google.dev 直连不通（连接失败）—— 读官方文档要出境。本机直连实测 2026-08-11（关代理、浏览器 UA）"
+   "reach_note": "ai.google.dev 直连不通（连接失败）—— 读官方文档要出境（本机实测 08-11）"
   },
   {
    "id": "qwen-text",
@@ -2522,7 +2522,7 @@
    "version_quote": "中文站模型列表「文本生成」首条即 `qwen3.8-max`（同页 plus/flash 仍是 3.7）。⚠️ **英文站同一张清单当天还只到 qwen3.7-max** —— 两个语言版本不同步，以更新的为准",
    "status_note": " ⚠️ **三条线要分清**：API 旗舰 qwen3.8-max，plus/flash 停在 3.7，而**开源权重最新只到 Qwen3.6**（官方 HF 组织 2026-04-21）。演化树画的是开源那条 —— 只有它有可核的发布日期。",
    "reach_cn": "ok",
-   "reach_note": "help.aliyun.com 直连 302。本机直连实测 2026-08-11（关代理、浏览器 UA）"
+   "reach_note": "help.aliyun.com 直连 302（本机实测 08-11）"
   },
   {
    "id": "deepseek",
@@ -2540,7 +2540,7 @@
    "version_src": "hf-text-org",
    "version_quote": "deepseek-ai/DeepSeek-V4-Flash-0731（官方 HF 组织 createdAt 2026-07-31，下载 105 万）",
    "reach_cn": "ok",
-   "reach_note": "api-docs.deepseek.com 直连 200。本机直连实测 2026-08-11（关代理、浏览器 UA）"
+   "reach_note": "api-docs.deepseek.com 直连 200（本机实测 08-11）"
   },
   {
    "id": "kimi",
@@ -2558,7 +2558,7 @@
    "version_src": "hf-text-org",
    "version_quote": "moonshotai/Kimi-K3（官方 HF 组织 createdAt 2026-06-13，下载 157 万）",
    "reach_cn": "ok",
-   "reach_note": "platform.kimi.com 直连 200。本机直连实测 2026-08-11（关代理、浏览器 UA）"
+   "reach_note": "platform.kimi.com 直连 200（本机实测 08-11）"
   },
   {
    "id": "glm",
@@ -2576,7 +2576,7 @@
    "version_src": "hf-text-org",
    "version_quote": "zai-org/GLM-5.2（官方 HF 组织 createdAt 2026-06-16，下载 252 万）",
    "reach_cn": "ok",
-   "reach_note": "docs.bigmodel.cn 直连 308。本机直连实测 2026-08-11（关代理、浏览器 UA）"
+   "reach_note": "docs.bigmodel.cn 直连 308（本机实测 08-11）"
   },
   {
    "id": "minimax-text",
@@ -2594,7 +2594,7 @@
    "version_src": "hf-text-org",
    "version_quote": "MiniMaxAI/MiniMax-M3（官方 HF 组织 createdAt 2026-06-02）。**注意别取 MiniMax-H3** —— 那是视频那一卷的海螺，同组织不同卷",
    "reach_cn": "ok",
-   "reach_note": "platform.minimaxi.com 直连 307。本机直连实测 2026-08-11（关代理、浏览器 UA）"
+   "reach_note": "platform.minimaxi.com 直连 307（本机实测 08-11）"
   },
   {
    "id": "doubao",
@@ -2612,7 +2612,7 @@
    "version_src": "doubao-force-2026",
    "version_quote": "火山引擎 2026 夏季 FORCE 大会发布 Doubao-Seed-2.1 Pro。**二手源**：火山方舟模型清单是 SPA，抓不到",
    "reach_cn": "ok",
-   "reach_note": "www.volcengine.com 直连 200。本机直连实测 2026-08-11（关代理、浏览器 UA）"
+   "reach_note": "www.volcengine.com 直连 200（本机实测 08-11）"
   },
   {
    "id": "llama",
@@ -2646,7 +2646,7 @@
    "version_src": "xai-docs",
    "version_quote": "官方模型清单：grok-4.5 为最新，知识截止 2026-02-01。**日期是核验日**",
    "reach_cn": "blocked",
-   "reach_note": "docs.x.ai 直连不通（连接失败）。本机直连实测 2026-08-11（关代理、浏览器 UA）"
+   "reach_note": "docs.x.ai 直连不通（连接失败）（本机实测 08-11）"
   },
   {
    "id": "mistral-text",
@@ -2677,7 +2677,9 @@
    "weights": "closed",
    "version_src": "minimax-api-overview",
    "version_quote": "接口概览的语音模型表：「speech-2.8-hd —— 最新的 HD 模型，情绪渲染融合语气词，重塑自然听感」",
-   "lineage_note": "声音卷 2026-08-12 才立项，谱系还没采 —— 这是「没采到」，不是「它没有历史」"
+   "lineage_note": "声音卷 2026-08-12 才立项，谱系还没采 —— 这是「没采到」，不是「它没有历史」",
+   "reach_cn": "ok",
+   "reach_note": "platform.minimaxi.com 直连 307（本机实测 08-12）"
   },
   {
    "id": "elevenlabs",
@@ -2692,7 +2694,9 @@
    "weights": "closed",
    "version_src": "elevenlabs-models",
    "version_quote": "模型页：「Eleven v3 —— Human-like and expressive speech generation」，70+ 语言、单次 5,000 字符",
-   "lineage_note": "声音卷 2026-08-12 才立项，谱系还没采 —— 这是「没采到」，不是「它没有历史」"
+   "lineage_note": "声音卷 2026-08-12 才立项，谱系还没采 —— 这是「没采到」，不是「它没有历史」",
+   "reach_cn": "ok",
+   "reach_note": "elevenlabs.io 直连 200（本机实测 08-12）"
   },
   {
    "id": "gemini-tts",
@@ -2707,7 +2711,9 @@
    "weights": "closed",
    "version_src": "gemini-tts",
    "version_quote": "语音生成指南列出 Gemini 3.1 Flash TTS Preview / 2.5 Flash Preview TTS / 2.5 Pro Preview TTS；30 种预设音色、59 种语言",
-   "lineage_note": "声音卷 2026-08-12 才立项，谱系还没采 —— 这是「没采到」，不是「它没有历史」"
+   "lineage_note": "声音卷 2026-08-12 才立项，谱系还没采 —— 这是「没采到」，不是「它没有历史」",
+   "reach_cn": "blocked",
+   "reach_note": "ai.google.dev 直连不通（连接失败）（本机实测 08-12）"
   },
   {
    "id": "openai-tts",
@@ -2722,7 +2728,9 @@
    "weights": "closed",
    "version_src": "openai-models",
    "version_quote": "模型页 Speech Generation 一栏只列了 GPT-4o mini TTS",
-   "lineage_note": "声音卷 2026-08-12 才立项，谱系还没采 —— 这是「没采到」，不是「它没有历史」"
+   "lineage_note": "声音卷 2026-08-12 才立项，谱系还没采 —— 这是「没采到」，不是「它没有历史」",
+   "reach_cn": "blocked",
+   "reach_note": "developers.openai.com 返回 403 —— **是拒绝，不是不通**（本机实测 08-12）"
   },
   {
    "id": "glm-voice",
@@ -2738,7 +2746,9 @@
    "version_src": "glm-voice-doc",
    "version_quote": "模型页：「GLM-4-Voice 是智谱推出的**首个端到端语音模型**……直接理解和生成中英文语音，实现**实时语音对话**」；输入 音频+文本、输出 音频",
    "lineage_note": "声音卷 2026-08-12 才立项，谱系还没采 —— 这是「没采到」，不是「它没有历史」",
-   "status_note": "⚠️ 2026-08-12 从语音合成轨改到实时语音轨 —— 它的输入输出都是音频，不是「文本进、语音出」。智谱的 TTS 是另一支 GLM-TTS。"
+   "status_note": "⚠️ 2026-08-12 从语音合成轨改到实时语音轨 —— 它的输入输出都是音频，不是「文本进、语音出」。智谱的 TTS 是另一支 GLM-TTS。",
+   "reach_cn": "ok",
+   "reach_note": "docs.bigmodel.cn 直连 308（同一平台）（本机实测 08-12）"
   },
   {
    "id": "qwen-omni",
@@ -2753,7 +2763,9 @@
    "weights": "closed",
    "version_src": "bailian-websearch",
    "version_quote": "百炼联网搜索页的支持模型清单含「Qwen-Omni series（qwen3.5-omni-plus, qwen3.5-omni-flash）」",
-   "lineage_note": "声音卷 2026-08-12 才立项，谱系还没采 —— 这是「没采到」，不是「它没有历史」"
+   "lineage_note": "声音卷 2026-08-12 才立项，谱系还没采 —— 这是「没采到」，不是「它没有历史」",
+   "reach_cn": "ok",
+   "reach_note": "help.aliyun.com 直连 302（本机实测 08-12）"
   },
   {
    "id": "mm-music",
@@ -2768,7 +2780,9 @@
    "weights": "closed",
    "version_src": "minimax-api-overview",
    "version_quote": "音乐生成一节：「music-3.0 —— 最新音乐生成模型，支持用户输入音乐灵感和歌词，生成 AI 音乐」",
-   "lineage_note": "声音卷 2026-08-12 才立项，谱系还没采 —— 这是「没采到」，不是「它没有历史」"
+   "lineage_note": "声音卷 2026-08-12 才立项，谱系还没采 —— 这是「没采到」，不是「它没有历史」",
+   "reach_cn": "ok",
+   "reach_note": "platform.minimaxi.com 直连 307（同一平台）（本机实测 08-12）"
   },
   {
    "id": "eleven-music",
@@ -2783,7 +2797,9 @@
    "weights": "closed",
    "version_src": "elevenlabs-models",
    "version_quote": "模型页 Music Generation：「Eleven Music v2 —— Studio-grade music with natural language prompts in any style」",
-   "lineage_note": "声音卷 2026-08-12 才立项，谱系还没采 —— 这是「没采到」，不是「它没有历史」"
+   "lineage_note": "声音卷 2026-08-12 才立项，谱系还没采 —— 这是「没采到」，不是「它没有历史」",
+   "reach_cn": "ok",
+   "reach_note": "elevenlabs.io 直连 200（同一平台）（本机实测 08-12）"
   },
   {
    "id": "lyria",
@@ -2798,7 +2814,9 @@
    "weights": "closed",
    "version_src": "gemini-changelog",
    "version_quote": "Interactions API 的支持模型表列有 lyria-3-pro-preview 与 lyria-3-clip-preview",
-   "lineage_note": "声音卷 2026-08-12 才立项，谱系还没采 —— 这是「没采到」，不是「它没有历史」"
+   "lineage_note": "声音卷 2026-08-12 才立项，谱系还没采 —— 这是「没采到」，不是「它没有历史」",
+   "reach_cn": "blocked",
+   "reach_note": "ai.google.dev 直连不通（连接失败）（本机实测 08-12）"
   },
   {
    "id": "gpt-realtime",
@@ -2813,7 +2831,9 @@
    "weights": "closed",
    "version_src": "openai-realtime",
    "version_quote": "Realtime 指南列出 gpt-realtime-2.1、gpt-realtime-translate、gpt-live-transcribe 三支；会话分 voice-agent / translation / transcription",
-   "lineage_note": "声音卷 2026-08-12 才立项，谱系还没采 —— 这是「没采到」，不是「它没有历史」"
+   "lineage_note": "声音卷 2026-08-12 才立项，谱系还没采 —— 这是「没采到」，不是「它没有历史」",
+   "reach_cn": "blocked",
+   "reach_note": "developers.openai.com 返回 403（是拒绝不是不通）（本机实测 08-12）"
   },
   {
    "id": "grok-voice",
@@ -2828,7 +2848,9 @@
    "weights": "closed",
    "version_src": "xai-release-notes",
    "version_quote": "API 发布说明 2026 年 7 月：grok-voice-think-fast-2.0",
-   "lineage_note": "声音卷 2026-08-12 才立项，谱系还没采 —— 这是「没采到」，不是「它没有历史」"
+   "lineage_note": "声音卷 2026-08-12 才立项，谱系还没采 —— 这是「没采到」，不是「它没有历史」",
+   "reach_cn": "blocked",
+   "reach_note": "docs.x.ai 直连不通（连接失败）（本机实测 08-12）"
   },
   {
    "id": "glm-tts",
@@ -2843,7 +2865,9 @@
    "weights": "open",
    "version_src": "glm-tts-doc",
    "version_quote": "模型页标题即 GLM-TTS；「输入模态 文本 / 输出模态 音频」；官方 HF 组织 zai-org/GLM-TTS（createdAt 2025-12-10）也放了权重",
-   "lineage_note": "声音卷 2026-08-12 立项，谱系还没采 —— 「没采到」不是「没有历史」"
+   "lineage_note": "声音卷 2026-08-12 立项，谱系还没采 —— 「没采到」不是「没有历史」",
+   "reach_cn": "ok",
+   "reach_note": "docs.bigmodel.cn 直连 308（本机实测 08-12）"
   },
   {
    "id": "cosyvoice",
@@ -2857,7 +2881,9 @@
    "domain": "sound",
    "weights": "open",
    "version_src": "hf-sound-org",
-   "version_quote": "官方 HF 组织 FunAudioLLM/Fun-CosyVoice3-0.5B-2512，createdAt 2025-12-11（♥615）"
+   "version_quote": "官方 HF 组织 FunAudioLLM/Fun-CosyVoice3-0.5B-2512，createdAt 2025-12-11（♥615）",
+   "reach_cn": "blocked",
+   "reach_note": "funaudiollm.github.io 返回 404；权重在 huggingface.co，该域直连不可达（本机实测 08-12）"
   },
   {
    "id": "fish-speech",
@@ -2871,7 +2897,9 @@
    "domain": "sound",
    "weights": "open",
    "version_src": "hf-sound-org",
-   "version_quote": "官方 HF 组织 fishaudio/s2-pro，createdAt 2026-03-09（♥1232）"
+   "version_quote": "官方 HF 组织 fishaudio/s2-pro，createdAt 2026-03-09（♥1232）",
+   "reach_cn": "blocked",
+   "reach_note": "fish.audio 直连不通（连接失败）（本机实测 08-12）"
   },
   {
    "id": "kokoro",
@@ -2885,7 +2913,9 @@
    "domain": "sound",
    "weights": "open",
    "version_src": "hf-sound-org",
-   "version_quote": "官方 HF 组织 hexgrad/Kokoro-82M-v1.1-zh，createdAt 2025-02-27（♥222）"
+   "version_quote": "官方 HF 组织 hexgrad/Kokoro-82M-v1.1-zh，createdAt 2025-02-27（♥222）",
+   "reach_cn": "blocked",
+   "reach_note": "权重在 huggingface.co，该域直连不可达 —— **想自部署得先解决可达性**（本机实测 08-12）"
   }
  ],
  "sources": {
@@ -8301,9 +8331,9 @@
   {
    "id": "sound",
    "name": "AI 声音",
-   "state": "planned",
+   "state": "live",
    "volume": "第四个方向",
-   "note": "第四个方向。**三轨** —— 语音合成、音乐生成、实时语音各有一套坐标系：「音色数量」对音乐模型没意义、「曲风」对 TTS 没意义，硬并成一张表会把两边都讲错（规则二）。⚠️ **不收 ASR**：产出物是文本，按规则一归文本方向，而且文本卷的 `t-audio` 已经记了同一件事。",
+   "note": "第四个方向。**三轨** —— 语音合成、音乐生成、实时语音各有一套坐标系：「音色数量」对音乐模型没意义、「曲风」对 TTS 没意义，硬并成一张表会把两边都讲错（规则二）。⚠️ **不收 ASR**：产出物是文本，按规则一归文本方向，而且文本卷的 `t-audio` 已经记了同一件事。 **2026-08-12 转 live**：三个公共页的内容都补齐了（可达性 / 变更 / 资源），R68 才放行。",
    "tracks": [
     {
      "id": "tts",
@@ -14198,6 +14228,90 @@
    "quote": "LiteLLM 自述「Call 100+ LLM APIs in OpenAI (or native) format with cost tracking」",
    "verified_at": "2026-08-11",
    "domain": "text"
+  },
+  {
+   "id": "s-clone-skill",
+   "zh": "音色复刻",
+   "en": "Voice cloning",
+   "cap": "s-clone",
+   "io": {
+    "in": [
+     "3 秒~2 分钟的本人录音",
+     "（部分平台）实名认证"
+    ],
+    "out": "可反复调用的音色 ID"
+   },
+   "opensource": [
+    {
+     "name": "Fish Speech s2-pro（权重公开）",
+     "url": "https://huggingface.co/fishaudio/s2-pro",
+     "src": "hf-sound-org",
+     "quote": "fishaudio/s2-pro，createdAt 2026-03-09（♥1232）"
+    },
+    {
+     "name": "Qwen3-TTS CustomVoice（权重公开）",
+     "url": "https://huggingface.co/Qwen/Qwen3-TTS-12Hz-1.7B-CustomVoice",
+     "src": "hf-sound-org",
+     "quote": "Qwen/Qwen3-TTS-12Hz-1.7B-CustomVoice，createdAt 2026-01-21（♥1871）"
+    }
+   ],
+   "note": "**各家的门槛差很多**：GLM-TTS-Clone 只要 3 秒样本，xAI 的自定义音色上限 120 秒参考音频，MiniMax 则要求先完成个人或企业实名认证、且产出的是**临时音色**（7 天不用就删）。复刻别人的声音涉及人格权，各家的合规要求不是形式。",
+   "verified_at": "2026-08-12",
+   "limits": [
+    "各家门槛差很多：3 秒（GLM）~ 120 秒（xAI）参考音频，MiniMax 还要实名认证",
+    "MiniMax 产出的是**临时音色**：7 天内不使用会被删除",
+    "复刻他人声音涉及人格权，合规要求不是形式"
+   ]
+  },
+  {
+   "id": "s-rt-skill",
+   "zh": "实时语音对话",
+   "en": "Realtime voice",
+   "cap": "s-rt-duplex",
+   "io": {
+    "in": [
+     "麦克风音频流",
+     "系统提示与可调用工具"
+    ],
+    "out": "边听边说的语音回复"
+   },
+   "opensource": [
+    {
+     "name": "GLM-4-Voice（端到端语音，权重公开）",
+     "url": "https://huggingface.co/zai-org/glm-4-voice-9b",
+     "src": "glm-voice-doc",
+     "quote": "模型页：「首个端到端语音模型……实现实时语音对话」；上下文 8K、最大输出 4K"
+    }
+   ],
+   "note": "**接入方式比模型更决定成败**：OpenAI 给了 WebRTC / WebSocket / SIP 三种，SIP 那条意味着能直接接电话系统；xAI 只给 WebSocket。选型时先看这一栏。",
+   "verified_at": "2026-08-12",
+   "limits": [
+    "接入方式各家不同：OpenAI 给 WebRTC/WebSocket/SIP，xAI 只给 WebSocket",
+    "GLM-4-Voice 上下文只有 8K，长对话撑不住",
+    "OpenAI 与 xAI 的域名在大陆直连都不通"
+   ]
+  },
+  {
+   "id": "s-music-skill",
+   "zh": "音乐生成",
+   "en": "Music generation",
+   "cap": "s-m-prompt",
+   "io": {
+    "in": [
+     "风格描述",
+     "可选歌词",
+     "时长"
+    ],
+    "out": "音乐片段（人声可选）"
+   },
+   "opensource": [],
+   "note": "**先看能不能商用**：Lyria 3 生成的音频一律带 SynthID 水印，且请求特定艺人嗓音或受版权歌词会被拒。这一类的限制写在文档里，不是潜规则。",
+   "verified_at": "2026-08-12",
+   "limits": [
+    "Lyria 3 生成的音频一律带 SynthID 水印",
+    "请求特定艺人嗓音或受版权歌词会被直接拒绝",
+    "Lyria 是单轮生成，不支持迭代修改"
+   ]
   }
  ],
  "applications": [
@@ -15637,6 +15751,109 @@
     "灰度"
    ],
    "domain": "text"
+  },
+  {
+   "id": "audiobook",
+   "zh": "有声书 / 长文朗读",
+   "en": "Audiobook & long-form narration",
+   "domain": "sound",
+   "intro": "把一本书或一篇长文变成能听的音频，通常要几十上百分钟。",
+   "inputs": [
+    "全文文本",
+    "音色选择或复刻样本"
+   ],
+   "output": "长音频（可带章节时间戳）",
+   "skills": [
+    "s-clone-skill"
+   ],
+   "aliases": [
+    "有声阅读",
+    "听书"
+   ],
+   "resources": []
+  },
+  {
+   "id": "dubbing",
+   "zh": "视频配音",
+   "en": "Video dubbing",
+   "domain": "sound",
+   "intro": "给已有画面配上人声 —— 这一卷和 AI 视频那一卷在这里接上。",
+   "inputs": [
+    "台词脚本",
+    "目标语言",
+    "参考音色"
+   ],
+   "output": "与画面对齐的配音轨",
+   "skills": [
+    "s-clone-skill"
+   ],
+   "aliases": [
+    "译制",
+    "配音"
+   ],
+   "resources": []
+  },
+  {
+   "id": "voice-agent",
+   "zh": "语音客服 / 语音助手",
+   "en": "Voice agent",
+   "domain": "sound",
+   "intro": "边听边说的对话，用户可以随时打断，中途还要能查资料、调接口。",
+   "inputs": [
+    "麦克风音频",
+    "系统提示",
+    "可调用的工具"
+   ],
+   "output": "实时语音回复",
+   "skills": [
+    "s-rt-skill"
+   ],
+   "aliases": [
+    "语音代理",
+    "实时语音"
+   ],
+   "resources": []
+  },
+  {
+   "id": "bgm",
+   "zh": "配乐与音效",
+   "en": "Background music & SFX",
+   "domain": "sound",
+   "intro": "给视频、播客、游戏配一段可商用的背景音乐。",
+   "inputs": [
+    "风格描述",
+    "时长",
+    "可选歌词"
+   ],
+   "output": "音乐片段（有无人声可选）",
+   "skills": [
+    "s-music-skill"
+   ],
+   "aliases": [
+    "BGM",
+    "配乐"
+   ],
+   "resources": []
+  },
+  {
+   "id": "voice-ip",
+   "zh": "音色 IP 与虚拟主播",
+   "en": "Voice IP & virtual host",
+   "domain": "sound",
+   "intro": "做一个固定的声音形象，反复用在不同内容里。",
+   "inputs": [
+    "本人录音样本",
+    "授权文件"
+   ],
+   "output": "可复用的音色 ID",
+   "skills": [
+    "s-clone-skill"
+   ],
+   "aliases": [
+    "声音复刻",
+    "虚拟主播"
+   ],
+   "resources": []
   }
  ],
  "$applications": "应用是用户要交付的东西，不是能力名的同义改写。字段：{id, zh, en, intro, inputs[], output, skills[], resources[{kind, name, url, src, quote, note?}]}。应用层不下效果或适用性结论；资源分 project / skill / course / docs 四类，项目与工作流从关联 Skill 自动汇总，避免重复维护。场景页默认按 project → skill → docs → course 排序，同类官方来源优先；排序不是质量或效果评分。治理规则见 docs/应用开源资源治理.md。",
@@ -15768,6 +15985,42 @@
    "caveat": "**最后一次更新是 2025-06-12，一年多没动了**，而这一年里 API 换了好几轮（Responses API、结构化输出、缓存）。原理照旧管用，**代码别照抄**。而且它没有 license 文件。",
    "checked_at": "2026-08-11",
    "domain": "text"
+  },
+  {
+   "task": "想听听各家 TTS 到底差在哪",
+   "site": "ElevenLabs · Voice Library",
+   "url": "https://elevenlabs.io/docs/models",
+   "verdict": "模型页把每一代的语言数、字符上限、时延列成一张表（Eleven v3 70+ 语言、Flash v2.5 ~75ms），是这一类里最便于横向比的官方文档。",
+   "caveat": "**它只讲自家。** 而且时延那个 `~75ms†` 带星号，脚注条件没在同一页写清楚 —— 别拿它直接和别家的端到端时延比。",
+   "checked_at": "2026-08-12",
+   "domain": "sound"
+  },
+  {
+   "task": "想自己部署一个 TTS",
+   "site": "Kokoro-82M（Hugging Face）",
+   "url": "https://huggingface.co/hexgrad/Kokoro-82M",
+   "verdict": "82M 参数、♥6677，是这一卷最热的开源仓库；有 v1.1-zh 中文版。小到能在普通机器上跑。",
+   "caveat": "**huggingface.co 在大陆直连不通** —— 权重在那儿，想自部署得先解决可达性。另外 82M 的表现力和商用 TTS 不是一个量级，别拿它对标 ElevenLabs。",
+   "checked_at": "2026-08-12",
+   "domain": "sound"
+  },
+  {
+   "task": "想知道音乐生成能不能商用",
+   "site": "Gemini API · Music generation",
+   "url": "https://ai.google.dev/gemini-api/docs/music-generation",
+   "verdict": "Lyria 3 的文档把限制写在明面上：Pro 出整首（有主歌副歌桥段）、Clip 固定 30 秒，都是 44.1kHz 立体声。",
+   "caveat": "**两条硬限制要先看**：所有音频都带 SynthID 水印；请求特定艺人嗓音或受版权歌词会被直接拒。且它是单轮生成，不支持迭代修改。",
+   "checked_at": "2026-08-12",
+   "domain": "sound"
+  },
+  {
+   "task": "想接实时语音对话",
+   "site": "OpenAI · Realtime API",
+   "url": "https://developers.openai.com/api/docs/guides/realtime",
+   "verdict": "把会话分成 voice-agent / translation / transcription 三类，连接方式给了 WebRTC / WebSocket / SIP 三种 —— SIP 那条意味着能直接接电话系统。",
+   "caveat": "**大陆直连返回 403**（是拒绝不是不通）。另外三类会话的模型不同，别以为一个 `gpt-realtime-2.1` 全包。",
+   "checked_at": "2026-08-12",
+   "domain": "sound"
   }
  ],
  "$toolkit": "资源导航（方案 §16）。原话：**「不要做一排 Logo 的 hao123」，要「导航 + 判断」。**\n字段：{task, site, url, verdict, caveat, checked_at}\n**verdict 和 caveat 都必填（R49）** —— caveat 是负面结论，「Epoch AI 不收视频模型」这种我们真查过才知道的话，才是这一页的价值。 每条带 domain：这一页是全站公共的，按方向分组显示。",

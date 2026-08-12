@@ -34,12 +34,12 @@
     "/video/scenario|桌面": 363,
     "/image/scenario|桌面": 296,
     "/changes|桌面": 82,
-    "/caveats|桌面": 84,
-    "/toolkit|桌面": 96,
+    "/toolkit|桌面": 93,
     "/video/scenario|手机": 363,
     "/image/scenario|手机": 296,
     "/changes|手机": 82,
-    "/caveats|手机": 84,
-    "/toolkit|手机": 96
+    "/toolkit|手机": 93,
+    "/caveats|桌面": 31,
+    "/caveats|手机": 31
   }
 }

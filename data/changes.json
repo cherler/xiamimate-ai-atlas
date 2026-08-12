@@ -454,6 +454,57 @@
    "src": "claude-deprecations",
    "models": [],
    "domain": "text"
+  },
+  {
+   "id": "sound-volume-2026-08-12",
+   "date": "2026-08-12",
+   "side": "ours",
+   "kind": "scope",
+   "subject": "AI 声音卷上线",
+   "before": "站上三卷：视频、图像、文本",
+   "after": "加 AI 声音一卷：三轨（语音合成 / 音乐生成 / 实时语音）、16 项能力、15 个核心模型",
+   "why": "**边界上做了一个会被质疑的决定**：ASR 不收。它产出的是文本，按规则一归文本方向，而文本卷的 `t-audio` 已经记了同一件事。代价是 Whisper、Scribe、GLM-ASR 不会出现在站上。",
+   "impact": [],
+   "src": "glm-tts-doc",
+   "models": [],
+   "domain": "sound"
+  },
+  {
+   "id": "glm-tts-2025-12-10",
+   "date": "2025-12-10",
+   "side": "world",
+   "kind": "version",
+   "subject": "GLM-TTS",
+   "before": "智谱的语音只有端到端的 GLM-4-Voice",
+   "after": "放出独立的 GLM-TTS 与 GLM-TTS-Clone，权重上了 HF",
+   "why": "**「端到端语音」和「TTS」是两件事**，我们一开始也归错了：前者音频进音频出，后者文本进音频出。智谱把两条线分开发布，这个区分在选型时很要紧。",
+   "impact": [
+    "glm-tts"
+   ],
+   "src": "hf-sound-org",
+   "models": [
+    "glm-tts",
+    "glm-voice"
+   ],
+   "domain": "sound"
+  },
+  {
+   "id": "qwen3-tts-2026-01-21",
+   "date": "2026-01-21",
+   "side": "world",
+   "kind": "version",
+   "subject": "Qwen3-TTS",
+   "before": "通义的语音能力都挂在 Omni 那条多模态线上",
+   "after": "分出专门的 Qwen3-TTS，同日放出 Base / CustomVoice / VoiceDesign 三个变体",
+   "why": "**型号名本身就是能力声明** —— CustomVoice 是音色复刻、VoiceDesign 是用描述造音色，不用等文档就能读出这一代加了什么。",
+   "impact": [
+    "qwen-omni"
+   ],
+   "src": "hf-sound-org",
+   "models": [
+    "qwen-omni"
+   ],
+   "domain": "sound"
   }
  ]
 }
