@@ -10039,8 +10039,9 @@
    "c": "d-uv",
    "state": "unknown",
    "verified_for": "3.1",
-   "note": "立项当天（2026-08-13）只核到模型版本与该家最显眼的几项能力，这一格**还没查**",
-   "as_of": "2026-08-13"
+   "note": "官方 README 与 API 代码里检索 UV / unwrap —— 没有。⚠️ 但这两处都不是「功能清单」（产品站在登录墙后面），按站上口径不升级成 ❌",
+   "as_of": "2026-08-14",
+   "src": "gh-hunyuan3d-api"
   },
   {
    "m": "hunyuan3d",
@@ -10055,34 +10056,40 @@
   {
    "m": "hunyuan3d",
    "c": "d-edit",
-   "state": "unknown",
-   "verified_for": "3.1",
-   "note": "立项当天（2026-08-13）只核到模型版本与该家最显眼的几项能力，这一格**还没查**",
-   "as_of": "2026-08-13"
+   "state": "yes",
+   "verified_for": "Part",
+   "note": "**长在 Hunyuan3D-Part 那一支上**：官方仓库 tencent/Hunyuan3D-Part（2025-09-23，♥546）——「Hunyuan 3D **Part Segmentation and Generation** Pipeline」。⚠️ 主线 2.1/3.1 里没有这个能力，是**另一个仓库**",
+   "as_of": "2026-08-14",
+   "sibling": "Part",
+   "src": "hf-lineage",
+   "via": "native"
   },
   {
    "m": "hunyuan3d",
    "c": "d-rig",
    "state": "unknown",
    "verified_for": "3.1",
-   "note": "立项当天（2026-08-13）只核到模型版本与该家最显眼的几项能力，这一格**还没查**",
-   "as_of": "2026-08-13"
+   "note": "⚠️ 腾讯同组织下有 `HY-Motion-1.0`（3D 人体动作/角色动画生成），但**它不属于这一卷**（规则十二的边界：产出是动作序列不是资产）。混元 3D 这条线本身，官方仓库与 API 代码里都没有绑定 —— 但那两处都不是「功能清单」，所以记 ⬜ 不记 ❌",
+   "as_of": "2026-08-14",
+   "src": "hf-lineage"
   },
   {
    "m": "hunyuan3d",
    "c": "d-anim",
    "state": "unknown",
    "verified_for": "3.1",
-   "note": "立项当天（2026-08-13）只核到模型版本与该家最显眼的几项能力，这一格**还没查**",
-   "as_of": "2026-08-13"
+   "note": "⚠️ 同上：动画在 `HY-Motion` 与 `R-DMesh`（视频驱动的 3D 动画）那两个仓库里，**都不在这一卷**。混元 3D 主线没有",
+   "as_of": "2026-08-14",
+   "src": "hf-lineage"
   },
   {
    "m": "hunyuan3d",
    "c": "d-scene",
    "state": "unknown",
    "verified_for": "3.1",
-   "note": "立项当天（2026-08-13）只核到模型版本与该家最显眼的几项能力，这一格**还没查**",
-   "as_of": "2026-08-13"
+   "note": "⚠️ 场景级在 `HunyuanWorld-1.0`（「immersive 3D world generation」）那一支，**按规则十二它是世界模型不是资产生成**，不收。混元 3D 主线的 API 只出单体资产",
+   "as_of": "2026-08-14",
+   "src": "hf-lineage"
   },
   {
    "m": "hunyuan3d",
@@ -10099,8 +10106,9 @@
    "c": "d-print",
    "state": "unknown",
    "verified_for": "3.1",
-   "note": "立项当天（2026-08-13）只核到模型版本与该家最显眼的几项能力，这一格**还没查**",
-   "as_of": "2026-08-13"
+   "note": "同上：README 与 API 代码里没有可打印性相关的东西，但读不到功能清单，记 ⬜",
+   "as_of": "2026-08-14",
+   "src": "gh-hunyuan3d-api"
   },
   {
    "m": "hunyuan3d",
