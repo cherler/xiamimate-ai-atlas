@@ -1,6 +1,6 @@
 {
  "version": "1.7",
- "generated_at": "2026-08-13",
+ "generated_at": "2026-08-14",
  "note": "第九版。clip 轨九个 Family 已全部用厂商官方源逐格重核（86% 的格子挂官方来源）。全部由 Agent 录入，未经人工核验（§59.3 转述层）。模型按 version_as_of 降序；status 标生命周期。",
  "changelog": [
   "v1.7 公司升为一等实体（阿里此前在库里是两家）+ 能力轴按方向隔离 + 平台透明度四档（⬜「我们没看到」≠🔴「只字不提」）+ 价格（**七家七种计价方式，不可比才是结论**）",
@@ -1237,6 +1237,26 @@
     "weights"
    ],
    "since_note": "混元3D-2.1 与 TRELLIS 都在 HF / GitHub 放了权重"
+  },
+  {
+   "id": "d-splat",
+   "class": "asset",
+   "domain": "threed",
+   "name": "Gaussian splatting output",
+   "zh": "高斯泼溅输出",
+   "group": "交付",
+   "ubiquity": "待核",
+   "aliases": [
+    "3d gaussian splatting",
+    "3dgs",
+    "gaussian splats",
+    "高斯泼溅",
+    "泼溅",
+    "splat",
+    "radiance field",
+    "辐射场"
+   ],
+   "since_note": "TRELLIS「decoding to different output formats … Radiance Fields, 3D Gaussians, and meshes」· VAST 的 TripoSplat（2026-05-31）"
   }
  ],
  "orgs": [
@@ -10772,6 +10792,75 @@
    "note": "「You can download the weights on Hugging Face and code on GitHub」；许可是 Stability AI Community License，「free for both commercial and non-commercial use」",
    "via": "native",
    "as_of": "2026-08-13"
+  },
+  {
+   "m": "trellis",
+   "c": "d-splat",
+   "state": "yes",
+   "verified_for": "TRELLIS.2-4B",
+   "src": "gh-trellis",
+   "note": "README：「generates high-quality 3D assets in various formats, such as **Radiance Fields, 3D Gaussians, and meshes**」—— 泼溅是它的一等输出，不是附带",
+   "as_of": "2026-08-14",
+   "via": "native"
+  },
+  {
+   "m": "tripo",
+   "c": "d-splat",
+   "state": "yes",
+   "verified_for": "TripoSplat",
+   "src": "hf-lineage",
+   "note": "**长在 TripoSplat 那一支上**：官方 HF 仓库 VAST-AI/TripoSplat（createdAt 2026-05-31，♥115）。⚠️ 主线 API（P1）的端点与参数表里没有泼溅输出 —— 要用得走那个单独的模型",
+   "as_of": "2026-08-14",
+   "via": "native",
+   "sibling": "TripoSplat"
+  },
+  {
+   "m": "rodin",
+   "c": "d-splat",
+   "state": "no",
+   "verified_for": "Gen-2.5",
+   "src": "rodin-api-docs",
+   "note": "文档索引（llms.txt 列全了所有页面）与产品页功能清单里检索 splat / gaussian —— **零命中**；导出格式参数只给 glb / usdz / fbx / obj / stl，全是网格格式",
+   "as_of": "2026-08-14",
+   "via": "native"
+  },
+  {
+   "m": "meshy",
+   "c": "d-splat",
+   "state": "no",
+   "verified_for": "7",
+   "src": "meshy-docs-api",
+   "note": "API 文档里检索 splat / gaussian —— **零命中**（搜到的 `ply` 都是 `apply` 里的字母）。target_formats 与 3D 打印那条线都围绕网格",
+   "as_of": "2026-08-14",
+   "via": "native"
+  },
+  {
+   "m": "hunyuan3d",
+   "c": "d-splat",
+   "state": "no",
+   "verified_for": "3.1",
+   "src": "gh-hunyuan3d-api",
+   "note": "官方 `api_server.py` 写明输出是「GLB or OBJ format」，两种都是网格；仓库里没有泼溅管线。⚠️ 出处是官方代码",
+   "as_of": "2026-08-14",
+   "via": "native"
+  },
+  {
+   "m": "seed3d",
+   "c": "d-splat",
+   "state": "unknown",
+   "verified_for": "1.0",
+   "src": "seed3d-page",
+   "note": "官方模型页全文检索 splat / gaussian —— 零命中。但那一页是概述不是功能清单，**「没提到」不等于「没有」**，所以记 ⬜",
+   "as_of": "2026-08-14"
+  },
+  {
+   "m": "spar3d",
+   "c": "d-splat",
+   "state": "unknown",
+   "verified_for": "Stable Point Aware 3D",
+   "src": "gh-spar3d",
+   "note": "README 讲的是点云条件 + 网格重建，没提泼溅。⚠️ **研究仓库没有功能清单可对照**，按站上口径不升级成 ❌",
+   "as_of": "2026-08-14"
   }
  ],
  "$aliases_why": "各家给同一个能力起不同的名字。**Kling 管角色参考叫 Element，我按 Character Reference 去找，找不到就标了「官方没说」—— 假阴性。** 采集时必须用整组别名去匹配，不能只用我们自己的叫法。这是原方案 §36 Entity Resolution 在能力维度上的对应物。\n\n`alias_bit_us` 标在**真把我们坑过的那一项**上（角色参考）。别名多不等于叫法分歧大：「首尾帧」也有 8 条别名，但全是 start/end frame 的描述性变体，谁都猜得到；而 Element / Ingredients / cameo 是厂商自造词，**不知道就永远搜不到**。选例子要选后者，靠数别名条数是挑不出来的 —— 所以标在数据里，不用启发式猜。",
@@ -10939,7 +11028,7 @@
     "depth-anything/DA3-BASE",
     "yyfz233/Pi3X"
    ],
-   "revisit": "**如果以后收「3D 重建」，那是另一个方向不是这一卷** —— 和世界模型同样处理。⚠️ 顺带说明为什么这条要留档：不写下来，下一个人看到 HF 榜首全是它们，会以为我们漏了。"
+   "revisit": "⚠️ **2026-08-14 判据放宽后，这一条要重看**：负责人把高斯泼溅算进 3D 资产，而重建这一类里有一部分（如 anysplat）产出的正是可用的泼溅场景。**但排除它们的理由不止「产出不是资产」这一条** —— VGGT / DUSt3R / MASt3R / Depth Anything 3 产出的仍是点云、位姿与深度图，且面向视觉研究不是内容创作（规则一补充那条）。**下一轮逐个分开看：产出泼溅场景且面向创作者的，按新判据该收。**"
   }
  ],
  "$since": "每项能力的 since 是**我们手上的日志能证明的最早时间**，不是业界首次出现。可追溯窗口起于 2024-01（Runway changelog）与 2024-09（Kling API 日志），窗口之前的看不见。自动抽取只给候选：第一遍就把「Tail frame control is **not** supported」当成了首尾帧的支持证据，把 Motion Brush 里的 element 当成了角色参考，把 Multi-Image to **Image** 当成了视频多参考 —— 三条都是人工核掉的。",
@@ -16186,7 +16275,8 @@
    "added": "高斯泼溅支线",
    "src": "hf-lineage",
    "quote": "官方 HF 仓库 VAST-AI/TripoSplat（createdAt 2026-05-31，♥115）",
-   "cap_skip": "产出是高斯泼溅不是网格，和轴上的项对不上 —— 记进谱系但不挂能力"
+   "cap": "d-splat",
+   "note": "⚠️ 2026-08-13 建这个节点时写的是「产出是高斯泼溅不是网格，和轴上的项对不上」——**那句话当天是对的，第二天就不对了**：负责人 08-14 拍板把泼溅算进 3D 资产，轴上新增「高斯泼溅输出」，这一节点因此挂了上去。"
   },
   {
    "id": "seed3d-1.0",
