@@ -4161,6 +4161,188 @@
     "investment"
    ],
    "note": "⚠️ 融资公告只在博客列表页的摘要里，没有单独的新闻页 —— 抓列表页本身"
+  },
+  {
+   "id": "gh-llm-universe",
+   "tier": "C",
+   "kind": "json",
+   "vendor": "",
+   "name": "GitHub · datawhalechina/llm-universe（动手学大模型应用开发）",
+   "url": "https://api.github.com/repos/datawhalechina/llm-universe",
+   "refresh_days": 30,
+   "good_for": [
+    "workflow"
+   ],
+   "note": "场景页的中文教程。⚠️ 抓 API 端点（R72）；星标只用于排序兜底，不作推荐结论"
+  },
+  {
+   "id": "gh-all-in-rag",
+   "tier": "C",
+   "kind": "json",
+   "vendor": "",
+   "name": "GitHub · datawhalechina/all-in-rag（RAG 技术全栈指南）",
+   "url": "https://api.github.com/repos/datawhalechina/all-in-rag",
+   "refresh_days": 30,
+   "good_for": [
+    "workflow"
+   ],
+   "note": "场景页的中文教程。⚠️ 抓 API 端点（R72）；星标只用于排序兜底，不作推荐结论"
+  },
+  {
+   "id": "gh-handy-multi-agent",
+   "tier": "C",
+   "kind": "json",
+   "vendor": "",
+   "name": "GitHub · datawhalechina/handy-multi-agent（多智能体教程）",
+   "url": "https://api.github.com/repos/datawhalechina/handy-multi-agent",
+   "refresh_days": 30,
+   "good_for": [
+    "workflow"
+   ],
+   "note": "场景页的中文教程。⚠️ 抓 API 端点（R72）；星标只用于排序兜底，不作推荐结论"
+  },
+  {
+   "id": "gh-llm-action",
+   "tier": "C",
+   "kind": "json",
+   "vendor": "",
+   "name": "GitHub · liguodongiot/llm-action（大模型工程化实战）",
+   "url": "https://api.github.com/repos/liguodongiot/llm-action",
+   "refresh_days": 30,
+   "good_for": [
+    "workflow"
+   ],
+   "note": "场景页的中文教程。⚠️ 抓 API 端点（R72）；星标只用于排序兜底，不作推荐结论"
+  },
+  {
+   "id": "gh-self-llm",
+   "tier": "C",
+   "kind": "json",
+   "vendor": "",
+   "name": "GitHub · datawhalechina/self-llm（开源大模型食用指南）",
+   "url": "https://api.github.com/repos/datawhalechina/self-llm",
+   "refresh_days": 30,
+   "good_for": [
+    "workflow"
+   ],
+   "note": "场景页的中文教程。⚠️ 抓 API 端点（R72）；星标只用于排序兜底，不作推荐结论"
+  },
+  {
+   "id": "gh-langchain-zh",
+   "tier": "C",
+   "kind": "json",
+   "vendor": "",
+   "name": "GitHub · LangChain 中文入门教程",
+   "url": "https://api.github.com/repos/liaokongVFX/LangChain-Chinese-Getting-Started-Guide",
+   "refresh_days": 30,
+   "good_for": [
+    "workflow"
+   ],
+   "note": "场景页的中文教程。⚠️ 抓 API 端点（R72）；星标只用于排序兜底，不作推荐结论"
+  },
+  {
+   "id": "gh-llamafactory",
+   "tier": "C",
+   "kind": "json",
+   "vendor": "",
+   "name": "GitHub · hiyouga/LLaMA-Factory",
+   "url": "https://api.github.com/repos/hiyouga/LLaMA-Factory",
+   "refresh_days": 30,
+   "good_for": [
+    "workflow"
+   ],
+   "note": "场景页的中文教程。⚠️ 抓 API 端点（R72）；星标只用于排序兜底，不作推荐结论"
+  },
+  {
+   "id": "gh-gptsovits-cn",
+   "tier": "C",
+   "kind": "json",
+   "vendor": "",
+   "name": "GPT-SoVITS 官方中文文档",
+   "url": "https://api.github.com/repos/RVC-Boss/GPT-SoVITS",
+   "refresh_days": 30,
+   "good_for": [
+    "workflow"
+   ],
+   "note": "场景页的中文教程/文档。⚠️ 抓 API 端点（R72）"
+  },
+  {
+   "id": "gh-cosyvoice-doc",
+   "tier": "C",
+   "kind": "json",
+   "vendor": "",
+   "name": "CosyVoice 官方仓库文档",
+   "url": "https://api.github.com/repos/QwenAudio/CosyVoice",
+   "refresh_days": 30,
+   "good_for": [
+    "workflow"
+   ],
+   "note": "场景页的中文教程/文档。⚠️ 抓 API 端点（R72）"
+  },
+  {
+   "id": "gh-chattts-cn",
+   "tier": "C",
+   "kind": "json",
+   "vendor": "",
+   "name": "ChatTTS 官方中文文档",
+   "url": "https://api.github.com/repos/2noise/ChatTTS",
+   "refresh_days": 30,
+   "good_for": [
+    "workflow"
+   ],
+   "note": "场景页的中文教程/文档。⚠️ 抓 API 端点（R72）"
+  },
+  {
+   "id": "gh-pyvideotrans-doc",
+   "tier": "C",
+   "kind": "json",
+   "vendor": "",
+   "name": "pyvideotrans 官方仓库（中文）",
+   "url": "https://api.github.com/repos/jianchang512/pyvideotrans",
+   "refresh_days": 30,
+   "good_for": [
+    "workflow"
+   ],
+   "note": "场景页的中文教程/文档。⚠️ 抓 API 端点（R72）"
+  },
+  {
+   "id": "gh-comfy-zho",
+   "tier": "C",
+   "kind": "json",
+   "vendor": "",
+   "name": "GitHub · ZHO 的 ComfyUI 中文工作流合集",
+   "url": "https://api.github.com/repos/ZHO-ZHO-ZHO/ComfyUI-Workflows-ZHO",
+   "refresh_days": 30,
+   "good_for": [
+    "workflow"
+   ],
+   "note": "场景页的中文教程/文档。⚠️ 抓 API 端点（R72）"
+  },
+  {
+   "id": "gh-comfyui",
+   "tier": "C",
+   "kind": "json",
+   "vendor": "",
+   "name": "GitHub · Comfy-Org/ComfyUI",
+   "url": "https://api.github.com/repos/Comfy-Org/ComfyUI",
+   "refresh_days": 30,
+   "good_for": [
+    "workflow"
+   ],
+   "note": "场景页的中文教程/文档。⚠️ 抓 API 端点（R72）"
+  },
+  {
+   "id": "gh-sdbook",
+   "tier": "C",
+   "kind": "json",
+   "vendor": "",
+   "name": "GitHub · StableDiffusionBook（中文 AI 绘画手册）",
+   "url": "https://api.github.com/repos/sudoskys/StableDiffusionBook",
+   "refresh_days": 30,
+   "good_for": [
+    "workflow"
+   ],
+   "note": "场景页的中文教程/文档。⚠️ 抓 API 端点（R72）"
   }
  ],
  "$missing": [

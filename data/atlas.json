@@ -4527,6 +4527,76 @@
    "name": "Recraft 官方博客 · Recraft's Next Chapter（2025-06-05）",
    "url": "https://www.recraft.ai/blog",
    "tier": "official"
+  },
+  "gh-llm-universe": {
+   "name": "GitHub · datawhalechina/llm-universe（动手学大模型应用开发）",
+   "url": "https://github.com/datawhalechina/llm-universe",
+   "tier": "third-party"
+  },
+  "gh-all-in-rag": {
+   "name": "GitHub · datawhalechina/all-in-rag（RAG 技术全栈指南）",
+   "url": "https://github.com/datawhalechina/all-in-rag",
+   "tier": "third-party"
+  },
+  "gh-handy-multi-agent": {
+   "name": "GitHub · datawhalechina/handy-multi-agent（多智能体教程）",
+   "url": "https://github.com/datawhalechina/handy-multi-agent",
+   "tier": "third-party"
+  },
+  "gh-llm-action": {
+   "name": "GitHub · liguodongiot/llm-action（大模型工程化实战）",
+   "url": "https://github.com/liguodongiot/llm-action",
+   "tier": "third-party"
+  },
+  "gh-self-llm": {
+   "name": "GitHub · datawhalechina/self-llm（开源大模型食用指南）",
+   "url": "https://github.com/datawhalechina/self-llm",
+   "tier": "third-party"
+  },
+  "gh-langchain-zh": {
+   "name": "GitHub · LangChain 中文入门教程",
+   "url": "https://github.com/liaokongVFX/LangChain-Chinese-Getting-Started-Guide",
+   "tier": "third-party"
+  },
+  "gh-llamafactory": {
+   "name": "GitHub · hiyouga/LLaMA-Factory",
+   "url": "https://github.com/hiyouga/LLaMA-Factory",
+   "tier": "third-party"
+  },
+  "gh-gptsovits-cn": {
+   "name": "GPT-SoVITS 官方中文文档",
+   "url": "https://github.com/RVC-Boss/GPT-SoVITS/blob/main/docs/cn/README.md",
+   "tier": "third-party"
+  },
+  "gh-cosyvoice-doc": {
+   "name": "CosyVoice 官方仓库文档",
+   "url": "https://github.com/QwenAudio/CosyVoice",
+   "tier": "third-party"
+  },
+  "gh-chattts-cn": {
+   "name": "ChatTTS 官方中文文档",
+   "url": "https://github.com/2noise/ChatTTS/blob/main/docs/cn/README.md",
+   "tier": "third-party"
+  },
+  "gh-pyvideotrans-doc": {
+   "name": "pyvideotrans 官方仓库（中文）",
+   "url": "https://github.com/jianchang512/pyvideotrans",
+   "tier": "third-party"
+  },
+  "gh-comfy-zho": {
+   "name": "GitHub · ZHO 的 ComfyUI 中文工作流合集",
+   "url": "https://github.com/ZHO-ZHO-ZHO/ComfyUI-Workflows-ZHO",
+   "tier": "third-party"
+  },
+  "gh-comfyui": {
+   "name": "GitHub · Comfy-Org/ComfyUI",
+   "url": "https://github.com/Comfy-Org/ComfyUI",
+   "tier": "third-party"
+  },
+  "gh-sdbook": {
+   "name": "GitHub · StableDiffusionBook（中文 AI 绘画手册）",
+   "url": "https://github.com/sudoskys/StableDiffusionBook",
+   "tier": "third-party"
   }
  },
  "support": [
@@ -16428,6 +16498,14 @@
      "src": "ipadapter-gh",
      "license": "Apache-2.0",
      "quote": "tencent-ailab/IP-Adapter：The image prompt adapter is designed to enable a pretrained text-to-image diffusion model to generate images with image prompt.（★6,660）"
+    },
+    {
+     "kind": "course",
+     "name": "ComfyUI 中文工作流合集（ZHO）",
+     "url": "https://github.com/ZHO-ZHO-ZHO/ComfyUI-Workflows-ZHO",
+     "src": "gh-comfy-zho",
+     "quote": "GitHub · ZHO 的 ComfyUI 中文工作流合集",
+     "note": "**模特图与试穿要靠工作流串起来**（换装、姿态、脸部一致），这份是中文侧被抄得最多的工作流合集。⚠️ 最后推送 2024-12，节点可能对不上新版 ComfyUI。"
     }
    ],
    "aliases": [
@@ -16545,6 +16623,14 @@
      "license": "Apache-2.0",
      "quote": "TencentARC/GFPGAN：GFPGAN aims at developing Practical Algorithms for Real-world Face Restoration.（★37,654）",
      "note": "第三方组件另算"
+    },
+    {
+     "kind": "course",
+     "name": "StableDiffusionBook（中文 AI 绘画手册）",
+     "url": "https://github.com/sudoskys/StableDiffusionBook",
+     "src": "gh-sdbook",
+     "quote": "GitHub · StableDiffusionBook（中文 AI 绘画手册）",
+     "note": "**写真与头像最吃提示词与参数**，这本中文手册把常用参数、模型选择、常见翻车讲了一遍。⚠️ 最后推送 2024-10，讲的是 SD 时代的做法。"
     }
    ],
    "aliases": [
@@ -16675,6 +16761,14 @@
      "src": "realesrgan-gh",
      "license": "BSD-3-Clause",
      "quote": "xinntao/Real-ESRGAN：Real-ESRGAN aims at developing Practical Algorithms for General Image/Video Restoration.（★36,444）"
+    },
+    {
+     "kind": "docs",
+     "name": "ComfyUI 官方文档",
+     "url": "https://github.com/Comfy-Org/ComfyUI",
+     "src": "gh-comfyui",
+     "quote": "GitHub · Comfy-Org/ComfyUI",
+     "note": "老照片修复通常是**多步流水线**（去噪 → 超分 → 上色），ComfyUI 是把这些步骤连起来的主流工具。⚠️ GPL-3.0。"
     }
    ],
    "aliases": [
@@ -16714,6 +16808,14 @@
      "src": "svgdreamer-gh",
      "license": "MIT",
      "quote": "ximinng/SVGDreamer：[CVPR 2024] \"SVGDreamer: Text Guided SVG Generation with Diffusion Model\"（★449）"
+    },
+    {
+     "kind": "course",
+     "name": "StableDiffusionBook · 提示词部分",
+     "url": "https://github.com/sudoskys/StableDiffusionBook",
+     "src": "gh-sdbook",
+     "quote": "GitHub · StableDiffusionBook（中文 AI 绘画手册）",
+     "note": "Logo 与矢量图形的关键在提示词描述风格与构图，这本的提示词章节可以直接抄。⚠️ 2024-10 之后未更新。"
     }
    ],
    "aliases": [
@@ -16886,6 +16988,14 @@
      "src": "hf-pixelart-lora",
      "quote": "nerijs/pixel-art-xl（下载 11,548；模型卡许可 creativeml-openrail-m）",
      "license": "CreativeML OpenRAIL-M"
+    },
+    {
+     "kind": "course",
+     "name": "ComfyUI 中文工作流合集（ZHO）",
+     "url": "https://github.com/ZHO-ZHO-ZHO/ComfyUI-Workflows-ZHO",
+     "src": "gh-comfy-zho",
+     "quote": "GitHub · ZHO 的 ComfyUI 中文工作流合集",
+     "note": "**游戏美术要的是批量与一致性** —— 同一套工作流跑不同素材。这份合集里有可直接导入的 JSON。⚠️ 2024-12 后未更新。"
     }
    ],
    "aliases": [
@@ -16944,6 +17054,14 @@
      "src": "openhands-gh",
      "quote": "OpenHands/OpenHands：AI-Driven Development（★83,695）",
      "license": "MIT"
+    },
+    {
+     "kind": "course",
+     "name": "大模型工程化实战（llm-action）",
+     "url": "https://github.com/liguodongiot/llm-action",
+     "src": "gh-llm-action",
+     "quote": "GitHub · liguodongiot/llm-action（大模型工程化实战）",
+     "note": "**中文侧讲「怎么把模型接进工程」最全的一本**：推理加速、显存优化、部署形态都有成篇内容。写代码助手最先撞上的不是模型选型，是这些。"
     }
    ],
    "aliases": [
@@ -17002,6 +17120,22 @@
      "quote": "opendatalab/MinerU：Transforms complex documents like PDFs and Office docs into LLM-ready markdown/JSON（★77,355）",
      "license": "Apache-2.0 + 附加条款",
      "note": "**看着像标准开源，其实有附加条件** —— 商用前把 LICENSE 读完：LICENSE 写的是「Apache License 2.0 and is subject to the additional terms below」"
+    },
+    {
+     "kind": "course",
+     "name": "RAG 技术全栈指南（all-in-rag）",
+     "url": "https://github.com/datawhalechina/all-in-rag",
+     "src": "gh-all-in-rag",
+     "quote": "GitHub · datawhalechina/all-in-rag（RAG 技术全栈指南）",
+     "note": "**企业知识库问答就是 RAG**，这本从切分、向量化、检索到重排一路讲完，中文、在线可读、本月还在更新（★10,307）。"
+    },
+    {
+     "kind": "course",
+     "name": "动手学大模型应用开发（llm-universe）",
+     "url": "https://github.com/datawhalechina/llm-universe",
+     "src": "gh-llm-universe",
+     "quote": "GitHub · datawhalechina/llm-universe（动手学大模型应用开发）",
+     "note": "面向小白的应用开发教程，第一个完整例子就是**搭一个能跑的知识库问答**。适合先跟着做一遍再回头看 all-in-rag 的细节。"
     }
    ],
    "aliases": [
@@ -17058,6 +17192,14 @@
      "src": "llamaindex-gh",
      "quote": "run-llama/llama_index：LlamaIndex is the leading document agent and OCR platform（★51,556）",
      "license": "MIT"
+    },
+    {
+     "kind": "course",
+     "name": "动手学大模型应用开发（llm-universe）",
+     "url": "https://github.com/datawhalechina/llm-universe",
+     "src": "gh-llm-universe",
+     "quote": "GitHub · datawhalechina/llm-universe（动手学大模型应用开发）",
+     "note": "文档转结构化的难点在**提示词与输出约束**，这本里有成章的中文讲解与可跑代码。"
     }
    ],
    "aliases": [
@@ -17134,6 +17276,22 @@
      "src": "browseruse-gh",
      "quote": "browser-use/browser-use：Make websites accessible for AI agents. Automate tasks online with ease.（★108,756）",
      "license": "MIT"
+    },
+    {
+     "kind": "course",
+     "name": "多智能体入门（handy-multi-agent）",
+     "url": "https://github.com/datawhalechina/handy-multi-agent",
+     "src": "gh-handy-multi-agent",
+     "quote": "GitHub · datawhalechina/handy-multi-agent（多智能体教程）",
+     "note": "**Agent 工作流一旦超过一个角色就是多智能体问题**：谁调谁、状态放哪、失败怎么回滚。这本是中文侧少见的成体系材料。"
+    },
+    {
+     "kind": "course",
+     "name": "LangChain 中文入门教程",
+     "url": "https://github.com/liaokongVFX/LangChain-Chinese-Getting-Started-Guide",
+     "src": "gh-langchain-zh",
+     "quote": "GitHub · LangChain 中文入门教程",
+     "note": "站上这一类的项目大多建在 LangChain 上（★9,095 的中文入门）。⚠️ **LangChain 版本变动快**，跟着敲之前先对一下你装的版本。"
     }
    ],
    "aliases": [
@@ -17190,6 +17348,22 @@
      "quote": "open-webui/open-webui：User-friendly AI Interface (Supports Ollama, OpenAI API, ...)（★148,467）",
      "license": "自定义 Open WebUI License",
      "note": "**看着像标准开源，其实有附加条件** —— 商用前把 LICENSE 读完：不是 BSD/MIT，是厂商自拟的许可，含品牌相关条款"
+    },
+    {
+     "kind": "course",
+     "name": "开源大模型食用指南（self-llm）",
+     "url": "https://github.com/datawhalechina/self-llm",
+     "src": "gh-self-llm",
+     "quote": "GitHub · datawhalechina/self-llm（开源大模型食用指南）",
+     "note": "**这一条最贴本地部署**：基于 Linux 环境，讲国内外开源模型怎么下、怎么跑、怎么微调。Apache-2.0，★31,694，本月还在更新。"
+    },
+    {
+     "kind": "docs",
+     "name": "大模型工程化实战 · 推理与部署",
+     "url": "https://github.com/liguodongiot/llm-action",
+     "src": "gh-llm-action",
+     "quote": "GitHub · liguodongiot/llm-action（大模型工程化实战）",
+     "note": "显存怎么算、用哪种量化、推理框架怎么选 —— 部署真正卡住人的那些数都在这里。"
     }
    ],
    "aliases": [
@@ -17238,6 +17412,22 @@
      "src": "transformers-gh",
      "quote": "huggingface/transformers：the model-definition framework for state-of-the-art machine learning models（★163,595）",
      "license": "Apache-2.0"
+    },
+    {
+     "kind": "docs",
+     "name": "LLaMA-Factory 官方文档",
+     "url": "https://github.com/hiyouga/LLaMA-Factory",
+     "src": "gh-llamafactory",
+     "quote": "GitHub · hiyouga/LLaMA-Factory",
+     "note": "★74,041 的统一微调框架，**支持 100+ 模型**、有中文文档与 WebUI。想微调而不想从零写训练脚本，从它开始。"
+    },
+    {
+     "kind": "course",
+     "name": "开源大模型食用指南 · 微调篇",
+     "url": "https://github.com/datawhalechina/self-llm",
+     "src": "gh-self-llm",
+     "quote": "GitHub · datawhalechina/self-llm（开源大模型食用指南）",
+     "note": "self-llm 里全参数与 LoRA 微调都有分模型的中文步骤，和 LLaMA-Factory 互补：一个讲工具，一个讲某个模型具体怎么调。"
     }
    ],
    "aliases": [
@@ -17269,6 +17459,14 @@
      "quote": "BerriAI/litellm：Call 100+ LLM APIs in OpenAI (or native) format with cost tracking, guardrails, load balancing, and logging（★56,102）",
      "license": "MIT（enterprise/ 目录除外）",
      "note": "`enterprise/` 目录下的内容**另有许可**，不在开源部分里"
+    },
+    {
+     "kind": "course",
+     "name": "大模型工程化实战 · 成本与推理",
+     "url": "https://github.com/liguodongiot/llm-action",
+     "src": "gh-llm-action",
+     "quote": "GitHub · liguodongiot/llm-action（大模型工程化实战）",
+     "note": "多模型接入要解决的是**同一件事在不同模型上多少钱、多久出结果**，这本里有推理成本与加速的成篇内容。"
     }
    ],
    "aliases": [
@@ -17333,6 +17531,14 @@
      "quote": "prakharsr/audiobook-creator：converts books (EPUB, PDF, TXT etc.) into fully voiced audiobooks with intelligent character voice attribution（★521，许可 GPL-3.0）",
      "license": "GPL-3.0",
      "note": "GPL-3.0 是**传染性许可**：你把它嵌进自家产品，产品的分发也要开源。只想做内部工具没问题，要做商品先问法务"
+    },
+    {
+     "kind": "docs",
+     "name": "GPT-SoVITS 中文文档",
+     "url": "https://github.com/RVC-Boss/GPT-SoVITS/blob/main/docs/cn/README.md",
+     "src": "gh-gptsovits-cn",
+     "quote": "GPT-SoVITS 官方中文文档",
+     "note": "**长文朗读的难点是音色一致与断句**。这份官方中文文档把「1 分钟素材训一个音色」的完整步骤写清楚了，中文社区教程也大多以它为准。"
     }
    ]
   },
@@ -17382,6 +17588,14 @@
      "quote": "liuzhao1225/YouDub：自动化地将优质的 YouTube 视频进行翻译和配音（★614，许可 Apache-2.0）",
      "license": "Apache-2.0",
      "note": "**最后推送停在 2024-05-14，两年多没动。** 收它是因为它把「保留原 UP 主音色」这条链路讲清楚了，直接跑起来大概率要自己修依赖"
+    },
+    {
+     "kind": "docs",
+     "name": "pyvideotrans 中文文档",
+     "url": "https://github.com/jianchang512/pyvideotrans",
+     "src": "gh-pyvideotrans-doc",
+     "quote": "pyvideotrans 官方仓库（中文）",
+     "note": "**整条配音流水线的中文说明**：识别 → 翻译 → 合成 → 回封装，每一段可以换哪些引擎都列了。⚠️ GPL-3.0 是传染性许可。"
     }
    ]
   },
@@ -17440,6 +17654,14 @@
      "quote": "kyutai-labs/moshi：Moshi is a speech-text foundation model and full-duplex spoken dialogue framework（★10,849，许可 Apache-2.0）",
      "license": "Apache-2.0",
      "note": "和上面三条是**两种做法**：它把语音直接吃进模型，所以能真正做到「你说话它当场停」。代价是内容能力弱于文本大模型"
+    },
+    {
+     "kind": "docs",
+     "name": "CosyVoice 官方文档",
+     "url": "https://github.com/QwenAudio/CosyVoice",
+     "src": "gh-cosyvoice-doc",
+     "quote": "CosyVoice 官方仓库文档",
+     "note": "**语音助手要的是流式合成与低延迟**，这份文档给了推理/训练/部署的全栈说明（Apache-2.0）。⚠️ 仓库已从 FunAudioLLM 迁到 QwenAudio 名下。"
     }
    ]
   },
@@ -17498,6 +17720,14 @@
      "quote": "facebookresearch/audiocraft：Audiocraft is a library for audio processing and generation with deep learning（含 MusicGen）（★23,555，许可 代码 MIT / 权重 CC-BY-NC 4.0）",
      "license": "代码 MIT / 权重 CC-BY-NC 4.0",
      "note": "**这条要看清楚：代码是 MIT，模型权重是 CC-BY-NC 4.0 —— 权重不允许商用。** 拿它出的 BGM 放进要卖的片子里是违约的，这一条最常被忽略"
+    },
+    {
+     "kind": "docs",
+     "name": "CosyVoice 官方文档 · 部署部分",
+     "url": "https://github.com/QwenAudio/CosyVoice",
+     "src": "gh-cosyvoice-doc",
+     "quote": "CosyVoice 官方仓库文档",
+     "note": "⚠️ **这一条是借用**：配乐这一类目前没找到成体系的中文教程，先放一份讲「音频模型怎么在本机跑起来」的中文文档顶上。**这是缺口不是答案**，找到真正讲音乐生成的中文材料就替换。"
     }
    ]
   },
@@ -17573,6 +17803,22 @@
      "quote": "index-tts/index-tts：An Industrial-Level Controllable and Efficient Zero-Shot Text-To-Speech System（★22,677，许可 bilibili 自定义模型许可）",
      "license": "bilibili 自定义模型许可",
      "note": "⚠️ 用的是 bilibili 自定义许可，不是标准开源许可。原文：「You may not Use the bilibili indextts2 or any Derivative Work to improve any AI model, except for the bilibili indextts2 itself, its Derivative Works，or non-commercial AI models.」—— **不能拿它的输出去训自己的模型**"
+    },
+    {
+     "kind": "docs",
+     "name": "GPT-SoVITS 中文文档",
+     "url": "https://github.com/RVC-Boss/GPT-SoVITS/blob/main/docs/cn/README.md",
+     "src": "gh-gptsovits-cn",
+     "quote": "GPT-SoVITS 官方中文文档",
+     "note": "**音色 IP 就是声音复刻**，这份是中文侧步骤最全的（★60,795，MIT）。"
+    },
+    {
+     "kind": "docs",
+     "name": "ChatTTS 中文文档",
+     "url": "https://github.com/2noise/ChatTTS/blob/main/docs/cn/README.md",
+     "src": "gh-chattts-cn",
+     "quote": "ChatTTS 官方中文文档",
+     "note": "对话场景的中文语音模型（★39,776），文档讲了口语化韵律怎么调。⚠️ **AGPL-3.0，传染性最强的一档** —— 接进自家服务前务必看清。"
     }
    ]
   }

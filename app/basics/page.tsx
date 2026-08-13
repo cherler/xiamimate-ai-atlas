@@ -6,6 +6,10 @@ import BackLink from "@/components/BackLink";
 import Share from "@/components/Share";
 import glossary from "@/data/glossary.json";
 
+/** 教程条数。**只此一份** —— 上次就是因为正文与 description 各写各的，改了一处漏了另一处。 */
+const TUTORIAL_N = glossary.tutorials.reduce((n, g) => n + g.items.length, 0);
+
+
 /**
  * 基础词表。**这一页是负责人提出来的，而缺口是我造成的。**
  *
@@ -32,7 +36,13 @@ export const metadata: Metadata = {
    */
   title: "大模型入门：公开教程导航 + 本地部署要懂的词",
   description:
-    "从「什么是大模型」到本地部署、微调与实际应用，21 个公开教程（以中文为主），逐个核过星标、许可与最后更新日。附站上会撞见的术语速查（FP8 / INT8 / GGUF / LoRA），每条带论文出处。",
+    /**
+     * ⚠️ **条数不许写死。** 正文那处已经改成现算了，`description` 这处漏了 ——
+     * 负责人 2026-08-13 二次指出。写死的数字**每加一条教程就错一次**，
+     * 而它出现在搜索结果与分享卡片上，是外面最先看到的一句。
+     */
+    `从「什么是大模型」到本地部署、微调与实际应用，${TUTORIAL_N} 个公开教程（以中文为主），` +
+    "逐个核过星标与最后更新日。附站上会撞见的术语速查（FP8 / INT8 / GGUF / LoRA），每条带论文出处。",
   openGraph: { images: [{ url: "/atlas/og/index-16x9.png", width: 1200, height: 675 }] },
 };
 
@@ -66,7 +76,7 @@ export default function BasicsPage() {
         <h1 className="text-[40px] leading-tight font-semibold">想搞懂大模型，去读哪些公开教程</h1>
         <p className="text-[17px] leading-relaxed text-muted">
           从「<b className="text-ink">什么是大模型</b>」一路到<b className="text-ink">本地部署、微调与实际应用</b>，
-          {glossary.tutorials.reduce((n, g) => n + g.items.length, 0)} 个公开教程，<b className="text-ink">以中文为主</b>。<b className="text-ink">我们不自己写教程</b> ——
+          {TUTORIAL_N} 个公开教程，<b className="text-ink">以中文为主</b>。<b className="text-ink">我们不自己写教程</b> ——
           这一页只负责三件事：核实它还活着、说清它的许可、诚实标出它适合谁、不适合谁。
         </p>
         <p className="text-[15px] leading-relaxed text-muted">
