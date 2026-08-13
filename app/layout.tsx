@@ -14,6 +14,7 @@ import "./globals.css";
 import Nav from "@/components/Nav";
 import { ChromeFooter, ChromeHeader } from "@/components/PlatformChrome";
 import NextSteps from "@/components/NextSteps";
+import AnchorHistory from "@/components/AnchorHistory";
 
 const DESC =
   "模型之间不靠出身相连，靠能做什么相连。每条事实都带来源、核验日期，和一个「这是机器写的」标记。";
@@ -69,6 +70,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <ChromeHeader />
         {/* Nav 和 NextSteps 挂在 layout 上 —— **每一页都有，否则总有页面是死路**。 */}
         <Nav />
+        {/* 页内锚点不进历史 —— 否则「← 返回」退的是上一次目录跳转，不是上一个页面 */}
+        <AnchorHistory />
         <div className="flex-1">
           {children}
           <div className="max-w-[1240px] mx-auto px-5 pb-10">
