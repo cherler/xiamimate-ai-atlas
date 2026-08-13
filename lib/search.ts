@@ -1,4 +1,6 @@
 import { atlas, avail, capsOf, cell, label, modelsOf, vendorName, type Klass } from "./atlas";
+import glossary from "@/data/glossary.json";
+import { capHref, modelHref } from "./slug";
 
 /**
  * 本地检索 + Answer View（方案 §13、§41 第一阶段）。
@@ -23,7 +25,23 @@ export type Answer =
   | { kind: "openweights"; models: string[] }
   | null;
 
-export type Hit = { kind: "model" | "capability" | "platform"; id: string; title: string; sub: string; score: number };
+/**
+ * ⚠️ **索引的是「站上有的东西」，不是只有模型。**
+ *
+ * 负责人 2026-08-13 截图：在搜索框里打「AI短剧」，**什么都没有** ——
+ * 而「AI短剧」是场景页上实实在在的一个应用。第一版只索引了模型 / 能力 / 平台
+ * 三类共 175 条，而站上还有 34 个应用、25 个 Skill、35 条工具箱、
+ * 10 条术语、21 份教程、5 个方向页 —— **一条都没进索引**。
+ * 搜「AI视频」（一整卷的名字）同样是空的。
+ *
+ * **搜索的范围如果和站的内容对不上，用户会以为站上没有这东西。**
+ * 这比搜不准更糟：它给出的是一个错误的否定结论。
+ */
+export type HitKind =
+  | "model" | "capability" | "platform"
+  | "domain" | "application" | "skill" | "toolkit" | "term" | "tutorial";
+
+export type Hit = { kind: HitKind; id: string; title: string; sub: string; score: number; href: string };
 
 /**
  * ⚠️ **必须容忍空值。** 2026-08-13 全站搜索一上线就白屏：
@@ -84,7 +102,7 @@ export function search(q: string): Hit[] {
   const n = norm(q);
   if (n.length < 1) return [];
   const hits: Hit[] = [];
-  const push = (kind: Hit["kind"], id: string, title: string, sub: string, hay: string[]) => {
+  const push = (kind: HitKind, id: string, title: string, sub: string, hay: string[], href: string) => {
     let score = 0;
     for (const h of hay) {
       const k = norm(h);
@@ -93,18 +111,43 @@ export function search(q: string): Hit[] {
       else if (k.includes(n)) score += 40;
       else if (n.includes(k) && k.length >= 2) score += 25;
     }
-    if (score) hits.push({ kind, id, title, sub, score });
+    if (score) hits.push({ kind, id, title, sub, score, href });
   };
   for (const m of atlas.models)
-    push("model", m.id, label(m), `${vendorName(m)} · ${m.version_as_of}`, [m.family, m.zh, vendorName(m), label(m), m.version]);
+    push("model", m.id, label(m), `${vendorName(m)} · ${m.version_as_of}`,
+      [m.family, m.zh, vendorName(m), label(m), m.version], modelHref(m));
   for (const c of atlas.capabilities)
-    push("capability", c.id, c.zh, [c.name, ...(c.aliases ?? []).slice(0, 4)].join(" · "), [
-      c.zh,
-      c.name,
-      ...(c.aliases ?? []),
-    ]);
-  for (const p of atlas.platforms) push("platform", p.id, p.name, `${p.kind} · ${p.region}`, [p.name, p.kind]);
-  return hits.sort((a, b) => b.score - a.score).slice(0, 12);
+    push("capability", c.id, c.zh, [c.name, ...(c.aliases ?? []).slice(0, 4)].join(" · "),
+      [c.zh, c.name, ...(c.aliases ?? [])], capHref(c));
+  for (const p of atlas.platforms)
+    push("platform", p.id, p.name, `${p.kind} · ${p.region}`, [p.name, p.kind], "/where");
+
+  /** 方向本身要能搜到 —— 「AI视频」是这一站最常被打进去的四个字。 */
+  for (const d of atlas.domains.filter((x) => x.state === "live"))
+    push("domain", d.id, d.name, `${(d.tracks ?? []).map((t) => t.zh).join(" · ")} · ${d.volume ?? ""}`.trim(),
+      [d.name, d.id, ...(d.tracks ?? []).map((t) => t.zh)], d.href ?? `/${d.id}`);
+
+  /** 应用（场景页上的那些交付物）。**「AI短剧」就是在这一类里。** */
+  for (const x of atlas.applications) {
+    const dom = x.domain ?? "video";
+    push("application", x.id, x.zh, `${x.en ?? ""} · ${x.output ?? ""}`.trim(),
+      [x.zh, x.en, ...(x.aliases ?? []), x.output], `/${dom}/scenario#app-${x.id}`);
+  }
+
+  for (const k of atlas.skills)
+    push("skill", k.id, k.zh, `${k.en ?? ""} · 怎么做到`.trim(), [k.zh, k.en], `/skill/${k.id}`);
+
+  /** 工具箱：搜的是「我该去哪个站」，命中的是任务描述与站名。 */
+  for (const t of atlas.toolkit)
+    push("toolkit", t.site, t.site, t.task, [t.site, t.task], "/toolkit");
+
+  for (const t of glossary.terms)
+    push("term", t.id, t.term, "术语速查", [t.term, ...(t.aliases ?? [])], `/basics#reading`);
+  for (const g of glossary.tutorials)
+    for (const it of g.items)
+      push("tutorial", it.name, it.name, `${g.group} · 公开教程`, [it.name, it.repo ?? ""], "/basics#tutorials");
+
+  return hits.sort((a, b) => b.score - a.score).slice(0, 14);
 }
 
 /** 给 Answer 配一句可复核的口径，而不是只甩一串名字。 */

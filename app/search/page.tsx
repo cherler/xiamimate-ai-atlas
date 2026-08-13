@@ -62,7 +62,8 @@ export default function SearchPage() {
       </header>
 
       {/* 进这一页的人是来打字的，光标直接落进去 */}
-      <Search autoFocus />
+      {/* 全站页才敢放各卷的具体名字：它本来就是跨方向的，不受方向隔离约束 */}
+      <Search autoFocus examples={["哪些模型支持动作复刻", "AI短剧", "骨骼绑定", "哪些有开源权重", "Seedance 在哪用", "FP8"]} />
 
       <p className="text-[13px] leading-relaxed text-muted border-t border-rule pt-4">
         <b className="text-ink">搜不到不代表没有。</b>

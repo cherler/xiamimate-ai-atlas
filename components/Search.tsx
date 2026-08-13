@@ -14,9 +14,28 @@ import { capHref, modelHref } from "@/lib/slug";
  *
  * 全部在浏览器里跑 —— 静态站没有后端，数据也就一百多条。
  */
-const EXAMPLES = ["哪些模型支持动作复刻", "Seedance 在哪用", "哪些有开源权重", "Element", "首尾帧"];
+/** 结果前面那个小标签。**九类都要有名字** —— 缺一类就会显示空白，读者不知道点进去是什么。 */
+const KIND_ZH: Record<string, string> = {
+  model: "模型", capability: "能力", platform: "平台", domain: "方向",
+  application: "应用", skill: "怎么做", toolkit: "去哪查", term: "术语", tutorial: "教程",
+};
 
-export default function Search({ autoFocus = false }: { autoFocus?: boolean }) {
+/**
+ * ⚠️ **默认这几个例子必须是「跨方向都成立」的。**
+ *
+ * 这个组件嵌在**每个方向首页**上，而「试试」那排在没输入时就渲染出来了。
+ * 2026-08-13 我把「骨骼绑定」（AI 3D 的能力）「AI短剧」（视频卷的应用）放进默认例子，
+ * 结果视频卷的页面上印出了 3D 的能力名 —— 方向隔离检查当场报错。
+ * ⚠️ 顺带一个坑：这段注释原来写成「`**` + `/video`」，那两个字符连起来
+ *    正好是块注释的结束符，把注释提前关掉，整个文件语法就废了。
+ * 那条检查存在的理由正是这个：**半边对、半边错，比整页错更难发现。**
+ *
+ * 所以默认只放三类：能力无关的问句、术语、以及「在哪用」这种句式。
+ * 全站搜索页不受这个约束（它本来就是跨方向的），自己传一组更有代表性的。
+ */
+const EXAMPLES = ["哪些有开源权重", "在哪用", "FP8", "GGUF"];
+
+export default function Search({ autoFocus = false, examples = EXAMPLES }: { autoFocus?: boolean; examples?: string[] }) {
   const [q, setQ] = useState("");
   const box = useRef<HTMLInputElement>(null);
   /**
@@ -50,7 +69,7 @@ export default function Search({ autoFocus = false }: { autoFocus?: boolean }) {
       {!q.trim() && (
         <p className="text-muted text-[13px] flex flex-wrap gap-2 items-center">
           试试：
-          {EXAMPLES.map((e) => (
+          {examples.map((e) => (
             <button
               key={e}
               onClick={() => setQ(e)}
@@ -150,11 +169,11 @@ export default function Search({ autoFocus = false }: { autoFocus?: boolean }) {
           {hits.map((h) => (
             <Link
               key={`${h.kind}-${h.id}`}
-              href={h.kind === "model" ? modelHref(h.id) : h.kind === "capability" ? capHref(h.id) : "#"}
+              href={h.href}   // 每一类自己带落点，不再在这里 switch（第一版「平台」那类落到 "#"，点了没反应）
               className="flex items-baseline gap-3 py-1 text-[15px] hover:text-yes"
             >
-              <span className="text-muted text-[11px] w-[34px] shrink-0">
-                {h.kind === "model" ? "模型" : h.kind === "capability" ? "能力" : "平台"}
+              <span className="text-muted text-[11px] w-[42px] shrink-0">
+                {KIND_ZH[h.kind]}
               </span>
               <span className="font-medium">{h.title}</span>
               <span className="text-muted text-[13px]">{h.sub}</span>
