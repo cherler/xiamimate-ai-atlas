@@ -8,6 +8,14 @@
     <language>zh-CN</language>
     <lastBuildDate>Thu, 13 Aug 2026 00:00:00 GMT</lastBuildDate>
     <item>
+      <title>Tripo API V2：官方公告：2026-10-01 起不再更新与支持，2026-11-01 起 V2 端点全部停止接收请求</title>
+      <link>https://xiamimate.com/atlas/changes#tripo-v2-eol-2026-11-01</link>
+      <guid isPermaLink="false">tripo-v2-eol-2026-11-01</guid>
+      <pubDate>Sun, 01 Nov 2026 00:00:00 GMT</pubDate>
+      <category>tripo</category>
+      <description>&lt;p&gt;&lt;b&gt;Tripo API V2&lt;/b&gt; · 生命周期&lt;/p&gt;&lt;p&gt;此前：V2 端点照常服务，且**不传参数时默认调的就是 V2 时代的 v2.5-20250123**&lt;/p&gt;&lt;p&gt;现在：官方公告：2026-10-01 起不再更新与支持，2026-11-01 起 V2 端点全部停止接收请求&lt;/p&gt;&lt;p&gt;&lt;b&gt;为什么重要：&lt;/b&gt;**默认值踩的正是要停的那一支** —— 没显式指定 model_version 的调用会跟着一起断&lt;/p&gt;&lt;p&gt;影响：tripo&lt;/p&gt;&lt;p&gt;来源：&lt;a href=&quot;https://platform.tripo3d.ai/docs/generation&quot;&gt;Tripo · Generation 端点文档&lt;/a&gt;&lt;/p&gt;</description>
+    </item>
+    <item>
       <title>Sora：OpenAI 公告 API 于 2026-09-24 停止</title>
       <link>https://xiamimate.com/atlas/changes#sora-2026-09-24</link>
       <guid isPermaLink="false">sora-2026-09-24</guid>
@@ -22,6 +30,14 @@
       <pubDate>Mon, 31 Aug 2026 00:00:00 GMT</pubDate>
       <category>kimi</category>
       <description>&lt;p&gt;&lt;b&gt;Kimi&lt;/b&gt; · status&lt;/p&gt;&lt;p&gt;此前：Moonshot V1 系列（8k / 32k / 128k 及其 vision 版）在售&lt;/p&gt;&lt;p&gt;现在：官方价格页写明「预计 8 月 31 日全平台下线」&lt;/p&gt;&lt;p&gt;&lt;b&gt;为什么重要：&lt;/b&gt;这是这条产品线的第一代，下线之后 Kimi 的可用型号只剩 K2.x / K3。**在用旧接口的要提前迁**。&lt;/p&gt;&lt;p&gt;影响：kimi&lt;/p&gt;&lt;p&gt;来源：&lt;a href=&quot;https://platform.kimi.com/docs/pricing/chat&quot;&gt;Kimi 开放平台 · 模型推理价格&lt;/a&gt;&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>混元 3D 的版本：改记 3.1；那句话说窄了 —— **开源线停在 2.1，托管线已到 3.1**</title>
+      <link>https://xiamimate.com/atlas/changes#hunyuan3d-two-lines-2026-08-13</link>
+      <guid isPermaLink="false">hunyuan3d-two-lines-2026-08-13</guid>
+      <pubDate>Thu, 13 Aug 2026 00:00:00 GMT</pubDate>
+      <category>hunyuan3d</category>
+      <description>&lt;p&gt;&lt;b&gt;混元 3D 的版本&lt;/b&gt; · 我们记错了（这一条是我们记错了）&lt;/p&gt;&lt;p&gt;此前：我们记的是 2.1，并在排除说明里写「Hunyuan3D 3.0 查无此物」&lt;/p&gt;&lt;p&gt;现在：改记 3.1；那句话说窄了 —— **开源线停在 2.1，托管线已到 3.1**&lt;/p&gt;&lt;p&gt;&lt;b&gt;为什么重要：&lt;/b&gt;**「GitHub 上没有」不等于「不存在」** —— 闭源那半边本来就不在 GitHub 上。发现它是因为 Replicate 合集页上挂着腾讯的官方账号&lt;/p&gt;&lt;p&gt;影响：hunyuan3d&lt;/p&gt;</description>
     </item>
     <item>
       <title>AI 声音卷上线：加 AI 声音一卷：三轨（语音合成 / 音乐生成 / 实时语音）、16 项能力、15 个核心模型</title>
@@ -101,6 +117,14 @@
       <pubDate>Wed, 05 Aug 2026 00:00:00 GMT</pubDate>
       <category>seedance</category>
       <description>&lt;p&gt;&lt;b&gt;Seedance&lt;/b&gt; · 版本更迭&lt;/p&gt;&lt;p&gt;此前：Seedance 2.0 支持四种输入模态&lt;/p&gt;&lt;p&gt;现在：2.5 主打一镜到底与灵活参考&lt;/p&gt;&lt;p&gt;&lt;b&gt;为什么重要：&lt;/b&gt;一镜到底把「多镜头拼接」这件事从后期挪到了生成阶段&lt;/p&gt;&lt;p&gt;影响：seedance；skill:extend&lt;/p&gt;&lt;p&gt;来源：&lt;a href=&quot;https://seed.bytedance.com/en/blog&quot;&gt;ByteDance Seed · 官方博客&lt;/a&gt;&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Hunyuan3D-Buffalo 1.0：技术报告与项目页发布：统一多模态的生成 / 理解 / 编辑（arXiv 2608.02711）</title>
+      <link>https://xiamimate.com/atlas/changes#hunyuan3d-buffalo-2026-08-05</link>
+      <guid isPermaLink="false">hunyuan3d-buffalo-2026-08-05</guid>
+      <pubDate>Wed, 05 Aug 2026 00:00:00 GMT</pubDate>
+      <category>hunyuan3d</category>
+      <description>&lt;p&gt;&lt;b&gt;Hunyuan3D-Buffalo 1.0&lt;/b&gt; · 新模型&lt;/p&gt;&lt;p&gt;此前：混元 3D 的开源线停在 2.1&lt;/p&gt;&lt;p&gt;现在：技术报告与项目页发布：统一多模态的生成 / 理解 / 编辑（arXiv 2608.02711）&lt;/p&gt;&lt;p&gt;&lt;b&gt;为什么重要：&lt;/b&gt;**有论文不等于有模型** —— 仓库只有 7 次提交、无代码无权重，现在还不能用&lt;/p&gt;&lt;p&gt;影响：hunyuan3d&lt;/p&gt;&lt;p&gt;来源：&lt;a href=&quot;https://github.com/Tencent-Hunyuan/Hunyuan3D-Buffalo1.0&quot;&gt;Tencent-Hunyuan/Hunyuan3D-Buffalo1.0 仓库&lt;/a&gt;&lt;/p&gt;</description>
     </item>
     <item>
       <title>MiniMax H3：权重已上 Hugging Face（280 个文件，含 safetensors）</title>

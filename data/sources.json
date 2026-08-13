@@ -4521,6 +4521,59 @@
     "version"
    ],
    "note": "盯它什么时候真放出代码与权重 —— 现在只有技术报告"
+  },
+  {
+   "id": "replicate-hunyuan3d-31",
+   "tier": "A",
+   "kind": "spa",
+   "vendor": "hunyuan3d",
+   "name": "Replicate · 腾讯官方账号 tencent/hunyuan-3d-3.1",
+   "url": "https://replicate.com/tencent/hunyuan-3d-3.1",
+   "refresh_days": 14,
+   "good_for": [
+    "version",
+    "capability"
+   ],
+   "note": "⚠️ **这是托管平台不是厂商站，但账号是腾讯官方的（页面标 Official）。**之所以只能引它：3d.hunyuan.tencent.com 与 cloud.tencent.com/product/hunyuan3d 都在登录墙后面，裸抓分别只有 79 与 38 字。混元 3D 的**托管那一支**目前只有这个能引的出处"
+  },
+  {
+   "id": "replicate-3d",
+   "tier": "A",
+   "kind": "spa",
+   "vendor": "",
+   "name": "Replicate · 3D 模型合集",
+   "url": "https://replicate.com/collections/3d-models",
+   "refresh_days": 21,
+   "good_for": [
+    "resource"
+   ],
+   "note": "盯 3D 这一侧有哪些模型能按次调用；⚠️ 合集页带「Our pick」编辑推荐，那是平台的判断不是测评"
+  },
+  {
+   "id": "hf-image-to-3d",
+   "tier": "A",
+   "kind": "spa",
+   "vendor": "",
+   "name": "Hugging Face · Image-to-3D 任务页",
+   "url": "https://huggingface.co/models?pipeline_tag=image-to-3d&sort=downloads",
+   "refresh_days": 21,
+   "good_for": [
+    "resource"
+   ],
+   "note": "开源侧的 3D 权重集中在这个任务标签下"
+  },
+  {
+   "id": "comfy-3d-hunyuan",
+   "tier": "S",
+   "kind": "html",
+   "vendor": "",
+   "name": "ComfyUI 官方 · Hunyuan3D-2 教程",
+   "url": "https://docs.comfy.org/tutorials/3d/hunyuan3D-2",
+   "refresh_days": 21,
+   "good_for": [
+    "resource"
+   ],
+   "note": "本地跑 3D 生成的官方工作流"
   }
  ],
  "$missing": [

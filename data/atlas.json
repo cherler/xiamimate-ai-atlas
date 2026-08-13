@@ -3261,18 +3261,19 @@
    "id": "hunyuan3d",
    "family": "Hunyuan3D",
    "org": "tencent",
-   "version": "2.1",
+   "version": "3.1",
    "version_as_of": "2026-08-13",
-   "weights": "open",
-   "version_src": "hf-hunyuan3d-21",
-   "version_quote": "HF 模型卡标题：「From Images to High-Fidelity 3D Assets with Production-Ready PBR Material」，仓库标签含 Image-to-3D、text-to-3d，许可 tencent-hunyuan-community",
+   "weights": "partial",
+   "version_src": "replicate-hunyuan3d-31",
+   "version_quote": "腾讯官方 Replicate 账号页：「tencent / hunyuan-3d-3.1 —— 3D models with texture fidelity and geometry precision」，标 Official、10.49 万次运行",
    "lineage_note": "⚠️ **同组织 2026-08-05 放出了 Hunyuan3D-Buffalo 1.0 的技术报告**（「A Unified Multimodal Model for Scalable 3D Generation, Understanding, and Editing」，arXiv 2608.02711），但仓库只有 7 次提交、无代码无权重 —— **有论文不等于有模型**，所以当前版本仍记 2.1",
    "reach_cn": "ok",
    "reach_note": "github.com / huggingface.co 两处均可达（本机实测 08-13）",
    "class": "asset",
    "status": "active",
    "tier": "core",
-   "domain": "threed"
+   "domain": "threed",
+   "note": "⚠️ **这家有两条线，别混着读**：**开源那条停在 2.1**（权重与训练代码都在 HF/GitHub），**托管那条已到 3.1**（只能调 API）。我们把版本记成 3.1，因为那是当前版本；而「开源权重」那一格标的是 sibling 2.1 —— 它长在另一支上。⚠️ 版本号的唯一可引出处是腾讯在 Replicate 的官方账号：**厂商自己的站（3d.hunyuan.tencent.com、cloud.tencent.com/product/hunyuan3d）都在登录墙后面**，裸抓只有 79 与 38 个字符。"
   },
   {
    "id": "tripo",
@@ -5012,6 +5013,26 @@
   "gh-hunyuan3d-buffalo": {
    "name": "Tencent-Hunyuan/Hunyuan3D-Buffalo1.0 仓库",
    "url": "https://github.com/Tencent-Hunyuan/Hunyuan3D-Buffalo1.0",
+   "tier": "official"
+  },
+  "replicate-hunyuan3d-31": {
+   "name": "Replicate · 腾讯官方账号 tencent/hunyuan-3d-3.1",
+   "url": "https://replicate.com/tencent/hunyuan-3d-3.1",
+   "tier": "third-party"
+  },
+  "replicate-3d": {
+   "name": "Replicate · 3D 模型合集",
+   "url": "https://replicate.com/collections/3d-models",
+   "tier": "third-party"
+  },
+  "hf-image-to-3d": {
+   "name": "Hugging Face · Image-to-3D 任务页",
+   "url": "https://huggingface.co/models?pipeline_tag=image-to-3d&sort=downloads",
+   "tier": "third-party"
+  },
+  "comfy-3d-hunyuan": {
+   "name": "ComfyUI 官方 · Hunyuan3D-2 教程",
+   "url": "https://docs.comfy.org/tutorials/3d/hunyuan3D-2",
    "tier": "official"
   }
  },
@@ -9755,9 +9776,10 @@
    "state": "yes",
    "verified_for": "2.1",
    "src": "hf-hunyuan3d-21",
-   "note": "仓库标签含 text-to-3d",
+   "note": "仓库标签含 text-to-3d　⚠️ **这条证据核的是 2.1**（开源那一支的 README）；3.1 只有平台页一句功能描述，没有能引的官方文档 —— 标为待重核，不沿用当作 3.1 的结论",
    "via": "native",
-   "as_of": "2026-08-13"
+   "as_of": "2026-08-13",
+   "recheck": "3.1"
   },
   {
    "m": "hunyuan3d",
@@ -9765,15 +9787,16 @@
    "state": "yes",
    "verified_for": "2.1",
    "src": "hf-hunyuan3d-21",
-   "note": "模型卡标题「From Images to High-Fidelity 3D Assets」，仓库标签含 Image-to-3D",
+   "note": "模型卡标题「From Images to High-Fidelity 3D Assets」，仓库标签含 Image-to-3D　⚠️ **这条证据核的是 2.1**（开源那一支的 README）；3.1 只有平台页一句功能描述，没有能引的官方文档 —— 标为待重核，不沿用当作 3.1 的结论",
    "via": "native",
-   "as_of": "2026-08-13"
+   "as_of": "2026-08-13",
+   "recheck": "3.1"
   },
   {
    "m": "hunyuan3d",
    "c": "d-multiview",
    "state": "unknown",
-   "verified_for": "2.1",
+   "verified_for": "3.1",
    "note": "立项当天（2026-08-13）只核到模型版本与该家最显眼的几项能力，这一格**还没查**",
    "as_of": "2026-08-13"
   },
@@ -9783,15 +9806,16 @@
    "state": "yes",
    "verified_for": "2.1",
    "src": "hf-hunyuan3d-21",
-   "note": "README 架构一节：「Physically-Based Rendering (PBR) Texture Synthesis … the upgraded PBR pipeline leverages physics-grounded material simulation to generate textures with photorealistic light interaction (e.g., metallic reflections, subsurface scattering)」",
+   "note": "README 架构一节：「Physically-Based Rendering (PBR) Texture Synthesis … the upgraded PBR pipeline leverages physics-grounded material simulation to generate textures with photorealistic light interaction (e.g., metallic reflections, subsurface scattering)」　⚠️ **这条证据核的是 2.1**（开源那一支的 README）；3.1 只有平台页一句功能描述，没有能引的官方文档 —— 标为待重核，不沿用当作 3.1 的结论",
    "via": "native",
-   "as_of": "2026-08-13"
+   "as_of": "2026-08-13",
+   "recheck": "3.1"
   },
   {
    "m": "hunyuan3d",
    "c": "d-uv",
    "state": "unknown",
-   "verified_for": "2.1",
+   "verified_for": "3.1",
    "note": "立项当天（2026-08-13）只核到模型版本与该家最显眼的几项能力，这一格**还没查**",
    "as_of": "2026-08-13"
   },
@@ -9799,7 +9823,7 @@
    "m": "hunyuan3d",
    "c": "d-remesh",
    "state": "unknown",
-   "verified_for": "2.1",
+   "verified_for": "3.1",
    "note": "立项当天（2026-08-13）只核到模型版本与该家最显眼的几项能力，这一格**还没查**",
    "as_of": "2026-08-13"
   },
@@ -9807,7 +9831,7 @@
    "m": "hunyuan3d",
    "c": "d-edit",
    "state": "unknown",
-   "verified_for": "2.1",
+   "verified_for": "3.1",
    "note": "立项当天（2026-08-13）只核到模型版本与该家最显眼的几项能力，这一格**还没查**",
    "as_of": "2026-08-13"
   },
@@ -9815,7 +9839,7 @@
    "m": "hunyuan3d",
    "c": "d-rig",
    "state": "unknown",
-   "verified_for": "2.1",
+   "verified_for": "3.1",
    "note": "立项当天（2026-08-13）只核到模型版本与该家最显眼的几项能力，这一格**还没查**",
    "as_of": "2026-08-13"
   },
@@ -9823,7 +9847,7 @@
    "m": "hunyuan3d",
    "c": "d-anim",
    "state": "unknown",
-   "verified_for": "2.1",
+   "verified_for": "3.1",
    "note": "立项当天（2026-08-13）只核到模型版本与该家最显眼的几项能力，这一格**还没查**",
    "as_of": "2026-08-13"
   },
@@ -9831,7 +9855,7 @@
    "m": "hunyuan3d",
    "c": "d-scene",
    "state": "unknown",
-   "verified_for": "2.1",
+   "verified_for": "3.1",
    "note": "立项当天（2026-08-13）只核到模型版本与该家最显眼的几项能力，这一格**还没查**",
    "as_of": "2026-08-13"
   },
@@ -9839,7 +9863,7 @@
    "m": "hunyuan3d",
    "c": "d-format",
    "state": "unknown",
-   "verified_for": "2.1",
+   "verified_for": "3.1",
    "note": "立项当天（2026-08-13）只核到模型版本与该家最显眼的几项能力，这一格**还没查**",
    "as_of": "2026-08-13"
   },
@@ -9847,7 +9871,7 @@
    "m": "hunyuan3d",
    "c": "d-print",
    "state": "unknown",
-   "verified_for": "2.1",
+   "verified_for": "3.1",
    "note": "立项当天（2026-08-13）只核到模型版本与该家最显眼的几项能力，这一格**还没查**",
    "as_of": "2026-08-13"
   },
@@ -9857,9 +9881,10 @@
    "state": "yes",
    "verified_for": "2.1",
    "src": "hf-hunyuan3d-21",
-   "note": "README：「For the first time, the system releases full model weights and training code, enabling community developers to directly fine-tune and extend the model」。⚠️ 许可是 tencent-hunyuan-community，厂商自定义协议不是标准开源协议",
+   "note": "**权重长在 2.1 那一支上**：README 写「releases full model weights and training code」。⚠️ 托管的 3.1 没有对应的权重发布 —— 这一格是同门别支，不是当前版本的能力",
    "via": "native",
-   "as_of": "2026-08-13"
+   "as_of": "2026-08-13",
+   "sibling": "2.1"
   },
   {
    "m": "tripo",
@@ -10717,7 +10742,7 @@
     "Tripo v3.1-20260211",
     "Hunyuan3D-Buffalo 1.0"
    ],
-   "revisit": "**已经兑现：2026-08-13 单开了 AI 3D 方向**（见 domains.threed）。⚠️ 顺带纠一条：原文这里写的「Hunyuan3D 3.0」**在腾讯官方仓库里查无此物** —— 组织下最新的是 Hunyuan3D-2.1（有权重）与 Hunyuan3D-Buffalo 1.0（只有技术报告）。那个版本号当时没有出处，是照记忆写的。",
+   "revisit": "**已经兑现：2026-08-13 单开了 AI 3D 方向**（见 domains.threed）。⚠️ 顺带纠一条，且**纠了两次**：原文写的「Hunyuan3D 3.0」在腾讯的 GitHub 组织里确实查无此物 —— 但那句话说窄了：**开源那条线停在 2.1，托管那条线已经到 3.1**（腾讯官方 Replicate 账号 tencent/hunyuan-3d-3.1，标 Official）。**「GitHub 上没有」不等于「不存在」** —— 闭源那半边本来就不在 GitHub 上。",
    "domain": "image"
   }
  ],
@@ -11489,6 +11514,51 @@
    "plan": "unknown",
    "valid_from": "unknown",
    "valid_to": "unknown"
+  },
+  {
+   "p": "replicate",
+   "m": "hunyuan3d",
+   "listed": "tencent/hunyuan-3d-3.1",
+   "status": "available",
+   "src": "replicate-hunyuan3d-31",
+   "quote": "「tencent / hunyuan-3d-3.1 —— 3D models with texture fidelity and geometry precision」，标 Official、10.49 万次运行",
+   "match": "same",
+   "access_type": "api",
+   "region": "全球",
+   "plan": "paid",
+   "valid_from": "unknown",
+   "valid_to": "unknown",
+   "note": "**这是我们能拿到混元 3D 当前版本的唯一可引出处** —— 厂商自己的站在登录墙后面"
+  },
+  {
+   "p": "replicate",
+   "m": "rodin",
+   "listed": "Rodin Gen-2",
+   "status": "available",
+   "src": "replicate-3d",
+   "quote": "合集页条目：「hyper3d / rodin —— Generate complex 3D models from im…」，标题写 Rodin Gen-2",
+   "match": "older",
+   "access_type": "api",
+   "region": "全球",
+   "plan": "paid",
+   "valid_from": "unknown",
+   "valid_to": "unknown",
+   "note": "⚠️ **平台上是 Gen-2，厂商文档已经到 Gen-2.5** —— 按平台页读能力会读到旧的那一代"
+  },
+  {
+   "p": "replicate",
+   "m": "trellis",
+   "listed": "firtoz/trellis",
+   "status": "available",
+   "src": "replicate-3d",
+   "quote": "合集页条目：「firtoz / trellis —— A powerful 3D asset generation mo…」；另有 fishwowater/trellis2",
+   "match": "unknown",
+   "access_type": "api",
+   "region": "全球",
+   "plan": "paid",
+   "valid_from": "unknown",
+   "valid_to": "unknown",
+   "note": "⚠️ **不是微软发的**：账号是个人开发者转发的社区版本，跑的是哪一版权重、有没有改动，平台页没说 —— 所以 match 记 unknown"
   }
  ],
  "$availability": "§9.3 明确要求「✓ 不能只是布尔值」。这里每格带：上架的**具体版本名**、状态、原文引用、来源。**最有用的一列是 match** —— 平台上架的常常不是当前主力版本（Replicate 上是 Hailuo 2.3 与初代 ltx-video，APIYI 上是 Seedance 2.0）。只答「有没有」会让人以为能用上当前版本的能力，那是错的。另外两类要标出来：coming-soon（还不能用）与上游已停服（平台还挂着不代表还能用多久）。\n\n补齐 §9.3 要求的五个字段。**能从平台属性推出来的才推**（access_type 由 platform.kind2、region 由 platform.region），**推不出来的一律 unknown，不许猜** —— plan / valid_from / valid_to 三项目前全是 unknown，那是事实不是遗漏。",
@@ -15722,6 +15792,18 @@
    "quote": "「Gen-2.5 Generation」一节的档位表：Gen-2.5-Extreme-Low「Best for quickly generating simple assets」0.5 credit 起",
    "note": "⚠️ **日期是估的**，文档没写发布时间，精度只到年",
    "cap_skip": "档位表讲的是成本与用途，不是新增能力"
+  },
+  {
+   "id": "hy3d-3.1",
+   "m": "hunyuan3d",
+   "version": "3.1",
+   "date": "2026-01-01",
+   "parent": "hy3d-2.1",
+   "added": "托管一支到 3.1（不再随版开源）",
+   "src": "replicate-hunyuan3d-31",
+   "quote": "腾讯官方 Replicate 账号：tencent/hunyuan-3d-3.1，标 Official",
+   "note": "⚠️ **日期是估的**：厂商站在登录墙后面，拿不到发布日；这里只能证明「在 2026-08-13 它已存在」",
+   "cap_skip": "拿不到官方发布说明，说不出这一代新增了什么 —— 平台页只有一句功能描述"
   }
  ],
  "$versions": "版本谱系（演进图的数据）。**演进的主体是模型，不是能力。**\n\n原来那张演进图每行是一项能力、横轴是「我们能证明的最早时间」、粗细是几家支持。\n读者看完只得到「动作复刻 2025-12 出现、6/9 支持」—— 那是一次数据库查询的可视化，不涨知识。\n而且它得靠图注免责（「不是业界首次出现」）：**一张需要图注免责的图，说明它量错了东西。**\n\n这份数据画的是**厂商自己发布的版本和日期**，所以不需要免责。每条必须回答：\n**这一代新增了什么。** 只有版本号没有 added 的节点没有价值，不收。\n\n两个最好的来源，都不是「新闻」：\n  · **官方 Hugging Face 组织** —— 模型名本身就编码了能力与代际\n    （Wan2.1-FLF2V＝首尾帧、Wan2.2-S2V＝语音驱动、LTX 的 IC-LoRA-Ingredients＝角色参考），\n    发布时间由 HF API 给出，比任何新闻稿都准。\n  · **官方 API 更新日志** —— 可灵那份 31k 字符里有 170 条带日期的条目。\n\n覆盖不全是事实：万相和可灵能画出完整谱系，Runway/Vidu/Seedance 只有近期几个点，\nVeo/Sora/海螺/LTX 还没有。**图上要标出哪几条线是完整的、哪几条只是片段** ——\n画一条只有两个点的线却不说明，读者会以为这家两年只更新过两次。\n\n`cap` 把版本节点挂到能力 id 上，图上「点一项能力，看各家谁先谁后」靠它。\n**对不上的一律留空并写明理由（cap_skip），不硬凑** —— 硬凑一个 id，纵向那一刀就切错了。\n典型：Wan 的 S2V 是「语音驱动」，不等于我们轴上的「对口型」，两件事不合并；\n「换代」节点本身也不是新增单项能力。\n\n`id` + `parent` 把平铺记录变成**真的树**。分叉是真实存在的：\nWan2.1 底座上同时长出 FLF2V（首尾帧）和 VACE（统一编辑）两个变体，\nWan2.2 是换代接在 2.1 后面，Animate-2 又接在 Animate 后面。\n\n**没有父节点的就让它当根，不许为了让树好看硬接一条边** ——\nRunway 的 Aleph 是编辑线，不是 Gen 的后代，它自己是一棵树。\n\n⚠️ **日期必须取 HF 的 `createdAt`，不能取 `lastModified`。**\n第一版取错了字段，把「最后修改」当成了发布日期：Wan2.2 记成 2025-08-07（实际 2025-07-18）、\nAnimate 记成 2025-11-05（实际 2025-09-11）——**差了两个月**。\n仓库发布后还会被反复更新，两个字段根本不是一回事。\n这类错最阴：日期看着合理、图也画得出来，但整条时间线是歪的。\n\n覆盖不足要**写在数据里**，不是靠图上一句话糊过去：\n模型的 `lineage_note` 解释为什么它的节点少（太新 / 官方记录只回溯到某时）。\n校验 R58 强制：**核心模型少于 3 个节点却没写理由，就是错**。\n「我们没采到」和「它本来就没有」是两回事，读者有权知道是哪一种。",
@@ -19707,6 +19789,42 @@
    "domain": "image",
    "verdict": "阿里百炼把通义万相 / Qwen-Image 这些逐条标价，是能直接读到的官方源，比任何转述都准。",
    "caveat": "⚠️ **图像这一侧覆盖不全**：Midjourney、Ideogram、Recraft 走的是自己的订阅页，根本不在开放平台上；OpenAI 的价格页对我们的抓取直接回 403（核验当天实测）。**「查不到」在这一格是常态，不是我们漏了。**",
+   "checked_at": "2026-08-13"
+  },
+  {
+   "task": "想按次调用，不本地部署",
+   "site": "Replicate · 3D 合集",
+   "url": "https://replicate.com/collections/3d-models",
+   "domain": "threed",
+   "verdict": "3D 这一侧能按次调的模型基本都在这儿，**腾讯与 Hyper3D 都有官方账号**（tencent/hunyuan-3d-3.1 标 Official、10.49 万次运行；hyper3d/rodin）。",
+   "caveat": "⚠️ **官方账号与网友转发混在一页**：TRELLIS 挂在 firtoz、fishwowater 这些个人账号下，不是微软发的。**点进去先看账号是谁**。合集页顶上那句「Our pick」也是平台的编辑判断，不是测评结论。",
+   "checked_at": "2026-08-13"
+  },
+  {
+   "task": "想找开源 3D 权重",
+   "site": "Hugging Face · Image-to-3D 任务页",
+   "url": "https://huggingface.co/models?pipeline_tag=image-to-3d&sort=downloads",
+   "domain": "threed",
+   "verdict": "开源那半边集中在这个任务标签下，按下载量排能一眼看出谁在被真正使用。",
+   "caveat": "⚠️ **标签只覆盖「图生 3D」**，文生 3D 与贴图模型在别的标签下，光看这一页会漏。而且 3D 模型的许可比图像那边更杂 —— 混元用的是 tencent-hunyuan-community 这类**厂商自定义协议**，不是标准开源协议。",
+   "checked_at": "2026-08-13"
+  },
+  {
+   "task": "想在本地跑通一条 3D 工作流",
+   "site": "ComfyUI 官方 · Hunyuan3D-2 教程",
+   "url": "https://docs.comfy.org/tutorials/3d/hunyuan3D-2",
+   "domain": "threed",
+   "verdict": "官方文档站单列了 3D 教程，给的是能直接导入的工作流 —— 本地跑的第一步照着它走最省事。",
+   "caveat": "⚠️ **教程钉在 Hunyuan3D-2**，而这家开源线已经到 2.1、托管线到 3.1；节点与模型路径可能对不上。⚠️ 本地跑 3D 对显存的要求和出图不是一个量级。",
+   "checked_at": "2026-08-13"
+  },
+  {
+   "task": "想看中文侧有人在聊什么",
+   "site": "WaytoAGI · 1.8 AI 3D",
+   "url": "https://waytoagi.feishu.cn/wiki/TRJEwdbQEiJjvykq8nJc6juvn6g",
+   "domain": "threed",
+   "verdict": "中文社区知识库里专门有一块 3D，是这一侧少见的中文入口。",
+   "caveat": "⚠️ **社区共建、质量不均，也没有 LICENSE**（飞书文档不是代码仓库，引用转载要另问）。而且它纯前端渲染，**进不了我们的自动监视** —— 变没变只能人工看。",
    "checked_at": "2026-08-13"
   }
  ],

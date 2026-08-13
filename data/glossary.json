@@ -511,7 +511,8 @@
       "video",
       "image",
       "text",
-      "sound"
+      "sound",
+      "threed"
      ]
     }
    ]
