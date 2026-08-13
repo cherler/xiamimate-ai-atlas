@@ -129,8 +129,21 @@ export default function Nav() {
               </Link>
             );
           })}
+          {/**
+            * **搜索挂在每一页。** 负责人 2026-08-13：「整个 ai-atlas 居然是没有搜索框的」——
+            * 搜索其实早就做了，只是只挂在方向首页中下部那一节里。
+            * **做了但找不到，和没做是一回事。**
+            * 这里只放一个链接，不放搜索组件本身：导航在每页渲染，
+            * 把组件塞进来会把它依赖的整份图谱数据带进每一页的包。
+            */}
+          <Link href="/search"
+            className={`text-[13px] px-2.5 py-1 ml-auto shrink-0 whitespace-nowrap ${
+              here("/search") ? "text-ink font-semibold" : "text-muted hover:text-ink"
+            }`}>
+            🔍 搜索
+          </Link>
           <Link href="/method"
-            className={`text-[13px] px-2.5 py-1 ml-auto shrink-0 whitespace-nowrap underline ${
+            className={`text-[13px] px-2.5 py-1 shrink-0 whitespace-nowrap underline ${
               here("/method") ? "text-ink" : "text-muted hover:text-ink"
             }`}>
             方法

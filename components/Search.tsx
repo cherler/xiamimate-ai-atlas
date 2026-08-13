@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { atlas, cell, label } from "@/lib/atlas";
 import { answer, answerNote, search } from "@/lib/search";
@@ -16,8 +16,23 @@ import { capHref, modelHref } from "@/lib/slug";
  */
 const EXAMPLES = ["哪些模型支持动作复刻", "Seedance 在哪用", "哪些有开源权重", "Element", "首尾帧"];
 
-export default function Search() {
+export default function Search({ autoFocus = false }: { autoFocus?: boolean }) {
   const [q, setQ] = useState("");
+  const box = useRef<HTMLInputElement>(null);
+  /**
+   * **进搜索页就把光标放进去，并支持 `?q=` 预填。**
+   *
+   * 用 `useEffect` 读 `location.search` 而不是 `useSearchParams()` ——
+   * 这个站是静态导出（`output: "export"`），后者要包一层 Suspense 才不报错，
+   * 而这里要的只是「打开就能打字」。⚠️ 只在 `autoFocus` 的页面做：
+   * 方向首页也嵌着这个组件，在那里抢焦点会把读者从页面顶部拽下来。
+   */
+  useEffect(() => {
+    if (!autoFocus) return;
+    const p = new URLSearchParams(location.search).get("q");
+    if (p) setQ(p);
+    box.current?.focus();
+  }, [autoFocus]);
   const a = answer(q);
   const hits = q.trim() ? search(q) : [];
   const cap = a?.kind === "capability" ? atlas.capabilities.find((c) => c.id === a.capId) : null;
@@ -25,6 +40,7 @@ export default function Search() {
   return (
     <div className="flex flex-col gap-3">
       <input
+        ref={box}
         value={q}
         onChange={(e) => setQ(e.target.value)}
         placeholder="搜一个问题：哪些模型支持动作复刻 / Seedance 在哪用 / 哪些有开源权重"

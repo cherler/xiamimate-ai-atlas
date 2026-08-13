@@ -3000,7 +3000,8 @@
    "version_quote": "接口概览的语音模型表：「speech-2.8-hd —— 最新的 HD 模型，情绪渲染融合语气词，重塑自然听感」",
    "lineage_note": "声音卷 2026-08-12 才立项，谱系还没采 —— 这是「没采到」，不是「它没有历史」",
    "reach_cn": "ok",
-   "reach_note": "platform.minimaxi.com 直连 307（本机实测 08-12）"
+   "reach_note": "platform.minimaxi.com 直连 307（本机实测 08-12）",
+   "zh": "MiniMax 语音"
   },
   {
    "id": "elevenlabs",
@@ -3069,7 +3070,8 @@
    "lineage_note": "声音卷 2026-08-12 才立项，谱系还没采 —— 这是「没采到」，不是「它没有历史」",
    "status_note": "⚠️ 2026-08-12 从语音合成轨改到实时语音轨 —— 它的输入输出都是音频，不是「文本进、语音出」。智谱的 TTS 是另一支 GLM-TTS。",
    "reach_cn": "ok",
-   "reach_note": "docs.bigmodel.cn 直连 308（同一平台）（本机实测 08-12）"
+   "reach_note": "docs.bigmodel.cn 直连 308（同一平台）（本机实测 08-12）",
+   "zh": "智谱语音"
   },
   {
    "id": "qwen-omni",
@@ -3086,7 +3088,8 @@
    "version_quote": "百炼联网搜索页的支持模型清单含「Qwen-Omni series（qwen3.5-omni-plus, qwen3.5-omni-flash）」",
    "lineage_note": "声音卷 2026-08-12 才立项，谱系还没采 —— 这是「没采到」，不是「它没有历史」",
    "reach_cn": "ok",
-   "reach_note": "help.aliyun.com 直连 302（本机实测 08-12）"
+   "reach_note": "help.aliyun.com 直连 302（本机实测 08-12）",
+   "zh": "通义千问 Omni"
   },
   {
    "id": "mm-music",
@@ -3103,7 +3106,8 @@
    "version_quote": "音乐生成一节：「music-3.0 —— 最新音乐生成模型，支持用户输入音乐灵感和歌词，生成 AI 音乐」",
    "lineage_note": "声音卷 2026-08-12 才立项，谱系还没采 —— 这是「没采到」，不是「它没有历史」",
    "reach_cn": "ok",
-   "reach_note": "platform.minimaxi.com 直连 307（同一平台）（本机实测 08-12）"
+   "reach_note": "platform.minimaxi.com 直连 307（同一平台）（本机实测 08-12）",
+   "zh": "MiniMax 音乐"
   },
   {
    "id": "eleven-music",
@@ -3188,7 +3192,8 @@
    "version_quote": "模型页标题即 GLM-TTS；「输入模态 文本 / 输出模态 音频」；官方 HF 组织 zai-org/GLM-TTS（createdAt 2025-12-10）也放了权重",
    "lineage_note": "声音卷 2026-08-12 立项，谱系还没采 —— 「没采到」不是「没有历史」",
    "reach_cn": "ok",
-   "reach_note": "docs.bigmodel.cn 直连 308（本机实测 08-12）"
+   "reach_note": "docs.bigmodel.cn 直连 308（本机实测 08-12）",
+   "zh": "智谱 TTS"
   },
   {
    "id": "cosyvoice",
@@ -3205,7 +3210,8 @@
    "version_quote": "官方 HF 组织 FunAudioLLM/Fun-CosyVoice3-0.5B-2512，createdAt 2025-12-11（♥615）",
    "reach_cn": "blocked",
    "reach_note": "funaudiollm.github.io 返回 404；权重在 huggingface.co，该域直连不可达（本机实测 08-12）",
-   "status_note": "许可证 **Apache-2.0**（和 Kokoro 一样可商用；对比 Fish Speech 的研究许可 —— 同为「权重公开」，能不能做产品完全不同）。"
+   "status_note": "许可证 **Apache-2.0**（和 Kokoro 一样可商用；对比 Fish Speech 的研究许可 —— 同为「权重公开」，能不能做产品完全不同）。",
+   "zh": "通义 CosyVoice"
   },
   {
    "id": "fish-speech",
@@ -3273,7 +3279,8 @@
    "status": "active",
    "tier": "core",
    "domain": "threed",
-   "note": "⚠️ **这家有两条线，别混着读**：**开源那条停在 2.1**（权重与训练代码都在 HF/GitHub），**托管那条已到 3.1**（只能调 API）。我们把版本记成 3.1，因为那是当前版本；而「开源权重」那一格标的是 sibling 2.1 —— 它长在另一支上。⚠️ 版本号的唯一可引出处是腾讯在 Replicate 的官方账号：**厂商自己的站（3d.hunyuan.tencent.com、cloud.tencent.com/product/hunyuan3d）都在登录墙后面**，裸抓只有 79 与 38 个字符。"
+   "note": "⚠️ **这家有两条线，别混着读**：**开源那条停在 2.1**（权重与训练代码都在 HF/GitHub），**托管那条已到 3.1**（只能调 API）。我们把版本记成 3.1，因为那是当前版本；而「开源权重」那一格标的是 sibling 2.1 —— 它长在另一支上。⚠️ 版本号的唯一可引出处是腾讯在 Replicate 的官方账号：**厂商自己的站（3d.hunyuan.tencent.com、cloud.tencent.com/product/hunyuan3d）都在登录墙后面**，裸抓只有 79 与 38 个字符。",
+   "zh": "混元3D"
   },
   {
    "id": "tripo",

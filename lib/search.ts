@@ -25,7 +25,16 @@ export type Answer =
 
 export type Hit = { kind: "model" | "capability" | "platform"; id: string; title: string; sub: string; score: number };
 
-const norm = (s: string) => s.toLowerCase().replace(/[\s·・\-_/（）()「」【】,，。？?！!]/g, "");
+/**
+ * ⚠️ **必须容忍空值。** 2026-08-13 全站搜索一上线就白屏：
+ * `m.zh` 在 22 个模型上是空的（声音卷 15 个、AI 3D 7 个），
+ * `undefined.toLowerCase()` 直接把整棵 React 树炸掉 —— 页面连 `<main>` 都没了。
+ *
+ * **这不是 3D 才有的问题**：声音卷 2026-08-12 上线时就埋下了，
+ * 只是当时搜索只挂在方向首页的中下部，没人在那儿打过字。
+ * **一个可选字段，配一个不检查的调用点，等于一颗定时炸弹。**
+ */
+const norm = (s?: string | null) => (s ?? "").toLowerCase().replace(/[\s·・\-_/（）()「」【】,，。？?！!]/g, "");
 
 /** 能力的整组别名都要能命中 —— 这正是规则六换来的东西，用户和我们一样会用别家的叫法搜。 */
 function matchCapability(q: string) {
@@ -44,7 +53,7 @@ function matchModel(q: string) {
   const n = norm(q);
   let best: { id: string; len: number } | null = null;
   for (const m of atlas.models) {
-    for (const w of [m.family, m.zh, label(m), m.version]) {
+    for (const w of [m.family, m.zh, label(m), m.version].filter(Boolean)) {
       const k = norm(w);
       if (k.length >= 2 && n.includes(k) && (!best || k.length > best.len)) best = { id: m.id, len: k.length };
     }
