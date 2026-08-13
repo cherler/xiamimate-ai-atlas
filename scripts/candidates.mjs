@@ -16,6 +16,7 @@
  *   node scripts/candidates.mjs   →  data/candidates.md
  */
 import { readFileSync, writeFileSync, existsSync } from "node:fs";
+import { NOISE } from "./lib/model-filters.mjs";
 import { dirname } from "node:path";
 import { fileURLToPath } from "node:url";
 
@@ -41,6 +42,19 @@ for (const m of atlas.models) {
   known.add(m.version.toLowerCase());
   for (const w of `${m.family} ${m.zh}`.toLowerCase().split(/[\s（）()·]+/)) if (w.length > 2) known.add(w);
 }
+/**
+ * ⚠️ **机构名也要算「已知」。** 2026-08-14 抓到的误判：`Lightricks` ——
+ * LTX 的厂商，我们早就收了，却因为 `known` 里只有**模型名**而被当成新面孔，
+ * 接着又被新加的「量化/搬运号」判据误伤（它那 18 个仓库里多数是 GGUF 与 diffusers 端口）。
+ * **两个 bug 叠在一起，把一家真厂商判成了二次分发号。**
+ */
+for (const o of atlas.orgs ?? []) {
+  for (const w of [o.id, o.name, o.en]) {
+    const k = String(w ?? "").toLowerCase().trim();
+    if (k.length >= 3) known.add(k);
+  }
+}
+
 const isNew = (s) => {
   const low = s.toLowerCase();
   return ![...known].some((k) => low.includes(k) || k.includes(low));
@@ -58,6 +72,9 @@ const DOMAINS = [
   { id: "image", zh: "AI 图像", boards: ["aa-t2i"], hf: ["hf-t2i", "hf-i2i"] },
 ];
 
+/** 只数进主表的那些 —— extended 不占规则四的名额。 */
+const core = (klass) => atlas.models.filter((m) => m.class === klass && (m.tier ?? "core") === "core").length;
+
 const out = [];
 for (const D of DOMAINS) {
 
@@ -67,7 +84,16 @@ for (const id of D.boards) {
   const t = snap(id)?.text ?? "";
   // 抓「厂商 模型名 …… 四位 Elo」这一段；Elo 是唯一稳定的锚点
   for (const m of t.matchAll(/([A-Z][\w.\- ]{2,28}?)\s+([A-Z][\w.\- ]{2,34}?)\s+(1,\d{3})\s/g)) {
-    rows.push({ vendor: m[1].trim(), model: m[2].trim(), elo: Number(m[3].replace(",", "")), board: id });
+    const vendor = m[1].trim(), model = m[2].trim();
+    /**
+     * ⚠️ **表头会被当成一行数据。** 2026-08-14 的候选清单里赫然写着
+     *「厂商 Open · 模型 Weights · Elo 1237」—— 那是 AA 榜的列标题「Open Weights」，
+     * 后面跟着的 1237 是它下面第一行的 Elo。**Elo 是稳定的锚点，但锚点前面未必是数据。**
+     * 挡掉已知的列标题词；这类脏数据比漏一行更贵：人会真的去查一个不存在的模型。
+     */
+    if (/^(open|model|creator|arena|rank|quality|price|speed|elo|score)$/i.test(vendor)) continue;
+    if (/^(weights|name|elo|score|rank|price|creator)$/i.test(model)) continue;
+    rows.push({ vendor, model, elo: Number(m[3].replace(",", "")), board: id });
   }
 }
 const byModel = new Map();
@@ -88,11 +114,27 @@ for (const id of D.hf) {
     orgs.get(org).add(repo);
   }
 }
-// 个人搬运/量化号会刷屏。**按仓库数过滤治标不治本** —— 真正的判据是
-// 「这个组织自己训模型，还是在搬别人的」，那要人看一眼，脚本只能给线索。
-const hfNew = [...orgs.entries()]
-  .map(([org, repos]) => ({ org, n: repos.size, sample: [...repos][0] }))
-  .filter((x) => x.n >= 2 && isNew(x.org))
+/**
+ * 个人搬运/量化号会刷屏。原来的注释写着「按仓库数过滤治标不治本，真正的判据是
+ * 这个组织自己训模型还是在搬别人的，那要人看一眼」——**说得对，但结果是这一摞
+ * 每周都在、永远不收敛**（§59.3：人每周看的必须 ≤20，不收敛的清单等于没有清单）。
+ *
+ * 2026-08-14 补一条能自动判的：**一个组织的仓库如果全是量化档 / 端口档**
+ * （GGUF、AWQ、GPTQ、mlx、fp8、diffusers 端口…），那它做的是二次分发不是发布模型。
+ * 判据用的是两支采集共用的 `NOISE` 正则，和「折代际时省掉哪些档」同一把尺子。
+ *
+ * ⚠️ **略过多少要报出来**，不能静默：静默的过滤和静默的截断一样危险 ——
+ * 人看到「新面孔 12 个」时，得知道背后还有 9 个被判成了搬运号。
+ */
+const isMirror = (repos) => {
+  const arr = [...repos];
+  const noisy = arr.filter((r) => NOISE.test(r)).length;
+  return arr.length >= 2 && noisy / arr.length >= 0.8;
+};
+const orgRows = [...orgs.entries()].map(([org, repos]) => ({ org, n: repos.size, sample: [...repos][0], mirror: isMirror(repos) }));
+const mirrors = orgRows.filter((x) => x.mirror && isNew(x.org));
+const hfNew = orgRows
+  .filter((x) => x.n >= 2 && isNew(x.org) && !x.mirror)
   .sort((a, b) => b.n - a.n);
 
 out.push([
@@ -105,6 +147,12 @@ out.push([
   ``,
   `### 二、Hugging Face 下载量前列、我们没收的组织（开源侧的实际采用度）`,
   ``,
+  mirrors.length
+    ? `> ⚠️ 另有 **${mirrors.length} 个组织被判成量化 / 搬运号**（仓库八成以上是 GGUF、AWQ、mlx 这类二次分发档），`
+      + `已从下表略过：${mirrors.slice(0, 6).map((x) => `\`${x.org}\``).join("、")}${mirrors.length > 6 ? " 等" : ""}。`
+      + `**判据是仓库名，不是人品** —— 它们里面若有自训模型，会因为名字不带量化后缀而照常出现在上表。`
+    : `> （这一轮没有组织被判成量化 / 搬运号。）`,
+  ``,
   hfNew.length ? `| 组织 | 仓库数 | 示例 |\n|---|---:|---|` : "（无）",
   ...hfNew.slice(0, 20).map((x) => `| ${x.org} | ${x.n} | \`${x.sample}\` |`),
   ``,
@@ -113,7 +161,13 @@ out.push([
   `> 不要照单全收，也不要因为混了噪音就整路丢掉：Lightricks、nvidia、zai-org`,
   `> 都是这一路捞出来的，而它们在闭源榜上完全隐形。`,
   ``,
-  `### 当前 Core（clip 轨 ${atlas.models.filter((m) => m.class === "clip").length}/10，realtime 轨 ${atlas.models.filter((m) => m.class === "realtime").length}/10）`,
+  /**
+   * ⚠️ **只数 core，不数 extended。** 2026-08-14 发现这一行一直在报
+   *「clip 轨 17/10」—— 看起来我们早就破了规则四的上限，实际 core 只有 9 个，
+   * 另外 8 个是 extended（规则四明写：extended 是「库里有、不进主要视觉」，**不占名额**）。
+   * **一个报表把自己报成违规**，比不报还糟：要么让人去删不该删的，要么让人开始无视这行数字。
+   */
+  `### 当前 Core（clip 轨 ${core("clip")}/10，realtime 轨 ${core("realtime")}/10；括号里是含扩展层的总数 ${atlas.models.filter((m) => m.class === "clip").length} / ${atlas.models.filter((m) => m.class === "realtime").length}）`,
   ``,
   ...atlas.models.map((m) => `- \`${m.class}\` ${m.family} ${m.version}（${m.version_as_of}）${m.status && m.status !== "active" ? ` — **${m.status}**` : ""}`),
   ``,
