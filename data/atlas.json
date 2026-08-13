@@ -9855,8 +9855,9 @@
    "c": "d-multiview",
    "state": "unknown",
    "verified_for": "3.1",
-   "note": "立项当天（2026-08-13）只核到模型版本与该家最显眼的几项能力，这一格**还没查**",
-   "as_of": "2026-08-13"
+   "note": "README 的贴图管线参数是 `max_num_view=6` —— **那是它内部渲多视图去烘贴图，不是接受多张输入图**。这一格要的是后者，所以仍是 ⬜",
+   "as_of": "2026-08-13",
+   "src": "hf-hunyuan3d-21"
   },
   {
    "m": "hunyuan3d",
@@ -10272,18 +10273,22 @@
   {
    "m": "rodin",
    "c": "d-rig",
-   "state": "unknown",
+   "state": "no",
    "verified_for": "Gen-2.5",
-   "note": "立项当天（2026-08-13）只核到模型版本与该家最显眼的几项能力，这一格**还没查**",
-   "as_of": "2026-08-13"
+   "note": "API 文档索引（llms.txt）列全了所有页面：Gen-1&1.5 / Gen-2 / Gen-2.5 / Bang! / Generate Texture / 余额 / 状态 / 下载 —— **没有绑定**；产品页的功能清单（Image To 3D、Text To 3D、AI Texture Generator、AI HDRI Generator、3D Mesh Editor、SVG to 3D）里也没有",
+   "as_of": "2026-08-13",
+   "src": "rodin-api-docs",
+   "via": "native"
   },
   {
    "m": "rodin",
    "c": "d-anim",
-   "state": "unknown",
+   "state": "no",
    "verified_for": "Gen-2.5",
-   "note": "立项当天（2026-08-13）只核到模型版本与该家最显眼的几项能力，这一格**还没查**",
-   "as_of": "2026-08-13"
+   "note": "同上：完整文档索引与产品页功能清单里都**没有动画**。⚠️ 它有 `TAPose` 参数（人形模型出 T/A 姿势），但那是出静态姿势，不是动画",
+   "as_of": "2026-08-13",
+   "src": "rodin-api-docs",
+   "via": "native"
   },
   {
    "m": "rodin",
@@ -10344,10 +10349,12 @@
   {
    "m": "trellis",
    "c": "d-multiview",
-   "state": "unknown",
+   "state": "yes",
    "verified_for": "image-large",
-   "note": "立项当天（2026-08-13）只核到模型版本与该家最显眼的几项能力，这一格**还没查**",
-   "as_of": "2026-08-13"
+   "note": "README 更新日志 2024-12-18：「Implementation of **multi-image conditioning** for TRELLIS-image model」",
+   "as_of": "2026-08-13",
+   "src": "gh-trellis",
+   "via": "native"
   },
   {
    "m": "trellis",
@@ -10368,10 +10375,12 @@
   {
    "m": "trellis",
    "c": "d-remesh",
-   "state": "unknown",
+   "state": "yes",
    "verified_for": "image-large",
-   "note": "立项当天（2026-08-13）只核到模型版本与该家最显眼的几项能力，这一格**还没查**",
-   "as_of": "2026-08-13"
+   "note": "导出参数 `simplify=0.9` —— 出网格时按比例减面；README 同时说它可解码成辐射场 / 3D 高斯 / 网格三种表示",
+   "as_of": "2026-08-13",
+   "src": "gh-trellis",
+   "via": "native"
   },
   {
    "m": "trellis",
@@ -10410,10 +10419,12 @@
   {
    "m": "trellis",
    "c": "d-format",
-   "state": "unknown",
+   "state": "yes",
    "verified_for": "image-large",
-   "note": "README 说的「various formats, such as Radiance Fields, 3D Gaussians, and meshes」讲的是**表示形态**（辐射场 / 高斯 / 网格），不是 glb/fbx 这类**导出文件格式** —— 两者不是一回事，不能拿前者当后者的证据",
-   "as_of": "2026-08-13"
+   "note": "README 示例代码：`glb = postprocessing_utils.to_glb(outputs['gaussian'][0], outputs['mesh'][0], simplify=0.9, ...)` —— **能导出 GLB**",
+   "as_of": "2026-08-13",
+   "src": "gh-trellis",
+   "via": "native"
   },
   {
    "m": "trellis",
@@ -10573,10 +10584,12 @@
   {
    "m": "spar3d",
    "c": "d-pbr",
-   "state": "unknown",
+   "state": "yes",
    "verified_for": "Stable Point Aware 3D",
-   "note": "立项当天（2026-08-13）只核到模型版本与该家最显眼的几项能力，这一格**还没查**",
-   "as_of": "2026-08-13"
+   "note": "README 提到烘焙贴图的实现（「the **texture baker** using custom metal kernels」）—— ⚠️ 官方只说贴图烘焙，**没说 PBR 四张通道齐全**，别当作和混元那种「Production-Ready PBR」同级",
+   "as_of": "2026-08-13",
+   "src": "gh-spar3d",
+   "via": "native"
   },
   {
    "m": "spar3d",
@@ -10589,10 +10602,12 @@
   {
    "m": "spar3d",
    "c": "d-remesh",
-   "state": "unknown",
+   "state": "yes",
    "verified_for": "Stable Point Aware 3D",
-   "note": "立项当天（2026-08-13）只核到模型版本与该家最显眼的几项能力，这一格**还没查**",
-   "as_of": "2026-08-13"
+   "note": "README：「If remeshing is required, install the additional requirements with `pip install -r requirements-remesh.txt`」，四边面走的是 Instant Field-Aligned Meshes",
+   "as_of": "2026-08-13",
+   "src": "gh-spar3d",
+   "via": "native"
   },
   {
    "m": "spar3d",
@@ -10631,10 +10646,12 @@
   {
    "m": "spar3d",
    "c": "d-format",
-   "state": "unknown",
+   "state": "yes",
    "verified_for": "Stable Point Aware 3D",
-   "note": "立项当天（2026-08-13）只核到模型版本与该家最显眼的几项能力，这一格**还没查**",
-   "as_of": "2026-08-13"
+   "note": "README：「The quad mesh is split into triangles for **export with GLB**」",
+   "as_of": "2026-08-13",
+   "src": "gh-spar3d",
+   "via": "native"
   },
   {
    "m": "spar3d",
