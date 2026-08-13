@@ -11,7 +11,8 @@
     "package": "bash scripts/package.sh",
     "watch": "node scripts/watch.mjs --due",
     "gateway": "node scripts/local-gateway.mjs",
-    "gateway:static": "node scripts/local-gateway.mjs --main=static --atlas=static"
+    "gateway:static": "node scripts/local-gateway.mjs --main=static --atlas=static",
+    "modelscope": "node scripts/modelscope.mjs --json"
   },
   "dependencies": {
     "geist": "^1.7.2",

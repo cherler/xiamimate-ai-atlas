@@ -7,7 +7,7 @@
       "repo": "zai-org/chatglm-6b",
       "domain": "text",
       "date": "2023-03-13",
-      "downloads": 1782,
+      "downloads": 1948,
       "likes": 2918,
       "skus": 1
     },
@@ -17,7 +17,7 @@
       "repo": "stabilityai/stable-diffusion-xl-base-0.9",
       "domain": "image",
       "date": "2023-06-19",
-      "downloads": 44,
+      "downloads": 134,
       "likes": 1419,
       "skus": 1
     },
@@ -27,7 +27,7 @@
       "repo": "zai-org/chatglm2-6b",
       "domain": "text",
       "date": "2023-06-24",
-      "downloads": 420940,
+      "downloads": 446917,
       "likes": 2058,
       "skus": 1
     },
@@ -37,7 +37,7 @@
       "repo": "meta-llama/Llama-2-7b",
       "domain": "text",
       "date": "2023-07-09",
-      "downloads": 120,
+      "downloads": 133,
       "likes": 4524,
       "skus": 6
     },
@@ -47,7 +47,7 @@
       "repo": "zai-org/codegeex2-6b",
       "domain": "text",
       "date": "2023-07-19",
-      "downloads": 247,
+      "downloads": 246,
       "likes": 258,
       "skus": 1
     },
@@ -57,8 +57,8 @@
       "repo": "stabilityai/stable-diffusion-xl-base-1.0",
       "domain": "image",
       "date": "2023-07-25",
-      "downloads": 1373012,
-      "likes": 8036,
+      "downloads": 1452338,
+      "likes": 8039,
       "skus": 1
     },
     {
@@ -67,7 +67,7 @@
       "repo": "zai-org/chatglm2-6b-32k",
       "domain": "text",
       "date": "2023-07-30",
-      "downloads": 1072,
+      "downloads": 1347,
       "likes": 293,
       "skus": 1
     },
@@ -77,7 +77,7 @@
       "repo": "Qwen/Qwen-7B",
       "domain": "text",
       "date": "2023-08-03",
-      "downloads": 20772,
+      "downloads": 24573,
       "likes": 399,
       "skus": 6
     },
@@ -87,8 +87,8 @@
       "repo": "mistralai/Mistral-7B-v0.1",
       "domain": "text",
       "date": "2023-09-20",
-      "downloads": 629480,
-      "likes": 4140,
+      "downloads": 555355,
+      "likes": 4143,
       "skus": 1
     },
     {
@@ -97,7 +97,7 @@
       "repo": "mistralai/Mistral-7B-Instruct-v0.1",
       "domain": "text",
       "date": "2023-09-27",
-      "downloads": 197889,
+      "downloads": 203379,
       "likes": 1849,
       "skus": 1
     },
@@ -107,7 +107,7 @@
       "repo": "deepseek-ai/deepseek-coder-6.7b-base",
       "domain": "text",
       "date": "2023-10-23",
-      "downloads": 66100,
+      "downloads": 67613,
       "likes": 125,
       "skus": 6
     },
@@ -117,7 +117,7 @@
       "repo": "zai-org/chatglm3-6b",
       "domain": "text",
       "date": "2023-10-25",
-      "downloads": 83370,
+      "downloads": 86618,
       "likes": 1166,
       "skus": 2
     },
@@ -127,7 +127,7 @@
       "repo": "zai-org/chatglm3-6b-32k",
       "domain": "text",
       "date": "2023-10-26",
-      "downloads": 245,
+      "downloads": 249,
       "likes": 246,
       "skus": 1
     },
@@ -137,7 +137,7 @@
       "repo": "stabilityai/sdxl-turbo",
       "domain": "image",
       "date": "2023-11-27",
-      "downloads": 1226446,
+      "downloads": 1306528,
       "likes": 2616,
       "skus": 1
     },
@@ -147,7 +147,7 @@
       "repo": "deepseek-ai/deepseek-llm-7b-base",
       "domain": "text",
       "date": "2023-11-29",
-      "downloads": 28236,
+      "downloads": 36174,
       "likes": 145,
       "skus": 4
     },
@@ -157,7 +157,7 @@
       "repo": "Qwen/Qwen-Audio",
       "domain": "sound",
       "date": "2023-11-30",
-      "downloads": 752,
+      "downloads": 772,
       "likes": 152,
       "skus": 2
     },
@@ -167,7 +167,7 @@
       "repo": "mistralai/Mixtral-8x7B-v0.1",
       "domain": "text",
       "date": "2023-12-01",
-      "downloads": 44518,
+      "downloads": 47298,
       "likes": 1824,
       "skus": 2
     },
@@ -177,7 +177,7 @@
       "repo": "mistralai/Mixtral-8x7B-Instruct-v0.1",
       "domain": "text",
       "date": "2023-12-10",
-      "downloads": 701704,
+      "downloads": 633594,
       "likes": 4721,
       "skus": 2
     },
@@ -187,7 +187,7 @@
       "repo": "mistralai/Mistral-7B-Instruct-v0.2",
       "domain": "text",
       "date": "2023-12-11",
-      "downloads": 1169540,
+      "downloads": 1206680,
       "likes": 3197,
       "skus": 1
     },
@@ -197,7 +197,7 @@
       "repo": "deepseek-ai/deepseek-moe-16b-base",
       "domain": "text",
       "date": "2024-01-08",
-      "downloads": 26026,
+      "downloads": 26575,
       "likes": 153,
       "skus": 2
     },
@@ -207,7 +207,7 @@
       "repo": "Qwen/Qwen1.5-0.5B",
       "domain": "text",
       "date": "2024-01-22",
-      "downloads": 41177,
+      "downloads": 43653,
       "likes": 174,
       "skus": 16
     },
@@ -217,8 +217,8 @@
       "repo": "deepseek-ai/deepseek-coder-7b-instruct-v1.5",
       "domain": "text",
       "date": "2024-01-25",
-      "downloads": 614191,
-      "likes": 158,
+      "downloads": 675381,
+      "likes": 159,
       "skus": 1
     },
     {
@@ -227,7 +227,7 @@
       "repo": "Qwen/Qwen1.5-MoE-A2.7B",
       "domain": "text",
       "date": "2024-02-29",
-      "downloads": 182760,
+      "downloads": 195474,
       "likes": 228,
       "skus": 2
     },
@@ -237,8 +237,8 @@
       "repo": "meta-llama/Meta-Llama-3-70B",
       "domain": "text",
       "date": "2024-04-17",
-      "downloads": 144033,
-      "likes": 878,
+      "downloads": 154388,
+      "likes": 879,
       "skus": 4
     },
     {
@@ -247,7 +247,7 @@
       "repo": "deepseek-ai/DeepSeek-V2",
       "domain": "text",
       "date": "2024-04-22",
-      "downloads": 12110,
+      "downloads": 16171,
       "likes": 334,
       "skus": 2
     },
@@ -257,7 +257,7 @@
       "repo": "deepseek-ai/DeepSeek-V2-Lite",
       "domain": "text",
       "date": "2024-05-15",
-      "downloads": 449541,
+      "downloads": 447852,
       "likes": 185,
       "skus": 2
     },
@@ -267,7 +267,7 @@
       "repo": "Qwen/Qwen2-72B",
       "domain": "text",
       "date": "2024-05-22",
-      "downloads": 13519,
+      "downloads": 14174,
       "likes": 199,
       "skus": 8
     },
@@ -277,7 +277,7 @@
       "repo": "Qwen/Qwen2-57B-A14B",
       "domain": "text",
       "date": "2024-05-22",
-      "downloads": 9845,
+      "downloads": 10360,
       "likes": 58,
       "skus": 2
     },
@@ -287,7 +287,7 @@
       "repo": "mistralai/Mistral-7B-v0.3",
       "domain": "text",
       "date": "2024-05-22",
-      "downloads": 368100,
+      "downloads": 364607,
       "likes": 590,
       "skus": 1
     },
@@ -297,8 +297,8 @@
       "repo": "mistralai/Mistral-7B-Instruct-v0.3",
       "domain": "text",
       "date": "2024-05-22",
-      "downloads": 4148422,
-      "likes": 2811,
+      "downloads": 4106867,
+      "likes": 2812,
       "skus": 1
     },
     {
@@ -307,8 +307,8 @@
       "repo": "mistralai/Codestral-22B-v0.1",
       "domain": "text",
       "date": "2024-05-29",
-      "downloads": 39337,
-      "likes": 1341,
+      "downloads": 44101,
+      "likes": 1342,
       "skus": 1
     },
     {
@@ -317,8 +317,8 @@
       "repo": "stabilityai/stable-diffusion-3-medium",
       "domain": "image",
       "date": "2024-05-30",
-      "downloads": 8470,
-      "likes": 5012,
+      "downloads": 2703,
+      "likes": 5014,
       "skus": 1
     },
     {
@@ -327,7 +327,7 @@
       "repo": "zai-org/glm-4-9b",
       "domain": "text",
       "date": "2024-06-04",
-      "downloads": 11393,
+      "downloads": 11688,
       "likes": 144,
       "skus": 5
     },
@@ -337,7 +337,7 @@
       "repo": "Kwai-Kolors/Kolors",
       "domain": "image",
       "date": "2024-06-05",
-      "downloads": 707,
+      "downloads": 793,
       "likes": 860,
       "skus": 1
     },
@@ -347,7 +347,7 @@
       "repo": "deepseek-ai/DeepSeek-Coder-V2-Lite-Base",
       "domain": "text",
       "date": "2024-06-14",
-      "downloads": 6780,
+      "downloads": 8152,
       "likes": 114,
       "skus": 2
     },
@@ -357,7 +357,7 @@
       "repo": "fishaudio/fish-speech-1.2",
       "domain": "sound",
       "date": "2024-07-02",
-      "downloads": 120,
+      "downloads": 131,
       "likes": 210,
       "skus": 1
     },
@@ -367,8 +367,8 @@
       "repo": "FunAudioLLM/SenseVoiceSmall",
       "domain": "sound",
       "date": "2024-07-03",
-      "downloads": 26299,
-      "likes": 451,
+      "downloads": 27570,
+      "likes": 453,
       "skus": 1
     },
     {
@@ -377,7 +377,7 @@
       "repo": "zai-org/codegeex4-all-9b",
       "domain": "text",
       "date": "2024-07-05",
-      "downloads": 9512,
+      "downloads": 10730,
       "likes": 272,
       "skus": 1
     },
@@ -387,8 +387,8 @@
       "repo": "meta-llama/Llama-3.1-8B",
       "domain": "text",
       "date": "2024-07-14",
-      "downloads": 1205339,
-      "likes": 2361,
+      "downloads": 1158435,
+      "likes": 2363,
       "skus": 6
     },
     {
@@ -397,7 +397,7 @@
       "repo": "mistralai/Mathstral-7B-v0.1",
       "domain": "text",
       "date": "2024-07-16",
-      "downloads": 19679,
+      "downloads": 23735,
       "likes": 244,
       "skus": 1
     },
@@ -407,7 +407,7 @@
       "repo": "mistralai/Mamba-Codestral-7B-v0.1",
       "domain": "text",
       "date": "2024-07-16",
-      "downloads": 27770,
+      "downloads": 27839,
       "likes": 616,
       "skus": 1
     },
@@ -417,7 +417,7 @@
       "repo": "Qwen/Qwen2-Audio-7B",
       "domain": "sound",
       "date": "2024-07-16",
-      "downloads": 48628,
+      "downloads": 51447,
       "likes": 176,
       "skus": 2
     },
@@ -427,7 +427,7 @@
       "repo": "mistralai/Mistral-Nemo-Instruct-2407",
       "domain": "text",
       "date": "2024-07-17",
-      "downloads": 413480,
+      "downloads": 403257,
       "likes": 1693,
       "skus": 1
     },
@@ -437,7 +437,7 @@
       "repo": "deepseek-ai/DeepSeek-V2-Chat-0628",
       "domain": "text",
       "date": "2024-07-18",
-      "downloads": 5125,
+      "downloads": 5558,
       "likes": 179,
       "skus": 1
     },
@@ -447,7 +447,7 @@
       "repo": "mistralai/Mistral-Nemo-Base-2407",
       "domain": "text",
       "date": "2024-07-18",
-      "downloads": 109393,
+      "downloads": 116136,
       "likes": 348,
       "skus": 1
     },
@@ -457,7 +457,7 @@
       "repo": "mistralai/Mistral-Large-Instruct-2407",
       "domain": "text",
       "date": "2024-07-24",
-      "downloads": 4714,
+      "downloads": 7032,
       "likes": 865,
       "skus": 2
     },
@@ -467,8 +467,8 @@
       "repo": "black-forest-labs/FLUX.1-schnell",
       "domain": "image",
       "date": "2024-07-31",
-      "downloads": 197931,
-      "likes": 5524,
+      "downloads": 212759,
+      "likes": 5529,
       "skus": 1
     },
     {
@@ -477,8 +477,8 @@
       "repo": "black-forest-labs/FLUX.1-dev",
       "domain": "image",
       "date": "2024-07-31",
-      "downloads": 475396,
-      "likes": 14095,
+      "downloads": 493615,
+      "likes": 14115,
       "skus": 1
     },
     {
@@ -487,7 +487,7 @@
       "repo": "deepseek-ai/DeepSeek-Prover-V1.5-SFT",
       "domain": "text",
       "date": "2024-08-15",
-      "downloads": 12132,
+      "downloads": 14052,
       "likes": 14,
       "skus": 1
     },
@@ -497,7 +497,7 @@
       "repo": "deepseek-ai/DeepSeek-V2.5",
       "domain": "text",
       "date": "2024-09-05",
-      "downloads": 5792,
+      "downloads": 6490,
       "likes": 734,
       "skus": 2
     },
@@ -507,7 +507,7 @@
       "repo": "fishaudio/fish-speech-1.4",
       "domain": "sound",
       "date": "2024-09-10",
-      "downloads": 434,
+      "downloads": 442,
       "likes": 460,
       "skus": 1
     },
@@ -517,7 +517,7 @@
       "repo": "Qwen/Qwen2.5-0.5B",
       "domain": "text",
       "date": "2024-09-15",
-      "downloads": 2331542,
+      "downloads": 2432850,
       "likes": 436,
       "skus": 16
     },
@@ -527,7 +527,7 @@
       "repo": "Qwen/Qwen2.5-Coder-7B",
       "domain": "text",
       "date": "2024-09-16",
-      "downloads": 802470,
+      "downloads": 768063,
       "likes": 161,
       "skus": 12
     },
@@ -537,7 +537,7 @@
       "repo": "mistralai/Mistral-Small-Instruct-2409",
       "domain": "text",
       "date": "2024-09-17",
-      "downloads": 5389,
+      "downloads": 5967,
       "likes": 392,
       "skus": 2
     },
@@ -547,8 +547,8 @@
       "repo": "meta-llama/Llama-3.2-1B",
       "domain": "text",
       "date": "2024-09-18",
-      "downloads": 1563892,
-      "likes": 2525,
+      "downloads": 1616362,
+      "likes": 2527,
       "skus": 4
     },
     {
@@ -557,7 +557,7 @@
       "repo": "mistralai/Ministral-8B-Instruct-2410",
       "domain": "text",
       "date": "2024-10-15",
-      "downloads": 394245,
+      "downloads": 405823,
       "likes": 584,
       "skus": 1
     },
@@ -567,7 +567,7 @@
       "repo": "rhymes-ai/Allegro",
       "domain": "video",
       "date": "2024-10-16",
-      "downloads": 89,
+      "downloads": 898,
       "likes": 263,
       "skus": 1
     },
@@ -577,8 +577,8 @@
       "repo": "genmo/mochi-1-preview",
       "domain": "video",
       "date": "2024-10-22",
-      "downloads": 3236,
-      "likes": 1341,
+      "downloads": 3307,
+      "likes": 1342,
       "skus": 1
     },
     {
@@ -587,8 +587,8 @@
       "repo": "stabilityai/stable-diffusion-3.5-large",
       "domain": "image",
       "date": "2024-10-22",
-      "downloads": 62942,
-      "likes": 3695,
+      "downloads": 64814,
+      "likes": 3698,
       "skus": 1
     },
     {
@@ -597,7 +597,7 @@
       "repo": "stabilityai/stable-diffusion-3.5-large-turbo",
       "domain": "image",
       "date": "2024-10-22",
-      "downloads": 7470,
+      "downloads": 7925,
       "likes": 694,
       "skus": 1
     },
@@ -607,8 +607,8 @@
       "repo": "stabilityai/stable-diffusion-3.5-medium",
       "domain": "image",
       "date": "2024-10-29",
-      "downloads": 89301,
-      "likes": 1036,
+      "downloads": 103047,
+      "likes": 1038,
       "skus": 1
     },
     {
@@ -617,7 +617,7 @@
       "repo": "fishaudio/fish-agent-v0.1-3b",
       "domain": "sound",
       "date": "2024-10-29",
-      "downloads": 36,
+      "downloads": 40,
       "likes": 274,
       "skus": 1
     },
@@ -627,8 +627,8 @@
       "repo": "Lightricks/LTX-Video",
       "domain": "video",
       "date": "2024-10-31",
-      "downloads": 532388,
-      "likes": 2258,
+      "downloads": 552554,
+      "likes": 2259,
       "skus": 1
     },
     {
@@ -637,8 +637,8 @@
       "repo": "black-forest-labs/FLUX.1-Fill-dev",
       "domain": "image",
       "date": "2024-11-20",
-      "downloads": 377737,
-      "likes": 1131,
+      "downloads": 372707,
+      "likes": 1132,
       "skus": 1
     },
     {
@@ -647,7 +647,7 @@
       "repo": "black-forest-labs/FLUX.1-Redux-dev",
       "domain": "image",
       "date": "2024-11-20",
-      "downloads": 6926,
+      "downloads": 7136,
       "likes": 642,
       "skus": 1
     },
@@ -657,7 +657,7 @@
       "repo": "black-forest-labs/FLUX.1-Canny-dev",
       "domain": "image",
       "date": "2024-11-20",
-      "downloads": 4492,
+      "downloads": 4588,
       "likes": 242,
       "skus": 1
     },
@@ -667,7 +667,7 @@
       "repo": "black-forest-labs/FLUX.1-Depth-dev",
       "domain": "image",
       "date": "2024-11-20",
-      "downloads": 2751,
+      "downloads": 2777,
       "likes": 243,
       "skus": 1
     },
@@ -677,7 +677,7 @@
       "repo": "fishaudio/fish-speech-1.5",
       "domain": "sound",
       "date": "2024-11-24",
-      "downloads": 3800,
+      "downloads": 3925,
       "likes": 768,
       "skus": 1
     },
@@ -687,8 +687,8 @@
       "repo": "meta-llama/Llama-3.3-70B-Instruct",
       "domain": "text",
       "date": "2024-11-26",
-      "downloads": 334517,
-      "likes": 2950,
+      "downloads": 335016,
+      "likes": 2951,
       "skus": 1
     },
     {
@@ -697,7 +697,7 @@
       "repo": "Qwen/QwQ-32B-Preview",
       "domain": "text",
       "date": "2024-11-27",
-      "downloads": 39840,
+      "downloads": 40838,
       "likes": 1742,
       "skus": 1
     },
@@ -707,7 +707,7 @@
       "repo": "tencent/HunyuanVideo",
       "domain": "video",
       "date": "2024-12-01",
-      "downloads": 790,
+      "downloads": 932,
       "likes": 2243,
       "skus": 1
     },
@@ -717,7 +717,7 @@
       "repo": "deepseek-ai/DeepSeek-V3-Base",
       "domain": "text",
       "date": "2024-12-25",
-      "downloads": 31718,
+      "downloads": 32449,
       "likes": 1701,
       "skus": 3
     },
@@ -727,8 +727,8 @@
       "repo": "hexgrad/Kokoro-82M",
       "domain": "sound",
       "date": "2024-12-26",
-      "downloads": 11186136,
-      "likes": 6677,
+      "downloads": 11725125,
+      "likes": 6684,
       "skus": 1
     },
     {
@@ -737,7 +737,7 @@
       "repo": "MiniMaxAI/MiniMax-Text-01",
       "domain": "text",
       "date": "2025-01-12",
-      "downloads": 2892,
+      "downloads": 2864,
       "likes": 657,
       "skus": 1
     },
@@ -747,8 +747,8 @@
       "repo": "deepseek-ai/DeepSeek-R1-Zero",
       "domain": "text",
       "date": "2025-01-20",
-      "downloads": 6009,
-      "likes": 959,
+      "downloads": 6817,
+      "likes": 960,
       "skus": 1
     },
     {
@@ -757,8 +757,8 @@
       "repo": "deepseek-ai/DeepSeek-R1",
       "domain": "text",
       "date": "2025-01-20",
-      "downloads": 8523653,
-      "likes": 13564,
+      "downloads": 8316405,
+      "likes": 13568,
       "skus": 2
     },
     {
@@ -767,8 +767,8 @@
       "repo": "deepseek-ai/DeepSeek-R1-Distill-Qwen-1.5B",
       "domain": "text",
       "date": "2025-01-20",
-      "downloads": 579747,
-      "likes": 1559,
+      "downloads": 632478,
+      "likes": 1560,
       "skus": 4
     },
     {
@@ -777,8 +777,8 @@
       "repo": "deepseek-ai/DeepSeek-R1-Distill-Llama-8B",
       "domain": "text",
       "date": "2025-01-20",
-      "downloads": 326870,
-      "likes": 872,
+      "downloads": 364595,
+      "likes": 873,
       "skus": 2
     },
     {
@@ -787,7 +787,7 @@
       "repo": "mistralai/Mistral-Small-24B-Base-2501",
       "domain": "text",
       "date": "2025-01-23",
-      "downloads": 4087,
+      "downloads": 4476,
       "likes": 265,
       "skus": 1
     },
@@ -797,7 +797,7 @@
       "repo": "Skywork/SkyReels-V1-Hunyuan-I2V",
       "domain": "video",
       "date": "2025-02-17",
-      "downloads": 732,
+      "downloads": 770,
       "likes": 279,
       "skus": 1
     },
@@ -807,7 +807,7 @@
       "repo": "moonshotai/Moonlight-16B-A3B",
       "domain": "text",
       "date": "2025-02-22",
-      "downloads": 12696,
+      "downloads": 12772,
       "likes": 116,
       "skus": 2
     },
@@ -817,8 +817,8 @@
       "repo": "Wan-AI/Wan2.1-T2V-14B",
       "domain": "video",
       "date": "2025-02-25",
-      "downloads": 27403,
-      "likes": 1546,
+      "downloads": 25168,
+      "likes": 1545,
       "skus": 2
     },
     {
@@ -827,7 +827,7 @@
       "repo": "Wan-AI/Wan2.1-I2V-14B-480P",
       "domain": "video",
       "date": "2025-02-25",
-      "downloads": 66839,
+      "downloads": 62301,
       "likes": 228,
       "skus": 1
     },
@@ -837,7 +837,7 @@
       "repo": "Wan-AI/Wan2.1-I2V-14B-720P",
       "domain": "video",
       "date": "2025-02-25",
-      "downloads": 21216,
+      "downloads": 23313,
       "likes": 595,
       "skus": 1
     },
@@ -847,7 +847,7 @@
       "repo": "hexgrad/Kokoro-82M-v1.1-zh",
       "domain": "sound",
       "date": "2025-02-27",
-      "downloads": 13217,
+      "downloads": 14509,
       "likes": 222,
       "skus": 1
     },
@@ -857,7 +857,7 @@
       "repo": "tencent/HunyuanVideo-I2V",
       "domain": "video",
       "date": "2025-03-05",
-      "downloads": 220,
+      "downloads": 204,
       "likes": 356,
       "skus": 1
     },
@@ -867,7 +867,7 @@
       "repo": "Qwen/QwQ-32B",
       "domain": "text",
       "date": "2025-03-05",
-      "downloads": 94023,
+      "downloads": 89886,
       "likes": 2962,
       "skus": 1
     },
@@ -877,8 +877,8 @@
       "repo": "mistralai/Mistral-Small-3.1-24B-Instruct-2503",
       "domain": "text",
       "date": "2025-03-11",
-      "downloads": 275287,
-      "likes": 1378,
+      "downloads": 272178,
+      "likes": 1377,
       "skus": 1
     },
     {
@@ -887,7 +887,7 @@
       "repo": "mistralai/Mistral-Small-3.1-24B-Base-2503",
       "domain": "text",
       "date": "2025-03-16",
-      "downloads": 1352,
+      "downloads": 1360,
       "likes": 272,
       "skus": 1
     },
@@ -897,7 +897,7 @@
       "repo": "Qwen/Qwen2.5-Omni-7B",
       "domain": "sound",
       "date": "2025-03-22",
-      "downloads": 318985,
+      "downloads": 331278,
       "likes": 1925,
       "skus": 2
     },
@@ -907,7 +907,7 @@
       "repo": "meta-llama/Llama-4-Maverick-17B-128E-Instruct",
       "domain": "text",
       "date": "2025-04-01",
-      "downloads": 28396,
+      "downloads": 26706,
       "likes": 504,
       "skus": 2
     },
@@ -917,7 +917,7 @@
       "repo": "meta-llama/Llama-4-Scout-17B-16E-Instruct",
       "domain": "text",
       "date": "2025-04-02",
-      "downloads": 460443,
+      "downloads": 459324,
       "likes": 1332,
       "skus": 2
     },
@@ -927,7 +927,7 @@
       "repo": "HiDream-ai/HiDream-I1-Dev",
       "domain": "image",
       "date": "2025-04-06",
-      "downloads": 573,
+      "downloads": 564,
       "likes": 173,
       "skus": 1
     },
@@ -937,7 +937,7 @@
       "repo": "HiDream-ai/HiDream-I1-Full",
       "domain": "image",
       "date": "2025-04-06",
-      "downloads": 8895,
+      "downloads": 8877,
       "likes": 997,
       "skus": 1
     },
@@ -947,7 +947,7 @@
       "repo": "HiDream-ai/HiDream-I1-Fast",
       "domain": "image",
       "date": "2025-04-06",
-      "downloads": 86324,
+      "downloads": 94244,
       "likes": 107,
       "skus": 1
     },
@@ -957,7 +957,7 @@
       "repo": "Wan-AI/Wan2.1-FLF2V-14B-720P",
       "domain": "video",
       "date": "2025-04-17",
-      "downloads": 1436,
+      "downloads": 1492,
       "likes": 228,
       "skus": 1
     },
@@ -967,7 +967,7 @@
       "repo": "HiDream-ai/HiDream-E1-Full",
       "domain": "image",
       "date": "2025-04-27",
-      "downloads": 174,
+      "downloads": 175,
       "likes": 216,
       "skus": 1
     },
@@ -977,8 +977,8 @@
       "repo": "Qwen/Qwen3-0.6B",
       "domain": "text",
       "date": "2025-04-27",
-      "downloads": 27629624,
-      "likes": 1506,
+      "downloads": 28918182,
+      "likes": 1509,
       "skus": 11
     },
     {
@@ -987,7 +987,7 @@
       "repo": "Qwen/Qwen3-30B-A3B",
       "domain": "text",
       "date": "2025-04-27",
-      "downloads": 2481310,
+      "downloads": 2582402,
       "likes": 919,
       "skus": 3
     },
@@ -997,7 +997,7 @@
       "repo": "deepseek-ai/DeepSeek-Prover-V2-671B",
       "domain": "text",
       "date": "2025-04-30",
-      "downloads": 703,
+      "downloads": 763,
       "likes": 831,
       "skus": 2
     },
@@ -1007,7 +1007,7 @@
       "repo": "mistralai/Devstral-Small-2505",
       "domain": "text",
       "date": "2025-05-12",
-      "downloads": 2379,
+      "downloads": 3049,
       "likes": 867,
       "skus": 2
     },
@@ -1027,8 +1027,8 @@
       "repo": "black-forest-labs/FLUX.1-Kontext-dev",
       "domain": "image",
       "date": "2025-05-28",
-      "downloads": 218169,
-      "likes": 2763,
+      "downloads": 230945,
+      "likes": 2765,
       "skus": 1
     },
     {
@@ -1037,8 +1037,8 @@
       "repo": "deepseek-ai/DeepSeek-R1-0528-Qwen3-8B",
       "domain": "text",
       "date": "2025-05-29",
-      "downloads": 1342480,
-      "likes": 1084,
+      "downloads": 1347354,
+      "likes": 1082,
       "skus": 1
     },
     {
@@ -1047,8 +1047,8 @@
       "repo": "fishaudio/s1-mini",
       "domain": "sound",
       "date": "2025-05-31",
-      "downloads": 2409,
-      "likes": 682,
+      "downloads": 2515,
+      "likes": 684,
       "skus": 1
     },
     {
@@ -1057,7 +1057,7 @@
       "repo": "mistralai/Magistral-Small-2506",
       "domain": "text",
       "date": "2025-06-04",
-      "downloads": 55975,
+      "downloads": 64689,
       "likes": 610,
       "skus": 3
     },
@@ -1067,7 +1067,7 @@
       "repo": "MiniMaxAI/MiniMax-M1-40k",
       "domain": "text",
       "date": "2025-06-05",
-      "downloads": 3799,
+      "downloads": 3556,
       "likes": 184,
       "skus": 1
     },
@@ -1077,7 +1077,7 @@
       "repo": "MiniMaxAI/MiniMax-M1-80k",
       "domain": "text",
       "date": "2025-06-13",
-      "downloads": 655,
+      "downloads": 710,
       "likes": 692,
       "skus": 1
     },
@@ -1087,7 +1087,7 @@
       "repo": "moonshotai/Kimi-Dev-72B",
       "domain": "text",
       "date": "2025-06-16",
-      "downloads": 3295,
+      "downloads": 3399,
       "likes": 390,
       "skus": 1
     },
@@ -1097,8 +1097,8 @@
       "repo": "mistralai/Mistral-Small-3.2-24B-Instruct-2506",
       "domain": "text",
       "date": "2025-06-19",
-      "downloads": 301090,
-      "likes": 602,
+      "downloads": 312694,
+      "likes": 603,
       "skus": 1
     },
     {
@@ -1107,7 +1107,7 @@
       "repo": "moonshotai/Kimi-K2-Base",
       "domain": "text",
       "date": "2025-07-03",
-      "downloads": 7939,
+      "downloads": 10307,
       "likes": 306,
       "skus": 2
     },
@@ -1117,8 +1117,8 @@
       "repo": "black-forest-labs/FLUX.1-Krea-dev",
       "domain": "image",
       "date": "2025-07-07",
-      "downloads": 43758,
-      "likes": 891,
+      "downloads": 47537,
+      "likes": 892,
       "skus": 1
     },
     {
@@ -1127,7 +1127,7 @@
       "repo": "HiDream-ai/HiDream-E1-1",
       "domain": "image",
       "date": "2025-07-16",
-      "downloads": 130,
+      "downloads": 123,
       "likes": 216,
       "skus": 1
     },
@@ -1137,8 +1137,8 @@
       "repo": "Wan-AI/Wan2.2-TI2V-5B",
       "domain": "video",
       "date": "2025-07-18",
-      "downloads": 13154,
-      "likes": 742,
+      "downloads": 12305,
+      "likes": 744,
       "skus": 1
     },
     {
@@ -1147,7 +1147,7 @@
       "repo": "zai-org/GLM-4.5",
       "domain": "text",
       "date": "2025-07-20",
-      "downloads": 117615,
+      "downloads": 122097,
       "likes": 1408,
       "skus": 2
     },
@@ -1157,8 +1157,8 @@
       "repo": "Qwen/Qwen3-235B-A22B-Instruct-2507",
       "domain": "text",
       "date": "2025-07-21",
-      "downloads": 42124,
-      "likes": 794,
+      "downloads": 42437,
+      "likes": 793,
       "skus": 2
     },
     {
@@ -1167,8 +1167,8 @@
       "repo": "Qwen/Qwen3-Coder-480B-A35B-Instruct",
       "domain": "text",
       "date": "2025-07-22",
-      "downloads": 88721,
-      "likes": 1358,
+      "downloads": 89659,
+      "likes": 1359,
       "skus": 2
     },
     {
@@ -1177,8 +1177,8 @@
       "repo": "Wan-AI/Wan2.2-I2V-A14B",
       "domain": "video",
       "date": "2025-07-24",
-      "downloads": 21989,
-      "likes": 768,
+      "downloads": 22230,
+      "likes": 770,
       "skus": 1
     },
     {
@@ -1187,7 +1187,7 @@
       "repo": "Wan-AI/Wan2.2-T2V-A14B",
       "domain": "video",
       "date": "2025-07-24",
-      "downloads": 8951,
+      "downloads": 9246,
       "likes": 536,
       "skus": 1
     },
@@ -1197,7 +1197,7 @@
       "repo": "Qwen/Qwen3-235B-A22B-Thinking-2507",
       "domain": "text",
       "date": "2025-07-25",
-      "downloads": 28606,
+      "downloads": 28880,
       "likes": 408,
       "skus": 2
     },
@@ -1207,8 +1207,8 @@
       "repo": "Qwen/Qwen-Image",
       "domain": "image",
       "date": "2025-08-02",
-      "downloads": 189687,
-      "likes": 2572,
+      "downloads": 210012,
+      "likes": 2574,
       "skus": 2
     },
     {
@@ -1217,8 +1217,8 @@
       "repo": "Qwen/Qwen3-4B-Instruct-2507",
       "domain": "text",
       "date": "2025-08-05",
-      "downloads": 2982669,
-      "likes": 913,
+      "downloads": 3176666,
+      "likes": 915,
       "skus": 1
     },
     {
@@ -1227,7 +1227,7 @@
       "repo": "Qwen/Qwen3-4B-Thinking-2507",
       "domain": "text",
       "date": "2025-08-05",
-      "downloads": 362561,
+      "downloads": 390010,
       "likes": 609,
       "skus": 1
     },
@@ -1237,8 +1237,8 @@
       "repo": "Qwen/Qwen-Image-Edit",
       "domain": "image",
       "date": "2025-08-17",
-      "downloads": 99269,
-      "likes": 2476,
+      "downloads": 104421,
+      "likes": 2477,
       "skus": 3
     },
     {
@@ -1247,7 +1247,7 @@
       "repo": "deepseek-ai/DeepSeek-V3.1-Base",
       "domain": "text",
       "date": "2025-08-19",
-      "downloads": 24011,
+      "downloads": 28473,
       "likes": 1010,
       "skus": 2
     },
@@ -1257,7 +1257,7 @@
       "repo": "tencent/HunyuanVideo-Foley",
       "domain": "video",
       "date": "2025-08-21",
-      "downloads": 293,
+      "downloads": 315,
       "likes": 171,
       "skus": 1
     },
@@ -1267,7 +1267,7 @@
       "repo": "Wan-AI/Wan2.2-S2V-14B",
       "domain": "video",
       "date": "2025-08-25",
-      "downloads": 19052,
+      "downloads": 17529,
       "likes": 459,
       "skus": 1
     },
@@ -1277,7 +1277,7 @@
       "repo": "moonshotai/Kimi-K2-Instruct-0905",
       "domain": "text",
       "date": "2025-09-03",
-      "downloads": 60063,
+      "downloads": 62672,
       "likes": 787,
       "skus": 1
     },
@@ -1287,7 +1287,7 @@
       "repo": "tencent/HunyuanImage-2.1",
       "domain": "image",
       "date": "2025-09-05",
-      "downloads": 170,
+      "downloads": 172,
       "likes": 651,
       "skus": 1
     },
@@ -1297,7 +1297,7 @@
       "repo": "Qwen/Qwen3-Next-80B-A3B-Instruct",
       "domain": "text",
       "date": "2025-09-09",
-      "downloads": 267790,
+      "downloads": 269135,
       "likes": 1042,
       "skus": 1
     },
@@ -1307,7 +1307,7 @@
       "repo": "Qwen/Qwen3-Next-80B-A3B-Thinking",
       "domain": "text",
       "date": "2025-09-09",
-      "downloads": 30968,
+      "downloads": 32742,
       "likes": 493,
       "skus": 1
     },
@@ -1317,8 +1317,8 @@
       "repo": "Wan-AI/Wan2.2-Animate-14B",
       "domain": "video",
       "date": "2025-09-11",
-      "downloads": 19671,
-      "likes": 1238,
+      "downloads": 19879,
+      "likes": 1239,
       "skus": 1
     },
     {
@@ -1327,7 +1327,7 @@
       "repo": "Qwen/Qwen3-Omni-30B-A3B-Captioner",
       "domain": "sound",
       "date": "2025-09-15",
-      "downloads": 13447,
+      "downloads": 14292,
       "likes": 236,
       "skus": 1
     },
@@ -1337,8 +1337,8 @@
       "repo": "Qwen/Qwen3-Omni-30B-A3B-Thinking",
       "domain": "sound",
       "date": "2025-09-15",
-      "downloads": 434820,
-      "likes": 314,
+      "downloads": 452698,
+      "likes": 315,
       "skus": 1
     },
     {
@@ -1347,8 +1347,8 @@
       "repo": "Qwen/Qwen3-Omni-30B-A3B-Instruct",
       "domain": "sound",
       "date": "2025-09-20",
-      "downloads": 1074630,
-      "likes": 975,
+      "downloads": 1097386,
+      "likes": 979,
       "skus": 1
     },
     {
@@ -1357,7 +1357,7 @@
       "repo": "deepseek-ai/DeepSeek-V3.1-Terminus",
       "domain": "text",
       "date": "2025-09-22",
-      "downloads": 18517,
+      "downloads": 19950,
       "likes": 366,
       "skus": 1
     },
@@ -1367,7 +1367,7 @@
       "repo": "tencent/HunyuanImage-3.0",
       "domain": "image",
       "date": "2025-09-25",
-      "downloads": 14612,
+      "downloads": 13878,
       "likes": 1105,
       "skus": 2
     },
@@ -1377,8 +1377,8 @@
       "repo": "zai-org/GLM-4.6",
       "domain": "text",
       "date": "2025-09-29",
-      "downloads": 27062,
-      "likes": 1229,
+      "downloads": 28016,
+      "likes": 1230,
       "skus": 1
     },
     {
@@ -1387,7 +1387,7 @@
       "repo": "MiniMaxAI/MiniMax-M2",
       "domain": "text",
       "date": "2025-10-22",
-      "downloads": 140849,
+      "downloads": 167591,
       "likes": 1500,
       "skus": 1
     },
@@ -1397,8 +1397,8 @@
       "repo": "moonshotai/Kimi-Linear-48B-A3B-Instruct",
       "domain": "text",
       "date": "2025-10-30",
-      "downloads": 121536,
-      "likes": 574,
+      "downloads": 137933,
+      "likes": 575,
       "skus": 2
     },
     {
@@ -1407,7 +1407,7 @@
       "repo": "mistralai/Ministral-3-3B-Base-2512",
       "domain": "text",
       "date": "2025-10-31",
-      "downloads": 8439,
+      "downloads": 8977,
       "likes": 73,
       "skus": 3
     },
@@ -1417,8 +1417,8 @@
       "repo": "mistralai/Ministral-3-3B-Reasoning-2512",
       "domain": "text",
       "date": "2025-10-31",
-      "downloads": 118338,
-      "likes": 117,
+      "downloads": 126591,
+      "likes": 118,
       "skus": 3
     },
     {
@@ -1427,7 +1427,7 @@
       "repo": "mistralai/Ministral-3-14B-Instruct-2512",
       "domain": "text",
       "date": "2025-10-31",
-      "downloads": 204395,
+      "downloads": 204803,
       "likes": 313,
       "skus": 3
     },
@@ -1437,7 +1437,7 @@
       "repo": "moonshotai/Kimi-K2-Thinking",
       "domain": "text",
       "date": "2025-11-04",
-      "downloads": 45043,
+      "downloads": 47532,
       "likes": 1714,
       "skus": 1
     },
@@ -1447,7 +1447,7 @@
       "repo": "tencent/HunyuanVideo-1.5",
       "domain": "video",
       "date": "2025-11-18",
-      "downloads": 2230,
+      "downloads": 2532,
       "likes": 1029,
       "skus": 1
     },
@@ -1457,8 +1457,8 @@
       "repo": "black-forest-labs/FLUX.2-dev",
       "domain": "image",
       "date": "2025-11-22",
-      "downloads": 996762,
-      "likes": 2012,
+      "downloads": 1067748,
+      "likes": 2016,
       "skus": 1
     },
     {
@@ -1467,8 +1467,8 @@
       "repo": "Tongyi-MAI/Z-Image-Turbo",
       "domain": "image",
       "date": "2025-11-25",
-      "downloads": 962234,
-      "likes": 5104,
+      "downloads": 940400,
+      "likes": 5107,
       "skus": 1
     },
     {
@@ -1477,7 +1477,7 @@
       "repo": "ATH-MaaS/Ovis-Image-7B",
       "domain": "image",
       "date": "2025-11-28",
-      "downloads": 305,
+      "downloads": 467,
       "likes": 208,
       "skus": 1
     },
@@ -1487,7 +1487,7 @@
       "repo": "deepseek-ai/DeepSeek-V3.2-Speciale",
       "domain": "text",
       "date": "2025-11-28",
-      "downloads": 5447,
+      "downloads": 6173,
       "likes": 720,
       "skus": 1
     },
@@ -1497,8 +1497,8 @@
       "repo": "mistralai/Devstral-Small-2-24B-Instruct-2512",
       "domain": "text",
       "date": "2025-11-28",
-      "downloads": 186418,
-      "likes": 640,
+      "downloads": 188901,
+      "likes": 641,
       "skus": 1
     },
     {
@@ -1507,8 +1507,8 @@
       "repo": "mistralai/Devstral-2-123B-Instruct-2512",
       "domain": "text",
       "date": "2025-11-28",
-      "downloads": 38043,
-      "likes": 331,
+      "downloads": 32695,
+      "likes": 332,
       "skus": 1
     },
     {
@@ -1517,7 +1517,7 @@
       "repo": "mistralai/Mistral-Large-3-675B-Instruct-2512",
       "domain": "text",
       "date": "2025-11-28",
-      "downloads": 1177,
+      "downloads": 1369,
       "likes": 242,
       "skus": 1
     },
@@ -1527,7 +1527,7 @@
       "repo": "NewBie-AI/NewBie-image-Exp0.1",
       "domain": "image",
       "date": "2025-11-30",
-      "downloads": 196,
+      "downloads": 202,
       "likes": 297,
       "skus": 1
     },
@@ -1537,7 +1537,7 @@
       "repo": "deepseek-ai/DeepSeek-V3.2",
       "domain": "text",
       "date": "2025-12-01",
-      "downloads": 1093344,
+      "downloads": 1125165,
       "likes": 1466,
       "skus": 1
     },
@@ -1547,7 +1547,7 @@
       "repo": "zai-org/GLM-TTS",
       "domain": "sound",
       "date": "2025-12-10",
-      "downloads": 1054,
+      "downloads": 326,
       "likes": 348,
       "skus": 1
     },
@@ -1557,8 +1557,8 @@
       "repo": "FunAudioLLM/Fun-CosyVoice3-0.5B-2512",
       "domain": "sound",
       "date": "2025-12-11",
-      "downloads": 19020,
-      "likes": 615,
+      "downloads": 19796,
+      "likes": 617,
       "skus": 1
     },
     {
@@ -1567,7 +1567,7 @@
       "repo": "Qwen/Qwen-Image-Layered",
       "domain": "image",
       "date": "2025-12-17",
-      "downloads": 36125,
+      "downloads": 40345,
       "likes": 1135,
       "skus": 1
     },
@@ -1577,7 +1577,7 @@
       "repo": "MiniMaxAI/MiniMax-M2.1",
       "domain": "text",
       "date": "2025-12-20",
-      "downloads": 15808,
+      "downloads": 18657,
       "likes": 1358,
       "skus": 1
     },
@@ -1587,8 +1587,8 @@
       "repo": "zai-org/GLM-4.7",
       "domain": "text",
       "date": "2025-12-22",
-      "downloads": 67332,
-      "likes": 2052,
+      "downloads": 70179,
+      "likes": 2053,
       "skus": 1
     },
     {
@@ -1597,7 +1597,7 @@
       "repo": "FunAudioLLM/Fun-Audio-Chat-8B",
       "domain": "sound",
       "date": "2025-12-23",
-      "downloads": 1802,
+      "downloads": 1598,
       "likes": 186,
       "skus": 1
     },
@@ -1607,7 +1607,7 @@
       "repo": "moonshotai/Kimi-K2.5",
       "domain": "text",
       "date": "2026-01-01",
-      "downloads": 855995,
+      "downloads": 876684,
       "likes": 2862,
       "skus": 1
     },
@@ -1617,8 +1617,8 @@
       "repo": "Lightricks/LTX-2",
       "domain": "video",
       "date": "2026-01-03",
-      "downloads": 376883,
-      "likes": 1772,
+      "downloads": 382511,
+      "likes": 1773,
       "skus": 1
     },
     {
@@ -1627,8 +1627,8 @@
       "repo": "black-forest-labs/FLUX.2-klein-9B",
       "domain": "image",
       "date": "2026-01-14",
-      "downloads": 301221,
-      "likes": 1194,
+      "downloads": 310702,
+      "likes": 1203,
       "skus": 4
     },
     {
@@ -1637,8 +1637,8 @@
       "repo": "zai-org/GLM-4.7-Flash",
       "domain": "text",
       "date": "2026-01-19",
-      "downloads": 1865359,
-      "likes": 1807,
+      "downloads": 1955327,
+      "likes": 1809,
       "skus": 1
     },
     {
@@ -1647,7 +1647,7 @@
       "repo": "Qwen/Qwen3-TTS-12Hz-1.7B-VoiceDesign",
       "domain": "sound",
       "date": "2026-01-21",
-      "downloads": 449893,
+      "downloads": 439323,
       "likes": 386,
       "skus": 1
     },
@@ -1657,8 +1657,8 @@
       "repo": "Qwen/Qwen3-TTS-12Hz-1.7B-CustomVoice",
       "domain": "sound",
       "date": "2026-01-21",
-      "downloads": 2051095,
-      "likes": 1871,
+      "downloads": 2159196,
+      "likes": 1875,
       "skus": 2
     },
     {
@@ -1667,8 +1667,8 @@
       "repo": "Qwen/Qwen3-TTS-12Hz-1.7B-Base",
       "domain": "sound",
       "date": "2026-01-21",
-      "downloads": 2643138,
-      "likes": 481,
+      "downloads": 2900691,
+      "likes": 482,
       "skus": 2
     },
     {
@@ -1677,7 +1677,7 @@
       "repo": "Tongyi-MAI/Z-Image",
       "domain": "image",
       "date": "2026-01-23",
-      "downloads": 22210,
+      "downloads": 25441,
       "likes": 1202,
       "skus": 1
     },
@@ -1687,7 +1687,7 @@
       "repo": "mistralai/Mistral-Small-4-119B-2603",
       "domain": "text",
       "date": "2026-01-23",
-      "downloads": 136567,
+      "downloads": 127701,
       "likes": 414,
       "skus": 1
     },
@@ -1697,8 +1697,8 @@
       "repo": "circlestone-labs/Anima",
       "domain": "image",
       "date": "2026-01-29",
-      "downloads": 747839,
-      "likes": 2048,
+      "downloads": 781282,
+      "likes": 2058,
       "skus": 1
     },
     {
@@ -1707,8 +1707,8 @@
       "repo": "Qwen/Qwen3-Coder-Next",
       "domain": "text",
       "date": "2026-01-30",
-      "downloads": 514709,
-      "likes": 1583,
+      "downloads": 523022,
+      "likes": 1588,
       "skus": 2
     },
     {
@@ -1717,7 +1717,7 @@
       "repo": "zai-org/GLM-5",
       "domain": "text",
       "date": "2026-02-11",
-      "downloads": 113139,
+      "downloads": 119389,
       "likes": 2119,
       "skus": 1
     },
@@ -1727,7 +1727,7 @@
       "repo": "MiniMaxAI/MiniMax-M2.5",
       "domain": "text",
       "date": "2026-02-12",
-      "downloads": 699232,
+      "downloads": 706960,
       "likes": 1502,
       "skus": 1
     },
@@ -1737,8 +1737,8 @@
       "repo": "Qwen/Qwen3.5-397B-A17B",
       "domain": "text",
       "date": "2026-02-16",
-      "downloads": 315709,
-      "likes": 1550,
+      "downloads": 315840,
+      "likes": 1551,
       "skus": 4
     },
     {
@@ -1747,7 +1747,7 @@
       "repo": "Qwen/Qwen3.5-27B",
       "domain": "text",
       "date": "2026-02-24",
-      "downloads": 2514731,
+      "downloads": 2667254,
       "likes": 1029,
       "skus": 9
     },
@@ -1757,8 +1757,8 @@
       "repo": "Lightricks/LTX-2.3",
       "domain": "video",
       "date": "2026-03-04",
-      "downloads": 1611689,
-      "likes": 1798,
+      "downloads": 1681955,
+      "likes": 1802,
       "skus": 1
     },
     {
@@ -1767,8 +1767,8 @@
       "repo": "fishaudio/s2-pro",
       "domain": "sound",
       "date": "2026-03-09",
-      "downloads": 440254,
-      "likes": 1232,
+      "downloads": 501269,
+      "likes": 1241,
       "skus": 1
     },
     {
@@ -1777,7 +1777,7 @@
       "repo": "mistralai/Leanstral-2603",
       "domain": "text",
       "date": "2026-03-11",
-      "downloads": 83,
+      "downloads": 89,
       "likes": 168,
       "skus": 1
     },
@@ -1787,7 +1787,7 @@
       "repo": "mistralai/Mistral-Medium-3.5-128B",
       "domain": "text",
       "date": "2026-03-31",
-      "downloads": 80744,
+      "downloads": 80800,
       "likes": 418,
       "skus": 1
     },
@@ -1797,7 +1797,7 @@
       "repo": "baidu/ERNIE-Image-Turbo",
       "domain": "image",
       "date": "2026-04-02",
-      "downloads": 2379,
+      "downloads": 2726,
       "likes": 403,
       "skus": 1
     },
@@ -1807,7 +1807,7 @@
       "repo": "zai-org/GLM-5.1",
       "domain": "text",
       "date": "2026-04-03",
-      "downloads": 68363,
+      "downloads": 72174,
       "likes": 1839,
       "skus": 1
     },
@@ -1817,7 +1817,7 @@
       "repo": "baidu/ERNIE-Image",
       "domain": "image",
       "date": "2026-04-07",
-      "downloads": 1868,
+      "downloads": 1930,
       "likes": 670,
       "skus": 1
     },
@@ -1827,7 +1827,7 @@
       "repo": "MiniMaxAI/MiniMax-M2.7",
       "domain": "text",
       "date": "2026-04-09",
-      "downloads": 861627,
+      "downloads": 911307,
       "likes": 1237,
       "skus": 1
     },
@@ -1837,7 +1837,7 @@
       "repo": "moonshotai/Kimi-K2.6",
       "domain": "text",
       "date": "2026-04-14",
-      "downloads": 785559,
+      "downloads": 805006,
       "likes": 1587,
       "skus": 1
     },
@@ -1847,8 +1847,8 @@
       "repo": "Qwen/Qwen3.6-35B-A3B",
       "domain": "text",
       "date": "2026-04-15",
-      "downloads": 5311070,
-      "likes": 2664,
+      "downloads": 5609980,
+      "likes": 2675,
       "skus": 1
     },
     {
@@ -1857,8 +1857,8 @@
       "repo": "Qwen/Qwen3.6-27B",
       "domain": "text",
       "date": "2026-04-21",
-      "downloads": 6577318,
-      "likes": 2230,
+      "downloads": 6830615,
+      "likes": 2248,
       "skus": 1
     },
     {
@@ -1867,7 +1867,7 @@
       "repo": "deepseek-ai/DeepSeek-V4-Flash-Base",
       "domain": "text",
       "date": "2026-04-22",
-      "downloads": 344747,
+      "downloads": 371740,
       "likes": 292,
       "skus": 3
     },
@@ -1877,8 +1877,8 @@
       "repo": "deepseek-ai/DeepSeek-V4-Pro-Base",
       "domain": "text",
       "date": "2026-04-22",
-      "downloads": 14769,
-      "likes": 326,
+      "downloads": 16223,
+      "likes": 327,
       "skus": 2
     },
     {
@@ -1887,7 +1887,7 @@
       "repo": "stabilityai/stable-diffusion-3-medium-amdnpu",
       "domain": "image",
       "date": "2026-05-01",
-      "downloads": 18,
+      "downloads": 20,
       "likes": 1,
       "skus": 1
     },
@@ -1907,8 +1907,8 @@
       "repo": "HiDream-ai/HiDream-O1-Image",
       "domain": "image",
       "date": "2026-05-08",
-      "downloads": 7766,
-      "likes": 520,
+      "downloads": 7453,
+      "likes": 524,
       "skus": 1
     },
     {
@@ -1917,7 +1917,7 @@
       "repo": "HiDream-ai/HiDream-O1-Image-Dev",
       "domain": "image",
       "date": "2026-05-08",
-      "downloads": 1618,
+      "downloads": 1849,
       "likes": 124,
       "skus": 2
     },
@@ -1927,7 +1927,7 @@
       "repo": "nvidia/Qwen-Image-Edit-NVPCB-OVSL2SL",
       "domain": "image",
       "date": "2026-05-11",
-      "downloads": 5,
+      "downloads": 4,
       "likes": 2,
       "skus": 1
     },
@@ -1937,8 +1937,8 @@
       "repo": "HiDream-ai/Prompt-Refine",
       "domain": "image",
       "date": "2026-05-13",
-      "downloads": 188,
-      "likes": 16,
+      "downloads": 190,
+      "likes": 17,
       "skus": 1
     },
     {
@@ -1947,7 +1947,7 @@
       "repo": "baidu/ERNIE-Image-Aes",
       "domain": "image",
       "date": "2026-05-18",
-      "downloads": 144,
+      "downloads": 152,
       "likes": 17,
       "skus": 1
     },
@@ -1957,8 +1957,8 @@
       "repo": "Qwen/Qwen-Image-Bench",
       "domain": "image",
       "date": "2026-05-21",
-      "downloads": 21639,
-      "likes": 85,
+      "downloads": 27752,
+      "likes": 89,
       "skus": 1
     },
     {
@@ -1967,7 +1967,7 @@
       "repo": "nvidia/Cosmos3-Super-Text2Image",
       "domain": "image",
       "date": "2026-05-28",
-      "downloads": 1980,
+      "downloads": 1994,
       "likes": 182,
       "skus": 1
     },
@@ -1977,8 +1977,8 @@
       "repo": "MiniMaxAI/MiniMax-M3",
       "domain": "text",
       "date": "2026-06-02",
-      "downloads": 156125,
-      "likes": 1453,
+      "downloads": 169325,
+      "likes": 1455,
       "skus": 1
     },
     {
@@ -1987,7 +1987,7 @@
       "repo": "nvidia/NL-Diffusion-Image",
       "domain": "image",
       "date": "2026-06-03",
-      "downloads": 116,
+      "downloads": 123,
       "likes": 12,
       "skus": 1
     },
@@ -1997,8 +1997,8 @@
       "repo": "moonshotai/Kimi-K2.7-Code",
       "domain": "text",
       "date": "2026-06-11",
-      "downloads": 644787,
-      "likes": 1358,
+      "downloads": 651078,
+      "likes": 1360,
       "skus": 1
     },
     {
@@ -2007,8 +2007,8 @@
       "repo": "moonshotai/Kimi-K3",
       "domain": "text",
       "date": "2026-06-13",
-      "downloads": 1565484,
-      "likes": 10535,
+      "downloads": 1871575,
+      "likes": 10598,
       "skus": 1
     },
     {
@@ -2017,7 +2017,7 @@
       "repo": "Boogu/Boogu-Image-0.1-Turbo",
       "domain": "image",
       "date": "2026-06-16",
-      "downloads": 870,
+      "downloads": 933,
       "likes": 70,
       "skus": 1
     },
@@ -2027,7 +2027,7 @@
       "repo": "Boogu/Boogu-Image-0.1-Edit",
       "domain": "image",
       "date": "2026-06-16",
-      "downloads": 868,
+      "downloads": 968,
       "likes": 180,
       "skus": 1
     },
@@ -2037,7 +2037,7 @@
       "repo": "Boogu/Boogu-Image-0.1-Base",
       "domain": "image",
       "date": "2026-06-16",
-      "downloads": 800,
+      "downloads": 820,
       "likes": 79,
       "skus": 1
     },
@@ -2047,8 +2047,8 @@
       "repo": "zai-org/GLM-5.2",
       "domain": "text",
       "date": "2026-06-16",
-      "downloads": 2517575,
-      "likes": 4932,
+      "downloads": 2662328,
+      "likes": 4944,
       "skus": 1
     },
     {
@@ -2057,7 +2057,7 @@
       "repo": "Boogu/Boogu-Image-0.0-Edit-exp-pt",
       "domain": "image",
       "date": "2026-06-18",
-      "downloads": 159,
+      "downloads": 160,
       "likes": 4,
       "skus": 1
     },
@@ -2077,8 +2077,8 @@
       "repo": "Qwen/Qwen-AgentWorld-35B-A3B",
       "domain": "text",
       "date": "2026-06-22",
-      "downloads": 66831,
-      "likes": 668,
+      "downloads": 75845,
+      "likes": 675,
       "skus": 1
     },
     {
@@ -2087,7 +2087,7 @@
       "repo": "Boogu/Boogu-Image-0.1-Edit-Turbo",
       "domain": "image",
       "date": "2026-06-30",
-      "downloads": 1081,
+      "downloads": 1159,
       "likes": 51,
       "skus": 1
     },
@@ -2097,8 +2097,8 @@
       "repo": "nvidia/Qwen-Image-Flash",
       "domain": "image",
       "date": "2026-07-01",
-      "downloads": 1014,
-      "likes": 85,
+      "downloads": 1095,
+      "likes": 88,
       "skus": 1
     },
     {
@@ -2107,8 +2107,8 @@
       "repo": "mistralai/Leanstral-1.5-119B-A6B",
       "domain": "text",
       "date": "2026-07-01",
-      "downloads": 291,
-      "likes": 212,
+      "downloads": 275,
+      "likes": 213,
       "skus": 1
     },
     {
@@ -2117,7 +2117,7 @@
       "repo": "nvidia/Cosmos3-Super-Text2Image-4Step",
       "domain": "image",
       "date": "2026-07-07",
-      "downloads": 23550,
+      "downloads": 101698,
       "likes": 13,
       "skus": 1
     },
@@ -2127,7 +2127,7 @@
       "repo": "Wan-AI/Wan-Dancer-14B",
       "domain": "video",
       "date": "2026-07-10",
-      "downloads": 4560,
+      "downloads": 3063,
       "likes": 183,
       "skus": 1
     },
@@ -2148,7 +2148,7 @@
       "domain": "video",
       "date": "2026-07-14",
       "downloads": 0,
-      "likes": 102,
+      "likes": 109,
       "skus": 1
     },
     {
@@ -2157,8 +2157,8 @@
       "repo": "mistralai/Shieldstral-1.0-3B",
       "domain": "text",
       "date": "2026-07-16",
-      "downloads": 6769,
-      "likes": 232,
+      "downloads": 11138,
+      "likes": 235,
       "skus": 1
     },
     {
@@ -2167,8 +2167,18 @@
       "repo": "Lightricks/LTX-2.5",
       "domain": "video",
       "date": "2026-07-23",
-      "downloads": 39,
-      "likes": 316,
+      "downloads": 57287,
+      "likes": 624,
+      "skus": 1
+    },
+    {
+      "org": "Qwen",
+      "m": "qwen-text",
+      "repo": "Qwen/Qwen3.8-2.4T-A95B",
+      "domain": "text",
+      "date": "2026-08-08",
+      "downloads": 1012,
+      "likes": 669,
       "skus": 1
     },
     {
@@ -2177,8 +2187,8 @@
       "repo": "Lightricks/LTX-2.5-Pre-Trained",
       "domain": "video",
       "date": "2026-08-10",
-      "downloads": 0,
-      "likes": 15,
+      "downloads": 46,
+      "likes": 22,
       "skus": 1
     }
   ]

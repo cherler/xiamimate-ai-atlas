@@ -110,6 +110,32 @@ try {
       how: "`node scripts/hf-lineage.mjs --json` 重扫；清单在 data/lineage-candidates.json",
       why: "**先问「它是不是这一代的发布本体」** —— 端口、量化档、配件、以及挂错产品线的，都不算。",
     });
+
+  /**
+   * ③b 魔搭那一路捞到、**HF 那一路没看到**的。
+   *
+   * 只报 `only_ms === true` 的那些 —— 其余要么两边都有（HF 那摞已经在报了），
+   * 要么来自 HF 侧没扫过的组织（`only_ms` 是 `null`，**判不了不等于是新的**）。
+   * 加这个源换来的就是这一小摞，把它单独拎出来才看得见价值。
+   */
+  const ms = JSON.parse(read("data/modelscope-candidates.json") || "{}").rows ?? [];
+  const msMiss = ms.filter(
+    (r) =>
+      r.only_ms === true &&
+      !known.has(r.repo.toLowerCase()) &&
+      !known.has(r.repo.split("/").pop().toLowerCase()) &&
+      !rejected.has(r.repo.toLowerCase()),
+  );
+  if (msMiss.length) {
+    const byd = {};
+    for (const r of msMiss) byd[r.domain ?? "?"] = (byd[r.domain ?? "?"] ?? 0) + 1;
+    groups.push({
+      n: msMiss.length,
+      t: `魔搭独有、我们还没收的 ${msMiss.length} 条（${Object.entries(byd).map(([k, v]) => `${k} ${v}`).join(" · ")}）`,
+      how: "`node scripts/modelscope.mjs --json` 重扫；清单在 data/modelscope-candidates.json（🔵 那些）",
+      why: "**「HF 那边没有」有两种**：真的只发了魔搭，或者两边名字不一样 —— 人工看一眼才算数。",
+    });
+  }
 } catch { /* 候选文件坏了不该拖垮整张待办表 */ }
 
 /**

@@ -5059,6 +5059,11 @@
    "name": "TencentARC/InstantMesh 仓库",
    "url": "https://github.com/TencentARC/InstantMesh",
    "tier": "official"
+  },
+  "modelscope-orgs": {
+   "name": "魔搭 ModelScope · 官方组织模型目录",
+   "url": "https://modelscope.cn/models",
+   "tier": "third-party"
   }
  },
  "support": [
@@ -20053,6 +20058,51 @@
    "domain": "threed",
    "verdict": "中文社区知识库里专门有一块 3D，是这一侧少见的中文入口。",
    "caveat": "⚠️ **社区共建、质量不均，也没有 LICENSE**（飞书文档不是代码仓库，引用转载要另问）。而且它纯前端渲染，**进不了我们的自动监视** —— 变没变只能人工看。",
+   "checked_at": "2026-08-13"
+  },
+  {
+   "task": "想找中文侧的开源权重",
+   "site": "魔搭 ModelScope",
+   "url": "https://modelscope.cn/models",
+   "domain": "video",
+   "verdict": "阿里、腾讯、快手的开源模型在这儿常常**先发魔搭**（Wan2.1-VACE 就是我们从这边才捞到的），下载量与许可都在页面上。",
+   "caveat": "⚠️ **认清是不是官方组织**：站上有个 `AI-ModelScope`，1,979 个模型，那是**搬运组织** —— 把别人的权重镜像过来，不是原厂发布。⚠️ 许可要逐个看：不少条目写着 `other`，点进去才知道是哪家的自定义协议。",
+   "checked_at": "2026-08-13"
+  },
+  {
+   "task": "想找中文侧的开源权重",
+   "site": "魔搭 ModelScope",
+   "url": "https://modelscope.cn/models",
+   "domain": "image",
+   "verdict": "通义千问图像、可图、混元图像的官方组织都在这儿，国内下载不用翻墙。",
+   "caveat": "⚠️ **认清是不是官方组织**：站上有个 `AI-ModelScope`，1,979 个模型，那是**搬运组织** —— 把别人的权重镜像过来，不是原厂发布。⚠️ 许可要逐个看：不少条目写着 `other`，点进去才知道是哪家的自定义协议。",
+   "checked_at": "2026-08-13"
+  },
+  {
+   "task": "想找中文侧的开源权重",
+   "site": "魔搭 ModelScope",
+   "url": "https://modelscope.cn/models",
+   "domain": "text",
+   "verdict": "智谱、DeepSeek、通义、面壁、阶跃、上海 AI 实验室的官方组织都在这儿 —— **这几家里有一半在 Hugging Face 那边不那么好找**。",
+   "caveat": "⚠️ **认清是不是官方组织**：站上有个 `AI-ModelScope`，1,979 个模型，那是**搬运组织** —— 把别人的权重镜像过来，不是原厂发布。⚠️ 许可要逐个看：不少条目写着 `other`，点进去才知道是哪家的自定义协议。",
+   "checked_at": "2026-08-13"
+  },
+  {
+   "task": "想找中文侧的开源权重",
+   "site": "魔搭 ModelScope",
+   "url": "https://modelscope.cn/models",
+   "domain": "sound",
+   "verdict": "CosyVoice 那条线（FunAudioLLM）与达摩院 iic 的语音模型都在这儿。",
+   "caveat": "⚠️ **认清是不是官方组织**：站上有个 `AI-ModelScope`，1,979 个模型，那是**搬运组织** —— 把别人的权重镜像过来，不是原厂发布。⚠️ 许可要逐个看：不少条目写着 `other`，点进去才知道是哪家的自定义协议。",
+   "checked_at": "2026-08-13"
+  },
+  {
+   "task": "想找中文侧的开源权重",
+   "site": "魔搭 ModelScope",
+   "url": "https://modelscope.cn/models",
+   "domain": "threed",
+   "verdict": "混元3D 的 2 与 2.1 都在这儿，中文模型卡比 HF 上全。",
+   "caveat": "⚠️ **认清是不是官方组织**：站上有个 `AI-ModelScope`，1,979 个模型，那是**搬运组织** —— 把别人的权重镜像过来，不是原厂发布。⚠️ 许可要逐个看：不少条目写着 `other`，点进去才知道是哪家的自定义协议。",
    "checked_at": "2026-08-13"
   }
  ],

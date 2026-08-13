@@ -4639,6 +4639,22 @@
     "resource"
    ],
    "note": "AI 3D 场景应用的公开资源，2026-08-13 走 GitHub API 核过描述、星标与许可"
+  },
+  {
+   "id": "modelscope-orgs",
+   "tier": "S",
+   "kind": "json",
+   "vendor": "modelscope",
+   "name": "魔搭 ModelScope · 官方组织模型目录",
+   "url": "https://modelscope.cn/api/v1/dolphin/models",
+   "refresh_days": 7,
+   "good_for": [
+    "openweights",
+    "version",
+    "application-resource"
+   ],
+   "manual": true,
+   "note": "负责人 2026-08-13 点名加的中文侧模型源。**由 `node scripts/modelscope.mjs --json` 跑**，不走 watch 的通用抓法：这个接口是 **PUT**（不是 GET/POST）、要带 `Criterion` 组织过滤，watch 那套 GET 抓法调不动它。⚠️ 接口是用浏览器拦请求抓出来的，魔搭没有公开的列表 API 文档；`GET /api/v1/models` 回 404、`POST /api/v1/models` 回「user not logged in」。"
   }
  ],
  "$missing": [
