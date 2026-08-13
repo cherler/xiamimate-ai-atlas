@@ -3357,7 +3357,8 @@
    "class": "asset",
    "status": "active",
    "tier": "core",
-   "domain": "threed"
+   "domain": "threed",
+   "note": "官方定位是「Simulation-Ready 3D Assets」，自述目标是「toward enabling the world simulators that embodied AI requires」。**收它是按产出物判的**（2026-08-13 负责人拍板：判据看产出物不看目的）—— 它产出的是可导出的 3D 资产，那就属于这一卷；厂商写的用途不改变产出物是什么。"
   },
   {
    "id": "spar3d",
