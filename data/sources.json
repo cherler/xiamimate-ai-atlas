@@ -4343,6 +4343,20 @@
     "workflow"
    ],
    "note": "场景页的中文教程/文档。⚠️ 抓 API 端点（R72）"
+  },
+  {
+   "id": "waytoagi-wiki",
+   "tier": "C",
+   "kind": "spa",
+   "vendor": "",
+   "name": "通往 AGI 之路（WaytoAGI）知识库",
+   "url": "https://waytoagi.feishu.cn/wiki/QPe5w5g7UisbEkkow8XcDmOpn8e",
+   "refresh_days": 30,
+   "good_for": [
+    "resource"
+   ],
+   "note": "中文社区共建知识库，2023-04-26 创建。**站上各方向的场景应用页引它的分板块**（1.4 绘画 / 1.5 视频 / 1.6 音乐 / 1.7 数字人+语音合成 / 1.9 ComfyUI / 1.2 Prompts / 1.3 Agents / 2.0 编程）。⚠️ **标为人工核：它是飞书云文档，纯前端渲染，裸抓得到 0 字符**；而且没有 LICENSE、内容社区共建质量不均，机器判不出「变没变」。板块的 wiki token 是 2026-08-13 用浏览器逐个点出来的 —— 侧栏是 div 不是链接，抓 HTML 里没有。",
+   "manual": true
   }
  ],
  "$missing": [

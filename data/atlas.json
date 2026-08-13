@@ -4597,6 +4597,11 @@
    "name": "GitHub · StableDiffusionBook（中文 AI 绘画手册）",
    "url": "https://github.com/sudoskys/StableDiffusionBook",
    "tier": "third-party"
+  },
+  "waytoagi-wiki": {
+   "name": "通往 AGI 之路（WaytoAGI）知识库",
+   "url": "https://waytoagi.feishu.cn/wiki/QPe5w5g7UisbEkkow8XcDmOpn8e",
+   "tier": "third-party"
   }
  },
  "support": [
@@ -15970,6 +15975,15 @@
      "src": "comfy-docs",
      "quote": "官方教程提供本地自部署、首尾帧与视频工作流入口",
      "note": "先跑通一条镜头，再做角色和延长"
+    },
+    {
+     "kind": "docs",
+     "name": "WaytoAGI · 1.5 AI 视频（中文社区知识库）",
+     "url": "https://waytoagi.feishu.cn/wiki/SPXQwl5TXiau0mkKb1zcqHxVnEm",
+     "src": "waytoagi-wiki",
+     "quote": "板块首屏是一张工具对照表，列「网站名 / 网址 / 优势劣势 / 教程 / 费用」——如可灵「支持运动笔刷」、通义万相「开源，大幅度运动很强」、海螺「非常听话，语义理解能力非常强」",
+     "note": "一张工具对照表（网站 / 优势劣势 / 教程 / 费用），另有镜头提示词、案例与工作流教程 —— **社区共建，质量不均**",
+     "license": null
     }
    ],
    "aliases": [
@@ -16027,6 +16041,15 @@
      "src": "awesome-vd-gh",
      "note": "作者没放 LICENSE。能看、能在 GitHub 内 fork，但**没有授权你使用、修改或再分发** —— 商用前必须先联系作者拿授权",
      "quote": "showlab/Awesome-Video-Diffusion：A curated list of recent diffusion models for video generation, editing（★5,747）",
+     "license": null
+    },
+    {
+     "kind": "docs",
+     "name": "WaytoAGI · 1.5 AI 视频（中文社区知识库）",
+     "url": "https://waytoagi.feishu.cn/wiki/SPXQwl5TXiau0mkKb1zcqHxVnEm",
+     "src": "waytoagi-wiki",
+     "quote": "板块首屏是一张工具对照表，列「网站名 / 网址 / 优势劣势 / 教程 / 费用」——如可灵「支持运动笔刷」、通义万相「开源，大幅度运动很强」、海螺「非常听话，语义理解能力非常强」",
+     "note": "一张工具对照表（网站 / 优势劣势 / 教程 / 费用），另有镜头提示词、案例与工作流教程 —— **社区共建，质量不均**",
      "license": null
     }
    ],
@@ -16102,6 +16125,15 @@
      "src": "comfy-docs",
      "quote": "官方文档提供音频驱动视频的原生工作流示例",
      "note": "语音驱动不等于口型同步，页面已分开记录"
+    },
+    {
+     "kind": "docs",
+     "name": "WaytoAGI · 1.7 AI 数字人+语音合成（中文社区知识库）",
+     "url": "https://waytoagi.feishu.cn/wiki/IOO6wQKDKiMrmzk1oDxcGFpFnFh",
+     "src": "waytoagi-wiki",
+     "quote": "把数字人分成服务型（虚拟主播 / 客服 / 助手）、表演型（虚拟偶像）、身份型（数字分身）三类，核心技术拆到语音识别 / 语音合成 / 情感计算",
+     "note": "把数字人分服务型 / 表演型 / 身份型三类，技术拆到语音识别、语音合成、情感计算 —— ⚠️ **是概念地图不是操作步骤**，动手教程往 1.5 / 1.9 找",
+     "license": null
     }
    ],
    "aliases": [
@@ -16160,6 +16192,15 @@
      "src": "hf-course",
      "quote": "公开课程提供扩散模型的基础与进一步资料",
      "note": "补原理；商品创意仍需自己做测试"
+    },
+    {
+     "kind": "docs",
+     "name": "WaytoAGI · 1.5 AI 视频（中文社区知识库）",
+     "url": "https://waytoagi.feishu.cn/wiki/SPXQwl5TXiau0mkKb1zcqHxVnEm",
+     "src": "waytoagi-wiki",
+     "quote": "板块首屏是一张工具对照表，列「网站名 / 网址 / 优势劣势 / 教程 / 费用」——如可灵「支持运动笔刷」、通义万相「开源，大幅度运动很强」、海螺「非常听话，语义理解能力非常强」",
+     "note": "一张工具对照表（网站 / 优势劣势 / 教程 / 费用），另有镜头提示词、案例与工作流教程 —— **社区共建，质量不均**",
+     "license": null
     }
    ],
    "aliases": [
@@ -16217,6 +16258,15 @@
      "src": "hf-course",
      "quote": "公开课程从扩散模型基础讲起，适合补齐共同语言",
      "note": "课程不是特效素材库"
+    },
+    {
+     "kind": "docs",
+     "name": "WaytoAGI · 1.9 ComfyUI 工作流（中文社区知识库）",
+     "url": "https://waytoagi.feishu.cn/wiki/AxZPwElC6iZ0aqk2hjOcI3Y9nFg",
+     "src": "waytoagi-wiki",
+     "quote": "子页列表：入门教程、模型使用+训练、ControlNet、工作流详解、节点开发、视频生成教程、Flux 工具教程",
+     "note": "子页有入门、模型训练、ControlNet、工作流详解、节点开发、视频生成 —— ⚠️ **多数停更在 2024–2025 年**，节点与模型可能已对不上",
+     "license": null
     }
    ],
    "aliases": [
@@ -16269,6 +16319,15 @@
      "url": "https://huggingface.co/learn/diffusion-course/en/unit0/1",
      "src": "hf-course",
      "quote": "公开课程从扩散模型基础讲起，是理解这些图像与视频模型的共同底子"
+    },
+    {
+     "kind": "docs",
+     "name": "WaytoAGI · 1.5 AI 视频（中文社区知识库）",
+     "url": "https://waytoagi.feishu.cn/wiki/SPXQwl5TXiau0mkKb1zcqHxVnEm",
+     "src": "waytoagi-wiki",
+     "quote": "板块首屏是一张工具对照表，列「网站名 / 网址 / 优势劣势 / 教程 / 费用」——如可灵「支持运动笔刷」、通义万相「开源，大幅度运动很强」、海螺「非常听话，语义理解能力非常强」",
+     "note": "一张工具对照表（网站 / 优势劣势 / 教程 / 费用），另有镜头提示词、案例与工作流教程 —— **社区共建，质量不均**",
+     "license": null
     }
    ],
    "domain": "video"
@@ -16316,6 +16375,15 @@
      "url": "https://docs.comfy.org/tutorials/video/wan/wan2-2-s2v",
      "src": "comfy-docs",
      "quote": "官方文档提供音频驱动视频的原生工作流示例"
+    },
+    {
+     "kind": "docs",
+     "name": "WaytoAGI · 1.5 AI 视频（中文社区知识库）",
+     "url": "https://waytoagi.feishu.cn/wiki/SPXQwl5TXiau0mkKb1zcqHxVnEm",
+     "src": "waytoagi-wiki",
+     "quote": "板块首屏是一张工具对照表，列「网站名 / 网址 / 优势劣势 / 教程 / 费用」——如可灵「支持运动笔刷」、通义万相「开源，大幅度运动很强」、海螺「非常听话，语义理解能力非常强」",
+     "note": "一张工具对照表（网站 / 优势劣势 / 教程 / 费用），另有镜头提示词、案例与工作流教程 —— **社区共建，质量不均**",
+     "license": null
     }
    ],
    "domain": "video"
@@ -16349,6 +16417,15 @@
      "url": "https://docs.comfy.org/tutorials/video/wan/wan-move",
      "src": "comfy-docs",
      "quote": "官方工作流通过轨迹引导实现更细的点级运动控制"
+    },
+    {
+     "kind": "docs",
+     "name": "WaytoAGI · 1.5 AI 视频（中文社区知识库）",
+     "url": "https://waytoagi.feishu.cn/wiki/SPXQwl5TXiau0mkKb1zcqHxVnEm",
+     "src": "waytoagi-wiki",
+     "quote": "板块首屏是一张工具对照表，列「网站名 / 网址 / 优势劣势 / 教程 / 费用」——如可灵「支持运动笔刷」、通义万相「开源，大幅度运动很强」、海螺「非常听话，语义理解能力非常强」",
+     "note": "一张工具对照表（网站 / 优势劣势 / 教程 / 费用），另有镜头提示词、案例与工作流教程 —— **社区共建，质量不均**",
+     "license": null
     }
    ],
    "domain": "video"
@@ -16380,6 +16457,15 @@
      "url": "https://docs.comfy.org/tutorials/video/wan/wan-flf",
      "src": "comfy-docs",
      "quote": "官方教程说明如何在两张关键画面之间补出过渡"
+    },
+    {
+     "kind": "docs",
+     "name": "WaytoAGI · 1.5 AI 视频（中文社区知识库）",
+     "url": "https://waytoagi.feishu.cn/wiki/SPXQwl5TXiau0mkKb1zcqHxVnEm",
+     "src": "waytoagi-wiki",
+     "quote": "板块首屏是一张工具对照表，列「网站名 / 网址 / 优势劣势 / 教程 / 费用」——如可灵「支持运动笔刷」、通义万相「开源，大幅度运动很强」、海螺「非常听话，语义理解能力非常强」",
+     "note": "一张工具对照表（网站 / 优势劣势 / 教程 / 费用），另有镜头提示词、案例与工作流教程 —— **社区共建，质量不均**",
+     "license": null
     }
    ],
    "domain": "video"
@@ -16438,6 +16524,15 @@
      "url": "https://docs.comfy.org/tutorials/basic/inpaint",
      "src": "comfy-docs",
      "quote": "官方基础教程，从涂选区域到重绘出图的完整一条流程"
+    },
+    {
+     "kind": "docs",
+     "name": "WaytoAGI · 1.4 AI 绘画（中文社区知识库）",
+     "url": "https://waytoagi.feishu.cn/wiki/Q5ddwxfkMiVUZBkQXN7cgXf4nOb",
+     "src": "waytoagi-wiki",
+     "quote": "同样是一张工具表，Midjourney / 悠船 / SD / 哩布哩布 / 即梦 / 豆包 / 星流 / 可图 / GPT-4o 各挂一份中文工具教程",
+     "note": "Midjourney / SD / 即梦 / 豆包 / 星流 / 可图 各挂一份中文工具教程，另有「给新人的建议」与实用工具 —— **社区共建，质量不均**",
+     "license": null
     }
    ],
    "aliases": [
@@ -16506,6 +16601,15 @@
      "src": "gh-comfy-zho",
      "quote": "GitHub · ZHO 的 ComfyUI 中文工作流合集",
      "note": "**模特图与试穿要靠工作流串起来**（换装、姿态、脸部一致），这份是中文侧被抄得最多的工作流合集。⚠️ 最后推送 2024-12，节点可能对不上新版 ComfyUI。"
+    },
+    {
+     "kind": "docs",
+     "name": "WaytoAGI · 1.4 AI 绘画（中文社区知识库）",
+     "url": "https://waytoagi.feishu.cn/wiki/Q5ddwxfkMiVUZBkQXN7cgXf4nOb",
+     "src": "waytoagi-wiki",
+     "quote": "同样是一张工具表，Midjourney / 悠船 / SD / 哩布哩布 / 即梦 / 豆包 / 星流 / 可图 / GPT-4o 各挂一份中文工具教程",
+     "note": "Midjourney / SD / 即梦 / 豆包 / 星流 / 可图 各挂一份中文工具教程，另有「给新人的建议」与实用工具 —— **社区共建，质量不均**",
+     "license": null
     }
    ],
    "aliases": [
@@ -16564,6 +16668,15 @@
      "url": "https://docs.comfy.org/tutorials/image/qwen/qwen-image",
      "src": "comfy-docs",
      "quote": "官方教程给出 Qwen-Image 的本地出图工作流入口"
+    },
+    {
+     "kind": "docs",
+     "name": "WaytoAGI · 1.4 AI 绘画（中文社区知识库）",
+     "url": "https://waytoagi.feishu.cn/wiki/Q5ddwxfkMiVUZBkQXN7cgXf4nOb",
+     "src": "waytoagi-wiki",
+     "quote": "同样是一张工具表，Midjourney / 悠船 / SD / 哩布哩布 / 即梦 / 豆包 / 星流 / 可图 / GPT-4o 各挂一份中文工具教程",
+     "note": "Midjourney / SD / 即梦 / 豆包 / 星流 / 可图 各挂一份中文工具教程，另有「给新人的建议」与实用工具 —— **社区共建，质量不均**",
+     "license": null
     }
    ],
    "aliases": [
@@ -16631,6 +16744,15 @@
      "src": "gh-sdbook",
      "quote": "GitHub · StableDiffusionBook（中文 AI 绘画手册）",
      "note": "**写真与头像最吃提示词与参数**，这本中文手册把常用参数、模型选择、常见翻车讲了一遍。⚠️ 最后推送 2024-10，讲的是 SD 时代的做法。"
+    },
+    {
+     "kind": "docs",
+     "name": "WaytoAGI · 1.4 AI 绘画（中文社区知识库）",
+     "url": "https://waytoagi.feishu.cn/wiki/Q5ddwxfkMiVUZBkQXN7cgXf4nOb",
+     "src": "waytoagi-wiki",
+     "quote": "同样是一张工具表，Midjourney / 悠船 / SD / 哩布哩布 / 即梦 / 豆包 / 星流 / 可图 / GPT-4o 各挂一份中文工具教程",
+     "note": "Midjourney / SD / 即梦 / 豆包 / 星流 / 可图 各挂一份中文工具教程，另有「给新人的建议」与实用工具 —— **社区共建，质量不均**",
+     "license": null
     }
    ],
    "aliases": [
@@ -16704,6 +16826,15 @@
      "src": "controlnet-aux-gh",
      "license": "Apache-2.0",
      "quote": "Fannovel16/comfyui_controlnet_aux：ComfyUI's ControlNet Auxiliary Preprocessors（★4,141）"
+    },
+    {
+     "kind": "docs",
+     "name": "WaytoAGI · 1.4 AI 绘画（中文社区知识库）",
+     "url": "https://waytoagi.feishu.cn/wiki/Q5ddwxfkMiVUZBkQXN7cgXf4nOb",
+     "src": "waytoagi-wiki",
+     "quote": "同样是一张工具表，Midjourney / 悠船 / SD / 哩布哩布 / 即梦 / 豆包 / 星流 / 可图 / GPT-4o 各挂一份中文工具教程",
+     "note": "Midjourney / SD / 即梦 / 豆包 / 星流 / 可图 各挂一份中文工具教程，另有「给新人的建议」与实用工具 —— **社区共建，质量不均**",
+     "license": null
     }
    ],
    "aliases": [
@@ -16816,6 +16947,15 @@
      "src": "gh-sdbook",
      "quote": "GitHub · StableDiffusionBook（中文 AI 绘画手册）",
      "note": "Logo 与矢量图形的关键在提示词描述风格与构图，这本的提示词章节可以直接抄。⚠️ 2024-10 之后未更新。"
+    },
+    {
+     "kind": "docs",
+     "name": "WaytoAGI · 1.4 AI 绘画（中文社区知识库）",
+     "url": "https://waytoagi.feishu.cn/wiki/Q5ddwxfkMiVUZBkQXN7cgXf4nOb",
+     "src": "waytoagi-wiki",
+     "quote": "同样是一张工具表，Midjourney / 悠船 / SD / 哩布哩布 / 即梦 / 豆包 / 星流 / 可图 / GPT-4o 各挂一份中文工具教程",
+     "note": "Midjourney / SD / 即梦 / 豆包 / 星流 / 可图 各挂一份中文工具教程，另有「给新人的建议」与实用工具 —— **社区共建，质量不均**",
+     "license": null
     }
    ],
    "aliases": [
@@ -16922,6 +17062,15 @@
      "src": "hf-diffusion-class-gh",
      "license": "Apache-2.0",
      "quote": "huggingface/diffusion-models-class：Materials for the Hugging Face Diffusion Models Course（★4,349）"
+    },
+    {
+     "kind": "docs",
+     "name": "WaytoAGI · 1.9 ComfyUI 工作流（中文社区知识库）",
+     "url": "https://waytoagi.feishu.cn/wiki/AxZPwElC6iZ0aqk2hjOcI3Y9nFg",
+     "src": "waytoagi-wiki",
+     "quote": "子页列表：入门教程、模型使用+训练、ControlNet、工作流详解、节点开发、视频生成教程、Flux 工具教程",
+     "note": "子页有入门、模型训练、ControlNet、工作流详解、节点开发、视频生成 —— ⚠️ **多数停更在 2024–2025 年**，节点与模型可能已对不上",
+     "license": null
     }
    ],
    "aliases": [
@@ -16996,6 +17145,15 @@
      "src": "gh-comfy-zho",
      "quote": "GitHub · ZHO 的 ComfyUI 中文工作流合集",
      "note": "**游戏美术要的是批量与一致性** —— 同一套工作流跑不同素材。这份合集里有可直接导入的 JSON。⚠️ 2024-12 后未更新。"
+    },
+    {
+     "kind": "docs",
+     "name": "WaytoAGI · 1.4 AI 绘画（中文社区知识库）",
+     "url": "https://waytoagi.feishu.cn/wiki/Q5ddwxfkMiVUZBkQXN7cgXf4nOb",
+     "src": "waytoagi-wiki",
+     "quote": "同样是一张工具表，Midjourney / 悠船 / SD / 哩布哩布 / 即梦 / 豆包 / 星流 / 可图 / GPT-4o 各挂一份中文工具教程",
+     "note": "Midjourney / SD / 即梦 / 豆包 / 星流 / 可图 各挂一份中文工具教程，另有「给新人的建议」与实用工具 —— **社区共建，质量不均**",
+     "license": null
     }
    ],
    "aliases": [
@@ -17062,6 +17220,15 @@
      "src": "gh-llm-action",
      "quote": "GitHub · liguodongiot/llm-action（大模型工程化实战）",
      "note": "**中文侧讲「怎么把模型接进工程」最全的一本**：推理加速、显存优化、部署形态都有成篇内容。写代码助手最先撞上的不是模型选型，是这些。"
+    },
+    {
+     "kind": "docs",
+     "name": "WaytoAGI · 2.0 AI 编程（中文社区知识库）",
+     "url": "https://waytoagi.feishu.cn/wiki/Pxj8wsMmOii7ZSkN0mYc8xdtnHb",
+     "src": "waytoagi-wiki",
+     "quote": "分新手入门、工具专区（Claude Code / Cursor / Trae / Codex）、实战案例、进阶与深度四区，另有一张 AI 编程工具对比表按门槛分档",
+     "note": "新手入门 / 工具专区（Claude Code、Cursor、Trae、Codex）/ 实战案例，外加一张按门槛分档的工具对比表 —— **社区共建，质量不均**",
+     "license": null
     }
    ],
    "aliases": [
@@ -17292,6 +17459,15 @@
      "src": "gh-langchain-zh",
      "quote": "GitHub · LangChain 中文入门教程",
      "note": "站上这一类的项目大多建在 LangChain 上（★9,095 的中文入门）。⚠️ **LangChain 版本变动快**，跟着敲之前先对一下你装的版本。"
+    },
+    {
+     "kind": "docs",
+     "name": "WaytoAGI · 1.3 AI Agents（智能体）（中文社区知识库）",
+     "url": "https://waytoagi.feishu.cn/wiki/GFS0wJB78izVBmk3LVgcCn2MnCh",
+     "src": "waytoagi-wiki",
+     "quote": "学习路径直接指向 Lilian Weng 那篇 agent 综述，另有社区 Agent 开发者榜单与共创 Bot 试玩",
+     "note": "学习路径指向 Lilian Weng 那篇 agent 综述，另有社区开发者榜单与共创 Bot 试玩 —— ⚠️ **这块很薄**，正文两百余字",
+     "license": null
     }
    ],
    "aliases": [
@@ -17467,6 +17643,15 @@
      "src": "gh-llm-action",
      "quote": "GitHub · liguodongiot/llm-action（大模型工程化实战）",
      "note": "多模型接入要解决的是**同一件事在不同模型上多少钱、多久出结果**，这本里有推理成本与加速的成篇内容。"
+    },
+    {
+     "kind": "docs",
+     "name": "WaytoAGI · 1.2 Prompts（提示词）（中文社区知识库）",
+     "url": "https://waytoagi.feishu.cn/wiki/Q5mXww4rriujFFkFQOzc8uIsnah",
+     "src": "waytoagi-wiki",
+     "quote": "目录分 OpenAI 官方指南、吴恩达讲 Prompt、微软与 Claude 教程、方法论与论文精读、最佳实践，另有 12 个精选 prompt 框架",
+     "note": "目录分 OpenAI 官方指南、吴恩达讲 Prompt、微软与 Claude 教程、方法论精读、最佳实践 —— **社区共建，质量不均**",
+     "license": null
     }
    ],
    "aliases": [
@@ -17539,6 +17724,15 @@
      "src": "gh-gptsovits-cn",
      "quote": "GPT-SoVITS 官方中文文档",
      "note": "**长文朗读的难点是音色一致与断句**。这份官方中文文档把「1 分钟素材训一个音色」的完整步骤写清楚了，中文社区教程也大多以它为准。"
+    },
+    {
+     "kind": "docs",
+     "name": "WaytoAGI · 1.7 AI 数字人+语音合成（中文社区知识库）",
+     "url": "https://waytoagi.feishu.cn/wiki/IOO6wQKDKiMrmzk1oDxcGFpFnFh",
+     "src": "waytoagi-wiki",
+     "quote": "把数字人分成服务型（虚拟主播 / 客服 / 助手）、表演型（虚拟偶像）、身份型（数字分身）三类，核心技术拆到语音识别 / 语音合成 / 情感计算",
+     "note": "把数字人分服务型 / 表演型 / 身份型三类，技术拆到语音识别、语音合成、情感计算 —— ⚠️ **是概念地图不是操作步骤**，动手教程往 1.5 / 1.9 找",
+     "license": null
     }
    ]
   },
@@ -17596,6 +17790,15 @@
      "src": "gh-pyvideotrans-doc",
      "quote": "pyvideotrans 官方仓库（中文）",
      "note": "**整条配音流水线的中文说明**：识别 → 翻译 → 合成 → 回封装，每一段可以换哪些引擎都列了。⚠️ GPL-3.0 是传染性许可。"
+    },
+    {
+     "kind": "docs",
+     "name": "WaytoAGI · 1.7 AI 数字人+语音合成（中文社区知识库）",
+     "url": "https://waytoagi.feishu.cn/wiki/IOO6wQKDKiMrmzk1oDxcGFpFnFh",
+     "src": "waytoagi-wiki",
+     "quote": "把数字人分成服务型（虚拟主播 / 客服 / 助手）、表演型（虚拟偶像）、身份型（数字分身）三类，核心技术拆到语音识别 / 语音合成 / 情感计算",
+     "note": "把数字人分服务型 / 表演型 / 身份型三类，技术拆到语音识别、语音合成、情感计算 —— ⚠️ **是概念地图不是操作步骤**，动手教程往 1.5 / 1.9 找",
+     "license": null
     }
    ]
   },
@@ -17662,6 +17865,15 @@
      "src": "gh-cosyvoice-doc",
      "quote": "CosyVoice 官方仓库文档",
      "note": "**语音助手要的是流式合成与低延迟**，这份文档给了推理/训练/部署的全栈说明（Apache-2.0）。⚠️ 仓库已从 FunAudioLLM 迁到 QwenAudio 名下。"
+    },
+    {
+     "kind": "docs",
+     "name": "WaytoAGI · 1.7 AI 数字人+语音合成（中文社区知识库）",
+     "url": "https://waytoagi.feishu.cn/wiki/IOO6wQKDKiMrmzk1oDxcGFpFnFh",
+     "src": "waytoagi-wiki",
+     "quote": "把数字人分成服务型（虚拟主播 / 客服 / 助手）、表演型（虚拟偶像）、身份型（数字分身）三类，核心技术拆到语音识别 / 语音合成 / 情感计算",
+     "note": "把数字人分服务型 / 表演型 / 身份型三类，技术拆到语音识别、语音合成、情感计算 —— ⚠️ **是概念地图不是操作步骤**，动手教程往 1.5 / 1.9 找",
+     "license": null
     }
    ]
   },
@@ -17728,6 +17940,15 @@
      "src": "gh-cosyvoice-doc",
      "quote": "CosyVoice 官方仓库文档",
      "note": "⚠️ **这一条是借用**：配乐这一类目前没找到成体系的中文教程，先放一份讲「音频模型怎么在本机跑起来」的中文文档顶上。**这是缺口不是答案**，找到真正讲音乐生成的中文材料就替换。"
+    },
+    {
+     "kind": "docs",
+     "name": "WaytoAGI · 1.6 AI 音乐（中文社区知识库）",
+     "url": "https://waytoagi.feishu.cn/wiki/P7N8wwy0tirs79klAgJc6FlCn0d",
+     "src": "waytoagi-wiki",
+     "quote": "入口分 Suno 教程、Udio 教程、音乐资讯、创作案例、风格流派五块，另有一份《PROMPTS FOR AI DANCE MUSIC》提示词分七大类",
+     "note": "Suno 与 Udio 中文教程、创作案例、风格流派，另有一份分七大类的提示词手册 —— **自述是「共享编辑文档」，谁都能改**",
+     "license": null
     }
    ]
   },
@@ -17819,6 +18040,15 @@
      "src": "gh-chattts-cn",
      "quote": "ChatTTS 官方中文文档",
      "note": "对话场景的中文语音模型（★39,776），文档讲了口语化韵律怎么调。⚠️ **AGPL-3.0，传染性最强的一档** —— 接进自家服务前务必看清。"
+    },
+    {
+     "kind": "docs",
+     "name": "WaytoAGI · 1.7 AI 数字人+语音合成（中文社区知识库）",
+     "url": "https://waytoagi.feishu.cn/wiki/IOO6wQKDKiMrmzk1oDxcGFpFnFh",
+     "src": "waytoagi-wiki",
+     "quote": "把数字人分成服务型（虚拟主播 / 客服 / 助手）、表演型（虚拟偶像）、身份型（数字分身）三类，核心技术拆到语音识别 / 语音合成 / 情感计算",
+     "note": "把数字人分服务型 / 表演型 / 身份型三类，技术拆到语音识别、语音合成、情感计算 —— ⚠️ **是概念地图不是操作步骤**，动手教程往 1.5 / 1.9 找",
+     "license": null
     }
    ]
   }

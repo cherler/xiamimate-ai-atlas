@@ -133,7 +133,8 @@ export default function BasicsPage() {
             <h3 className="text-[19px] font-semibold border-l-[3px] border-yes pl-3 mt-3">{g.group}</h3>
             <div className="grid gap-2.5 sm:grid-cols-2">
               {g.items.map((t) => (
-                <a key={t.name} href={t.repo ? `https://github.com/${t.repo}` : (t as { url?: string }).url}
+                <div key={t.name} className="flex flex-col">
+                <a href={t.repo ? `https://github.com/${t.repo}` : (t as { url?: string }).url}
                   target="_blank" rel="noreferrer"
                   className="group block border border-rule bg-paper/60 px-3.5 py-3 hover:border-yes hover:bg-yes/5">
                   <p className="text-[15px] font-semibold group-hover:text-yes-ink">{t.name} ↗</p>
@@ -148,13 +149,24 @@ export default function BasicsPage() {
                   <Rich text={t.caveat} className="block text-[13px] leading-relaxed text-muted mt-1.5 border-l-2 border-no/50 pl-2.5" />
                   {/* 有「该看哪几块」就列出来。**负责人的原话是「内容太多，想读却总是读不下去」** ——
                       对这种超大知识库，给一条链接等于没给；得直接说去看哪几节。 */}
-                  {"sections" in t && Array.isArray((t as { sections?: string[] }).sections) && (
-                    <p className="mt-2 text-[12.5px] text-muted">
-                      <b className="text-ink">先看这几块：</b>
-                      {(t as { sections: string[] }).sections.join(" · ")}
-                    </p>
-                  )}
                 </a>
+                {/**
+                  * **板块要能点。** 原来只把板块名排成一行文字 ——
+                  * 读者还得自己回到那个 36 个板块的目录里去找，等于没解决
+                  *「内容太多读不下去」。2026-08-13 用浏览器逐个点出了各板块的
+                  * wiki token（侧栏是 div 不是 a，抓 HTML 里没有），现在直接跳进去。
+                  * ⚠️ 放在卡片 `<a>` **外面** —— 链接不能嵌套，套进去浏览器会把它拆开。
+                  */}
+                {"sections" in t && Array.isArray((t as { sections?: unknown[] }).sections) && (
+                  <p className="mt-1.5 text-[12.5px] leading-relaxed text-muted flex flex-wrap gap-x-2.5 gap-y-1">
+                    <b className="text-ink">直接跳进板块：</b>
+                    {(t as { sections: { name: string; url: string }[] }).sections.map((sec) => (
+                      <a key={sec.url} href={sec.url} target="_blank" rel="noreferrer"
+                        className="underline decoration-rule hover:text-ink hover:decoration-yes">{sec.name}</a>
+                    ))}
+                  </p>
+                )}
+                </div>
               ))}
             </div>
           </div>
