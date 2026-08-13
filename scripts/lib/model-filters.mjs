@@ -152,3 +152,44 @@ export const pick = (d) =>
  */
 export const THREED = /3d|mesh|trellis|tripo|hunyuan3d|rodin|meshy|spar3d|instantmesh|craftsman|shape|texgen|uv|rig/i;
 export const NOT_THREED = /world|motion|video|t2v|i2v|animate-|dance|audio|speech|vl-|-vl|embedding|rerank/i;
+
+/**
+ * **把同一代的一堆 SKU 折成一条，再按热度地板过滤。**
+ *
+ * ## 这个函数是为一个真 bug 建的（2026-08-13）
+ *
+ * 原来两支脚本各自内联这段逻辑，做法是「折叠取最早的那个当代表，然后**按代表的
+ * 下载/收藏判地板**」。`Wan-AI/Wan2.1-VACE-14B`（↓19,433 ♥501，万相的统一编辑线）
+ * 就这么被整代误杀了 —— 同一天还发了个 `Wan2.1-VACE-1.3B`（↓4,348 ♥143），
+ * 它更早一点点，于是成了代表，而它两个门槛都差一口气。
+ *
+ * **代表是最早的那个（日期纪律不能动），但热度必须看整代的最大值** ——
+ * 一代里有一个 SKU 火了，这一代就该留下。
+ *
+ * 顺带修了另一半：日期相同时按下载量高的当代表，
+ * 否则「代表」会随 API 返回顺序漂，而那个顺序不是我们能控制的。
+ *
+ * ⚠️ 这个 bug 是加魔搭那条源**照出来**的：魔搭那边把 VACE 报成「HF 没有」，
+ * 一查 HF 明明有 —— **交叉源的第一份价值不是发现新模型，是照出自己的漏**。
+ */
+export function foldGenerations(items, get) {
+  const groups = new Map();
+  for (const x of items) {
+    const k = genKey(get.id(x));
+    const g = groups.get(k);
+    const older = !g || get.created(x) < get.created(g.rep)
+      || (get.created(x) === get.created(g.rep) && get.downloads(x) > get.downloads(g.rep));
+    groups.set(k, {
+      rep: older ? x : g.rep,
+      n: (g?.n ?? 0) + 1,
+      // **整代的最大值**，不是代表的值
+      maxDl: Math.max(g?.maxDl ?? 0, get.downloads(x)),
+      maxLike: Math.max(g?.maxLike ?? 0, get.likes(x)),
+      // 这一代里指标最高的那个 SKU 叫什么 —— 人审时要看的是它，不是那个冷门小档
+      top: (g && g.maxDl >= get.downloads(x)) ? g.top : get.id(x),
+    });
+  }
+  const all = [...groups.values()].sort((a, b) => String(get.created(a.rep)).localeCompare(String(get.created(b.rep))));
+  const keep = all.filter((g) => g.maxDl >= FLOOR_DL || g.maxLike >= FLOOR_LIKE || get.freshMs(g.rep) >= FRESH);
+  return { all, keep, folded: items.length - all.length, thin: all.length - keep.length };
+}

@@ -85,6 +85,16 @@ const ORGS = [
   { org: "MiniMaxAI", m: "minimax-text", zh: "MiniMax · 文本", d: "text" },
   { org: "meta-llama", m: "llama", zh: "Meta · Llama", d: "text" },
   { org: "mistralai", m: "mistral-text", zh: "Mistral", d: "text" },
+  /**
+   * ⚠️ 这三家是 **2026-08-13 被魔搭那一支照出来的漏**：加魔搭时它报出
+   *「面壁 / 阶跃 / 上海 AI 实验室 —— 我们的 HF 扫描清单里根本没有」。
+   * 三家在 HF 上都有官方组织、都有百万级下载的模型，**只是我们一直没扫**。
+   * 交叉源的第一份价值不是新模型，是**照出自己漏了什么**。
+   */
+  { org: "openbmb", m: null, zh: "面壁 · MiniCPM", d: "text" },
+  { org: "internlm", m: null, zh: "上海 AI 实验室 · InternLM", d: "text" },
+  { org: "stepfun-ai", m: null, zh: "阶跃星辰 · Step", d: "text" },
+  { org: "stepfun-ai", m: null, zh: "阶跃星辰 · Step（语音）", d: "sound" },
   // ── AI 声音（2026-08-12 开）。闭源那几家（ElevenLabs / OpenAI / Gemini TTS /
   //    Lyria / Grok Voice）HF 上没有权重，谱系走各家官方文档。
   { org: "zai-org", m: "glm-voice", zh: "智谱 · 语音", d: "sound" },
@@ -99,7 +109,7 @@ const ORGS = [
  * 魔搭那一支要用同一套判据 —— 复制一份的结果一定是两边漂，
  * 而日志照样打「N 代」，看起来像结论。改判据请去那个文件，两支一起生效。
  */
-import { pick, NOISE, FLOOR_DL, FLOOR_LIKE, FRESH, genKey } from "./lib/model-filters.mjs";
+import { pick, NOISE, genKey, foldGenerations } from "./lib/model-filters.mjs";
 
 
 const rows = [];
@@ -125,19 +135,12 @@ for (const t of ORGS) {
      * 折掉多少条要**报出来**：静默的合并和静默的截断一样危险，
      * 人看到「1 条」时得知道背后是 1 个还是 32 个。
      */
-    const groups = new Map();
-    for (const x of raw) {
-      const k = genKey(x.id);
-      const g = groups.get(k);
-      if (!g || (x.createdAt ?? "") < (g.createdAt ?? "")) groups.set(k, { ...x, _n: (g?._n ?? 0) + 1 });
-      else g._n += 1;
-    }
-    const folded0 = [...groups.values()].sort((a, b) => (a.createdAt ?? "").localeCompare(b.createdAt ?? ""));
-    const keep = folded0.filter((x) =>
-      (x.downloads ?? 0) >= FLOOR_DL || (x.likes ?? 0) >= FLOOR_LIKE || Date.parse(x.createdAt ?? 0) >= FRESH);
-    const folded = raw.length - folded0.length;
-    const thin = folded0.length - keep.length;
-    // 回的条数逼近上限时**明说一句**：这时候「全部 N」不是这家的总数，是我们只看到了 N 个
+    const { keep: kept, folded, thin } = foldGenerations(raw, {
+      id: (x) => x.id, created: (x) => x.createdAt ?? "",
+      downloads: (x) => x.downloads ?? 0, likes: (x) => x.likes ?? 0,
+      freshMs: (x) => Date.parse(x.createdAt ?? 0),
+    });
+    const keep = kept.map((g) => ({ ...g.rep, _n: g.n, _top: g.top, _maxDl: g.maxDl, _maxLike: g.maxLike }));
     const capped = j.length >= 450 ? "（**已到 API 上限，可能还有没看到的**）" : "";
     console.log(`\n══ ${t.zh}（${t.org}）—— ${{ image: "出图", text: "文本", video: "视频", sound: "声音" }[t.d]}模型 ${keep.length} 代`
       + `（由 ${raw.length} 个仓库折成：省掉 ${folded} 个尺寸/精度档、`
@@ -150,6 +153,7 @@ for (const t of ORGS) {
         domain: t.d,
         // **createdAt，不是 lastModified** —— 见文件头
         date: (x.createdAt ?? "").slice(0, 10),
+        top: x._top ?? null,
         downloads: x.downloads ?? 0, likes: x.likes ?? 0,
         // 这一代折进来多少个仓库。**1 和 32 对人审的意义完全不同** ——
         // 只发过一个仓库的多半是实验品，几十个 SKU 的才是正经一代

@@ -33,7 +33,7 @@
 import { readFileSync, writeFileSync, existsSync } from "node:fs";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
-import { pick, NOISE, FLOOR_DL, FLOOR_LIKE, FRESH, genKey } from "./lib/model-filters.mjs";
+import { pick, NOISE, genKey, foldGenerations } from "./lib/model-filters.mjs";
 
 const PROXY = process.env.HTTPS_PROXY || process.env.HTTP_PROXY || "";
 if (PROXY && !process.env.NODE_USE_ENV_PROXY) {
@@ -75,11 +75,17 @@ const ORGS = [
   { org: "ZhipuAI", hf: "zai-org", m: "glm", zh: "智谱 · GLM", d: "text" },
   { org: "deepseek-ai", hf: "deepseek-ai", m: "deepseek", zh: "深度求索 · DeepSeek", d: "text" },
   { org: "Kwai-Kolors", hf: "Kwai-Kolors", m: "kolors", zh: "快手 · 可图", d: "image" },
-  // ↓ 这几家 **HF 侧没扫过**：`only_ms` 判不了，但它们本身就是发现 —— 见下面的汇总
-  { org: "iic", hf: null, m: null, zh: "阿里达摩院 · iic", d: "sound" },
-  { org: "stepfun-ai", hf: null, m: null, zh: "阶跃星辰 · Step", d: "text" },
-  { org: "OpenBMB", hf: null, m: null, zh: "面壁 · MiniCPM", d: "text" },
-  { org: "Shanghai_AI_Laboratory", hf: null, m: null, zh: "上海 AI 实验室 · InternLM", d: "text" },
+  // ↓ 2026-08-13 这三家已经补进 hf-lineage 的 ORGS（就是被这支脚本照出来的），现在能判了
+  { org: "stepfun-ai", hf: "stepfun-ai", m: null, zh: "阶跃星辰 · Step", d: "text" },
+  { org: "OpenBMB", hf: "openbmb", m: null, zh: "面壁 · MiniCPM", d: "text" },
+  { org: "Shanghai_AI_Laboratory", hf: "internlm", m: null, zh: "上海 AI 实验室 · InternLM", d: "text" },
+  /**
+   * ⚠️ **达摩院的 `iic` 在 Hugging Face 上根本没有组织**（2026-08-13 实测：
+   * `iic` 与 `damo-vilab` 两个名字查回来都是 0 条）。
+   * 这是**真·魔搭独有的一整个组织**，1,083 个模型 —— 也是加这个源最硬的那条理由。
+   * `hf: null` 在这里不是「还没扫」，是「那边没有」，所以单独标一句。
+   */
+  { org: "iic", hf: null, hf_absent: true, m: null, zh: "阿里达摩院 · iic（HF 上没有这个组织）", d: "sound" },
 ];
 
 /** 一次翻一页。魔搭默认只回 30 条，`PageSize` 拉满也不会更多 —— 所以必须翻页。 */
@@ -120,23 +126,19 @@ for (const t of ORGS) {
   const hit = pick(t.d);
   const raw = all.filter((x) => hit(`${t.org}/${x.Name}`) && !NOISE.test(x.Name));
 
-  // 折代际：同一代的一堆 SKU 只留最早的那个（和 HF 那支同一套 genKey）
-  const groups = new Map();
-  for (const x of raw) {
-    const k = genKey(x.Name);
-    const g = groups.get(k);
-    if (!g || (x.CreatedTime ?? 0) < (g.CreatedTime ?? 0)) groups.set(k, { ...x, _n: (g?._n ?? 0) + 1 });
-    else g._n += 1;
-  }
-  const folded0 = [...groups.values()].sort((a, b) => (a.CreatedTime ?? 0) - (b.CreatedTime ?? 0));
-  const keep = folded0.filter((x) =>
-    (x.Downloads ?? 0) >= FLOOR_DL || (x.Stars ?? 0) >= FLOOR_LIKE || (x.CreatedTime ?? 0) * 1000 >= FRESH);
+  // 折代际 + 地板过滤：判据与 HF 那支共用（**热度看整代最大值，不是代表的值** —— 见 lib 里那段注释）
+  const { keep: kept, folded, thin } = foldGenerations(raw, {
+    id: (x) => x.Name, created: (x) => x.CreatedTime ?? 0,
+    downloads: (x) => x.Downloads ?? 0, likes: (x) => x.Stars ?? 0,
+    freshMs: (x) => (x.CreatedTime ?? 0) * 1000,
+  });
+  const keep = kept.map((g) => ({ ...g.rep, _n: g.n, _top: g.top }));
 
   const judgeable = Boolean(hfKeys && t.hf);
   const onlyMs = judgeable ? keep.filter((x) => !hfKeys.has(genKey(x.Name))).length : 0;
   console.log(`\n══ ${t.zh}（${t.org}）—— ${keep.length} 代`
-    + `（由 ${raw.length} 个仓库折成：省掉 ${raw.length - folded0.length} 个尺寸/精度档、`
-    + `${folded0.length - keep.length} 个没人关注的）/ 组织下共看到 ${all.length} 个`
+    + `（由 ${raw.length} 个仓库折成：省掉 ${folded} 个尺寸/精度档、`
+    + `${thin} 个没人关注的）/ 组织下共看到 ${all.length} 个`
     + (judgeable ? ` · **HF 那一路没看到的 ${onlyMs} 代**` : " · ⚠️ HF 侧没扫这家，判不了「只有魔搭有」"));
 
   for (const x of keep) {
@@ -150,6 +152,9 @@ for (const t of ORGS) {
       license: x.License || null,
       zh_name: x.ChineseName || null,
       folded: x._n ?? 1,
+      // **这一代里指标最高的那个 SKU** —— 代表是最早的那个（日期纪律），
+      // 但人审时该看的是它：冷门小档当代表会让人以为这一代没人用
+      top: x._top ?? null,
       only_ms: only,
       url: `https://modelscope.cn/models/${t.org}/${x.Name}`,
     });
@@ -161,11 +166,16 @@ for (const t of ORGS) {
 
 const only = rows.filter((r) => r.only_ms === true).length;
 const blind = rows.filter((r) => r.only_ms === null).length;
-const noHf = [...new Set(ORGS.filter((t) => !t.hf).map((t) => `${t.zh}（${t.org}）`))];
+const noHf = [...new Set(ORGS.filter((t) => !t.hf && !t.hf_absent).map((t) => `${t.zh}（${t.org}）`))];
+const absent = [...new Set(ORGS.filter((t) => t.hf_absent).map((t) => `${t.zh}（${t.org}）`))];
 console.log(`\n共 ${rows.length} 代。`);
 console.log(`  · **${only} 代在 HF 那一路的候选里没出现**（🔵）—— 加这个源换来的就是这些。`);
 console.log(`    ⚠️ 「没出现」有两种：真的只发了魔搭，或者 HF 那边名字不一样 —— **人工看一眼才算数**。`);
 console.log(`  · ${blind} 代判不了：来自 HF 侧没扫过的组织。`);
+if (absent.length) {
+  console.log(`\n🔷 **这几家在 Hugging Face 上根本没有组织** —— 真·魔搭独有，加这个源最硬的理由：`);
+  for (const n of absent) console.log(`     ${n}`);
+}
 if (noHf.length) {
   console.log(`\n⚠️ **这几家我们的 HF 扫描清单里根本没有** —— 这本身是个发现，比上面那些候选更该先处理：`);
   for (const n of noHf) console.log(`     ${n}`);

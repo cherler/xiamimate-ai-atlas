@@ -4655,6 +4655,34 @@
    ],
    "manual": true,
    "note": "负责人 2026-08-13 点名加的中文侧模型源。**由 `node scripts/modelscope.mjs --json` 跑**，不走 watch 的通用抓法：这个接口是 **PUT**（不是 GET/POST）、要带 `Criterion` 组织过滤，watch 那套 GET 抓法调不动它。⚠️ 接口是用浏览器拦请求抓出来的，魔搭没有公开的列表 API 文档；`GET /api/v1/models` 回 404、`POST /api/v1/models` 回「user not logged in」。"
+  },
+  {
+   "id": "hf-wan-vace",
+   "tier": "S",
+   "kind": "html",
+   "vendor": "",
+   "name": "Hugging Face · Wan2.1-VACE-14B 模型卡",
+   "url": "https://huggingface.co/Wan-AI/Wan2.1-VACE-14B",
+   "refresh_days": 14,
+   "good_for": [
+    "version",
+    "capability"
+   ],
+   "note": "万相的统一编辑那一支"
+  },
+  {
+   "id": "hf-ltx-25",
+   "tier": "S",
+   "kind": "html",
+   "vendor": "",
+   "name": "Hugging Face · LTX-2.5 模型卡",
+   "url": "https://huggingface.co/Lightricks/LTX-2.5",
+   "refresh_days": 14,
+   "good_for": [
+    "version",
+    "capability"
+   ],
+   "note": "⚠️ **权重是受限访问**：未登录读 README 得到「Access to model Lightricks/LTX-2.5 is restricted」，只能引 API 返回的元数据（标签 / 许可 / 下载量）"
   }
  ],
  "$missing": [
