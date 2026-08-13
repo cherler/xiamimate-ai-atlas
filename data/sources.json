@@ -4109,6 +4109,45 @@
     "openweights"
    ],
    "note": "盯这条源的首要目的是**等 V4 出现**。2026-08-13 核过：官方组织下只有 V1/V2/V3，没有 V4"
+  },
+  {
+   "id": "bfl-flux3",
+   "tier": "A",
+   "kind": "html",
+   "vendor": "bfl",
+   "name": "Black Forest Labs 官方文档 · FLUX 3 概览",
+   "url": "https://docs.bfl.ml/flux_3/flux3_overview.md",
+   "refresh_days": 14,
+   "good_for": [
+    "capability"
+   ],
+   "note": "⚠️ 抓 docs.bfl.**ml** 的 `.md` 版 —— 官方 llms.txt 里给的就是这个域名，docs.bfl.ai 返回整站壳。盯它的首要目的是**等 preview 转正**与「视频编辑」上线"
+  },
+  {
+   "id": "anthropic-privacy",
+   "tier": "A",
+   "kind": "html",
+   "vendor": "",
+   "name": "Anthropic 官方隐私政策（含注册地址）",
+   "url": "https://www.anthropic.com/legal/privacy",
+   "refresh_days": 180,
+   "good_for": [
+    "hq"
+   ],
+   "note": "法务页面，地址变动极少 —— 半年看一次即可"
+  },
+  {
+   "id": "stability-terms",
+   "tier": "A",
+   "kind": "html",
+   "vendor": "",
+   "name": "Stability AI 官方服务条款（含法定地址）",
+   "url": "https://stability.ai/terms-of-use",
+   "refresh_days": 180,
+   "good_for": [
+    "hq"
+   ],
+   "note": "法务页面，地址变动极少 —— 半年看一次即可"
   }
  ],
  "$missing": [

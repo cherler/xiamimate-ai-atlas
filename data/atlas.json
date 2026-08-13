@@ -1162,7 +1162,8 @@
     "lon": -122.4194
    },
    "investors_coverage": "partial",
-   "investors_note": "官网股权披露只点名微软（约 27%）；其余 47% 原文只写「现任及前任员工与投资人」，未点名 —— 图上用 ⋯ 表示还有没录进来的。"
+   "investors_note": "官网股权披露只点名微软（约 27%）；其余 47% 原文只写「现任及前任员工与投资人」，未点名 —— 图上用 ⋯ 表示还有没录进来的。",
+   "hq_note": "⚠️ **2026-08-13 找过官方出处，没找到可摘的**：openai.com/contact 返回 403（反爬）。总部城市目前仍是常识判断 —— 站上照实标着「没有来源」。**这不是「不知道在哪」，是「拿不到能引的官方原话」**，两者对读者的意义不同。"
   },
   {
    "id": "runway",
@@ -1194,7 +1195,8 @@
     "lon": 34.7818
    },
    "note": "以色列 + 旧金山两地办公，主体记以色列。",
-   "investors_coverage": "full"
+   "investors_coverage": "full",
+   "hq_note": "⚠️ **2026-08-13 找过官方出处，没找到可摘的**：decart.ai/privacy-policy 200 但无地址线索。总部城市目前仍是常识判断 —— 站上照实标着「没有来源」。**这不是「不知道在哪」，是「拿不到能引的官方原话」**，两者对读者的意义不同。"
   },
   {
    "id": "lightricks",
@@ -1208,7 +1210,8 @@
     "lat": 31.7683,
     "lon": 35.2137
    },
-   "investors_coverage": "full"
+   "investors_coverage": "full",
+   "hq_note": "⚠️ **2026-08-13 找过官方出处，没找到可摘的**：lightricks.com/privacy-policy 404。总部城市目前仍是常识判断 —— 站上照实标着「没有来源」。**这不是「不知道在哪」，是「拿不到能引的官方原话」**，两者对读者的意义不同。"
   },
   {
    "id": "tencent",
@@ -1223,7 +1226,7 @@
     "lon": 114.0579
    },
    "hq_precision": "none",
-   "hq_note": "⚠️ 还没有来源，按常识填的（R21 会一直警告）。"
+   "hq_note": "⚠️ **2026-08-13 找过官方出处，没找到可摘的**：tencent.com/zh-cn/contact.html 404。总部城市目前仍是常识判断 —— 站上照实标着「没有来源」。**这不是「不知道在哪」，是「拿不到能引的官方原话」**，两者对读者的意义不同。"
   },
   {
    "id": "genmo",
@@ -1238,7 +1241,7 @@
     "lon": -122.4194
    },
    "hq_precision": "none",
-   "hq_note": "⚠️ 还没有来源，按常识填的（R21 会一直警告）。"
+   "hq_note": "⚠️ **2026-08-13 找过官方出处，没找到可摘的**：genmo.ai/privacy 只有 143 字。总部城市目前仍是常识判断 —— 站上照实标着「没有来源」。**这不是「不知道在哪」，是「拿不到能引的官方原话」**，两者对读者的意义不同。"
   },
   {
    "id": "rhymes",
@@ -1253,7 +1256,7 @@
     "lon": 139.6503
    },
    "hq_precision": "none",
-   "hq_note": "⚠️ 还没有来源，按常识填的（R21 会一直警告）。"
+   "hq_note": "⚠️ **2026-08-13 找过官方出处，没找到可摘的**：rhymes.ai/privacy-policy 连不上。总部城市目前仍是常识判断 —— 站上照实标着「没有来源」。**这不是「不知道在哪」，是「拿不到能引的官方原话」**，两者对读者的意义不同。"
   },
   {
    "id": "hpcai",
@@ -1282,7 +1285,8 @@
     "lat": 48,
     "lon": 7.85
    },
-   "note": "FLUX 系列。创始团队来自 Stable Diffusion 原班人马"
+   "note": "FLUX 系列。创始团队来自 Stable Diffusion 原班人马",
+   "hq_note": "⚠️ **2026-08-13 找过官方出处，没找到可摘的**：bfl.ai/legal/imprint 200 但只有 1,213 字且无地址；/legal/privacy 404。总部城市目前仍是常识判断 —— 站上照实标着「没有来源」。**这不是「不知道在哪」，是「拿不到能引的官方原话」**，两者对读者的意义不同。"
   },
   {
    "id": "stability",
@@ -1296,7 +1300,10 @@
     "lat": 51.5074,
     "lon": -0.1278
    },
-   "note": "Stable Diffusion 系列"
+   "note": "Stable Diffusion 系列",
+   "hq_src": "stability-terms",
+   "hq_quote": "官方服务条款的 DMCA 一节：「Stability AI Ltd ( https://stability.ai/ ) c/o **Legal Address: Fora - United House, 9 Pembridge Rd., London, W11 3JY, UK**」",
+   "hq_precision": "exact"
   },
   {
    "id": "krea",
@@ -1310,7 +1317,8 @@
     "lat": 37.7749,
     "lon": -122.4194
    },
-   "note": "Krea 系列"
+   "note": "Krea 系列",
+   "hq_note": "⚠️ **2026-08-13 找过官方出处，没找到可摘的**：krea.ai/legal/privacy 404。总部城市目前仍是常识判断 —— 站上照实标着「没有来源」。**这不是「不知道在哪」，是「拿不到能引的官方原话」**，两者对读者的意义不同。"
   },
   {
    "id": "midjourney",
@@ -1324,7 +1332,8 @@
     "lat": 37.7749,
     "lon": -122.4194
    },
-   "note": "总部为公开常识（Wikipedia / CB Insights），**无官方来源** —— 与既有 10 家同待遇，R21 照常警告"
+   "note": "总部为公开常识（Wikipedia / CB Insights），**无官方来源** —— 与既有 10 家同待遇，R21 照常警告",
+   "hq_note": "⚠️ **2026-08-13 找过官方出处，没找到可摘的**：docs.midjourney.com 的服务条款返回 403。总部城市目前仍是常识判断 —— 站上照实标着「没有来源」。**这不是「不知道在哪」，是「拿不到能引的官方原话」**，两者对读者的意义不同。"
   },
   {
    "id": "ideogram",
@@ -1338,7 +1347,8 @@
     "lat": 43.6532,
     "lon": -79.3832
    },
-   "note": "总部为公开常识（CB Insights），无官方来源"
+   "note": "总部为公开常识（CB Insights），无官方来源",
+   "hq_note": "⚠️ **2026-08-13 找过官方出处，没找到可摘的**：about.ideogram.ai 的隐私政策 200 但通篇没有地址字样。总部城市目前仍是常识判断 —— 站上照实标着「没有来源」。**这不是「不知道在哪」，是「拿不到能引的官方原话」**，两者对读者的意义不同。"
   },
   {
    "id": "recraft",
@@ -1352,7 +1362,8 @@
     "lat": 37.7749,
     "lon": -122.4194
    },
-   "note": "总部为公开常识，无官方来源"
+   "note": "总部为公开常识，无官方来源",
+   "hq_note": "⚠️ **2026-08-13 找过官方出处，没找到可摘的**：recraft.ai/privacy 200 但没有地址。总部城市目前仍是常识判断 —— 站上照实标着「没有来源」。**这不是「不知道在哪」，是「拿不到能引的官方原话」**，两者对读者的意义不同。"
   },
   {
    "id": "microsoft",
@@ -1380,7 +1391,8 @@
     "lat": 37.354,
     "lon": -121.955
    },
-   "note": "PixelDiT：不走 VAE 的像素空间扩散，和主流 latent 那一支是两条路"
+   "note": "PixelDiT：不走 VAE 的像素空间扩散，和主流 latent 那一支是两条路",
+   "hq_note": "⚠️ **2026-08-13 找过官方出处，没找到可摘的**：nvidia.com 招聘页 200 但无地址字样。总部城市目前仍是常识判断 —— 站上照实标着「没有来源」。**这不是「不知道在哪」，是「拿不到能引的官方原话」**，两者对读者的意义不同。"
   },
   {
    "id": "baidu",
@@ -1394,7 +1406,8 @@
     "lat": 40.057,
     "lon": 116.307
    },
-   "note": "文心 ERNIE 系列的出图分支"
+   "note": "文心 ERNIE 系列的出图分支",
+   "hq_note": "⚠️ **2026-08-13 找过官方出处，没找到可摘的**：home.baidu.com/contact 404。总部城市目前仍是常识判断 —— 站上照实标着「没有来源」。**这不是「不知道在哪」，是「拿不到能引的官方原话」**，两者对读者的意义不同。"
   },
   {
    "id": "hidream",
@@ -1436,7 +1449,10 @@
     "lat": 37.775,
     "lon": -122.418
    },
-   "note": "Claude 系列"
+   "note": "Claude 系列",
+   "hq_src": "anthropic-privacy",
+   "hq_quote": "官方隐私政策原文：「**Anthropic PBC with a registered address at 548 Market St, PMB 90375, San Francisco, CA 94104 (United States)**」（同段另列了爱尔兰实体 Anthropic Ireland, Limited 的都柏林地址）",
+   "hq_precision": "exact"
   },
   {
    "id": "deepseek",
@@ -1450,7 +1466,8 @@
     "lat": 30.274,
     "lon": 120.155
    },
-   "note": "DeepSeek 系列；幻方量化孵化"
+   "note": "DeepSeek 系列；幻方量化孵化",
+   "hq_note": "⚠️ **2026-08-13 找过官方出处，没找到可摘的**：deepseek.com 首页 553 字，无地址。总部城市目前仍是常识判断 —— 站上照实标着「没有来源」。**这不是「不知道在哪」，是「拿不到能引的官方原话」**，两者对读者的意义不同。"
   },
   {
    "id": "moonshot",
@@ -1464,7 +1481,8 @@
     "lat": 39.984,
     "lon": 116.307
    },
-   "note": "Kimi 系列"
+   "note": "Kimi 系列",
+   "hq_note": "⚠️ **2026-08-13 找过官方出处，没找到可摘的**：moonshot.cn 首页 894 字，无地址。总部城市目前仍是常识判断 —— 站上照实标着「没有来源」。**这不是「不知道在哪」，是「拿不到能引的官方原话」**，两者对读者的意义不同。"
   },
   {
    "id": "zhipu",
@@ -1478,7 +1496,8 @@
     "lat": 40.003,
     "lon": 116.326
    },
-   "note": "GLM 系列"
+   "note": "GLM 系列",
+   "hq_note": "⚠️ **2026-08-13 找过官方出处，没找到可摘的**：zhipuai.cn 首页 2,492 字，无地址。总部城市目前仍是常识判断 —— 站上照实标着「没有来源」。**这不是「不知道在哪」，是「拿不到能引的官方原话」**，两者对读者的意义不同。"
   },
   {
    "id": "meta",
@@ -1492,7 +1511,8 @@
     "lat": 37.485,
     "lon": -122.148
    },
-   "note": "Llama 系列"
+   "note": "Llama 系列",
+   "hq_note": "⚠️ **2026-08-13 找过官方出处，没找到可摘的**：facebook.com/privacy/policy 抓到 28 字（前端渲染）。总部城市目前仍是常识判断 —— 站上照实标着「没有来源」。**这不是「不知道在哪」，是「拿不到能引的官方原话」**，两者对读者的意义不同。"
   },
   {
    "id": "xai",
@@ -1520,13 +1540,15 @@
     "lat": 48.857,
     "lon": 2.352
    },
-   "note": "Mistral 系列"
+   "note": "Mistral 系列",
+   "hq_note": "⚠️ **2026-08-13 找过官方出处，没找到可摘的**：mistral.ai/terms 只有 1,631 字，是个壳。总部城市目前仍是常识判断 —— 站上照实标着「没有来源」。**这不是「不知道在哪」，是「拿不到能引的官方原话」**，两者对读者的意义不同。"
   },
   {
    "id": "elevenlabs",
    "zh": "ElevenLabs",
    "en": "ElevenLabs",
-   "kind": "模型厂商"
+   "kind": "模型厂商",
+   "hq_note": "⚠️ **2026-08-13 找过官方出处，没找到可摘的**：隐私政策 200，只写了服务器所在地（美国/荷兰/新加坡），不是公司地址。总部城市目前仍是常识判断 —— 站上照实标着「没有来源」。**这不是「不知道在哪」，是「拿不到能引的官方原话」**，两者对读者的意义不同。"
   },
   {
    "id": "fishaudio",
@@ -2977,6 +2999,23 @@
    "version_quote": "官方 HF 组织 hexgrad/Kokoro-82M-v1.1-zh，createdAt 2025-02-27（♥222）",
    "reach_cn": "blocked",
    "reach_note": "权重在 huggingface.co，该域直连不可达 —— **想自部署得先解决可达性**（本机实测 08-12）"
+  },
+  {
+   "id": "flux-video",
+   "class": "clip",
+   "family": "FLUX 3",
+   "zh": "FLUX 3",
+   "org": "bfl",
+   "version": "3",
+   "version_as_of": "2026-08",
+   "tier": "extended",
+   "domain": "video",
+   "status": "active",
+   "version_src": "bfl-flux3",
+   "version_quote": "官方文档 flux_3 一节：「**FLUX 3 is one multimodal model. Video with synchronized audio, one request shape keyed by mode.**」；同页「One model trained across image, video, and audio.」",
+   "note": "**Black Forest Labs 从图像跨进了视频。** 三种模式：`t2v`（纯提示词）、`i2v`（1–10 张图，可用 `[seconds, image]` 把关键帧钉到时间轴上，两张就是首尾帧）、Video Continuation（给一段 clip 接着往下生成）。官方规格：5–20 秒、24fps、`hd` 或 `fhd`；音频默认开，自述「multilingual speech with lipsync, effects, and ambience」。\n\n⚠️ **官方标着 preview**，并写明「**Video editing** and **Omni Reference with images and videos** will be available soon」——视频编辑还没有。\n\n**放在 Extended 而不是 Core，是负责人 2026-08-13 的决定**：clip 轨 9/10，按规则四进 Core 就要先踢一个出去，而「为了收新的去踢老的」不划算。⚠️ Extended 的含义是「库里有、不进主要视觉」——**它没有逐格核过的能力矩阵**，上面那些能力描述来自官方文档，不是我们逐格核验的结论。",
+   "arch": null,
+   "reach_cn": "ok"
   }
  ],
  "sources": {
@@ -4458,6 +4497,21 @@
   "skyreels-gh": {
    "name": "SkyworkAI/SkyReels-V3 官方仓库",
    "url": "https://github.com/SkyworkAI/SkyReels-V3",
+   "tier": "official"
+  },
+  "bfl-flux3": {
+   "name": "Black Forest Labs 官方文档 · FLUX 3 概览",
+   "url": "https://docs.bfl.ai/flux_3/flux3_overview",
+   "tier": "official"
+  },
+  "anthropic-privacy": {
+   "name": "Anthropic 官方隐私政策（含注册地址）",
+   "url": "https://www.anthropic.com/legal/privacy",
+   "tier": "official"
+  },
+  "stability-terms": {
+   "name": "Stability AI 官方服务条款（含法定地址）",
+   "url": "https://stability.ai/terms-of-use",
    "tier": "official"
   }
  },
@@ -14150,6 +14204,17 @@
    "note": "日期取 MiniMax 官方「模型发布记录」页；该页按发布日逐条列出",
    "parent": "mm-music-Music-2.6-小版本迭代（该页只标",
    "cap": "s-m-lyrics"
+  },
+  {
+   "id": "flux-video-FLUX 3-BFL 从图像跨进视频",
+   "m": "flux-video",
+   "version": "FLUX 3",
+   "date": "2026-08-01",
+   "added": "BFL 从图像跨进视频：t2v / i2v / 视频续写，音频默认开",
+   "src": "bfl-flux3",
+   "quote": "「FLUX 3 is one multimodal model. Video with synchronized audio, one request shape keyed by mode.」",
+   "note": "⚠️ **日期取的是「我们核到它时它已经在文档里」的月份（2026-08），不是发布日** —— 官方文档没标发布日期。宁可标粗，也不编一个精确到日的数字。",
+   "cap_skip": "这一代是这条产品线在视频方向的起点，不代表某一项能力首次出现"
   }
  ],
  "$versions": "版本谱系（演进图的数据）。**演进的主体是模型，不是能力。**\n\n原来那张演进图每行是一项能力、横轴是「我们能证明的最早时间」、粗细是几家支持。\n读者看完只得到「动作复刻 2025-12 出现、6/9 支持」—— 那是一次数据库查询的可视化，不涨知识。\n而且它得靠图注免责（「不是业界首次出现」）：**一张需要图注免责的图，说明它量错了东西。**\n\n这份数据画的是**厂商自己发布的版本和日期**，所以不需要免责。每条必须回答：\n**这一代新增了什么。** 只有版本号没有 added 的节点没有价值，不收。\n\n两个最好的来源，都不是「新闻」：\n  · **官方 Hugging Face 组织** —— 模型名本身就编码了能力与代际\n    （Wan2.1-FLF2V＝首尾帧、Wan2.2-S2V＝语音驱动、LTX 的 IC-LoRA-Ingredients＝角色参考），\n    发布时间由 HF API 给出，比任何新闻稿都准。\n  · **官方 API 更新日志** —— 可灵那份 31k 字符里有 170 条带日期的条目。\n\n覆盖不全是事实：万相和可灵能画出完整谱系，Runway/Vidu/Seedance 只有近期几个点，\nVeo/Sora/海螺/LTX 还没有。**图上要标出哪几条线是完整的、哪几条只是片段** ——\n画一条只有两个点的线却不说明，读者会以为这家两年只更新过两次。\n\n`cap` 把版本节点挂到能力 id 上，图上「点一项能力，看各家谁先谁后」靠它。\n**对不上的一律留空并写明理由（cap_skip），不硬凑** —— 硬凑一个 id，纵向那一刀就切错了。\n典型：Wan 的 S2V 是「语音驱动」，不等于我们轴上的「对口型」，两件事不合并；\n「换代」节点本身也不是新增单项能力。\n\n`id` + `parent` 把平铺记录变成**真的树**。分叉是真实存在的：\nWan2.1 底座上同时长出 FLF2V（首尾帧）和 VACE（统一编辑）两个变体，\nWan2.2 是换代接在 2.1 后面，Animate-2 又接在 Animate 后面。\n\n**没有父节点的就让它当根，不许为了让树好看硬接一条边** ——\nRunway 的 Aleph 是编辑线，不是 Gen 的后代，它自己是一棵树。\n\n⚠️ **日期必须取 HF 的 `createdAt`，不能取 `lastModified`。**\n第一版取错了字段，把「最后修改」当成了发布日期：Wan2.2 记成 2025-08-07（实际 2025-07-18）、\nAnimate 记成 2025-11-05（实际 2025-09-11）——**差了两个月**。\n仓库发布后还会被反复更新，两个字段根本不是一回事。\n这类错最阴：日期看着合理、图也画得出来，但整条时间线是歪的。\n\n覆盖不足要**写在数据里**，不是靠图上一句话糊过去：\n模型的 `lineage_note` 解释为什么它的节点少（太新 / 官方记录只回溯到某时）。\n校验 R58 强制：**核心模型少于 3 个节点却没写理由，就是错**。\n「我们没采到」和「它本来就没有」是两回事，读者有权知道是哪一种。",
