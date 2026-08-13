@@ -5034,6 +5034,31 @@
    "name": "ComfyUI 官方 · Hunyuan3D-2 教程",
    "url": "https://docs.comfy.org/tutorials/3d/hunyuan3D-2",
    "tier": "official"
+  },
+  "gh-hunyuan3d-21": {
+   "name": "Tencent-Hunyuan/Hunyuan3D-2.1 仓库",
+   "url": "https://github.com/Tencent-Hunyuan/Hunyuan3D-2.1",
+   "tier": "official"
+  },
+  "gh-hunyuan3d-part": {
+   "name": "Tencent-Hunyuan/Hunyuan3D-Part 仓库",
+   "url": "https://github.com/Tencent-Hunyuan/Hunyuan3D-Part",
+   "tier": "official"
+  },
+  "gh-spar3d": {
+   "name": "Stability-AI/stable-point-aware-3d 仓库",
+   "url": "https://github.com/Stability-AI/stable-point-aware-3d",
+   "tier": "official"
+  },
+  "gh-triposg": {
+   "name": "VAST-AI-Research/TripoSG 仓库",
+   "url": "https://github.com/VAST-AI-Research/TripoSG",
+   "tier": "official"
+  },
+  "gh-instantmesh": {
+   "name": "TencentARC/InstantMesh 仓库",
+   "url": "https://github.com/TencentARC/InstantMesh",
+   "tier": "official"
   }
  },
  "support": [
@@ -10698,9 +10723,9 @@
   {
    "id": "threed",
    "name": "AI 3D",
-   "state": "planned",
+   "state": "live",
    "volume": "第五个方向",
-   "note": "第五个方向，2026-08-13 立项。**一轨** —— 各家的 API 端点表长得几乎一样（生成 → 贴图 → 重拓扑 → 绑定 → 动画），说明这一侧还没分化出第二套坐标系。⚠️ **边界：收「产出可导出 3D 资产」的模型，不收世界模型与动作生成** —— 腾讯 HY-World 2.0、HY-Motion 1.0 都在同一个 GitHub 组织里，但它们的产出物不是资产（是可交互世界 / 动作序列），按规则一补充归别的方向。**state 先 planned**：R68 要求四个公共页每卷都有内容，补齐才转 live。",
+   "note": "第五个方向，2026-08-13 立项。**一轨** —— 各家的 API 端点表长得几乎一样（生成 → 贴图 → 重拓扑 → 绑定 → 动画），说明这一侧还没分化出第二套坐标系。⚠️ **边界：收「产出可导出 3D 资产」的模型，不收世界模型与动作生成** —— 腾讯 HY-World 2.0、HY-Motion 1.0 都在同一个 GitHub 组织里，但它们的产出物不是资产（是可交互世界 / 动作序列），按规则一补充归别的方向。**2026-08-13 当天转 live**：四个公共页（可用性 / 变更 / 资源 / 教程）的内容都补齐了，R68 才放行；场景应用也定了 4 个（游戏美术资产 / 3D 打印模型 / 商品三维展示 / 角色形象），空着的场景页比摆一块空板子诚实，但**空着就不该转 live**。⚠️ 转 live 不代表采完：91 格里还有 46 格 ⬜，方向页上照实写着。",
    "tracks": [
     {
      "id": "asset",
@@ -10709,7 +10734,8 @@
      "volume": "第一卷",
      "note": "给定文本或图，产出可导出的 3D 资产（网格 + 材质）"
     }
-   ]
+   ],
+   "href": "/threed"
   }
  ],
  "$domains": "前端的方向切换从这里渲染。**现在只有一个，界面上就只显示一个** —— 不做占位 tab 假装有别的。加方向 = 往这个数组里加一条 + 给模型标 domain，不动代码。\n\n**能力轴按方向隔离**（规则二再往上推一层）：能力也带 domain。clip 和 realtime 已经不能共用能力轴，视频和文本更不能 —— 「首尾帧」对文本模型没有意义，硬塞进同一张表只会造出一整片假的 ⬜。校验 R26 拦跨方向的格子。",
@@ -19549,6 +19575,208 @@
      "quote": "把数字人分成服务型（虚拟主播 / 客服 / 助手）、表演型（虚拟偶像）、身份型（数字分身）三类，核心技术拆到语音识别 / 语音合成 / 情感计算",
      "note": "把数字人分服务型 / 表演型 / 身份型三类，技术拆到语音识别、语音合成、情感计算 —— ⚠️ **是概念地图不是操作步骤**，动手教程往 1.5 / 1.9 找",
      "license": null
+    }
+   ]
+  },
+  {
+   "id": "game-asset",
+   "zh": "游戏美术资产",
+   "en": "Game-ready 3D asset",
+   "domain": "threed",
+   "intro": "给引擎用的单体资产：网格 + PBR 贴图，面数要压得住，最好还能拆成部件。",
+   "inputs": [
+    "一张概念图或一句描述"
+   ],
+   "output": "能导进引擎的带材质网格",
+   "skills": [],
+   "aliases": [
+    "3D 模型生成",
+    "游戏道具建模",
+    "game asset"
+   ],
+   "resources": [
+    {
+     "kind": "project",
+     "name": "TRELLIS（微软，文生/图生 3D）",
+     "url": "https://github.com/microsoft/TRELLIS",
+     "src": "gh-trellis",
+     "quote": "microsoft/TRELLIS：Official repo for paper「Structured 3D Latents for Scalable and Versatile 3D Generation」(CVPR'25 Spotlight)（★13,436）",
+     "license": "MIT",
+     "note": "开源侧星标最高的一支，许可 MIT —— 这一卷里少见的**标准开源协议**"
+    },
+    {
+     "kind": "project",
+     "name": "混元3D 2.1（带 PBR 材质）",
+     "url": "https://github.com/Tencent-Hunyuan/Hunyuan3D-2.1",
+     "src": "gh-hunyuan3d-21",
+     "quote": "Tencent-Hunyuan/Hunyuan3D-2.1：From Images to High-Fidelity 3D Assets with Production-Ready PBR Material（★3,833）",
+     "license": null,
+     "note": "⚠️ **许可是 tencent-hunyuan-community**（GitHub 识别为 NOASSERTION），厂商自定义协议不是标准开源协议，商用前要读条款"
+    },
+    {
+     "kind": "project",
+     "name": "混元3D-Part（把模型拆成部件）",
+     "url": "https://github.com/Tencent-Hunyuan/Hunyuan3D-Part",
+     "src": "gh-hunyuan3d-part",
+     "quote": "Tencent-Hunyuan/Hunyuan3D-Part：Hunyuan 3D Part Segmentation and Generation Pipeline（★525）",
+     "license": null,
+     "note": "⚠️ 同样是 NOASSERTION。部件拆分对游戏资产很关键（换装、可破坏），但这是**另一个仓库**，不在 2.1 里"
+    },
+    {
+     "kind": "docs",
+     "name": "ComfyUI 官方 · 3D 生成工作流",
+     "url": "https://docs.comfy.org/tutorials/3d/hunyuan3D-2",
+     "src": "comfy-3d-hunyuan",
+     "quote": "官方文档站单列 3D 教程，给可直接导入的工作流",
+     "license": null,
+     "note": "⚠️ 教程钉在 Hunyuan3D-2，而开源线已到 2.1 —— 节点与模型路径可能对不上"
+    },
+    {
+     "kind": "docs",
+     "name": "WaytoAGI · 1.8 AI 3D（中文社区知识库）",
+     "url": "https://waytoagi.feishu.cn/wiki/TRJEwdbQEiJjvykq8nJc6juvn6g",
+     "src": "waytoagi-wiki",
+     "quote": "中文社区知识库里专门的 3D 板块",
+     "license": null,
+     "note": "**社区共建、质量不均，也没有 LICENSE** —— 当线索用，别当权威"
+    }
+   ]
+  },
+  {
+   "id": "print-model",
+   "zh": "3D 打印模型",
+   "en": "3D-printable model",
+   "domain": "threed",
+   "intro": "要能真打出来：结构完整、背面也得有，还要过一遍可打印性检查。",
+   "inputs": [
+    "一张图或一句描述"
+   ],
+   "output": "可切片打印的网格",
+   "skills": [],
+   "aliases": [
+    "3D 打印",
+    "手办建模",
+    "printable model"
+   ],
+   "resources": [
+    {
+     "kind": "docs",
+     "name": "Meshy · 3D Printing API",
+     "url": "https://docs.meshy.ai/en/api/text-to-3d",
+     "src": "meshy-docs-api",
+     "quote": "文档单列「3D Printing API」，端点含 Analyze Printability、Repair Printability、Multi-Color Print",
+     "license": null,
+     "note": "**这一卷里唯一把「可打印性」做成端点的一家** —— 别家要靠自己在切片软件里查"
+    },
+    {
+     "kind": "project",
+     "name": "SPAR3D（Stability，补全看不见的那一面）",
+     "url": "https://github.com/Stability-AI/stable-point-aware-3d",
+     "src": "gh-spar3d",
+     "quote": "Stability-AI/stable-point-aware-3d：SPAR3D: Stable Point-Aware Reconstruction of 3D Objects from Single Images（★1,062）",
+     "license": null,
+     "note": "官方发布页强调「complete structure prediction … including areas typically hidden, such as the back of an object」—— **打印最怕背面是空的**。⚠️ 许可 NOASSERTION（Stability AI Community License）"
+    },
+    {
+     "kind": "docs",
+     "name": "WaytoAGI · 1.8 AI 3D（中文社区知识库）",
+     "url": "https://waytoagi.feishu.cn/wiki/TRJEwdbQEiJjvykq8nJc6juvn6g",
+     "src": "waytoagi-wiki",
+     "quote": "中文社区知识库里专门的 3D 板块",
+     "license": null,
+     "note": "社区共建、质量不均，没有 LICENSE"
+    }
+   ]
+  },
+  {
+   "id": "product-3d",
+   "zh": "商品三维展示",
+   "en": "Product 3D / AR view",
+   "domain": "threed",
+   "intro": "电商详情页里能转着看的那个模型，或手机上直接放进现实里看的那种。",
+   "inputs": [
+    "商品实拍图"
+   ],
+   "output": "网页或 AR 能加载的 3D 文件（glb / usdz）",
+   "skills": [],
+   "aliases": [
+    "电商 3D",
+    "AR 展示",
+    "商品建模"
+   ],
+   "resources": [
+    {
+     "kind": "docs",
+     "name": "Rodin API · 导出格式与材质",
+     "url": "https://developer.hyper3d.ai/llms.txt",
+     "src": "rodin-api-docs",
+     "quote": "Gen-2 参数：geometry_file_format「glb, usdz, fbx, obj, and stl」；material「PBR / Shaded / All」",
+     "license": null,
+     "note": "**usdz 是 iOS 上 AR 直看的格式** —— 这一格决定了能不能在手机上「放到桌上看看」"
+    },
+    {
+     "kind": "project",
+     "name": "TripoSG（VAST 的开源形状生成）",
+     "url": "https://github.com/VAST-AI-Research/TripoSG",
+     "src": "gh-triposg",
+     "quote": "VAST-AI-Research/TripoSG：High-Fidelity 3D Shape Synthesis using Large-Scale Rectified Flow Models（★1,743，MIT）",
+     "license": "MIT",
+     "note": "和闭源的 Tripo 是同一家，**这是能自己跑的那一支**，许可 MIT"
+    },
+    {
+     "kind": "project",
+     "name": "InstantMesh（单图快速出网格）",
+     "url": "https://github.com/TencentARC/InstantMesh",
+     "src": "gh-instantmesh",
+     "quote": "TencentARC/InstantMesh：Efficient 3D Mesh Generation from a Single Image with Sparse-view Large Reconstruction Models（★4,497，Apache-2.0）",
+     "license": "Apache-2.0",
+     "note": "⚠️ **最后推送停在 2025-01** —— 当基线看，别当最新实践"
+    }
+   ]
+  },
+  {
+   "id": "char-avatar",
+   "zh": "角色形象与可动角色",
+   "en": "Character & rigged avatar",
+   "domain": "threed",
+   "intro": "人物或拟人角色，最好出来就带骨骼，能直接摆姿势、接动作。",
+   "inputs": [
+    "角色设定图或描述"
+   ],
+   "output": "带骨骼、可驱动的角色模型",
+   "skills": [],
+   "aliases": [
+    "3D 角色",
+    "数字人形象",
+    "avatar 建模"
+   ],
+   "resources": [
+    {
+     "kind": "docs",
+     "name": "Tripo · Animation（绑定 + 重定向）",
+     "url": "https://platform.tripo3d.ai/docs/animation",
+     "src": "tripo-docs-animation",
+     "quote": "「animate = prerigcheck + rigging + retarget」，三个任务类型 animate_prerigcheck / animate_rig / animate_retarget，输出 glb 或 fbx",
+     "license": null,
+     "note": "⚠️ 文档明确警告：**网格编辑与重拓扑会抹掉骨骼数据**（bones / skin weights）—— 顺序错了要重来一遍"
+    },
+    {
+     "kind": "docs",
+     "name": "Rodin / ChatAvatar 官方文档",
+     "url": "https://developer.hyper3d.ai/llms.txt",
+     "src": "rodin-api-docs",
+     "quote": "文档简介：「ChatAvatar is production-ready, creating hyper-realistic 3D facial assets with PBR textures from text or images」",
+     "license": null,
+     "note": "⚠️ 官方自己把两者分开说：ChatAvatar 是 production-ready，Rodin 是 nearing production readiness"
+    },
+    {
+     "kind": "project",
+     "name": "混元3D-Part（部件拆分，换装用）",
+     "url": "https://github.com/Tencent-Hunyuan/Hunyuan3D-Part",
+     "src": "gh-hunyuan3d-part",
+     "quote": "Tencent-Hunyuan/Hunyuan3D-Part：Hunyuan 3D Part Segmentation and Generation Pipeline（★525）",
+     "license": null,
+     "note": "⚠️ 许可 NOASSERTION（腾讯自定义社区协议）"
     }
    ]
   }

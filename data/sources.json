@@ -4574,6 +4574,71 @@
     "resource"
    ],
    "note": "本地跑 3D 生成的官方工作流"
+  },
+  {
+   "id": "gh-hunyuan3d-21",
+   "tier": "S",
+   "kind": "html",
+   "vendor": "",
+   "name": "Tencent-Hunyuan/Hunyuan3D-2.1 仓库",
+   "url": "https://github.com/Tencent-Hunyuan/Hunyuan3D-2.1",
+   "refresh_days": 21,
+   "good_for": [
+    "resource"
+   ],
+   "note": "AI 3D 场景应用的公开资源，2026-08-13 走 GitHub API 核过描述、星标与许可"
+  },
+  {
+   "id": "gh-hunyuan3d-part",
+   "tier": "S",
+   "kind": "html",
+   "vendor": "",
+   "name": "Tencent-Hunyuan/Hunyuan3D-Part 仓库",
+   "url": "https://github.com/Tencent-Hunyuan/Hunyuan3D-Part",
+   "refresh_days": 21,
+   "good_for": [
+    "resource"
+   ],
+   "note": "AI 3D 场景应用的公开资源，2026-08-13 走 GitHub API 核过描述、星标与许可"
+  },
+  {
+   "id": "gh-spar3d",
+   "tier": "S",
+   "kind": "html",
+   "vendor": "",
+   "name": "Stability-AI/stable-point-aware-3d 仓库",
+   "url": "https://github.com/Stability-AI/stable-point-aware-3d",
+   "refresh_days": 21,
+   "good_for": [
+    "resource"
+   ],
+   "note": "AI 3D 场景应用的公开资源，2026-08-13 走 GitHub API 核过描述、星标与许可"
+  },
+  {
+   "id": "gh-triposg",
+   "tier": "S",
+   "kind": "html",
+   "vendor": "",
+   "name": "VAST-AI-Research/TripoSG 仓库",
+   "url": "https://github.com/VAST-AI-Research/TripoSG",
+   "refresh_days": 21,
+   "good_for": [
+    "resource"
+   ],
+   "note": "AI 3D 场景应用的公开资源，2026-08-13 走 GitHub API 核过描述、星标与许可"
+  },
+  {
+   "id": "gh-instantmesh",
+   "tier": "S",
+   "kind": "html",
+   "vendor": "",
+   "name": "TencentARC/InstantMesh 仓库",
+   "url": "https://github.com/TencentARC/InstantMesh",
+   "refresh_days": 21,
+   "good_for": [
+    "resource"
+   ],
+   "note": "AI 3D 场景应用的公开资源，2026-08-13 走 GitHub API 核过描述、星标与许可"
   }
  ],
  "$missing": [

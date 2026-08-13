@@ -136,8 +136,19 @@ function ApplicationRow({ app }: { app: Application }) {
           </div>
         </div>
 
+        {/**
+          * ⚠️ **一个 Skill 都没有时，别只留一个光标题。**
+          * 2026-08-13 AI 3D 上线当天看到的：标题「需要的能力」下面整片空白 ——
+          * 读者分不清是**这个应用不需要能力**还是**页面坏了**。
+          * 这一卷确实还没定 Skill，那就把这句话说出来。
+          */}
         <div className="mt-5">
           <p className="text-[11px] text-muted mb-2">需要的能力</p>
+          {skillItems.length === 0 && (
+            <p className="text-[12px] text-muted leading-relaxed">
+              这个方向还没定 Skill —— <b className="text-ink">是我们还没拆</b>，不是这件事不需要能力。
+            </p>
+          )}
           <div className="flex flex-wrap gap-1.5">
             {skillItems.map((skill) => (
               <Link
