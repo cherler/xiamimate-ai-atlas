@@ -1792,6 +1792,21 @@
    "name": "Deemos",
    "kind": "startup",
    "note": "Rodin 与 ChatAvatar。官方文档自述「Rodin and ChatAvatar by DeemosTech are advanced 3D asset generators」"
+  },
+  {
+   "id": "tencentarc",
+   "zh": "腾讯 ARC 实验室",
+   "en": "TencentARC",
+   "name": "TencentARC",
+   "kind": "lab",
+   "note": "腾讯 ARC 实验室，与混元是不同团队 —— InstantMesh 挂在这里"
+  },
+  {
+   "id": "apple",
+   "zh": "苹果",
+   "en": "Apple",
+   "name": "Apple",
+   "kind": "bigtech"
   }
  ],
  "$orgs": "公司是**一等实体**，不是模型上的一个字符串（此前 vendor 是字符串，结果阿里在库里成了两家）。产业链图、地球分布、投资关系全都挂在这一层上。\n**hq 只有 5 家有来源，其余 6 家仍然没有** —— 都是公开常识，但我们自己的规矩是「没有来源的结论就是猜的」，所以校验里 R21 会一直警告，前台也必须标出来。不许因为「大家都知道」就当成核过了。\n\n2026-08-08 补：从已有快照和官网拿到 5 家的可引证据，但**精度分三档**，写进 `hq_precision`：\n  exact     —— 页脚给出具体街道地址（只有字节）\n  province  —— **ICP 备案只证到省**（快手/MiniMax/阿里）。阿里那条只证到浙江，没证到杭州\n  ambiguous —— 招聘页同时列两个城市（Runway 的纽约与旧金山）\n\n剩下 6 家（生数、昆仑万维、Google DeepMind、OpenAI、Decart、Lightricks）没拿到：\n**生数官网 HTTPS 证书已过期**（ERR_CERT_DATE_INVALID）—— 这条本身就是信息；\n其余几家的 about/contact 页没有可机读的地址段。R21 会一直为它们报警告。\n\n**不许把 province 当成 exact 用。** 我们批评厂商「说了半句」的时候，自己不能也说半句。",
@@ -3383,6 +3398,42 @@
    "class": "asset",
    "status": "active",
    "tier": "core",
+   "domain": "threed"
+  },
+  {
+   "id": "instantmesh",
+   "family": "InstantMesh",
+   "org": "tencentarc",
+   "version": "v1",
+   "version_as_of": "2026-08-13",
+   "weights": "open",
+   "version_src": "hf-instantmesh",
+   "version_quote": "模型卡：「InstantMesh: Efficient 3D Mesh Generation from a Single Image with Sparse-view Large Reconstruction Models」（createdAt 2024-04-10，↓17,552 ♥339，Apache-2.0）",
+   "lineage_note": "扩展层，只记当前版本，没采谱系 —— **这是「没采」不是「它没有历史」**",
+   "reach_cn": "ok",
+   "reach_note": "huggingface.co / github.com（本机走代理实测可达）",
+   "note": "⚠️ **最后推送停在 2025-01**，当基线看别当最新实践。许可是 Apache-2.0，这一卷里少见的标准开源协议",
+   "class": "asset",
+   "status": "active",
+   "tier": "extended",
+   "domain": "threed"
+  },
+  {
+   "id": "apple-sharp",
+   "family": "Sharp",
+   "org": "apple",
+   "version": "Sharp",
+   "version_as_of": "2026-08-13",
+   "weights": "open",
+   "version_src": "hf-apple-sharp",
+   "version_quote": "模型卡标题：「Sharp — Monocular View Synthesis in Less Than a Second」（arXiv 2512.10685，createdAt 2025-12-12，♥402）",
+   "lineage_note": "扩展层，只记当前版本，没采谱系",
+   "reach_cn": "ok",
+   "reach_note": "huggingface.co（本机走代理实测可达）",
+   "note": "⚠️ **它的产出是「新视角合成」不是网格** —— 标签虽然挂着 image-to-3d，但官方标题写的是 view synthesis。放扩展层是因为它确实在这条赛道上被大量下载，**但不进主表**：产出物对不上这一卷的判据",
+   "class": "asset",
+   "status": "active",
+   "tier": "extended",
    "domain": "threed"
   }
  ],
@@ -5085,6 +5136,16 @@
   "meshy-changelog": {
    "name": "Meshy · API 更新日志",
    "url": "https://docs.meshy.ai/en/api/changelog",
+   "tier": "official"
+  },
+  "hf-instantmesh": {
+   "name": "Hugging Face · TencentARC/InstantMesh 模型卡",
+   "url": "https://huggingface.co/TencentARC/InstantMesh",
+   "tier": "official"
+  },
+  "hf-apple-sharp": {
+   "name": "Hugging Face · apple/Sharp 模型卡",
+   "url": "https://huggingface.co/apple/Sharp",
    "tier": "official"
   }
  },
@@ -10839,6 +10900,24 @@
    ],
    "revisit": "**已经兑现：2026-08-13 单开了 AI 3D 方向**（见 domains.threed）。⚠️ 顺带纠一条，且**纠了两次**：原文写的「Hunyuan3D 3.0」在腾讯的 GitHub 组织里确实查无此物 —— 但那句话说窄了：**开源那条线停在 2.1，托管那条线已经到 3.1**（腾讯官方 Replicate 账号 tencent/hunyuan-3d-3.1，标 Official）。**「GitHub 上没有」不等于「不存在」** —— 闭源那半边本来就不在 GitHub 上。",
    "domain": "image"
+  },
+  {
+   "name": "3D 重建 / 多视图几何（VGGT · DUSt3R · MASt3R · map-anything · Depth Anything 3 · Pi3）",
+   "vendor": "多家（Meta · NAVER · 港大等）",
+   "kind": "3d-reconstruction",
+   "date": "2026-08-13",
+   "by": "human",
+   "domain": "threed",
+   "why": "**HF 的 image-to-3d 标签下下载量最高的其实是这一类**（VGGT ↓49.9 万、Pi3X ↓72 万、Depth Anything 3 ↓8.4 万），远超我们收的任何一条生成线。但它们做的是**从照片重建三维**：产出是点云、相机位姿、深度图，**不是可导出的成品资产**，也不面向内容创作（用户是视觉研究与机器人）。按规则十二的 D-1 三条判据，一条都不满足。",
+   "same_bucket": [
+    "facebook/VGGT-1B",
+    "naver/DUSt3R",
+    "naver/MASt3R",
+    "facebook/map-anything",
+    "depth-anything/DA3-BASE",
+    "yyfz233/Pi3X"
+   ],
+   "revisit": "**如果以后收「3D 重建」，那是另一个方向不是这一卷** —— 和世界模型同样处理。⚠️ 顺带说明为什么这条要留档：不写下来，下一个人看到 HF 榜首全是它们，会以为我们漏了。"
   }
  ],
  "$since": "每项能力的 since 是**我们手上的日志能证明的最早时间**，不是业界首次出现。可追溯窗口起于 2024-01（Runway changelog）与 2024-09（Kling API 日志），窗口之前的看不见。自动抽取只给候选：第一遍就把「Tail frame control is **not** supported」当成了首尾帧的支持证据，把 Motion Brush 里的 element 当成了角色参考，把 Multi-Image to **Image** 当成了视频多参考 —— 三条都是人工核掉的。",

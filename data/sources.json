@@ -4697,6 +4697,34 @@
     "capability"
    ],
    "note": "两年的逐条记录（2024-11 起），**闭源那几家里少见的可引发布史**。⚠️ 纯前端渲染，要走 spa 抓法"
+  },
+  {
+   "id": "hf-instantmesh",
+   "tier": "S",
+   "kind": "html",
+   "vendor": "",
+   "name": "Hugging Face · TencentARC/InstantMesh 模型卡",
+   "url": "https://huggingface.co/TencentARC/InstantMesh",
+   "refresh_days": 21,
+   "good_for": [
+    "version",
+    "capability"
+   ],
+   "note": "AI 3D 扩展层，2026-08-13 核过下载量与许可"
+  },
+  {
+   "id": "hf-apple-sharp",
+   "tier": "S",
+   "kind": "html",
+   "vendor": "",
+   "name": "Hugging Face · apple/Sharp 模型卡",
+   "url": "https://huggingface.co/apple/Sharp",
+   "refresh_days": 21,
+   "good_for": [
+    "version",
+    "capability"
+   ],
+   "note": "AI 3D 扩展层，2026-08-13 核过下载量与许可"
   }
  ],
  "$missing": [
