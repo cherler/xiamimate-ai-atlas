@@ -4780,6 +4780,20 @@
     "capability"
    ],
    "note": "2025-10-22，摘要末尾给出火山方舟的体验地址"
+  },
+  {
+   "id": "hf-trellis2",
+   "tier": "S",
+   "kind": "html",
+   "vendor": "trellis",
+   "name": "Hugging Face · microsoft/TRELLIS.2-4B 模型卡",
+   "url": "https://huggingface.co/microsoft/TRELLIS.2-4B",
+   "refresh_days": 21,
+   "good_for": [
+    "capability",
+    "version"
+   ],
+   "note": "第二代的模型卡（论文 arXiv 2512.14692）—— 首发那一支的 README 只讲 TRELLIS 1，能力要来这里重核"
   }
  ],
  "$missing": [

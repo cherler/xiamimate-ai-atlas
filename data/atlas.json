@@ -3395,8 +3395,8 @@
    "version": "TRELLIS.2-4B",
    "version_as_of": "2026-08-13",
    "weights": "open",
-   "version_src": "hf-lineage",
-   "version_quote": "官方 HF 仓库 microsoft/TRELLIS.2-4B（createdAt 2025-12-01，↓1,290,980 ♥1,095）",
+   "version_src": "hf-trellis2",
+   "version_quote": "模型卡：「TRELLIS.2: Native and Compact Structured Latents for 3D Generation」，Model Name: TRELLIS.2-4B（论文 arXiv 2512.14692，↓1,290,980 ♥1,096，MIT）",
    "lineage_note": "谱系走 HF 官方组织的 createdAt：image-large（2024-12）→ text 三档（2025-03）→ TRELLIS.2-4B（2025-12）",
    "reach_cn": "ok",
    "reach_note": "github.com 可达（本机实测 08-13）",
@@ -5230,6 +5230,11 @@
   "arxiv-seed3d-10": {
    "name": "arXiv · Seed3D 1.0 技术报告",
    "url": "https://arxiv.org/abs/2510.19944",
+   "tier": "official"
+  },
+  "hf-trellis2": {
+   "name": "Hugging Face · microsoft/TRELLIS.2-4B 模型卡",
+   "url": "https://huggingface.co/microsoft/TRELLIS.2-4B",
    "tier": "official"
   }
  },
@@ -10501,24 +10506,22 @@
   {
    "m": "trellis",
    "c": "d-t23d",
-   "state": "yes",
-   "verified_for": "image-large",
-   "note": "README：「It takes in **text or image prompts** and generates high-quality 3D assets」　⚠️ **这条证据核的是首发那一支（image-large）**；TRELLIS.2-4B 的仓库页只有版本与规模，没有能力说明 —— 标待重核，不沿用。",
-   "as_of": "2026-08-13",
-   "src": "gh-trellis",
-   "via": "native",
-   "recheck": "TRELLIS.2-4B"
+   "state": "unknown",
+   "verified_for": "TRELLIS.2-4B",
+   "note": "⚠️ 首发那支明写「takes in **text or image** prompts」，而第二代模型卡通篇只讲 image-to-3D，标签也只有 `image-to-3d` —— **文生那一支（TRELLIS-text-*）停在 2025-03**，第二代有没有接上，官方没说",
+   "as_of": "2026-08-14",
+   "src": "hf-trellis2",
+   "via": "native"
   },
   {
    "m": "trellis",
    "c": "d-i23d",
    "state": "yes",
-   "verified_for": "image-large",
-   "src": "gh-trellis",
-   "note": "README：「takes in text or image prompts and generates high-quality 3D assets」；公开权重名为 TRELLIS-image-large　⚠️ **这条证据核的是首发那一支（image-large）**；TRELLIS.2-4B 的仓库页只有版本与规模，没有能力说明 —— 标待重核，不沿用。",
+   "verified_for": "TRELLIS.2-4B",
+   "src": "hf-trellis2",
+   "note": "第二代模型卡：「a state-of-the-art large 3D generative model designed for high-fidelity **image-to-3D** generation」，4B 参数的 flow-matching transformer",
    "via": "native",
-   "as_of": "2026-08-13",
-   "recheck": "TRELLIS.2-4B"
+   "as_of": "2026-08-14"
   },
   {
    "m": "trellis",
@@ -10534,10 +10537,12 @@
   {
    "m": "trellis",
    "c": "d-pbr",
-   "state": "unknown",
+   "state": "yes",
    "verified_for": "TRELLIS.2-4B",
-   "note": "README 说能出「带贴图的高质量 3D 资产」，但**没有一处提到 PBR 通道**（金属度/粗糙度/法线）—— 混元与 Rodin 都会明写 PBR，这里没有，所以不敢按 ✅ 记",
-   "as_of": "2026-08-13"
+   "note": "第二代模型卡：「generate **arbitrary 3D assets** with complex topologies, sharp features, and full **Physical-Based Rendering (PBR) materials**—including transparency/translucency」。⚠️ **这一格上一版是 ⬜**：首发那支的 README 只说「带贴图」，第二代才明写 PBR",
+   "as_of": "2026-08-14",
+   "src": "hf-trellis2",
+   "via": "native"
   },
   {
    "m": "trellis",
@@ -10550,24 +10555,22 @@
   {
    "m": "trellis",
    "c": "d-remesh",
-   "state": "yes",
-   "verified_for": "image-large",
-   "note": "导出参数 `simplify=0.9` —— 出网格时按比例减面；README 同时说它可解码成辐射场 / 3D 高斯 / 网格三种表示　⚠️ **这条证据核的是首发那一支（image-large）**；TRELLIS.2-4B 的仓库页只有版本与规模，没有能力说明 —— 标待重核，不沿用。",
-   "as_of": "2026-08-13",
-   "src": "gh-trellis",
-   "via": "native",
-   "recheck": "TRELLIS.2-4B"
+   "state": "unknown",
+   "verified_for": "TRELLIS.2-4B",
+   "note": "⚠️ **上一版记 ✅ 是拿首发那支的 `simplify=0.9` 当证据的**；第二代模型卡的导出示例里没有这个参数，也没有减面/面数控制的说法 —— **不沿用旧版结论**（规则三之一），退回 ⬜",
+   "as_of": "2026-08-14",
+   "src": "hf-trellis2",
+   "via": "native"
   },
   {
    "m": "trellis",
    "c": "d-edit",
-   "state": "yes",
-   "verified_for": "image-large",
-   "note": "README：「showcases flexible output format selection and **local 3D editing capabilities** which were not offered by previous models」　⚠️ **这条证据核的是首发那一支（image-large）**；TRELLIS.2-4B 的仓库页只有版本与规模，没有能力说明 —— 标待重核，不沿用。",
-   "as_of": "2026-08-13",
-   "src": "gh-trellis",
-   "via": "native",
-   "recheck": "TRELLIS.2-4B"
+   "state": "unknown",
+   "verified_for": "TRELLIS.2-4B",
+   "note": "⚠️ 同上：首发 README 写的「local 3D editing capabilities」在第二代模型卡里**没有重述** —— 按规则三之一退回 ⬜，不是「它没有」，是「新版没说」",
+   "as_of": "2026-08-14",
+   "src": "hf-trellis2",
+   "via": "native"
   },
   {
    "m": "trellis",
@@ -10597,12 +10600,11 @@
    "m": "trellis",
    "c": "d-format",
    "state": "yes",
-   "verified_for": "image-large",
-   "note": "README 示例代码：`glb = postprocessing_utils.to_glb(outputs['gaussian'][0], outputs['mesh'][0], simplify=0.9, ...)` —— **能导出 GLB**　⚠️ **这条证据核的是首发那一支（image-large）**；TRELLIS.2-4B 的仓库页只有版本与规模，没有能力说明 —— 标待重核，不沿用。",
-   "as_of": "2026-08-13",
-   "src": "gh-trellis",
-   "via": "native",
-   "recheck": "TRELLIS.2-4B"
+   "verified_for": "TRELLIS.2-4B",
+   "note": "第二代模型卡的示例代码：`glb = o_voxel.postprocess.to_glb(vertices=…, faces=…, attr_volume=…)` —— 导出 GLB",
+   "as_of": "2026-08-14",
+   "src": "hf-trellis2",
+   "via": "native"
   },
   {
    "m": "trellis",
@@ -10616,12 +10618,11 @@
    "m": "trellis",
    "c": "d-openweights",
    "state": "yes",
-   "verified_for": "image-large",
-   "src": "gh-trellis",
-   "note": "权重与推理代码都在公开仓库（★13.4k）　⚠️ **这条证据核的是首发那一支（image-large）**；TRELLIS.2-4B 的仓库页只有版本与规模，没有能力说明 —— 标待重核，不沿用。",
+   "verified_for": "TRELLIS.2-4B",
+   "src": "hf-trellis2",
+   "note": "第二代模型卡：「This model is released under the **MIT License**. The code and dataset are publicly released」；权重就在 HF（↓129 万 ♥1,096）",
    "via": "native",
-   "as_of": "2026-08-13",
-   "recheck": "TRELLIS.2-4B"
+   "as_of": "2026-08-14"
   },
   {
    "m": "seed3d",
