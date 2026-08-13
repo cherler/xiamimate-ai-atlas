@@ -1030,6 +1030,213 @@
     "video editing"
    ],
    "since_note": "**给一段已有视频 + 指令，产出改过的视频** —— 不是从零生成。2026-08-13 补这一格，因为三家都有了：Gemini Omni Flash 的对话式剪辑、Wan2.1 的 VACE 统一编辑、SkyReels-V3-V2V。⚠️ **它和「图生视频」不是一回事**：i2v 的输入是一张静态图，这里的输入是一段视频，要保住的是原视频的时序与运动。"
+  },
+  {
+   "id": "d-t23d",
+   "class": "asset",
+   "domain": "threed",
+   "name": "Text to 3D",
+   "zh": "文生 3D",
+   "group": "输入",
+   "ubiquity": "待核",
+   "aliases": [
+    "text to 3d",
+    "text_to_model",
+    "文生3D",
+    "Text to 3D Model"
+   ],
+   "since_note": "Tripo「Text to 3D Model」· Meshy「Text to 3D」· Rodin「Text To 3D」"
+  },
+  {
+   "id": "d-i23d",
+   "class": "asset",
+   "domain": "threed",
+   "name": "Image to 3D",
+   "zh": "图生 3D",
+   "group": "输入",
+   "ubiquity": "待核",
+   "aliases": [
+    "image to 3d",
+    "image_to_model",
+    "图生3D",
+    "Image to 3D Model"
+   ],
+   "since_note": "Tripo「image_to_model」· Meshy「Image to 3D」· 混元3D-2.1「From Images to High-Fidelity 3D Assets」"
+  },
+  {
+   "id": "d-multiview",
+   "class": "asset",
+   "domain": "threed",
+   "name": "Multi-image & multiview input",
+   "zh": "多图/多视图输入",
+   "group": "输入",
+   "ubiquity": "待核",
+   "aliases": [
+    "multi image to 3d",
+    "multiview",
+    "多视图",
+    "Batch Images to 3D"
+   ],
+   "since_note": "Tripo 端点「Generate multiview image」· Meshy「Multi Image to 3D」「Batch Images to 3D」"
+  },
+  {
+   "id": "d-pbr",
+   "class": "asset",
+   "domain": "threed",
+   "name": "PBR material & texturing",
+   "zh": "PBR 材质与贴图",
+   "group": "材质",
+   "ubiquity": "待核",
+   "aliases": [
+    "pbr",
+    "texture",
+    "retexture",
+    "AI Texturing",
+    "贴图"
+   ],
+   "since_note": "混元3D-2.1「Production-Ready PBR Material」· Tripo 参数 `pbr`（默认 true）· Meshy「AI Texturing / Texture Edit」· Rodin「Generate Texture」"
+  },
+  {
+   "id": "d-uv",
+   "class": "asset",
+   "domain": "threed",
+   "name": "Automatic UV unwrap",
+   "zh": "自动 UV 展开",
+   "group": "材质",
+   "ubiquity": "待核",
+   "aliases": [
+    "uv unwrap",
+    "unwrap uv",
+    "UV 展开"
+   ],
+   "since_note": "Meshy 端点「UV Unwrap」/ 文档「Unwrap UV」"
+  },
+  {
+   "id": "d-remesh",
+   "class": "asset",
+   "domain": "threed",
+   "name": "Remesh & polycount control",
+   "zh": "重拓扑与面数控制",
+   "group": "网格",
+   "ubiquity": "待核",
+   "aliases": [
+    "remesh",
+    "retopology",
+    "face_limit",
+    "重拓扑",
+    "面数"
+   ],
+   "since_note": "Meshy 端点「Remesh」· Tripo 参数 `face_limit`（默认 10000）· Tripo 端点「Post Process」"
+  },
+  {
+   "id": "d-edit",
+   "class": "asset",
+   "domain": "threed",
+   "name": "Mesh editing",
+   "zh": "网格编辑",
+   "group": "网格",
+   "ubiquity": "待核",
+   "aliases": [
+    "mesh editing",
+    "auto split",
+    "3d mesh editor",
+    "部件拆分"
+   ],
+   "since_note": "Tripo 端点「Mesh Editing」· Meshy「Auto Split」· Rodin 产品页「3D Mesh Editor」"
+  },
+  {
+   "id": "d-rig",
+   "class": "asset",
+   "domain": "threed",
+   "name": "Auto-rigging",
+   "zh": "骨骼绑定",
+   "group": "动画",
+   "ubiquity": "待核",
+   "aliases": [
+    "rigging",
+    "auto rig",
+    "绑定",
+    "骨骼"
+   ],
+   "since_note": "Meshy 端点「Rigging」/ 文档「When to Remesh / Retexture / Rig」"
+  },
+  {
+   "id": "d-anim",
+   "class": "asset",
+   "domain": "threed",
+   "name": "Animation",
+   "zh": "动画生成",
+   "group": "动画",
+   "ubiquity": "待核",
+   "aliases": [
+    "animation",
+    "animate",
+    "动画"
+   ],
+   "since_note": "Tripo 端点「Animation」· Meshy 端点「Animation」/「Animate」"
+  },
+  {
+   "id": "d-scene",
+   "class": "asset",
+   "domain": "threed",
+   "name": "Scene-level generation",
+   "zh": "场景级生成",
+   "group": "范围",
+   "ubiquity": "待核",
+   "aliases": [
+    "scene composition",
+    "scene compose",
+    "场景生成"
+   ],
+   "since_note": "Seed3D 1.0「Scalable Scene Composition」· Meshy 文档「Scene Compose」"
+  },
+  {
+   "id": "d-format",
+   "class": "asset",
+   "domain": "threed",
+   "name": "Export formats",
+   "zh": "导出格式",
+   "group": "交付",
+   "ubiquity": "待核",
+   "aliases": [
+    "glb",
+    "fbx",
+    "obj",
+    "usdz",
+    "stl",
+    "导出格式"
+   ],
+   "since_note": "Tripo 参数说明「force the output to be an FBX model」· Meshy 文档「Export & File Formats」"
+  },
+  {
+   "id": "d-print",
+   "class": "asset",
+   "domain": "threed",
+   "name": "3D-printability check",
+   "zh": "可打印性检查",
+   "group": "交付",
+   "ubiquity": "待核",
+   "aliases": [
+    "printability",
+    "3d printing",
+    "可打印"
+   ],
+   "since_note": "Meshy 端点「Analyze Printability / Repair Printability」·「3D Printing API」"
+  },
+  {
+   "id": "d-openweights",
+   "class": "asset",
+   "domain": "threed",
+   "name": "Open weights",
+   "zh": "开源权重",
+   "group": "交付",
+   "ubiquity": "待核",
+   "aliases": [
+    "open weights",
+    "开源权重",
+    "weights"
+   ],
+   "since_note": "混元3D-2.1 与 TRELLIS 都在 HF / GitHub 放了权重"
   }
  ],
  "orgs": [
@@ -1561,6 +1768,30 @@
    "zh": "hexgrad（Kokoro）",
    "en": "hexgrad（Kokoro）",
    "kind": "模型厂商"
+  },
+  {
+   "id": "vast",
+   "zh": "VAST（Tripo）",
+   "en": "VAST AI Research",
+   "name": "VAST",
+   "kind": "startup",
+   "note": "Tripo 3D 系列。总部还没查 —— 立项当天只核了模型与文档，公司层留到下一轮"
+  },
+  {
+   "id": "meshy",
+   "zh": "Meshy",
+   "en": "Meshy",
+   "name": "Meshy",
+   "kind": "startup",
+   "note": "Meshy 系列，API 的能力清单是这一卷里最全的一家"
+  },
+  {
+   "id": "deemos",
+   "zh": "影眸科技 Deemos（Rodin / Hyper3D）",
+   "en": "DeemosTech",
+   "name": "Deemos",
+   "kind": "startup",
+   "note": "Rodin 与 ChatAvatar。官方文档自述「Rodin and ChatAvatar by DeemosTech are advanced 3D asset generators」"
   }
  ],
  "$orgs": "公司是**一等实体**，不是模型上的一个字符串（此前 vendor 是字符串，结果阿里在库里成了两家）。产业链图、地球分布、投资关系全都挂在这一层上。\n**hq 只有 5 家有来源，其余 6 家仍然没有** —— 都是公开常识，但我们自己的规矩是「没有来源的结论就是猜的」，所以校验里 R21 会一直警告，前台也必须标出来。不许因为「大家都知道」就当成核过了。\n\n2026-08-08 补：从已有快照和官网拿到 5 家的可引证据，但**精度分三档**，写进 `hq_precision`：\n  exact     —— 页脚给出具体街道地址（只有字节）\n  province  —— **ICP 备案只证到省**（快手/MiniMax/阿里）。阿里那条只证到浙江，没证到杭州\n  ambiguous —— 招聘页同时列两个城市（Runway 的纽约与旧金山）\n\n剩下 6 家（生数、昆仑万维、Google DeepMind、OpenAI、Decart、Lightricks）没拿到：\n**生数官网 HTTPS 证书已过期**（ERR_CERT_DATE_INVALID）—— 这条本身就是信息；\n其余几家的 about/contact 页没有可机读的地址段。R21 会一直为它们报警告。\n\n**不许把 province 当成 exact 用。** 我们批评厂商「说了半句」的时候，自己不能也说半句。",
@@ -3025,6 +3256,125 @@
    "note": "**Black Forest Labs 从图像跨进了视频。** 三种模式：`t2v`（纯提示词）、`i2v`（1–10 张图，可用 `[seconds, image]` 把关键帧钉到时间轴上，两张就是首尾帧）、Video Continuation（给一段 clip 接着往下生成）。官方规格：5–20 秒、24fps、`hd` 或 `fhd`；音频默认开，自述「multilingual speech with lipsync, effects, and ambience」。\n\n⚠️ **官方标着 preview**，并写明「**Video editing** and **Omni Reference with images and videos** will be available soon」——视频编辑还没有。\n\n**放在 Extended 而不是 Core，是负责人 2026-08-13 的决定**：clip 轨 9/10，按规则四进 Core 就要先踢一个出去，而「为了收新的去踢老的」不划算。⚠️ Extended 的含义是「库里有、不进主要视觉」——**它没有逐格核过的能力矩阵**，上面那些能力描述来自官方文档，不是我们逐格核验的结论。",
    "arch": null,
    "reach_cn": "ok"
+  },
+  {
+   "id": "hunyuan3d",
+   "family": "Hunyuan3D",
+   "org": "tencent",
+   "version": "2.1",
+   "version_as_of": "2026-08-13",
+   "weights": "open",
+   "version_src": "hf-hunyuan3d-21",
+   "version_quote": "HF 模型卡标题：「From Images to High-Fidelity 3D Assets with Production-Ready PBR Material」，仓库标签含 Image-to-3D、text-to-3d，许可 tencent-hunyuan-community",
+   "lineage_note": "⚠️ **同组织 2026-08-05 放出了 Hunyuan3D-Buffalo 1.0 的技术报告**（「A Unified Multimodal Model for Scalable 3D Generation, Understanding, and Editing」，arXiv 2608.02711），但仓库只有 7 次提交、无代码无权重 —— **有论文不等于有模型**，所以当前版本仍记 2.1",
+   "reach_cn": "ok",
+   "reach_note": "github.com / huggingface.co 两处均可达（本机实测 08-13）",
+   "class": "asset",
+   "status": "active",
+   "tier": "core",
+   "domain": "threed"
+  },
+  {
+   "id": "tripo",
+   "family": "Tripo",
+   "org": "vast",
+   "version": "P1-20260311",
+   "version_as_of": "2026-08-13",
+   "weights": "closed",
+   "version_src": "tripo-docs-generation",
+   "version_quote": "Generation 端点文档的 `model_version` 枚举，最新一档是「P1-20260311」，其后依次 Turbo-v1.0-20250506、v3.1-20260211、v3.0-20250812；⚠️ 文档同时写着「If this option is not set, the default value will be v2.5-20250123」—— **不传参数拿到的不是最新版**",
+   "lineage_note": "文档里列着 7 个历史版本（v1.3 起），谱系可直接从这张枚举表建 —— 下一轮做",
+   "reach_cn": "unknown",
+   "reach_note": "还没测",
+   "class": "asset",
+   "status": "active",
+   "tier": "core",
+   "domain": "threed"
+  },
+  {
+   "id": "meshy",
+   "family": "Meshy",
+   "org": "meshy",
+   "version": "7",
+   "version_as_of": "2026-08-13",
+   "weights": "closed",
+   "version_src": "meshy-site",
+   "version_quote": "官网首屏横幅：「New Meshy 7 is live. Frontier 3D alignment.」",
+   "lineage_note": "官网只给当前代号，历史版本要去 changelog 捞 —— 下一轮做",
+   "reach_cn": "unknown",
+   "reach_note": "还没测",
+   "class": "asset",
+   "status": "active",
+   "tier": "core",
+   "domain": "threed"
+  },
+  {
+   "id": "rodin",
+   "family": "Rodin",
+   "org": "deemos",
+   "version": "Gen-2.5",
+   "version_as_of": "2026-08-13",
+   "weights": "closed",
+   "version_src": "rodin-api-docs",
+   "version_quote": "API 文档有独立的「Gen-2.5 Generation」一节，档位表列 Gen-2.5-Extreme-Low / Low 等，按 credit 计费；同时保留 Gen-2 与 Gen-1&1.5 两代端点",
+   "lineage_note": "文档里同时挂着 Gen-1&1.5 / Gen-2 / Gen-2.5 三代端点，谱系现成 —— 下一轮做",
+   "reach_cn": "unknown",
+   "reach_note": "还没测",
+   "class": "asset",
+   "status": "active",
+   "tier": "core",
+   "domain": "threed"
+  },
+  {
+   "id": "trellis",
+   "family": "TRELLIS",
+   "org": "microsoft",
+   "version": "image-large",
+   "version_as_of": "2026-08-13",
+   "weights": "open",
+   "version_src": "gh-trellis",
+   "version_quote": "仓库简介：「Official repo for paper 「Structured 3D Latents for Scalable and Versatile 3D Generation」(CVPR'25 Spotlight)」；提交记录写着「Release inference code and TRELLIS-image-large」",
+   "lineage_note": "只有一代公开权重（image-large），谱系就这一个节点 —— 这是「本来就没有」不是「没采到」",
+   "reach_cn": "ok",
+   "reach_note": "github.com 可达（本机实测 08-13）",
+   "class": "asset",
+   "status": "active",
+   "tier": "core",
+   "domain": "threed"
+  },
+  {
+   "id": "seed3d",
+   "family": "Seed3D",
+   "org": "bytedance",
+   "version": "1.0",
+   "version_as_of": "2026-08-13",
+   "weights": "closed",
+   "version_src": "seed3d-page",
+   "version_quote": "官方模型页（2025-10-23）：「Seed3D 1.0 — From Images to High-Fidelity Simulation-Ready 3D Assets」，自述三项能力「1) High-Fidelity Asset Generation; 2) Physics Engine Compatibility; 3) Scalable Scene Composition」",
+   "lineage_note": "只发过 1.0 —— 这是「本来就没有」不是「没采到」",
+   "reach_cn": "ok",
+   "reach_note": "seed.bytedance.com 可达（本机实测 08-13）",
+   "class": "asset",
+   "status": "active",
+   "tier": "core",
+   "domain": "threed"
+  },
+  {
+   "id": "spar3d",
+   "family": "SPAR3D",
+   "org": "stability",
+   "version": "Stable Point Aware 3D",
+   "version_as_of": "2026-08-13",
+   "weights": "open",
+   "version_src": "stability-spar3d",
+   "version_quote": "官方发布页：「Stable Point Aware 3D (SPAR3D) introduces real-time editing and complete structure generation of a 3D object from a single image in less than a second」",
+   "lineage_note": "Stability 3D 这条线还有 SF3D 等前作，谱系下一轮补",
+   "reach_cn": "unknown",
+   "reach_note": "还没测",
+   "class": "asset",
+   "status": "active",
+   "tier": "core",
+   "domain": "threed"
   }
  ],
  "sources": {
@@ -4602,6 +4952,56 @@
    "name": "通往 AGI 之路（WaytoAGI）知识库",
    "url": "https://waytoagi.feishu.cn/wiki/QPe5w5g7UisbEkkow8XcDmOpn8e",
    "tier": "third-party"
+  },
+  "hf-hunyuan3d-21": {
+   "name": "腾讯混元3D 2.1 · HF 模型卡",
+   "url": "https://huggingface.co/tencent/Hunyuan3D-2.1",
+   "tier": "official"
+  },
+  "tripo-docs-generation": {
+   "name": "Tripo · Generation 端点文档",
+   "url": "https://platform.tripo3d.ai/docs/generation",
+   "tier": "official"
+  },
+  "tripo-site": {
+   "name": "Tripo 官网",
+   "url": "https://www.tripo3d.ai/",
+   "tier": "official"
+  },
+  "meshy-docs-api": {
+   "name": "Meshy · API 文档",
+   "url": "https://docs.meshy.ai/en/api/text-to-3d",
+   "tier": "official"
+  },
+  "meshy-site": {
+   "name": "Meshy 官网",
+   "url": "https://www.meshy.ai/",
+   "tier": "official"
+  },
+  "rodin-api-docs": {
+   "name": "Rodin / Hyper3D · API 文档索引",
+   "url": "https://developer.hyper3d.ai/llms.txt",
+   "tier": "official"
+  },
+  "rodin-site": {
+   "name": "Rodin / Hyper3D 官网",
+   "url": "https://hyper3d.ai/",
+   "tier": "official"
+  },
+  "gh-trellis": {
+   "name": "microsoft/TRELLIS 仓库",
+   "url": "https://github.com/microsoft/TRELLIS",
+   "tier": "official"
+  },
+  "seed3d-page": {
+   "name": "字节 Seed3D 1.0 官方模型页",
+   "url": "https://seed.bytedance.com/en/seed3d",
+   "tier": "official"
+  },
+  "stability-spar3d": {
+   "name": "Stability · SPAR3D 发布公告",
+   "url": "https://stability.ai/news/stable-point-aware-3d",
+   "tier": "official"
   }
  },
  "support": [
@@ -9337,6 +9737,815 @@
    "verified_for": "2.3",
    "as_of": "2026-08-13",
    "note": "官方文档里没有「拿一段视频进去、改完再出来」这一路的端点或参数。⚠️ **别和图生视频（i2v）混**：那是给一张静态图；也别和「视频延长」混：那是接着往后长，不是改已有的内容。—— 读完没找到，不是没读。"
+  },
+  {
+   "m": "hunyuan3d",
+   "c": "d-t23d",
+   "state": "yes",
+   "verified_for": "2.1",
+   "src": "hf-hunyuan3d-21",
+   "note": "仓库标签含 text-to-3d",
+   "via": "native",
+   "as_of": "2026-08-13"
+  },
+  {
+   "m": "hunyuan3d",
+   "c": "d-i23d",
+   "state": "yes",
+   "verified_for": "2.1",
+   "src": "hf-hunyuan3d-21",
+   "note": "模型卡标题「From Images to High-Fidelity 3D Assets」，仓库标签含 Image-to-3D",
+   "via": "native",
+   "as_of": "2026-08-13"
+  },
+  {
+   "m": "hunyuan3d",
+   "c": "d-multiview",
+   "state": "unknown",
+   "verified_for": "2.1",
+   "note": "立项当天（2026-08-13）只核到模型版本与该家最显眼的几项能力，这一格**还没查**",
+   "as_of": "2026-08-13"
+  },
+  {
+   "m": "hunyuan3d",
+   "c": "d-pbr",
+   "state": "yes",
+   "verified_for": "2.1",
+   "src": "hf-hunyuan3d-21",
+   "note": "模型卡标题：「with Production-Ready PBR Material」",
+   "via": "native",
+   "as_of": "2026-08-13"
+  },
+  {
+   "m": "hunyuan3d",
+   "c": "d-uv",
+   "state": "unknown",
+   "verified_for": "2.1",
+   "note": "立项当天（2026-08-13）只核到模型版本与该家最显眼的几项能力，这一格**还没查**",
+   "as_of": "2026-08-13"
+  },
+  {
+   "m": "hunyuan3d",
+   "c": "d-remesh",
+   "state": "unknown",
+   "verified_for": "2.1",
+   "note": "立项当天（2026-08-13）只核到模型版本与该家最显眼的几项能力，这一格**还没查**",
+   "as_of": "2026-08-13"
+  },
+  {
+   "m": "hunyuan3d",
+   "c": "d-edit",
+   "state": "unknown",
+   "verified_for": "2.1",
+   "note": "立项当天（2026-08-13）只核到模型版本与该家最显眼的几项能力，这一格**还没查**",
+   "as_of": "2026-08-13"
+  },
+  {
+   "m": "hunyuan3d",
+   "c": "d-rig",
+   "state": "unknown",
+   "verified_for": "2.1",
+   "note": "立项当天（2026-08-13）只核到模型版本与该家最显眼的几项能力，这一格**还没查**",
+   "as_of": "2026-08-13"
+  },
+  {
+   "m": "hunyuan3d",
+   "c": "d-anim",
+   "state": "unknown",
+   "verified_for": "2.1",
+   "note": "立项当天（2026-08-13）只核到模型版本与该家最显眼的几项能力，这一格**还没查**",
+   "as_of": "2026-08-13"
+  },
+  {
+   "m": "hunyuan3d",
+   "c": "d-scene",
+   "state": "unknown",
+   "verified_for": "2.1",
+   "note": "立项当天（2026-08-13）只核到模型版本与该家最显眼的几项能力，这一格**还没查**",
+   "as_of": "2026-08-13"
+  },
+  {
+   "m": "hunyuan3d",
+   "c": "d-format",
+   "state": "unknown",
+   "verified_for": "2.1",
+   "note": "立项当天（2026-08-13）只核到模型版本与该家最显眼的几项能力，这一格**还没查**",
+   "as_of": "2026-08-13"
+  },
+  {
+   "m": "hunyuan3d",
+   "c": "d-print",
+   "state": "unknown",
+   "verified_for": "2.1",
+   "note": "立项当天（2026-08-13）只核到模型版本与该家最显眼的几项能力，这一格**还没查**",
+   "as_of": "2026-08-13"
+  },
+  {
+   "m": "hunyuan3d",
+   "c": "d-openweights",
+   "state": "yes",
+   "verified_for": "2.1",
+   "src": "hf-hunyuan3d-21",
+   "note": "权重就在 HF 仓库（Safetensors / Diffusers），许可 tencent-hunyuan-community —— ⚠️ 是厂商自定义许可，不是标准开源协议",
+   "via": "native",
+   "as_of": "2026-08-13"
+  },
+  {
+   "m": "tripo",
+   "c": "d-t23d",
+   "state": "yes",
+   "verified_for": "P1-20260311",
+   "src": "tripo-site",
+   "note": "官网首屏：「AI 3D Model Generator — Text to 3D Model & Image to 3D Model」，并给出 Text to 3D 输入框",
+   "via": "native",
+   "as_of": "2026-08-13"
+  },
+  {
+   "m": "tripo",
+   "c": "d-i23d",
+   "state": "yes",
+   "verified_for": "P1-20260311",
+   "src": "tripo-docs-generation",
+   "note": "Generation 端点：「Image to Model — Request type: This field must be set to image_to_model」",
+   "via": "native",
+   "as_of": "2026-08-13"
+  },
+  {
+   "m": "tripo",
+   "c": "d-multiview",
+   "state": "yes",
+   "verified_for": "P1-20260311",
+   "src": "tripo-docs-generation",
+   "note": "端点列表含「Generate multiview image」",
+   "via": "native",
+   "as_of": "2026-08-13"
+  },
+  {
+   "m": "tripo",
+   "c": "d-pbr",
+   "state": "yes",
+   "verified_for": "P1-20260311",
+   "src": "tripo-docs-generation",
+   "note": "参数「pbr (Optional): A boolean option to enable pbr. The default value is true」",
+   "via": "native",
+   "as_of": "2026-08-13"
+  },
+  {
+   "m": "tripo",
+   "c": "d-uv",
+   "state": "unknown",
+   "verified_for": "P1-20260311",
+   "src": "tripo-docs-generation",
+   "note": "在 Generation 文档的端点表与参数表里检索 UV / unwrap —— 没有这一项。Meshy 是单列端点的，Tripo 没有",
+   "as_of": "2026-08-13"
+  },
+  {
+   "m": "tripo",
+   "c": "d-remesh",
+   "state": "yes",
+   "verified_for": "P1-20260311",
+   "src": "tripo-docs-generation",
+   "note": "参数 face_limit（「default face_limit will be 10000」）+ 端点「Post Process」",
+   "via": "native",
+   "as_of": "2026-08-13"
+  },
+  {
+   "m": "tripo",
+   "c": "d-edit",
+   "state": "yes",
+   "verified_for": "P1-20260311",
+   "src": "tripo-docs-generation",
+   "note": "端点列表含「Mesh Editing」",
+   "via": "native",
+   "as_of": "2026-08-13"
+  },
+  {
+   "m": "tripo",
+   "c": "d-rig",
+   "state": "unknown",
+   "verified_for": "P1-20260311",
+   "src": "tripo-docs-generation",
+   "note": "端点表有 Animation 没有 Rigging；**动画和绑定是两件事**，不能由前者推出后者",
+   "as_of": "2026-08-13"
+  },
+  {
+   "m": "tripo",
+   "c": "d-anim",
+   "state": "yes",
+   "verified_for": "P1-20260311",
+   "src": "tripo-docs-generation",
+   "note": "端点列表含「Animation」",
+   "via": "native",
+   "as_of": "2026-08-13"
+  },
+  {
+   "m": "tripo",
+   "c": "d-scene",
+   "state": "unknown",
+   "verified_for": "P1-20260311",
+   "src": "tripo-docs-generation",
+   "note": "端点表通篇是单体资产（Generation / Texture / Mesh Editing），没有场景级条目",
+   "as_of": "2026-08-13"
+  },
+  {
+   "m": "tripo",
+   "c": "d-format",
+   "state": "yes",
+   "verified_for": "P1-20260311",
+   "src": "tripo-docs-generation",
+   "note": "参数说明：「Enabling this option will force the output to be an FBX model」",
+   "via": "native",
+   "as_of": "2026-08-13"
+  },
+  {
+   "m": "tripo",
+   "c": "d-print",
+   "state": "unknown",
+   "verified_for": "P1-20260311",
+   "src": "tripo-docs-generation",
+   "note": "文档里没有可打印性相关端点",
+   "as_of": "2026-08-13"
+  },
+  {
+   "m": "tripo",
+   "c": "d-openweights",
+   "state": "no",
+   "verified_for": "P1-20260311",
+   "src": "tripo-docs-generation",
+   "note": "⚠️ 记 ❌ 的依据是**文档只有 REST API 一种用法**（含 Wallet、Pricing & Billing、Limit），没有权重下载入口",
+   "via": "native",
+   "as_of": "2026-08-13"
+  },
+  {
+   "m": "meshy",
+   "c": "d-t23d",
+   "state": "yes",
+   "verified_for": "7",
+   "src": "meshy-docs-api",
+   "note": "API 端点表列「Text to 3D v2」，含 Create a Preview Task / Create a Refine Task",
+   "via": "native",
+   "as_of": "2026-08-13"
+  },
+  {
+   "m": "meshy",
+   "c": "d-i23d",
+   "state": "yes",
+   "verified_for": "7",
+   "src": "meshy-docs-api",
+   "note": "API 端点表列「Image to 3D」",
+   "via": "native",
+   "as_of": "2026-08-13"
+  },
+  {
+   "m": "meshy",
+   "c": "d-multiview",
+   "state": "yes",
+   "verified_for": "7",
+   "src": "meshy-docs-api",
+   "note": "API 端点表列「Multi Image to 3D」；Web App 文档另有「Batch Images to 3D」",
+   "via": "native",
+   "as_of": "2026-08-13"
+  },
+  {
+   "m": "meshy",
+   "c": "d-pbr",
+   "state": "yes",
+   "verified_for": "7",
+   "src": "meshy-docs-api",
+   "note": "端点「Retexture」；Web App 文档「3D Model — Post-Processing」下有「AI Texturing」「Texture Edit」",
+   "via": "native",
+   "as_of": "2026-08-13"
+  },
+  {
+   "m": "meshy",
+   "c": "d-uv",
+   "state": "yes",
+   "verified_for": "7",
+   "src": "meshy-docs-api",
+   "note": "API 端点表列「UV Unwrap」；Web App 文档写作「Unwrap UV」",
+   "via": "native",
+   "as_of": "2026-08-13"
+  },
+  {
+   "m": "meshy",
+   "c": "d-remesh",
+   "state": "yes",
+   "verified_for": "7",
+   "src": "meshy-docs-api",
+   "note": "API 端点表列「Remesh」，另有 Convert / Resize",
+   "via": "native",
+   "as_of": "2026-08-13"
+  },
+  {
+   "m": "meshy",
+   "c": "d-edit",
+   "state": "yes",
+   "verified_for": "7",
+   "src": "meshy-docs-api",
+   "note": "Web App 文档「3D Model — Post-Processing」下有「Auto Split」",
+   "via": "native",
+   "as_of": "2026-08-13"
+  },
+  {
+   "m": "meshy",
+   "c": "d-rig",
+   "state": "yes",
+   "verified_for": "7",
+   "src": "meshy-docs-api",
+   "note": "API 端点表列「Rigging」；文档另有指南「When to Remesh / Retexture / Rig」",
+   "via": "native",
+   "as_of": "2026-08-13"
+  },
+  {
+   "m": "meshy",
+   "c": "d-anim",
+   "state": "yes",
+   "verified_for": "7",
+   "src": "meshy-docs-api",
+   "note": "API 端点表列「Animation」；Web App 文档写作「Animate」",
+   "via": "native",
+   "as_of": "2026-08-13"
+  },
+  {
+   "m": "meshy",
+   "c": "d-scene",
+   "state": "yes",
+   "verified_for": "7",
+   "src": "meshy-docs-api",
+   "note": "Web App 文档「Scene & Video」一节下有「Scene Compose」",
+   "via": "native",
+   "as_of": "2026-08-13"
+  },
+  {
+   "m": "meshy",
+   "c": "d-format",
+   "state": "yes",
+   "verified_for": "7",
+   "src": "meshy-docs-api",
+   "note": "端点「Convert」；文档「Platform Features」下有「Export & File Formats」",
+   "via": "native",
+   "as_of": "2026-08-13"
+  },
+  {
+   "m": "meshy",
+   "c": "d-print",
+   "state": "yes",
+   "verified_for": "7",
+   "src": "meshy-docs-api",
+   "note": "文档单列「3D Printing API」，端点含「Analyze Printability」「Repair Printability」「Multi-Color Print」",
+   "via": "native",
+   "as_of": "2026-08-13"
+  },
+  {
+   "m": "meshy",
+   "c": "d-openweights",
+   "state": "no",
+   "verified_for": "7",
+   "src": "meshy-docs-api",
+   "note": "⚠️ 记 ❌ 的依据是**文档通篇只有 API 与 Web App 两种用法**（含 Rate Limits、Asset Retention、Pricing），没有任何权重或自部署入口",
+   "via": "native",
+   "as_of": "2026-08-13"
+  },
+  {
+   "m": "rodin",
+   "c": "d-t23d",
+   "state": "yes",
+   "verified_for": "Gen-2.5",
+   "src": "rodin-site",
+   "note": "产品页功能列表：「Text To 3D — From text prompt to 3D object — instantly」",
+   "via": "native",
+   "as_of": "2026-08-13"
+  },
+  {
+   "m": "rodin",
+   "c": "d-i23d",
+   "state": "yes",
+   "verified_for": "Gen-2.5",
+   "src": "rodin-site",
+   "note": "产品页功能列表：「Image To 3D — Upload a picture, get a 3D object instantly」",
+   "via": "native",
+   "as_of": "2026-08-13"
+  },
+  {
+   "m": "rodin",
+   "c": "d-multiview",
+   "state": "unknown",
+   "verified_for": "Gen-2.5",
+   "note": "立项当天（2026-08-13）只核到模型版本与该家最显眼的几项能力，这一格**还没查**",
+   "as_of": "2026-08-13"
+  },
+  {
+   "m": "rodin",
+   "c": "d-pbr",
+   "state": "yes",
+   "verified_for": "Gen-2.5",
+   "src": "rodin-api-docs",
+   "note": "API 文档单列「Generate Texture」端点；简介写「ChatAvatar ... creating hyper-realistic 3D facial assets with PBR textures from text or images」",
+   "via": "native",
+   "as_of": "2026-08-13"
+  },
+  {
+   "m": "rodin",
+   "c": "d-uv",
+   "state": "unknown",
+   "verified_for": "Gen-2.5",
+   "note": "立项当天（2026-08-13）只核到模型版本与该家最显眼的几项能力，这一格**还没查**",
+   "as_of": "2026-08-13"
+  },
+  {
+   "m": "rodin",
+   "c": "d-remesh",
+   "state": "unknown",
+   "verified_for": "Gen-2.5",
+   "note": "立项当天（2026-08-13）只核到模型版本与该家最显眼的几项能力，这一格**还没查**",
+   "as_of": "2026-08-13"
+  },
+  {
+   "m": "rodin",
+   "c": "d-edit",
+   "state": "yes",
+   "verified_for": "Gen-2.5",
+   "src": "rodin-site",
+   "note": "产品页功能列表含「3D Mesh Editor」",
+   "via": "native",
+   "as_of": "2026-08-13"
+  },
+  {
+   "m": "rodin",
+   "c": "d-rig",
+   "state": "unknown",
+   "verified_for": "Gen-2.5",
+   "note": "立项当天（2026-08-13）只核到模型版本与该家最显眼的几项能力，这一格**还没查**",
+   "as_of": "2026-08-13"
+  },
+  {
+   "m": "rodin",
+   "c": "d-anim",
+   "state": "unknown",
+   "verified_for": "Gen-2.5",
+   "note": "立项当天（2026-08-13）只核到模型版本与该家最显眼的几项能力，这一格**还没查**",
+   "as_of": "2026-08-13"
+  },
+  {
+   "m": "rodin",
+   "c": "d-scene",
+   "state": "unknown",
+   "verified_for": "Gen-2.5",
+   "note": "立项当天（2026-08-13）只核到模型版本与该家最显眼的几项能力，这一格**还没查**",
+   "as_of": "2026-08-13"
+  },
+  {
+   "m": "rodin",
+   "c": "d-format",
+   "state": "unknown",
+   "verified_for": "Gen-2.5",
+   "note": "立项当天（2026-08-13）只核到模型版本与该家最显眼的几项能力，这一格**还没查**",
+   "as_of": "2026-08-13"
+  },
+  {
+   "m": "rodin",
+   "c": "d-print",
+   "state": "unknown",
+   "verified_for": "Gen-2.5",
+   "note": "立项当天（2026-08-13）只核到模型版本与该家最显眼的几项能力，这一格**还没查**",
+   "as_of": "2026-08-13"
+  },
+  {
+   "m": "rodin",
+   "c": "d-openweights",
+   "state": "no",
+   "verified_for": "Gen-2.5",
+   "src": "rodin-api-docs",
+   "note": "⚠️ 记 ❌ 的依据是**文档索引通篇是 API 端点与计费**（Check Balance / Data Retention Policy），没有权重下载入口",
+   "via": "native",
+   "as_of": "2026-08-13"
+  },
+  {
+   "m": "trellis",
+   "c": "d-t23d",
+   "state": "unknown",
+   "verified_for": "image-large",
+   "note": "立项当天（2026-08-13）只核到模型版本与该家最显眼的几项能力，这一格**还没查**",
+   "as_of": "2026-08-13"
+  },
+  {
+   "m": "trellis",
+   "c": "d-i23d",
+   "state": "yes",
+   "verified_for": "image-large",
+   "src": "gh-trellis",
+   "note": "提交记录：「Release inference code and TRELLIS-image-large」；论文题为「Structured 3D Latents for Scalable and Versatile 3D Generation」",
+   "via": "native",
+   "as_of": "2026-08-13"
+  },
+  {
+   "m": "trellis",
+   "c": "d-multiview",
+   "state": "unknown",
+   "verified_for": "image-large",
+   "note": "立项当天（2026-08-13）只核到模型版本与该家最显眼的几项能力，这一格**还没查**",
+   "as_of": "2026-08-13"
+  },
+  {
+   "m": "trellis",
+   "c": "d-pbr",
+   "state": "unknown",
+   "verified_for": "image-large",
+   "note": "立项当天（2026-08-13）只核到模型版本与该家最显眼的几项能力，这一格**还没查**",
+   "as_of": "2026-08-13"
+  },
+  {
+   "m": "trellis",
+   "c": "d-uv",
+   "state": "unknown",
+   "verified_for": "image-large",
+   "note": "立项当天（2026-08-13）只核到模型版本与该家最显眼的几项能力，这一格**还没查**",
+   "as_of": "2026-08-13"
+  },
+  {
+   "m": "trellis",
+   "c": "d-remesh",
+   "state": "unknown",
+   "verified_for": "image-large",
+   "note": "立项当天（2026-08-13）只核到模型版本与该家最显眼的几项能力，这一格**还没查**",
+   "as_of": "2026-08-13"
+  },
+  {
+   "m": "trellis",
+   "c": "d-edit",
+   "state": "unknown",
+   "verified_for": "image-large",
+   "note": "立项当天（2026-08-13）只核到模型版本与该家最显眼的几项能力，这一格**还没查**",
+   "as_of": "2026-08-13"
+  },
+  {
+   "m": "trellis",
+   "c": "d-rig",
+   "state": "unknown",
+   "verified_for": "image-large",
+   "note": "立项当天（2026-08-13）只核到模型版本与该家最显眼的几项能力，这一格**还没查**",
+   "as_of": "2026-08-13"
+  },
+  {
+   "m": "trellis",
+   "c": "d-anim",
+   "state": "unknown",
+   "verified_for": "image-large",
+   "note": "立项当天（2026-08-13）只核到模型版本与该家最显眼的几项能力，这一格**还没查**",
+   "as_of": "2026-08-13"
+  },
+  {
+   "m": "trellis",
+   "c": "d-scene",
+   "state": "unknown",
+   "verified_for": "image-large",
+   "note": "立项当天（2026-08-13）只核到模型版本与该家最显眼的几项能力，这一格**还没查**",
+   "as_of": "2026-08-13"
+  },
+  {
+   "m": "trellis",
+   "c": "d-format",
+   "state": "unknown",
+   "verified_for": "image-large",
+   "note": "立项当天（2026-08-13）只核到模型版本与该家最显眼的几项能力，这一格**还没查**",
+   "as_of": "2026-08-13"
+  },
+  {
+   "m": "trellis",
+   "c": "d-print",
+   "state": "unknown",
+   "verified_for": "image-large",
+   "note": "立项当天（2026-08-13）只核到模型版本与该家最显眼的几项能力，这一格**还没查**",
+   "as_of": "2026-08-13"
+  },
+  {
+   "m": "trellis",
+   "c": "d-openweights",
+   "state": "yes",
+   "verified_for": "image-large",
+   "src": "gh-trellis",
+   "note": "权重与推理代码都在公开仓库（★13.4k）",
+   "via": "native",
+   "as_of": "2026-08-13"
+  },
+  {
+   "m": "seed3d",
+   "c": "d-t23d",
+   "state": "unknown",
+   "verified_for": "1.0",
+   "note": "立项当天（2026-08-13）只核到模型版本与该家最显眼的几项能力，这一格**还没查**",
+   "as_of": "2026-08-13"
+  },
+  {
+   "m": "seed3d",
+   "c": "d-i23d",
+   "state": "yes",
+   "verified_for": "1.0",
+   "src": "seed3d-page",
+   "note": "官方页：「Seed3D 1.0 — From Images to High-Fidelity Simulation-Ready 3D Assets」",
+   "via": "native",
+   "as_of": "2026-08-13"
+  },
+  {
+   "m": "seed3d",
+   "c": "d-multiview",
+   "state": "unknown",
+   "verified_for": "1.0",
+   "note": "立项当天（2026-08-13）只核到模型版本与该家最显眼的几项能力，这一格**还没查**",
+   "as_of": "2026-08-13"
+  },
+  {
+   "m": "seed3d",
+   "c": "d-pbr",
+   "state": "unknown",
+   "verified_for": "1.0",
+   "note": "立项当天（2026-08-13）只核到模型版本与该家最显眼的几项能力，这一格**还没查**",
+   "as_of": "2026-08-13"
+  },
+  {
+   "m": "seed3d",
+   "c": "d-uv",
+   "state": "unknown",
+   "verified_for": "1.0",
+   "note": "立项当天（2026-08-13）只核到模型版本与该家最显眼的几项能力，这一格**还没查**",
+   "as_of": "2026-08-13"
+  },
+  {
+   "m": "seed3d",
+   "c": "d-remesh",
+   "state": "unknown",
+   "verified_for": "1.0",
+   "note": "立项当天（2026-08-13）只核到模型版本与该家最显眼的几项能力，这一格**还没查**",
+   "as_of": "2026-08-13"
+  },
+  {
+   "m": "seed3d",
+   "c": "d-edit",
+   "state": "unknown",
+   "verified_for": "1.0",
+   "note": "立项当天（2026-08-13）只核到模型版本与该家最显眼的几项能力，这一格**还没查**",
+   "as_of": "2026-08-13"
+  },
+  {
+   "m": "seed3d",
+   "c": "d-rig",
+   "state": "unknown",
+   "verified_for": "1.0",
+   "note": "立项当天（2026-08-13）只核到模型版本与该家最显眼的几项能力，这一格**还没查**",
+   "as_of": "2026-08-13"
+  },
+  {
+   "m": "seed3d",
+   "c": "d-anim",
+   "state": "unknown",
+   "verified_for": "1.0",
+   "note": "立项当天（2026-08-13）只核到模型版本与该家最显眼的几项能力，这一格**还没查**",
+   "as_of": "2026-08-13"
+  },
+  {
+   "m": "seed3d",
+   "c": "d-scene",
+   "state": "yes",
+   "verified_for": "1.0",
+   "src": "seed3d-page",
+   "note": "官方自述三项能力之一：「3) Scalable Scene Composition」",
+   "via": "native",
+   "as_of": "2026-08-13"
+  },
+  {
+   "m": "seed3d",
+   "c": "d-format",
+   "state": "unknown",
+   "verified_for": "1.0",
+   "note": "立项当天（2026-08-13）只核到模型版本与该家最显眼的几项能力，这一格**还没查**",
+   "as_of": "2026-08-13"
+  },
+  {
+   "m": "seed3d",
+   "c": "d-print",
+   "state": "unknown",
+   "verified_for": "1.0",
+   "note": "立项当天（2026-08-13）只核到模型版本与该家最显眼的几项能力，这一格**还没查**",
+   "as_of": "2026-08-13"
+  },
+  {
+   "m": "seed3d",
+   "c": "d-openweights",
+   "state": "unknown",
+   "verified_for": "1.0",
+   "src": "seed3d-page",
+   "note": "官方模型页只有「Read Technical Report」与「Try Now」两个入口，**没读到权重下载**；但也没有一句「不开源」—— 所以是 ⬜ 不是 ❌",
+   "as_of": "2026-08-13"
+  },
+  {
+   "m": "spar3d",
+   "c": "d-t23d",
+   "state": "unknown",
+   "verified_for": "Stable Point Aware 3D",
+   "note": "立项当天（2026-08-13）只核到模型版本与该家最显眼的几项能力，这一格**还没查**",
+   "as_of": "2026-08-13"
+  },
+  {
+   "m": "spar3d",
+   "c": "d-i23d",
+   "state": "yes",
+   "verified_for": "Stable Point Aware 3D",
+   "src": "stability-spar3d",
+   "note": "「complete structure generation of a 3D object from a single image in less than a second」",
+   "via": "native",
+   "as_of": "2026-08-13"
+  },
+  {
+   "m": "spar3d",
+   "c": "d-multiview",
+   "state": "unknown",
+   "verified_for": "Stable Point Aware 3D",
+   "note": "立项当天（2026-08-13）只核到模型版本与该家最显眼的几项能力，这一格**还没查**",
+   "as_of": "2026-08-13"
+  },
+  {
+   "m": "spar3d",
+   "c": "d-pbr",
+   "state": "unknown",
+   "verified_for": "Stable Point Aware 3D",
+   "note": "立项当天（2026-08-13）只核到模型版本与该家最显眼的几项能力，这一格**还没查**",
+   "as_of": "2026-08-13"
+  },
+  {
+   "m": "spar3d",
+   "c": "d-uv",
+   "state": "unknown",
+   "verified_for": "Stable Point Aware 3D",
+   "note": "立项当天（2026-08-13）只核到模型版本与该家最显眼的几项能力，这一格**还没查**",
+   "as_of": "2026-08-13"
+  },
+  {
+   "m": "spar3d",
+   "c": "d-remesh",
+   "state": "unknown",
+   "verified_for": "Stable Point Aware 3D",
+   "note": "立项当天（2026-08-13）只核到模型版本与该家最显眼的几项能力，这一格**还没查**",
+   "as_of": "2026-08-13"
+  },
+  {
+   "m": "spar3d",
+   "c": "d-edit",
+   "state": "yes",
+   "verified_for": "Stable Point Aware 3D",
+   "src": "stability-spar3d",
+   "note": "「SPAR3D introduces real-time editing ...  Unprecedented Control: Allows users to directly edit the point cloud」",
+   "via": "native",
+   "as_of": "2026-08-13"
+  },
+  {
+   "m": "spar3d",
+   "c": "d-rig",
+   "state": "unknown",
+   "verified_for": "Stable Point Aware 3D",
+   "note": "立项当天（2026-08-13）只核到模型版本与该家最显眼的几项能力，这一格**还没查**",
+   "as_of": "2026-08-13"
+  },
+  {
+   "m": "spar3d",
+   "c": "d-anim",
+   "state": "unknown",
+   "verified_for": "Stable Point Aware 3D",
+   "note": "立项当天（2026-08-13）只核到模型版本与该家最显眼的几项能力，这一格**还没查**",
+   "as_of": "2026-08-13"
+  },
+  {
+   "m": "spar3d",
+   "c": "d-scene",
+   "state": "unknown",
+   "verified_for": "Stable Point Aware 3D",
+   "note": "立项当天（2026-08-13）只核到模型版本与该家最显眼的几项能力，这一格**还没查**",
+   "as_of": "2026-08-13"
+  },
+  {
+   "m": "spar3d",
+   "c": "d-format",
+   "state": "unknown",
+   "verified_for": "Stable Point Aware 3D",
+   "note": "立项当天（2026-08-13）只核到模型版本与该家最显眼的几项能力，这一格**还没查**",
+   "as_of": "2026-08-13"
+  },
+  {
+   "m": "spar3d",
+   "c": "d-print",
+   "state": "unknown",
+   "verified_for": "Stable Point Aware 3D",
+   "note": "立项当天（2026-08-13）只核到模型版本与该家最显眼的几项能力，这一格**还没查**",
+   "as_of": "2026-08-13"
+  },
+  {
+   "m": "spar3d",
+   "c": "d-openweights",
+   "state": "yes",
+   "verified_for": "Stable Point Aware 3D",
+   "src": "stability-spar3d",
+   "note": "「You can download the weights on Hugging Face and code on GitHub」；许可是 Stability AI Community License，「free for both commercial and non-commercial use」",
+   "via": "native",
+   "as_of": "2026-08-13"
   }
  ],
  "$aliases_why": "各家给同一个能力起不同的名字。**Kling 管角色参考叫 Element，我按 Character Reference 去找，找不到就标了「官方没说」—— 假阴性。** 采集时必须用整组别名去匹配，不能只用我们自己的叫法。这是原方案 §36 Entity Resolution 在能力维度上的对应物。\n\n`alias_bit_us` 标在**真把我们坑过的那一项**上（角色参考）。别名多不等于叫法分歧大：「首尾帧」也有 8 条别名，但全是 start/end frame 的描述性变体，谁都猜得到；而 Element / Ingredients / cameo 是厂商自造词，**不知道就永远搜不到**。选例子要选后者，靠数别名条数是挑不出来的 —— 所以标在数据里，不用启发式猜。",
@@ -9436,6 +10645,22 @@
     }
    ],
    "href": "/sound"
+  },
+  {
+   "id": "threed",
+   "name": "AI 3D",
+   "state": "planned",
+   "volume": "第五个方向",
+   "note": "第五个方向，2026-08-13 立项。**一轨** —— 各家的 API 端点表长得几乎一样（生成 → 贴图 → 重拓扑 → 绑定 → 动画），说明这一侧还没分化出第二套坐标系。⚠️ **边界：收「产出可导出 3D 资产」的模型，不收世界模型与动作生成** —— 腾讯 HY-World 2.0、HY-Motion 1.0 都在同一个 GitHub 组织里，但它们的产出物不是资产（是可交互世界 / 动作序列），按规则一补充归别的方向。**state 先 planned**：R68 要求四个公共页每卷都有内容，补齐才转 live。",
+   "tracks": [
+    {
+     "id": "asset",
+     "zh": "资产生成轨",
+     "short": "资产生成",
+     "volume": "第一卷",
+     "note": "给定文本或图，产出可导出的 3D 资产（网格 + 材质）"
+    }
+   ]
   }
  ],
  "$domains": "前端的方向切换从这里渲染。**现在只有一个，界面上就只显示一个** —— 不做占位 tab 假装有别的。加方向 = 往这个数组里加一条 + 给模型标 domain，不动代码。\n\n**能力轴按方向隔离**（规则二再往上推一层）：能力也带 domain。clip 和 realtime 已经不能共用能力轴，视频和文本更不能 —— 「首尾帧」对文本模型没有意义，硬塞进同一张表只会造出一整片假的 ⬜。校验 R26 拦跨方向的格子。",
@@ -9465,10 +10690,10 @@
    "same_bucket": [
     "threestudio",
     "stable-dreamfusion",
-    "Tripo 3.1",
-    "Hunyuan3D 3.0"
+    "Tripo v3.1-20260211",
+    "Hunyuan3D-Buffalo 1.0"
    ],
-   "revisit": "和世界模型同样处理：**3D 生成值得单开一个方向**，不是塞进 AI 图像",
+   "revisit": "**已经兑现：2026-08-13 单开了 AI 3D 方向**（见 domains.threed）。⚠️ 顺带纠一条：原文这里写的「Hunyuan3D 3.0」**在腾讯官方仓库里查无此物** —— 组织下最新的是 Hunyuan3D-2.1（有权重）与 Hunyuan3D-Buffalo 1.0（只有技术报告）。那个版本号当时没有出处，是照记忆写的。",
    "domain": "image"
   }
  ],
@@ -18245,6 +19470,51 @@
    "caveat": "**它是编排层，不是模型。** 真正的时延与效果取决于你接的那三段；换句话说它省的是工程量，不是模型钱。要「说话当场停」那种真全双工，得换成 Moshi 那类端到端语音模型 —— 代价是内容能力弱于文本大模型。",
    "checked_at": "2026-08-12",
    "domain": "sound"
+  },
+  {
+   "task": "想找别人调好的模型与 LoRA",
+   "site": "Civitai",
+   "url": "https://civitai.com/models",
+   "domain": "image",
+   "verdict": "开源出图这一侧的权重集散地：底模、LoRA、放大器都在这儿，每个模型页把**许可写在作者名下面**（如 Juggernaut XL 标的是 CreativeML Open RAIL++-M Addendum）。",
+   "caveat": "⚠️ **许可跟着上传者走，不是站点统一给的** —— 同一页上换个模型条款就变，商用前必须逐个看。站上还带成人内容分级（模型页公开标 NSFW），**在公司网络里点开要有心理准备**。",
+   "checked_at": "2026-08-13"
+  },
+  {
+   "task": "中文侧想直接在线跑、找中文社区模型",
+   "site": "LiblibAI · 哩布哩布",
+   "url": "https://www.liblib.art/",
+   "domain": "image",
+   "verdict": "中文侧最活跃的出图社区，自述「中国领先的AI创作平台」，网页里直接给 WebUI / ComfyUI / 训练 LoRA 三个入口 —— **不用本地装环境**。",
+   "caveat": "⚠️ **是商业平台不是资料库**：首页就在推会员与积分（「登录领 20 积分/天」），模型页要登录才看得全。我们**没能在未登录状态下核到统一的商用授权口径** —— 那说明它跟着每个模型的作者走，用之前自己确认。",
+   "checked_at": "2026-08-13"
+  },
+  {
+   "task": "想再看一套盲测排名（和 AA 对照）",
+   "site": "LMArena · Text-to-Image Leaderboard",
+   "url": "https://lmarena.ai/leaderboard/text-to-image",
+   "domain": "image",
+   "verdict": "另一套人类盲选 Elo 榜，和 Artificial Analysis 各投各的票。**两张榜位次不一致时，比任何一张单独的榜都有信息量**。",
+   "caveat": "⚠️ 和 AA 同一个毛病 —— **量的是画质偏好，不是能力**；能不能按蒙版重绘、能不能把中文写对，榜上看不出来。而且榜上会挂 preliminary（初步）位次的新模型（核验当天挂着 deepseek-v4-pro-max 的初步位次），**那种位次会变**。",
+   "checked_at": "2026-08-13"
+  },
+  {
+   "task": "想不装环境就按次调各家模型",
+   "site": "Replicate",
+   "url": "https://replicate.com/collections/text-to-image",
+   "domain": "image",
+   "verdict": "把闭源与开源模型都包成同一套 API，按次计费，适合先试再决定要不要接。",
+   "caveat": "⚠️ **它带自己的推荐位** —— 集合页顶上直接写「Models we recommend · Best overall」，那是它的编辑判断不是测评结论。另外它是中间商：**价格与模型版本都可能和厂商官方对不上**，谈钱和查能力都该回官方页。",
+   "checked_at": "2026-08-13"
+  },
+  {
+   "task": "想查官方价格与官方文档",
+   "site": "各家自己的开放平台",
+   "url": "https://help.aliyun.com/zh/model-studio/model-pricing",
+   "domain": "image",
+   "verdict": "阿里百炼把通义万相 / Qwen-Image 这些逐条标价，是能直接读到的官方源，比任何转述都准。",
+   "caveat": "⚠️ **图像这一侧覆盖不全**：Midjourney、Ideogram、Recraft 走的是自己的订阅页，根本不在开放平台上；OpenAI 的价格页对我们的抓取直接回 403（核验当天实测）。**「查不到」在这一格是常态，不是我们漏了。**",
+   "checked_at": "2026-08-13"
   }
  ],
  "$toolkit": "资源导航（方案 §16）。原话：**「不要做一排 Logo 的 hao123」，要「导航 + 判断」。**\n字段：{task, site, url, verdict, caveat, checked_at}\n**verdict 和 caveat 都必填（R49）** —— caveat 是负面结论，「Epoch AI 不收视频模型」这种我们真查过才知道的话，才是这一页的价值。 每条带 domain：这一页是全站公共的，按方向分组显示。",

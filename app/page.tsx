@@ -60,8 +60,8 @@ export default function Pick() {
 
       <p className="mt-8 text-[12.5px] text-muted leading-relaxed">
         <b className="text-ink">「已核」只数带官方原文的那些。</b>
-        ⬜ 不是缺口，是一条事实：我们查了、公开渠道没说；而两个方向的 ⬜ 密度不同，
-        多的那个是我们还没读完那些文档 —— 这一点在方向页里也写着。
+        ⬜ 不是缺口，是一条事实：我们查了、公开渠道没说。各卷 ⬜ 密度不同，
+        密的那卷是我们还没读完文档 —— 方向页里写着。
         <Link href="/method" className="underline ml-1 hover:text-ink">口径 →</Link>
       </p>
 

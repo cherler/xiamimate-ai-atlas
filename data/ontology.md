@@ -449,3 +449,66 @@ Runway Characters 都是同一类。
 - Google：30 种预设音色 · 59 种语言 · 多说话人（最多 2 位）· 风格用自然语言控制 · 音频标签 · 流式（仅 3.1）· Lyria
 - ElevenLabs：70+ 语言 · 字符上限 5,000~40,000 · ~75ms 时延 · Eleven Music v2
 - OpenAI：voice-agent / translation / transcription 三种会话 · WebRTC / WebSocket / SIP
+
+
+---
+
+## 规则十二 · 第五个方向「AI 3D」（2026-08-13 立项）
+
+排期上第一梯队四卷（视频 / 图像 / 文本 / 声音）已经全部上线，
+第二梯队里「AI 音乐」已并进声音卷、「代码与编程 Agent」被规则一补充那条
+「面向内容创作」挡在外面 —— **剩下的就是 3D 生成**。
+
+### D-1 · 什么算这一卷的模型
+
+1. **产出物是可导出的 3D 资产**（网格 + 材质），不是图、不是视频、不是动作序列。
+2. **以模型形式提供**（API 或权重），不是一个只有界面的工具。
+3. **面向内容创作**（规则一补充那条同样适用）。
+
+### 边界：同一个 GitHub 组织里的东西，未必属于这一卷
+
+腾讯 Hunyuan 组织下同时挂着 `HY-World 2.0`（「A Multi-Modal World Model for
+Reconstructing, Generating, and Simulating 3D Worlds」）、`HY-Motion 1.0`
+（3D 人体动作生成）、`R-DMesh`（视频驱动的 3D 动画）。
+
+**它们都不收进这一卷**：世界模型的产出物是可交互世界、动作模型的产出物是动作序列，
+按第 1 条都不是「可导出的资产」。世界模型本来就该是**另一个方向**（第三梯队第 8 项）。
+
+> ⚠️ **一条留给负责人拍板的边界**：字节 Seed3D 1.0 自述是
+> 「Simulation-Ready 3D Assets」，目标写着「toward enabling the world simulators
+> that embodied AI requires」。**按产出物它是资产（收），按目的它是具身智能（不收）。**
+> 本轮**按产出物收了**，并在模型页写清它的定位 —— 但这条判据哪个优先，
+> 值得负责人明确一次。
+
+### D-2 · 能力轴从各家 API 端点表 derive（规则十的做法）
+
+不自己编轴。四家的端点表摆在一起，重合的部分就是轴：
+
+| 厂商 | 官方端点 / 功能名 |
+|---|---|
+| Meshy | Text to 3D · Image to 3D · Multi Image to 3D · Remesh · Convert · Resize · **UV Unwrap** · **Rigging** · **Animation** · Retexture · Scene Compose · Analyze/Repair Printability |
+| Tripo | Generate image · Generate multiview image · Generation · **Texture** · **Mesh Editing** · **Animation** · Post Process |
+| Rodin | Gen-2 / Gen-2.5 Generation · **Generate Texture** · 产品页另有 3D Mesh Editor |
+| 混元3D | 「From Images to High-Fidelity 3D Assets with **Production-Ready PBR Material**」 |
+
+得到 13 项：文生 3D · 图生 3D · 多图/多视图 · PBR 材质 · 自动 UV · 重拓扑与面数 ·
+网格编辑 · 骨骼绑定 · 动画 · 场景级 · 导出格式 · 可打印性 · 开源权重。
+
+**只有一轨。** 各家的端点表长得几乎一样（生成 → 贴图 → 重拓扑 → 绑定 → 动画），
+说明这一侧还没分化出第二套坐标系 —— 按规则二，没分化就不分轨。
+
+### D-3 · Core 名单（7 个，规则四上限 10）
+
+混元3D · Tripo · Meshy · Rodin · TRELLIS · Seed3D · SPAR3D。
+留 3 个空位给复核时冒出来的（Hitem3D / Sparc3D 这类还没核）。
+
+### 立项当天的真实进度
+
+91 格里 **✅35 ❌3 ⬜53**。⬜ 占 58% —— **这个数字不该被美化**：
+它诚实地说明「立项当天只核到各家最显眼的几项」。
+⬜ 分两类写在格子里：**「查过、这份文档里没有」**（如 Tripo 的 UV 与绑定）
+和**「还没查」**，两者对下一轮的意义完全不同。
+
+⚠️ **腾讯这条线已经换代但还不能跟**：`Hunyuan3D-Buffalo 1.0` 的技术报告
+2026-08-05 发布（arXiv 2608.02711），仓库只有 7 次提交、无代码无权重。
+**有论文不等于有模型** —— 当前版本仍记 2.1，Buffalo 进待复核。

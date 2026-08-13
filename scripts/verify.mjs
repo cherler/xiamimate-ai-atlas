@@ -84,7 +84,14 @@ const ROUTES = [
    */
   { path: "/video/scenario", must: "我想做什么", zh: 120, per: "article .grid > div", built: true, also: ["公开路线", "需要的能力", "输入 → 输出"] },
   { path: "/video/models", must: "全部模型", zh: 1200, built: true },
-  { path: "/image", must: "AI 图像", zh: 900, built: true, also: ["出图轨", "文字渲染", ...(PLANNED ? ["这个方向还在建"] : [])] },
+  /**
+   * ⚠️ **「这个方向还在建」这一栏只出现在那个 planned 方向自己的页面上**，不是全站。
+   * 2026-08-11 图像卷转 live 时把这条断言改成了跟着 `PLANNED` 走 —— 但 `PLANNED` 是个
+   * **全局**开关：2026-08-13 AI 3D 立项（planned），它就又要求 /image 上出现这句话，
+   * 而 /image 早就是 live 的。**跟着数据走还不够，得跟着「哪一份数据」走。**
+   * 这一栏的断言挪到下面 /threed 那一行去了。
+   */
+  { path: "/image", must: "AI 图像", zh: 900, built: true, also: ["出图轨", "文字渲染"] },
   // 断言跟着数据走：图像谱系已经采了 13 条，「还没采谱系」那句空状态不该再出现。
   // 钉一个只有图像树才有的产品线名，比钉空状态文案稳。
   { path: "/image/tree", must: "长出了什么", zh: 800, built: true, also: ["FLUX", "Z-Image"] },
@@ -536,6 +543,21 @@ const mentions = (txt, name) => {
          * 顺带把 HF 仓库路径也收进来：上一版只抠了 github.com 的，
          * 而声音与图像两卷的权重证据大多挂在 huggingface.co 上。
          */
+        /**
+         * **「我们明说了不收它」的名字，出现在这一卷的页面上是对的。**
+         *
+         * 2026-08-13 AI 3D 立项当天炸出来的：`/image/models` 上有一条 08-11 写的排除说明
+         *「图生 3D（TRELLIS / Hunyuan3D-2 / TripoSR）…… 它们的产出是网格和材质，不是图」——
+         * 那正是这一页该说的话。3D 成为独立方向的那一刻，这段正确的文字突然变成了「跨方向混入」。
+         *
+         * 所以把本方向 `excluded` 条目里的名字先抠掉。范围很窄：**只有我们自己声明过
+         * 「这一卷不收它」的名字**，别的方向的模型漏进来照样会被抓到。
+         */
+        ...(raw.excluded ?? []).filter((e) => (e.domain ?? "video") === mine)
+          .flatMap((e) => [e.name, e.why, e.revisit, ...(e.same_bucket ?? [])]).filter(Boolean)
+          // ⚠️ **先去掉 `**` 再比。** 数据里的重点标记渲染时会被 `Rich` 吃掉，
+          // 带着标记去匹配页面文字，一个字都对不上 —— 第一版就是这么白写的。
+          .map((x) => x.replace(/\*\*/g, "")),
         ...Object.values(raw.sources ?? {}).map((s) => s.name).filter(Boolean),
         ...[...JSON.stringify(raw).matchAll(/huggingface\.co\/([A-Za-z0-9_.-]+)\/([A-Za-z0-9_.-]+)/g)]
           .flatMap((m) => [`${m[1]}/${m[2]}`, m[2]]),
@@ -583,7 +605,13 @@ const mentions = (txt, name) => {
         `${path} 没有把 ** 原样印出来${starred.length ? `：${starred.slice(0, 3).join("、")}` : ""}`);
 
       const mineCapNames = [...mineCaps].sort((a, b) => b.length - a.length);
-      let restCap = txt;
+      /**
+       * ⚠️ **从 `rest` 起，不是从 `txt` 起。** 上面已经把「本方向合法出现的名字」
+       * （含我们自己声明过不收的那些）抠掉了 —— 能力这一遍从原文重来，
+       * 等于把那份豁免作废。2026-08-13 就是这样：模型那一遍过了，
+       * 能力那一遍还在报同一段排除说明里的「图生 3D」。
+       */
+      let restCap = rest;
       for (const n of mineCapNames) restCap = restCap.split(n).join("§");
       const capHit = alienCaps.filter((n) => mentions(restCap, n));
       ok(capHit.length === 0, `${path} 没有混入别的方向的能力${capHit.length ? `：${capHit.join("、")}` : ""}`);
