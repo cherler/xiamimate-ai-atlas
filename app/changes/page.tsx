@@ -1,10 +1,11 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { Rich } from "@/components/Fact";
-import { atlas, groupByDomain, label } from "@/lib/atlas";
+import { atlas, label } from "@/lib/atlas";
 import { modelHref } from "@/lib/slug";
 import changes from "@/data/changes.json";
 import BackLink from "@/components/BackLink";
+import DomainFilter from "@/components/DomainFilter";
 
 /**
  * 最近有什么变化（方案 §15 What Changed）。
@@ -85,31 +86,6 @@ export default function ChangesPage() {
     </article>
   );
 
-  /**
-   * 每一大节内部**再按方向分一层**（负责人 2026-08-11：三个公共页
-   * 「都可以往这里放内容。但也应该在对应页面做一定的分类才是。混在一起还是不够好」）。
-   *
-   * 分组顺序来自 `atlas.domains`，**加一个方向不用改这一页**。
-   * 只有一个方向有内容时不画小标题 —— 那时候分组是噪音。
-   */
-  const ByDomain = ({ evs }: { evs: Ev[] }) => {
-    const gs = groupByDomain(evs, (e) => e.domain);
-    if (gs.length <= 1) return <div className="mt-2">{evs.map((e, i) => <Card key={e.id} e={e} n={i + 1} />)}</div>;
-    return (
-      <div className="mt-2 flex flex-col gap-5">
-        {gs.map((g) => (
-          <div key={g.id || "rest"}>
-            <p className="text-[13px] text-muted flex items-baseline gap-2 border-b border-rule pb-1.5">
-              <b className="text-ink text-[14px]">{g.name}</b>
-              <span className="tabular-nums">{g.items.length} 条</span>
-            </p>
-            {g.items.map((e, i) => <Card key={e.id} e={e} n={i + 1} />)}
-          </div>
-        ))}
-      </div>
-    );
-  };
-
   return (
     <main className="max-w-[980px] mx-auto px-8 pt-5 pb-10 flex flex-col gap-8">
       <BackLink />
@@ -126,27 +102,49 @@ export default function ChangesPage() {
         </p>
       </header>
 
-      <section className="pt-1">
-        <h2 className="text-[23px] font-bold leading-tight flex items-baseline gap-3">
-          <span className="text-[18px] text-yes-ink font-bold">一</span>
-          厂商那边变了什么
-          <span className="text-muted text-[14px] font-normal">{world.length} 条</span>
-        </h2>
-        <ByDomain evs={world} />
-      </section>
-
-      <section className="border-t-[2.5px] border-ink pt-4">
-        <h2 className="text-[23px] font-bold leading-tight flex items-baseline gap-3">
-          <span className="text-[18px] text-yes-ink font-bold">二</span>
-          我们记错了，又改了
-          <span className="text-muted text-[14px] font-normal">{ours.length} 条</span>
-        </h2>
-        <p className="text-muted text-[14px] mt-2 max-w-[880px] leading-relaxed">
-          <b className="text-ink">一个只报别人变化、从不报自己出错的变更页，是营销稿不是变更记录。</b>
-          这个产品唯一的本钱是可信，承认错误比列举别人的新版本更能换来它。
-        </p>
-        <ByDomain evs={ours} />
-      </section>
+      {/**
+        * 两大节交给 `DomainFilter`：**顶上一排方向按钮，点了两节一起筛。**
+        *
+        * 负责人 2026-08-13：「应该在上面有个基于四个方向的快捷导航，
+        * 现在只能一直往下拉才能看到具体内容。」
+        *
+        * 没做锚点跳转 —— 同一个方向在两节里各出现一次，
+        * **锚点只能带你到其中一处，另一处还得接着往下拉**。
+        *
+        * 卡片仍在这里（服务端）渲染好再传过去，不把 atlas 打包进前端；
+        * 每一节的计数由客户端按筛选后的条数算，**筛完还显示总数就是在骗人**。
+        */}
+      <DomainFilter
+        domains={atlas.domains.map((d) => ({ id: d.id, name: d.name }))}
+        sections={[
+          {
+            key: "world",
+            title: (
+              <>
+                <span className="text-[18px] text-yes-ink font-bold">一</span>
+                厂商那边变了什么
+              </>
+            ),
+            items: world.map((e, i) => ({ domain: e.domain ?? "video", node: <Card key={e.id} e={e} n={i + 1} /> })),
+          },
+          {
+            key: "ours",
+            title: (
+              <>
+                <span className="text-[18px] text-yes-ink font-bold">二</span>
+                我们记错了，又改了
+              </>
+            ),
+            intro: (
+              <p className="text-muted text-[14px] mt-2 max-w-[880px] leading-relaxed">
+                <b className="text-ink">一个只报别人变化、从不报自己出错的变更页，是营销稿不是变更记录。</b>
+                这个产品唯一的本钱是可信，承认错误比列举别人的新版本更能换来它。
+              </p>
+            ),
+            items: ours.map((e, i) => ({ domain: e.domain ?? "video", node: <Card key={e.id} e={e} n={i + 1} /> })),
+          },
+        ]}
+      />
 
       <footer className="border-t border-rule pt-5 text-[13px] text-muted leading-relaxed">
         数据版本 {atlas.version} · 数据截至 {atlas.generated_at} ·
