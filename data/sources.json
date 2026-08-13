@@ -4683,6 +4683,20 @@
     "capability"
    ],
    "note": "⚠️ **权重是受限访问**：未登录读 README 得到「Access to model Lightricks/LTX-2.5 is restricted」，只能引 API 返回的元数据（标签 / 许可 / 下载量）"
+  },
+  {
+   "id": "meshy-changelog",
+   "tier": "S",
+   "kind": "spa",
+   "vendor": "meshy",
+   "name": "Meshy · API 更新日志",
+   "url": "https://docs.meshy.ai/en/api/changelog",
+   "refresh_days": 14,
+   "good_for": [
+    "version",
+    "capability"
+   ],
+   "note": "两年的逐条记录（2024-11 起），**闭源那几家里少见的可引发布史**。⚠️ 纯前端渲染，要走 spa 抓法"
   }
  ],
  "$missing": [
