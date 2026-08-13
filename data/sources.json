@@ -4148,6 +4148,19 @@
     "hq"
    ],
    "note": "法务页面，地址变动极少 —— 半年看一次即可"
+  },
+  {
+   "id": "recraft-blog-b",
+   "tier": "A",
+   "kind": "html",
+   "vendor": "recraft",
+   "name": "Recraft 官方博客",
+   "url": "https://www.recraft.ai/blog",
+   "refresh_days": 30,
+   "good_for": [
+    "investment"
+   ],
+   "note": "⚠️ 融资公告只在博客列表页的摘要里，没有单独的新闻页 —— 抓列表页本身"
   }
  ],
  "$missing": [

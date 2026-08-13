@@ -1721,6 +1721,15 @@
    "round": "约 27% 股权",
    "src": "openai-structure",
    "quote": "as of closing of the recapitalization, Microsoft holds roughly 27% of OpenAI Group, and the remaining 47% is held by current and former employees and investors"
+  },
+  {
+   "from": "Accel",
+   "to": "recraft",
+   "round": "B",
+   "role": "领投",
+   "date": "2025-06-05",
+   "src": "recraft-blog-b",
+   "quote": "官方博客原文：「Exciting milestone for Recraft: **we've raised a $30M Series B funding round, led by Accel.**」"
   }
  ],
  "$investments": "上游投资关系。\n\n## 更正：我先前判断错了\n\n我最初写的是「可得性上限只有 B/C 级，金额多半核不实」。**这个判断对一大半公司是错的。**\n实际查下来，可得性取决于**这家公司走到了哪一步的强制披露**：\n\n  S 级 · 招股书 / 年报 / 上市公告 —— 逐轮融资、金额、股东是**法定披露**，最硬的来源。\n         MiniMax 已过港交所聆讯（招股书公开），昆仑万维已在深交所上市（300418），\n         Alphabet 走 SEC，阿里同时有 SEC 和港交所。\n  S 级 · **公司自己发的融资新闻稿** —— 生数的 A+ 轮就是自己在 PRNewswire 发的，\n         轮次、金额、领投方、战略投资方全都写明。这是我们录进来的第一批。\n  A 级 · 政府/官方机构通报（如北京市科委对生数 A+ 轮的报道）。\n  B 级 · Crunchbase / PitchBook / CBInsights / IT桔子 —— 覆盖最全，但**多数在付费墙后**，\n         而且它们本身也是二手转述。\n  拿不到 —— 未上市公司的具体股比、未公开披露的早期轮次。\n\n**所以不是「本就不公开」，是「看这家公司有没有被逼着公开」。**\n规矩不变：每条带 src 和逐字 quote（校验 R25），拿不到金额就不写金额，不许估。\n\n字段：{from(投资方名，可以是外部机构), to(org id), round, role, date, src, quote}",
@@ -4512,6 +4521,11 @@
   "stability-terms": {
    "name": "Stability AI 官方服务条款（含法定地址）",
    "url": "https://stability.ai/terms-of-use",
+   "tier": "official"
+  },
+  "recraft-blog-b": {
+   "name": "Recraft 官方博客 · Recraft's Next Chapter（2025-06-05）",
+   "url": "https://www.recraft.ai/blog",
    "tier": "official"
   }
  },
