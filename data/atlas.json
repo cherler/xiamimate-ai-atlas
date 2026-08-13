@@ -5003,6 +5003,16 @@
    "name": "Stability · SPAR3D 发布公告",
    "url": "https://stability.ai/news/stable-point-aware-3d",
    "tier": "official"
+  },
+  "tripo-docs-animation": {
+   "name": "Tripo · Animation 端点文档",
+   "url": "https://platform.tripo3d.ai/docs/animation",
+   "tier": "official"
+  },
+  "gh-hunyuan3d-buffalo": {
+   "name": "Tencent-Hunyuan/Hunyuan3D-Buffalo1.0 仓库",
+   "url": "https://github.com/Tencent-Hunyuan/Hunyuan3D-Buffalo1.0",
+   "tier": "official"
   }
  },
  "support": [
@@ -9773,7 +9783,7 @@
    "state": "yes",
    "verified_for": "2.1",
    "src": "hf-hunyuan3d-21",
-   "note": "模型卡标题：「with Production-Ready PBR Material」",
+   "note": "README 架构一节：「Physically-Based Rendering (PBR) Texture Synthesis … the upgraded PBR pipeline leverages physics-grounded material simulation to generate textures with photorealistic light interaction (e.g., metallic reflections, subsurface scattering)」",
    "via": "native",
    "as_of": "2026-08-13"
   },
@@ -9847,7 +9857,7 @@
    "state": "yes",
    "verified_for": "2.1",
    "src": "hf-hunyuan3d-21",
-   "note": "权重就在 HF 仓库（Safetensors / Diffusers），许可 tencent-hunyuan-community —— ⚠️ 是厂商自定义许可，不是标准开源协议",
+   "note": "README：「For the first time, the system releases full model weights and training code, enabling community developers to directly fine-tune and extend the model」。⚠️ 许可是 tencent-hunyuan-community，厂商自定义协议不是标准开源协议",
    "via": "native",
    "as_of": "2026-08-13"
   },
@@ -9915,27 +9925,28 @@
    "c": "d-edit",
    "state": "yes",
    "verified_for": "P1-20260311",
-   "src": "tripo-docs-generation",
-   "note": "端点列表含「Mesh Editing」",
+   "src": "tripo-docs-animation",
+   "note": "任务类型表：mesh_segmentation「Splits the model into editable parts」、mesh_completion；⚠️ 文档同时警告这些操作**会抹掉骨骼数据**（bones / skin weights），要先编辑后绑定",
    "via": "native",
    "as_of": "2026-08-13"
   },
   {
    "m": "tripo",
    "c": "d-rig",
-   "state": "unknown",
+   "state": "yes",
    "verified_for": "P1-20260311",
-   "src": "tripo-docs-generation",
-   "note": "端点表有 Animation 没有 Rigging；**动画和绑定是两件事**，不能由前者推出后者",
-   "as_of": "2026-08-13"
+   "src": "tripo-docs-animation",
+   "note": "文档原文：「animate = prerigcheck + rigging + retarget」，三个任务类型 animate_prerigcheck / animate_rig / animate_retarget。⚠️ **第一遍照端点侧栏判成「没有绑定」是错的** —— 侧栏只列 Animation，绑定写在这一页正文里",
+   "as_of": "2026-08-13",
+   "via": "native"
   },
   {
    "m": "tripo",
    "c": "d-anim",
    "state": "yes",
    "verified_for": "P1-20260311",
-   "src": "tripo-docs-generation",
-   "note": "端点列表含「Animation」",
+   "src": "tripo-docs-animation",
+   "note": "「automatically rigging your model and adding animation」；输出 out_format 只能 glb 或 fbx",
    "via": "native",
    "as_of": "2026-08-13"
   },
@@ -9953,8 +9964,8 @@
    "c": "d-format",
    "state": "yes",
    "verified_for": "P1-20260311",
-   "src": "tripo-docs-generation",
-   "note": "参数说明：「Enabling this option will force the output to be an FBX model」",
+   "src": "tripo-docs-animation",
+   "note": "「out_format (Optional): The file format. This parameter can only be glb or fbx」；生成端另有「force the output to be an FBX model」",
    "via": "native",
    "as_of": "2026-08-13"
   },
@@ -10130,10 +10141,12 @@
   {
    "m": "rodin",
    "c": "d-multiview",
-   "state": "unknown",
+   "state": "yes",
    "verified_for": "Gen-2.5",
-   "note": "立项当天（2026-08-13）只核到模型版本与该家最显眼的几项能力，这一格**还没查**",
-   "as_of": "2026-08-13"
+   "note": "Gen-2 参数表：「images … up to 5 images. As the form data request will preserve the order of the images, the first image will be the image for material generation」",
+   "as_of": "2026-08-13",
+   "src": "rodin-api-docs",
+   "via": "native"
   },
   {
    "m": "rodin",
@@ -10141,7 +10154,7 @@
    "state": "yes",
    "verified_for": "Gen-2.5",
    "src": "rodin-api-docs",
-   "note": "API 文档单列「Generate Texture」端点；简介写「ChatAvatar ... creating hyper-realistic 3D facial assets with PBR textures from text or images」",
+   "note": "参数 material：「PBR: Physically Based Materials, including base color texture, metallicness texture, normal texture and roughness texture」，另有 Shaded / All / None",
    "via": "native",
    "as_of": "2026-08-13"
   },
@@ -10156,18 +10169,20 @@
   {
    "m": "rodin",
    "c": "d-remesh",
-   "state": "unknown",
+   "state": "yes",
    "verified_for": "Gen-2.5",
-   "note": "立项当天（2026-08-13）只核到模型版本与该家最显眼的几项能力，这一格**还没查**",
-   "as_of": "2026-08-13"
+   "note": "参数 quality 直接按面数分档（Raw: high 500k / medium 150k / low 20k / extra-low 2k；**Quad**: high 50k / medium 18k …），另有 quality_override 自定义面数 500–1,000,000",
+   "as_of": "2026-08-13",
+   "src": "rodin-api-docs",
+   "via": "native"
   },
   {
    "m": "rodin",
    "c": "d-edit",
    "state": "yes",
    "verified_for": "Gen-2.5",
-   "src": "rodin-site",
-   "note": "产品页功能列表含「3D Mesh Editor」",
+   "src": "rodin-api-docs",
+   "note": "独立端点「Bang!」：「split a Rodin-generated Asset into multiple submodels」；产品页另有 3D Mesh Editor",
    "via": "native",
    "as_of": "2026-08-13"
   },
@@ -10198,10 +10213,12 @@
   {
    "m": "rodin",
    "c": "d-format",
-   "state": "unknown",
+   "state": "yes",
    "verified_for": "Gen-2.5",
-   "note": "立项当天（2026-08-13）只核到模型版本与该家最显眼的几项能力，这一格**还没查**",
-   "as_of": "2026-08-13"
+   "note": "参数 geometry_file_format：「Possible values are glb, usdz, fbx, obj, and stl. Default is glb」",
+   "as_of": "2026-08-13",
+   "src": "rodin-api-docs",
+   "via": "native"
   },
   {
    "m": "rodin",
@@ -10224,10 +10241,12 @@
   {
    "m": "trellis",
    "c": "d-t23d",
-   "state": "unknown",
+   "state": "yes",
    "verified_for": "image-large",
-   "note": "立项当天（2026-08-13）只核到模型版本与该家最显眼的几项能力，这一格**还没查**",
-   "as_of": "2026-08-13"
+   "note": "README：「It takes in **text or image prompts** and generates high-quality 3D assets」",
+   "as_of": "2026-08-13",
+   "src": "gh-trellis",
+   "via": "native"
   },
   {
    "m": "trellis",
@@ -10235,7 +10254,7 @@
    "state": "yes",
    "verified_for": "image-large",
    "src": "gh-trellis",
-   "note": "提交记录：「Release inference code and TRELLIS-image-large」；论文题为「Structured 3D Latents for Scalable and Versatile 3D Generation」",
+   "note": "README：「takes in text or image prompts and generates high-quality 3D assets」；公开权重名为 TRELLIS-image-large",
    "via": "native",
    "as_of": "2026-08-13"
   },
@@ -10274,10 +10293,12 @@
   {
    "m": "trellis",
    "c": "d-edit",
-   "state": "unknown",
+   "state": "yes",
    "verified_for": "image-large",
-   "note": "立项当天（2026-08-13）只核到模型版本与该家最显眼的几项能力，这一格**还没查**",
-   "as_of": "2026-08-13"
+   "note": "README：「showcases flexible output format selection and **local 3D editing capabilities** which were not offered by previous models」",
+   "as_of": "2026-08-13",
+   "src": "gh-trellis",
+   "via": "native"
   },
   {
    "m": "trellis",
@@ -10308,7 +10329,7 @@
    "c": "d-format",
    "state": "unknown",
    "verified_for": "image-large",
-   "note": "立项当天（2026-08-13）只核到模型版本与该家最显眼的几项能力，这一格**还没查**",
+   "note": "README 说的「various formats, such as Radiance Fields, 3D Gaussians, and meshes」讲的是**表示形态**（辐射场 / 高斯 / 网格），不是 glb/fbx 这类**导出文件格式** —— 两者不是一回事，不能拿前者当后者的证据",
    "as_of": "2026-08-13"
   },
   {
@@ -10352,16 +10373,18 @@
    "c": "d-multiview",
    "state": "unknown",
    "verified_for": "1.0",
-   "note": "立项当天（2026-08-13）只核到模型版本与该家最显眼的几项能力，这一格**还没查**",
+   "note": "官方说的是「multi-view image ... generation」——**它自己生成多视图当中间步骤**，不等于接受多张图作为输入。这一格要的是后者，所以仍是 ⬜",
    "as_of": "2026-08-13"
   },
   {
    "m": "seed3d",
    "c": "d-pbr",
-   "state": "unknown",
+   "state": "yes",
    "verified_for": "1.0",
-   "note": "立项当天（2026-08-13）只核到模型版本与该家最显眼的几项能力，这一格**还没查**",
-   "as_of": "2026-08-13"
+   "note": "「In texture generation, Seed3D 1.0 shows strong capabilities in multi-view image and PBR materials generation」",
+   "as_of": "2026-08-13",
+   "src": "seed3d-page",
+   "via": "native"
   },
   {
    "m": "seed3d",
@@ -10494,7 +10517,7 @@
    "state": "yes",
    "verified_for": "Stable Point Aware 3D",
    "src": "stability-spar3d",
-   "note": "「SPAR3D introduces real-time editing ...  Unprecedented Control: Allows users to directly edit the point cloud」",
+   "note": "「Unprecedented Control: Allows users to directly edit the point cloud by deleting, duplicating, stretching, adding features, or recoloring points」；「Converts edited point clouds into final meshes in just 0.3 seconds」",
    "via": "native",
    "as_of": "2026-08-13"
   },
@@ -15530,6 +15553,175 @@
    "quote": "「FLUX 3 is one multimodal model. Video with synchronized audio, one request shape keyed by mode.」",
    "note": "⚠️ **日期取的是「我们核到它时它已经在文档里」的月份（2026-08），不是发布日** —— 官方文档没标发布日期。宁可标粗，也不编一个精确到日的数字。",
    "cap_skip": "这一代是这条产品线在视频方向的起点，不代表某一项能力首次出现"
+  },
+  {
+   "id": "hy3d-1.0",
+   "m": "hunyuan3d",
+   "version": "1.0",
+   "date": "2024-11-01",
+   "added": "文生 3D 与图生 3D 统一框架",
+   "src": "hf-hunyuan3d-21",
+   "quote": "README BibTeX：「Hunyuan3D 1.0: A Unified Framework for Text-to-3D and Image-to-3D Generation」（arXiv 2411.02293，2024）",
+   "note": "日期取 arXiv 编号对应的月份（2411）—— **不是精确到日的发布日**，README 没给",
+   "cap": "d-t23d"
+  },
+  {
+   "id": "hy3d-2.0",
+   "m": "hunyuan3d",
+   "version": "2.0",
+   "date": "2025-01-01",
+   "added": "高分辨率带贴图资产",
+   "parent": "hy3d-1.0",
+   "src": "hf-hunyuan3d-21",
+   "quote": "README BibTeX：「Hunyuan3D 2.0: Scaling Diffusion Models for High Resolution Textured 3D Assets Generation」（arXiv 2501.12202）",
+   "note": "同上，日期精度到月",
+   "cap_skip": "这一代 README 只说「高分辨率 + 带贴图」，没有对应到我们轴上的某一项新增能力"
+  },
+  {
+   "id": "hy3d-2.1",
+   "m": "hunyuan3d",
+   "version": "2.1",
+   "date": "2025-06-13",
+   "added": "PBR 材质合成 + 全量权重与训练代码开源",
+   "parent": "hy3d-2.0",
+   "src": "hf-hunyuan3d-21",
+   "quote": "README News：「Jun 13, 2025: 🤗 We release the first production-ready 3D asset generation model, Hunyuan3D-2.1!」；架构一节：「Fully Open-Source Framework and Physically-Based Rendering (PBR) Texture Synthesis」",
+   "cap": "d-pbr"
+  },
+  {
+   "id": "hy3d-buffalo",
+   "m": "hunyuan3d",
+   "version": "Buffalo 1.0",
+   "date": "2026-08-05",
+   "added": "统一多模态：生成 + 理解 + 编辑",
+   "parent": "hy3d-2.1",
+   "src": "gh-hunyuan3d-buffalo",
+   "quote": "仓库 News：「2026.08.05: 🔥🔥Paper and project page are released.」；简介「A Unified Multimodal Model for Scalable 3D Generation, Understanding, and Editing」（arXiv 2608.02711）",
+   "note": "⚠️ **只有论文与项目页，仓库 7 次提交、无代码无权重** —— 画进谱系是因为它确实发生了，但当前版本仍记 2.1",
+   "cap_skip": "尚无代码与权重，能力无从核验 —— 有论文不等于有模型"
+  },
+  {
+   "id": "tripo-v1.3",
+   "m": "tripo",
+   "version": "v1.3-20240522",
+   "date": "2024-05-22",
+   "added": "最早列在文档里的一版",
+   "src": "tripo-docs-generation",
+   "quote": "model_version 枚举末位：「v1.3-20240522 (Deprecated)」",
+   "cap_skip": "枚举只给版本号与弃用标记，没说这一代新增了什么"
+  },
+  {
+   "id": "tripo-v1.4",
+   "m": "tripo",
+   "version": "v1.4-20240625",
+   "date": "2024-06-25",
+   "added": "迭代版",
+   "parent": "tripo-v1.3",
+   "src": "tripo-docs-generation",
+   "quote": "model_version 枚举：「v1.4-20240625」",
+   "cap_skip": "枚举没说新增了什么"
+  },
+  {
+   "id": "tripo-v2.0",
+   "m": "tripo",
+   "version": "v2.0-20240919",
+   "date": "2024-09-19",
+   "added": "第二代",
+   "parent": "tripo-v1.4",
+   "src": "tripo-docs-generation",
+   "quote": "model_version 枚举：「v2.0-20240919」",
+   "cap_skip": "枚举没说新增了什么"
+  },
+  {
+   "id": "tripo-v2.5",
+   "m": "tripo",
+   "version": "v2.5-20250123",
+   "date": "2025-01-23",
+   "added": "**至今仍是 API 默认版**",
+   "parent": "tripo-v2.0",
+   "src": "tripo-docs-generation",
+   "quote": "「If this option is not set, the default value will be v2.5-20250123」",
+   "note": "⚠️ 不传 model_version 拿到的是这一版，**不是最新的 P1** —— 对着最新版读文档、按默认值调接口，结果会对不上",
+   "cap_skip": "默认版这件事是接口行为，不是新增能力"
+  },
+  {
+   "id": "tripo-turbo",
+   "m": "tripo",
+   "version": "Turbo-v1.0-20250506",
+   "date": "2025-05-06",
+   "added": "Turbo 支线",
+   "parent": "tripo-v2.5",
+   "src": "tripo-docs-generation",
+   "quote": "model_version 枚举：「Turbo-v1.0-20250506」",
+   "cap_skip": "枚举没说它与主线的差别"
+  },
+  {
+   "id": "tripo-v3.0",
+   "m": "tripo",
+   "version": "v3.0-20250812",
+   "date": "2025-08-12",
+   "added": "第三代",
+   "parent": "tripo-v2.5",
+   "src": "tripo-docs-generation",
+   "quote": "model_version 枚举：「v3.0-20250812」",
+   "cap_skip": "枚举没说新增了什么"
+  },
+  {
+   "id": "tripo-v3.1",
+   "m": "tripo",
+   "version": "v3.1-20260211",
+   "date": "2026-02-11",
+   "added": "第三代迭代",
+   "parent": "tripo-v3.0",
+   "src": "tripo-docs-generation",
+   "quote": "model_version 枚举：「v3.1-20260211」",
+   "cap_skip": "枚举没说新增了什么"
+  },
+  {
+   "id": "tripo-p1",
+   "m": "tripo",
+   "version": "P1-20260311",
+   "date": "2026-03-11",
+   "added": "枚举里最新的一版",
+   "parent": "tripo-v3.1",
+   "src": "tripo-docs-generation",
+   "quote": "model_version 枚举首位：「P1-20260311 View supported parameter details」",
+   "cap_skip": "枚举没说新增了什么；换代与能力的对应关系要等逐版读参数表"
+  },
+  {
+   "id": "rodin-gen1",
+   "m": "rodin",
+   "version": "Gen-1 & 1.5",
+   "date": "2025-01-01",
+   "added": "最早的两代（文档仍在服务）",
+   "src": "rodin-api-docs",
+   "quote": "文档索引里独立成节：「Gen-1&1.5 Generation」",
+   "note": "⚠️ **日期是估的**：文档没写发布时间，这里取「文档里仍挂着」这一事实，年份按最早可查的一年填，精度只到年",
+   "cap_skip": "文档只给端点，没说这两代各自新增了什么"
+  },
+  {
+   "id": "rodin-gen2",
+   "m": "rodin",
+   "version": "Gen-2",
+   "date": "2025-06-01",
+   "added": "多图输入（最多 5 张）+ 面数控制 + 五种导出格式",
+   "parent": "rodin-gen1",
+   "src": "rodin-api-docs",
+   "quote": "Gen-2 参数表：「images … up to 5 images」「geometry_file_format … glb, usdz, fbx, obj, and stl」「quality … Raw: high 500k / Quad: high 50k」",
+   "note": "⚠️ **日期是估的**，文档没写发布时间，精度只到月",
+   "cap": "d-multiview"
+  },
+  {
+   "id": "rodin-gen2.5",
+   "m": "rodin",
+   "version": "Gen-2.5",
+   "date": "2026-01-01",
+   "added": "按档位计费的新一代",
+   "parent": "rodin-gen2",
+   "src": "rodin-api-docs",
+   "quote": "「Gen-2.5 Generation」一节的档位表：Gen-2.5-Extreme-Low「Best for quickly generating simple assets」0.5 credit 起",
+   "note": "⚠️ **日期是估的**，文档没写发布时间，精度只到年",
+   "cap_skip": "档位表讲的是成本与用途，不是新增能力"
   }
  ],
  "$versions": "版本谱系（演进图的数据）。**演进的主体是模型，不是能力。**\n\n原来那张演进图每行是一项能力、横轴是「我们能证明的最早时间」、粗细是几家支持。\n读者看完只得到「动作复刻 2025-12 出现、6/9 支持」—— 那是一次数据库查询的可视化，不涨知识。\n而且它得靠图注免责（「不是业界首次出现」）：**一张需要图注免责的图，说明它量错了东西。**\n\n这份数据画的是**厂商自己发布的版本和日期**，所以不需要免责。每条必须回答：\n**这一代新增了什么。** 只有版本号没有 added 的节点没有价值，不收。\n\n两个最好的来源，都不是「新闻」：\n  · **官方 Hugging Face 组织** —— 模型名本身就编码了能力与代际\n    （Wan2.1-FLF2V＝首尾帧、Wan2.2-S2V＝语音驱动、LTX 的 IC-LoRA-Ingredients＝角色参考），\n    发布时间由 HF API 给出，比任何新闻稿都准。\n  · **官方 API 更新日志** —— 可灵那份 31k 字符里有 170 条带日期的条目。\n\n覆盖不全是事实：万相和可灵能画出完整谱系，Runway/Vidu/Seedance 只有近期几个点，\nVeo/Sora/海螺/LTX 还没有。**图上要标出哪几条线是完整的、哪几条只是片段** ——\n画一条只有两个点的线却不说明，读者会以为这家两年只更新过两次。\n\n`cap` 把版本节点挂到能力 id 上，图上「点一项能力，看各家谁先谁后」靠它。\n**对不上的一律留空并写明理由（cap_skip），不硬凑** —— 硬凑一个 id，纵向那一刀就切错了。\n典型：Wan 的 S2V 是「语音驱动」，不等于我们轴上的「对口型」，两件事不合并；\n「换代」节点本身也不是新增单项能力。\n\n`id` + `parent` 把平铺记录变成**真的树**。分叉是真实存在的：\nWan2.1 底座上同时长出 FLF2V（首尾帧）和 VACE（统一编辑）两个变体，\nWan2.2 是换代接在 2.1 后面，Animate-2 又接在 Animate 后面。\n\n**没有父节点的就让它当根，不许为了让树好看硬接一条边** ——\nRunway 的 Aleph 是编辑线，不是 Gen 的后代，它自己是一棵树。\n\n⚠️ **日期必须取 HF 的 `createdAt`，不能取 `lastModified`。**\n第一版取错了字段，把「最后修改」当成了发布日期：Wan2.2 记成 2025-08-07（实际 2025-07-18）、\nAnimate 记成 2025-11-05（实际 2025-09-11）——**差了两个月**。\n仓库发布后还会被反复更新，两个字段根本不是一回事。\n这类错最阴：日期看着合理、图也画得出来，但整条时间线是歪的。\n\n覆盖不足要**写在数据里**，不是靠图上一句话糊过去：\n模型的 `lineage_note` 解释为什么它的节点少（太新 / 官方记录只回溯到某时）。\n校验 R58 强制：**核心模型少于 3 个节点却没写理由，就是错**。\n「我们没采到」和「它本来就没有」是两回事，读者有权知道是哪一种。",

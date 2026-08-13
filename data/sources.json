@@ -4495,6 +4495,32 @@
     "capability"
    ],
    "note": "AI 3D 方向 2026-08-13 立项时登记。⚠️ 纯前端渲染，watch 要走 spa 抓法"
+  },
+  {
+   "id": "tripo-docs-animation",
+   "tier": "S",
+   "kind": "spa",
+   "vendor": "tripo",
+   "name": "Tripo · Animation 端点文档",
+   "url": "https://platform.tripo3d.ai/docs/animation",
+   "refresh_days": 14,
+   "good_for": [
+    "capability"
+   ],
+   "note": "⚠️ 纯前端渲染。**绑定的证据在这一页，不在端点侧栏** —— 侧栏只写 Animation，第一遍照侧栏判成「没有绑定」，是错的"
+  },
+  {
+   "id": "gh-hunyuan3d-buffalo",
+   "tier": "S",
+   "kind": "html",
+   "vendor": "hunyuan3d",
+   "name": "Tencent-Hunyuan/Hunyuan3D-Buffalo1.0 仓库",
+   "url": "https://github.com/Tencent-Hunyuan/Hunyuan3D-Buffalo1.0",
+   "refresh_days": 14,
+   "good_for": [
+    "version"
+   ],
+   "note": "盯它什么时候真放出代码与权重 —— 现在只有技术报告"
   }
  ],
  "$missing": [
