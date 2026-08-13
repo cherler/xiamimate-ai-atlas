@@ -234,15 +234,23 @@ export default function BasicsPage() {
               const src = t.src ? (atlas.sources as Record<string, { name: string; url: string }>)[t.src] : null;
               const hits = seenIn(t);
               return (
-                <div key={t.id} className="border-t border-rule py-4 flex flex-col gap-2">
-                  <div className="flex items-baseline gap-3 flex-wrap">
-                    <b className="text-[18px]">{t.term}</b>
+                /**
+                 * **词条与解释分两列。** 负责人 2026-08-13：「术语与解释文本之间
+                 * 也是间隔不清晰。」原来是上下堆叠、只隔 8px，18px 的词条压在
+                 * 15px 的解释上面，扫过去分不出哪句是在解释哪个词。
+                 * 这一节的用法是**查**不是**读** —— 左列固定放词，右列放它的解释，
+                 * 眼睛沿左边一列往下扫就能找词。窄屏退回堆叠（180px 一列会把解释挤成面条）。
+                 */
+                <div key={t.id} className="border-t border-rule py-5 grid md:grid-cols-[170px_minmax(0,1fr)] gap-x-7 gap-y-2 items-baseline">
+                  <div className="flex md:flex-col md:items-start items-baseline gap-2 flex-wrap">
+                    <b className="text-[18px] leading-snug">{t.term}</b>
                     {"bytes" in t && t.bytes ? (
                       <span className="text-[12.5px] text-muted tabular-nums rounded px-1.5 py-px bg-rule/40">
                         每个参数 {t.bytes} 字节
                       </span>
                     ) : null}
                   </div>
+                  <div className="flex flex-col gap-2 min-w-0">
                   <Rich text={t.one_line} className="block text-[15px] leading-relaxed" />
                   <Rich text={t.why} className="block text-[14.5px] leading-relaxed text-muted" />
                   {"note" in t && t.note ? (
@@ -268,6 +276,7 @@ export default function BasicsPage() {
                       </span>
                     )}
                   </p>
+                  </div>
                 </div>
               );
             })}
