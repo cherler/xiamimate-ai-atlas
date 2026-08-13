@@ -85,10 +85,11 @@ for (const s of a.support) {
 }
 
 /**
- * R68 —— **三个公共页必须覆盖每一个已上线的方向。**
+ * R68 —— **四个公共页必须覆盖每一个已上线的方向。**
  *
- * `/caveats`（能力对了未必用得上）、`/changes`（最近有什么变化）、`/toolkit`（去哪个站）
- * 这三页是跨方向的：加一卷 AI 工具，内容就得跟着进这三页。
+ * `/caveats`（能力对了未必用得上）、`/changes`（最近有什么变化）、`/toolkit`（去哪个站）、
+ * `/basics`（去读哪些公开教程）——
+ * 这四页是跨方向的：加一卷 AI 工具，内容就得跟着进这四页。
  * 但它们和「某一卷自己的页面」不一样 —— 做完一卷的现在页/演进树，
  * 人会很自然地以为收工了，**没人会记得回头补这三页**。
  * 负责人 2026-08-11 指出时，图像卷在 /caveats 上是空的、文本卷在三页上全是空的。
@@ -98,12 +99,31 @@ for (const s of a.support) {
  * 允许有缺口，**但缺口必须写明理由**（`domains[].gaps`）——
  * 和 R58「少于 3 个谱系节点要写原因」同一条纪律：
  * **「还没做」和「本来就没有」是两回事**，不许都表现成一片空白然后不解释。
+ *
+ * ## 2026-08-13 把 /basics 也纳进来
+ *
+ * 负责人：「后续添加新的 AI 工具方向（AI 3D、具身智能、世界模型？）的
+ * 跨方向导航与内容，要在做具体方向时一起更新。」原来这条只管三页 ——
+ * 而 /basics 那 21 个教程几乎全是大模型（文本卷），视频 / 图像 / 声音
+ * 只靠 WaytoAGI 一条撑着。加新方向时同样会忘。
+ *
+ * ⚠️ **通用基础课（`domains: []`）不计入覆盖。** 「动手学深度学习」这类
+ * 对哪一卷都算沾边 —— 认它就等于任何新方向自动过关，这条规则就白写了。
+ * 要的是**明确讲了那个方向**的教程或文档。
+ *
+ * 只有一条覆盖时给警告：一卷的入门读物全压在同一个来源上（现在是社区共建的
+ * WaytoAGI），那个来源改版或下线，这一卷的入口就断了。
  */
 {
   const changes = existsSync(new URL("../data/changes.json", import.meta.url))
     ? JSON.parse(readFileSync(new URL("../data/changes.json", import.meta.url), "utf8"))
     : { events: [] };
   const domOf = new Map(a.models.map((m) => [m.id, m.domain ?? "video"]));
+  const glossary = existsSync(new URL("../data/glossary.json", import.meta.url))
+    ? JSON.parse(readFileSync(new URL("../data/glossary.json", import.meta.url), "utf8"))
+    : { tutorials: [] };
+  const tutorials = (glossary.tutorials ?? []).flatMap((g) => g.items ?? []);
+  const tutorialCover = (d) => tutorials.filter((t) => (t.domains ?? []).includes(d)).length;
   const has = {
     // caveats 是现算的，没法在这里跑 —— 查它的**输入**：这一卷有没有可用性/价格/可达性数据
     caveats: (d) =>
@@ -112,15 +132,24 @@ for (const s of a.support) {
       a.models.some((m) => (m.domain ?? "video") === d && m.reach_cn === "blocked" && (m.tier ?? "core") === "core"),
     changes: (d) => (changes.events ?? []).some((e) => e.domain === d),
     toolkit: (d) => (a.toolkit ?? []).some((t) => t.domain === d),
+    basics: (d) => tutorialCover(d) > 0,
   };
   for (const d of a.domains.filter((x) => x.state === "live")) {
     for (const [page, ok] of Object.entries(has)) {
       if (ok(d.id)) continue;
       const why = d.gaps?.[page];
-      if (!why) errs.push(`R68 ${d.name} 在 /${page} 上没有任何内容 —— 三个公共页要覆盖每一卷。补内容，或在 domains[${d.id}].gaps.${page} 写明为什么没有`);
+      if (!why) errs.push(`R68 ${d.name} 在 /${page} 上没有任何内容 —— 四个公共页要覆盖每一卷。补内容，或在 domains[${d.id}].gaps.${page} 写明为什么没有`);
       else warns.push(`R68 ${d.name} 在 /${page} 上是空的（已写明原因：${String(why).slice(0, 46)}…）`);
     }
+    // 教程只有一条时点名 —— 那一卷的入门入口是单点，来源一改版就断了
+    if (tutorialCover(d.id) === 1)
+      warns.push(`R68a ${d.name} 在 /basics 上只有 1 条明确覆盖它的教程 —— 入口是单点，那个来源一改版这一卷就没入门读物了`);
   }
+  // 每条教程都要表态：讲的是哪几卷，还是通用基础。**在方向循环外面** ——
+  // 放里面会按方向数重复报同一条，一个漏标的教程刷四行。
+  for (const t of tutorials)
+    if (!Array.isArray(t.domains))
+      errs.push(`R68b 教程没标方向：${t.name} —— 讲哪几卷就写哪几卷，通用基础课写空数组（不计入覆盖）`);
 }
 
 /**

@@ -712,6 +712,34 @@ const mentions = (txt, name) => {
     (missing.size ? ` —— **缺 ${missing.size} 张**：${[...missing.keys()].slice(0, 4).join("、")}` : ""));
 }
 
+// ── 跨方向筛选条：上线一卷，公共页的快捷导航必须跟着长出来 ──────────
+/**
+ * 负责人 2026-08-13：「后续添加新的 AI 工具方向的**跨方向导航**与内容，
+ * 要在做具体方向时一起更新。」
+ *
+ * 内容那半边由 R68 在 validate 里管（四个公共页每卷都要有东西）。
+ * 导航这半边只有在浏览器里才看得见 —— `DomainFilter` 的按钮是客户端渲染的，
+ * 数据对了但组件没接上，静态校验一点都察觉不到。所以在这里数按钮。
+ *
+ * ⚠️ 数的是**上线**的方向（`state === "live"`）。立项未上线的不该出现在筛选条上，
+ * 点进去是空页面比没有这个按钮更糟。
+ */
+{
+  console.log("\n══════ 公共页的方向筛选条 ══════");
+  const live = JSON.parse(readFileSync(join(ROOT, "data/atlas.json"), "utf8"))
+    .domains.filter((d) => d.state === "live");
+  for (const path of ["/changes", "/toolkit"]) {
+    const page = await browser.newPage({ viewport: { width: 1440, height: 900 } });
+    await page.goto(ORIGIN + BASE + path, { waitUntil: "networkidle" });
+    const labels = await page.locator("[role=group] button").allInnerTexts();
+    await page.close();
+    const miss = live.filter((d) => !labels.some((t) => t.includes(d.name)));
+    ok(miss.length === 0,
+      `${path} 的筛选条覆盖 ${live.length} 个上线方向` +
+      (miss.length ? ` —— **少了 ${miss.map((d) => d.name).join("、")}**` : `（${live.map((d) => d.name).join("、")}）`));
+  }
+}
+
 // ── 动线可达性：从任意页出发，≤2 次点击能到三条动线的起点 ─────────────
 if (FLOWS) {
   console.log("\n══════ 动线可达性 ══════");
