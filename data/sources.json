@@ -4752,6 +4752,34 @@
     "version"
    ],
    "note": "高斯泼溅那一侧，2026-08-14 判据放宽后收进来的第一条"
+  },
+  {
+   "id": "arxiv-seed3d-20",
+   "tier": "S",
+   "kind": "html",
+   "vendor": "seed3d",
+   "name": "arXiv · Seed3D 2.0 技术报告",
+   "url": "https://arxiv.org/abs/2605.13862",
+   "refresh_days": 30,
+   "good_for": [
+    "version",
+    "capability"
+   ],
+   "note": "字节 Seed 团队自己的论文，2026-04-22。**产品页在登录墙后面，这是能读到全文的官方出处**"
+  },
+  {
+   "id": "arxiv-seed3d-10",
+   "tier": "S",
+   "kind": "html",
+   "vendor": "seed3d",
+   "name": "arXiv · Seed3D 1.0 技术报告",
+   "url": "https://arxiv.org/abs/2510.19944",
+   "refresh_days": 30,
+   "good_for": [
+    "version",
+    "capability"
+   ],
+   "note": "2025-10-22，摘要末尾给出火山方舟的体验地址"
   }
  ],
  "$missing": [

@@ -83,12 +83,14 @@ for (const s of a.support) {
  * （站上的规矩是不自己造名字）。但空着这件事要一直看得见。
  */
 {
-  const noZh = a.models.filter((m) => !m.zh);
+  // **标了 `zh_none`（查过、官方没有中文名）的不算** —— 否则这条警告永远不收敛
+  const noZh = a.models.filter((m) => !m.zh && !m.zh_none);
   if (noZh.length) {
     const by = {};
     for (const m of noZh) by[m.domain ?? "video"] = (by[m.domain ?? "video"] ?? 0) + 1;
     warns.push(`R73 ${noZh.length} 个模型没填中文别名（${Object.entries(by).map(([k, v]) => `${k} ${v}`).join(" · ")}）—— ` +
-      `中文关键词搜不到它们。有官方中文名的就补上；**外国品牌没有中文名就空着，别自己造**`);
+      `中文关键词搜不到它们。**有官方中文名的补上；查过确实没有的标 \`zh_none: true\`** —— ` +
+      `别自己造名字，也别让「查过」和「没查」看起来一样（同 R21a）`);
   }
 }
 

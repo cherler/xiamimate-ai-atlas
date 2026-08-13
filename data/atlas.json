@@ -3061,7 +3061,8 @@
    "version_quote": "模型页：「Eleven v3 —— Human-like and expressive speech generation」，70+ 语言、单次 5,000 字符",
    "lineage_note": "**谱系空着是因为拿不到日期，不是它没有历史**：官方模型页把 Flash v2 / Multilingual v2 / Flash v2.5 / Eleven v3 四代并列，但**不标发布日**；elevenlabs.io/docs/changelog 当天 404。宁可树上少一条，也不要一条编出来的时间线（2026-08-12 我一度用占位日期建过，随即撤掉）。",
    "reach_cn": "ok",
-   "reach_note": "elevenlabs.io 直连 200（本机实测 08-12）"
+   "reach_note": "elevenlabs.io 直连 200（本机实测 08-12）",
+   "zh_none": true
   },
   {
    "id": "gemini-tts",
@@ -3078,7 +3079,8 @@
    "version_quote": "语音生成指南列出 Gemini 3.1 Flash TTS Preview / 2.5 Flash Preview TTS / 2.5 Pro Preview TTS；30 种预设音色、59 种语言",
    "lineage_note": "声音卷 2026-08-12 才立项，谱系还没采 —— 这是「没采到」，不是「它没有历史」",
    "reach_cn": "blocked",
-   "reach_note": "ai.google.dev 直连不通（连接失败）（本机实测 08-12）"
+   "reach_note": "ai.google.dev 直连不通（连接失败）（本机实测 08-12）",
+   "zh_none": true
   },
   {
    "id": "openai-tts",
@@ -3095,7 +3097,8 @@
    "version_quote": "模型页 Speech Generation 一栏只列了 GPT-4o mini TTS",
    "lineage_note": "声音卷 2026-08-12 才立项，谱系还没采 —— 这是「没采到」，不是「它没有历史」",
    "reach_cn": "blocked",
-   "reach_note": "developers.openai.com 返回 403 —— **是拒绝，不是不通**（本机实测 08-12）"
+   "reach_note": "developers.openai.com 返回 403 —— **是拒绝，不是不通**（本机实测 08-12）",
+   "zh_none": true
   },
   {
    "id": "glm-voice",
@@ -3167,7 +3170,8 @@
    "version_quote": "模型页 Music Generation：「Eleven Music v2 —— Studio-grade music with natural language prompts in any style」",
    "lineage_note": "**谱系空着是因为拿不到日期，不是它没有历史**：官方模型页把 Flash v2 / Multilingual v2 / Flash v2.5 / Eleven v3 四代并列，但**不标发布日**；elevenlabs.io/docs/changelog 当天 404。宁可树上少一条，也不要一条编出来的时间线（2026-08-12 我一度用占位日期建过，随即撤掉）。",
    "reach_cn": "ok",
-   "reach_note": "elevenlabs.io 直连 200（同一平台）（本机实测 08-12）"
+   "reach_note": "elevenlabs.io 直连 200（同一平台）（本机实测 08-12）",
+   "zh_none": true
   },
   {
    "id": "lyria",
@@ -3184,7 +3188,8 @@
    "version_quote": "Interactions API 的支持模型表列有 lyria-3-pro-preview 与 lyria-3-clip-preview",
    "lineage_note": "声音卷 2026-08-12 才立项，谱系还没采 —— 这是「没采到」，不是「它没有历史」",
    "reach_cn": "blocked",
-   "reach_note": "ai.google.dev 直连不通（连接失败）（本机实测 08-12）"
+   "reach_note": "ai.google.dev 直连不通（连接失败）（本机实测 08-12）",
+   "zh_none": true
   },
   {
    "id": "gpt-realtime",
@@ -3201,7 +3206,8 @@
    "version_quote": "Realtime 指南列出 gpt-realtime-2.1、gpt-realtime-translate、gpt-live-transcribe 三支；会话分 voice-agent / translation / transcription",
    "lineage_note": "声音卷 2026-08-12 才立项，谱系还没采 —— 这是「没采到」，不是「它没有历史」",
    "reach_cn": "blocked",
-   "reach_note": "developers.openai.com 返回 403（是拒绝不是不通）（本机实测 08-12）"
+   "reach_note": "developers.openai.com 返回 403（是拒绝不是不通）（本机实测 08-12）",
+   "zh_none": true
   },
   {
    "id": "grok-voice",
@@ -3218,7 +3224,8 @@
    "version_quote": "API 发布说明 2026 年 7 月：grok-voice-think-fast-2.0",
    "lineage_note": "声音卷 2026-08-12 才立项，谱系还没采 —— 这是「没采到」，不是「它没有历史」",
    "reach_cn": "blocked",
-   "reach_note": "docs.x.ai 直连不通（连接失败）（本机实测 08-12）"
+   "reach_note": "docs.x.ai 直连不通（连接失败）（本机实测 08-12）",
+   "zh_none": true
   },
   {
    "id": "glm-tts",
@@ -3271,7 +3278,8 @@
    "version_quote": "官方 HF 组织 fishaudio/s2-pro，createdAt 2026-03-09（♥1232）",
    "reach_cn": "blocked",
    "reach_note": "fish.audio 直连不通（连接失败）（本机实测 08-12）",
-   "status_note": "⚠️ **许可证是 Fish Audio Research License，不是开源许可**：研究与非商用免费，**商用要单独向 Fish Audio 授权**（business@fish.audio）。「权重公开」不等于「可以拿去做产品」。"
+   "status_note": "⚠️ **许可证是 Fish Audio Research License，不是开源许可**：研究与非商用免费，**商用要单独向 Fish Audio 授权**（business@fish.audio）。「权重公开」不等于「可以拿去做产品」。",
+   "zh_none": true
   },
   {
    "id": "kokoro",
@@ -3287,7 +3295,8 @@
    "version_src": "hf-sound-org",
    "version_quote": "官方 HF 组织 hexgrad/Kokoro-82M-v1.1-zh，createdAt 2025-02-27（♥222）",
    "reach_cn": "blocked",
-   "reach_note": "权重在 huggingface.co，该域直连不可达 —— **想自部署得先解决可达性**（本机实测 08-12）"
+   "reach_note": "权重在 huggingface.co，该域直连不可达 —— **想自部署得先解决可达性**（本机实测 08-12）",
+   "zh_none": true
   },
   {
    "id": "flux-video",
@@ -3340,7 +3349,8 @@
    "class": "asset",
    "status": "active",
    "tier": "core",
-   "domain": "threed"
+   "domain": "threed",
+   "zh_none": true
   },
   {
    "id": "meshy",
@@ -3357,7 +3367,8 @@
    "class": "asset",
    "status": "active",
    "tier": "core",
-   "domain": "threed"
+   "domain": "threed",
+   "zh_none": true
   },
   {
    "id": "rodin",
@@ -3374,7 +3385,8 @@
    "class": "asset",
    "status": "active",
    "tier": "core",
-   "domain": "threed"
+   "domain": "threed",
+   "zh_none": true
   },
   {
    "id": "trellis",
@@ -3391,25 +3403,27 @@
    "class": "asset",
    "status": "active",
    "tier": "core",
-   "domain": "threed"
+   "domain": "threed",
+   "zh_none": true
   },
   {
    "id": "seed3d",
    "family": "Seed3D",
    "org": "bytedance",
-   "version": "1.0",
-   "version_as_of": "2026-08-13",
+   "version": "2.0",
+   "version_as_of": "2026-08-14",
    "weights": "closed",
-   "version_src": "seed3d-page",
-   "version_quote": "官方模型页（2025-10-23）：「Seed3D 1.0 — From Images to High-Fidelity Simulation-Ready 3D Assets」，自述三项能力「1) High-Fidelity Asset Generation; 2) Physics Engine Compatibility; 3) Scalable Scene Composition」",
-   "lineage_note": "只发过 1.0 —— 这是「本来就没有」不是「没采到」",
+   "version_src": "arxiv-seed3d-20",
+   "version_quote": "技术报告标题：「Seed3D 2.0: Advancing High-Fidelity Simulation-Ready 3D Content Generation」（arXiv 2605.13862，2026-04-22）；摘要末尾给出火山方舟上的模型 id `doubao-seed3d-2-0-260328`",
+   "lineage_note": "1.0（2025-10-22，arXiv 2510.19944）→ 2.0（2026-04-22，arXiv 2605.13862）",
    "reach_cn": "ok",
    "reach_note": "seed.bytedance.com 可达（本机实测 08-13）",
    "class": "asset",
    "status": "active",
    "tier": "core",
    "domain": "threed",
-   "note": "官方定位是「Simulation-Ready 3D Assets」，自述目标是「toward enabling the world simulators that embodied AI requires」。**收它是按产出物判的**（2026-08-13 负责人拍板：判据看产出物不看目的）—— 它产出的是可导出的 3D 资产，那就属于这一卷；厂商写的用途不改变产出物是什么。"
+   "note": "官方定位是「Simulation-Ready 3D Assets」，自述目标是「toward enabling the world simulators that embodied AI requires」。**收它是按产出物判的**（2026-08-13 负责人拍板：判据看产出物不看目的）—— 它产出的是可导出的 3D 资产，那就属于这一卷；厂商写的用途不改变产出物是什么。 ⚠️ **我们把当前版本记成 1.0 记到了 2026-08-14**，而 2.0 在 04-22 就发了 —— 官方产品页在登录墙后面读不到，是从 arXiv 上翻到的。 ⚠️ 中文名的依据是**官方在火山方舟上的模型 id**：两篇技术报告的摘要末尾都给了 `doubao-seed3d-2-0-260328` / `doubao-seed3d-1-0-250928` —— 厂商自己把它挂在豆包名下。**不是我们起的名。**",
+   "zh": "豆包 Seed3D"
   },
   {
    "id": "spar3d",
@@ -3426,7 +3440,8 @@
    "class": "asset",
    "status": "active",
    "tier": "core",
-   "domain": "threed"
+   "domain": "threed",
+   "zh_none": true
   },
   {
    "id": "instantmesh",
@@ -3444,7 +3459,8 @@
    "class": "asset",
    "status": "active",
    "tier": "extended",
-   "domain": "threed"
+   "domain": "threed",
+   "zh_none": true
   },
   {
    "id": "apple-sharp",
@@ -3462,7 +3478,8 @@
    "class": "asset",
    "status": "active",
    "tier": "extended",
-   "domain": "threed"
+   "domain": "threed",
+   "zh_none": true
   },
   {
    "id": "anysplat",
@@ -3480,7 +3497,8 @@
    "lineage_note": "扩展层，只记当前版本，没采谱系",
    "reach_cn": "ok",
    "reach_note": "huggingface.co / github.com（本机走代理实测可达）",
-   "note": "**2026-08-14 判据放宽（泼溅算 3D 资产）之后收进来的第一条**。它从任意角度的照片直接前馈出泼溅场景 —— 按旧判据（只认网格）会被挡在门外。⚠️ 学术产出、许可 MIT；放扩展层不进主表：**它是重建不是生成**，和这一卷主线那七条不在同一根轴上比。"
+   "note": "**2026-08-14 判据放宽（泼溅算 3D 资产）之后收进来的第一条**。它从任意角度的照片直接前馈出泼溅场景 —— 按旧判据（只认网格）会被挡在门外。⚠️ 学术产出、许可 MIT；放扩展层不进主表：**它是重建不是生成**，和这一卷主线那七条不在同一根轴上比。",
+   "zh_none": true
   }
  ],
  "sources": {
@@ -5202,6 +5220,16 @@
   "hf-anysplat": {
    "name": "Hugging Face · lhjiang/anysplat 模型卡",
    "url": "https://huggingface.co/lhjiang/anysplat",
+   "tier": "official"
+  },
+  "arxiv-seed3d-20": {
+   "name": "arXiv · Seed3D 2.0 技术报告",
+   "url": "https://arxiv.org/abs/2605.13862",
+   "tier": "official"
+  },
+  "arxiv-seed3d-10": {
+   "name": "arXiv · Seed3D 1.0 技术报告",
+   "url": "https://arxiv.org/abs/2510.19944",
    "tier": "official"
   }
  },
@@ -10599,43 +10627,45 @@
    "m": "seed3d",
    "c": "d-t23d",
    "state": "unknown",
-   "verified_for": "1.0",
-   "note": "官方页标题是「**From Images** to High-Fidelity Simulation-Ready 3D Assets」，全文检索 text prompt / text-to **零命中** —— 但它也没说不支持，所以记 ⬜ 不记 ❌",
-   "as_of": "2026-08-13"
+   "verified_for": "2.0",
+   "note": "两篇摘要通篇讲的都是 single image 输入，检索 text prompt 零命中；但也没有一句「不支持文本」",
+   "as_of": "2026-08-14",
+   "src": "arxiv-seed3d-20"
   },
   {
    "m": "seed3d",
    "c": "d-i23d",
    "state": "yes",
-   "verified_for": "1.0",
-   "src": "seed3d-page",
-   "note": "官方页：「Seed3D 1.0 — From Images to High-Fidelity Simulation-Ready 3D Assets」",
+   "verified_for": "2.0",
+   "src": "arxiv-seed3d-10",
+   "note": "1.0 摘要：「a foundation model that generates simulation-ready 3D assets **from single images**」",
    "via": "native",
-   "as_of": "2026-08-13"
+   "as_of": "2026-08-14"
   },
   {
    "m": "seed3d",
    "c": "d-multiview",
    "state": "unknown",
-   "verified_for": "1.0",
-   "note": "官方说的是「multi-view image ... generation」——**它自己生成多视图当中间步骤**，不等于接受多张图作为输入。这一格要的是后者，所以仍是 ⬜",
-   "as_of": "2026-08-13"
+   "verified_for": "2.0",
+   "note": "2.0 摘要里的 multi-view 指的是**它生成的多视图贴图**（albedo / metallic-roughness maps），不是接受多张输入图 —— 和 08-13 那两次同一个坑，第三次了",
+   "as_of": "2026-08-14",
+   "src": "arxiv-seed3d-20"
   },
   {
    "m": "seed3d",
    "c": "d-pbr",
    "state": "yes",
-   "verified_for": "1.0",
-   "note": "「In texture generation, Seed3D 1.0 shows strong capabilities in multi-view image and PBR materials generation」",
-   "as_of": "2026-08-13",
-   "src": "seed3d-page",
+   "verified_for": "2.0",
+   "note": "2.0 摘要：「we replace the cascaded pipeline of Seed3D 1.0 with a **unified PBR model** that directly generates multi-view **albedo and metallic-roughness maps**」—— 通道说得很具体",
+   "as_of": "2026-08-14",
+   "src": "arxiv-seed3d-20",
    "via": "native"
   },
   {
    "m": "seed3d",
    "c": "d-uv",
    "state": "unknown",
-   "verified_for": "1.0",
+   "verified_for": "2.0",
    "note": "立项当天（2026-08-13）只核到模型版本与该家最显眼的几项能力，这一格**还没查**",
    "as_of": "2026-08-13"
   },
@@ -10643,49 +10673,54 @@
    "m": "seed3d",
    "c": "d-remesh",
    "state": "unknown",
-   "verified_for": "1.0",
+   "verified_for": "2.0",
    "note": "立项当天（2026-08-13）只核到模型版本与该家最显眼的几项能力，这一格**还没查**",
    "as_of": "2026-08-13"
   },
   {
    "m": "seed3d",
    "c": "d-edit",
-   "state": "unknown",
-   "verified_for": "1.0",
-   "note": "立项当天（2026-08-13）只核到模型版本与该家最显眼的几项能力，这一格**还没查**",
-   "as_of": "2026-08-13"
+   "state": "yes",
+   "verified_for": "2.0",
+   "note": "2.0 摘要：「**part-aware decomposition**」—— 能把资产拆成部件（和混元 3D-Part 同一类能力）",
+   "as_of": "2026-08-14",
+   "src": "arxiv-seed3d-20",
+   "via": "native"
   },
   {
    "m": "seed3d",
    "c": "d-rig",
    "state": "unknown",
-   "verified_for": "1.0",
-   "note": "立项当天（2026-08-13）只核到模型版本与该家最显眼的几项能力，这一格**还没查**",
-   "as_of": "2026-08-13"
+   "verified_for": "2.0",
+   "note": "摘要里的 articulation（铰接）**不等于 rigging（骨骼绑定）** —— 没有骨骼与蒙皮权重的说法，这一格不敢升级",
+   "as_of": "2026-08-14",
+   "src": "arxiv-seed3d-20"
   },
   {
    "m": "seed3d",
    "c": "d-anim",
-   "state": "unknown",
-   "verified_for": "1.0",
-   "note": "立项当天（2026-08-13）只核到模型版本与该家最显眼的几项能力，这一格**还没查**",
-   "as_of": "2026-08-13"
+   "state": "yes",
+   "verified_for": "2.0",
+   "note": "2.0 摘要：「**training-free articulation generation** … enabling … part-level physical interaction across physics and graphics engines」。⚠️ 这是**铰接（关节可动）**，不是骨骼动画序列 —— 两者常被混为一谈，这一格记的是前者",
+   "as_of": "2026-08-14",
+   "src": "arxiv-seed3d-20",
+   "via": "native"
   },
   {
    "m": "seed3d",
    "c": "d-scene",
    "state": "yes",
-   "verified_for": "1.0",
-   "src": "seed3d-page",
-   "note": "官方自述三项能力之一：「3) Scalable Scene Composition」",
+   "verified_for": "2.0",
+   "src": "arxiv-seed3d-20",
+   "note": "2.0 摘要：「a simulation-ready model suite comprising **scene layout planning** … enabling coherent scene construction」；1.0 摘要也写「the system scales to complete scene generation through assembling objects into coherent environments」",
    "via": "native",
-   "as_of": "2026-08-13"
+   "as_of": "2026-08-14"
   },
   {
    "m": "seed3d",
    "c": "d-format",
    "state": "unknown",
-   "verified_for": "1.0",
+   "verified_for": "2.0",
    "note": "立项当天（2026-08-13）只核到模型版本与该家最显眼的几项能力，这一格**还没查**",
    "as_of": "2026-08-13"
   },
@@ -10693,18 +10728,19 @@
    "m": "seed3d",
    "c": "d-print",
    "state": "unknown",
-   "verified_for": "1.0",
+   "verified_for": "2.0",
    "note": "立项当天（2026-08-13）只核到模型版本与该家最显眼的几项能力，这一格**还没查**",
    "as_of": "2026-08-13"
   },
   {
    "m": "seed3d",
    "c": "d-openweights",
-   "state": "unknown",
-   "verified_for": "1.0",
-   "src": "seed3d-page",
-   "note": "⚠️ 官方模型页**通篇没有 github / hugging face / weights / open-source 任何一个词**（2026-08-13 全文检索）—— 只有「Read Technical Report」与「Try Now」两个入口。**没有权重，也没有一句「不开源」**，所以是 ⬜ 不是 ❌",
-   "as_of": "2026-08-13"
+   "state": "no",
+   "verified_for": "2.0",
+   "src": "arxiv-seed3d-20",
+   "note": "两篇摘要末尾给的都是**火山方舟的在线体验地址**（模型 id `doubao-seed3d-2-0-260328`），没有权重下载入口。⚠️ 之前记 ⬜ 是因为只读了产品页；读到论文后可以确认它走的是 API 一条路",
+   "as_of": "2026-08-14",
+   "via": "native"
   },
   {
    "m": "spar3d",
@@ -10879,7 +10915,7 @@
    "m": "seed3d",
    "c": "d-splat",
    "state": "unknown",
-   "verified_for": "1.0",
+   "verified_for": "2.0",
    "src": "seed3d-page",
    "note": "官方模型页全文检索 splat / gaussian —— 零命中。但那一页是概述不是功能清单，**「没提到」不等于「没有」**，所以记 ⬜",
    "as_of": "2026-08-14"
@@ -16421,6 +16457,18 @@
    "src": "meshy-changelog",
    "quote": "更新日志 2026-08-12：「Added ai_model: meshy-7 to the Image to 3D API: our newest 3D generation model, with **higher-fidelity geometry than Meshy 6**. It also introduces the ultra_mode parameter」",
    "cap_skip": "几何更清晰是质量提升，不是轴上的新项"
+  },
+  {
+   "id": "seed3d-2.0",
+   "m": "seed3d",
+   "version": "2.0",
+   "date": "2026-04-22",
+   "parent": "seed3d-1.0",
+   "added": "统一 PBR 模型 + 场景布局 + 部件分解与铰接",
+   "src": "arxiv-seed3d-20",
+   "quote": "摘要：「a **unified PBR model** that directly generates multi-view albedo and metallic-roughness maps」；「a simulation-ready model suite comprising **scene layout planning, part-aware decomposition, and training-free articulation generation**」",
+   "note": "⚠️ 摘要里那句「consistent win rates of 69.0% to 89.9%」是**厂商自述的人评胜率**，不是第三方评测 —— 站上不转述成结论。",
+   "cap": "d-pbr"
   }
  ],
  "$versions": "版本谱系（演进图的数据）。**演进的主体是模型，不是能力。**\n\n原来那张演进图每行是一项能力、横轴是「我们能证明的最早时间」、粗细是几家支持。\n读者看完只得到「动作复刻 2025-12 出现、6/9 支持」—— 那是一次数据库查询的可视化，不涨知识。\n而且它得靠图注免责（「不是业界首次出现」）：**一张需要图注免责的图，说明它量错了东西。**\n\n这份数据画的是**厂商自己发布的版本和日期**，所以不需要免责。每条必须回答：\n**这一代新增了什么。** 只有版本号没有 added 的节点没有价值，不收。\n\n两个最好的来源，都不是「新闻」：\n  · **官方 Hugging Face 组织** —— 模型名本身就编码了能力与代际\n    （Wan2.1-FLF2V＝首尾帧、Wan2.2-S2V＝语音驱动、LTX 的 IC-LoRA-Ingredients＝角色参考），\n    发布时间由 HF API 给出，比任何新闻稿都准。\n  · **官方 API 更新日志** —— 可灵那份 31k 字符里有 170 条带日期的条目。\n\n覆盖不全是事实：万相和可灵能画出完整谱系，Runway/Vidu/Seedance 只有近期几个点，\nVeo/Sora/海螺/LTX 还没有。**图上要标出哪几条线是完整的、哪几条只是片段** ——\n画一条只有两个点的线却不说明，读者会以为这家两年只更新过两次。\n\n`cap` 把版本节点挂到能力 id 上，图上「点一项能力，看各家谁先谁后」靠它。\n**对不上的一律留空并写明理由（cap_skip），不硬凑** —— 硬凑一个 id，纵向那一刀就切错了。\n典型：Wan 的 S2V 是「语音驱动」，不等于我们轴上的「对口型」，两件事不合并；\n「换代」节点本身也不是新增单项能力。\n\n`id` + `parent` 把平铺记录变成**真的树**。分叉是真实存在的：\nWan2.1 底座上同时长出 FLF2V（首尾帧）和 VACE（统一编辑）两个变体，\nWan2.2 是换代接在 2.1 后面，Animate-2 又接在 Animate 后面。\n\n**没有父节点的就让它当根，不许为了让树好看硬接一条边** ——\nRunway 的 Aleph 是编辑线，不是 Gen 的后代，它自己是一棵树。\n\n⚠️ **日期必须取 HF 的 `createdAt`，不能取 `lastModified`。**\n第一版取错了字段，把「最后修改」当成了发布日期：Wan2.2 记成 2025-08-07（实际 2025-07-18）、\nAnimate 记成 2025-11-05（实际 2025-09-11）——**差了两个月**。\n仓库发布后还会被反复更新，两个字段根本不是一回事。\n这类错最阴：日期看着合理、图也画得出来，但整条时间线是歪的。\n\n覆盖不足要**写在数据里**，不是靠图上一句话糊过去：\n模型的 `lineage_note` 解释为什么它的节点少（太新 / 官方记录只回溯到某时）。\n校验 R58 强制：**核心模型少于 3 个节点却没写理由，就是错**。\n「我们没采到」和「它本来就没有」是两回事，读者有权知道是哪一种。",

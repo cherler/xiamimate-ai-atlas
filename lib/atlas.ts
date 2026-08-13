@@ -32,10 +32,22 @@ export type Capability = {
 };
 
 /** 一等实体是 Family，version 是会过期的挂件（ontology 规则三）。 */
+/**
+ * ⚠️ `zh` 与 `zh_none` 是一对：
+ * - `zh` 有值 = 这家有官方中文名（「即梦 Seedance」「海螺」）
+ * - `zh_none: true` = **查过，官方没有中文名**（品牌在中文语境里就用原名：ElevenLabs、TRELLIS、Meshy…）
+ * - 两个都没有 = **还没查** —— R73 报警告，因为「中文关键词搜不到它」这件事要看得见
+ *
+ * 和 R21a（总部「查过拿不到」vs「还没查」）同一条纪律：
+ * **不许把「查过、确实没有」和「压根没查」显示成同一个样子**，
+ * 否则这条警告永远不会收敛，久了就没人看。
+ */
 /** 生命周期（ontology 规则五）。**能力对不代表能用** —— Sora 每一格都对，整张表却把人带沟里。 */
 export type Status = "active" | "superseded" | "discontinued";
 
 export type Model = {
+  /** 官方没有中文名（查过）。见上面那段注释。 */
+  zh_none?: boolean;
   id: string;
   class: Klass;
   family: string;
