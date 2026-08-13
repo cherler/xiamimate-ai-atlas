@@ -107,6 +107,14 @@ const ROUTES = [
   // 对它用「不许涨」是错的度量：那样一来，多记一条真实变更反而算退步。
   { path: "/changes", must: "最近有什么变化", zh: 130, per: "article, section > div", built: true },
   { path: "/model/wan", must: "阿里巴巴", zh: 1200, built: true },
+  /**
+   * 发布档案页（2026-08-13 新增，345 个）。**新页型必须进这张表** ——
+   * 否则它的中文字数没人量、跨方向混入没人扫，坏了也不会红。
+   * 钉一个**历史版本**（不是当前版本）：这一类的价值正在于「旧的一代也有地址」，
+   * 而「⚠️ 这不是当前版本」那句提示只在历史版本上出现。
+   */
+  { path: "/release/hy3d-2mv", must: "多视图输入档", zh: 900, built: true,
+    also: ["凭什么这么说", "这不是这条产品线的当前版本", "它在这条线上的位置"] },
   { path: "/capability/flf", must: "首尾帧", zh: 1200, built: true },
   /**
    * ⚠️ `per` 从 `section > div`（一种坑一段）改成 `section > div > div`（一条一格）。

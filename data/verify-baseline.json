@@ -42,6 +42,8 @@
     "/video/scenario|桌面": 16,
     "/image/scenario|桌面": 14,
     "/video/scenario|手机": 16,
-    "/image/scenario|手机": 14
+    "/image/scenario|手机": 14,
+    "/release/hy3d-2mv|桌面": 235,
+    "/release/hy3d-2mv|手机": 235
   }
 }

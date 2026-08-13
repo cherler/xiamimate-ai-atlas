@@ -5147,6 +5147,11 @@
    "name": "Hugging Face · apple/Sharp 模型卡",
    "url": "https://huggingface.co/apple/Sharp",
    "tier": "official"
+  },
+  "gh-hunyuan3d-api": {
+   "name": "混元3D-2.1 仓库 · 官方 API 代码",
+   "url": "https://github.com/Tencent-Hunyuan/Hunyuan3D-2.1/blob/main/api_server.py",
+   "tier": "official"
   }
  },
  "support": [
@@ -9926,11 +9931,13 @@
   {
    "m": "hunyuan3d",
    "c": "d-multiview",
-   "state": "unknown",
-   "verified_for": "3.1",
-   "note": "README 的贴图管线参数是 `max_num_view=6` —— **那是它内部渲多视图去烘贴图，不是接受多张输入图**。这一格要的是后者，所以仍是 ⬜",
+   "state": "yes",
+   "verified_for": "2mv",
+   "note": "**这一格长在 2mv 那一支上**：官方仓库 tencent/Hunyuan3D-2mv（2025-03-12）就是为多视图输入做的微调档。主线 2.1 的 `max_num_view=6` 是贴图管线内部渲六视图，不是接受多张输入图",
    "as_of": "2026-08-13",
-   "src": "hf-hunyuan3d-21"
+   "src": "hf-hunyuan3d-21",
+   "via": "native",
+   "sibling": "2mv"
   },
   {
    "m": "hunyuan3d",
@@ -9954,10 +9961,12 @@
   {
    "m": "hunyuan3d",
    "c": "d-remesh",
-   "state": "unknown",
+   "state": "yes",
    "verified_for": "3.1",
-   "note": "立项当天（2026-08-13）只核到模型版本与该家最显眼的几项能力，这一格**还没查**",
-   "as_of": "2026-08-13"
+   "note": "官方 `api_models.py` 的请求参数：`face_count`（「Maximum number of faces for texture generation」）与 `octree_resolution`（「Resolution of the octree for mesh generation」）—— 面数与网格分辨率都能控。⚠️ 出处是官方代码",
+   "as_of": "2026-08-13",
+   "src": "gh-hunyuan3d-api",
+   "via": "native"
   },
   {
    "m": "hunyuan3d",
@@ -9994,10 +10003,12 @@
   {
    "m": "hunyuan3d",
    "c": "d-format",
-   "state": "unknown",
+   "state": "yes",
    "verified_for": "3.1",
-   "note": "立项当天（2026-08-13）只核到模型版本与该家最显眼的几项能力，这一格**还没查**",
-   "as_of": "2026-08-13"
+   "note": "官方 `api_server.py` 的接口注释：「FileResponse: The generated 3D model file (**GLB or OBJ** format)」，实现里写出 `{uid}_textured.glb`。⚠️ **出处是官方代码不是文档** —— 产品站在登录墙后面，README 也没写",
+   "as_of": "2026-08-13",
+   "src": "gh-hunyuan3d-api",
+   "via": "native"
   },
   {
    "m": "hunyuan3d",
@@ -10061,11 +10072,12 @@
   {
    "m": "tripo",
    "c": "d-uv",
-   "state": "unknown",
+   "state": "no",
    "verified_for": "P1-20260311",
    "src": "tripo-docs-generation",
-   "note": "在 Generation 文档的端点表与参数表里检索 UV / unwrap —— 没有这一项。Meshy 是单列端点的，Tripo 没有",
-   "as_of": "2026-08-13"
+   "note": "Tripo 的端点表（Generation / Texture / Mesh Editing / Animation / Post Process / Import Model / Upload）与各端点的参数表里检索 UV / unwrap —— **一项都没有**。⚠️ 判 ❌ 的标准和站上其它「厂商完整清单里没有」的格子一致（见 Kling 的开源权重那格）：**不是「没提到」，是「它把功能列全了，而这一项不在里面」**",
+   "as_of": "2026-08-13",
+   "via": "native"
   },
   {
    "m": "tripo",
@@ -10110,11 +10122,12 @@
   {
    "m": "tripo",
    "c": "d-scene",
-   "state": "unknown",
+   "state": "no",
    "verified_for": "P1-20260311",
    "src": "tripo-docs-generation",
-   "note": "端点表通篇是单体资产（Generation / Texture / Mesh Editing），没有场景级条目",
-   "as_of": "2026-08-13"
+   "note": "Tripo 的端点表（Generation / Texture / Mesh Editing / Animation / Post Process / Import Model / Upload）与各端点的参数表通篇是单体资产的生成与后处理，**没有场景级条目**（Meshy 有 Scene Compose、Seed3D 有 Scalable Scene Composition，同类厂商会明说）",
+   "as_of": "2026-08-13",
+   "via": "native"
   },
   {
    "m": "tripo",
@@ -10129,11 +10142,12 @@
   {
    "m": "tripo",
    "c": "d-print",
-   "state": "unknown",
+   "state": "no",
    "verified_for": "P1-20260311",
    "src": "tripo-docs-generation",
-   "note": "文档里没有可打印性相关端点",
-   "as_of": "2026-08-13"
+   "note": "Tripo 的端点表（Generation / Texture / Mesh Editing / Animation / Post Process / Import Model / Upload）与各端点的参数表里没有任何可打印性检查条目（Meshy 单列了 Analyze / Repair Printability，说明这类功能厂商会写出来）",
+   "as_of": "2026-08-13",
+   "via": "native"
   },
   {
    "m": "tripo",
@@ -10318,10 +10332,12 @@
   {
    "m": "rodin",
    "c": "d-uv",
-   "state": "unknown",
+   "state": "no",
    "verified_for": "Gen-2.5",
-   "note": "立项当天（2026-08-13）只核到模型版本与该家最显眼的几项能力，这一格**还没查**",
-   "as_of": "2026-08-13"
+   "note": "Rodin 的文档索引（llms.txt 列全了所有页面）与官网产品页的功能清单里检索 UV / unwrap —— **一项都没有**。⚠️ 判 ❌ 的标准和站上其它「厂商完整清单里没有」的格子一致（见 Kling 的开源权重那格）：**不是「没提到」，是「它把功能列全了，而这一项不在里面」**",
+   "as_of": "2026-08-13",
+   "src": "rodin-api-docs",
+   "via": "native"
   },
   {
    "m": "rodin",
@@ -10366,10 +10382,12 @@
   {
    "m": "rodin",
    "c": "d-scene",
-   "state": "unknown",
+   "state": "no",
    "verified_for": "Gen-2.5",
-   "note": "立项当天（2026-08-13）只核到模型版本与该家最显眼的几项能力，这一格**还没查**",
-   "as_of": "2026-08-13"
+   "note": "Rodin 的文档索引（llms.txt 列全了所有页面）与官网产品页的功能清单通篇是单体资产的生成与后处理，**没有场景级条目**（Meshy 有 Scene Compose、Seed3D 有 Scalable Scene Composition，同类厂商会明说）",
+   "as_of": "2026-08-13",
+   "src": "rodin-api-docs",
+   "via": "native"
   },
   {
    "m": "rodin",
@@ -10384,10 +10402,12 @@
   {
    "m": "rodin",
    "c": "d-print",
-   "state": "unknown",
+   "state": "no",
    "verified_for": "Gen-2.5",
-   "note": "立项当天（2026-08-13）只核到模型版本与该家最显眼的几项能力，这一格**还没查**",
-   "as_of": "2026-08-13"
+   "note": "Rodin 的文档索引（llms.txt 列全了所有页面）与官网产品页的功能清单里没有任何可打印性检查条目（Meshy 单列了 Analyze / Repair Printability，说明这类功能厂商会写出来）",
+   "as_of": "2026-08-13",
+   "src": "rodin-api-docs",
+   "via": "native"
   },
   {
    "m": "rodin",
@@ -10437,7 +10457,7 @@
    "c": "d-pbr",
    "state": "unknown",
    "verified_for": "TRELLIS.2-4B",
-   "note": "立项当天（2026-08-13）只核到模型版本与该家最显眼的几项能力，这一格**还没查**",
+   "note": "README 说能出「带贴图的高质量 3D 资产」，但**没有一处提到 PBR 通道**（金属度/粗糙度/法线）—— 混元与 Rodin 都会明写 PBR，这里没有，所以不敢按 ✅ 记",
    "as_of": "2026-08-13"
   },
   {
@@ -10445,7 +10465,7 @@
    "c": "d-uv",
    "state": "unknown",
    "verified_for": "TRELLIS.2-4B",
-   "note": "立项当天（2026-08-13）只核到模型版本与该家最显眼的几项能力，这一格**还没查**",
+   "note": "⚠️ **研究仓库没有「功能清单」可查** —— 和 Tripo / Rodin 那种把端点列全的产品文档不同，这里「没提到」不等于「没有」，所以不按 ❌ 记",
    "as_of": "2026-08-13"
   },
   {
@@ -10475,7 +10495,7 @@
    "c": "d-rig",
    "state": "unknown",
    "verified_for": "TRELLIS.2-4B",
-   "note": "立项当天（2026-08-13）只核到模型版本与该家最显眼的几项能力，这一格**还没查**",
+   "note": "同上：研究仓库，没有功能清单可对照",
    "as_of": "2026-08-13"
   },
   {
@@ -10483,7 +10503,7 @@
    "c": "d-anim",
    "state": "unknown",
    "verified_for": "TRELLIS.2-4B",
-   "note": "立项当天（2026-08-13）只核到模型版本与该家最显眼的几项能力，这一格**还没查**",
+   "note": "同上：研究仓库，没有功能清单可对照",
    "as_of": "2026-08-13"
   },
   {
@@ -10491,7 +10511,7 @@
    "c": "d-scene",
    "state": "unknown",
    "verified_for": "TRELLIS.2-4B",
-   "note": "立项当天（2026-08-13）只核到模型版本与该家最显眼的几项能力，这一格**还没查**",
+   "note": "同上：研究仓库，没有功能清单可对照",
    "as_of": "2026-08-13"
   },
   {
@@ -10510,7 +10530,7 @@
    "c": "d-print",
    "state": "unknown",
    "verified_for": "TRELLIS.2-4B",
-   "note": "立项当天（2026-08-13）只核到模型版本与该家最显眼的几项能力，这一格**还没查**",
+   "note": "同上：研究仓库，没有功能清单可对照",
    "as_of": "2026-08-13"
   },
   {
@@ -10529,7 +10549,7 @@
    "c": "d-t23d",
    "state": "unknown",
    "verified_for": "1.0",
-   "note": "立项当天（2026-08-13）只核到模型版本与该家最显眼的几项能力，这一格**还没查**",
+   "note": "官方页标题是「**From Images** to High-Fidelity Simulation-Ready 3D Assets」，全文检索 text prompt / text-to **零命中** —— 但它也没说不支持，所以记 ⬜ 不记 ❌",
    "as_of": "2026-08-13"
   },
   {
@@ -10632,16 +10652,18 @@
    "state": "unknown",
    "verified_for": "1.0",
    "src": "seed3d-page",
-   "note": "官方模型页只有「Read Technical Report」与「Try Now」两个入口，**没读到权重下载**；但也没有一句「不开源」—— 所以是 ⬜ 不是 ❌",
+   "note": "⚠️ 官方模型页**通篇没有 github / hugging face / weights / open-source 任何一个词**（2026-08-13 全文检索）—— 只有「Read Technical Report」与「Try Now」两个入口。**没有权重，也没有一句「不开源」**，所以是 ⬜ 不是 ❌",
    "as_of": "2026-08-13"
   },
   {
    "m": "spar3d",
    "c": "d-t23d",
-   "state": "unknown",
+   "state": "no",
    "verified_for": "Stable Point Aware 3D",
-   "note": "立项当天（2026-08-13）只核到模型版本与该家最显眼的几项能力，这一格**还没查**",
-   "as_of": "2026-08-13"
+   "note": "官方 README 一句话定义：「fast feedforward 3D mesh reconstruction **from a single image** using a point cloud conditioning」；发布公告同样通篇是 single image。**它是重建模型，没有文本输入**",
+   "as_of": "2026-08-13",
+   "src": "gh-spar3d",
+   "via": "native"
   },
   {
    "m": "spar3d",

@@ -4725,6 +4725,19 @@
     "capability"
    ],
    "note": "AI 3D 扩展层，2026-08-13 核过下载量与许可"
+  },
+  {
+   "id": "gh-hunyuan3d-api",
+   "tier": "S",
+   "kind": "html",
+   "vendor": "hunyuan3d",
+   "name": "混元3D-2.1 仓库 · api_server.py / api_models.py",
+   "url": "https://github.com/Tencent-Hunyuan/Hunyuan3D-2.1/blob/main/api_server.py",
+   "refresh_days": 21,
+   "good_for": [
+    "capability"
+   ],
+   "note": "⚠️ **引的是官方代码不是官方文档**：混元 3D 的产品站在登录墙后面，仓库 README 也没写导出格式与面数控制 —— 这些只能从官方 API 代码里读到。代码是厂商自己写的，算官方来源，但要在格子里标明「出处是代码」"
   }
  ],
  "$missing": [
