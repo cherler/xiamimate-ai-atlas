@@ -1,6 +1,6 @@
 {
  "note": "本地跑模型时会撞见的词。每条都要有出处 —— 这一页是科普，而科普最容易凭记忆写，写错了读者还没处对。sources 里的 id 指向 atlas.json 的 sources 表。",
- "generated_at": "2026-08-12",
+ "generated_at": "2026-08-13",
  "groups": [
   {
    "id": "precision",
@@ -172,7 +172,7 @@
    "quote": "Hugging Face diffusers 官方有一整页讲显存优化手段（分块、卸载到内存、注意力切片等）—— **这些手段的存在本身就说明「权重装得下」不等于「跑得动」**"
   }
  ],
- "tutorials_note": "这一页**不自己写教程**。下面每一条都是别人做的公开教程，我们只负责：核实它还活着、说清它的许可、并诚实标出它适合谁。星标只用于排序兜底，不作推荐结论。",
+ "tutorials_note": "这一页**不自己写教程**。下面每一条都是别人做的公开教程，我们只负责：核实它还活着、说清它的许可、并诚实标出它适合谁。星标只用于排序兜底，不作推荐结论。⚠️ **许可这一栏最值得看**：中文社区的教程仓库很多**根本没有 LICENSE 文件**，还有几个是「不许商用」——自己学都没问题，做成公司内训材料或付费课就不是了。",
  "tutorials": [
   {
    "group": "从零开始搞懂「大模型是什么」",
@@ -206,6 +206,81 @@
      "lang": "中文",
      "why": "**比大模型更底层的那一层**：神经网络到底在算什么。中英文版被 70 多个国家 500 多所大学用于教学，是这一类里最经得起推敲的。",
      "caveat": "⚠️ **最后推送停在 2024-07**，讲的是深度学习基础而不是 2026 年的大模型工程。当基础课看，别当最新实践看。"
+    }
+   ]
+  },
+  {
+   "group": "想用它做点什么（应用与场景，中文为主）",
+   "items": [
+    {
+     "name": "动手学大模型应用开发（llm-universe）",
+     "repo": "datawhalechina/llm-universe",
+     "stars": 13767,
+     "license": null,
+     "pushed": "2026-07-28",
+     "lang": "中文",
+     "why": "**面向小白开发者的大模型应用开发教程** —— 从调 API 到搭一个能跑的知识库问答，是中文侧「拿来做事」这一类里最完整的一本。",
+     "caveat": "⚠️ **仓库里没有 LICENSE 文件**。能读能学，二次分发或做成商用课件前要先联系作者。"
+    },
+    {
+     "name": "ChatGPT 中文调教指南（awesome-chatgpt-prompts-zh）",
+     "repo": "PlexPt/awesome-chatgpt-prompts-zh",
+     "stars": 61485,
+     "license": "MIT",
+     "pushed": "2026-04-28",
+     "lang": "中文",
+     "why": "**按场景组织的提示词合集**：写文案、做翻译、当面试官、扮演角色……不讲原理，直接给你能抄的句子。MIT，随便用。",
+     "caveat": "⚠️ 名字里是 ChatGPT，但提示词本身跨模型通用。**它是词库不是教程** —— 想搞懂为什么这么写，得配上面那几本。"
+    },
+    {
+     "name": "ChatGPT 中文指南（awesome-chatgpt-zh）",
+     "repo": "EmbraceAGI/awesome-chatgpt-zh",
+     "stars": 11644,
+     "license": "MIT",
+     "pushed": "2026-07-03",
+     "lang": "中文",
+     "why": "比上一条更宽：指令指南 + 应用开发指南 + 精选资源。MIT，2026-07 还在更新。",
+     "caveat": "是**索引型**资源，链接多、自有内容少 —— 适合按图索骥，不适合从头读。"
+    },
+    {
+     "name": "LangChain 中文入门教程",
+     "repo": "liaokongVFX/LangChain-Chinese-Getting-Started-Guide",
+     "stars": 9095,
+     "license": null,
+     "pushed": "2026-04-22",
+     "lang": "中文",
+     "why": "把 LangChain 的核心概念用中文讲一遍，是中文侧这条链路上被引用最多的入门材料。",
+     "caveat": "⚠️ **没有 LICENSE 文件**；且 LangChain 本身版本变动快，跟着敲之前先对一下你装的版本。"
+    },
+    {
+     "name": "HuggingLLM（动手学 ChatGPT 应用）",
+     "repo": "datawhalechina/hugging-llm",
+     "stars": 3065,
+     "license": "CC BY-NC-SA 4.0",
+     "pushed": "2026-06-16",
+     "lang": "中文",
+     "why": "Datawhale 出的应用向教程，讲怎么把大模型接进真实业务场景。",
+     "caveat": "⚠️ **CC BY-NC-SA 4.0，不许商用** —— 和 happy-llm 同一条限制。"
+    },
+    {
+     "name": "AI Agent 入门 18 讲（微软官方）",
+     "repo": "microsoft/ai-agents-for-beginners",
+     "stars": 72024,
+     "license": "MIT",
+     "pushed": "2026-07-29",
+     "lang": "英文（有中文翻译）",
+     "why": "**专讲 Agent 这一类**：规划、工具调用、多智能体协作，18 课带代码。微软官方，MIT。",
+     "caveat": "英文原版；中文是社区翻译，更新可能滞后。"
+    },
+    {
+     "name": "全世界最好的 LLM 资料总结（awesome-LLM-resources）",
+     "repo": "WangRongsheng/awesome-LLM-resources",
+     "stars": 8834,
+     "license": "Apache-2.0",
+     "pushed": "2026-08-13",
+     "lang": "中文",
+     "why": "多模态生成、Agent、辅助编程、数据合成……**按用途分类的资源总表**，今天还在更新。找某一类工具时从这儿起步比搜索快。",
+     "caveat": "是**索引不是教程**：它告诉你有什么，不告诉你怎么做。"
     }
    ]
   },
@@ -327,6 +402,17 @@
      "lang": "中文",
      "why": "上面五条里有四条出自这家。**负责人自己点名的一家**（2026-08-11：「它们家的质量还是 ok 的」）。组织地址 github.com/datawhalechina，教程还在持续出。",
      "caveat": "是社区组织不是厂商，**各仓库许可不统一** —— 上面已经逐个标了，别默认都能商用。"
+    },
+    {
+     "name": "通往 AGI 之路 / WaytoAGI（知识库社区）",
+     "repo": null,
+     "url": "https://waytoagi.feishu.cn/wiki/QPe5w5g7UisbEkkow8XcDmOpn8e",
+     "stars": null,
+     "license": null,
+     "pushed": "2026-08-11",
+     "lang": "中文",
+     "why": "**负责人 2026-08-13 点名的一家。** 2023-04-26 创建的中文 AI 学习知识库，自述「覆盖近 900 万学习者，知识库访问量超亿次，联动 180 所高校及 100+ 企业，举办 500+ 场活动」。**覆盖面比 GitHub 上那些教程宽得多** —— 它收的是从工具用法到行业案例的整片内容，不只是代码。",
+     "caveat": "⚠️ 三件事：① 它是**飞书文档**不是代码仓库，**没有许可证**，引用与转载要另问；② 页面是纯前端渲染，我们的采集器抓裸 HTML 得到 0 字符，只能靠浏览器渲染，**所以它进不了自动监视**；③ 社区共建意味着**质量不均匀** —— 好在它自己有目录结构，按目录走比搜索靠谱。"
     }
    ]
   }

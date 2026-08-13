@@ -32,7 +32,7 @@ export const metadata: Metadata = {
    */
   title: "大模型入门：公开教程导航 + 本地部署要懂的词",
   description:
-    "从「什么是大模型」到本地部署与微调，13 个公开开源教程，逐个核过星标、许可与最后更新日。附站上会撞见的术语速查（FP8 / INT8 / GGUF / LoRA），每条带论文出处。",
+    "从「什么是大模型」到本地部署、微调与实际应用，21 个公开教程（以中文为主），逐个核过星标、许可与最后更新日。附站上会撞见的术语速查（FP8 / INT8 / GGUF / LoRA），每条带论文出处。",
   openGraph: { images: [{ url: "/atlas/og/index-16x9.png", width: 1200, height: 675 }] },
 };
 
@@ -65,8 +65,8 @@ export default function BasicsPage() {
       <header className="flex flex-col gap-3 border-b border-rule pb-5">
         <h1 className="text-[40px] leading-tight font-semibold">想搞懂大模型，去读哪些公开教程</h1>
         <p className="text-[17px] leading-relaxed text-muted">
-          从「<b className="text-ink">什么是大模型</b>」一路到<b className="text-ink">本地部署与微调</b>，
-          13 个公开开源教程。<b className="text-ink">我们不自己写教程</b> ——
+          从「<b className="text-ink">什么是大模型</b>」一路到<b className="text-ink">本地部署、微调与实际应用</b>，
+          {glossary.tutorials.reduce((n, g) => n + g.items.length, 0)} 个公开教程，<b className="text-ink">以中文为主</b>。<b className="text-ink">我们不自己写教程</b> ——
           这一页只负责三件事：核实它还活着、说清它的许可、诚实标出它适合谁、不适合谁。
         </p>
         <p className="text-[15px] leading-relaxed text-muted">
