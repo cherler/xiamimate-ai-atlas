@@ -1,7 +1,9 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { Rich } from "@/components/Fact";
-import { atlas, groupByDomain } from "@/lib/atlas";
+import glossary from "@/data/glossary.json";
+import { atlas } from "@/lib/atlas";
+import DomainFilter from "@/components/DomainFilter";
 import BackLink from "@/components/BackLink";
 
 /**
@@ -36,39 +38,46 @@ export default function ToolkitPage() {
         className="border border-yes/50 bg-yes/6 px-4 py-3 hover:bg-yes/10 transition-colors">
         <p className="text-[15px] font-semibold">还不知道 FP8 / GGUF / LoRA 是什么？先看这一页 →</p>
         <p className="text-[13px] text-muted mt-1">
-          13 个公开开源教程（从「什么是大模型」讲起）+ 本地部署要懂的词。<b className="text-ink">教程不是我们写的</b>，
+          {glossary.tutorials.reduce((n, g) => n + g.items.length, 0)} 个公开教程（从「什么是大模型」讲起）+ 本地部署要懂的词。<b className="text-ink">教程不是我们写的</b>，
           我们只核实它还活着、说清许可、标出适合谁。
         </p>
       </Link>
 
-      {/* 按方向分组 —— 三个公共页同一条规矩，顺序来自 atlas.domains（见 groupByDomain） */}
-      {groupByDomain(atlas.toolkit, (t) => (t as { domain?: string }).domain).map((g, _gi, gs) => (
-      <div key={g.id || "rest"} className="flex flex-col">
-        {gs.length > 1 && (
-          <p className="text-[13px] text-muted flex items-baseline gap-2 pb-1">
-            <b className="text-ink text-[15px]">{g.name}</b>
-            <span className="tabular-nums">{g.items.length} 条</span>
-          </p>
-        )}
-        {g.items.map((t, i) => (
-          <section key={t.site + t.task} className="border-t border-rule py-4 flex gap-4">
-            <span className="text-[15px] text-muted tabular-nums shrink-0 w-7 pt-1">{String(i + 1).padStart(2, "0")}</span>
-            <div className="flex flex-col gap-1.5 flex-1 min-w-0">
-              <p className="text-[13px] text-muted">{t.task}</p>
-              <p className="text-[18px] font-semibold">
-                <a href={t.url} target="_blank" rel="noreferrer" className="underline hover:text-yes-ink">{t.site} →</a>
-              </p>
-              <Rich text={t.verdict} className="text-[15px] leading-relaxed" />
-              {/* 负面结论单独描出来 —— 它是这一页真正值钱的部分 */}
-              <div className="border-l-2 border-no pl-3 mt-1">
-                <Rich text={t.caveat} className="text-[14px] leading-relaxed text-muted" />
-              </div>
-              <p className="text-muted text-[12px]">核验于 {t.checked_at}</p>
-            </div>
-          </section>
-        ))}
-      </div>
-      ))}
+      {/**
+        * 按方向筛，形状和 /changes、场景页那两排一致。
+        * 负责人 2026-08-13：「toolkit 页 也应该添加一个同样的方式快速导航才是」。
+        *
+        * 这一页只有一大节，所以 `sections` 只传一条；
+        * 复用 `DomainFilter` 而不是另写一个 —— **同一个站里三个筛选器长得不一样，用户要学三次**。
+        */}
+      <DomainFilter
+        label="按方向筛选工具站"
+        domains={atlas.domains.map((d) => ({ id: d.id, name: d.name }))}
+        sections={[{
+          key: "toolkit",
+          title: <span className="sr-only">按方向</span>,
+          items: atlas.toolkit.map((t, i) => ({
+            domain: (t as { domain?: string }).domain ?? "video",
+            node: (
+              <section key={t.site + t.task} className="border-t border-rule py-4 flex gap-4">
+                <span className="text-[15px] text-muted tabular-nums shrink-0 w-7 pt-1">{String(i + 1).padStart(2, "0")}</span>
+                <div className="flex flex-col gap-1.5 flex-1 min-w-0">
+                  <p className="text-[13px] text-muted">{t.task}</p>
+                  <p className="text-[18px] font-semibold">
+                    <a href={t.url} target="_blank" rel="noreferrer" className="underline hover:text-yes-ink">{t.site} →</a>
+                  </p>
+                  <Rich text={t.verdict} className="text-[15px] leading-relaxed" />
+                  {/* 负面结论单独描出来 —— 它是这一页真正值钱的部分 */}
+                  <div className="border-l-2 border-no pl-3 mt-1">
+                    <Rich text={t.caveat} className="text-[14px] leading-relaxed text-muted" />
+                  </div>
+                  <p className="text-muted text-[12px]">核验于 {t.checked_at}</p>
+                </div>
+              </section>
+            ),
+          })),
+        }]}
+      />
 
       <p className="text-muted text-[13px]">
         我们自己的口径在

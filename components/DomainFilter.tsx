@@ -29,10 +29,13 @@ export type DomainItem = { domain: string; node: ReactNode };
 export type Section = { key: string; title: ReactNode; intro?: ReactNode; items: DomainItem[] };
 
 export default function DomainFilter({
-  domains, sections,
+  domains, sections, label = "按方向筛选",
 }: {
   domains: { id: string; name: string }[];
   sections: Section[];
+  /** 屏幕阅读器听到的名字。**别写死** —— 这个组件同时给 /changes 与 /toolkit 用，
+   *  写死成「按方向筛选变化」，在 /toolkit 上就是错的。 */
+  label?: string;
 }) {
   const [on, setOn] = useState<string | null>(null);
   const all = sections.flatMap((s) => s.items);
@@ -49,7 +52,7 @@ export default function DomainFilter({
 
   return (
     <>
-      <div className="flex flex-wrap gap-1.5" role="group" aria-label="按方向筛选变化">
+      <div className="flex flex-wrap gap-1.5" role="group" aria-label={label}>
         <button type="button" onClick={() => setOn(null)} aria-pressed={!on} className={chip(!on)}>
           全部 <b className={on ? "text-ink" : "text-yes-ink"}>{all.length}</b>
         </button>

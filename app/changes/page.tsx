@@ -115,6 +115,7 @@ export default function ChangesPage() {
         * 每一节的计数由客户端按筛选后的条数算，**筛完还显示总数就是在骗人**。
         */}
       <DomainFilter
+        label="按方向筛选变化"
         domains={atlas.domains.map((d) => ({ id: d.id, name: d.name }))}
         sections={[
           {

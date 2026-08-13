@@ -86,12 +86,39 @@ export default function BasicsPage() {
         </p>
       </header>
 
-      {/* ── 教程导航：这一页的主体 ─────────────────────────────── */}
-      <section className="flex flex-col gap-4">
+      {/**
+        * ## 快捷导航
+        *
+        * 负责人 2026-08-13：「组织结构有一点混乱，层次不是很清楚、没有快捷导航。」
+        * 量了一下：**14 个 h2 平铺在同一层** —— 教程的 6 个分组、那个「第一课」提示框、
+        * 「术语速查」、术语自己的 4 个小类、显存表、接下来，全是 h2。
+        * 读者看不出哪些是同一类，只能一路往下滚（7,526px）。
+        *
+        * 改成**三大部分**（教程 / 读懂仓库名与术语 / 接下来），
+        * 大节用 h2、原来的分组降为 h3。锚点跳转而不是筛选 ——
+        * 这一页的三部分是**递进关系**（先找教程 → 看懂词 → 去哪儿），
+        * 藏掉任何一部分都会让路走不通；/changes 那边是并列的方向，才适合筛。
+        */}
+      <nav aria-label="页内快捷导航" className="flex flex-wrap gap-x-5 gap-y-2 text-[13.5px] border-b border-rule pb-4">
+        {[
+          ["#tutorials", `一、去读哪些教程（${TUTORIAL_N}）`],
+          ["#reading", "二、怎么读仓库名与那些缩写"],
+          ["#next", "三、看懂了，接下来"],
+        ].map(([href, zh]) => (
+          <a key={href} href={href} className="underline underline-offset-2 hover:text-yes-ink">{zh}</a>
+        ))}
+      </nav>
+
+      {/* ══ 一、教程 ══════════════════════════════════════════ */}
+      <section id="tutorials" className="flex flex-col gap-4 scroll-mt-16">
+        <h2 className="text-[26px] font-semibold border-b-[2.5px] border-ink pb-2">
+          一、去读哪些公开教程
+          <span className="ml-3 text-[14px] font-normal text-muted tabular-nums">{TUTORIAL_N} 个</span>
+        </h2>
         <Rich text={glossary.tutorials_note} className="block text-[14px] leading-relaxed text-muted" />
         {glossary.tutorials.map((g) => (
           <div key={g.group} className="flex flex-col gap-2">
-            <h2 className="text-[20px] font-semibold">{g.group}</h2>
+            <h3 className="text-[19px] font-semibold">{g.group}</h3>
             <div className="grid gap-2.5 sm:grid-cols-2">
               {g.items.map((t) => (
                 <a key={t.name} href={t.repo ? `https://github.com/${t.repo}` : (t as { url?: string }).url}
@@ -122,9 +149,17 @@ export default function BasicsPage() {
         ))}
       </section>
 
-      {/* ── 第一课：先学会读仓库名 ─────────────────────────────── */}
+      {/* ══ 二、读懂仓库名与术语 ═════════════════════════════════ */}
+      <h2 id="reading" className="text-[26px] font-semibold border-b-[2.5px] border-ink pb-2 scroll-mt-16">
+        二、怎么读仓库名与那些缩写
+        <span className="block text-[14px] font-normal text-muted mt-1.5">
+          下载权重时撞见的 FP8 / NF4 / GGUF 是什么、哪些仓库能信 —— <b className="text-ink">这一部分是我们自己写的</b>，
+          因为它要和站内数据对得上（每条指回实际出现它的模型页）。
+        </span>
+      </h2>
+
       <section className="rounded-xl border border-no/40 bg-no/6 p-5 flex flex-col gap-3">
-        <h2 className="text-[22px] font-semibold">第一课不是术语，是<b className="text-no">怎么读仓库名</b></h2>
+        <h3 className="text-[21px] font-semibold">第一课不是术语，是<b className="text-no">怎么读仓库名</b></h3>
         <p className="text-[15px] leading-relaxed">
           同一个模型，Hugging Face 上往往并排躺着十几个仓库，后缀五花八门。
           <b className="text-ink">先分清哪些是厂商发的、哪些是网友再压的</b> —— 这比记住任何一个术语都管用。
@@ -172,17 +207,15 @@ export default function BasicsPage() {
         </div>
       </section>
 
-      {/* ── 术语 ─────────────────────────────────────────────── */}
-      <h2 className="text-[26px] font-semibold border-t border-rule pt-6">
-        术语速查：站上会撞见的那些词
-        <span className="block text-[14px] font-normal text-muted mt-1.5">
-          下面这部分是我们自己写的 —— 因为它要和站内数据对得上（每条指回实际出现它的模型页）。
+      <h3 className="text-[21px] font-semibold">
+        术语速查
+        <span className="block text-[13.5px] font-normal text-muted mt-1">
           能追到原始论文的给 arXiv 编号与摘要原句，只有工程惯例的照实说「没有单一权威出处」。
         </span>
-      </h2>
+      </h3>
       {byGroup.map((g) => (
         <section key={g.id} className="flex flex-col gap-3">
-          <h2 className="text-[22px] font-semibold">{g.zh}</h2>
+          <h4 className="text-[17px] font-semibold">{g.zh}</h4>
           <Rich text={g.intro} className="block text-[15px] leading-relaxed text-muted" />
           <div className="flex flex-col">
             {g.terms.map((t) => {
@@ -232,7 +265,7 @@ export default function BasicsPage() {
 
       {/* ── 显存对照 ─────────────────────────────────────────── */}
       <section className="flex flex-col gap-3">
-        <h2 className="text-[22px] font-semibold">同一个模型，不同精度大概要多少显存</h2>
+        <h3 className="text-[19px] font-semibold">同一个模型，不同精度大概要多少显存</h3>
         <p className="text-[15px] leading-relaxed text-muted">
           <b className="text-ink">这张表是算出来的，不是查来的</b> —— 公式就是「参数量 × 每参数字节数」。
           列出来是为了让你看清楚<b className="text-ink">数量级</b>，不是为了让你照着买卡。
@@ -268,8 +301,8 @@ export default function BasicsPage() {
       </section>
 
       {/* ── 接下来去哪 ───────────────────────────────────────── */}
-      <section className="flex flex-col gap-3 border-t border-rule pt-5">
-        <h2 className="text-[22px] font-semibold">看懂了，接下来</h2>
+      <section id="next" className="flex flex-col gap-3 scroll-mt-16">
+        <h2 className="text-[26px] font-semibold border-b-[2.5px] border-ink pb-2">三、看懂了，接下来</h2>
         <div className="grid gap-3 sm:grid-cols-2">
           {[
             { href: "/skill/openweights", t: "AI 视频 · 开源自部署", d: "哪几家真的放了权重、拿什么跑、已知限制" },
