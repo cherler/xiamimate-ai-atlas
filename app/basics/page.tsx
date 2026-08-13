@@ -4,6 +4,7 @@ import { Rich } from "@/components/Fact";
 import { atlas } from "@/lib/atlas";
 import BackLink from "@/components/BackLink";
 import Share from "@/components/Share";
+import PageToc from "@/components/PageToc";
 import glossary from "@/data/glossary.json";
 
 /** 教程条数。**只此一份** —— 上次就是因为正文与 description 各写各的，改了一处漏了另一处。 */
@@ -66,7 +67,16 @@ export default function BasicsPage() {
   const byGroup = glossary.groups.map((g) => ({ ...g, terms: glossary.terms.filter((t) => t.group === g.id) }));
 
   return (
-    <main className="max-w-[980px] mx-auto px-8 pt-5 pb-10 flex flex-col gap-8">
+    /**
+      * 两栏：**宽屏（≥1180px）左侧出粘性目录，窄屏不出**。
+      * 窄屏靠顶部那排「一/二/三」横向导航兜底 —— 手机上塞一个侧栏只会挤掉正文。
+      * 内容列仍是 980px：**目录是加在旁边的，不是把正文压窄的。**
+      */
+    <div className="mx-auto max-w-[1320px] px-8 pt-5 pb-10 flex gap-10 items-start">
+      <aside className="hidden xl:block w-[210px] shrink-0 sticky top-[68px] max-h-[calc(100vh-88px)] overflow-y-auto">
+        <PageToc />
+      </aside>
+      <main className="max-w-[980px] min-w-0 flex-1 flex flex-col gap-8">
       <div className="flex items-baseline justify-between gap-3">
         <BackLink />
         <Share og="/atlas/og/index-16x9.png" title="本地跑模型前先看懂这些词" />
@@ -113,12 +123,14 @@ export default function BasicsPage() {
       <section id="tutorials" className="flex flex-col gap-4 scroll-mt-16">
         <h2 className="text-[26px] font-semibold border-b-[2.5px] border-ink pb-2">
           一、去读哪些公开教程
-          <span className="ml-3 text-[14px] font-normal text-muted tabular-nums">{TUTORIAL_N} 个</span>
+          <span data-note className="ml-3 text-[14px] font-normal text-muted tabular-nums">{TUTORIAL_N} 个</span>
         </h2>
         <Rich text={glossary.tutorials_note} className="block text-[14px] leading-relaxed text-muted" />
         {glossary.tutorials.map((g) => (
           <div key={g.group} className="flex flex-col gap-2">
-            <h3 className="text-[19px] font-semibold">{g.group}</h3>
+            {/* 小标题原来只是加粗 —— 负责人 2026-08-13 截图指出「小标题与内容的区分就没那么明显」。
+                加一条品牌色竖条 + 上间距：**分组标题要看得出是「一层」，不是又一张卡的标题**。 */}
+            <h3 className="text-[19px] font-semibold border-l-[3px] border-yes pl-3 mt-3">{g.group}</h3>
             <div className="grid gap-2.5 sm:grid-cols-2">
               {g.items.map((t) => (
                 <a key={t.name} href={t.repo ? `https://github.com/${t.repo}` : (t as { url?: string }).url}
@@ -152,14 +164,14 @@ export default function BasicsPage() {
       {/* ══ 二、读懂仓库名与术语 ═════════════════════════════════ */}
       <h2 id="reading" className="text-[26px] font-semibold border-b-[2.5px] border-ink pb-2 scroll-mt-16">
         二、怎么读仓库名与那些缩写
-        <span className="block text-[14px] font-normal text-muted mt-1.5">
+        <span data-note className="block text-[14px] font-normal text-muted mt-1.5">
           下载权重时撞见的 FP8 / NF4 / GGUF 是什么、哪些仓库能信 —— <b className="text-ink">这一部分是我们自己写的</b>，
           因为它要和站内数据对得上（每条指回实际出现它的模型页）。
         </span>
       </h2>
 
       <section className="rounded-xl border border-no/40 bg-no/6 p-5 flex flex-col gap-3">
-        <h3 className="text-[21px] font-semibold">第一课不是术语，是<b className="text-no">怎么读仓库名</b></h3>
+        <h3 className="text-[21px] font-semibold border-l-[3px] border-no pl-3">第一课不是术语，是<b className="text-no">怎么读仓库名</b></h3>
         <p className="text-[15px] leading-relaxed">
           同一个模型，Hugging Face 上往往并排躺着十几个仓库，后缀五花八门。
           <b className="text-ink">先分清哪些是厂商发的、哪些是网友再压的</b> —— 这比记住任何一个术语都管用。
@@ -207,15 +219,15 @@ export default function BasicsPage() {
         </div>
       </section>
 
-      <h3 className="text-[21px] font-semibold">
+      <h3 className="text-[21px] font-semibold border-l-[3px] border-yes pl-3 mt-3">
         术语速查
-        <span className="block text-[13.5px] font-normal text-muted mt-1">
+        <span data-note className="block text-[13.5px] font-normal text-muted mt-1">
           能追到原始论文的给 arXiv 编号与摘要原句，只有工程惯例的照实说「没有单一权威出处」。
         </span>
       </h3>
       {byGroup.map((g) => (
         <section key={g.id} className="flex flex-col gap-3">
-          <h4 className="text-[17px] font-semibold">{g.zh}</h4>
+          <h4 className="text-[17px] font-semibold text-muted mt-2">{g.zh}</h4>
           <Rich text={g.intro} className="block text-[15px] leading-relaxed text-muted" />
           <div className="flex flex-col">
             {g.terms.map((t) => {
@@ -265,7 +277,7 @@ export default function BasicsPage() {
 
       {/* ── 显存对照 ─────────────────────────────────────────── */}
       <section className="flex flex-col gap-3">
-        <h3 className="text-[19px] font-semibold">同一个模型，不同精度大概要多少显存</h3>
+        <h3 className="text-[19px] font-semibold border-l-[3px] border-yes pl-3">同一个模型，不同精度大概要多少显存</h3>
         <p className="text-[15px] leading-relaxed text-muted">
           <b className="text-ink">这张表是算出来的，不是查来的</b> —— 公式就是「参数量 × 每参数字节数」。
           列出来是为了让你看清楚<b className="text-ink">数量级</b>，不是为了让你照着买卡。
@@ -329,6 +341,7 @@ export default function BasicsPage() {
         数据版本 {atlas.version} · 词表核验于 {glossary.generated_at} ·
         <b className="text-unknown"> 全部为机器录入</b>
       </footer>
-    </main>
+      </main>
+    </div>
   );
 }
