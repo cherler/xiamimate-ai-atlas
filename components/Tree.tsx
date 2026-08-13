@@ -938,6 +938,15 @@ export default function Tree({ domain }: { domain: string }) {
               {atlas.sources[hot.src]?.name}
             </a>
           </p>
+          {/**
+            * **点开的这一代，要有自己的去处。** 负责人 2026-08-13：
+            *「很明显我们需要为演进树里已经不是最新的模型也建立档案？」
+            * 在这之前，浮层里读完就断了 —— 唯一的出口是产品线页，
+            * 而那里显示的是**当前版本**，点开的却是历史那一代。
+            */}
+          <Link href={`/release/${hot.id}`} className="text-[13px] underline hover:text-yes self-start">
+            这次发布的档案（来源原文、前后代）→
+          </Link>
           <Link href={modelHref(hot.m)} className="text-[13px] underline hover:text-yes self-start">
             {label(atlas.models.find((m) => m.id === hot.m)!)} 的完整能力 →
           </Link>

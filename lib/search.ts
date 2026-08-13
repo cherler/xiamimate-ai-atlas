@@ -39,7 +39,7 @@ export type Answer =
  */
 export type HitKind =
   | "model" | "capability" | "platform"
-  | "domain" | "application" | "skill" | "toolkit" | "term" | "tutorial";
+  | "domain" | "application" | "skill" | "toolkit" | "term" | "tutorial" | "release";
 
 export type Hit = { kind: HitKind; id: string; title: string; sub: string; score: number; href: string };
 
@@ -109,7 +109,17 @@ export function search(q: string): Hit[] {
       if (!k) continue;
       if (k === n) score += 100;
       else if (k.includes(n)) score += 40;
-      else if (n.includes(k) && k.length >= 2) score += 25;
+      /**
+       * ⚠️ **反向包含（查询串里含有条目名）门槛要高。**
+       *
+       * 2026-08-13 实测：搜「Wan2.1-VACE」时命中了 **GPT Realtime 2.1** ——
+       * 因为条目名里的「2.1」是查询串的子串，拿了 25 分。
+       * 一个版本号片段、一个两字词，配上这条规则就能把任何东西拉进结果。
+       *
+       * 收紧到 4 个字符以上，并且**不能是纯数字与点号**（版本号片段一律不算）。
+       * 正向包含（条目名里含查询串）不受影响 —— 那是用户在打前缀，本来就该命中。
+       */
+      else if (n.includes(k) && k.length >= 4 && !/^[\d.]+$/.test(k)) score += 25;
     }
     if (score) hits.push({ kind, id, title, sub, score, href });
   };
@@ -141,13 +151,44 @@ export function search(q: string): Hit[] {
   for (const t of atlas.toolkit)
     push("toolkit", t.site, t.site, t.task, [t.site, t.task], "/toolkit");
 
+  /**
+   * **每一次发布也要能搜到。** 负责人 2026-08-13 问「搜 TripoSplat 会有结果吗」——
+   * 当时的答案是：有结果，但**是错的** —— 命中的是「Tripo P1」（前缀模糊匹配），
+   * 而 TripoSplat 本身是谱系上的一个节点，345 个节点一个都没进索引。
+   *
+   * **一次发布是这个站最细的粒度**（「Wan2.1-VACE」「Hunyuan3D-Part」「Meshy-5」
+   * 都是发布不是产品线），搜不到它们，等于把演进树整棵藏了起来。
+   * 落点给**这次发布自己的档案页** `/release/{id}` —— 负责人当场指出：
+   * 「很明显我们需要为演进树里已经不是最新的模型也建立档案」。
+   * 落到产品线页是将就：那里显示的是当前版本，**搜的是旧的一代，看到的是新的一代**。
+   */
+  for (const v of atlas.versions) {
+    const m = atlas.models.find((x) => x.id === v.m);
+    if (!m) continue;
+    const repos = (v.repos ?? []).map((r) => r.split("/").pop() ?? r);
+    push("release", v.id, `${m.family} ${v.version}`,
+      `${v.date} · ${v.added ?? ""}`.trim(),
+      [v.version, `${m.family} ${v.version}`, v.added, ...repos], `/release/${v.id}`);
+  }
+
   for (const t of glossary.terms)
     push("term", t.id, t.term, "术语速查", [t.term, ...(t.aliases ?? [])], `/basics#reading`);
   for (const g of glossary.tutorials)
     for (const it of g.items)
       push("tutorial", it.name, it.name, `${g.group} · 公开教程`, [it.name, it.repo ?? ""], "/basics#tutorials");
 
-  return hits.sort((a, b) => b.score - a.score).slice(0, 14);
+  /**
+   * 同一条产品线的多次发布会一起命中（搜 Meshy 出来 8 个节点），
+   * **按产品线折一下**：每条线最多留 2 个发布，其余让位给别的类型。
+   */
+  const perModel: Record<string, number> = {};
+  const ranked = hits.sort((a, b) => b.score - a.score).filter((h) => {
+    if (h.kind !== "release") return true;
+    const k = h.href;
+    perModel[k] = (perModel[k] ?? 0) + 1;
+    return perModel[k] <= 2;
+  });
+  return ranked.slice(0, 14);
 }
 
 /** 给 Answer 配一句可复核的口径，而不是只甩一串名字。 */

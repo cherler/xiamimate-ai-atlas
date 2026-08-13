@@ -168,6 +168,11 @@ export type Version = {
   src: string;
   quote: string;
   note?: string;
+  /**
+   * 这一代覆盖了哪些仓库（同一代的不同尺寸/精度档算同一个节点）。
+   * 有它之后，每周待办才不会把「树上早就有、只是从别的源录进来的」永远算成缺口。
+   */
+  repos?: string[];
 };
 
 /**

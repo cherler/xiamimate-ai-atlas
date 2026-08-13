@@ -17,7 +17,7 @@ import { capHref, modelHref } from "@/lib/slug";
 /** 结果前面那个小标签。**九类都要有名字** —— 缺一类就会显示空白，读者不知道点进去是什么。 */
 const KIND_ZH: Record<string, string> = {
   model: "模型", capability: "能力", platform: "平台", domain: "方向",
-  application: "应用", skill: "怎么做", toolkit: "去哪查", term: "术语", tutorial: "教程",
+  application: "应用", skill: "怎么做", toolkit: "去哪查", term: "术语", tutorial: "教程", release: "发布",
 };
 
 /**
