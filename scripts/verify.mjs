@@ -72,7 +72,17 @@ const ROUTES = [
   { path: "/video", must: "AI 视频", zh: 900, built: true },
   { path: "/video/tree", must: "长出了什么", zh: 800, built: true },
   { path: "/video/map", must: "谁和谁有关系", zh: 2400, built: true },
-  { path: "/video/scenario", must: "我想做什么", zh: 260, per: "article", built: true, also: ["公开路线", "需要的能力", "输入 → 输出"] },
+  /**
+   * ⚠️ `per` 从 `article`（一个应用一条）改成资源卡。**分母原来是错的。**
+   *
+   * 场景页的结构是「应用 → 它的一堆资源卡」，而资源卡在 article **里面**。
+   * 按 article 均摊，等于**每给一个应用多收一条教程，这一页的「每条字数」就涨一次** ——
+   * 2026-08-13 给 16 个原本一条教程都没有的应用补上中文材料，棘轮立刻报红。
+   *
+   * 那是**在惩罚补真内容**，和 /changes、/caveats 当初栽的是同一个错
+   * （「多记真内容反而算退步」是错的度量）。这已经是第三次了，所以这次不抬基线、改分母。
+   */
+  { path: "/video/scenario", must: "我想做什么", zh: 120, per: "article .grid > div", built: true, also: ["公开路线", "需要的能力", "输入 → 输出"] },
   { path: "/video/models", must: "全部模型", zh: 1200, built: true },
   { path: "/image", must: "AI 图像", zh: 900, built: true, also: ["出图轨", "文字渲染", ...(PLANNED ? ["这个方向还在建"] : [])] },
   // 断言跟着数据走：图像谱系已经采了 13 条，「还没采谱系」那句空状态不该再出现。
@@ -82,7 +92,7 @@ const ROUTES = [
   // 应用已经定了 8 个，「还没定应用」那句空状态不该再出现；改钉真实应用名。
   // **字数按 per: "article" 量** —— 和 /video/scenario 同一把尺子。
   // 之前这条写的是整页 900：两个方向量的根本不是同一个东西，比出来的数没有意义。
-  { path: "/image/scenario", must: "我想做什么", zh: 260, per: "article", built: true,
+  { path: "/image/scenario", must: "我想做什么", zh: 120, per: "article .grid > div", built: true,
     also: ["公开路线", "需要的能力", "输入 → 输出", "虚拟试穿"] },
   { path: "/image/models", must: "全部模型", zh: 1200, built: true },
   { path: "/method", must: "这些数据是怎么来的", zh: 4000, built: true },
