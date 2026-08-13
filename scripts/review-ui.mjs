@@ -84,10 +84,20 @@ function esc(s){return String(s??'').replace(/[&<>]/g,c=>({'&':'&amp;','<':'&lt;
 async function load(){
   const r=await fetch('/api/queue').then(r=>r.json());
   $('#sub').textContent=\`待审 \${r.total} 条 · 能直接落格 \${r.landable} 条 · 审阅人 \${who}\`;
-  $('#todo').innerHTML=r.todo
-    ? '<b>另外还有：</b>'+esc(r.todo)
+  $('#todo').innerHTML=(r.others&&r.others.length)
+    ? '<b>下面这几摞不在这里审</b>（审阅台只管收件箱那一摞），各自的下一步：<ul style="margin:.5em 0 0;padding-left:1.2em">'
+      + r.others.map(o=>'<li style="margin:.3em 0">'+esc(o.title)+(o.how?'<br><code style="font-size:.9em;color:#555">'+esc(o.how)+'</code>':'')+'</li>').join('')
+      + '</ul>'
     : '';
-  if(!r.items.length){$('#list').innerHTML='<div class="empty">没有待审的。注意这和「今天没跑」不是一回事。</div>';return;}
+  if(!r.items.length){
+    $('#list').innerHTML='<div class="empty">'
+      +'<b>收件箱里没有待审的。</b>注意这和「今天没跑」不是一回事。<br>'
+      +((r.others&&r.others.length)
+        ? '通知里说的那几十条<b>不是这一摞</b> —— 它们在上面列着，各有各的去处。'
+        : '')
+      +'</div>';
+    return;
+  }
   $('#list').innerHTML=r.items.map(it=>\`
     <div class="item" id="i-\${btoa(unescape(encodeURIComponent(it.id))).replace(/=/g,'')}">
       <div class="row">
@@ -144,13 +154,37 @@ createServer(async (req, res) => {
   if (path === "/api/queue") {
     try {
       const q = queue();
-      // 顺带把另外三摞待办的一句话摘要带上 —— 审阅台就是本机唯一的入口
+      /**
+       * 另外几摞待办也带上。**但光带标题不够 —— 那正是这一版要修的。**
+       *
+       * 负责人 2026-08-13 收到通知说「46 条待办 …… 必须人工」，
+       * 打开审阅台看到的是空的：那 46 条是谱系候选与收录候选，
+       * **审阅台压根不管这两摞**（它只读 `data/inbox`）。
+       * 页面上原来只印了一行标题、没说去哪儿办 ——
+       * 于是人到了一个空页面，只能怀疑是不是站坏了。
+       *
+       * 这个文件顶上写着「审阅台就是本机唯一的入口」，**那是它自己许下却没兑现的承诺**。
+       * 现在把 TODO.md 里每一摞的「→ 下一步该跑什么」一起读出来，成对给前端。
+       */
       const todoFile = join(ROOT, "data/TODO.md");
-      const todo = existsSync(todoFile)
-        ? readFileSync(todoFile, "utf8").split("\n").filter((l) => l.startsWith("## ") && !l.includes("收件箱"))
-            .map((l) => l.replace(/^##\s*/, "")).join("；")
-        : "";
-      return json(res, 200, { total: q.length, landable: q.filter((x) => x.landable).length, items: q, todo });
+      const others = [];
+      if (existsSync(todoFile)) {
+        const lines = readFileSync(todoFile, "utf8").split("\n");
+        for (let i = 0; i < lines.length; i++) {
+          if (!lines[i].startsWith("## ") || lines[i].includes("收件箱")) continue;
+          const title = lines[i].replace(/^##\s*/, "");
+          // 下一步就在这一节里以 `→ ` 打头的那一行
+          let how = "";
+          for (let j = i + 1; j < lines.length && !lines[j].startsWith("## "); j++)
+            if (lines[j].startsWith("→ ")) { how = lines[j].slice(2).trim(); break; }
+          others.push({ title, how });
+        }
+      }
+      return json(res, 200, {
+        total: q.length, landable: q.filter((x) => x.landable).length, items: q,
+        todo: others.map((o) => o.title).join("；"),   // 兼容旧字段
+        others,
+      });
     } catch (e) { return json(res, 500, { error: String(e.message) }); }
   }
 
