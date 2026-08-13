@@ -107,6 +107,14 @@ export default function BasicsPage() {
                   </p>
                   <Rich text={t.why} className="block text-[14px] leading-relaxed mt-2" />
                   <Rich text={t.caveat} className="block text-[13px] leading-relaxed text-muted mt-1.5 border-l-2 border-no/50 pl-2.5" />
+                  {/* 有「该看哪几块」就列出来。**负责人的原话是「内容太多，想读却总是读不下去」** ——
+                      对这种超大知识库，给一条链接等于没给；得直接说去看哪几节。 */}
+                  {"sections" in t && Array.isArray((t as { sections?: string[] }).sections) && (
+                    <p className="mt-2 text-[12.5px] text-muted">
+                      <b className="text-ink">先看这几块：</b>
+                      {(t as { sections: string[] }).sections.join(" · ")}
+                    </p>
+                  )}
                 </a>
               ))}
             </div>
