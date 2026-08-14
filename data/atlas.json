@@ -11707,7 +11707,7 @@
    "c": "p-fullbody",
    "state": "unknown",
    "verified_for": "Avatar V",
-   "note": "文档里有 Cinematic Avatar、studio 等类型与分辨率/画幅约束，但**没有一处说明是半身还是全身** —— 混元与美团都会明写「portrait / upper-body / full-body」，这里没有",
+   "note": "在 HeyGen 的文档索引里检索 full-body / upper body / waist / gesture / emotion / expression / multiple people / two avatars —— **一个都没有**。⚠️ 但这份索引是**端点清单不是能力说明书**：它列全了「有哪些接口」，没有列全「每个接口能做到什么」。按站上口径，只有「厂商把功能列全了而这项不在里面」才升级成 ❌ —— 这里够不上，所以留 ⬜。",
    "as_of": "2026-08-14",
    "src": "heygen-docs"
   },
@@ -11766,16 +11766,18 @@
    "c": "p-emotion",
    "state": "unknown",
    "verified_for": "Avatar V",
-   "note": "立项当天（2026-08-14）只核到版本与该家最显眼的几项能力，这一格**还没查**",
-   "as_of": "2026-08-14"
+   "note": "在 HeyGen 的文档索引里检索 full-body / upper body / waist / gesture / emotion / expression / multiple people / two avatars —— **一个都没有**。⚠️ 但这份索引是**端点清单不是能力说明书**：它列全了「有哪些接口」，没有列全「每个接口能做到什么」。按站上口径，只有「厂商把功能列全了而这项不在里面」才升级成 ❌ —— 这里够不上，所以留 ⬜。",
+   "as_of": "2026-08-14",
+   "src": "heygen-docs"
   },
   {
    "m": "heygen",
    "c": "p-multi",
    "state": "unknown",
    "verified_for": "Avatar V",
-   "note": "立项当天（2026-08-14）只核到版本与该家最显眼的几项能力，这一格**还没查**",
-   "as_of": "2026-08-14"
+   "note": "在 HeyGen 的文档索引里检索 full-body / upper body / waist / gesture / emotion / expression / multiple people / two avatars —— **一个都没有**。⚠️ 但这份索引是**端点清单不是能力说明书**：它列全了「有哪些接口」，没有列全「每个接口能做到什么」。按站上口径，只有「厂商把功能列全了而这项不在里面」才升级成 ❌ —— 这里够不上，所以留 ⬜。",
+   "as_of": "2026-08-14",
+   "src": "heygen-docs"
   },
   {
    "m": "heygen",
@@ -11931,10 +11933,12 @@
   {
    "m": "longcat-avatar",
    "c": "p-photo",
-   "state": "unknown",
+   "state": "yes",
    "verified_for": "1.5",
-   "note": "立项当天（2026-08-14）只核到版本与该家最显眼的几项能力，这一格**还没查**",
-   "as_of": "2026-08-14"
+   "note": "模型卡的仓库表写明它做的是「**single- and multi-character audio-driven video generation**」，输入侧用参考图（命令行有 `--ref_img_index`）—— 单图 + 音频即可起片",
+   "as_of": "2026-08-14",
+   "src": "hf-longcat-avatar",
+   "via": "native"
   },
   {
    "m": "longcat-avatar",
@@ -12013,8 +12017,9 @@
    "c": "p-emotion",
    "state": "unknown",
    "verified_for": "1.5",
-   "note": "立项当天（2026-08-14）只核到版本与该家最显眼的几项能力，这一格**还没查**",
-   "as_of": "2026-08-14"
+   "note": "评测集覆盖「4 类场景、2 种语言（中/英）、2 种视觉风格」，但**没有一处说能控制情绪** —— 混元会明写 emotion alignment，这里没有",
+   "as_of": "2026-08-14",
+   "src": "hf-longcat-avatar"
   },
   {
    "m": "longcat-avatar",
@@ -12055,10 +12060,12 @@
   {
    "m": "hunyuan-avatar",
    "c": "p-photo",
-   "state": "unknown",
+   "state": "yes",
    "verified_for": "1.0",
-   "note": "立项当天（2026-08-14）只核到版本与该家最显眼的几项能力，这一格**还没查**",
-   "as_of": "2026-08-14"
+   "note": "论文摘要：从**一张角色图 + 音频**生成动态视频；HF 页的任务标签就是 `image-to-video`",
+   "as_of": "2026-08-14",
+   "src": "hf-hunyuan-avatar",
+   "via": "native"
   },
   {
    "m": "hunyuan-avatar",
@@ -12111,8 +12118,9 @@
    "c": "p-video",
    "state": "unknown",
    "verified_for": "1.0",
-   "note": "立项当天（2026-08-14）只核到版本与该家最显眼的几项能力，这一格**还没查**",
-   "as_of": "2026-08-14"
+   "note": "⚠️ 摘要里有一句「transfer the emotional cues from an **emotion reference image**」—— 那是**用一张图指定情绪**，不是用一段驱动视频带动作。**别把这两件事混成一格**",
+   "as_of": "2026-08-14",
+   "src": "hf-hunyuan-avatar"
   },
   {
    "m": "hunyuan-avatar",
@@ -12199,24 +12207,29 @@
    "c": "p-identity",
    "state": "unknown",
    "verified_for": "1.0",
-   "note": "立项当天（2026-08-14）只核到版本与该家最显眼的几项能力，这一格**还没查**",
-   "as_of": "2026-08-14"
+   "note": "README 讲的是缝合与重定向控制，**没有一处谈长片里形象会不会漂** —— 它本来也只出短片",
+   "as_of": "2026-08-14",
+   "src": "hf-liveportrait"
   },
   {
    "m": "liveportrait",
    "c": "p-fullbody",
-   "state": "unknown",
+   "state": "no",
    "verified_for": "1.0",
-   "note": "立项当天（2026-08-14）只核到版本与该家最显眼的几项能力，这一格**还没查**",
-   "as_of": "2026-08-14"
+   "note": "❌ 的依据：标题与全文都只讲 **Portrait**（人像）动画，还有自动裁脸的开关 `--flag_crop_driving_video`；**没有半身/全身**这一档。⚠️ 它另发过 Animals 版（2024-08-02），那是换物种不是换尺度",
+   "as_of": "2026-08-14",
+   "src": "hf-liveportrait",
+   "via": "native"
   },
   {
    "m": "liveportrait",
    "c": "p-audio",
-   "state": "unknown",
+   "state": "no",
    "verified_for": "1.0",
-   "note": "立项当天（2026-08-14）只核到版本与该家最显眼的几项能力，这一格**还没查**",
-   "as_of": "2026-08-14"
+   "note": "❌ 的依据：它的驱动源**只有驱动视频**（README 通篇是 driving video / driving frames，用法要求「first frame of driving video is a frontal face with neutral expression」），**没有音频输入这条路**",
+   "as_of": "2026-08-14",
+   "src": "hf-liveportrait",
+   "via": "native"
   },
   {
    "m": "liveportrait",
@@ -12265,8 +12278,9 @@
    "c": "p-multi",
    "state": "unknown",
    "verified_for": "1.0",
-   "note": "立项当天（2026-08-14）只核到版本与该家最显眼的几项能力，这一格**还没查**",
-   "as_of": "2026-08-14"
+   "note": "README 没提多人同框；它的处理对象是单张人像，但官方没明说不支持",
+   "as_of": "2026-08-14",
+   "src": "hf-liveportrait"
   },
   {
    "m": "liveportrait",
