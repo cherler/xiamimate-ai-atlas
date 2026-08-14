@@ -150,11 +150,25 @@ try {
   const stale = (atlas.support ?? []).filter((s) => s.recheck && s.verified_for !== s.recheck);
   const by = {};
   for (const s of stale) by[s.m] = (by[s.m] ?? 0) + 1;
+  // 每家取一条最能说明「为什么还没重核成」的备注（就是格子里写的那句 ⚠️）
+  const blockers = Object.keys(by).map((m) => {
+    const one = stale.find((x) => x.m === m);
+    const fam = (atlas.models ?? []).find((x) => x.id === m)?.family ?? m;
+    const why = String(one?.note ?? "").split("⚠️").pop().replace(/\*\*/g, "").trim();
+    return `${fam} —— ${why.slice(0, 46)}`;
+  }).join("；");
   if (stale.length)
     groups.push({
       n: stale.length,
       t: `待重核 ${stale.length} 格（${Object.entries(by).map(([k, v]) => `${k} ${v}`).join(" · ")}）`,
-      how: "去厂商能力页看新版是否已列入；列了就把 verified_for 改成新版并去掉 recheck，没列就留着",
+      /**
+       * ⚠️ **别只说「去厂商能力页看」。** 2026-08-14 卡住的这三家，
+       * 恰恰是**看不到**：LTX 2.5 的模型卡受限访问、混元 3.1 的产品站在登录墙后面、
+       * TRELLIS.2 的仓库页只有版本没有能力说明。
+       * 一条让人去做「已经做过、且做不成」的事的指引，会让人开始无视整张待办表 ——
+       * 所以把「卡在哪」直接印出来。
+       */
+      how: `去厂商能力页看新版是否已列入；列了就把 verified_for 改成新版并去掉 recheck，没列就留着。**当前卡点**：${blockers}`,
       why: "**厂商的能力页常常落后于它自己的模型清单。** 这些格子的证据是真的，只是核的是上一版 —— " +
         "改 verified_for 是编，退回 ⬜ 是把真证据扔了，所以照实标着，但必须一直算作待办。",
     });
@@ -253,12 +267,31 @@ async function feishu(title, lines) {
 
 if (process.argv.includes("--notify") && total) {
   const brief = groups.map((g) => `${g.n} ${g.t.split("（")[0].replace(/\s*\d+\s*条?$/, "")}`).join("；");
-  // 本机通知：零成本、不需要凭据。和飞书**两条都发** —— 一条断了另一条还在。
+  /**
+   * 本机通知：零成本、不需要凭据。和飞书**两条都发** —— 一条断了另一条还在。
+   *
+   * ⚠️ **不要直接用 `osascript -e "display notification"`。**
+   * 那样发出的通知**归属于「脚本编辑器」**，点一下只会启动脚本编辑器，
+   * 然后弹出它的「打开文件」对话框 —— 负责人 2026-08-14 截图问「这是什么意思」，
+   * 就是这个。**一条点了会打开无关程序的通知，比没有通知更糟**：
+   * 它让人以为是自己点错了，或者站坏了。
+   *
+   * macOS 上通知的归属只能是**发出它的那个 app**，所以发送方做成一个 app 包
+   * （`ops/虾米待办.app`，由 `osacompile` 生成、跟着仓库走）：
+   * 带参数运行 = 发通知；不带参数运行（也就是用户点了通知）= 打开 `data/TODO.md`。
+   *
+   * 那个 app 不在时退回旧写法 —— **通知发不出去不该拖垮 TODO.md 的生成**。
+   */
+  const notifier = join(ROOT, "ops/虾米待办.app");
   try {
-    execFileSync("osascript", [
-      "-e",
-      `display notification ${JSON.stringify(brief.slice(0, 180))} with title "虾米看AI · ${total} 条待办" subtitle "data/TODO.md"`,
-    ]);
+    if (existsSync(notifier)) {
+      execFileSync("open", ["-a", notifier, "--args", `虾米看AI · ${total} 条待办`, brief.slice(0, 180)]);
+    } else {
+      execFileSync("osascript", [
+        "-e",
+        `display notification ${JSON.stringify(brief.slice(0, 180))} with title "虾米看AI · ${total} 条待办" subtitle "data/TODO.md"`,
+      ]);
+    }
   } catch { console.log("（系统通知发不出去，不影响 TODO.md）"); }
 
   /**
