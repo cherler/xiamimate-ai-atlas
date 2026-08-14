@@ -4996,6 +4996,32 @@
     "version"
    ],
    "note": "AI 数字人方向 2026-08-14 立项时登记。♥136、MIT"
+  },
+  {
+   "id": "replicate-lipsync",
+   "tier": "A",
+   "kind": "spa",
+   "vendor": "",
+   "name": "Replicate · 搜索「lipsync」",
+   "url": "https://replicate.com/search?query=lipsync",
+   "refresh_days": 21,
+   "good_for": [
+    "resource"
+   ],
+   "note": "按次调用的对口型模型集中在这儿；⚠️ 搜索页会变，引的是当天看到的条目"
+  },
+  {
+   "id": "comfy-s2v",
+   "tier": "S",
+   "kind": "html",
+   "vendor": "",
+   "name": "ComfyUI 官方 · Wan2.2-S2V 音频驱动工作流",
+   "url": "https://docs.comfy.org/tutorials/video/wan/wan2-2-s2v",
+   "refresh_days": 21,
+   "good_for": [
+    "resource"
+   ],
+   "note": "本地跑数字人的官方工作流"
   }
  ],
  "$missing": [

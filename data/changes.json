@@ -558,6 +558,60 @@
     "hunyuan3d"
    ],
    "domain": "threed"
+  },
+  {
+   "id": "longcat-avatar-2026-05-21",
+   "date": "2026-05-21",
+   "side": "world",
+   "kind": "新模型",
+   "subject": "LongCat-Video-Avatar 1.5",
+   "before": "开源侧的音频驱动数字人多是研究项目",
+   "after": "美团放出 1.5，自述面向生产可用（MIT，♥714）",
+   "why": "**开源侧关注度最高的一支**，而且是标准 MIT 许可 —— 商用不用先读一份自定义条款",
+   "impact": [
+    "longcat-avatar"
+   ],
+   "src": "hf-longcat-avatar",
+   "models": [
+    "longcat-avatar"
+   ],
+   "domain": "avatar"
+  },
+  {
+   "id": "hunyuan-avatar-2025-05-26",
+   "date": "2025-05-26",
+   "side": "world",
+   "kind": "新模型",
+   "subject": "HunyuanVideo-Avatar",
+   "before": "多人同框的音频驱动几乎没有开源实现",
+   "after": "腾讯放出 HunyuanVideo-Avatar，自述支持多角色与情绪对齐（arXiv 2505.20156）",
+   "why": "**多人同框**这一格此前没人做；⚠️ HF 页面没标准许可字段，商用前要读仓库条款",
+   "impact": [
+    "hunyuan-avatar"
+   ],
+   "src": "hf-hunyuan-avatar",
+   "models": [
+    "hunyuan-avatar"
+   ],
+   "domain": "avatar"
+  },
+  {
+   "id": "musetalk-identity-2026-08-14",
+   "date": "2026-08-14",
+   "side": "world",
+   "kind": "已知限制",
+   "subject": "MuseTalk 的形象保真",
+   "before": "我们把「形象一致」默认当成这一卷各家都在做的事",
+   "after": "MuseTalk 官方在「已知限制」里明写做不到：「Identity preservation: Some details of the original face are not well preserved, such as mustache, lip shape and color」",
+   "why": "**厂商自己承认做不到的，比我们推断出来的可靠得多** —— 这一格因此记 ❌ 而不是 ⬜",
+   "impact": [
+    "musetalk"
+   ],
+   "src": "hf-musetalk",
+   "models": [
+    "musetalk"
+   ],
+   "domain": "avatar"
   }
  ]
 }
