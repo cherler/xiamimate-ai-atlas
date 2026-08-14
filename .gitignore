@@ -28,3 +28,4 @@ assets/*.webm
 assets/*.png
 assets/demo-raw*/
 data/watch-report.partial.md
+.next-dev/
