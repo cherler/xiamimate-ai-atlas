@@ -666,6 +666,56 @@
     "openvla"
    ],
    "domain": "embodied"
+  },
+  {
+   "id": "world-omni-is-definition-2026-08-14",
+   "date": "2026-08-14",
+   "side": "ours",
+   "kind": "口径确立",
+   "subject": "世界模型的「全能」不是跨卷",
+   "before": "按产出物判归属 —— Cosmos 能出视频/图/音频/动作，就要拆到四卷里去",
+   "after": "**判归属看自述在不在「模拟世界」这件事上，不看它输出了几种模态。** Cosmos 整支留在世界模型卷不拆；`Cosmos-Reason` 是 GR00T 的骨干，那是依赖关系，不改归属",
+   "why": "负责人原话：「世界模型做的就是全能模型，是模拟世界的一个方向。」**一个世界模型能出画面出声音出动作，不是越界，是它做到了目标** —— 老判据在这里会把规则三（Family 是一等实体）搞坏。",
+   "impact": [
+    "cosmos"
+   ],
+   "models": [],
+   "domain": "world"
+  },
+  {
+   "id": "oasis-unexcluded-2026-08-14",
+   "date": "2026-08-14",
+   "side": "ours",
+   "kind": "收录变更",
+   "subject": "Oasis 3 从排除清单里收回来",
+   "before": "排除，理由「官网定位是为机器人/自动驾驶做可交互物理环境，**用途不是内容创作**」",
+   "after": "收进世界模型卷。**排除记录留着不删**",
+   "why": "当时那条理由是**视频卷的边界**，在当时是对的。**变的是地图的范围，不是事实。** 同批还有 HunyuanWorld 与 lingbot-world。",
+   "impact": [
+    "oasis"
+   ],
+   "models": [
+    "oasis"
+   ],
+   "domain": "world"
+  },
+  {
+   "id": "vjepa-two-mouths-2026-08-14",
+   "date": "2026-08-14",
+   "side": "world",
+   "kind": "口径不一致",
+   "subject": "V-JEPA 2 官方两处说法不同",
+   "before": "以为「是不是世界模型」看官方一句话就够",
+   "after": "Meta 博客标题写「Introducing the **V-JEPA 2 world model**」，而 HF 上的官方模型卡第一句写「A frontier **video understanding** model」",
+   "why": "**同一家对同一个模型有两种定位，我们得选一个并说明选了哪个。** 按博客收（那是对外定位），但读者该知道模型卡不是这么说的 —— 这正是「每格都带原文」的价值。",
+   "impact": [
+    "vjepa"
+   ],
+   "src": "vjepa2-blog",
+   "models": [
+    "vjepa"
+   ],
+   "domain": "world"
   }
  ]
 }

@@ -1657,6 +1657,178 @@
     "框架"
    ],
    "since_note": "openpi 同时给 JAX 与 PyTorch 两套实现"
+  },
+  {
+   "id": "w-sim",
+   "class": "world",
+   "domain": "world",
+   "name": "World simulation",
+   "zh": "世界模拟",
+   "group": "模拟",
+   "ubiquity": "待核",
+   "aliases": [
+    "world simulation",
+    "simulate the world",
+    "世界模拟"
+   ],
+   "since_note": "Cosmos「world simulation」· Odyssey「simulate the world」· World Labs「simulate 3D worlds」"
+  },
+  {
+   "id": "w-predict",
+   "class": "world",
+   "domain": "world",
+   "name": "Future prediction",
+   "zh": "未来预测",
+   "group": "模拟",
+   "ubiquity": "待核",
+   "aliases": [
+    "future prediction",
+    "未来预测",
+    "predict next"
+   ],
+   "since_note": "Cosmos 的 Model Versions 逐档写「world simulation, **future prediction**, action reasoning」"
+  },
+  {
+   "id": "w-understand",
+   "class": "world",
+   "domain": "world",
+   "name": "World understanding",
+   "zh": "世界理解",
+   "group": "模拟",
+   "ubiquity": "待核",
+   "aliases": [
+    "world understanding",
+    "physical reasoning",
+    "世界理解"
+   ],
+   "since_note": "Cosmos「world understanding」· Meta「A world model should be able to **understand observations of the world**」"
+  },
+  {
+   "id": "w-actionin",
+   "class": "world",
+   "domain": "world",
+   "name": "Action-conditioned input",
+   "zh": "动作条件输入",
+   "group": "交互",
+   "ubiquity": "待核",
+   "aliases": [
+    "action trajectory",
+    "action-conditioned",
+    "动作条件",
+    "keyboard input"
+   ],
+   "since_note": "Cosmos 的 `Input Type(s)` 明列 **Action Trajectory** 并给出各本体维度；Matrix-Game「**action-conditioned** generation」"
+  },
+  {
+   "id": "w-realtime",
+   "class": "world",
+   "domain": "world",
+   "name": "Real-time interaction",
+   "zh": "实时可玩",
+   "group": "交互",
+   "ubiquity": "待核",
+   "aliases": [
+    "real time",
+    "real-time",
+    "实时",
+    "interactive",
+    "实时交互"
+   ],
+   "since_note": "Genie 3「navigate in **real time at 24 frames per second**」· Matrix-Game「**Real-Time and Streaming** Interactive World Model」。⚠️ **中文名不叫「实时交互」** —— 那是视频卷第二轨的名字（`realtime` 轨），全站不许重名；「实时交互」放进别名，搜得到。"
+  },
+  {
+   "id": "w-persist",
+   "class": "world",
+   "domain": "world",
+   "name": "State persistence",
+   "zh": "状态持久",
+   "group": "交互",
+   "ubiquity": "待核",
+   "aliases": [
+    "consistency",
+    "persistent",
+    "memory",
+    "长时记忆",
+    "状态持久"
+   ],
+   "since_note": "Genie 3「**retaining consistency for a few minutes**」· Matrix-Game「**Long-Horizon Memory**」· WHAM「**persistent** outputs」"
+  },
+  {
+   "id": "w-multiagent",
+   "class": "world",
+   "domain": "world",
+   "name": "Multi-agent shared world",
+   "zh": "多智能体共世界",
+   "group": "交互",
+   "ubiquity": "待核",
+   "aliases": [
+    "multi-agent",
+    "multiplayer",
+    "多人",
+    "共享世界"
+   ],
+   "since_note": "Odyssey「a **multi-agent world model**, enabling multiple participants—human or AI—to **share and interact within the same world simulation** in real-time」"
+  },
+  {
+   "id": "w-actionout",
+   "class": "world",
+   "domain": "world",
+   "name": "Action commands output",
+   "zh": "动作输出",
+   "group": "产出",
+   "ubiquity": "待核",
+   "aliases": [
+    "action commands",
+    "robot action",
+    "动作指令"
+   ],
+   "since_note": "Cosmos「generating … and **action commands**」"
+  },
+  {
+   "id": "w-3d",
+   "class": "world",
+   "domain": "world",
+   "name": "3D roamable world",
+   "zh": "3D 可漫游",
+   "group": "产出",
+   "ubiquity": "待核",
+   "aliases": [
+    "3D world",
+    "roam",
+    "漫游",
+    "spatial"
+   ],
+   "since_note": "World Labs「reconstruct, generate, and simulate **3D worlds**; and allow both humans and agents to **interact** with them」"
+  },
+  {
+   "id": "w-av",
+   "class": "world",
+   "domain": "world",
+   "name": "Audio-visual output",
+   "zh": "音画同出",
+   "group": "产出",
+   "ubiquity": "待核",
+   "aliases": [
+    "audio",
+    "音画",
+    "with audio"
+   ],
+   "since_note": "Cosmos 的输入输出都含音频（输入音频 ≤0.5 秒、48kHz 立体声）"
+  },
+  {
+   "id": "w-openweights",
+   "class": "world",
+   "domain": "world",
+   "name": "Open Weights",
+   "zh": "开源权重",
+   "group": "产出",
+   "ubiquity": "待核",
+   "aliases": [
+    "open weights",
+    "权重",
+    "checkpoint"
+   ],
+   "since_note": "Cosmos3 / Matrix-Game / WHAM / V-JEPA 2 / 混元世界 公开权重；Genie / Marble / Odyssey / Oasis 闭源"
   }
  ],
  "orgs": [
@@ -2371,6 +2543,39 @@
    "name": "THU AIR",
    "kind": "lab",
    "note": "X-VLA 的项目主页挂在 `thu-air-dream.github.io`；论文作者署名 Zheng et al., 2025。"
+  },
+  {
+   "id": "worldlabs",
+   "zh": "World Labs",
+   "en": "World Labs",
+   "name": "World Labs",
+   "kind": "startup",
+   "zh_none": true,
+   "note": "李飞飞创办。⚠️ **它离 3D 卷最近**：产出是可漫游的 3D 世界，判归属靠「能不能被交互地改变」。"
+  },
+  {
+   "id": "odyssey",
+   "zh": "Odyssey",
+   "en": "Odyssey",
+   "name": "Odyssey",
+   "kind": "startup",
+   "zh_none": true,
+   "note": "自述「an AI lab pioneering world models」。「多智能体共世界」这根轴目前只有它一家提。"
+  },
+  {
+   "id": "skywork",
+   "zh": "昆仑万维 Skywork",
+   "en": "Skywork",
+   "name": "Skywork",
+   "kind": "bigtech"
+  },
+  {
+   "id": "etched",
+   "zh": "Etched",
+   "en": "Etched",
+   "name": "Etched",
+   "kind": "startup",
+   "zh_none": true
   }
  ],
  "$orgs": "公司是**一等实体**，不是模型上的一个字符串（此前 vendor 是字符串，结果阿里在库里成了两家）。产业链图、地球分布、投资关系全都挂在这一层上。\n**hq 只有 5 家有来源，其余 6 家仍然没有** —— 都是公开常识，但我们自己的规矩是「没有来源的结论就是猜的」，所以校验里 R21 会一直警告，前台也必须标出来。不许因为「大家都知道」就当成核过了。\n\n2026-08-08 补：从已有快照和官网拿到 5 家的可引证据，但**精度分三档**，写进 `hq_precision`：\n  exact     —— 页脚给出具体街道地址（只有字节）\n  province  —— **ICP 备案只证到省**（快手/MiniMax/阿里）。阿里那条只证到浙江，没证到杭州\n  ambiguous —— 招聘页同时列两个城市（Runway 的纽约与旧金山）\n\n剩下 6 家（生数、昆仑万维、Google DeepMind、OpenAI、Decart、Lightricks）没拿到：\n**生数官网 HTTPS 证书已过期**（ERR_CERT_DATE_INVALID）—— 这条本身就是信息；\n其余几家的 about/contact 页没有可机读的地址段。R21 会一直为它们报警告。\n\n**不许把 province 当成 exact 用。** 我们批评厂商「说了半句」的时候，自己不能也说半句。",
@@ -4487,6 +4692,166 @@
    "version_src": "modelscope-orgs",
    "version_quote": "魔搭上 `Robbyant/lingbot-vla-v2-6b` 建于 2026-07-07，上一代 `lingbot-vla-4b` 建于 2026-01-27",
    "note": "进 extended：HF 与魔搭都有，但只有基准后训练档，官方能力叙述还没找到。"
+  },
+  {
+   "id": "cosmos",
+   "class": "world",
+   "family": "NVIDIA Cosmos",
+   "org": "nvidia",
+   "version": "Cosmos3",
+   "version_as_of": "2026-08-14",
+   "status": "active",
+   "tier": "core",
+   "domain": "world",
+   "weights": "open",
+   "zh_none": true,
+   "version_src": "cosmos3-card",
+   "version_quote": "模型卡标题：「**Cosmos 3: Omnimodal World Models for Physical AI**」；`Cosmos3-Nano` 建于 2026-03-10、`Cosmos3-Edge` 2026-07-01",
+   "note": "**这一卷的锚点**：唯一一份写全了输入输出规格、各本体动作维度、许可与基准的官方模型卡（44k）。⚠️ **整个 Cosmos 家族留在这一卷不拆**（规则十六 D-1）：`Cosmos-Reason` 是 VLM 且是 GR00T N1.7 的视觉骨干、`Cosmos-Policy-DROID` 出机器人动作、`Cosmos3-Super-Image2Video` 是图生视频 —— **它们是同一个世界模型平台的不同出口，不是四条产品线**。⚠️ 下载量最高的 `Cosmos-Reason2-8B`（72 万次）与 `Cosmos-Predict2-Video2World` 的**模型卡要登录才能看（HTTP 401）**。"
+  },
+  {
+   "id": "genie",
+   "class": "world",
+   "family": "Google Genie",
+   "org": "google",
+   "version": "Genie 3",
+   "version_as_of": "2026-08-14",
+   "status": "active",
+   "tier": "core",
+   "domain": "world",
+   "weights": "closed",
+   "zh_none": true,
+   "version_src": "genie3-blog",
+   "version_quote": "官方博客标题「**Genie 3: A new frontier for world models**」，正文自述「a general purpose world model that can generate an unprecedented diversity of interactive environments」",
+   "note": "闭源，没有权重也没有公开 API。⚠️ **抓 `deepmind.google/models/genie/` 会拿回站点导航壳**（正文全是菜单，2026-08-14 实测）—— 有实数的是那篇博客。"
+  },
+  {
+   "id": "marble",
+   "class": "world",
+   "family": "World Labs Marble",
+   "org": "worldlabs",
+   "version": "Marble",
+   "version_as_of": "2026-08-14",
+   "status": "active",
+   "tier": "core",
+   "domain": "world",
+   "weights": "closed",
+   "zh_none": true,
+   "version_src": "worldlabs-marble",
+   "version_quote": "官方博客：「**Marble**, our frontier **multimodal world model**, is available to everyone starting today」",
+   "note": "⚠️ **这一支离 3D 卷最近**，收进这一卷的依据是它自述里的「and allow both humans and agents to **interact with them**」—— 能被交互地改变，而不只是导出来看。"
+  },
+  {
+   "id": "odyssey",
+   "class": "world",
+   "family": "Odyssey",
+   "org": "odyssey",
+   "version": "Odyssey-2",
+   "version_as_of": "2026-08-14",
+   "status": "active",
+   "tier": "core",
+   "domain": "world",
+   "weights": "closed",
+   "zh_none": true,
+   "version_src": "odyssey-site",
+   "version_quote": "官网自述「Our most powerful **general purpose world model** yet, materially advancing the state-of-the-art in **physical accuracy** of world models」",
+   "note": "⚠️ **版本号是我们从官网措辞推的**（官网只说「most powerful … yet」，没给型号）—— 这是拿不到，不是没有。「多智能体共世界」那根轴目前只有它一家提。"
+  },
+  {
+   "id": "matrix-game",
+   "class": "world",
+   "family": "Matrix-Game",
+   "org": "skywork",
+   "version": "3.0",
+   "version_as_of": "2026-08-14",
+   "status": "active",
+   "tier": "core",
+   "domain": "world",
+   "weights": "open",
+   "zh": "昆仑 Matrix-Game",
+   "version_src": "matrixgame-card",
+   "version_quote": "官方 HF 仓库 `Skywork/Matrix-Game-3.0`（createdAt 2026-03-27），上一代 `Matrix-Game-2.0` 建于 2025-08-08",
+   "note": "**中文侧这一卷最能核的一支**：模型卡标题自己就把三根轴写全了 ——「**Real-Time and Streaming** Interactive World Model with **Long-Horizon Memory**」。"
+  },
+  {
+   "id": "hunyuan-world",
+   "class": "world",
+   "family": "混元世界",
+   "org": "tencent",
+   "version": "HY-World 2.0",
+   "version_as_of": "2026-08-14",
+   "status": "active",
+   "tier": "core",
+   "domain": "world",
+   "weights": "open",
+   "zh": "混元世界",
+   "version_src": "hunyuanworld-gh",
+   "version_quote": "官方仓库更新日志：「April 16, 2026: We release **HY-World-2.0**, state-of-the-art 3D world model」；上一代「December 18, 2025: HunyuanWorld-1.5 (**WorldPlay**), enabling **real-time world creation and play**」",
+   "note": "⚠️ **同族的 `WorldMirror` 不在这一卷**：它自述是「a versatile feed-forward model for comprehensive **3D geometric prediction**」，出点云、深度、3D 高斯 —— **那是 3D 卷**。同一条产品线里有的支属于这一卷、有的属于别卷，这是规则十六边界二的第一个真实案例。"
+  },
+  {
+   "id": "wham",
+   "class": "world",
+   "family": "Microsoft WHAM",
+   "org": "microsoft",
+   "version": "WHAM",
+   "version_as_of": "2026-08-14",
+   "status": "active",
+   "tier": "core",
+   "domain": "world",
+   "weights": "open",
+   "zh_none": true,
+   "version_src": "wham-card",
+   "version_quote": "官方模型卡标题「**World and Human Action Model (WHAM)**」，附 Nature 论文链接（s41586-025-08600-3）",
+   "note": "**这一卷唯一一支论文发在 Nature 上的**。产品名叫 Muse，模型名叫 WHAM。训练数据是《Bleeding Edge》的游戏录像。"
+  },
+  {
+   "id": "vjepa",
+   "class": "world",
+   "family": "Meta V-JEPA",
+   "org": "meta",
+   "version": "V-JEPA 2",
+   "version_as_of": "2026-08-14",
+   "status": "active",
+   "tier": "core",
+   "domain": "world",
+   "weights": "open",
+   "zh_none": true,
+   "version_src": "vjepa2-blog",
+   "version_quote": "Meta 官方博客标题：「Introducing the **V-JEPA 2 world model** and new benchmarks for physical reasoning」",
+   "note": "⚠️ **官方两处口径不一致，值得记下来**：Meta 的博客标题写「V-JEPA 2 **world model**」，而 HF 上的官方模型卡第一句写的是「A frontier **video understanding** model」。**我们按博客收它**（那是 Meta 对外的定位），但读者该知道模型卡不是这么说的。下载量 32 万，是这一卷开源侧最高的。"
+  },
+  {
+   "id": "oasis",
+   "class": "world",
+   "family": "Decart Oasis",
+   "org": "decart",
+   "version": "Oasis 3",
+   "version_as_of": "2026-08-14",
+   "status": "active",
+   "tier": "core",
+   "domain": "world",
+   "weights": "closed",
+   "zh_none": true,
+   "version_src": "decart-site",
+   "version_quote": "官网定位「REALTIME INTERACTIVE WORLD MODEL FOR PHYSICAL AI」",
+   "note": "🔄 **这一支曾被我们排除，理由是「用途不是内容创作」** —— 那是视频卷的边界。这一卷开了，它就该被收回来。**排除记录留着不删**：它证明当时的判断在当时是对的，变的是地图的范围不是事实。⚠️ 官网与 `oasis.decart.ai` 都是空壳，文档站 `docs.decart.ai` 三次都抓不到 —— **可核验度是这一卷最低的**。"
+  },
+  {
+   "id": "oasis500m",
+   "class": "world",
+   "family": "Etched Oasis-500M",
+   "org": "etched",
+   "version": "500M",
+   "version_as_of": "2026-08-14",
+   "status": "active",
+   "tier": "extended",
+   "domain": "world",
+   "weights": "open",
+   "zh_none": true,
+   "version_src": "hf-robotics",
+   "version_quote": "HF 仓库 `Etched/oasis-500m`（createdAt 2024-10-31）",
+   "note": "进 extended：⚠️ **模型卡要登录才能看（HTTP 401 gated）**，我们读不到它怎么说自己。收它是为了留痕这条线存在过，不是因为核过。"
   }
  ],
  "sources": {
@@ -6444,6 +6809,51 @@
    "name": "ManiSkill 官方仓库（仿真环境）",
    "url": "https://github.com/haosulab/ManiSkill",
    "tier": "third-party"
+  },
+  "cosmos3-card": {
+   "name": "NVIDIA 官方 · Cosmos3-Nano 模型卡",
+   "url": "https://huggingface.co/nvidia/Cosmos3-Nano",
+   "tier": "official"
+  },
+  "genie3-blog": {
+   "name": "Google DeepMind 官方博客 · Genie 3",
+   "url": "https://deepmind.google/discover/blog/genie-3-a-new-frontier-for-world-models/",
+   "tier": "official"
+  },
+  "odyssey-site": {
+   "name": "Odyssey 官网",
+   "url": "https://odyssey.world/",
+   "tier": "official"
+  },
+  "worldlabs-marble": {
+   "name": "World Labs 官方博客 · Marble",
+   "url": "https://www.worldlabs.ai/blog/marble-world-model",
+   "tier": "official"
+  },
+  "matrixgame-card": {
+   "name": "昆仑万维官方 · Matrix-Game 3.0 模型卡",
+   "url": "https://huggingface.co/Skywork/Matrix-Game-3.0",
+   "tier": "official"
+  },
+  "hunyuanworld-gh": {
+   "name": "腾讯混元官方 · HunyuanWorld 仓库（更新日志）",
+   "url": "https://github.com/Tencent-Hunyuan/HunyuanWorld-1.0",
+   "tier": "official"
+  },
+  "wham-card": {
+   "name": "微软官方 · WHAM 模型卡",
+   "url": "https://huggingface.co/microsoft/wham",
+   "tier": "official"
+  },
+  "vjepa2-blog": {
+   "name": "Meta 官方博客 · V-JEPA 2 world model",
+   "url": "https://ai.meta.com/blog/v-jepa-2-world-model-benchmarks/",
+   "tier": "official"
+  },
+  "vjepa2-card": {
+   "name": "Meta 官方 · V-JEPA 2 模型卡",
+   "url": "https://huggingface.co/facebook/vjepa2-vitl-fpc64-256",
+   "tier": "official"
   }
  },
  "support": [
@@ -13877,6 +14287,865 @@
    "verified_for": "1",
    "as_of": "2026-08-14",
    "note": "⚠️ **整行未核。** HF 与魔搭都有，但模型卡只有 2k，内容是「这是 RoboCasa365 评测用的检查点，含权重、自定义 Transformers 代码、分词器与动作归一化统计」 —— 这一行的 ⬜ 是「我们还没读到一份讲能力的官方页」，**不是「读完没找到」**。两者性质不同，按规则十四必须写清楚。⚠️ 连「开源权重」这一格都没填：权重确实公开着，但这一卷的许可差异极大（MIT / Apache-2.0 / NVIDIA 自家条款都有），**没读到许可就不填 ✅**。"
+  },
+  {
+   "m": "cosmos",
+   "c": "w-sim",
+   "state": "yes",
+   "verified_for": "Cosmos3",
+   "src": "cosmos3-card",
+   "quote": "官方模型卡标题「Cosmos 3: **Omnimodal World Models** for Physical AI」；Description：「spanning **world understanding, world generation, simulation**, and embodied policy learning」",
+   "as_of": "2026-08-14"
+  },
+  {
+   "m": "cosmos",
+   "c": "w-predict",
+   "state": "yes",
+   "verified_for": "Cosmos3",
+   "src": "cosmos3-card",
+   "quote": "Model Versions 逐档写：「generate coherent text, images, video, audio, and action outputs for multimodal understanding, world simulation, **future prediction**, action reasoning」",
+   "as_of": "2026-08-14"
+  },
+  {
+   "m": "cosmos",
+   "c": "w-understand",
+   "state": "yes",
+   "verified_for": "Cosmos3",
+   "src": "cosmos3-card",
+   "quote": "Description：「spanning **world understanding**, world generation…」；同族 `Cosmos-Reason` 专做这一层",
+   "as_of": "2026-08-14"
+  },
+  {
+   "m": "cosmos",
+   "c": "w-actionin",
+   "state": "yes",
+   "verified_for": "Cosmos3",
+   "src": "cosmos3-card",
+   "quote": "`Input/Output Specifications` 的 `Input Type(s)` 明列 **Action Trajectory**，格式 json（1D list），并给出各本体维度：**相机运动 9D、自动驾驶 9D、第一人称 57D、单臂 Franka+RobotiQ 10D、双臂 20D、Agibot 29D、UR 10D、Google robot 10D、WidowX 250 10D、UMI 9D**；长度 16–400 帧",
+   "as_of": "2026-08-14",
+   "note": "这一卷唯一一支**把「能喂哪些本体的动作」列成表**的。别家最多说一句「可交互」。"
+  },
+  {
+   "m": "cosmos",
+   "c": "w-actionout",
+   "state": "yes",
+   "verified_for": "Cosmos3",
+   "src": "cosmos3-card",
+   "quote": "Description：「capable of generating dynamic, high-quality video, image, audio, **and action commands**」；`Output Type(s)`: 「Image, video, audio, **action**, text」",
+   "as_of": "2026-08-14"
+  },
+  {
+   "m": "cosmos",
+   "c": "w-av",
+   "state": "yes",
+   "verified_for": "Cosmos3",
+   "src": "cosmos3-card",
+   "quote": "输入输出都含音频：输入「Video (with audio or without audio)」「Audio: Max 0.5 second」「2 channels (stereo) and a 48 kHz sample rate」，输出含 audio",
+   "as_of": "2026-08-14"
+  },
+  {
+   "m": "cosmos",
+   "c": "w-openweights",
+   "state": "yes",
+   "verified_for": "Cosmos3",
+   "src": "cosmos3-card",
+   "quote": "`Cosmos3-Nano` / `-Edge` / `-Super` 公开权重；模型卡写「This model is ready for **commercial and non-commercial use**」",
+   "as_of": "2026-08-14",
+   "note": "⚠️ 但同族 `Cosmos-Reason2-8B` 与 `Cosmos-Predict2-Video2World` 的**模型卡要登录才能看（HTTP 401 gated）** —— 权重公开与文档可读是两回事。"
+  },
+  {
+   "m": "cosmos",
+   "c": "w-realtime",
+   "state": "unknown",
+   "verified_for": "Cosmos3",
+   "as_of": "2026-08-14",
+   "note": "模型卡通篇没有实时 / 帧率 / 延迟指标。输入限制里写着「Video: … **Max number of frames = 5**」，看起来是离线成段生成而不是边交互边出 —— **但官方没这么说，所以不判 ❌**。"
+  },
+  {
+   "m": "cosmos",
+   "c": "w-persist",
+   "state": "unknown",
+   "verified_for": "Cosmos3",
+   "as_of": "2026-08-14",
+   "note": "没有长时一致性 / 记忆机制的说法。动作输入长度写着 16–400 帧，那是**单次生成的长度上限**，不是跨轮的状态保持。"
+  },
+  {
+   "m": "cosmos",
+   "c": "w-multiagent",
+   "state": "unknown",
+   "verified_for": "Cosmos3",
+   "as_of": "2026-08-14",
+   "note": "模型卡没有多智能体 / 多参与者共享同一个世界的内容。"
+  },
+  {
+   "m": "cosmos",
+   "c": "w-3d",
+   "state": "unknown",
+   "verified_for": "Cosmos3",
+   "as_of": "2026-08-14",
+   "note": "⚠️ 差一点判成 ✅。输出里有 video、image、audio、action，**没有可漫游的 3D 世界**；同族 `Cosmos-Transfer` 也是出视频。「Physical AI」讲的是物理合理性，不是 3D 可漫游。"
+  },
+  {
+   "m": "genie",
+   "c": "w-sim",
+   "state": "yes",
+   "verified_for": "Genie 3",
+   "src": "genie3-blog",
+   "quote": "官方博客：「a **general purpose world model** that can generate an unprecedented diversity of **interactive environments**」",
+   "as_of": "2026-08-14"
+  },
+  {
+   "m": "genie",
+   "c": "w-realtime",
+   "state": "yes",
+   "verified_for": "Genie 3",
+   "src": "genie3-blog",
+   "quote": "「Given a text prompt, Genie 3 can generate dynamic worlds that you can **navigate in real time at 24 frames per second**」",
+   "as_of": "2026-08-14",
+   "note": "**这一卷少见的有硬指标的一句**：24fps 是官方自己写的数字，不是我们测的。"
+  },
+  {
+   "m": "genie",
+   "c": "w-persist",
+   "state": "yes",
+   "verified_for": "Genie 3",
+   "src": "genie3-blog",
+   "quote": "同一句：「**retaining consistency for a few minutes**」",
+   "as_of": "2026-08-14",
+   "note": "⚠️ 官方措辞是「a few minutes」—— **几分钟，不是无限**。这一格 ✅ 的同时要让读者看见这个上限。"
+  },
+  {
+   "m": "genie",
+   "c": "w-actionin",
+   "state": "yes",
+   "verified_for": "Genie 3",
+   "src": "genie3-blog",
+   "quote": "「dynamic worlds that you can **navigate**」—— 导航即以用户操作为条件推进世界",
+   "as_of": "2026-08-14",
+   "note": "⚠️ 证据强度弱于 Cosmos：官方没有给出可喂的动作格式或维度，**只说了「你可以在里面走」**。同样是 ✅，可复现程度差一截。"
+  },
+  {
+   "m": "genie",
+   "c": "w-understand",
+   "state": "unknown",
+   "verified_for": "Genie 3",
+   "as_of": "2026-08-14",
+   "note": "博客讲的是生成可交互环境，没有单独讲理解/物理推理的评测或能力。"
+  },
+  {
+   "m": "genie",
+   "c": "w-predict",
+   "state": "unknown",
+   "verified_for": "Genie 3",
+   "as_of": "2026-08-14",
+   "note": "没有把「预测未来状态」单列成一项能力。"
+  },
+  {
+   "m": "genie",
+   "c": "w-multiagent",
+   "state": "unknown",
+   "verified_for": "Genie 3",
+   "as_of": "2026-08-14",
+   "note": "博客没有多人 / 多智能体共享同一个世界的内容。"
+  },
+  {
+   "m": "genie",
+   "c": "w-actionout",
+   "state": "unknown",
+   "verified_for": "Genie 3",
+   "as_of": "2026-08-14",
+   "note": "它输出的是画面，**没有输出机器人动作指令的说法**。"
+  },
+  {
+   "m": "genie",
+   "c": "w-3d",
+   "state": "unknown",
+   "verified_for": "Genie 3",
+   "as_of": "2026-08-14",
+   "note": "没有说产出可导出或可自由漫游的 3D 世界；描述是「navigate」一段生成的画面。"
+  },
+  {
+   "m": "genie",
+   "c": "w-av",
+   "state": "unknown",
+   "verified_for": "Genie 3",
+   "as_of": "2026-08-14",
+   "note": "博客没提音频。"
+  },
+  {
+   "m": "genie",
+   "c": "w-openweights",
+   "state": "no",
+   "verified_for": "Genie 3",
+   "src": "genie3-blog",
+   "quote": "官方博客只介绍能力与安全，**没有权重下载、没有仓库、没有公开 API 接入说明**",
+   "as_of": "2026-08-14",
+   "note": "闭源。DeepMind 至今没有放出 Genie 的权重。"
+  },
+  {
+   "m": "marble",
+   "c": "w-sim",
+   "state": "yes",
+   "verified_for": "Marble",
+   "src": "worldlabs-marble",
+   "quote": "官方博客：「World models should **reconstruct, generate, and simulate 3D worlds**; and allow both humans and agents to **interact with them**」",
+   "as_of": "2026-08-14"
+  },
+  {
+   "m": "marble",
+   "c": "w-3d",
+   "state": "yes",
+   "verified_for": "Marble",
+   "src": "worldlabs-marble",
+   "quote": "同上，「reconstruct, generate, and simulate **3D worlds**」；自述「Marble, our frontier **multimodal world model**, is available to everyone starting today」",
+   "as_of": "2026-08-14",
+   "note": "**这一卷唯一一支 ✅ 这一格的**。它也是离 3D 卷最近的一支 —— 收进这一卷靠的是同一句里的「allow … to interact with them」。"
+  },
+  {
+   "m": "marble",
+   "c": "w-realtime",
+   "state": "unknown",
+   "verified_for": "Marble",
+   "as_of": "2026-08-14",
+   "note": "博客没有帧率、延迟或「实时」的表述。"
+  },
+  {
+   "m": "marble",
+   "c": "w-persist",
+   "state": "unknown",
+   "verified_for": "Marble",
+   "as_of": "2026-08-14",
+   "note": "没有一致性时长或记忆机制的说法。"
+  },
+  {
+   "m": "marble",
+   "c": "w-actionin",
+   "state": "unknown",
+   "verified_for": "Marble",
+   "as_of": "2026-08-14",
+   "note": "「interact with them」说了可交互，**但没说喂什么**（键盘？轨迹？相机位姿？）—— 不够判这一格。"
+  },
+  {
+   "m": "marble",
+   "c": "w-understand",
+   "state": "unknown",
+   "verified_for": "Marble",
+   "as_of": "2026-08-14",
+   "note": "官方博客 20k 通篇讲空间智能与 3D 世界，没有这一项的内容 —— 读完没找到，不是没读。"
+  },
+  {
+   "m": "marble",
+   "c": "w-predict",
+   "state": "unknown",
+   "verified_for": "Marble",
+   "as_of": "2026-08-14",
+   "note": "官方博客 20k 通篇讲空间智能与 3D 世界，没有这一项的内容 —— 读完没找到，不是没读。"
+  },
+  {
+   "m": "marble",
+   "c": "w-multiagent",
+   "state": "unknown",
+   "verified_for": "Marble",
+   "as_of": "2026-08-14",
+   "note": "官方博客 20k 通篇讲空间智能与 3D 世界，没有这一项的内容 —— 读完没找到，不是没读。"
+  },
+  {
+   "m": "marble",
+   "c": "w-actionout",
+   "state": "unknown",
+   "verified_for": "Marble",
+   "as_of": "2026-08-14",
+   "note": "官方博客 20k 通篇讲空间智能与 3D 世界，没有这一项的内容 —— 读完没找到，不是没读。"
+  },
+  {
+   "m": "marble",
+   "c": "w-av",
+   "state": "unknown",
+   "verified_for": "Marble",
+   "as_of": "2026-08-14",
+   "note": "官方博客 20k 通篇讲空间智能与 3D 世界，没有这一项的内容 —— 读完没找到，不是没读。"
+  },
+  {
+   "m": "marble",
+   "c": "w-openweights",
+   "state": "no",
+   "verified_for": "Marble",
+   "src": "worldlabs-marble",
+   "quote": "博客是产品发布，**没有权重也没有仓库**，只说「available to everyone」指的是可以去用它的产品",
+   "as_of": "2026-08-14",
+   "note": "闭源。"
+  },
+  {
+   "m": "odyssey",
+   "c": "w-sim",
+   "state": "yes",
+   "verified_for": "Odyssey-2",
+   "src": "odyssey-site",
+   "quote": "官网：「Odyssey is an AI lab pioneering world models—AI to **understand and simulate the world**」；产品自述「Our most powerful **general purpose world model** yet」",
+   "as_of": "2026-08-14"
+  },
+  {
+   "m": "odyssey",
+   "c": "w-understand",
+   "state": "yes",
+   "verified_for": "Odyssey-2",
+   "src": "odyssey-site",
+   "quote": "同句：「AI to **understand** and simulate the world」",
+   "as_of": "2026-08-14"
+  },
+  {
+   "m": "odyssey",
+   "c": "w-multiagent",
+   "state": "yes",
+   "verified_for": "Odyssey-2",
+   "src": "odyssey-site",
+   "quote": "「A **multi-agent world model**, enabling **multiple participants—human or AI—to share and interact within the same world simulation in real-time**」",
+   "as_of": "2026-08-14",
+   "note": "🎯 **这一格全卷只有它一家 ✅。** 别家做的都是「你一个人在里面」，它明确提了多个参与者共享同一个世界 —— 而且参与者可以是人也可以是 AI。"
+  },
+  {
+   "m": "odyssey",
+   "c": "w-realtime",
+   "state": "yes",
+   "verified_for": "Odyssey-2",
+   "src": "odyssey-site",
+   "quote": "同上那句里的「**in real-time**」",
+   "as_of": "2026-08-14",
+   "note": "⚠️ 没有帧率数字，弱于 Genie 3 那句 24fps。"
+  },
+  {
+   "m": "odyssey",
+   "c": "w-actionin",
+   "state": "yes",
+   "verified_for": "Odyssey-2",
+   "src": "odyssey-site",
+   "quote": "「multiple participants … **share and interact within** the same world simulation」——以参与者的交互为条件推进",
+   "as_of": "2026-08-14",
+   "note": "⚠️ 同样没有说清喂什么格式。"
+  },
+  {
+   "m": "odyssey",
+   "c": "w-persist",
+   "state": "unknown",
+   "verified_for": "Odyssey-2",
+   "as_of": "2026-08-14",
+   "note": "官网没有一致性时长或记忆的说法。"
+  },
+  {
+   "m": "odyssey",
+   "c": "w-predict",
+   "state": "unknown",
+   "verified_for": "Odyssey-2",
+   "as_of": "2026-08-14",
+   "note": "官网 20k 是产品线介绍，没有这一项的内容。⚠️ Odyssey **没有技术文档站**，能读的只有官网 —— 这是可得性上限。"
+  },
+  {
+   "m": "odyssey",
+   "c": "w-actionout",
+   "state": "unknown",
+   "verified_for": "Odyssey-2",
+   "as_of": "2026-08-14",
+   "note": "官网 20k 是产品线介绍，没有这一项的内容。⚠️ Odyssey **没有技术文档站**，能读的只有官网 —— 这是可得性上限。"
+  },
+  {
+   "m": "odyssey",
+   "c": "w-3d",
+   "state": "unknown",
+   "verified_for": "Odyssey-2",
+   "as_of": "2026-08-14",
+   "note": "官网 20k 是产品线介绍，没有这一项的内容。⚠️ Odyssey **没有技术文档站**，能读的只有官网 —— 这是可得性上限。"
+  },
+  {
+   "m": "odyssey",
+   "c": "w-av",
+   "state": "unknown",
+   "verified_for": "Odyssey-2",
+   "as_of": "2026-08-14",
+   "note": "官网 20k 是产品线介绍，没有这一项的内容。⚠️ Odyssey **没有技术文档站**，能读的只有官网 —— 这是可得性上限。"
+  },
+  {
+   "m": "odyssey",
+   "c": "w-openweights",
+   "state": "no",
+   "verified_for": "Odyssey-2",
+   "src": "odyssey-site",
+   "quote": "官网只有产品与研究介绍，**没有权重、没有仓库、没有 HF 组织**（2026-08-14 实测 `author=odyssey` 为 0 条）",
+   "as_of": "2026-08-14",
+   "note": "闭源。"
+  },
+  {
+   "m": "matrix-game",
+   "c": "w-sim",
+   "state": "yes",
+   "verified_for": "3.0",
+   "src": "matrixgame-card",
+   "quote": "模型卡标题：「Matrix-Game 3.0: Real-Time and Streaming **Interactive World Model** with Long-Horizon Memory」",
+   "as_of": "2026-08-14"
+  },
+  {
+   "m": "matrix-game",
+   "c": "w-realtime",
+   "state": "yes",
+   "verified_for": "3.0",
+   "src": "matrixgame-card",
+   "quote": "标题「**Real-Time and Streaming**」；Overview：「designed for **720p real-time** long-form video generation」",
+   "as_of": "2026-08-14",
+   "note": "中文侧唯一一支把实时写进标题的。"
+  },
+  {
+   "m": "matrix-game",
+   "c": "w-persist",
+   "state": "yes",
+   "verified_for": "3.0",
+   "src": "matrixgame-card",
+   "quote": "标题「with **Long-Horizon Memory**」；框架自述「a **memory-augmented** Diffusion Transformer (DiT) with an error buffer that learns action-conditioned generation with **memory-enhanced long-horizon consistency**」",
+   "as_of": "2026-08-14",
+   "note": "⚠️ 与 Genie 3 的差别值得看：Genie 给了时长（a few minutes），Matrix-Game **给了机制**（记忆增强 + 误差缓冲）**但没给时长**。两边各说了一半。"
+  },
+  {
+   "m": "matrix-game",
+   "c": "w-actionin",
+   "state": "yes",
+   "verified_for": "3.0",
+   "src": "matrixgame-card",
+   "quote": "框架自述：「learns **action-conditioned** generation」；数据引擎产出「high-quality **Video-Pose-Action-Prompt quadruplets**」",
+   "as_of": "2026-08-14"
+  },
+  {
+   "m": "matrix-game",
+   "c": "w-openweights",
+   "state": "yes",
+   "verified_for": "3.0",
+   "src": "matrixgame-card",
+   "quote": "`Skywork/Matrix-Game-3.0` 公开权重（createdAt 2026-03-27），上一代 2.0 建于 2025-08-08",
+   "as_of": "2026-08-14"
+  },
+  {
+   "m": "matrix-game",
+   "c": "w-understand",
+   "state": "unknown",
+   "verified_for": "3.0",
+   "as_of": "2026-08-14",
+   "note": "模型卡 5k，讲的是数据引擎、模型训练与推理三段流水线，没有这一项的内容 —— 读完没找到，不是没读。"
+  },
+  {
+   "m": "matrix-game",
+   "c": "w-predict",
+   "state": "unknown",
+   "verified_for": "3.0",
+   "as_of": "2026-08-14",
+   "note": "模型卡 5k，讲的是数据引擎、模型训练与推理三段流水线，没有这一项的内容 —— 读完没找到，不是没读。"
+  },
+  {
+   "m": "matrix-game",
+   "c": "w-multiagent",
+   "state": "unknown",
+   "verified_for": "3.0",
+   "as_of": "2026-08-14",
+   "note": "模型卡 5k，讲的是数据引擎、模型训练与推理三段流水线，没有这一项的内容 —— 读完没找到，不是没读。"
+  },
+  {
+   "m": "matrix-game",
+   "c": "w-actionout",
+   "state": "unknown",
+   "verified_for": "3.0",
+   "as_of": "2026-08-14",
+   "note": "模型卡 5k，讲的是数据引擎、模型训练与推理三段流水线，没有这一项的内容 —— 读完没找到，不是没读。"
+  },
+  {
+   "m": "matrix-game",
+   "c": "w-3d",
+   "state": "unknown",
+   "verified_for": "3.0",
+   "as_of": "2026-08-14",
+   "note": "模型卡 5k，讲的是数据引擎、模型训练与推理三段流水线，没有这一项的内容 —— 读完没找到，不是没读。"
+  },
+  {
+   "m": "matrix-game",
+   "c": "w-av",
+   "state": "unknown",
+   "verified_for": "3.0",
+   "as_of": "2026-08-14",
+   "note": "模型卡 5k，讲的是数据引擎、模型训练与推理三段流水线，没有这一项的内容 —— 读完没找到，不是没读。"
+  },
+  {
+   "m": "hunyuan-world",
+   "c": "w-sim",
+   "state": "yes",
+   "verified_for": "HY-World 2.0",
+   "src": "hunyuanworld-gh",
+   "quote": "官方仓库更新日志：「April 16, 2026: We release **HY-World-2.0**, state-of-the-art **3D world model**」",
+   "as_of": "2026-08-14"
+  },
+  {
+   "m": "hunyuan-world",
+   "c": "w-realtime",
+   "state": "yes",
+   "verified_for": "HY-World 2.0",
+   "src": "hunyuanworld-gh",
+   "quote": "「December 18, 2025: We release **HunyuanWorld-1.5 (WorldPlay)**, enabling **real-time world creation and play**」",
+   "as_of": "2026-08-14",
+   "note": "⚠️ 这一格的依据在 **1.5 那一支（WorldPlay）**，不是当前的 2.0。"
+  },
+  {
+   "m": "hunyuan-world",
+   "c": "w-3d",
+   "state": "yes",
+   "verified_for": "HY-World 2.0",
+   "src": "hunyuanworld-gh",
+   "quote": "2.0 自述是「state-of-the-art **3D world model**」；同族「FlashWorld，enabling **3DGS world generation** in 5~10 seconds on a single GPU」",
+   "as_of": "2026-08-14",
+   "note": "⚠️ **这一格和 3D 卷贴得最近。** 收它的依据是 1.5 的「real-time … and **play**」—— 能被玩、能被交互地改变，而不只是生成出来看。"
+  },
+  {
+   "m": "hunyuan-world",
+   "c": "w-openweights",
+   "state": "yes",
+   "verified_for": "HY-World 2.0",
+   "src": "hunyuanworld-gh",
+   "quote": "`tencent/HunyuanWorld-1`（2025-07-21）等多个仓公开权重",
+   "as_of": "2026-08-14"
+  },
+  {
+   "m": "hunyuan-world",
+   "c": "w-understand",
+   "state": "unknown",
+   "verified_for": "HY-World 2.0",
+   "as_of": "2026-08-14",
+   "note": "⚠️ **这一行普遍薄，原因要说清**：HF 上的模型卡只有 3k（大半是徽章与 BibTeX），能读的主要是仓库更新日志。**日志能证明「发布过什么」，证明不了「它能做什么」** —— 各支的技术细节分散在四个独立仓库里（HY-World-2.0 / HY-WorldPlay / WorldMirror / FlashWorld），还没逐个读。这是「还没读到」，不是「读完没找到」。"
+  },
+  {
+   "m": "hunyuan-world",
+   "c": "w-predict",
+   "state": "unknown",
+   "verified_for": "HY-World 2.0",
+   "as_of": "2026-08-14",
+   "note": "⚠️ **这一行普遍薄，原因要说清**：HF 上的模型卡只有 3k（大半是徽章与 BibTeX），能读的主要是仓库更新日志。**日志能证明「发布过什么」，证明不了「它能做什么」** —— 各支的技术细节分散在四个独立仓库里（HY-World-2.0 / HY-WorldPlay / WorldMirror / FlashWorld），还没逐个读。这是「还没读到」，不是「读完没找到」。"
+  },
+  {
+   "m": "hunyuan-world",
+   "c": "w-actionin",
+   "state": "unknown",
+   "verified_for": "HY-World 2.0",
+   "as_of": "2026-08-14",
+   "note": "⚠️ **这一行普遍薄，原因要说清**：HF 上的模型卡只有 3k（大半是徽章与 BibTeX），能读的主要是仓库更新日志。**日志能证明「发布过什么」，证明不了「它能做什么」** —— 各支的技术细节分散在四个独立仓库里（HY-World-2.0 / HY-WorldPlay / WorldMirror / FlashWorld），还没逐个读。这是「还没读到」，不是「读完没找到」。"
+  },
+  {
+   "m": "hunyuan-world",
+   "c": "w-persist",
+   "state": "unknown",
+   "verified_for": "HY-World 2.0",
+   "as_of": "2026-08-14",
+   "note": "⚠️ **这一行普遍薄，原因要说清**：HF 上的模型卡只有 3k（大半是徽章与 BibTeX），能读的主要是仓库更新日志。**日志能证明「发布过什么」，证明不了「它能做什么」** —— 各支的技术细节分散在四个独立仓库里（HY-World-2.0 / HY-WorldPlay / WorldMirror / FlashWorld），还没逐个读。这是「还没读到」，不是「读完没找到」。"
+  },
+  {
+   "m": "hunyuan-world",
+   "c": "w-multiagent",
+   "state": "unknown",
+   "verified_for": "HY-World 2.0",
+   "as_of": "2026-08-14",
+   "note": "⚠️ **这一行普遍薄，原因要说清**：HF 上的模型卡只有 3k（大半是徽章与 BibTeX），能读的主要是仓库更新日志。**日志能证明「发布过什么」，证明不了「它能做什么」** —— 各支的技术细节分散在四个独立仓库里（HY-World-2.0 / HY-WorldPlay / WorldMirror / FlashWorld），还没逐个读。这是「还没读到」，不是「读完没找到」。"
+  },
+  {
+   "m": "hunyuan-world",
+   "c": "w-actionout",
+   "state": "unknown",
+   "verified_for": "HY-World 2.0",
+   "as_of": "2026-08-14",
+   "note": "⚠️ **这一行普遍薄，原因要说清**：HF 上的模型卡只有 3k（大半是徽章与 BibTeX），能读的主要是仓库更新日志。**日志能证明「发布过什么」，证明不了「它能做什么」** —— 各支的技术细节分散在四个独立仓库里（HY-World-2.0 / HY-WorldPlay / WorldMirror / FlashWorld），还没逐个读。这是「还没读到」，不是「读完没找到」。"
+  },
+  {
+   "m": "hunyuan-world",
+   "c": "w-av",
+   "state": "unknown",
+   "verified_for": "HY-World 2.0",
+   "as_of": "2026-08-14",
+   "note": "⚠️ **这一行普遍薄，原因要说清**：HF 上的模型卡只有 3k（大半是徽章与 BibTeX），能读的主要是仓库更新日志。**日志能证明「发布过什么」，证明不了「它能做什么」** —— 各支的技术细节分散在四个独立仓库里（HY-World-2.0 / HY-WorldPlay / WorldMirror / FlashWorld），还没逐个读。这是「还没读到」，不是「读完没找到」。"
+  },
+  {
+   "m": "wham",
+   "c": "w-sim",
+   "state": "yes",
+   "verified_for": "WHAM",
+   "src": "wham-card",
+   "quote": "模型卡标题：「**World and Human Action Model (WHAM)**」，附 Nature 论文（s41586-025-08600-3）",
+   "as_of": "2026-08-14",
+   "note": "**这一卷唯一一支论文发在 Nature 上的。** 产品名叫 Muse，模型名叫 WHAM。"
+  },
+  {
+   "m": "wham",
+   "c": "w-persist",
+   "state": "yes",
+   "verified_for": "WHAM",
+   "src": "wham-card",
+   "quote": "模型卡：「WHAM is capable of generating **consistent, diverse, and persistent** outputs, enabling various use cases for creative iteration」",
+   "as_of": "2026-08-14",
+   "note": "⚠️ 官方用的是 `persistent` 这个词，但**没给时长也没给机制** —— 三家里最含糊的一种说法（Genie 给了时长、Matrix-Game 给了机制）。"
+  },
+  {
+   "m": "wham",
+   "c": "w-actionin",
+   "state": "yes",
+   "verified_for": "WHAM",
+   "src": "wham-card",
+   "quote": "模型名里就是 「World and **Human Action** Model」；官方展示「Dynamic Generated Gameplay Sequence using WHAM」，训练数据是《Bleeding Edge》的游戏录像（含操作）",
+   "as_of": "2026-08-14"
+  },
+  {
+   "m": "wham",
+   "c": "w-openweights",
+   "state": "yes",
+   "verified_for": "WHAM",
+   "src": "wham-card",
+   "quote": "`microsoft/wham` 公开权重（createdAt 2025-02-11），并附公开样本数据集 `microsoft/bleeding-edge-gameplay-sample`",
+   "as_of": "2026-08-14"
+  },
+  {
+   "m": "wham",
+   "c": "w-understand",
+   "state": "unknown",
+   "verified_for": "WHAM",
+   "as_of": "2026-08-14",
+   "note": "模型卡 16k，主体是作者名单、论文链接与生成样例，能力叙述集中在「consistent, diverse, persistent」那一句上，没有这一项的内容。"
+  },
+  {
+   "m": "wham",
+   "c": "w-predict",
+   "state": "unknown",
+   "verified_for": "WHAM",
+   "as_of": "2026-08-14",
+   "note": "模型卡 16k，主体是作者名单、论文链接与生成样例，能力叙述集中在「consistent, diverse, persistent」那一句上，没有这一项的内容。"
+  },
+  {
+   "m": "wham",
+   "c": "w-realtime",
+   "state": "unknown",
+   "verified_for": "WHAM",
+   "as_of": "2026-08-14",
+   "note": "模型卡 16k，主体是作者名单、论文链接与生成样例，能力叙述集中在「consistent, diverse, persistent」那一句上，没有这一项的内容。"
+  },
+  {
+   "m": "wham",
+   "c": "w-multiagent",
+   "state": "unknown",
+   "verified_for": "WHAM",
+   "as_of": "2026-08-14",
+   "note": "模型卡 16k，主体是作者名单、论文链接与生成样例，能力叙述集中在「consistent, diverse, persistent」那一句上，没有这一项的内容。"
+  },
+  {
+   "m": "wham",
+   "c": "w-actionout",
+   "state": "unknown",
+   "verified_for": "WHAM",
+   "as_of": "2026-08-14",
+   "note": "模型卡 16k，主体是作者名单、论文链接与生成样例，能力叙述集中在「consistent, diverse, persistent」那一句上，没有这一项的内容。"
+  },
+  {
+   "m": "wham",
+   "c": "w-3d",
+   "state": "unknown",
+   "verified_for": "WHAM",
+   "as_of": "2026-08-14",
+   "note": "模型卡 16k，主体是作者名单、论文链接与生成样例，能力叙述集中在「consistent, diverse, persistent」那一句上，没有这一项的内容。"
+  },
+  {
+   "m": "wham",
+   "c": "w-av",
+   "state": "unknown",
+   "verified_for": "WHAM",
+   "as_of": "2026-08-14",
+   "note": "模型卡 16k，主体是作者名单、论文链接与生成样例，能力叙述集中在「consistent, diverse, persistent」那一句上，没有这一项的内容。"
+  },
+  {
+   "m": "vjepa",
+   "c": "w-understand",
+   "state": "yes",
+   "verified_for": "V-JEPA 2",
+   "src": "vjepa2-blog",
+   "quote": "Meta 官方博客：「A world model should be able to **understand observations of the world**, including things like **recognizing objects, actions, and motions in a video**」；HF 模型卡也写「state-of-the-art **video understanding** capabilities」",
+   "as_of": "2026-08-14",
+   "note": "**两处口径一致的唯一一格** —— 博客与模型卡都在说「理解」。"
+  },
+  {
+   "m": "vjepa",
+   "c": "w-predict",
+   "state": "yes",
+   "verified_for": "V-JEPA 2",
+   "src": "vjepa2-blog",
+   "quote": "官方博客：「Before taking action, we use our world model to **imagine the potential consequences**」，并以此定位 V-JEPA 2 与新的物理推理基准",
+   "as_of": "2026-08-14"
+  },
+  {
+   "m": "vjepa",
+   "c": "w-sim",
+   "state": "yes",
+   "verified_for": "V-JEPA 2",
+   "src": "vjepa2-blog",
+   "quote": "博客标题：「Introducing the **V-JEPA 2 world model** and new benchmarks for physical reasoning」",
+   "as_of": "2026-08-14",
+   "note": "⚠️ **官方两处口径不一致**：博客称它 world model，而 HF 官方模型卡第一句是「A frontier **video understanding** model」。我们按博客收，**但这一格的性质更接近「Meta 这么定位它」而不是「它演示了世界模拟」**。"
+  },
+  {
+   "m": "vjepa",
+   "c": "w-openweights",
+   "state": "yes",
+   "verified_for": "V-JEPA 2",
+   "src": "vjepa2-card",
+   "quote": "`facebook/vjepa2-vitl-fpc64-256` 等多档公开权重，下载量 321,404",
+   "as_of": "2026-08-14",
+   "note": "这一卷开源侧下载量最高的一支。"
+  },
+  {
+   "m": "vjepa",
+   "c": "w-actionin",
+   "state": "unknown",
+   "verified_for": "V-JEPA 2",
+   "as_of": "2026-08-14",
+   "note": "⚠️ **它和这一卷别家不是一类东西**：V-JEPA 2 是**表征/理解**模型（编码视频、做物理推理基准），不生成可交互的世界。这一整块 ⬜ 不是「查不到」，是**这些问题在它身上问不出来** —— 同 Helix 那一行的性质（规则十五边界三）。"
+  },
+  {
+   "m": "vjepa",
+   "c": "w-realtime",
+   "state": "unknown",
+   "verified_for": "V-JEPA 2",
+   "as_of": "2026-08-14",
+   "note": "⚠️ **它和这一卷别家不是一类东西**：V-JEPA 2 是**表征/理解**模型（编码视频、做物理推理基准），不生成可交互的世界。这一整块 ⬜ 不是「查不到」，是**这些问题在它身上问不出来** —— 同 Helix 那一行的性质（规则十五边界三）。"
+  },
+  {
+   "m": "vjepa",
+   "c": "w-persist",
+   "state": "unknown",
+   "verified_for": "V-JEPA 2",
+   "as_of": "2026-08-14",
+   "note": "⚠️ **它和这一卷别家不是一类东西**：V-JEPA 2 是**表征/理解**模型（编码视频、做物理推理基准），不生成可交互的世界。这一整块 ⬜ 不是「查不到」，是**这些问题在它身上问不出来** —— 同 Helix 那一行的性质（规则十五边界三）。"
+  },
+  {
+   "m": "vjepa",
+   "c": "w-multiagent",
+   "state": "unknown",
+   "verified_for": "V-JEPA 2",
+   "as_of": "2026-08-14",
+   "note": "⚠️ **它和这一卷别家不是一类东西**：V-JEPA 2 是**表征/理解**模型（编码视频、做物理推理基准），不生成可交互的世界。这一整块 ⬜ 不是「查不到」，是**这些问题在它身上问不出来** —— 同 Helix 那一行的性质（规则十五边界三）。"
+  },
+  {
+   "m": "vjepa",
+   "c": "w-actionout",
+   "state": "unknown",
+   "verified_for": "V-JEPA 2",
+   "as_of": "2026-08-14",
+   "note": "⚠️ **它和这一卷别家不是一类东西**：V-JEPA 2 是**表征/理解**模型（编码视频、做物理推理基准），不生成可交互的世界。这一整块 ⬜ 不是「查不到」，是**这些问题在它身上问不出来** —— 同 Helix 那一行的性质（规则十五边界三）。"
+  },
+  {
+   "m": "vjepa",
+   "c": "w-3d",
+   "state": "unknown",
+   "verified_for": "V-JEPA 2",
+   "as_of": "2026-08-14",
+   "note": "⚠️ **它和这一卷别家不是一类东西**：V-JEPA 2 是**表征/理解**模型（编码视频、做物理推理基准），不生成可交互的世界。这一整块 ⬜ 不是「查不到」，是**这些问题在它身上问不出来** —— 同 Helix 那一行的性质（规则十五边界三）。"
+  },
+  {
+   "m": "vjepa",
+   "c": "w-av",
+   "state": "unknown",
+   "verified_for": "V-JEPA 2",
+   "as_of": "2026-08-14",
+   "note": "⚠️ **它和这一卷别家不是一类东西**：V-JEPA 2 是**表征/理解**模型（编码视频、做物理推理基准），不生成可交互的世界。这一整块 ⬜ 不是「查不到」，是**这些问题在它身上问不出来** —— 同 Helix 那一行的性质（规则十五边界三）。"
+  },
+  {
+   "m": "oasis",
+   "c": "w-sim",
+   "state": "yes",
+   "verified_for": "Oasis 3",
+   "src": "decart-site",
+   "quote": "官网定位：「**REALTIME INTERACTIVE WORLD MODEL** FOR PHYSICAL AI」",
+   "as_of": "2026-08-14",
+   "note": "🔄 这一支曾被排除（理由「用途不是内容创作」），**这一卷开了才被收回来**。"
+  },
+  {
+   "m": "oasis",
+   "c": "w-realtime",
+   "state": "yes",
+   "verified_for": "Oasis 3",
+   "src": "decart-site",
+   "quote": "同上定位里的 「**REALTIME**」；Decart 官网自述「**Live AI**」「Perception, decision, action — **instantly visible**」",
+   "as_of": "2026-08-14",
+   "note": "⚠️ 没有帧率数字。"
+  },
+  {
+   "m": "oasis",
+   "c": "w-actionin",
+   "state": "yes",
+   "verified_for": "Oasis 3",
+   "src": "decart-site",
+   "quote": "定位里的 「**INTERACTIVE**」",
+   "as_of": "2026-08-14",
+   "note": "⚠️ **这是这一卷证据最弱的一格之一**：只有一个形容词，没有说喂什么、怎么喂。"
+  },
+  {
+   "m": "oasis",
+   "c": "w-persist",
+   "state": "unknown",
+   "verified_for": "Oasis 3",
+   "as_of": "2026-08-14",
+   "note": "⚠️ 官网有一句「**Persistent intelligence, without persistent compute**」—— 看着像这一格，但那讲的是**算力形态**（不用一直占着算力），不是世界状态的持久。**差一点记反。**"
+  },
+  {
+   "m": "oasis",
+   "c": "w-understand",
+   "state": "unknown",
+   "verified_for": "Oasis 3",
+   "as_of": "2026-08-14",
+   "note": "⚠️ **可核验度是这一卷最低的一支**：官网 9k 全是营销文案，`oasis.decart.ai` 是空壳，文档站 `docs.decart.ai` 2026-08-14 三次都抓不到。这些 ⬜ 是「够不着」不是「读完没找到」。"
+  },
+  {
+   "m": "oasis",
+   "c": "w-predict",
+   "state": "unknown",
+   "verified_for": "Oasis 3",
+   "as_of": "2026-08-14",
+   "note": "⚠️ **可核验度是这一卷最低的一支**：官网 9k 全是营销文案，`oasis.decart.ai` 是空壳，文档站 `docs.decart.ai` 2026-08-14 三次都抓不到。这些 ⬜ 是「够不着」不是「读完没找到」。"
+  },
+  {
+   "m": "oasis",
+   "c": "w-multiagent",
+   "state": "unknown",
+   "verified_for": "Oasis 3",
+   "as_of": "2026-08-14",
+   "note": "⚠️ **可核验度是这一卷最低的一支**：官网 9k 全是营销文案，`oasis.decart.ai` 是空壳，文档站 `docs.decart.ai` 2026-08-14 三次都抓不到。这些 ⬜ 是「够不着」不是「读完没找到」。"
+  },
+  {
+   "m": "oasis",
+   "c": "w-actionout",
+   "state": "unknown",
+   "verified_for": "Oasis 3",
+   "as_of": "2026-08-14",
+   "note": "⚠️ **可核验度是这一卷最低的一支**：官网 9k 全是营销文案，`oasis.decart.ai` 是空壳，文档站 `docs.decart.ai` 2026-08-14 三次都抓不到。这些 ⬜ 是「够不着」不是「读完没找到」。"
+  },
+  {
+   "m": "oasis",
+   "c": "w-3d",
+   "state": "unknown",
+   "verified_for": "Oasis 3",
+   "as_of": "2026-08-14",
+   "note": "⚠️ **可核验度是这一卷最低的一支**：官网 9k 全是营销文案，`oasis.decart.ai` 是空壳，文档站 `docs.decart.ai` 2026-08-14 三次都抓不到。这些 ⬜ 是「够不着」不是「读完没找到」。"
+  },
+  {
+   "m": "oasis",
+   "c": "w-av",
+   "state": "unknown",
+   "verified_for": "Oasis 3",
+   "as_of": "2026-08-14",
+   "note": "⚠️ **可核验度是这一卷最低的一支**：官网 9k 全是营销文案，`oasis.decart.ai` 是空壳，文档站 `docs.decart.ai` 2026-08-14 三次都抓不到。这些 ⬜ 是「够不着」不是「读完没找到」。"
+  },
+  {
+   "m": "oasis",
+   "c": "w-openweights",
+   "state": "no",
+   "verified_for": "Oasis 3",
+   "src": "decart-site",
+   "quote": "官网只有产品与 API 咨询入口，**没有权重下载也没有公开仓库**",
+   "as_of": "2026-08-14",
+   "note": "闭源。"
   }
  ],
  "$aliases_why": "各家给同一个能力起不同的名字。**Kling 管角色参考叫 Element，我按 Character Reference 去找，找不到就标了「官方没说」—— 假阴性。** 采集时必须用整组别名去匹配，不能只用我们自己的叫法。这是原方案 §36 Entity Resolution 在能力维度上的对应物。\n\n`alias_bit_us` 标在**真把我们坑过的那一项**上（角色参考）。别名多不等于叫法分歧大：「首尾帧」也有 8 条别名，但全是 start/end frame 的描述性变体，谁都猜得到；而 Element / Ingredients / cameo 是厂商自造词，**不知道就永远搜不到**。选例子要选后者，靠数别名条数是挑不出来的 —— 所以标在数据里，不用启发式猜。",
@@ -14034,6 +15303,26 @@
     }
    ],
    "href": "/embodied"
+  },
+  {
+   "id": "world",
+   "name": "AI 世界模型",
+   "state": "live",
+   "volume": "第八个方向",
+   "note": "第八个方向，2026-08-14 立项。**一轨。** 收的是「模拟世界」这件事：喂进动作或交互，吐出下一段可以接着再喂的状态。⚠️ **判归属看自述，不看输出了几种模态** —— 负责人拍板：「世界模型做的就是全能模型，是模拟世界的一个方向。」一个世界模型能出画面、出声音、出动作，不是越界，是它做到了目标（规则十六 D-1）。⚠️ **和视频卷**：Sora / 可灵自述做视频，留在视频卷；Decart Lucy 官网写着「THE VIDEO MODEL POWERING LIVE AI」，也留在视频卷。⚠️ **和 3D 卷**：分界是「能不能被交互地改变」—— 3D 卷收可导出的资产，这一卷收能被你的动作改写的状态。混元的 `WorldMirror` 自述是「3D geometric prediction」出点云与高斯，**那属于 3D 卷不属于这一卷**。 **2026-08-14 当天转 live**：四个公共页都补了内容，R68 才放行。⚠️ 99 格里 57 格 ⬜，而且这一卷的 ⬜ 有它自己的特色 —— **闭源四家（Genie / Marble / Odyssey / Oasis）加起来只有官网和博客可读**，Odyssey 连技术文档站都没有，Decart 的文档站三次都抓不到。",
+   "tracks": [
+    {
+     "id": "world",
+     "zh": "世界模拟轨",
+     "short": "世界模拟",
+     "volume": "第一卷",
+     "note": "喂条件或动作，出可继续推进的世界状态"
+    }
+   ],
+   "href": "/world",
+   "gaps": {
+    "caveats": "**这一卷「去哪用」是空的，而且是查过之后的空。** 九支核心里四支闭源（Genie / Marble / Odyssey / Oasis）—— Genie 没有公开 API、Odyssey 连技术文档站都没有、Decart 的文档站三次都抓不到；另五支是开源权重，**自己下下来跑，不存在「在哪个平台上架」这回事**。⚠️ 我一度想给 Cosmos 编一条「在 Replicate 上」，那是**没查就写**，已撤掉 —— 宁可这一页空着，也不放一条我们没核过的记录。"
+   }
   }
  ],
  "$domains": "前端的方向切换从这里渲染。**现在只有一个，界面上就只显示一个** —— 不做占位 tab 假装有别的。加方向 = 往这个数组里加一条 + 给模型标 domain，不动代码。\n\n**能力轴按方向隔离**（规则二再往上推一层）：能力也带 domain。clip 和 realtime 已经不能共用能力轴，视频和文本更不能 —— 「首尾帧」对文本模型没有意义，硬塞进同一张表只会造出一整片假的 ⬜。校验 R26 拦跨方向的格子。",
@@ -20088,6 +21377,177 @@
    "quote": "官方发布页标题：「Helix: A **Vision-Language-Action Model for Generalist Humanoid Control**」",
    "note": "⚠️ **日期是核验日不是发布日。** 官方发布页没有可提取的日期，也没有 changelog —— 闭源那几家普遍如此，**这是可得性上限，不是我们没查**。",
    "cap_skip": "闭源无权重无 API，这一整行的能力都问不出来（见规则十五边界三）。"
+  },
+  {
+   "id": "cosmos-1",
+   "m": "cosmos",
+   "version": "1.0",
+   "date": "2025-01-07",
+   "added": "第一代世界基础模型，分 Text2World 与 Video2World 两支",
+   "src": "hf-robotics",
+   "quote": "官方 HF 仓库 `nvidia/Cosmos-1.0-Diffusion-7B-Text2World` 与 `-Video2World`（createdAt 均为 2025-01-07）",
+   "note": "更早还有 `Cosmos-0.1-Tokenizer`（2024-11-02）—— **那是 tokenizer 不是世界模型**，不单开节点。",
+   "cap": "w-sim"
+  },
+  {
+   "id": "cosmos-predict2",
+   "m": "cosmos",
+   "version": "Predict2",
+   "date": "2025-04-25",
+   "parent": "cosmos-1",
+   "added": "预测支独立成线",
+   "src": "hf-robotics",
+   "quote": "`nvidia/Cosmos-Predict2-2B-Video2World`（createdAt 2025-04-25）",
+   "note": "⚠️ **这个仓的模型卡要登录才能看（HTTP 401 gated）** —— 它是下载量第五高的一支，我们读不到它怎么说自己。",
+   "cap": "w-predict"
+  },
+  {
+   "id": "cosmos-reason2",
+   "m": "cosmos",
+   "version": "Reason2",
+   "date": "2025-12-12",
+   "parent": "cosmos-1",
+   "added": "理解支：这一支后来成了 GR00T N1.7 的视觉骨干",
+   "src": "hf-robotics",
+   "quote": "`nvidia/Cosmos-Reason2-8B` 与 `-2B`（createdAt 均为 2025-12-12），下载量 725,417 / 712,957",
+   "note": "🔗 **跨卷依赖**：具身卷的 GR00T N1.7 更新说明写着「New VLM backbone: **Cosmos-Reason2-2B**（Qwen3-VL architecture），replacing the Eagle backbone used in N1.6」。**被谁用不改变归属**（规则十六 D-1）—— 它留在这一卷，依赖关系记在这里。⚠️ 模型卡同样 gated。",
+   "cap": "w-understand"
+  },
+  {
+   "id": "cosmos-3",
+   "m": "cosmos",
+   "version": "Cosmos3",
+   "date": "2026-03-10",
+   "parent": "cosmos-reason2",
+   "added": "全模态合一：一套模型吃文本/图/视频/音频/动作轨迹，也吐这五种",
+   "src": "cosmos3-card",
+   "quote": "模型卡标题「**Cosmos 3: Omnimodal World Models for Physical AI**」；`Cosmos3-Nano` 与 `-Super` 建于 2026-03-10，`-Edge` 2026-07-01",
+   "note": "**这一代是「全能即定义」那条判据的最好例证**：官方把理解、生成、模拟、动作放进同一个模型，而不是四条产品线。",
+   "cap": "w-actionin"
+  },
+  {
+   "id": "genie-3",
+   "m": "genie",
+   "version": "Genie 3",
+   "date": "2026-08-14",
+   "added": "文本生成可实时导航的世界，24fps、一致性数分钟",
+   "src": "genie3-blog",
+   "quote": "「Given a text prompt, Genie 3 can generate dynamic worlds that you can **navigate in real time at 24 frames per second**, **retaining consistency for a few minutes**」",
+   "note": "⚠️ **日期是核验日不是发布日** —— 官方博客页上没有可提取的发布日期。这是拿不到，不是没有。",
+   "cap": "w-realtime"
+  },
+  {
+   "id": "matrixgame-2",
+   "m": "matrix-game",
+   "version": "2.0",
+   "date": "2025-08-08",
+   "added": "昆仑万维第一代可交互世界模型",
+   "src": "matrixgame-card",
+   "quote": "官方 HF 仓库 `Skywork/Matrix-Game-2.0`（createdAt 2025-08-08）",
+   "note": "",
+   "cap": "w-sim"
+  },
+  {
+   "id": "matrixgame-3",
+   "m": "matrix-game",
+   "version": "3.0",
+   "date": "2026-03-27",
+   "parent": "matrixgame-2",
+   "added": "加长时记忆；720p 实时流式",
+   "src": "matrixgame-card",
+   "quote": "模型卡标题：「Matrix-Game 3.0: **Real-Time and Streaming** Interactive World Model with **Long-Horizon Memory**」",
+   "note": "**标题一行写全了三根轴** —— 这一卷里少有的自我描述精确的模型卡。",
+   "cap": "w-persist"
+  },
+  {
+   "id": "hyworld-1",
+   "m": "hunyuan-world",
+   "version": "1.0",
+   "date": "2025-07-21",
+   "added": "混元世界首发",
+   "src": "hunyuanworld-gh",
+   "quote": "官方 HF 仓库 `tencent/HunyuanWorld-1`（createdAt 2025-07-21）",
+   "note": "",
+   "cap": "w-sim"
+  },
+  {
+   "id": "hyworld-15",
+   "m": "hunyuan-world",
+   "version": "1.5 (WorldPlay)",
+   "date": "2025-12-18",
+   "parent": "hyworld-1",
+   "added": "实时世界创建与游玩",
+   "src": "hunyuanworld-gh",
+   "quote": "更新日志：「December 18, 2025: We release **HunyuanWorld-1.5 (WorldPlay)**, enabling **real-time world creation and play**」",
+   "note": "**这一卷「实时交互」那一格在混元这条线上的唯一依据。**",
+   "cap": "w-realtime"
+  },
+  {
+   "id": "hyworld-2",
+   "m": "hunyuan-world",
+   "version": "HY-World 2.0",
+   "date": "2026-04-16",
+   "parent": "hyworld-15",
+   "added": "3D 世界模型",
+   "src": "hunyuanworld-gh",
+   "quote": "更新日志：「April 16, 2026: We release **HY-World-2.0**, state-of-the-art **3D world model**」",
+   "note": "⚠️ 同族的 `WorldMirror`（2025-10-22）**不在这条线上也不在这一卷** —— 它自述是 3D 几何预测，属 3D 卷。**一条产品线里的支可以分属两卷**，这是规则十六边界二的第一个真实案例。",
+   "cap": "w-3d"
+  },
+  {
+   "id": "wham-1",
+   "m": "wham",
+   "version": "WHAM",
+   "date": "2025-02-11",
+   "added": "世界与人类动作模型，论文发在 Nature",
+   "src": "wham-card",
+   "quote": "官方 HF 仓库 `microsoft/wham`（createdAt 2025-02-11）；模型卡附 Nature 论文 s41586-025-08600-3",
+   "note": "**这一卷唯一一支论文进 Nature 的。** 产品名 Muse，模型名 WHAM。",
+   "cap": "w-persist"
+  },
+  {
+   "id": "vjepa-2",
+   "m": "vjepa",
+   "version": "V-JEPA 2",
+   "date": "2025-03-27",
+   "added": "Meta 的世界模型 + 物理推理基准",
+   "src": "vjepa2-blog",
+   "quote": "Meta 官方博客「Introducing the **V-JEPA 2 world model** and new benchmarks for physical reasoning」；最早的一档 `facebook/vjepa2-vitg-fpc64-384` 建于 2025-03-27",
+   "note": "⚠️ **官方两处口径不一致**：博客称 world model，HF 模型卡称 video understanding model。",
+   "cap": "w-understand"
+  },
+  {
+   "id": "marble-1",
+   "m": "marble",
+   "version": "Marble",
+   "date": "2026-08-14",
+   "added": "多模态世界模型，可重建/生成/模拟 3D 世界",
+   "src": "worldlabs-marble",
+   "quote": "「**Marble**, our frontier **multimodal world model**, is available to everyone starting today」",
+   "note": "⚠️ 日期是核验日 —— 博客页上没有可提取的发布日期。",
+   "cap": "w-3d"
+  },
+  {
+   "id": "odyssey-2",
+   "m": "odyssey",
+   "version": "Odyssey-2",
+   "date": "2026-08-14",
+   "added": "通用世界模型；多智能体共享同一个世界",
+   "src": "odyssey-site",
+   "quote": "「A **multi-agent world model**, enabling multiple participants—human or AI—to share and interact within the same world simulation in real-time」",
+   "note": "⚠️ **型号与日期都是推的**：官网只说「most powerful … yet」，没给版本号也没给日期。**这是这一卷谱系里最弱的一条**，查到实据要改。",
+   "cap": "w-multiagent"
+  },
+  {
+   "id": "oasis-3",
+   "m": "oasis",
+   "version": "Oasis 3",
+   "date": "2026-08-14",
+   "added": "面向物理 AI 的实时可交互世界模型",
+   "src": "decart-site",
+   "quote": "官网定位「**REALTIME INTERACTIVE WORLD MODEL FOR PHYSICAL AI**」",
+   "note": "⚠️ 日期是核验日。🔄 这一支曾被我们排除（「用途不是内容创作」），这一卷开了才收回来。",
+   "cap": "w-realtime"
   }
  ],
  "$versions": "版本谱系（演进图的数据）。**演进的主体是模型，不是能力。**\n\n原来那张演进图每行是一项能力、横轴是「我们能证明的最早时间」、粗细是几家支持。\n读者看完只得到「动作复刻 2025-12 出现、6/9 支持」—— 那是一次数据库查询的可视化，不涨知识。\n而且它得靠图注免责（「不是业界首次出现」）：**一张需要图注免责的图，说明它量错了东西。**\n\n这份数据画的是**厂商自己发布的版本和日期**，所以不需要免责。每条必须回答：\n**这一代新增了什么。** 只有版本号没有 added 的节点没有价值，不收。\n\n两个最好的来源，都不是「新闻」：\n  · **官方 Hugging Face 组织** —— 模型名本身就编码了能力与代际\n    （Wan2.1-FLF2V＝首尾帧、Wan2.2-S2V＝语音驱动、LTX 的 IC-LoRA-Ingredients＝角色参考），\n    发布时间由 HF API 给出，比任何新闻稿都准。\n  · **官方 API 更新日志** —— 可灵那份 31k 字符里有 170 条带日期的条目。\n\n覆盖不全是事实：万相和可灵能画出完整谱系，Runway/Vidu/Seedance 只有近期几个点，\nVeo/Sora/海螺/LTX 还没有。**图上要标出哪几条线是完整的、哪几条只是片段** ——\n画一条只有两个点的线却不说明，读者会以为这家两年只更新过两次。\n\n`cap` 把版本节点挂到能力 id 上，图上「点一项能力，看各家谁先谁后」靠它。\n**对不上的一律留空并写明理由（cap_skip），不硬凑** —— 硬凑一个 id，纵向那一刀就切错了。\n典型：Wan 的 S2V 是「语音驱动」，不等于我们轴上的「对口型」，两件事不合并；\n「换代」节点本身也不是新增单项能力。\n\n`id` + `parent` 把平铺记录变成**真的树**。分叉是真实存在的：\nWan2.1 底座上同时长出 FLF2V（首尾帧）和 VACE（统一编辑）两个变体，\nWan2.2 是换代接在 2.1 后面，Animate-2 又接在 Animate 后面。\n\n**没有父节点的就让它当根，不许为了让树好看硬接一条边** ——\nRunway 的 Aleph 是编辑线，不是 Gen 的后代，它自己是一棵树。\n\n⚠️ **日期必须取 HF 的 `createdAt`，不能取 `lastModified`。**\n第一版取错了字段，把「最后修改」当成了发布日期：Wan2.2 记成 2025-08-07（实际 2025-07-18）、\nAnimate 记成 2025-11-05（实际 2025-09-11）——**差了两个月**。\n仓库发布后还会被反复更新，两个字段根本不是一回事。\n这类错最阴：日期看着合理、图也画得出来，但整条时间线是歪的。\n\n覆盖不足要**写在数据里**，不是靠图上一句话糊过去：\n模型的 `lineage_note` 解释为什么它的节点少（太新 / 官方记录只回溯到某时）。\n校验 R58 强制：**核心模型少于 3 个节点却没写理由，就是错**。\n「我们没采到」和「它本来就没有」是两回事，读者有权知道是哪一种。",
@@ -22256,6 +23716,141 @@
     "「消费级硬件跑得动」不等于有边缘部署工具链",
     "官方那张延迟表是在英伟达自家硬件上测的，换平台要自己重测"
    ]
+  },
+  {
+   "id": "w-actionin-skill",
+   "zh": "喂进动作，让世界接着往下演",
+   "en": "Drive a world with actions",
+   "domain": "world",
+   "cap": "w-actionin",
+   "verified_at": "2026-08-14",
+   "io": {
+    "in": [
+     "一段起始画面或一句描述",
+     "一串动作（键鼠操作 / 相机位姿 / 机器人轨迹）"
+    ],
+    "out": "顺着这串动作演下去的世界状态"
+   },
+   "opensource": [
+    {
+     "name": "NVIDIA Cosmos3",
+     "url": "https://huggingface.co/nvidia/Cosmos3-Nano",
+     "src": "cosmos3-card",
+     "quote": "`Input Type(s)` 明列 **Action Trajectory**，json 1D list，并给出各本体维度（相机 9D、自驾 9D、第一人称 57D、单臂 Franka 10D、双臂 20D、Agibot 29D、UR 10D、Google robot 10D、WidowX 10D、UMI 9D），长度 16–400 帧",
+     "license": "NVIDIA Open Model License",
+     "note": "**这一卷唯一一支把「能喂哪些本体」列成表的。** 别家最多给一个形容词。"
+    },
+    {
+     "name": "Matrix-Game 3.0（昆仑万维）",
+     "url": "https://huggingface.co/Skywork/Matrix-Game-3.0",
+     "src": "matrixgame-card",
+     "quote": "「learns **action-conditioned** generation」；数据引擎产出「**Video-Pose-Action-Prompt** quadruplets」",
+     "license": "见仓库",
+     "note": "中文侧最能核的一支。"
+    }
+   ],
+   "platform_feature": [],
+   "limits": [
+    "**多数家只说「可交互」，不说喂什么格式**（Genie 3、Marble、Odyssey、Oasis 都是这样）",
+    "Cosmos 的动作输入**只对它列出的本体成立**，不在表里的要自己对齐维度",
+    "动作长度有上限（Cosmos 是 16–400 帧）"
+   ],
+   "caveat": "这一卷最大的信息差就在这一格：**「可交互」是个形容词，「Action Trajectory 是 json 1D list、单臂 Franka 是 10D」才是能照着做的事。** 挑模型时先问它把这件事写清楚了没有。"
+  },
+  {
+   "id": "w-persist-skill",
+   "zh": "让世界记住刚才发生过什么",
+   "en": "Keep the world consistent over time",
+   "domain": "world",
+   "cap": "w-persist",
+   "verified_at": "2026-08-14",
+   "io": {
+    "in": [
+     "一个已经在跑的世界",
+     "持续的交互"
+    ],
+    "out": "回头看还对得上的世界"
+   },
+   "opensource": [
+    {
+     "name": "Matrix-Game 3.0",
+     "url": "https://huggingface.co/Skywork/Matrix-Game-3.0",
+     "src": "matrixgame-card",
+     "quote": "「a **memory-augmented** Diffusion Transformer (DiT) with an **error buffer** that learns action-conditioned generation with **memory-enhanced long-horizon consistency**」",
+     "license": "见仓库",
+     "note": "**给了机制但没给时长。**"
+    },
+    {
+     "name": "Microsoft WHAM",
+     "url": "https://huggingface.co/microsoft/wham",
+     "src": "wham-card",
+     "quote": "「WHAM is capable of generating **consistent, diverse, and persistent** outputs」",
+     "license": "见仓库",
+     "note": "⚠️ **三家里最含糊的一种说法**：既没给时长也没给机制。"
+    }
+   ],
+   "platform_feature": [
+    {
+     "name": "Google Genie 3",
+     "url": "https://deepmind.google/discover/blog/genie-3-a-new-frontier-for-world-models/",
+     "src": "genie3-blog",
+     "quote": "「**retaining consistency for a few minutes**」",
+     "note": "**给了时长但没给机制**，和 Matrix-Game 正好互补。"
+    }
+   ],
+   "limits": [
+    "**没有一家同时给出时长和机制** —— Genie 给时长、Matrix-Game 给机制、WHAM 两个都没给",
+    "官方说的「a few minutes」是**上限不是保证**",
+    "Decart 官网那句 `Persistent intelligence` 讲的是**算力形态**不是世界状态，别记反"
+   ],
+   "caveat": "「状态持久」是这一卷最容易被营销词糊弄的一格。**看到 persistent / consistent / memory 这些词，先问一句「多久」和「靠什么」** —— 两个都答不上来的，这一格就只是个形容词。"
+  },
+  {
+   "id": "w-realtime-skill",
+   "zh": "边操作边出画面",
+   "en": "Interact at frame rate",
+   "domain": "world",
+   "cap": "w-realtime",
+   "verified_at": "2026-08-14",
+   "io": {
+    "in": [
+     "实时的操作输入"
+    ],
+    "out": "跟得上手的画面"
+   },
+   "opensource": [
+    {
+     "name": "Matrix-Game 3.0",
+     "url": "https://huggingface.co/Skywork/Matrix-Game-3.0",
+     "src": "matrixgame-card",
+     "quote": "标题「**Real-Time and Streaming** Interactive World Model」；Overview「designed for **720p real-time** long-form video generation」",
+     "license": "见仓库",
+     "note": "给了分辨率（720p）没给帧率。"
+    },
+    {
+     "name": "混元 HunyuanWorld-1.5（WorldPlay）",
+     "url": "https://github.com/Tencent-Hunyuan/HunyuanWorld-1.0",
+     "src": "hunyuanworld-gh",
+     "quote": "「HunyuanWorld-1.5 (**WorldPlay**), enabling **real-time world creation and play**」",
+     "license": "见仓库",
+     "note": "⚠️ 依据在 **1.5 那一支**，不是当前的 2.0。"
+    }
+   ],
+   "platform_feature": [
+    {
+     "name": "Google Genie 3",
+     "url": "https://deepmind.google/discover/blog/genie-3-a-new-frontier-for-world-models/",
+     "src": "genie3-blog",
+     "quote": "「navigate in real time at **24 frames per second**」",
+     "note": "**全卷唯一给了帧率数字的一家。**"
+    }
+   ],
+   "limits": [
+    "**只有 Genie 3 给了帧率（24fps）**，其余家都只说「real-time」",
+    "Cosmos3 反而没有实时的说法 —— 它的输入限制写着 Max 5 frames，看着是离线成段生成",
+    "实时的代价在算力，官方都没说要多少卡"
+   ],
+   "caveat": "**「real-time」在这一卷是个没有统一口径的词。** 24fps 是实时，5fps 也有人叫实时。唯一能横向比的只有明写了帧率的那一家。"
   }
  ],
  "applications": [
@@ -24876,6 +26471,87 @@
      "note": "三档 2B / 9B / 122B-A10B，基座是 Qwen3.5 —— **想自己部署这一层，目前它是最现成的**"
     }
    ]
+  },
+  {
+   "id": "world-sim-train",
+   "zh": "给机器人造一个练手的世界",
+   "en": "Simulate a world to train robots",
+   "domain": "world",
+   "intro": "真机采数据慢又贵。世界模型的第一个正经用途是先在模型里把动作演一遍：喂进一串轨迹，看它会发生什么，再决定要不要在真机上做。",
+   "inputs": [
+    "一段起始观察",
+    "一串候选动作"
+   ],
+   "output": "这串动作会导致的未来状态（画面，有时还有动作指令）",
+   "skills": [
+    "w-actionin-skill"
+   ],
+   "aliases": [
+    "世界模拟",
+    "仿真",
+    "physical AI"
+   ],
+   "resources": [
+    {
+     "kind": "project",
+     "name": "NVIDIA Cosmos3（唯一列出可喂本体的）",
+     "url": "https://huggingface.co/nvidia/Cosmos3-Nano",
+     "src": "cosmos3-card",
+     "quote": "「a **world foundation model platform** designed to accelerate the development of Physical AI by enabling machines to **understand, simulate, and interact with** the physical world across robotics, autonomous driving, and smart space environments」",
+     "license": "NVIDIA Open Model License",
+     "note": "⚠️ 许可是英伟达自家条款，不是 Apache/MIT，商用前自己读"
+    },
+    {
+     "kind": "docs",
+     "name": "Meta V-JEPA 2（先理解再想象后果）",
+     "url": "https://ai.meta.com/blog/v-jepa-2-world-model-benchmarks/",
+     "src": "vjepa2-blog",
+     "quote": "「Before taking action, we use our world model to **imagine the potential consequences**」",
+     "license": null,
+     "note": "⚠️ **它不生成可交互世界**，是表征与理解那一层 —— 别指望拿它出画面"
+    }
+   ]
+  },
+  {
+   "id": "world-play",
+   "zh": "生成一个能走进去的世界",
+   "en": "Generate a world you can walk into",
+   "domain": "world",
+   "intro": "一句话生成一个场景，然后你用键鼠走进去，它顺着你的操作往下画。和「生成一段视频」的区别是：视频拍完就定了，这个可以一直往下走。",
+   "inputs": [
+    "一句描述或一张图",
+    "持续的操作"
+   ],
+   "output": "跟着你走的世界",
+   "skills": [
+    "w-realtime-skill",
+    "w-persist-skill"
+   ],
+   "aliases": [
+    "可交互世界",
+    "world play",
+    "实时世界"
+   ],
+   "resources": [
+    {
+     "kind": "project",
+     "name": "Matrix-Game 3.0（昆仑万维，权重公开）",
+     "url": "https://huggingface.co/Skywork/Matrix-Game-3.0",
+     "src": "matrixgame-card",
+     "quote": "「an open-sourced, **memory-augmented interactive world model** designed for 720p real-time long-form video generation」",
+     "license": "见仓库",
+     "note": "中文侧唯一一支把实时与长时记忆都写进标题的"
+    },
+    {
+     "kind": "docs",
+     "name": "Google Genie 3（闭源，但给了硬指标）",
+     "url": "https://deepmind.google/discover/blog/genie-3-a-new-frontier-for-world-models/",
+     "src": "genie3-blog",
+     "quote": "「navigate in real time at **24 frames per second**, retaining consistency for **a few minutes**」",
+     "license": null,
+     "note": "⚠️ **没有权重也没有公开 API** —— 能读到指标，用不上"
+    }
+   ]
   }
  ],
  "$applications": "应用是用户要交付的东西，不是能力名的同义改写。字段：{id, zh, en, intro, inputs[], output, skills[], resources[{kind, name, url, src, quote, note?}]}。应用层不下效果或适用性结论；资源分 project / skill / course / docs 四类，项目与工作流从关联 Skill 自动汇总，避免重复维护。场景页默认按 project → skill → docs → course 排序，同类官方来源优先；排序不是质量或效果评分。治理规则见 docs/应用开源资源治理.md。",
@@ -25268,6 +26944,24 @@
    "caveat": "⚠️ **中文关键词比英文脏得多**：搜「机器人」，下载量第一的是 `iic/nlp_gpt3_kuakua-robot_chinese-large`（60,931 次）—— 那是个**夸夸聊天机器人**，和具身智能毫无关系。搜「具身」或「VLA」干净得多。另外这些仓大多只有权重与配置，**没有模型卡正文**，能力信息比 GR00T 少一个量级。",
    "checked_at": "2026-08-14",
    "domain": "embodied"
+  },
+  {
+   "task": "想找能真正跑起来的世界模型权重",
+   "site": "Hugging Face（但要按公司点名搜）",
+   "url": "https://huggingface.co/nvidia/Cosmos3-Nano",
+   "verdict": "这一卷开源侧就那么几支：NVIDIA Cosmos3、昆仑万维 Matrix-Game 3.0、微软 WHAM、Meta V-JEPA 2、腾讯混元世界。**Cosmos3 的模型卡是唯一写全了输入输出规格与本体维度的**，想动手先看它。",
+   "caveat": "⚠️ **搜关键词没用，必须按公司点名。** 2026-08-14 实测：搜 `world-model` 捞回来的全是 GGUF 量化包，搜 `genie` 第一名是个 UI agent，搜 `oasis` 是 Llama 微调 —— **真正的世界模型一条都不在关键词结果里**。另外下载量最高的 `Cosmos-Reason2-8B`（72 万次）**模型卡要登录才能看**，而且它其实是个 VLM 不是世界模型。",
+   "checked_at": "2026-08-14",
+   "domain": "world"
+  },
+  {
+   "task": "想知道各家说的「实时」「持久」到底是多少",
+   "site": "各家官方页（只能一家家读）",
+   "url": "https://deepmind.google/discover/blog/genie-3-a-new-frontier-for-world-models/",
+   "verdict": "这一卷**没有第三方评测榜**，横向比只能自己读官方措辞。目前只有 Google Genie 3 给了硬数字（24fps、一致性 a few minutes），昆仑万维 Matrix-Game 给了机制（记忆增强 + 误差缓冲）与分辨率（720p）。",
+   "caveat": "⚠️ **「real-time」在这一卷没有统一口径**，24fps 是实时、5fps 也有人叫实时。而且 Decart 官网那句 `Persistent intelligence, without persistent compute` 讲的是**算力形态不是世界状态** —— 我们差一点把它记进「状态持久」那一格。**看到形容词先问「多久」和「靠什么」。**",
+   "checked_at": "2026-08-14",
+   "domain": "world"
   }
  ],
  "$toolkit": "资源导航（方案 §16）。原话：**「不要做一排 Logo 的 hao123」，要「导航 + 判断」。**\n字段：{task, site, url, verdict, caveat, checked_at}\n**verdict 和 caveat 都必填（R49）** —— caveat 是负面结论，「Epoch AI 不收视频模型」这种我们真查过才知道的话，才是这一页的价值。 每条带 domain：这一页是全站公共的，按方向分组显示。",

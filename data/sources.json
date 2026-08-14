@@ -5468,6 +5468,94 @@
     "3D worlds"
    ],
    "note": "「3D 可漫游」那根轴的出处。⚠️ **这一支离 3D 卷最近**，判它属于哪一卷要看「能不能被交互地改变」，不能照名字推（规则十六边界二）。"
+  },
+  {
+   "id": "matrixgame-card",
+   "tier": "A",
+   "kind": "html",
+   "vendor": "matrix-game",
+   "name": "昆仑万维官方 · Matrix-Game 3.0 模型卡",
+   "url": "https://huggingface.co/Skywork/Matrix-Game-3.0/raw/main/README.md",
+   "refresh_days": 14,
+   "good_for": [
+    "capability",
+    "version",
+    "openweights"
+   ],
+   "expect": [
+    "Real-Time and Streaming",
+    "Long-Horizon Memory",
+    "action-conditioned"
+   ],
+   "note": "**中文侧这一卷最能核的一支**：标题一行写全了实时、流式、长时记忆三根轴。"
+  },
+  {
+   "id": "hunyuanworld-gh",
+   "tier": "A",
+   "kind": "html",
+   "vendor": "hunyuan-world",
+   "name": "腾讯混元官方 · HunyuanWorld 仓库更新日志",
+   "url": "https://raw.githubusercontent.com/Tencent-Hunyuan/HunyuanWorld-1.0/main/README.md",
+   "refresh_days": 14,
+   "good_for": [
+    "version"
+   ],
+   "expect": [
+    "HY-World-2.0",
+    "WorldPlay"
+   ],
+   "note": "⚠️ **日志能证明「发布过什么」，证明不了「它能做什么」** —— 混元世界的技术细节分散在四个独立仓库（HY-World-2.0 / HY-WorldPlay / WorldMirror / FlashWorld），这条只盯发布节奏。其中 `WorldMirror` 自述是 3D 几何预测，**属 3D 卷不属世界模型卷**。"
+  },
+  {
+   "id": "wham-card",
+   "tier": "A",
+   "kind": "html",
+   "vendor": "wham",
+   "name": "微软官方 · WHAM 模型卡",
+   "url": "https://huggingface.co/microsoft/wham/raw/main/README.md",
+   "refresh_days": 30,
+   "good_for": [
+    "capability",
+    "version",
+    "openweights"
+   ],
+   "expect": [
+    "World and Human Action Model",
+    "persistent"
+   ],
+   "note": "这一卷唯一一支论文发在 Nature 的（s41586-025-08600-3）。产品名 Muse，模型名 WHAM。"
+  },
+  {
+   "id": "vjepa2-blog",
+   "tier": "A",
+   "kind": "html",
+   "vendor": "vjepa",
+   "name": "Meta 官方博客 · V-JEPA 2 world model",
+   "url": "https://ai.meta.com/blog/v-jepa-2-world-model-benchmarks/",
+   "refresh_days": 30,
+   "good_for": [
+    "capability",
+    "version"
+   ],
+   "expect": [
+    "world model",
+    "physical reasoning"
+   ],
+   "note": "⚠️ **和它自己的 HF 模型卡口径不一致**：博客称 world model，模型卡第一句称 video understanding model。我们按博客收它，但这个不一致要留痕。"
+  },
+  {
+   "id": "vjepa2-card",
+   "tier": "B",
+   "kind": "html",
+   "vendor": "vjepa",
+   "name": "Meta 官方 · V-JEPA 2 模型卡",
+   "url": "https://huggingface.co/facebook/vjepa2-vitl-fpc64-256/raw/main/README.md",
+   "refresh_days": 30,
+   "good_for": [
+    "version",
+    "openweights"
+   ],
+   "note": "单独收它就是为了盯上面那条不一致 —— **哪天两边口径统一了，我们的记法也要跟着改**。"
   }
  ],
  "$missing": [

@@ -643,6 +643,45 @@
      "domains": [
       "embodied"
      ]
+    },
+    {
+     "name": "NVIDIA Cosmos（世界模型平台，含代码与文档）",
+     "repo": "nvidia/cosmos",
+     "stars": null,
+     "license": "NVIDIA Open Model License",
+     "pushed": "2026-08-14",
+     "lang": "英文",
+     "why": "这一卷**唯一一份能照着做的官方材料**：模型卡把输入输出规格、各本体的动作维度（相机 9D / 双臂 Franka 20D / Agibot 29D…）、长度上限都列了表。想动手先读它，别从论文开始。",
+     "caveat": "⚠️ 许可是**英伟达自家的 Open Model License**，不是 Apache/MIT，商用前必须自己读条款。另外同族下载量最高的 `Cosmos-Reason2` 与 `Cosmos-Predict2` **模型卡要登录才能看**，而且 Reason 其实是个 VLM 不是世界模型。",
+     "domains": [
+      "world"
+     ]
+    },
+    {
+     "name": "Matrix-Game 3.0（中文侧，标题就把轴写全了）",
+     "repo": "Skywork/Matrix-Game-3.0",
+     "stars": null,
+     "license": "见仓库",
+     "pushed": "2026-03-27",
+     "lang": "英文（昆仑万维）",
+     "why": "标题「Real-Time and Streaming Interactive World Model with Long-Horizon Memory」一行写全了三根轴，模型卡还讲了三段流水线（数据引擎 / 训练 / 推理）。**中文侧唯一一支既开源又把话说清楚的。**",
+     "caveat": "模型卡只有 5k，**除了这三根轴，其余能力一概没提**（世界理解、未来预测、多智能体都空着）。想知道它能不能做别的，只能自己试。",
+     "domains": [
+      "world"
+     ]
+    },
+    {
+     "name": "Genie 3 官方博客（读指标用，不是教程）",
+     "repo": null,
+     "stars": null,
+     "license": null,
+     "pushed": "2026-08-14",
+     "lang": "英文",
+     "why": "**这一卷唯一给了硬指标的官方材料**：24fps、一致性 a few minutes。想理解「实时」和「持久」在这一卷到底意味着什么，从这两个数字开始。",
+     "caveat": "⚠️ **没有权重也没有公开 API**，读完用不上。而且抓 `deepmind.google/models/genie/` 会拿回站点导航壳 —— 要看正文得走 `/discover/blog/genie-3-...` 那条。",
+     "domains": [
+      "world"
+     ]
     }
    ]
   }
