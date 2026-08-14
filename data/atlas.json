@@ -5818,6 +5818,26 @@
    "name": "ComfyUI 官方 · Wan2.2-S2V 音频驱动工作流",
    "url": "https://docs.comfy.org/tutorials/video/wan/wan2-2-s2v",
    "tier": "official"
+  },
+  "heygen-translate": {
+   "name": "HeyGen · Video Translation 文档",
+   "url": "https://developers.heygen.com/docs/video-translate.md",
+   "tier": "official"
+  },
+  "heygen-live": {
+   "name": "HeyGen · Live Avatar 文档",
+   "url": "https://developers.heygen.com/live-avatar.md",
+   "tier": "official"
+  },
+  "heygen-photo": {
+   "name": "HeyGen · Photo Avatar 文档",
+   "url": "https://developers.heygen.com/photo-avatar.md",
+   "tier": "official"
+  },
+  "heygen-training": {
+   "name": "HeyGen · 培训与入职视频（Cookbook）",
+   "url": "https://developers.heygen.com/training-and-onboarding-videos.md",
+   "tier": "official"
   }
  },
  "support": [
@@ -12618,9 +12638,9 @@
   {
    "id": "avatar",
    "name": "AI 数字人",
-   "state": "planned",
+   "state": "live",
    "volume": "第六个方向",
-   "note": "第六个方向，2026-08-14 立项。**一轨** —— 各家做的都是同一件事：给定一个人物形象，用音频/文本/视频把它驱动起来。⚠️ **和 AI 视频卷的边界**：判据是「**形象是不是一等输入**」—— 能不能保存一个形象、反复用它出片。通用视频模型有「对口型」这一格（Kling / Veo 都有），那是它的一项能力；数字人这一卷收的是**整条产品线都围着形象转**的那些。⚠️ **和声音卷**：产出是影像不是音频，音色克隆仍归声音卷。⚠️ **和 3D 卷**：产出是视频不是可导出资产。**state 先 planned**：R68 要求四个公共页每卷都有内容，补齐才转 live。",
+   "note": "第六个方向，2026-08-14 立项。**一轨** —— 各家做的都是同一件事：给定一个人物形象，用音频/文本/视频把它驱动起来。⚠️ **和 AI 视频卷的边界**：判据是「**形象是不是一等输入**」—— 能不能保存一个形象、反复用它出片。通用视频模型有「对口型」这一格（Kling / Veo 都有），那是它的一项能力；数字人这一卷收的是**整条产品线都围着形象转**的那些。⚠️ **和声音卷**：产出是影像不是音频，音色克隆仍归声音卷。⚠️ **和 3D 卷**：产出是视频不是可导出资产。**2026-08-14 当天转 live**：四个公共页（可用性 / 变更 / 资源 / 教程）都补了内容，场景应用也定了 4 个（多语种本地化 / 实时互动数字人 / 照片开口 / 课程与培训视频），R68 才放行。⚠️ 转 live 不代表采完：98 格里还有 60 格 ⬜，方向页上照实写着 —— 这一卷的 ⬜ 密度是六卷里最高的。",
    "tracks": [
     {
      "id": "avatar",
@@ -12629,7 +12649,8 @@
      "volume": "第一卷",
      "note": "给定形象 + 驱动信号（音频 / 文本 / 视频），产出这个人物在说在动的影像"
     }
-   ]
+   ],
+   "href": "/avatar"
   }
  ],
  "$domains": "前端的方向切换从这里渲染。**现在只有一个，界面上就只显示一个** —— 不做占位 tab 假装有别的。加方向 = 往这个数组里加一条 + 给模型标 domain，不动代码。\n\n**能力轴按方向隔离**（规则二再往上推一层）：能力也带 domain。clip 和 realtime 已经不能共用能力轴，视频和文本更不能 —— 「首尾帧」对文本模型没有意义，硬塞进同一张表只会造出一整片假的 ⬜。校验 R26 拦跨方向的格子。",
@@ -22106,6 +22127,185 @@
      "quote": "Tencent-Hunyuan/Hunyuan3D-Part：Hunyuan 3D Part Segmentation and Generation Pipeline（★525）",
      "license": null,
      "note": "⚠️ 许可 NOASSERTION（腾讯自定义社区协议）"
+    }
+   ]
+  },
+  {
+   "id": "avatar-localize",
+   "zh": "多语种本地化",
+   "en": "Multilingual localization",
+   "domain": "avatar",
+   "intro": "一条片子换成另一种语言，口型跟着一起改 —— 不是配音贴上去。",
+   "inputs": [
+    "一条已有的口播视频",
+    "目标语言"
+   ],
+   "output": "同一个人说另一种语言的视频",
+   "skills": [],
+   "aliases": [
+    "视频翻译",
+    "多语种口播",
+    "dubbing"
+   ],
+   "resources": [
+    {
+     "kind": "docs",
+     "name": "HeyGen · Video Translation（分 Speed / Precision 两档）",
+     "url": "https://developers.heygen.com/docs/video-translate.md",
+     "src": "heygen-translate",
+     "quote": "官方把翻译做成两档端点：Speed 与 Precision；另有 Batch Video Translations 批量接口",
+     "license": null,
+     "note": "⚠️ **两档的差别官方没在索引里说清**，要读各自的文档 —— 别默认 Precision 只是慢一点"
+    },
+    {
+     "kind": "docs",
+     "name": "Synthesia · 用 API 做多语种转译",
+     "url": "https://docs.synthesia.io/docs/getting-started",
+     "src": "synthesia-docs",
+     "quote": "官方指南单列一条：「Dub your videos via Synthesia API」",
+     "license": null,
+     "note": "⚠️ Synthesia 的文档以**模板与视频任务**为中心，没有单独的模型概念"
+    },
+    {
+     "kind": "docs",
+     "name": "WaytoAGI · 1.7 AI 数字人+语音合成",
+     "url": "https://waytoagi.feishu.cn/wiki/IOO6wQKDKiMrmzk1oDxcGFpFnFh",
+     "src": "waytoagi-wiki",
+     "quote": "中文社区知识库的数字人板块（核心技术 / 最佳实践 / 开源横评）",
+     "license": null,
+     "note": "社区共建、质量不均，没有 LICENSE"
+    }
+   ]
+  },
+  {
+   "id": "avatar-live",
+   "zh": "实时互动数字人",
+   "en": "Live interactive avatar",
+   "domain": "avatar",
+   "intro": "边说边出：直播、客服、发布会连线里那种能接话的形象。",
+   "inputs": [
+    "一个已建好的形象",
+    "实时音频或文本流"
+   ],
+   "output": "低延迟的实时人物影像",
+   "skills": [],
+   "aliases": [
+    "虚拟主播",
+    "实时数字人",
+    "直播数字人"
+   ],
+   "resources": [
+    {
+     "kind": "docs",
+     "name": "HeyGen · Live Avatar",
+     "url": "https://developers.heygen.com/live-avatar.md",
+     "src": "heygen-live",
+     "quote": "官方单列 Live Avatar 端点；文档另有 Realtime Video 一节",
+     "license": null,
+     "note": "⚠️ 闭源、按用量计费 —— **实时这一格目前没有能自部署的对等物**"
+    },
+    {
+     "kind": "project",
+     "name": "MuseTalk（腾讯音乐，实时唇形同步）",
+     "url": "https://huggingface.co/TMElyralab/MuseTalk",
+     "src": "hf-musetalk",
+     "quote": "官方自述「real-time high quality lip-syncing model（**30fps+** on an NVIDIA Tesla V100）」",
+     "license": null,
+     "note": "⚠️ 它只改口型不生成形象；而且官方在已知限制里写明**形象细节保不住**（胡须、唇形、唇色）"
+    },
+    {
+     "kind": "docs",
+     "name": "ComfyUI 官方 · Wan2.2-S2V 音频驱动工作流",
+     "url": "https://docs.comfy.org/tutorials/video/wan/wan2-2-s2v",
+     "src": "comfy-s2v",
+     "quote": "官方原生工作流示例：音频驱动人物视频",
+     "license": null,
+     "note": "⚠️ 走的是通用视频模型，**没有形象保存复用**，也不是实时"
+    }
+   ]
+  },
+  {
+   "id": "avatar-photo",
+   "zh": "照片开口",
+   "en": "Photo to talking video",
+   "domain": "avatar",
+   "intro": "一张人像照片 + 一段音频，让画里的人把话说出来。",
+   "inputs": [
+    "一张人像照片",
+    "一段音频"
+   ],
+   "output": "这张照片在说话的视频",
+   "skills": [],
+   "aliases": [
+    "照片说话",
+    "单图数字人",
+    "老照片开口"
+   ],
+   "resources": [
+    {
+     "kind": "project",
+     "name": "Hallo2（复旦，长时长高分辨率）",
+     "url": "https://huggingface.co/fudan-generative-ai/hallo2",
+     "src": "hf-hallo2",
+     "quote": "「Hallo2: **Long-Duration and High-Resolution** Audio-driven Portrait Image Animation」（MIT）；示例给到 4K、23 分钟，最长 1 小时",
+     "license": "MIT",
+     "note": "⚠️ README 通篇讲时长与分辨率，**没有一处谈形象一致** —— 长片里脸会不会漂，官方没说"
+    },
+    {
+     "kind": "project",
+     "name": "LivePortrait（快手，视频驱动）",
+     "url": "https://huggingface.co/KwaiVGI/LivePortrait",
+     "src": "hf-liveportrait",
+     "quote": "「Efficient Portrait Animation with **Stitching and Retargeting Control**」（MIT，♥487）",
+     "license": "MIT",
+     "note": "驱动源是**一段视频**不是音频 —— 想要「照着某人的表情演」用它，想要「照着音频说话」用 Hallo2"
+    },
+    {
+     "kind": "docs",
+     "name": "HeyGen · Photo Avatar",
+     "url": "https://developers.heygen.com/photo-avatar.md",
+     "src": "heygen-photo",
+     "quote": "官方单列 Photo Avatar 端点：用一张照片建形象",
+     "license": null,
+     "note": "闭源；⚠️ 建形象后还要走 Avatar Consent 那套合规流程"
+    }
+   ]
+  },
+  {
+   "id": "avatar-course",
+   "zh": "课程与培训视频",
+   "en": "Training & onboarding video",
+   "domain": "avatar",
+   "intro": "把稿子批量变成一套讲师视频：同一个形象、同一套模板，几十条一起出。",
+   "inputs": [
+    "课程稿件",
+    "一个讲师形象与模板"
+   ],
+   "output": "成套的培训视频",
+   "skills": [],
+   "aliases": [
+    "企业培训视频",
+    "入职视频",
+    "讲师数字人"
+   ],
+   "resources": [
+    {
+     "kind": "docs",
+     "name": "HeyGen · 培训与入职视频（官方 Cookbook）",
+     "url": "https://developers.heygen.com/training-and-onboarding-videos.md",
+     "src": "heygen-training",
+     "quote": "官方 Cookbook 里单列的用例流程；同组还有 Multilingual Content、Docs to Video",
+     "license": null,
+     "note": "⚠️ Cookbook 是**用法示例不是能力说明** —— 它证明这条流水线跑得通，不证明某项能力的边界"
+    },
+    {
+     "kind": "docs",
+     "name": "Synthesia · 从模板创建视频",
+     "url": "https://docs.synthesia.io/docs/getting-started",
+     "src": "synthesia-docs",
+     "quote": "端点分组：Templates（列表 / 取单个）+ Videos（**从模板创建**、批量列表）",
+     "license": null,
+     "note": "⚠️ 模板与形象都锁在平台里，**换厂商要重做**"
     }
    ]
   }

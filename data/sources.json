@@ -5022,6 +5022,58 @@
     "resource"
    ],
    "note": "本地跑数字人的官方工作流"
+  },
+  {
+   "id": "heygen-translate",
+   "tier": "S",
+   "kind": "html",
+   "vendor": "heygen",
+   "name": "HeyGen · Video Translation 文档",
+   "url": "https://developers.heygen.com/docs/video-translate.md",
+   "refresh_days": 21,
+   "good_for": [
+    "application-resource"
+   ],
+   "note": "数字人卷场景应用的公开资源，2026-08-14 从官方文档索引里取的直链"
+  },
+  {
+   "id": "heygen-live",
+   "tier": "S",
+   "kind": "html",
+   "vendor": "heygen",
+   "name": "HeyGen · Live Avatar 文档",
+   "url": "https://developers.heygen.com/live-avatar.md",
+   "refresh_days": 21,
+   "good_for": [
+    "application-resource"
+   ],
+   "note": "数字人卷场景应用的公开资源，2026-08-14 从官方文档索引里取的直链"
+  },
+  {
+   "id": "heygen-photo",
+   "tier": "S",
+   "kind": "html",
+   "vendor": "heygen",
+   "name": "HeyGen · Photo Avatar 文档",
+   "url": "https://developers.heygen.com/photo-avatar.md",
+   "refresh_days": 21,
+   "good_for": [
+    "application-resource"
+   ],
+   "note": "数字人卷场景应用的公开资源，2026-08-14 从官方文档索引里取的直链"
+  },
+  {
+   "id": "heygen-training",
+   "tier": "S",
+   "kind": "html",
+   "vendor": "heygen",
+   "name": "HeyGen · 培训与入职视频（Cookbook）",
+   "url": "https://developers.heygen.com/training-and-onboarding-videos.md",
+   "refresh_days": 21,
+   "good_for": [
+    "application-resource"
+   ],
+   "note": "数字人卷场景应用的公开资源，2026-08-14 从官方文档索引里取的直链"
   }
  ],
  "$missing": [
