@@ -3905,7 +3905,7 @@
    "lineage_note": "数字人卷 2026-08-14 才立项，谱系还没采 —— **这是「没采到」不是「它没有历史」**",
    "reach_cn": "unknown",
    "reach_note": "还没测",
-   "note": "闭源。⚠️ 文档以模板与视频任务为中心，**没有单独的「模型」概念** —— 版本记成 API v2 是我们的记法，不是它的命名"
+   "note": "闭源。⚠️ 文档以模板与视频任务为中心，**没有单独的「模型」概念** —— 版本记成 API v2 是我们的记法，不是它的命名 ⚠️ 创建视频有个 `test` 参数：「Test videos are **free and not counted towards your quota**」，但「we will **overlay a watermark** over your video」—— 试的时候不花钱，出来的片子带水印。"
   },
   {
    "id": "longcat-avatar",
@@ -11828,8 +11828,9 @@
    "c": "p-identity",
    "state": "unknown",
    "verified_for": "API v2",
-   "note": "立项当天（2026-08-14）只核到版本与该家最显眼的几项能力，这一格**还没查**",
-   "as_of": "2026-08-14"
+   "note": "资源页有「List of **stock avatars**」（现成形象库），但**没有一处谈跨片子保持同一个形象不变形** —— 有形象库不等于有形象一致",
+   "as_of": "2026-08-14",
+   "src": "synthesia-docs"
   },
   {
    "m": "synthesia",
@@ -11842,18 +11843,22 @@
   {
    "m": "synthesia",
    "c": "p-audio",
-   "state": "unknown",
+   "state": "yes",
    "verified_for": "API v2",
-   "note": "立项当天（2026-08-14）只核到版本与该家最显眼的几项能力，这一格**还没查**",
-   "as_of": "2026-08-14"
+   "note": "上传接口里有「**Upload script audio**」—— 可以拿自己的音频当驱动，而不是让它读文本",
+   "as_of": "2026-08-14",
+   "src": "synthesia-docs",
+   "via": "native"
   },
   {
    "m": "synthesia",
    "c": "p-text",
-   "state": "unknown",
+   "state": "yes",
    "verified_for": "API v2",
-   "note": "立项当天（2026-08-14）只核到版本与该家最显眼的几项能力，这一格**还没查**",
-   "as_of": "2026-08-14"
+   "note": "API 参考的资源页里有「**Script supported XML tags**」，创建视频的 `input` 是「an array of objects that each describe a **clip** of a multi-clip video」—— 稿子分镜进去，视频出来",
+   "as_of": "2026-08-14",
+   "src": "synthesia-docs",
+   "via": "native"
   },
   {
    "m": "synthesia",
