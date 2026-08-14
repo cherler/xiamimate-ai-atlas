@@ -156,7 +156,7 @@ export default async function ComparePage({ params }: { params: Promise<{ pair: 
                     {label(m)}
                   </Link>
                   {m.status && m.status !== "active" && (
-                    <span className={`block text-[12px] ${STATUS[m.status].cls}`}>{STATUS[m.status].tag}</span>
+                    <span className={`block text-[12px] ${STATUS[m.status]?.cls ?? "text-muted"}`}>{STATUS[m.status]?.tag ?? m.status}</span>
                   )}
                 </th>
               ))}

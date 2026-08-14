@@ -765,7 +765,27 @@ export const vendorName = (m: Model): string => {
 export const STATUS: Record<string, { tag: string; cls: string }> = {
   discontinued: { tag: "已停服", cls: "text-no line-through" },
   superseded: { tag: "非主力", cls: "text-muted" },
+  maintained: { tag: "只维护，无新代", cls: "text-muted" },
 };
+
+/**
+ * **这张表必须覆盖 `active` 之外的每一种 status。**
+ *
+ * 2026-08-14 具身智能卷收 OpenVLA 时炸出来的：它是全站第一个 `maintained`
+ * 的模型（主仓停在 2024-06，之后两年只有基准微调），而这张表当时只有两项。
+ * `/compare` 那一页写的是 `STATUS[m.status].cls` —— **没有 `?.`**，
+ * 于是整个构建挂在 `/compare/molmoact-vs-openvla` 上，报
+ * `Cannot read properties of undefined (reading 'cls')`。
+ *
+ * 三件事同时是错的，缺一不会炸：
+ * 1. 数据里出现了一个新 status；
+ * 2. 这张表没跟上；
+ * 3. **`validate.mjs` 当时根本不校验 `model.status`** —— 写成 `maintaned`
+ *    也一样静默通过，然后在构建时才炸。
+ *
+ * 第 3 条才是根因，已补 R74。这里留 `STATUSES` 供人对照。
+ */
+export const STATUSES = ["active", "maintained", "superseded", "discontinued"] as const;
 
 /** 出现在 availability 表里的模型：core 全收 + extended 里真有上架记录的。 */
 export const availModels = () => [

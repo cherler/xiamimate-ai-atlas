@@ -604,6 +604,45 @@
      ],
      "why": "**★60,841、MIT 许可**，自述「1 分钟语音也能训出一个不错的 TTS 模型」。中文社区里教程与整合包最多的一支。",
      "caveat": "⚠️ 它是**项目不是教程** —— 放在这里是因为中文侧围绕它的上手材料最厚。⚠️ 音色克隆涉及他人声音，**发布前先想清楚授权**。"
+    },
+    {
+     "name": "LeRobot（Hugging Face 官方，具身入门的公共底座）",
+     "repo": "huggingface/lerobot",
+     "stars": 26649,
+     "license": "Apache-2.0",
+     "pushed": "2026-08-14",
+     "lang": "英文（文档有中文）",
+     "why": "**这一卷唯一一个「装上就能一路走到真机」的入口**：从数据采集、格式转换、训练到在真机上跑通，一条链都在里面。π₀ 与 SmolVLA 的权重就托管在它名下，GR00T 与 openpi 都要求先把数据转成 LeRobot 格式。想入门具身，先装它，别从某一家厂商的仓库开始。",
+     "caveat": "**它是框架不是模型**，装完还是没有能干活的策略，得再去下一个基座权重。而且 OpenVLA 走 RLDS 格式、不走 LeRobot，两边数据不通用。",
+     "domains": [
+      "embodied"
+     ]
+    },
+    {
+     "name": "VLA 研究资料合集（Awesome-VLA-Robotics）",
+     "repo": "Jiaaqiliu/Awesome-VLA-Robotics",
+     "stars": 490,
+     "license": "MIT",
+     "pushed": "2026-03-23",
+     "lang": "英文",
+     "why": "把这一卷的论文、模型、数据集、仿真环境按类目串起来。这一卷**没有 Artificial Analysis 那种第三方盲测榜**，想建立全局印象只能靠这类人工整理的合集。",
+     "caveat": "⚠️ **最后更新停在 2026-03-23**，而这一卷半年内换了好几代（GR00T N1.7 是 2026-02、InternVLA A1.5 是 2026-07、混元具身是 2026-06）—— **拿它当地图可以，拿它当「现在有什么」会漏掉最近半年**。",
+     "domains": [
+      "embodied"
+     ]
+    },
+    {
+     "name": "扩散策略与 VLA 资料合集（VLA-Diffusion-Policy-Robotics）",
+     "repo": "iLearn-Lab/VLA-Diffusion-Policy-Robotics",
+     "stars": 821,
+     "license": "Apache-2.0",
+     "pushed": "2026-07-13",
+     "lang": "英文",
+     "why": "这一卷星数最高的一份资料合集，更新到 2026-07，比上一条新四个月。侧重扩散策略与流匹配那条技术线 —— **而这一卷的当前主流恰好就是它**（SmolVLA、X-VLA、MolmoAct2 的动作头都是 flow matching）。",
+     "caveat": "**是论文清单不是教程**，没有一步步的实操路径；想动手还是要回到 LeRobot。另外它按技术流派组织，**不覆盖闭源那几家**（Helix、Gemini Robotics 都不在里面）。",
+     "domains": [
+      "embodied"
+     ]
     }
    ]
   }

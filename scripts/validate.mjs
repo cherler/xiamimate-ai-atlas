@@ -95,6 +95,29 @@ for (const s of a.support) {
 }
 
 /**
+ * R74 —— **模型的 `status` 必须是已知的那几种。**
+ *
+ * 2026-08-14 具身智能卷收 OpenVLA 时炸出来的。它是全站第一个 `maintained`
+ * 的模型，而 `lib/atlas.ts` 的 `STATUS` 展示表当时只登记了 `discontinued`
+ * 与 `superseded` 两项 —— `/compare` 那一页写的是 `STATUS[m.status].cls`，
+ * 没有 `?.`，**整个构建挂在 `/compare/molmoact-vs-openvla` 上**。
+ *
+ * 展示表已经补齐，但那只是治标：**这条校验之前根本不看 `model.status`**，
+ * 写成 `maintaned` 也一样静默通过，然后在构建时才炸。
+ * 校验的职责就是让这种错在提交前红，而不是在出产物时红。
+ *
+ * ⚠️ 加新状态要动两个地方：这里的清单，和 `lib/atlas.ts` 的 `STATUS`
+ * （`active` 不进展示表 —— 它是默认，不打标）。
+ */
+const STATUSES = ["active", "maintained", "superseded", "discontinued"];
+for (const m of a.models) {
+  if (m.status && !STATUSES.includes(m.status))
+    errs.push(`R74 非法模型状态 ${m.status}：${m.family}（${m.id}）—— ` +
+      `只认 ${STATUSES.join(" / ")}。加新状态要同时改 lib/atlas.ts 的 STATUS 展示表，` +
+      `否则 /compare 会在构建时炸（2026-08-14 就是这么挂的）`);
+}
+
+/**
  * R67 —— 数据集日期不能早于任何一格的核验日。
  * 页脚印的「数据截至 X」是给读者的新鲜度承诺；有格子比它还新，那句话就是错的。
  */

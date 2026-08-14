@@ -1475,6 +1475,188 @@
     "开源权重"
    ],
    "since_note": "美团 / 快手 / 复旦都放了权重"
+  },
+  {
+   "id": "e-spatial",
+   "class": "er",
+   "domain": "embodied",
+   "name": "Spatial reasoning",
+   "zh": "空间推理",
+   "group": "看懂",
+   "ubiquity": "待核",
+   "aliases": [
+    "spatial reasoning",
+    "pointing",
+    "指物",
+    "轨迹规划"
+   ],
+   "since_note": "Google 官方能力表：「Point to objects, track them in video, detect with bounding boxes, plan trajectories.」"
+  },
+  {
+   "id": "e-agentvision",
+   "class": "er",
+   "domain": "embodied",
+   "name": "Agentic vision",
+   "zh": "智能体视觉",
+   "group": "看懂",
+   "ubiquity": "待核",
+   "aliases": [
+    "agentic vision",
+    "code execution"
+   ],
+   "since_note": "Google 官方能力表：「Use code execution to enhance other capabilities by leveraging image manipulation tools.」"
+  },
+  {
+   "id": "e-orchestrate",
+   "class": "er",
+   "domain": "embodied",
+   "name": "Task orchestration",
+   "zh": "任务编排",
+   "group": "干活",
+   "ubiquity": "待核",
+   "aliases": [
+    "task orchestration",
+    "long-horizon",
+    "长程任务"
+   ],
+   "since_note": "Google 官方能力表：「Combine spatial reasoning with custom robot APIs to complete long-horizon tasks.」"
+  },
+  {
+   "id": "e-streaming",
+   "class": "er",
+   "domain": "embodied",
+   "name": "Streaming",
+   "zh": "实时流式",
+   "group": "干活",
+   "ubiquity": "待核",
+   "aliases": [
+    "streaming",
+    "bidirectional",
+    "低延迟"
+   ],
+   "since_note": "Google 官方能力表：「Bidirectional streaming for real-time robot agents with low-latency function calling.」"
+  },
+  {
+   "id": "e-vprogress",
+   "class": "er",
+   "domain": "embodied",
+   "name": "Video progress",
+   "zh": "视频进度",
+   "group": "看懂",
+   "ubiquity": "待核",
+   "aliases": [
+    "video progress",
+    "moment finding",
+    "progress classification"
+   ],
+   "since_note": "Google 官方能力表：「Moment finding and progress classification from continuous video feeds.」"
+  },
+  {
+   "id": "e-openweights",
+   "class": "vla",
+   "domain": "embodied",
+   "name": "Open Weights",
+   "zh": "开源权重",
+   "group": "拿得到",
+   "ubiquity": "待核",
+   "aliases": [
+    "open weights",
+    "checkpoint",
+    "权重"
+   ],
+   "since_note": "三家都公开权重，但许可各不相同（MIT / Apache-2.0 / NVIDIA Open Model License）"
+  },
+  {
+   "id": "e-embodiment",
+   "class": "vla",
+   "domain": "embodied",
+   "name": "Cross-embodiment",
+   "zh": "跨本体",
+   "group": "拿得到",
+   "ubiquity": "待核",
+   "aliases": [
+    "embodiment tag",
+    "cross-embodiment",
+    "跨本体",
+    "本体标签"
+   ],
+   "since_note": "GR00T 的 `--embodiment-tag`；X-VLA 标题里就写着 Cross-Embodiment"
+  },
+  {
+   "id": "e-zeroshot",
+   "class": "vla",
+   "domain": "embodied",
+   "name": "Zero-shot inference",
+   "zh": "零样本可用",
+   "group": "拿得到",
+   "ubiquity": "待核",
+   "aliases": [
+    "zero-shot",
+    "开箱即用",
+    "不微调"
+   ],
+   "since_note": "GR00T 官方把 `Zero-Shot Inference (Base Model)` 与 `Finetuned Inference` **分列两节** —— 厂商自己认为这是要单独说明的一件事"
+  },
+  {
+   "id": "e-finetune",
+   "class": "vla",
+   "domain": "embodied",
+   "name": "Fine-tuning path",
+   "zh": "微调路径",
+   "group": "跑得起",
+   "ubiquity": "待核",
+   "aliases": [
+    "lora",
+    "fine-tuning",
+    "微调"
+   ],
+   "since_note": "OpenVLA 的 `Fine-Tuning via LoRA` / `Fully Fine-Tuning`；openpi 的 `Fine-Tuning Base Models on Your Own Data`"
+  },
+  {
+   "id": "e-dataformat",
+   "class": "vla",
+   "domain": "embodied",
+   "name": "Dataset format",
+   "zh": "数据格式",
+   "group": "跑得起",
+   "ubiquity": "待核",
+   "aliases": [
+    "lerobot",
+    "rlds",
+    "数据格式"
+   ],
+   "since_note": "openpi「Convert your data to a **LeRobot** dataset」；OpenVLA「arbitrary datasets in **RLDS** format」"
+  },
+  {
+   "id": "e-edge",
+   "class": "vla",
+   "domain": "embodied",
+   "name": "Edge deployment",
+   "zh": "边缘部署",
+   "group": "跑得起",
+   "ubiquity": "待核",
+   "aliases": [
+    "onnx",
+    "tensorrt",
+    "边缘",
+    "部署"
+   ],
+   "since_note": "GR00T N1.7「adds full-pipeline **ONNX and TensorRT** export support … across desktop GPUs and edge platforms」"
+  },
+  {
+   "id": "e-framework",
+   "class": "vla",
+   "domain": "embodied",
+   "name": "Framework choice",
+   "zh": "框架可换",
+   "group": "跑得起",
+   "ubiquity": "待核",
+   "aliases": [
+    "pytorch",
+    "jax",
+    "框架"
+   ],
+   "since_note": "openpi 同时给 JAX 与 PyTorch 两套实现"
   }
  ],
  "orgs": [
@@ -2109,6 +2291,86 @@
    "en": "Fudan University",
    "name": "Fudan",
    "kind": "lab"
+  },
+  {
+   "id": "pi",
+   "zh": "Physical Intelligence",
+   "en": "Physical Intelligence",
+   "name": "Physical Intelligence",
+   "kind": "startup",
+   "zh_none": true,
+   "note": "π 系列的作者。**权重放在 `gs://openpi-assets`，不在 Hugging Face** —— HF 上那几个 `lerobot/pi0_base` 是转存，按 HF 下载量给这条线排序会严重低估它。"
+  },
+  {
+   "id": "figure",
+   "zh": "Figure",
+   "en": "Figure",
+   "name": "Figure",
+   "kind": "startup",
+   "zh_none": true,
+   "note": "人形机器人本体 + 自研策略模型 Helix。**本体不占能力表的行**，收的是 Helix。"
+  },
+  {
+   "id": "stanford-openvla",
+   "zh": "OpenVLA 团队",
+   "en": "OpenVLA team",
+   "name": "OpenVLA team",
+   "kind": "lab",
+   "note": "官方模型卡自述：「researchers from Stanford, UC Berkeley, Google Deepmind, and the Toyota Research Institute」—— **跨四家机构，不是某一家公司的产品**，所以单列为一个团队实体。"
+  },
+  {
+   "id": "huggingface",
+   "zh": "Hugging Face",
+   "en": "Hugging Face",
+   "name": "Hugging Face",
+   "kind": "startup",
+   "zh_none": true,
+   "note": "SmolVLA 与 LeRobot 的维护方。**它同时是这一卷的托管平台**，两个身份要分开看。"
+  },
+  {
+   "id": "allenai",
+   "zh": "艾伦人工智能研究所",
+   "en": "Allen Institute for AI",
+   "name": "Ai2",
+   "kind": "lab"
+  },
+  {
+   "id": "shlab",
+   "zh": "上海人工智能实验室",
+   "en": "Shanghai AI Laboratory",
+   "name": "InternRobotics",
+   "kind": "lab",
+   "note": "InternVLA 系列。**只在魔搭有，HF 的 robotics 榜上看不见** —— 这一卷的中文侧普遍如此。"
+  },
+  {
+   "id": "xiaomi",
+   "zh": "小米",
+   "en": "Xiaomi",
+   "name": "Xiaomi Robotics",
+   "kind": "bigtech"
+  },
+  {
+   "id": "galaxea",
+   "zh": "星海图",
+   "en": "Galaxea",
+   "name": "Galaxea",
+   "kind": "startup"
+  },
+  {
+   "id": "robbyant",
+   "zh": "Robbyant",
+   "en": "Robbyant",
+   "name": "Robbyant",
+   "kind": "startup",
+   "zh_none": true
+  },
+  {
+   "id": "thu-air",
+   "zh": "清华大学 AIR",
+   "en": "Tsinghua AIR",
+   "name": "THU AIR",
+   "kind": "lab",
+   "note": "X-VLA 的项目主页挂在 `thu-air-dream.github.io`；论文作者署名 Zheng et al., 2025。"
   }
  ],
  "$orgs": "公司是**一等实体**，不是模型上的一个字符串（此前 vendor 是字符串，结果阿里在库里成了两家）。产业链图、地球分布、投资关系全都挂在这一层上。\n**hq 只有 5 家有来源，其余 6 家仍然没有** —— 都是公开常识，但我们自己的规矩是「没有来源的结论就是猜的」，所以校验里 R21 会一直警告，前台也必须标出来。不许因为「大家都知道」就当成核过了。\n\n2026-08-08 补：从已有快照和官网拿到 5 家的可引证据，但**精度分三档**，写进 `hq_precision`：\n  exact     —— 页脚给出具体街道地址（只有字节）\n  province  —— **ICP 备案只证到省**（快手/MiniMax/阿里）。阿里那条只证到浙江，没证到杭州\n  ambiguous —— 招聘页同时列两个城市（Runway 的纽约与旧金山）\n\n剩下 6 家（生数、昆仑万维、Google DeepMind、OpenAI、Decart、Lightricks）没拿到：\n**生数官网 HTTPS 证书已过期**（ERR_CERT_DATE_INVALID）—— 这条本身就是信息；\n其余几家的 about/contact 页没有可机读的地址段。R21 会一直为它们报警告。\n\n**不许把 province 当成 exact 用。** 我们批评厂商「说了半句」的时候，自己不能也说半句。",
@@ -4001,6 +4263,230 @@
    "reach_cn": "unknown",
    "reach_note": "还没测",
    "note": "⚠️ 同上：只核到仓库与许可 ⚠️ **立项当天我们把当前版本记成了 Hallo2（2024-10）** —— 实际这条线已经发到 Hallo-Live，中间隔了三代。采谱系时才发现。"
+  },
+  {
+   "id": "gemini-robotics-er",
+   "class": "er",
+   "family": "Gemini Robotics ER",
+   "org": "google",
+   "version": "ER 2 Preview",
+   "version_as_of": "2026-08-14",
+   "status": "active",
+   "tier": "core",
+   "domain": "embodied",
+   "weights": "closed",
+   "zh_none": true,
+   "version_src": "gemini-robotics-er",
+   "version_quote": "官方文档的 `Model endpoints` 一节列出三档：「Gemini Robotics ER 2 Preview」「Gemini Robotics ER 2 Streaming Preview」「Gemini Robotics ER 1.6 Preview」—— ER 2 是当前代，**三档全部还带着 Preview**",
+   "note": "**这一卷唯一有 API、有定价、有端点的一支。** 它是「具身推理」不是「动作策略」：输出点位、边界框、轨迹与计划，**不直接驱动关节**。Google 另有不开放 API 的 Gemini Robotics（VLA）那一支，不在这里记。"
+  },
+  {
+   "id": "molmoact",
+   "class": "vla",
+   "family": "MolmoAct",
+   "org": "allenai",
+   "version": "MolmoAct2",
+   "version_as_of": "2026-08-14",
+   "status": "active",
+   "tier": "core",
+   "domain": "embodied",
+   "weights": "open",
+   "zh_none": true,
+   "version_src": "hf-robotics",
+   "version_quote": "HF 上 `allenai/MolmoAct2` 一族建于 2026-05-04，上一代 `MolmoAct-7B-D-0812` 建于 2025-08-09",
+   "note": "⚠️ **归轨归的是 `vla` 不是 `er`，虽然它自称建在具身推理骨干上。** 官方原话：「builds on **Molmo2-ER**, an embodied-reasoning VLM backbone, and connects the autoregressive VLM to a **flow-matching continuous action expert**」—— 末端产出的是连续动作，按产出物判轨。"
+  },
+  {
+   "id": "pi",
+   "class": "vla",
+   "family": "π（Physical Intelligence）",
+   "org": "pi",
+   "version": "π₀.₅",
+   "version_as_of": "2026-08-14",
+   "status": "active",
+   "tier": "core",
+   "domain": "embodied",
+   "weights": "open",
+   "zh": "π 系列",
+   "version_src": "pi-openpi-gh",
+   "version_quote": "`openpi` README 的 `Base Models` 表列三档：`π₀`、`π₀-FAST`、`π₀.₅`，检查点路径分别是 `gs://openpi-assets/checkpoints/pi0_base` / `pi0_fast_base` / `pi05_base`",
+   "note": "⚠️ **权重不在 Hugging Face，在 Google Cloud Storage。** HF 上的 `lerobot/pi0_base`（24,743 次下载）是转存 —— 拿 HF 下载量排这条线的座次会严重低估它。能力叙述在官方博客，用法在仓库，**两边都要读**。"
+  },
+  {
+   "id": "groot",
+   "class": "vla",
+   "family": "NVIDIA Isaac GR00T N",
+   "org": "nvidia",
+   "version": "N1.7",
+   "version_as_of": "2026-08-14",
+   "status": "active",
+   "tier": "core",
+   "domain": "embodied",
+   "weights": "open",
+   "zh_none": true,
+   "version_src": "nvidia-groot-gh",
+   "version_quote": "HF 上 `nvidia/GR00T-N1.7-3B` 建于 2026-02-25，上一代 `GR00T-N1.6-3B` 建于 2025-12-01；README 有 `What's New in GR00T N1.7` 一节",
+   "note": "这一卷**文档最全的开源一支**。⚠️ 但最关键的本体标签清单**不在 README，在 `getting_started/policy.md`** —— README 只写「see the Policy API Guide」。"
+  },
+  {
+   "id": "openvla",
+   "class": "vla",
+   "family": "OpenVLA",
+   "org": "stanford-openvla",
+   "version": "7B",
+   "version_as_of": "2026-08-14",
+   "status": "maintained",
+   "tier": "core",
+   "domain": "embodied",
+   "weights": "open",
+   "zh_none": true,
+   "version_src": "openvla-gh",
+   "version_quote": "`openvla/openvla-7b` 建于 2024-06-10，此后该组织只发过 LIBERO 基准微调档，**没有新代**",
+   "note": "⚠️ **状态记 `maintained` 不是 `active`**：主仓最新一代停在 2024-06，之后两年只有基准微调。它仍是被第三方微调最多的一支（`moojink/` `Sakits/` 等），**统计家族规模时要先折叠，否则会把它数成四五家**。"
+  },
+  {
+   "id": "smolvla",
+   "class": "vla",
+   "family": "SmolVLA",
+   "org": "huggingface",
+   "version": "base",
+   "version_as_of": "2026-08-14",
+   "status": "active",
+   "tier": "core",
+   "domain": "embodied",
+   "weights": "open",
+   "zh_none": true,
+   "version_src": "hf-robotics",
+   "version_quote": "`lerobot/smolvla_base` 建于 2025-06-01，是 HF robotics 榜下载量第一（93,253）",
+   "note": "官方定位是「affordable robotics」：**单卡可训、消费级硬件可跑**。这一卷里唯一把「跑得起」当卖点写在第一句的。"
+  },
+  {
+   "id": "helix",
+   "class": "vla",
+   "family": "Helix",
+   "org": "figure",
+   "version": "Helix",
+   "version_as_of": "2026-08-14",
+   "status": "active",
+   "tier": "core",
+   "domain": "embodied",
+   "weights": "closed",
+   "zh_none": true,
+   "version_src": "figure-helix",
+   "version_quote": "官方发布页标题：「Helix: A Vision-Language-Action Model for Generalist Humanoid Control」",
+   "note": "闭源，没有权重也没有 API。**那一页就是它全部的官方能力叙述**（正文 16k）—— 这一卷里可核验度最低的一类：只能读厂商怎么说，无法自己验证。"
+  },
+  {
+   "id": "xvla",
+   "class": "vla",
+   "family": "X-VLA",
+   "org": "thu-air",
+   "version": "0.9B",
+   "version_as_of": "2026-08-14",
+   "status": "active",
+   "tier": "extended",
+   "domain": "embodied",
+   "weights": "open",
+   "zh_none": true,
+   "version_src": "hf-robotics",
+   "version_quote": "模型卡标题：「X-VLA 0.9B (Foundation Edition)」，许可 Apache 2.0",
+   "note": "进 extended 不是因为弱 —— 是规则四的 Core ≤10 名额。它的跨本体做法（每个本体一组可学习的软提示）在这一卷里独一份。"
+  },
+  {
+   "id": "rynnbrain",
+   "class": "er",
+   "family": "RynnBrain",
+   "org": "alibaba",
+   "version": "1.1",
+   "version_as_of": "2026-08-14",
+   "status": "active",
+   "tier": "core",
+   "domain": "embodied",
+   "weights": "open",
+   "zh": "通义 RynnBrain",
+   "version_src": "hf-robotics",
+   "version_quote": "`Alibaba-DAMO-Academy/RynnBrain1.1-9B` 与 `RynnBrain1.1-2B`、`RynnBrain1.1-122B-A10B` 同建于 2026-07-13；上一代 `RynnBrain-8B` 建于 2026-01-29",
+   "note": "达摩院的具身「大脑」，同族还有 `RynnBrain-Nav`（导航）与 `RynnValue`（价值模型）。⚠️ 归 `er` 轨是按名字与形态判的，**逐格核验时要确认它到底输出什么** —— 这一格若判错，整行都错。"
+  },
+  {
+   "id": "internvla",
+   "class": "vla",
+   "family": "InternVLA",
+   "org": "shlab",
+   "version": "A1.5",
+   "version_as_of": "2026-08-14",
+   "status": "active",
+   "tier": "core",
+   "domain": "embodied",
+   "weights": "open",
+   "zh_none": true,
+   "version_src": "modelscope-orgs",
+   "version_quote": "魔搭上 `InternRobotics/InternVLA-A1.5-base` 建于 2026-07-05，同期还有 `-Libero` `-RoboTwin` `-DOMINO` 三个基准档；导航支 `InternVLA-N1` 建于 2025-07-28",
+   "note": "⚠️ **只在魔搭有，HF 的 robotics 榜上完全看不见。** 这一卷的中文侧普遍如此 —— 只看 HF 会得出「具身智能没有中国厂商」的错误结论。"
+  },
+  {
+   "id": "hy-embodied",
+   "class": "vla",
+   "family": "混元具身",
+   "org": "tencent",
+   "version": "0.5",
+   "version_as_of": "2026-08-14",
+   "status": "active",
+   "tier": "core",
+   "domain": "embodied",
+   "weights": "open",
+   "zh": "混元具身",
+   "version_src": "modelscope-orgs",
+   "version_quote": "魔搭上 `Tencent-Hunyuan/Hy-Embodied-0.5-VLA-RoboTwin` 与 `-UMI` 同建于 2026-06-15",
+   "note": "⚠️ 同样只在魔搭。目前放出的两个仓都是**跟着基准/采集平台走的档**（RoboTwin、UMI），还没看到通用基座档 —— 逐格核验时这一点会直接影响「零样本可用」那一格。"
+  },
+  {
+   "id": "xiaomi-robotics",
+   "class": "vla",
+   "family": "Xiaomi Robotics",
+   "org": "xiaomi",
+   "version": "1",
+   "version_as_of": "2026-08-14",
+   "status": "active",
+   "tier": "core",
+   "domain": "embodied",
+   "weights": "open",
+   "zh": "小米具身",
+   "version_src": "hf-robotics",
+   "version_quote": "`XiaomiRobotics/Xiaomi-Robotics-1-RoboCasa365` 等三档建于 2026-07-28，上一代 `Xiaomi-Robotics-0-*` 建于 2026-02-10，另有 `Xiaomi-Robotics-U0`（2026-07-13）",
+   "note": "HF 与魔搭两边都有。⚠️ 放出的全是**基准评测档**（RoboCasa365 / LIBERO / SimplerEnv / VLABench），模型卡很薄（2k）—— 可核验的能力信息比 GR00T 少一个量级。"
+  },
+  {
+   "id": "g0-vla",
+   "class": "vla",
+   "family": "Galaxea G0",
+   "org": "galaxea",
+   "version": "G0-VLA",
+   "version_as_of": "2026-08-14",
+   "status": "active",
+   "tier": "extended",
+   "domain": "embodied",
+   "weights": "open",
+   "zh": "星海图 G0",
+   "version_src": "modelscope-orgs",
+   "version_quote": "魔搭上 `Galaxea/G0-VLA` 建于 2025-09-10",
+   "note": "进 extended：魔搭上只有一个仓、49 次下载，可核验材料太少。**收它是为了让中文侧的名单不缺人，不是因为它已经被验证过。**"
+  },
+  {
+   "id": "lingbot-vla",
+   "class": "vla",
+   "family": "lingbot-vla",
+   "org": "robbyant",
+   "version": "v2-6b",
+   "version_as_of": "2026-08-14",
+   "status": "active",
+   "tier": "extended",
+   "domain": "embodied",
+   "weights": "open",
+   "zh_none": true,
+   "version_src": "modelscope-orgs",
+   "version_quote": "魔搭上 `Robbyant/lingbot-vla-v2-6b` 建于 2026-07-07，上一代 `lingbot-vla-4b` 建于 2026-01-27",
+   "note": "进 extended：HF 与魔搭都有，但只有基准后训练档，官方能力叙述还没找到。"
   }
  ],
  "sources": {
@@ -5893,6 +6379,56 @@
    "name": "Black Forest Labs 官方文档 · FLUX.2 多图参考编辑指南",
    "url": "https://docs.bfl.ai/guides/prompting_editing_multi_reference",
    "tier": "official"
+  },
+  "gemini-robotics-er": {
+   "name": "Google 官方文档 · Gemini Robotics ER",
+   "url": "https://ai.google.dev/gemini-api/docs/robotics-overview",
+   "tier": "official"
+  },
+  "figure-helix": {
+   "name": "Figure 官方 · Helix 发布页",
+   "url": "https://www.figure.ai/news/helix",
+   "tier": "official"
+  },
+  "pi-pi05-blog": {
+   "name": "Physical Intelligence 官方博客 · π₀.₅",
+   "url": "https://www.physicalintelligence.company/blog/pi05",
+   "tier": "official"
+  },
+  "pi-openpi-gh": {
+   "name": "Physical-Intelligence/openpi 官方仓库",
+   "url": "https://github.com/Physical-Intelligence/openpi",
+   "tier": "official"
+  },
+  "nvidia-groot-gh": {
+   "name": "NVIDIA/Isaac-GR00T 官方仓库",
+   "url": "https://github.com/NVIDIA/Isaac-GR00T",
+   "tier": "official"
+  },
+  "groot-policy-doc": {
+   "name": "NVIDIA/Isaac-GR00T 官方文档 · Policy API（本体标签清单）",
+   "url": "https://github.com/NVIDIA/Isaac-GR00T/blob/main/getting_started/policy.md",
+   "tier": "official"
+  },
+  "openvla-gh": {
+   "name": "openvla/openvla 官方仓库与模型卡",
+   "url": "https://huggingface.co/openvla/openvla-7b",
+   "tier": "official"
+  },
+  "smolvla-card": {
+   "name": "Hugging Face 官方 · SmolVLA 模型卡",
+   "url": "https://huggingface.co/lerobot/smolvla_base",
+   "tier": "official"
+  },
+  "molmoact-card": {
+   "name": "Ai2 官方 · MolmoAct2 模型卡",
+   "url": "https://huggingface.co/allenai/MolmoAct2",
+   "tier": "official"
+  },
+  "hf-robotics": {
+   "name": "Hugging Face · robotics 榜（花名册取样）",
+   "url": "https://huggingface.co/models?pipeline_tag=robotics",
+   "tier": "third-party"
   }
  },
  "support": [
@@ -12681,6 +13217,649 @@
    "via": "native",
    "as_of": "2026-08-14",
    "recheck": "Hallo-Live"
+  },
+  {
+   "m": "gemini-robotics-er",
+   "c": "e-spatial",
+   "state": "yes",
+   "verified_for": "ER 2 Preview",
+   "src": "gemini-robotics-er",
+   "quote": "官方文档 `Robotics capabilities` 表：「Spatial reasoning — Point to objects, track them in video, detect with bounding boxes, plan trajectories.」",
+   "as_of": "2026-08-14",
+   "note": "这一卷唯一一格有 API 可直接调的空间推理。**注意它输出的是点位与轨迹，不是关节指令** —— 这正是 `er` 与 `vla` 分轨的原因。"
+  },
+  {
+   "m": "gemini-robotics-er",
+   "c": "e-agentvision",
+   "state": "yes",
+   "verified_for": "ER 2 Preview",
+   "src": "gemini-robotics-er",
+   "quote": "官方文档 `Robotics capabilities` 表：「Agentic vision — Use code execution to enhance other capabilities by leveraging image manipulation tools.」",
+   "as_of": "2026-08-14",
+   "note": "靠代码执行去裁剪 / 放大再看一眼 —— **这一项在别家身上一次都没出现过**，是 Google 独有的命名。"
+  },
+  {
+   "m": "gemini-robotics-er",
+   "c": "e-orchestrate",
+   "state": "yes",
+   "verified_for": "ER 2 Preview",
+   "src": "gemini-robotics-er",
+   "quote": "官方文档 `Robotics capabilities` 表：「Task orchestration — Combine spatial reasoning with custom robot APIs to complete long-horizon tasks.」",
+   "as_of": "2026-08-14",
+   "note": "⚠️ 官方措辞是「**接你自己的机器人 API**」—— 它编排，不驱动。长程任务的执行仍然要你自己接一层。"
+  },
+  {
+   "m": "gemini-robotics-er",
+   "c": "e-streaming",
+   "state": "yes",
+   "verified_for": "ER 2 Streaming Preview",
+   "src": "gemini-robotics-er",
+   "quote": "官方文档 `Robotics capabilities` 表：「Streaming — Bidirectional streaming for real-time robot agents with low-latency function calling.」，该行明标 「Gemini Robotics ER 2 Streaming endpoint only」",
+   "as_of": "2026-08-14",
+   "note": "**只在 ER 2 Streaming 那个端点上有**，普通 ER 2 端点没有 —— 官方自己在表里加了括号说明。",
+   "sibling": "ER 2 Streaming Preview"
+  },
+  {
+   "m": "gemini-robotics-er",
+   "c": "e-vprogress",
+   "state": "yes",
+   "verified_for": "ER 2 Preview",
+   "src": "gemini-robotics-er",
+   "quote": "官方文档 `Robotics capabilities` 表：「Video progress — Moment finding and progress classification from continuous video feeds.」，该行明标 「Gemini Robotics ER 2 only」",
+   "as_of": "2026-08-14",
+   "note": "判断「这件事做到哪一步了」。⚠️ 官方标了 `ER 2 only`，**1.6 那一档没有** —— 这是这一卷里第一条能看到代际差的证据。"
+  },
+  {
+   "m": "rynnbrain",
+   "c": "e-spatial",
+   "state": "unknown",
+   "verified_for": "1.1",
+   "as_of": "2026-08-14",
+   "note": "⚠️ **整行都还没核，而且这一行有个前置问题没解决：RynnBrain 到底输不输出动作。** 我们按名字（Brain）与同族分工（另有 `RynnBrain-Nav` 导航、`RynnValue` 价值模型）把它归进 `er` 轨，**这是形态推断，不是读到的官方定义**。归轨若错，这五格连同「空间推理」这一格全部作废。魔搭与 HF 上放出的是权重与配置，还没找到一份讲能力的官方页 —— 这是「没找到」，不是「它没有」。"
+  },
+  {
+   "m": "rynnbrain",
+   "c": "e-agentvision",
+   "state": "unknown",
+   "verified_for": "1.1",
+   "as_of": "2026-08-14",
+   "note": "⚠️ **整行都还没核，而且这一行有个前置问题没解决：RynnBrain 到底输不输出动作。** 我们按名字（Brain）与同族分工（另有 `RynnBrain-Nav` 导航、`RynnValue` 价值模型）把它归进 `er` 轨，**这是形态推断，不是读到的官方定义**。归轨若错，这五格连同「智能体视觉」这一格全部作废。魔搭与 HF 上放出的是权重与配置，还没找到一份讲能力的官方页 —— 这是「没找到」，不是「它没有」。"
+  },
+  {
+   "m": "rynnbrain",
+   "c": "e-orchestrate",
+   "state": "unknown",
+   "verified_for": "1.1",
+   "as_of": "2026-08-14",
+   "note": "⚠️ **整行都还没核，而且这一行有个前置问题没解决：RynnBrain 到底输不输出动作。** 我们按名字（Brain）与同族分工（另有 `RynnBrain-Nav` 导航、`RynnValue` 价值模型）把它归进 `er` 轨，**这是形态推断，不是读到的官方定义**。归轨若错，这五格连同「任务编排」这一格全部作废。魔搭与 HF 上放出的是权重与配置，还没找到一份讲能力的官方页 —— 这是「没找到」，不是「它没有」。"
+  },
+  {
+   "m": "rynnbrain",
+   "c": "e-streaming",
+   "state": "unknown",
+   "verified_for": "1.1",
+   "as_of": "2026-08-14",
+   "note": "⚠️ **整行都还没核，而且这一行有个前置问题没解决：RynnBrain 到底输不输出动作。** 我们按名字（Brain）与同族分工（另有 `RynnBrain-Nav` 导航、`RynnValue` 价值模型）把它归进 `er` 轨，**这是形态推断，不是读到的官方定义**。归轨若错，这五格连同「实时流式」这一格全部作废。魔搭与 HF 上放出的是权重与配置，还没找到一份讲能力的官方页 —— 这是「没找到」，不是「它没有」。"
+  },
+  {
+   "m": "rynnbrain",
+   "c": "e-vprogress",
+   "state": "unknown",
+   "verified_for": "1.1",
+   "as_of": "2026-08-14",
+   "note": "⚠️ **整行都还没核，而且这一行有个前置问题没解决：RynnBrain 到底输不输出动作。** 我们按名字（Brain）与同族分工（另有 `RynnBrain-Nav` 导航、`RynnValue` 价值模型）把它归进 `er` 轨，**这是形态推断，不是读到的官方定义**。归轨若错，这五格连同「视频进度」这一格全部作废。魔搭与 HF 上放出的是权重与配置，还没找到一份讲能力的官方页 —— 这是「没找到」，不是「它没有」。"
+  },
+  {
+   "m": "groot",
+   "c": "e-openweights",
+   "state": "yes",
+   "verified_for": "N1.7",
+   "src": "nvidia-groot-gh",
+   "quote": "模型卡 `License` 一节：「This model is released under the **NVIDIA Open Model License Agreement**」",
+   "as_of": "2026-08-14",
+   "note": "⚠️ **不是标准开源协议**。权重公开、条款是英伟达自己那份，商用前必须自己读 —— 和 OpenVLA 的 MIT、X-VLA 的 Apache-2.0 不是一回事。"
+  },
+  {
+   "m": "groot",
+   "c": "e-embodiment",
+   "state": "yes",
+   "verified_for": "N1.7",
+   "src": "groot-policy-doc",
+   "quote": "官方 Policy API 文档：「`--embodiment-tag` … Determines which modality config the model uses (state/action keys, normalization). **Must match the robot type of your dataset.**」并列出 `OXE_DROID_RELATIVE_EEF_RELATIVE_JOINT`、`XDOF`、`REAL_G1`、`REAL_R1_PRO_SHARPA` 等预训练标签，以及给自定义机器人用的 `NEW_EMBODIMENT`",
+   "as_of": "2026-08-14",
+   "note": "这一卷跨本体做得最明码标价的一支：**哪些本体开箱可用、哪些要先微调，官方列成了两张表**。⚠️ 这份清单**不在 README，在 `getting_started/policy.md`** —— README 只写「see the Policy API Guide」。"
+  },
+  {
+   "m": "groot",
+   "c": "e-zeroshot",
+   "state": "yes",
+   "verified_for": "N1.7",
+   "src": "groot-policy-doc",
+   "quote": "「**Pretrain tags** — baked into the base model (`nvidia/GR00T-N1.7-3B`), **ready for zero-shot inference**」；同页又警告「Posttrain tags require a finetuned checkpoint — using them with the base model **will fail**」",
+   "as_of": "2026-08-14",
+   "note": "✅ 但边界很硬：**只有预训练标签那几种本体能零样本跑**，后训练标签（`LIBERO_PANDA`、`UNITREE_G1_SONIC` 等）拿基座模型跑会直接报错。**「能零样本」不等于「对你的机器人能零样本」。**"
+  },
+  {
+   "m": "groot",
+   "c": "e-finetune",
+   "state": "yes",
+   "verified_for": "N1.7",
+   "src": "nvidia-groot-gh",
+   "quote": "README：「Developers and researchers can **post-train** GR00T N1.7 with real or synthetic data for their specific humanoid robot or task」；N1.7 更新条目：「Fine-tuning can use **multiple dataset paths with mixture weighting**」",
+   "as_of": "2026-08-14",
+   "note": ""
+  },
+  {
+   "m": "groot",
+   "c": "e-dataformat",
+   "state": "yes",
+   "verified_for": "N1.7",
+   "src": "nvidia-groot-gh",
+   "quote": "README 有独立的 `LeRobot Integration` 与 `Data Format` 两节",
+   "as_of": "2026-08-14",
+   "note": ""
+  },
+  {
+   "m": "groot",
+   "c": "e-edge",
+   "state": "yes",
+   "verified_for": "N1.7",
+   "src": "nvidia-groot-gh",
+   "quote": "N1.7 更新条目：「adds **full-pipeline ONNX and TensorRT export support** and improves deployment consistency across desktop GPUs and **edge platforms**」；模型卡给了实测表，TensorRT 全流程 27.9 ms / 35.9 Hz，相对基线 3.08 倍",
+   "as_of": "2026-08-14",
+   "note": "**这一卷唯一一支把边缘部署做成完整导出链路、还附实测延迟的**。别家最多说「消费级硬件能跑」。"
+  },
+  {
+   "m": "groot",
+   "c": "e-framework",
+   "state": "unknown",
+   "verified_for": "N1.7",
+   "as_of": "2026-08-14",
+   "note": "读了 README 全文与 `getting_started/policy.md`：只有 PyTorch 一套实现，**没有看到第二种框架**，也没有一句话说不支持。所以是 ⬜ 不是 ❌ —— 官方没表态。对照 openpi 是明确给了 JAX 与 PyTorch 两套。"
+  },
+  {
+   "m": "openvla",
+   "c": "e-openweights",
+   "state": "yes",
+   "verified_for": "7B",
+   "src": "openvla-gh",
+   "quote": "模型卡：「All OpenVLA checkpoints, as well as our training codebase are released under an **MIT License**」",
+   "as_of": "2026-08-14",
+   "note": "这一卷里许可最干净的一支 —— MIT，没有附加条款。"
+  },
+  {
+   "m": "openvla",
+   "c": "e-embodiment",
+   "state": "yes",
+   "verified_for": "7B",
+   "src": "openvla-gh",
+   "quote": "模型卡：「It **supports controlling multiple robots out-of-the-box**, and can be quickly adapted for new robot domains via (parameter-efficient) fine-tuning」",
+   "as_of": "2026-08-14",
+   "note": ""
+  },
+  {
+   "m": "openvla",
+   "c": "e-zeroshot",
+   "state": "yes",
+   "verified_for": "7B",
+   "src": "openvla-gh",
+   "quote": "同一句里的 「supports controlling multiple robots **out-of-the-box**」",
+   "as_of": "2026-08-14",
+   "note": "⚠️ **证据强度弱于 GR00T**：这是一句总括的自述，没有像 GR00T 那样列出「哪些本体开箱可用、哪些必须先微调」。同样是 ✅，**可复现程度差一截**。"
+  },
+  {
+   "m": "openvla",
+   "c": "e-finetune",
+   "state": "yes",
+   "verified_for": "7B",
+   "src": "openvla-gh",
+   "quote": "仓库有 `Fine-Tuning OpenVLA via LoRA` 与 `Fully Fine-Tuning OpenVLA` 两节",
+   "as_of": "2026-08-14",
+   "note": ""
+  },
+  {
+   "m": "openvla",
+   "c": "e-dataformat",
+   "state": "yes",
+   "verified_for": "7B",
+   "src": "openvla-gh",
+   "quote": "模型卡：训练数据是 Open X-Embodiment；仓库自述「We natively support arbitrary datasets in **RLDS** format, including arbitrary mixtures」",
+   "as_of": "2026-08-14",
+   "note": "⚠️ **和别家不通**：这一卷主流是 LeRobot 格式，OpenVLA 走 RLDS。要混用得先转换 —— 这正是「数据格式」该单列一根轴的原因。"
+  },
+  {
+   "m": "openvla",
+   "c": "e-edge",
+   "state": "unknown",
+   "verified_for": "7B",
+   "as_of": "2026-08-14",
+   "note": "读了模型卡与仓库 README：只讲训练与微调（FSDP、Flash-Attention），**没有导出 / 量化 / 边缘部署的小节**。—— 读完没找到，不是没读。"
+  },
+  {
+   "m": "openvla",
+   "c": "e-framework",
+   "state": "unknown",
+   "verified_for": "7B",
+   "as_of": "2026-08-14",
+   "note": "仓库通篇是 PyTorch（FSDP + Flash-Attention），**没有第二套实现，也没说不做**。"
+  },
+  {
+   "m": "pi",
+   "c": "e-openweights",
+   "state": "yes",
+   "verified_for": "π₀.₅",
+   "src": "pi-openpi-gh",
+   "quote": "`Base Models` 表给出三档基座检查点路径：`gs://openpi-assets/checkpoints/pi0_base`、`pi0_fast_base`、`pi05_base`",
+   "as_of": "2026-08-14",
+   "note": "⚠️ **权重在 Google Cloud Storage，不在 Hugging Face。** 这会连累两件事：HF 下载量排不出它的真实位置；国内取权重要自己解决出网。"
+  },
+  {
+   "m": "pi",
+   "c": "e-zeroshot",
+   "state": "yes",
+   "verified_for": "π₀.₅",
+   "src": "pi-openpi-gh",
+   "quote": "README 开头：「we provide _base model_ checkpoints, pre-trained on 10k+ hours of robot data, and examples for **using them out of the box** or fine-tuning them to your own datasets」",
+   "as_of": "2026-08-14",
+   "note": ""
+  },
+  {
+   "m": "pi",
+   "c": "e-finetune",
+   "state": "yes",
+   "verified_for": "π₀.₅",
+   "src": "pi-openpi-gh",
+   "quote": "有独立三步小节：`Fine-Tuning Base Models on Your Own Data` → 转数据 / 定 config / 起 policy server",
+   "as_of": "2026-08-14",
+   "note": ""
+  },
+  {
+   "m": "pi",
+   "c": "e-dataformat",
+   "state": "yes",
+   "verified_for": "π₀.₅",
+   "src": "pi-openpi-gh",
+   "quote": "「1. **Convert your data to a LeRobot dataset** (which we use for training)」，并给了 LIBERO 转换脚本示例",
+   "as_of": "2026-08-14",
+   "note": ""
+  },
+  {
+   "m": "pi",
+   "c": "e-framework",
+   "state": "yes",
+   "verified_for": "π₀.₅",
+   "src": "pi-openpi-gh",
+   "quote": "更新条目：「[Sept 2025] We released **PyTorch support** in openpi」；仓库有独立的 `PyTorch Support` 一节，含 `Converting JAX Models to PyTorch`",
+   "as_of": "2026-08-14",
+   "note": "**这一卷唯一一支同时给 JAX 与 PyTorch 两套实现的**。原生是 JAX（训练时要调 `XLA_PYTHON_CLIENT_MEM_FRACTION`），PyTorch 是后加的一层。"
+  },
+  {
+   "m": "pi",
+   "c": "e-embodiment",
+   "state": "unknown",
+   "verified_for": "π₀.₅",
+   "as_of": "2026-08-14",
+   "note": "README 里没有本体标签这类机制，也没有「支持哪些机器人」的清单。⚠️ 它的能力叙述在**官方博客**（π₀.₅ 那篇讲 Open-World Generalization），仓库只讲怎么跑 —— 按规则十四的教训，这一格要读完博客再判，现在不填。"
+  },
+  {
+   "m": "pi",
+   "c": "e-edge",
+   "state": "unknown",
+   "verified_for": "π₀.₅",
+   "as_of": "2026-08-14",
+   "note": "README 只讲起 policy server（一台机器跑模型、机器人那端当客户端），**没有导出到边缘设备的内容**。这种「服务端推理 + 客户端执行」的形态本身就说明它不往边缘走，但官方没这么说，所以不判 ❌。"
+  },
+  {
+   "m": "smolvla",
+   "c": "e-openweights",
+   "state": "yes",
+   "verified_for": "base",
+   "src": "smolvla-card",
+   "quote": "`lerobot/smolvla_base` 公开权重，模型卡给了 `pip install \"lerobot[smolvla]\"` 与 `SmolVLAPolicy.from_pretrained` 的完整跑法",
+   "as_of": "2026-08-14",
+   "note": ""
+  },
+  {
+   "m": "smolvla",
+   "c": "e-finetune",
+   "state": "yes",
+   "verified_for": "base",
+   "src": "smolvla-card",
+   "quote": "模型卡 `Model description`：「**Intended use:** Base model to **fine tune on your specific use case**」",
+   "as_of": "2026-08-14",
+   "note": ""
+  },
+  {
+   "m": "smolvla",
+   "c": "e-dataformat",
+   "state": "yes",
+   "verified_for": "base",
+   "src": "smolvla-card",
+   "quote": "示例代码直接用 `LeRobotDataset` 加载；它本身就是 LeRobot 项目的一部分",
+   "as_of": "2026-08-14",
+   "note": ""
+  },
+  {
+   "m": "smolvla",
+   "c": "e-zeroshot",
+   "state": "unknown",
+   "verified_for": "base",
+   "as_of": "2026-08-14",
+   "note": "⚠️ **差一点判成 ❌。** 模型卡写「Intended use: Base model to fine tune on your specific use case」—— 官方说它的**用途**是拿去微调，但**没有说不能直接跑**。对照 MolmoAct2 是明写「rather than as a ready-to-run policy」，那句才够判 ❌。**「建议你微调」和「不微调不行」是两件事。**"
+  },
+  {
+   "m": "smolvla",
+   "c": "e-embodiment",
+   "state": "unknown",
+   "verified_for": "base",
+   "as_of": "2026-08-14",
+   "note": "模型卡讲输入输出（多视角图像 + 本体状态 + 可选语言指令 → 连续动作）与训练目标（flow matching），**没有本体清单也没有跨本体机制**。同族有 `smolvla_libero`、`smolvla_robotwin` 等基准档，但那是微调出来的，不是跨本体证据。"
+  },
+  {
+   "m": "smolvla",
+   "c": "e-edge",
+   "state": "unknown",
+   "verified_for": "base",
+   "as_of": "2026-08-14",
+   "note": "⚠️ **这一格最容易记错。** 模型卡确实写着「trainable on a single GPU and **deployable on consumer hardware**」—— 但这一根轴问的是**有没有导出链路**（ONNX / TensorRT 那种），不是「跑得动」。GR00T 那格给的是完整导出 + 实测延迟表，量级完全不同。**「消费级硬件跑得动」不等于「有边缘部署工具链」**，所以维持 ⬜ 并把这句原话记在这里。"
+  },
+  {
+   "m": "smolvla",
+   "c": "e-framework",
+   "state": "unknown",
+   "verified_for": "base",
+   "as_of": "2026-08-14",
+   "note": "纯 PyTorch（模型卡示例 `import torch`），没有第二套实现，也没说不做。"
+  },
+  {
+   "m": "molmoact",
+   "c": "e-openweights",
+   "state": "yes",
+   "verified_for": "MolmoAct2",
+   "src": "molmoact-card",
+   "quote": "`allenai/MolmoAct2` 公开权重，模型卡说明该档「contains the VLM and continuous action expert weights, plus normalization metadata … in `norm_stats.json`」",
+   "as_of": "2026-08-14",
+   "note": ""
+  },
+  {
+   "m": "molmoact",
+   "c": "e-embodiment",
+   "state": "yes",
+   "verified_for": "MolmoAct2",
+   "src": "molmoact-card",
+   "quote": "模型卡：「This checkpoint is the post-trained, **multi-embodiment** MolmoAct2 model」",
+   "as_of": "2026-08-14",
+   "note": "同族按本体各出一档（`-SO100_101`、`-BimanualYAM`、`-DROID`），基座档自述是多本体的。"
+  },
+  {
+   "m": "molmoact",
+   "c": "e-zeroshot",
+   "state": "no",
+   "verified_for": "MolmoAct2",
+   "src": "molmoact-card",
+   "quote": "模型卡 `Intended Use`：「It is intended as a foundation checkpoint for further robot fine-tuning **rather than as a ready-to-run policy for a single deployment setting**」",
+   "as_of": "2026-08-14",
+   "note": "🎯 **这一卷第一个够格判 ❌ 的格子，而且它值得单独说。** 具身智能这一卷最难的就是找到「官方明确说不能」的句子 —— 厂商通常只说自己能做什么。Ai2 这句是主动划的边界：**不是我们推断它零样本不行，是它自己说的**。对照 SmolVLA 只说「建议拿去微调」，那句不够判 ❌。"
+  },
+  {
+   "m": "molmoact",
+   "c": "e-finetune",
+   "state": "yes",
+   "verified_for": "MolmoAct2",
+   "src": "molmoact-card",
+   "quote": "模型卡：「Use this checkpoint for **further fine-tuning on a target robot embodiment or benchmark**」",
+   "as_of": "2026-08-14",
+   "note": ""
+  },
+  {
+   "m": "molmoact",
+   "c": "e-dataformat",
+   "state": "unknown",
+   "verified_for": "MolmoAct2",
+   "as_of": "2026-08-14",
+   "note": "模型卡提到 `norm_stats.json` 归一化元数据，但**没写吃哪种数据格式**。同族有一个 `MolmoAct2-LIBERO-LeRobot` 档，名字里带 LeRobot —— 但那是某一个档的名字，不足以判整条产品线，**按规则十四那条教训不据此外推**。"
+  },
+  {
+   "m": "molmoact",
+   "c": "e-edge",
+   "state": "unknown",
+   "verified_for": "MolmoAct2",
+   "as_of": "2026-08-14",
+   "note": "模型卡 4k，只讲用途与结构，**没有部署相关内容**。"
+  },
+  {
+   "m": "molmoact",
+   "c": "e-framework",
+   "state": "unknown",
+   "verified_for": "MolmoAct2",
+   "as_of": "2026-08-14",
+   "note": "模型卡没提框架选择；代码在 `allenai/molmoact2`，还没读到那一层。**这是「还没读」，不是「读完没找到」** —— 两者要分清。"
+  },
+  {
+   "m": "helix",
+   "c": "e-openweights",
+   "state": "no",
+   "verified_for": "Helix",
+   "src": "figure-helix",
+   "quote": "官方发布页通篇是能力叙述与演示，**没有权重下载、没有仓库、没有 API 接入说明**",
+   "as_of": "2026-08-14",
+   "note": "Figure 没有公开 Helix 的权重。这不是「我们没找到」—— 一个模型若开放权重，发布页一定会给链接。"
+  },
+  {
+   "m": "helix",
+   "c": "e-embodiment",
+   "state": "unknown",
+   "verified_for": "Helix",
+   "as_of": "2026-08-14",
+   "note": "官方页讲的是它在 Figure 自家人形机器人上的表现，**没有跨本体的说法**。⚠️ **这一整行的 ⬜ 是另一种性质**：不是「官方没说」，是**这类事实在闭源模型身上不以文档形式存在**。Helix 只有一页 16k 的发布叙述，没有权重、没有 API —— 它是这一卷可核验度最低的一类。规则十五的边界三专门说了这件事。"
+  },
+  {
+   "m": "helix",
+   "c": "e-zeroshot",
+   "state": "unknown",
+   "verified_for": "Helix",
+   "as_of": "2026-08-14",
+   "note": "没有可下载的模型，「零样本可用」这个问题在它身上**问不出来** —— 你根本拿不到它。⚠️ **这一整行的 ⬜ 是另一种性质**：不是「官方没说」，是**这类事实在闭源模型身上不以文档形式存在**。Helix 只有一页 16k 的发布叙述，没有权重、没有 API —— 它是这一卷可核验度最低的一类。规则十五的边界三专门说了这件事。"
+  },
+  {
+   "m": "helix",
+   "c": "e-finetune",
+   "state": "unknown",
+   "verified_for": "Helix",
+   "as_of": "2026-08-14",
+   "note": "同上，无法微调一个拿不到的模型。⚠️ **这一整行的 ⬜ 是另一种性质**：不是「官方没说」，是**这类事实在闭源模型身上不以文档形式存在**。Helix 只有一页 16k 的发布叙述，没有权重、没有 API —— 它是这一卷可核验度最低的一类。规则十五的边界三专门说了这件事。"
+  },
+  {
+   "m": "helix",
+   "c": "e-dataformat",
+   "state": "unknown",
+   "verified_for": "Helix",
+   "as_of": "2026-08-14",
+   "note": "官方页不涉及数据格式。⚠️ **这一整行的 ⬜ 是另一种性质**：不是「官方没说」，是**这类事实在闭源模型身上不以文档形式存在**。Helix 只有一页 16k 的发布叙述，没有权重、没有 API —— 它是这一卷可核验度最低的一类。规则十五的边界三专门说了这件事。"
+  },
+  {
+   "m": "helix",
+   "c": "e-edge",
+   "state": "unknown",
+   "verified_for": "Helix",
+   "as_of": "2026-08-14",
+   "note": "官方页不涉及导出与部署。⚠️ **这一整行的 ⬜ 是另一种性质**：不是「官方没说」，是**这类事实在闭源模型身上不以文档形式存在**。Helix 只有一页 16k 的发布叙述，没有权重、没有 API —— 它是这一卷可核验度最低的一类。规则十五的边界三专门说了这件事。"
+  },
+  {
+   "m": "helix",
+   "c": "e-framework",
+   "state": "unknown",
+   "verified_for": "Helix",
+   "as_of": "2026-08-14",
+   "note": "官方页不涉及框架。⚠️ **这一整行的 ⬜ 是另一种性质**：不是「官方没说」，是**这类事实在闭源模型身上不以文档形式存在**。Helix 只有一页 16k 的发布叙述，没有权重、没有 API —— 它是这一卷可核验度最低的一类。规则十五的边界三专门说了这件事。"
+  },
+  {
+   "m": "internvla",
+   "c": "e-openweights",
+   "state": "unknown",
+   "verified_for": "A1.5",
+   "as_of": "2026-08-14",
+   "note": "⚠️ **整行未核。** 魔搭上四个仓（`-base` / `-Libero` / `-RoboTwin` / `-DOMINO`）都只有权重与配置，**没有模型卡正文** —— 这一行的 ⬜ 是「我们还没读到一份讲能力的官方页」，**不是「读完没找到」**。两者性质不同，按规则十四必须写清楚。⚠️ 连「开源权重」这一格都没填：权重确实公开着，但这一卷的许可差异极大（MIT / Apache-2.0 / NVIDIA 自家条款都有），**没读到许可就不填 ✅**。"
+  },
+  {
+   "m": "internvla",
+   "c": "e-embodiment",
+   "state": "unknown",
+   "verified_for": "A1.5",
+   "as_of": "2026-08-14",
+   "note": "⚠️ **整行未核。** 魔搭上四个仓（`-base` / `-Libero` / `-RoboTwin` / `-DOMINO`）都只有权重与配置，**没有模型卡正文** —— 这一行的 ⬜ 是「我们还没读到一份讲能力的官方页」，**不是「读完没找到」**。两者性质不同，按规则十四必须写清楚。⚠️ 连「开源权重」这一格都没填：权重确实公开着，但这一卷的许可差异极大（MIT / Apache-2.0 / NVIDIA 自家条款都有），**没读到许可就不填 ✅**。"
+  },
+  {
+   "m": "internvla",
+   "c": "e-zeroshot",
+   "state": "unknown",
+   "verified_for": "A1.5",
+   "as_of": "2026-08-14",
+   "note": "⚠️ **整行未核。** 魔搭上四个仓（`-base` / `-Libero` / `-RoboTwin` / `-DOMINO`）都只有权重与配置，**没有模型卡正文** —— 这一行的 ⬜ 是「我们还没读到一份讲能力的官方页」，**不是「读完没找到」**。两者性质不同，按规则十四必须写清楚。⚠️ 连「开源权重」这一格都没填：权重确实公开着，但这一卷的许可差异极大（MIT / Apache-2.0 / NVIDIA 自家条款都有），**没读到许可就不填 ✅**。"
+  },
+  {
+   "m": "internvla",
+   "c": "e-finetune",
+   "state": "unknown",
+   "verified_for": "A1.5",
+   "as_of": "2026-08-14",
+   "note": "⚠️ **整行未核。** 魔搭上四个仓（`-base` / `-Libero` / `-RoboTwin` / `-DOMINO`）都只有权重与配置，**没有模型卡正文** —— 这一行的 ⬜ 是「我们还没读到一份讲能力的官方页」，**不是「读完没找到」**。两者性质不同，按规则十四必须写清楚。⚠️ 连「开源权重」这一格都没填：权重确实公开着，但这一卷的许可差异极大（MIT / Apache-2.0 / NVIDIA 自家条款都有），**没读到许可就不填 ✅**。"
+  },
+  {
+   "m": "internvla",
+   "c": "e-dataformat",
+   "state": "unknown",
+   "verified_for": "A1.5",
+   "as_of": "2026-08-14",
+   "note": "⚠️ **整行未核。** 魔搭上四个仓（`-base` / `-Libero` / `-RoboTwin` / `-DOMINO`）都只有权重与配置，**没有模型卡正文** —— 这一行的 ⬜ 是「我们还没读到一份讲能力的官方页」，**不是「读完没找到」**。两者性质不同，按规则十四必须写清楚。⚠️ 连「开源权重」这一格都没填：权重确实公开着，但这一卷的许可差异极大（MIT / Apache-2.0 / NVIDIA 自家条款都有），**没读到许可就不填 ✅**。"
+  },
+  {
+   "m": "internvla",
+   "c": "e-edge",
+   "state": "unknown",
+   "verified_for": "A1.5",
+   "as_of": "2026-08-14",
+   "note": "⚠️ **整行未核。** 魔搭上四个仓（`-base` / `-Libero` / `-RoboTwin` / `-DOMINO`）都只有权重与配置，**没有模型卡正文** —— 这一行的 ⬜ 是「我们还没读到一份讲能力的官方页」，**不是「读完没找到」**。两者性质不同，按规则十四必须写清楚。⚠️ 连「开源权重」这一格都没填：权重确实公开着，但这一卷的许可差异极大（MIT / Apache-2.0 / NVIDIA 自家条款都有），**没读到许可就不填 ✅**。"
+  },
+  {
+   "m": "internvla",
+   "c": "e-framework",
+   "state": "unknown",
+   "verified_for": "A1.5",
+   "as_of": "2026-08-14",
+   "note": "⚠️ **整行未核。** 魔搭上四个仓（`-base` / `-Libero` / `-RoboTwin` / `-DOMINO`）都只有权重与配置，**没有模型卡正文** —— 这一行的 ⬜ 是「我们还没读到一份讲能力的官方页」，**不是「读完没找到」**。两者性质不同，按规则十四必须写清楚。⚠️ 连「开源权重」这一格都没填：权重确实公开着，但这一卷的许可差异极大（MIT / Apache-2.0 / NVIDIA 自家条款都有），**没读到许可就不填 ✅**。"
+  },
+  {
+   "m": "hy-embodied",
+   "c": "e-openweights",
+   "state": "unknown",
+   "verified_for": "0.5",
+   "as_of": "2026-08-14",
+   "note": "⚠️ **整行未核。** 魔搭上两个仓都是跟着基准 / 采集平台走的档（RoboTwin、UMI），**没看到通用基座档，也没有模型卡正文** —— 这一行的 ⬜ 是「我们还没读到一份讲能力的官方页」，**不是「读完没找到」**。两者性质不同，按规则十四必须写清楚。⚠️ 连「开源权重」这一格都没填：权重确实公开着，但这一卷的许可差异极大（MIT / Apache-2.0 / NVIDIA 自家条款都有），**没读到许可就不填 ✅**。"
+  },
+  {
+   "m": "hy-embodied",
+   "c": "e-embodiment",
+   "state": "unknown",
+   "verified_for": "0.5",
+   "as_of": "2026-08-14",
+   "note": "⚠️ **整行未核。** 魔搭上两个仓都是跟着基准 / 采集平台走的档（RoboTwin、UMI），**没看到通用基座档，也没有模型卡正文** —— 这一行的 ⬜ 是「我们还没读到一份讲能力的官方页」，**不是「读完没找到」**。两者性质不同，按规则十四必须写清楚。⚠️ 连「开源权重」这一格都没填：权重确实公开着，但这一卷的许可差异极大（MIT / Apache-2.0 / NVIDIA 自家条款都有），**没读到许可就不填 ✅**。"
+  },
+  {
+   "m": "hy-embodied",
+   "c": "e-zeroshot",
+   "state": "unknown",
+   "verified_for": "0.5",
+   "as_of": "2026-08-14",
+   "note": "⚠️ **整行未核。** 魔搭上两个仓都是跟着基准 / 采集平台走的档（RoboTwin、UMI），**没看到通用基座档，也没有模型卡正文** —— 这一行的 ⬜ 是「我们还没读到一份讲能力的官方页」，**不是「读完没找到」**。两者性质不同，按规则十四必须写清楚。⚠️ 连「开源权重」这一格都没填：权重确实公开着，但这一卷的许可差异极大（MIT / Apache-2.0 / NVIDIA 自家条款都有），**没读到许可就不填 ✅**。"
+  },
+  {
+   "m": "hy-embodied",
+   "c": "e-finetune",
+   "state": "unknown",
+   "verified_for": "0.5",
+   "as_of": "2026-08-14",
+   "note": "⚠️ **整行未核。** 魔搭上两个仓都是跟着基准 / 采集平台走的档（RoboTwin、UMI），**没看到通用基座档，也没有模型卡正文** —— 这一行的 ⬜ 是「我们还没读到一份讲能力的官方页」，**不是「读完没找到」**。两者性质不同，按规则十四必须写清楚。⚠️ 连「开源权重」这一格都没填：权重确实公开着，但这一卷的许可差异极大（MIT / Apache-2.0 / NVIDIA 自家条款都有），**没读到许可就不填 ✅**。"
+  },
+  {
+   "m": "hy-embodied",
+   "c": "e-dataformat",
+   "state": "unknown",
+   "verified_for": "0.5",
+   "as_of": "2026-08-14",
+   "note": "⚠️ **整行未核。** 魔搭上两个仓都是跟着基准 / 采集平台走的档（RoboTwin、UMI），**没看到通用基座档，也没有模型卡正文** —— 这一行的 ⬜ 是「我们还没读到一份讲能力的官方页」，**不是「读完没找到」**。两者性质不同，按规则十四必须写清楚。⚠️ 连「开源权重」这一格都没填：权重确实公开着，但这一卷的许可差异极大（MIT / Apache-2.0 / NVIDIA 自家条款都有），**没读到许可就不填 ✅**。"
+  },
+  {
+   "m": "hy-embodied",
+   "c": "e-edge",
+   "state": "unknown",
+   "verified_for": "0.5",
+   "as_of": "2026-08-14",
+   "note": "⚠️ **整行未核。** 魔搭上两个仓都是跟着基准 / 采集平台走的档（RoboTwin、UMI），**没看到通用基座档，也没有模型卡正文** —— 这一行的 ⬜ 是「我们还没读到一份讲能力的官方页」，**不是「读完没找到」**。两者性质不同，按规则十四必须写清楚。⚠️ 连「开源权重」这一格都没填：权重确实公开着，但这一卷的许可差异极大（MIT / Apache-2.0 / NVIDIA 自家条款都有），**没读到许可就不填 ✅**。"
+  },
+  {
+   "m": "hy-embodied",
+   "c": "e-framework",
+   "state": "unknown",
+   "verified_for": "0.5",
+   "as_of": "2026-08-14",
+   "note": "⚠️ **整行未核。** 魔搭上两个仓都是跟着基准 / 采集平台走的档（RoboTwin、UMI），**没看到通用基座档，也没有模型卡正文** —— 这一行的 ⬜ 是「我们还没读到一份讲能力的官方页」，**不是「读完没找到」**。两者性质不同，按规则十四必须写清楚。⚠️ 连「开源权重」这一格都没填：权重确实公开着，但这一卷的许可差异极大（MIT / Apache-2.0 / NVIDIA 自家条款都有），**没读到许可就不填 ✅**。"
+  },
+  {
+   "m": "xiaomi-robotics",
+   "c": "e-openweights",
+   "state": "unknown",
+   "verified_for": "1",
+   "as_of": "2026-08-14",
+   "note": "⚠️ **整行未核。** HF 与魔搭都有，但模型卡只有 2k，内容是「这是 RoboCasa365 评测用的检查点，含权重、自定义 Transformers 代码、分词器与动作归一化统计」 —— 这一行的 ⬜ 是「我们还没读到一份讲能力的官方页」，**不是「读完没找到」**。两者性质不同，按规则十四必须写清楚。⚠️ 连「开源权重」这一格都没填：权重确实公开着，但这一卷的许可差异极大（MIT / Apache-2.0 / NVIDIA 自家条款都有），**没读到许可就不填 ✅**。"
+  },
+  {
+   "m": "xiaomi-robotics",
+   "c": "e-embodiment",
+   "state": "unknown",
+   "verified_for": "1",
+   "as_of": "2026-08-14",
+   "note": "⚠️ **整行未核。** HF 与魔搭都有，但模型卡只有 2k，内容是「这是 RoboCasa365 评测用的检查点，含权重、自定义 Transformers 代码、分词器与动作归一化统计」 —— 这一行的 ⬜ 是「我们还没读到一份讲能力的官方页」，**不是「读完没找到」**。两者性质不同，按规则十四必须写清楚。⚠️ 连「开源权重」这一格都没填：权重确实公开着，但这一卷的许可差异极大（MIT / Apache-2.0 / NVIDIA 自家条款都有），**没读到许可就不填 ✅**。"
+  },
+  {
+   "m": "xiaomi-robotics",
+   "c": "e-zeroshot",
+   "state": "unknown",
+   "verified_for": "1",
+   "as_of": "2026-08-14",
+   "note": "⚠️ **整行未核。** HF 与魔搭都有，但模型卡只有 2k，内容是「这是 RoboCasa365 评测用的检查点，含权重、自定义 Transformers 代码、分词器与动作归一化统计」 —— 这一行的 ⬜ 是「我们还没读到一份讲能力的官方页」，**不是「读完没找到」**。两者性质不同，按规则十四必须写清楚。⚠️ 连「开源权重」这一格都没填：权重确实公开着，但这一卷的许可差异极大（MIT / Apache-2.0 / NVIDIA 自家条款都有），**没读到许可就不填 ✅**。"
+  },
+  {
+   "m": "xiaomi-robotics",
+   "c": "e-finetune",
+   "state": "unknown",
+   "verified_for": "1",
+   "as_of": "2026-08-14",
+   "note": "⚠️ **整行未核。** HF 与魔搭都有，但模型卡只有 2k，内容是「这是 RoboCasa365 评测用的检查点，含权重、自定义 Transformers 代码、分词器与动作归一化统计」 —— 这一行的 ⬜ 是「我们还没读到一份讲能力的官方页」，**不是「读完没找到」**。两者性质不同，按规则十四必须写清楚。⚠️ 连「开源权重」这一格都没填：权重确实公开着，但这一卷的许可差异极大（MIT / Apache-2.0 / NVIDIA 自家条款都有），**没读到许可就不填 ✅**。"
+  },
+  {
+   "m": "xiaomi-robotics",
+   "c": "e-dataformat",
+   "state": "unknown",
+   "verified_for": "1",
+   "as_of": "2026-08-14",
+   "note": "⚠️ **整行未核。** HF 与魔搭都有，但模型卡只有 2k，内容是「这是 RoboCasa365 评测用的检查点，含权重、自定义 Transformers 代码、分词器与动作归一化统计」 —— 这一行的 ⬜ 是「我们还没读到一份讲能力的官方页」，**不是「读完没找到」**。两者性质不同，按规则十四必须写清楚。⚠️ 连「开源权重」这一格都没填：权重确实公开着，但这一卷的许可差异极大（MIT / Apache-2.0 / NVIDIA 自家条款都有），**没读到许可就不填 ✅**。"
+  },
+  {
+   "m": "xiaomi-robotics",
+   "c": "e-edge",
+   "state": "unknown",
+   "verified_for": "1",
+   "as_of": "2026-08-14",
+   "note": "⚠️ **整行未核。** HF 与魔搭都有，但模型卡只有 2k，内容是「这是 RoboCasa365 评测用的检查点，含权重、自定义 Transformers 代码、分词器与动作归一化统计」 —— 这一行的 ⬜ 是「我们还没读到一份讲能力的官方页」，**不是「读完没找到」**。两者性质不同，按规则十四必须写清楚。⚠️ 连「开源权重」这一格都没填：权重确实公开着，但这一卷的许可差异极大（MIT / Apache-2.0 / NVIDIA 自家条款都有），**没读到许可就不填 ✅**。"
+  },
+  {
+   "m": "xiaomi-robotics",
+   "c": "e-framework",
+   "state": "unknown",
+   "verified_for": "1",
+   "as_of": "2026-08-14",
+   "note": "⚠️ **整行未核。** HF 与魔搭都有，但模型卡只有 2k，内容是「这是 RoboCasa365 评测用的检查点，含权重、自定义 Transformers 代码、分词器与动作归一化统计」 —— 这一行的 ⬜ 是「我们还没读到一份讲能力的官方页」，**不是「读完没找到」**。两者性质不同，按规则十四必须写清楚。⚠️ 连「开源权重」这一格都没填：权重确实公开着，但这一卷的许可差异极大（MIT / Apache-2.0 / NVIDIA 自家条款都有），**没读到许可就不填 ✅**。"
   }
  ],
  "$aliases_why": "各家给同一个能力起不同的名字。**Kling 管角色参考叫 Element，我按 Character Reference 去找，找不到就标了「官方没说」—— 假阴性。** 采集时必须用整组别名去匹配，不能只用我们自己的叫法。这是原方案 §36 Entity Resolution 在能力维度上的对应物。\n\n`alias_bit_us` 标在**真把我们坑过的那一项**上（角色参考）。别名多不等于叫法分歧大：「首尾帧」也有 8 条别名，但全是 start/end frame 的描述性变体，谁都猜得到；而 Element / Ingredients / cameo 是厂商自造词，**不知道就永远搜不到**。选例子要选后者，靠数别名条数是挑不出来的 —— 所以标在数据里，不用启发式猜。",
@@ -12814,6 +13993,30 @@
     }
    ],
    "href": "/avatar"
+  },
+  {
+   "id": "embodied",
+   "name": "AI 具身智能",
+   "state": "live",
+   "volume": "第七个方向",
+   "note": "第七个方向，2026-08-14 立项。**两轨** —— 这一卷最要紧的一件事是：`er` 与 `vla` 的轴根本不是同一种问题。`er`（具身推理）问「能不能做某件事」，因为 Google 在官方文档里给五项能力起了名字；`vla`（动作策略）问「**你能不能拿它跑起来**」，因为 openpi / GR00T / OpenVLA 三家 README 一句能力命名都没有，讲的全是本体标签、微调路径、数据格式、导出部署。⚠️ **和 AI 视频卷的边界**：产出物是动作序列 / 关节控制信号，不是影像。⚠️ **自动驾驶不收**：NVIDIA Alpamayo 按「产出物是动作」够格，但自动驾驶的轴（城市 NOA、接管率）与桌面抓取不通 —— 两根轴不通就是两个方向，它该是将来独立的一卷。⚠️ **机器人本体不占行**：宇树、Figure 的整机进公司与平台，收的是策略模型。 **2026-08-14 当天转 live**：四个公共页（可用性 / 变更 / 资源 / 教程）都补了内容，R68 才放行。⚠️ 转 live 不代表采完：73 格里 44 格 ⬜，而且这一卷的 ⬜ 分**三种**，方向页上照实写着 —— 「官方没说」「我们还没读到官方页」「这类事实在闭源模型身上压根不以文档形式存在」。",
+   "tracks": [
+    {
+     "id": "er",
+     "zh": "具身推理轨",
+     "short": "具身推理",
+     "volume": "第一卷",
+     "note": "输入图像与指令，输出点位 / 边界框 / 轨迹 / 计划 —— 不直接驱动关节"
+    },
+    {
+     "id": "vla",
+     "zh": "动作策略轨",
+     "short": "动作策略",
+     "volume": "第二卷",
+     "note": "输入图像 + 本体状态 + 指令，输出动作块（关节 / 末端位姿，带 action horizon）"
+    }
+   ],
+   "href": "/embodied"
   }
  ],
  "$domains": "前端的方向切换从这里渲染。**现在只有一个，界面上就只显示一个** —— 不做占位 tab 假装有别的。加方向 = 往这个数组里加一条 + 给模型标 domain，不动代码。\n\n**能力轴按方向隔离**（规则二再往上推一层）：能力也带 domain。clip 和 realtime 已经不能共用能力轴，视频和文本更不能 —— 「首尾帧」对文本模型没有意义，硬塞进同一张表只会造出一整片假的 ⬜。校验 R26 拦跨方向的格子。",
@@ -13800,6 +15003,20 @@
    "valid_from": "unknown",
    "valid_to": "unknown",
    "note": "⚠️ **不是快手官方发的**：跑的是哪一版权重、有没有改动，平台页没说 —— match 记 unknown"
+  },
+  {
+   "p": "google-ai",
+   "m": "gemini-robotics-er",
+   "listed": "Gemini Robotics ER 2 Preview",
+   "src": "gemini-robotics-er",
+   "quote": "官方文档 `Model endpoints` 一节列出 `Gemini Robotics ER 2 Preview` / `ER 2 Streaming Preview` / `ER 1.6 Preview` 三个端点，并有独立的 `Pricing` 小节",
+   "region": "全球",
+   "status": "available",
+   "match": "same",
+   "access_type": "api",
+   "plan": "unknown",
+   "valid_from": "unknown",
+   "valid_to": "unknown"
   }
  ],
  "$availability": "§9.3 明确要求「✓ 不能只是布尔值」。这里每格带：上架的**具体版本名**、状态、原文引用、来源。**最有用的一列是 match** —— 平台上架的常常不是当前主力版本（Replicate 上是 Hailuo 2.3 与初代 ltx-video，APIYI 上是 Seedance 2.0）。只答「有没有」会让人以为能用上当前版本的能力，那是错的。另外两类要标出来：coming-soon（还不能用）与上游已停服（平台还挂着不代表还能用多久）。\n\n补齐 §9.3 要求的五个字段。**能从平台属性推出来的才推**（access_type 由 platform.kind2、region 由 platform.region），**推不出来的一律 unknown，不许猜** —— plan / valid_from / valid_to 三项目前全是 unknown，那是事实不是遗漏。",
@@ -23539,6 +24756,42 @@
    "verdict": "中文社区知识库的数字人板块，分「数字人核心技术 / 相关文章 / 最佳实践 / 研究报告」，还有一份开源项目横评（HeyGem、LatentSync 等）。",
    "caveat": "⚠️ **社区共建、质量不均，也没有 LICENSE**；而且这块偏概念与资讯，**动手教程要去 1.5 AI 视频那一块找**。",
    "checked_at": "2026-08-14"
+  },
+  {
+   "task": "想把一个具身模型真的在机器人上跑起来",
+   "site": "LeRobot（Hugging Face）",
+   "url": "https://github.com/huggingface/lerobot",
+   "verdict": "26,649 星、Apache-2.0、2026-08-14 当天还在推 —— **这一卷事实上的公共底座**：π₀、SmolVLA 的权重在这儿托管，openpi 要求先把数据转成 LeRobot 格式，GR00T 有独立的 LeRobot 集成小节。想入门先装它，别从某一家的仓库开始。",
+   "caveat": "**它是框架不是模型**，装完你还是没有能干活的策略。而且 OpenVLA 那一支走的是 **RLDS** 格式不是 LeRobot，两边数据不通用，要自己转 —— 这正是我们把「数据格式」单列成一根轴的原因。",
+   "checked_at": "2026-08-14",
+   "domain": "embodied"
+  },
+  {
+   "task": "想知道一个模型到底支持哪些机器人",
+   "site": "NVIDIA Isaac GR00T · Policy API 文档",
+   "url": "https://github.com/NVIDIA/Isaac-GR00T/blob/main/getting_started/policy.md",
+   "verdict": "7,823 星、Apache-2.0。**这一卷里唯一把「哪些本体开箱可用、哪些必须先微调」列成两张表的官方文档**：预训练标签（`OXE_DROID…`、`XDOF`、`REAL_G1`）可零样本推理，后训练标签（`LIBERO_PANDA`、`UNITREE_G1_SONIC`）拿基座模型跑会直接报错。",
+   "caveat": "⚠️ **这份清单不在 README 里**，README 只写一句「see the Policy API Guide」。我们 2026-08-14 就是先只读了 README，差点把「跨本体」那一格记成没有依据。另外权重用的是 **NVIDIA 自家的 Open Model License**，不是 Apache/MIT，商用前要自己读条款。",
+   "checked_at": "2026-08-14",
+   "domain": "embodied"
+  },
+  {
+   "task": "想不买机器人就先把策略跑起来",
+   "site": "ManiSkill / MuJoCo（仿真）",
+   "url": "https://github.com/haosulab/ManiSkill",
+   "verdict": "ManiSkill 3,222 星、MuJoCo 14,548 星，都是 Apache-2.0 且本月还在更新。这一卷绝大多数模型放出的检查点是**跟着仿真基准走的**（LIBERO、RoboCasa、SimplerEnv、RoboTwin），没有仿真环境你连官方给的档都跑不起来。",
+   "caveat": "**仿真跑通不等于真机能用**，这是这一卷最大的一条鸿沟。厂商公布的成绩绝大多数是仿真成绩 —— 我们把它们全部放进「效果」而不是能力表，就是因为它们不构成「能做这件事」的证据。",
+   "checked_at": "2026-08-14",
+   "domain": "embodied"
+  },
+  {
+   "task": "想看中文侧有哪些具身模型",
+   "site": "魔搭 ModelScope",
+   "url": "https://modelscope.cn/models?name=VLA",
+   "verdict": "**中文侧只能在这儿看**：腾讯混元具身（`Hy-Embodied-0.5-VLA`）、上海 AI 实验室 `InternVLA`、星海图 `G0-VLA`、逐际动力、商汤、面壁 —— 这些在 Hugging Face 的 robotics 榜上几乎全部看不见。只看 HF 会得出「具身智能没有中国厂商」的错误结论。",
+   "caveat": "⚠️ **中文关键词比英文脏得多**：搜「机器人」，下载量第一的是 `iic/nlp_gpt3_kuakua-robot_chinese-large`（60,931 次）—— 那是个**夸夸聊天机器人**，和具身智能毫无关系。搜「具身」或「VLA」干净得多。另外这些仓大多只有权重与配置，**没有模型卡正文**，能力信息比 GR00T 少一个量级。",
+   "checked_at": "2026-08-14",
+   "domain": "embodied"
   }
  ],
  "$toolkit": "资源导航（方案 §16）。原话：**「不要做一排 Logo 的 hao123」，要「导航 + 判断」。**\n字段：{task, site, url, verdict, caveat, checked_at}\n**verdict 和 caveat 都必填（R49）** —— caveat 是负面结论，「Epoch AI 不收视频模型」这种我们真查过才知道的话，才是这一页的价值。 每条带 domain：这一页是全站公共的，按方向分组显示。",

@@ -612,6 +612,60 @@
     "musetalk"
    ],
    "domain": "avatar"
+  },
+  {
+   "id": "embodied-two-tracks-2026-08-14",
+   "date": "2026-08-14",
+   "side": "ours",
+   "kind": "口径确立",
+   "subject": "具身智能卷分两轨",
+   "before": "按老办法给一个新方向定一根能力轴，问「能不能做某件事」",
+   "after": "分 `er`（具身推理）与 `vla`（动作策略）两轨。`er` 沿用老问法，因为 Google 在官方文档里给五项能力起了名字；`vla` 那一轨的轴改成问「**你能不能拿它跑起来**」—— 本体标签、零样本、微调路径、数据格式、边缘部署、框架",
+   "why": "openpi / GR00T / OpenVLA 三家 README **一句能力命名都没有**，讲的全是怎么微调怎么部署。**硬套「能不能做某件事」会得到一整列 ⬜，而那是我们的问法不对，不是厂商不透明。**",
+   "impact": [
+    "groot",
+    "openvla",
+    "pi",
+    "smolvla"
+   ],
+   "models": [],
+   "domain": "embodied"
+  },
+  {
+   "id": "molmoact-not-ready-2026-08-14",
+   "date": "2026-08-14",
+   "side": "world",
+   "kind": "已知限制",
+   "subject": "MolmoAct2 的零样本可用",
+   "before": "开源基座模型默认可以先拿来直接试试",
+   "after": "Ai2 官方在 `Intended Use` 里明写：「It is intended as a foundation checkpoint for further robot fine-tuning **rather than as a ready-to-run policy for a single deployment setting**」",
+   "why": "**这是这一卷第一个够格判 ❌ 的格子。** 具身智能这一卷最难的就是找到「官方明确说不能」的句子 —— 厂商通常只说自己能做什么。对照 SmolVLA 只说「建议拿去微调」，那句不够判 ❌，仍是 ⬜。",
+   "impact": [
+    "molmoact"
+   ],
+   "src": "molmoact-card",
+   "models": [
+    "molmoact"
+   ],
+   "domain": "embodied"
+  },
+  {
+   "id": "openvla-maintained-2026-08-14",
+   "date": "2026-08-14",
+   "side": "world",
+   "kind": "生命周期",
+   "subject": "OpenVLA 停在 2024-06",
+   "before": "OpenVLA 是这一卷最有名的开源基座，默认它还在迭代",
+   "after": "`openvla/openvla-7b` 建于 2024-06-10，此后该组织只发过 LIBERO 基准微调档，**两年没有新代**；仓库最后一次 push 是 2025-03-23。状态记 `maintained` 而不是 `active`",
+   "why": "**「名气大」和「还在更新」是两件事。** 它至今仍是被第三方微调最多的一支，容易让人以为它是当前主力。",
+   "impact": [
+    "openvla"
+   ],
+   "src": "openvla-gh",
+   "models": [
+    "openvla"
+   ],
+   "domain": "embodied"
   }
  ]
 }

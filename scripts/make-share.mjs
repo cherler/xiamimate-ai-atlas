@@ -348,7 +348,25 @@ function modelCard(m, w, h) {
 
 /** 能力卡：这一项谁做到了，最早什么时候出现的。 */
 function capCard(c, w, h) {
-  const ms = a.models.filter((m) => (m.tier ?? "core") === "core" && (c.class === "both" || c.class === m.class));
+  /**
+   * **按方向 + 按轨，两维都要过。**
+   *
+   * 2026-08-14 具身智能卷上线时炸出来的：`capability-openweights-16x9` 与
+   * `capability-s-openweights-16x9` 两张突然「缩到 0.62 仍装不下」。
+   * 表面看是新卷把图撑爆了，**真相是这两张一直画错**——
+   * 这里原来只按 `class` 过滤，而这两项能力的 `class` 是 `"both"`
+   * （本意是「本方向的两条轨都算」）。少了 domain 这一维，
+   * `"both"` 就变成了「全站所有 core 模型」：**视频卷的「开源权重」分享图里
+   * 混着图像、文本、声音、3D、数字人六卷的模型，横跨 70 个。**
+   *
+   * 从第二卷上线那天起它就是错的，只是当时还塞得下、没人看得出来。
+   * **是尺寸限制替我们发现了内容错误** —— 那条「宁可不出图，也不出一张
+   * 裁掉了内容的图」的纪律，这次顺带兜住了另一种错。
+   */
+  const dom = c.domain ?? "video";
+  const ms = a.models.filter((m) => (m.tier ?? "core") === "core"
+    && (m.domain ?? "video") === dom
+    && (c.class === "both" || c.class === m.class));
   const st = (s) => ({ yes: ["✅", "yes"], no: ["❌", "no"], unknown: ["⬜", "unk"] })[s];
   return shell(w, h, `
     <div style="font-size:${Math.round(w * 0.04)}px;font-weight:700;line-height:1.2">${esc(c.zh)}</div>
