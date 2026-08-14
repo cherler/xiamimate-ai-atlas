@@ -3988,19 +3988,19 @@
    "class": "avatar",
    "family": "Hallo2",
    "org": "fudan",
-   "version": "2",
+   "version": "Hallo-Live",
    "version_as_of": "2026-08-14",
    "status": "active",
    "tier": "core",
    "domain": "avatar",
    "weights": "open",
    "zh_none": true,
-   "version_src": "hf-hallo2",
-   "version_quote": "官方仓库 fudan-generative-ai/hallo2（2024-10-13，♥136，**MIT**）",
-   "lineage_note": "数字人卷 2026-08-14 才立项，谱系还没采 —— **这是「没采到」不是「它没有历史」**",
+   "version_src": "hf-hallo-live",
+   "version_quote": "「Hallo-Live: Real-Time Streaming Joint Audio-Video Avatar Generation」（arXiv 2604.23632，createdAt 2026-04-28，MIT，↓362）",
+   "lineage_note": "Champ（2024-03）→ Hallo（2024-06）→ Hallo2（2024-10）→ Hallo3（2024-11）→ Hallo4（2025-11，受限访问）→ Hallo-Live（2026-04）",
    "reach_cn": "unknown",
    "reach_note": "还没测",
-   "note": "⚠️ 同上：只核到仓库与许可"
+   "note": "⚠️ 同上：只核到仓库与许可 ⚠️ **立项当天我们把当前版本记成了 Hallo2（2024-10）** —— 实际这条线已经发到 Hallo-Live，中间隔了三代。采谱系时才发现。"
   }
  ],
  "sources": {
@@ -5837,6 +5837,21 @@
   "heygen-training": {
    "name": "HeyGen · 培训与入职视频（Cookbook）",
    "url": "https://developers.heygen.com/training-and-onboarding-videos.md",
+   "tier": "official"
+  },
+  "heygen-changelog": {
+   "name": "HeyGen · API 更新日志",
+   "url": "https://developers.heygen.com/changelog.md",
+   "tier": "official"
+  },
+  "hf-hallo-live": {
+   "name": "HF · 复旦 Hallo-Live",
+   "url": "https://huggingface.co/fudan-generative-ai/Hallo-Live",
+   "tier": "official"
+  },
+  "hf-longcat-avatar-10": {
+   "name": "HF · 美团 LongCat-Video-Avatar（1.0）",
+   "url": "https://huggingface.co/meituan-longcat/LongCat-Video-Avatar",
    "tier": "official"
   }
  },
@@ -12403,16 +12418,17 @@
    "c": "p-photo",
    "state": "yes",
    "verified_for": "2",
-   "note": "标题里的 **Portrait Image Animation** —— 输入是一张人像图",
+   "note": "标题里的 **Portrait Image Animation** —— 输入是一张人像图　⚠️ **这条证据核的是 Hallo2**；Hallo-Live 的模型卡只有标题与论文号，没有逐项能力说明 —— 标待重核，不沿用。",
    "as_of": "2026-08-14",
    "src": "hf-hallo2",
-   "via": "native"
+   "via": "native",
+   "recheck": "Hallo-Live"
   },
   {
    "m": "hallo2",
    "c": "p-clone",
    "state": "unknown",
-   "verified_for": "2",
+   "verified_for": "Hallo-Live",
    "note": "立项当天（2026-08-14）只核到版本与该家最显眼的几项能力，这一格**还没查**",
    "as_of": "2026-08-14"
   },
@@ -12420,7 +12436,7 @@
    "m": "hallo2",
    "c": "p-identity",
    "state": "unknown",
-   "verified_for": "2",
+   "verified_for": "Hallo-Live",
    "note": "README 强调的是**长时长与高分辨率**（示例给到 4K、23 分钟、最长 1 小时），**没有一处谈形象一致**。长视频里脸会不会漂，官方没说",
    "as_of": "2026-08-14",
    "src": "hf-hallo2"
@@ -12429,7 +12445,7 @@
    "m": "hallo2",
    "c": "p-fullbody",
    "state": "unknown",
-   "verified_for": "2",
+   "verified_for": "Hallo-Live",
    "note": "立项当天（2026-08-14）只核到版本与该家最显眼的几项能力，这一格**还没查**",
    "as_of": "2026-08-14"
   },
@@ -12438,16 +12454,17 @@
    "c": "p-audio",
    "state": "yes",
    "verified_for": "2",
-   "note": "标题：「Hallo2: Long-Duration and High-Resolution **Audio-driven Portrait Image Animation**」",
+   "note": "标题：「Hallo2: Long-Duration and High-Resolution **Audio-driven Portrait Image Animation**」　⚠️ **这条证据核的是 Hallo2**；Hallo-Live 的模型卡只有标题与论文号，没有逐项能力说明 —— 标待重核，不沿用。",
    "as_of": "2026-08-14",
    "src": "hf-hallo2",
-   "via": "native"
+   "via": "native",
+   "recheck": "Hallo-Live"
   },
   {
    "m": "hallo2",
    "c": "p-text",
    "state": "unknown",
-   "verified_for": "2",
+   "verified_for": "Hallo-Live",
    "note": "立项当天（2026-08-14）只核到版本与该家最显眼的几项能力，这一格**还没查**",
    "as_of": "2026-08-14"
   },
@@ -12455,7 +12472,7 @@
    "m": "hallo2",
    "c": "p-video",
    "state": "unknown",
-   "verified_for": "2",
+   "verified_for": "Hallo-Live",
    "note": "立项当天（2026-08-14）只核到版本与该家最显眼的几项能力，这一格**还没查**",
    "as_of": "2026-08-14"
   },
@@ -12463,7 +12480,7 @@
    "m": "hallo2",
    "c": "p-lipsync",
    "state": "unknown",
-   "verified_for": "2",
+   "verified_for": "Hallo-Live",
    "note": "立项当天（2026-08-14）只核到版本与该家最显眼的几项能力，这一格**还没查**",
    "as_of": "2026-08-14"
   },
@@ -12471,7 +12488,7 @@
    "m": "hallo2",
    "c": "p-translate",
    "state": "unknown",
-   "verified_for": "2",
+   "verified_for": "Hallo-Live",
    "note": "立项当天（2026-08-14）只核到版本与该家最显眼的几项能力，这一格**还没查**",
    "as_of": "2026-08-14"
   },
@@ -12480,16 +12497,17 @@
    "c": "p-emotion",
    "state": "yes",
    "verified_for": "2",
-   "note": "命令行参数里可分别调 `--pose_weight` `--face_weight` `--lip_weight` `--face_expand_ratio` —— 姿态 / 表情 / 口型分开加权",
+   "note": "命令行参数里可分别调 `--pose_weight` `--face_weight` `--lip_weight` `--face_expand_ratio` —— 姿态 / 表情 / 口型分开加权　⚠️ **这条证据核的是 Hallo2**；Hallo-Live 的模型卡只有标题与论文号，没有逐项能力说明 —— 标待重核，不沿用。",
    "as_of": "2026-08-14",
    "src": "hf-hallo2",
-   "via": "native"
+   "via": "native",
+   "recheck": "Hallo-Live"
   },
   {
    "m": "hallo2",
    "c": "p-multi",
    "state": "unknown",
-   "verified_for": "2",
+   "verified_for": "Hallo-Live",
    "note": "立项当天（2026-08-14）只核到版本与该家最显眼的几项能力，这一格**还没查**",
    "as_of": "2026-08-14"
   },
@@ -12497,7 +12515,7 @@
    "m": "hallo2",
    "c": "p-live",
    "state": "unknown",
-   "verified_for": "2",
+   "verified_for": "Hallo-Live",
    "note": "立项当天（2026-08-14）只核到版本与该家最显眼的几项能力，这一格**还没查**",
    "as_of": "2026-08-14"
   },
@@ -12505,7 +12523,7 @@
    "m": "hallo2",
    "c": "p-alpha",
    "state": "unknown",
-   "verified_for": "2",
+   "verified_for": "Hallo-Live",
    "note": "立项当天（2026-08-14）只核到版本与该家最显眼的几项能力，这一格**还没查**",
    "as_of": "2026-08-14"
   },
@@ -12515,9 +12533,10 @@
    "state": "yes",
    "verified_for": "2",
    "src": "hf-hallo2",
-   "note": "权重在官方仓库，许可 **MIT**",
+   "note": "权重在官方仓库，许可 **MIT**　⚠️ **这条证据核的是 Hallo2**；Hallo-Live 的模型卡只有标题与论文号，没有逐项能力说明 —— 标待重核，不沿用。",
    "via": "native",
-   "as_of": "2026-08-14"
+   "as_of": "2026-08-14",
+   "recheck": "Hallo-Live"
   }
  ],
  "$aliases_why": "各家给同一个能力起不同的名字。**Kling 管角色参考叫 Element，我按 Character Reference 去找，找不到就标了「官方没说」—— 假阴性。** 采集时必须用整组别名去匹配，不能只用我们自己的叫法。这是原方案 §36 Entity Resolution 在能力维度上的对应物。\n\n`alias_bit_us` 标在**真把我们坑过的那一项**上（角色参考）。别名多不等于叫法分歧大：「首尾帧」也有 8 条别名，但全是 start/end frame 的描述性变体，谁都猜得到；而 Element / Ingredients / cameo 是厂商自造词，**不知道就永远搜不到**。选例子要选后者，靠数别名条数是挑不出来的 —— 所以标在数据里，不用启发式猜。",
@@ -18180,6 +18199,203 @@
    "quote": "摘要：「a **unified PBR model** that directly generates multi-view albedo and metallic-roughness maps」；「a simulation-ready model suite comprising **scene layout planning, part-aware decomposition, and training-free articulation generation**」",
    "note": "⚠️ 摘要里那句「consistent win rates of 69.0% to 89.9%」是**厂商自述的人评胜率**，不是第三方评测 —— 站上不转述成结论。",
    "cap": "d-pbr"
+  },
+  {
+   "id": "hallo-champ",
+   "m": "hallo2",
+   "version": "Champ",
+   "date": "2024-03-24",
+   "added": "这条线的起点（人体动画）",
+   "src": "hf-lineage",
+   "quote": "官方 HF 仓库 fudan-generative-ai/champ（createdAt 2024-03-24，♥28）",
+   "cap_skip": "仓库页只给名字，没说它对应我们轴上哪一项"
+  },
+  {
+   "id": "hallo-1",
+   "m": "hallo2",
+   "version": "Hallo",
+   "date": "2024-06-22",
+   "parent": "hallo-champ",
+   "added": "音频驱动人像动画首发",
+   "src": "hf-lineage",
+   "quote": "官方 HF 仓库 fudan-generative-ai/hallo（createdAt 2024-06-22，↓631 ♥98）",
+   "cap": "p-audio"
+  },
+  {
+   "id": "hallo-2",
+   "m": "hallo2",
+   "version": "2",
+   "date": "2024-10-13",
+   "parent": "hallo-1",
+   "added": "长时长 + 高分辨率",
+   "src": "hf-hallo2",
+   "quote": "「Hallo2: **Long-Duration and High-Resolution** Audio-driven Portrait Image Animation」（MIT，♥136）；示例给到 4K、23 分钟",
+   "cap_skip": "长时长与高分辨率是质量维度，对不上轴上某一项"
+  },
+  {
+   "id": "hallo-3",
+   "m": "hallo2",
+   "version": "3",
+   "date": "2024-11-27",
+   "parent": "hallo-2",
+   "added": "第三代",
+   "src": "hf-lineage",
+   "quote": "官方 HF 仓库 fudan-generative-ai/hallo3（createdAt 2024-11-27，♥66）",
+   "cap_skip": "仓库页只给版本，没有能力说明"
+  },
+  {
+   "id": "hallo-4",
+   "m": "hallo2",
+   "version": "4",
+   "date": "2025-11-30",
+   "parent": "hallo-3",
+   "added": "第四代",
+   "src": "hf-lineage",
+   "quote": "官方 HF 仓库 fudan-generative-ai/hallo4（createdAt 2025-11-30，♥2）",
+   "note": "⚠️ **仓库是受限访问**（未登录读 README 得到「Access to model … is restricted」）—— 只能证明它存在与发布时间",
+   "cap_skip": "读不到说明，不猜"
+  },
+  {
+   "id": "hallo-live",
+   "m": "hallo2",
+   "version": "Hallo-Live",
+   "date": "2026-04-28",
+   "parent": "hallo-4",
+   "added": "实时流式：音视频联合生成",
+   "src": "hf-hallo-live",
+   "quote": "「Hallo-Live: **Real-Time Streaming Joint Audio-Video Avatar Generation**」（arXiv 2604.23632，MIT，↓362）",
+   "note": "⚠️ **我们把当前版本记成 Hallo2（2024-10）记到了今天** —— 这条线一路发到 Hallo-Live，中间隔了三代。",
+   "cap": "p-live"
+  },
+  {
+   "id": "muse-v",
+   "m": "musetalk",
+   "version": "MuseV",
+   "date": "2024-03-19",
+   "added": "这条线的起点（人物视频生成）",
+   "src": "hf-lineage",
+   "quote": "官方 HF 仓库 TMElyralab/MuseV（createdAt 2024-03-19，♥139）",
+   "cap_skip": "仓库页只给名字"
+  },
+  {
+   "id": "muse-talk",
+   "m": "musetalk",
+   "version": "MuseTalk",
+   "date": "2024-04-02",
+   "parent": "muse-v",
+   "added": "实时唇形同步",
+   "src": "hf-musetalk",
+   "quote": "「MuseTalk: **Real-Time High Quality Lip Synchronization** with Latent Space Inpainting」（30fps+ on V100）",
+   "cap": "p-lipsync"
+  },
+  {
+   "id": "muse-pose",
+   "m": "musetalk",
+   "version": "MusePose",
+   "date": "2024-05-27",
+   "parent": "muse-talk",
+   "added": "姿态驱动",
+   "src": "hf-lineage",
+   "quote": "官方 HF 仓库 TMElyralab/MusePose（createdAt 2024-05-27，♥85）",
+   "cap_skip": "姿态驱动对不上轴上现有的项 —— 轴里有「视频驱动与重定向」，但仓库页没说它是不是那件事"
+  },
+  {
+   "id": "longcat-avatar-10",
+   "m": "longcat-avatar",
+   "version": "1.0",
+   "date": "2025-12-13",
+   "added": "首发",
+   "src": "hf-longcat-avatar-10",
+   "quote": "官方 HF 仓库 meituan-longcat/LongCat-Video-Avatar（createdAt 2025-12-13，♥259，MIT）",
+   "cap": "p-audio"
+  },
+  {
+   "id": "longcat-avatar-15",
+   "m": "longcat-avatar",
+   "version": "1.5",
+   "date": "2026-05-21",
+   "parent": "longcat-avatar-10",
+   "added": "面向生产可用：形象一致 + 多人同框",
+   "src": "hf-longcat-avatar",
+   "quote": "「prioritizes extreme empirical optimization and **production-readiness**」；「strict identity consistency」「multi-person interactions」（♥714）",
+   "cap": "p-identity"
+  },
+  {
+   "id": "hunyuan-avatar-10",
+   "m": "hunyuan-avatar",
+   "version": "1.0",
+   "date": "2025-05-26",
+   "added": "多角色 + 情绪对齐",
+   "src": "hf-hunyuan-avatar",
+   "quote": "「HunyuanVideo-Avatar: High-Fidelity Audio-Driven Human Animation **for Multiple Characters**」（arXiv 2505.20156，♥333）",
+   "cap": "p-multi"
+  },
+  {
+   "id": "liveportrait-10",
+   "m": "liveportrait",
+   "version": "1.0",
+   "date": "2024-07-08",
+   "added": "视频驱动 + 缝合与重定向控制",
+   "src": "hf-liveportrait",
+   "quote": "「LivePortrait: Efficient Portrait Animation with **Stitching and Retargeting Control**」（MIT，♥487，createdAt 2024-07-08）",
+   "cap": "p-video"
+  },
+  {
+   "id": "heygen-v3api",
+   "m": "heygen",
+   "version": "v3 API",
+   "date": "2026-04-01",
+   "added": "v3 端点整套上线",
+   "src": "heygen-changelog",
+   "quote": "更新日志最早的一批（2026-04）：「New v3 API endpoints」「New Video Creation Schema」「New Voice Creation Endpoint」",
+   "note": "⚠️ **这份日志只到 2026-04** —— Avatar III / IV 更早就有了，但官方没给可引的上线时间。**这不是「它没有历史」，是「我们拿不到」**。",
+   "cap_skip": "端点整改不是新增能力"
+  },
+  {
+   "id": "heygen-avatar3",
+   "m": "heygen",
+   "version": "Avatar III",
+   "date": "2026-06-01",
+   "parent": "heygen-v3api",
+   "added": "Avatar III 引擎接进 v3",
+   "src": "heygen-changelog",
+   "quote": "更新日志 2026-06「Avatar III Engine Support」：「We have expanded the capabilities of POST /v3/videos to include support for the **Avatar III engine**」",
+   "cap_skip": "接引擎不是新增能力项"
+  },
+  {
+   "id": "heygen-avatar5",
+   "m": "heygen",
+   "version": "Avatar V",
+   "date": "2026-05-12",
+   "parent": "heygen-v3api",
+   "added": "Avatar V 与 IV 同价",
+   "src": "heygen-changelog",
+   "quote": "更新日志 2026-05-12「Avatar V Pricing Parity with Avatar IV」：「Per-second video generation rates for **Avatar V** now match Avatar IV」",
+   "note": "⚠️ **拿计费公告当发布日期是退而求其次**：日志里没有 Avatar V 的上线条目，这条只能证明「2026-05-12 它已存在」。",
+   "cap_skip": "计费变化不是能力"
+  },
+  {
+   "id": "heygen-batch",
+   "m": "heygen",
+   "version": "Avatar V",
+   "date": "2026-07-01",
+   "parent": "heygen-avatar5",
+   "added": "批量翻译 / 唇形同步 / 资产接口",
+   "src": "heygen-changelog",
+   "quote": "更新日志 2026-07「Batch APIs for Translations, Lipsyncs, and Assets」；同月还有「Batch Video Creation」",
+   "cap": "p-translate"
+  },
+  {
+   "id": "heygen-consent",
+   "m": "heygen",
+   "version": "Avatar V",
+   "date": "2026-08-01",
+   "parent": "heygen-batch",
+   "added": "肖像授权视频可直接上传",
+   "src": "heygen-changelog",
+   "quote": "更新日志 2026-08「Consent Video Upload Available for All Enterprise Accounts」：「Level 2 consent is **no longer gated behind a whitelist**」",
+   "note": "⚠️ 这条记的是**合规流程**不是模型能力（见规则十三：consent 特意没进能力轴）—— 但它对能不能真的用上影响很大，所以进谱系。",
+   "cap_skip": "合规流程，按规则十三不挂能力"
   }
  ],
  "$versions": "版本谱系（演进图的数据）。**演进的主体是模型，不是能力。**\n\n原来那张演进图每行是一项能力、横轴是「我们能证明的最早时间」、粗细是几家支持。\n读者看完只得到「动作复刻 2025-12 出现、6/9 支持」—— 那是一次数据库查询的可视化，不涨知识。\n而且它得靠图注免责（「不是业界首次出现」）：**一张需要图注免责的图，说明它量错了东西。**\n\n这份数据画的是**厂商自己发布的版本和日期**，所以不需要免责。每条必须回答：\n**这一代新增了什么。** 只有版本号没有 added 的节点没有价值，不收。\n\n两个最好的来源，都不是「新闻」：\n  · **官方 Hugging Face 组织** —— 模型名本身就编码了能力与代际\n    （Wan2.1-FLF2V＝首尾帧、Wan2.2-S2V＝语音驱动、LTX 的 IC-LoRA-Ingredients＝角色参考），\n    发布时间由 HF API 给出，比任何新闻稿都准。\n  · **官方 API 更新日志** —— 可灵那份 31k 字符里有 170 条带日期的条目。\n\n覆盖不全是事实：万相和可灵能画出完整谱系，Runway/Vidu/Seedance 只有近期几个点，\nVeo/Sora/海螺/LTX 还没有。**图上要标出哪几条线是完整的、哪几条只是片段** ——\n画一条只有两个点的线却不说明，读者会以为这家两年只更新过两次。\n\n`cap` 把版本节点挂到能力 id 上，图上「点一项能力，看各家谁先谁后」靠它。\n**对不上的一律留空并写明理由（cap_skip），不硬凑** —— 硬凑一个 id，纵向那一刀就切错了。\n典型：Wan 的 S2V 是「语音驱动」，不等于我们轴上的「对口型」，两件事不合并；\n「换代」节点本身也不是新增单项能力。\n\n`id` + `parent` 把平铺记录变成**真的树**。分叉是真实存在的：\nWan2.1 底座上同时长出 FLF2V（首尾帧）和 VACE（统一编辑）两个变体，\nWan2.2 是换代接在 2.1 后面，Animate-2 又接在 Animate 后面。\n\n**没有父节点的就让它当根，不许为了让树好看硬接一条边** ——\nRunway 的 Aleph 是编辑线，不是 Gen 的后代，它自己是一棵树。\n\n⚠️ **日期必须取 HF 的 `createdAt`，不能取 `lastModified`。**\n第一版取错了字段，把「最后修改」当成了发布日期：Wan2.2 记成 2025-08-07（实际 2025-07-18）、\nAnimate 记成 2025-11-05（实际 2025-09-11）——**差了两个月**。\n仓库发布后还会被反复更新，两个字段根本不是一回事。\n这类错最阴：日期看着合理、图也画得出来，但整条时间线是歪的。\n\n覆盖不足要**写在数据里**，不是靠图上一句话糊过去：\n模型的 `lineage_note` 解释为什么它的节点少（太新 / 官方记录只回溯到某时）。\n校验 R58 强制：**核心模型少于 3 个节点却没写理由，就是错**。\n「我们没采到」和「它本来就没有」是两回事，读者有权知道是哪一种。",

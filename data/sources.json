@@ -5074,6 +5074,48 @@
     "application-resource"
    ],
    "note": "数字人卷场景应用的公开资源，2026-08-14 从官方文档索引里取的直链"
+  },
+  {
+   "id": "heygen-changelog",
+   "tier": "S",
+   "kind": "html",
+   "vendor": "",
+   "name": "HeyGen · API 更新日志",
+   "url": "https://developers.heygen.com/changelog.md",
+   "refresh_days": 14,
+   "good_for": [
+    "version",
+    "capability"
+   ],
+   "note": "70 条带月份的记录（2026-04 起）。⚠️ **只到 2026-04**：更早的代际（Avatar III/IV 何时上线）这份日志里没有"
+  },
+  {
+   "id": "hf-hallo-live",
+   "tier": "S",
+   "kind": "html",
+   "vendor": "",
+   "name": "HF · 复旦 Hallo-Live",
+   "url": "https://huggingface.co/fudan-generative-ai/Hallo-Live",
+   "refresh_days": 14,
+   "good_for": [
+    "version",
+    "capability"
+   ],
+   "note": "这条线的当前发布"
+  },
+  {
+   "id": "hf-longcat-avatar-10",
+   "tier": "S",
+   "kind": "html",
+   "vendor": "",
+   "name": "HF · 美团 LongCat-Video-Avatar（1.0）",
+   "url": "https://huggingface.co/meituan-longcat/LongCat-Video-Avatar",
+   "refresh_days": 14,
+   "good_for": [
+    "version",
+    "capability"
+   ],
+   "note": "1.5 的上一代"
   }
  ],
  "$missing": [
