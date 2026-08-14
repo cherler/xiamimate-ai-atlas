@@ -55,9 +55,52 @@ for (const o of atlas.orgs ?? []) {
   }
 }
 
+/**
+ * ⚠️ **比之前先把连字符、下划线、空格抹平。** 2026-08-14 上午刚修过一次
+ * （`known` 里只有模型名、没有机构名，于是 Lightricks 被当成新面孔），
+ * 下午又撞见同一类的第二只：**`black-forest-labs`** —— FLUX 的厂商，
+ * 我们库里记的是 `Black Forest Labs`（带空格），两个字符串**互相都不是子串**。
+ *
+ * **同一个 bug 的第二种写法，说明修的位置不对**：判据不该是「字符串包含」，
+ * 而该是「抹平分隔符之后包含」。HF 的组织名用连字符，我们的字段用空格，
+ * 这个差异会一直在。
+ */
+const flat = (x) => String(x).toLowerCase().replace(/[\s\-_.]/g, "");
+
+/**
+ * ⚠️ **看过并写下理由的，不该下周再报一遍。**
+ *
+ * 2026-08-14：按新默认动作把候选逐条判完 —— 该收的收进扩展层，不收的**写进 `excluded`
+ * 并说明它该在哪一层**（微调档属于 Skill、超分属于「放大与修复」、ControlNet 属于控制件…）。
+ * 然后重跑候选：**一条没少**。因为这支脚本只认「库里有没有这个模型」，
+ * 根本不读排除清单 —— 于是「已经判过」和「还没看」在这张表上长得一模一样。
+ *
+ * **这就是那摞候选永远不收敛的根**（§59.3：不收敛的清单等于没有清单）。
+ * 排除条目的 `name` 与 `same_bucket` 一并算作「看过了」。
+ */
+/**
+ * ⚠️ **我们引用过的仓库路径，其组织名也算「已知」。**
+ * 2026-08-14：刚把 CogVideoX 与 I2VGen-XL 收进库，候选里 `zai-org`、`ali-vilab`
+ * 还是照报 —— 因为我们的机构 id 是 `zhipu`、`alibaba`，**和 HF 的组织名对不上**。
+ * 判据应该是「这个组织的仓库有没有出现在我们的证据里」，而不是「名字像不像」。
+ */
+for (const m of String(JSON.stringify(atlas)).matchAll(/(?:huggingface\.co\/|["「（(\s])([A-Za-z0-9][\w.-]{2,30})\/[\w.-]{2,60}/g)) {
+  const k = flat(m[1]);
+  if (k.length >= 3) known.add(k);
+}
+
+const passed = new Set();
+for (const e of atlas.excluded ?? []) {
+  for (const w of [e.name, ...(e.same_bucket ?? [])]) {
+    const k = flat(String(w).split("/")[0]);   // 组织名就够了：`John6666/xxx` 与 `John6666` 是同一件事
+    if (k.length >= 3) passed.add(k);
+  }
+}
+const knownFlat = new Set([...known].map(flat));
 const isNew = (s) => {
-  const low = s.toLowerCase();
-  return ![...known].some((k) => low.includes(k) || k.includes(low));
+  const low = flat(s);
+  if ([...passed].some((k) => low.includes(k) || k.includes(low))) return false;   // 判过了
+  return ![...knownFlat].some((k) => k.length >= 3 && (low.includes(k) || k.includes(low)));
 };
 
 /**

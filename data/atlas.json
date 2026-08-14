@@ -1844,6 +1844,22 @@
    "kind": "startup",
    "zh_none": true,
    "note": "官网列三条线：V6（出片）· C1（电影级）· R1（实时交互世界）"
+  },
+  {
+   "id": "sandai",
+   "zh": "Sand.ai",
+   "en": "Sand.ai",
+   "name": "Sand.ai",
+   "kind": "startup",
+   "zh_none": true,
+   "note": "MAGI 系列；AA 榜上 MAGI-2 Preview Elo 1108"
+  },
+  {
+   "id": "meituan",
+   "zh": "美团 LongCat",
+   "en": "Meituan LongCat",
+   "name": "Meituan",
+   "kind": "bigtech"
   }
  ],
  "$orgs": "公司是**一等实体**，不是模型上的一个字符串（此前 vendor 是字符串，结果阿里在库里成了两家）。产业链图、地球分布、投资关系全都挂在这一层上。\n**hq 只有 5 家有来源，其余 6 家仍然没有** —— 都是公开常识，但我们自己的规矩是「没有来源的结论就是猜的」，所以校验里 R21 会一直警告，前台也必须标出来。不许因为「大家都知道」就当成核过了。\n\n2026-08-08 补：从已有快照和官网拿到 5 家的可引证据，但**精度分三档**，写进 `hq_precision`：\n  exact     —— 页脚给出具体街道地址（只有字节）\n  province  —— **ICP 备案只证到省**（快手/MiniMax/阿里）。阿里那条只证到浙江，没证到杭州\n  ambiguous —— 招聘页同时列两个城市（Runway 的纽约与旧金山）\n\n剩下 6 家（生数、昆仑万维、Google DeepMind、OpenAI、Decart、Lightricks）没拿到：\n**生数官网 HTTPS 证书已过期**（ERR_CERT_DATE_INVALID）—— 这条本身就是信息；\n其余几家的 about/contact 页没有可机读的地址段。R21 会一直为它们报警告。\n\n**不许把 province 当成 exact 用。** 我们批评厂商「说了半句」的时候，自己不能也说半句。",
@@ -3527,6 +3543,82 @@
    "reach_cn": "unknown",
    "reach_note": "还没测",
    "note": "2026-08-14 从 AA 榜的候选里收进来的（Elo 1078）。**官方有一张能力矩阵**（C1 / V6 / Legacy 三列），逐格核验的成本比大多数闭源厂商低得多。⚠️ 同门还有 **C1（电影级）与 R1（实时交互世界）** 两条线没收：C1 是同一轨的另一档，R1 按规则一补充要先判它是不是世界模型。"
+  },
+  {
+   "id": "magi",
+   "class": "clip",
+   "family": "MAGI",
+   "org": "sandai",
+   "version": "2 Preview",
+   "version_as_of": "2026-08-14",
+   "status": "active",
+   "tier": "extended",
+   "domain": "video",
+   "weights": "open",
+   "zh_none": true,
+   "version_src": "hf-magi",
+   "version_quote": "官方 HF 组织 sand-ai：MAGI-1（2025-04-18，♥612，Apache-2.0，标签 image-to-video）与 **MAGI-2-preview（2026-08-03，♥49）**；AA 榜位次 Elo 1108",
+   "lineage_note": "扩展层，只记当前版本，没采谱系 —— 这是「没采」不是「它没有历史」",
+   "reach_cn": "unknown",
+   "reach_note": "还没测",
+   "note": "⚠️ **AA 榜上比 PixVerse V6 还高（1108 vs 1078），我们一直没收** —— 之前它躺在候选清单里等一次「值不值得占名额」的判断。按 2026-08-14 的新默认动作先进扩展层。**两个仓库的下载量都是 0**：权重公开但没人从 HF 拉，值得下一轮看清楚它是怎么分发的。"
+  },
+  {
+   "id": "cogvideox",
+   "class": "clip",
+   "family": "CogVideoX",
+   "org": "zhipu",
+   "version": "2b/5b",
+   "version_as_of": "2026-08-14",
+   "status": "active",
+   "tier": "extended",
+   "domain": "video",
+   "weights": "open",
+   "zh_none": true,
+   "version_src": "hf-cogvideox",
+   "version_quote": "官方 HF 组织 zai-org：CogVideoX-2b（2024-08-05，↓24,269 ♥370，**Apache-2.0**，标签 text-to-video）",
+   "lineage_note": "扩展层，只记当前版本，没采谱系 —— 这是「没采」不是「它没有历史」",
+   "reach_cn": "unknown",
+   "reach_note": "还没测",
+   "note": "智谱的视频线。⚠️ **我们库里有智谱的文本（GLM）与语音，唯独漏了视频这条** —— 同一个组织下的不同产品线，按方向分开收才不会漏。"
+  },
+  {
+   "id": "i2vgen",
+   "class": "clip",
+   "family": "I2VGen-XL",
+   "org": "alibaba",
+   "version": "XL",
+   "version_as_of": "2026-08-14",
+   "status": "active",
+   "tier": "extended",
+   "domain": "video",
+   "weights": "open",
+   "zh_none": true,
+   "version_src": "hf-i2vgen",
+   "version_quote": "官方 HF 组织 ali-vilab：i2vgen-xl（2023-12-15，↓27,573 ♥186，**MIT**，标签 text-to-video）",
+   "lineage_note": "扩展层，只记当前版本，没采谱系 —— 这是「没采」不是「它没有历史」",
+   "reach_cn": "unknown",
+   "reach_note": "还没测",
+   "note": "阿里达摩院早期的图生视频线，**比万相还早两年**。收它是为了让演进树上「这条路从哪儿来」有个起点；⚠️ 最后更新很久了，当历史看不当现役看。"
+  },
+  {
+   "id": "longcat-image",
+   "class": "still",
+   "family": "LongCat Image",
+   "org": "meituan",
+   "version": "Edit",
+   "version_as_of": "2026-08-14",
+   "status": "active",
+   "tier": "extended",
+   "domain": "image",
+   "weights": "open",
+   "zh_none": true,
+   "version_src": "hf-longcat-edit",
+   "version_quote": "官方 HF 组织 meituan-longcat：LongCat-Image-Edit（2025-12-05，↓19,385 ♥184，**Apache-2.0**，标签 image-to-image）",
+   "lineage_note": "扩展层，只记当前版本，没采谱系 —— 这是「没采」不是「它没有历史」",
+   "reach_cn": "unknown",
+   "reach_note": "还没测",
+   "note": "美团的图像编辑模型。⚠️ **中文侧大厂里少见的开源图像编辑**，许可是标准 Apache-2.0。"
   }
  ],
  "sources": {
@@ -5278,6 +5370,26 @@
   "pixverse-fusion": {
    "name": "PixVerse · Fusion（多参考图生视频）文档",
    "url": "https://docs.platform.pixverse.ai/fusionreference-to-video-1339253m0.md",
+   "tier": "official"
+  },
+  "hf-cogvideox": {
+   "name": "Hugging Face · zai-org/CogVideoX-2b",
+   "url": "https://huggingface.co/zai-org/CogVideoX-2b",
+   "tier": "official"
+  },
+  "hf-i2vgen": {
+   "name": "Hugging Face · ali-vilab/i2vgen-xl",
+   "url": "https://huggingface.co/ali-vilab/i2vgen-xl",
+   "tier": "official"
+  },
+  "hf-longcat-edit": {
+   "name": "Hugging Face · meituan-longcat/LongCat-Image-Edit",
+   "url": "https://huggingface.co/meituan-longcat/LongCat-Image-Edit",
+   "tier": "official"
+  },
+  "hf-magi": {
+   "name": "Hugging Face · sand-ai/MAGI-1 与 MAGI-2-preview",
+   "url": "https://huggingface.co/sand-ai/MAGI-1",
    "tier": "official"
   }
  },
@@ -10577,13 +10689,12 @@
   {
    "m": "trellis",
    "c": "d-multiview",
-   "state": "yes",
-   "verified_for": "image-large",
-   "note": "README 更新日志 2024-12-18：「Implementation of **multi-image conditioning** for TRELLIS-image model」　⚠️ **这条证据核的是首发那一支（image-large）**；TRELLIS.2-4B 的仓库页只有版本与规模，没有能力说明 —— 标待重核，不沿用。",
-   "as_of": "2026-08-13",
-   "src": "gh-trellis",
-   "via": "native",
-   "recheck": "TRELLIS.2-4B"
+   "state": "unknown",
+   "verified_for": "TRELLIS.2-4B",
+   "note": "⚠️ **和重拓扑、网格编辑同一处理**：首发那支的更新日志写过「Implementation of multi-image conditioning」（2024-12-18），但**第二代模型卡里没有重述**，标签也只有 `image-to-3d` —— 按规则三之一退回 ⬜。「新版没说」不等于「它没有」，但更不等于「它还有」。",
+   "as_of": "2026-08-14",
+   "src": "hf-trellis2",
+   "via": "native"
   },
   {
    "m": "trellis",
@@ -11281,6 +11392,95 @@
     "搜 3dgs 命中 2023 年的空仓库"
    ],
    "revisit": "**和规则六（能力要带各家叫法）是同一个教训的另一面**：那次是「我们用自己的词去搜厂商文档，11 格错了 4 格」，这次是「用能力名去搜模型名，捞回来的全是同音异义」。**能力名和模型名不是一个命名空间。**可行的路仍是老三样：官方组织逐个扫、任务标签（image-to-3d）按下载量排、以及交叉源互照。"
+  },
+  {
+   "name": "社区微调与 LoRA 号（John6666 · Lykon · cagliostrolab · prithivMLmods · dx8152 · joyfox · rzgar · ibyteohdear）",
+   "vendor": "多人",
+   "kind": "community-finetune",
+   "date": "2026-08-14",
+   "by": "human",
+   "domain": "image",
+   "why": "**它们发的是别人模型的微调档与 LoRA**（`amanatsu-illustrious-v11-sdxl`、`DreamShaper`、`animagine-xl-3.1`、`LTX-2.3-Transition-LORA`…）。按规则三，这些不是「一代的发布本体」；按规则一，它们也不是独立的产品线 —— **收进来会把谱系树变成社区作品集**。",
+   "same_bucket": [
+    "John6666",
+    "Lykon",
+    "cagliostrolab",
+    "prithivMLmods",
+    "dx8152",
+    "joyfox",
+    "rzgar",
+    "ibyteohdear"
+   ],
+   "revisit": "⚠️ 不是质量问题：这些微调档在实际出图里用得很多。**它们属于「怎么做」那一层（Skill / 应用资源），不属于「谁能做什么」这张表。**"
+  },
+  {
+   "name": "加速蒸馏与工程档（lightx2v · LightX2V 系列）",
+   "vendor": "lightx2v",
+   "kind": "distill",
+   "date": "2026-08-14",
+   "by": "human",
+   "domain": "video",
+   "why": "`lightx2v/Minimax-h3-Turbo`、`lightx2v/Qwen-Image-2512-Lightning` —— **把别家模型蒸馏成几步出图/出片的加速档**。产出的还是原模型的能力，不是新能力；按规则三是「同一代的另一个档」。",
+   "same_bucket": [
+    "lightx2v/Minimax-h3-Turbo",
+    "lightx2v/Qwen-Image-2512-Lightning"
+   ],
+   "revisit": "值得在**应用资源**里出现（真能省钱省时），但不进能力表。"
+  },
+  {
+   "name": "超分与后处理（JunhaoZhuang/FlashVSR · caidas/swin2SR）",
+   "vendor": "多人",
+   "kind": "upscale",
+   "date": "2026-08-14",
+   "by": "human",
+   "domain": "image",
+   "why": "视频/图像超分。**产出物是「同一段内容的更清晰版本」，不是新生成的内容** —— 我们的能力轴问的是「能不能生成/转换出这件事」，超分对不上任何一项。",
+   "same_bucket": [
+    "JunhaoZhuang/FlashVSR",
+    "caidas/swin2SR-classical-sr-x2-64"
+   ],
+   "revisit": "⚠️ 图像卷有「放大与修复」这个 Skill —— **超分属于那一层**，不是模型能力表这一层。"
+  },
+  {
+   "name": "控制件与姿态工具（lllyasviel/ControlNet · lilylilith/AnyPose）",
+   "vendor": "多人",
+   "kind": "control-adapter",
+   "date": "2026-08-14",
+   "by": "human",
+   "domain": "image",
+   "why": "ControlNet 这类是**挂在底模上的控制件**，自己不生成内容。规则一要求「以模型形式提供**且**输出/转换内容」——它们只满足前半条。",
+   "same_bucket": [
+    "lllyasviel/control_v11p_sd15_inpaint",
+    "lilylilith/AnyPose"
+   ],
+   "revisit": "ControlNet 在场景页的公开资源里已经出现过 —— **那里是它该在的地方**。"
+  },
+  {
+   "name": "库与示例仓库（diffusers · aidealab）",
+   "vendor": "多人",
+   "kind": "library",
+   "date": "2026-08-14",
+   "by": "human",
+   "domain": "image",
+   "why": "`diffusers/stable-diffusion-xl-1.0-inpainting-0.1` 是**库方自己托管的示例权重**；`aidealab/AnimeGen-I2V` 是小体量社区项目。前者不是新产品线，后者证据不足（没有官方文档、没有可核的发布说明）。",
+   "same_bucket": [
+    "diffusers/stable-diffusion-xl-1.0-inpainting-0.1",
+    "aidealab/AnimeGen-I2V"
+   ],
+   "revisit": "后者如果后续有官方文档，按新默认动作可以直接进扩展层。"
+  },
+  {
+   "name": "世界模型那一类（robbyant/lingbot-world-fast）",
+   "vendor": "robbyant",
+   "kind": "world-model",
+   "date": "2026-08-14",
+   "by": "human",
+   "domain": "video",
+   "why": "名字里就写着 world。**按规则一补充，为仿真/交互世界做的模型不收进内容创作这几卷** —— 和 Decart Oasis、HunyuanWorld 同一处理。",
+   "same_bucket": [
+    "robbyant/lingbot-world-fast"
+   ],
+   "revisit": "⚠️ 这条与规则十二那条留档呼应：世界模型值得**另开一个方向**，不是塞进视频卷。"
   }
  ],
  "$since": "每项能力的 since 是**我们手上的日志能证明的最早时间**，不是业界首次出现。可追溯窗口起于 2024-01（Runway changelog）与 2024-09（Kling API 日志），窗口之前的看不见。自动抽取只给候选：第一遍就把「Tail frame control is **not** supported」当成了首尾帧的支持证据，把 Motion Brush 里的 element 当成了角色参考，把 Multi-Image to **Image** 当成了视频多参考 —— 三条都是人工核掉的。",

@@ -24,25 +24,16 @@
 
 ### 二、Hugging Face 下载量前列、我们没收的组织（开源侧的实际采用度）
 
-> ⚠️ 另有 **10 个组织被判成量化 / 搬运号**（仓库八成以上是 GGUF、AWQ、mlx 这类二次分发档），已从下表略过：`Abiray`、`QuantStack`、`bullerwins`、`calcuis`、`city96`、`joeygambino` 等。**判据是仓库名，不是人品** —— 它们里面若有自训模型，会因为名字不带量化后缀而照常出现在上表。
+> ⚠️ 另有 **8 个组织被判成量化 / 搬运号**（仓库八成以上是 GGUF、AWQ、mlx 这类二次分发档），已从下表略过：`Abiray`、`QuantStack`、`bullerwins`、`calcuis`、`city96`、`joeygambino` 等。**判据是仓库名，不是人品** —— 它们里面若有自训模型，会因为名字不带量化后缀而照常出现在上表。
 
-| 组织 | 仓库数 | 示例 |
-|---|---:|---|
-| rzgar | 4 | `rzgar/Bernini-R-LightX2V-4step-loras` |
-| zai-org | 3 | `zai-org/CogVideoX-2b` |
-| aidealab | 2 | `aidealab/AnimeGen-I2V` |
-| ali-vilab | 2 | `ali-vilab/i2vgen-xl` |
-| ibyteohdear | 2 | `ibyteohdear/Lightricks-LTX-2-DISTILLED-10-Eros` |
-| joyfox | 2 | `joyfox/LTX-2.3-Transition-LORA` |
-| robbyant | 2 | `robbyant/lingbot-world-fast` |
-| JunhaoZhuang | 2 | `JunhaoZhuang/FlashVSR` |
+（无）
 
 > ⚠️ HF 这一路混着个人搬运号与量化号（QuantStack、city96、calcuis 之类）。
 > **脚本分不出「自己训模型」和「搬别人的」** —— 那要人看一眼组织主页。
 > 不要照单全收，也不要因为混了噪音就整路丢掉：Lightricks、nvidia、zai-org
 > 都是这一路捞出来的，而它们在闭源榜上完全隐形。
 
-### 当前 Core（clip 轨 10/10，realtime 轨 2/10；括号里是含扩展层的总数 18 / 2）
+### 当前 Core（clip 轨 10/10，realtime 轨 2/10；括号里是含扩展层的总数 21 / 2）
 
 - `clip` Seedance 2.5（2026-07-31）
 - `clip` MiniMax Hailuo H3（2026-07-31）
@@ -123,6 +114,10 @@
 - `asset` Sharp Sharp（2026-08-13）
 - `asset` AnySplat v1（2026-08-14）
 - `clip` PixVerse V6（2026-08-14）
+- `clip` MAGI 2 Preview（2026-08-14）
+- `clip` CogVideoX 2b/5b（2026-08-14）
+- `clip` I2VGen-XL XL（2026-08-14）
+- `still` LongCat Image Edit（2026-08-14）
 
 > clip 轨只剩 1 个空位。按规则四，再进新的就必须先踢一个 ——
 > 最该出去的是 **Sora 2**（已公告停服）。但**停服的模型不该从库里删**：
@@ -136,27 +131,16 @@
 
 ### 二、Hugging Face 下载量前列、我们没收的组织（开源侧的实际采用度）
 
-> ⚠️ 另有 **4 个组织被判成量化 / 搬运号**（仓库八成以上是 GGUF、AWQ、mlx 这类二次分发档），已从下表略过：`city96`、`unsloth`、`xinsir`、`QuantStack`。**判据是仓库名，不是人品** —— 它们里面若有自训模型，会因为名字不带量化后缀而照常出现在上表。
+> ⚠️ 另有 **3 个组织被判成量化 / 搬运号**（仓库八成以上是 GGUF、AWQ、mlx 这类二次分发档），已从下表略过：`city96`、`xinsir`、`QuantStack`。**判据是仓库名，不是人品** —— 它们里面若有自训模型，会因为名字不带量化后缀而照常出现在上表。
 
-| 组织 | 仓库数 | 示例 |
-|---|---:|---|
-| black-forest-labs | 14 | `black-forest-labs/FLUX.1-dev` |
-| John6666 | 7 | `John6666/amanatsu-illustrious-v11-sdxl` |
-| Lykon | 4 | `Lykon/DreamShaper` |
-| lllyasviel | 4 | `lllyasviel/control_v11p_sd15_inpaint` |
-| prithivMLmods | 3 | `prithivMLmods/Qwen-Image-Edit-2511-Hyper-Realistic-Portrait` |
-| cagliostrolab | 2 | `cagliostrolab/animagine-xl-3.1` |
-| diffusers | 2 | `diffusers/stable-diffusion-xl-1.0-inpainting-0.1` |
-| caidas | 2 | `caidas/swin2SR-classical-sr-x2-64` |
-| lilylilith | 2 | `lilylilith/AnyPose` |
-| meituan-longcat | 2 | `meituan-longcat/LongCat-Image-Edit` |
+（无）
 
 > ⚠️ HF 这一路混着个人搬运号与量化号（QuantStack、city96、calcuis 之类）。
 > **脚本分不出「自己训模型」和「搬别人的」** —— 那要人看一眼组织主页。
 > 不要照单全收，也不要因为混了噪音就整路丢掉：Lightricks、nvidia、zai-org
 > 都是这一路捞出来的，而它们在闭源榜上完全隐形。
 
-### 当前 Core（clip 轨 10/10，realtime 轨 2/10；括号里是含扩展层的总数 18 / 2）
+### 当前 Core（clip 轨 10/10，realtime 轨 2/10；括号里是含扩展层的总数 21 / 2）
 
 - `clip` Seedance 2.5（2026-07-31）
 - `clip` MiniMax Hailuo H3（2026-07-31）
@@ -237,6 +221,10 @@
 - `asset` Sharp Sharp（2026-08-13）
 - `asset` AnySplat v1（2026-08-14）
 - `clip` PixVerse V6（2026-08-14）
+- `clip` MAGI 2 Preview（2026-08-14）
+- `clip` CogVideoX 2b/5b（2026-08-14）
+- `clip` I2VGen-XL XL（2026-08-14）
+- `still` LongCat Image Edit（2026-08-14）
 
 > clip 轨只剩 1 个空位。按规则四，再进新的就必须先踢一个 ——
 > 最该出去的是 **Sora 2**（已公告停服）。但**停服的模型不该从库里删**：

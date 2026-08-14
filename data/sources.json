@@ -602,7 +602,8 @@
     "Ray",
     "update"
    ],
-   "note": "实测：条目最新是「1 year ago」的 Photon（图像），视频侧久未更新 —— 这条源的价值有限，别指望它报 Ray 的新版本"
+   "note": "实测：条目最新是「1 year ago」的 Photon（图像），视频侧久未更新 —— 这条源的价值有限，别指望它报 Ray 的新版本 ⚠️ **2026-08-14 转人工核**：渲染后正文只有 273 字符，是个壳。连着多轮抓不到 —— **这不是失败，是信息**：Luma 没有可 diff 的公开更新入口，版本要靠人隔阵子打开看。",
+   "manual": true
   },
   {
    "id": "google-models",
@@ -4454,7 +4455,8 @@
     "capability",
     "version"
    ],
-   "note": "AI 3D 方向 2026-08-13 立项时登记。⚠️ 纯前端渲染，裸抓拿不到正文，watch 要走 spa 抓法"
+   "note": "AI 3D 方向 2026-08-13 立项时登记。⚠️ 纯前端渲染，裸抓拿不到正文，watch 要走 spa 抓法 ⚠️ **2026-08-14 转人工核**：这一页纯前端渲染，抓下来正文 0 字符，watch 每轮都报「抓不到」。**能力与版本改从 arXiv 技术报告读**（arxiv-seed3d-10 / -20）—— 也正是那条路让我们发现它已经出到 2.0。这条源留着只是为了记住「官方页读不到」这件事本身。",
+   "manual": true
   },
   {
    "id": "stability-spar3d",
@@ -4836,6 +4838,66 @@
     "version"
    ],
    "note": "多主体 + 背景的参考合成"
+  },
+  {
+   "id": "hf-cogvideox",
+   "tier": "S",
+   "kind": "html",
+   "vendor": "",
+   "name": "Hugging Face · zai-org/CogVideoX-2b",
+   "url": "https://huggingface.co/zai-org/CogVideoX-2b",
+   "refresh_days": 21,
+   "good_for": [
+    "version",
+    "capability",
+    "openweights"
+   ],
+   "note": "2026-08-14 按规则四补充「能收就收」收进扩展层时核过"
+  },
+  {
+   "id": "hf-i2vgen",
+   "tier": "S",
+   "kind": "html",
+   "vendor": "",
+   "name": "Hugging Face · ali-vilab/i2vgen-xl",
+   "url": "https://huggingface.co/ali-vilab/i2vgen-xl",
+   "refresh_days": 21,
+   "good_for": [
+    "version",
+    "capability",
+    "openweights"
+   ],
+   "note": "2026-08-14 按规则四补充「能收就收」收进扩展层时核过"
+  },
+  {
+   "id": "hf-longcat-edit",
+   "tier": "S",
+   "kind": "html",
+   "vendor": "",
+   "name": "Hugging Face · meituan-longcat/LongCat-Image-Edit",
+   "url": "https://huggingface.co/meituan-longcat/LongCat-Image-Edit",
+   "refresh_days": 21,
+   "good_for": [
+    "version",
+    "capability",
+    "openweights"
+   ],
+   "note": "2026-08-14 按规则四补充「能收就收」收进扩展层时核过"
+  },
+  {
+   "id": "hf-magi",
+   "tier": "S",
+   "kind": "html",
+   "vendor": "",
+   "name": "Hugging Face · sand-ai/MAGI-1 与 MAGI-2-preview",
+   "url": "https://huggingface.co/sand-ai/MAGI-1",
+   "refresh_days": 21,
+   "good_for": [
+    "version",
+    "capability",
+    "openweights"
+   ],
+   "note": "2026-08-14 按规则四补充「能收就收」收进扩展层时核过"
   }
  ],
  "$missing": [
