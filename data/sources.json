@@ -5197,6 +5197,19 @@
     "version"
    ],
    "note": "⚠️ **谱系日期取自官方快照 slug**（如 `gpt-4o-mini-tts-2025-12-15`）—— 那是厂商自己打的日期。改用它是因为官方更新日志的条目**只写「Jan 13」不写年份**，而页面横跨 2023–2026，**按印象补年份就是编**。"
+  },
+  {
+   "id": "elevenlabs-docs",
+   "tier": "S",
+   "kind": "html",
+   "vendor": "elevenlabs",
+   "name": "ElevenLabs · 文档索引（llms.txt）",
+   "url": "https://elevenlabs.io/docs/llms.txt",
+   "refresh_days": 14,
+   "good_for": [
+    "capability"
+   ],
+   "note": "20 万字符的机器可读索引，端点与能力页一次列全"
   }
  ],
  "$missing": [

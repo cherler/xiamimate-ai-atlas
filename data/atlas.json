@@ -5883,6 +5883,11 @@
    "name": "OpenAI · GPT-Realtime 模型页",
    "url": "https://platform.openai.com/docs/models/gpt-realtime",
    "tier": "official"
+  },
+  "elevenlabs-docs": {
+   "name": "ElevenLabs · 文档索引（llms.txt）",
+   "url": "https://elevenlabs.io/docs/llms.txt",
+   "tier": "official"
   }
  },
  "support": [
@@ -9571,10 +9576,10 @@
    "c": "s-design",
    "state": "yes",
    "verified_for": "Eleven v3",
-   "src": "elevenlabs-voices",
-   "note": "音色分类里明确列有「**Voice Design 音色** —— 用文本提示生成的音色」",
+   "src": "elevenlabs-docs",
+   "note": "能力页「**Voice Design** —— a guide on how to craft voices」；另有专业音色克隆页",
    "via": "native",
-   "as_of": "2026-08-12"
+   "as_of": "2026-08-14"
   },
   {
    "m": "elevenlabs",
@@ -9591,10 +9596,10 @@
    "c": "s-multi",
    "state": "yes",
    "verified_for": "Eleven v3",
-   "src": "elevenlabs-tts",
-   "note": "「Support for natural multi-speaker dialogue」—— ⚠️ 文档标着**仅 Eleven v3** —— 而 v3 正是我们记的当前版本，所以这一格对当前版本成立",
+   "src": "elevenlabs-docs",
+   "note": "独立能力页「**Text to Dialogue** —— create immersive, natural-sounding dialogue」：多角色对白是一个正经能力，不是把多段拼起来",
    "via": "native",
-   "as_of": "2026-08-12"
+   "as_of": "2026-08-14"
   },
   {
    "m": "elevenlabs",
@@ -9619,14 +9624,22 @@
   {
    "m": "elevenlabs",
    "c": "s-long",
-   "state": "unknown",
-   "verified_for": "Eleven v3"
+   "state": "yes",
+   "verified_for": "Eleven v3",
+   "src": "elevenlabs-docs",
+   "note": "产品线里有「**Voiceover Studio** —— a guide on how to create **long-form content**」，长文本走 Studio 那条路而不是单次合成接口",
+   "as_of": "2026-08-14",
+   "via": "native"
   },
   {
    "m": "elevenlabs",
    "c": "s-timestamp",
-   "state": "unknown",
-   "verified_for": "Eleven v3"
+   "state": "yes",
+   "verified_for": "Eleven v3",
+   "src": "elevenlabs-docs",
+   "note": "文档索引里单列端点「**Create speech with timing**」（`text-to-speech/convert-with-timestamps`），另有独立能力页「**Forced Alignment** —— turn spoken audio and text into a time-aligned transcript」",
+   "as_of": "2026-08-14",
+   "via": "native"
   },
   {
    "m": "elevenlabs",
@@ -10134,8 +10147,12 @@
   {
    "m": "cosyvoice",
    "c": "s-design",
-   "state": "unknown",
-   "verified_for": "Fun-CosyVoice3-0.5B-2512"
+   "state": "yes",
+   "verified_for": "Fun-CosyVoice3-0.5B-2512",
+   "src": "hf-lineage",
+   "note": "README 的 Key Features：「**Instruct Support**: Supports various instructions such as languages, dialects, emotions…」—— 用一句话指定音色与情绪，正是音色设计这一格问的事",
+   "as_of": "2026-08-14",
+   "via": "native"
   },
   {
    "m": "cosyvoice",
@@ -10147,7 +10164,10 @@
    "m": "cosyvoice",
    "c": "s-multi",
    "state": "unknown",
-   "verified_for": "Fun-CosyVoice3-0.5B-2512"
+   "verified_for": "Fun-CosyVoice3-0.5B-2512",
+   "src": "hf-lineage",
+   "note": "README 里的 `speaker` 出现在「**speaker similarity**」（音色相似度指标）里，**不是多说话人**。⚠️ 假命中，这一格没有依据",
+   "as_of": "2026-08-14"
   },
   {
    "m": "cosyvoice",
@@ -10172,14 +10192,21 @@
   {
    "m": "cosyvoice",
    "c": "s-long",
-   "state": "unknown",
-   "verified_for": "Fun-CosyVoice3-0.5B-2512"
+   "state": "yes",
+   "verified_for": "Fun-CosyVoice3-0.5B-2512",
+   "src": "hf-lineage",
+   "note": "README：「**Bi-Streaming**: Support both text-in streaming and audio-out streaming, and achieves latency as low as 150ms」—— 文本可以边进边合成，长文本不必一次性喂",
+   "as_of": "2026-08-14",
+   "via": "native"
   },
   {
    "m": "cosyvoice",
    "c": "s-timestamp",
    "state": "unknown",
-   "verified_for": "Fun-CosyVoice3-0.5B-2512"
+   "verified_for": "Fun-CosyVoice3-0.5B-2512",
+   "src": "hf-lineage",
+   "note": "**查过、零命中**：README 全文没有 timestamp / alignment / 字幕 相关说法",
+   "as_of": "2026-08-14"
   },
   {
    "m": "cosyvoice",
@@ -10203,7 +10230,10 @@
    "m": "fish-speech",
    "c": "s-design",
    "state": "unknown",
-   "verified_for": "s2-pro"
+   "verified_for": "s2-pro",
+   "src": "hf-lineage",
+   "note": "**查过、零命中**：2026-08-14 全文检索这份模型卡（Fish Speech 只有 1,200 字、Kokoro 6,161 字），没有「音色设计」相关的任何说法。⚠️ **卡片太薄不等于模型做不到** —— 研究/社区仓库不是功能清单，所以不升级成 ❌",
+   "as_of": "2026-08-14"
   },
   {
    "m": "fish-speech",
@@ -10219,7 +10249,10 @@
    "m": "fish-speech",
    "c": "s-multi",
    "state": "unknown",
-   "verified_for": "s2-pro"
+   "verified_for": "s2-pro",
+   "src": "hf-lineage",
+   "note": "**查过、零命中**：2026-08-14 全文检索这份模型卡（Fish Speech 只有 1,200 字、Kokoro 6,161 字），没有「多说话人」相关的任何说法。⚠️ **卡片太薄不等于模型做不到** —— 研究/社区仓库不是功能清单，所以不升级成 ❌",
+   "as_of": "2026-08-14"
   },
   {
    "m": "fish-speech",
@@ -10245,13 +10278,19 @@
    "m": "fish-speech",
    "c": "s-long",
    "state": "unknown",
-   "verified_for": "s2-pro"
+   "verified_for": "s2-pro",
+   "src": "hf-lineage",
+   "note": "**查过、零命中**：2026-08-14 全文检索这份模型卡（Fish Speech 只有 1,200 字、Kokoro 6,161 字），没有「长文本异步」相关的任何说法。⚠️ **卡片太薄不等于模型做不到** —— 研究/社区仓库不是功能清单，所以不升级成 ❌",
+   "as_of": "2026-08-14"
   },
   {
    "m": "fish-speech",
    "c": "s-timestamp",
    "state": "unknown",
-   "verified_for": "s2-pro"
+   "verified_for": "s2-pro",
+   "src": "hf-lineage",
+   "note": "**查过、零命中**：2026-08-14 全文检索这份模型卡（Fish Speech 只有 1,200 字、Kokoro 6,161 字），没有「时间戳字幕」相关的任何说法。⚠️ **卡片太薄不等于模型做不到** —— 研究/社区仓库不是功能清单，所以不升级成 ❌",
+   "as_of": "2026-08-14"
   },
   {
    "m": "fish-speech",
@@ -10274,13 +10313,19 @@
    "m": "kokoro",
    "c": "s-clone",
    "state": "unknown",
-   "verified_for": "82M v1.1-zh"
+   "verified_for": "82M v1.1-zh",
+   "src": "hf-lineage",
+   "note": "⚠️ **假命中**：`clone` 出现在训练数据说明里（「No synthetic audio from open TTS models or custom voice clones」）—— 那是**说训练数据不含克隆音**，不是「它支持音色复刻」。差一点记反",
+   "as_of": "2026-08-14"
   },
   {
    "m": "kokoro",
    "c": "s-design",
    "state": "unknown",
-   "verified_for": "82M v1.1-zh"
+   "verified_for": "82M v1.1-zh",
+   "src": "hf-lineage",
+   "note": "**查过、零命中**：2026-08-14 全文检索这份模型卡（Fish Speech 只有 1,200 字、Kokoro 6,161 字），没有「音色设计」相关的任何说法。⚠️ **卡片太薄不等于模型做不到** —— 研究/社区仓库不是功能清单，所以不升级成 ❌",
+   "as_of": "2026-08-14"
   },
   {
    "m": "kokoro",
@@ -10292,7 +10337,10 @@
    "m": "kokoro",
    "c": "s-multi",
    "state": "unknown",
-   "verified_for": "82M v1.1-zh"
+   "verified_for": "82M v1.1-zh",
+   "src": "hf-lineage",
+   "note": "**查过、零命中**：2026-08-14 全文检索这份模型卡（Fish Speech 只有 1,200 字、Kokoro 6,161 字），没有「多说话人」相关的任何说法。⚠️ **卡片太薄不等于模型做不到** —— 研究/社区仓库不是功能清单，所以不升级成 ❌",
+   "as_of": "2026-08-14"
   },
   {
    "m": "kokoro",
@@ -10314,13 +10362,19 @@
    "m": "kokoro",
    "c": "s-long",
    "state": "unknown",
-   "verified_for": "82M v1.1-zh"
+   "verified_for": "82M v1.1-zh",
+   "src": "hf-lineage",
+   "note": "**查过、零命中**：2026-08-14 全文检索这份模型卡（Fish Speech 只有 1,200 字、Kokoro 6,161 字），没有「长文本异步」相关的任何说法。⚠️ **卡片太薄不等于模型做不到** —— 研究/社区仓库不是功能清单，所以不升级成 ❌",
+   "as_of": "2026-08-14"
   },
   {
    "m": "kokoro",
    "c": "s-timestamp",
    "state": "unknown",
-   "verified_for": "82M v1.1-zh"
+   "verified_for": "82M v1.1-zh",
+   "src": "hf-lineage",
+   "note": "**查过、零命中**：2026-08-14 全文检索这份模型卡（Fish Speech 只有 1,200 字、Kokoro 6,161 字），没有「时间戳字幕」相关的任何说法。⚠️ **卡片太薄不等于模型做不到** —— 研究/社区仓库不是功能清单，所以不升级成 ❌",
+   "as_of": "2026-08-14"
   },
   {
    "m": "kokoro",
