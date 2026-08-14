@@ -5116,6 +5116,19 @@
     "capability"
    ],
    "note": "1.5 的上一代"
+  },
+  {
+   "id": "gh-video-retalking",
+   "tier": "S",
+   "kind": "html",
+   "vendor": "",
+   "name": "OpenTalker/video-retalking 仓库",
+   "url": "https://github.com/OpenTalker/video-retalking",
+   "refresh_days": 21,
+   "good_for": [
+    "application-resource"
+   ],
+   "note": "数字人 Skill 的公开实现，2026-08-14 走 GitHub API 核过星标与许可"
   }
  ],
  "$missing": [

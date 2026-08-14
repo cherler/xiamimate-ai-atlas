@@ -5853,6 +5853,11 @@
    "name": "HF · 美团 LongCat-Video-Avatar（1.0）",
    "url": "https://huggingface.co/meituan-longcat/LongCat-Video-Avatar",
    "tier": "official"
+  },
+  "gh-video-retalking": {
+   "name": "OpenTalker/video-retalking 仓库",
+   "url": "https://github.com/OpenTalker/video-retalking",
+   "tier": "official"
   }
  },
  "support": [
@@ -20054,6 +20059,414 @@
     "Lyria 是单轮生成，不支持迭代修改"
    ],
    "domain": "sound"
+  },
+  {
+   "id": "d-mesh-skill",
+   "zh": "从一张图做出可用网格",
+   "en": "Image to usable mesh",
+   "domain": "threed",
+   "cap": "d-i23d",
+   "io": {
+    "in": [
+     "一张概念图或实拍图"
+    ],
+    "out": "能导进引擎的网格"
+   },
+   "opensource": [
+    {
+     "name": "TRELLIS.2（微软）",
+     "url": "https://huggingface.co/microsoft/TRELLIS.2-4B",
+     "src": "hf-trellis2",
+     "quote": "模型卡：「a state-of-the-art large 3D generative model designed for high-fidelity image-to-3D generation」，示例代码里 `to_glb(...)` 直接导出",
+     "license": "MIT"
+    },
+    {
+     "name": "混元3D 2.1（腾讯，带 PBR）",
+     "url": "https://huggingface.co/tencent/Hunyuan3D-2.1",
+     "src": "hf-hunyuan3d-21",
+     "quote": "README：「releases full model weights and training code」；官方 API 代码写明输出「GLB or OBJ format」",
+     "license": null,
+     "note": "⚠️ 许可 tencent-hunyuan-community，是厂商自定义协议不是标准开源"
+    },
+    {
+     "name": "InstantMesh（腾讯 ARC）",
+     "url": "https://huggingface.co/TencentARC/InstantMesh",
+     "src": "hf-instantmesh",
+     "quote": "「Efficient 3D Mesh Generation from a Single Image with Sparse-view Large Reconstruction Models」（★4,497）",
+     "license": "Apache-2.0",
+     "note": "⚠️ 最后推送停在 2025-01，当基线看"
+    },
+    {
+     "name": "SPAR3D（Stability，能补背面）",
+     "url": "https://github.com/Stability-AI/stable-point-aware-3d",
+     "src": "gh-spar3d",
+     "quote": "官方发布页：「complete structure prediction … including areas typically hidden, such as the back of an object」",
+     "license": null
+    }
+   ],
+   "limits": [
+    "**出来的网格不等于能直接进引擎**：面数、拓扑、UV 三件事各家做到的程度差很多，几乎都要再过一道后处理",
+    "⚠️ 这一卷的许可最杂：MIT（TRELLIS）、Apache-2.0（InstantMesh）、厂商自定义（混元、SPAR3D）混在一起，**商用前逐个读**"
+   ],
+   "verified_at": "2026-08-14",
+   "native": [
+    "hunyuan3d",
+    "tripo",
+    "meshy",
+    "rodin",
+    "trellis",
+    "seed3d",
+    "spar3d"
+   ],
+   "platform_feature": [],
+   "workflow": [],
+   "cases": []
+  },
+  {
+   "id": "d-texture-skill",
+   "zh": "给白模上 PBR 贴图",
+   "en": "PBR texturing",
+   "domain": "threed",
+   "cap": "d-pbr",
+   "io": {
+    "in": [
+     "一个没有材质的网格",
+     "一张参考图或一句描述"
+    ],
+    "out": "带 PBR 材质的模型"
+   },
+   "opensource": [
+    {
+     "name": "混元3D 2.1 的贴图管线",
+     "url": "https://huggingface.co/tencent/Hunyuan3D-2.1",
+     "src": "hf-hunyuan3d-21",
+     "quote": "README：「the upgraded PBR pipeline leverages physics-grounded material simulation to generate textures with photorealistic light interaction (e.g., metallic reflections, subsurface scattering)」",
+     "license": null
+    }
+   ],
+   "platform_feature": [
+    {
+     "name": "Meshy · AI Texturing / Retexture",
+     "url": "https://docs.meshy.ai/en/api/text-to-3d",
+     "src": "meshy-docs-api",
+     "quote": "API 端点表里有 Retexture；Web 端另有 AI Texturing 与 Texture Edit",
+     "license": null
+    },
+    {
+     "name": "Rodin · Generate Texture",
+     "url": "https://developer.hyper3d.ai/llms.txt",
+     "src": "rodin-api-docs",
+     "quote": "独立端点 Generate Texture；生成时 `material` 参数可选 PBR / Shaded / All",
+     "license": null
+    }
+   ],
+   "limits": [
+    "**「有贴图」和「有 PBR 四通道」是两件事** —— 有的只给 base color，金属度/粗糙度/法线要另算",
+    "⚠️ 贴图质量和网格拓扑强相关：网格烂，贴图再好也会拉花"
+   ],
+   "verified_at": "2026-08-14",
+   "native": [
+    "hunyuan3d",
+    "tripo",
+    "meshy",
+    "rodin",
+    "trellis",
+    "seed3d",
+    "spar3d"
+   ],
+   "workflow": [],
+   "cases": []
+  },
+  {
+   "id": "d-lowpoly-skill",
+   "zh": "把面数压到能进引擎",
+   "en": "Remesh & polycount control",
+   "domain": "threed",
+   "cap": "d-remesh",
+   "io": {
+    "in": [
+     "面数过高的原始网格"
+    ],
+    "out": "面数可控、能进实时管线的网格"
+   },
+   "platform_feature": [
+    {
+     "name": "Meshy · Remesh",
+     "url": "https://docs.meshy.ai/en/api/text-to-3d",
+     "src": "meshy-docs-api",
+     "quote": "端点表里 Remesh 单列，另有 Convert / Resize；2026-04 加了 `decimation_mode` 分档",
+     "license": null
+    },
+    {
+     "name": "Tripo · face_limit",
+     "url": "https://platform.tripo3d.ai/docs/generation",
+     "src": "tripo-docs-generation",
+     "quote": "参数「default face_limit will be 10000」，另有 Post Process 端点",
+     "license": null
+    },
+    {
+     "name": "Rodin · quality / quality_override",
+     "url": "https://developer.hyper3d.ai/llms.txt",
+     "src": "rodin-api-docs",
+     "quote": "按面数分档（Raw: high 500k / medium 150k / low 20k / extra-low 2k；**Quad**: high 50k …），另可自定义 500–1,000,000",
+     "license": null
+    }
+   ],
+   "limits": [
+    "⚠️ **减面会毁掉已有的骨骼**：Tripo 文档明写网格编辑与重拓扑「do not preserve skeletal (rig) data」——**先减面再绑定**，顺序反了要重来",
+    "四边面（Quad）与三角面的面数不是一个量级，跨厂商比数字前先看清是哪种"
+   ],
+   "verified_at": "2026-08-14",
+   "native": [
+    "hunyuan3d",
+    "tripo",
+    "meshy",
+    "rodin",
+    "spar3d"
+   ],
+   "opensource": [],
+   "workflow": [],
+   "cases": []
+  },
+  {
+   "id": "d-rig-skill",
+   "zh": "绑骨骼让模型动起来",
+   "en": "Auto-rigging",
+   "domain": "threed",
+   "cap": "d-rig",
+   "io": {
+    "in": [
+     "一个静态角色网格"
+    ],
+    "out": "带骨骼、能摆姿势或接动作的模型"
+   },
+   "platform_feature": [
+    {
+     "name": "Meshy · Rigging / Animate",
+     "url": "https://docs.meshy.ai/en/api/text-to-3d",
+     "src": "meshy-docs-api",
+     "quote": "端点表里 Rigging 与 Animation 各自单列；2025-05-15 上线「Auto-rigging & Animation API」",
+     "license": null
+    },
+    {
+     "name": "Tripo · animate 三段",
+     "url": "https://platform.tripo3d.ai/docs/animation",
+     "src": "tripo-docs-animation",
+     "quote": "文档原文：「animate = prerigcheck + rigging + retarget」，输出 glb 或 fbx",
+     "license": null
+    }
+   ],
+   "limits": [
+    "⚠️ **只有两家做**（Meshy、Tripo）——Rodin 的完整文档索引里没有绑定与动画，混元主线也没有",
+    "⚠️ 绑完就别再动网格：重拓扑会把骨骼与蒙皮权重抹掉"
+   ],
+   "verified_at": "2026-08-14",
+   "native": [
+    "tripo",
+    "meshy"
+   ],
+   "opensource": [],
+   "workflow": [],
+   "cases": []
+  },
+  {
+   "id": "p-photo-skill",
+   "zh": "用一张照片做出能复用的形象",
+   "en": "Photo to reusable avatar",
+   "domain": "avatar",
+   "cap": "p-photo",
+   "io": {
+    "in": [
+     "一张正面人像照片"
+    ],
+    "out": "能反复用来出片的形象"
+   },
+   "opensource": [
+    {
+     "name": "Hallo2（复旦）",
+     "url": "https://huggingface.co/fudan-generative-ai/hallo2",
+     "src": "hf-hallo2",
+     "quote": "「Long-Duration and High-Resolution Audio-driven Portrait Image Animation」；命令行只要 `--source_image` 与 `--driving_audio`",
+     "license": "MIT"
+    },
+    {
+     "name": "LivePortrait（快手）",
+     "url": "https://huggingface.co/KwaiVGI/LivePortrait",
+     "src": "hf-liveportrait",
+     "quote": "「Efficient Portrait Animation with Stitching and Retargeting Control」",
+     "license": "MIT",
+     "note": "⚠️ 它的驱动源是**驱动视频**不是音频 —— 想「照着音频说话」用 Hallo2"
+    }
+   ],
+   "platform_feature": [
+    {
+     "name": "HeyGen · Photo Avatar",
+     "url": "https://developers.heygen.com/photo-avatar.md",
+     "src": "heygen-photo",
+     "quote": "官方单列 Photo Avatar 端点",
+     "license": null
+    }
+   ],
+   "limits": [
+    "⚠️ **开源那两支做的是「让这张照片动起来」，不是「把形象存下来反复用」** —— 形象复用目前只有闭源平台做成了一等实体（HeyGen 的 Avatar Groups / Looks）",
+    "⚠️ 用别人的照片做形象涉及肖像权：HeyGen 有 Avatar Consent 那套流程，自己部署时**没有人替你把这道关**"
+   ],
+   "verified_at": "2026-08-14",
+   "native": [
+    "heygen",
+    "longcat-avatar",
+    "hunyuan-avatar",
+    "liveportrait",
+    "hallo2"
+   ],
+   "workflow": [],
+   "cases": []
+  },
+  {
+   "id": "p-lipsync-skill",
+   "zh": "给已有视频换口型",
+   "en": "Lipsync on existing video",
+   "domain": "avatar",
+   "cap": "p-lipsync",
+   "io": {
+    "in": [
+     "一段已有的人物视频",
+     "一段新的音频"
+    ],
+    "out": "口型对上新音频的视频"
+   },
+   "opensource": [
+    {
+     "name": "MuseTalk（腾讯音乐）",
+     "url": "https://huggingface.co/TMElyralab/MuseTalk",
+     "src": "hf-musetalk",
+     "quote": "「Real-Time High Quality Lip Synchronization with Latent Space Inpainting」（30fps+ on V100）",
+     "license": null,
+     "note": "⚠️ 官方在已知限制里写明**形象细节保不住**：胡须、唇形、唇色"
+    },
+    {
+     "name": "video-retalking",
+     "url": "https://github.com/OpenTalker/video-retalking",
+     "src": "gh-video-retalking",
+     "quote": "「[SIGGRAPH Asia 2022] VideoReTalking: Audio-based Lip Synchronization」（★7,278）",
+     "license": "Apache-2.0",
+     "note": "⚠️ 最后推送 2024-08，当基线看"
+    }
+   ],
+   "platform_feature": [
+    {
+     "name": "HeyGen · Lipsync（分两档）",
+     "url": "https://developers.heygen.com/lipsync-speed.md",
+     "src": "heygen-docs",
+     "quote": "官方把 Lipsync 做成 Speed 与 Precision 两个端点；另有 Batch Lipsyncs",
+     "license": null
+    }
+   ],
+   "limits": [
+    "⚠️ **换口型不等于换语言**：语速与时长对不上时会出现口型追不上或停顿",
+    "⚠️ 这一类改的是嘴部区域，**脸的其它细节可能被抹平** —— MuseTalk 官方自己承认"
+   ],
+   "verified_at": "2026-08-14",
+   "native": [
+    "heygen",
+    "longcat-avatar",
+    "musetalk"
+   ],
+   "workflow": [],
+   "cases": []
+  },
+  {
+   "id": "p-translate-skill",
+   "zh": "换语言且口型跟着改",
+   "en": "Translate with lipsync",
+   "domain": "avatar",
+   "cap": "p-translate",
+   "io": {
+    "in": [
+     "一条已有的口播视频",
+     "目标语言"
+    ],
+    "out": "同一个人说另一种语言的视频"
+   },
+   "platform_feature": [
+    {
+     "name": "HeyGen · Video Translation",
+     "url": "https://developers.heygen.com/docs/video-translate.md",
+     "src": "heygen-translate",
+     "quote": "分 Speed 与 Precision 两档；另有 Batch Video Translations",
+     "license": null
+    },
+    {
+     "name": "Synthesia · 用 API 做多语种转译",
+     "url": "https://docs.synthesia.io/docs/getting-started",
+     "src": "synthesia-docs",
+     "quote": "官方指南「Dub your videos via Synthesia API」，另有「Get supported languages for translations」端点",
+     "license": null
+    }
+   ],
+   "limits": [
+    "⚠️ **开源侧目前没有对等物** —— 这一格只有闭源平台在做",
+    "⚠️ 两档的差别官方没在索引里说清，**别默认 Precision 只是慢一点**"
+   ],
+   "verified_at": "2026-08-14",
+   "native": [
+    "heygen",
+    "synthesia"
+   ],
+   "opensource": [],
+   "workflow": [],
+   "cases": []
+  },
+  {
+   "id": "p-live-skill",
+   "zh": "实时驱动一个形象",
+   "en": "Realtime avatar",
+   "domain": "avatar",
+   "cap": "p-live",
+   "io": {
+    "in": [
+     "一个已建好的形象",
+     "实时音频或文本流"
+    ],
+    "out": "低延迟的实时人物影像"
+   },
+   "opensource": [
+    {
+     "name": "Hallo-Live（复旦）",
+     "url": "https://huggingface.co/fudan-generative-ai/Hallo-Live",
+     "src": "hf-hallo-live",
+     "quote": "「Hallo-Live: **Real-Time Streaming** Joint Audio-Video Avatar Generation」（arXiv 2604.23632）",
+     "license": "MIT"
+    },
+    {
+     "name": "MuseTalk（换口型这一路的实时档）",
+     "url": "https://huggingface.co/TMElyralab/MuseTalk",
+     "src": "hf-musetalk",
+     "quote": "「real-time high quality lip-syncing model（30fps+ on an NVIDIA Tesla V100）」",
+     "license": null,
+     "note": "⚠️ 它只改口型，不生成形象"
+    }
+   ],
+   "platform_feature": [
+    {
+     "name": "HeyGen · Live Avatar",
+     "url": "https://developers.heygen.com/live-avatar.md",
+     "src": "heygen-live",
+     "quote": "官方单列 Live Avatar 端点，另有 Realtime Video 一节",
+     "license": null
+    }
+   ],
+   "limits": [
+    "⚠️ **「实时」各家的口径不同**：MuseTalk 给的是 V100 上 30fps+ 的**推理帧率**，不等于端到端可交互延迟",
+    "⚠️ 自部署实时对显卡的要求比离线出片高一个档"
+   ],
+   "verified_at": "2026-08-14",
+   "native": [
+    "heygen",
+    "musetalk"
+   ],
+   "workflow": [],
+   "cases": []
   }
  ],
  "applications": [
@@ -22202,7 +22615,11 @@
     "一张概念图或一句描述"
    ],
    "output": "能导进引擎的带材质网格",
-   "skills": [],
+   "skills": [
+    "d-mesh-skill",
+    "d-texture-skill",
+    "d-lowpoly-skill"
+   ],
    "aliases": [
     "3D 模型生成",
     "游戏道具建模",
@@ -22266,7 +22683,9 @@
     "一张图或一句描述"
    ],
    "output": "可切片打印的网格",
-   "skills": [],
+   "skills": [
+    "d-mesh-skill"
+   ],
    "aliases": [
     "3D 打印",
     "手办建模",
@@ -22312,7 +22731,10 @@
     "商品实拍图"
    ],
    "output": "网页或 AR 能加载的 3D 文件（glb / usdz）",
-   "skills": [],
+   "skills": [
+    "d-mesh-skill",
+    "d-texture-skill"
+   ],
    "aliases": [
     "电商 3D",
     "AR 展示",
@@ -22358,7 +22780,10 @@
     "角色设定图或描述"
    ],
    "output": "带骨骼、可驱动的角色模型",
-   "skills": [],
+   "skills": [
+    "d-mesh-skill",
+    "d-rig-skill"
+   ],
    "aliases": [
     "3D 角色",
     "数字人形象",
@@ -22405,7 +22830,10 @@
     "目标语言"
    ],
    "output": "同一个人说另一种语言的视频",
-   "skills": [],
+   "skills": [
+    "p-translate-skill",
+    "p-lipsync-skill"
+   ],
    "aliases": [
     "视频翻译",
     "多语种口播",
@@ -22452,7 +22880,9 @@
     "实时音频或文本流"
    ],
    "output": "低延迟的实时人物影像",
-   "skills": [],
+   "skills": [
+    "p-live-skill"
+   ],
    "aliases": [
     "虚拟主播",
     "实时数字人",
@@ -22499,7 +22929,9 @@
     "一段音频"
    ],
    "output": "这张照片在说话的视频",
-   "skills": [],
+   "skills": [
+    "p-photo-skill"
+   ],
    "aliases": [
     "照片说话",
     "单图数字人",
@@ -22546,7 +22978,10 @@
     "一个讲师形象与模板"
    ],
    "output": "成套的培训视频",
-   "skills": [],
+   "skills": [
+    "p-photo-skill",
+    "p-translate-skill"
+   ],
    "aliases": [
     "企业培训视频",
     "入职视频",
