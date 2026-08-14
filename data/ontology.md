@@ -568,3 +568,59 @@ Reconstructing, Generating, and Simulating 3D Worlds」）、`HY-Motion 1.0`
 
 首次适用：PixVerse V6（AA 榜 Elo 1078）。它官方有一张能力矩阵，
 逐格核验的成本比大多数闭源厂商低，所以直接进了 Core（10/10）。
+
+
+---
+
+## 规则十三 · 第六个方向「AI 数字人」（2026-08-14 立项）
+
+负责人在两个候选（世界模型 / 数字人）里选了数字人，理由是它和规则一补充那条
+「面向内容创作」完全一致 —— 而世界模型那一类大多是为仿真与机器人训练做的，
+开那一卷等于给自己的判据开口子。
+
+### D-1 · 什么算这一卷的模型
+
+1. **产出物是「某个人物形象在说、在动」的影像。**
+2. **形象是一等输入** —— 能保存一个形象、反复用它出片。
+3. **面向内容创作**（规则一补充那条同样适用）。
+
+### 边界：这一卷最容易和另外三卷糊在一起
+
+| 和谁 | 判据 |
+|---|---|
+| **AI 视频卷** | 通用视频模型有「对口型」这一格（Kling、Veo 都有）—— **那是它的一项能力**；数字人收的是**整条产品线都围着形象转**的那些。判据就是第 2 条：形象能不能保存复用。 |
+| **AI 声音卷** | 产出是影像不是音频。**音色克隆仍归声音卷** —— 数字人用它，但不拥有它。 |
+| **AI 3D 卷** | 产出是视频不是可导出资产。3D 那边的「角色形象与可动角色」出的是网格，这边出的是成片。 |
+
+⚠️ **一条特意没有放进能力轴的东西：肖像授权（consent）。**
+HeyGen 的文档里 `Avatar Consent` 是一个正经端点，而且这是数字人落地最大的障碍。
+但**它是平台的合规流程，不是模型的能力** —— 放进能力轴会让「谁能做什么」这张表
+混进「谁允许你做什么」。它该出现在 `/caveats`（能力对了未必用得上）那一页。
+
+### D-2 · 能力轴 14 项，从四家的用词里 derive（规则十）
+
+| 来源 | 贡献的词 |
+|---|---|
+| HeyGen 文档索引 | Photo Avatar · Digital Twin · Audio to Video · **Lipsync（分 Speed / Precision 两档）** · Video Translation · Live Avatar · Transparent Background Videos |
+| 美团 LongCat Avatar | audio-driven · accurate lip-synchronization · **strict identity consistency** · full-body temporal stability · multi-person interactions |
+| 腾讯混元 Avatar | **precise emotion alignment** · multi-character · portrait / upper-body / full-body 多尺度 |
+| 快手 LivePortrait | **Stitching and Retargeting Control**（视频驱动那一路） |
+
+得到：单图起形象 · 本人分身 · 形象一致 · 全身与多尺度 · 音频驱动 · 文本驱动 ·
+视频驱动与重定向 · 给已有视频对口型 · 多语种口型翻译 · 情绪与表情控制 ·
+多人同框 · 实时驱动 · 透明背景输出 · 开源权重。
+
+**只有一轨** —— 各家做的是同一件事：给定形象，用音频/文本/视频把它驱动起来。
+
+### D-3 · Core 名单（7 个）
+
+HeyGen · Synthesia · 腾讯 HunyuanVideo-Avatar · 美团 LongCat Video Avatar ·
+快手 LivePortrait · 腾讯音乐 MuseTalk · 复旦 Hallo2。
+
+⚠️ **字节 OmniHuman 没收进来**：`ByteDance/OmniHuman-1` 在 HF 上回 401，
+字节自己的模型页里也搜不到它（2026-08-14 实测）——**拿不到可引的官方出处，就不收**。
+
+### 立项当天的真实进度
+
+98 格里 **✅26 ❌2 ⬜70**（⬜ 占 71%）。这个数字不美化：
+HeyGen 那一列几乎填满（它的文档索引太全），另外六家大多只核到「它存在、许可是什么」。

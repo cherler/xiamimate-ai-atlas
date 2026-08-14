@@ -4898,6 +4898,104 @@
     "openweights"
    ],
    "note": "2026-08-14 按规则四补充「能收就收」收进扩展层时核过"
+  },
+  {
+   "id": "heygen-docs",
+   "tier": "S",
+   "kind": "spa",
+   "vendor": "",
+   "name": "HeyGen · 开发者文档索引",
+   "url": "https://docs.heygen.com/llms.txt",
+   "refresh_days": 14,
+   "good_for": [
+    "capability",
+    "version"
+   ],
+   "note": "AI 数字人方向 2026-08-14 立项时登记。**整份文档的机器可读索引**（38,892 字符），端点与能力名一次列全 —— 这一卷里最好的可核来源"
+  },
+  {
+   "id": "synthesia-docs",
+   "tier": "S",
+   "kind": "spa",
+   "vendor": "",
+   "name": "Synthesia · API 文档",
+   "url": "https://docs.synthesia.io/docs/getting-started",
+   "refresh_days": 14,
+   "good_for": [
+    "capability",
+    "version"
+   ],
+   "note": "AI 数字人方向 2026-08-14 立项时登记。模板 / 视频 / 配音三组端点"
+  },
+  {
+   "id": "hf-longcat-avatar",
+   "tier": "S",
+   "kind": "html",
+   "vendor": "",
+   "name": "HF · 美团 LongCat-Video-Avatar-1.5",
+   "url": "https://huggingface.co/meituan-longcat/LongCat-Video-Avatar-1.5",
+   "refresh_days": 14,
+   "good_for": [
+    "capability",
+    "version"
+   ],
+   "note": "AI 数字人方向 2026-08-14 立项时登记。♥714、MIT，开源侧关注度最高的一支"
+  },
+  {
+   "id": "hf-hunyuan-avatar",
+   "tier": "S",
+   "kind": "html",
+   "vendor": "",
+   "name": "HF · 腾讯 HunyuanVideo-Avatar",
+   "url": "https://huggingface.co/tencent/HunyuanVideo-Avatar",
+   "refresh_days": 14,
+   "good_for": [
+    "capability",
+    "version"
+   ],
+   "note": "AI 数字人方向 2026-08-14 立项时登记。论文 arXiv 2505.20156"
+  },
+  {
+   "id": "hf-liveportrait",
+   "tier": "S",
+   "kind": "html",
+   "vendor": "",
+   "name": "HF · 快手 LivePortrait",
+   "url": "https://huggingface.co/KwaiVGI/LivePortrait",
+   "refresh_days": 14,
+   "good_for": [
+    "capability",
+    "version"
+   ],
+   "note": "AI 数字人方向 2026-08-14 立项时登记。♥487、MIT，视频驱动那一路的代表"
+  },
+  {
+   "id": "hf-musetalk",
+   "tier": "S",
+   "kind": "html",
+   "vendor": "",
+   "name": "HF · 腾讯音乐 MuseTalk",
+   "url": "https://huggingface.co/TMElyralab/MuseTalk",
+   "refresh_days": 14,
+   "good_for": [
+    "capability",
+    "version"
+   ],
+   "note": "AI 数字人方向 2026-08-14 立项时登记。♥162"
+  },
+  {
+   "id": "hf-hallo2",
+   "tier": "S",
+   "kind": "html",
+   "vendor": "",
+   "name": "HF · 复旦 Hallo2",
+   "url": "https://huggingface.co/fudan-generative-ai/hallo2",
+   "refresh_days": 14,
+   "good_for": [
+    "capability",
+    "version"
+   ],
+   "note": "AI 数字人方向 2026-08-14 立项时登记。♥136、MIT"
   }
  ],
  "$missing": [

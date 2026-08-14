@@ -1257,6 +1257,224 @@
     "辐射场"
    ],
    "since_note": "TRELLIS「decoding to different output formats … Radiance Fields, 3D Gaussians, and meshes」· VAST 的 TripoSplat（2026-05-31）"
+  },
+  {
+   "id": "p-photo",
+   "class": "avatar",
+   "domain": "avatar",
+   "name": "Photo avatar",
+   "zh": "单图起形象",
+   "group": "形象",
+   "ubiquity": "待核",
+   "aliases": [
+    "photo avatar",
+    "单图数字人",
+    "一张照片"
+   ],
+   "since_note": "HeyGen 端点「Photo Avatar」· LivePortrait「Portrait Animation」"
+  },
+  {
+   "id": "p-clone",
+   "class": "avatar",
+   "domain": "avatar",
+   "name": "Digital twin",
+   "zh": "本人分身",
+   "group": "形象",
+   "ubiquity": "待核",
+   "aliases": [
+    "digital twin",
+    "数字分身",
+    "真人克隆"
+   ],
+   "since_note": "HeyGen 端点「Digital Twin」"
+  },
+  {
+   "id": "p-identity",
+   "class": "avatar",
+   "domain": "avatar",
+   "name": "Identity consistency",
+   "zh": "形象一致",
+   "group": "形象",
+   "ubiquity": "待核",
+   "aliases": [
+    "identity consistency",
+    "character consistency",
+    "形象一致",
+    "不崩脸"
+   ],
+   "since_note": "美团「strict identity consistency」· 混元「preserving character consistency」"
+  },
+  {
+   "id": "p-fullbody",
+   "class": "avatar",
+   "domain": "avatar",
+   "name": "Full-body / multi-scale",
+   "zh": "全身与多尺度",
+   "group": "形象",
+   "ubiquity": "待核",
+   "aliases": [
+    "full-body",
+    "half-body",
+    "upper-body",
+    "全身",
+    "半身"
+   ],
+   "since_note": "混元「portrait, upper-body and full-body」· 美团「full-body temporal stability」"
+  },
+  {
+   "id": "p-audio",
+   "class": "avatar",
+   "domain": "avatar",
+   "name": "Audio-driven",
+   "zh": "音频驱动形象",
+   "group": "驱动",
+   "ubiquity": "待核",
+   "aliases": [
+    "audio-driven",
+    "audio to video",
+    "音频驱动"
+   ],
+   "since_note": "HeyGen 端点「Audio to Video」· 美团/混元都自述 audio-driven　⚠️ 轴名从「音频驱动」改成「音频驱动形象」：前者是通用中文词，**视频卷的资源名里本来就有**（ComfyUI-FLOAT 音频驱动说话头、Wan2.2-S2V 音频驱动工作流），跨方向检查当场报混入。改名不是为了绕过检查 —— 这一格问的确实是「能不能用音频驱动**一个形象**」，原名少了最要紧的那个词。"
+  },
+  {
+   "id": "p-text",
+   "class": "avatar",
+   "domain": "avatar",
+   "name": "Text-driven (script to video)",
+   "zh": "文本驱动",
+   "group": "驱动",
+   "ubiquity": "待核",
+   "aliases": [
+    "text to video avatar",
+    "script",
+    "文本驱动",
+    "念稿"
+   ],
+   "since_note": "HeyGen 的 Voices（Text to Speech）+ Avatar 组合"
+  },
+  {
+   "id": "p-video",
+   "class": "avatar",
+   "domain": "avatar",
+   "name": "Video-driven / retargeting",
+   "zh": "视频驱动与重定向",
+   "group": "驱动",
+   "ubiquity": "待核",
+   "aliases": [
+    "retargeting",
+    "stitching",
+    "video driven",
+    "表情迁移"
+   ],
+   "since_note": "快手 LivePortrait「Stitching and **Retargeting** Control」"
+  },
+  {
+   "id": "p-lipsync",
+   "class": "avatar",
+   "domain": "avatar",
+   "name": "Lipsync on existing video",
+   "zh": "给已有视频对口型",
+   "group": "驱动",
+   "ubiquity": "待核",
+   "aliases": [
+    "lipsync",
+    "对口型",
+    "唇形同步"
+   ],
+   "since_note": "HeyGen 单列「Lipsync — Speed / Precision」两档"
+  },
+  {
+   "id": "p-translate",
+   "class": "avatar",
+   "domain": "avatar",
+   "name": "Video translation with lipsync",
+   "zh": "多语种口型翻译",
+   "group": "交付",
+   "ubiquity": "待核",
+   "aliases": [
+    "video translation",
+    "dubbing",
+    "配音翻译",
+    "多语种"
+   ],
+   "since_note": "HeyGen「Video Translation — Speed / Precision」· Synthesia「Dub your videos via API」"
+  },
+  {
+   "id": "p-emotion",
+   "class": "avatar",
+   "domain": "avatar",
+   "name": "Emotion control",
+   "zh": "情绪与表情控制",
+   "group": "驱动",
+   "ubiquity": "待核",
+   "aliases": [
+    "emotion alignment",
+    "情绪",
+    "表情控制"
+   ],
+   "since_note": "混元「precise **emotion alignment** between characters and audio」"
+  },
+  {
+   "id": "p-multi",
+   "class": "avatar",
+   "domain": "avatar",
+   "name": "Multi-character",
+   "zh": "多人同框",
+   "group": "形象",
+   "ubiquity": "待核",
+   "aliases": [
+    "multi-character",
+    "multi-person",
+    "多人",
+    "多角色"
+   ],
+   "since_note": "混元「multi-character audio-driven animation」· 美团「multi-person interactions」"
+  },
+  {
+   "id": "p-live",
+   "class": "avatar",
+   "domain": "avatar",
+   "name": "Live / realtime avatar",
+   "zh": "实时驱动",
+   "group": "交付",
+   "ubiquity": "待核",
+   "aliases": [
+    "live avatar",
+    "realtime",
+    "实时",
+    "直播"
+   ],
+   "since_note": "HeyGen 端点「Live Avatar」与「Realtime Video」"
+  },
+  {
+   "id": "p-alpha",
+   "class": "avatar",
+   "domain": "avatar",
+   "name": "Transparent background",
+   "zh": "透明背景输出",
+   "group": "交付",
+   "ubiquity": "待核",
+   "aliases": [
+    "transparent background",
+    "alpha",
+    "抠像",
+    "绿幕"
+   ],
+   "since_note": "HeyGen 端点「Transparent Background Videos」"
+  },
+  {
+   "id": "p-openweights",
+   "class": "avatar",
+   "domain": "avatar",
+   "name": "Open weights",
+   "zh": "开源权重",
+   "group": "交付",
+   "ubiquity": "待核",
+   "aliases": [
+    "open weights",
+    "开源权重"
+   ],
+   "since_note": "美团 / 快手 / 复旦都放了权重"
   }
  ],
  "orgs": [
@@ -1860,6 +2078,37 @@
    "en": "Meituan LongCat",
    "name": "Meituan",
    "kind": "bigtech"
+  },
+  {
+   "id": "heygen",
+   "zh": "HeyGen",
+   "en": "HeyGen",
+   "name": "HeyGen",
+   "kind": "startup",
+   "zh_none": true,
+   "note": "自述「used by 85,000+ companies」；开发者文档索引是这一卷最全的一份"
+  },
+  {
+   "id": "synthesia",
+   "zh": "Synthesia",
+   "en": "Synthesia",
+   "name": "Synthesia",
+   "kind": "startup",
+   "zh_none": true
+  },
+  {
+   "id": "tme",
+   "zh": "腾讯音乐天琴实验室",
+   "en": "TMElyralab",
+   "name": "TMElyralab",
+   "kind": "lab"
+  },
+  {
+   "id": "fudan",
+   "zh": "复旦大学",
+   "en": "Fudan University",
+   "name": "Fudan",
+   "kind": "lab"
   }
  ],
  "$orgs": "公司是**一等实体**，不是模型上的一个字符串（此前 vendor 是字符串，结果阿里在库里成了两家）。产业链图、地球分布、投资关系全都挂在这一层上。\n**hq 只有 5 家有来源，其余 6 家仍然没有** —— 都是公开常识，但我们自己的规矩是「没有来源的结论就是猜的」，所以校验里 R21 会一直警告，前台也必须标出来。不许因为「大家都知道」就当成核过了。\n\n2026-08-08 补：从已有快照和官网拿到 5 家的可引证据，但**精度分三档**，写进 `hq_precision`：\n  exact     —— 页脚给出具体街道地址（只有字节）\n  province  —— **ICP 备案只证到省**（快手/MiniMax/阿里）。阿里那条只证到浙江，没证到杭州\n  ambiguous —— 招聘页同时列两个城市（Runway 的纽约与旧金山）\n\n剩下 6 家（生数、昆仑万维、Google DeepMind、OpenAI、Decart、Lightricks）没拿到：\n**生数官网 HTTPS 证书已过期**（ERR_CERT_DATE_INVALID）—— 这条本身就是信息；\n其余几家的 about/contact 页没有可机读的地址段。R21 会一直为它们报警告。\n\n**不许把 province 当成 exact 用。** 我们批评厂商「说了半句」的时候，自己不能也说半句。",
@@ -3619,6 +3868,139 @@
    "reach_cn": "unknown",
    "reach_note": "还没测",
    "note": "美团的图像编辑模型。⚠️ **中文侧大厂里少见的开源图像编辑**，许可是标准 Apache-2.0。"
+  },
+  {
+   "id": "heygen",
+   "class": "avatar",
+   "family": "HeyGen",
+   "org": "heygen",
+   "version": "Avatar V",
+   "version_as_of": "2026-08-14",
+   "status": "active",
+   "tier": "core",
+   "domain": "avatar",
+   "weights": "closed",
+   "zh_none": true,
+   "version_src": "heygen-docs",
+   "version_quote": "开发者文档索引里的 Direct Video Generation 一节：「Models · **Avatar V** · Avatar IV · Avatar III · Live Avatar · Digital Twin · Photo Avatar · Cinematic Avatar」—— Avatar V 是当前代",
+   "lineage_note": "数字人卷 2026-08-14 才立项，谱系还没采 —— **这是「没采到」不是「它没有历史」**",
+   "reach_cn": "unknown",
+   "reach_note": "还没测",
+   "note": "闭源，只有 API。⚠️ 文档索引本身（llms.txt，38,892 字符）是这一卷最全的一份可核来源"
+  },
+  {
+   "id": "synthesia",
+   "class": "avatar",
+   "family": "Synthesia",
+   "org": "synthesia",
+   "version": "API v2",
+   "version_as_of": "2026-08-14",
+   "status": "active",
+   "tier": "core",
+   "domain": "avatar",
+   "weights": "closed",
+   "zh_none": true,
+   "version_src": "synthesia-docs",
+   "version_quote": "API 文档的端点分组：Templates（列表 / 取单个）· Videos（创建 / 从模板创建 / 列表 / 缩略图）· 以及指南「Dub your videos via Synthesia API」",
+   "lineage_note": "数字人卷 2026-08-14 才立项，谱系还没采 —— **这是「没采到」不是「它没有历史」**",
+   "reach_cn": "unknown",
+   "reach_note": "还没测",
+   "note": "闭源。⚠️ 文档以模板与视频任务为中心，**没有单独的「模型」概念** —— 版本记成 API v2 是我们的记法，不是它的命名"
+  },
+  {
+   "id": "longcat-avatar",
+   "class": "avatar",
+   "family": "LongCat Video Avatar",
+   "org": "meituan",
+   "version": "1.5",
+   "version_as_of": "2026-08-14",
+   "status": "active",
+   "tier": "core",
+   "domain": "avatar",
+   "weights": "open",
+   "zh_none": true,
+   "version_src": "hf-longcat-avatar",
+   "version_quote": "模型卡：「LongCat-Video-Avatar-1.5 … prioritizes extreme empirical optimization and **production-readiness for audio-driven human video generation**」（♥714，**MIT**）",
+   "lineage_note": "数字人卷 2026-08-14 才立项，谱系还没采 —— **这是「没采到」不是「它没有历史」**",
+   "reach_cn": "unknown",
+   "reach_note": "还没测",
+   "note": "开源侧关注度最高的一支。⚠️ 和图像卷收的 LongCat Image Edit 同属美团，但**是两条线**"
+  },
+  {
+   "id": "hunyuan-avatar",
+   "class": "avatar",
+   "family": "HunyuanVideo-Avatar",
+   "org": "tencent",
+   "version": "1.0",
+   "version_as_of": "2026-08-14",
+   "status": "active",
+   "tier": "core",
+   "domain": "avatar",
+   "weights": "open",
+   "zh_none": true,
+   "version_src": "hf-hunyuan-avatar",
+   "version_quote": "模型卡标题：「HunyuanVideo-Avatar: **High-Fidelity Audio-Driven Human Animation for Multiple Characters**」（arXiv 2505.20156，♥333）",
+   "lineage_note": "数字人卷 2026-08-14 才立项，谱系还没采 —— **这是「没采到」不是「它没有历史」**",
+   "reach_cn": "unknown",
+   "reach_note": "还没测",
+   "note": "⚠️ HF 上没标准许可字段，商用前要读仓库里的条款"
+  },
+  {
+   "id": "liveportrait",
+   "class": "avatar",
+   "family": "LivePortrait",
+   "org": "kuaishou",
+   "version": "1.0",
+   "version_as_of": "2026-08-14",
+   "status": "active",
+   "tier": "core",
+   "domain": "avatar",
+   "weights": "open",
+   "zh_none": true,
+   "version_src": "hf-liveportrait",
+   "version_quote": "模型卡标题：「LivePortrait: Efficient **Portrait Animation** with **Stitching and Retargeting Control**」（♥487，**MIT**）",
+   "lineage_note": "数字人卷 2026-08-14 才立项，谱系还没采 —— **这是「没采到」不是「它没有历史」**",
+   "reach_cn": "unknown",
+   "reach_note": "还没测",
+   "note": "视频驱动那一路的代表：拿一段驱动视频去带动一张静态人像"
+  },
+  {
+   "id": "musetalk",
+   "class": "avatar",
+   "family": "MuseTalk",
+   "org": "tme",
+   "version": "1.0",
+   "version_as_of": "2026-08-14",
+   "status": "active",
+   "tier": "core",
+   "domain": "avatar",
+   "weights": "open",
+   "zh_none": true,
+   "version_src": "hf-musetalk",
+   "version_quote": "官方仓库 TMElyralab/MuseTalk（2024-04-02，♥162，许可 creativeml-openrail-m）",
+   "lineage_note": "数字人卷 2026-08-14 才立项，谱系还没采 —— **这是「没采到」不是「它没有历史」**",
+   "reach_cn": "unknown",
+   "reach_note": "还没测",
+   "note": "⚠️ 立项当天只核到仓库与许可，能力还没逐条读 —— 格子里照实标着"
+  },
+  {
+   "id": "hallo2",
+   "class": "avatar",
+   "family": "Hallo2",
+   "org": "fudan",
+   "version": "2",
+   "version_as_of": "2026-08-14",
+   "status": "active",
+   "tier": "core",
+   "domain": "avatar",
+   "weights": "open",
+   "zh_none": true,
+   "version_src": "hf-hallo2",
+   "version_quote": "官方仓库 fudan-generative-ai/hallo2（2024-10-13，♥136，**MIT**）",
+   "lineage_note": "数字人卷 2026-08-14 才立项，谱系还没采 —— **这是「没采到」不是「它没有历史」**",
+   "reach_cn": "unknown",
+   "reach_note": "还没测",
+   "note": "⚠️ 同上：只核到仓库与许可"
   }
  ],
  "sources": {
@@ -5390,6 +5772,41 @@
   "hf-magi": {
    "name": "Hugging Face · sand-ai/MAGI-1 与 MAGI-2-preview",
    "url": "https://huggingface.co/sand-ai/MAGI-1",
+   "tier": "official"
+  },
+  "heygen-docs": {
+   "name": "HeyGen · 开发者文档索引",
+   "url": "https://docs.heygen.com/llms.txt",
+   "tier": "official"
+  },
+  "synthesia-docs": {
+   "name": "Synthesia · API 文档",
+   "url": "https://docs.synthesia.io/docs/getting-started",
+   "tier": "official"
+  },
+  "hf-longcat-avatar": {
+   "name": "HF · 美团 LongCat-Video-Avatar-1.5",
+   "url": "https://huggingface.co/meituan-longcat/LongCat-Video-Avatar-1.5",
+   "tier": "official"
+  },
+  "hf-hunyuan-avatar": {
+   "name": "HF · 腾讯 HunyuanVideo-Avatar",
+   "url": "https://huggingface.co/tencent/HunyuanVideo-Avatar",
+   "tier": "official"
+  },
+  "hf-liveportrait": {
+   "name": "HF · 快手 LivePortrait",
+   "url": "https://huggingface.co/KwaiVGI/LivePortrait",
+   "tier": "official"
+  },
+  "hf-musetalk": {
+   "name": "HF · 腾讯音乐 MuseTalk",
+   "url": "https://huggingface.co/TMElyralab/MuseTalk",
+   "tier": "official"
+  },
+  "hf-hallo2": {
+   "name": "HF · 复旦 Hallo2",
+   "url": "https://huggingface.co/fudan-generative-ai/hallo2",
    "tier": "official"
   }
  },
@@ -11209,6 +11626,846 @@
    "src": "pixverse-v6",
    "note": "官网横幅写「**Pro Lens Power**」，但那是宣传语；V6 的参数表里没有运镜相关参数 —— 宣传语不算能力证据",
    "as_of": "2026-08-14"
+  },
+  {
+   "m": "heygen",
+   "c": "p-photo",
+   "state": "yes",
+   "verified_for": "Avatar V",
+   "src": "heygen-docs",
+   "note": "文档索引里单列端点「**Photo Avatar**」（Direct Video Generation 一节）",
+   "via": "native",
+   "as_of": "2026-08-14"
+  },
+  {
+   "m": "heygen",
+   "c": "p-clone",
+   "state": "yes",
+   "verified_for": "Avatar V",
+   "src": "heygen-docs",
+   "note": "单列端点「**Digital Twin**」",
+   "via": "native",
+   "as_of": "2026-08-14"
+  },
+  {
+   "m": "heygen",
+   "c": "p-identity",
+   "state": "unknown",
+   "verified_for": "Avatar V",
+   "note": "立项当天（2026-08-14）只核到版本与该家最显眼的几项能力，这一格**还没查**",
+   "as_of": "2026-08-14"
+  },
+  {
+   "m": "heygen",
+   "c": "p-fullbody",
+   "state": "unknown",
+   "verified_for": "Avatar V",
+   "note": "立项当天（2026-08-14）只核到版本与该家最显眼的几项能力，这一格**还没查**",
+   "as_of": "2026-08-14"
+  },
+  {
+   "m": "heygen",
+   "c": "p-audio",
+   "state": "yes",
+   "verified_for": "Avatar V",
+   "src": "heygen-docs",
+   "note": "单列端点「**Audio to Video**」",
+   "via": "native",
+   "as_of": "2026-08-14"
+  },
+  {
+   "m": "heygen",
+   "c": "p-text",
+   "state": "yes",
+   "verified_for": "Avatar V",
+   "src": "heygen-docs",
+   "note": "Voices 一节有「Text to Speech」「Design a Voice」，与 Avatar 组合即文本驱动出片",
+   "via": "native",
+   "as_of": "2026-08-14"
+  },
+  {
+   "m": "heygen",
+   "c": "p-video",
+   "state": "unknown",
+   "verified_for": "Avatar V",
+   "note": "立项当天（2026-08-14）只核到版本与该家最显眼的几项能力，这一格**还没查**",
+   "as_of": "2026-08-14"
+  },
+  {
+   "m": "heygen",
+   "c": "p-lipsync",
+   "state": "yes",
+   "verified_for": "Avatar V",
+   "src": "heygen-docs",
+   "note": "**单列一整节 Lipsync**，还分两档：「Lipsync — Speed」「Lipsync — Precision」",
+   "via": "native",
+   "as_of": "2026-08-14"
+  },
+  {
+   "m": "heygen",
+   "c": "p-translate",
+   "state": "yes",
+   "verified_for": "Avatar V",
+   "src": "heygen-docs",
+   "note": "单列一整节 Video Translation，同样分两档：「— Speed」「— Precision」；另有「Batch Video Translations」",
+   "via": "native",
+   "as_of": "2026-08-14"
+  },
+  {
+   "m": "heygen",
+   "c": "p-emotion",
+   "state": "unknown",
+   "verified_for": "Avatar V",
+   "note": "立项当天（2026-08-14）只核到版本与该家最显眼的几项能力，这一格**还没查**",
+   "as_of": "2026-08-14"
+  },
+  {
+   "m": "heygen",
+   "c": "p-multi",
+   "state": "unknown",
+   "verified_for": "Avatar V",
+   "note": "立项当天（2026-08-14）只核到版本与该家最显眼的几项能力，这一格**还没查**",
+   "as_of": "2026-08-14"
+  },
+  {
+   "m": "heygen",
+   "c": "p-live",
+   "state": "yes",
+   "verified_for": "Avatar V",
+   "src": "heygen-docs",
+   "note": "端点「**Live Avatar**」；文档另有 Realtime Video 一节",
+   "via": "native",
+   "as_of": "2026-08-14"
+  },
+  {
+   "m": "heygen",
+   "c": "p-alpha",
+   "state": "yes",
+   "verified_for": "Avatar V",
+   "src": "heygen-docs",
+   "note": "端点「**Transparent Background Videos**」—— 出片能直接合成到别的画面上",
+   "via": "native",
+   "as_of": "2026-08-14"
+  },
+  {
+   "m": "heygen",
+   "c": "p-openweights",
+   "state": "no",
+   "verified_for": "Avatar V",
+   "src": "heygen-docs",
+   "note": "❌ 的依据：文档索引通篇是 API / CLI / MCP 与计费，**没有任何权重下载入口**",
+   "via": "native",
+   "as_of": "2026-08-14"
+  },
+  {
+   "m": "synthesia",
+   "c": "p-photo",
+   "state": "unknown",
+   "verified_for": "API v2",
+   "note": "立项当天（2026-08-14）只核到版本与该家最显眼的几项能力，这一格**还没查**",
+   "as_of": "2026-08-14"
+  },
+  {
+   "m": "synthesia",
+   "c": "p-clone",
+   "state": "unknown",
+   "verified_for": "API v2",
+   "note": "立项当天（2026-08-14）只核到版本与该家最显眼的几项能力，这一格**还没查**",
+   "as_of": "2026-08-14"
+  },
+  {
+   "m": "synthesia",
+   "c": "p-identity",
+   "state": "unknown",
+   "verified_for": "API v2",
+   "note": "立项当天（2026-08-14）只核到版本与该家最显眼的几项能力，这一格**还没查**",
+   "as_of": "2026-08-14"
+  },
+  {
+   "m": "synthesia",
+   "c": "p-fullbody",
+   "state": "unknown",
+   "verified_for": "API v2",
+   "note": "立项当天（2026-08-14）只核到版本与该家最显眼的几项能力，这一格**还没查**",
+   "as_of": "2026-08-14"
+  },
+  {
+   "m": "synthesia",
+   "c": "p-audio",
+   "state": "unknown",
+   "verified_for": "API v2",
+   "note": "立项当天（2026-08-14）只核到版本与该家最显眼的几项能力，这一格**还没查**",
+   "as_of": "2026-08-14"
+  },
+  {
+   "m": "synthesia",
+   "c": "p-text",
+   "state": "unknown",
+   "verified_for": "API v2",
+   "note": "立项当天（2026-08-14）只核到版本与该家最显眼的几项能力，这一格**还没查**",
+   "as_of": "2026-08-14"
+  },
+  {
+   "m": "synthesia",
+   "c": "p-video",
+   "state": "unknown",
+   "verified_for": "API v2",
+   "note": "立项当天（2026-08-14）只核到版本与该家最显眼的几项能力，这一格**还没查**",
+   "as_of": "2026-08-14"
+  },
+  {
+   "m": "synthesia",
+   "c": "p-lipsync",
+   "state": "unknown",
+   "verified_for": "API v2",
+   "note": "立项当天（2026-08-14）只核到版本与该家最显眼的几项能力，这一格**还没查**",
+   "as_of": "2026-08-14"
+  },
+  {
+   "m": "synthesia",
+   "c": "p-translate",
+   "state": "yes",
+   "verified_for": "API v2",
+   "src": "synthesia-docs",
+   "note": "文档指南：「**Dub your videos via Synthesia API**」",
+   "via": "native",
+   "as_of": "2026-08-14"
+  },
+  {
+   "m": "synthesia",
+   "c": "p-emotion",
+   "state": "unknown",
+   "verified_for": "API v2",
+   "note": "立项当天（2026-08-14）只核到版本与该家最显眼的几项能力，这一格**还没查**",
+   "as_of": "2026-08-14"
+  },
+  {
+   "m": "synthesia",
+   "c": "p-multi",
+   "state": "unknown",
+   "verified_for": "API v2",
+   "note": "立项当天（2026-08-14）只核到版本与该家最显眼的几项能力，这一格**还没查**",
+   "as_of": "2026-08-14"
+  },
+  {
+   "m": "synthesia",
+   "c": "p-live",
+   "state": "unknown",
+   "verified_for": "API v2",
+   "note": "立项当天（2026-08-14）只核到版本与该家最显眼的几项能力，这一格**还没查**",
+   "as_of": "2026-08-14"
+  },
+  {
+   "m": "synthesia",
+   "c": "p-alpha",
+   "state": "unknown",
+   "verified_for": "API v2",
+   "note": "立项当天（2026-08-14）只核到版本与该家最显眼的几项能力，这一格**还没查**",
+   "as_of": "2026-08-14"
+  },
+  {
+   "m": "synthesia",
+   "c": "p-openweights",
+   "state": "no",
+   "verified_for": "API v2",
+   "src": "synthesia-docs",
+   "note": "❌ 的依据：文档只有模板与视频任务两组端点，没有权重入口",
+   "via": "native",
+   "as_of": "2026-08-14"
+  },
+  {
+   "m": "longcat-avatar",
+   "c": "p-photo",
+   "state": "unknown",
+   "verified_for": "1.5",
+   "note": "立项当天（2026-08-14）只核到版本与该家最显眼的几项能力，这一格**还没查**",
+   "as_of": "2026-08-14"
+  },
+  {
+   "m": "longcat-avatar",
+   "c": "p-clone",
+   "state": "unknown",
+   "verified_for": "1.5",
+   "note": "立项当天（2026-08-14）只核到版本与该家最显眼的几项能力，这一格**还没查**",
+   "as_of": "2026-08-14"
+  },
+  {
+   "m": "longcat-avatar",
+   "c": "p-identity",
+   "state": "yes",
+   "verified_for": "1.5",
+   "src": "hf-longcat-avatar",
+   "note": "模型卡：「robust long-video generation with **strict identity consistency**」",
+   "via": "native",
+   "as_of": "2026-08-14"
+  },
+  {
+   "m": "longcat-avatar",
+   "c": "p-fullbody",
+   "state": "yes",
+   "verified_for": "1.5",
+   "src": "hf-longcat-avatar",
+   "note": "模型卡：「**full-body temporal stability**」",
+   "via": "native",
+   "as_of": "2026-08-14"
+  },
+  {
+   "m": "longcat-avatar",
+   "c": "p-audio",
+   "state": "yes",
+   "verified_for": "1.5",
+   "src": "hf-longcat-avatar",
+   "note": "模型卡：「production-readiness for **audio-driven** human video generation」",
+   "via": "native",
+   "as_of": "2026-08-14"
+  },
+  {
+   "m": "longcat-avatar",
+   "c": "p-text",
+   "state": "unknown",
+   "verified_for": "1.5",
+   "note": "立项当天（2026-08-14）只核到版本与该家最显眼的几项能力，这一格**还没查**",
+   "as_of": "2026-08-14"
+  },
+  {
+   "m": "longcat-avatar",
+   "c": "p-video",
+   "state": "unknown",
+   "verified_for": "1.5",
+   "note": "立项当天（2026-08-14）只核到版本与该家最显眼的几项能力，这一格**还没查**",
+   "as_of": "2026-08-14"
+  },
+  {
+   "m": "longcat-avatar",
+   "c": "p-lipsync",
+   "state": "yes",
+   "verified_for": "1.5",
+   "src": "hf-longcat-avatar",
+   "note": "模型卡：「Achieves **accurate lip-synchronization**」（配合 Whisper-Large 做口型）",
+   "via": "native",
+   "as_of": "2026-08-14"
+  },
+  {
+   "m": "longcat-avatar",
+   "c": "p-translate",
+   "state": "unknown",
+   "verified_for": "1.5",
+   "note": "立项当天（2026-08-14）只核到版本与该家最显眼的几项能力，这一格**还没查**",
+   "as_of": "2026-08-14"
+  },
+  {
+   "m": "longcat-avatar",
+   "c": "p-emotion",
+   "state": "unknown",
+   "verified_for": "1.5",
+   "note": "立项当天（2026-08-14）只核到版本与该家最显眼的几项能力，这一格**还没查**",
+   "as_of": "2026-08-14"
+  },
+  {
+   "m": "longcat-avatar",
+   "c": "p-multi",
+   "state": "yes",
+   "verified_for": "1.5",
+   "src": "hf-longcat-avatar",
+   "note": "模型卡：「generalizes to anime, animals, and complex real-world conditions such as **multi-person interactions** and object handling」",
+   "via": "native",
+   "as_of": "2026-08-14"
+  },
+  {
+   "m": "longcat-avatar",
+   "c": "p-live",
+   "state": "unknown",
+   "verified_for": "1.5",
+   "note": "立项当天（2026-08-14）只核到版本与该家最显眼的几项能力，这一格**还没查**",
+   "as_of": "2026-08-14"
+  },
+  {
+   "m": "longcat-avatar",
+   "c": "p-alpha",
+   "state": "unknown",
+   "verified_for": "1.5",
+   "note": "立项当天（2026-08-14）只核到版本与该家最显眼的几项能力，这一格**还没查**",
+   "as_of": "2026-08-14"
+  },
+  {
+   "m": "longcat-avatar",
+   "c": "p-openweights",
+   "state": "yes",
+   "verified_for": "1.5",
+   "src": "hf-longcat-avatar",
+   "note": "权重在 HF，许可 **MIT**（♥714）",
+   "via": "native",
+   "as_of": "2026-08-14"
+  },
+  {
+   "m": "hunyuan-avatar",
+   "c": "p-photo",
+   "state": "unknown",
+   "verified_for": "1.0",
+   "note": "立项当天（2026-08-14）只核到版本与该家最显眼的几项能力，这一格**还没查**",
+   "as_of": "2026-08-14"
+  },
+  {
+   "m": "hunyuan-avatar",
+   "c": "p-clone",
+   "state": "unknown",
+   "verified_for": "1.0",
+   "note": "立项当天（2026-08-14）只核到版本与该家最显眼的几项能力，这一格**还没查**",
+   "as_of": "2026-08-14"
+  },
+  {
+   "m": "hunyuan-avatar",
+   "c": "p-identity",
+   "state": "yes",
+   "verified_for": "1.0",
+   "src": "hf-hunyuan-avatar",
+   "note": "摘要：「generating highly dynamic videos while **preserving character consistency**」",
+   "via": "native",
+   "as_of": "2026-08-14"
+  },
+  {
+   "m": "hunyuan-avatar",
+   "c": "p-fullbody",
+   "state": "yes",
+   "verified_for": "1.0",
+   "src": "hf-hunyuan-avatar",
+   "note": "摘要：「**Multi-scale generation spanning portrait, upper-body and full-body**」",
+   "via": "native",
+   "as_of": "2026-08-14"
+  },
+  {
+   "m": "hunyuan-avatar",
+   "c": "p-audio",
+   "state": "yes",
+   "verified_for": "1.0",
+   "src": "hf-hunyuan-avatar",
+   "note": "标题：「High-Fidelity **Audio-Driven** Human Animation」",
+   "via": "native",
+   "as_of": "2026-08-14"
+  },
+  {
+   "m": "hunyuan-avatar",
+   "c": "p-text",
+   "state": "unknown",
+   "verified_for": "1.0",
+   "note": "立项当天（2026-08-14）只核到版本与该家最显眼的几项能力，这一格**还没查**",
+   "as_of": "2026-08-14"
+  },
+  {
+   "m": "hunyuan-avatar",
+   "c": "p-video",
+   "state": "unknown",
+   "verified_for": "1.0",
+   "note": "立项当天（2026-08-14）只核到版本与该家最显眼的几项能力，这一格**还没查**",
+   "as_of": "2026-08-14"
+  },
+  {
+   "m": "hunyuan-avatar",
+   "c": "p-lipsync",
+   "state": "unknown",
+   "verified_for": "1.0",
+   "note": "立项当天（2026-08-14）只核到版本与该家最显眼的几项能力，这一格**还没查**",
+   "as_of": "2026-08-14"
+  },
+  {
+   "m": "hunyuan-avatar",
+   "c": "p-translate",
+   "state": "unknown",
+   "verified_for": "1.0",
+   "note": "立项当天（2026-08-14）只核到版本与该家最显眼的几项能力，这一格**还没查**",
+   "as_of": "2026-08-14"
+  },
+  {
+   "m": "hunyuan-avatar",
+   "c": "p-emotion",
+   "state": "yes",
+   "verified_for": "1.0",
+   "src": "hf-hunyuan-avatar",
+   "note": "摘要：「achieving **precise emotion alignment** between characters and audio」",
+   "via": "native",
+   "as_of": "2026-08-14"
+  },
+  {
+   "m": "hunyuan-avatar",
+   "c": "p-multi",
+   "state": "yes",
+   "verified_for": "1.0",
+   "src": "hf-hunyuan-avatar",
+   "note": "摘要：「enabling **multi-character** audio-driven animation」；标题也写 for Multiple Characters",
+   "via": "native",
+   "as_of": "2026-08-14"
+  },
+  {
+   "m": "hunyuan-avatar",
+   "c": "p-live",
+   "state": "unknown",
+   "verified_for": "1.0",
+   "note": "立项当天（2026-08-14）只核到版本与该家最显眼的几项能力，这一格**还没查**",
+   "as_of": "2026-08-14"
+  },
+  {
+   "m": "hunyuan-avatar",
+   "c": "p-alpha",
+   "state": "unknown",
+   "verified_for": "1.0",
+   "note": "立项当天（2026-08-14）只核到版本与该家最显眼的几项能力，这一格**还没查**",
+   "as_of": "2026-08-14"
+  },
+  {
+   "m": "hunyuan-avatar",
+   "c": "p-openweights",
+   "state": "yes",
+   "verified_for": "1.0",
+   "src": "hf-hunyuan-avatar",
+   "note": "权重在官方 HF 仓库。⚠️ 页面没标准许可字段，商用前要读仓库条款",
+   "via": "native",
+   "as_of": "2026-08-14"
+  },
+  {
+   "m": "liveportrait",
+   "c": "p-photo",
+   "state": "yes",
+   "verified_for": "1.0",
+   "src": "hf-liveportrait",
+   "note": "标题里的 **Portrait Animation** 即以单张人像为源",
+   "via": "native",
+   "as_of": "2026-08-14"
+  },
+  {
+   "m": "liveportrait",
+   "c": "p-clone",
+   "state": "unknown",
+   "verified_for": "1.0",
+   "note": "立项当天（2026-08-14）只核到版本与该家最显眼的几项能力，这一格**还没查**",
+   "as_of": "2026-08-14"
+  },
+  {
+   "m": "liveportrait",
+   "c": "p-identity",
+   "state": "unknown",
+   "verified_for": "1.0",
+   "note": "立项当天（2026-08-14）只核到版本与该家最显眼的几项能力，这一格**还没查**",
+   "as_of": "2026-08-14"
+  },
+  {
+   "m": "liveportrait",
+   "c": "p-fullbody",
+   "state": "unknown",
+   "verified_for": "1.0",
+   "note": "立项当天（2026-08-14）只核到版本与该家最显眼的几项能力，这一格**还没查**",
+   "as_of": "2026-08-14"
+  },
+  {
+   "m": "liveportrait",
+   "c": "p-audio",
+   "state": "unknown",
+   "verified_for": "1.0",
+   "note": "立项当天（2026-08-14）只核到版本与该家最显眼的几项能力，这一格**还没查**",
+   "as_of": "2026-08-14"
+  },
+  {
+   "m": "liveportrait",
+   "c": "p-text",
+   "state": "unknown",
+   "verified_for": "1.0",
+   "note": "立项当天（2026-08-14）只核到版本与该家最显眼的几项能力，这一格**还没查**",
+   "as_of": "2026-08-14"
+  },
+  {
+   "m": "liveportrait",
+   "c": "p-video",
+   "state": "yes",
+   "verified_for": "1.0",
+   "src": "hf-liveportrait",
+   "note": "标题：「Efficient Portrait Animation with **Stitching and Retargeting Control**」—— 用驱动视频带动静态人像",
+   "via": "native",
+   "as_of": "2026-08-14"
+  },
+  {
+   "m": "liveportrait",
+   "c": "p-lipsync",
+   "state": "unknown",
+   "verified_for": "1.0",
+   "note": "立项当天（2026-08-14）只核到版本与该家最显眼的几项能力，这一格**还没查**",
+   "as_of": "2026-08-14"
+  },
+  {
+   "m": "liveportrait",
+   "c": "p-translate",
+   "state": "unknown",
+   "verified_for": "1.0",
+   "note": "立项当天（2026-08-14）只核到版本与该家最显眼的几项能力，这一格**还没查**",
+   "as_of": "2026-08-14"
+  },
+  {
+   "m": "liveportrait",
+   "c": "p-emotion",
+   "state": "unknown",
+   "verified_for": "1.0",
+   "note": "立项当天（2026-08-14）只核到版本与该家最显眼的几项能力，这一格**还没查**",
+   "as_of": "2026-08-14"
+  },
+  {
+   "m": "liveportrait",
+   "c": "p-multi",
+   "state": "unknown",
+   "verified_for": "1.0",
+   "note": "立项当天（2026-08-14）只核到版本与该家最显眼的几项能力，这一格**还没查**",
+   "as_of": "2026-08-14"
+  },
+  {
+   "m": "liveportrait",
+   "c": "p-live",
+   "state": "unknown",
+   "verified_for": "1.0",
+   "note": "立项当天（2026-08-14）只核到版本与该家最显眼的几项能力，这一格**还没查**",
+   "as_of": "2026-08-14"
+  },
+  {
+   "m": "liveportrait",
+   "c": "p-alpha",
+   "state": "unknown",
+   "verified_for": "1.0",
+   "note": "立项当天（2026-08-14）只核到版本与该家最显眼的几项能力，这一格**还没查**",
+   "as_of": "2026-08-14"
+  },
+  {
+   "m": "liveportrait",
+   "c": "p-openweights",
+   "state": "yes",
+   "verified_for": "1.0",
+   "src": "hf-liveportrait",
+   "note": "权重在 HF，许可 **MIT**（♥487）",
+   "via": "native",
+   "as_of": "2026-08-14"
+  },
+  {
+   "m": "musetalk",
+   "c": "p-photo",
+   "state": "unknown",
+   "verified_for": "1.0",
+   "note": "立项当天（2026-08-14）只核到版本与该家最显眼的几项能力，这一格**还没查**",
+   "as_of": "2026-08-14"
+  },
+  {
+   "m": "musetalk",
+   "c": "p-clone",
+   "state": "unknown",
+   "verified_for": "1.0",
+   "note": "立项当天（2026-08-14）只核到版本与该家最显眼的几项能力，这一格**还没查**",
+   "as_of": "2026-08-14"
+  },
+  {
+   "m": "musetalk",
+   "c": "p-identity",
+   "state": "unknown",
+   "verified_for": "1.0",
+   "note": "立项当天（2026-08-14）只核到版本与该家最显眼的几项能力，这一格**还没查**",
+   "as_of": "2026-08-14"
+  },
+  {
+   "m": "musetalk",
+   "c": "p-fullbody",
+   "state": "unknown",
+   "verified_for": "1.0",
+   "note": "立项当天（2026-08-14）只核到版本与该家最显眼的几项能力，这一格**还没查**",
+   "as_of": "2026-08-14"
+  },
+  {
+   "m": "musetalk",
+   "c": "p-audio",
+   "state": "unknown",
+   "verified_for": "1.0",
+   "note": "立项当天（2026-08-14）只核到版本与该家最显眼的几项能力，这一格**还没查**",
+   "as_of": "2026-08-14"
+  },
+  {
+   "m": "musetalk",
+   "c": "p-text",
+   "state": "unknown",
+   "verified_for": "1.0",
+   "note": "立项当天（2026-08-14）只核到版本与该家最显眼的几项能力，这一格**还没查**",
+   "as_of": "2026-08-14"
+  },
+  {
+   "m": "musetalk",
+   "c": "p-video",
+   "state": "unknown",
+   "verified_for": "1.0",
+   "note": "立项当天（2026-08-14）只核到版本与该家最显眼的几项能力，这一格**还没查**",
+   "as_of": "2026-08-14"
+  },
+  {
+   "m": "musetalk",
+   "c": "p-lipsync",
+   "state": "unknown",
+   "verified_for": "1.0",
+   "note": "立项当天（2026-08-14）只核到版本与该家最显眼的几项能力，这一格**还没查**",
+   "as_of": "2026-08-14"
+  },
+  {
+   "m": "musetalk",
+   "c": "p-translate",
+   "state": "unknown",
+   "verified_for": "1.0",
+   "note": "立项当天（2026-08-14）只核到版本与该家最显眼的几项能力，这一格**还没查**",
+   "as_of": "2026-08-14"
+  },
+  {
+   "m": "musetalk",
+   "c": "p-emotion",
+   "state": "unknown",
+   "verified_for": "1.0",
+   "note": "立项当天（2026-08-14）只核到版本与该家最显眼的几项能力，这一格**还没查**",
+   "as_of": "2026-08-14"
+  },
+  {
+   "m": "musetalk",
+   "c": "p-multi",
+   "state": "unknown",
+   "verified_for": "1.0",
+   "note": "立项当天（2026-08-14）只核到版本与该家最显眼的几项能力，这一格**还没查**",
+   "as_of": "2026-08-14"
+  },
+  {
+   "m": "musetalk",
+   "c": "p-live",
+   "state": "unknown",
+   "verified_for": "1.0",
+   "note": "立项当天（2026-08-14）只核到版本与该家最显眼的几项能力，这一格**还没查**",
+   "as_of": "2026-08-14"
+  },
+  {
+   "m": "musetalk",
+   "c": "p-alpha",
+   "state": "unknown",
+   "verified_for": "1.0",
+   "note": "立项当天（2026-08-14）只核到版本与该家最显眼的几项能力，这一格**还没查**",
+   "as_of": "2026-08-14"
+  },
+  {
+   "m": "musetalk",
+   "c": "p-openweights",
+   "state": "yes",
+   "verified_for": "1.0",
+   "src": "hf-musetalk",
+   "note": "权重在官方仓库，许可 creativeml-openrail-m —— ⚠️ **不是标准开源协议**",
+   "via": "native",
+   "as_of": "2026-08-14"
+  },
+  {
+   "m": "hallo2",
+   "c": "p-photo",
+   "state": "unknown",
+   "verified_for": "2",
+   "note": "立项当天（2026-08-14）只核到版本与该家最显眼的几项能力，这一格**还没查**",
+   "as_of": "2026-08-14"
+  },
+  {
+   "m": "hallo2",
+   "c": "p-clone",
+   "state": "unknown",
+   "verified_for": "2",
+   "note": "立项当天（2026-08-14）只核到版本与该家最显眼的几项能力，这一格**还没查**",
+   "as_of": "2026-08-14"
+  },
+  {
+   "m": "hallo2",
+   "c": "p-identity",
+   "state": "unknown",
+   "verified_for": "2",
+   "note": "立项当天（2026-08-14）只核到版本与该家最显眼的几项能力，这一格**还没查**",
+   "as_of": "2026-08-14"
+  },
+  {
+   "m": "hallo2",
+   "c": "p-fullbody",
+   "state": "unknown",
+   "verified_for": "2",
+   "note": "立项当天（2026-08-14）只核到版本与该家最显眼的几项能力，这一格**还没查**",
+   "as_of": "2026-08-14"
+  },
+  {
+   "m": "hallo2",
+   "c": "p-audio",
+   "state": "unknown",
+   "verified_for": "2",
+   "note": "立项当天（2026-08-14）只核到版本与该家最显眼的几项能力，这一格**还没查**",
+   "as_of": "2026-08-14"
+  },
+  {
+   "m": "hallo2",
+   "c": "p-text",
+   "state": "unknown",
+   "verified_for": "2",
+   "note": "立项当天（2026-08-14）只核到版本与该家最显眼的几项能力，这一格**还没查**",
+   "as_of": "2026-08-14"
+  },
+  {
+   "m": "hallo2",
+   "c": "p-video",
+   "state": "unknown",
+   "verified_for": "2",
+   "note": "立项当天（2026-08-14）只核到版本与该家最显眼的几项能力，这一格**还没查**",
+   "as_of": "2026-08-14"
+  },
+  {
+   "m": "hallo2",
+   "c": "p-lipsync",
+   "state": "unknown",
+   "verified_for": "2",
+   "note": "立项当天（2026-08-14）只核到版本与该家最显眼的几项能力，这一格**还没查**",
+   "as_of": "2026-08-14"
+  },
+  {
+   "m": "hallo2",
+   "c": "p-translate",
+   "state": "unknown",
+   "verified_for": "2",
+   "note": "立项当天（2026-08-14）只核到版本与该家最显眼的几项能力，这一格**还没查**",
+   "as_of": "2026-08-14"
+  },
+  {
+   "m": "hallo2",
+   "c": "p-emotion",
+   "state": "unknown",
+   "verified_for": "2",
+   "note": "立项当天（2026-08-14）只核到版本与该家最显眼的几项能力，这一格**还没查**",
+   "as_of": "2026-08-14"
+  },
+  {
+   "m": "hallo2",
+   "c": "p-multi",
+   "state": "unknown",
+   "verified_for": "2",
+   "note": "立项当天（2026-08-14）只核到版本与该家最显眼的几项能力，这一格**还没查**",
+   "as_of": "2026-08-14"
+  },
+  {
+   "m": "hallo2",
+   "c": "p-live",
+   "state": "unknown",
+   "verified_for": "2",
+   "note": "立项当天（2026-08-14）只核到版本与该家最显眼的几项能力，这一格**还没查**",
+   "as_of": "2026-08-14"
+  },
+  {
+   "m": "hallo2",
+   "c": "p-alpha",
+   "state": "unknown",
+   "verified_for": "2",
+   "note": "立项当天（2026-08-14）只核到版本与该家最显眼的几项能力，这一格**还没查**",
+   "as_of": "2026-08-14"
+  },
+  {
+   "m": "hallo2",
+   "c": "p-openweights",
+   "state": "yes",
+   "verified_for": "2",
+   "src": "hf-hallo2",
+   "note": "权重在官方仓库，许可 **MIT**",
+   "via": "native",
+   "as_of": "2026-08-14"
   }
  ],
  "$aliases_why": "各家给同一个能力起不同的名字。**Kling 管角色参考叫 Element，我按 Character Reference 去找，找不到就标了「官方没说」—— 假阴性。** 采集时必须用整组别名去匹配，不能只用我们自己的叫法。这是原方案 §36 Entity Resolution 在能力维度上的对应物。\n\n`alias_bit_us` 标在**真把我们坑过的那一项**上（角色参考）。别名多不等于叫法分歧大：「首尾帧」也有 8 条别名，但全是 start/end frame 的描述性变体，谁都猜得到；而 Element / Ingredients / cameo 是厂商自造词，**不知道就永远搜不到**。选例子要选后者，靠数别名条数是挑不出来的 —— 所以标在数据里，不用启发式猜。",
@@ -11325,6 +12582,22 @@
     }
    ],
    "href": "/threed"
+  },
+  {
+   "id": "avatar",
+   "name": "AI 数字人",
+   "state": "planned",
+   "volume": "第六个方向",
+   "note": "第六个方向，2026-08-14 立项。**一轨** —— 各家做的都是同一件事：给定一个人物形象，用音频/文本/视频把它驱动起来。⚠️ **和 AI 视频卷的边界**：判据是「**形象是不是一等输入**」—— 能不能保存一个形象、反复用它出片。通用视频模型有「对口型」这一格（Kling / Veo 都有），那是它的一项能力；数字人这一卷收的是**整条产品线都围着形象转**的那些。⚠️ **和声音卷**：产出是影像不是音频，音色克隆仍归声音卷。⚠️ **和 3D 卷**：产出是视频不是可导出资产。**state 先 planned**：R68 要求四个公共页每卷都有内容，补齐才转 live。",
+   "tracks": [
+    {
+     "id": "avatar",
+     "zh": "形象驱动轨",
+     "short": "形象驱动",
+     "volume": "第一卷",
+     "note": "给定形象 + 驱动信号（音频 / 文本 / 视频），产出这个人物在说在动的影像"
+    }
+   ]
   }
  ],
  "$domains": "前端的方向切换从这里渲染。**现在只有一个，界面上就只显示一个** —— 不做占位 tab 假装有别的。加方向 = 往这个数组里加一条 + 给模型标 domain，不动代码。\n\n**能力轴按方向隔离**（规则二再往上推一层）：能力也带 domain。clip 和 realtime 已经不能共用能力轴，视频和文本更不能 —— 「首尾帧」对文本模型没有意义，硬塞进同一张表只会造出一整片假的 ⬜。校验 R26 拦跨方向的格子。",

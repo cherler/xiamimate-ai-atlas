@@ -41,7 +41,7 @@ export default function Pick() {
           const cells = atlas.support.filter((s) => ms.some((m) => m.id === s.m));
           const yes = cells.filter((s) => s.state === "yes").length;
           return (
-            <Link key={d.id} href={`/${d.id}`}
+            <Link key={d.id} data-domain-card href={`/${d.id}`}
               className="border border-rule rounded-xl bg-card px-5 py-5 hover:border-yes hover:bg-yes/5 flex flex-wrap items-baseline gap-x-4 gap-y-2">
               <span className="text-[26px] font-bold">{d.name}</span>
               {d.state !== "live" && (
