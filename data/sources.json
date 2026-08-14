@@ -5129,6 +5129,74 @@
     "application-resource"
    ],
    "note": "数字人 Skill 的公开实现，2026-08-14 走 GitHub API 核过星标与许可"
+  },
+  {
+   "id": "elevenlabs-changelog",
+   "tier": "S",
+   "kind": "html",
+   "vendor": "",
+   "name": "ElevenLabs · 更新日志索引",
+   "url": "https://elevenlabs.io/docs/changelog/llms.txt",
+   "refresh_days": 14,
+   "good_for": [
+    "version",
+    "capability"
+   ],
+   "note": "88 期周更记录的机器可读索引；⚠️ 每期正文要单独取 `.md`"
+  },
+  {
+   "id": "hf-glm-voice",
+   "tier": "S",
+   "kind": "html",
+   "vendor": "",
+   "name": "HF · 智谱 glm-4-voice-9b",
+   "url": "https://huggingface.co/zai-org/glm-4-voice-9b",
+   "refresh_days": 14,
+   "good_for": [
+    "version",
+    "capability"
+   ],
+   "note": "声音卷谱系 2026-08-14 补采时登记"
+  },
+  {
+   "id": "hf-glm-tts",
+   "tier": "S",
+   "kind": "html",
+   "vendor": "",
+   "name": "HF · 智谱 GLM-TTS",
+   "url": "https://huggingface.co/zai-org/GLM-TTS",
+   "refresh_days": 14,
+   "good_for": [
+    "version",
+    "capability"
+   ],
+   "note": "声音卷谱系 2026-08-14 补采时登记"
+  },
+  {
+   "id": "openai-model-tts",
+   "tier": "S",
+   "kind": "spa",
+   "vendor": "openai",
+   "name": "OpenAI · GPT-4o mini TTS 模型页",
+   "url": "https://platform.openai.com/docs/models/gpt-4o-mini-tts",
+   "refresh_days": 14,
+   "good_for": [
+    "version"
+   ],
+   "note": "⚠️ **谱系日期取自官方快照 slug**（如 `gpt-4o-mini-tts-2025-12-15`）—— 那是厂商自己打的日期。改用它是因为官方更新日志的条目**只写「Jan 13」不写年份**，而页面横跨 2023–2026，**按印象补年份就是编**。"
+  },
+  {
+   "id": "openai-model-realtime",
+   "tier": "S",
+   "kind": "spa",
+   "vendor": "openai",
+   "name": "OpenAI · GPT-Realtime 模型页",
+   "url": "https://platform.openai.com/docs/models/gpt-realtime",
+   "refresh_days": 14,
+   "good_for": [
+    "version"
+   ],
+   "note": "⚠️ **谱系日期取自官方快照 slug**（如 `gpt-4o-mini-tts-2025-12-15`）—— 那是厂商自己打的日期。改用它是因为官方更新日志的条目**只写「Jan 13」不写年份**，而页面横跨 2023–2026，**按印象补年份就是编**。"
   }
  ],
  "$missing": [
