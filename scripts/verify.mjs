@@ -589,8 +589,25 @@ const mentions = (txt, name) => {
        * 报出一条**假的跨方向混入**。
        * 假警告的代价是真警告没人看 —— 这个检查已经因为前缀问题误报过一次了。
        */
-      for (const n of own)
-        rest = rest.replace(new RegExp(n.replace(/[.*+?^${}()|[\]\\]/g, "\\$&"), "gi"), "§");
+      const esc = (x) => x.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+      for (const n of own) {
+        rest = rest.replace(new RegExp(esc(n), "gi"), "§");
+        /**
+         * **截断过的名字也要剥。** 2026-08-14 具身智能卷栽在这：
+         * 演化树的 SVG 标签放不下就省略，页面上写的是 `Gemini Robot…`。
+         * 按全名 `Gemini Robotics ER` 去剥剥不掉，剩下的 `Gemini` 立刻
+         * 撞上文本卷的 `Gemini` —— **报了一条假的跨方向混入**。
+         *
+         * 和上面那条大小写的坑是同一类：**这个检查比的是页面上的字，
+         * 而页面会对字做加工**（大小写、省略号，将来可能还有换行）。
+         * 所以自家名字的每一个「前缀 + …」也要一起剥掉。
+         *
+         * 假警告的代价不是多看一行，是**真警告没人看** ——
+         * 这个检查已经因为类似问题误报过两次了。
+         */
+        for (let k = n.length - 1; k >= 4; k--)
+          rest = rest.replace(new RegExp(esc(n.slice(0, k)) + "…", "gi"), "§");
+      }
       const foreign = (raw.models ?? [])
         .filter((m) => (m.domain ?? "video") !== mine).map((m) => m.family);
       const hit = foreign.filter((n) => mentions(rest, n));

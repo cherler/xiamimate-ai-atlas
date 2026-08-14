@@ -4404,9 +4404,9 @@
    "domain": "embodied",
    "weights": "open",
    "zh": "通义 RynnBrain",
-   "version_src": "hf-robotics",
+   "version_src": "rynnbrain-card",
    "version_quote": "`Alibaba-DAMO-Academy/RynnBrain1.1-9B` 与 `RynnBrain1.1-2B`、`RynnBrain1.1-122B-A10B` 同建于 2026-07-13；上一代 `RynnBrain-8B` 建于 2026-01-29",
-   "note": "达摩院的具身「大脑」，同族还有 `RynnBrain-Nav`（导航）与 `RynnValue`（价值模型）。⚠️ 归 `er` 轨是按名字与形态判的，**逐格核验时要确认它到底输出什么** —— 这一格若判错，整行都错。"
+   "note": "达摩院的具身「大脑」。✅ **归 `er` 轨已坐实，不再是推断**：模型卡的 `pipeline_tag` 是 `image-text-to-text`，标签是 `grounding` / `planning` / `navigation` / `video-understanding`，基座是 Qwen3.5 —— **它输出文本与坐标，不输出动作**。⚠️ 但同族有一支 `RynnBrain-VLA` 是真的驱动机器人的：官方称它「translating embodied understanding into real-robot control」，并在 **Unitree G1、Astribot、天机无极** 三种本体上做过跨平台验证。**那一支属于 `vla` 轨，是另一条产品线**，这里不混记。许可 Apache-2.0，三档 2B / 9B / 122B-A10B。"
   },
   {
    "id": "internvla",
@@ -6428,6 +6428,21 @@
   "hf-robotics": {
    "name": "Hugging Face · robotics 榜（花名册取样）",
    "url": "https://huggingface.co/models?pipeline_tag=robotics",
+   "tier": "third-party"
+  },
+  "rynnbrain-card": {
+   "name": "阿里达摩院官方 · RynnBrain 1.1 模型卡",
+   "url": "https://huggingface.co/Alibaba-DAMO-Academy/RynnBrain1.1-9B",
+   "tier": "official"
+  },
+  "lerobot-gh": {
+   "name": "Hugging Face 官方 · LeRobot 仓库",
+   "url": "https://github.com/huggingface/lerobot",
+   "tier": "official"
+  },
+  "maniskill-gh": {
+   "name": "ManiSkill 官方仓库（仿真环境）",
+   "url": "https://github.com/haosulab/ManiSkill",
    "tier": "third-party"
   }
  },
@@ -13272,10 +13287,12 @@
   {
    "m": "rynnbrain",
    "c": "e-spatial",
-   "state": "unknown",
+   "state": "yes",
    "verified_for": "1.1",
    "as_of": "2026-08-14",
-   "note": "⚠️ **整行都还没核，而且这一行有个前置问题没解决：RynnBrain 到底输不输出动作。** 我们按名字（Brain）与同族分工（另有 `RynnBrain-Nav` 导航、`RynnValue` 价值模型）把它归进 `er` 轨，**这是形态推断，不是读到的官方定义**。归轨若错，这五格连同「空间推理」这一格全部作废。魔搭与 HF 上放出的是权重与配置，还没找到一份讲能力的官方页 —— 这是「没找到」，不是「它没有」。"
+   "note": "✅ 而且证据比一句自述强：**官方给的最小示例本身就是在做指物**（出边界框坐标）。它比 Gemini 那格多一样东西 —— **接触点预测与 metric 3D**，那是 Google 那五项里没有的。",
+   "src": "rynnbrain-card",
+   "quote": "模型卡 `What's New in 1.1`：「enabling a systematic study of how embodied cognition, **spatial reasoning**, **grounding**, and planning evolve with scale」；另一条「**Native 3D and contact point grounding** — Introduces explicit 3D-grounded training and a new **contact point prediction** task, extending RynnBrain from image-plane localization to **metric 3D understanding**」。`Quick Start` 的示例直接要模型出框：「Generate coordinates for one object bounding box. Constraints: x1,y1,x2,y2 in [0,1000]」"
   },
   {
    "m": "rynnbrain",
@@ -13283,7 +13300,7 @@
    "state": "unknown",
    "verified_for": "1.1",
    "as_of": "2026-08-14",
-   "note": "⚠️ **整行都还没核，而且这一行有个前置问题没解决：RynnBrain 到底输不输出动作。** 我们按名字（Brain）与同族分工（另有 `RynnBrain-Nav` 导航、`RynnValue` 价值模型）把它归进 `er` 轨，**这是形态推断，不是读到的官方定义**。归轨若错，这五格连同「智能体视觉」这一格全部作废。魔搭与 HF 上放出的是权重与配置，还没找到一份讲能力的官方页 —— 这是「没找到」，不是「它没有」。"
+   "note": "读完整张模型卡（12k）：没有代码执行、没有图像操作工具这类内容。它是一个纯 VLM（`AutoModelForImageTextToText`），**不带工具调用层**。—— 读完没找到，不是没读。"
   },
   {
    "m": "rynnbrain",
@@ -13291,7 +13308,7 @@
    "state": "unknown",
    "verified_for": "1.1",
    "as_of": "2026-08-14",
-   "note": "⚠️ **整行都还没核，而且这一行有个前置问题没解决：RynnBrain 到底输不输出动作。** 我们按名字（Brain）与同族分工（另有 `RynnBrain-Nav` 导航、`RynnValue` 价值模型）把它归进 `er` 轨，**这是形态推断，不是读到的官方定义**。归轨若错，这五格连同「任务编排」这一格全部作废。魔搭与 HF 上放出的是权重与配置，还没找到一份讲能力的官方页 —— 这是「没找到」，不是「它没有」。"
+   "note": "⚠️ **差一点判成 ✅，值得记下来为什么没判。** 模型卡里 `planning` 出现两次（标签里一次、`spatial reasoning, grounding, and planning evolve with scale` 一次），看上去够了。但这根轴是照 Google 的定义立的：「Combine spatial reasoning with **custom robot APIs** to complete long-horizon tasks」—— **重点在「接你自己的机器人 API 去编排」那一段**，而 RynnBrain 讲的是模型自身会做规划，没有描述任何编排机制。**「它会规划」和「你能用它编排一串调用」不是一件事**（同混元保真度那格的判法）。"
   },
   {
    "m": "rynnbrain",
@@ -13299,7 +13316,7 @@
    "state": "unknown",
    "verified_for": "1.1",
    "as_of": "2026-08-14",
-   "note": "⚠️ **整行都还没核，而且这一行有个前置问题没解决：RynnBrain 到底输不输出动作。** 我们按名字（Brain）与同族分工（另有 `RynnBrain-Nav` 导航、`RynnValue` 价值模型）把它归进 `er` 轨，**这是形态推断，不是读到的官方定义**。归轨若错，这五格连同「实时流式」这一格全部作废。魔搭与 HF 上放出的是权重与配置，还没找到一份讲能力的官方页 —— 这是「没找到」，不是「它没有」。"
+   "note": "模型卡只给了 `transformers` 的单轮推理示例，**没有流式接口、没有双向流、没有延迟指标**。这一项在开源权重那一侧普遍缺席 —— 它更像服务化产品才会做的事（对照 Gemini Robotics ER 是唯一有的一支）。"
   },
   {
    "m": "rynnbrain",
@@ -13307,7 +13324,7 @@
    "state": "unknown",
    "verified_for": "1.1",
    "as_of": "2026-08-14",
-   "note": "⚠️ **整行都还没核，而且这一行有个前置问题没解决：RynnBrain 到底输不输出动作。** 我们按名字（Brain）与同族分工（另有 `RynnBrain-Nav` 导航、`RynnValue` 价值模型）把它归进 `er` 轨，**这是形态推断，不是读到的官方定义**。归轨若错，这五格连同「视频进度」这一格全部作废。魔搭与 HF 上放出的是权重与配置，还没找到一份讲能力的官方页 —— 这是「没找到」，不是「它没有」。"
+   "note": "⚠️ 同样是近似命中但不够。模型卡标签里有 `video-understanding`、`spatiotemporal`、`egocentric`，`pipeline_tag` 也含 `video-text-to-text` —— **能看视频是确定的**。但这根轴问的是「**Moment finding and progress classification**」，即定位到某一刻、判断这件事做到哪一步了。模型卡通篇没有进度判定这件事。"
   },
   {
    "m": "groot",
@@ -19842,6 +19859,235 @@
    "quote": "模型页 Snapshots 一节列出 `gpt-realtime-2025-08-28`",
    "note": "⚠️ 日期同样取自快照 slug。更新日志里有一条「The OpenAI Realtime API is now generally available」，**但那条不带年份**，对不上就不引。",
    "cap_skip": "快照只说明这一版存在"
+  },
+  {
+   "id": "openvla-v01",
+   "m": "openvla",
+   "version": "v01-7B",
+   "date": "2024-06-10",
+   "added": "这一卷第一支公开权重的通用 VLA 基座",
+   "src": "openvla-gh",
+   "quote": "官方 HF 仓库 `openvla/openvla-v01-7b`（createdAt 2024-06-10），与正式档同日建库",
+   "note": "日期取 HF 的 `createdAt` **不是 `lastModified`** —— 视频卷在这上面错过两个月。",
+   "cap": "e-openweights"
+  },
+  {
+   "id": "openvla-7b",
+   "m": "openvla",
+   "version": "7B",
+   "date": "2024-06-10",
+   "parent": "openvla-v01",
+   "added": "970K 条真机操作数据训出的正式档，自述可开箱控制多种机器人",
+   "src": "openvla-gh",
+   "quote": "模型卡：「trained on **970K robot manipulation episodes** from the Open X-Embodiment dataset … It **supports controlling multiple robots out-of-the-box**」",
+   "note": "⚠️ **这条线到此为止。** 此后该组织只发过四个 LIBERO 基准微调档（2024-09），仓库最后一次 push 是 2025-03-23 —— 两年没有新代，所以模型状态记 `maintained`。",
+   "cap": "e-embodiment"
+  },
+  {
+   "id": "pi0",
+   "m": "pi",
+   "version": "π₀",
+   "date": "2025-09-09",
+   "added": "流匹配动作头的通用机器人基座，openpi 开源",
+   "src": "pi-openpi-gh",
+   "quote": "`openpi` 的 `Base Models` 表：「$\\pi_0$ — Base π₀ model for fine-tuning — `gs://openpi-assets/checkpoints/pi0_base`」",
+   "note": "⚠️ **日期取的是 HF 转存档 `lerobot/pi0_base` 的 createdAt（2025-09-09），不是 Physical Intelligence 自己首发的那一天** —— 官方权重在 `gs://openpi-assets`，那里没有可引的建档时间。**这是「拿得到的最好证据」，不是首发日**，别当成首发日用。",
+   "cap": "e-openweights"
+  },
+  {
+   "id": "pi0-fast",
+   "m": "pi",
+   "version": "π₀-FAST",
+   "date": "2025-09-09",
+   "parent": "pi0",
+   "added": "自回归版本，与流匹配版并列一档",
+   "src": "pi-openpi-gh",
+   "quote": "`Base Models` 表：「$\\pi_0$-FAST — Base **autoregressive** π₀-FAST model for fine-tuning」",
+   "note": "同代的另一种解码方式，不是新一代 —— 官方把它和 π₀ 并列在同一张表里。",
+   "cap_skip": "这是同代的另一种解码路线（自回归 vs 流匹配），**不新增能力**，硬挂一项会让树看起来像多了一步。"
+  },
+  {
+   "id": "pi05",
+   "m": "pi",
+   "version": "π₀.₅",
+   "date": "2025-09-09",
+   "parent": "pi0",
+   "added": "开放世界泛化",
+   "src": "pi-pi05-blog",
+   "quote": "官方博客标题：「A VLA with **Open-World Generalization**」",
+   "note": "HF 转存档 `lerobot/pi05_base` 与 π₀ 同日（2025-09-09）建库 —— **同日不代表同时发布**，只说明 LeRobot 是那天一次性转存的。",
+   "cap": "e-zeroshot"
+  },
+  {
+   "id": "groot-n16",
+   "m": "groot",
+   "version": "N1.6",
+   "date": "2025-12-01",
+   "added": "Eagle 视觉骨干的人形机器人基座",
+   "src": "nvidia-groot-gh",
+   "quote": "官方 HF 仓库 `nvidia/GR00T-N1.6-3B`（createdAt 2025-12-01）",
+   "note": "",
+   "cap": "e-openweights"
+  },
+  {
+   "id": "groot-n17",
+   "m": "groot",
+   "version": "N1.7",
+   "date": "2026-02-25",
+   "parent": "groot-n16",
+   "added": "换 Cosmos-Reason2 骨干；加 ONNX / TensorRT 全流程导出",
+   "src": "nvidia-groot-gh",
+   "quote": "README 的 `What's New in GR00T N1.7`：「**New VLM backbone: Cosmos-Reason2-2B** (Qwen3-VL architecture), replacing the Eagle backbone used in N1.6」「adds **full-pipeline ONNX and TensorRT export support** … across desktop GPUs and edge platforms」",
+   "note": "**这一卷唯一一次能看到「换骨干」这种代际差写在官方更新说明里的**。",
+   "cap": "e-edge"
+  },
+  {
+   "id": "molmoact-1",
+   "m": "molmoact",
+   "version": "MolmoAct-7B-D",
+   "date": "2025-08-09",
+   "added": "Ai2 的第一代动作推理模型",
+   "src": "hf-robotics",
+   "quote": "官方 HF 仓库 `allenai/MolmoAct-7B-D-0812`（createdAt 2025-08-09）",
+   "note": "",
+   "cap": "e-openweights"
+  },
+  {
+   "id": "molmoact-2",
+   "m": "molmoact",
+   "version": "MolmoAct2",
+   "date": "2026-05-04",
+   "parent": "molmoact-1",
+   "added": "接上流匹配连续动作专家，改成多本体后训练档",
+   "src": "molmoact-card",
+   "quote": "模型卡：「builds on **Molmo2-ER**, an embodied-reasoning VLM backbone, and connects the autoregressive VLM to a **flow-matching continuous action expert** through per-layer KV conditioning」",
+   "note": "⚠️ 同代一次放出七个仓（`-LIBERO` `-SO100_101` `-Think` `-Pretrain` `-DROID` `-BimanualYAM` 与基座），**按规则三算一次发布，不各开一个节点**。",
+   "cap": "e-embodiment"
+  },
+  {
+   "id": "gemini-er-16",
+   "m": "gemini-robotics-er",
+   "version": "ER 1.6 Preview",
+   "date": "2026-08-14",
+   "added": "具身推理进 Gemini API：指物、追踪、出框、规划轨迹",
+   "src": "gemini-robotics-er",
+   "quote": "官方文档 `Model endpoints` 一节列出 `Gemini Robotics ER 1.6 Preview`",
+   "note": "⚠️ **日期是「我们看到它的那天」，不是发布日。** 官方文档没给发布日期，changelog 也没有单列条目 —— **这是拿不到，不是没有**，将来查到要改。",
+   "cap": "e-spatial"
+  },
+  {
+   "id": "gemini-er-2",
+   "m": "gemini-robotics-er",
+   "version": "ER 2 Preview",
+   "date": "2026-08-14",
+   "parent": "gemini-er-16",
+   "added": "加视频进度判定；另开一个双向流式端点",
+   "src": "gemini-robotics-er",
+   "quote": "能力表里两行各带限定：「Video progress … **Gemini Robotics ER 2 only**」「Streaming … **Gemini Robotics ER 2 Streaming endpoint only**」",
+   "note": "⚠️ 日期同上，是核验日不是发布日。**能力表上的这两个括号是这一卷唯一一处能看出代际差的官方标注。**",
+   "cap": "e-vprogress"
+  },
+  {
+   "id": "smolvla-base",
+   "m": "smolvla",
+   "version": "base",
+   "date": "2025-06-01",
+   "added": "单卡可训、消费级硬件可跑的小体量 VLA",
+   "src": "smolvla-card",
+   "quote": "模型卡首句：「a compact, efficient Vision-Language-Action (VLA) model designed for **affordable robotics**, **trainable on a single GPU and deployable on consumer hardware**」",
+   "note": "HF robotics 榜下载量第一（93,253）。**这一卷里唯一把「跑得起」写进第一句的。**",
+   "cap": "e-openweights"
+  },
+  {
+   "id": "rynnbrain-1",
+   "m": "rynnbrain",
+   "version": "1.0",
+   "date": "2026-01-29",
+   "added": "达摩院第一代具身「大脑」",
+   "src": "hf-robotics",
+   "quote": "官方 HF 仓库 `Alibaba-DAMO-Academy/RynnBrain-8B`（createdAt 2026-01-29），同期另有 `-30B-A3B` 与导航支 `RynnBrain-Nav-8B`",
+   "note": "",
+   "cap": "e-spatial"
+  },
+  {
+   "id": "rynnbrain-11",
+   "m": "rynnbrain",
+   "version": "1.1",
+   "date": "2026-07-16",
+   "parent": "rynnbrain-1",
+   "added": "三档 2B / 9B / 122B-A10B 统一训练；加 3D 与接触点定位",
+   "src": "rynnbrain-card",
+   "quote": "模型卡 `News`：「[2026.07.16] Release **RynnBrain 1.1** checkpoints (**2B / 9B / 122B-A10B**)」；`What's New`：「**Native 3D and contact point grounding** — … extending RynnBrain from image-plane localization to **metric 3D understanding**」",
+   "note": "✅ **这一条的日期是官方 `News` 里明写的**，不是从建库时间推的 —— 这一卷里少有的硬日期。（HF 建库时间是 07-13，官方公告写 07-16，**以官方公告为准**。）",
+   "cap": "e-spatial"
+  },
+  {
+   "id": "xiaomi-0",
+   "m": "xiaomi-robotics",
+   "version": "0",
+   "date": "2026-02-10",
+   "added": "小米第一代具身模型，放出四个基准评测档",
+   "src": "hf-robotics",
+   "quote": "官方 HF 仓库 `XiaomiRobotics/Xiaomi-Robotics-0-Pretrain`、`-LIBERO`、`-Calvin-ABC_D`、`-SimplerEnv-WidowX`（createdAt 均为 2026-02-10）",
+   "note": "",
+   "cap": "e-openweights"
+  },
+  {
+   "id": "xiaomi-1",
+   "m": "xiaomi-robotics",
+   "version": "1",
+   "date": "2026-07-28",
+   "parent": "xiaomi-0",
+   "added": "第二代，评测覆盖换到 RoboCasa365 与 VLABench",
+   "src": "hf-robotics",
+   "quote": "官方 HF 仓库 `XiaomiRobotics/Xiaomi-Robotics-1-RoboCasa365`、`-RoboCasa`、`-VLABench`（createdAt 均为 2026-07-28）",
+   "note": "⚠️ 中间还有一支 `Xiaomi-Robotics-U0`（2026-07-13），**看不出它是这条线的哪一环** —— 命名里没有代号，模型卡也没写。不硬接父子边（同规则三：不为了让树好看硬接一条边）。",
+   "cap_skip": "两代之间放出的都是基准评测档，**官方没有一句能力叙述** —— 挂哪一项都是我们替它说的。"
+  },
+  {
+   "id": "internvla-n1",
+   "m": "internvla",
+   "version": "N1",
+   "date": "2025-07-28",
+   "added": "上海 AI 实验室第一支公开的具身模型（导航向）",
+   "src": "modelscope-orgs",
+   "quote": "魔搭 `InternRobotics/InternVLA-N1`（建于 2025-07-28）",
+   "note": "⚠️ **只在魔搭有，HF 上没有。** 这一卷的中文侧普遍如此。",
+   "cap_skip": "魔搭上只有权重与配置，**没有模型卡正文** —— 没有官方能力叙述可挂。"
+  },
+  {
+   "id": "internvla-a15",
+   "m": "internvla",
+   "version": "A1.5",
+   "date": "2026-07-05",
+   "parent": "internvla-n1",
+   "added": "操作向的 A 系，一次放出基座与三个基准档",
+   "src": "modelscope-orgs",
+   "quote": "魔搭 `InternRobotics/InternVLA-A1.5-base` 与 `-Libero`、`-RoboTwin`、`-DOMINO`（均建于 2026-07-05）",
+   "note": "⚠️ **N 系与 A 系是不是同一条线，我们没有官方依据。** 这里按型号前缀接了父子边，但官方没说过它们的关系 —— 这条边**比别的边弱**，查到依据前不要拿它讲演进故事。",
+   "cap_skip": "同上，魔搭上没有模型卡正文。"
+  },
+  {
+   "id": "hy-embodied-05",
+   "m": "hy-embodied",
+   "version": "0.5",
+   "date": "2026-06-15",
+   "added": "腾讯混元的具身首发，跟着 RoboTwin 与 UMI 两个平台各出一档",
+   "src": "modelscope-orgs",
+   "quote": "魔搭 `Tencent-Hunyuan/Hy-Embodied-0.5-VLA-RoboTwin` 与 `-UMI`（均建于 2026-06-15）",
+   "note": "⚠️ 版本号是 `0.5` —— **官方自己标的就是一个未满 1.0 的版本**。只在魔搭有。",
+   "cap_skip": "魔搭上只有权重与配置，没有模型卡正文。"
+  },
+  {
+   "id": "helix-1",
+   "m": "helix",
+   "version": "Helix",
+   "date": "2026-08-14",
+   "added": "Figure 自研的人形通用控制 VLA",
+   "src": "figure-helix",
+   "quote": "官方发布页标题：「Helix: A **Vision-Language-Action Model for Generalist Humanoid Control**」",
+   "note": "⚠️ **日期是核验日不是发布日。** 官方发布页没有可提取的日期，也没有 changelog —— 闭源那几家普遍如此，**这是可得性上限，不是我们没查**。",
+   "cap_skip": "闭源无权重无 API，这一整行的能力都问不出来（见规则十五边界三）。"
   }
  ],
  "$versions": "版本谱系（演进图的数据）。**演进的主体是模型，不是能力。**\n\n原来那张演进图每行是一项能力、横轴是「我们能证明的最早时间」、粗细是几家支持。\n读者看完只得到「动作复刻 2025-12 出现、6/9 支持」—— 那是一次数据库查询的可视化，不涨知识。\n而且它得靠图注免责（「不是业界首次出现」）：**一张需要图注免责的图，说明它量错了东西。**\n\n这份数据画的是**厂商自己发布的版本和日期**，所以不需要免责。每条必须回答：\n**这一代新增了什么。** 只有版本号没有 added 的节点没有价值，不收。\n\n两个最好的来源，都不是「新闻」：\n  · **官方 Hugging Face 组织** —— 模型名本身就编码了能力与代际\n    （Wan2.1-FLF2V＝首尾帧、Wan2.2-S2V＝语音驱动、LTX 的 IC-LoRA-Ingredients＝角色参考），\n    发布时间由 HF API 给出，比任何新闻稿都准。\n  · **官方 API 更新日志** —— 可灵那份 31k 字符里有 170 条带日期的条目。\n\n覆盖不全是事实：万相和可灵能画出完整谱系，Runway/Vidu/Seedance 只有近期几个点，\nVeo/Sora/海螺/LTX 还没有。**图上要标出哪几条线是完整的、哪几条只是片段** ——\n画一条只有两个点的线却不说明，读者会以为这家两年只更新过两次。\n\n`cap` 把版本节点挂到能力 id 上，图上「点一项能力，看各家谁先谁后」靠它。\n**对不上的一律留空并写明理由（cap_skip），不硬凑** —— 硬凑一个 id，纵向那一刀就切错了。\n典型：Wan 的 S2V 是「语音驱动」，不等于我们轴上的「对口型」，两件事不合并；\n「换代」节点本身也不是新增单项能力。\n\n`id` + `parent` 把平铺记录变成**真的树**。分叉是真实存在的：\nWan2.1 底座上同时长出 FLF2V（首尾帧）和 VACE（统一编辑）两个变体，\nWan2.2 是换代接在 2.1 后面，Animate-2 又接在 Animate 后面。\n\n**没有父节点的就让它当根，不许为了让树好看硬接一条边** ——\nRunway 的 Aleph 是编辑线，不是 Gen 的后代，它自己是一棵树。\n\n⚠️ **日期必须取 HF 的 `createdAt`，不能取 `lastModified`。**\n第一版取错了字段，把「最后修改」当成了发布日期：Wan2.2 记成 2025-08-07（实际 2025-07-18）、\nAnimate 记成 2025-11-05（实际 2025-09-11）——**差了两个月**。\n仓库发布后还会被反复更新，两个字段根本不是一回事。\n这类错最阴：日期看着合理、图也画得出来，但整条时间线是歪的。\n\n覆盖不足要**写在数据里**，不是靠图上一句话糊过去：\n模型的 `lineage_note` 解释为什么它的节点少（太新 / 官方记录只回溯到某时）。\n校验 R58 强制：**核心模型少于 3 个节点却没写理由，就是错**。\n「我们没采到」和「它本来就没有」是两回事，读者有权知道是哪一种。",
@@ -21860,6 +22106,156 @@
    ],
    "workflow": [],
    "cases": []
+  },
+  {
+   "id": "e-zeroshot-skill",
+   "zh": "不训练，先看基座能不能直接用",
+   "en": "Try a base policy before training",
+   "domain": "embodied",
+   "cap": "e-zeroshot",
+   "io": {
+    "in": [
+     "一台已支持的机器人（或它的仿真环境）",
+     "一句任务指令"
+    ],
+    "out": "不做任何训练就能跑的一段动作"
+   },
+   "opensource": [
+    {
+     "name": "NVIDIA Isaac GR00T N1.7",
+     "url": "https://github.com/NVIDIA/Isaac-GR00T/blob/main/getting_started/policy.md",
+     "src": "groot-policy-doc",
+     "quote": "「**Pretrain tags** — baked into the base model (`nvidia/GR00T-N1.7-3B`), **ready for zero-shot inference**」，清单含 `OXE_DROID_RELATIVE_EEF_RELATIVE_JOINT`、`XDOF`、`REAL_G1`、`REAL_R1_PRO_SHARPA`",
+     "license": "NVIDIA Open Model License",
+     "note": "⚠️ **只有预训练标签那几种本体能零样本跑。** 换成后训练标签（`LIBERO_PANDA`、`UNITREE_G1_SONIC`）拿基座跑会**直接报错**并列出支持的标签。"
+    },
+    {
+     "name": "openpi（π₀ / π₀.₅）",
+     "url": "https://github.com/Physical-Intelligence/openpi",
+     "src": "pi-openpi-gh",
+     "quote": "「we provide _base model_ checkpoints, pre-trained on 10k+ hours of robot data, and examples for **using them out of the box** or fine-tuning them」",
+     "license": "Apache-2.0",
+     "note": "⚠️ **权重在 `gs://openpi-assets` 不在 HF**，国内取要先解决出网。"
+    }
+   ],
+   "platform_feature": [],
+   "caveat": "**「能零样本」不等于「对你的机器人能零样本」。** 这一卷所有零样本的说法都绑着一份本体清单；你的机器人不在清单里，就还是要微调。MolmoAct2 更直接：官方明写它「**rather than as a ready-to-run policy**」。",
+   "verified_at": "2026-08-14",
+   "limits": [
+    "**本体清单之外的机器人一律要微调** —— 零样本只对官方列出的那几种本体成立",
+    "GR00T 的后训练标签拿基座模型跑会直接报错，不是效果差而是跑不起来",
+    "MolmoAct2 官方明写它不是开箱即用的策略"
+   ]
+  },
+  {
+   "id": "e-embodiment-skill",
+   "zh": "把一个策略换到另一台机器人上",
+   "en": "Move a policy to another robot",
+   "domain": "embodied",
+   "cap": "e-embodiment",
+   "io": {
+    "in": [
+     "一个已训好的策略",
+     "目标机器人的状态/动作维度与归一化配置"
+    ],
+    "out": "能在新机器人上跑的策略"
+   },
+   "opensource": [
+    {
+     "name": "GR00T 的 `NEW_EMBODIMENT` 通道",
+     "url": "https://github.com/NVIDIA/Isaac-GR00T/blob/main/getting_started/policy.md",
+     "src": "groot-policy-doc",
+     "quote": "「**`NEW_EMBODIMENT`** — use for custom robots. Requires a `--modality-config-path` during finetuning. After finetuning, the config is saved in the checkpoint and loaded automatically during inference.」",
+     "license": "NVIDIA Open Model License",
+     "note": "⚠️ 官方特别提醒：**一个 Python 进程里只能注册一个 `NEW_EMBODIMENT` 配置**，同时 import 两个示例配置会失败。"
+    },
+    {
+     "name": "X-VLA 的软提示做法",
+     "url": "https://huggingface.co/2toINF/X-VLA-Pt",
+     "src": "hf-robotics",
+     "quote": "「introducing **separate sets of learnable embeddings for each distinct embodiment**」—— 每个本体一组可学习的软提示",
+     "license": "Apache-2.0",
+     "note": "这一卷里独一份的跨本体做法：不改主干，只加一小组参数。"
+    }
+   ],
+   "platform_feature": [],
+   "caveat": "**跨本体不是「换个机器人就能跑」，是「有一条把配置对齐的路」。** 状态/动作维度、归一化统计、坐标系全都要对上；GR00T 官方明说标签和数据集不能混用（拿 `LIBERO_PANDA` 去跑 SO100 数据会失败）。",
+   "verified_at": "2026-08-14",
+   "limits": [
+    "状态/动作维度与归一化统计必须对齐，官方明说标签与数据集不能混用",
+    "GR00T 一个 Python 进程只能注册一个 `NEW_EMBODIMENT` 配置",
+    "**「支持跨本体」说的是有一条对齐的路，不是换台机器就能跑**"
+   ]
+  },
+  {
+   "id": "e-dataformat-skill",
+   "zh": "把自己采的数据变成能训练的格式",
+   "en": "Convert your own data for training",
+   "domain": "embodied",
+   "cap": "e-dataformat",
+   "io": {
+    "in": [
+     "自己录的遥操作/演示数据"
+    ],
+    "out": "能直接喂给训练脚本的数据集"
+   },
+   "opensource": [
+    {
+     "name": "LeRobot 数据集格式（事实上的公共格式）",
+     "url": "https://github.com/huggingface/lerobot",
+     "src": "lerobot-gh",
+     "quote": "openpi 的第一步就是「**Convert your data to a LeRobot dataset** (which we use for training)」，并给了 LIBERO 的转换脚本示例",
+     "license": "Apache-2.0",
+     "note": "π₀、SmolVLA、GR00T 都走这条；**它已经是这一卷的默认格式**。"
+    },
+    {
+     "name": "RLDS（OpenVLA 那一支）",
+     "url": "https://huggingface.co/openvla/openvla-7b",
+     "src": "openvla-gh",
+     "quote": "「We natively support **arbitrary datasets in RLDS format**, including arbitrary mixtures」",
+     "license": "MIT",
+     "note": "⚠️ **和 LeRobot 不通用。** 想在两边都用同一份数据，得自己写转换。"
+    }
+   ],
+   "platform_feature": [],
+   "caveat": "**数据格式是这一卷最容易低估的一道墙。** 它不是「导出成 csv」那种小事：动作维度、坐标系、时间对齐、归一化统计全在里面，选错格式意味着整条训练链要重来。这也是我们把它单列成一根能力轴的原因。",
+   "verified_at": "2026-08-14",
+   "limits": [
+    "LeRobot 与 RLDS 两套格式**互不通用**，要自己写转换",
+    "转换脚本官方只给了 LIBERO 这类公开数据集的示例，自采数据要照着改",
+    "坐标系与时间对齐错了不会报错，只会训出一个不能用的策略"
+   ]
+  },
+  {
+   "id": "e-edge-skill",
+   "zh": "把策略部署到机器人本机上",
+   "en": "Deploy a policy on the robot itself",
+   "domain": "embodied",
+   "cap": "e-edge",
+   "io": {
+    "in": [
+     "一个训好的策略"
+    ],
+    "out": "能在机器人本机实时跑的推理"
+   },
+   "opensource": [
+    {
+     "name": "GR00T 的 ONNX / TensorRT 导出",
+     "url": "https://github.com/NVIDIA/Isaac-GR00T",
+     "src": "nvidia-groot-gh",
+     "quote": "「adds **full-pipeline ONNX and TensorRT export support** and improves deployment consistency across desktop GPUs and **edge platforms**」；模型卡实测表 TensorRT 全流程 27.9 ms / 35.9 Hz，相对基线 3.08 倍",
+     "license": "NVIDIA Open Model License",
+     "note": "**这一卷唯一一支给了完整导出链路 + 实测延迟的。**"
+    }
+   ],
+   "platform_feature": [],
+   "caveat": "⚠️ **「消费级硬件跑得动」和「有边缘部署工具链」是两件事。** SmolVLA 自述「deployable on consumer hardware」，那说的是模型小；GR00T 给的是导出链路与延迟数字。**这一卷里只有后者算这一格 ✅** —— 别把前者当成同一回事。",
+   "verified_at": "2026-08-14",
+   "limits": [
+    "**这一卷只有 GR00T 一家给了完整导出链路**，其余家都没有",
+    "「消费级硬件跑得动」不等于有边缘部署工具链",
+    "官方那张延迟表是在英伟达自家硬件上测的，换平台要自己重测"
+   ]
   }
  ],
  "applications": [
@@ -24398,6 +24794,86 @@
      "quote": "端点分组：Templates（列表 / 取单个）+ Videos（**从模板创建**、批量列表）",
      "license": null,
      "note": "⚠️ 模板与形象都锁在平台里，**换厂商要重做**"
+    }
+   ]
+  },
+  {
+   "id": "embodied-pick-place",
+   "zh": "让机械臂按一句话抓取摆放",
+   "en": "Language-conditioned pick and place",
+   "domain": "embodied",
+   "intro": "给一句「把红色积木放进碗里」，机械臂自己找到、抓起、放好 —— 不写脚本、不示教轨迹。这是这一卷所有模型的公共起点。",
+   "inputs": [
+    "一台带相机的机械臂（或它的仿真环境）",
+    "一句自然语言指令"
+   ],
+   "output": "一段能完成任务的动作",
+   "skills": [
+    "e-zeroshot-skill",
+    "e-dataformat-skill"
+   ],
+   "aliases": [
+    "抓取",
+    "pick and place",
+    "语言条件抓取"
+   ],
+   "resources": [
+    {
+     "kind": "project",
+     "name": "LeRobot（从采数据到真机的一条链）",
+     "url": "https://github.com/huggingface/lerobot",
+     "src": "lerobot-gh",
+     "quote": "官方自述「Making AI for Robotics more accessible with end-to-end learning」，26,649 星、Apache-2.0、2026-08-14 当天仍在推",
+     "license": "Apache-2.0",
+     "note": "**先装它再挑模型**；π₀ 与 SmolVLA 的权重就托管在它名下"
+    },
+    {
+     "kind": "project",
+     "name": "ManiSkill（没有真机时先在仿真里跑）",
+     "url": "https://github.com/haosulab/ManiSkill",
+     "src": "maniskill-gh",
+     "quote": "「Manipulation Skill Framework, an open source GPU parallelized robotics simulator」，3,222 星、Apache-2.0",
+     "license": "Apache-2.0",
+     "note": "⚠️ **仿真跑通不等于真机能用** —— 这一卷厂商公布的成绩绝大多数是仿真成绩"
+    }
+   ]
+  },
+  {
+   "id": "embodied-plan",
+   "zh": "让模型看懂画面并规划下一步",
+   "en": "Look, ground, and plan",
+   "domain": "embodied",
+   "intro": "不直接驱动关节，先解决「东西在哪、该往哪伸、这一步做完没有」。做具身应用时，这一层往往先落地 —— 它只要一个相机和一次 API 调用。",
+   "inputs": [
+    "一张图或一段视频",
+    "一句问题或任务描述"
+   ],
+   "output": "点位、边界框、轨迹或一份分步计划",
+   "skills": [],
+   "aliases": [
+    "具身推理",
+    "指物",
+    "grounding",
+    "空间推理"
+   ],
+   "resources": [
+    {
+     "kind": "docs",
+     "name": "Gemini Robotics ER（这一卷唯一有 API 的）",
+     "url": "https://ai.google.dev/gemini-api/docs/robotics-overview",
+     "src": "gemini-robotics-er",
+     "quote": "官方能力表五项：`Spatial reasoning` / `Agentic vision` / `Task orchestration` / `Streaming` / `Video progress`",
+     "license": null,
+     "note": "⚠️ 三个端点**全部还带 Preview**；`Video progress` 与 `Streaming` 只在 ER 2 上有"
+    },
+    {
+     "kind": "project",
+     "name": "RynnBrain 1.1（开源、能出坐标）",
+     "url": "https://huggingface.co/Alibaba-DAMO-Academy/RynnBrain1.1-9B",
+     "src": "rynnbrain-card",
+     "quote": "官方最小示例就是让模型出框：「Generate coordinates for one object bounding box. Constraints: x1,y1,x2,y2 in [0,1000]」；1.1 新增「Native 3D and contact point grounding」",
+     "license": "Apache-2.0",
+     "note": "三档 2B / 9B / 122B-A10B，基座是 Qwen3.5 —— **想自己部署这一层，目前它是最现成的**"
     }
    ]
   }

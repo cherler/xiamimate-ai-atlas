@@ -5333,6 +5333,65 @@
     "roster"
    ],
    "note": "⚠️ **中文侧在这张榜上基本看不见**：腾讯混元具身、上海 AI 实验室 InternVLA、小米、星海图、逐际动力全是只在魔搭有。**只看这张榜会得出「具身智能没有中国厂商」的错误结论。**"
+  },
+  {
+   "id": "lerobot-gh",
+   "url": "https://api.github.com/repos/huggingface/lerobot",
+   "kind": "json",
+   "tier": "A",
+   "name": "Hugging Face 官方 · LeRobot 仓库",
+   "refresh_days": 7,
+   "good_for": [
+    "version",
+    "openweights"
+   ],
+   "note": "这一卷事实上的公共底座：π₀ 与 SmolVLA 的权重托管在它名下，openpi 要求先转成它的数据格式。**它一改数据格式，这一卷好几家都得跟。**"
+  },
+  {
+   "id": "groot-policy-doc",
+   "url": "https://raw.githubusercontent.com/NVIDIA/Isaac-GR00T/main/getting_started/policy.md",
+   "kind": "html",
+   "tier": "A",
+   "name": "NVIDIA Isaac GR00T · Policy API 文档（本体标签清单）",
+   "refresh_days": 7,
+   "good_for": [
+    "capability"
+   ],
+   "expect": [
+    "embodiment-tag",
+    "zero-shot",
+    "NEW_EMBODIMENT"
+   ],
+   "note": "⚠️ **本体标签清单只在这一页，README 里没有。** 2026-08-14 只读 README 差点漏掉整格 —— 所以它单独进清单，不跟着仓库那条走。"
+  },
+  {
+   "id": "rynnbrain-card",
+   "url": "https://huggingface.co/Alibaba-DAMO-Academy/RynnBrain1.1-9B/raw/main/README.md",
+   "kind": "html",
+   "tier": "A",
+   "name": "阿里达摩院官方 · RynnBrain 1.1 模型卡",
+   "refresh_days": 14,
+   "good_for": [
+    "capability",
+    "version"
+   ],
+   "expect": [
+    "RynnBrain 1.1",
+    "contact point grounding"
+   ],
+   "note": "这一卷中文侧唯一一份内容够厚的官方模型卡（12k），也是唯一一条**官方公告里写了明确日期**的谱系。"
+  },
+  {
+   "id": "maniskill-gh",
+   "url": "https://api.github.com/repos/haosulab/ManiSkill",
+   "kind": "json",
+   "tier": "B",
+   "name": "ManiSkill 仿真环境仓库",
+   "refresh_days": 30,
+   "good_for": [
+    "roster"
+   ],
+   "note": "第三方，不是厂商。收它是因为这一卷多数检查点是跟着仿真基准发的，没有仿真环境连官方给的档都跑不起来。"
   }
  ],
  "$missing": [
