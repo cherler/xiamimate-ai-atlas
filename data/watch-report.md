@@ -1,6 +1,6 @@
-# 信息源监视报告 · 2026-08-13
+# 信息源监视报告 · 2026-08-14
 
-本次检查 16 个到期源（共 304 个）：变化 0 · 首次 16 · 无变化 0 · **抓不到 0**
+本次检查 50 个到期源（共 355 个）：变化 0 · 首次 48 · 无变化 0 · **抓不到 2**
 
 > 这份报告是给人看的那 20 条待办的来源（§59.3 的负反馈：人每周要看的条目 ≤ 20）。
 > 「抓不到」不是失败，是**信息本身** —— 一个长期抓不到的官方源，说明那家厂商没有可 diff 的公开更新入口，
@@ -12,7 +12,10 @@
 
 ## 抓不到（要处理）
 
-（无）
+- **luma-changelog**（S/spa）Luma · Changelog — 还是壳：渲染后正文只有 273 个字符
+  https://docs.lumalabs.ai/changelog
+- **seed3d-page**（S/spa）字节 Seed3D 1.0 官方模型页 — 还是壳：渲染后正文只有 0 个字符
+  https://seed.bytedance.com/en/seed3d
 
 ## 有变化
 
@@ -61,7 +64,7 @@
 | picsart-effects | C | html | 未到期（上次 2026-08-12） |
 | runway-changelog | S | spa | 未到期（上次 2026-08-12） |
 | runway-models | S | spa | 未到期（上次 2026-08-12） |
-| luma-changelog | S | spa | 未到期（上次 2026-08-07） |
+| luma-changelog | S | spa | 抓不到（还是壳：渲染后正文只有 273 个字符） |
 | google-models | S | html | 未到期（上次 2026-08-12） |
 | seed-models-hub | S | html | 未到期（上次 2026-08-12） |
 | apiyi-models | S | spa | 未到期（上次 2026-08-12） |
@@ -310,19 +313,70 @@
 | hf-org-elevenlabs | A | json | 未到期（上次 2026-08-12） |
 | hf-org-openai | A | json | 未到期（上次 2026-08-12） |
 | ideogram-layerize | A | html | 未到期（上次 2026-08-12） |
-| recraft-endpoints | A | html | 首次 |
-| recraft-nl-edit | A | html | 首次 |
-| hunyuan-image-hf | A | json | 首次 |
-| bfl-flux2-overview | A | html | 首次 |
-| ark-seedream-api | A | spa | 首次 |
-| arxiv-fp8 | A | html | 首次 |
-| arxiv-int8 | A | html | 首次 |
-| arxiv-qlora | A | html | 首次 |
-| arxiv-gptq | A | html | 首次 |
-| arxiv-awq | A | html | 首次 |
-| arxiv-lora | A | html | 首次 |
-| hf-gguf-doc | A | html | 首次 |
-| hf-diffusers-memory | A | html | 首次 |
-| zimage-gh | A | json | 首次 |
-| hunyuan-image-gh | A | json | 首次 |
-| skyreels-gh | A | json | 首次 |
+| recraft-endpoints | A | html | 未到期（上次 2026-08-13） |
+| recraft-nl-edit | A | html | 未到期（上次 2026-08-13） |
+| hunyuan-image-hf | A | json | 未到期（上次 2026-08-13） |
+| bfl-flux2-overview | A | html | 未到期（上次 2026-08-13） |
+| ark-seedream-api | A | spa | 未到期（上次 2026-08-13） |
+| arxiv-fp8 | A | html | 未到期（上次 2026-08-13） |
+| arxiv-int8 | A | html | 未到期（上次 2026-08-13） |
+| arxiv-qlora | A | html | 未到期（上次 2026-08-13） |
+| arxiv-gptq | A | html | 未到期（上次 2026-08-13） |
+| arxiv-awq | A | html | 未到期（上次 2026-08-13） |
+| arxiv-lora | A | html | 未到期（上次 2026-08-13） |
+| hf-gguf-doc | A | html | 未到期（上次 2026-08-13） |
+| hf-diffusers-memory | A | html | 未到期（上次 2026-08-13） |
+| zimage-gh | A | json | 未到期（上次 2026-08-13） |
+| hunyuan-image-gh | A | json | 未到期（上次 2026-08-13） |
+| skyreels-gh | A | json | 未到期（上次 2026-08-13） |
+| bfl-flux3 | A | html | 首次 |
+| anthropic-privacy | A | html | 首次 |
+| stability-terms | A | html | 首次 |
+| recraft-blog-b | A | html | 首次 |
+| gh-llm-universe | C | json | 首次 |
+| gh-all-in-rag | C | json | 首次 |
+| gh-handy-multi-agent | C | json | 首次 |
+| gh-llm-action | C | json | 首次 |
+| gh-self-llm | C | json | 首次 |
+| gh-langchain-zh | C | json | 首次 |
+| gh-llamafactory | C | json | 首次 |
+| gh-gptsovits-cn | C | json | 首次 |
+| gh-cosyvoice-doc | C | json | 首次 |
+| gh-chattts-cn | C | json | 首次 |
+| gh-pyvideotrans-doc | C | json | 首次 |
+| gh-comfy-zho | C | json | 首次 |
+| gh-comfyui | C | json | 首次 |
+| gh-sdbook | C | json | 首次 |
+| waytoagi-wiki | C | spa | 从未抓过 |
+| hf-hunyuan3d-21 | S | html | 首次 |
+| tripo-docs-generation | S | spa | 首次 |
+| meshy-docs-api | S | spa | 首次 |
+| meshy-site | S | spa | 首次 |
+| rodin-api-docs | S | html | 首次 |
+| gh-trellis | S | html | 首次 |
+| seed3d-page | S | spa | 抓不到（还是壳：渲染后正文只有 0 个字符） |
+| stability-spar3d | S | html | 首次 |
+| tripo-site | S | spa | 首次 |
+| rodin-site | S | spa | 首次 |
+| tripo-docs-animation | S | spa | 首次 |
+| gh-hunyuan3d-buffalo | S | html | 首次 |
+| replicate-hunyuan3d-31 | A | spa | 首次 |
+| replicate-3d | A | spa | 首次 |
+| hf-image-to-3d | A | spa | 首次 |
+| comfy-3d-hunyuan | S | html | 首次 |
+| gh-hunyuan3d-21 | S | html | 首次 |
+| gh-hunyuan3d-part | S | html | 首次 |
+| gh-spar3d | S | html | 首次 |
+| gh-triposg | S | html | 首次 |
+| gh-instantmesh | S | html | 首次 |
+| modelscope-orgs | S | json | 从未抓过 |
+| hf-wan-vace | S | html | 首次 |
+| hf-ltx-25 | S | html | 首次 |
+| meshy-changelog | S | spa | 首次 |
+| hf-instantmesh | S | html | 首次 |
+| hf-apple-sharp | S | html | 首次 |
+| gh-hunyuan3d-api | S | html | 首次 |
+| hf-anysplat | S | html | 首次 |
+| arxiv-seed3d-20 | S | html | 首次 |
+| arxiv-seed3d-10 | S | html | 首次 |
+| hf-trellis2 | S | html | 首次 |
