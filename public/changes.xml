@@ -32,6 +32,14 @@
       <description>&lt;p&gt;&lt;b&gt;Kimi&lt;/b&gt; · status&lt;/p&gt;&lt;p&gt;此前：Moonshot V1 系列（8k / 32k / 128k 及其 vision 版）在售&lt;/p&gt;&lt;p&gt;现在：官方价格页写明「预计 8 月 31 日全平台下线」&lt;/p&gt;&lt;p&gt;&lt;b&gt;为什么重要：&lt;/b&gt;这是这条产品线的第一代，下线之后 Kimi 的可用型号只剩 K2.x / K3。**在用旧接口的要提前迁**。&lt;/p&gt;&lt;p&gt;影响：kimi&lt;/p&gt;&lt;p&gt;来源：&lt;a href=&quot;https://platform.kimi.com/docs/pricing/chat&quot;&gt;Kimi 开放平台 · 模型推理价格&lt;/a&gt;&lt;/p&gt;</description>
     </item>
     <item>
+      <title>MuseTalk 的形象保真：MuseTalk 官方在「已知限制」里明写做不到：「Identity preservation: Some details of the original face are not well preserved, such as mustache, lip shape and color」</title>
+      <link>https://xiamimate.com/atlas/changes#musetalk-identity-2026-08-14</link>
+      <guid isPermaLink="false">musetalk-identity-2026-08-14</guid>
+      <pubDate>Fri, 14 Aug 2026 00:00:00 GMT</pubDate>
+      <category>musetalk</category>
+      <description>&lt;p&gt;&lt;b&gt;MuseTalk 的形象保真&lt;/b&gt; · 已知限制&lt;/p&gt;&lt;p&gt;此前：我们把「形象一致」默认当成这一卷各家都在做的事&lt;/p&gt;&lt;p&gt;现在：MuseTalk 官方在「已知限制」里明写做不到：「Identity preservation: Some details of the original face are not well preserved, such as mustache, lip shape and color」&lt;/p&gt;&lt;p&gt;&lt;b&gt;为什么重要：&lt;/b&gt;**厂商自己承认做不到的，比我们推断出来的可靠得多** —— 这一格因此记 ❌ 而不是 ⬜&lt;/p&gt;&lt;p&gt;影响：musetalk&lt;/p&gt;&lt;p&gt;来源：&lt;a href=&quot;https://huggingface.co/TMElyralab/MuseTalk&quot;&gt;HF · 腾讯音乐 MuseTalk&lt;/a&gt;&lt;/p&gt;</description>
+    </item>
+    <item>
       <title>混元 3D 的版本：改记 3.1；那句话说窄了 —— **开源线停在 2.1，托管线已到 3.1**</title>
       <link>https://xiamimate.com/atlas/changes#hunyuan3d-two-lines-2026-08-13</link>
       <guid isPermaLink="false">hunyuan3d-two-lines-2026-08-13</guid>
@@ -200,6 +208,14 @@
       <description>&lt;p&gt;&lt;b&gt;Ideogram 4&lt;/b&gt; · capability&lt;/p&gt;&lt;p&gt;此前：Ideogram 只有闭源 API，3.0 是我们记到的最新一代&lt;/p&gt;&lt;p&gt;现在：官方 HF 组织放出 ideogram-4-fp8 / nf4 权重，可在自己机器上跑&lt;/p&gt;&lt;p&gt;&lt;b&gt;为什么重要：&lt;/b&gt;**一条闭源线转开源** —— 这类换向比版本号更值得盯：它把「只能按次买」变成「可以自己部署」&lt;/p&gt;&lt;p&gt;影响：ideogram&lt;/p&gt;&lt;p&gt;来源：&lt;a href=&quot;https://huggingface.co&quot;&gt;Hugging Face 官方组织&lt;/a&gt;&lt;/p&gt;</description>
     </item>
     <item>
+      <title>LongCat-Video-Avatar 1.5：美团放出 1.5，自述面向生产可用（MIT，♥714）</title>
+      <link>https://xiamimate.com/atlas/changes#longcat-avatar-2026-05-21</link>
+      <guid isPermaLink="false">longcat-avatar-2026-05-21</guid>
+      <pubDate>Thu, 21 May 2026 00:00:00 GMT</pubDate>
+      <category>longcat-avatar</category>
+      <description>&lt;p&gt;&lt;b&gt;LongCat-Video-Avatar 1.5&lt;/b&gt; · 新模型&lt;/p&gt;&lt;p&gt;此前：开源侧的音频驱动数字人多是研究项目&lt;/p&gt;&lt;p&gt;现在：美团放出 1.5，自述面向生产可用（MIT，♥714）&lt;/p&gt;&lt;p&gt;&lt;b&gt;为什么重要：&lt;/b&gt;**开源侧关注度最高的一支**，而且是标准 MIT 许可 —— 商用不用先读一份自定义条款&lt;/p&gt;&lt;p&gt;影响：longcat-avatar&lt;/p&gt;&lt;p&gt;来源：&lt;a href=&quot;https://huggingface.co/meituan-longcat/LongCat-Video-Avatar-1.5&quot;&gt;HF · 美团 LongCat-Video-Avatar-1.5&lt;/a&gt;&lt;/p&gt;</description>
+    </item>
+    <item>
       <title>Google Veo → Gemini Omni Flash：官方文档原话：「Use Gemini Omni Flash as your default model for video generation」；Veo 3.1 留给 scene extension、last-frame control 与老管线</title>
       <link>https://xiamimate.com/atlas/changes#omni-default</link>
       <guid isPermaLink="false">omni-default</guid>
@@ -257,6 +273,14 @@
       <category>glm-tts</category>
       <category>glm-voice</category>
       <description>&lt;p&gt;&lt;b&gt;GLM-TTS&lt;/b&gt; · version&lt;/p&gt;&lt;p&gt;此前：智谱的语音只有端到端的 GLM-4-Voice&lt;/p&gt;&lt;p&gt;现在：放出独立的 GLM-TTS 与 GLM-TTS-Clone，权重上了 HF&lt;/p&gt;&lt;p&gt;&lt;b&gt;为什么重要：&lt;/b&gt;**「端到端语音」和「TTS」是两件事**，我们一开始也归错了：前者音频进音频出，后者文本进音频出。智谱把两条线分开发布，这个区分在选型时很要紧。&lt;/p&gt;&lt;p&gt;影响：glm-tts&lt;/p&gt;&lt;p&gt;来源：&lt;a href=&quot;https://huggingface.co/api/models&quot;&gt;Hugging Face · 官方组织（声音）&lt;/a&gt;&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>HunyuanVideo-Avatar：腾讯放出 HunyuanVideo-Avatar，自述支持多角色与情绪对齐（arXiv 2505.20156）</title>
+      <link>https://xiamimate.com/atlas/changes#hunyuan-avatar-2025-05-26</link>
+      <guid isPermaLink="false">hunyuan-avatar-2025-05-26</guid>
+      <pubDate>Mon, 26 May 2025 00:00:00 GMT</pubDate>
+      <category>hunyuan-avatar</category>
+      <description>&lt;p&gt;&lt;b&gt;HunyuanVideo-Avatar&lt;/b&gt; · 新模型&lt;/p&gt;&lt;p&gt;此前：多人同框的音频驱动几乎没有开源实现&lt;/p&gt;&lt;p&gt;现在：腾讯放出 HunyuanVideo-Avatar，自述支持多角色与情绪对齐（arXiv 2505.20156）&lt;/p&gt;&lt;p&gt;&lt;b&gt;为什么重要：&lt;/b&gt;**多人同框**这一格此前没人做；⚠️ HF 页面没标准许可字段，商用前要读仓库条款&lt;/p&gt;&lt;p&gt;影响：hunyuan-avatar&lt;/p&gt;&lt;p&gt;来源：&lt;a href=&quot;https://huggingface.co/tencent/HunyuanVideo-Avatar&quot;&gt;HF · 腾讯 HunyuanVideo-Avatar&lt;/a&gt;&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>
