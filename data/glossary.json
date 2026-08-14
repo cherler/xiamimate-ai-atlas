@@ -517,6 +517,95 @@
      ]
     }
    ]
+  },
+  {
+   "group": "按方向的公开资料合集",
+   "items": [
+    {
+     "name": "AI 绘画资料合集（awesome-ai-painting）",
+     "repo": "hua1995116/awesome-ai-painting",
+     "url": null,
+     "stars": 11790,
+     "license": null,
+     "pushed": "2024-08-14",
+     "lang": "中文",
+     "domains": [
+      "image"
+     ],
+     "why": "**中文侧星标最高的一份出图资料合集**（★11,790）：可用平台、使用教程、参数教程、部署教程一路收齐，Stable Diffusion 那一支尤其全。",
+     "caveat": "⚠️ **仓库里没有 LICENSE 文件** —— 能看能学，转载或做成课件要先问作者。⚠️ **最后推送停在 2024-08**：平台名单与价格早就变了，当**入门地图**看，别当现价目表。"
+    },
+    {
+     "name": "视频扩散模型综述（Awesome-Video-Diffusion-Models）",
+     "repo": "ChenHsing/Awesome-Video-Diffusion-Models",
+     "url": null,
+     "stars": 2309,
+     "license": null,
+     "pushed": "2026-08-12",
+     "lang": "英文",
+     "domains": [
+      "video"
+     ],
+     "why": "CSUR 综述配套的论文与模型清单，**一直在更新**（最近推送 2026-08-12）—— 想知道某条技术路线是从哪篇论文来的，从这里查最快。",
+     "caveat": "⚠️ **它是论文清单不是上手教程**：给的是「谁先做出来的」，不是「我怎么做出来」。⚠️ 没有 LICENSE 文件。"
+    },
+    {
+     "name": "数字人资源合集（awesome-digital-human）",
+     "repo": "weihaox/awesome-digital-human",
+     "url": null,
+     "stars": 1974,
+     "license": "MIT",
+     "pushed": "2026-04-18",
+     "lang": "英文",
+     "domains": [
+      "avatar"
+     ],
+     "why": "2D/3D/4D 人体建模与形象生成的资源汇总，**许可是 MIT**（这类合集里少见）。数字人这一卷唯一一份成体系的公开资料。",
+     "caveat": "⚠️ 偏学术：论文与数据集为主，**商用产品那一侧几乎不覆盖**（HeyGen/Synthesia 那类要去厂商文档看）。"
+    },
+    {
+     "name": "说话人头合成资源合集（Awesome-Talking-Head-Synthesis）",
+     "repo": "Kedreamix/Awesome-Talking-Head-Synthesis",
+     "url": null,
+     "stars": 1543,
+     "license": "MIT",
+     "pushed": "2026-05-20",
+     "lang": "中英",
+     "domains": [
+      "avatar"
+     ],
+     "why": "专收「让一张脸开口说话」这条线的论文、代码与数据集，**MIT 许可**，作者是中文开发者、README 中英混排。",
+     "caveat": "⚠️ 同样以论文为主；**能跑的项目要自己一个个点进去看**是否还维护。"
+    },
+    {
+     "name": "3D 内容生成统一框架（threestudio）",
+     "repo": "threestudio-project/threestudio",
+     "url": null,
+     "stars": 7046,
+     "license": "Apache-2.0",
+     "pushed": "2024-12-16",
+     "lang": "英文",
+     "domains": [
+      "threed"
+     ],
+     "why": "把文生 3D 那一批方法收进同一套框架里跑，**Apache-2.0**。想搞懂「这些方法差在哪」，读它的配置比读六篇论文快。",
+     "caveat": "⚠️ **最后推送停在 2024-12**：那之后的一代（TRELLIS、Hunyuan3D 2.x/3.x）不在里面。当**方法入门**看，不是当前实践。"
+    },
+    {
+     "name": "GPT-SoVITS（少量语音就能训音色）",
+     "repo": "RVC-Boss/GPT-SoVITS",
+     "url": null,
+     "stars": 60841,
+     "license": "MIT",
+     "pushed": "2026-07-22",
+     "lang": "中文",
+     "domains": [
+      "sound"
+     ],
+     "why": "**★60,841、MIT 许可**，自述「1 分钟语音也能训出一个不错的 TTS 模型」。中文社区里教程与整合包最多的一支。",
+     "caveat": "⚠️ 它是**项目不是教程** —— 放在这里是因为中文侧围绕它的上手材料最厚。⚠️ 音色克隆涉及他人声音，**发布前先想清楚授权**。"
+    }
+   ]
   }
  ]
 }
