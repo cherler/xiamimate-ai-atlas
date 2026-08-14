@@ -20,9 +20,7 @@
 
 ### 一、Artificial Analysis 榜上、我们没收的（闭源侧的「有人真在用」）
 
-| 厂商 | 模型 | Elo |
-|---|---|---:|
-| PixVerse | PixVerse V6 | 1078 |
+（无）
 
 ### 二、Hugging Face 下载量前列、我们没收的组织（开源侧的实际采用度）
 
@@ -44,7 +42,7 @@
 > 不要照单全收，也不要因为混了噪音就整路丢掉：Lightricks、nvidia、zai-org
 > 都是这一路捞出来的，而它们在闭源榜上完全隐形。
 
-### 当前 Core（clip 轨 9/10，realtime 轨 2/10；括号里是含扩展层的总数 17 / 2）
+### 当前 Core（clip 轨 10/10，realtime 轨 2/10；括号里是含扩展层的总数 18 / 2）
 
 - `clip` Seedance 2.5（2026-07-31）
 - `clip` MiniMax Hailuo H3（2026-07-31）
@@ -124,6 +122,7 @@
 - `asset` InstantMesh v1（2026-08-13）
 - `asset` Sharp Sharp（2026-08-13）
 - `asset` AnySplat v1（2026-08-14）
+- `clip` PixVerse V6（2026-08-14）
 
 > clip 轨只剩 1 个空位。按规则四，再进新的就必须先踢一个 ——
 > 最该出去的是 **Sora 2**（已公告停服）。但**停服的模型不该从库里删**：
@@ -157,7 +156,7 @@
 > 不要照单全收，也不要因为混了噪音就整路丢掉：Lightricks、nvidia、zai-org
 > 都是这一路捞出来的，而它们在闭源榜上完全隐形。
 
-### 当前 Core（clip 轨 9/10，realtime 轨 2/10；括号里是含扩展层的总数 17 / 2）
+### 当前 Core（clip 轨 10/10，realtime 轨 2/10；括号里是含扩展层的总数 18 / 2）
 
 - `clip` Seedance 2.5（2026-07-31）
 - `clip` MiniMax Hailuo H3（2026-07-31）
@@ -237,6 +236,7 @@
 - `asset` InstantMesh v1（2026-08-13）
 - `asset` Sharp Sharp（2026-08-13）
 - `asset` AnySplat v1（2026-08-14）
+- `clip` PixVerse V6（2026-08-14）
 
 > clip 轨只剩 1 个空位。按规则四，再进新的就必须先踢一个 ——
 > 最该出去的是 **Sora 2**（已公告停服）。但**停服的模型不该从库里删**：

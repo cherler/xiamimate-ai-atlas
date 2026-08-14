@@ -4794,6 +4794,48 @@
     "version"
    ],
    "note": "第二代的模型卡（论文 arXiv 2512.14692）—— 首发那一支的 README 只讲 TRELLIS 1，能力要来这里重核"
+  },
+  {
+   "id": "pixverse-caps",
+   "tier": "S",
+   "kind": "html",
+   "vendor": "pixverse",
+   "name": "PixVerse · 官方能力矩阵",
+   "url": "https://docs.platform.pixverse.ai/capability-matrix-2144288m0.md",
+   "refresh_days": 14,
+   "good_for": [
+    "capability",
+    "version"
+   ],
+   "note": "**厂商自己出的能力对照表**（C1 / V6 / Legacy 三列），这一卷里少见的直接可逐格核的源"
+  },
+  {
+   "id": "pixverse-v6",
+   "tier": "S",
+   "kind": "html",
+   "vendor": "pixverse",
+   "name": "PixVerse · V6 模型文档",
+   "url": "https://docs.platform.pixverse.ai/v6-2056814m0.md",
+   "refresh_days": 14,
+   "good_for": [
+    "capability",
+    "version"
+   ],
+   "note": "逐能力的端点、时长、分辨率、参数表"
+  },
+  {
+   "id": "pixverse-fusion",
+   "tier": "S",
+   "kind": "html",
+   "vendor": "pixverse",
+   "name": "PixVerse · Fusion（多参考图生视频）文档",
+   "url": "https://docs.platform.pixverse.ai/fusionreference-to-video-1339253m0.md",
+   "refresh_days": 14,
+   "good_for": [
+    "capability",
+    "version"
+   ],
+   "note": "多主体 + 背景的参考合成"
   }
  ],
  "$missing": [
