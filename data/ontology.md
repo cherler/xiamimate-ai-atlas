@@ -775,3 +775,83 @@ InternVLA、小米、星海图、逐际动力、商汤、面壁，**全是只在
   `Isaac-GR00T` 的本体标签清单在 `getting_started/policy.md`，
   `dsh` 那种把文档拆成 200 多个 md 的更是如此。
   **按规则十四的教训，只抓 README 会重演「读了页首」那种漏法。**
+
+---
+
+## 规则十六 · 第八个方向「世界模型」（2026-08-14 立项）
+
+按第一节那条判据，十个方向里这是**最后一个产出物还没被覆盖的**：
+喂进动作或交互，吐出下一段可以接着再喂的状态。
+
+### D-1 · 一条新边界：全能不是跨卷，是它的定义（负责人拍板）
+
+开工前撞上一个前七卷没遇到过的问题：**NVIDIA Cosmos 一个家族横跨四类东西** ——
+`Cosmos-Reason` 是 VLM（还是 GR00T N1.7 的视觉骨干）、`Cosmos-Predict` 出未来帧、
+`Cosmos-Policy-DROID` 出机器人动作、`Cosmos3-Super-Image2Video` 是图生视频。
+按前七卷「看产出物」的老办法，它要被拆到四卷里去，规则三（Family 是一等实体）当场破功。
+
+我当时提的方案是改判据：「按输入里有没有动作/交互划」。**负责人否掉了，给了更准的一条：**
+
+> 「Cosmos 算世界模型，因为**世界模型做的就是全能模型，是模拟世界的一个方向**。」
+
+这句话把因果理顺了：**一个世界模型能出画面、出声音、出动作，不是它越界了，
+是它做到了自己的目标。** 模拟世界本来就要求这些一起来。所以：
+
+1. **Cosmos 整支留在世界模型卷**，不拆。规则三不用破例。
+2. **「被谁用」不改变归属。** `Cosmos-Reason` 是 GR00T 的骨干 —— 那是一条**依赖关系**，
+   记进谱系与说明，不把它划进具身卷。
+3. 反过来也成立：**判一个模型属不属于这一卷，看它自述在不在「模拟世界」这件事上**，
+   不看它输出了几种模态。
+
+⚠️ **和视频卷的边界因此要重说一遍**：`Cosmos3-Super-Image2Video` 这种也留在这一卷 ——
+它是世界模型平台的一个出口，不是一条独立的视频产品线。反过来 Sora / 可灵那些
+**自述就是做视频的**，即使画面里有物理，也仍在视频卷。**看自述，不看效果。**
+
+### D-2 · 能力轴（草案，未冻结）—— 五家的用词，不由一家定
+
+上一卷的教训是轴几乎只能从 Google 一家 derive。这一卷刻意先凑齐五家再动笔：
+
+| 能力 | 谁这么叫 |
+|---|---|
+| 世界模拟 | Cosmos「**world simulation**」· Odyssey「AI to understand and **simulate the world**」· World Labs「World models should reconstruct, generate, and **simulate 3D worlds**」 |
+| 实时交互 | Genie 3「generate dynamic worlds that you can **navigate in real time at 24 frames per second**」· Odyssey「**in real-time**」· Decart「**Live AI**」 |
+| 状态持久 | Genie 3「**retaining consistency for a few minutes**」· Decart「**Persistent intelligence**, without persistent compute」 |
+| 动作条件输入 | Cosmos 的 `Input Type(s)` 明列 **Action Trajectory**，并给出各本体的维度（相机运动 9D、自动驾驶 9D、第一人称 57D、单臂 Franka 10D、双臂 20D、Agibot 29D、UR 10D、Google robot 10D、WidowX 10D、UMI 9D） |
+| 动作输出 | Cosmos「generating … and **action commands**」 |
+| 未来预测 | Cosmos「**future prediction**」 |
+| 世界理解 | Cosmos「**world understanding**」· Odyssey「**understand** … the world」 |
+| 多智能体共世界 | Odyssey「a **multi-agent world model**, enabling multiple participants—human or AI—to **share and interact within the same world simulation** in real-time」 |
+| 3D 可漫游 | World Labs「**reconstruct, generate, and simulate 3D worlds**; and allow both humans and agents to **interact** with them」 |
+| 音画同出 | Cosmos 的输入输出都含音频（输入音频 ≤0.5 秒、48kHz 立体声） |
+| 开源权重 | Cosmos3 公开权重；Genie / Marble / Odyssey / Decart 闭源 |
+
+**一轨，不分轨。** 与上一卷不同：具身卷分两轨是因为两边问的**问题种类**不同
+（「能不能做 X」vs「你能不能跑起来」）；这一卷十一项**全是「能不能做 X」**，
+一张表装得下。
+
+### 三条边界
+
+1. **和视频卷**：看自述。自述做世界模拟的进这一卷，自述做视频的留在视频卷。
+2. **和 3D 卷**：World Labs 的 Marble 产出可漫游的 3D 世界，**和 3D 卷的高斯泼溅那一格贴得很近**。
+   分界是「**能不能被交互地改变**」—— 3D 卷收的是**可导出的资产**，
+   这一卷收的是**能被你的动作改写的状态**。⚠️ 这条边界是这一卷最容易判错的，
+   逐格核验时要一支一支确认，不许照名字推。
+3. **和具身卷**：`Cosmos-Policy-DROID` 出机器人动作，看着像 `vla` 轨 ——
+   但按 D-1 那条，它是 Cosmos 家族的一个出口，留在这一卷。
+   **具身卷收的是自述做机器人策略的产品线**（π₀、GR00T、OpenVLA 那些）。
+
+### 立项当天的可得性实测
+
+| 家 | 官方页 | 可核验度 |
+|---|---|---|
+| NVIDIA Cosmos3 | 模型卡 **44k**，有输入输出规格、本体维度表、许可、基准 | **这一卷的锚点** |
+| Odyssey | 官网 20k，产品线自述清楚 | 中 |
+| World Labs Marble | 博客 20k | 中 |
+| Google Genie 3 | 官方博客有实数（24fps、a few minutes） | 中 |
+| Decart | 官网 9k，文档站抓不到 | 低 |
+
+⚠️ **两个坑记下来**：`Cosmos-Reason2-8B`（72 万次下载）与 `Cosmos-Predict2-Video2World`
+的模型卡**要登录才能看**（HTTP 401 gated），和当初 LTX 那次一样 ——
+**能下载不等于能读到它怎么说自己**。另外搜 `world-model` / `genie` / `oasis`
+三个关键词捞回来的几乎全是噪音（`Genie` 是个 UI agent、`Oasis` 是 Llama 微调），
+**真正的世界模型一条都不在关键词里** —— 这一卷不能靠关键词建花名册。

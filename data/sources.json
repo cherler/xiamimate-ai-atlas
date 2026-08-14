@@ -5392,6 +5392,82 @@
     "roster"
    ],
    "note": "第三方，不是厂商。收它是因为这一卷多数检查点是跟着仿真基准发的，没有仿真环境连官方给的档都跑不起来。"
+  },
+  {
+   "id": "cosmos3-card",
+   "tier": "S",
+   "kind": "html",
+   "vendor": "cosmos",
+   "name": "NVIDIA 官方 · Cosmos3-Nano 模型卡（输入输出规格与本体维度表）",
+   "url": "https://huggingface.co/nvidia/Cosmos3-Nano/raw/main/README.md",
+   "refresh_days": 7,
+   "good_for": [
+    "capability",
+    "version",
+    "openweights"
+   ],
+   "expect": [
+    "Omnimodal World Models",
+    "Action Trajectory",
+    "world simulation",
+    "action commands"
+   ],
+   "note": "**这一卷的锚点**：44k，有输入输出规格、各本体的动作维度表、许可与基准。⚠️ 同族的 `Cosmos-Reason2-8B` 与 `Cosmos-Predict2-2B-Video2World` 模型卡**要登录才能看（HTTP 401 gated）** —— 下载量最高的两个反而读不到，和当初 LTX 那次一样。"
+  },
+  {
+   "id": "genie3-blog",
+   "tier": "A",
+   "kind": "html",
+   "vendor": "genie",
+   "name": "Google DeepMind 官方博客 · Genie 3",
+   "url": "https://deepmind.google/discover/blog/genie-3-a-new-frontier-for-world-models/",
+   "refresh_days": 14,
+   "good_for": [
+    "capability",
+    "version"
+   ],
+   "expect": [
+    "navigate in real time",
+    "24 frames per second",
+    "retaining consistency"
+   ],
+   "note": "⚠️ **抓 `deepmind.google/models/genie/` 会拿回导航壳**（正文全是站点菜单，2026-08-14 实测）。这条博客才有实数：24fps、consistency for a few minutes。"
+  },
+  {
+   "id": "odyssey-site",
+   "tier": "A",
+   "kind": "html",
+   "vendor": "odyssey",
+   "name": "Odyssey 官网（产品线自述）",
+   "url": "https://odyssey.world/",
+   "refresh_days": 14,
+   "good_for": [
+    "capability",
+    "version"
+   ],
+   "expect": [
+    "world model",
+    "real-time"
+   ],
+   "note": "「多智能体共世界」这根轴的唯一出处：官方自述 `a multi-agent world model, enabling multiple participants—human or AI—to share and interact within the same world simulation in real-time`。"
+  },
+  {
+   "id": "worldlabs-marble",
+   "tier": "A",
+   "kind": "html",
+   "vendor": "marble",
+   "name": "World Labs 官方博客 · Marble",
+   "url": "https://www.worldlabs.ai/blog/marble-world-model",
+   "refresh_days": 14,
+   "good_for": [
+    "capability",
+    "version"
+   ],
+   "expect": [
+    "Multimodal World Model",
+    "3D worlds"
+   ],
+   "note": "「3D 可漫游」那根轴的出处。⚠️ **这一支离 3D 卷最近**，判它属于哪一卷要看「能不能被交互地改变」，不能照名字推（规则十六边界二）。"
   }
  ],
  "$missing": [
