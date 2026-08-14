@@ -5888,6 +5888,11 @@
    "name": "ElevenLabs · 文档索引（llms.txt）",
    "url": "https://elevenlabs.io/docs/llms.txt",
    "tier": "official"
+  },
+  "bfl-flux2-multiref": {
+   "name": "Black Forest Labs 官方文档 · FLUX.2 多图参考编辑指南",
+   "url": "https://docs.bfl.ai/guides/prompting_editing_multi_reference",
+   "tier": "official"
   }
  },
  "support": [
@@ -7531,10 +7536,12 @@
   {
    "m": "flux",
    "c": "i-styleref",
-   "state": "unknown",
+   "state": "yes",
    "verified_for": "2-dev",
-   "note": "**有风格这个词，但不是「给一张图学它的风格」。** 官方的 Multi-Reference 讲的是元素与身份一致（faces / models stay consistent），Structured Prompting 里的 `\"style\"` 是**提示词里的一个文字字段**（示例值 `\"digital art, high contrast\"`），max 档自述的「faithful style representation」说的是听不听得懂提示词。三处都不是图像风格参考 —— 读完没找到，不是没读。",
-   "as_of": "2026-08-12"
+   "note": "🔁 **这一格 08-12 记的是 ⬜，理由写了三条，三条都还成立 —— 但结论错了。** 当时说「官方的 Multi-Reference 讲的是元素与身份一致」，那是**同一页里另一节**的内容；真正给风格图的那一节叫 `Style & Material Transfer`，就在同一页往下。**上次读的是这一页的开头，不是这一页。** 和混元那格是同一种漏法的两个变种：一个搜参数名漏了展示区，一个读了页首漏了页中。⚠️ 与 Ideogram 不同的是，FLUX **没有 `style_reference_images` 这种参数** —— 风格图是当作普通参考图喂进去、靠提示词指认的，所以能力有、但没有独立开关。",
+   "as_of": "2026-08-14",
+   "src": "bfl-flux2-multiref",
+   "quote": "多图参考编辑指南的「**Style & Material Transfer**」一节：「Apply the visual style, texture, or material of **one image** onto the content of another.」示例 `Impasto style transfer` 喂两张输入图，第二张的标签就写着 **`Style`**；另一例的提示词是「Apply the colors, patterns, and surface tones of the animal in **Image 2** to the animal in **Image 1**. Keep the pose, lighting, and overall composition of Image 1 unchanged.」"
   },
   {
    "m": "flux",
@@ -7868,7 +7875,7 @@
    "c": "i-inpaint",
    "state": "unknown",
    "verified_for": "3.0",
-   "note": "官方仓库通篇没有蒙版、扩图、画布、风格参考、放大、分层这些参数或小节。它的编辑能力集中在 `HunyuanImage-3.0-Instruct` 一档，官方描述是「Instruction reasoning and Image-to-image generation, including editing and multi-image fusion」—— **按指令改与多图融合，不是按区域改**。",
+   "note": "官方仓库没有蒙版、扩图、画布、放大、分层这些参数或小节。编辑能力集中在 `HunyuanImage-3.0-Instruct` 一档，官方描述是「Instruction reasoning and Image-to-image generation, including editing and multi-image fusion」—— **按指令改与多图融合，不是按区域改**。⚠️ 这句原本还写着「也没有风格参考」，**那是错的**：展示区第 5 条明写 `Advanced Style Transfer`。教训是这句话的搜法只搜了参数名与小节名，**搜不到「没有参数、只在展示区露面」的能力**。",
    "as_of": "2026-08-13"
   },
   {
@@ -7876,7 +7883,7 @@
    "c": "i-outpaint",
    "state": "unknown",
    "verified_for": "3.0",
-   "note": "官方仓库通篇没有蒙版、扩图、画布、风格参考、放大、分层这些参数或小节。它的编辑能力集中在 `HunyuanImage-3.0-Instruct` 一档，官方描述是「Instruction reasoning and Image-to-image generation, including editing and multi-image fusion」—— **按指令改与多图融合，不是按区域改**。",
+   "note": "官方仓库没有蒙版、扩图、画布、放大、分层这些参数或小节。编辑能力集中在 `HunyuanImage-3.0-Instruct` 一档，官方描述是「Instruction reasoning and Image-to-image generation, including editing and multi-image fusion」—— **按指令改与多图融合，不是按区域改**。⚠️ 这句原本还写着「也没有风格参考」，**那是错的**：展示区第 5 条明写 `Advanced Style Transfer`。教训是这句话的搜法只搜了参数名与小节名，**搜不到「没有参数、只在展示区露面」的能力**。",
    "as_of": "2026-08-13"
   },
   {
@@ -7884,7 +7891,7 @@
    "c": "i-canvas",
    "state": "unknown",
    "verified_for": "3.0",
-   "note": "官方仓库通篇没有蒙版、扩图、画布、风格参考、放大、分层这些参数或小节。它的编辑能力集中在 `HunyuanImage-3.0-Instruct` 一档，官方描述是「Instruction reasoning and Image-to-image generation, including editing and multi-image fusion」—— **按指令改与多图融合，不是按区域改**。",
+   "note": "官方仓库没有蒙版、扩图、画布、放大、分层这些参数或小节。编辑能力集中在 `HunyuanImage-3.0-Instruct` 一档，官方描述是「Instruction reasoning and Image-to-image generation, including editing and multi-image fusion」—— **按指令改与多图融合，不是按区域改**。⚠️ 这句原本还写着「也没有风格参考」，**那是错的**：展示区第 5 条明写 `Advanced Style Transfer`。教训是这句话的搜法只搜了参数名与小节名，**搜不到「没有参数、只在展示区露面」的能力**。",
    "as_of": "2026-08-13"
   },
   {
@@ -7898,18 +7905,21 @@
   {
    "m": "hunyuan-image",
    "c": "i-styleref",
-   "state": "unknown",
-   "verified_for": "3.0",
-   "note": "官方仓库通篇没有蒙版、扩图、画布、风格参考、放大、分层这些参数或小节。它的编辑能力集中在 `HunyuanImage-3.0-Instruct` 一档，官方描述是「Instruction reasoning and Image-to-image generation, including editing and multi-image fusion」—— **按指令改与多图融合，不是按区域改**。",
-   "as_of": "2026-08-13"
+   "state": "yes",
+   "verified_for": "3.0-Instruct",
+   "src": "hunyuan-image-gh",
+   "quote": "官方 README 的展示区标题：「**Showcase 5: Advanced Style Transfer and Product Mockup Generation**」，配图 alt 写作 `HunyuanImage-3.0-Instruct Showcase 4/5`。",
+   "note": "**这个能力长在 `HunyuanImage-3.0-Instruct` 那一支上**，不是基础版 3.0 —— 展示区配图的 alt 自己写着 `HunyuanImage-3.0-Instruct Showcase 5`。🔍 **上一次记 ⬜ 是漏读，漏的原因值得记下来。** 08-13 那次在仓库里搜的是**参数名与小节名**（`style`、`mask`、`outpaint`…），而混元没有风格参考这个参数 —— 它是**靠提示词加参考图做的，只在展示区露面**。搜参数搜不到「没有参数的能力」，这是个会重复犯的错。⚠️ 相应地，这一格的证据强度也**弱于**有 API 参数那种：官方演示了、没有开关可调。",
+   "as_of": "2026-08-14",
+   "sibling": "3.0-Instruct"
   },
   {
    "m": "hunyuan-image",
    "c": "i-fidelity",
    "state": "unknown",
    "verified_for": "3.0",
-   "note": "官方仓库通篇没有蒙版、扩图、画布、风格参考、放大、分层这些参数或小节。它的编辑能力集中在 `HunyuanImage-3.0-Instruct` 一档，官方描述是「Instruction reasoning and Image-to-image generation, including editing and multi-image fusion」—— **按指令改与多图融合，不是按区域改**。",
-   "as_of": "2026-08-13"
+   "note": "官方仓库没有蒙版、扩图、画布、放大、分层这些参数或小节。编辑能力集中在 `HunyuanImage-3.0-Instruct` 一档，官方描述是「Instruction reasoning and Image-to-image generation, including editing and multi-image fusion」—— **按指令改与多图融合，不是按区域改**。⚠️ 这句原本还写着「也没有风格参考」，**那是错的**：展示区第 5 条明写 `Advanced Style Transfer`。教训是这句话的搜法只搜了参数名与小节名，**搜不到「没有参数、只在展示区露面」的能力**。 🔍 补一条**差点被记成 ✅ 的证据**：展示区第 3 条标题是「Precise Image Editing with **Element Preservation**」。它证明的是模型改图时**会**保住原有元素，**不等于你能调保真强度** —— 这条轴是照着 OpenAI 的 `input_fidelity` 参数与 Gemini 的 `High-fidelity detail preservation` 定的，「控制」两个字在轴名里。**「它做到了」和「你能拧」是两件事**，所以维持 ⬜。",
+   "as_of": "2026-08-14"
   },
   {
    "m": "hunyuan-image",
@@ -7924,7 +7934,7 @@
    "c": "i-upscale",
    "state": "unknown",
    "verified_for": "3.0",
-   "note": "官方仓库通篇没有蒙版、扩图、画布、风格参考、放大、分层这些参数或小节。它的编辑能力集中在 `HunyuanImage-3.0-Instruct` 一档，官方描述是「Instruction reasoning and Image-to-image generation, including editing and multi-image fusion」—— **按指令改与多图融合，不是按区域改**。",
+   "note": "官方仓库没有蒙版、扩图、画布、放大、分层这些参数或小节。编辑能力集中在 `HunyuanImage-3.0-Instruct` 一档，官方描述是「Instruction reasoning and Image-to-image generation, including editing and multi-image fusion」—— **按指令改与多图融合，不是按区域改**。⚠️ 这句原本还写着「也没有风格参考」，**那是错的**：展示区第 5 条明写 `Advanced Style Transfer`。教训是这句话的搜法只搜了参数名与小节名，**搜不到「没有参数、只在展示区露面」的能力**。",
    "as_of": "2026-08-13"
   },
   {
@@ -8040,8 +8050,8 @@
    "c": "i-upscale",
    "state": "unknown",
    "verified_for": "5.0 Pro",
-   "note": "没有放大 / 超分端点或参数。",
-   "as_of": "2026-08-12"
+   "note": "官方参数表一共 14 项，逐项列出来供复核：`model`、`prompt`、`image`、`layer_decomposition`、`size`、`optimize_prompt_options`、`output_format`、`background`、`response_format`、`sequential_image_generation`、`sequential_image_generation_options`、`stream`、`tools`、`watermark` —— **没有一项是放大 / 超分**，响应字段里也没有。`size` 管的是生成时的出图尺寸，**不是把已有图放大**（规则十边界二把这两件事分开了）。",
+   "as_of": "2026-08-14"
   },
   {
    "m": "seedream",
@@ -10561,10 +10571,12 @@
   {
    "m": "seedream",
    "c": "i-layered",
-   "state": "unknown",
+   "state": "yes",
    "verified_for": "5.0 Pro",
-   "as_of": "2026-08-12",
-   "note": "参数表与响应字段里都没有图层 / 分层输出。⚠️ 我们自己的谱系里一度写着 5.0 Pro「分层输出」，但那句话在任何官方文档里都找不到依据，2026-08-12 已改掉。"
+   "src": "ark-seedream-api",
+   "as_of": "2026-08-14",
+   "quote": "请求参数表：「`layer_decomposition` boolean 默认值 false | **图层拆分开关**」（标着 `new`），同时新增「`background` string 默认值 opaque | **图片透明通道**」。官方示例请求写 `\"layer_decomposition\": true`，提示词是「**将图片进行精确图层分离**」；返回的 `data` 数组里每张图各带一个 `z_index`（0 是底图 2048×2048 jpeg，1 是 1273×265 的 png），还附 `bounding_box`、`name`、`description`（如「Seedream标题文字」）。",
+   "note": "⏱ **这一格两天前是 ⬜，翻成 ✅ 不是因为我们上次读漏了。** 2026-08-12 记的是「参数表与响应字段里都没有图层 / 分层输出」，那句话当时是对的；`layer_decomposition` 在文档里**至今还标着 `new`**。⚠️ 更要紧的是别把这次当成「我们早就说对了」—— 我们的谱系一度写过 5.0 Pro「分层输出」，那条在当时**没有任何官方依据**，08-12 已经删掉。**猜对了也是猜**：删它是对的，现在补它靠的是文档里真出现的参数，不是那次直觉。"
   },
   {
    "m": "gemini-image",
@@ -10604,7 +10616,7 @@
    "state": "unknown",
    "verified_for": "3.0",
    "as_of": "2026-08-13",
-   "note": "官方仓库通篇没有蒙版、扩图、画布、风格参考、放大、分层这些参数或小节。它的编辑能力集中在 `HunyuanImage-3.0-Instruct` 一档，官方描述是「Instruction reasoning and Image-to-image generation, including editing and multi-image fusion」—— **按指令改与多图融合，不是按区域改**。"
+   "note": "官方仓库没有蒙版、扩图、画布、放大、分层这些参数或小节。编辑能力集中在 `HunyuanImage-3.0-Instruct` 一档，官方描述是「Instruction reasoning and Image-to-image generation, including editing and multi-image fusion」—— **按指令改与多图融合，不是按区域改**。⚠️ 这句原本还写着「也没有风格参考」，**那是错的**：展示区第 5 条明写 `Advanced Style Transfer`。教训是这句话的搜法只搜了参数名与小节名，**搜不到「没有参数、只在展示区露面」的能力**。"
   },
   {
    "m": "recraft",

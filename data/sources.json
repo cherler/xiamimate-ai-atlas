@@ -3952,6 +3952,14 @@
    "note": "BFL 文档站每页都有 `.md` 版，全量索引在 docs.bfl.ai/llms.txt。⚠️ 抓的是 docs.bfl.**ml** —— 官方 llms.txt 里给的就是这个域名，docs.bfl.ai 会返回整站壳"
   },
   {
+   "id": "bfl-flux2-multiref",
+   "url": "https://docs.bfl.ml/guides/prompting_editing_multi_reference.md",
+   "kind": "html",
+   "tier": "A",
+   "name": "Black Forest Labs 官方文档 · FLUX.2 多图参考编辑指南",
+   "note": "风格参考那一格的唯一依据在这页的 `Style & Material Transfer` 一节 —— 概览页没有，所以概览页进了监视清单也照样漏。"
+  },
+  {
    "id": "ark-seedream-api",
    "tier": "A",
    "kind": "spa",
