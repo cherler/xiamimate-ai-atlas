@@ -5218,6 +5218,121 @@
     "capability"
    ],
    "note": "20 万字符的机器可读索引，端点与能力页一次列全"
+  },
+  {
+   "id": "gemini-robotics-er",
+   "tier": "S",
+   "kind": "html",
+   "vendor": "gemini-robotics",
+   "name": "Google 官方文档 · Gemini Robotics ER（能力表 / 端点 / 定价）",
+   "url": "https://ai.google.dev/gemini-api/docs/robotics-overview?hl=en",
+   "refresh_days": 7,
+   "good_for": [
+    "capability",
+    "api",
+    "price",
+    "version"
+   ],
+   "expect": [
+    "Spatial reasoning",
+    "Agentic vision",
+    "Task orchestration",
+    "Streaming",
+    "Video progress"
+   ],
+   "note": "**这一卷唯一有 API + 定价 + 端点的源**，`Robotics capabilities` 那张表就是 `er` 轨能力轴的全部出处。⚠️ 必须带 `accept-language: en-US` —— 2026-08-14 实测不带会拿回**西班牙语页面**，标题变成「Capacidades de robótica」，diff 全是噪音。URL 上的 `?hl=en` 是第二道保险。"
+  },
+  {
+   "id": "figure-helix",
+   "tier": "A",
+   "kind": "html",
+   "vendor": "helix",
+   "name": "Figure 官方 · Helix 模型发布页",
+   "url": "https://www.figure.ai/news/helix",
+   "refresh_days": 14,
+   "good_for": [
+    "capability",
+    "version"
+   ],
+   "expect": [
+    "Vision-Language-Action",
+    "Helix"
+   ],
+   "note": "闭源，没有权重也没有 API —— **这一页就是 Helix 的全部官方能力叙述**（正文 16k，2026-08-14 实测）。"
+  },
+  {
+   "id": "pi-pi05-blog",
+   "tier": "A",
+   "kind": "html",
+   "vendor": "pi",
+   "name": "Physical Intelligence 官方博客 · π₀.₅",
+   "url": "https://www.physicalintelligence.company/blog/pi05",
+   "refresh_days": 14,
+   "good_for": [
+    "capability",
+    "version"
+   ],
+   "expect": [
+    "Open-World Generalization",
+    "VLA"
+   ],
+   "note": "π 系列的能力叙述在博客里，**权重与用法在 `openpi` 仓库里，两边都要抓**。仓库 README 讲的全是怎么微调、怎么起 policy server，一句能力命名都没有。"
+  },
+  {
+   "id": "pi-openpi-gh",
+   "tier": "A",
+   "kind": "json",
+   "vendor": "pi",
+   "name": "Physical-Intelligence/openpi 官方仓库",
+   "url": "https://api.github.com/repos/Physical-Intelligence/openpi",
+   "refresh_days": 7,
+   "good_for": [
+    "version",
+    "openweights"
+   ],
+   "note": "π₀ / π₀-FAST / π₀.₅ 的基座检查点清单在 README 的 `Base Models` 表里；**checkpoint 放在 `gs://openpi-assets`，不在 HF** —— 按 HF 下载量给这条产品线排序会严重低估它。"
+  },
+  {
+   "id": "nvidia-groot-gh",
+   "tier": "A",
+   "kind": "json",
+   "vendor": "groot",
+   "name": "NVIDIA/Isaac-GR00T 官方仓库",
+   "url": "https://api.github.com/repos/NVIDIA/Isaac-GR00T",
+   "refresh_days": 7,
+   "good_for": [
+    "version",
+    "capability",
+    "openweights"
+   ],
+   "note": "⚠️ **本体标签（`--embodiment-tag`）的完整清单不在 README，在 `getting_started/policy.md`。** README 只说「see the Policy API Guide」。按规则十四那条教训，只抓 README 会重演「读了页首」的漏法。"
+  },
+  {
+   "id": "openvla-gh",
+   "tier": "A",
+   "kind": "json",
+   "vendor": "openvla",
+   "name": "openvla/openvla 官方仓库",
+   "url": "https://api.github.com/repos/openvla/openvla",
+   "refresh_days": 14,
+   "good_for": [
+    "version",
+    "openweights"
+   ],
+   "note": "这一卷里被第三方微调最多的一支（`moojink/` `Sakits/` 等都是它的 LIBERO 基准微调）——**统计家族规模时要先折叠，否则会把它数成四五家**。"
+  },
+  {
+   "id": "hf-robotics",
+   "tier": "B",
+   "kind": "json",
+   "vendor": "",
+   "name": "Hugging Face · robotics 榜（按下载）",
+   "url": "https://huggingface.co/api/models?filter=robotics&sort=downloads&direction=-1&limit=100",
+   "refresh_days": 7,
+   "good_for": [
+    "roster"
+   ],
+   "note": "⚠️ **中文侧在这张榜上基本看不见**：腾讯混元具身、上海 AI 实验室 InternVLA、小米、星海图、逐际动力全是只在魔搭有。**只看这张榜会得出「具身智能没有中国厂商」的错误结论。**"
   }
  ],
  "$missing": [

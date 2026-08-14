@@ -657,3 +657,121 @@ HeyGen 那一列几乎填满（它的文档索引太全），另外六家大多�
 这次三格翻案里，有一格（Seedream 分层）我们的谱系**两天前就写对过**，
 08-12 因为找不到官方依据而删掉了。**删它是对的** —— 现在补回来靠的是文档里
 真出现的参数，不是那次直觉。**猜对了也是猜。**
+
+---
+
+## 规则十五 · 第七个方向「具身智能 VLA」（2026-08-14 立项）
+
+负责人拍板。**我推荐的是代码 Agent，被否掉了，三条理由都对** ——
+代码 Agent 产出文本、AI 音乐产出音频，轴都在已有卷里；
+真正独有产出物的只剩具身智能（**动作序列**）与世界模型（**可交互状态流**）。
+我当时拿「官方文档厚不厚、好不好采」当判据，**那不是判据，那是排期依据。**
+
+### 立项前我说过「这一卷填不出来」，那句话下早了
+
+原话是「机器人厂商只发论文成功率和演示视频，不产出『支持 / 不支持』这类文本」。
+实测七个源之后，**这句话对一半**：
+
+| 源 | 实测 | 有没有能力命名 |
+|---|---|---|
+| Google `Gemini Robotics ER` 官方文档 | 142k，有 API、有定价、有端点 | **有，官方列了五项** |
+| `Physical-Intelligence/openpi` | 23k README | 没有 —— 讲的是怎么微调、怎么起 policy server |
+| `NVIDIA/Isaac-GR00T` | 35k README | 没有 —— 讲本体标签、数据格式、导出部署 |
+| `openvla/openvla` | 38k README | 没有 —— 讲训练与 LoRA |
+
+**结论不是「做不了」，是「这一卷有两轨，两轨的轴根本不是同一种东西」。**
+
+### D-1 · 分两轨（规则二的第三次应用）
+
+| 轨 | `class` | 产出物 | 形态 |
+|---|---|---|---|
+| **具身推理** | `er` | 点位 · 边界框 · 轨迹 · 计划 | 有 API、按次计费、像模型服务 |
+| **动作策略** | `vla` | **动作块**（关节 / 末端位姿，带 action horizon） | 是权重 + 训练框架，要自己微调、自己部署 |
+
+**两轨不共用一张表。** 拿「支持不支持空间推理」去问 π₀ 没有意义 ——
+它压根不输出那个；拿「支持哪些本体标签」去问 Gemini Robotics ER 也没有意义 ——
+它不直接驱动关节。混一张表就是重演视频卷 `clip` / `realtime` 那次的教训。
+
+### D-2 · 能力轴（草案，**尚未冻结**，逐格核验前不许当结论用）
+
+**`er` 轨 —— 五项全部抄自 Google 官方文档的 `Robotics capabilities` 表：**
+
+| 能力 | 官方原词与描述 |
+|---|---|
+| 空间推理 | `Spatial reasoning`：「Point to objects, track them in video, detect with bounding boxes, plan trajectories.」 |
+| 智能体视觉 | `Agentic vision`：「Use code execution to enhance other capabilities by leveraging image manipulation tools.」 |
+| 任务编排 | `Task orchestration`：「Combine spatial reasoning with custom robot APIs to complete long-horizon tasks.」 |
+| 实时流式 | `Streaming`：「Bidirectional streaming for real-time robot agents with low-latency function calling.」（仅 ER 2 Streaming 端点） |
+| 视频进度 | `Video progress`：「Moment finding and progress classification from continuous video feeds.」（仅 ER 2） |
+
+**`vla` 轨 —— 轴不是「能不能做某件事」，是「你能不能拿它跑起来」。**
+这不是我们编的角度，是三家 README 自己的小节名：
+
+| 能力（草案） | 各家用词 |
+|---|---|
+| 开源权重 | 三家都有；许可各不相同，逐条读 |
+| 跨本体 | GR00T 的 `Embodiment Tags`：「Every inference or finetuning command requires an `--embodiment-tag`」 |
+| 零样本可用 | GR00T 的 `Zero-Shot Inference (Base Model)` 与 `Finetuned Inference` **分列两节** —— 官方自己把「不微调能不能跑」当成一件要说明的事 |
+| 微调路径 | OpenVLA 的 `Fine-Tuning via LoRA` / `Fully Fine-Tuning`；openpi 的 `Fine-Tuning Base Models on Your Own Data` |
+| 数据格式 | openpi「Convert your data to a **LeRobot** dataset」；OpenVLA「arbitrary datasets in **RLDS** format」 |
+| 边缘部署 | GR00T N1.7「adds full-pipeline **ONNX and TensorRT** export support … across desktop GPUs and edge platforms」 |
+| 框架可换 | openpi 的 `PyTorch Support` 与 JAX 双实现 |
+
+⚠️ **仿真与真机的评测成绩（RoboCasa / SimplerEnv / 真机 G1）不进能力轴。**
+它们是效果，按既有规矩进 `effect` 并标明是谁说的 —— **我们不打分**。
+
+### 三条边界
+
+1. **本体（机器人硬件）不是模型。** 宇树、Figure 的整机进 `orgs` / `platforms`，
+   不占能力表的行。收的是**策略模型**，不是机器人。
+2. **ER 模型同时是通用多模态模型的一支时，只在这一卷记具身能力。**
+   Gemini Robotics ER 的上下文长度、函数调用属于文本卷，不在这里重复。
+3. **⬜ 会很多，而且这一次要写清是哪一种「没有」**：是官方没说，
+   还是**这类事实压根不以文档形式存在**（例如 π₀ 的「抓取成功率」只在论文里）。
+   后者要在说明里写明白 —— 按规则十四的教训，「读完没找到」必须说清读的是哪一页。
+
+### D-3 · 花名册（2026-08-14 实测，Core 待冻结）
+
+取样：HF `robotics` 榜三次查询去重 187 条 → 折叠成 132 个家族；
+魔搭按 `VLA / 具身 / 机器人 / robot` 四个词各取 40 条；闭源六家逐个访问官网。
+
+**中文侧比预估厚得多**，而且 HF 榜上基本看不见 —— 腾讯混元具身、上海 AI 实验室
+InternVLA、小米、星海图、逐际动力、商汤、面壁，**全是只在魔搭有**。
+这条再次证明加魔搭那次改造是对的（那次它照出的第一件事是我们自己的折叠 bug）。
+
+| 轨 | 候选家族（按可核验度排，不是按强弱） | 出处 |
+|---|---|---|
+| `er` | Gemini Robotics ER · MolmoAct · RoboBrain · InternVLA-N · RynnBrain | Google 有 API；其余是权重 + 论文 |
+| `vla` | π₀/π₀.₅ · GR00T N · OpenVLA · SmolVLA · Helix · 混元 Hy-Embodied · InternVLA-A · Xiaomi-Robotics · lingbot-vla · G0-VLA · X-VLA · Seed GR-3 · GO-1 | 多数是开源权重；Helix / Seed GR-3 / GO-1 闭源 |
+
+`vla` 轨候选已经超过 10 个，**规则四照常适用**：Core ≤10，其余进 extended。
+
+### D-3 的四条排除（每条都记原因，将来可回查）
+
+1. **自动驾驶不收 —— 这是这一卷最该说清的一条边界。**
+   NVIDIA 的 `Alpamayo` 系列下载量 66,647，在 HF 的 robotics 榜上排第四，
+   按「产出物是动作序列」这条判据**它完全够格**。不收的理由是上一层判据：
+   **能力放在同一根轴上比较才有意义。** 自动驾驶的轴（城市 NOA、接管率、
+   长尾场景）对桌面抓取没有意义，而 `Embodiment Tags`、`action horizon`
+   对车也没有意义。**两根轴不通，就是两个方向。**
+   → 它该是将来的独立一卷，不是这一卷的漏收。
+2. **本体厂商的整机不占行。** 宇树、Figure 的机器人本体进 `orgs` / `platforms`；
+   Figure 的 **Helix** 是策略模型，收的是它，不是 Figure 02。
+3. **镜像与第三方微调不算厂商。** `lerobot/pi0_base` 是 Physical Intelligence 的模型
+   由 HF 转存，`moojink/` `Sakits/` 是 LIBERO 基准微调，`mradermacher/` 是 GGUF 量化搬运。
+   按 candidates.mjs 已有的镜像组织判定处理，**不然会把一个模型数成四家**。
+4. **关键词假阳性要记下来，因为它会重复出现。** 魔搭搜「机器人」，
+   排第一的是 `iic/nlp_gpt3_kuakua-robot_chinese-large`（60,931 次下载）——
+   **那是个夸夸聊天机器人**，和具身智能毫无关系。
+   这一卷的中文关键词天然比英文脏，`具身` 比 `机器人` 干净得多。
+
+### D-4 · 数据源（登记要点）
+
+- Google `Gemini Robotics ER` 文档是**这一卷唯一有 API + 定价 + 端点**的源，
+  抓它必须带 `accept-language: en-US` —— 不带会拿回西班牙语页面（2026-08-14 实测踩到）。
+- 字节 `Seed GR-3`、上海 AI 实验室 `InternRobotics` 官网都是 SPA 壳（正文各 1k），
+  要走 `kind: "spa"`，否则会记成「抓到了、没内容」。
+- 开源三家的能力事实**不在 README 里，在 docs/ 目录里**：
+  `Isaac-GR00T` 的本体标签清单在 `getting_started/policy.md`，
+  `dsh` 那种把文档拆成 200 多个 md 的更是如此。
+  **按规则十四的教训，只抓 README 会重演「读了页首」那种漏法。**
