@@ -1908,6 +1908,83 @@
     "语言"
    ],
    "since_note": "ElevenLabs Music v2「**Multilingual**, including English, Spanish, German, Japanese and more」"
+  },
+  {
+   "id": "s-a-lang",
+   "class": "asr",
+   "domain": "sound",
+   "name": "Multilingual transcription",
+   "zh": "多语种转写",
+   "group": "转得准吗",
+   "ubiquity": "待核",
+   "aliases": [
+    "multilingual",
+    "语种",
+    "languages"
+   ],
+   "since_note": "ElevenLabs Scribe v2「Accurate transcription in **90+ languages**」· Whisper 自述在多语种上「generalise to many datasets and domains in a **zero-shot** setting」"
+  },
+  {
+   "id": "s-a-diarize",
+   "class": "asr",
+   "domain": "sound",
+   "name": "Speaker diarization",
+   "zh": "说话人分离",
+   "group": "转成什么",
+   "ubiquity": "待核",
+   "aliases": [
+    "diarization",
+    "speaker",
+    "说话人",
+    "分角色"
+   ],
+   "since_note": "ElevenLabs「**Speaker diarization, up to 32 speakers**」· Gemini「**Speaker diarization** (identifying different speakers)」· FunASR 生态把它与 ASR 并列"
+  },
+  {
+   "id": "s-a-timestamp",
+   "class": "asr",
+   "domain": "sound",
+   "name": "Word-level timestamps",
+   "zh": "逐词时间戳",
+   "group": "转成什么",
+   "ubiquity": "待核",
+   "aliases": [
+    "timestamp",
+    "word-level",
+    "时间戳",
+    "字幕"
+   ],
+   "since_note": "ElevenLabs Scribe v2 与 v2 Realtime 都写「**Precise word-level timestamps**」· Gemini「Analyzing specific segments with **timestamps**」"
+  },
+  {
+   "id": "s-a-realtime",
+   "class": "asr",
+   "domain": "sound",
+   "name": "Real-time transcription",
+   "zh": "实时转写",
+   "group": "怎么用",
+   "ubiquity": "待核",
+   "aliases": [
+    "real-time",
+    "流式",
+    "实时"
+   ],
+   "since_note": "ElevenLabs 单开一档 `Scribe v2 Realtime`：「**Real-time transcription** / Low latency (~150ms†)」· Gemini 指向「dedicated speech to text models with support for **real-time** transcription」"
+  },
+  {
+   "id": "s-a-translate",
+   "class": "asr",
+   "domain": "sound",
+   "name": "Speech translation",
+   "zh": "语音翻译",
+   "group": "转成什么",
+   "ubiquity": "待核",
+   "aliases": [
+    "translation",
+    "翻译",
+    "speech translation"
+   ],
+   "since_note": "Whisper 自述是「a state-of-the-art model for automatic speech recognition (ASR) **and speech translation**」· Gemini「**Transcription and translation** (speech to text)」"
   }
  ],
  "orgs": [
@@ -4914,6 +4991,70 @@
    "version_src": "hf-robotics",
    "version_quote": "HF 仓库 `Etched/oasis-500m`（createdAt 2024-10-31）",
    "note": "进 extended：⚠️ **模型卡要登录才能看（HTTP 401 gated）**，我们读不到它怎么说自己。收它是为了留痕这条线存在过，不是因为核过。"
+  },
+  {
+   "id": "scribe",
+   "class": "asr",
+   "family": "ElevenLabs Scribe",
+   "org": "elevenlabs",
+   "version": "v2",
+   "version_as_of": "2026-08-15",
+   "status": "active",
+   "tier": "core",
+   "domain": "sound",
+   "weights": "closed",
+   "zh_none": true,
+   "version_src": "elevenlabs-models",
+   "version_quote": "官方模型页 `Speech to Text` 一节列两档：**Scribe v2** 与 **Scribe v2 Realtime**",
+   "note": "这一轨里**能力写得最细的一家**：说话人数上限、时间戳精度、延迟数字都写在模型页上。"
+  },
+  {
+   "id": "whisper",
+   "class": "asr",
+   "family": "Whisper",
+   "org": "openai",
+   "version": "large-v3",
+   "version_as_of": "2026-08-15",
+   "status": "maintained",
+   "tier": "core",
+   "domain": "sound",
+   "weights": "open",
+   "zh_none": true,
+   "version_src": "hf-whisper",
+   "version_quote": "官方模型卡：「Whisper is a state-of-the-art model for **automatic speech recognition (ASR) and speech translation**」；`whisper-large-v3` 建于 2023-11-07，之后有 `large-v3-turbo`（2024-10-01）",
+   "note": "⚠️ **状态记 `maintained`**：主线停在 2023-11 的 large-v3（turbo 是同代的加速档），此后没有新代。但它仍是这一轨事实上的地基 —— HF 下载量前十里有三个是它或它的衍生。"
+  },
+  {
+   "id": "sensevoice",
+   "class": "asr",
+   "family": "SenseVoice",
+   "org": "alibaba",
+   "version": "Small",
+   "version_as_of": "2026-08-15",
+   "status": "active",
+   "tier": "core",
+   "domain": "sound",
+   "weights": "open",
+   "zh": "通义 SenseVoice",
+   "version_src": "hf-sensevoice",
+   "version_quote": "官方模型卡：「SenseVoice is part of the **FunASR** ecosystem — one industrial-grade open-source toolkit for **ASR · VAD · punctuation · speaker diarization · emotion / event · LLM-ASR**」",
+   "note": "中文侧开源这一路的代表。⚠️ 注意它自述的是**整个 FunASR 工具箱**的能力清单，**不等于 SenseVoiceSmall 这一个模型都做** —— 逐格核验时要分清是工具箱还是模型。"
+  },
+  {
+   "id": "qwen3-asr",
+   "class": "asr",
+   "family": "Qwen3-ASR",
+   "org": "alibaba",
+   "version": "1.7B",
+   "version_as_of": "2026-08-15",
+   "status": "active",
+   "tier": "core",
+   "domain": "sound",
+   "weights": "open",
+   "zh": "通义 Qwen3-ASR",
+   "version_src": "hf-qwen3-asr",
+   "version_quote": "官方 HF 仓库 `Qwen/Qwen3-ASR-1.7B` 与 `-0.6B`（createdAt 均为 2026-01-28），下载量 419 万 / 416 万",
+   "note": "⚠️ 立项当天只核到仓库与下载量，**能力还没逐条读** —— 格子里照实标着。"
   }
  ],
  "sources": {
@@ -6920,6 +7061,21 @@
   "openvla-repo": {
    "name": "openvla/openvla 官方仓库 README",
    "url": "https://github.com/openvla/openvla",
+   "tier": "official"
+  },
+  "hf-whisper": {
+   "name": "OpenAI 官方 · Whisper large-v3 模型卡",
+   "url": "https://huggingface.co/openai/whisper-large-v3",
+   "tier": "official"
+  },
+  "hf-sensevoice": {
+   "name": "阿里 FunAudioLLM 官方 · SenseVoiceSmall 模型卡",
+   "url": "https://huggingface.co/FunAudioLLM/SenseVoiceSmall",
+   "tier": "official"
+  },
+  "hf-qwen3-asr": {
+   "name": "阿里官方 · Qwen3-ASR 模型卡",
+   "url": "https://huggingface.co/Qwen/Qwen3-ASR-1.7B",
    "tier": "official"
   }
  },
@@ -15224,6 +15380,216 @@
    "verified_for": "music-3.0",
    "as_of": "2026-08-15",
    "note": "概览里没有语言清单。⚠️ **这一行普遍薄，原因是够不着不是没查**：MiniMax 的音乐文档页 `platform.minimaxi.com/document/Music` 是个 SPA 壳，2026-08-15 抓回来正文 **0k**；我们能引的只有 API 概览里那两句。**这是可得性上限。**"
+  },
+  {
+   "m": "scribe",
+   "c": "s-a-lang",
+   "state": "yes",
+   "verified_for": "v2",
+   "src": "elevenlabs-models",
+   "quote": "官方模型页 `Speech to Text`：**Scribe v2** —— 「Entity detection, 65 entity types / **Precise word-level timestamps** / **Speaker diarization, up to 32 speakers** / Dynamic audio tagging / Smart language detection」；**Scribe v2 Realtime** —— 「**Real-time speech recognition model** / Accurate transcription in **90+ languages** / **Real-time transcription** / **Low latency (~150ms†)** / Precise word-level timestamps」",
+   "as_of": "2026-08-15",
+   "note": "90+ 语种是写在 Realtime 那一档下的。"
+  },
+  {
+   "m": "scribe",
+   "c": "s-a-diarize",
+   "state": "yes",
+   "verified_for": "v2",
+   "src": "elevenlabs-models",
+   "quote": "官方模型页 `Speech to Text`：**Scribe v2** —— 「Entity detection, 65 entity types / **Precise word-level timestamps** / **Speaker diarization, up to 32 speakers** / Dynamic audio tagging / Smart language detection」；**Scribe v2 Realtime** —— 「**Real-time speech recognition model** / Accurate transcription in **90+ languages** / **Real-time transcription** / **Low latency (~150ms†)** / Precise word-level timestamps」",
+   "as_of": "2026-08-15",
+   "note": "🎯 **全轨唯一给了上限数字的**：最多 32 个说话人。别家只说「支持分离」。"
+  },
+  {
+   "m": "scribe",
+   "c": "s-a-timestamp",
+   "state": "yes",
+   "verified_for": "v2",
+   "src": "elevenlabs-models",
+   "quote": "官方模型页 `Speech to Text`：**Scribe v2** —— 「Entity detection, 65 entity types / **Precise word-level timestamps** / **Speaker diarization, up to 32 speakers** / Dynamic audio tagging / Smart language detection」；**Scribe v2 Realtime** —— 「**Real-time speech recognition model** / Accurate transcription in **90+ languages** / **Real-time transcription** / **Low latency (~150ms†)** / Precise word-level timestamps」",
+   "as_of": "2026-08-15",
+   "note": "两档都有，官方措辞是 `Precise word-level`。"
+  },
+  {
+   "m": "scribe",
+   "c": "s-a-realtime",
+   "state": "yes",
+   "verified_for": "v2",
+   "src": "elevenlabs-models",
+   "quote": "官方模型页 `Speech to Text`：**Scribe v2** —— 「Entity detection, 65 entity types / **Precise word-level timestamps** / **Speaker diarization, up to 32 speakers** / Dynamic audio tagging / Smart language detection」；**Scribe v2 Realtime** —— 「**Real-time speech recognition model** / Accurate transcription in **90+ languages** / **Real-time transcription** / **Low latency (~150ms†)** / Precise word-level timestamps」",
+   "as_of": "2026-08-15",
+   "note": "🎯 **也是唯一给了延迟数字的**（~150ms），而且单开了一档模型而不是一个参数。"
+  },
+  {
+   "m": "scribe",
+   "c": "s-a-translate",
+   "state": "unknown",
+   "verified_for": "v2",
+   "as_of": "2026-08-15",
+   "note": "模型页那两档的能力清单里没有语音翻译。⚠️ ElevenLabs 另有 `Dubbing` 产品线，**但那是配音不是转写翻译**，不能拿它填这一格。"
+  },
+  {
+   "m": "scribe",
+   "c": "s-openweights",
+   "state": "no",
+   "verified_for": "v2",
+   "src": "elevenlabs-models",
+   "quote": "官方只提供 API，`elevenlabs` 组织下没有任何模型权重",
+   "as_of": "2026-08-15",
+   "note": "闭源。"
+  },
+  {
+   "m": "whisper",
+   "c": "s-a-translate",
+   "state": "yes",
+   "verified_for": "large-v3",
+   "src": "hf-whisper",
+   "quote": "模型卡首句：「a state-of-the-art model for automatic speech recognition (ASR) **and speech translation**」",
+   "as_of": "2026-08-15",
+   "note": "🎯 **翻译是它自述里与识别并列的两件事之一** —— 这一轨里只有它把翻译写进定位。"
+  },
+  {
+   "m": "whisper",
+   "c": "s-a-lang",
+   "state": "yes",
+   "verified_for": "large-v3",
+   "src": "hf-whisper",
+   "quote": "模型卡：「Trained on >5M hours of labeled data, Whisper demonstrates a strong ability to **generalise to many datasets and domains in a zero-shot setting**」",
+   "as_of": "2026-08-15",
+   "note": "⚠️ 官方讲的是**零样本泛化**，**没有给语种数**。对照 Scribe 明写 90+ —— 同样是 ✅，**可比性差一截**。"
+  },
+  {
+   "m": "whisper",
+   "c": "s-openweights",
+   "state": "yes",
+   "verified_for": "large-v3",
+   "src": "hf-whisper",
+   "quote": "`openai/whisper-large-v3` 公开权重，下载量 507 万；同族 `large-v3-turbo` 801 万",
+   "as_of": "2026-08-15",
+   "note": "这一轨的地基：HF 下载量前十里三个是它或它的衍生。"
+  },
+  {
+   "m": "whisper",
+   "c": "s-a-timestamp",
+   "state": "unknown",
+   "verified_for": "large-v3",
+   "as_of": "2026-08-15",
+   "note": "模型卡讲的是架构与训练数据，没有时间戳粒度的说明。⚠️ 生态里确有 word-level 时间戳的实现（`whisper-timestamped` 之类），**但那是第三方，不是官方模型卡说的** —— 不据此填格。"
+  },
+  {
+   "m": "whisper",
+   "c": "s-a-diarize",
+   "state": "unknown",
+   "verified_for": "large-v3",
+   "as_of": "2026-08-15",
+   "note": "模型卡没有说话人分离。⚠️ HF 榜上 `pyannote/speaker-diarization` 下载量 938 万，**那是另一个模型**，通常和 Whisper 搭着用 —— **「搭配能做」不等于「它能做」**。"
+  },
+  {
+   "m": "whisper",
+   "c": "s-a-realtime",
+   "state": "unknown",
+   "verified_for": "large-v3",
+   "as_of": "2026-08-15",
+   "note": "模型卡没有实时/流式转写的说法。它是离线批处理形态的模型。"
+  },
+  {
+   "m": "sensevoice",
+   "c": "s-openweights",
+   "state": "yes",
+   "verified_for": "Small",
+   "src": "hf-sensevoice",
+   "quote": "`FunAudioLLM/SenseVoiceSmall` 公开权重，属 FunASR 开源工具箱",
+   "as_of": "2026-08-15"
+  },
+  {
+   "m": "sensevoice",
+   "c": "s-a-lang",
+   "state": "unknown",
+   "verified_for": "Small",
+   "as_of": "2026-08-15",
+   "note": "⚠️ **不能照抄那句工具箱清单。** 模型卡写的是「SenseVoice is part of the **FunASR** ecosystem — one industrial-grade open-source toolkit for ASR · VAD · punctuation · **speaker diarization** · emotion / event · LLM-ASR」—— 那是**整个 FunASR 工具箱**的能力，不是 SenseVoiceSmall 这一个模型的。拿它去填「多语种」就是把工具箱的本事记到模型头上。要填这一格，得读 SenseVoice 自己那一节。"
+  },
+  {
+   "m": "sensevoice",
+   "c": "s-a-diarize",
+   "state": "unknown",
+   "verified_for": "Small",
+   "as_of": "2026-08-15",
+   "note": "⚠️ **不能照抄那句工具箱清单。** 模型卡写的是「SenseVoice is part of the **FunASR** ecosystem — one industrial-grade open-source toolkit for ASR · VAD · punctuation · **speaker diarization** · emotion / event · LLM-ASR」—— 那是**整个 FunASR 工具箱**的能力，不是 SenseVoiceSmall 这一个模型的。拿它去填「说话人分离」就是把工具箱的本事记到模型头上。要填这一格，得读 SenseVoice 自己那一节。"
+  },
+  {
+   "m": "sensevoice",
+   "c": "s-a-timestamp",
+   "state": "unknown",
+   "verified_for": "Small",
+   "as_of": "2026-08-15",
+   "note": "⚠️ **不能照抄那句工具箱清单。** 模型卡写的是「SenseVoice is part of the **FunASR** ecosystem — one industrial-grade open-source toolkit for ASR · VAD · punctuation · **speaker diarization** · emotion / event · LLM-ASR」—— 那是**整个 FunASR 工具箱**的能力，不是 SenseVoiceSmall 这一个模型的。拿它去填「逐词时间戳」就是把工具箱的本事记到模型头上。要填这一格，得读 SenseVoice 自己那一节。"
+  },
+  {
+   "m": "sensevoice",
+   "c": "s-a-realtime",
+   "state": "unknown",
+   "verified_for": "Small",
+   "as_of": "2026-08-15",
+   "note": "⚠️ **不能照抄那句工具箱清单。** 模型卡写的是「SenseVoice is part of the **FunASR** ecosystem — one industrial-grade open-source toolkit for ASR · VAD · punctuation · **speaker diarization** · emotion / event · LLM-ASR」—— 那是**整个 FunASR 工具箱**的能力，不是 SenseVoiceSmall 这一个模型的。拿它去填「实时转写」就是把工具箱的本事记到模型头上。要填这一格，得读 SenseVoice 自己那一节。"
+  },
+  {
+   "m": "sensevoice",
+   "c": "s-a-translate",
+   "state": "unknown",
+   "verified_for": "Small",
+   "as_of": "2026-08-15",
+   "note": "⚠️ **不能照抄那句工具箱清单。** 模型卡写的是「SenseVoice is part of the **FunASR** ecosystem — one industrial-grade open-source toolkit for ASR · VAD · punctuation · **speaker diarization** · emotion / event · LLM-ASR」—— 那是**整个 FunASR 工具箱**的能力，不是 SenseVoiceSmall 这一个模型的。拿它去填「语音翻译」就是把工具箱的本事记到模型头上。要填这一格，得读 SenseVoice 自己那一节。"
+  },
+  {
+   "m": "qwen3-asr",
+   "c": "s-a-lang",
+   "state": "unknown",
+   "verified_for": "1.7B",
+   "as_of": "2026-08-15",
+   "note": "⚠️ **整行未核**：立项当天只核到仓库存在与下载量（1.7B 419 万 / 0.6B 416 万，均建于 2026-01-28），**模型卡正文还没逐条读**。这是「还没读」，不是「读完没找到」。"
+  },
+  {
+   "m": "qwen3-asr",
+   "c": "s-a-diarize",
+   "state": "unknown",
+   "verified_for": "1.7B",
+   "as_of": "2026-08-15",
+   "note": "⚠️ **整行未核**：立项当天只核到仓库存在与下载量（1.7B 419 万 / 0.6B 416 万，均建于 2026-01-28），**模型卡正文还没逐条读**。这是「还没读」，不是「读完没找到」。"
+  },
+  {
+   "m": "qwen3-asr",
+   "c": "s-a-timestamp",
+   "state": "unknown",
+   "verified_for": "1.7B",
+   "as_of": "2026-08-15",
+   "note": "⚠️ **整行未核**：立项当天只核到仓库存在与下载量（1.7B 419 万 / 0.6B 416 万，均建于 2026-01-28），**模型卡正文还没逐条读**。这是「还没读」，不是「读完没找到」。"
+  },
+  {
+   "m": "qwen3-asr",
+   "c": "s-a-realtime",
+   "state": "unknown",
+   "verified_for": "1.7B",
+   "as_of": "2026-08-15",
+   "note": "⚠️ **整行未核**：立项当天只核到仓库存在与下载量（1.7B 419 万 / 0.6B 416 万，均建于 2026-01-28），**模型卡正文还没逐条读**。这是「还没读」，不是「读完没找到」。"
+  },
+  {
+   "m": "qwen3-asr",
+   "c": "s-a-translate",
+   "state": "unknown",
+   "verified_for": "1.7B",
+   "as_of": "2026-08-15",
+   "note": "⚠️ **整行未核**：立项当天只核到仓库存在与下载量（1.7B 419 万 / 0.6B 416 万，均建于 2026-01-28），**模型卡正文还没逐条读**。这是「还没读」，不是「读完没找到」。"
+  },
+  {
+   "m": "qwen3-asr",
+   "c": "s-openweights",
+   "state": "yes",
+   "verified_for": "1.7B",
+   "src": "hf-qwen3-asr",
+   "quote": "`Qwen/Qwen3-ASR-1.7B` 与 `-0.6B` 公开权重（createdAt 2026-01-28）",
+   "as_of": "2026-08-15"
   }
  ],
  "$aliases_why": "各家给同一个能力起不同的名字。**Kling 管角色参考叫 Element，我按 Character Reference 去找，找不到就标了「官方没说」—— 假阴性。** 采集时必须用整组别名去匹配，不能只用我们自己的叫法。这是原方案 §36 Entity Resolution 在能力维度上的对应物。\n\n`alias_bit_us` 标在**真把我们坑过的那一项**上（角色参考）。别名多不等于叫法分歧大：「首尾帧」也有 8 条别名，但全是 start/end frame 的描述性变体，谁都猜得到；而 Element / Ingredients / cameo 是厂商自造词，**不知道就永远搜不到**。选例子要选后者，靠数别名条数是挑不出来的 —— 所以标在数据里，不用启发式猜。",
@@ -15320,6 +15686,13 @@
      "short": "实时语音",
      "volume": "第三卷",
      "note": "边说边听：语音进、语音出，可打断"
+    },
+    {
+     "id": "asr",
+     "zh": "语音识别轨",
+     "short": "语音识别",
+     "volume": "第四卷",
+     "note": "把声音变回文字 —— 和第一卷的语音合成正好一进一出"
     }
    ],
    "href": "/sound"
