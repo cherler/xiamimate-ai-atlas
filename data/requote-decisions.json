@@ -1,0 +1,16 @@
+{
+  "$note": "引文回查的人审流水。**accept 是「认了这条引文不是逐字原文」不是「它错了」** —— 记下来是为了别再报，不是为了掩盖。",
+  "rows": [
+    {
+      "id": "vidu-up|vidu-q × flf",
+      "at": "2026-08-15 13:48:38",
+      "who": "冒烟测试",
+      "action": "repoint",
+      "why": "这句「Start end to video」在功能清单页里，vidu-up 是升级说明页，署错了",
+      "src": "vidu-up",
+      "at_label": "vidu-q × flf",
+      "kind": "本页没有·别处有",
+      "from": "vidu-up"
+    }
+  ]
+}
