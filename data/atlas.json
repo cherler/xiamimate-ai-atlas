@@ -2065,6 +2065,160 @@
     "开源"
    ],
    "since_note": "Boltz 与 ESM-2 公开权重；AlphaFold 3 只有服务器，且限学术用途"
+  },
+  {
+   "id": "x-w-medium",
+   "class": "weather",
+   "domain": "science",
+   "name": "Medium-range forecasting",
+   "zh": "中期预报",
+   "group": "预测什么",
+   "ubiquity": "待核",
+   "aliases": [
+    "medium-range",
+    "中期",
+    "天气预报"
+   ],
+   "since_note": "WeatherNext 2 自述是「global, **medium-range** atmospheric and cyclone forecasting model」"
+  },
+  {
+   "id": "x-w-cyclone",
+   "class": "weather",
+   "domain": "science",
+   "name": "Cyclone tracks",
+   "zh": "台风路径",
+   "group": "预测什么",
+   "ubiquity": "待核",
+   "aliases": [
+    "cyclone",
+    "台风",
+    "飓风",
+    "tropical cyclone"
+   ],
+   "since_note": "WeatherNext 2「…atmospheric and **cyclone** forecasting」· Aurora 的展示图含「**tropical cyclone track** predictions」"
+  },
+  {
+   "id": "x-w-ensemble",
+   "class": "weather",
+   "domain": "science",
+   "name": "Ensemble forecasting",
+   "zh": "集合预报",
+   "group": "预测什么",
+   "ubiquity": "待核",
+   "aliases": [
+    "ensemble",
+    "集合预报",
+    "GenCast"
+   ],
+   "since_note": "WeatherNext Gen（GenCast）「**Diffusion-based ensemble forecasting** for medium-range weather」"
+  },
+  {
+   "id": "x-w-earth",
+   "class": "weather",
+   "domain": "science",
+   "name": "Beyond weather",
+   "zh": "不止天气",
+   "group": "预测什么",
+   "ubiquity": "待核",
+   "aliases": [
+    "earth system",
+    "air quality",
+    "ocean",
+    "海洋",
+    "空气质量"
+   ],
+   "since_note": "Aurora 自述是「A Foundation Model for the **Earth System**」，展示图含二氧化氮（空气质量）与**海浪方向**"
+  },
+  {
+   "id": "x-w-openweights",
+   "class": "weather",
+   "domain": "science",
+   "name": "Open Weights",
+   "zh": "开源权重",
+   "group": "拿得到吗",
+   "ubiquity": "待核",
+   "aliases": [
+    "open weights",
+    "权重"
+   ],
+   "since_note": "WeatherNext 仓库 Apache-2.0；Aurora 与 NeuralGCM 也公开实现"
+  },
+  {
+   "id": "x-m-generate",
+   "class": "material",
+   "domain": "science",
+   "name": "Crystal generation",
+   "zh": "晶体生成",
+   "group": "做什么",
+   "ubiquity": "待核",
+   "aliases": [
+    "generative",
+    "生成",
+    "crystal",
+    "晶体"
+   ],
+   "since_note": "MatterGen 自述「a **generative model for inorganic materials design** across the periodic table」"
+  },
+  {
+   "id": "x-m-condition",
+   "class": "material",
+   "domain": "science",
+   "name": "Property-conditioned",
+   "zh": "按属性定向",
+   "group": "做什么",
+   "ubiquity": "待核",
+   "aliases": [
+    "property",
+    "conditioned",
+    "定向",
+    "约束"
+   ],
+   "since_note": "MatterGen「can be **fine-tuned to steer the generation towards a wide range of property constraints**」，并列出 `chemical_system` / `space_group` 等微调档"
+  },
+  {
+   "id": "x-m-potential",
+   "class": "material",
+   "domain": "science",
+   "name": "Interatomic potentials",
+   "zh": "原子间势",
+   "group": "做什么",
+   "ubiquity": "待核",
+   "aliases": [
+    "potential",
+    "力场",
+    "force field",
+    "MLIP"
+   ],
+   "since_note": "MACE「provides fast and accurate **machine learning interatomic potentials** with higher order equivariant message passing」"
+  },
+  {
+   "id": "x-m-dataset",
+   "class": "material",
+   "domain": "science",
+   "name": "Released dataset",
+   "zh": "放出数据集",
+   "group": "做什么",
+   "ubiquity": "待核",
+   "aliases": [
+    "dataset",
+    "数据集",
+    "convex hull"
+   ],
+   "since_note": "GNoME「share the discovery of **381,000 novel stable materials** with the wider materials science community…via the updated **convex hull**」"
+  },
+  {
+   "id": "x-m-openweights",
+   "class": "material",
+   "domain": "science",
+   "name": "Open Weights",
+   "zh": "开源权重",
+   "group": "拿得到吗",
+   "ubiquity": "待核",
+   "aliases": [
+    "open weights",
+    "权重"
+   ],
+   "since_note": "MatterGen MIT；MACE 与 GNoME 也公开"
   }
  ],
  "orgs": [
@@ -2829,6 +2983,15 @@
    "name": "Boltz",
    "kind": "lab",
    "zh_none": true
+  },
+  {
+   "id": "acesuit",
+   "zh": "ACEsuit（MACE 团队）",
+   "en": "ACEsuit",
+   "name": "ACEsuit",
+   "kind": "lab",
+   "zh_none": true,
+   "note": "MACE 的维护方，学术团队（官方仓库署名 Ilyes Batatia、Gregor Simm、David Kovacs 等）。**不是公司** —— 这一卷里这种情况不少，模型出自实验室而非厂商。"
   }
  ],
  "$orgs": "公司是**一等实体**，不是模型上的一个字符串（此前 vendor 是字符串，结果阿里在库里成了两家）。产业链图、地球分布、投资关系全都挂在这一层上。\n**hq 只有 5 家有来源，其余 6 家仍然没有** —— 都是公开常识，但我们自己的规矩是「没有来源的结论就是猜的」，所以校验里 R21 会一直警告，前台也必须标出来。不许因为「大家都知道」就当成核过了。\n\n2026-08-08 补：从已有快照和官网拿到 5 家的可引证据，但**精度分三档**，写进 `hq_precision`：\n  exact     —— 页脚给出具体街道地址（只有字节）\n  province  —— **ICP 备案只证到省**（快手/MiniMax/阿里）。阿里那条只证到浙江，没证到杭州\n  ambiguous —— 招聘页同时列两个城市（Runway 的纽约与旧金山）\n\n剩下 6 家（生数、昆仑万维、Google DeepMind、OpenAI、Decart、Lightricks）没拿到：\n**生数官网 HTTPS 证书已过期**（ERR_CERT_DATE_INVALID）—— 这条本身就是信息；\n其余几家的 about/contact 页没有可机读的地址段。R21 会一直为它们报警告。\n\n**不许把 province 当成 exact 用。** 我们批评厂商「说了半句」的时候，自己不能也说半句。",
@@ -5200,6 +5363,102 @@
    "version_src": "sci-esm2-card",
    "version_quote": "官方模型卡给出检查点表：`esm2_t48_15B_UR50D`（15B）/ `t36_3B` / `t33_650M` / `t12_35M` / `t6_8M`；`esm2_t33_650M_UR50D` 下载量 2,355,550",
    "note": "⚠️ **状态记 `maintained`**：这批检查点建于 2022-09，之后没有新代。但它是这一卷下载量最高的一支 —— **235 万次，比 AlphaFold 在 HF 上的存在感高出几个数量级**（AlphaFold 在 HF 上搜不到官方仓库）。⚠️ 它是**蛋白质语言模型**，和 AlphaFold / Boltz 那种结构预测不完全是一件事 —— 逐格核验时别按名气对齐。"
+  },
+  {
+   "id": "weathernext",
+   "class": "weather",
+   "family": "WeatherNext",
+   "org": "google",
+   "version": "2",
+   "version_as_of": "2026-08-15",
+   "status": "active",
+   "tier": "core",
+   "domain": "science",
+   "weights": "open",
+   "zh_none": true,
+   "version_src": "sci-wn-gh",
+   "version_quote": "官方仓库：「This repo contains the code for **WeatherNext 2 (WN2)**, the global, medium-range atmospheric and cyclone forecasting model developed by Google DeepMind and Google Research. It also contains code for prior generation models **GraphCast** … and **WeatherNext Gen** … Published as **GenCast**」",
+   "note": "⚠️ **三代在同一个仓库里** —— GraphCast、WeatherNext Gen（GenCast）、WeatherNext 2。这是这一卷里谱系最清楚的一支：不用猜，官方自己按代际排好了。"
+  },
+  {
+   "id": "aurora",
+   "class": "weather",
+   "family": "Aurora",
+   "org": "microsoft",
+   "version": "1",
+   "version_as_of": "2026-08-15",
+   "status": "active",
+   "tier": "core",
+   "domain": "science",
+   "weights": "open",
+   "zh_none": true,
+   "version_src": "sci-aurora-gh",
+   "version_quote": "官方仓库标题：「**Aurora: A Foundation Model for the Earth System**」",
+   "note": "⚠️ **版本号「1」是我们的记法** —— 仓库里没有版本命名。⚠️ 许可 GitHub 标为 NOASSERTION，商用前要自己读条款。"
+  },
+  {
+   "id": "neuralgcm",
+   "class": "weather",
+   "family": "NeuralGCM",
+   "org": "google",
+   "version": "1",
+   "version_as_of": "2026-08-15",
+   "status": "active",
+   "tier": "extended",
+   "domain": "science",
+   "weights": "open",
+   "zh_none": true,
+   "version_src": "sci-neuralgcm-gh",
+   "version_quote": "官方仓库：「NeuralGCM is a Python library for building **hybrid ML/physics** atmospheric models for weather and climate simulation」",
+   "note": "进 extended：README 只有 1k，能引的内容太少。它的路子和别家不同（ML + 物理混合），值得留一行。"
+  },
+  {
+   "id": "mattergen",
+   "class": "material",
+   "family": "MatterGen",
+   "org": "microsoft",
+   "version": "1",
+   "version_as_of": "2026-08-15",
+   "status": "active",
+   "tier": "core",
+   "domain": "science",
+   "weights": "open",
+   "zh_none": true,
+   "version_src": "sci-mattergen-gh",
+   "version_quote": "官方仓库：「MatterGen is a **generative model for inorganic materials design** across the periodic table that can be **fine-tuned to steer the generation towards a wide range of property constraints**」，MIT",
+   "note": "⚠️ 版本号是我们的记法。⚠️ HF 上 `microsoft/mattergen` 下载量 **0** —— **别拿这个数判断它重不重要**：这一卷的模型走 GitHub 与 pip 分发，不走 HF（仓库 1,789★）。"
+  },
+  {
+   "id": "mace",
+   "class": "material",
+   "family": "MACE",
+   "org": "acesuit",
+   "version": "MP",
+   "version_as_of": "2026-08-15",
+   "status": "active",
+   "tier": "core",
+   "domain": "science",
+   "weights": "open",
+   "zh_none": true,
+   "version_src": "sci-mace-gh",
+   "version_quote": "官方仓库：「MACE provides fast and accurate **machine learning interatomic potentials** with higher order equivariant message passing」；预训练基座含 `MACE-MP`（Materials Project 力场）与 `MACE-OFF`（有机分子力场）",
+   "note": "两套预训练基座覆盖的体系不同：`MACE-MP` 是 Materials Project 力场（无机），`MACE-OFF` 是有机分子力场 —— **选错等于用错力场**。⚠️ GitHub 标的许可是 NOASSERTION，商用前自己读条款。"
+  },
+  {
+   "id": "gnome",
+   "class": "material",
+   "family": "GNoME",
+   "org": "google",
+   "version": "1",
+   "version_as_of": "2026-08-15",
+   "status": "maintained",
+   "tier": "core",
+   "domain": "science",
+   "weights": "open",
+   "zh_none": true,
+   "version_src": "sci-gnome-gh",
+   "version_quote": "官方仓库：「this repository serves to share the discovery of **381,000 novel stable materials** … via the updated **convex hull**. As of **August 2024**, we have expanded the dataset」",
+   "note": "⚠️ **它主要是一份数据集不是一个可调用的模型** —— 仓库放的是发现结果与凸包，不是权重。状态记 `maintained`：官方自述最后一次扩充是 2024-08。"
   }
  ],
  "sources": {
@@ -7236,6 +7495,36 @@
   "sci-esm2-card": {
    "name": "Meta 官方 · ESM-2 模型卡",
    "url": "https://huggingface.co/facebook/esm2_t33_650M_UR50D",
+   "tier": "official"
+  },
+  "sci-wn-gh": {
+   "name": "Google DeepMind 官方仓库 · WeatherNext / GraphCast",
+   "url": "https://github.com/google-deepmind/graphcast",
+   "tier": "official"
+  },
+  "sci-aurora-gh": {
+   "name": "微软官方仓库 · Aurora",
+   "url": "https://github.com/microsoft/aurora",
+   "tier": "official"
+  },
+  "sci-neuralgcm-gh": {
+   "name": "NeuralGCM 官方仓库",
+   "url": "https://github.com/neuralgcm/neuralgcm",
+   "tier": "official"
+  },
+  "sci-mattergen-gh": {
+   "name": "微软官方仓库 · MatterGen",
+   "url": "https://github.com/microsoft/mattergen",
+   "tier": "official"
+  },
+  "sci-mace-gh": {
+   "name": "MACE 官方仓库",
+   "url": "https://github.com/ACEsuit/mace",
+   "tier": "official"
+  },
+  "sci-gnome-gh": {
+   "name": "Google DeepMind 官方仓库 · GNoME",
+   "url": "https://github.com/google-deepmind/materials_discovery",
    "tier": "official"
   }
  },
@@ -15884,6 +16173,271 @@
    "verified_for": "650M",
    "as_of": "2026-08-15",
    "note": "⚠️ **不能按名气对齐。** ESM-2 是**蛋白质语言模型**（模型卡正文主体是各档检查点的层数与参数量，示例是一个带 `<mask>` 的氨基酸序列填空），和 AlphaFold / Boltz 那种端到端结构预测**不是一件事**。它常被当作下游任务的骨干，「结合亲和力」这一格要看它自己怎么说 —— **模型卡里没说**。这是「读完没找到」。"
+  },
+  {
+   "m": "weathernext",
+   "c": "x-w-medium",
+   "state": "yes",
+   "verified_for": "2",
+   "src": "sci-wn-gh",
+   "quote": "官方仓库：「WeatherNext 2 (WN2), the **global, medium-range atmospheric and cyclone forecasting** model」；同仓另两代「**GraphCast**」与「WeatherNext Gen … **Diffusion-based ensemble forecasting**，Published as GenCast」；「**0.25° resolution (~30km)**，Fine-tuned on ECMWF HRES data」",
+   "as_of": "2026-08-15"
+  },
+  {
+   "m": "weathernext",
+   "c": "x-w-cyclone",
+   "state": "yes",
+   "verified_for": "2",
+   "src": "sci-wn-gh",
+   "quote": "官方仓库：「WeatherNext 2 (WN2), the **global, medium-range atmospheric and cyclone forecasting** model」；同仓另两代「**GraphCast**」与「WeatherNext Gen … **Diffusion-based ensemble forecasting**，Published as GenCast」；「**0.25° resolution (~30km)**，Fine-tuned on ECMWF HRES data」",
+   "as_of": "2026-08-15",
+   "note": "官方把台风与大气并列写进定位句。"
+  },
+  {
+   "m": "weathernext",
+   "c": "x-w-ensemble",
+   "state": "yes",
+   "verified_for": "2",
+   "src": "sci-wn-gh",
+   "quote": "官方仓库：「WeatherNext 2 (WN2), the **global, medium-range atmospheric and cyclone forecasting** model」；同仓另两代「**GraphCast**」与「WeatherNext Gen … **Diffusion-based ensemble forecasting**，Published as GenCast」；「**0.25° resolution (~30km)**，Fine-tuned on ECMWF HRES data」",
+   "as_of": "2026-08-15",
+   "note": "⚠️ 集合预报是 **WeatherNext Gen（GenCast）那一代**的能力，同仓但不是 WN2 本身。"
+  },
+  {
+   "m": "weathernext",
+   "c": "x-w-openweights",
+   "state": "yes",
+   "verified_for": "2",
+   "src": "sci-wn-gh",
+   "quote": "仓库 Apache-2.0，提供多代预训练模型（`Provided Pretrained Models` 一节）",
+   "as_of": "2026-08-15",
+   "note": "⚠️ 仓库同时写着部分材料「governed by separate terms and conditions」—— 用前要逐项看。"
+  },
+  {
+   "m": "weathernext",
+   "c": "x-w-earth",
+   "state": "unknown",
+   "verified_for": "2",
+   "as_of": "2026-08-15",
+   "note": "仓库讲的是大气与台风，**没有海洋、空气质量这些**。对照 Aurora 是明确覆盖到那些的。"
+  },
+  {
+   "m": "aurora",
+   "c": "x-w-earth",
+   "state": "yes",
+   "verified_for": "1",
+   "src": "sci-aurora-gh",
+   "quote": "官方仓库标题「Aurora: A Foundation Model for the **Earth System**」；README 顶部展示图依次是二氧化氮（空气质量）、**ocean wave direction**、**tropical cyclone track** 预测",
+   "as_of": "2026-08-15",
+   "note": "🎯 **这一格只有它一家**：别家做天气，它自述做的是「地球系统」，展示里同时有空气质量、海浪与台风。"
+  },
+  {
+   "m": "aurora",
+   "c": "x-w-cyclone",
+   "state": "yes",
+   "verified_for": "1",
+   "src": "sci-aurora-gh",
+   "quote": "官方仓库标题「Aurora: A Foundation Model for the **Earth System**」；README 顶部展示图依次是二氧化氮（空气质量）、**ocean wave direction**、**tropical cyclone track** 预测",
+   "as_of": "2026-08-15"
+  },
+  {
+   "m": "aurora",
+   "c": "x-w-openweights",
+   "state": "yes",
+   "verified_for": "1",
+   "src": "sci-aurora-gh",
+   "quote": "官方仓库提供实现与预训练权重入口（998★）",
+   "as_of": "2026-08-15",
+   "note": "⚠️ GitHub 标的许可是 **NOASSERTION** —— 商用前要自己读仓库里的条款。"
+  },
+  {
+   "m": "aurora",
+   "c": "x-w-medium",
+   "state": "unknown",
+   "verified_for": "1",
+   "as_of": "2026-08-15",
+   "note": "README 讲的是地球系统建模与示例，**没有明说预报时效**（中期 / 短期）。⚠️ 展示里有台风路径，**但那不等于官方声明了中期预报能力**。"
+  },
+  {
+   "m": "aurora",
+   "c": "x-w-ensemble",
+   "state": "unknown",
+   "verified_for": "1",
+   "as_of": "2026-08-15",
+   "note": "README 里没有集合预报的说法。"
+  },
+  {
+   "m": "neuralgcm",
+   "c": "x-w-openweights",
+   "state": "yes",
+   "verified_for": "1",
+   "src": "sci-neuralgcm-gh",
+   "quote": "官方仓库 Apache-2.0（1,006★）",
+   "as_of": "2026-08-15"
+  },
+  {
+   "m": "neuralgcm",
+   "c": "x-w-medium",
+   "state": "unknown",
+   "verified_for": "1",
+   "as_of": "2026-08-15",
+   "note": "⚠️ **README 只有 1k**，只说了它是「hybrid ML/physics atmospheric models for weather and climate simulation」，逐项能力要读它的文档站（`neuralgcm.readthedocs.io`）—— **还没读**。这是「没读到」不是「读完没找到」。"
+  },
+  {
+   "m": "neuralgcm",
+   "c": "x-w-cyclone",
+   "state": "unknown",
+   "verified_for": "1",
+   "as_of": "2026-08-15",
+   "note": "⚠️ **README 只有 1k**，只说了它是「hybrid ML/physics atmospheric models for weather and climate simulation」，逐项能力要读它的文档站（`neuralgcm.readthedocs.io`）—— **还没读**。这是「没读到」不是「读完没找到」。"
+  },
+  {
+   "m": "neuralgcm",
+   "c": "x-w-ensemble",
+   "state": "unknown",
+   "verified_for": "1",
+   "as_of": "2026-08-15",
+   "note": "⚠️ **README 只有 1k**，只说了它是「hybrid ML/physics atmospheric models for weather and climate simulation」，逐项能力要读它的文档站（`neuralgcm.readthedocs.io`）—— **还没读**。这是「没读到」不是「读完没找到」。"
+  },
+  {
+   "m": "neuralgcm",
+   "c": "x-w-earth",
+   "state": "unknown",
+   "verified_for": "1",
+   "as_of": "2026-08-15",
+   "note": "⚠️ **README 只有 1k**，只说了它是「hybrid ML/physics atmospheric models for weather and climate simulation」，逐项能力要读它的文档站（`neuralgcm.readthedocs.io`）—— **还没读**。这是「没读到」不是「读完没找到」。"
+  },
+  {
+   "m": "mattergen",
+   "c": "x-m-generate",
+   "state": "yes",
+   "verified_for": "1",
+   "src": "sci-mattergen-gh",
+   "quote": "官方仓库：「a **generative model for inorganic materials design** across the periodic table that can be **fine-tuned to steer the generation towards a wide range of property constraints**」；提供 `mattergen_base` / `mp_20_base` 两个无条件基座与 `chemical_system` / `space_group` 等按属性微调档",
+   "as_of": "2026-08-15"
+  },
+  {
+   "m": "mattergen",
+   "c": "x-m-condition",
+   "state": "yes",
+   "verified_for": "1",
+   "src": "sci-mattergen-gh",
+   "quote": "官方仓库：「a **generative model for inorganic materials design** across the periodic table that can be **fine-tuned to steer the generation towards a wide range of property constraints**」；提供 `mattergen_base` / `mp_20_base` 两个无条件基座与 `chemical_system` / `space_group` 等按属性微调档",
+   "as_of": "2026-08-15",
+   "note": "🎯 **这一格只有它一家**，而且给出了具体可用的微调档名。"
+  },
+  {
+   "m": "mattergen",
+   "c": "x-m-openweights",
+   "state": "yes",
+   "verified_for": "1",
+   "src": "sci-mattergen-gh",
+   "quote": "MIT 许可，README 有 `Get started with a pre-trained model` 一节",
+   "as_of": "2026-08-15"
+  },
+  {
+   "m": "mattergen",
+   "c": "x-m-potential",
+   "state": "unknown",
+   "verified_for": "1",
+   "as_of": "2026-08-15",
+   "note": "它是生成模型，不算原子间的力 —— **这是分工不是缺陷**，那一格属 MACE 那类。读完没找到，不是没读。"
+  },
+  {
+   "m": "mattergen",
+   "c": "x-m-dataset",
+   "state": "unknown",
+   "verified_for": "1",
+   "as_of": "2026-08-15",
+   "note": "README 讲的是模型与生成流程，没有放出发现结果的数据集。"
+  },
+  {
+   "m": "mace",
+   "c": "x-m-potential",
+   "state": "yes",
+   "verified_for": "MP",
+   "src": "sci-mace-gh",
+   "quote": "官方仓库 `About MACE`：「MACE provides fast and accurate **machine learning interatomic potentials** with higher order equivariant message passing」；预训练基座分 `MACE-MP`（Materials Project 力场）与 `MACE-OFF`（有机分子力场）",
+   "as_of": "2026-08-15",
+   "note": "🎯 **这一格只有它一家**。⚠️ 两套基座覆盖的体系不同（无机 vs 有机），选错等于用错力场。"
+  },
+  {
+   "m": "mace",
+   "c": "x-m-openweights",
+   "state": "yes",
+   "verified_for": "MP",
+   "src": "sci-mace-gh",
+   "quote": "仓库有 `Pretrained Foundation Models` 一节，1,317★",
+   "as_of": "2026-08-15",
+   "note": "⚠️ GitHub 标的许可是 NOASSERTION。"
+  },
+  {
+   "m": "mace",
+   "c": "x-m-generate",
+   "state": "unknown",
+   "verified_for": "MP",
+   "as_of": "2026-08-15",
+   "note": "它做的是**算力**（原子间势），不生成结构、不按属性定向、也不放发现数据集 —— **这是分工，不是它做不到**。"
+  },
+  {
+   "m": "mace",
+   "c": "x-m-condition",
+   "state": "unknown",
+   "verified_for": "MP",
+   "as_of": "2026-08-15",
+   "note": "它做的是**算力**（原子间势），不生成结构、不按属性定向、也不放发现数据集 —— **这是分工，不是它做不到**。"
+  },
+  {
+   "m": "mace",
+   "c": "x-m-dataset",
+   "state": "unknown",
+   "verified_for": "MP",
+   "as_of": "2026-08-15",
+   "note": "它做的是**算力**（原子间势），不生成结构、不按属性定向、也不放发现数据集 —— **这是分工，不是它做不到**。"
+  },
+  {
+   "m": "gnome",
+   "c": "x-m-dataset",
+   "state": "yes",
+   "verified_for": "1",
+   "src": "sci-gnome-gh",
+   "quote": "官方仓库：「share the discovery of **381,000 novel stable materials** with the wider materials science community … via the updated **convex hull**。As of **August 2024**, we have expanded the dataset」",
+   "as_of": "2026-08-15",
+   "note": "🎯 **这一格只有它一家。** ⚠️ 也正因如此，它和这一轨别家**不是一类东西**：别家给你一个能跑的模型，它给你一批已经发现的材料。"
+  },
+  {
+   "m": "gnome",
+   "c": "x-m-openweights",
+   "state": "yes",
+   "verified_for": "1",
+   "src": "sci-gnome-gh",
+   "quote": "仓库 Apache-2.0（1,226★）",
+   "as_of": "2026-08-15",
+   "note": "⚠️ 放的是数据与凸包，**不是模型权重** —— 这一格 ✅ 的含义比别家弱。"
+  },
+  {
+   "m": "gnome",
+   "c": "x-m-generate",
+   "state": "unknown",
+   "verified_for": "1",
+   "as_of": "2026-08-15",
+   "note": "⚠️ **它主要是一份数据集不是可调用的模型**，这几格问的事在它身上问不出来（同 Helix 那一行的性质，规则十五边界三）。"
+  },
+  {
+   "m": "gnome",
+   "c": "x-m-condition",
+   "state": "unknown",
+   "verified_for": "1",
+   "as_of": "2026-08-15",
+   "note": "⚠️ **它主要是一份数据集不是可调用的模型**，这几格问的事在它身上问不出来（同 Helix 那一行的性质，规则十五边界三）。"
+  },
+  {
+   "m": "gnome",
+   "c": "x-m-potential",
+   "state": "unknown",
+   "verified_for": "1",
+   "as_of": "2026-08-15",
+   "note": "⚠️ **它主要是一份数据集不是可调用的模型**，这几格问的事在它身上问不出来（同 Helix 那一行的性质，规则十五边界三）。"
   }
  ],
  "$aliases_why": "各家给同一个能力起不同的名字。**Kling 管角色参考叫 Element，我按 Character Reference 去找，找不到就标了「官方没说」—— 假阴性。** 采集时必须用整组别名去匹配，不能只用我们自己的叫法。这是原方案 §36 Entity Resolution 在能力维度上的对应物。\n\n`alias_bit_us` 标在**真把我们坑过的那一项**上（角色参考）。别名多不等于叫法分歧大：「首尾帧」也有 8 条别名，但全是 start/end frame 的描述性变体，谁都猜得到；而 Element / Ingredients / cameo 是厂商自造词，**不知道就永远搜不到**。选例子要选后者，靠数别名条数是挑不出来的 —— 所以标在数据里，不用启发式猜。",
@@ -16082,6 +16636,20 @@
      "short": "生物分子",
      "volume": "第一卷",
      "note": "预测蛋白质、核酸、配体的结构，以及它们怎么相互作用"
+    },
+    {
+     "id": "weather",
+     "zh": "气象轨",
+     "short": "气象",
+     "volume": "第二卷",
+     "note": "预测未来的大气状态 —— 天气、台风路径、集合预报"
+    },
+    {
+     "id": "material",
+     "zh": "材料轨",
+     "short": "材料",
+     "volume": "第三卷",
+     "note": "生成或筛选无机晶体，以及算原子间的力"
     }
    ],
    "href": "/science",
@@ -22383,6 +22951,142 @@
    "quote": "官方 HF 仓库 `nvidia/Cosmos-Reason1-7B`（createdAt 2025-04-18），下载量 68,117",
    "note": "它是 `Cosmos-Reason2` 的上一代 —— 而 Reason2 后来成了具身卷 GR00T N1.7 的视觉骨干。**一条跨了两卷的依赖链，起点在这里。**",
    "cap": "w-understand"
+  },
+  {
+   "id": "af-2",
+   "m": "alphafold",
+   "version": "2",
+   "date": "2020-01-01",
+   "added": "蛋白质结构预测第一次做到接近实验精度",
+   "src": "sci-af3-blog",
+   "quote": "官方博客：「Our new model builds on the foundations of **AlphaFold 2, which in 2020** made a…」",
+   "note": "⚠️ **日期只精确到年**：官方那句只说了 2020，没给月日。**宁可粗，不要编。**",
+   "cap": "x-structure"
+  },
+  {
+   "id": "af-3",
+   "m": "alphafold",
+   "version": "3",
+   "date": "2024-05-08",
+   "parent": "af-2",
+   "added": "从蛋白质扩到 DNA / RNA / 配体，并预测它们如何相互作用",
+   "src": "sci-af3-blog",
+   "quote": "「AlphaFold 3 predicts the structure and interactions of **all of life's molecules**」「accurately predicting the structure of **proteins, DNA, RNA, ligands** and more, and **how they interact**」",
+   "note": "⚠️ 日期取自博客 URL 与发布时点；博客正文没有写日期。同时它带来一条限制：官方只给 AlphaFold Server，且明写 for **academic use**。",
+   "cap": "x-nucleic"
+  },
+  {
+   "id": "boltz-1",
+   "m": "boltz",
+   "version": "1",
+   "date": "2024-11-19",
+   "added": "第一个完全开源、逼近 AlphaFold3 精度的模型",
+   "src": "sci-boltz-gh",
+   "quote": "官方 README：「**Boltz-1 was the first fully open source model to approach AlphaFold3 accuracy**」，论文 DOI `10.1101/2024.11.19.624167`",
+   "note": "✅ **日期来自 bioRxiv 的 DOI 本身**（`2024.11.19`）—— 这一卷里少有的硬日期，不用推。",
+   "cap": "x-openweights"
+  },
+  {
+   "id": "boltz-2",
+   "m": "boltz",
+   "version": "2",
+   "date": "2025-06-14",
+   "parent": "boltz-1",
+   "added": "结构与结合亲和力一起建模",
+   "src": "sci-boltz-gh",
+   "quote": "「Boltz-2 … goes beyond AlphaFold3 and Boltz-1 by **jointly modeling complex structures and binding affinities**」，论文 DOI `10.1101/2025.06.14.659707`",
+   "note": "日期同样来自 DOI。自述「approach the accuracy of physics-based FEP methods, while running **1000x faster**」—— **只转述不背书**。",
+   "cap": "x-affinity"
+  },
+  {
+   "id": "esm-2",
+   "m": "esm",
+   "version": "650M",
+   "date": "2022-09-27",
+   "added": "五档蛋白质语言模型，8M 到 15B",
+   "src": "sci-esm2-card",
+   "quote": "官方模型卡的检查点表：`esm2_t48_15B_UR50D` / `t36_3B` / `t33_650M` / `t12_35M` / `t6_8M`；`esm2_t33_650M_UR50D` createdAt 2022-09-27",
+   "note": "⚠️ **之后再没有新代** —— 三年多没动，但它仍是这一卷 HF 下载量最高的一支（235 万次）。",
+   "cap": "x-openweights"
+  },
+  {
+   "id": "wn-graphcast",
+   "m": "weathernext",
+   "version": "GraphCast",
+   "date": "2023-11-14",
+   "added": "图神经网络做中期天气预报",
+   "src": "sci-wn-gh",
+   "quote": "官方仓库列出的前代之一：「**GraphCast**: … Published as GraphCast」",
+   "note": "⚠️ **日期是我们按 Science 论文发表时点填的，仓库里没有写** —— 属于推的，查到硬依据要改。",
+   "cap": "x-w-medium"
+  },
+  {
+   "id": "wn-gen",
+   "m": "weathernext",
+   "version": "WeatherNext Gen",
+   "date": "2024-12-04",
+   "parent": "wn-graphcast",
+   "added": "改用扩散做集合预报",
+   "src": "sci-wn-gh",
+   "quote": "官方仓库：「**WeatherNext Gen**: **Diffusion-based ensemble forecasting** for medium-range weather. Published as **GenCast**」",
+   "note": "⚠️ 日期同样是按论文发表时点推的。**这一代是「集合预报」那一格的唯一依据。**",
+   "cap": "x-w-ensemble"
+  },
+  {
+   "id": "wn-2",
+   "m": "weathernext",
+   "version": "2",
+   "date": "2026-08-15",
+   "parent": "wn-gen",
+   "added": "全球中期大气与台风预报；0.25° 分辨率",
+   "src": "sci-wn-gh",
+   "quote": "「**WeatherNext 2 (WN2)**, the global, medium-range atmospheric and cyclone forecasting model」；「**WeatherNext2_<2025**（Used Operationally）: **0.25° resolution (~30km)**. Fine-tuned on ECMWF HRES data … Trained on data through 2024」",
+   "note": "⚠️ **日期是核验日不是发布日** —— 仓库 README 没有版本发布时间。⚠️ 官方注明当前运营档训练数据截至 2024。",
+   "cap": "x-w-cyclone"
+  },
+  {
+   "id": "aurora-1",
+   "m": "aurora",
+   "version": "1",
+   "date": "2024-08-21",
+   "added": "地球系统基础模型：天气之外还有空气质量与海浪",
+   "src": "sci-aurora-gh",
+   "quote": "官方仓库标题「Aurora: A Foundation Model for the **Earth System**」；HF 仓库 `microsoft/aurora` createdAt 2024-08-21",
+   "note": "⚠️ 日期取自 HF 建库时间（仓库 README 没写）。⚠️ 版本号「1」是我们的记法。",
+   "cap": "x-w-earth"
+  },
+  {
+   "id": "gnome-1",
+   "m": "gnome",
+   "version": "1",
+   "date": "2024-08-01",
+   "added": "放出 38.1 万种新的稳定材料与更新后的凸包",
+   "src": "sci-gnome-gh",
+   "quote": "官方仓库：「share the discovery of **381,000 novel stable materials** … via the updated **convex hull**. **As of August 2024**, we have expanded the dataset」",
+   "note": "⚠️ 日期只精确到月（官方写的是 August 2024）。⚠️ **它放的是数据不是权重。**",
+   "cap": "x-m-dataset"
+  },
+  {
+   "id": "mattergen-1",
+   "m": "mattergen",
+   "version": "1",
+   "date": "2025-01-27",
+   "added": "按属性定向生成无机晶体",
+   "src": "sci-mattergen-gh",
+   "quote": "官方仓库：「a generative model for inorganic materials design across the periodic table that can be **fine-tuned to steer the generation towards a wide range of property constraints**」；HF 仓库 `microsoft/mattergen` createdAt 2025-01-27",
+   "note": "日期取自 HF 建库时间。",
+   "cap": "x-m-condition"
+  },
+  {
+   "id": "mace-mp",
+   "m": "mace",
+   "version": "MP",
+   "date": "2026-08-15",
+   "added": "两套预训练力场基座：MACE-MP（无机）与 MACE-OFF（有机）",
+   "src": "sci-mace-gh",
+   "quote": "官方仓库 `Pretrained Foundation Models` 一节列出 `MACE-MP: Materials Project Force Fields` 与 `MACE-OFF: Transferable Organic Force Fields`",
+   "note": "⚠️ **日期是核验日** —— 仓库没有版本发布时间线。",
+   "cap": "x-m-potential"
   }
  ],
  "$versions": "版本谱系（演进图的数据）。**演进的主体是模型，不是能力。**\n\n原来那张演进图每行是一项能力、横轴是「我们能证明的最早时间」、粗细是几家支持。\n读者看完只得到「动作复刻 2025-12 出现、6/9 支持」—— 那是一次数据库查询的可视化，不涨知识。\n而且它得靠图注免责（「不是业界首次出现」）：**一张需要图注免责的图，说明它量错了东西。**\n\n这份数据画的是**厂商自己发布的版本和日期**，所以不需要免责。每条必须回答：\n**这一代新增了什么。** 只有版本号没有 added 的节点没有价值，不收。\n\n两个最好的来源，都不是「新闻」：\n  · **官方 Hugging Face 组织** —— 模型名本身就编码了能力与代际\n    （Wan2.1-FLF2V＝首尾帧、Wan2.2-S2V＝语音驱动、LTX 的 IC-LoRA-Ingredients＝角色参考），\n    发布时间由 HF API 给出，比任何新闻稿都准。\n  · **官方 API 更新日志** —— 可灵那份 31k 字符里有 170 条带日期的条目。\n\n覆盖不全是事实：万相和可灵能画出完整谱系，Runway/Vidu/Seedance 只有近期几个点，\nVeo/Sora/海螺/LTX 还没有。**图上要标出哪几条线是完整的、哪几条只是片段** ——\n画一条只有两个点的线却不说明，读者会以为这家两年只更新过两次。\n\n`cap` 把版本节点挂到能力 id 上，图上「点一项能力，看各家谁先谁后」靠它。\n**对不上的一律留空并写明理由（cap_skip），不硬凑** —— 硬凑一个 id，纵向那一刀就切错了。\n典型：Wan 的 S2V 是「语音驱动」，不等于我们轴上的「对口型」，两件事不合并；\n「换代」节点本身也不是新增单项能力。\n\n`id` + `parent` 把平铺记录变成**真的树**。分叉是真实存在的：\nWan2.1 底座上同时长出 FLF2V（首尾帧）和 VACE（统一编辑）两个变体，\nWan2.2 是换代接在 2.1 后面，Animate-2 又接在 Animate 后面。\n\n**没有父节点的就让它当根，不许为了让树好看硬接一条边** ——\nRunway 的 Aleph 是编辑线，不是 Gen 的后代，它自己是一棵树。\n\n⚠️ **日期必须取 HF 的 `createdAt`，不能取 `lastModified`。**\n第一版取错了字段，把「最后修改」当成了发布日期：Wan2.2 记成 2025-08-07（实际 2025-07-18）、\nAnimate 记成 2025-11-05（实际 2025-09-11）——**差了两个月**。\n仓库发布后还会被反复更新，两个字段根本不是一回事。\n这类错最阴：日期看着合理、图也画得出来，但整条时间线是歪的。\n\n覆盖不足要**写在数据里**，不是靠图上一句话糊过去：\n模型的 `lineage_note` 解释为什么它的节点少（太新 / 官方记录只回溯到某时）。\n校验 R58 强制：**核心模型少于 3 个节点却没写理由，就是错**。\n「我们没采到」和「它本来就没有」是两回事，读者有权知道是哪一种。",

@@ -5628,6 +5628,118 @@
     "esm2_t33_650M_UR50D"
    ],
    "note": "⚠️ 收它主要是盯「有没有新代」—— 检查点停在 2022-09 已经三年多。⚠️ **它是蛋白质语言模型不是结构预测器**，模型卡示例是带 `<mask>` 的氨基酸序列填空，别按名气把它当 AlphaFold 的同类。"
+  },
+  {
+   "id": "sci-wn-gh",
+   "tier": "A",
+   "kind": "html",
+   "vendor": "wn",
+   "name": "Google DeepMind 官方仓库 · WeatherNext / GraphCast",
+   "url": "https://raw.githubusercontent.com/google-deepmind/graphcast/main/README.md",
+   "refresh_days": 14,
+   "good_for": [
+    "capability",
+    "version",
+    "openweights"
+   ],
+   "expect": [
+    "WeatherNext 2",
+    "GraphCast",
+    "ensemble"
+   ],
+   "note": "⚠️ **三代在同一个仓库里**（GraphCast → WeatherNext Gen/GenCast → WeatherNext 2），这是这一卷谱系最清楚的一支。⚠️ 抓的是 README —— DeepMind 的产品页 `deepmind.google/science/weathernext/` **是导航壳**（正文全是站点菜单，2026-08-15 实测），博客 URL 还 404。**这一卷要看仓库不要看营销页。**"
+  },
+  {
+   "id": "sci-aurora-gh",
+   "tier": "A",
+   "kind": "html",
+   "vendor": "aurora",
+   "name": "微软官方仓库 · Aurora",
+   "url": "https://raw.githubusercontent.com/microsoft/aurora/main/README.md",
+   "refresh_days": 14,
+   "good_for": [
+    "capability",
+    "version",
+    "openweights"
+   ],
+   "expect": [
+    "Foundation Model for the Earth System"
+   ],
+   "note": "「不止天气」那一格的唯一依据。⚠️ GitHub 标的许可是 NOASSERTION。"
+  },
+  {
+   "id": "sci-neuralgcm-gh",
+   "tier": "A",
+   "kind": "html",
+   "vendor": "neuralgcm",
+   "name": "NeuralGCM 官方仓库",
+   "url": "https://raw.githubusercontent.com/neuralgcm/neuralgcm/main/README.md",
+   "refresh_days": 14,
+   "good_for": [
+    "capability",
+    "version",
+    "openweights"
+   ],
+   "expect": [
+    "hybrid ML/physics"
+   ],
+   "note": "⚠️ README 只有 1k，逐项能力在文档站 `neuralgcm.readthedocs.io` —— **还没读**。"
+  },
+  {
+   "id": "sci-mattergen-gh",
+   "tier": "A",
+   "kind": "html",
+   "vendor": "mattergen",
+   "name": "微软官方仓库 · MatterGen",
+   "url": "https://raw.githubusercontent.com/microsoft/mattergen/main/README.md",
+   "refresh_days": 14,
+   "good_for": [
+    "capability",
+    "version",
+    "openweights"
+   ],
+   "expect": [
+    "generative model for inorganic materials",
+    "property constraints"
+   ],
+   "note": "⚠️ HF 上 `microsoft/mattergen` 下载量 **0**，但仓库 1,789★ —— **这一卷的模型走 GitHub 与 pip 分发，HF 下载量不是有效指标**。我一度拿它判断「材料撑不起一条轨」，是错的。"
+  },
+  {
+   "id": "sci-mace-gh",
+   "tier": "A",
+   "kind": "html",
+   "vendor": "mace",
+   "name": "MACE 官方仓库",
+   "url": "https://raw.githubusercontent.com/ACEsuit/mace/main/README.md",
+   "refresh_days": 14,
+   "good_for": [
+    "capability",
+    "version",
+    "openweights"
+   ],
+   "expect": [
+    "interatomic potentials",
+    "MACE-MP"
+   ],
+   "note": "⚠️ 两套基座覆盖体系不同（MACE-MP 无机 / MACE-OFF 有机），**选错等于用错力场**。"
+  },
+  {
+   "id": "sci-gnome-gh",
+   "tier": "A",
+   "kind": "html",
+   "vendor": "gnome",
+   "name": "Google DeepMind 官方仓库 · GNoME",
+   "url": "https://raw.githubusercontent.com/google-deepmind/materials_discovery/main/README.md",
+   "refresh_days": 14,
+   "good_for": [
+    "capability",
+    "version",
+    "openweights"
+   ],
+   "expect": [
+    "381,000 novel stable materials"
+   ],
+   "note": "⚠️ **它放的是数据集与凸包，不是模型权重** —— 和这一轨别家不是一类东西。"
   }
  ],
  "$missing": [
