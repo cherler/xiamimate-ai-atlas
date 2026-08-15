@@ -34,7 +34,24 @@ export default function Pick() {
         </div>
       </header>
 
-      <div className="mt-8 flex flex-col gap-4">
+      {/**
+        * **九张卡要一屏放得下。** 负责人 2026-08-15：「首页现在 9 个方向一页
+        * 已经无法完全展示了。」
+        *
+        * 原来是单列 `flex-col` + `py-5` + 26px 标题 —— 四个方向时刚好，
+        * 九个就顶到两屏半。**这不是审美问题**：首页第一句话是「先选一个方向」，
+        * 而选择项要滚动才能看全，那句话就落空了。
+        *
+        * 改成栅格：手机两列、桌面三列 —— 桌面九张正好三行，实测 1440×900 与
+        * 1280×800 都是 9/9 在首屏内（最后一张底部 553px）。
+        *
+        * ⚠️ **手机上没有硬凑一屏。** 单列时只放得下 5 张，但要九张全进一屏，
+        * 字号得压到读不动 —— **「一屏看完」是为了让人好选，不是目的本身**。
+        * 两列是折中：一屏 6 张，再滚一点点就看全。
+        * 卡内从「一行挤下所有东西 + flex-wrap」改成上下两段：
+        * 窄列里 flex-wrap 会让每张卡高度不一，栅格就参差不齐了。
+        */}
+      <div className="mt-6 grid grid-cols-2 lg:grid-cols-3 gap-2.5 sm:gap-3">
         {atlas.domains.map((d) => {
           const ms = domainModels(d.id);
           const core = ms.filter((m) => (m.tier ?? "core") === "core").length;
@@ -42,16 +59,18 @@ export default function Pick() {
           const yes = cells.filter((s) => s.state === "yes").length;
           return (
             <Link key={d.id} data-domain-card href={`/${d.id}`}
-              className="border border-rule rounded-xl bg-card px-5 py-5 hover:border-yes hover:bg-yes/5 flex flex-wrap items-baseline gap-x-4 gap-y-2">
-              <span className="text-[26px] font-bold">{d.name}</span>
-              {d.state !== "live" && (
-                <span className="text-[11px] px-1.5 py-0.5 bg-unknown/20 text-unknown">建设中</span>
-              )}
-              <span className="text-[13px] text-muted">
+              className="border border-rule rounded-xl bg-card px-4 py-3 hover:border-yes hover:bg-yes/5 flex flex-col gap-1">
+              <span className="flex items-baseline gap-2">
+                <span className="text-[19px] leading-tight font-bold">{d.name}</span>
+                {d.state !== "live" && (
+                  <span className="text-[10.5px] px-1 py-px bg-unknown/20 text-unknown">建设中</span>
+                )}
+              </span>
+              <span className="text-[12px] leading-snug text-muted line-clamp-1">
                 {tracksOf(d).map((t) => t.zh).join(" · ")}
               </span>
-              <span className="ml-auto text-[12px] text-muted tabular-nums whitespace-nowrap">
-                产品线 {ms.length} 条 · 进表 {core} 条 · 已核 {yes} 格
+              <span className="text-[11.5px] text-muted tabular-nums">
+                产品线 {ms.length} · 进表 {core} · 已核 {yes} 格
               </span>
             </Link>
           );
