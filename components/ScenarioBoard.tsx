@@ -14,8 +14,10 @@ import ResourceFilter from "./ResourceFilter";
 const KIND: Record<ApplicationResourceKind, { label: string; className: string }> = {
   project: { label: "项目", className: "bg-yes/10 text-yes-ink" },
   skill: { label: "Skill", className: "bg-ink/8 text-ink" },
-  course: { label: "课程", className: "bg-[#f4eee3] text-[#795b2c]" },
-  docs: { label: "文档", className: "bg-[#edf0f3] text-muted" },
+  // 课程那枚是全站唯一的暖色标 —— 深色下写死的米黄会变成一块发光的方块，
+  // 所以走令牌（globals.css 里有对应的深色值），不写死十六进制。
+  course: { label: "课程", className: "bg-chip-warm text-chip-warm-ink" },
+  docs: { label: "文档", className: "bg-chip-cool text-muted" },
 };
 
 function ResourceCard({ resource }: { resource: ApplicationResource }) {

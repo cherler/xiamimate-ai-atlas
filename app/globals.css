@@ -72,6 +72,11 @@
   --color-unknown: #8a95a1;
   --color-hatch: #c3c9d0; /* 加深一档：太淡的斜线在纸底上等于消失，⬜ 是主角得看得见 */
 
+  /* 资源类型标签的两枚底色（应用专题页）。深色下写死的米黄会变成发光方块，所以走令牌。 */
+  --color-chip-warm: #f4eee3;
+  --color-chip-warm-ink: #795b2c;
+  --color-chip-cool: #edf0f3;
+
   /*
    * **外框跟平台走圆角，内部网格保持直角。**
    *
@@ -90,6 +95,90 @@
   --radius-2xl: 14px;
   --radius-3xl: 16px;
   --radius-4xl: 20px;
+}
+
+/*
+ * ══════════════ 深色 ══════════════  2026-08-15 加，负责人：「晚上会被白色亮瞎眼」
+ *
+ * ## 九个值怎么定的：不是重新配色，是把浅色那套的**对比度比值搬过来**
+ *
+ * 浅色这一套是 08-13 因为「看着刺眼」调过一轮的 —— 正文特意从 16.30:1 压到 12.0:1，
+ * 次要色特意留在 5.3:1，⬜ 的斜线特意加深到 1.57:1。**那轮调的是「眼睛能不能歇」，
+ * 换个底色这件事并不会变。** 所以深色不另起炉灶，逐项对齐浅色量出来的比值：
+ *
+ *   项        浅色                    深色                  比值(浅 → 深)
+ *   正文      #243444 / #f8f8f8      #ccd6e0 / #171d24     11.99 → 11.52
+ *   次要      #5a697a                #8b98a6                5.29 →  5.77
+ *   链接      #097067                #31a596                5.61 →  5.62
+ *   不支持    #c0392b                #e2695c                5.12 →  5.18
+ *   规则线    #dde3e6                #2a333d                1.22 →  1.32
+ *   官方没说  #8a95a1                #5c6874                2.87 →  2.98
+ *   斜线      #c3c9d0                #3f4a56                1.57 →  1.88
+ *   页底/纸面 #ffffff / #f8f8f8      #10151a / #171d24      1.06 →  1.08
+ *
+ * ⚠️ **✅ 色块是唯一不换的** —— 仍是品牌色 #0c9488。浅色里它比纸面深（3.53:1 往前站），
+ * 深色里它比纸面浅（4.53:1，同样往前站）。**照比值换会让它变得更暗，在暗底上等于往后退，
+ * 方向正好反了。** 色块靠的是「从底色里跳出来」，不是「比底色深多少」。
+ *
+ * ## 两条选择路径
+ *
+ * 媒体查询管**没有 JS / 首屏那一帧**，`[data-theme]` 管**用户手动选的**。
+ * 手动选浅色时 `:not([data-theme="light"])` 让系统深色让位 —— 否则用户按了没反应。
+ *
+ * 深色的九个值只写在 `--dk-*` 这一处，下面两块都引用它，改配色只改一个地方。
+ */
+:root {
+  --dk-paper: #10151a;
+  --dk-card: #171d24;
+  --dk-ink: #ccd6e0;
+  --dk-muted: #8b98a6;
+  --dk-rule: #2a333d;
+  --dk-no: #e2695c;
+  --dk-unknown: #5c6874;
+  --dk-hatch: #3f4a56;
+  --dk-chip-warm: #2b2419;
+  --dk-chip-warm-ink: #c9a978;
+  --dk-chip-cool: #1e252c;
+  /* 链接/小字用的品牌色要提亮 —— #097067 是为白底选的，压在暗底上只有 1.4:1，基本看不见。 */
+  --dk-brand-ink: #31a596;
+}
+
+/* `color-scheme` 不是装饰：滚动条、输入框、下拉、日期控件的原生外观都跟它走。
+   不设的话页面是暗的、滚动条还是亮白的一条。 */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    color-scheme: dark;
+    --color-paper: var(--dk-paper);
+    --color-card: var(--dk-card);
+    --color-ink: var(--dk-ink);
+    --color-muted: var(--dk-muted);
+    --color-rule: var(--dk-rule);
+    --color-yes-ink: var(--dk-brand-ink);
+    --color-no: var(--dk-no);
+    --color-unknown: var(--dk-unknown);
+    --color-hatch: var(--dk-hatch);
+    --color-chip-warm: var(--dk-chip-warm);
+    --color-chip-warm-ink: var(--dk-chip-warm-ink);
+    --color-chip-cool: var(--dk-chip-cool);
+  }
+}
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --color-paper: var(--dk-paper);
+  --color-card: var(--dk-card);
+  --color-ink: var(--dk-ink);
+  --color-muted: var(--dk-muted);
+  --color-rule: var(--dk-rule);
+  --color-yes-ink: var(--dk-brand-ink);
+  --color-no: var(--dk-no);
+  --color-unknown: var(--dk-unknown);
+  --color-hatch: var(--dk-hatch);
+  --color-chip-warm: var(--dk-chip-warm);
+  --color-chip-warm-ink: var(--dk-chip-warm-ink);
+  --color-chip-cool: var(--dk-chip-cool);
+}
+:root[data-theme="light"] {
+  color-scheme: light;
 }
 
 html,
@@ -141,3 +230,47 @@ table {
  * 而不是甩 `!important`（那会让下一个人更难覆盖）。
  */
 html .topbar.xm-embedded-chrome { z-index: 40; }
+
+/*
+ * ## 平台页眉页脚的深色兜底
+ *
+ * 页眉页脚是**主站构建出来的制品**（运行时加载 `/chrome/chrome.css`），
+ * 那份 CSS 里没有任何深色分支，颜色大多是写死的 `#fff` / `#16212c`。
+ * 我们改不了它，也不该去改 —— 它是主站的东西，主站一重新构建就覆盖回去。
+ *
+ * **但整页转暗之后，顶上那条 52px 的纯白横条正是最扎眼的一处**（负责人要解决的就是这个）。
+ * 所以这里只压**静止态**那几个面：横条底、页脚底、分隔线、以及站在上面的几段文字。
+ *
+ * ⚠️ **下拉菜单、账户面板、登录弹窗仍是浅色，故意不管。** 它们是临时打开的，
+ * 而且颜色写死在几十个选择器里 —— 跟着改的代价是每次主站重建都要重新对一遍，
+ * 而收益只有「点开的那两秒」。**这是已知的接缝，不是漏做。**
+ *
+ * 用 `html` 前缀提一级特异性：制品 CSS 是运行时注入的 `<link>`，加载在本文件之后，
+ * 同等特异性下后来者赢（和上面 z-index 那条同一个理由）。
+ */
+@media (prefers-color-scheme: dark) {
+  html:root:not([data-theme="light"]) .xm-embedded-chrome {
+    --surface-card: var(--dk-card);
+    --surface-tile: var(--dk-paper);
+    --line: var(--dk-rule);
+    --border-card: var(--dk-rule);
+  }
+  html:root:not([data-theme="light"]) .xm-embedded-chrome :is(.switch-cur, .sf-lock b) {
+    color: var(--dk-ink);
+  }
+  html:root:not([data-theme="light"]) .xm-embedded-chrome :is(.site-footer, .sf-lock span, .sf-links a, .sf-legal, .sf-legal a, .sf-stmt) {
+    color: var(--dk-muted);
+  }
+}
+html:root[data-theme="dark"] .xm-embedded-chrome {
+  --surface-card: var(--dk-card);
+  --surface-tile: var(--dk-paper);
+  --line: var(--dk-rule);
+  --border-card: var(--dk-rule);
+}
+html:root[data-theme="dark"] .xm-embedded-chrome :is(.switch-cur, .sf-lock b) {
+  color: var(--dk-ink);
+}
+html:root[data-theme="dark"] .xm-embedded-chrome :is(.site-footer, .sf-lock span, .sf-links a, .sf-legal, .sf-legal a, .sf-stmt) {
+  color: var(--dk-muted);
+}

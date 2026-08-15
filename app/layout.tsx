@@ -66,6 +66,31 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         * 让它吃掉多余高度，页脚自然沉到底。
         */}
       <body className="min-h-screen flex flex-col">
+        {/**
+          * **外观偏好：控件在主站账户中心，本站只负责读和响应。**
+          *
+          * 负责人 2026-08-15 定的形态：这是**平台级设置**（账户中心 › 设置 › 外观，
+          * 随系统 / 白天 / 黑夜），不是本站自己的开关 —— 所以这里没有切换按钮。
+          * 主站和 `/atlas` 在**同一个源**上（子应用走路径不走子域），
+          * localStorage 天然共用，一处设置到处生效，不需要任何同步机制。
+          * 键名与真源见 `xiamimate-tools-frontend/lib/theme.ts`。
+          *
+          * 这一段必须同步、必须在 body 最前面、必须不走 React：
+          * 系统深色由 CSS 的 `prefers-color-scheme` 直接管住不需要 JS，但**手动选过**
+          * 的那份存在 localStorage 里，等 React 挂载才读的话，浏览器已经按系统外观
+          * 画完一帧了 —— 系统浅色而人选了黑夜，每翻一页都要先被闪一下白，
+          * **正好是他开这个功能要躲的东西**。
+          *
+          * ⚠️ 这是主站那份脚本的**拷贝**，不是引用：构建时跨仓库拿不到对方的模块。
+          * 改一边要改两边（对面文件里也写了同一句话）。
+          * try/catch 是因为隐私模式下读 localStorage 会直接抛。
+          */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html:
+              'try{var t=localStorage.getItem("xm-theme");if(t==="light"||t==="dark")document.documentElement.dataset.theme=t}catch(e){}',
+          }}
+        />
         {/* 平台页眉页脚：加载主站 /chrome 制品。取不到就整个不渲染（本地 dev 即如此）。 */}
         <ChromeHeader />
         {/* Nav 和 NextSteps 挂在 layout 上 —— **每一页都有，否则总有页面是死路**。 */}

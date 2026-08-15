@@ -4,8 +4,8 @@ import { atlas, capsOf, cell, compare, label, modelsOf, modelsWith, type State, 
 
 /** 生命周期在图上必须看得见 —— 一个已停服的模型和在售的并排站着，是有害的。 */
 const STATUS = {
-  discontinued: { tag: "已停服", color: "#b03a2c", strike: true },
-  superseded: { tag: "非主力", color: "#647587", strike: false },
+  discontinued: { tag: "已停服", color: "var(--color-no)", strike: true },
+  superseded: { tag: "非主力", color: "var(--color-muted)", strike: false },
 } as const;
 
 /**
@@ -30,9 +30,9 @@ const MW = 218;
 const CX = 700; // 能力列左边界
 const CW = 250;
 
-const YES = "#0c9488";
-const UNK = "#8a95a1";
-const NO = "#c0392b";
+const YES = "var(--color-yes)";
+const UNK = "var(--color-unknown)";
+const NO = "var(--color-no)";
 
 export type Sel = { kind: "none" } | { kind: "cap"; id: string } | { kind: "models"; ids: string[] };
 
@@ -141,8 +141,8 @@ export default function Bipartite({ sel, onSel }: { sel: Sel; onSel: (s: Sel) =>
               width={MW}
               height={50}
               rx={7}
-              fill={on || sole ? "#16212c" : "#ffffff"}
-              stroke={on || sole ? "#16212c" : "#e2e6ec"}
+              fill={on || sole ? "var(--color-ink)" : "var(--color-paper)"}
+              stroke={on || sole ? "var(--color-ink)" : "var(--color-rule)"}
               strokeWidth={1.4}
             />
             <text
@@ -150,12 +150,12 @@ export default function Bipartite({ sel, onSel }: { sel: Sel; onSel: (s: Sel) =>
               y={my(i) - 3}
               fontSize={19}
               fontWeight={600}
-              fill={on ? "#ffffff" : st ? st.color : "#16212c"}
+              fill={on ? "var(--color-paper)" : st ? st.color : "var(--color-ink)"}
               textDecoration={st?.strike ? "line-through" : undefined}
             >
               {label(m)}
             </text>
-            <text x={MX + 16} y={my(i) + 16} fontSize={13} fill={on ? "#647587" : "#647587"}>
+            <text x={MX + 16} y={my(i) + 16} fontSize={13} fill={on ? "var(--color-muted)" : "var(--color-muted)"}>
               {m.version_as_of}
               {st ? ` · ${st.tag}` : ` · ${orgOf(m)?.zh ?? "?"}`}
             </text>
@@ -183,14 +183,14 @@ export default function Bipartite({ sel, onSel }: { sel: Sel; onSel: (s: Sel) =>
               width={CW}
               height={46}
               rx={7}
-              fill={on ? "#0c9488" : "#ffffff"}
-              stroke={on ? "#0c9488" : "#e2e6ec"}
+              fill={on ? "var(--color-yes)" : "var(--color-paper)"}
+              stroke={on ? "var(--color-yes)" : "var(--color-rule)"}
               strokeWidth={1.4}
             />
-            <text x={CX + 15} y={cy(i) - 2} fontSize={18} fontWeight={600} fill={on ? "#ffffff" : "#16212c"}>
+            <text x={CX + 15} y={cy(i) - 2} fontSize={18} fontWeight={600} fill={on ? "var(--color-paper)" : "var(--color-ink)"}>
               {c.zh}
             </text>
-            <text x={CX + 15} y={cy(i) + 15} fontSize={12} fill={on ? "#b7ded9" : "#647587"}>
+            <text x={CX + 15} y={cy(i) + 15} fontSize={12} fill={on ? "#b7ded9" : "var(--color-muted)"}>
               {c.name} · {c.ubiquity}
             </text>
             <text
@@ -219,17 +219,17 @@ export default function Bipartite({ sel, onSel }: { sel: Sel; onSel: (s: Sel) =>
         );
       })}
 
-      <text x={MX} y={26} fontSize={13} fill="#647587" letterSpacing="0.14em">
+      <text x={MX} y={26} fontSize={13} fill="var(--color-muted)" letterSpacing="0.14em">
         模型 · 点两个可对比
       </text>
-      <text x={CX} y={26} fontSize={13} fill="#647587" letterSpacing="0.14em">
+      <text x={CX} y={26} fontSize={13} fill="var(--color-muted)" letterSpacing="0.14em">
         能力 · 点一个看谁实现了
       </text>
-      <text x={CX + CW + 8} y={26} fontSize={11} fill="#647587">
+      <text x={CX + CW + 8} y={26} fontSize={11} fill="var(--color-muted)">
         支持数 / 没说
       </text>
 
-      <g transform={`translate(${MX}, ${H - 30})`} fontSize={12} fill="#647587">
+      <g transform={`translate(${MX}, ${H - 30})`} fontSize={12} fill="var(--color-muted)">
         <line x1={0} y1={-4} x2={26} y2={-4} stroke={YES} strokeWidth={2.2} />
         <text x={32} y={0}>原生（一步做完）</text>
         <line x1={150} y1={-4} x2={176} y2={-4} stroke={YES} strokeWidth={2.2} strokeDasharray="4 3" />
@@ -239,7 +239,7 @@ export default function Bipartite({ sel, onSel }: { sel: Sel; onSel: (s: Sel) =>
       </g>
 
       <g opacity={0.85}>
-        <text x={MX} y={H - 8} fontSize={13} fill="#647587">
+        <text x={MX} y={H - 8} fontSize={13} fill="var(--color-muted)">
           已普及、不再有区分度，已折叠：
           {folded.map((f) => `${f.zh}（${f.name}）`).join("、")}
         </text>

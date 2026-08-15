@@ -46,7 +46,7 @@ const ORG_HUE: Record<string, string> = {
   lightricks: "#1f8a7a", runway: "#a8563a", rhymes: "#6b8f3a", genmo: "#7d6ba8",
   hpcai: "#3d7fa0", decart: "#5c6a78", openai: "#4a7d6b",
 };
-const HUE = (id?: string) => ORG_HUE[id ?? ""] ?? "#8a95a1";
+const HUE = (id?: string) => ORG_HUE[id ?? ""] ?? "var(--color-unknown)";
 
 type Sel = { kind: "none" } | { kind: "org" | "model" | "cap"; id: string };
 
@@ -282,7 +282,7 @@ export default function RelationGraph({ domain }: { domain: string }) {
           ))}
           {g.caps.map((c) => (
             <Node key={c.id} id={`c:${c.id}`} x={c.x} y={c.y} anchor="start"
-              text={c.zh} sub={c.ubiquity} color="#5c6a78"
+              text={c.zh} sub={c.ubiquity} color="var(--color-muted)"
               onClick={() => setSel(key === `c:${c.id}` ? { kind: "none" } : { kind: "cap", id: c.id })} />
           ))}
         </svg>

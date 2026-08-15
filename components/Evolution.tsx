@@ -58,8 +58,8 @@ export default function Evolution({ onPick }: { onPick?: (id: string) => void })
     <svg viewBox={`0 0 ${W} ${H}`} className="w-full h-auto select-none" role="img">
       {years.map((y) => (
         <g key={y}>
-          <line x1={x(`${y}-01`)} y1={TOP - 22} x2={x(`${y}-01`)} y2={H - 76} stroke="#d3d6ce" strokeWidth={1} />
-          <text x={x(`${y}-01`) + 6} y={TOP - 28} fontSize={13} fill="#6b716c">
+          <line x1={x(`${y}-01`)} y1={TOP - 22} x2={x(`${y}-01`)} y2={H - 76} stroke="var(--color-rule)" strokeWidth={1} />
+          <text x={x(`${y}-01`) + 6} y={TOP - 28} fontSize={13} fill="var(--color-muted)">
             {y}
           </text>
         </g>
@@ -71,8 +71,8 @@ export default function Evolution({ onPick }: { onPick?: (id: string) => void })
         const y1 = TOP + Math.max(...rows) * ROW + 20;
         return (
           <g key={g}>
-            <line x1={LEFT - 200} y1={y0} x2={LEFT - 200} y2={y1} stroke="#2c6b5a" strokeWidth={2.5} opacity={0.5} />
-            <text x={LEFT - 210} y={(y0 + y1) / 2 + 4} fontSize={13} fill="#6b716c" textAnchor="end">
+            <line x1={LEFT - 200} y1={y0} x2={LEFT - 200} y2={y1} stroke="var(--color-yes)" strokeWidth={2.5} opacity={0.5} />
+            <text x={LEFT - 210} y={(y0 + y1) / 2 + 4} fontSize={13} fill="var(--color-muted)" textAnchor="end">
               {g}
             </text>
           </g>
@@ -87,7 +87,7 @@ export default function Evolution({ onPick }: { onPick?: (id: string) => void })
         const total = modelsOf("clip").length;
         return (
           <g key={c.id} className="cursor-pointer" onClick={() => onPick?.(c.id)}>
-            <text x={LEFT - 190} y={y + 5} fontSize={15} fontWeight={600} fill="#171b18">
+            <text x={LEFT - 190} y={y + 5} fontSize={15} fontWeight={600} fill="var(--color-ink)">
               {c.zh}
             </text>
             <line
@@ -95,27 +95,27 @@ export default function Evolution({ onPick }: { onPick?: (id: string) => void })
               y1={y}
               x2={W - RIGHT}
               y2={y}
-              stroke="#2c6b5a"
+              stroke="var(--color-yes)"
               strokeWidth={2 + (n / total) * 6}
               strokeOpacity={0.22 + (n / total) * 0.55}
               strokeLinecap="round"
             />
-            <circle cx={x(c.since!)} cy={y} r={6} fill="#2c6b5a" />
-            <text x={x(c.since!) - 10} y={y + 5} fontSize={12} fill="#6b716c" textAnchor="end">
+            <circle cx={x(c.since!)} cy={y} r={6} fill="var(--color-yes)" />
+            <text x={x(c.since!) - 10} y={y + 5} fontSize={12} fill="var(--color-muted)" textAnchor="end">
               {c.since}
             </text>
-            <text x={W - RIGHT + 10} y={y + 5} fontSize={13} fill="#2c6b5a" fontWeight={700}>
+            <text x={W - RIGHT + 10} y={y + 5} fontSize={13} fill="var(--color-yes)" fontWeight={700}>
               {n}/{total}
             </text>
           </g>
         );
       })}
 
-      <text x={LEFT - 190} y={H - 46} fontSize={13} fill="#6b716c">
+      <text x={LEFT - 190} y={H - 46} fontSize={13} fill="var(--color-muted)">
         {`线越粗＝实现它的模型越多。左端＝我们能证明的最早时间，不是业界首次出现` +
           (noDate.length ? `；${noDate.map((c) => c.zh).join("、")}早于可追溯窗口或不随时间演进，未列入` : "")}
       </text>
-      <text x={LEFT - 190} y={H - 24} fontSize={13} fill="#6b716c">
+      <text x={LEFT - 190} y={H - 24} fontSize={13} fill="var(--color-muted)">
         可追溯窗口起于 {START}（Runway changelog）与 2024-09（Kling API 日志）
       </text>
     </svg>
