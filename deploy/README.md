@@ -69,8 +69,30 @@ ssh <server> 'cd /srv/xiamimate/xiamimate-ai-atlas && nohup bash -c "
   npx next build          >> /tmp/atlas-build.log 2>&1
   echo DONE_\$? >> /tmp/atlas-build.log
 " > /dev/null 2>&1 &'
-# 然后轮询 /tmp/atlas-build.log 里的 DONE_0；**页数要和本机 build 出来的对得上**才算成
+# 然后轮询 /tmp/atlas-build.log 里的 DONE_0
 ```
+
+⚠️ **光看 DONE_ 标记不够 —— 它会静默骗你**（2026-08-15 又栽一次）。
+那次 `setsid` 起的构建退出码是 1，而日志里**只有 `DONE_1` 七个字节** ——
+`npm ci`、`validate`、`next build` 三条命令**一个字都没输出**；
+同样的命令手动跑却完全正常。原因没查清（环境差异），但后果很清楚：
+**如果只认「有 DONE_ 就往下走」，就会把上一版的 `out/` 当成新产物切上去，
+等于一次静默回滚。**
+
+所以切产物前三样都要过，缺一不可：
+
+```bash
+ssh <server> '
+  grep -c DONE_0 /tmp/atlas-build.log                    # ① 标记是 DONE_0 不是 DONE_1
+  wc -l < /tmp/atlas-build.log                           # ② 日志有真内容（不能只有一行）
+  find /srv/xiamimate/xiamimate-ai-atlas/out -name "*.html" | wc -l   # ③ 页数
+'
+find out -name '*.html' | wc -l                          # ③ 和本机 build 的页数对得上
+```
+
+**③ 是最早响的那个警报。** 这次就是它拦住的：服务器 1276 / 本机 1270，
+数字对不上时**不要往下走** —— 那 6 页之差正是「移除 Synthesia 之后少的页」，
+说明服务器根本没重新构建。
 
 ```bash
 
