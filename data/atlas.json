@@ -1,6 +1,6 @@
 {
  "version": "1.7",
- "generated_at": "2026-08-14",
+ "generated_at": "2026-08-15",
  "note": "第九版。clip 轨九个 Family 已全部用厂商官方源逐格重核（86% 的格子挂官方来源）。全部由 Agent 录入，未经人工核验（§59.3 转述层）。模型按 version_as_of 降序；status 标生命周期。",
  "changelog": [
   "v1.7 公司升为一等实体（阿里此前在库里是两家）+ 能力轴按方向隔离 + 平台透明度四档（⬜「我们没看到」≠🔴「只字不提」）+ 价格（**七家七种计价方式，不可比才是结论**）",
@@ -1829,6 +1829,85 @@
     "checkpoint"
    ],
    "since_note": "Cosmos3 / Matrix-Game / WHAM / V-JEPA 2 / 混元世界 公开权重；Genie / Marble / Odyssey / Oasis 闭源"
+  },
+  {
+   "id": "s-m-instrumental",
+   "class": "music",
+   "domain": "sound",
+   "name": "Vocals or instrumental",
+   "zh": "人声或纯伴奏",
+   "group": "出什么",
+   "ubiquity": "待核",
+   "aliases": [
+    "instrumental",
+    "纯音乐",
+    "伴奏",
+    "vocals"
+   ],
+   "since_note": "ElevenLabs Music v2「**Vocals or just instrumental**」· Lyria 3「including **vocals**, timed lyrics, and **full instrumental arrangements**」"
+  },
+  {
+   "id": "s-m-structure",
+   "class": "music",
+   "domain": "sound",
+   "name": "Song structure control",
+   "zh": "曲式与时长控制",
+   "group": "怎么控",
+   "ubiquity": "待核",
+   "aliases": [
+    "structure",
+    "verse",
+    "chorus",
+    "曲式",
+    "时长"
+   ],
+   "since_note": "ElevenLabs「Complete control over genre, style, and **structure**」· Lyria 3 Pro「Full-length songs with **verses, choruses, bridges**」，时长「controllable using prompt」"
+  },
+  {
+   "id": "s-m-section",
+   "class": "music",
+   "domain": "sound",
+   "name": "Section-level editing",
+   "zh": "分段编辑",
+   "group": "怎么控",
+   "ubiquity": "待核",
+   "aliases": [
+    "section",
+    "edit",
+    "分段",
+    "改一段"
+   ],
+   "since_note": "ElevenLabs Music v2「**Edit the sound and lyrics of individual sections** or the whole song」"
+  },
+  {
+   "id": "s-m-timedlyrics",
+   "class": "music",
+   "domain": "sound",
+   "name": "Timed lyrics",
+   "zh": "定时歌词",
+   "group": "出什么",
+   "ubiquity": "待核",
+   "aliases": [
+    "timed lyrics",
+    "歌词时间轴",
+    "lrc"
+   ],
+   "since_note": "Lyria 3「vocals, **timed lyrics**, and full instrumental arrangements」，且输出里「**separate steps and blocks for generated lyrics (text) and the song itself (audio)**」"
+  },
+  {
+   "id": "s-m-multilang",
+   "class": "music",
+   "domain": "sound",
+   "name": "Multilingual songs",
+   "zh": "多语种歌曲",
+   "group": "出什么",
+   "ubiquity": "待核",
+   "aliases": [
+    "multilingual",
+    "多语种",
+    "语言"
+   ],
+   "since_note": "ElevenLabs Music v2「**Multilingual**, including English, Spanish, German, Japanese and more」"
   }
  ],
  "orgs": [
@@ -4354,25 +4433,6 @@
    "reach_cn": "unknown",
    "reach_note": "还没测",
    "note": "闭源，只有 API。⚠️ 文档索引本身（llms.txt，38,892 字符）是这一卷最全的一份可核来源 ⚠️ **只在自家 API / CLI / MCP 上提供**：2026-08-14 在 Replicate 搜 lipsync 的 40 个结果里没有它的官方条目 —— 想用它就得直接接它，没有第三方转售这条路。（这条本来想记进「在哪能用」，但那张表记的是**在哪能用**，「哪儿都没有」不该占一行。）"
-  },
-  {
-   "id": "synthesia",
-   "class": "avatar",
-   "family": "Synthesia",
-   "org": "synthesia",
-   "version": "API v2",
-   "version_as_of": "2026-08-14",
-   "status": "active",
-   "tier": "core",
-   "domain": "avatar",
-   "weights": "closed",
-   "zh_none": true,
-   "version_src": "synthesia-docs",
-   "version_quote": "API 文档的端点分组：Templates（列表 / 取单个）· Videos（创建 / 从模板创建 / 列表 / 缩略图）· 以及指南「Dub your videos via Synthesia API」",
-   "lineage_note": "数字人卷 2026-08-14 才立项，谱系还没采 —— **这是「没采到」不是「它没有历史」**",
-   "reach_cn": "unknown",
-   "reach_note": "还没测",
-   "note": "闭源。⚠️ 文档以模板与视频任务为中心，**没有单独的「模型」概念** —— 版本记成 API v2 是我们的记法，不是它的命名 ⚠️ 创建视频有个 `test` 参数：「Test videos are **free and not counted towards your quota**」，但「we will **overlay a watermark** over your video」—— 试的时候不花钱，出来的片子带水印。"
   },
   {
    "id": "longcat-avatar",
@@ -12874,127 +12934,6 @@
    "as_of": "2026-08-14"
   },
   {
-   "m": "synthesia",
-   "c": "p-photo",
-   "state": "unknown",
-   "verified_for": "API v2",
-   "note": "立项当天（2026-08-14）只核到版本与该家最显眼的几项能力，这一格**还没查**",
-   "as_of": "2026-08-14"
-  },
-  {
-   "m": "synthesia",
-   "c": "p-clone",
-   "state": "unknown",
-   "verified_for": "API v2",
-   "note": "立项当天（2026-08-14）只核到版本与该家最显眼的几项能力，这一格**还没查**",
-   "as_of": "2026-08-14"
-  },
-  {
-   "m": "synthesia",
-   "c": "p-identity",
-   "state": "unknown",
-   "verified_for": "API v2",
-   "note": "资源页有「List of **stock avatars**」（现成形象库），但**没有一处谈跨片子保持同一个形象不变形** —— 有形象库不等于有形象一致",
-   "as_of": "2026-08-14",
-   "src": "synthesia-docs"
-  },
-  {
-   "m": "synthesia",
-   "c": "p-fullbody",
-   "state": "unknown",
-   "verified_for": "API v2",
-   "note": "立项当天（2026-08-14）只核到版本与该家最显眼的几项能力，这一格**还没查**",
-   "as_of": "2026-08-14"
-  },
-  {
-   "m": "synthesia",
-   "c": "p-audio",
-   "state": "yes",
-   "verified_for": "API v2",
-   "note": "上传接口里有「**Upload script audio**」—— 可以拿自己的音频当驱动，而不是让它读文本",
-   "as_of": "2026-08-14",
-   "src": "synthesia-docs",
-   "via": "native"
-  },
-  {
-   "m": "synthesia",
-   "c": "p-text",
-   "state": "yes",
-   "verified_for": "API v2",
-   "note": "API 参考的资源页里有「**Script supported XML tags**」，创建视频的 `input` 是「an array of objects that each describe a **clip** of a multi-clip video」—— 稿子分镜进去，视频出来",
-   "as_of": "2026-08-14",
-   "src": "synthesia-docs",
-   "via": "native"
-  },
-  {
-   "m": "synthesia",
-   "c": "p-video",
-   "state": "unknown",
-   "verified_for": "API v2",
-   "note": "立项当天（2026-08-14）只核到版本与该家最显眼的几项能力，这一格**还没查**",
-   "as_of": "2026-08-14"
-  },
-  {
-   "m": "synthesia",
-   "c": "p-lipsync",
-   "state": "unknown",
-   "verified_for": "API v2",
-   "note": "立项当天（2026-08-14）只核到版本与该家最显眼的几项能力，这一格**还没查**",
-   "as_of": "2026-08-14"
-  },
-  {
-   "m": "synthesia",
-   "c": "p-translate",
-   "state": "yes",
-   "verified_for": "API v2",
-   "src": "synthesia-docs",
-   "note": "文档指南：「**Dub your videos via Synthesia API**」",
-   "via": "native",
-   "as_of": "2026-08-14"
-  },
-  {
-   "m": "synthesia",
-   "c": "p-emotion",
-   "state": "unknown",
-   "verified_for": "API v2",
-   "note": "立项当天（2026-08-14）只核到版本与该家最显眼的几项能力，这一格**还没查**",
-   "as_of": "2026-08-14"
-  },
-  {
-   "m": "synthesia",
-   "c": "p-multi",
-   "state": "unknown",
-   "verified_for": "API v2",
-   "note": "立项当天（2026-08-14）只核到版本与该家最显眼的几项能力，这一格**还没查**",
-   "as_of": "2026-08-14"
-  },
-  {
-   "m": "synthesia",
-   "c": "p-live",
-   "state": "unknown",
-   "verified_for": "API v2",
-   "note": "立项当天（2026-08-14）只核到版本与该家最显眼的几项能力，这一格**还没查**",
-   "as_of": "2026-08-14"
-  },
-  {
-   "m": "synthesia",
-   "c": "p-alpha",
-   "state": "unknown",
-   "verified_for": "API v2",
-   "note": "立项当天（2026-08-14）只核到版本与该家最显眼的几项能力，这一格**还没查**",
-   "as_of": "2026-08-14"
-  },
-  {
-   "m": "synthesia",
-   "c": "p-openweights",
-   "state": "no",
-   "verified_for": "API v2",
-   "src": "synthesia-docs",
-   "note": "❌ 的依据：文档只有模板与视频任务两组端点，没有权重入口",
-   "via": "native",
-   "as_of": "2026-08-14"
-  },
-  {
    "m": "longcat-avatar",
    "c": "p-photo",
    "state": "yes",
@@ -15153,6 +15092,138 @@
    "quote": "官网只有产品与 API 咨询入口，**没有权重下载也没有公开仓库**",
    "as_of": "2026-08-14",
    "note": "闭源。"
+  },
+  {
+   "m": "eleven-music",
+   "c": "s-m-instrumental",
+   "state": "yes",
+   "verified_for": "v2",
+   "src": "elevenlabs-models",
+   "quote": "官方模型页 Eleven Music v2 的能力清单：「Studio-grade music with natural language prompts in any style / Complete control over **genre, style, and structure** / **Vocals or just instrumental** / **Multilingual**, including English, Spanish, German, Japanese and more / **Edit the sound and lyrics of individual sections** or the whole song」",
+   "as_of": "2026-08-15",
+   "note": "官方把「要不要人声」当成一个明确的开关来讲，而不是让你在提示词里碰运气。"
+  },
+  {
+   "m": "eleven-music",
+   "c": "s-m-structure",
+   "state": "yes",
+   "verified_for": "v2",
+   "src": "elevenlabs-models",
+   "quote": "官方模型页 Eleven Music v2 的能力清单：「Studio-grade music with natural language prompts in any style / Complete control over **genre, style, and structure** / **Vocals or just instrumental** / **Multilingual**, including English, Spanish, German, Japanese and more / **Edit the sound and lyrics of individual sections** or the whole song」",
+   "as_of": "2026-08-15"
+  },
+  {
+   "m": "eleven-music",
+   "c": "s-m-section",
+   "state": "yes",
+   "verified_for": "v2",
+   "src": "elevenlabs-models",
+   "quote": "官方模型页 Eleven Music v2 的能力清单：「Studio-grade music with natural language prompts in any style / Complete control over **genre, style, and structure** / **Vocals or just instrumental** / **Multilingual**, including English, Spanish, German, Japanese and more / **Edit the sound and lyrics of individual sections** or the whole song」",
+   "as_of": "2026-08-15",
+   "note": "🎯 **这一格全卷只有它一家。** 别家是「重新生成一首」，它是「只改第二段的词和声音」—— 做配乐时这个差别很实际。"
+  },
+  {
+   "m": "eleven-music",
+   "c": "s-m-multilang",
+   "state": "yes",
+   "verified_for": "v2",
+   "src": "elevenlabs-models",
+   "quote": "官方模型页 Eleven Music v2 的能力清单：「Studio-grade music with natural language prompts in any style / Complete control over **genre, style, and structure** / **Vocals or just instrumental** / **Multilingual**, including English, Spanish, German, Japanese and more / **Edit the sound and lyrics of individual sections** or the whole song」",
+   "as_of": "2026-08-15"
+  },
+  {
+   "m": "eleven-music",
+   "c": "s-m-timedlyrics",
+   "state": "unknown",
+   "verified_for": "v2",
+   "as_of": "2026-08-15",
+   "note": "模型页那份能力清单里没有歌词时间轴 / 逐句时间戳的说法。⚠️ 它有「编辑各段歌词」，**但「能改某一段的词」不等于「返回每句词的时间」** —— 后者是做卡拉 OK 字幕才需要的东西。读完没找到，不是没读。"
+  },
+  {
+   "m": "lyria",
+   "c": "s-m-instrumental",
+   "state": "yes",
+   "verified_for": "3 Pro Preview",
+   "src": "gemini-music",
+   "quote": "官方文档：「These models deliver structural coherence, including **vocals, timed lyrics, and full instrumental arrangements**」",
+   "as_of": "2026-08-15",
+   "note": "同一句里既说人声也说纯器乐编排。"
+  },
+  {
+   "m": "lyria",
+   "c": "s-m-timedlyrics",
+   "state": "yes",
+   "verified_for": "3 Pro Preview",
+   "src": "gemini-music",
+   "quote": "官方文档：「These models deliver structural coherence, including **vocals, timed lyrics, and full instrumental arrangements**」；输出结构一节：「the output from Lyria 3 is complex—containing **separate steps and blocks for generated lyrics (text) and the song itself (audio)**」",
+   "as_of": "2026-08-15",
+   "note": "🎯 **这一格全卷只有它一家**：歌词是**和音频分开返回的结构化内容**，不是混在波形里。想做字幕或对轴，只有这条路走得通。"
+  },
+  {
+   "m": "lyria",
+   "c": "s-m-structure",
+   "state": "yes",
+   "verified_for": "3 Pro Preview",
+   "src": "gemini-music",
+   "quote": "官方模型表：`Lyria 3 Pro` 用于「**Full-length songs with verses, choruses, bridges**」，时长「A couple of minutes (**controllable using prompt**)」；`Lyria 3 Clip` 固定 30 秒，用于「Short clips, **loops**, previews」",
+   "as_of": "2026-08-15",
+   "note": "⚠️ 时长控制的方式是**写进提示词**，不是一个参数 —— 两档模型的时长上限是硬的（Clip 30 秒 / Pro 数分钟）。"
+  },
+  {
+   "m": "lyria",
+   "c": "s-m-section",
+   "state": "unknown",
+   "verified_for": "3 Pro Preview",
+   "as_of": "2026-08-15",
+   "note": "官方文档讲的是一次生成一首（Clip 30 秒 / Pro 整首），**没有「只改其中一段」的接口或参数**。对照 ElevenLabs 是明写了分段编辑的。"
+  },
+  {
+   "m": "lyria",
+   "c": "s-m-multilang",
+   "state": "unknown",
+   "verified_for": "3 Pro Preview",
+   "as_of": "2026-08-15",
+   "note": "文档里没有语言清单，也没有多语种的说法。⚠️ 它有两条硬限制写得很清楚（所有音频带 SynthID 水印、请求特定艺人嗓音或受版权歌词会被拒），**但那和语言无关** —— 别把「限制写得细」当成「能力写得全」。"
+  },
+  {
+   "m": "mm-music",
+   "c": "s-m-instrumental",
+   "state": "unknown",
+   "verified_for": "music-3.0",
+   "as_of": "2026-08-15",
+   "note": "官方 API 概览只有一句「根据歌曲描述（prompt）和歌词（lyrics），生成一首**人声**的歌曲」—— 说了能出人声，**没说能不能只要伴奏**。⚠️ **这一行普遍薄，原因是够不着不是没查**：MiniMax 的音乐文档页 `platform.minimaxi.com/document/Music` 是个 SPA 壳，2026-08-15 抓回来正文 **0k**；我们能引的只有 API 概览里那两句。**这是可得性上限。**"
+  },
+  {
+   "m": "mm-music",
+   "c": "s-m-structure",
+   "state": "unknown",
+   "verified_for": "music-3.0",
+   "as_of": "2026-08-15",
+   "note": "概览里没有曲式、段落或时长控制的说法。⚠️ **这一行普遍薄，原因是够不着不是没查**：MiniMax 的音乐文档页 `platform.minimaxi.com/document/Music` 是个 SPA 壳，2026-08-15 抓回来正文 **0k**；我们能引的只有 API 概览里那两句。**这是可得性上限。**"
+  },
+  {
+   "m": "mm-music",
+   "c": "s-m-section",
+   "state": "unknown",
+   "verified_for": "music-3.0",
+   "as_of": "2026-08-15",
+   "note": "概览里没有分段编辑。⚠️ **这一行普遍薄，原因是够不着不是没查**：MiniMax 的音乐文档页 `platform.minimaxi.com/document/Music` 是个 SPA 壳，2026-08-15 抓回来正文 **0k**；我们能引的只有 API 概览里那两句。**这是可得性上限。**"
+  },
+  {
+   "m": "mm-music",
+   "c": "s-m-timedlyrics",
+   "state": "unknown",
+   "verified_for": "music-3.0",
+   "as_of": "2026-08-15",
+   "note": "概览里没有歌词时间轴。⚠️ **这一行普遍薄，原因是够不着不是没查**：MiniMax 的音乐文档页 `platform.minimaxi.com/document/Music` 是个 SPA 壳，2026-08-15 抓回来正文 **0k**；我们能引的只有 API 概览里那两句。**这是可得性上限。**"
+  },
+  {
+   "m": "mm-music",
+   "c": "s-m-multilang",
+   "state": "unknown",
+   "verified_for": "music-3.0",
+   "as_of": "2026-08-15",
+   "note": "概览里没有语言清单。⚠️ **这一行普遍薄，原因是够不着不是没查**：MiniMax 的音乐文档页 `platform.minimaxi.com/document/Music` 是个 SPA 壳，2026-08-15 抓回来正文 **0k**；我们能引的只有 API 概览里那两句。**这是可得性上限。**"
   }
  ],
  "$aliases_why": "各家给同一个能力起不同的名字。**Kling 管角色参考叫 Element，我按 Character Reference 去找，找不到就标了「官方没说」—— 假阴性。** 采集时必须用整组别名去匹配，不能只用我们自己的叫法。这是原方案 §36 Entity Resolution 在能力维度上的对应物。\n\n`alias_bit_us` 标在**真把我们坑过的那一项**上（角色参考）。别名多不等于叫法分歧大：「首尾帧」也有 8 条别名，但全是 start/end frame 的描述性变体，谁都猜得到；而 Element / Ingredients / cameo 是厂商自造词，**不知道就永远搜不到**。选例子要选后者，靠数别名条数是挑不出来的 —— 所以标在数据里，不用启发式猜。",
@@ -15275,7 +15346,7 @@
    "name": "AI 数字人",
    "state": "live",
    "volume": "第六个方向",
-   "note": "第六个方向，2026-08-14 立项。**一轨** —— 各家做的都是同一件事：给定一个人物形象，用音频/文本/视频把它驱动起来。⚠️ **和 AI 视频卷的边界**：判据是「**形象是不是一等输入**」—— 能不能保存一个形象、反复用它出片。通用视频模型有「对口型」这一格（Kling / Veo 都有），那是它的一项能力；数字人这一卷收的是**整条产品线都围着形象转**的那些。⚠️ **和声音卷**：产出是影像不是音频，音色克隆仍归声音卷。⚠️ **和 3D 卷**：产出是视频不是可导出资产。**2026-08-14 当天转 live**：四个公共页（可用性 / 变更 / 资源 / 教程）都补了内容，场景应用也定了 4 个（多语种本地化 / 实时互动数字人 / 照片开口 / 课程与培训视频），R68 才放行。⚠️ 转 live 不代表采完：98 格里还有 60 格 ⬜，方向页上照实写着 —— 这一卷的 ⬜ 密度是六卷里最高的。",
+   "note": "第六个方向，2026-08-14 立项。**一轨** —— 各家做的都是同一件事：给定一个人物形象，用音频/文本/视频把它驱动起来。⚠️ **和 AI 视频卷的边界**：判据是「**形象是不是一等输入**」—— 能不能保存一个形象、反复用它出片。通用视频模型有「对口型」这一格（Kling / Veo 都有），那是它的一项能力；数字人这一卷收的是**整条产品线都围着形象转**的那些。⚠️ **和声音卷**：产出是影像不是音频，音色克隆仍归声音卷。⚠️ **和 3D 卷**：产出是视频不是可导出资产。**2026-08-14 当天转 live**：四个公共页（可用性 / 变更 / 资源 / 教程）都补了内容，场景应用也定了 4 个（多语种本地化 / 实时互动数字人 / 照片开口 / 课程与培训视频），R68 才放行。⚠️ 转 live 不代表采完：98 格里还有 60 格 ⬜，方向页上照实写着 —— 这一卷的 ⬜ 密度是六卷里最高的。 ⚠️ **这一卷是八卷里唯一一个不按产出物收的，2026-08-15 说明白**：其余七卷的判据都是「产出物是不是另一类东西」（图 / 视频 / 音频 / 文本 / 3D 资产 / 动作序列 / 可交互状态流），而数字人的产出物是**影像**，和视频卷同类。它是靠另一条判据进来的 —— 「**形象是不是一等输入**」，那是**输入侧**的判据。**这是个特例，不是通例**，将来再有方向想进来，不能拿它当先例。⚠️ **重叠是实打实的**：视频卷有「对口型」这一格，Kling / MiniMax Hailuo / Vidu Q / LTX / PixVerse 五支都 ✅ 了；这一卷又有「给已有视频对口型」。**同一件事在两卷各有一格** —— 差别在于：视频卷那一格是「这个视频模型顺带能对口型」，这一卷这一格是「整条产品线围着形象转」。看到两边都有不要奇怪，那不是重复录入。",
    "tracks": [
     {
      "id": "avatar",
@@ -15755,6 +15826,17 @@
    "url": "https://developer.ideogram.ai",
    "discloses": "n/a",
    "discloses_why": "厂商自有 API 平台，卖的是自家模型，「公不公示底层模型」这个问题不适用。"
+  },
+  {
+   "id": "synthesia",
+   "name": "Synthesia",
+   "kind": "厂商自有产品（英国）",
+   "kind2": "vendor-own",
+   "region": "全球",
+   "url": "https://www.synthesia.io",
+   "discloses": "n/a",
+   "discloses_why": "它不转售别家模型，也不公开自己用的是什么模型 —— 「透明度」这一栏对它无从谈起。",
+   "note": "🔄 **2026-08-15 从模型行移到这里。** 理由不是它不重要，是**它没有模型这个概念**：官方文档里 `model` / `Model` / `version` 三个词**全部零命中**（2026-08-15 实测），文档以模板与视频任务为中心。我们原来给它记的版本「API v2」**是我们的记法，不是它的命名** —— 那等于我们替厂商发明了一个型号。⚠️ 移走之前它有 14 格，其中 3 格是 ✅：音频驱动形象（上传接口里有「Upload script audio」—— 可以拿自己的音频当驱动，而不是让它读文本）；文本驱动（API 参考的资源页里有「Script supported XML tags」，创建视频的 `input` 是「an array of ob）；多语种口型翻译（文档指南：「Dub your videos via Synthesia API」）。**那三条事实没丢**，它们本来就在 `avatar-localize` / `avatar-course` 两个应用与 `p-translate-skill` 里引着 `synthesia-docs`，那才是它该出现的位置 —— 作为「在哪能做成这件事」，不是作为一行可比的模型。"
   }
  ],
  "availability": [
@@ -23575,12 +23657,12 @@
    ],
    "verified_at": "2026-08-14",
    "native": [
-    "heygen",
-    "synthesia"
+    "heygen"
    ],
    "opensource": [],
    "workflow": [],
-   "cases": []
+   "cases": [],
+   "caveat": " 🔄 **2026-08-15：Synthesia 从 `native`（原生实现）里去掉了** —— 它已经从模型行移到平台（理由：官方文档里根本没有「模型」这个概念）。**它没有消失**，下面 `platform_feature` 里那条「用 API 做多语种转译」还在，那才是它该待的位置。"
   },
   {
    "id": "p-live-skill",
@@ -23917,6 +23999,87 @@
     "实时的代价在算力，官方都没说要多少卡"
    ],
    "caveat": "**「real-time」在这一卷是个没有统一口径的词。** 24fps 是实时，5fps 也有人叫实时。唯一能横向比的只有明写了帧率的那一家。"
+  },
+  {
+   "id": "s-m-song-skill",
+   "zh": "做一首带唱词的完整歌",
+   "en": "Generate a full song with vocals",
+   "domain": "sound",
+   "cap": "s-m-lyrics",
+   "verified_at": "2026-08-15",
+   "io": {
+    "in": [
+     "一段风格描述",
+     "（可选）自己写的歌词"
+    ],
+    "out": "一首带人声的完整歌曲"
+   },
+   "opensource": [],
+   "platform_feature": [
+    {
+     "name": "MiniMax Music 3.0",
+     "url": "https://platform.minimaxi.com/docs/api-reference/api-overview",
+     "src": "minimax-api-overview",
+     "quote": "「music-3.0 —— 支持用户输入音乐灵感和歌词，生成 AI 音乐」；音乐生成一节：「根据歌曲描述（prompt）和歌词（lyrics），生成一首**人声**的歌曲」",
+     "note": "⚠️ 能引的只有这两句 —— 它的音乐文档页是 SPA 壳，抓回来 0k。"
+    },
+    {
+     "name": "Lyria 3 Pro（Google）",
+     "url": "https://ai.google.dev/gemini-api/docs/music-generation",
+     "src": "gemini-music",
+     "quote": "「Full-length songs with **verses, choruses, bridges**」，时长「A couple of minutes (controllable using prompt)」；输出含「**timed lyrics**」",
+     "note": "⚠️ 两条硬限制：**所有音频带 SynthID 水印**；请求特定艺人嗓音或受版权歌词**会被拒**。"
+    },
+    {
+     "name": "Eleven Music v2",
+     "url": "https://elevenlabs.io/docs/models",
+     "src": "elevenlabs-models",
+     "quote": "「Complete control over genre, style, and structure / **Vocals or just instrumental** / **Multilingual** …」",
+     "note": "三家里唯一能**只改其中一段**的。"
+    }
+   ],
+   "limits": [
+    "**三家全是闭源 API**，没有一支放权重 —— 想本地跑这一格是空的",
+    "Lyria 的所有输出带 SynthID 水印，且会拒绝「像某位艺人」这类请求",
+    "时长都有硬上限（Lyria Clip 30 秒 / Pro 数分钟），不是你想多长就多长"
+   ],
+   "caveat": "**这一轨最该先问的不是「像不像」，是「能不能改」。** 生成一首听着还行的歌，三家都做得到；但你八成要改第二段的词、要纯伴奏版、要歌词时间轴 —— **这三件事只有各自一家做得到**（分段编辑只有 ElevenLabs，定时歌词只有 Lyria）。"
+  },
+  {
+   "id": "s-m-instrumental-skill",
+   "zh": "要一段纯伴奏（不要人声）",
+   "en": "Instrumental only",
+   "domain": "sound",
+   "cap": "s-m-instrumental",
+   "verified_at": "2026-08-15",
+   "io": {
+    "in": [
+     "一段风格描述"
+    ],
+    "out": "没有人声的音乐"
+   },
+   "opensource": [],
+   "platform_feature": [
+    {
+     "name": "Eleven Music v2",
+     "url": "https://elevenlabs.io/docs/models",
+     "src": "elevenlabs-models",
+     "quote": "「**Vocals or just instrumental**」",
+     "note": "官方把它当成一个明确的开关来讲。"
+    },
+    {
+     "name": "Lyria 3",
+     "url": "https://ai.google.dev/gemini-api/docs/music-generation",
+     "src": "gemini-music",
+     "quote": "「including vocals, timed lyrics, and **full instrumental arrangements**」",
+     "note": ""
+    }
+   ],
+   "limits": [
+    "MiniMax 那一格是 ⬜：官方只说了「生成一首**人声**的歌曲」，**没说能不能只要伴奏**",
+    "「纯伴奏」和「把人声去掉」不是一回事 —— 这一格说的是**生成时就不带人声**，不是事后分离"
+   ],
+   "caveat": "⚠️ **别把它和「人声/伴奏分离」搞混。** 那是拿一首已有的歌把两轨拆开，属于另一件事 —— **我们查了三家官方文档，没有一家写了分离功能**，所以这一卷里根本没立那根轴。"
   }
  ],
  "applications": [
@@ -26770,6 +26933,48 @@
      "quote": "数据引擎自述整合「**Unreal Engine synthetic scenes**, large-scale automated **AAA game collection**, and real-world video augmentation」产出「**Video-Pose-Action-Prompt quadruplets**」",
      "license": "见仓库",
      "note": "和 WHAM 的路子不同：WHAM 训一款真实游戏，它是拿引擎合成 + 大规模游戏采集混着训。"
+    }
+   ]
+  },
+  {
+   "id": "sound-song",
+   "zh": "做一首自己的歌",
+   "en": "Make a song",
+   "domain": "sound",
+   "intro": "给一段风格描述，或者把自己写的词丢进去，出一首带人声的完整歌。和「配乐」不同的是：这里要的是一首能单独听的作品，不是垫在视频底下的音轨。",
+   "inputs": [
+    "一段风格描述",
+    "（可选）自己写的歌词"
+   ],
+   "output": "一首带唱词的完整歌曲",
+   "skills": [
+    "s-m-song-skill",
+    "s-m-instrumental-skill"
+   ],
+   "aliases": [
+    "歌曲生成",
+    "唱词",
+    "AI 写歌",
+    "music generation"
+   ],
+   "resources": [
+    {
+     "kind": "docs",
+     "name": "Lyria 3（Google，歌词与音频分开返回）",
+     "url": "https://ai.google.dev/gemini-api/docs/music-generation",
+     "src": "gemini-music",
+     "quote": "「the output from Lyria 3 is complex—containing **separate steps and blocks for generated lyrics (text) and the song itself (audio)**」",
+     "license": null,
+     "note": "⚠️ 所有音频带 **SynthID 水印**；请求特定艺人嗓音或受版权歌词**会被拒**"
+    },
+    {
+     "kind": "docs",
+     "name": "Eleven Music v2（唯一能改单段的）",
+     "url": "https://elevenlabs.io/docs/models",
+     "src": "elevenlabs-models",
+     "quote": "「**Edit the sound and lyrics of individual sections** or the whole song」",
+     "license": null,
+     "note": "做出来不满意时，别家只能整首重来"
     }
    ]
   }
