@@ -1,8 +1,8 @@
 {
   "url": "https://huggingface.co/api/models?filter=image-to-video&sort=downloads&direction=-1&limit=60",
   "kind": "json",
-  "fetched_at": "2026-08-12",
-  "digest": "3fade88ee002d87b",
+  "fetched_at": "2026-08-15",
+  "digest": "bfba43698acef8c8",
   "items": [
     "Abiray/LTX-2.3-22B-DISTILLED-1.1-GGUF\t",
     "Abiray/LTX2.3-10Eros-1.4-Split-GGUF\t",
@@ -17,7 +17,7 @@
     "Lightricks/LTX-2.3\t",
     "Lightricks/LTX-2.3-22b-IC-LoRA-HDR\t",
     "Lightricks/LTX-2.3-fp8\t",
-    "Lightricks/LTX-2.3-nvfp4\t",
+    "Lightricks/LTX-2.5\t",
     "Lightricks/LTX-Video\t",
     "Lightricks/LTX-Video-ICLoRA-detailer-13b-0.9.8\t",
     "MiniMaxAI/MiniMax-H3\t",
@@ -50,19 +50,19 @@
     "molbal/MiniMax-H3-GGUF\t",
     "nvidia/Cosmos-Predict2-2B-Video2World\t",
     "nvidia/Cosmos3-Super-Image2Video\t",
+    "nvidia/omni-dreams-models\t",
     "realrebelai/SCAIL-2_GGUF\t",
     "robbyant/lingbot-world-fast\t",
-    "robbyant/lingbot-world-v2-14b-causal-fast-diffusers\t",
     "rockerBOO/minimax-h3-nvfp4-convrot\t",
     "rzgar/minimax_h3_fl2va_fp8_e4m3fn\t",
     "stabilityai/stable-video-diffusion-img2vid\t",
     "stabilityai/stable-video-diffusion-img2vid-xt\t",
     "unsloth/LTX-2.3-GGUF\t",
+    "unsloth/MiniMax-H3-GGUF\t",
     "vantagewithai/LTX-2.3-GGUF\t",
     "vantagewithai/LTX2.3-10Eros-1.4-GGUF\t",
     "vantagewithai/LTX2.3-10Eros-GGUF\t",
     "vantagewithai/MiniMax-H3-comfyUI-GGUF\t",
-    "vantagewithai/Sulphur-2-Base-GGUF\t",
-    "zai-org/CogVideoX-5b-I2V\t"
+    "vantagewithai/Sulphur-2-Base-GGUF\t"
   ]
 }
