@@ -1,32 +1,35 @@
 # 引文回查 · 2026-08-15
 
-回查 1145 条：无快照 154 · 无英文锚 632 · 对得上 232 · 找不到 76 · 本页没有·别处有 18 · 快照无正文 33
+回查 1205 条：无英文锚 730 · 快照无正文 35 · 对得上 313 · 找不到 95 · 无快照 13 · 本页没有·别处有 19
 
 > 这份报告回答一件事：**一格引文里的原句，在它署名的那份快照里还在不在。**
 > ⚠️ **失败不等于引文错。** 三种成因要分开：真署错了页 / 这一页的快照是残的（抓回来的是导航不是正文）/ 当初记的就不是逐字原文。**脚本不猜。**
 
-## 失败 ≥3 条的源（15 个）—— 这几个大概率是抓法不对
+## 失败 ≥3 条的源（17 个）—— 这几个大概率是抓法不对
 
 - **hf-text-org**（21 条）：发布 deepseek-V3.2-把算力效率和推理/Agent 表现放到一起、发布 deepseek-V4-换代：Pro 1.6T（激活 49B）与 Flash 两档 MoE、发布 glm-GLM-4.5-这一代的开放权重发布 …
 - **comfy-docs**（8 条）：发布 hidream-HiDream-I1-17B 出图底座，MIT、发布 ernie-image-ERNIE-Image-8B DiT 正式档，apache-2.0、发布 ovis-image-Ovis-Image-7B-7B 专攻图上出字 …
+- **openai-image-docs**（7 条）：gpt-image × i-t2i、gpt-image × i-i2i、gpt-image × i-edit …
 - **hf-lineage**（7 条）：cosyvoice × s-design、cosyvoice × s-long、kokoro × s-clone …
 - **rodin-api-docs**（6 条）：rodin × d-multiview、rodin × d-pbr、rodin × d-edit …
 - **hunyuanworld-gh**（5 条）：hunyuan-world × w-sim、hunyuan-world × w-realtime、模型 hunyuan-world 版本 …
-- **synthesia-docs**（4 条）：synthesia × p-identity、synthesia × p-text、synthesia × p-translate …
 - **seed-blog**（4 条）：模型 seedream 版本、发布 seedream-Seedream 3.0-原生 2K 直出 + 小字排版变准、发布 seedream-Seedream 4.0-出图与改图并进一个模型 …
 - **recraft-blog**（4 条）：模型 recraft 版本、发布 recraft-Recraft V3-长段文字 + 文字位置和大小可指定、发布 recraft-Recraft V4-按设计审美重训的一代 …
 - **heygen-changelog**（4 条）：发布 heygen-v3api、发布 heygen-avatar3、发布 heygen-batch …
+- **veo-doc**（3 条）：veo × flf、veo × charref、veo × extend
 - **decart-site**（3 条）：lucy × rt-endless、模型 lucy 版本、发布 lucy-Lucy2.5-Lucy2.5
 - **hf-hunyuan3d-21**（3 条）：hunyuan3d × d-pbr、hunyuan3d × d-openweights、发布 hy3d-2.1
 - **hf-trellis2**（3 条）：trellis × d-t23d、trellis × d-multiview、trellis × d-edit
+- **minimax-release-notes**（3 条）：发布 hailuo-01-运镜控制、发布 hailuo-02-换代02：1080p、发布 hailuo-2.3-换代2.3：肢体动作与表情
 - **wiki-midjourney**（3 条）：发布 midjourney-V6-这一代起大幅改善提示词跟随、发布 midjourney-V6.1-画质与细节一致性迭代、发布 midjourney-V7-Draft Mode 与 Omni Reference
 - **meshy-changelog**（3 条）：发布 meshy-remesh、发布 meshy-format、发布 meshy-7
 - **elevenlabs-changelog**（3 条）：发布 eleven-v3-ga、发布 eleven-v3-conv、发布 eleven-music-v2
 
 ## 全部
 
-### 本页没有·别处有（18）
+### 本页没有·别处有（19）
 
+- `vidu-up` vidu-q × flf —— 锚「Start end to video」（这句在 vidu-fl、vidu-function-list）
 - `ideogram-edit` ideogram × i-edit —— 锚「Prompt fidelity, crystal-clear type, reliable editing, and production-」（这句在 ideogram-overview）
 - `ideogram-v3-reframe` ideogram × i-outpaint —— 锚「Take a starting image and extend it to match your desired resolution.」（这句在 ideogram-overview）
 - `ideogram-v3-generate` ideogram × i-styleref —— 锚「Using any of the API V3 endpoints, you can use a style_preset」（这句在 ideogram-overview）
@@ -46,13 +49,28 @@
 - `openai-model-tts` 发布 gpttts-2025-12 —— 锚「slugs to point to the 2025-12-15 snapshots」（这句在 openai-changelog）
 - `openai-model-realtime` 发布 gptrt-2025-08 —— 锚「The OpenAI Realtime API is now generally available」（这句在 openai-changelog）
 
-### 找不到（76）
+### 找不到（95）
 
+- `veo-doc` veo × flf —— 锚「Frame-specific generation: Generate a video by specifying the first an」
+- `veo-doc` veo × charref —— 锚「Image-based direction: Use up to three reference images」
+- `veo-doc` veo × extend —— 锚「Video extension: Extend videos that were previously generated using Ve」
 - `decart-site` lucy × rt-endless —— 锚「infinite video, evolving continuously with the world」
+- `g-video` gemini-omni × flf —— 锚「Use Veo 3.1 for specific capabilities like last-frame control」
+- `gemini-image-docs` gemini-image × i-textrender —— 锚「Advanced text rendering: Capable of generating legible, stylized text 」
+- `openai-image-docs` gpt-image × i-t2i —— 锚「Generations - Generate images from scratch based on a text prompt」
+- `openai-image-docs` gpt-image × i-i2i —— 锚「Edits - Modify existing images using a new prompt, either partially or」
+- `openai-image-docs` gpt-image × i-edit —— 锚「Edits - Modify existing images using a new prompt」
+- `openai-image-docs` gpt-image × i-multiturn —— 锚「Multi-turn editing - Iteratively make high fidelity edits to images wi」
+- `openai-image-docs` gpt-image × i-inpaint —— 锚「Mask-based editing - Edit parts of images using mask overlays」
+- `openai-image-docs` gpt-image × i-multiref —— 锚「Image references - Create new images using other images as reference m」
+- `openai-image-docs` gpt-image × i-fidelity —— 锚「Input image fidelity - Control how strongly a model preserves details 」
+- `recraft-docs` recraft × i-t2i —— 锚「V4.1 is the latest generation」
 - `recraft-nl-edit` recraft × i-edit —— 锚「Recraft Studio supports targeted image editing using integrated extern」
 - `recraft-endpoints` recraft × i-outpaint —— 锚「The area to be generated can be specified either by per-side pixel mar」
 - `bfl-flux2-multiref` flux × i-styleref —— 锚「Apply the colors, patterns, and surface tones of the animal in Image 2」
 - `bfl-flux2-overview` flux × i-textrender —— 锚「Specialized for typography. Best for text rendering and preserving sma」
+- `hunyuan-image-card` hunyuan-image × i-i2i —— 锚「instruction reasoning and image-to-image generation including editing 」
+- `hunyuan-image-card` hunyuan-image × i-edit —— 锚「image-to-image generation including editing」
 - `anthropic-features` claude × t-search —— 锚「Augment Claude's comprehensive knowledge with current, real-world data」
 - `elevenlabs-docs` elevenlabs × s-design —— 锚「a guide on how to craft voices」
 - `elevenlabs-docs` elevenlabs × s-long —— 锚「a guide on how to create long-form content」
@@ -70,9 +88,6 @@
 - `rodin-api-docs` rodin × d-format —— 锚「Possible values are glb, usdz, fbx, obj, and stl. Default is glb」
 - `stability-spar3d` spar3d × d-edit —— 锚「Unprecedented Control: Allows users to directly edit the point cloud b」
 - `heygen-docs` heygen × p-video —— 锚「from footage, images, or a text description」
-- `synthesia-docs` synthesia × p-identity —— 锚「List of stock avatars」
-- `synthesia-docs` synthesia × p-text —— 锚「an array of objects that each describe a clip of a multi-clip video」
-- `synthesia-docs` synthesia × p-translate —— 锚「Dub your videos via Synthesia API」
 - `hf-hallo2` hallo2 × p-emotion —— 锚「pose_weight --face_weight --lip_weight --face_expand_ratio」
 - `nvidia-groot-gh` groot × e-openweights —— 锚「This model is released under the NVIDIA Open Model License Agreement」
 - `nvidia-groot-gh` groot × e-finetune —— 锚「Developers and researchers can post-train GR00T N1.7 with real or synt」
@@ -82,8 +97,13 @@
 - `gemini-models` 模型 gemini-image 版本 —— 锚「our latest state-of-the-art image model.」
 - `recraft-blog` 模型 recraft 版本 —— 锚「Give V4.1 just a few words, and it'll give you something worth keeping」
 - `pixverse-v6` 模型 pixverse 版本 —— 锚「Pro Lens Power, Endless Creation」
-- `synthesia-docs` 模型 synthesia 版本 —— 锚「Dub your videos via Synthesia API」
 - `hunyuanworld-gh` 模型 hunyuan-world 版本 —— 锚「April 16, 2026: We release HY-World-2.0, state-of-the-art 3D world mod」
+- `sci-af3-blog` 模型 alphafold 版本 —— 锚「AlphaFold 3 predicts the structure and interactions of all of life's m」
+- `sci-wn-gh` 模型 weathernext 版本 —— 锚「the global, medium-range atmospheric and cyclone forecasting model dev」
+- `minimax-release-notes` 发布 hailuo-01-运镜控制 —— 锚「Released a video generation model with enhanced camera control, offeri」
+- `minimax-release-notes` 发布 hailuo-02-换代02：1080p —— 锚「Released MiniMax Hailuo 02, a next-generation video generation model w」
+- `minimax-release-notes` 发布 hailuo-2.3-换代2.3：肢体动作与表情 —— 锚「Fast, featuring breakthroughs in body movement, facial expressions, ph」
+- `rw-changelog` 发布 aleph2 —— 锚「Edit Studio Get the video you need from the video you already hav Alep」
 - `vidu-changelog` 发布 vidu-q-Q1-参考生视频 —— 锚「Reference video generation launched, supporting viduq1, vidu2.0, vidu1」
 - `decart-site` 发布 lucy-Lucy2.5-Lucy2.5 —— 锚「LUCY 2.5 IS LIVE Decart」
 - `azure-foundry-blog` 发布 gpt-image-gpt-image-1-API 首次开放出图 —— 锚「the launch of GPT-image-1, the latest and most advanced image generati」
@@ -122,11 +142,15 @@
 - `elevenlabs-changelog` 发布 eleven-music-v2 —— 锚「Music v2 introduces chunk-based composition plans built from Generatio」
 - `openvla-gh` 发布 openvla-7b —— 锚「trained on 970K robot manipulation episodes from the Open X-Embodiment」
 - `pi-openpi-gh` 发布 pi0-fast —— 锚「FAST model for fine-tuning」
+- `molmoact-card` 发布 molmoact-2 —— 锚「builds on Molmo2-ER, an embodied-reasoning VLM backbone, and connects 」
 - `hunyuanworld-gh` 发布 hyworld-15 —— 锚「December 18, 2025: We release HunyuanWorld-1.5」
 - `hunyuanworld-gh` 发布 hyworld-2 —— 锚「April 16, 2026: We release HY-World-2.0, state-of-the-art 3D world mod」
+- `sci-wn-gh` 发布 wn-gen —— 锚「WeatherNext Gen: Diffusion-based ensemble forecasting for medium-range」
 
-### 快照无正文（33）
+### 快照无正文（35）
 
+- `kling-api` kling × camera —— 锚「motion brush, camera control」
+- `mm-hf-api` hailuo × openweights —— 锚「plan to open up the model weights in the coming days」
 - `llama-card` llama × t-long —— 锚「Maximum Context Length: 10M tokens」
 - `hf-lineage` cosyvoice × s-design —— 锚「Instruct Support: Supports various instructions such as languages, dia」
 - `hf-lineage` cosyvoice × s-long —— 锚「Bi-Streaming: Support both text-in streaming and audio-out streaming, 」
@@ -161,159 +185,18 @@
 - `hf-lineage` 发布 trellis-text —— 锚「takes in text or image prompts」
 - `hf-robotics` 发布 cosmos-reason2 —— 锚「replacing the Eagle backbone used in N1.6」
 
-### 无快照（154）
+### 无快照（13）
 
-- `kling-api` kling × t2v
-- `kling-api` kling × i2v
-- `kling-api` kling × flf
-- `kling-api` kling × charref
-- `kling-api` kling × multiref
-- `kling-api` kling × motion
-- `kling-api` kling × camera
-- `kling-api` kling × audio
-- `kling-api` kling × lipsync
-- `kling-api` kling × extend
-- `seed-25` seedance × t2v
-- `seed-25` seedance × i2v
-- `seed-25` seedance × flf
-- `seed-25` seedance × charref
-- `seed-25` seedance × multiref
-- `seed-25` seedance × motion
-- `seed-25` seedance × camera
-- `seed-25` seedance × audio
-- `seed-25` seedance × lipsync
-- `seed-25` seedance × extend
-- `veo-doc` veo × t2v
-- `veo-doc` veo × i2v
-- `veo-doc` veo × flf
-- `veo-doc` veo × charref
-- `veo-doc` veo × multiref
-- `veo-doc` veo × motion
-- `veo-doc` veo × camera
-- `veo-doc` veo × audio
-- `veo-doc` veo × lipsync
-- `veo-doc` veo × extend
 - `sora-eol-search` sora × t2v
-- `sora-api` sora × i2v
 - `sora-2` sora × charref
 - `sora-2` sora × audio
-- `wan-site` wan × i2v
-- `wan-site` wan × flf
-- `wan-site` wan × charref
-- `wan-site` wan × multiref
-- `wan-site` wan × motion
-- `wan-site` wan × camera
-- `wan-site` wan × audio
-- `wan-site` wan × lipsync
-- `wan-site` wan × extend
-- `mm-hf-api` hailuo × t2v
-- `mm-hf-api` hailuo × i2v
-- `mm-hf-api` hailuo × openweights
-- `vidu-fl` vidu-q × t2v
-- `vidu-fl` vidu-q × i2v
-- `vidu-up` vidu-q × flf
-- `vidu-fl` vidu-q × charref
-- `vidu-fl` vidu-q × multiref
-- `vidu-fl` vidu-q × motion
-- `vidu-fl` vidu-q × camera
-- `vidu-mm` vidu-q × audio
-- `vidu-fl` vidu-q × lipsync
-- `vidu-fl` vidu-q × extend
-- `rw-changelog` runway × t2v
-- `rw-changelog` runway × i2v
-- `rw-changelog` runway × flf
-- `rw-changelog` runway × charref
-- `rw-changelog` runway × multiref
-- `rw-changelog` runway × motion
-- `rw-changelog` runway × camera
-- `rw-changelog` runway × audio
-- `rw-changelog` runway × lipsync
-- `rw-changelog` runway × extend
-- `vidu-s1-paper` vidu-s × rt-fps
-- `vidu-s1-paper` vidu-s × rt-interact
-- `vidu-s1-paper` vidu-s × rt-endless
-- `omni-doc` gemini-omni × t2v
-- `omni-doc` gemini-omni × i2v
-- `g-video` gemini-omni × flf
-- `omni-doc` gemini-omni × charref
-- `omni-doc` gemini-omni × multiref
-- `omni-doc` gemini-omni × motion
-- `omni-doc` gemini-omni × camera
-- `omni-doc` gemini-omni × audio
-- `omni-doc` gemini-omni × lipsync
-- `g-video` gemini-omni × extend
-- `ltx-hf-23` ltx × t2v
-- `ltx-hf-23` ltx × i2v
-- `ltx-hf-23` ltx × openweights
-- `aa-board` happyhorse × t2v
-- `aa-board` skyreels × t2v
-- `gemini-image-docs` gemini-image × i-t2i
-- `gemini-image-docs` gemini-image × i-i2i
-- `gemini-image-docs` gemini-image × i-edit
-- `gemini-image-docs` gemini-image × i-multiturn
-- `gemini-image-docs` gemini-image × i-inpaint
-- `gemini-image-docs` gemini-image × i-multiref
-- `gemini-image-docs` gemini-image × i-styleref
-- `gemini-image-docs` gemini-image × i-fidelity
-- `gemini-image-docs` gemini-image × i-textrender
-- `gemini-image-docs` gemini-image × i-4k
-- `gemini-image-docs` gemini-image × i-openweights
-- `openai-image-docs` gpt-image × i-t2i
-- `openai-image-docs` gpt-image × i-i2i
-- `openai-image-docs` gpt-image × i-edit
-- `openai-image-docs` gpt-image × i-multiturn
-- `openai-image-docs` gpt-image × i-inpaint
-- `openai-image-docs` gpt-image × i-multiref
-- `openai-image-docs` gpt-image × i-fidelity
-- `openai-image-docs` gpt-image × i-textrender
-- `openai-image-docs` gpt-image × i-4k
-- `openai-image-docs` gpt-image × i-openweights
-- `recraft-docs` recraft × i-t2i
-- `recraft-docs` recraft × i-styleref
-- `recraft-docs` recraft × i-textrender
-- `recraft-docs` recraft × i-openweights
-- `bfl-docs` flux × i-t2i
-- `bfl-docs` flux × i-i2i
-- `bfl-docs` flux × i-edit
-- `bfl-docs` flux × i-inpaint
-- `bfl-docs` flux × i-outpaint
-- `bfl-docs` flux × i-multiref
-- `zimage-card` z-image × i-t2i
-- `zimage-card` z-image × i-textrender
-- `hunyuan-image-card` hunyuan-image × i-t2i
-- `hunyuan-image-card` hunyuan-image × i-i2i
-- `hunyuan-image-card` hunyuan-image × i-edit
-- `hunyuan-image-card` hunyuan-image × i-multiref
 - `seed3d-page` seed3d × d-splat
-- `smolvla-card` smolvla × e-openweights
-- `smolvla-card` smolvla × e-finetune
-- `smolvla-card` smolvla × e-dataformat
-- `molmoact-card` molmoact × e-openweights
-- `molmoact-card` molmoact × e-embodiment
-- `molmoact-card` molmoact × e-zeroshot
-- `molmoact-card` molmoact × e-finetune
-- `minimax-release-notes` 模型 hailuo 版本
 - `wan3-qbitai` 模型 wan 版本
-- `rw-changelog` 模型 runway 版本
-- `vidu-s1-paper` 模型 vidu-s 版本
 - `modelscope-orgs` 模型 internvla 版本
 - `modelscope-orgs` 模型 hy-embodied 版本
 - `modelscope-orgs` 模型 g0-vla 版本
 - `modelscope-orgs` 模型 lingbot-vla 版本
-- `minimax-release-notes` 发布 hailuo-01-运镜控制
-- `minimax-release-notes` 发布 hailuo-02-换代02：1080p
-- `minimax-release-notes` 发布 hailuo-2.3-换代2.3：肢体动作与表情
-- `minimax-release-notes` 发布 hailuo-H3-换代H3：开放权重的通用多模态
-- `rw-changelog` 发布 gen4.5
-- `rw-changelog` 发布 gen4.5-i2v
-- `rw-changelog` 发布 aleph2
-- `seed-blog-1_5` 发布 seedance-1.5-音视频联合生成
-- `seed-blog-2_0` 发布 seedance-2.0-换代2.0：四种输入模态
-- `vidu-s1-paper` 发布 vidu-s-S1-S1
-- `ideogram-x` 发布 ideogram-3.0-画布编辑（Magic Fill / Extend）
 - `seed3d-page` 发布 seed3d-1.0
-- `molmoact-card` 发布 molmoact-2
-- `smolvla-card` 发布 smolvla-base
 - `modelscope-orgs` 发布 internvla-n1
 - `modelscope-orgs` 发布 internvla-a15
 - `modelscope-orgs` 发布 hy-embodied-05

@@ -5740,6 +5740,454 @@
     "381,000 novel stable materials"
    ],
    "note": "⚠️ **它放的是数据集与凸包，不是模型权重** —— 和这一轨别家不是一类东西。"
+  },
+  {
+   "id": "kling-api",
+   "tier": "A",
+   "kind": "html",
+   "vendor": "",
+   "name": "Kling AI · API 更新日志（171 条，需 JS 渲染）",
+   "url": "https://kling.ai/document-api/updates/api",
+   "refresh_days": 14,
+   "good_for": [
+    "capability",
+    "version"
+   ],
+   "note": "🔧 **2026-08-15 补登记。** 它被 10 处引用当证据，**却一直不在监视清单里** —— 也就是说这一年里它变了也没人会发现，「这个站会自己发现自己错了」在它身上是假的。是 `requote.mjs` 的「无快照」那一摞照出来的（162 条里绝大多数都出自这类源）。⚠️ 补登记只解决「以后会盯着」，**不代表已有引文核过了** —— 那要等首轮快照落地后由 requote 回查。"
+  },
+  {
+   "id": "seed-25",
+   "tier": "A",
+   "kind": "html",
+   "vendor": "",
+   "name": "ByteDance Seed 官方博客 · Seedance 2.5（2026-07-31）",
+   "url": "https://seed.bytedance.com/en/blog/one-take-creation-flexible-referencing-introducing-seedance-2-5",
+   "refresh_days": 14,
+   "good_for": [
+    "capability",
+    "version"
+   ],
+   "note": "🔧 **2026-08-15 补登记。** 它被 10 处引用当证据，**却一直不在监视清单里** —— 也就是说这一年里它变了也没人会发现，「这个站会自己发现自己错了」在它身上是假的。是 `requote.mjs` 的「无快照」那一摞照出来的（162 条里绝大多数都出自这类源）。⚠️ 补登记只解决「以后会盯着」，**不代表已有引文核过了** —— 那要等首轮快照落地后由 requote 回查。"
+  },
+  {
+   "id": "veo-doc",
+   "tier": "A",
+   "kind": "html",
+   "vendor": "",
+   "name": "Google · Veo 3.1 官方文档",
+   "url": "https://ai.google.dev/gemini-api/docs/veo",
+   "refresh_days": 14,
+   "good_for": [
+    "capability",
+    "version"
+   ],
+   "note": "🔧 **2026-08-15 补登记。** 它被 10 处引用当证据，**却一直不在监视清单里** —— 也就是说这一年里它变了也没人会发现，「这个站会自己发现自己错了」在它身上是假的。是 `requote.mjs` 的「无快照」那一摞照出来的（162 条里绝大多数都出自这类源）。⚠️ 补登记只解决「以后会盯着」，**不代表已有引文核过了** —— 那要等首轮快照落地后由 requote 回查。"
+  },
+  {
+   "id": "sora-eol-search",
+   "tier": "B",
+   "kind": "html",
+   "vendor": "",
+   "name": "OpenAI Sora 停服说明（⚠️ 页面反爬，我们抓不到，内容来自搜索摘要转述）",
+   "url": "https://help.openai.com/en/articles/20001152-what-to-know-about-the-sora-discontinuation",
+   "refresh_days": 14,
+   "good_for": [
+    "capability",
+    "version"
+   ],
+   "note": "🔧 **2026-08-15 补登记。** 它被 1 处引用当证据，**却一直不在监视清单里** —— 也就是说这一年里它变了也没人会发现，「这个站会自己发现自己错了」在它身上是假的。是 `requote.mjs` 的「无快照」那一摞照出来的（162 条里绝大多数都出自这类源）。⚠️ 补登记只解决「以后会盯着」，**不代表已有引文核过了** —— 那要等首轮快照落地后由 requote 回查。"
+  },
+  {
+   "id": "sora-api",
+   "tier": "A",
+   "kind": "html",
+   "vendor": "",
+   "name": "OpenAI API · sora-2 模型页（⚠️ 同上，403）",
+   "url": "https://developers.openai.com/api/docs/models/sora-2",
+   "refresh_days": 14,
+   "good_for": [
+    "capability",
+    "version"
+   ],
+   "note": "🔧 **2026-08-15 补登记。** 它被 1 处引用当证据，**却一直不在监视清单里** —— 也就是说这一年里它变了也没人会发现，「这个站会自己发现自己错了」在它身上是假的。是 `requote.mjs` 的「无快照」那一摞照出来的（162 条里绝大多数都出自这类源）。⚠️ 补登记只解决「以后会盯着」，**不代表已有引文核过了** —— 那要等首轮快照落地后由 requote 回查。"
+  },
+  {
+   "id": "sora-2",
+   "tier": "A",
+   "kind": "html",
+   "vendor": "",
+   "name": "OpenAI · Sora 2 发布页（⚠️ 对我们的采集器返回 403，本轮未能一手复核）",
+   "url": "https://openai.com/index/sora-2/",
+   "refresh_days": 14,
+   "good_for": [
+    "capability",
+    "version"
+   ],
+   "note": "🔧 **2026-08-15 补登记。** 它被 2 处引用当证据，**却一直不在监视清单里** —— 也就是说这一年里它变了也没人会发现，「这个站会自己发现自己错了」在它身上是假的。是 `requote.mjs` 的「无快照」那一摞照出来的（162 条里绝大多数都出自这类源）。⚠️ 补登记只解决「以后会盯着」，**不代表已有引文核过了** —— 那要等首轮快照落地后由 requote 回查。"
+  },
+  {
+   "id": "wan-site",
+   "tier": "A",
+   "kind": "html",
+   "vendor": "",
+   "name": "通义万相官网（首屏，仅营销描述）",
+   "url": "https://wan.video/",
+   "refresh_days": 14,
+   "good_for": [
+    "capability",
+    "version"
+   ],
+   "note": "🔧 **2026-08-15 补登记。** 它被 9 处引用当证据，**却一直不在监视清单里** —— 也就是说这一年里它变了也没人会发现，「这个站会自己发现自己错了」在它身上是假的。是 `requote.mjs` 的「无快照」那一摞照出来的（162 条里绝大多数都出自这类源）。⚠️ 补登记只解决「以后会盯着」，**不代表已有引文核过了** —— 那要等首轮快照落地后由 requote 回查。"
+  },
+  {
+   "id": "mm-hf-api",
+   "tier": "A",
+   "kind": "json",
+   "vendor": "",
+   "name": "HF API · MiniMaxAI/MiniMax-H3 元数据（许可与文件清单）",
+   "url": "https://huggingface.co/api/models/MiniMaxAI/MiniMax-H3",
+   "refresh_days": 14,
+   "good_for": [
+    "capability",
+    "version"
+   ],
+   "note": "🔧 **2026-08-15 补登记。** 它被 3 处引用当证据，**却一直不在监视清单里** —— 也就是说这一年里它变了也没人会发现，「这个站会自己发现自己错了」在它身上是假的。是 `requote.mjs` 的「无快照」那一摞照出来的（162 条里绝大多数都出自这类源）。⚠️ 补登记只解决「以后会盯着」，**不代表已有引文核过了** —— 那要等首轮快照落地后由 requote 回查。"
+  },
+  {
+   "id": "vidu-fl",
+   "tier": "A",
+   "kind": "html",
+   "vendor": "",
+   "name": "Vidu 平台 · Function List（官方功能清单）",
+   "url": "https://platform.vidu.com/docs/function-list",
+   "refresh_days": 14,
+   "good_for": [
+    "capability",
+    "version"
+   ],
+   "note": "🔧 **2026-08-15 补登记。** 它被 8 处引用当证据，**却一直不在监视清单里** —— 也就是说这一年里它变了也没人会发现，「这个站会自己发现自己错了」在它身上是假的。是 `requote.mjs` 的「无快照」那一摞照出来的（162 条里绝大多数都出自这类源）。⚠️ 补登记只解决「以后会盯着」，**不代表已有引文核过了** —— 那要等首轮快照落地后由 requote 回查。"
+  },
+  {
+   "id": "vidu-up",
+   "tier": "A",
+   "kind": "html",
+   "vendor": "",
+   "name": "Vidu 平台 · Update Notice（官方更新日志）",
+   "url": "https://platform.vidu.com/docs/update",
+   "refresh_days": 14,
+   "good_for": [
+    "capability",
+    "version"
+   ],
+   "note": "🔧 **2026-08-15 补登记。** 它被 1 处引用当证据，**却一直不在监视清单里** —— 也就是说这一年里它变了也没人会发现，「这个站会自己发现自己错了」在它身上是假的。是 `requote.mjs` 的「无快照」那一摞照出来的（162 条里绝大多数都出自这类源）。⚠️ 补登记只解决「以后会盯着」，**不代表已有引文核过了** —— 那要等首轮快照落地后由 requote 回查。"
+  },
+  {
+   "id": "vidu-mm",
+   "tier": "A",
+   "kind": "html",
+   "vendor": "",
+   "name": "Vidu 平台 · Model Map（官方模型清单）",
+   "url": "https://platform.vidu.com/docs/model-map",
+   "refresh_days": 14,
+   "good_for": [
+    "capability",
+    "version"
+   ],
+   "note": "🔧 **2026-08-15 补登记。** 它被 1 处引用当证据，**却一直不在监视清单里** —— 也就是说这一年里它变了也没人会发现，「这个站会自己发现自己错了」在它身上是假的。是 `requote.mjs` 的「无快照」那一摞照出来的（162 条里绝大多数都出自这类源）。⚠️ 补登记只解决「以后会盯着」，**不代表已有引文核过了** —— 那要等首轮快照落地后由 requote 回查。"
+  },
+  {
+   "id": "rw-changelog",
+   "tier": "A",
+   "kind": "html",
+   "vendor": "",
+   "name": "Runway · 官方 Changelog",
+   "url": "https://runway.com/changelog",
+   "refresh_days": 14,
+   "good_for": [
+    "capability",
+    "version"
+   ],
+   "note": "🔧 **2026-08-15 补登记。** 它被 14 处引用当证据，**却一直不在监视清单里** —— 也就是说这一年里它变了也没人会发现，「这个站会自己发现自己错了」在它身上是假的。是 `requote.mjs` 的「无快照」那一摞照出来的（162 条里绝大多数都出自这类源）。⚠️ 补登记只解决「以后会盯着」，**不代表已有引文核过了** —— 那要等首轮快照落地后由 requote 回查。"
+  },
+  {
+   "id": "vidu-s1-paper",
+   "tier": "A",
+   "kind": "html",
+   "vendor": "",
+   "name": "Vidu S1 论文（作者：生数）",
+   "url": "https://arxiv.org/abs/2607.03118",
+   "refresh_days": 90,
+   "good_for": [
+    "capability",
+    "version"
+   ],
+   "note": "🔧 **2026-08-15 补登记。** 它被 5 处引用当证据，**却一直不在监视清单里** —— 也就是说这一年里它变了也没人会发现，「这个站会自己发现自己错了」在它身上是假的。是 `requote.mjs` 的「无快照」那一摞照出来的（162 条里绝大多数都出自这类源）。⚠️ 补登记只解决「以后会盯着」，**不代表已有引文核过了** —— 那要等首轮快照落地后由 requote 回查。 ⚠️ 论文页基本不会变，`refresh_days` 放到 90。"
+  },
+  {
+   "id": "omni-doc",
+   "tier": "A",
+   "kind": "html",
+   "vendor": "",
+   "name": "Google · Gemini Omni Flash 官方文档",
+   "url": "https://ai.google.dev/gemini-api/docs/omni",
+   "refresh_days": 14,
+   "good_for": [
+    "capability",
+    "version"
+   ],
+   "note": "🔧 **2026-08-15 补登记。** 它被 8 处引用当证据，**却一直不在监视清单里** —— 也就是说这一年里它变了也没人会发现，「这个站会自己发现自己错了」在它身上是假的。是 `requote.mjs` 的「无快照」那一摞照出来的（162 条里绝大多数都出自这类源）。⚠️ 补登记只解决「以后会盯着」，**不代表已有引文核过了** —— 那要等首轮快照落地后由 requote 回查。"
+  },
+  {
+   "id": "g-video",
+   "tier": "A",
+   "kind": "html",
+   "vendor": "",
+   "name": "Google · 视频生成总览（两个模型如何取舍）",
+   "url": "https://ai.google.dev/gemini-api/docs/video",
+   "refresh_days": 14,
+   "good_for": [
+    "capability",
+    "version"
+   ],
+   "note": "🔧 **2026-08-15 补登记。** 它被 2 处引用当证据，**却一直不在监视清单里** —— 也就是说这一年里它变了也没人会发现，「这个站会自己发现自己错了」在它身上是假的。是 `requote.mjs` 的「无快照」那一摞照出来的（162 条里绝大多数都出自这类源）。⚠️ 补登记只解决「以后会盯着」，**不代表已有引文核过了** —— 那要等首轮快照落地后由 requote 回查。"
+  },
+  {
+   "id": "ltx-hf-23",
+   "tier": "A",
+   "kind": "html",
+   "vendor": "",
+   "name": "Hugging Face · Lightricks/LTX-2.3（当前主力）",
+   "url": "https://huggingface.co/Lightricks/LTX-2.3",
+   "refresh_days": 14,
+   "good_for": [
+    "capability",
+    "version"
+   ],
+   "note": "🔧 **2026-08-15 补登记。** 它被 3 处引用当证据，**却一直不在监视清单里** —— 也就是说这一年里它变了也没人会发现，「这个站会自己发现自己错了」在它身上是假的。是 `requote.mjs` 的「无快照」那一摞照出来的（162 条里绝大多数都出自这类源）。⚠️ 补登记只解决「以后会盯着」，**不代表已有引文核过了** —— 那要等首轮快照落地后由 requote 回查。"
+  },
+  {
+   "id": "aa-board",
+   "tier": "B",
+   "kind": "html",
+   "vendor": "",
+   "name": "Artificial Analysis 榜（只证明「存在且有人用」，不证明能力）",
+   "url": "https://artificialanalysis.ai/video/leaderboard/text-to-video",
+   "refresh_days": 14,
+   "good_for": [
+    "capability",
+    "version"
+   ],
+   "note": "🔧 **2026-08-15 补登记。** 它被 2 处引用当证据，**却一直不在监视清单里** —— 也就是说这一年里它变了也没人会发现，「这个站会自己发现自己错了」在它身上是假的。是 `requote.mjs` 的「无快照」那一摞照出来的（162 条里绝大多数都出自这类源）。⚠️ 补登记只解决「以后会盯着」，**不代表已有引文核过了** —— 那要等首轮快照落地后由 requote 回查。"
+  },
+  {
+   "id": "gemini-image-docs",
+   "tier": "A",
+   "kind": "html",
+   "vendor": "",
+   "name": "Google · Gemini API 图像生成官方文档",
+   "url": "https://ai.google.dev/gemini-api/docs/image-generation",
+   "refresh_days": 14,
+   "good_for": [
+    "capability",
+    "version"
+   ],
+   "note": "🔧 **2026-08-15 补登记。** 它被 11 处引用当证据，**却一直不在监视清单里** —— 也就是说这一年里它变了也没人会发现，「这个站会自己发现自己错了」在它身上是假的。是 `requote.mjs` 的「无快照」那一摞照出来的（162 条里绝大多数都出自这类源）。⚠️ 补登记只解决「以后会盯着」，**不代表已有引文核过了** —— 那要等首轮快照落地后由 requote 回查。"
+  },
+  {
+   "id": "openai-image-docs",
+   "tier": "A",
+   "kind": "html",
+   "vendor": "",
+   "name": "OpenAI · Image generation 官方指南",
+   "url": "https://developers.openai.com/api/docs/guides/image-generation",
+   "refresh_days": 14,
+   "good_for": [
+    "capability",
+    "version"
+   ],
+   "note": "🔧 **2026-08-15 补登记。** 它被 10 处引用当证据，**却一直不在监视清单里** —— 也就是说这一年里它变了也没人会发现，「这个站会自己发现自己错了」在它身上是假的。是 `requote.mjs` 的「无快照」那一摞照出来的（162 条里绝大多数都出自这类源）。⚠️ 补登记只解决「以后会盯着」，**不代表已有引文核过了** —— 那要等首轮快照落地后由 requote 回查。"
+  },
+  {
+   "id": "recraft-docs",
+   "tier": "A",
+   "kind": "html",
+   "vendor": "",
+   "name": "Recraft · 官方文档",
+   "url": "https://www.recraft.ai/docs",
+   "refresh_days": 14,
+   "good_for": [
+    "capability",
+    "version"
+   ],
+   "note": "🔧 **2026-08-15 补登记。** 它被 4 处引用当证据，**却一直不在监视清单里** —— 也就是说这一年里它变了也没人会发现，「这个站会自己发现自己错了」在它身上是假的。是 `requote.mjs` 的「无快照」那一摞照出来的（162 条里绝大多数都出自这类源）。⚠️ 补登记只解决「以后会盯着」，**不代表已有引文核过了** —— 那要等首轮快照落地后由 requote 回查。"
+  },
+  {
+   "id": "bfl-docs",
+   "tier": "A",
+   "kind": "html",
+   "vendor": "",
+   "name": "Black Forest Labs · 官方文档索引",
+   "url": "https://docs.bfl.ai/llms.txt",
+   "refresh_days": 14,
+   "good_for": [
+    "capability",
+    "version"
+   ],
+   "note": "🔧 **2026-08-15 补登记。** 它被 6 处引用当证据，**却一直不在监视清单里** —— 也就是说这一年里它变了也没人会发现，「这个站会自己发现自己错了」在它身上是假的。是 `requote.mjs` 的「无快照」那一摞照出来的（162 条里绝大多数都出自这类源）。⚠️ 补登记只解决「以后会盯着」，**不代表已有引文核过了** —— 那要等首轮快照落地后由 requote 回查。"
+  },
+  {
+   "id": "zimage-card",
+   "tier": "A",
+   "kind": "html",
+   "vendor": "",
+   "name": "Z-Image 官方模型卡（Hugging Face）",
+   "url": "https://huggingface.co/Tongyi-MAI/Z-Image-Turbo",
+   "refresh_days": 14,
+   "good_for": [
+    "capability",
+    "version"
+   ],
+   "note": "🔧 **2026-08-15 补登记。** 它被 2 处引用当证据，**却一直不在监视清单里** —— 也就是说这一年里它变了也没人会发现，「这个站会自己发现自己错了」在它身上是假的。是 `requote.mjs` 的「无快照」那一摞照出来的（162 条里绝大多数都出自这类源）。⚠️ 补登记只解决「以后会盯着」，**不代表已有引文核过了** —— 那要等首轮快照落地后由 requote 回查。"
+  },
+  {
+   "id": "hunyuan-image-card",
+   "tier": "A",
+   "kind": "html",
+   "vendor": "",
+   "name": "HunyuanImage-3.0 官方模型卡（Hugging Face）",
+   "url": "https://huggingface.co/tencent/HunyuanImage-3.0-Instruct",
+   "refresh_days": 14,
+   "good_for": [
+    "capability",
+    "version"
+   ],
+   "note": "🔧 **2026-08-15 补登记。** 它被 4 处引用当证据，**却一直不在监视清单里** —— 也就是说这一年里它变了也没人会发现，「这个站会自己发现自己错了」在它身上是假的。是 `requote.mjs` 的「无快照」那一摞照出来的（162 条里绝大多数都出自这类源）。⚠️ 补登记只解决「以后会盯着」，**不代表已有引文核过了** —— 那要等首轮快照落地后由 requote 回查。"
+  },
+  {
+   "id": "smolvla-card",
+   "tier": "A",
+   "kind": "html",
+   "vendor": "",
+   "name": "Hugging Face 官方 · SmolVLA 模型卡",
+   "url": "https://huggingface.co/lerobot/smolvla_base",
+   "refresh_days": 14,
+   "good_for": [
+    "capability",
+    "version"
+   ],
+   "note": "🔧 **2026-08-15 补登记。** 它被 4 处引用当证据，**却一直不在监视清单里** —— 也就是说这一年里它变了也没人会发现，「这个站会自己发现自己错了」在它身上是假的。是 `requote.mjs` 的「无快照」那一摞照出来的（162 条里绝大多数都出自这类源）。⚠️ 补登记只解决「以后会盯着」，**不代表已有引文核过了** —— 那要等首轮快照落地后由 requote 回查。"
+  },
+  {
+   "id": "molmoact-card",
+   "tier": "A",
+   "kind": "html",
+   "vendor": "",
+   "name": "Ai2 官方 · MolmoAct2 模型卡",
+   "url": "https://huggingface.co/allenai/MolmoAct2",
+   "refresh_days": 14,
+   "good_for": [
+    "capability",
+    "version"
+   ],
+   "note": "🔧 **2026-08-15 补登记。** 它被 5 处引用当证据，**却一直不在监视清单里** —— 也就是说这一年里它变了也没人会发现，「这个站会自己发现自己错了」在它身上是假的。是 `requote.mjs` 的「无快照」那一摞照出来的（162 条里绝大多数都出自这类源）。⚠️ 补登记只解决「以后会盯着」，**不代表已有引文核过了** —— 那要等首轮快照落地后由 requote 回查。"
+  },
+  {
+   "id": "hf-whisper",
+   "tier": "A",
+   "kind": "html",
+   "vendor": "",
+   "name": "OpenAI 官方 · Whisper large-v3 模型卡",
+   "url": "https://huggingface.co/openai/whisper-large-v3",
+   "refresh_days": 14,
+   "good_for": [
+    "capability",
+    "version"
+   ],
+   "note": "🔧 **2026-08-15 补登记。** 它被 4 处引用当证据，**却一直不在监视清单里** —— 也就是说这一年里它变了也没人会发现，「这个站会自己发现自己错了」在它身上是假的。是 `requote.mjs` 的「无快照」那一摞照出来的（162 条里绝大多数都出自这类源）。⚠️ 补登记只解决「以后会盯着」，**不代表已有引文核过了** —— 那要等首轮快照落地后由 requote 回查。"
+  },
+  {
+   "id": "hf-sensevoice",
+   "tier": "A",
+   "kind": "html",
+   "vendor": "",
+   "name": "阿里 FunAudioLLM 官方 · SenseVoiceSmall 模型卡",
+   "url": "https://huggingface.co/FunAudioLLM/SenseVoiceSmall",
+   "refresh_days": 14,
+   "good_for": [
+    "capability",
+    "version"
+   ],
+   "note": "🔧 **2026-08-15 补登记。** 它被 2 处引用当证据，**却一直不在监视清单里** —— 也就是说这一年里它变了也没人会发现，「这个站会自己发现自己错了」在它身上是假的。是 `requote.mjs` 的「无快照」那一摞照出来的（162 条里绝大多数都出自这类源）。⚠️ 补登记只解决「以后会盯着」，**不代表已有引文核过了** —— 那要等首轮快照落地后由 requote 回查。"
+  },
+  {
+   "id": "hf-qwen3-asr",
+   "tier": "A",
+   "kind": "html",
+   "vendor": "",
+   "name": "阿里官方 · Qwen3-ASR 模型卡",
+   "url": "https://huggingface.co/Qwen/Qwen3-ASR-1.7B",
+   "refresh_days": 14,
+   "good_for": [
+    "capability",
+    "version"
+   ],
+   "note": "🔧 **2026-08-15 补登记。** 它被 2 处引用当证据，**却一直不在监视清单里** —— 也就是说这一年里它变了也没人会发现，「这个站会自己发现自己错了」在它身上是假的。是 `requote.mjs` 的「无快照」那一摞照出来的（162 条里绝大多数都出自这类源）。⚠️ 补登记只解决「以后会盯着」，**不代表已有引文核过了** —— 那要等首轮快照落地后由 requote 回查。"
+  },
+  {
+   "id": "minimax-release-notes",
+   "tier": "A",
+   "kind": "html",
+   "vendor": "",
+   "name": "MiniMax 开放平台 · 模型发布日志",
+   "url": "https://platform.minimax.io/docs/release-notes/models",
+   "refresh_days": 14,
+   "good_for": [
+    "capability",
+    "version"
+   ],
+   "note": "🔧 **2026-08-15 补登记。** 它被 5 处引用当证据，**却一直不在监视清单里** —— 也就是说这一年里它变了也没人会发现，「这个站会自己发现自己错了」在它身上是假的。是 `requote.mjs` 的「无快照」那一摞照出来的（162 条里绝大多数都出自这类源）。⚠️ 补登记只解决「以后会盯着」，**不代表已有引文核过了** —— 那要等首轮快照落地后由 requote 回查。"
+  },
+  {
+   "id": "seed-blog-1_5",
+   "tier": "A",
+   "kind": "html",
+   "vendor": "",
+   "name": "字节 Seed · Seedance 1.5 pro 发布（2025-12-16）",
+   "url": "https://seed.bytedance.com/en/blog/sound-and-vision-all-in-one-take-the-official-release-of-seedance-1-5-pro",
+   "refresh_days": 14,
+   "good_for": [
+    "capability",
+    "version"
+   ],
+   "note": "🔧 **2026-08-15 补登记。** 它被 1 处引用当证据，**却一直不在监视清单里** —— 也就是说这一年里它变了也没人会发现，「这个站会自己发现自己错了」在它身上是假的。是 `requote.mjs` 的「无快照」那一摞照出来的（162 条里绝大多数都出自这类源）。⚠️ 补登记只解决「以后会盯着」，**不代表已有引文核过了** —— 那要等首轮快照落地后由 requote 回查。"
+  },
+  {
+   "id": "seed-blog-2_0",
+   "tier": "A",
+   "kind": "html",
+   "vendor": "",
+   "name": "字节 Seed · Seedance 2.0 发布（2026-02-12）",
+   "url": "https://seed.bytedance.com/en/blog/official-launch-of-seedance-2-0",
+   "refresh_days": 14,
+   "good_for": [
+    "capability",
+    "version"
+   ],
+   "note": "🔧 **2026-08-15 补登记。** 它被 1 处引用当证据，**却一直不在监视清单里** —— 也就是说这一年里它变了也没人会发现，「这个站会自己发现自己错了」在它身上是假的。是 `requote.mjs` 的「无快照」那一摞照出来的（162 条里绝大多数都出自这类源）。⚠️ 补登记只解决「以后会盯着」，**不代表已有引文核过了** —— 那要等首轮快照落地后由 requote 回查。"
+  },
+  {
+   "id": "ideogram-x",
+   "tier": "A",
+   "kind": "html",
+   "vendor": "",
+   "name": "Ideogram 官方账号发布公告（@ideogram_ai）",
+   "url": "https://x.com/ideogram_ai/status/1917985285679530232",
+   "refresh_days": 14,
+   "good_for": [
+    "capability",
+    "version"
+   ],
+   "note": "🔧 **2026-08-15 补登记。** 它被 1 处引用当证据，**却一直不在监视清单里** —— 也就是说这一年里它变了也没人会发现，「这个站会自己发现自己错了」在它身上是假的。是 `requote.mjs` 的「无快照」那一摞照出来的（162 条里绝大多数都出自这类源）。⚠️ 补登记只解决「以后会盯着」，**不代表已有引文核过了** —— 那要等首轮快照落地后由 requote 回查。"
   }
  ],
  "$missing": [
