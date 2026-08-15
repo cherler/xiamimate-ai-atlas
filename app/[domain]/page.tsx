@@ -5,6 +5,7 @@ import MobileStack from "@/components/MobileStack";
 import Explorer from "@/components/Explorer";
 import TaskPicker from "@/components/TaskPicker";
 import Search from "@/components/Search";
+import { Rich } from "@/components/Fact";
 import { atlas, domainModels, tracksOf } from "@/lib/atlas";
 import { domainOf } from "./dom";
 import Share from "@/components/Share";
@@ -83,6 +84,34 @@ export default async function DomainHome({ params }: { params: Promise<{ domain:
           <Share og={`/atlas/og/domain-${domain}-16x9.png`} title={`${d.name} · 能力核验规格书`} />
         </div>
       </header>
+
+      {/**
+        * **这一卷的边界与口径。**
+        *
+        * 2026-08-15 才发现：`domains[].note` **从来没有被渲染过**。
+        * 八卷积累下来的判据、边界、特例说明 —— 「3D 资产包括高斯泼溅」
+        * 「数字人是唯一一个不按产出物收的」「Cosmos 整支不拆」——
+        * 全都只躺在 JSON 里，**读者一个字都看不到**。
+        *
+        * 这不是小遗漏：这个站卖的就是「每条判断都说得出理由」，
+        * 而卷级的理由恰恰是最难自己想明白、也最值得给人看的一层。
+        *
+        * 用 `<details>` 收起来而不是直接摊开：这些说明动辄上千字，
+        * 摊开会把能力表挤到屏幕外 —— **要看得见，但不能挡路**。
+        */}
+      {d.note && (
+        <details className="mt-5 border border-rule rounded-lg bg-card">
+          <summary className="cursor-pointer px-3.5 py-2.5 text-[14px] font-semibold hover:bg-paper/50">
+            这一卷的边界与口径 —— 我们凭什么这么划
+            <span className="ml-2 text-[12.5px] font-normal text-muted">
+              收谁不收谁、和别卷怎么分、哪些是特例
+            </span>
+          </summary>
+          <div className="px-3.5 pb-3.5 text-[13.5px] leading-[1.85] text-muted">
+            <Rich text={d.note} />
+          </div>
+        </details>
+      )}
 
       {tracks.map((t, i) => (
         <section key={t.id} className={i ? "mt-14" : "mt-8"}>
