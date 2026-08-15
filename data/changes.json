@@ -716,6 +716,42 @@
     "vjepa"
    ],
    "domain": "world"
+  },
+  {
+   "id": "science-admitted-2026-08-15",
+   "date": "2026-08-15",
+   "side": "ours",
+   "kind": "收录变更",
+   "subject": "科学 AI 立为第九卷",
+   "before": "规则一补充「面向内容创作」会把它挡在门外",
+   "after": "那条规则同日作废（它已被世界模型卷与具身智能卷推翻），判据只剩「产出物是不是另一类东西」—— 分子结构、气象场、晶体结构和前八卷全不重合，**按判据它一直是成立的**",
+   "why": "负责人拍板「科学 AI？收啊」。**值得记的是顺序**：先发现旧规则自相矛盾、把它作废，这一卷才进得来 —— **一条过期的规则挡住的东西，往往不是它当初想挡的那个**。",
+   "impact": [
+    "alphafold",
+    "boltz",
+    "esm"
+   ],
+   "models": [],
+   "domain": "science"
+  },
+  {
+   "id": "science-license-over-accuracy-2026-08-15",
+   "date": "2026-08-15",
+   "side": "world",
+   "kind": "已知限制",
+   "subject": "这一卷里许可比精度更决定你能不能用",
+   "before": "按前八卷的习惯，先看谁强",
+   "after": "AlphaFold 3 只有服务器、明写「for **academic use**」；Boltz 是 MIT 完全开源；ESM-2 权重公开但它是语言模型不是结构预测器",
+   "why": "**前八卷的模型基本都能买到或下到，这一卷不是。** 最有名的那支恰恰拿不到，所以选型的第一个问题从「哪个准」变成了「哪个我能用」。",
+   "impact": [
+    "alphafold",
+    "boltz"
+   ],
+   "src": "sci-af3-blog",
+   "models": [
+    "alphafold"
+   ],
+   "domain": "science"
   }
  ]
 }

@@ -5573,6 +5573,61 @@
     "openweights"
    ],
    "note": "单独收它就是为了盯上面那条不一致 —— **哪天两边口径统一了，我们的记法也要跟着改**。"
+  },
+  {
+   "id": "sci-boltz-gh",
+   "tier": "A",
+   "kind": "html",
+   "vendor": "boltz",
+   "name": "Boltz 官方仓库 README（MIT）",
+   "url": "https://raw.githubusercontent.com/jwohlwend/boltz/main/README.md",
+   "refresh_days": 14,
+   "good_for": [
+    "capability",
+    "version",
+    "openweights"
+   ],
+   "expect": [
+    "biomolecular interaction prediction",
+    "binding affinities",
+    "affinity_pred_value"
+   ],
+   "note": "**这一卷唯一一份能照着做的官方材料**：装法、命令、输入格式、输出字段含义全在里面。⚠️ 它自述「approach the accuracy of physics-based FEP methods, while running 1000x faster」—— **那是它自己说的，没有第三方复核**，这一轨也没有评测榜可对照。"
+  },
+  {
+   "id": "sci-af3-blog",
+   "tier": "A",
+   "kind": "html",
+   "vendor": "alphafold",
+   "name": "Google 官方博客 · AlphaFold 3",
+   "url": "https://blog.google/technology/ai/google-deepmind-isomorphic-alphafold-3-ai-model/",
+   "refresh_days": 30,
+   "good_for": [
+    "capability",
+    "version"
+   ],
+   "expect": [
+    "AlphaFold 3",
+    "proteins, DNA, RNA, ligands"
+   ],
+   "note": "⚠️ **AlphaFold Server（alphafoldserver.com）是 SPA 壳**，2026-08-15 抓回来 0k —— 能引的只有这篇博客。⚠️ 博客里那句「for **academic use**」是这一卷最要紧的一条限制：**学术免费、商用要另谈**。"
+  },
+  {
+   "id": "sci-esm2-card",
+   "tier": "B",
+   "kind": "html",
+   "vendor": "esm",
+   "name": "Meta 官方 · ESM-2 模型卡",
+   "url": "https://huggingface.co/facebook/esm2_t33_650M_UR50D/raw/main/README.md",
+   "refresh_days": 30,
+   "good_for": [
+    "version",
+    "openweights"
+   ],
+   "expect": [
+    "esm2_t33_650M_UR50D"
+   ],
+   "note": "⚠️ 收它主要是盯「有没有新代」—— 检查点停在 2022-09 已经三年多。⚠️ **它是蛋白质语言模型不是结构预测器**，模型卡示例是带 `<mask>` 的氨基酸序列填空，别按名气把它当 AlphaFold 的同类。"
   }
  ],
  "$missing": [

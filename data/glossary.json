@@ -682,6 +682,32 @@
      "domains": [
       "world"
      ]
+    },
+    {
+     "name": "Boltz（生物分子预测，MIT，能跑起来的那一支）",
+     "repo": "jwohlwend/boltz",
+     "stars": null,
+     "license": "MIT",
+     "pushed": "2026-08-15",
+     "lang": "英文",
+     "why": "**这一卷唯一一份能照着做的材料**：装法、命令、输入 YAML 格式、输出字段含义（`affinity_probability_binary` 用于筛 binder，`affinity_pred_value` 是 `log10(IC50)` 用于优化）全在 README 里。",
+     "caveat": "⚠️ 官方自述「approach the accuracy of physics-based FEP methods, while running **1000x faster**」—— **那是它自己说的**，没有第三方复核；这一轨也**没有第三方评测榜**可对照。",
+     "domains": [
+      "science"
+     ]
+    },
+    {
+     "name": "ESM-2（蛋白质语言模型，别按名气当结构预测器用）",
+     "repo": "facebookresearch/esm",
+     "stars": null,
+     "license": "见仓库",
+     "pushed": "2022-09-27",
+     "lang": "英文",
+     "why": "HF 上这一卷下载量最高的一支（`esm2_t33_650M_UR50D` 235 万次），五档检查点从 8M 到 15B，常被当作下游任务的骨干。",
+     "caveat": "⚠️ **它不是 AlphaFold 那种端到端结构预测器**，是蛋白质语言模型（模型卡的示例是一个带 `<mask>` 的氨基酸序列填空）。⚠️ 检查点建于 **2022-09，之后没有新代**。",
+     "domains": [
+      "science"
+     ]
     }
    ]
   }
