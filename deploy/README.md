@@ -17,7 +17,9 @@
 ```bash
 # 本机：分享图要浏览器，服务器上没有 —— 这一步只能在本机做
 node scripts/make-matrix.mjs && node scripts/make-share.mjs && node scripts/make-feed.mjs
-tar -czf /tmp/atlas-og.tar.gz -C public og && scp /tmp/atlas-og.tar.gz <server>:/tmp/
+
+# COPYFILE_DISABLE=1 是廉价保险，**但它不是已证实的解药**（见下方「未解之谜」）。
+COPYFILE_DISABLE=1 tar -czf /tmp/atlas-og.tar.gz -C public og && scp /tmp/atlas-og.tar.gz <server>:/tmp/
 
 # 服务器：
 cd /srv/xiamimate/xiamimate-ai-atlas
@@ -26,6 +28,51 @@ sudo PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD=1 npm ci --no-audit --no-fund
 sudo tar -xzf /tmp/atlas-og.tar.gz -C public      # 先放分享图，再构建
 sudo node scripts/validate.mjs                    # 硬闸：数据坏了就不该有产物
 sudo npx next build
+```
+
+⚠️ **`npm ci` + `next build` 加起来可能超过十分钟，别让它挂在一条会断的 ssh 上。**
+2026-08-15 就是这么中断的：命令跑过 600 秒被挪到后台，**ssh 一断远端命令跟着被杀**，
+回头看服务器上进程没了、`out/` 还是上一版的页数。在服务器上起后台任务才稳：
+
+### 未解之谜：产物里会混进 AppleDouble 垃圾文件
+
+2026-08-15 发现线上 `current/og/` 里躺着 **301 个 `._*` 文件**（`AppleDouble encoded
+Macintosh file`），从 08-14 起每个 backup 里都有 238 个。没人会去请求它们，
+不报错、不影响页面 —— **这正是它能一路攒下来没人发现的原因**。
+
+**成因没查清，已知事实互相矛盾，先照实记下来：**
+
+- 那些文件的时间戳是 12:17，对得上那次部署
+- 但**我们发的那个包里一个都没有**：`tar tzf /tmp/og.tgz | grep -c '\._'` = 0
+- 本机 `public/og/*.png` 确实带 `com.apple.provenance` 扩展属性（299 个）
+- 而服务器上的 GNU tar 是**忽略**这类头的 —— 解包时刷的那屏
+  `Ignoring unknown extended header keyword 'LIBARCHIVE.xattr.com.apple.provenance'`
+  就是它在说「我不认识，跳过」。按这个逻辑它不该生成 AppleDouble 文件
+
+**所以别把 `COPYFILE_DISABLE=1` 当成解药** —— 它是 macOS 侧的标准预防手段，加着不亏，
+但这次的机制它解释不了。真正管用的是下面那条**不依赖成因的检查**：
+
+```bash
+# 切完产物必查：混进垃圾文件就地清掉。**比猜成因可靠。**
+ssh <server> 'find /srv/xiamimate/atlas/current -name "._*" -delete
+              find /srv/xiamimate/atlas/current -name "._*" | wc -l   # 必须是 0'
+```
+
+⚠️ 顺带一提：服务器上的仓库 `public/` 里也会留一个 `._og`。
+**`git reset --hard` 不清未跟踪文件**，所以它会一直在，下次 `cp -r` 又带进产物 ——
+部署脚本里那句 `rm -rf public/og` 清不掉它（它在 `og` 外面）。
+
+```bash
+ssh <server> 'cd /srv/xiamimate/xiamimate-ai-atlas && nohup bash -c "
+  PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD=1 npm ci --silent > /tmp/atlas-build.log 2>&1
+  node scripts/validate.mjs >> /tmp/atlas-build.log 2>&1
+  npx next build          >> /tmp/atlas-build.log 2>&1
+  echo DONE_\$? >> /tmp/atlas-build.log
+" > /dev/null 2>&1 &'
+# 然后轮询 /tmp/atlas-build.log 里的 DONE_0；**页数要和本机 build 出来的对得上**才算成
+```
+
+```bash
 
 TS=$(date +%Y%m%d-%H%M%S)
 sudo mv /srv/xiamimate/atlas/current /srv/xiamimate/atlas/backup-$TS
