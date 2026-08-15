@@ -22,7 +22,7 @@ import { createServer } from "node:http";
 import { readFileSync, existsSync } from "node:fs";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
-import { queue, decide } from "./review.mjs";
+import { queue, decide, requoteQueue, requoteDecide } from "./review.mjs";
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), "..");
 const PORT = Number(process.env.ATLAS_REVIEW_PORT ?? 8230);
@@ -34,6 +34,17 @@ const json = (res, code, body) => {
   res.end(JSON.stringify(body));
 };
 
+/**
+ * ⚠️ **页面脚本里不要拼 onclick 字符串。**
+ *
+ * 2026-08-15 加引文回查标签页时，第一版把 `rqDo('id','action')` 拼进 onclick 属性，
+ * 而 id 形如 `vidu-up|vidu-q × flf` —— 嵌套引号一层套一层，浏览器直接
+ * `missing ) after argument list`，**整段脚本没跑起来**：卡片数显示 0、连标签切换都失效。
+ * **「0 条」看起来很像「没数据」** —— 又一次静默出错值。改成 data 属性 + 事件委托。
+ *
+ * ⚠️ 而且这一段是写在模板字符串 `PAGE` 里的：**注释里带反引号会把模板提前结束**，
+ * 我紧接着又栽了一次（`node --check` 一跑就现形）。**改完这个文件必过 `node --check`。**
+ */
 const PAGE = `<!doctype html><html lang="zh-CN"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>虾米看AI · 本机审阅台</title>
@@ -71,8 +82,15 @@ const PAGE = `<!doctype html><html lang="zh-CN"><head><meta charset="utf-8">
   <div class="sub" id="sub">读取中…</div>
 </header>
 <main>
-  <div class="todo" id="todo"></div>
-  <div id="list"></div>
+  <div id="tabs" style="display:flex;gap:8px;margin-bottom:16px">
+    <button id="tab-inbox" class="pass">收件箱</button>
+    <button id="tab-rq">引文回查 <span id="rq-n"></span></button>
+  </div>
+  <div id="pane-inbox">
+    <div class="todo" id="todo"></div>
+    <div id="list"></div>
+  </div>
+  <div id="pane-rq" hidden></div>
 </main>
 <script>
 const $=s=>document.querySelector(s);
@@ -80,6 +98,63 @@ let who=localStorage.getItem('atlas-who')||'';
 if(!who){who=prompt('你是谁？（会记进人审流水，用于日后追溯）')||'unknown';localStorage.setItem('atlas-who',who);}
 
 function esc(s){return String(s??'').replace(/[&<>]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;'}[c]));}
+
+/* ── 引文回查那一摞 ────────────────────────────────────────────
+ * 和收件箱**不共用一套按钮**：那边是「这条事实对不对」二选一，
+ * 这边是「这句引文该归到哪」三选一，而且落点在三个不同文件上。
+ * 每条都把**锚**印出来 —— 多数「找不到」其实是锚提取误伤
+ * （我们自己写的参数罗列被当成了厂商原句），一眼就能认出来。
+ */
+const RQ_KIND_HELP={
+ '本页没有·别处有':'这句话在别的快照里找得到。<b>两种成因要分</b>：真署错了页 / 这一页的快照是残的（抓回来的是导航不是正文）。',
+ '找不到':'全站快照都没这句。<b>先看锚像不像厂商原句</b> —— 如果是我们自己写的参数罗列（带斜杠那种），那不是错，选「认了」。',
+ '快照无正文':'这个源盯的是元数据接口（只有 items 没正文），引文来自模型卡/README。<b>该换抓法</b>，不是改署名。',
+};
+let RQ=[];
+async function loadRq(){
+  RQ=await fetch('/api/requote').then(r=>r.json());
+  $('#rq-n').textContent=RQ.total?'('+RQ.total+')':'';
+  const byKind={};for(const it of RQ.items)(byKind[it.kind]??=[]).push(it);
+  $('#pane-rq').innerHTML = !RQ.total
+    ? '<div class="empty"><b>回查没有待判的。</b>这一摞由 <code>requote.mjs</code> 每天随 tick 重算。</div>'
+    : Object.entries(byKind).map(([k,v])=>
+        '<h2 style="font-size:15px;margin:18px 0 6px">'+esc(k)+' <span style="color:#888;font-weight:400">'+v.length+' 条</span></h2>'
+        +'<div class="todo" style="margin-bottom:10px">'+RQ_KIND_HELP[k]+'</div>'
+        +v.map(rqCard).join('')
+      ).join('');
+}
+function rqCard(it){
+  const alt=it.elsewhere.map(e=>
+    '<button data-act="repoint" data-to="'+esc(e)+'">改署名到 '+esc(e)+'</button>').join(' ');
+  return '<article data-rq="'+esc(it.id)+'">'
+    +'<div style="font-size:12px;color:#888">'+esc(it.src)+'</div>'
+    +'<div style="font-weight:600;margin:2px 0 6px">'+esc(it.at)+'</div>'
+    +(it.anchor?'<div class="anchor" style="font-size:12.5px;color:#555;background:#f6f7f8;padding:6px 9px;border-radius:6px;margin-bottom:8px">锚：'+esc(it.anchor)+'</div>':'')
+    +'<div style="display:flex;gap:8px;flex-wrap:wrap;align-items:center">'
+    + alt
+    +'<button data-act="refetch">换这个源的抓法…</button>'
+    +'<button data-act="accept">认了：不是逐字原文</button>'
+    +'</div><div class="done" hidden></div></article>';
+}
+$('#pane-rq').addEventListener('click',async e=>{
+  const btn=e.target.closest('button[data-act]'); if(!btn) return;
+  const card=btn.closest('[data-rq]'), id=card.dataset.rq, action=btn.dataset.act;
+  let to=btn.dataset.to||'';
+  if(action==='refetch'){ to=prompt('新的抓取地址（要能抓到我们引的那句话）')||''; if(!to) return; }
+  const why=prompt('为什么这么判？（会记进人审流水）')??'';
+  card.querySelectorAll('button').forEach(b=>b.disabled=true);
+  const r=await fetch('/api/requote/decide',{method:'POST',headers:{'content-type':'application/json'},
+    body:JSON.stringify({id,action,to,why,who})}).then(r=>r.json());
+  const d=card.querySelector('.done'); d.hidden=false;
+  d.textContent=r.ok?'已处理并提交':'失败：'+(r.error||'');
+  if(!r.ok) card.querySelectorAll('button').forEach(b=>b.disabled=false);
+  else setTimeout(loadRq,600);
+});
+
+$('#tab-inbox').onclick=()=>{$('#pane-inbox').hidden=false;$('#pane-rq').hidden=true;
+  $('#tab-inbox').className='pass';$('#tab-rq').className='';};
+$('#tab-rq').onclick=()=>{$('#pane-inbox').hidden=true;$('#pane-rq').hidden=false;
+  $('#tab-rq').className='pass';$('#tab-inbox').className='';loadRq();};
 
 async function load(){
   const r=await fetch('/api/queue').then(r=>r.json());
@@ -140,7 +215,7 @@ document.addEventListener('click',async e=>{
   box.querySelector('.acts').outerHTML='<div class="done">✓ '+esc(said)+'</div>';
 });
 
-load();
+load();loadRq();
 </script></body></html>`;
 
 createServer(async (req, res) => {
@@ -186,6 +261,21 @@ createServer(async (req, res) => {
         others,
       });
     } catch (e) { return json(res, 500, { error: String(e.message) }); }
+  }
+
+  if (path === "/api/requote") {
+    const items = requoteQueue();
+    return json(res, 200, { total: items.length, items });
+  }
+
+  if (path === "/api/requote/decide" && req.method === "POST") {
+    let body = "";
+    req.on("data", (c) => (body += c));
+    req.on("end", () => {
+      try { json(res, 200, requoteDecide(JSON.parse(body))); }
+      catch (e) { json(res, 200, { ok: false, error: String(e.message) }); }
+    });
+    return;
   }
 
   if (path === "/api/decide" && req.method === "POST") {

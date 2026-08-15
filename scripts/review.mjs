@@ -227,3 +227,107 @@ if (import.meta.url === `file://${process.argv[1]}`) {
     console.log(JSON.stringify(decide({ id, verdict, why: arg("--why") ?? "", who: arg("--who") ?? "cli" }), null, 1));
   }
 }
+
+/* ══════════════════════════════════════════════════════════════════
+ * 引文回查的人审（2026-08-15 加）
+ *
+ * 起因：负责人「我在审阅界面无法审查。到底要怎么做？」——
+ * **不是操作问题**。上面那个 `queue()` 只读 `data/inbox`（抽取器的产物），
+ * requote 的结果它根本不认识。我把 requote 挂进了 tick、让它进了待办，
+ * **却没让它进能处理待办的地方**。
+ *
+ * ## 为什么不能塞进同一个队列
+ *
+ * 收件箱那一摞的判断是「**这条事实对不对**」，二选一（通过 / 驳回）。
+ * 这一摞的判断是「**这句引文该归到哪**」，而且落点在三个不同文件上：
+ *
+ * | 结论 | 动作 | 改哪个文件 |
+ * |---|---|---|
+ * | 真署错页了 | 把格子的 `src` 改成另一个源 | `data/atlas.json` |
+ * | 这一页的快照是残的 | 换这个源的抓法（URL / kind） | `data/sources.json` |
+ * | 当初记的就不是逐字原文 | 认了，别再报 | `data/requote-decisions.json` |
+ *
+ * 硬塞进 `decide()` 会让那个函数同时对三个文件负责 —— 那是把两件事揉成一件。
+ * ══════════════════════════════════════════════════════════════════ */
+
+const RQ_DECISIONS = "data/requote-decisions.json";
+
+/** 一条回查结果的稳定 id：源 + 位置。**不含锚**（锚会随引文微调而变，id 不能跟着变）。 */
+export const rqId = (src, at) => `${src}|${at}`;
+
+/**
+ * 从 `data/requote-report.md` 读出待人审的条目。
+ *
+ * ⚠️ **只收「真要人判断」的三摞**：`本页没有·别处有` / `找不到` / `快照无正文`。
+ * 「无快照」那一摞不进来 —— 那是源没登记，跑一次 watch 就没了，**不该占人的注意力**。
+ */
+export function requoteQueue() {
+  const decided = new Set((readJSON(RQ_DECISIONS, { rows: [] }).rows ?? []).map((r) => r.id));
+  const md = existsSync(P("data/requote-report.md")) ? readFileSync(P("data/requote-report.md"), "utf8") : "";
+  const KINDS = ["本页没有·别处有", "找不到", "快照无正文"];
+  const out = [];
+  for (const kind of KINDS) {
+    const sec = md.split(`### ${kind}（`)[1];
+    if (!sec) continue;
+    for (const line of sec.split("\n### ")[0].split("\n")) {
+      const m = line.match(/^- `([a-z0-9-]+)` (.+?)(?: —— 锚「(.*?)」)?(?:（这句在 (.+?)）)?$/);
+      if (!m) continue;
+      const [, src, at, anchor, elsewhere] = m;
+      const id = rqId(src, at);
+      if (decided.has(id)) continue;
+      out.push({ id, kind, src, at, anchor: anchor ?? null,
+        elsewhere: elsewhere ? elsewhere.split("、") : [] });
+    }
+  }
+  return out;
+}
+
+/**
+ * 落一条回查判断。三种动作各自只碰自己该碰的文件。
+ *
+ * ⚠️ **`repoint` 会改 atlas.json 里的格子**，所以它和 `decide()` 一样要提交 git ——
+ * 数据改动必须留痕，这是「git 当数据库」的前提（§59.4.c）。
+ */
+export function requoteDecide({ id, action, to = "", why = "", who = "unknown" }) {
+  const item = requoteQueue().find((x) => x.id === id);
+  if (!item) throw new Error(`回查队列里没有这一条：${id}`);
+  const at = NOW();
+  const files = [RQ_DECISIONS];
+  const rec = { id, at, who, action, why, src: item.src, at_label: item.at, kind: item.kind };
+
+  if (action === "repoint") {
+    if (!to) throw new Error("改署名要给新的源 id");
+    const a = readJSON("data/atlas.json", {});
+    if (!a.sources?.[to]) throw new Error(`引用表里没有这个源：${to}`);
+    const [mid, cid] = String(item.at).split(" × ");
+    const cell = (a.support ?? []).find((s) => s.m === mid && s.c === cid);
+    if (!cell) throw new Error(`找不到格子：${item.at}（只有「模型 × 能力」这种位置能自动改署名）`);
+    rec.from = cell.src;
+    cell.src = to;
+    cell.note = (cell.note ?? "") + ` 🔧 **${at.slice(0, 10)} 改了署名的源**：原署 \`${rec.from}\`，实际这句话在 \`${to}\` 里。${why ? "人审备注：" + why : ""}`;
+    writeJSON("data/atlas.json", a);
+    files.push("data/atlas.json");
+  } else if (action === "refetch") {
+    if (!to) throw new Error("换抓法要给新的 URL");
+    const reg = readJSON("data/sources.json", { sources: [] });
+    const s = reg.sources.find((x) => x.id === item.src);
+    if (!s) throw new Error(`监视清单里没有这个源：${item.src}`);
+    rec.from = s.url;
+    s.url = to;
+    s.note = (s.note ?? "") + ` 🔧 **${at.slice(0, 10)} 换了盯的地址**（原 \`${rec.from}\`）：引文回查发现抓回来的页面里没有我们引的那句话。${why ? "人审备注：" + why : ""}`;
+    writeJSON("data/sources.json", reg);
+    files.push("data/sources.json");
+  } else if (action !== "accept") {
+    throw new Error(`未知动作：${action}`);
+  }
+
+  const d = readJSON(RQ_DECISIONS, {
+    $note: "引文回查的人审流水。**accept 是「认了这条引文不是逐字原文」不是「它错了」** —— 记下来是为了别再报，不是为了掩盖。",
+    rows: [],
+  });
+  d.rows.push(rec);
+  writeJSON(RQ_DECISIONS, d);
+  const LABEL = { repoint: "改署名", refetch: "换抓法", accept: "认了非逐字" };
+  commit(`requote: ${LABEL[action]} 1 条（${who}）\n\n${item.src} · ${item.at}\n${rec.from ? `原 ${rec.from} → ${to}\n` : ""}理由：${why || "（未填）"}`, files);
+  return { ok: true, action };
+}
