@@ -648,11 +648,11 @@
      "name": "NVIDIA Cosmos（世界模型平台，含代码与文档）",
      "repo": "nvidia/cosmos",
      "stars": null,
-     "license": "NVIDIA Open Model License",
+     "license": "OpenMDW1.1",
      "pushed": "2026-08-14",
      "lang": "英文",
      "why": "这一卷**唯一一份能照着做的官方材料**：模型卡把输入输出规格、各本体的动作维度（相机 9D / 双臂 Franka 20D / Agibot 29D…）、长度上限都列了表。想动手先读它，别从论文开始。",
-     "caveat": "⚠️ 许可是**英伟达自家的 Open Model License**，不是 Apache/MIT，商用前必须自己读条款。另外同族下载量最高的 `Cosmos-Reason2` 与 `Cosmos-Predict2` **模型卡要登录才能看**，而且 Reason 其实是个 VLM 不是世界模型。",
+     "caveat": "⚠️ 许可是 **OpenMDW1.1**（模型卡 `License` 一节写的），**不是** GR00T 那份 NVIDIA Open Model License —— 我们一度照抄错了。**同一家的不同产品线许可可以不一样。**。另外同族下载量最高的 `Cosmos-Reason2` 与 `Cosmos-Predict2` **模型卡要登录才能看**，而且 Reason 其实是个 VLM 不是世界模型。",
      "domains": [
       "world"
      ]

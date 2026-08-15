@@ -4723,7 +4723,8 @@
    "zh_none": true,
    "version_src": "genie3-blog",
    "version_quote": "官方博客标题「**Genie 3: A new frontier for world models**」，正文自述「a general purpose world model that can generate an unprecedented diversity of interactive environments」",
-   "note": "闭源，没有权重也没有公开 API。⚠️ **抓 `deepmind.google/models/genie/` 会拿回站点导航壳**（正文全是菜单，2026-08-14 实测）—— 有实数的是那篇博客。"
+   "note": "闭源，没有权重也没有公开 API。⚠️ **抓 `deepmind.google/models/genie/` 会拿回站点导航壳**（正文全是菜单，2026-08-14 实测）—— 有实数的是那篇博客。",
+   "lineage_note": "⚠️ **官方明写有前两代，但我们拿不到它们的发布日，所以没有建节点。** Genie 3 的博客里写着：「Last year we introduced the first foundation world models with **Genie 1 and Genie 2**, which could generate new environments for agents.」—— 这一句坐实了这两代存在，**但那篇博客本身没有可提取的日期**，DeepMind 也没有为 Genie 放出权重或仓库。**按纪律：没有出处的日期不填**（宁可树上少两个节点，也不放两个我们编的日期）。"
   },
   {
    "id": "marble",
@@ -4819,7 +4820,8 @@
    "zh_none": true,
    "version_src": "vjepa2-blog",
    "version_quote": "Meta 官方博客标题：「Introducing the **V-JEPA 2 world model** and new benchmarks for physical reasoning」",
-   "note": "⚠️ **官方两处口径不一致，值得记下来**：Meta 的博客标题写「V-JEPA 2 **world model**」，而 HF 上的官方模型卡第一句写的是「A frontier **video understanding** model」。**我们按博客收它**（那是 Meta 对外的定位），但读者该知道模型卡不是这么说的。下载量 32 万，是这一卷开源侧最高的。"
+   "note": "⚠️ **官方两处口径不一致，值得记下来**：Meta 的博客标题写「V-JEPA 2 **world model**」，而 HF 上的官方模型卡第一句写的是「A frontier **video understanding** model」。**我们按博客收它**（那是 Meta 对外的定位），但读者该知道模型卡不是这么说的。下载量 32 万，是这一卷开源侧最高的。",
+   "lineage_note": "⚠️ **第一代没有建节点，原因同样是拿不到日期。** Meta 的博客写「Building on **V-JEPA**, our first model trained on video」，并说 JEPA 架构「we first shared in **2022**」—— 但 2022 是架构提出的年份不是模型发布日，而 HF 的 `facebook` 组织下**没有 V-JEPA 第一代的仓库**（2026-08-15 实测，按 createdAt 正序翻完只有 vjepa2 系列与一个做触觉的 `sparsh-vjepa`）。"
   },
   {
    "id": "oasis",
@@ -21215,8 +21217,9 @@
    "added": "Eagle 视觉骨干的人形机器人基座",
    "src": "nvidia-groot-gh",
    "quote": "官方 HF 仓库 `nvidia/GR00T-N1.6-3B`（createdAt 2025-12-01）",
-   "note": "",
-   "cap": "e-openweights"
+   "note": "从 N1.5 的 3B 延续下来。⚠️ **N1.6 之后英伟达放了十几个基准/任务档**（fractal、bridge、BEHAVIOR1k、DROID、Rheo 系列…），那些是同代的微调不是新代。",
+   "cap": "e-openweights",
+   "parent": "groot-n15"
   },
   {
    "id": "groot-n17",
@@ -21394,7 +21397,7 @@
    "m": "cosmos",
    "version": "Predict2",
    "date": "2025-04-25",
-   "parent": "cosmos-1",
+   "parent": "cosmos-1x",
    "added": "预测支独立成线",
    "src": "hf-robotics",
    "quote": "`nvidia/Cosmos-Predict2-2B-Video2World`（createdAt 2025-04-25）",
@@ -21406,7 +21409,7 @@
    "m": "cosmos",
    "version": "Reason2",
    "date": "2025-12-12",
-   "parent": "cosmos-1",
+   "parent": "cosmos-reason1",
    "added": "理解支：这一支后来成了 GR00T N1.7 的视觉骨干",
    "src": "hf-robotics",
    "quote": "`nvidia/Cosmos-Reason2-8B` 与 `-2B`（createdAt 均为 2025-12-12），下载量 725,417 / 712,957",
@@ -21548,6 +21551,64 @@
    "quote": "官网定位「**REALTIME INTERACTIVE WORLD MODEL FOR PHYSICAL AI**」",
    "note": "⚠️ 日期是核验日。🔄 这一支曾被我们排除（「用途不是内容创作」），这一卷开了才收回来。",
    "cap": "w-realtime"
+  },
+  {
+   "id": "groot-n1",
+   "m": "groot",
+   "version": "N1",
+   "date": "2025-03-05",
+   "added": "英伟达第一代人形机器人基础模型",
+   "src": "hf-robotics",
+   "quote": "官方 HF 仓库 `nvidia/GR00T-N1-2B`（createdAt 2025-03-05）；同年 5 月还放出两个任务微调档（Nut-Pouring、Exhaust-Pipe-Sorting）",
+   "note": "2B 参数。到 N1.5 变成 3B 之后再没变过尺寸。",
+   "cap": "e-openweights"
+  },
+  {
+   "id": "groot-n15",
+   "m": "groot",
+   "version": "N1.5",
+   "date": "2025-05-28",
+   "parent": "groot-n1",
+   "added": "升到 3B",
+   "src": "hf-robotics",
+   "quote": "官方 HF 仓库 `nvidia/GR00T-N1.5-3B`（createdAt 2025-05-28）",
+   "note": "⚠️ **这一代与 N1.6 之间隔了半年**，中间英伟达放的是一堆任务微调档（WaveHand、SO_ARM 等），不是新代 —— **按规则三不各开节点**。",
+   "cap_skip": "官方没有为这一代单独写能力叙述，只有权重与尺寸变化。"
+  },
+  {
+   "id": "matrixgame-1",
+   "m": "matrix-game",
+   "version": "1.0",
+   "date": "2025-05-07",
+   "added": "昆仑万维第一代",
+   "src": "hf-robotics",
+   "quote": "官方 HF 仓库 `Skywork/Matrix-Game`（createdAt 2025-05-07）",
+   "note": "⚠️ **原来只记了 2.0 与 3.0，漏了这一代** —— 补是因为按建库时间正序翻了一遍 HF，而不是按下载量。**按热度排序会系统性地漏掉第一代**（第一代下载量通常最低）。",
+   "cap_skip": "这个仓只有权重，没有模型卡正文可引。"
+  },
+  {
+   "id": "cosmos-1x",
+   "m": "cosmos",
+   "version": "Predict1 / Transfer1",
+   "date": "2025-03-06",
+   "parent": "cosmos-1",
+   "added": "拆成预测与迁移两支",
+   "src": "hf-robotics",
+   "quote": "同日建库的 `nvidia/Cosmos-Transfer1-7B` 与 `nvidia/Cosmos-Predict1-7B-Text2World-Sample-AV-Multiview`（createdAt 均为 2025-03-06）",
+   "note": "⚠️ **`Predict1` 那个仓的名字里就带 `Sample-AV-Multiview`** —— 自动驾驶多视角是这条线很早就在做的事，不是 Cosmos3 才有的。",
+   "cap_skip": "两支同日建库、都只有权重，官方没给这一代单独的能力叙述。"
+  },
+  {
+   "id": "cosmos-reason1",
+   "m": "cosmos",
+   "version": "Reason1",
+   "date": "2025-04-18",
+   "parent": "cosmos-1x",
+   "added": "理解支的第一代",
+   "src": "hf-robotics",
+   "quote": "官方 HF 仓库 `nvidia/Cosmos-Reason1-7B`（createdAt 2025-04-18），下载量 68,117",
+   "note": "它是 `Cosmos-Reason2` 的上一代 —— 而 Reason2 后来成了具身卷 GR00T N1.7 的视觉骨干。**一条跨了两卷的依赖链，起点在这里。**",
+   "cap": "w-understand"
   }
  ],
  "$versions": "版本谱系（演进图的数据）。**演进的主体是模型，不是能力。**\n\n原来那张演进图每行是一项能力、横轴是「我们能证明的最早时间」、粗细是几家支持。\n读者看完只得到「动作复刻 2025-12 出现、6/9 支持」—— 那是一次数据库查询的可视化，不涨知识。\n而且它得靠图注免责（「不是业界首次出现」）：**一张需要图注免责的图，说明它量错了东西。**\n\n这份数据画的是**厂商自己发布的版本和日期**，所以不需要免责。每条必须回答：\n**这一代新增了什么。** 只有版本号没有 added 的节点没有价值，不收。\n\n两个最好的来源，都不是「新闻」：\n  · **官方 Hugging Face 组织** —— 模型名本身就编码了能力与代际\n    （Wan2.1-FLF2V＝首尾帧、Wan2.2-S2V＝语音驱动、LTX 的 IC-LoRA-Ingredients＝角色参考），\n    发布时间由 HF API 给出，比任何新闻稿都准。\n  · **官方 API 更新日志** —— 可灵那份 31k 字符里有 170 条带日期的条目。\n\n覆盖不全是事实：万相和可灵能画出完整谱系，Runway/Vidu/Seedance 只有近期几个点，\nVeo/Sora/海螺/LTX 还没有。**图上要标出哪几条线是完整的、哪几条只是片段** ——\n画一条只有两个点的线却不说明，读者会以为这家两年只更新过两次。\n\n`cap` 把版本节点挂到能力 id 上，图上「点一项能力，看各家谁先谁后」靠它。\n**对不上的一律留空并写明理由（cap_skip），不硬凑** —— 硬凑一个 id，纵向那一刀就切错了。\n典型：Wan 的 S2V 是「语音驱动」，不等于我们轴上的「对口型」，两件事不合并；\n「换代」节点本身也不是新增单项能力。\n\n`id` + `parent` 把平铺记录变成**真的树**。分叉是真实存在的：\nWan2.1 底座上同时长出 FLF2V（首尾帧）和 VACE（统一编辑）两个变体，\nWan2.2 是换代接在 2.1 后面，Animate-2 又接在 Animate 后面。\n\n**没有父节点的就让它当根，不许为了让树好看硬接一条边** ——\nRunway 的 Aleph 是编辑线，不是 Gen 的后代，它自己是一棵树。\n\n⚠️ **日期必须取 HF 的 `createdAt`，不能取 `lastModified`。**\n第一版取错了字段，把「最后修改」当成了发布日期：Wan2.2 记成 2025-08-07（实际 2025-07-18）、\nAnimate 记成 2025-11-05（实际 2025-09-11）——**差了两个月**。\n仓库发布后还会被反复更新，两个字段根本不是一回事。\n这类错最阴：日期看着合理、图也画得出来，但整条时间线是歪的。\n\n覆盖不足要**写在数据里**，不是靠图上一句话糊过去：\n模型的 `lineage_note` 解释为什么它的节点少（太新 / 官方记录只回溯到某时）。\n校验 R58 强制：**核心模型少于 3 个节点却没写理由，就是错**。\n「我们没采到」和「它本来就没有」是两回事，读者有权知道是哪一种。",
@@ -23737,8 +23798,8 @@
      "url": "https://huggingface.co/nvidia/Cosmos3-Nano",
      "src": "cosmos3-card",
      "quote": "`Input Type(s)` 明列 **Action Trajectory**，json 1D list，并给出各本体维度（相机 9D、自驾 9D、第一人称 57D、单臂 Franka 10D、双臂 20D、Agibot 29D、UR 10D、Google robot 10D、WidowX 10D、UMI 9D），长度 16–400 帧",
-     "license": "NVIDIA Open Model License",
-     "note": "**这一卷唯一一支把「能喂哪些本体」列成表的。** 别家最多给一个形容词。"
+     "license": "OpenMDW1.1",
+     "note": "**这一卷唯一一支把「能喂哪些本体」列成表的。** 别家最多给一个形容词。 ⚠️ **许可这一栏我们一度写错过**（2026-08-14 写成「NVIDIA Open Model License」，那是 GR00T 的）。Cosmos3 模型卡的 `License` 一节写的是 **OpenMDW1.1**，`Use Case` 写的是「Physical AI: Encompassing robotics, autonomous vehicles (AV), and smart space environments」。**同一家的不同产品线许可可以不一样，不能顺手照抄。**"
     },
     {
      "name": "Matrix-Game 3.0（昆仑万维）",
@@ -26498,8 +26559,8 @@
      "url": "https://huggingface.co/nvidia/Cosmos3-Nano",
      "src": "cosmos3-card",
      "quote": "「a **world foundation model platform** designed to accelerate the development of Physical AI by enabling machines to **understand, simulate, and interact with** the physical world across robotics, autonomous driving, and smart space environments」",
-     "license": "NVIDIA Open Model License",
-     "note": "⚠️ 许可是英伟达自家条款，不是 Apache/MIT，商用前自己读"
+     "license": "OpenMDW1.1",
+     "note": "⚠️ 许可是英伟达自家条款，不是 Apache/MIT，商用前自己读 ⚠️ **许可这一栏我们一度写错过**（2026-08-14 写成「NVIDIA Open Model License」，那是 GR00T 的）。Cosmos3 模型卡的 `License` 一节写的是 **OpenMDW1.1**，`Use Case` 写的是「Physical AI: Encompassing robotics, autonomous vehicles (AV), and smart space environments」。**同一家的不同产品线许可可以不一样，不能顺手照抄。**"
     },
     {
      "kind": "docs",
@@ -26550,6 +26611,160 @@
      "quote": "「navigate in real time at **24 frames per second**, retaining consistency for **a few minutes**」",
      "license": null,
      "note": "⚠️ **没有权重也没有公开 API** —— 能读到指标，用不上"
+    }
+   ]
+  },
+  {
+   "id": "embodied-sim-first",
+   "zh": "没有真机，先在仿真里把策略跑通",
+   "en": "Start in simulation",
+   "domain": "embodied",
+   "intro": "这一卷绝大多数官方检查点是跟着仿真基准发的（LIBERO、RoboCasa、SimplerEnv、RoboTwin）。没有仿真环境，你连厂商给的档都跑不起来 —— 所以入门的第一步往往不是买机器人。",
+   "inputs": [
+    "一台带 GPU 的机器",
+    "一个仿真环境"
+   ],
+   "output": "一段能在仿真里完成任务的策略",
+   "skills": [
+    "e-zeroshot-skill",
+    "e-dataformat-skill"
+   ],
+   "aliases": [
+    "仿真",
+    "sim",
+    "LIBERO",
+    "RoboCasa"
+   ],
+   "resources": [
+    {
+     "kind": "project",
+     "name": "ManiSkill（GPU 并行的操作仿真）",
+     "url": "https://github.com/haosulab/ManiSkill",
+     "src": "maniskill-gh",
+     "quote": "官方自述「Manipulation Skill Framework, an open source **GPU parallelized** robotics simulator」，3,222 星、Apache-2.0、2026-08-04 仍在更新",
+     "license": "Apache-2.0",
+     "note": "⚠️ **仿真跑通不等于真机能用** —— 这一卷厂商公布的成绩绝大多数是仿真成绩，我们把它们放进「效果」而不是能力表，就是这个原因。"
+    },
+    {
+     "kind": "project",
+     "name": "GR00T 的评测与本体标签（哪些能零样本跑）",
+     "url": "https://github.com/NVIDIA/Isaac-GR00T/blob/main/getting_started/policy.md",
+     "src": "groot-policy-doc",
+     "quote": "官方把标签分成两类：**Pretrain tags**「baked into the base model … **ready for zero-shot inference**」，**Posttrain tags**（`LIBERO_PANDA`、`SIMPLER_ENV_GOOGLE`、`SIMPLER_ENV_WIDOWX`…）「**require a finetuned checkpoint**」",
+     "license": "NVIDIA Open Model License",
+     "note": "**先查这张表再下权重** —— 你要跑的那个仿真基准若在 Posttrain 那一栏，基座模型直接报错。"
+    }
+   ]
+  },
+  {
+   "id": "embodied-orchestrate",
+   "zh": "让模型指挥你自己的机器人",
+   "en": "Orchestrate your own robot APIs",
+   "domain": "embodied",
+   "intro": "不换掉你现有的控制代码。模型只负责看画面、定位、拆步骤，具体动作还是调你自己的接口 —— 这是目前唯一能靠一次 API 调用就落地的具身用法。",
+   "inputs": [
+    "相机画面",
+    "一句任务描述",
+    "你自己的机器人控制接口"
+   ],
+   "output": "一串按顺序调用你接口的计划",
+   "skills": [],
+   "aliases": [
+    "任务编排",
+    "long-horizon",
+    "接机器人 API"
+   ],
+   "resources": [
+    {
+     "kind": "docs",
+     "name": "Gemini Robotics ER · Task orchestration",
+     "url": "https://ai.google.dev/gemini-api/docs/robotics-overview",
+     "src": "gemini-robotics-er",
+     "quote": "官方能力表：「**Task orchestration** — Combine spatial reasoning with **custom robot APIs** to complete **long-horizon tasks**」；另有「Streaming（ER 2 Streaming endpoint only）— Bidirectional streaming for real-time robot agents with **low-latency function calling**」",
+     "license": null,
+     "note": "⚠️ **它编排，不驱动。** 官方措辞就是「接你自己的机器人 API」—— 执行那一层要你自己有。另外三个端点**全部还带 Preview**。"
+    },
+    {
+     "kind": "docs",
+     "name": "RynnBrain 1.1（想自己部署这一层时的开源选项）",
+     "url": "https://huggingface.co/Alibaba-DAMO-Academy/RynnBrain1.1-9B",
+     "src": "rynnbrain-card",
+     "quote": "官方最小示例就是让模型出框：「Generate coordinates for one object bounding box. Constraints: x1,y1,x2,y2 in [0,1000]」；1.1 新增「**Native 3D and contact point grounding**」",
+     "license": "Apache-2.0",
+     "note": "⚠️ **它做的是「看懂并定位」，不是「编排一串调用」** —— 我们把它的「任务编排」那一格记的是 ⬜，模型卡里只有 `planning` 这个词，没有编排机制。"
+    }
+   ]
+  },
+  {
+   "id": "world-av-longtail",
+   "zh": "给自动驾驶造长尾场景",
+   "en": "Generate long-tail driving scenes",
+   "domain": "world",
+   "intro": "真实路测撞不到的情况，用世界模型造出来。这是厂商自己在官方页里点名的用途之一，也是这一卷少数已经有产业买单的方向。",
+   "inputs": [
+    "一段真实路测视频或一句场景描述",
+    "（可选）一串相机运动或车辆动作"
+   ],
+   "output": "同一场景的变体，或顺着动作演下去的画面",
+   "skills": [
+    "w-actionin-skill"
+   ],
+   "aliases": [
+    "自动驾驶",
+    "AV",
+    "长尾场景",
+    "仿真数据"
+   ],
+   "resources": [
+    {
+     "kind": "project",
+     "name": "NVIDIA Cosmos3",
+     "url": "https://huggingface.co/nvidia/Cosmos3-Nano",
+     "src": "cosmos3-card",
+     "quote": "模型卡 `Use Case`：「Physical AI: Encompassing robotics, **autonomous vehicles (AV)**, and smart space environments, including industrial and factory-scale applications」；输入的动作维度表里就有一档是「**autonomous vehicle (9D)**」",
+     "license": "OpenMDW1.1",
+     "note": "⚠️ 同族还有 `Cosmos-Transfer1-7B-Sample-AV` 与 `Cosmos-Transfer-LidarGen` 是专做这一路的档。"
+    }
+   ]
+  },
+  {
+   "id": "world-game-play",
+   "zh": "用游戏录像训一个能玩的世界",
+   "en": "Train a playable world from gameplay",
+   "domain": "world",
+   "intro": "喂进一款游戏的录像（画面 + 手柄操作），训出一个能接着玩下去的模型。它不是在放录像，是在按你的操作生成没被录过的画面。",
+   "inputs": [
+    "游戏录像（画面与操作成对）"
+   ],
+   "output": "一个能按操作往下演的世界",
+   "skills": [
+    "w-persist-skill",
+    "w-realtime-skill"
+   ],
+   "aliases": [
+    "游戏",
+    "gameplay",
+    "可玩世界",
+    "Muse"
+   ],
+   "resources": [
+    {
+     "kind": "project",
+     "name": "Microsoft WHAM（Muse 背后的模型）",
+     "url": "https://huggingface.co/microsoft/wham",
+     "src": "wham-card",
+     "quote": "「Muse is powered by a **World and Human Action Model (WHAM)**, which is a **generative model of gameplay (visuals and/or controller actions)** trained on gameplay data of Ninja Theory's Xbox game **Bleeding Edge**」；并自述「generating **consistent, diverse, and persistent** outputs, enabling various use cases for **creative iteration**」",
+     "license": "见仓库",
+     "note": "**这一卷唯一一支论文进 Nature 的**（s41586-025-08600-3），还公开了样本数据集 `microsoft/bleeding-edge-gameplay-sample`。⚠️ 它只训过这一款游戏。"
+    },
+    {
+     "kind": "project",
+     "name": "Matrix-Game 3.0（昆仑万维，中文侧）",
+     "url": "https://huggingface.co/Skywork/Matrix-Game-3.0",
+     "src": "matrixgame-card",
+     "quote": "数据引擎自述整合「**Unreal Engine synthetic scenes**, large-scale automated **AAA game collection**, and real-world video augmentation」产出「**Video-Pose-Action-Prompt quadruplets**」",
+     "license": "见仓库",
+     "note": "和 WHAM 的路子不同：WHAM 训一款真实游戏，它是拿引擎合成 + 大规模游戏采集混着训。"
     }
    ]
   }
