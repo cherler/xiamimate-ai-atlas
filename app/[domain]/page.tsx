@@ -96,16 +96,23 @@ export default async function DomainHome({ params }: { params: Promise<{ domain:
         * 这不是小遗漏：这个站卖的就是「每条判断都说得出理由」，
         * 而卷级的理由恰恰是最难自己想明白、也最值得给人看的一层。
         *
-        * 用 `<details>` 收起来而不是直接摊开：这些说明动辄上千字，
-        * 摊开会把能力表挤到屏幕外 —— **要看得见，但不能挡路**。
+        * 用 `<details>` 收起来而不是直接摊开：**要看得见，但不能挡路**。
+        *
+        * ⚠️ **2026-08-15 又收了一次。** 负责人：「是不是说太多了？你解释的东西
+        * 太多是不是不太好。」量了一下他是对的 —— 最早写的视频卷 32 字，
+        * 后加的数字人卷 758 字、6 个 ⚠️、3 处写死的日期，**这个字段变成了工作日志**
+        * （每次往后追加而不是改写）。九条全部改写成「一句定位 + 每条边界一句」，
+        * 共减 2292 字；流程记录进 ontology.md，写死的统计一律不写 ——
+        * **页面本来就在实时算，写死一份必然变成错的**（数字人那句「98 格里 60 格 ⬜」
+        * 当时已经过期成 84 格了）。见规则十七。
+        *
+        * 标题也从「我们凭什么这么划」改成「这一卷收什么、不收什么」——
+        * 前者像在辩解，后者是读者真正想知道的那个问题。
         */}
       {d.note && (
         <details className="mt-5 border border-rule rounded-lg bg-card">
           <summary className="cursor-pointer px-3.5 py-2.5 text-[14px] font-semibold hover:bg-paper/50">
-            这一卷的边界与口径 —— 我们凭什么这么划
-            <span className="ml-2 text-[12.5px] font-normal text-muted">
-              收谁不收谁、和别卷怎么分、哪些是特例
-            </span>
+            这一卷收什么、不收什么
           </summary>
           <div className="px-3.5 pb-3.5 text-[13.5px] leading-[1.85] text-muted">
             <Rich text={d.note} />
