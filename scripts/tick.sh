@@ -62,6 +62,16 @@ elif [ -z "${MINIMAX_API_KEY:-}" ]; then
   echo "   没有 MINIMAX_API_KEY，跳过抽取（采集本身不需要模型）" >> "$LOG"
 fi
 
+# ── 引文回查：署的那个来源，今天还找得到这句话吗？
+#
+# **必须放在 watch 之后**：它比对的是刚落地的快照。
+# 2026-08-15 加的，起因是那天 watch 一口气建了 31 个「首次」快照 ——
+# 全是早就被格子引用、却从没进过监视的源。也就是说在那之前，
+# **那些页变了也没人会发现**，「这个站会自己发现自己错了」在它们身上是假的。
+#
+# 它只写报告，**不改 atlas.json**，和 watch 同一条纪律。
+node scripts/requote.mjs --report >> "$LOG" 2>&1 || echo "   requote.mjs 失败，见上方" >> "$LOG"
+
 # ── 待办：汇成一个文件，并且主动叫人。
 #
 # **管线会攒待办，但在这之前它不会叫人** —— 收件箱里 17 条从 08-07 躺到 08-11，
@@ -71,8 +81,8 @@ fi
 node scripts/todo.mjs --notify >> "$LOG" 2>&1 || echo "   todo.mjs 失败，见上方" >> "$LOG"
 
 # 待办表变了就提交 —— 它和快照一样是「这一天的事实」，要能回溯
-if [ -n "$(git status --porcelain data/TODO.md)" ]; then
-  git add data/TODO.md
+if [ -n "$(git status --porcelain data/TODO.md data/requote-report.md)" ]; then
+  git add data/TODO.md data/requote-report.md
   git -c user.name='atlas-watch[bot]' -c user.email='atlas-watch@xiamimate.local' \
       commit -q -m "watch: ${STAMP} 待办表更新" && echo "   待办表已提交" >> "$LOG"
 fi

@@ -33,7 +33,7 @@
  *   node scripts/requote.mjs           # 全站
  *   node scripts/requote.mjs --src heygen-docs
  */
-import { readFileSync, existsSync, readdirSync } from "node:fs";
+import { readFileSync, writeFileSync, existsSync, readdirSync } from "node:fs";
 import { dirname } from "node:path";
 import { fileURLToPath } from "node:url";
 
@@ -103,7 +103,40 @@ for (const v of a.versions) push(v.src, `${v.quote ?? ""} ${v.note ?? ""}`, `发
 
 const by = {};
 for (const r of rows) (by[r.kind] ??= []).push(r);
-console.log(`回查 ${rows.length} 条：` + Object.entries(by).map(([k, v]) => `${k} ${v.length}`).join(" · "));
+const head = `回查 ${rows.length} 条：` + Object.entries(by).map(([k, v]) => `${k} ${v.length}`).join(" · ");
+console.log(head);
+
+/**
+ * **报告要写文件，但待办只收「能动手的那几条」。**
+ *
+ * 全站有 57 个源存在回查失败。**直接把 57 丢进待办是错的**：§59.3 那条
+ * 「人每周看的 ≤20」是个负反馈闸门，超了会自动放宽采集规则 ——
+ * 让一份报告的口径去松动采集纪律，是拿尾巴摇狗。
+ *
+ * 所以按**失败 ≥3 条的源**收口。挑这个阈值不是因为好看：
+ * 单条失败多半是那一格的引文写得不够逐字（人写的，难免），
+ * **同一个源上连挂三条，说明问题在源不在格** —— 十有八九是抓法不对
+ * （抓回来的是侧边导航不是正文），改一次 URL 或选择器能一次性解决一片。
+ */
+const bad = {};
+for (const r of rows) if (["本页没有·别处有", "找不到", "快照无正文"].includes(r.kind)) (bad[r.src] ??= []).push(r);
+const hot = Object.entries(bad).filter(([, v]) => v.length >= 3).sort((x, y) => y[1].length - x[1].length);
+
+if (process.argv.includes("--report")) {
+  const md = [`# 引文回查 · ${new Date().toISOString().slice(0, 10)}`, "",
+    head, "",
+    "> 这份报告回答一件事：**一格引文里的原句，在它署名的那份快照里还在不在。**",
+    "> ⚠️ **失败不等于引文错。** 三种成因要分开：真署错了页 / 这一页的快照是残的（抓回来的是导航不是正文）/ 当初记的就不是逐字原文。**脚本不猜。**", "",
+    `## 失败 ≥3 条的源（${hot.length} 个）—— 这几个大概率是抓法不对`, "",
+    ...hot.map(([src, v]) => `- **${src}**（${v.length} 条）：${v.slice(0, 3).map((r) => r.at).join("、")}${v.length > 3 ? " …" : ""}`),
+    "", "## 全部", "",
+    ...["本页没有·别处有", "找不到", "快照无正文", "无快照"].flatMap((k) =>
+      (by[k] ?? []).length ? [`### ${k}（${(by[k] ?? []).length}）`, "",
+        ...(by[k] ?? []).map((r) => `- \`${r.src}\` ${r.at}${r.anchor ? ` —— 锚「${r.anchor.slice(0, 70)}」` : ""}${r.elsewhere?.length ? `（这句在 ${r.elsewhere.slice(0, 2).join("、")}）` : ""}`), ""] : []),
+  ].join("\n");
+  writeFileSync(`${ROOT}/data/requote-report.md`, md);
+  console.log(`\n报告写在 data/requote-report.md · 失败 ≥3 条的源 ${hot.length} 个`);
+}
 for (const kind of ["本页没有·别处有", "找不到", "快照无正文", "无快照"]) {
   const list = by[kind] ?? [];
   if (!list.length) continue;

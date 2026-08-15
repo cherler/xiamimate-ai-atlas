@@ -3790,16 +3790,16 @@
   {
    "id": "hf-fishspeech15",
    "tier": "A",
-   "kind": "json",
+   "kind": "html",
    "vendor": "",
    "name": "Hugging Face · fishaudio/fish-speech-1.5",
-   "url": "https://huggingface.co/api/models/fishaudio/fish-speech-1.5",
+   "url": "https://huggingface.co/fishaudio/fish-speech-1.5/raw/main/README.md",
    "refresh_days": 30,
    "good_for": [
     "openweights",
     "capability"
    ],
-   "note": "权重仓库。许可要看模型卡的 license_name，**不能只看 GitHub 上写的那个**。⚠️ 2026-08-12 修：这里填的必须是 **API 端点**，给读者点的网页地址在 atlas.sources 里（两份 URL 不是同一个，mpt-gh 就是这么分的）"
+   "note": "权重仓库。许可要看模型卡的 license_name，**不能只看 GitHub 上写的那个**。⚠️ 2026-08-12 修：这里填的必须是 **API 端点**，给读者点的网页地址在 atlas.sources 里（两份 URL 不是同一个，mpt-gh 就是这么分的） ⚠️ **2026-08-15 改了盯的地址。** 原来盯的是元数据接口（GitHub `/repos` 或 HF `/api/models`），而格子引的是**模型卡 / README 的正文** —— 接口返回里根本没有那句话，等于「引文永远无法回查、页面改了也不会有人知道」。改盯 README 原文之后 `requote.mjs` 才能真的比对。**引用表里的 URL 不动**（那是给读者点的人读页），两本账各司其职。"
   },
   {
    "id": "hf-qwen3omni",
@@ -3818,16 +3818,16 @@
   {
    "id": "hf-qwen-layered",
    "tier": "A",
-   "kind": "json",
+   "kind": "html",
    "vendor": "",
    "name": "Hugging Face · Qwen/Qwen-Image-Layered（官方模型卡）",
-   "url": "https://huggingface.co/api/models/Qwen/Qwen-Image-Layered",
+   "url": "https://huggingface.co/Qwen/Qwen-Image-Layered/raw/main/README.md",
    "refresh_days": 30,
    "good_for": [
     "openweights",
     "capability"
    ],
-   "note": "权重仓库。许可要看模型卡的 license_name，**不能只看 GitHub 上写的那个**。⚠️ 2026-08-12 修：这里填的必须是 **API 端点**，给读者点的网页地址在 atlas.sources 里（两份 URL 不是同一个，mpt-gh 就是这么分的）"
+   "note": "权重仓库。许可要看模型卡的 license_name，**不能只看 GitHub 上写的那个**。⚠️ 2026-08-12 修：这里填的必须是 **API 端点**，给读者点的网页地址在 atlas.sources 里（两份 URL 不是同一个，mpt-gh 就是这么分的） ⚠️ **2026-08-15 改了盯的地址。** 原来盯的是元数据接口（GitHub `/repos` 或 HF `/api/models`），而格子引的是**模型卡 / README 的正文** —— 接口返回里根本没有那句话，等于「引文永远无法回查、页面改了也不会有人知道」。改盯 README 原文之后 `requote.mjs` 才能真的比对。**引用表里的 URL 不动**（那是给读者点的人读页），两本账各司其职。"
   },
   {
    "id": "hf-org-minimax",
@@ -4080,44 +4080,44 @@
   {
    "id": "zimage-gh",
    "tier": "A",
-   "kind": "json",
+   "kind": "html",
    "vendor": "",
    "name": "Tongyi-MAI/Z-Image 官方仓库（模型表与规格）",
-   "url": "https://api.github.com/repos/Tongyi-MAI/Z-Image",
+   "url": "https://raw.githubusercontent.com/Tongyi-MAI/Z-Image/main/README.md",
    "refresh_days": 21,
    "good_for": [
     "capability",
     "openweights"
    ],
-   "note": "⚠️ 抓的是 API 端点，给读者点的网页地址在 atlas.sources 里（R72）。**GitHub README 比 HF 模型卡写得全** —— 模型表、分辨率上限这些只在仓库里"
+   "note": "⚠️ 抓的是 API 端点，给读者点的网页地址在 atlas.sources 里（R72）。**GitHub README 比 HF 模型卡写得全** —— 模型表、分辨率上限这些只在仓库里 ⚠️ **2026-08-15 改了盯的地址。** 原来盯的是元数据接口（GitHub `/repos` 或 HF `/api/models`），而格子引的是**模型卡 / README 的正文** —— 接口返回里根本没有那句话，等于「引文永远无法回查、页面改了也不会有人知道」。改盯 README 原文之后 `requote.mjs` 才能真的比对。**引用表里的 URL 不动**（那是给读者点的人读页），两本账各司其职。"
   },
   {
    "id": "hunyuan-image-gh",
    "tier": "A",
-   "kind": "json",
+   "kind": "html",
    "vendor": "",
    "name": "Tencent-Hunyuan/HunyuanImage-3.0 官方仓库",
-   "url": "https://api.github.com/repos/Tencent-Hunyuan/HunyuanImage-3.0",
+   "url": "https://raw.githubusercontent.com/Tencent-Hunyuan/HunyuanImage-3.0/main/README.md",
    "refresh_days": 21,
    "good_for": [
     "capability",
     "openweights"
    ],
-   "note": "⚠️ 抓的是 API 端点，给读者点的网页地址在 atlas.sources 里（R72）。**GitHub README 比 HF 模型卡写得全** —— 模型表、分辨率上限这些只在仓库里"
+   "note": "⚠️ 抓的是 API 端点，给读者点的网页地址在 atlas.sources 里（R72）。**GitHub README 比 HF 模型卡写得全** —— 模型表、分辨率上限这些只在仓库里 ⚠️ **2026-08-15 改了盯的地址。** 原来盯的是元数据接口（GitHub `/repos` 或 HF `/api/models`），而格子引的是**模型卡 / README 的正文** —— 接口返回里根本没有那句话，等于「引文永远无法回查、页面改了也不会有人知道」。改盯 README 原文之后 `requote.mjs` 才能真的比对。**引用表里的 URL 不动**（那是给读者点的人读页），两本账各司其职。"
   },
   {
    "id": "skyreels-gh",
    "tier": "A",
-   "kind": "json",
+   "kind": "html",
    "vendor": "skywork",
    "name": "SkyworkAI/SkyReels-V3 官方仓库",
-   "url": "https://api.github.com/repos/SkyworkAI/SkyReels-V3",
+   "url": "https://raw.githubusercontent.com/SkyworkAI/SkyReels-V3/main/README.md",
    "refresh_days": 14,
    "good_for": [
     "capability",
     "openweights"
    ],
-   "note": "盯这条源的首要目的是**等 V4 出现**。2026-08-13 核过：官方组织下只有 V1/V2/V3，没有 V4"
+   "note": "盯这条源的首要目的是**等 V4 出现**。2026-08-13 核过：官方组织下只有 V1/V2/V3，没有 V4 ⚠️ **2026-08-15 改了盯的地址。** 原来盯的是元数据接口（GitHub `/repos` 或 HF `/api/models`），而格子引的是**模型卡 / README 的正文** —— 接口返回里根本没有那句话，等于「引文永远无法回查、页面改了也不会有人知道」。改盯 README 原文之后 `requote.mjs` 才能真的比对。**引用表里的 URL 不动**（那是给读者点的人读页），两本账各司其职。"
   },
   {
    "id": "bfl-flux3",
@@ -5281,45 +5281,62 @@
   {
    "id": "pi-openpi-gh",
    "tier": "A",
-   "kind": "json",
+   "kind": "html",
    "vendor": "pi",
    "name": "Physical-Intelligence/openpi 官方仓库",
-   "url": "https://api.github.com/repos/Physical-Intelligence/openpi",
+   "url": "https://raw.githubusercontent.com/Physical-Intelligence/openpi/main/README.md",
    "refresh_days": 7,
    "good_for": [
     "version",
     "openweights"
    ],
-   "note": "π₀ / π₀-FAST / π₀.₅ 的基座检查点清单在 README 的 `Base Models` 表里；**checkpoint 放在 `gs://openpi-assets`，不在 HF** —— 按 HF 下载量给这条产品线排序会严重低估它。"
+   "note": "π₀ / π₀-FAST / π₀.₅ 的基座检查点清单在 README 的 `Base Models` 表里；**checkpoint 放在 `gs://openpi-assets`，不在 HF** —— 按 HF 下载量给这条产品线排序会严重低估它。 ⚠️ **2026-08-15 改了盯的地址。** 原来盯的是元数据接口（GitHub `/repos` 或 HF `/api/models`），而格子引的是**模型卡 / README 的正文** —— 接口返回里根本没有那句话，等于「引文永远无法回查、页面改了也不会有人知道」。改盯 README 原文之后 `requote.mjs` 才能真的比对。**引用表里的 URL 不动**（那是给读者点的人读页），两本账各司其职。"
   },
   {
    "id": "nvidia-groot-gh",
    "tier": "A",
-   "kind": "json",
+   "kind": "html",
    "vendor": "groot",
    "name": "NVIDIA/Isaac-GR00T 官方仓库",
-   "url": "https://api.github.com/repos/NVIDIA/Isaac-GR00T",
+   "url": "https://raw.githubusercontent.com/NVIDIA/Isaac-GR00T/main/README.md",
    "refresh_days": 7,
    "good_for": [
     "version",
     "capability",
     "openweights"
    ],
-   "note": "⚠️ **本体标签（`--embodiment-tag`）的完整清单不在 README，在 `getting_started/policy.md`。** README 只说「see the Policy API Guide」。按规则十四那条教训，只抓 README 会重演「读了页首」的漏法。"
+   "note": "⚠️ **本体标签（`--embodiment-tag`）的完整清单不在 README，在 `getting_started/policy.md`。** README 只说「see the Policy API Guide」。按规则十四那条教训，只抓 README 会重演「读了页首」的漏法。 ⚠️ **2026-08-15 改了盯的地址。** 原来盯的是元数据接口（GitHub `/repos` 或 HF `/api/models`），而格子引的是**模型卡 / README 的正文** —— 接口返回里根本没有那句话，等于「引文永远无法回查、页面改了也不会有人知道」。改盯 README 原文之后 `requote.mjs` 才能真的比对。**引用表里的 URL 不动**（那是给读者点的人读页），两本账各司其职。"
   },
   {
    "id": "openvla-gh",
    "tier": "A",
-   "kind": "json",
+   "kind": "html",
    "vendor": "openvla",
    "name": "openvla/openvla 官方仓库",
-   "url": "https://api.github.com/repos/openvla/openvla",
+   "url": "https://huggingface.co/openvla/openvla-7b/raw/main/README.md",
    "refresh_days": 14,
    "good_for": [
     "version",
     "openweights"
    ],
-   "note": "这一卷里被第三方微调最多的一支（`moojink/` `Sakits/` 等都是它的 LIBERO 基准微调）——**统计家族规模时要先折叠，否则会把它数成四五家**。"
+   "note": "这一卷里被第三方微调最多的一支（`moojink/` `Sakits/` 等都是它的 LIBERO 基准微调）——**统计家族规模时要先折叠，否则会把它数成四五家**。 ⚠️ **2026-08-15 改了盯的地址。** 原来盯的是元数据接口（GitHub `/repos` 或 HF `/api/models`），而格子引的是**模型卡 / README 的正文** —— 接口返回里根本没有那句话，等于「引文永远无法回查、页面改了也不会有人知道」。改盯 README 原文之后 `requote.mjs` 才能真的比对。**引用表里的 URL 不动**（那是给读者点的人读页），两本账各司其职。 ⚠️ **改盯法时我第一次还改错了**：把它指到了 GitHub README，而引用表里写的是 **HF 模型卡** —— 两处文字并不一样，格子引的那几句（「supports controlling multiple robots out-of-the-box」等）只在模型卡里。**盯哪一页要由「引用表说我们读的是哪一页」决定**，不能看仓库在哪就盯哪。"
+  },
+  {
+   "id": "openvla-repo",
+   "tier": "A",
+   "kind": "html",
+   "vendor": "openvla",
+   "name": "openvla/openvla 官方仓库 README",
+   "url": "https://raw.githubusercontent.com/openvla/openvla/main/README.md",
+   "refresh_days": 14,
+   "good_for": [
+    "capability"
+   ],
+   "expect": [
+    "RLDS",
+    "Fine-Tuning OpenVLA via LoRA"
+   ],
+   "note": "⚠️ **和 `openvla-gh`（HF 模型卡）是两页，不能混用一个 id。** 2026-08-15 `requote.mjs` 照出来的：`RLDS` 与 `Fine-Tuning OpenVLA via LoRA` 只在仓库 README 里，而「supports controlling multiple robots out-of-the-box」「released under an MIT License」只在模型卡里 —— 原来两边的引文都署了 `openvla-gh`，**其中一半永远回查不到**。"
   },
   {
    "id": "hf-robotics",

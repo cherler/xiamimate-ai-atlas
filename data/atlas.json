@@ -6856,6 +6856,11 @@
    "name": "Meta 官方 · V-JEPA 2 模型卡",
    "url": "https://huggingface.co/facebook/vjepa2-vitl-fpc64-256",
    "tier": "official"
+  },
+  "openvla-repo": {
+   "name": "openvla/openvla 官方仓库 README",
+   "url": "https://github.com/openvla/openvla",
+   "tier": "official"
   }
  },
  "support": [
@@ -13841,20 +13846,20 @@
    "c": "e-finetune",
    "state": "yes",
    "verified_for": "7B",
-   "src": "openvla-gh",
+   "src": "openvla-repo",
    "quote": "仓库有 `Fine-Tuning OpenVLA via LoRA` 与 `Fully Fine-Tuning OpenVLA` 两节",
    "as_of": "2026-08-14",
-   "note": ""
+   "note": "🔧 **2026-08-15 改了署名的源。** 原来署 `openvla-gh`（HF 模型卡），但这句话在**仓库 README** 里 —— 模型卡上没有。`requote.mjs` 照出来的，同一个 id 原本代表了两个页面。"
   },
   {
    "m": "openvla",
    "c": "e-dataformat",
    "state": "yes",
    "verified_for": "7B",
-   "src": "openvla-gh",
+   "src": "openvla-repo",
    "quote": "模型卡：训练数据是 Open X-Embodiment；仓库自述「We natively support arbitrary datasets in **RLDS** format, including arbitrary mixtures」",
    "as_of": "2026-08-14",
-   "note": "⚠️ **和别家不通**：这一卷主流是 LeRobot 格式，OpenVLA 走 RLDS。要混用得先转换 —— 这正是「数据格式」该单列一根轴的原因。"
+   "note": "⚠️ **和别家不通**：这一卷主流是 LeRobot 格式，OpenVLA 走 RLDS。要混用得先转换 —— 这正是「数据格式」该单列一根轴的原因。🔧 **2026-08-15 改了署名的源。** 原来署 `openvla-gh`（HF 模型卡），但这句话在**仓库 README** 里 —— 模型卡上没有。`requote.mjs` 照出来的，同一个 id 原本代表了两个页面。"
   },
   {
    "m": "openvla",
