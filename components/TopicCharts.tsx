@@ -156,6 +156,93 @@ export function CoverageChart({ decisions }: { decisions: Decision[] }) {
   );
 }
 
+/**
+ * 活跃度：**增速 × 停更，两个轴一起看。**
+ *
+ * 负责人 2026-08-16 纠的：「star 多不等于有名 —— AI 视频是新领域，
+ * 660 个星也可能跟它刚开源有关，要结合开源时间看，不然不公平。」
+ *
+ * 加上时间维度之后排名整个翻了：Toonflow 七个月 1.4 万星（2134/月），
+ * 而 ControlNet 三万四千星却**停更 30 个月**。
+ * **增速低不等于死**（kohya 164/月但一直在维护），**星数高也不等于活**。
+ */
+export function ActivityChart({ projects }: { projects: TopicProject[] }) {
+  const rows = [...projects].filter((p) => p.stars_per_month != null)
+    .sort((a, b) => (b.stars_per_month ?? 0) - (a.stars_per_month ?? 0));
+  const max = Math.max(...rows.map((p) => p.stars_per_month ?? 0));
+  return (
+    <div className="border border-rule rounded-lg divide-y divide-rule">
+      {rows.map((p) => {
+        const stale = p.stale_months ?? 0;
+        return (
+          <div key={p.id} className="grid grid-cols-[112px_1fr_auto] gap-3 items-center px-3 py-2 text-[12px]">
+            <span className="truncate">{p.zh}</span>
+            <span className="flex h-3 items-center">
+              <span className="bg-yes h-3 rounded-sm"
+                style={{ width: `${Math.max(2, ((p.stars_per_month ?? 0) / max) * 100)}%` }} />
+            </span>
+            <span className="text-[11px] tnum whitespace-nowrap">
+              <span className="text-muted">{p.stars_per_month} 星/月</span>
+              {stale >= 12
+                ? <b className="text-no ml-2">停更 {stale} 个月</b>
+                : <span className="text-yes-ink ml-2">在维护</span>}
+            </span>
+          </div>
+        );
+      })}
+      <p className="text-[11px] text-muted px-3 py-1.5">
+        条长＝星数 ÷ 月龄（新项目才公平）· 右侧是最后一次提交距今多久 · 数据 GitHub API 实测 2026-08-16
+      </p>
+    </div>
+  );
+}
+
+/**
+ * 整包篇的主图：**同一张九格条，看它替你做掉哪几个决定**。
+ * 和自建篇共用一套格子，所以「它帮你做了什么、又拿走了什么」自己就看出来了。
+ */
+const ENGINE = {
+  stock: { zh: "检索素材库", note: "不生成画面，从素材库里找" },
+  yours: { zh: "你自己的素材", note: "不生成画面，重组你已有的" },
+  cloud: { zh: "云端 API", note: "生成走别人的模型，按次付费" },
+  local: { zh: "本地权重", note: "画面在本机生成" },
+} as const;
+
+export function AllInOneChart({ projects, decisions }: { projects: TopicProject[]; decisions: Decision[] }) {
+  return (
+    <div className="border border-rule rounded-lg divide-y divide-rule">
+      {projects.map((p) => (
+        <div key={p.id} className="px-4 py-3">
+          <div className="flex items-baseline gap-2.5 flex-wrap mb-2">
+            <b className="text-[14px]">{p.zh}</b>
+            <span className="text-[10.5px] border border-rule rounded-full px-2 text-muted">
+              画面：{p.engine ? ENGINE[p.engine].zh : "—"}
+            </span>
+            <span className="text-[10.5px] text-muted tnum ml-auto">
+              替你做 {p.takes_over?.length ?? 0} / 留给你 {p.leaves?.length ?? 0}
+            </span>
+          </div>
+          <div className="flex gap-1">
+            {decisions.map((d) => {
+              const took = p.takes_over?.includes(d.id);
+              const left = p.leaves?.includes(d.id);
+              return (
+                <span key={d.id} title={`${d.zh}：${took ? "它替你做" : left ? "留给你" : "不涉及"}`}
+                  className={`flex-1 h-4 rounded-sm ${took ? "bg-no opacity-70" : left ? "bg-yes opacity-70" : "hatch border border-rule"}`} />
+              );
+            })}
+          </div>
+        </div>
+      ))}
+      <div className="px-4 py-2 flex gap-4 text-[11px] text-muted">
+        <span className="flex items-center gap-1.5"><i className="w-3 h-3 bg-no opacity-70 rounded-sm inline-block" />它替你做</span>
+        <span className="flex items-center gap-1.5"><i className="w-3 h-3 bg-yes opacity-70 rounded-sm inline-block" />留给你</span>
+        <span className="flex items-center gap-1.5"><i className="w-3 h-3 hatch border border-rule rounded-sm inline-block" />不涉及</span>
+      </div>
+    </div>
+  );
+}
+
 /* ══════════ 每个项目自己的图 ══════════ */
 
 function Fig({ title, src, children }: { title: string; src: string; children: React.ReactNode }) {

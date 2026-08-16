@@ -136,7 +136,15 @@ export default async function ProjectPage({ params }: { params: Promise<{ id: st
           <span className={`border rounded-full px-2.5 py-0.5 ${LIC[p.license_class].cls}`}>
             {p.license}　{LIC[p.license_class].zh}
           </span>
-          <span className="border border-rule rounded-full px-2.5 py-0.5 text-muted tnum">★ {(p.stars / 1000).toFixed(1)}k</span>
+          <span className="border border-rule rounded-full px-2.5 py-0.5 text-muted tnum">
+            ★ {(p.stars / 1000).toFixed(1)}k{p.stars_per_month ? `　${p.stars_per_month} 星/月` : ""}
+          </span>
+          {p.stale_months != null && (
+            <span className={`border rounded-full px-2.5 py-0.5 tnum ${
+              p.stale_months >= 12 ? "border-no text-no" : "border-yes text-yes-ink"}`}>
+              {p.stale_months >= 12 ? `停更 ${p.stale_months} 个月` : "在维护"}
+            </span>
+          )}
           <a href={p.url} target="_blank" rel="noopener noreferrer"
             className="border border-rule rounded-full px-2.5 py-0.5 text-yes-ink hover:border-yes">仓库 ↗</a>
         </div>

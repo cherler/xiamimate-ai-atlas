@@ -5,7 +5,7 @@ import Link from "next/link";
 import { Rich } from "./Fact";
 import { forkCoverage, topicAppName, type Decision, type Topic, type TopicProject } from "@/lib/atlas";
 import { capHref, topicProjectHref } from "@/lib/slug";
-import { CoverageChart, HardwareChart, LicenseChart, MatrixChart, ProjectCharts, ProjectDiagrams } from "./TopicCharts";
+import { ActivityChart, AllInOneChart, CoverageChart, HardwareChart, LicenseChart, MatrixChart, ProjectCharts, ProjectDiagrams } from "./TopicCharts";
 
 /**
  * 专项页的交互层。
@@ -126,8 +126,10 @@ export default function TopicView({ t }: { t: Topic }) {
     : [];
   /** 底座不挂在决定下面 —— ComfyUI 横跨四个决定，逐条重复四次就成了噪音。 */
   const bases = t.projects.filter((p) => p.role === "base");
+  const allinone = t.projects.filter((p) => p.role === "allinone");
+  /** 整包不挂在决定下面 —— 它替你做决定，所以自成一篇。 */
   const projectsFor = (dId: string) =>
-    t.projects.filter((p) => p.role !== "base" && p.decisions.includes(dId));
+    t.projects.filter((p) => p.role === "tool" && p.decisions.includes(dId));
 
   return (
     <>
@@ -181,6 +183,15 @@ export default function TopicView({ t }: { t: Topic }) {
       </section>
 
       <section className="py-12 border-t border-rule">
+        <h2 className="text-[22px] tracking-tight mb-1.5">活跃度</h2>
+        <p className="text-[13px] text-muted mb-5 max-w-[54ch]">
+          星数绝对值在新领域里是年龄的函数。这里按<b className="text-ink">增速</b>排，
+          并单列<b className="text-ink">最后一次提交距今多久</b> —— 两个轴谁也别单独用。
+        </p>
+        <ActivityChart projects={t.projects} />
+      </section>
+
+      <section className="py-12 border-t border-rule">
         <h2 className="text-[22px] tracking-tight mb-1.5">硬件门槛</h2>
         <p className="text-[13px] text-muted mb-5">数值取自各仓库自述。</p>
         <HardwareChart projects={t.projects} />
@@ -227,6 +238,24 @@ export default function TopicView({ t }: { t: Topic }) {
       )}
 
       {/* ── 自持程度 ── */}
+      {/*
+        * ── 整包篇 ──
+        * 和自建篇共用同一张九格条：**它替你做掉哪几个决定、留给你哪几个**。
+        * 摆在一起，「它帮你做了什么、又拿走了什么」自己就看出来了，不用我们说。
+        */}
+      {allinone.length > 0 && (
+        <section className="py-14 border-t border-rule">
+          <h2 className="text-[22px] tracking-tight mb-1.5">整包篇</h2>
+          <p className="text-[13px] text-muted mb-5 max-w-[52ch]">
+            <Rich text={t.chapters.find((c) => c.id === "allinone")?.intro ?? ""} />
+          </p>
+          <AllInOneChart projects={allinone} decisions={t.decisions} />
+          <div className="grid sm:grid-cols-2 gap-2 mt-3">
+            {allinone.map((p) => <ProjectLink key={p.id} p={p} topic={t.id} />)}
+          </div>
+        </section>
+      )}
+
       <section className="py-14 border-t border-rule">
         <h2 className="text-[22px] tracking-tight mb-1.5">自持程度</h2>
         <p className="text-[13px] text-muted mb-7">由低到高：先出片 → 要控制 → 沉淀方法。</p>

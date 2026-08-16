@@ -475,12 +475,33 @@ export type Decision = {
 export type TopicProject = {
   id: string; zh: string; url: string; stars: number;
   license: string;
+  /**
+   * 仓库活跃度。**星数绝对值在新领域里不是名气，是年龄的函数** ——
+   * 负责人 2026-08-16：「有 660 个星也可能跟它刚开源有关，要结合开源时间看，不然不公平。」
+   *
+   * 所以看两个轴，缺一不可：
+   * - `stars_per_month` 增速 —— 公平的「有多少人在意」
+   * - `stale_months` 停更月数 —— 活不活。**增速低不等于死**（kohya 164/月但一直在维护），
+   *   **星数高也不等于活**（ControlNet 3.4 万星，停更 30 个月）
+   */
+  created_at?: string; pushed_at?: string;
+  stars_per_month?: number; stale_months?: number;
   /** permissive 可商用 · copyleft 传染性 · noncommercial 不可商用 */
   license_class: "permissive" | "copyleft" | "noncommercial";
   /** 这个项目管哪几个决定 */
   decisions: string[];
-  /** base = 底座（横跨多个决定，只出现一次）· tool = 单点工具（挂在决定下面） */
-  role: "base" | "tool";
+  /**
+   * base 底座（横跨多个决定，只出现一次）· tool 单点工具（挂在决定下面）
+   * · allinone 整包（**它替你做决定，所以要单独一篇**）
+   */
+  role: "base" | "tool" | "allinone";
+  /** 整包专用：它替你做掉了哪几个决定 / 还留给你哪几个 */
+  takes_over?: string[]; leaves?: string[];
+  /**
+   * 整包专用：**画面到底从哪来** —— 这是整包篇的分水岭。
+   * stock 检索素材库 · yours 你自己的素材 · cloud 云端 API · local 本地权重
+   */
+  engine?: "stock" | "yours" | "cloud" | "local";
   scope: string; control: string; hw: string; arch?: string;
   /** ⚠️ 判断，不是厂商说过的话 */
   good: string[]; bad: string[]; unfit: string;
