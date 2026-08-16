@@ -93,9 +93,37 @@ function LayerBadges({ layers }: { layers: readonly string[] }) {
   );
 }
 
-function Section({ title, children }: { title: string; children: React.ReactNode }) {
+/** 六节固定，目录与小节共用这份清单 —— 各写一份迟早漂开。 */
+const SECS = [
+  { id: "decisions", zh: "它管哪几个决定" },
+  { id: "autonomy", zh: "自持能力" },
+  { id: "read", zh: "读懂层" },
+  { id: "hands", zh: "动手层" },
+  { id: "judge", zh: "判断" },
+  { id: "siblings", zh: "相关项目" },
+] as const;
+
+function Toc({ ids }: { ids: string[] }) {
   return (
-    <section className="py-10 border-t border-rule">
+    <nav className="hidden lg:block sticky top-16 self-start w-[132px] shrink-0 pt-24">
+      <p className="text-[10.5px] tracking-[0.16em] text-muted font-bold mb-2.5">目录</p>
+      <ul className="space-y-1.5 border-l border-rule">
+        {SECS.filter((x) => ids.includes(x.id)).map((x) => (
+          <li key={x.id}>
+            <a href={`#${x.id}`}
+              className="block text-[12.5px] text-muted hover:text-ink border-l-2 border-transparent hover:border-yes -ml-px pl-3 py-0.5">
+              {x.zh}
+            </a>
+          </li>
+        ))}
+      </ul>
+    </nav>
+  );
+}
+
+function Section({ id, title, children }: { id: string; title: string; children: React.ReactNode }) {
+  return (
+    <section id={id} className="py-10 border-t border-rule scroll-mt-16">
       <h2 className="text-[19px] tracking-tight mb-5">{title}</h2>
       {children}
     </section>
@@ -123,7 +151,14 @@ export default async function ProjectPage({ params }: { params: Promise<{ id: st
   const siblings = t.projects.filter((x) => x.id !== p.id && x.decisions.some((d) => p.decisions.includes(d)));
 
   return (
-    <main className="max-w-[820px] mx-auto px-5 pb-16">
+    <main className="max-w-[1000px] mx-auto px-5 pb-16 lg:flex lg:gap-9">
+      <Toc ids={[
+        "decisions", "autonomy",
+        ...(p.diagrams?.length || p.arch ? ["read"] : []),
+        "hands", "judge",
+        ...(siblings.length ? ["siblings"] : []),
+      ]} />
+      <div className="min-w-0 flex-1">
       <nav className="pt-5 text-[12.5px] text-muted">
         <Link href={`/topic/${t.id}`} className="hover:text-ink underline">← {t.zh}</Link>
       </nav>
@@ -150,7 +185,7 @@ export default async function ProjectPage({ params }: { params: Promise<{ id: st
         </div>
       </header>
 
-      <Section title="它管哪几个决定">
+      <Section id="decisions" title="它管哪几个决定">
         <div className="border border-rule rounded-lg divide-y divide-rule">
           {mine.map((d) => {
             const c = d!.cap ? forkCoverage(d!.cap) : null;
@@ -176,12 +211,12 @@ export default async function ProjectPage({ params }: { params: Promise<{ id: st
         </div>
       </Section>
 
-      <Section title="自持能力">
+      <Section id="autonomy" title="自持能力">
         <AutonomyBox p={p} />
       </Section>
 
       {(p.diagrams?.length || p.arch) && (
-        <Section title="读懂层">
+        <Section id="read" title="读懂层">
           {p.arch && <p className="text-[13px] text-muted leading-relaxed mb-4 max-w-[62ch]">{p.arch}</p>}
           {p.diagrams?.map((d) => svgs[d.id] && (
             <figure key={d.id} className="mb-5">
@@ -195,7 +230,7 @@ export default async function ProjectPage({ params }: { params: Promise<{ id: st
       )}
 
       {p.hands ? (
-        <Section title="动手层">
+        <Section id="hands" title="动手层">
           {/* 做到了哪几层必须明写 —— 否则只读 README 的看起来和真跑过的一样。 */}
           <LayerBadges layers={p.hands.layers} />
           <h3 className="text-[12px] tracking-wider text-muted font-bold mb-2">装它要过哪几关</h3>
@@ -232,14 +267,14 @@ export default async function ProjectPage({ params }: { params: Promise<{ id: st
           </div>
         </Section>
       ) : (
-        <Section title="动手层">
+        <Section id="hands" title="动手层">
           <p className="text-[13px] text-muted border border-rule rounded-lg px-4 py-3 hatch">
             还没做。装它要过哪几关、改哪个文件能改什么、坑在代码哪一处 —— 这三项要读源码，尚未完成。
           </p>
         </Section>
       )}
 
-      <Section title="判断">
+      <Section id="judge" title="判断">
         <div className="grid sm:grid-cols-2 gap-x-8 gap-y-5 border-l-2 border-chip-warm-ink pl-4">
           <div>
             <h3 className="text-[11px] tracking-wider text-yes-ink font-bold mb-2">优势</h3>
@@ -261,7 +296,7 @@ export default async function ProjectPage({ params }: { params: Promise<{ id: st
       </Section>
 
       {siblings.length > 0 && (
-        <Section title="同管这些决定的其它项目">
+        <Section id="siblings" title="同管这些决定的其它项目">
           <div className="grid sm:grid-cols-2 gap-2">
             {siblings.map((s) => (
               <Link key={s.id} href={topicProjectHref(t.id, s.id)}
@@ -277,6 +312,7 @@ export default async function ProjectPage({ params }: { params: Promise<{ id: st
       <div className="border-t border-rule pt-5 mt-2 text-[11.5px] text-muted">
         <p className="mb-2">{p.src} · 核验 {p.verified_at}　|　判断栏可报错。</p>
         <ReportIssue />
+      </div>
       </div>
     </main>
   );

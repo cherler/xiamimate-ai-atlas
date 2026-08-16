@@ -25,7 +25,7 @@ export default async function TopicPage({ params }: { params: Promise<{ id: stri
   const t = atlas.topics.find((x) => x.id === id);
   if (!t) return null;
   return (
-    <main className="max-w-[840px] mx-auto px-5 pb-16">
+    <main className="max-w-[1080px] mx-auto px-5 pb-16">
       <BackLink />
       <TopicView t={t} />
       <div className="border-t border-rule pt-5 mt-6 text-[12px] text-muted max-w-[62ch]">

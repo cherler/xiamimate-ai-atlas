@@ -108,6 +108,53 @@ function ProjectLink({ p, topic }: { p: TopicProject; topic: string }) {
   );
 }
 
+/**
+ * 左侧目录。**目录项与小节从同一份清单渲染**，标题只写一处 ——
+ * 各写一份迟早会漂开，而漂开的症状是「点了跳错地方」，没人会报错。
+ *
+ * 小屏不显示：200px 的固定栏在手机上会把正文挤成一条。
+ * 目录本身不做高亮跟随 —— 那要监听滚动，收益不抵一个常驻的 observer。
+ */
+const SEC = {
+  coverage: { id: "coverage", zh: "官方说法覆盖度" },
+  license:  { id: "license",  zh: "许可证" },
+  activity: { id: "activity", zh: "活跃度" },
+  hardware: { id: "hardware", zh: "硬件门槛" },
+  matrix:   { id: "matrix",   zh: "片型 × 决定" },
+  picked:   { id: "picked",   zh: "关键决定" },
+  allinone: { id: "allinone", zh: "整包篇" },
+  axis:     { id: "axis",     zh: "自持程度" },
+} as const;
+
+function Toc({ items }: { items: { id: string; zh: string }[] }) {
+  return (
+    <nav className="hidden lg:block sticky top-16 self-start w-[150px] shrink-0 pt-14">
+      <p className="text-[10.5px] tracking-[0.16em] text-muted font-bold mb-2.5">目录</p>
+      <ul className="space-y-1.5 border-l border-rule">
+        {items.map((i) => (
+          <li key={i.id}>
+            <a href={`#${i.id}`}
+              className="block text-[12.5px] text-muted hover:text-ink border-l-2 border-transparent hover:border-yes -ml-px pl-3 py-0.5">
+              {i.zh}
+            </a>
+          </li>
+        ))}
+      </ul>
+    </nav>
+  );
+}
+
+/** 一个小节：id 与标题都由清单给，正文当 children 传进来。 */
+function Sec({ id, zh, sub, children }: { id: string; zh: string; sub?: React.ReactNode; children: React.ReactNode }) {
+  return (
+    <section id={id} className="py-12 border-t border-rule scroll-mt-16">
+      <h2 className="text-[22px] tracking-tight mb-1.5">{zh}</h2>
+      {sub && <div className="text-[13px] text-muted mb-5 max-w-[54ch]">{sub}</div>}
+      {children}
+    </section>
+  );
+}
+
 export default function TopicView({ t }: { t: Topic }) {
   const [pick, setPick] = useState<string | null>(null);
   const matrix = t.chapters.find((c) => c.matrix)?.matrix;
@@ -131,8 +178,14 @@ export default function TopicView({ t }: { t: Topic }) {
   const projectsFor = (dId: string) =>
     t.projects.filter((p) => p.role === "tool" && p.decisions.includes(dId));
 
+  /** 目录只列真的渲染出来的小节 —— 点了跳空比没有目录更糟。 */
+  const toc = [SEC.coverage, SEC.license, SEC.activity, SEC.hardware, SEC.matrix,
+    ...(pick ? [SEC.picked] : []), ...(allinone.length ? [SEC.allinone] : []), SEC.axis];
+
   return (
-    <>
+    <div className="lg:flex lg:gap-10">
+      <Toc items={toc} />
+      <div className="min-w-0 flex-1">
       {/*
         * ── 第一屏 ──
         *
@@ -170,36 +223,26 @@ export default function TopicView({ t }: { t: Topic }) {
         </div>
       </section>
 
-      <section className="py-12 border-t border-rule">
-        <h2 className="text-[22px] tracking-tight mb-1.5">官方说法覆盖度</h2>
-        <p className="text-[13px] text-muted mb-5">10 个核心模型里，各项能力有几家写进了官方文档。</p>
+      <Sec {...SEC.coverage} sub="10 个核心模型里，各项能力有几家写进了官方文档。">
         <CoverageChart decisions={t.decisions} />
-      </section>
+      </Sec>
 
-      <section className="py-12 border-t border-rule">
-        <h2 className="text-[22px] tracking-tight mb-1.5">许可证</h2>
-        <p className="text-[13px] text-muted mb-5">按能不能拿去接商单分档，不按许可证名字分。</p>
+      <Sec {...SEC.license} sub="按能不能拿去接商单分档，不按许可证名字分。">
         <LicenseChart projects={t.projects} />
-      </section>
+      </Sec>
 
-      <section className="py-12 border-t border-rule">
-        <h2 className="text-[22px] tracking-tight mb-1.5">活跃度</h2>
-        <p className="text-[13px] text-muted mb-5 max-w-[54ch]">
-          星数绝对值在新领域里是年龄的函数。这里按<b className="text-ink">增速</b>排，
-          并单列<b className="text-ink">最后一次提交距今多久</b> —— 两个轴谁也别单独用。
-        </p>
+      <Sec {...SEC.activity} sub={<>星数绝对值在新领域里是年龄的函数。这里按<b className="text-ink">增速</b>排，
+          并单列<b className="text-ink">最后一次提交距今多久</b> —— 两个轴谁也别单独用。</>}>
         <ActivityChart projects={t.projects} />
-      </section>
+      </Sec>
 
-      <section className="py-12 border-t border-rule">
-        <h2 className="text-[22px] tracking-tight mb-1.5">硬件门槛</h2>
-        <p className="text-[13px] text-muted mb-5">数值取自各仓库自述。</p>
+      <Sec {...SEC.hardware} sub="数值取自各仓库自述。">
         <HardwareChart projects={t.projects} />
-      </section>
+      </Sec>
 
       {/* ── 片型 × 决定 热力矩阵。点行选片型。 ── */}
-      <section className="py-12 border-t border-rule">
-        <h2 className="text-[22px] tracking-tight mb-1.5">片型 × 决定</h2>
+      <section id={SEC.matrix.id} className="py-12 border-t border-rule scroll-mt-16">
+        <h2 className="text-[22px] tracking-tight mb-1.5">{SEC.matrix.zh}</h2>
         <p className="text-[13px] text-muted mb-5">格子越实＝该决定对这一片型越关键。点一行展开。</p>
         {matrix && <MatrixChart matrix={matrix} decisions={t.decisions} pick={pick} onPick={(id) => setPick(id === pick ? null : id)} />}
         <p className="text-[11px] text-muted mt-1.5 border-l-2 border-chip-warm-ink pl-2.5">权重是判断，不是厂商说法。</p>
@@ -207,7 +250,7 @@ export default function TopicView({ t }: { t: Topic }) {
 
       {/* ── 选了才展开 ── */}
       {pick && (
-        <section className="py-14 border-t border-rule">
+        <section id={SEC.picked.id} className="py-14 border-t border-rule scroll-mt-16">
           <h2 className="text-[22px] tracking-tight mb-1.5">
             {topicAppName(pick)} · 关键决定 <span className="tnum">{key.length}</span> 项
           </h2>
@@ -244,8 +287,8 @@ export default function TopicView({ t }: { t: Topic }) {
         * 摆在一起，「它帮你做了什么、又拿走了什么」自己就看出来了，不用我们说。
         */}
       {allinone.length > 0 && (
-        <section className="py-14 border-t border-rule">
-          <h2 className="text-[22px] tracking-tight mb-1.5">整包篇</h2>
+        <section id={SEC.allinone.id} className="py-14 border-t border-rule scroll-mt-16">
+          <h2 className="text-[22px] tracking-tight mb-1.5">{SEC.allinone.zh}</h2>
           <p className="text-[13px] text-muted mb-5 max-w-[52ch]">
             <Rich text={t.chapters.find((c) => c.id === "allinone")?.intro ?? ""} />
           </p>
@@ -256,8 +299,8 @@ export default function TopicView({ t }: { t: Topic }) {
         </section>
       )}
 
-      <section className="py-14 border-t border-rule">
-        <h2 className="text-[22px] tracking-tight mb-1.5">自持程度</h2>
+      <section id={SEC.axis.id} className="py-14 border-t border-rule scroll-mt-16">
+        <h2 className="text-[22px] tracking-tight mb-1.5">{SEC.axis.zh}</h2>
         <p className="text-[13px] text-muted mb-7">由低到高：先出片 → 要控制 → 沉淀方法。</p>
         <div className="grid sm:grid-cols-3 gap-2.5">
           {axis.map((c) => (
@@ -271,6 +314,7 @@ export default function TopicView({ t }: { t: Topic }) {
           ))}
         </div>
       </section>
-    </>
+      </div>
+    </div>
   );
 }
