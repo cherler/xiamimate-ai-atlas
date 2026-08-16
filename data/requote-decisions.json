@@ -11,6 +11,17 @@
       "at_label": "vidu-q × flf",
       "kind": "本页没有·别处有",
       "from": "vidu-up"
+    },
+    {
+      "id": "ideogram-edit|ideogram × i-edit",
+      "at": "2026-08-16 04:27:03",
+      "who": "admin",
+      "action": "repoint",
+      "why": "",
+      "src": "ideogram-edit",
+      "at_label": "ideogram × i-edit",
+      "kind": "本页没有·别处有",
+      "from": "ideogram-edit"
     }
   ]
 }

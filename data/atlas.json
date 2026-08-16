@@ -8865,8 +8865,8 @@
       "c": "i-edit",
       "state": "yes",
       "verified_for": "4.0",
-      "src": "ideogram-edit",
-      "note": "⚠️ **这个端点路径不带版本号**，官方没说它跑的是哪一代模型 —— 它对任意图片可用，4.0 的产出也能喂进去，但不能算作「4.0 独有」。能力本身是确实的：概览里 Edit 一节写「Take a starting image and modify a part of an image while keeping the rest intact.」，还额外说明可以拿它做换脸（Face Swapping）。",
+      "src": "ideogram-overview",
+      "note": "⚠️ **这个端点路径不带版本号**，官方没说它跑的是哪一代模型 —— 它对任意图片可用，4.0 的产出也能喂进去，但不能算作「4.0 独有」。能力本身是确实的：概览里 Edit 一节写「Take a starting image and modify a part of an image while keeping the rest intact.」，还额外说明可以拿它做换脸（Face Swapping）。 🔧 **2026-08-16 改了署名的源**：原署 `ideogram-edit`，实际这句话在 `ideogram-overview` 里。",
       "as_of": "2026-08-12",
       "quote": "POST /v1/edit —— 「Edit one or more images using a text prompt.」；API 概览把 4.0 描述为「Prompt fidelity, crystal-clear type, reliable editing, and production-ready image workflows」"
     },
