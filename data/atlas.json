@@ -28446,167 +28446,447 @@
   "topics": [
     {
       "id": "video",
-      "zh": "用 AI 做视频：五个岔口",
-      "en": "Making Video with AI: Five Forks",
-      "intro": "做一条片子会遇到五个必须选的岔口。**选错不会立刻报错，会在你花掉几十次生成之后才显形。**这一页把每个岔口的路摆开，标清楚有几家厂商真的给了官方说法。",
-      "guide": "图生视频 → 角色参考锁人 → 后期配音 → 云 API。这条路上支持的厂商最多，失败率最低。**省下的时间应该花在下面五张表上** —— 它们才决定你两个月后会不会推倒重来。",
-      "forks": [
+      "zh": "AI 视频制作：九个决定",
+      "en": "Making Video with AI: Nine Decisions",
+      "intro": "一条视频由九个独立的决定构成。**「一句话生成」把九个决定一次性代办**，输出不满意时只能整条重来。",
+      "decisions": [
         {
-          "zh": "画面从哪来",
-          "why": "这是唯一一个**越往后越改不动**的选择：它决定了你后面所有一致性手段还能不能用。",
-          "routes": [
-            {
-              "zh": "文生视频",
-              "sub": "一句话直接出片段",
-              "cap": "t2v",
-              "good": "起步最快，**不需要先会出图**。",
-              "bad": "**画面不受你控制。**同一句话两次结果不同，人物长相每条都在变 —— 后面所有一致性手段都在补这个洞。"
-            },
-            {
-              "zh": "图生视频",
-              "sub": "先出图，再让图动",
-              "cap": "i2v",
-              "good": "**画面先定死，模型只管运动。**出图那一步可以反复挑、可以修，成本比重出视频低一个量级。",
-              "bad": "多一道工序，要会用图像那一套（ControlNet / IP-Adapter）。"
-            },
-            {
-              "zh": "素材库拼接",
-              "sub": "不生成，检索现成素材",
-              "cap": null,
-              "app": "short-drama",
-              "res": "MoneyPrinterTurbo（一句话到成片的全流程）",
-              "good": "零显卡、零等待，**没有来源不明的版权问题**（用的是正规素材库）。",
-              "bad": "**严格说这不是 AI 生成视频**，风格完全不受控 —— 这也是「一键成片」的真相。"
-            }
-          ]
+          "id": "topic",
+          "zh": "选题与钩子",
+          "owner": "user",
+          "cap": null,
+          "handle": "—"
         },
         {
-          "zh": "跨镜头一致性怎么保",
-          "why": "**这是新手放弃的第一名。**不是「做不出来」，是第 3 个镜头里人物换了张脸。四条路，覆盖度差得很远。",
-          "routes": [
-            {
-              "zh": "角色参考",
-              "sub": "给一张人物图当锚",
-              "cap": "charref",
-              "good": "**目前最省事、覆盖最广的一条。**不用训练，一张图就能锁住同一个人。",
-              "bad": "锁得住脸，**锁不住服装和场景**。"
-            },
-            {
-              "zh": "多参考",
-              "sub": "同时给人、物、场景",
-              "cap": "multiref",
-              "good": "能同时锁住**人 + 商品 + 场景**，带货和品牌片真正需要的是这个。",
-              "bad": "普及度还在「前沿」档 —— 各家实现差异大，参数名都不一样，换一家就要重调。"
-            },
-            {
-              "zh": "首尾帧",
-              "sub": "给定第一帧和最后一帧",
-              "cap": "flf",
-              "good": "**接镜头最稳的一招** —— 上一段的尾帧当下一段的首帧，画面天然接得上。",
-              "bad": "**给了官方说法的只有五家，而且有一家明确说不支持。**把整条流程压在它上面，等于把自己锁死在这几家里。"
-            },
-            {
-              "zh": "把长相写进提示词",
-              "sub": "每一条都重复描述一遍",
-              "cap": null,
-              "good": "零门槛，任何模型都能试。",
-              "bad": "**没有任何厂商承诺它有效。**这不是一项能力，是一个愿望 —— 真值表里根本没有这一格。"
-            }
-          ]
+          "id": "shot",
+          "zh": "分镜",
+          "owner": "platform",
+          "cap": "i2v",
+          "handle": "先出图，再图生视频"
         },
         {
-          "zh": "声音从哪来",
-          "why": "决定你要不要多接一整条声音工具链。",
-          "routes": [
-            {
-              "zh": "模型原生音频",
-              "sub": "生成视频时一起出声",
-              "cap": "audio",
-              "good": "**省掉一整条声音链**，口型和音效天生对得上。",
-              "bad": "**改一个字就得重出整段视频。**而重出视频比重配音贵得多。"
-            },
-            {
-              "zh": "后期配音",
-              "sub": "视频归视频，声音归声音",
-              "cap": null,
-              "good": "**改词只要重配那一句**，视频一帧都不用重出。声音卷有大量 MIT / Apache 的开源项目。",
-              "bad": "口型对不上 —— 除非再补一道口型替换。"
-            },
-            {
-              "zh": "配音 + 口型替换",
-              "sub": "后期把嘴改对",
-              "cap": "lipsync",
-              "good": "兼得：**既能随时改词，嘴又对得上**。",
-              "bad": "多一道工序，而且给了官方说法的厂商不多；开源侧靠单点项目补。"
-            }
-          ]
+          "id": "compose",
+          "zh": "画面构图",
+          "owner": "platform",
+          "cap": null,
+          "handle": "线稿 / 姿势 / 深度约束",
+          "note": "不是视频能力，靠图像侧的结构信号"
         },
         {
-          "zh": "在哪跑",
-          "why": "**这一格是视频卷唯一「明确不支持」比「支持」还多的能力** —— 想本地跑，一半模型直接出局。",
-          "routes": [
-            {
-              "zh": "云 API",
-              "sub": "按次付费",
-              "cap": null,
-              "good": "零硬件，**效果最好的几家只在这条路上**。",
-              "bad": "按次烧钱，**试错成本直接变成现金**；素材要上传到别人家。"
-            },
-            {
-              "zh": "本地开源权重",
-              "sub": "自己的显卡",
-              "cap": "openweights",
-              "good": "**边际成本为零**，可以无限试错 —— 而做视频的本质就是试错。素材不出本机。",
-              "bad": "**多家明确不给权重**，包括第一梯队那几家。选这条路等于接受「用不到最好的模型」。"
-            }
-          ]
+          "id": "identity",
+          "zh": "角色跨镜头一致",
+          "owner": "platform",
+          "cap": "charref",
+          "handle": "角色参考 · 多参考 · LoRA"
         },
         {
-          "zh": "整包工具还是自己串",
-          "why": "最后一个岔口，也是唯一一个**可以先选整包、以后再拆开**的。",
-          "routes": [
-            {
-              "zh": "MoneyPrinterTurbo",
-              "sub": "主题 → 成片",
-              "cap": null,
-              "app": "short-drama",
-              "res": "MoneyPrinterTurbo（一句话到成片的全流程）",
-              "good": "**当天能出第一条片子**，含字幕和配音。同类里星数最高。",
-              "bad": "**五个岔口它替你全选了**，而且每一个都改不动。适合验证「我到底想不想做这件事」。"
+          "id": "motion",
+          "zh": "运动幅度与方向",
+          "owner": "platform",
+          "cap": "flf",
+          "handle": "首尾帧约束"
+        },
+        {
+          "id": "camera",
+          "zh": "镜头运动",
+          "owner": "platform",
+          "cap": "camera",
+          "handle": "无可用手段",
+          "note": "10 个核心模型里只有 1 家给了官方说法"
+        },
+        {
+          "id": "pace",
+          "zh": "时长与节奏",
+          "owner": "partial",
+          "cap": null,
+          "handle": "时长可设，节奏靠剪辑"
+        },
+        {
+          "id": "sound",
+          "zh": "声音",
+          "owner": "partial",
+          "cap": "audio",
+          "handle": "后期配音：改词不重出视频"
+        },
+        {
+          "id": "repro",
+          "zh": "结果可复现",
+          "owner": "platform",
+          "cap": "openweights",
+          "handle": "权重与随机种子在本地",
+          "note": "生成结果由权重、提示与参考、随机种子三项共同决定。闭源平台只开放第二项，且模型版本会在后台更新。"
+        }
+      ],
+      "chapters": [
+        {
+          "id": "types",
+          "zh": "片型篇",
+          "kind": "entry",
+          "state": "live",
+          "intro": "九种片型对九个决定的权重不同。**做特效的人去搞角色一致是浪费；做短剧的人不解决角色一致，后面全白干。**先定片型，再看该夺回哪几个决定。",
+          "matrix": {
+            "short-drama": {
+              "identity": 3,
+              "motion": 2,
+              "shot": 3,
+              "compose": 2,
+              "repro": 3,
+              "sound": 2,
+              "camera": 1,
+              "pace": 2,
+              "topic": 3
             },
-            {
-              "zh": "NarratoAI",
-              "sub": "解说 + 剪辑",
-              "cap": null,
-              "app": "short-drama",
-              "res": "NarratoAI（AI 解说 + 自动剪辑）",
-              "good": "手里已经有视频素材时，它省掉最烦的剪。",
-              "bad": "**不生成画面** —— 没素材的人第一步就卡死。"
+            "comic-drama": {
+              "identity": 3,
+              "motion": 1,
+              "shot": 3,
+              "compose": 3,
+              "repro": 3,
+              "sound": 2,
+              "camera": 0,
+              "pace": 2,
+              "topic": 3
             },
-            {
-              "zh": "火宝短剧",
-              "sub": "剧本 → 成片",
-              "cap": null,
-              "app": "short-drama",
-              "res": "火宝短剧（一句话生成完整短剧）",
-              "good": "中文短剧场景里最完整的一个开源实现。",
-              "bad": "**作者没放 LICENSE。**能看、能 fork，但没有授权你使用、修改或再分发 —— 接商单前必须先拿授权。"
+            "digital-host": {
+              "identity": 1,
+              "motion": 1,
+              "shot": 1,
+              "compose": 1,
+              "repro": 2,
+              "sound": 3,
+              "camera": 0,
+              "pace": 2,
+              "topic": 3
             },
-            {
-              "zh": "ComfyUI 自己串",
-              "sub": "节点式工作流底座",
-              "cap": null,
-              "app": "product-shot",
-              "res": "ComfyUI（节点式工作流底座）",
-              "good": "**五个岔口每一个都归你选**，也是唯一能一直用下去的路。",
-              "bad": "学习曲线最陡；GPL-3.0，做闭源产品前要看清传染范围。"
+            "commerce-video": {
+              "identity": 2,
+              "motion": 2,
+              "shot": 2,
+              "compose": 2,
+              "repro": 2,
+              "sound": 2,
+              "camera": 1,
+              "pace": 3,
+              "topic": 3
+            },
+            "effect-video": {
+              "identity": 0,
+              "motion": 3,
+              "shot": 1,
+              "compose": 2,
+              "repro": 1,
+              "sound": 1,
+              "camera": 2,
+              "pace": 1,
+              "topic": 2
+            },
+            "novel-promo": {
+              "identity": 2,
+              "motion": 1,
+              "shot": 2,
+              "compose": 2,
+              "repro": 1,
+              "sound": 3,
+              "camera": 0,
+              "pace": 3,
+              "topic": 3
+            },
+            "explainer": {
+              "identity": 1,
+              "motion": 1,
+              "shot": 2,
+              "compose": 2,
+              "repro": 2,
+              "sound": 3,
+              "camera": 0,
+              "pace": 3,
+              "topic": 3
+            },
+            "brand-film": {
+              "identity": 2,
+              "motion": 2,
+              "shot": 3,
+              "compose": 3,
+              "repro": 2,
+              "sound": 2,
+              "camera": 3,
+              "pace": 2,
+              "topic": 3
+            },
+            "picture-book": {
+              "identity": 3,
+              "motion": 1,
+              "shot": 2,
+              "compose": 3,
+              "repro": 2,
+              "sound": 2,
+              "camera": 0,
+              "pace": 2,
+              "topic": 2
             }
-          ]
+          }
+        },
+        {
+          "id": "selfhost",
+          "zh": "自建篇",
+          "kind": "axis",
+          "state": "live",
+          "axis_pos": 1,
+          "intro": "权重与流水线都在自己手里。门槛最高，**也是唯一能把一次成功变成一套方法的一档**。"
+        },
+        {
+          "id": "platform",
+          "zh": "平台篇",
+          "kind": "axis",
+          "state": "planned",
+          "axis_pos": 2,
+          "intro": "调别人的模型，管线归自己。"
+        },
+        {
+          "id": "allinone",
+          "zh": "整包篇",
+          "kind": "axis",
+          "state": "planned",
+          "axis_pos": 3,
+          "intro": "管线也交出去。门槛最低，**新手应当从这一档进入**。"
+        },
+        {
+          "id": "works",
+          "zh": "作品篇",
+          "kind": "evidence",
+          "state": "planned",
+          "intro": "这条路做出过什么。**只收制作方自己公开说明过管线的作品** —— 查不到用了什么就不收。"
+        }
+      ],
+      "projects": [
+        {
+          "id": "comfyui",
+          "zh": "ComfyUI",
+          "url": "https://github.com/comfyanonymous/ComfyUI",
+          "stars": 127800,
+          "license": "GPL-3.0",
+          "license_class": "copyleft",
+          "decisions": [
+            "shot",
+            "compose",
+            "identity",
+            "repro"
+          ],
+          "scope": "节点式工作流底座。图像 / 视频 / 音频 / 3D / 文本共用一个底座。",
+          "control": "九个决定在节点图上各自成为独立节点，可单独替换、单独接线、单独复用。",
+          "hw": "仓库未说明显存要求；自带模型卸载与量化支持",
+          "arch": "入口 main.py / nodes.py / comfy/sd.py；BaseModel 抽象出跨架构统一操作层。执行引擎只重跑发生变化的那部分图。",
+          "good": [
+            "社区节点、工作流与教程存量最大",
+            "图像 / 视频 / 音频 / 3D 共用一个底座",
+            "增量执行 + 自动卸载，小显存不直接出局"
+          ],
+          "bad": [
+            "GPL-3.0 具传染性，嵌入闭源产品前须核对条款",
+            "官方声明主线不稳，需固定在 stable tag",
+            "接线不完整的分支不报错，直接不执行"
+          ],
+          "unfit": "一次性产出需求 —— 回报来自工作流复用。",
+          "src": "github README + DeepWiki 架构页",
+          "verified_at": "2026-08-16"
+        },
+        {
+          "id": "wan22",
+          "zh": "Wan2.2",
+          "url": "https://github.com/Wan-Video/Wan2.2",
+          "stars": 17100,
+          "license": "Apache-2.0",
+          "license_class": "permissive",
+          "decisions": [
+            "motion",
+            "repro",
+            "shot"
+          ],
+          "scope": "文生 / 图生 / 语音驱动 / 角色动画替换，480P–720P。五个变体。",
+          "control": "权重可下载、可离线运行、可锁定版本；随机种子为命令行参数。",
+          "hw": "TI2V-5B 需 24GB（三个降显存开关全开）；不开优化及 A14B 系列需 80GB",
+          "arch": "混合专家按信噪比路由：两个专家各约 13.5B，总参 27B、单次激活 14B，开 --offload_model 时显存内只驻留一个。TI2V-5B 走两段压缩共 4096×（VAE 1024× + DiT 分块 4×），这是它能落到单张 4090 的直接原因。",
+          "good": [
+            "Apache-2.0，商用无灰色地带",
+            "5B 变体在单张 4090 上可实际运行，9 分钟出 5 秒 720P",
+            "文生 / 图生 / 语音驱动 / 角色动画同仓"
+          ],
+          "bad": [
+            "单次 9 分钟构成试错成本上限，一天可试次数以十计",
+            "14B 系列消费级显卡不可用（80GB 起）",
+            "封顶 720P，1080P 需另接超分"
+          ],
+          "unfit": "交付期紧的商单 —— 价值在沉淀方法，不在单次产出效率。",
+          "src": "github README + DeepWiki 架构页",
+          "verified_at": "2026-08-16"
+        },
+        {
+          "id": "controlnet",
+          "zh": "ControlNet",
+          "url": "https://github.com/lllyasviel/ControlNet",
+          "stars": 34100,
+          "license": "Apache-2.0",
+          "license_class": "permissive",
+          "decisions": [
+            "compose"
+          ],
+          "scope": "给扩散模型加条件控制。九种结构信号：Canny 边缘、直线、HED 边界、涂鸦、人体姿势、语义分割、深度、法线、线稿。",
+          "control": "用结构信号锁住构图，不再靠提示词描述。",
+          "hw": "有低显存模式，8GB 显卡可用",
+          "good": [
+            "九种结构信号覆盖了构图控制的绝大多数场景",
+            "低显存模式让 8GB 卡不出局",
+            "事实上的构图控制标准，社区模型最多"
+          ],
+          "bad": [
+            "结果细节仍会被扩散过程改动（官方明说）",
+            "线稿模型至今未发布，仓库标注为待风险评估",
+            "每种信号要各自的预处理器，链路变长"
+          ],
+          "unfit": "不需要精确构图的场景 —— 多一道预处理不划算。",
+          "src": "github README",
+          "verified_at": "2026-08-16"
+        },
+        {
+          "id": "ip-adapter",
+          "zh": "IP-Adapter",
+          "url": "https://github.com/tencent-ailab/IP-Adapter",
+          "stars": 6700,
+          "license": "Apache-2.0",
+          "license_class": "permissive",
+          "decisions": [
+            "identity",
+            "compose"
+          ],
+          "scope": "用图片当提示词，锁住风格或人物。仅 22M 参数。",
+          "control": "参考图直接参与生成，不用训练。",
+          "hw": "22M 参数，附加在已有模型上，显存开销极小",
+          "good": [
+            "22M 参数，比全量微调轻两个量级",
+            "不需要训练，给图即用",
+            "可与文本提示同时生效"
+          ],
+          "bad": [
+            "非方形输入会丢失中心以外的信息，官方建议缩到 224×224",
+            "多模态提示效果不稳，通常要调 scale",
+            "锁风格与锁人物需要不同权重"
+          ],
+          "unfit": "需要精确控制多个不同人物时。",
+          "src": "github README",
+          "verified_at": "2026-08-16"
+        },
+        {
+          "id": "instantid",
+          "zh": "InstantID",
+          "url": "https://github.com/instantX-research/InstantID",
+          "stars": 12000,
+          "license": "代码 Apache-2.0 · 权重仅研究用途",
+          "license_class": "noncommercial",
+          "decisions": [
+            "identity"
+          ],
+          "scope": "一张脸照做身份保持生成，零样本、免调优。",
+          "control": "人物身份由参考照锁定，不随镜头漂移。",
+          "hw": "仓库未说明显存要求",
+          "good": [
+            "一张照片即可，不需要训练",
+            "身份保持效果在同类里成熟",
+            "接入方式与 ControlNet 类似，链路熟悉"
+          ],
+          "bad": [
+            "权重仅限研究用途，insightface 人脸模型非商用 —— 仓库首页的 Apache 徽章只覆盖代码",
+            "不支持多人，只取画面里最大的那张脸",
+            "仓库未给显存要求，需自行实测"
+          ],
+          "unfit": "任何商用交付 —— 许可证不允许。",
+          "src": "github README",
+          "verified_at": "2026-08-16"
+        },
+        {
+          "id": "ace-step",
+          "zh": "ACE-Step",
+          "url": "https://github.com/ace-step/ACE-Step",
+          "stars": 4800,
+          "license": "Apache-2.0",
+          "license_class": "permissive",
+          "decisions": [
+            "sound"
+          ],
+          "scope": "音乐生成基座：文生音乐、歌词编辑、音色复刻、remix。",
+          "control": "配乐在本地生成，不依赖曲库授权。",
+          "hw": "最低 8GB 显存；4090 上生成 1 分钟音乐需 1.74 秒（实时倍率 34×）",
+          "good": [
+            "4090 上 1 分钟音乐 1.74 秒，快到可以反复试",
+            "最低 8GB，门槛在本专项里最低",
+            "Apache-2.0，出的曲子商用没有授权问题"
+          ],
+          "bad": [
+            "歌词编辑一次只能改一小段，否则失真",
+            "数据不均衡，小语种表现弱",
+            "风格相似可能带来版权争议，官方自己提示了"
+          ],
+          "unfit": "需要特定曲风精确复刻时。",
+          "src": "github README",
+          "verified_at": "2026-08-16"
+        },
+        {
+          "id": "pyvideotrans",
+          "zh": "pyvideotrans",
+          "url": "https://github.com/jianchang512/pyvideotrans",
+          "stars": 18700,
+          "license": "GPL-3.0",
+          "license_class": "copyleft",
+          "decisions": [
+            "sound"
+          ],
+          "scope": "识别 → 翻译 → 合成 → 回封装的整条流水线，做跨语言配音与字幕。",
+          "control": "三段都可换成本地引擎（Faster-Whisper / Ollama / CosyVoice），全链路不出本机。",
+          "hw": "Windows / macOS / Linux；GPU 可选",
+          "good": [
+            "识别、翻译、合成三段各自可换，不锁定任何一家",
+            "本地引擎齐全，素材可以完全不出本机",
+            "跨平台，Windows 上也不用折腾"
+          ],
+          "bad": [
+            "GPL-3.0 具传染性",
+            "调第三方 API 处理受版权保护的视频，责任在使用者（官方明示）",
+            "段数多，任一段配错整条链路失败"
+          ],
+          "unfit": "只需要单段能力（只要转写、或只要配音）时 —— 装整条太重。",
+          "src": "github README",
+          "verified_at": "2026-08-16"
+        },
+        {
+          "id": "real-esrgan",
+          "zh": "Real-ESRGAN",
+          "url": "https://github.com/xinntao/Real-ESRGAN",
+          "stars": 36500,
+          "license": "BSD-3-Clause",
+          "license_class": "permissive",
+          "decisions": [
+            "shot"
+          ],
+          "scope": "通用图像 / 视频超分修复，支持 2× / 3× / 4×，含动漫专用与轻量模型。",
+          "control": "720P 封顶的模型也能补到 1080P 以上。",
+          "hw": "需 PyTorch，推荐 GPU；有各平台可执行文件",
+          "good": [
+            "★36.5k，超分领域事实标准",
+            "有动漫专用与轻量模型，按素材选",
+            "BSD-3，商用最宽松的一档"
+          ],
+          "bad": [
+            "分块处理可能出现拼接痕（官方在 NCNN 版明示）",
+            "没有明确的纯 CPU 模式",
+            "放大倍数越高，伪细节越明显"
+          ],
+          "unfit": "源素材本身糊得厉害时 —— 超分补不出不存在的信息。",
+          "src": "github README",
+          "verified_at": "2026-08-16"
         }
       ]
     }
   ],
-  "$topics": "专项：横着切的上手评估。九卷是按「模型产出什么」纵切的，专项是按「人要做成一件什么事」横切的，两者交叉才有信息。\n\n**专项不铺「现在/演进/关系/场景」那四张图** —— 那四张回答「谁能做什么」，专项回答「这一步有几条路、各自好在哪坏在哪」。教程的骨架是顺序，而顺序人人都知道，只能写成「把大象关进冰箱」；岔口的骨架是取舍，取舍必须有依据。\n\n字段：{id, zh, en, intro, guide, forks[{zh, why, routes[{zh, sub?, cap?, app?, res?, good, bad}]}]}\n\n**只存骨架，资源全部引用**（方案 C）：route.cap 引能力 id，覆盖度由 support[] 现算；route.app + route.res 引某个应用里的一条资源，许可证与来源仍只维护一份。cap 为 null 表示「这条路不是一项能力」——比如「把长相写进提示词」，真值表里根本没有这一格，那本身就是结论。\n\n⚠️ good/bad 是**我们的判断**，不是厂商说过的话，全站第一次。它们必须与事实栏在视觉上分开，并照样带机器录入标记、可报错。",
+  "$topics": "专项：横着切的评估系列。九卷按「模型产出什么」纵切，专项按「人要做成一件什么事」横切。\n\n**一根公共骨架贯穿全系列：`decisions[]` —— 一条视频由哪些决定构成，每个决定当前归谁。**「一句话生成」把这些决定一次性代办，输出不满意只能整条重来。各篇是同一根骨架的不同填法。\n\n篇的排法：`chapters[]`。片型篇是入口（做哪种片 → 该夺回哪几个决定）；自建 → 平台 → 整包是一条**自持程度由高到低**的轴；作品篇是证据层，不排在轴上。\n\n字段：topics[{id, zh, en, intro, decisions[{id, zh, owner, cap?, handle, note?}], chapters[{id, zh, kind, state, intro, ...}], projects[{...}]}]\n\n⚠️ **作品篇的收录规则只有一条：制作方自己公开说明过管线的才收。**查不到用了什么就不收 —— 宁可空着，也不能写「疑似使用了 XX」。与真值表里 ⬜ 同一条纪律。\n\n⚠️ good/bad/verdict/weight 是**我们的判断**，不是厂商说过的话，必须与事实栏在视觉上分开并可报错。",
   "$skills": "Skill / Workflow。方案 §10 原话：**「Skill 必须是第一等公民。」**\n一个 Skill 回答的是「这件事怎么做」，而能力格回答的是「谁能做」——两个问题。\n\n字段：{id, zh, en, cap?, io{in[],out}, native[], opensource[], platform_feature[], limits[], cases[], src, quote, verified_at}\n\n**limits 为空要报警告（R45）**：一个没有「已知限制」的 Skill 页是在卖广告，不是在帮人。",
   "$change_events": "**已删。** 变更事件的真源是 data/changes.json（那一份还区分 world/ours 两侧，比这里全）。同一个口径不许有第二份。",
   "toolkit": [

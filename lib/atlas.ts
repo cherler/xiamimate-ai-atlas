@@ -464,17 +464,39 @@ export type Availability = {
  * `cap` 为 null 表示**这条路根本不是一项能力** —— 比如「把长相写进提示词」，
  * 真值表里没有这一格，**那本身就是结论**：没有任何厂商承诺它有效。
  */
-export type TopicRoute = {
-  zh: string; sub?: string;
-  /** 引能力 id；null = 这条路不是一项能力，没有覆盖度可言 */
-  cap?: string | null;
-  /** 引某个应用里的一条资源：app 是应用 id，res 是资源名 */
-  app?: string; res?: string;
-  /** ⚠️ good/bad 是我们的判断，不是厂商说过的话 —— 全站第一次，必须与事实栏分开显示 */
-  good: string; bad: string;
+/** 一个决定当前归谁。partial = 平台给了参数但不完全交出控制。 */
+export type DecisionOwner = "user" | "partial" | "platform";
+export type Decision = {
+  id: string; zh: string; owner: DecisionOwner;
+  /** 引能力 id，覆盖度由 support[] 现算；null = 这条不是一项能力 */
+  cap: string | null;
+  handle: string; note?: string;
 };
-export type TopicFork = { zh: string; why: string; routes: TopicRoute[] };
-export type Topic = { id: string; zh: string; en: string; intro: string; guide: string; forks: TopicFork[] };
+export type TopicProject = {
+  id: string; zh: string; url: string; stars: number;
+  license: string;
+  /** permissive 可商用 · copyleft 传染性 · noncommercial 不可商用 */
+  license_class: "permissive" | "copyleft" | "noncommercial";
+  /** 这个项目管哪几个决定 */
+  decisions: string[];
+  scope: string; control: string; hw: string; arch?: string;
+  /** ⚠️ 判断，不是厂商说过的话 */
+  good: string[]; bad: string[]; unfit: string;
+  src: string; verified_at: string;
+};
+export type TopicChapter = {
+  id: string; zh: string;
+  /** entry 入口篇 · axis 自持程度轴上的一档 · evidence 证据层，不排在轴上 */
+  kind: "entry" | "axis" | "evidence";
+  state: "live" | "planned";
+  axis_pos?: number; intro: string;
+  /** 片型篇专用：应用 id → 决定 id → 权重 3 命门 / 2 重要 / 1 次要 / 0 不适用 */
+  matrix?: Record<string, Record<string, number>>;
+};
+export type Topic = {
+  id: string; zh: string; en: string; intro: string;
+  decisions: Decision[]; chapters: TopicChapter[]; projects: TopicProject[];
+};
 
 export const atlas = raw as unknown as {
   platforms: Platform[];
@@ -853,9 +875,6 @@ export function forkCoverage(capId: string) {
   return { yes, no, unknown, total: models.length };
 }
 
-/** 一条路引的那条资源（许可证、来源都在应用那一份里，这里不复制）。 */
-export function routeResource(r: { app?: string; res?: string }) {
-  if (!r.app || !r.res) return undefined;
-  const app = atlas.applications.find((x) => x.id === r.app);
-  return app?.resources?.find((x) => x.name === r.res);
-}
+/** 片型篇：应用 id → 中文名。片型就是视频卷的应用层，不另立一套分类。 */
+export const topicAppName = (id: string) =>
+  atlas.applications.find((x) => x.id === id)?.zh ?? id;
