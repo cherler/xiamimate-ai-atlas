@@ -7,12 +7,13 @@
     "build": "next build",
     "start": "next start -p 3400",
     "validate": "node scripts/validate.mjs",
-    "prebuild": "node scripts/validate.mjs && node scripts/make-diagrams.mjs",
+    "prebuild": "node scripts/validate.mjs",
     "package": "bash scripts/package.sh",
     "watch": "node scripts/watch.mjs --due",
     "gateway": "node scripts/local-gateway.mjs",
     "gateway:static": "node scripts/local-gateway.mjs --main=static --atlas=static",
-    "modelscope": "node scripts/modelscope.mjs --json"
+    "modelscope": "node scripts/modelscope.mjs --json",
+    "diagrams": "node scripts/make-diagrams.mjs"
   },
   "dependencies": {
     "geist": "^1.7.2",

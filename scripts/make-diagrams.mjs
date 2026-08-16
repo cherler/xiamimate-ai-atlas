@@ -13,7 +13,12 @@
  * 再把它们替换回令牌 —— **一张图同时服务深浅两种外观，不用出两份**。
  * 连 mermaid 自己派生的箭头填充与连线标签底也一并映射，产物里不留写死的颜色。
  *
- * 用法：node scripts/make-diagrams.mjs   → public/diagrams/<id>.svg
+ * ⚠️ **这一步只能在本机跑，不能挂进 prebuild。**
+ * 它要 Playwright 浏览器，而生产机上没装 —— 和分享图（make-share）同一个原因，
+ * 也走同一条路：**本机出图，随部署包传过去**。
+ * 挂进 prebuild 的话服务器构建会直接失败，而失败点看着像是「校验挂了」。
+ *
+ * 用法：npm run diagrams   → public/diagrams/<id>.svg
  */
 import { chromium } from "playwright";
 import { readFileSync, writeFileSync, mkdirSync } from "node:fs";

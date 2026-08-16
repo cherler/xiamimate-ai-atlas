@@ -15,11 +15,12 @@
 **在服务器上构建**，形态与 frontend / stocks 一致。
 
 ```bash
-# 本机：分享图要浏览器，服务器上没有 —— 这一步只能在本机做
+# 本机：分享图与架构图都要浏览器，服务器上没有 —— 这两步只能在本机做
 node scripts/make-matrix.mjs && node scripts/make-share.mjs && node scripts/make-feed.mjs
+npm run diagrams        # 专项的架构图（mermaid → SVG）→ public/diagrams/
 
 # COPYFILE_DISABLE=1 是廉价保险，**但它不是已证实的解药**（见下方「未解之谜」）。
-COPYFILE_DISABLE=1 tar -czf /tmp/atlas-og.tar.gz -C public og && scp /tmp/atlas-og.tar.gz <server>:/tmp/
+COPYFILE_DISABLE=1 tar -czf /tmp/atlas-og.tar.gz -C public og diagrams && scp /tmp/atlas-og.tar.gz <server>:/tmp/
 
 # 服务器：
 cd /srv/xiamimate/xiamimate-ai-atlas
