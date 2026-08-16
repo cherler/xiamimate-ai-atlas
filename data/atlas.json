@@ -8973,8 +8973,8 @@
       "c": "i-openweights",
       "state": "yes",
       "verified_for": "4.0",
-      "src": "ideogram-hf",
-      "note": "**这一格原来是 ❌「闭源，官方未发布权重」—— 那是 3.0 时代的事实，4.0 变了。** 两条要跟着看清楚：① 许可叫 `ideogram-4-non-commercial`，**权重公开但不许商用**；② HF 上这两个仓库是 gated 的，要先接受许可才下得动（未登录取 README 返回「Access to model … is restricted」）。",
+      "src": "ideogram-overview",
+      "note": "**这一格原来是 ❌「闭源，官方未发布权重」—— 那是 3.0 时代的事实，4.0 变了。** 两条要跟着看清楚：① 许可叫 `ideogram-4-non-commercial`，**权重公开但不许商用**；② HF 上这两个仓库是 gated 的，要先接受许可才下得动（未登录取 README 返回「Access to model … is restricted」）。 🔧 **2026-08-16 改了署名的源**：原署 `ideogram-hf`，实际这句话在 `ideogram-overview` 里。人审备注：通用",
       "as_of": "2026-08-12",
       "quote": "官方 HF 组织 ideogram-ai 下的 `ideogram-4-fp8`（createdAt 2026-05-30，↓31,707 ♥741）与 `ideogram-4-nf4`；模型卡 `license_name: ideogram-4-non-commercial`。API 概览也写明 4.0 覆盖「across the app, API, MCP, and open weights」"
     },
