@@ -45,6 +45,21 @@ const SCAN = () => {
     const cs = getComputedStyle(el);
     if (cs.visibility === "hidden" || cs.display === "none" || +cs.opacity === 0) continue;
 
+    // ①b 渐变里的亮色 —— **这是最狠的一个盲点**（2026-08-16 栽的）。
+    // 主站首页有一条 `linear-gradient(180deg,#fff,#fff 72%,#fff)`：
+    // 一张从白到白的渐变，等于一块纯白幕布盖在深色 body 上。
+    // 而 backgroundColor 报的是 transparent —— **扫描器当时报了「全站干净」，
+    // 而整个首页是白的**。只查底色不查底图，等于漏掉了半个 CSS。
+    if (cs.backgroundImage && cs.backgroundImage !== "none" && r.width * r.height > 20000) {
+      for (const m of cs.backgroundImage.matchAll(/rgba?\(([^)]+)\)/g)) {
+        const p = m[1].split(",").map(Number);
+        if (p.length >= 3 && (p[3] === undefined || p[3] > 0.5) && lum(p[0], p[1], p[2]) > 0.55) {
+          const k = `${sel(el)}  渐变里的亮色 rgb(${p.slice(0, 3)})`;
+          islands.set(k, (islands.get(k) ?? 0) + 1);
+          break;
+        }
+      }
+    }
     // ① 亮岛：这个元素自己画了一块亮底
     const own = parse(cs.backgroundColor);
     if (own.length >= 3 && (own[3] === undefined || own[3] > 0.5)) {
