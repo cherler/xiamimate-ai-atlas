@@ -4,6 +4,7 @@ import { useState } from "react";
 import { Rich } from "./Fact";
 import { forkCoverage, topicAppName, type Decision, type Topic, type TopicProject } from "@/lib/atlas";
 import { capHref } from "@/lib/slug";
+import { CoverageChart, HardwareChart, LicenseChart, MatrixChart, ProjectCharts } from "./TopicCharts";
 
 /**
  * 专项页的交互层。
@@ -21,8 +22,19 @@ import { capHref } from "@/lib/slug";
  *
  * ## 一屏一件事
  *
- * 每段之间留 `py-20` 以上。上一版是 `mt-9`，九段挤在两屏里 ——
+ * 每段之间留足留白。上一版各段之间只有 `mt-9`，九段挤在两屏里 ——
  * **留白不是装饰，它是「这里换了个话题」的唯一信号。**
+ *
+ * ## 不做钩子
+ *
+ * 中间稿试过两种引子：「不满意，只能重摇。」和「其中 6 个不归你」。
+ * 两次都被否，第二次说得最清楚：
+ * **「不要做这种挑衅。我不需要这种钩子来吸引人看下去，
+ * 能被这种钩子勾住的也不是我的用户。」**
+ *
+ * 所以这一页就是一份说明文档：标题是正式名词，导语说清这一页有什么，
+ * 数据摆到位，**不替读者下结论、不制造反差**。
+ * 九格条是数据可视化，不是修辞 —— 保留；它下面那句「其中 N 个不归你」是修辞，删掉。
  */
 const OWNER = {
   user: { zh: "归你", cls: "text-yes-ink" },
@@ -83,8 +95,10 @@ function Project({ p }: { p: TopicProject }) {
         <span className="text-hatch text-[13px] hidden group-open:inline">－</span>
       </summary>
       <div className="px-4 pb-4 pt-1 border-t border-rule">
-        <p className="text-[13px] text-muted leading-relaxed mt-3 mb-4">{p.scope}</p>
-        <div className="grid sm:grid-cols-2 gap-x-8 gap-y-3 text-[12.5px]">
+        <p className="text-[13px] text-muted leading-relaxed mt-3">{p.scope}</p>
+        {/* 图排在前面：**能画成图的就别写成句子**（负责人：可视化图表代替文字描述）。 */}
+        <ProjectCharts id={p.id} />
+        <div className="grid sm:grid-cols-2 gap-x-8 gap-y-3 text-[12.5px] mt-5">
           <div>
             <h4 className="text-[11px] tracking-wider text-yes-ink font-bold mb-1.5">优势</h4>
             <ul className="text-muted list-disc pl-4 space-y-1">{p.good.map((g) => <li key={g}><Rich text={g} /></li>)}</ul>
@@ -112,13 +126,6 @@ export default function TopicView({ t }: { t: Topic }) {
   const matrix = t.chapters.find((c) => c.matrix)?.matrix;
   const axis = t.chapters.filter((c) => c.kind === "axis").sort((a, b) => (a.axis_pos ?? 0) - (b.axis_pos ?? 0));
   const platform = t.decisions.filter((d) => d.owner === "platform").length;
-  /** 覆盖度最低的那条决定 —— 不写死，数据变了它自己会换人。 */
-  const worst = t.decisions
-    .filter((d) => d.cap)
-    .sort((a, b) => forkCoverage(a.cap!).yes - forkCoverage(b.cap!).yes)[0];
-  const worstCov = worst ? forkCoverage(worst.cap!) : { yes: 0, total: 0 };
-  const best = t.decisions.filter((d) => d.cap).sort((a, b) => forkCoverage(b.cap!).yes - forkCoverage(a.cap!).yes)[0];
-  const bestCov = best ? forkCoverage(best.cap!) : { yes: 0, total: 0 };
 
   /**
    * 选了片型之后**只留命门**（权重 3）。
@@ -163,58 +170,37 @@ export default function TopicView({ t }: { t: Topic }) {
             <span key={d.id} className="text-[10.5px] text-muted leading-tight text-center">{d.zh}</span>
           ))}
         </div>
-        <p className="mt-7 text-[17px] sm:text-[19px] leading-relaxed max-w-[28ch]">
-          其中 <b className="text-no tnum text-[26px]">{platform}</b> 个不归你 ——
-          <b className="text-ink">而且不能单独改</b>。
-        </p>
-        <div className="flex gap-5 mt-4 text-[12px] text-muted">
+        <div className="flex gap-5 mt-5 text-[12px] text-muted">
           <span className="flex items-center gap-1.5"><i className="w-3 h-3 bg-yes rounded-sm inline-block" />归你</span>
           <span className="flex items-center gap-1.5"><i className="w-3 h-3 bg-chip-warm-ink rounded-sm inline-block" />一半</span>
-          <span className="flex itemsecenter gap-1.5"><i className="w-3 h-3 bg-no rounded-sm inline-block" />归平台</span>
+          <span className="flex items-center gap-1.5"><i className="w-3 h-3 bg-no rounded-sm inline-block" />归平台</span>
         </div>
       </section>
 
-      {/*
-        * ── 覆盖度最低的那一项 ──
-        *
-        * 上一节的「N 个不归你」还只是结构；这一节把它落到一个具体数字上。
-        * **哪一项最低不写死，现算** —— 数据变了它自己换人。
-        * 旁边并排给出覆盖最广的那一项，读者才有标尺；只报一个数字不构成对比。
-        */}
-      {worst && (
-        <section className="py-14 border-t border-rule">
-          <h2 className="text-[22px] tracking-tight mb-6">覆盖度最低的一项</h2>
-          <p className="text-[30px] sm:text-[38px] leading-tight tracking-tight max-w-[18ch]">
-            {worst.zh}：<span className="tnum text-no">{worstCov.yes}</span>
-            <span className="text-muted tnum"> / {worstCov.total}</span>
-          </p>
-          <p className="mt-5 text-[15px] text-muted leading-relaxed max-w-[30ch]">
-            {worstCov.total} 个核心模型里，只有 <b className="text-ink tnum">{worstCov.yes}</b> 家
-            在官方文档里承诺过你能控制它。
-          </p>
-          <p className="mt-3 text-[15px] leading-relaxed max-w-[30ch]">
-            与之相比，覆盖最广的一项有 <b className="text-ink tnum">{bestCov.yes}</b> 家。
-          </p>
-        </section>
-      )}
+      <section className="py-12 border-t border-rule">
+        <h2 className="text-[22px] tracking-tight mb-1.5">官方说法覆盖度</h2>
+        <p className="text-[13px] text-muted mb-5">10 个核心模型里，各项能力有几家写进了官方文档。</p>
+        <CoverageChart decisions={t.decisions} />
+      </section>
 
-      {/* ── 选片型 ── */}
-      <section className="py-14 border-t border-rule">
-        <h2 className="text-[22px] tracking-tight mb-1.5">片型</h2>
-        <p className="text-[13px] text-muted mb-7">不同片型的命门决定不同。</p>
-        <div className="grid grid-cols-2 sm:grid-cols-3 gap-2.5">
-          {matrix && Object.keys(matrix).map((app) => {
-            const on = pick === app;
-            const hot = t.decisions.filter((d) => (matrix[app]?.[d.id] ?? 0) >= 3).map((d) => d.id);
-            return (
-              <button key={app} onClick={() => setPick(on ? null : app)}
-                className={`text-left border rounded-xl px-4 py-3.5 ${on ? "border-yes bg-card" : "border-rule hover:border-yes"}`}>
-                <b className="text-[14.5px] block mb-2.5">{topicAppName(app)}</b>
-                <Strip decisions={t.decisions} size="sm" only={hot} />
-              </button>
-            );
-          })}
-        </div>
+      <section className="py-12 border-t border-rule">
+        <h2 className="text-[22px] tracking-tight mb-1.5">许可证</h2>
+        <p className="text-[13px] text-muted mb-5">按能不能拿去接商单分档，不按许可证名字分。</p>
+        <LicenseChart projects={t.projects} />
+      </section>
+
+      <section className="py-12 border-t border-rule">
+        <h2 className="text-[22px] tracking-tight mb-1.5">硬件门槛</h2>
+        <p className="text-[13px] text-muted mb-5">数值取自各仓库自述。</p>
+        <HardwareChart projects={t.projects} />
+      </section>
+
+      {/* ── 片型 × 决定 热力矩阵。点行选片型。 ── */}
+      <section className="py-12 border-t border-rule">
+        <h2 className="text-[22px] tracking-tight mb-1.5">片型 × 决定</h2>
+        <p className="text-[13px] text-muted mb-5">格子越实＝该决定对这一片型越关键。点一行展开。</p>
+        {matrix && <MatrixChart matrix={matrix} decisions={t.decisions} pick={pick} onPick={(id) => setPick(id === pick ? null : id)} />}
+        <p className="text-[11px] text-muted mt-1.5 border-l-2 border-chip-warm-ink pl-2.5">权重是判断，不是厂商说法。</p>
       </section>
 
       {/* ── 选了才展开 ── */}
