@@ -127,6 +127,16 @@
       "src": "decart-site",
       "at_label": "模型 lucy 版本",
       "kind": "本页没有·别处有"
+    },
+    {
+      "id": "seed-blog|模型 seedream 版本",
+      "at": "2026-08-16 04:28:41",
+      "who": "admin",
+      "action": "accept",
+      "why": "通用",
+      "src": "seed-blog",
+      "at_label": "模型 seedream 版本",
+      "kind": "本页没有·别处有"
     }
   ]
 }
