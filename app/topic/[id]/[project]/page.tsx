@@ -68,6 +68,31 @@ function AutonomyBox({ p }: { p: TopicProject }) {
   );
 }
 
+/** 四层取材，做到哪几层就亮哪几个 —— 没做到的画成斜纹，与真值表的 ⬜ 同一条语言。 */
+const LAYERS = [
+  { k: "docs", zh: "文档", note: "README 与官方文档" },
+  { k: "wiki", zh: "代码结构", note: "DeepWiki 全部章节，由源码生成" },
+  { k: "issue", zh: "踩过的坑", note: "高频 issue 与维护者回复" },
+  { k: "bench", zh: "实测", note: "自己真跑过" },
+] as const;
+
+function LayerBadges({ layers }: { layers: readonly string[] }) {
+  return (
+    <div className="flex flex-wrap gap-1.5 mb-5">
+      {LAYERS.map((l) => {
+        const on = layers.includes(l.k);
+        return (
+          <span key={l.k} title={l.note}
+            className={`text-[11px] rounded-full px-2.5 py-0.5 border ${
+              on ? "border-yes text-yes-ink" : "border-rule text-muted hatch"}`}>
+            {l.zh}{on ? "" : " 未做"}
+          </span>
+        );
+      })}
+    </div>
+  );
+}
+
 function Section({ title, children }: { title: string; children: React.ReactNode }) {
   return (
     <section className="py-10 border-t border-rule">
@@ -163,14 +188,8 @@ export default async function ProjectPage({ params }: { params: Promise<{ id: st
 
       {p.hands ? (
         <Section title="动手层">
-          {/* 到了哪一层必须明写 —— 否则 docs 层看起来和 source 层一模一样。 */}
-          <p className={`text-[12px] mb-5 border-l-2 pl-3 ${
-            p.hands.depth === "source" ? "border-yes text-muted" : "border-chip-warm-ink text-muted"}`}>
-            {p.hands.depth === "source"
-              ? "读过源码。文档里没有的坑也在下面。"
-              : <><b className="text-ink">只读到文档层。</b>下面每一条都能在 README 或官方文档里找到出处；
-                  <b className="text-ink">文档没写的坑不在这里</b> —— 那要读源码，尚未做。</>}
-          </p>
+          {/* 做到了哪几层必须明写 —— 否则只读 README 的看起来和真跑过的一样。 */}
+          <LayerBadges layers={p.hands.layers} />
           <h3 className="text-[12px] tracking-wider text-muted font-bold mb-2">装它要过哪几关</h3>
           <ol className="border border-rule rounded-lg divide-y divide-rule mb-7">
             {p.hands.install.map((s, i) => (
@@ -192,6 +211,9 @@ export default async function ProjectPage({ params }: { params: Promise<{ id: st
           </div>
 
           <h3 className="text-[12px] tracking-wider text-muted font-bold mb-2">坑在哪一处</h3>
+          {p.hands.issue_src && (
+            <p className="text-[11px] text-muted mb-2">带 issue 编号的来自：{p.hands.issue_src}</p>
+          )}
           <div className="border border-no/40 rounded-lg divide-y divide-rule">
             {p.hands.pitfalls.map((f) => (
               <div key={f.where} className="px-4 py-2.5">

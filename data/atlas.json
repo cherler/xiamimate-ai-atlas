@@ -28740,23 +28740,44 @@
               {
                 "path": "extra_model_paths.yaml",
                 "effect": "模型不想复制两份时，把 WebUI 的模型目录挂进来"
+              },
+              {
+                "path": "comfy/model_management.py",
+                "effect": "显存调度都在这儿。`VRAMState` 六档：DISABLED / NO_VRAM / LOW_VRAM / NORMAL_VRAM / HIGH_VRAM / SHARED（Apple 统一内存）"
+              },
+              {
+                "path": "--lowvram / --novram / --highvram / --gpu-only / --cpu",
+                "effect": "命令行直接选上面那六档，不用改代码"
               }
             ],
             "pitfalls": [
               {
+                "where": "显存不够时的行为",
+                "note": "**它不报错，它变慢。** 显存不够就把权重卸到内存、按需搬回来 —— 表现是「怎么这么慢」而不是「爆了」。**慢和爆显存是两种症状，别当同一个问题查**"
+              },
+              {
                 "where": "图上任意分支",
-                "note": "**接线不完整的分支不报错，直接不执行** —— 官方原话：只有输出端输入齐全的那部分图才会被执行。界面上看不出区别"
+                "note": "接线不完整的分支不报错，直接不执行 —— 官方原话：只有输出端输入齐全的那部分图才会被执行。界面上看不出区别"
               },
               {
                 "where": "跟主线更新",
-                "note": "官方声明 stable tag 之外可能弄坏自定义节点；更新前先看你装的节点包最后一次提交是什么时候"
+                "note": "官方声明 stable tag 之外可能弄坏自定义节点。**issue #14618「每次改提示词都重新加载模型」、#11400「更新后预览没了」都是更新后回归**"
               },
               {
-                "where": "显存",
-                "note": "自动卸载会把模型挪到内存，看起来跑得动但会慢很多 —— 慢和爆显存是两种症状，别当成同一个问题查"
+                "where": "Apple Silicon",
+                "note": "**issue #4165：FLUX 在 MPS 上因不支持 float64 跑不了**；#2992：macOS Sonoma 14.4 更新直接弄坏 Apple Silicon 的 GPU 加速。两条都还开着"
+              },
+              {
+                "where": "新版显存流式",
+                "note": "**issue #15255（开着，55 条回复）：Dynamic VRAM streaming 崩在 HostBuffer.read_file_slice → CUDA OOM**，更新后所有生成都失败。这是当前最热的一条"
               }
             ],
-            "depth": "docs"
+            "layers": [
+              "docs",
+              "wiki",
+              "issue"
+            ],
+            "issue_src": "github issues 按回复数排序 · 核验 2026-08-16"
           }
         },
         {
@@ -28836,18 +28857,35 @@
             "pitfalls": [
               {
                 "where": "README 的「24GB 可跑」",
-                "note": "**那是三个开关全开之后的数字**；不开优化同一个变体要 80GB。第一次跑爆显存基本都是这个原因"
+                "note": "**那是三个开关全开之后的数字**；不开优化同一个变体要 80GB。**issue #58「out of memory」至今开着** —— 第一次跑爆显存基本都是这个原因"
               },
               {
                 "where": "变体选择",
-                "note": "A14B 效果更好但单卡 80GB 起 —— 消费级显卡上它不是「慢」，是根本加载不了"
+                "note": "A14B 效果更好但单卡 80GB 起 —— 消费级显卡上它不是「慢」，是根本加载不了。**issue #32 抱怨 5B 效果差**，而 5B 恰恰是消费级唯一跑得动的那个：这是同一枚硬币的两面"
               },
               {
                 "where": "耗时",
-                "note": "5 秒 720P 约 9 分钟。**这是试错成本上限**，一天能试的次数以十计"
+                "note": "5 秒 720P 约 9 分钟，**这是试错成本上限**，一天能试的次数以十计"
+              },
+              {
+                "where": "Windows 安装",
+                "note": "**issue #111「W11 installation fail」开着** —— Windows 上装依赖是已知痛点，不是你环境的问题"
+              },
+              {
+                "where": "用 diffusers 跑",
+                "note": "**issue #69：同样参数下 diffusers 版画质更差**（已关闭）。要对齐官方效果就用仓库自带的 generate.py，别图省事换封装"
+              },
+              {
+                "where": "中文提示词",
+                "note": "**issue #94：中文理解能力有限**，开着。中文描述复杂场景时效果不稳"
               }
             ],
-            "depth": "docs"
+            "layers": [
+              "docs",
+              "wiki",
+              "issue"
+            ],
+            "issue_src": "github issues 按回复数排序 · 核验 2026-08-16"
           }
         },
         {
@@ -28928,18 +28966,31 @@
             "pitfalls": [
               {
                 "where": "config.py 的 save_memory",
-                "note": "官方原话：**这个特性仍在测试，不保证所有显卡都成功**。开了跑不起来是已知情况，不是你装错了"
+                "note": "官方原话：**这个特性仍在测试，不保证所有显卡都成功**。**issue #3「Low VRAM tests」至今开着、挂着 help wanted 标签**，目标是从 8GB 往 6GB 压 —— 开了跑不起来是已知情况，不是你装错了"
               },
               {
                 "where": "输出细节",
-                "note": "官方明说结果细节仍会被扩散过程改动 —— **它锁的是结构不是像素**，指望原样保留细节会失望"
+                "note": "官方明说结果细节仍会被扩散过程改动 —— **它锁的是结构不是像素**"
               },
               {
                 "where": "线稿模型",
                 "note": "仓库标注为待风险评估、**至今未发布**。九种信号里这一种拿不到"
+              },
+              {
+                "where": "更新之后",
+                "note": "**issue #255「Bad renders after last ControlNet update」**（已关闭）—— 更新后画质变差是出现过的，回归前先留一版能用的"
+              },
+              {
+                "where": "训练侧",
+                "note": "想自己训：**#165 多卡训练 RuntimeError、#224 人体姿势训练效果不理想**，都开着。**推理成熟，训练这条线坑多**"
               }
             ],
-            "depth": "docs"
+            "layers": [
+              "docs",
+              "wiki",
+              "issue"
+            ],
+            "issue_src": "github issues 按回复数排序 · 核验 2026-08-16"
           }
         },
         {
@@ -29017,18 +29068,31 @@
             "pitfalls": [
               {
                 "where": "非方形输入",
-                "note": "CLIP 的图像处理器做中心裁剪，**中心以外的信息直接丢**。官方给的办法是自己先缩到 224×224"
+                "note": "CLIP 的图像处理器做中心裁剪，**中心以外的信息直接丢**。官方给的办法是先缩到 224×224"
               },
               {
                 "where": "图文混合",
-                "note": "scale 不调的话文字提示基本被压住 —— **默认值是为纯图设计的**"
+                "note": "scale 不调的话文字提示基本被压住 —— 默认值是为纯图设计的"
               },
               {
-                "where": "FaceID 变体",
-                "note": "仓库自己标为实验性，效果不稳"
+                "where": "颜色偏移",
+                "note": "**issue #187「Color Problem」开着** —— 参考图会把色调也带过去，这不是提示词能纠回来的"
+              },
+              {
+                "where": "FaceID 与 SDXL",
+                "note": "仓库自标 FaceID 为实验性；**#59「SDXL 的 FaceID 变体」是个还开着的请求** —— 想在 SDXL 上锁脸，这条路官方还没铺完"
+              },
+              {
+                "where": "训练自己的适配器",
+                "note": "**#4「Training Code」、#162「训练配置示例」长期开着** —— 训练文档是这个项目最薄的一块"
               }
             ],
-            "depth": "docs"
+            "layers": [
+              "docs",
+              "wiki",
+              "issue"
+            ],
+            "issue_src": "github issues 按回复数排序 · 核验 2026-08-16"
           }
         },
         {
@@ -29043,7 +29107,7 @@
           ],
           "scope": "一张脸照做身份保持生成，零样本、免调优。",
           "control": "人物身份由参考照锁定，不随镜头漂移。",
-          "hw": "仓库未说明显存要求",
+          "hw": "仓库未说明；**issue #104 用户实测约 24GB 显存**，可用 enable_model_cpu_offload 压",
           "good": [
             "一张照片即可，不需要训练",
             "身份保持效果在同类里成熟",
@@ -29104,19 +29168,32 @@
             ],
             "pitfalls": [
               {
+                "where": "显存",
+                "note": "**仓库不说要多少，issue #104 标题直接写着「Uses 24 GB VRAM」**，#61 也在问最低要求、#72 报 CUDA OOM。**这是本专项里唯一靠 issue 才问得出显存的项目** —— 官方没给，用户实测 24GB"
+              },
+              {
+                "where": "antelopev2 下载",
+                "note": "**官方默认链接失效**，要从 insightface 的 issue #1896 里拿。这一步卡住的人最多"
+              },
+              {
                 "where": "权重许可证",
-                "note": "**代码是 Apache，权重仅限研究用途**；antelopev2 人脸模型另有非商用限制。仓库首页那个徽章只覆盖代码"
+                "note": "**代码是 Apache，权重仅限研究用途**；antelopev2 另有非商用限制。仓库首页那个徽章只覆盖代码"
               },
               {
                 "where": "多人画面",
-                "note": "**只取最大的那张脸**，不支持多人 —— 合照进去出来只有一个人的身份"
+                "note": "**只取最大的那张脸**；#81「How to Use Multi-ID」开着，说明多人这条路官方也还没铺好"
               },
               {
                 "where": "文字控制变弱",
-                "note": "身份锁得越死，提示词越不起作用。官方给的解法是降 ip_adapter_scale"
+                "note": "身份锁得越死提示词越不起作用，官方解法是降 ip_adapter_scale"
               }
             ],
-            "depth": "docs"
+            "layers": [
+              "docs",
+              "wiki",
+              "issue"
+            ],
+            "issue_src": "github issues 按回复数排序 · 核验 2026-08-16"
           }
         },
         {
@@ -29197,18 +29274,35 @@
             "pitfalls": [
               {
                 "where": "歌词编辑",
-                "note": "**一次只能改一小段**，改多了失真 —— 这是模型限制不是参数问题"
+                "note": "**一次只能改一小段**，改多了失真 —— 模型限制，不是参数问题"
               },
               {
                 "where": "小语种",
                 "note": "官方承认数据不均衡，冷门语种表现明显更差"
               },
               {
-                "where": "风格相似",
-                "note": "官方自己提示了版权风险：风格过于接近某个作品可能构成侵权"
+                "where": "从 Gradio 跑效果不如 ComfyUI",
+                "note": "**issue #54（开着）：「Comfy 集成的效果明显比仓库默认那套更准」** —— 同一个模型，两个前端出的东西不一样。默认界面不代表模型上限"
+              },
+              {
+                "where": "LoRA 训练",
+                "note": "**issue #33 是全仓最热的一条（86 条回复，开着）：24GB 显存上训 LoRA 怎么弄**。#329 还在要训练指南 —— **推理门槛 8GB，训练完全是另一回事**"
+              },
+              {
+                "where": "长时间开着界面",
+                "note": "**issue #201：Gradio 界面内存泄漏**，开着。批量跑完记得重启"
+              },
+              {
+                "where": "AMD 显卡",
+                "note": "**issue #87 开着** —— A 卡这条线还没铺好"
               }
             ],
-            "depth": "docs"
+            "layers": [
+              "docs",
+              "wiki",
+              "issue"
+            ],
+            "issue_src": "github issues 按回复数排序 · 核验 2026-08-16"
           }
         },
         {
@@ -29285,18 +29379,35 @@
             "pitfalls": [
               {
                 "where": "九段流水线",
-                "note": "**任一段配错整条链失败**：prepare · recogn · diariz · trans · dubbing · align · recogn2pass · assembling · task_done。报错要看是哪一段停的"
+                "note": "**任一段配错整条链失败**：prepare · recogn · diariz · trans · dubbing · align · recogn2pass · assembling · task_done。报错先看停在哪一段"
               },
               {
-                "where": "GPU",
-                "note": "装了 CPU 版 torch 就用不上显卡 —— 要先卸载再装 CUDA 版，官方明写了这一步"
+                "where": "GPU 没被用上",
+                "note": "装了 CPU 版 torch 就用不上显卡，要先卸载再装 CUDA 版。**issue #287：GPU 跑失败会静默退回 CPU** —— 表现是「怎么这么慢」而不是报错"
+              },
+              {
+                "where": "large-v3 模型",
+                "note": "**issue #38 标题直接写着「暂勿使用 large-v3 模型」** —— 长音频转写会崩在 list index out of range。**模型不是越大越好，这条是维护者自己挂出来的**"
+              },
+              {
+                "where": "合并成片",
+                "note": "**issue #923：合并时会把结尾没有声音的画面删掉**（已修）—— 片尾留白的片子要检查一下"
+              },
+              {
+                "where": "翻译接口串味",
+                "note": "**issue #43：百度翻译会把时间戳混进译文** —— 换翻译引擎后要抽查字幕文件，不能只看画面"
               },
               {
                 "where": "版权责任",
                 "note": "官方声明：调第三方接口、处理受版权保护的视频，法律后果由使用者承担"
               }
             ],
-            "depth": "docs"
+            "layers": [
+              "docs",
+              "wiki",
+              "issue"
+            ],
+            "issue_src": "github issues 按回复数排序 · 核验 2026-08-16"
           }
         },
         {
@@ -29373,18 +29484,31 @@
             "pitfalls": [
               {
                 "where": "分块处理",
-                "note": "官方明示 NCNN 版**可能出现拼接痕** —— 大图分块各自处理再拼回来，接缝处会不一致"
+                "note": "官方明示 NCNN 版**可能出现拼接痕** —— 大图分块各自处理再拼回来，接缝处不一致"
               },
               {
-                "where": "模型选择",
-                "note": "`realesr-general-x4v3` 是轻量通用模型，配 `-dn` 调降噪强度；拿通用模型跑动漫会糊"
+                "where": "装不上",
+                "note": "**issue #275「ModuleNotFoundError: No module named 'realesrgan.version'」开着** —— 这是最常见的安装报错，先查它再查别的"
+              },
+              {
+                "where": "显卡没被用上",
+                "note": "**issue #670「GPU not utilized on Linux」开着** —— 跑得慢先确认 CUDA 真的在用，别急着调参数"
               },
               {
                 "where": "放大倍数",
-                "note": "倍数越高伪细节越明显 —— **超分补不出原本不存在的信息**"
+                "note": "倍数越高伪细节越明显；**#233 想做 x8 至今没有官方支持**。超分补不出原本不存在的信息"
+              },
+              {
+                "where": "训练侧",
+                "note": "**#403 微调时 CUDA OOM 开着** —— 推理门槛低，微调门槛完全是另一回事"
               }
             ],
-            "depth": "docs"
+            "layers": [
+              "docs",
+              "wiki",
+              "issue"
+            ],
+            "issue_src": "github issues 按回复数排序 · 核验 2026-08-16"
           }
         }
       ]

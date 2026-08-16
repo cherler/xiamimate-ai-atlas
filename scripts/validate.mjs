@@ -241,9 +241,11 @@ for (const t of a.topics ?? []) {
   for (const p of t.projects ?? []) {
     const h = p.hands;
     if (!h) continue;
-    if (h.depth !== "docs" && h.depth !== "source")
-      errs.push(`R80 专项「${t.zh}」› ${p.zh} 的动手层没声明 depth —— ` +
-        `只读文档和读过源码给出的东西不是一回事，页面上必须分得出来`);
+    const OK = ["docs", "wiki", "issue", "bench"];
+    if (!Array.isArray(h.layers) || !h.layers.length || h.layers.some((x) => !OK.includes(x)))
+      errs.push(`R80 专项「${t.zh}」› ${p.zh} 的动手层没声明 layers —— ` +
+        `要写**实际做到了哪几层**（${OK.join(" / ")}），页面上必须分得出来；` +
+        `只读 README 的不能看起来和真跑过的一样`);
     const miss = ["install", "modify", "pitfalls"].filter((k) => !(h[k] ?? []).length);
     if (miss.length)
       errs.push(`R80 专项「${t.zh}」› ${p.zh} 的动手层缺 ${miss.join(" / ")} —— ` +
