@@ -188,3 +188,16 @@ const b = await chromium.launch({ headless: false, args: ["--no-proxy-server"] }
 `scripts/watch.mjs` 那条管线是**另一件事**，跑在别处（见 `ops/`）。
 站是静态的、只在构建时读数据；采集改的是数据，改完要重新 package 才会上线。
 两者故意不耦合：**采集挂了，站还在**。
+
+## 备份只留最近三份
+
+`current` 每次上线都会被 `mv` 成 `backup-时间戳`，**它不会自己清**。
+2026-08-17 发现攒了 27 份、共 2.5G（最早的是 08-12），负责人：「天呐，没必要，
+只要最近三份备份就 ok 了」。清完从 2.5G 降到 504M。
+
+```bash
+ssh <server> 'cd /srv/xiamimate/atlas && ls -dt backup-* | tail -n +4 | xargs -r sudo rm -rf'
+```
+
+**删之前先把名单打出来看一眼** —— 确认 `current` 不在里面、要留的三份是最新的那三份
+（其中第一份就是这次上线前的那个，也就是真正的回滚点）。
