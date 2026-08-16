@@ -228,6 +228,30 @@ for (const t of a.topics ?? []) {
 }
 
 /**
+ * R80 —— **动手层三块要么齐、要么整块没有，不许只有一半。**
+ *
+ * 动手层是这个专项的重心（负责人：深度＝读懂层 + 动手层）。
+ * 只有安装步骤没有坑，等于把最难的那部分省了 ——
+ * **而读者恰恰是为了避坑才读它的**。
+ *
+ * 没做完的项目页面会明写「还没做，要读源码」，那是诚实的空白；
+ * 半截的动手层不是空白，是**看起来做完了其实没有**。
+ */
+for (const t of a.topics ?? []) {
+  for (const p of t.projects ?? []) {
+    const h = p.hands;
+    if (!h) continue;
+    const miss = ["install", "modify", "pitfalls"].filter((k) => !(h[k] ?? []).length);
+    if (miss.length)
+      errs.push(`R80 专项「${t.zh}」› ${p.zh} 的动手层缺 ${miss.join(" / ")} —— ` +
+        `三块要么齐、要么整块别写；只有安装没有坑等于把最难的那部分省了`);
+    for (const f of h.pitfalls ?? [])
+      if (!f.where?.trim() || !f.note?.trim())
+        errs.push(`R80 专项「${t.zh}」› ${p.zh} 有一条坑没写清位置或内容`);
+  }
+}
+
+/**
  * R67 —— 数据集日期不能早于任何一格的核验日。
  * 页脚印的「数据截至 X」是给读者的新鲜度承诺；有格子比它还新，那句话就是错的。
  */
