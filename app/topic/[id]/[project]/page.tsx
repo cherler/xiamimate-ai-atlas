@@ -163,6 +163,14 @@ export default async function ProjectPage({ params }: { params: Promise<{ id: st
 
       {p.hands ? (
         <Section title="动手层">
+          {/* 到了哪一层必须明写 —— 否则 docs 层看起来和 source 层一模一样。 */}
+          <p className={`text-[12px] mb-5 border-l-2 pl-3 ${
+            p.hands.depth === "source" ? "border-yes text-muted" : "border-chip-warm-ink text-muted"}`}>
+            {p.hands.depth === "source"
+              ? "读过源码。文档里没有的坑也在下面。"
+              : <><b className="text-ink">只读到文档层。</b>下面每一条都能在 README 或官方文档里找到出处；
+                  <b className="text-ink">文档没写的坑不在这里</b> —— 那要读源码，尚未做。</>}
+          </p>
           <h3 className="text-[12px] tracking-wider text-muted font-bold mb-2">装它要过哪几关</h3>
           <ol className="border border-rule rounded-lg divide-y divide-rule mb-7">
             {p.hands.install.map((s, i) => (

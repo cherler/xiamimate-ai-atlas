@@ -497,8 +497,19 @@ export type TopicProject = {
     swap: "1" | "few" | "many";
     note: string;
   };
-  /** 动手层：装它要过哪几关 · 改哪个文件能改什么 · 坑在代码哪一处。 */
+  /**
+   * 动手层：装它要过哪几关 · 改哪个文件能改什么 · 坑在代码哪一处。
+   *
+   * ⚠️ `depth` 必填，且必须诚实：
+   * - `docs`   —— 只读了 README 与官方文档。**文档没写的坑，这一层给不出来**
+   * - `source` —— 读过源码，能给出文档里没有的坑与行级位置
+   *
+   * 2026-08-16 我把六个项目的动手层写成 docs 层，却没标出来 ——
+   * 页面上看起来和读过源码的一样。负责人当场问「你不是说一个项目要一两小时吗，
+   * 六分钟就做完了？」**这个字段就是为了让这种事下次自己露出来。**
+   */
   hands?: {
+    depth: "docs" | "source";
     install: { step: string; gate: string }[];
     modify: { path: string; effect: string }[];
     pitfalls: { where: string; note: string }[];

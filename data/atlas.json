@@ -28755,7 +28755,8 @@
                 "where": "显存",
                 "note": "自动卸载会把模型挪到内存，看起来跑得动但会慢很多 —— 慢和爆显存是两种症状，别当成同一个问题查"
               }
-            ]
+            ],
+            "depth": "docs"
           }
         },
         {
@@ -28845,7 +28846,8 @@
                 "where": "耗时",
                 "note": "5 秒 720P 约 9 分钟。**这是试错成本上限**，一天能试的次数以十计"
               }
-            ]
+            ],
+            "depth": "docs"
           }
         },
         {
@@ -28872,7 +28874,7 @@
             "每种信号要各自的预处理器，链路变长"
           ],
           "unfit": "不需要精确构图的场景 —— 多一道预处理不划算。",
-          "src": "github README",
+          "src": "github README + docs/low_vram.md + DeepWiki 架构页",
           "verified_at": "2026-08-16",
           "role": "tool",
           "diagrams": [
@@ -28936,7 +28938,8 @@
                 "where": "线稿模型",
                 "note": "仓库标注为待风险评估、**至今未发布**。九种信号里这一种拿不到"
               }
-            ]
+            ],
+            "depth": "docs"
           }
         },
         {
@@ -28964,7 +28967,7 @@
             "锁风格与锁人物需要不同权重"
           ],
           "unfit": "需要精确控制多个不同人物时。",
-          "src": "github README",
+          "src": "github README + DeepWiki 架构页",
           "verified_at": "2026-08-16",
           "role": "tool",
           "diagrams": [
@@ -29024,7 +29027,8 @@
                 "where": "FaceID 变体",
                 "note": "仓库自己标为实验性，效果不稳"
               }
-            ]
+            ],
+            "depth": "docs"
           }
         },
         {
@@ -29051,7 +29055,7 @@
             "仓库未给显存要求，需自行实测"
           ],
           "unfit": "任何商用交付 —— 许可证不允许。",
-          "src": "github README",
+          "src": "github README + DeepWiki 架构页",
           "verified_at": "2026-08-16",
           "role": "tool",
           "diagrams": [
@@ -29111,7 +29115,8 @@
                 "where": "文字控制变弱",
                 "note": "身份锁得越死，提示词越不起作用。官方给的解法是降 ip_adapter_scale"
               }
-            ]
+            ],
+            "depth": "docs"
           }
         },
         {
@@ -29138,7 +29143,7 @@
             "风格相似可能带来版权争议，官方自己提示了"
           ],
           "unfit": "需要特定曲风精确复刻时。",
-          "src": "github README",
+          "src": "github README + DeepWiki 架构页",
           "verified_at": "2026-08-16",
           "role": "tool",
           "diagrams": [
@@ -29202,7 +29207,8 @@
                 "where": "风格相似",
                 "note": "官方自己提示了版权风险：风格过于接近某个作品可能构成侵权"
               }
-            ]
+            ],
+            "depth": "docs"
           }
         },
         {
@@ -29229,7 +29235,7 @@
             "段数多，任一段配错整条链路失败"
           ],
           "unfit": "只需要单段能力（只要转写、或只要配音）时 —— 装整条太重。",
-          "src": "github README",
+          "src": "github README + DeepWiki 架构页",
           "verified_at": "2026-08-16",
           "role": "tool",
           "diagrams": [
@@ -29289,7 +29295,8 @@
                 "where": "版权责任",
                 "note": "官方声明：调第三方接口、处理受版权保护的视频，法律后果由使用者承担"
               }
-            ]
+            ],
+            "depth": "docs"
           }
         },
         {
@@ -29316,7 +29323,7 @@
             "放大倍数越高，伪细节越明显"
           ],
           "unfit": "源素材本身糊得厉害时 —— 超分补不出不存在的信息。",
-          "src": "github README",
+          "src": "github README + DeepWiki 架构页",
           "verified_at": "2026-08-16",
           "role": "tool",
           "diagrams": [
@@ -29376,7 +29383,8 @@
                 "where": "放大倍数",
                 "note": "倍数越高伪细节越明显 —— **超分补不出原本不存在的信息**"
               }
-            ]
+            ],
+            "depth": "docs"
           }
         }
       ]
