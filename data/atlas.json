@@ -28698,7 +28698,65 @@
               "verified_at": "2026-08-16",
               "mermaid": "flowchart LR\n  main[\"main.py<br/>入口\"] --> srv[\"执行引擎<br/>只重跑变化的那部分图\"]\n  nodes[\"nodes.py<br/>节点注册\"] --> srv\n  srv --> sd[\"comfy/sd.py<br/>模型装载\"]\n  sd --> base[\"BaseModel<br/>跨架构统一操作层\"]\n  base --> mem[\"显存管理<br/>自动卸载 · 量化\"]\n  base --> arch[\"各家模型架构<br/>Wan · LTX · HunyuanVideo\"]\n  ext[\"自定义节点<br/>扩展与插件系统\"] --> nodes"
             }
-          ]
+          ],
+          "autonomy": {
+            "weights": "na",
+            "seed": "yes",
+            "swap": "many",
+            "note": "它是底座；换掉等于整条流水线重搭"
+          },
+          "hands": {
+            "install": [
+              {
+                "step": "克隆仓库",
+                "gate": "**钉在 stable release tag 上** —— 官方明说主线之外的提交可能很不稳且会弄坏大量自定义节点"
+              },
+              {
+                "step": "pip install -r requirements.txt",
+                "gate": "PyTorch 版本要和显卡驱动对上，这一步是最常卡住的地方"
+              },
+              {
+                "step": "模型放进 models/ 各自的子目录",
+                "gate": "目录名决定它在哪个节点的下拉里出现，放错了节点里就是空的"
+              },
+              {
+                "step": "python main.py",
+                "gate": "默认只监听本机；要在别的设备上开得加 --listen"
+              }
+            ],
+            "modify": [
+              {
+                "path": "nodes.py",
+                "effect": "节点注册表。想知道某个节点到底接受什么输入，看这里比看界面快"
+              },
+              {
+                "path": "comfy/sd.py",
+                "effect": "模型装载。加载失败的报错基本都从这里抛"
+              },
+              {
+                "path": "custom_nodes/",
+                "effect": "放第三方节点包。装节点就是往这个目录里克隆仓库"
+              },
+              {
+                "path": "extra_model_paths.yaml",
+                "effect": "模型不想复制两份时，把 WebUI 的模型目录挂进来"
+              }
+            ],
+            "pitfalls": [
+              {
+                "where": "图上任意分支",
+                "note": "**接线不完整的分支不报错，直接不执行** —— 官方原话：只有输出端输入齐全的那部分图才会被执行。界面上看不出区别"
+              },
+              {
+                "where": "跟主线更新",
+                "note": "官方声明 stable tag 之外可能弄坏自定义节点；更新前先看你装的节点包最后一次提交是什么时候"
+              },
+              {
+                "where": "显存",
+                "note": "自动卸载会把模型挪到内存，看起来跑得动但会慢很多 —— 慢和爆显存是两种症状，别当成同一个问题查"
+              }
+            ]
+          }
         },
         {
           "id": "wan22",
@@ -28738,7 +28796,57 @@
               "verified_at": "2026-08-16",
               "mermaid": "flowchart LR\n  cfg[\"wan/configs/__init__.py<br/>模型参数与尺寸\"] --> dit\n  subgraph 五条流水线\n    t2v[\"wan/image2video.py<br/>T2V · I2V · TI2V\"]\n    s2v[\"wan/speech2video.py<br/>语音驱动\"]\n    ani[\"wan/animate.py<br/>角色动画\"]\n  end\n  t2v --> dit[\"wan/modules/models/wan_model.py<br/>DiT 主干\"]\n  s2v --> dit\n  ani --> dit\n  dit --> hi[\"高噪专家 ~13.5B\"]\n  dit --> lo[\"低噪专家 ~13.5B\"]\n  hi --> out[\"视频 480P / 720P\"]\n  lo --> out"
             }
-          ]
+          ],
+          "autonomy": {
+            "weights": "local",
+            "seed": "yes",
+            "swap": "few",
+            "note": "权重可下载可锁版本，种子是命令行参数"
+          },
+          "hands": {
+            "install": [
+              {
+                "step": "下载权重",
+                "gate": "**先选变体**：TI2V-5B 才是消费级显卡能跑的那个，A14B 系列单卡 80GB 起"
+              },
+              {
+                "step": "装依赖",
+                "gate": "按仓库给的 requirements；flash-attention 这类加速件装不上不影响能跑"
+              },
+              {
+                "step": "跑 generate.py",
+                "gate": "**三个降显存开关必须全开**：--offload_model --convert_model_dtype --t5_cpu，少一个就上不了 24GB"
+              }
+            ],
+            "modify": [
+              {
+                "path": "wan/configs/__init__.py",
+                "effect": "模型参数与尺寸。改分辨率、步数从这里查参数名"
+              },
+              {
+                "path": "wan/image2video.py",
+                "effect": "T2V / I2V / TI2V 三条路的流水线实现"
+              },
+              {
+                "path": "wan/modules/models/wan_model.py",
+                "effect": "DiT 主干。要看两个专家怎么切换，看这里"
+              }
+            ],
+            "pitfalls": [
+              {
+                "where": "README 的「24GB 可跑」",
+                "note": "**那是三个开关全开之后的数字**；不开优化同一个变体要 80GB。第一次跑爆显存基本都是这个原因"
+              },
+              {
+                "where": "变体选择",
+                "note": "A14B 效果更好但单卡 80GB 起 —— 消费级显卡上它不是「慢」，是根本加载不了"
+              },
+              {
+                "where": "耗时",
+                "note": "5 秒 720P 约 9 分钟。**这是试错成本上限**，一天能试的次数以十计"
+              }
+            ]
+          }
         },
         {
           "id": "controlnet",
@@ -28775,7 +28883,13 @@
               "verified_at": "2026-08-16",
               "mermaid": "flowchart LR\n  img[\"输入图\"] --> ann\n  subgraph ann[\"标注器 · 把图变成结构信号\"]\n    c[\"Canny 边缘\"]\n    h[\"HED 软边缘\"]\n    m[\"M-LSD 直线\"]\n    o[\"OpenPose 姿势\"]\n    d[\"MiDaS 深度\"]\n    u[\"Uniformer 分割\"]\n  end\n  ann --> sig[\"控制信号\"]\n  sig --> tc[\"可训练副本<br/>14 个接入点\"]\n  tc -->|\"零卷积 1×1<br/>权重偏置初始化为 0\"| unet\n  lock[\"锁定副本<br/>不参与梯度\"] --> unet[\"SD UNet\"]\n  unet --> out[\"输出图\"]"
             }
-          ]
+          ],
+          "autonomy": {
+            "weights": "local",
+            "seed": "na",
+            "swap": "few",
+            "note": "控制模型本地加载，换一种信号换一个预处理器 + 一个模型"
+          }
         },
         {
           "id": "ip-adapter",
@@ -28813,7 +28927,13 @@
               "verified_at": "2026-08-16",
               "mermaid": "flowchart LR\n  ref[\"参考图\"] --> clip[\"CLIP 图像编码器\"]\n  clip --> proj[\"投影模块<br/>Full 变体走 MLP\"]\n  proj --> ipa[\"解耦交叉注意力<br/>22M 参数\"]\n  txt[\"文本提示\"] --> xattn[\"原有交叉注意力\"]\n  ipa --> unet[\"SD UNet 注意力层\"]\n  xattn --> unet\n  unet --> out[\"输出图\"]\n  note[\"变体：Base 1.5 · Plus 细粒度<br/>XL · Full · FaceID\"] -.-> ipa"
             }
-          ]
+          ],
+          "autonomy": {
+            "weights": "local",
+            "seed": "na",
+            "swap": "1",
+            "note": "适配器 22M，挂上去或摘下来都是一处"
+          }
         },
         {
           "id": "instantid",
@@ -28850,7 +28970,13 @@
               "verified_at": "2026-08-16",
               "mermaid": "flowchart LR\n  face[\"一张脸照\"] --> ins[\"InsightFace antelopev2\"]\n  ins --> emb[\"人脸嵌入\"]\n  ins --> kp[\"面部关键点\"]\n  emb --> ipa[\"IP-Adapter 交叉注意力<br/>ip_adapter_scale\"]\n  kp --> idn[\"IdentityNet / ControlNet<br/>controlnet_conditioning_scale\"]\n  ipa --> pipe[\"StableDiffusionXLInstantIDPipeline\"]\n  idn --> pipe\n  txt[\"文本提示<br/>guidance_scale\"] --> pipe\n  pipe --> out[\"输出图 · 零样本免调优\"]"
             }
-          ]
+          ],
+          "autonomy": {
+            "weights": "local",
+            "seed": "na",
+            "swap": "few",
+            "note": "权重可下载但仅限研究用途；人脸模型另有非商用限制"
+          }
         },
         {
           "id": "ace-step",
@@ -28887,7 +29013,13 @@
               "verified_at": "2026-08-16",
               "mermaid": "flowchart LR\n  p[\"文本提示\"] --> t5[\"UMT5EncoderModel\"]\n  l[\"歌词 · 19 语种\"] --> tok[\"VoiceBpeTokenizer\"]\n  t5 --> dit\n  tok --> dit[\"ACEStepTransformer2DModel<br/>28 层 · 3.5B · 潜空间去噪\"]\n  dit -->|\"PingPongFlowScheduler\"| dec[\"MusicDCAE 解码<br/>overlapped_decode\"]\n  dec --> wav[\"音频 · 最长 4 分钟\"]\n  lora[\"LoRA · peft<br/>子任务微调\"] -.-> dit"
             }
-          ]
+          ],
+          "autonomy": {
+            "weights": "local",
+            "seed": "yes",
+            "swap": "1",
+            "note": "整条音频链在本机，换掉只影响配乐那一段"
+          }
         },
         {
           "id": "pyvideotrans",
@@ -28924,7 +29056,13 @@
               "verified_at": "2026-08-16",
               "mermaid": "flowchart LR\n  a1[\"prepare\"] --> a2[\"recogn<br/>语音识别\"] --> a3[\"diariz<br/>说话人分离\"] --> a4[\"trans<br/>翻译\"]\n  a4 --> a5[\"dubbing<br/>语音合成\"] --> a6[\"align<br/>对齐\"] --> a7[\"recogn2pass<br/>二次识别\"] --> a8[\"assembling<br/>回封装\"] --> a9[\"task_done\"]\n  base[\"BaseTrans / BaseTTS<br/>换引擎只换实现\"] -.-> a4\n  base -.-> a5"
             }
-          ]
+          ],
+          "autonomy": {
+            "weights": "na",
+            "seed": "na",
+            "swap": "few",
+            "note": "三段引擎各自可换本地实现，框架本身不持权重"
+          }
         },
         {
           "id": "real-esrgan",
@@ -28961,7 +29099,13 @@
               "verified_at": "2026-08-16",
               "mermaid": "flowchart LR\n  img[\"输入图 / 视频帧\"] --> tile[\"分块处理<br/>大图省显存\"]\n  tile --> net\n  subgraph net[\"网络\"]\n    r[\"RRDBNet<br/>通用\"]\n    v[\"SRVGGNetCompact<br/>轻量\"]\n  end\n  net --> up[\"RealESRGANer 推理<br/>2× / 3× / 4×\"]\n  up --> face[\"GFPGAN 人脸增强<br/>可选\"]\n  up --> out[\"输出图\"]\n  face --> out"
             }
-          ]
+          ],
+          "autonomy": {
+            "weights": "local",
+            "seed": "na",
+            "swap": "1",
+            "note": "末端环节，接上或摘掉不影响前面"
+          }
         }
       ]
     }

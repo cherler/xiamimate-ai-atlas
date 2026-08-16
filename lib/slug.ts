@@ -18,3 +18,6 @@ export const capBySlug = (s: string) => atlas.capabilities.find((c) => c.id === 
 
 export const modelHref = (m: Model | string) => `/model/${typeof m === "string" ? m : m.id}`;
 export const capHref = (c: Capability | string) => `/capability/${typeof c === "string" ? c : c.id}`;
+
+/** 专项里的项目页。项目是主角，有自己的地址；专项页是把它们连起来的网。 */
+export const topicProjectHref = (topic: string, project: string) => `/topic/${topic}/${project}`;

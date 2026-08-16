@@ -487,6 +487,22 @@ export type TopicProject = {
   src: string; verified_at: string;
   /** 架构图：mermaid 源存在数据里，构建时渲染成 public/diagrams/<id>.svg */
   diagrams?: { id: string; title: string; src: string; verified_at: string; mermaid: string }[];
+  /**
+   * 自持能力三问。**「自己把握制作能力」必须落成能查的东西，否则永远是形容词。**
+   * weights 权重在不在本地 · seed 种子能不能填 · swap 换掉它要动几处。
+   */
+  autonomy?: {
+    weights: "local" | "api" | "na";
+    seed: "yes" | "partial" | "no" | "na";
+    swap: "1" | "few" | "many";
+    note: string;
+  };
+  /** 动手层：装它要过哪几关 · 改哪个文件能改什么 · 坑在代码哪一处。 */
+  hands?: {
+    install: { step: string; gate: string }[];
+    modify: { path: string; effect: string }[];
+    pitfalls: { where: string; note: string }[];
+  };
 };
 export type TopicChapter = {
   id: string; zh: string;

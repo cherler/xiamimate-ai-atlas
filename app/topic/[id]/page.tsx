@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import { readFileSync } from "node:fs";
 import { atlas } from "@/lib/atlas";
 import BackLink from "@/components/BackLink";
 import ReportIssue from "@/components/ReportIssue";
@@ -25,20 +24,10 @@ export default async function TopicPage({ params }: { params: Promise<{ id: stri
   const { id } = await params;
   const t = atlas.topics.find((x) => x.id === id);
   if (!t) return null;
-  /**
-   * 架构图在这里读盘 —— **这一层是服务端组件，交互层是客户端组件**。
-   * 在客户端那边 import "node:fs" 会被 webpack 打进浏览器包并直接报错。
-   * 读不到就不传，页面少一张图而不是整页挂掉。
-   */
-  const svgs: Record<string, string> = {};
-  for (const p of t.projects)
-    for (const d of p.diagrams ?? []) {
-      try { svgs[d.id] = readFileSync(`public/diagrams/${d.id}.svg`, "utf8"); } catch { /* 少一张图，不挂页 */ }
-    }
   return (
     <main className="max-w-[840px] mx-auto px-5 pb-16">
       <BackLink />
-      <TopicView t={t} svgs={svgs} />
+      <TopicView t={t} />
       <div className="border-t border-rule pt-5 mt-6 text-[12px] text-muted max-w-[62ch]">
         <p className="mb-2">
           覆盖度、星数、许可证、门槛来自仓库原文，点得开核对；

@@ -1,9 +1,10 @@
 "use client";
 
 import { useState } from "react";
+import Link from "next/link";
 import { Rich } from "./Fact";
 import { forkCoverage, topicAppName, type Decision, type Topic, type TopicProject } from "@/lib/atlas";
-import { capHref } from "@/lib/slug";
+import { capHref, topicProjectHref } from "@/lib/slug";
 import { CoverageChart, HardwareChart, LicenseChart, MatrixChart, ProjectCharts, ProjectDiagrams } from "./TopicCharts";
 
 /**
@@ -80,49 +81,34 @@ const LIC = {
   noncommercial: { zh: "不可商用", cls: "border-no text-no" },
 } as const;
 
-/** 项目默认只有一行；细节点开才来 —— 上一版八张卡全展开是「挤」的直接来源。 */
-function Project({ p, svgs }: { p: TopicProject; svgs: Record<string, string> }) {
+/**
+ * 专项页里的项目 = **网上的一个节点**，点进去是它自己的解析页。
+ *
+ * 上一版是折叠卡，细节点开就地展开 —— 负责人否掉：
+ * 「开源项目的拆解跟我想象中不太一样」。诊断是**我把重心做成了索引**：
+ * 那张卡回答「这几个里选哪个」，而重心是「它怎么工作、我能改哪里」，
+ * 那份东西塞不进一张卡。现在卡只做导航，内容全在项目页。
+ */
+function ProjectLink({ p, topic }: { p: TopicProject; topic: string }) {
+  const a = p.autonomy;
   return (
-    <details className="border border-rule rounded-lg group">
-      <summary className="cursor-pointer list-none px-4 py-3 flex items-center gap-3 flex-wrap">
-        <b className="text-[15px]">{p.zh}</b>
-        <span className={`text-[11px] border rounded-full px-2 ${LIC[p.license_class].cls}`}>
-          {LIC[p.license_class].zh}
-        </span>
-        <span className="text-[11.5px] text-muted">{p.hw.split("；")[0]}</span>
-        <span className="text-[11px] text-muted tnum ml-auto">★ {(p.stars / 1000).toFixed(1)}k</span>
-        <span className="text-hatch text-[13px] group-open:hidden">＋</span>
-        <span className="text-hatch text-[13px] hidden group-open:inline">－</span>
-      </summary>
-      <div className="px-4 pb-4 pt-1 border-t border-rule">
-        <p className="text-[13px] text-muted leading-relaxed mt-3">{p.scope}</p>
-        {/* 图排在前面：**能画成图的就别写成句子**（负责人：可视化图表代替文字描述）。 */}
-        <ProjectDiagrams p={p} svgs={svgs} />
-        <ProjectCharts id={p.id} />
-        <div className="grid sm:grid-cols-2 gap-x-8 gap-y-3 text-[12.5px] mt-5">
-          <div>
-            <h4 className="text-[11px] tracking-wider text-yes-ink font-bold mb-1.5">优势</h4>
-            <ul className="text-muted list-disc pl-4 space-y-1">{p.good.map((g) => <li key={g}><Rich text={g} /></li>)}</ul>
-          </div>
-          <div>
-            <h4 className="text-[11px] tracking-wider text-no font-bold mb-1.5">局限</h4>
-            <ul className="text-muted list-disc pl-4 space-y-1">{p.bad.map((b) => <li key={b}><Rich text={b} /></li>)}</ul>
-          </div>
-        </div>
-        <p className="text-[12.5px] text-muted mt-4 pt-3 border-t border-rule">
-          <b className="text-ink">不适用　</b>{p.unfit}
-        </p>
-        {p.arch && <p className="text-[11.5px] text-muted mt-3 leading-relaxed"><b className="text-ink">架构　</b>{p.arch}</p>}
-        <p className="text-[11px] text-muted mt-3">
-          <a href={p.url} target="_blank" rel="noopener noreferrer" className="text-yes-ink hover:underline">仓库 →</a>
-          {"　"}{p.src} · 核验 {p.verified_at}
-        </p>
-      </div>
-    </details>
+    <Link href={topicProjectHref(topic, p.id)}
+      className="border border-rule rounded-lg px-4 py-3 flex items-center gap-3 flex-wrap hover:border-yes">
+      <b className="text-[14.5px]">{p.zh}</b>
+      <span className={`text-[11px] border rounded-full px-2 ${LIC[p.license_class].cls}`}>
+        {LIC[p.license_class].zh}
+      </span>
+      {a?.weights === "local" && (
+        <span className="text-[11px] border border-rule rounded-full px-2 text-muted">权重可下载</span>
+      )}
+      {p.hands && <span className="text-[11px] border border-rule rounded-full px-2 text-muted">含动手层</span>}
+      <span className="text-[11px] text-muted tnum ml-auto">★ {(p.stars / 1000).toFixed(1)}k</span>
+      <span className="text-hatch">→</span>
+    </Link>
   );
 }
 
-export default function TopicView({ t, svgs }: { t: Topic; svgs: Record<string, string> }) {
+export default function TopicView({ t }: { t: Topic }) {
   const [pick, setPick] = useState<string | null>(null);
   const matrix = t.chapters.find((c) => c.matrix)?.matrix;
   const axis = t.chapters.filter((c) => c.kind === "axis").sort((a, b) => (a.axis_pos ?? 0) - (b.axis_pos ?? 0));
@@ -218,7 +204,7 @@ export default function TopicView({ t, svgs }: { t: Topic; svgs: Record<string, 
           {bases.length > 0 && (
             <div className="mb-9">
               <p className="text-[11px] tracking-wider text-muted font-bold mb-2">底座</p>
-              <div className="space-y-2">{bases.map((p) => <Project key={p.id} p={p} svgs={svgs} />)}</div>
+              <div className="space-y-2">{bases.map((p) => <ProjectLink key={p.id} p={p} topic={t.id} />)}</div>
             </div>
           )}
           <div className="space-y-10">
@@ -232,7 +218,7 @@ export default function TopicView({ t, svgs }: { t: Topic; svgs: Record<string, 
                   </div>
                   <p className="text-[13px] text-muted mb-3">{d.handle}</p>
                   {d.cap && <div className="max-w-[360px] mb-5"><Cov cap={d.cap} /></div>}
-                  {ps.length > 0 && <div className="space-y-2">{ps.map((p) => <Project key={p.id} p={p} svgs={svgs} />)}</div>}
+                  {ps.length > 0 && <div className="space-y-2">{ps.map((p) => <ProjectLink key={p.id} p={p} topic={t.id} />)}</div>}
                 </div>
               );
             })}
