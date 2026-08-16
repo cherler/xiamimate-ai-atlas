@@ -28688,7 +28688,8 @@
           ],
           "unfit": "一次性产出需求 —— 回报来自工作流复用。",
           "src": "github README + DeepWiki 架构页",
-          "verified_at": "2026-08-16"
+          "verified_at": "2026-08-16",
+          "role": "base"
         },
         {
           "id": "wan22",
@@ -28718,7 +28719,8 @@
           ],
           "unfit": "交付期紧的商单 —— 价值在沉淀方法，不在单次产出效率。",
           "src": "github README + DeepWiki 架构页",
-          "verified_at": "2026-08-16"
+          "verified_at": "2026-08-16",
+          "role": "tool"
         },
         {
           "id": "controlnet",
@@ -28745,7 +28747,8 @@
           ],
           "unfit": "不需要精确构图的场景 —— 多一道预处理不划算。",
           "src": "github README",
-          "verified_at": "2026-08-16"
+          "verified_at": "2026-08-16",
+          "role": "tool"
         },
         {
           "id": "ip-adapter",
@@ -28773,7 +28776,8 @@
           ],
           "unfit": "需要精确控制多个不同人物时。",
           "src": "github README",
-          "verified_at": "2026-08-16"
+          "verified_at": "2026-08-16",
+          "role": "tool"
         },
         {
           "id": "instantid",
@@ -28800,7 +28804,8 @@
           ],
           "unfit": "任何商用交付 —— 许可证不允许。",
           "src": "github README",
-          "verified_at": "2026-08-16"
+          "verified_at": "2026-08-16",
+          "role": "tool"
         },
         {
           "id": "ace-step",
@@ -28827,7 +28832,8 @@
           ],
           "unfit": "需要特定曲风精确复刻时。",
           "src": "github README",
-          "verified_at": "2026-08-16"
+          "verified_at": "2026-08-16",
+          "role": "tool"
         },
         {
           "id": "pyvideotrans",
@@ -28854,7 +28860,8 @@
           ],
           "unfit": "只需要单段能力（只要转写、或只要配音）时 —— 装整条太重。",
           "src": "github README",
-          "verified_at": "2026-08-16"
+          "verified_at": "2026-08-16",
+          "role": "tool"
         },
         {
           "id": "real-esrgan",
@@ -28881,7 +28888,8 @@
           ],
           "unfit": "源素材本身糊得厉害时 —— 超分补不出不存在的信息。",
           "src": "github README",
-          "verified_at": "2026-08-16"
+          "verified_at": "2026-08-16",
+          "role": "tool"
         }
       ]
     }

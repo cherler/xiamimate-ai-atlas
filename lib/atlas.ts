@@ -479,6 +479,8 @@ export type TopicProject = {
   license_class: "permissive" | "copyleft" | "noncommercial";
   /** 这个项目管哪几个决定 */
   decisions: string[];
+  /** base = 底座（横跨多个决定，只出现一次）· tool = 单点工具（挂在决定下面） */
+  role: "base" | "tool";
   scope: string; control: string; hw: string; arch?: string;
   /** ⚠️ 判断，不是厂商说过的话 */
   good: string[]; bad: string[]; unfit: string;
