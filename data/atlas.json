@@ -12374,8 +12374,8 @@
       "c": "d-pbr",
       "state": "yes",
       "verified_for": "2.1",
-      "src": "hf-hunyuan3d-21",
-      "note": "README 架构一节：「Physically-Based Rendering (PBR) Texture Synthesis … the upgraded PBR pipeline leverages physics-grounded material simulation to generate textures with photorealistic light interaction (e.g., metallic reflections, subsurface scattering)」　⚠️ **这条证据核的是 2.1**（开源那一支的 README）；3.1 只有平台页一句功能描述，没有能引的官方文档 —— 标为待重核，不沿用当作 3.1 的结论",
+      "src": "gh-hunyuan3d-21",
+      "note": "README 架构一节：「Physically-Based Rendering (PBR) Texture Synthesis … the upgraded PBR pipeline leverages physics-grounded material simulation to generate textures with photorealistic light interaction (e.g., metallic reflections, subsurface scattering)」　⚠️ **这条证据核的是 2.1**（开源那一支的 README）；3.1 只有平台页一句功能描述，没有能引的官方文档 —— 标为待重核，不沿用当作 3.1 的结论 🔧 **2026-08-16 改了署名的源**：原署 `hf-hunyuan3d-21`，实际这句话在 `gh-hunyuan3d-21` 里。人审备注：通用",
       "via": "native",
       "as_of": "2026-08-13",
       "recheck": "3.1"
