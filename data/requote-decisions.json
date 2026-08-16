@@ -107,6 +107,16 @@
       "src": "hf-trellis2",
       "at_label": "trellis × d-edit",
       "kind": "本页没有·别处有"
+    },
+    {
+      "id": "arxiv-seed3d-20|seed3d × d-scene",
+      "at": "2026-08-16 04:28:30",
+      "who": "admin",
+      "action": "accept",
+      "why": "通用",
+      "src": "arxiv-seed3d-20",
+      "at_label": "seed3d × d-scene",
+      "kind": "本页没有·别处有"
     }
   ]
 }
