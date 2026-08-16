@@ -201,6 +201,33 @@ for (const t of a.topics ?? []) {
 }
 
 /**
+ * R79 —— **每个开源项目都必须有至少一个片型能引到它。**
+ *
+ * 页面按片型的命门决定筛项目。一个项目如果不在任何片型的命门决定上，
+ * **读者永远翻不到它** —— 收了等于没收，而且没人会发现，
+ * 因为页面只是「少显示一张卡」，不报错。
+ *
+ * 底座（role: base）不受此限：它对所有片型都显示。
+ */
+for (const t of a.topics ?? []) {
+  const m = (t.chapters ?? []).find((c) => c.matrix)?.matrix;
+  if (!m) continue;
+  const reach = new Set();
+  for (const app of Object.keys(m)) {
+    const key = (t.decisions ?? [])
+      .filter((d) => (m[app][d.id] ?? 0) >= 3 && d.owner !== "user").map((d) => d.id);
+    for (const p of t.projects ?? [])
+      if (p.decisions?.some((d) => key.includes(d))) reach.add(p.id);
+  }
+  for (const p of t.projects ?? []) {
+    if (p.role === "base" || reach.has(p.id)) continue;
+    errs.push(`R79 专项「${t.zh}」› ${p.zh} 没有任何片型引得到 —— ` +
+      `它不在任何片型的命门决定上，读者永远翻不到；` +
+      `要么调片型矩阵的权重，要么它本就不该收`);
+  }
+}
+
+/**
  * R67 —— 数据集日期不能早于任何一格的核验日。
  * 页脚印的「数据截至 X」是给读者的新鲜度承诺；有格子比它还新，那句话就是错的。
  */

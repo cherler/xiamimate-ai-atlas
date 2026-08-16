@@ -310,29 +310,18 @@ function AceCharts() {
   );
 }
 
-/** pyvideotrans：三段流水线各自可换的引擎。 */
-function PyvtCharts() {
-  const seg = [
-    { zh: "语音识别", e: ["Faster-Whisper 本地", "Qwen", "Azure"] },
-    { zh: "翻译", e: ["Ollama 本地", "DeepSeek", "Claude"] },
-    { zh: "语音合成", e: ["Edge-TTS 免费", "CosyVoice", "GPT-SoVITS"] },
-    { zh: "回封装", e: ["—"] },
-  ];
-  return (
-    <Fig title="四段流水线 · 前三段可换本地引擎" src="README 的引擎清单">
-      <div className="grid grid-cols-2 sm:grid-cols-4 gap-1.5">
-        {seg.map((s) => (
-          <div key={s.zh} className="border border-rule rounded px-2 py-2">
-            <b className="text-[12px] block mb-1">{s.zh}</b>
-            {s.e.map((e) => (
-              <span key={e} className="block text-[10.5px] text-muted leading-snug">{e}</span>
-            ))}
-          </div>
-        ))}
-      </div>
-    </Fig>
-  );
-}
+/*
+ * pyvideotrans 的手绘流水线图已删。
+ *
+ * 我照 README 的概述画成了「识别 → 翻译 → 合成 → 回封装」四段，
+ * **而 DeepWiki 的架构页写的是九段**：prepare · recogn · diariz · trans ·
+ * dubbing · align · recogn2pass · assembling · task_done。
+ * README 的概述省略了说话人分离、对齐、二次识别这三段 ——
+ * 而那三段恰恰是它比「装个 Whisper 自己串」值钱的地方。
+ *
+ * **教训：概述是给人快速理解的，不是给人照着画架构图的。**
+ * 现在这一张由 mermaid 从架构页的九段生成，见 data 里的 pyvt-arch。
+ */
 
 /**
  * 架构图：把构建时渲染好的 SVG 内联进来。
@@ -368,6 +357,5 @@ export function ProjectCharts({ id }: { id: string }) {
   if (id === "comfyui") return <ComfyCharts />;
   if (id === "controlnet") return <ControlNetCharts />;
   if (id === "ace-step") return <AceCharts />;
-  if (id === "pyvideotrans") return <PyvtCharts />;
   return null;
 }

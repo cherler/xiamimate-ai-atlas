@@ -28766,7 +28766,16 @@
           "unfit": "不需要精确构图的场景 —— 多一道预处理不划算。",
           "src": "github README",
           "verified_at": "2026-08-16",
-          "role": "tool"
+          "role": "tool",
+          "diagrams": [
+            {
+              "id": "controlnet-arch",
+              "title": "代码结构",
+              "src": "DeepWiki 架构页 · 2025-04-18 索引",
+              "verified_at": "2026-08-16",
+              "mermaid": "flowchart LR\n  img[\"输入图\"] --> ann\n  subgraph ann[\"标注器 · 把图变成结构信号\"]\n    c[\"Canny 边缘\"]\n    h[\"HED 软边缘\"]\n    m[\"M-LSD 直线\"]\n    o[\"OpenPose 姿势\"]\n    d[\"MiDaS 深度\"]\n    u[\"Uniformer 分割\"]\n  end\n  ann --> sig[\"控制信号\"]\n  sig --> tc[\"可训练副本<br/>14 个接入点\"]\n  tc -->|\"零卷积 1×1<br/>权重偏置初始化为 0\"| unet\n  lock[\"锁定副本<br/>不参与梯度\"] --> unet[\"SD UNet\"]\n  unet --> out[\"输出图\"]"
+            }
+          ]
         },
         {
           "id": "ip-adapter",
@@ -28795,7 +28804,16 @@
           "unfit": "需要精确控制多个不同人物时。",
           "src": "github README",
           "verified_at": "2026-08-16",
-          "role": "tool"
+          "role": "tool",
+          "diagrams": [
+            {
+              "id": "ipadapter-arch",
+              "title": "代码结构",
+              "src": "DeepWiki 架构页",
+              "verified_at": "2026-08-16",
+              "mermaid": "flowchart LR\n  ref[\"参考图\"] --> clip[\"CLIP 图像编码器\"]\n  clip --> proj[\"投影模块<br/>Full 变体走 MLP\"]\n  proj --> ipa[\"解耦交叉注意力<br/>22M 参数\"]\n  txt[\"文本提示\"] --> xattn[\"原有交叉注意力\"]\n  ipa --> unet[\"SD UNet 注意力层\"]\n  xattn --> unet\n  unet --> out[\"输出图\"]\n  note[\"变体：Base 1.5 · Plus 细粒度<br/>XL · Full · FaceID\"] -.-> ipa"
+            }
+          ]
         },
         {
           "id": "instantid",
@@ -28823,7 +28841,16 @@
           "unfit": "任何商用交付 —— 许可证不允许。",
           "src": "github README",
           "verified_at": "2026-08-16",
-          "role": "tool"
+          "role": "tool",
+          "diagrams": [
+            {
+              "id": "instantid-arch",
+              "title": "代码结构",
+              "src": "DeepWiki 架构页；antelopev2 权重为非商用",
+              "verified_at": "2026-08-16",
+              "mermaid": "flowchart LR\n  face[\"一张脸照\"] --> ins[\"InsightFace antelopev2\"]\n  ins --> emb[\"人脸嵌入\"]\n  ins --> kp[\"面部关键点\"]\n  emb --> ipa[\"IP-Adapter 交叉注意力<br/>ip_adapter_scale\"]\n  kp --> idn[\"IdentityNet / ControlNet<br/>controlnet_conditioning_scale\"]\n  ipa --> pipe[\"StableDiffusionXLInstantIDPipeline\"]\n  idn --> pipe\n  txt[\"文本提示<br/>guidance_scale\"] --> pipe\n  pipe --> out[\"输出图 · 零样本免调优\"]"
+            }
+          ]
         },
         {
           "id": "ace-step",
@@ -28851,7 +28878,16 @@
           "unfit": "需要特定曲风精确复刻时。",
           "src": "github README",
           "verified_at": "2026-08-16",
-          "role": "tool"
+          "role": "tool",
+          "diagrams": [
+            {
+              "id": "acestep-arch",
+              "title": "代码结构",
+              "src": "DeepWiki 架构页",
+              "verified_at": "2026-08-16",
+              "mermaid": "flowchart LR\n  p[\"文本提示\"] --> t5[\"UMT5EncoderModel\"]\n  l[\"歌词 · 19 语种\"] --> tok[\"VoiceBpeTokenizer\"]\n  t5 --> dit\n  tok --> dit[\"ACEStepTransformer2DModel<br/>28 层 · 3.5B · 潜空间去噪\"]\n  dit -->|\"PingPongFlowScheduler\"| dec[\"MusicDCAE 解码<br/>overlapped_decode\"]\n  dec --> wav[\"音频 · 最长 4 分钟\"]\n  lora[\"LoRA · peft<br/>子任务微调\"] -.-> dit"
+            }
+          ]
         },
         {
           "id": "pyvideotrans",
@@ -28879,7 +28915,16 @@
           "unfit": "只需要单段能力（只要转写、或只要配音）时 —— 装整条太重。",
           "src": "github README",
           "verified_at": "2026-08-16",
-          "role": "tool"
+          "role": "tool",
+          "diagrams": [
+            {
+              "id": "pyvt-arch",
+              "title": "九段流水线",
+              "src": "DeepWiki：九段而非四段 —— README 的概述省略了中间五段",
+              "verified_at": "2026-08-16",
+              "mermaid": "flowchart LR\n  a1[\"prepare\"] --> a2[\"recogn<br/>语音识别\"] --> a3[\"diariz<br/>说话人分离\"] --> a4[\"trans<br/>翻译\"]\n  a4 --> a5[\"dubbing<br/>语音合成\"] --> a6[\"align<br/>对齐\"] --> a7[\"recogn2pass<br/>二次识别\"] --> a8[\"assembling<br/>回封装\"] --> a9[\"task_done\"]\n  base[\"BaseTrans / BaseTTS<br/>换引擎只换实现\"] -.-> a4\n  base -.-> a5"
+            }
+          ]
         },
         {
           "id": "real-esrgan",
@@ -28907,7 +28952,16 @@
           "unfit": "源素材本身糊得厉害时 —— 超分补不出不存在的信息。",
           "src": "github README",
           "verified_at": "2026-08-16",
-          "role": "tool"
+          "role": "tool",
+          "diagrams": [
+            {
+              "id": "resrgan-arch",
+              "title": "代码结构",
+              "src": "DeepWiki 架构页",
+              "verified_at": "2026-08-16",
+              "mermaid": "flowchart LR\n  img[\"输入图 / 视频帧\"] --> tile[\"分块处理<br/>大图省显存\"]\n  tile --> net\n  subgraph net[\"网络\"]\n    r[\"RRDBNet<br/>通用\"]\n    v[\"SRVGGNetCompact<br/>轻量\"]\n  end\n  net --> up[\"RealESRGANer 推理<br/>2× / 3× / 4×\"]\n  up --> face[\"GFPGAN 人脸增强<br/>可选\"]\n  up --> out[\"输出图\"]\n  face --> out"
+            }
+          ]
         }
       ]
     }
