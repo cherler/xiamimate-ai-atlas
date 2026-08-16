@@ -32,6 +32,17 @@
       "src": "ideogram-v3-reframe",
       "at_label": "ideogram × i-outpaint",
       "kind": "本页没有·别处有"
+    },
+    {
+      "id": "ideogram-v3-generate|ideogram × i-styleref",
+      "at": "2026-08-16 04:27:55",
+      "who": "admin",
+      "action": "repoint",
+      "why": "通用",
+      "src": "ideogram-v3-generate",
+      "at_label": "ideogram × i-styleref",
+      "kind": "本页没有·别处有",
+      "from": "ideogram-v3-generate"
     }
   ]
 }

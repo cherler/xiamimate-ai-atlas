@@ -8923,10 +8923,10 @@
       "c": "i-styleref",
       "state": "yes",
       "verified_for": "3.0",
-      "note": "**风格参考整套都在 3.0 那一支**：`style_reference_images`、`style_codes`（8 位十六进制风格码）、`style_preset`、`color_palette` —— v4 的 generate 端点一个都没有。概览那句「Using any of the API **V3** endpoints」是官方自己把这组能力钉在 v3 上。",
+      "note": "**风格参考整套都在 3.0 那一支**：`style_reference_images`、`style_codes`（8 位十六进制风格码）、`style_preset`、`color_palette` —— v4 的 generate 端点一个都没有。概览那句「Using any of the API **V3** endpoints」是官方自己把这组能力钉在 v3 上。 🔧 **2026-08-16 改了署名的源**：原署 `ideogram-v3-generate`，实际这句话在 `ideogram-overview` 里。人审备注：通用",
       "as_of": "2026-08-12",
       "sibling": "3.0",
-      "src": "ideogram-v3-generate",
+      "src": "ideogram-overview",
       "quote": "generate-v3 的 `style_reference_images`：「A set of images to use as style references (maximum total size 10MB across all style references).」；API 概览的 Style Presets 一节写「Using any of the API V3 endpoints, you can use a style_preset」"
     },
     {
