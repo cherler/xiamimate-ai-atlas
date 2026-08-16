@@ -4,7 +4,7 @@ import { useState } from "react";
 import { Rich } from "./Fact";
 import { forkCoverage, topicAppName, type Decision, type Topic, type TopicProject } from "@/lib/atlas";
 import { capHref } from "@/lib/slug";
-import { CoverageChart, HardwareChart, LicenseChart, MatrixChart, ProjectCharts } from "./TopicCharts";
+import { CoverageChart, HardwareChart, LicenseChart, MatrixChart, ProjectCharts, ProjectDiagrams } from "./TopicCharts";
 
 /**
  * 专项页的交互层。
@@ -81,7 +81,7 @@ const LIC = {
 } as const;
 
 /** 项目默认只有一行；细节点开才来 —— 上一版八张卡全展开是「挤」的直接来源。 */
-function Project({ p }: { p: TopicProject }) {
+function Project({ p, svgs }: { p: TopicProject; svgs: Record<string, string> }) {
   return (
     <details className="border border-rule rounded-lg group">
       <summary className="cursor-pointer list-none px-4 py-3 flex items-center gap-3 flex-wrap">
@@ -97,6 +97,7 @@ function Project({ p }: { p: TopicProject }) {
       <div className="px-4 pb-4 pt-1 border-t border-rule">
         <p className="text-[13px] text-muted leading-relaxed mt-3">{p.scope}</p>
         {/* 图排在前面：**能画成图的就别写成句子**（负责人：可视化图表代替文字描述）。 */}
+        <ProjectDiagrams p={p} svgs={svgs} />
         <ProjectCharts id={p.id} />
         <div className="grid sm:grid-cols-2 gap-x-8 gap-y-3 text-[12.5px] mt-5">
           <div>
@@ -121,7 +122,7 @@ function Project({ p }: { p: TopicProject }) {
   );
 }
 
-export default function TopicView({ t }: { t: Topic }) {
+export default function TopicView({ t, svgs }: { t: Topic; svgs: Record<string, string> }) {
   const [pick, setPick] = useState<string | null>(null);
   const matrix = t.chapters.find((c) => c.matrix)?.matrix;
   const axis = t.chapters.filter((c) => c.kind === "axis").sort((a, b) => (a.axis_pos ?? 0) - (b.axis_pos ?? 0));
@@ -217,7 +218,7 @@ export default function TopicView({ t }: { t: Topic }) {
           {bases.length > 0 && (
             <div className="mb-9">
               <p className="text-[11px] tracking-wider text-muted font-bold mb-2">底座</p>
-              <div className="space-y-2">{bases.map((p) => <Project key={p.id} p={p} />)}</div>
+              <div className="space-y-2">{bases.map((p) => <Project key={p.id} p={p} svgs={svgs} />)}</div>
             </div>
           )}
           <div className="space-y-10">
@@ -231,7 +232,7 @@ export default function TopicView({ t }: { t: Topic }) {
                   </div>
                   <p className="text-[13px] text-muted mb-3">{d.handle}</p>
                   {d.cap && <div className="max-w-[360px] mb-5"><Cov cap={d.cap} /></div>}
-                  {ps.length > 0 && <div className="space-y-2">{ps.map((p) => <Project key={p.id} p={p} />)}</div>}
+                  {ps.length > 0 && <div className="space-y-2">{ps.map((p) => <Project key={p.id} p={p} svgs={svgs} />)}</div>}
                 </div>
               );
             })}

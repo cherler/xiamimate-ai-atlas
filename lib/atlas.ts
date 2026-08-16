@@ -485,6 +485,8 @@ export type TopicProject = {
   /** ⚠️ 判断，不是厂商说过的话 */
   good: string[]; bad: string[]; unfit: string;
   src: string; verified_at: string;
+  /** 架构图：mermaid 源存在数据里，构建时渲染成 public/diagrams/<id>.svg */
+  diagrams?: { id: string; title: string; src: string; verified_at: string; mermaid: string }[];
 };
 export type TopicChapter = {
   id: string; zh: string;

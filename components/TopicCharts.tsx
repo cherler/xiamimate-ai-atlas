@@ -334,6 +334,35 @@ function PyvtCharts() {
   );
 }
 
+/**
+ * 架构图：把构建时渲染好的 SVG 内联进来。
+ *
+ * **内联而不是 `<img>`**：内联才能让 SVG 里的 `var(--color-*)` 拿到页面的令牌，
+ * 深浅外观自动跟随；`<img>` 是独立文档，取不到外面的自定义属性。
+ *
+ * ⚠️ **SVG 内容由服务端读好后当 props 传进来，这里不碰文件系统。**
+ * 这个组件树顶上是 `"use client"`，一旦在这里 `import "node:fs"`，
+ * 整个模块会被打进客户端包，webpack 直接报 UnhandledSchemeError。
+ *
+ * 读不到就整块不渲染，**不留半张图**。
+ */
+function ArchDiagram({ d, svg }: { d: NonNullable<TopicProject["diagrams"]>[number]; svg?: string }) {
+  if (!svg) return null;
+  return (
+    <figure className="mt-4">
+      <figcaption className="text-[11px] tracking-wider text-muted font-bold mb-1.5">{d.title}</figcaption>
+      <div className="border border-rule rounded-lg p-3 overflow-x-auto [&_svg]:max-w-full [&_svg]:h-auto"
+        dangerouslySetInnerHTML={{ __html: svg }} />
+      <p className="text-[10.5px] text-muted mt-1 border-l-2 border-rule pl-2">{d.src} · 核验 {d.verified_at}</p>
+    </figure>
+  );
+}
+
+export function ProjectDiagrams({ p, svgs }: { p: TopicProject; svgs: Record<string, string> }) {
+  if (!p.diagrams?.length) return null;
+  return <>{p.diagrams.map((d) => <ArchDiagram key={d.id} d={d} svg={svgs[d.id]} />)}</>;
+}
+
 export function ProjectCharts({ id }: { id: string }) {
   if (id === "wan22") return <WanCharts />;
   if (id === "comfyui") return <ComfyCharts />;

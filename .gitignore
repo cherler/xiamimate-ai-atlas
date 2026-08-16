@@ -29,3 +29,8 @@ assets/*.png
 assets/demo-raw*/
 data/watch-report.partial.md
 .next-dev/
+
+# 架构图由 scripts/make-diagrams.mjs 从 data/atlas.json 的 mermaid 源确定性生成。
+# 不进 git：真源是那段 mermaid，产物进库只会让每次改图都拖一坨 20KB 的 diff。
+# 构建前自动生成（package.json 的 prebuild）。
+public/diagrams/

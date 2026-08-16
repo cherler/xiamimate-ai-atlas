@@ -28446,8 +28446,8 @@
   "topics": [
     {
       "id": "video",
-      "zh": "AI 视频制作：控制权归属",
-      "en": "Making Video with AI: Where Control Sits",
+      "zh": "AI 视频制作",
+      "en": "Making Video with AI",
       "intro": "本研究记录一条视频的制作过程中，各项决定当前由谁做出、有哪些可用的控制手段，以及可自行运行的开源替代。",
       "decisions": [
         {
@@ -28689,7 +28689,16 @@
           "unfit": "一次性产出需求 —— 回报来自工作流复用。",
           "src": "github README + DeepWiki 架构页",
           "verified_at": "2026-08-16",
-          "role": "base"
+          "role": "base",
+          "diagrams": [
+            {
+              "id": "comfyui-core",
+              "title": "代码结构",
+              "src": "DeepWiki 架构页 · 2026-08-12 索引",
+              "verified_at": "2026-08-16",
+              "mermaid": "flowchart LR\n  main[\"main.py<br/>入口\"] --> srv[\"执行引擎<br/>只重跑变化的那部分图\"]\n  nodes[\"nodes.py<br/>节点注册\"] --> srv\n  srv --> sd[\"comfy/sd.py<br/>模型装载\"]\n  sd --> base[\"BaseModel<br/>跨架构统一操作层\"]\n  base --> mem[\"显存管理<br/>自动卸载 · 量化\"]\n  base --> arch[\"各家模型架构<br/>Wan · LTX · HunyuanVideo\"]\n  ext[\"自定义节点<br/>扩展与插件系统\"] --> nodes"
+            }
+          ]
         },
         {
           "id": "wan22",
@@ -28720,7 +28729,16 @@
           "unfit": "交付期紧的商单 —— 价值在沉淀方法，不在单次产出效率。",
           "src": "github README + DeepWiki 架构页",
           "verified_at": "2026-08-16",
-          "role": "tool"
+          "role": "tool",
+          "diagrams": [
+            {
+              "id": "wan22-modules",
+              "title": "代码结构",
+              "src": "DeepWiki 架构页 · 2026-08 索引",
+              "verified_at": "2026-08-16",
+              "mermaid": "flowchart LR\n  cfg[\"wan/configs/__init__.py<br/>模型参数与尺寸\"] --> dit\n  subgraph 五条流水线\n    t2v[\"wan/image2video.py<br/>T2V · I2V · TI2V\"]\n    s2v[\"wan/speech2video.py<br/>语音驱动\"]\n    ani[\"wan/animate.py<br/>角色动画\"]\n  end\n  t2v --> dit[\"wan/modules/models/wan_model.py<br/>DiT 主干\"]\n  s2v --> dit\n  ani --> dit\n  dit --> hi[\"高噪专家 ~13.5B\"]\n  dit --> lo[\"低噪专家 ~13.5B\"]\n  hi --> out[\"视频 480P / 720P\"]\n  lo --> out"
+            }
+          ]
         },
         {
           "id": "controlnet",

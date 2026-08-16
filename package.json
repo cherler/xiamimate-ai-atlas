@@ -7,7 +7,7 @@
     "build": "next build",
     "start": "next start -p 3400",
     "validate": "node scripts/validate.mjs",
-    "prebuild": "node scripts/validate.mjs",
+    "prebuild": "node scripts/validate.mjs && node scripts/make-diagrams.mjs",
     "package": "bash scripts/package.sh",
     "watch": "node scripts/watch.mjs --due",
     "gateway": "node scripts/local-gateway.mjs",

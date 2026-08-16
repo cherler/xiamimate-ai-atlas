@@ -177,6 +177,30 @@ for (const t of a.topics ?? []) {
 }
 
 /**
+ * R78 —— **声明了架构图，就必须真的渲染得出来。**
+ *
+ * 图的 SVG 由 `scripts/make-diagrams.mjs` 在构建前生成到 `public/diagrams/`。
+ * 渲染失败时页面的处理是「少一张图而不是整页挂掉」—— 这个降级是对的，
+ * **但它也意味着图没出来不会有任何人知道**。所以在这里拦。
+ *
+ * ⚠️ 这条只在产物存在时才严格判：干净 clone 上还没跑过生成脚本，
+ * 不该因此让校验红。判据是「跑过了但缺这一张」。
+ */
+{
+  const fs = await import("node:fs");
+  const dir = "public/diagrams";
+  const rendered = fs.existsSync(dir) ? new Set(fs.readdirSync(dir)) : null;
+  if (rendered && rendered.size > 0) {
+    for (const t of a.topics ?? [])
+      for (const p of t.projects ?? [])
+        for (const d of p.diagrams ?? [])
+          if (!rendered.has(`${d.id}.svg`))
+            errs.push(`R78 专项「${t.zh}」› ${p.zh} 的图「${d.title}」没有渲染产物 ` +
+              `（${dir}/${d.id}.svg）—— 页面会静默少一张图，跑 node scripts/make-diagrams.mjs`);
+  }
+}
+
+/**
  * R67 —— 数据集日期不能早于任何一格的核验日。
  * 页脚印的「数据截至 X」是给读者的新鲜度承诺；有格子比它还新，那句话就是错的。
  */
