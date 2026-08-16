@@ -29510,6 +29510,325 @@
             ],
             "issue_src": "github issues 按回复数排序 · 核验 2026-08-16"
           }
+        },
+        {
+          "id": "motionctrl",
+          "zh": "MotionCtrl",
+          "url": "https://github.com/TencentARC/MotionCtrl",
+          "stars": 1500,
+          "license": "Apache-2.0",
+          "license_class": "permissive",
+          "role": "tool",
+          "decisions": [
+            "camera",
+            "motion"
+          ],
+          "scope": "一个模型里分开控制镜头运动与物体运动。支持 SVD、VideoCrafter/LVDM、AnimateDiff 三种底座。",
+          "control": "`condtype` 选 camera_motion / object_motion / both —— **镜头与物体分开下指令**，这正是提示词做不到的事。",
+          "hw": "仓库未给显存数字；轨迹数据依赖 RealEstate10K 与 WebVid",
+          "arch": "镜头轨迹来自 RealEstate10K 的位姿文件；物体轨迹用 HandyTrajDrawer 手画，或用 ParticleSfM 从现成视频里提。",
+          "autonomy": {
+            "weights": "local",
+            "seed": "na",
+            "swap": "few",
+            "note": "权重可下载；换掉它就等于放弃镜头控制这一格"
+          },
+          "good": [
+            "**这一格几乎唯一能用的开源方案** —— 官方侧 10 个核心模型里只有 1 家给了说法",
+            "镜头与物体分开控，不是混在一句提示词里",
+            "三种底座都能接，不锁死在某一个视频模型上"
+          ],
+          "bad": [
+            "**★1.5k，在本专项里最小** —— 遇到问题搜不到几条",
+            "轨迹要么来自 RealEstate10K 数据集格式，要么手画，**没有「随便描述一下」这条路**",
+            "ParticleSfM 装起来挑系统（仓库提到 CentOS 8.5），从现成视频提轨迹这条路门槛高"
+          ],
+          "unfit": "只想要「镜头稍微动一下」的场景 —— 为此搭一套轨迹流水线不划算。",
+          "hands": {
+            "layers": [
+              "docs",
+              "issue"
+            ],
+            "issue_src": "github issues 按回复数排序 · 核验 2026-08-16",
+            "install": [
+              {
+                "step": "选底座分支",
+                "gate": "**SVD / VideoCrafter / AnimateDiff 是三个不同分支**，先定用哪个底座再克隆"
+              },
+              {
+                "step": "准备轨迹文件",
+                "gate": "镜头轨迹用 RealEstate10K 位姿格式；物体轨迹用 HandyTrajDrawer 画"
+              },
+              {
+                "step": "跑推理",
+                "gate": "`condtype` 决定控镜头、控物体、还是两个都控"
+              }
+            ],
+            "modify": [
+              {
+                "path": "condtype",
+                "effect": "camera_motion / object_motion / both —— 这是这个项目的核心开关"
+              },
+              {
+                "path": "轨迹文件",
+                "effect": "换镜头运动就是换这个文件，不用改代码"
+              }
+            ],
+            "pitfalls": [
+              {
+                "where": "社区规模",
+                "note": "**★1.5k，是本专项里最小的一个。** 另一个同类 CameraCtrl 只有 ★660 —— **镜头运动这一格，官方侧 1/10、开源侧最大的也才 1.5k：两边都薄，这不是巧合**"
+              },
+              {
+                "where": "轨迹来源",
+                "note": "要么套 RealEstate10K 的数据格式，要么手画。**没有「用自然语言描述镜头」这条路** —— 那正是它和提示词的区别，也是它的门槛"
+              },
+              {
+                "where": "ParticleSfM",
+                "note": "从现成视频提物体轨迹要装它，仓库提到需要特定系统版本（CentOS 8.5）"
+              }
+            ]
+          },
+          "src": "github README",
+          "verified_at": "2026-08-16"
+        },
+        {
+          "id": "latentsync",
+          "zh": "LatentSync",
+          "url": "https://github.com/bytedance/LatentSync",
+          "stars": 6000,
+          "license": "Apache-2.0",
+          "license_class": "permissive",
+          "role": "tool",
+          "decisions": [
+            "sound"
+          ],
+          "scope": "字节开源的口型同步：音频直接驱动潜空间扩散，不经过中间的运动表示。",
+          "control": "**先配音再改嘴** —— 有了它，「后期配音」那条路才真正成立：改词只重配那一句，不用重出视频。",
+          "hw": "**1.5 版推理 8GB，1.6 版 18GB**；训练 23~55GB（按阶段与分辨率）",
+          "arch": "人脸用 InsightFace 检测 → 仿射变换 → 缩到 256×256（1.6 版 512×512）；音频重采样到 16kHz，视频 25 FPS。SyncNet 是照这条流水线训的。",
+          "autonomy": {
+            "weights": "local",
+            "seed": "na",
+            "swap": "1",
+            "note": "末端环节，接上或摘掉不影响前面"
+          },
+          "good": [
+            "**1.5 版只要 8GB**，消费级显卡跑得动",
+            "Apache-2.0，商用没有灰色地带",
+            "字节出品，★6.0k，是这一格最成熟的开源实现"
+          ],
+          "bad": [
+            "**1.6 版要 18GB** —— 想要 512×512 就得换卡，两个版本不是「新的更好」这么简单",
+            "输入被限死：25 FPS、16kHz、人脸要能被 InsightFace 检出",
+            "**SyncNet 是照它自家流水线训的**，未经同样处理的数据评估出来不准"
+          ],
+          "unfit": "人脸很小或频繁遮挡的素材 —— 检测不到脸就无从下手。",
+          "hands": {
+            "layers": [
+              "docs",
+              "issue"
+            ],
+            "issue_src": "github issues 按回复数排序 · 核验 2026-08-16",
+            "install": [
+              {
+                "step": "source setup_env.sh",
+                "gate": "仓库给了环境脚本，别自己拼"
+              },
+              {
+                "step": "权重放 ./checkpoints/",
+                "gate": "`latentsync_unet.pt` 与 `whisper/tiny.pt` 两个"
+              },
+              {
+                "step": "选版本",
+                "gate": "**1.5 要 8GB、1.6 要 18GB** —— 先看卡再选版本，不是越新越好"
+              }
+            ],
+            "modify": [
+              {
+                "path": "分辨率",
+                "effect": "1.5 是 256×256，1.6 是 512×512。这决定了显存也决定了成片精度"
+              },
+              {
+                "path": "输入规格",
+                "effect": "视频 25 FPS、音频 16kHz —— 不合规先转，别指望它兼容"
+              }
+            ],
+            "pitfalls": [
+              {
+                "where": "版本与显存",
+                "note": "**1.5→1.6 显存从 8GB 跳到 18GB**。这不是小版本升级，是换一档硬件"
+              },
+              {
+                "where": "数据预处理",
+                "note": "官方明说 SyncNet 是照它自家流水线（仿射变换 + 音视频对齐）训的，**未经同样处理的数据评估不准** —— 拿它的指标衡量别处的产出会得到错的结论"
+              },
+              {
+                "where": "素材要求",
+                "note": "人脸要能被 InsightFace 检出。侧脸、小脸、遮挡都会直接卡住"
+              }
+            ]
+          },
+          "src": "github README",
+          "verified_at": "2026-08-16"
+        },
+        {
+          "id": "sd-scripts",
+          "zh": "kohya sd-scripts",
+          "url": "https://github.com/kohya-ss/sd-scripts",
+          "stars": 7200,
+          "license": "Apache-2.0（主体）",
+          "license_class": "permissive",
+          "role": "tool",
+          "decisions": [
+            "identity",
+            "compose"
+          ],
+          "scope": "训练脚本集：LoRA、DreamBooth、原生微调、文本反演、ControlNet-LLLite。覆盖 SD1.x/2.x、SDXL、SD3/3.5、FLUX.1 等。",
+          "control": "**参考图锁不住的，训练能锁住。** 角色参考只给一张图当锚，LoRA 是把这个角色写进权重 —— 这是自持能力最深的一档。",
+          "hw": "仓库未给 LoRA 训练的最低显存",
+          "autonomy": {
+            "weights": "local",
+            "seed": "yes",
+            "swap": "few",
+            "note": "产出的 LoRA 是你自己的权重文件，谁也收不回去"
+          },
+          "good": [
+            "**训出来的 LoRA 是一个属于你的权重文件** —— 这是本专项里唯一能产出「自有资产」的项目",
+            "一套脚本覆盖 SD1.5 到 FLUX，换底模不换工具链",
+            "★7.2k，训练侧事实上的标准，教程与经验帖最多"
+          ],
+          "bad": [
+            "**仓库不给最低显存** —— 能不能训得看你自己试",
+            "0.11.0 做过一次大规模内部重构，**老教程的命令未必还能用**",
+            "训练这条路的坑普遍比推理多（本专项六个项目的训练侧 issue 都久悬）"
+          ],
+          "unfit": "只做几条片子的人 —— 训一个 LoRA 的时间够生成几十条视频了。",
+          "hands": {
+            "layers": [
+              "docs",
+              "issue"
+            ],
+            "issue_src": "github issues 按回复数排序 · 核验 2026-08-16",
+            "install": [
+              {
+                "step": "克隆 + 虚拟环境",
+                "gate": "PyTorch 2.6.0 起步"
+              },
+              {
+                "step": "accelerate config",
+                "gate": "**这一步必须做**，要按仓库给的答案选 CUDA 与 fp16/bf16"
+              },
+              {
+                "step": "准备数据集",
+                "gate": "训 LoRA 的成败大半在数据集，不在参数"
+              }
+            ],
+            "modify": [
+              {
+                "path": "训练脚本选型",
+                "effect": "LoRA / DreamBooth / 原生微调 / 文本反演 —— 目标不同脚本不同，别都用 LoRA 硬套"
+              },
+              {
+                "path": "底模",
+                "effect": "SD1.5 / SDXL / SD3.5 / FLUX 各有对应脚本与参数"
+              }
+            ],
+            "pitfalls": [
+              {
+                "where": "0.11.0 的重构",
+                "note": "README 自己写着做过**大规模内部重构**，作者说尽量减少对用户的直接影响 —— **意味着确实有影响**。照老教程走不通时先看版本"
+              },
+              {
+                "where": "最低显存",
+                "note": "**仓库不给这个数字。** 这一格是空的，只能自己试 —— 与推理侧那些明写门槛的项目不是一个成熟度"
+              },
+              {
+                "where": "训练 vs 推理",
+                "note": "本专项六个项目的训练侧 issue 都比推理侧多且久悬。**推理门槛低不代表微调门槛低**，这是通例不是个例"
+              }
+            ]
+          },
+          "src": "github README",
+          "verified_at": "2026-08-16"
+        },
+        {
+          "id": "ollama",
+          "zh": "Ollama",
+          "url": "https://github.com/ollama/ollama",
+          "stars": 148467,
+          "license": "MIT",
+          "license_class": "permissive",
+          "role": "base",
+          "decisions": [
+            "shot",
+            "sound"
+          ],
+          "scope": "一条命令在本机跑开源大模型。写脚本、翻译这两段靠它才不出本机。",
+          "control": "**文本那条腿的底座** —— 和 ComfyUI 平级：ComfyUI 让图像/视频不出本机，Ollama 让文本不出本机。",
+          "hw": "按所跑模型定；小模型消费级显卡即可",
+          "autonomy": {
+            "weights": "local",
+            "seed": "yes",
+            "swap": "1",
+            "note": "**但它自己也卖云服务** —— 同一个工具站在自持线两边，取决于你用哪一边"
+          },
+          "good": [
+            "★148k，本专项里最有名的项目，遇到问题一定搜得到",
+            "MIT，商用无灰色地带",
+            "一条命令起服务，是 pyvideotrans 等项目「翻译不出本机」的默认选项"
+          ],
+          "bad": [
+            "**它同时提供云服务**（官网：on your computer and in the cloud，节点在美国/欧洲/新加坡）—— **用云端那一边就不再是自持了**，而界面上这两条路很像",
+            "它是运行器不是模型，**效果上限取决于你跑哪个模型**，它本身不负责",
+            "本地跑大模型的显存账要自己算，它不替你挡"
+          ],
+          "unfit": "要跑闭源模型时 —— 它只跑开源权重。",
+          "hands": {
+            "layers": [
+              "docs"
+            ],
+            "install": [
+              {
+                "step": "装 Ollama",
+                "gate": "各平台都有安装包，这一步几乎不会卡"
+              },
+              {
+                "step": "ollama pull <模型>",
+                "gate": "**先看模型大小对不对得上你的显存**，拉下来跑不动是最常见的挫败"
+              },
+              {
+                "step": "ollama serve / API",
+                "gate": "起服务后别的工具（如 pyvideotrans）就能把它当本地翻译引擎"
+              }
+            ],
+            "modify": [
+              {
+                "path": "模型选型",
+                "effect": "Ollama 只是壳，**换模型才是换效果**"
+              },
+              {
+                "path": "OLLAMA_HOST",
+                "effect": "要让局域网内别的机器用，得改监听地址"
+              }
+            ],
+            "pitfalls": [
+              {
+                "where": "云与本地的分界",
+                "note": "**官网同时推本地与云端。** 用了云端模型，「素材不出本机」这句话就不成立了 —— **开源 ≠ 自持，这是本专项最该记住的一条区分**"
+              },
+              {
+                "where": "显存",
+                "note": "模型大小与显存不匹配时会慢到不可用。拉之前先算账"
+              },
+              {
+                "where": "它不负责效果",
+                "note": "它是运行器。跑出来的东西好不好，取决于模型不取决于它"
+              }
+            ]
+          },
+          "src": "github README + ollama.com 官网",
+          "verified_at": "2026-08-16"
         }
       ]
     }
