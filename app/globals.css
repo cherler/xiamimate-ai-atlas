@@ -232,45 +232,16 @@ table {
 html .topbar.xm-embedded-chrome { z-index: 40; }
 
 /*
- * ## 平台页眉页脚的深色兜底
+ * ## 平台页眉页脚的深色：**已经不用本仓管了**（2026-08-16）
  *
- * 页眉页脚是**主站构建出来的制品**（运行时加载 `/chrome/chrome.css`），
- * 那份 CSS 里没有任何深色分支，颜色大多是写死的 `#fff` / `#16212c`。
- * 我们改不了它，也不该去改 —— 它是主站的东西，主站一重新构建就覆盖回去。
+ * 08-15 这里曾经有一块补丁，手动压页眉横条和页脚那几个面 ——
+ * 因为当时页眉制品里没有任何深色分支，颜色写死成 `#fff` / `#16212c`。
  *
- * **但整页转暗之后，顶上那条 52px 的纯白横条正是最扎眼的一处**（负责人要解决的就是这个）。
- * 所以这里只压**静止态**那几个面：横条底、页脚底、分隔线、以及站在上面的几段文字。
+ * 现在真源修好了：`chrome-embed/chrome.css` 自己带深色，
+ * 而且是作用在 `.xm-embedded-chrome` 上（制品构建时会把主站 `:root` 的令牌
+ * 内联进这个作用域）。**谁加载这份制品谁就有深色页眉** ——
+ * 主站、虾米跨境、本站、以后的虾米看股，各应用一行都不用写。
  *
- * ⚠️ **下拉菜单、账户面板、登录弹窗仍是浅色，故意不管。** 它们是临时打开的，
- * 而且颜色写死在几十个选择器里 —— 跟着改的代价是每次主站重建都要重新对一遍，
- * 而收益只有「点开的那两秒」。**这是已知的接缝，不是漏做。**
- *
- * 用 `html` 前缀提一级特异性：制品 CSS 是运行时注入的 `<link>`，加载在本文件之后，
- * 同等特异性下后来者赢（和上面 z-index 那条同一个理由）。
+ * 所以那块补丁删了。**留着比没有更糟**：它会和真源那份打架，
+ * 而且下一个人会以为「页眉深色是 atlas 特有的」。
  */
-@media (prefers-color-scheme: dark) {
-  html:root:not([data-theme="light"]) .xm-embedded-chrome {
-    --surface-card: var(--dk-card);
-    --surface-tile: var(--dk-paper);
-    --line: var(--dk-rule);
-    --border-card: var(--dk-rule);
-  }
-  html:root:not([data-theme="light"]) .xm-embedded-chrome :is(.switch-cur, .sf-lock b) {
-    color: var(--dk-ink);
-  }
-  html:root:not([data-theme="light"]) .xm-embedded-chrome :is(.site-footer, .sf-lock span, .sf-links a, .sf-legal, .sf-legal a, .sf-stmt) {
-    color: var(--dk-muted);
-  }
-}
-html:root[data-theme="dark"] .xm-embedded-chrome {
-  --surface-card: var(--dk-card);
-  --surface-tile: var(--dk-paper);
-  --line: var(--dk-rule);
-  --border-card: var(--dk-rule);
-}
-html:root[data-theme="dark"] .xm-embedded-chrome :is(.switch-cur, .sf-lock b) {
-  color: var(--dk-ink);
-}
-html:root[data-theme="dark"] .xm-embedded-chrome :is(.site-footer, .sf-lock span, .sf-links a, .sf-legal, .sf-legal a, .sf-stmt) {
-  color: var(--dk-muted);
-}
