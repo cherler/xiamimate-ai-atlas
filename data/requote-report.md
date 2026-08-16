@@ -1,6 +1,6 @@
-# 引文回查 · 2026-08-15
+# 引文回查 · 2026-08-16
 
-回查 1205 条：无英文锚 730 · 快照无正文 35 · 对得上 313 · 找不到 95 · 无快照 13 · 本页没有·别处有 19
+回查 1205 条：无英文锚 730 · 快照无正文 35 · 对得上 314 · 找不到 95 · 无快照 13 · 本页没有·别处有 18
 
 > 这份报告回答一件事：**一格引文里的原句，在它署名的那份快照里还在不在。**
 > ⚠️ **失败不等于引文错。** 三种成因要分开：真署错了页 / 这一页的快照是残的（抓回来的是导航不是正文）/ 当初记的就不是逐字原文。**脚本不猜。**
@@ -27,9 +27,8 @@
 
 ## 全部
 
-### 本页没有·别处有（19）
+### 本页没有·别处有（18）
 
-- `vidu-up` vidu-q × flf —— 锚「Start end to video」（这句在 vidu-fl、vidu-function-list）
 - `ideogram-edit` ideogram × i-edit —— 锚「Prompt fidelity, crystal-clear type, reliable editing, and production-」（这句在 ideogram-overview）
 - `ideogram-v3-reframe` ideogram × i-outpaint —— 锚「Take a starting image and extend it to match your desired resolution.」（这句在 ideogram-overview）
 - `ideogram-v3-generate` ideogram × i-styleref —— 锚「Using any of the API V3 endpoints, you can use a style_preset」（这句在 ideogram-overview）
