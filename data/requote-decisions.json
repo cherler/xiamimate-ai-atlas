@@ -22,6 +22,16 @@
       "at_label": "ideogram × i-edit",
       "kind": "本页没有·别处有",
       "from": "ideogram-edit"
+    },
+    {
+      "id": "ideogram-v3-reframe|ideogram × i-outpaint",
+      "at": "2026-08-16 04:27:07",
+      "who": "admin",
+      "action": "accept",
+      "why": "",
+      "src": "ideogram-v3-reframe",
+      "at_label": "ideogram × i-outpaint",
+      "kind": "本页没有·别处有"
     }
   ]
 }
