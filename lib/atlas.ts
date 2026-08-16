@@ -21,6 +21,12 @@ export type Capability = {
   name: string;
   zh: string;
   group: string;
+  /**
+   * tab 内的小节。**2026-08-17 把七个 tab 并成「模型与组件」时，
+   * 原来的七类降级成了这里** —— 分类信息一点没丢，只是不再占顶栏。
+   * 顶栏留给现在真正在动的那两类（一站式、Agent 与 Skill）。
+   */
+  sub?: string;
   /** 已普及的能力默认折叠：它连向所有模型，画出来只是噪音（§59.1 的超级节点问题） */
   ubiquity: "前沿" | "主流" | "已普及";
   /** 我们手上的日志能证明的最早时间（不是业界首次出现）。见 atlas.json 的 $since。 */
@@ -545,6 +551,12 @@ export type TopicProject = {
    */
   group: string;
   /**
+   * tab 内的小节。**2026-08-17 把七个 tab 并成「模型与组件」时，
+   * 原来的七类降级成了这里** —— 分类信息一点没丢，只是不再占顶栏。
+   * 顶栏留给现在真正在动的那两类（一站式、Agent 与 Skill）。
+   */
+  sub?: string;
+  /**
    * base 底座（横跨多个决定，只出现一次）· tool 单点工具（挂在决定下面）
    * · allinone 整包（**它替你做决定，所以要单独一篇**）
    */
@@ -714,6 +726,8 @@ export type TopicBasic = {
 export type Topic = {
   id: string; zh: string; en: string; intro: string;
   groups: TopicGroup[];
+  /** tab 内的小节定义。项目靠 `sub` 引它。 */
+  subgroups?: TopicGroup[];
   works?: TopicWork[];
   works_skipped?: TopicWorkSkipped[];
   basics?: TopicBasic[];

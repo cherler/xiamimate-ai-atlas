@@ -272,6 +272,23 @@ for (const t of a.topics ?? []) {
           : (t.projects ?? []).filter((p) => p.group === g.id).length;
       if (!n) errs.push(`R83 专项「${t.zh}」› 类型「${g.zh}」一条都没有 —— 点进去是空白 tab，要么补内容要么删这一类`);
     }
+    /**
+     * 小节（`sub`）也要引得到、也不许空。
+     * 漏归小节的项目**不会报错，只会从那个 tab 里消失** —— 和漏归 group 是同一个坑。
+     */
+    const subs = new Set((t.subgroups ?? []).map((x) => x.id));
+    for (const p of t.projects ?? [])
+      if (p.sub && !subs.has(p.sub)) errs.push(`R83 专项「${t.zh}」› ${p.zh} 的小节 ${p.sub} 不存在`);
+    for (const sg of t.subgroups ?? [])
+      if (!(t.projects ?? []).some((p) => p.sub === sg.id))
+        errs.push(`R83 专项「${t.zh}」› 小节「${sg.zh}」一个项目都没有`);
+    /** 有小节的 tab 里，**不许有项目不属于任何小节** —— 那种项目会被分节渲染整个跳过。 */
+    for (const g of gs) {
+      const inTab = (t.projects ?? []).filter((p) => p.group === g.id);
+      if (inTab.some((p) => p.sub) && inTab.some((p) => !p.sub))
+        errs.push(`R83 专项「${t.zh}」› 类型「${g.zh}」里有项目没归小节：` +
+          `${inTab.filter((p) => !p.sub).map((p) => p.zh).join(" ")} —— 分节渲染会把它们整个跳过`);
+    }
   }
 }
 

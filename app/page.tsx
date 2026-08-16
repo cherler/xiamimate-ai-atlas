@@ -105,9 +105,15 @@ export default function Pick() {
                 className="border border-rule rounded-xl px-4 py-3 bg-card hover:border-yes block">
                 <b className="text-[15px]">{t.zh}</b>
                 <span className="block text-[12.5px] text-muted mt-1 leading-relaxed">
-                  横跨 {new Set(t.projects.flatMap((p) => p.decisions)).size} 项决定 ·
-                  {" "}{t.chapters.filter((c) => c.state === "live").length}/{t.chapters.length} 篇已建 ·
-                  {" "}{t.projects.length} 个开源项目，逐个记许可证与运行门槛
+                  {/*
+                    * ⚠️ 这一行**跟着专项页的骨架走**。原来写「横跨 N 项决定 · N/N 篇已建」——
+                    * 那是「九道工序 + 五篇」那一版的结构，2026-08-17 专项页早就不是那个形状了，
+                    * 而这行字还在首页上照写不误。**卡片描述是最容易被忘掉的过期点**：
+                    * 它离改动的地方很远，改结构时不会顺手看到它。
+                    */}
+                  {t.projects.length} 个开源项目逐个拆解：架构、上手门槛、许可证附加条件
+                  {" · "}{t.projects.reduce((n, p) => n + (p.tutorials?.length ?? 0), 0)} 条官方教程
+                  {" · "}{(t.basics ?? []).reduce((n, b) => n + b.items.length, 0)} 条视频入门读物
                 </span>
               </Link>
             ))}

@@ -28899,7 +28899,7 @@
           "pushed_at": "2026-08-16",
           "stars_per_month": 3011,
           "stale_months": 0,
-          "group": "base",
+          "group": "parts",
           "tutorials": [
             {
               "title": "官方入门：第一次出图",
@@ -28917,7 +28917,8 @@
               "lang": "zh",
               "verified_at": "2026-08-16"
             }
-          ]
+          ],
+          "sub": "base"
         },
         {
           "id": "wan22",
@@ -29039,7 +29040,7 @@
           "pushed_at": "2026-03-17",
           "stars_per_month": 1359,
           "stale_months": 5,
-          "group": "gen",
+          "group": "parts",
           "tutorials": [
             {
               "title": "ComfyUI 官方：Wan2.2 工作流",
@@ -29057,7 +29058,8 @@
               "lang": "zh",
               "verified_at": "2026-08-16"
             }
-          ]
+          ],
+          "sub": "gen"
         },
         {
           "id": "hunyuanvideo",
@@ -29071,7 +29073,7 @@
           "license": "Tencent Hunyuan Community License",
           "license_class": "restricted",
           "role": "tool",
-          "group": "gen",
+          "group": "parts",
           "decisions": [
             "shot",
             "repro"
@@ -29191,7 +29193,8 @@
               "verified_at": "2026-08-16"
             }
           ],
-          "license_note": "许可证正文首句写明不适用于欧盟、英国、韩国"
+          "license_note": "许可证正文首句写明不适用于欧盟、英国、韩国",
+          "sub": "gen"
         },
         {
           "id": "framepack",
@@ -29205,7 +29208,7 @@
           "license": "Apache-2.0",
           "license_class": "permissive",
           "role": "tool",
-          "group": "gen",
+          "group": "parts",
           "decisions": [
             "shot",
             "motion"
@@ -29302,7 +29305,8 @@
               "verified_at": "2026-08-16",
               "mermaid": "graph TB\n    subgraph \"File System Organization\"\n        DemoFiles[\"demo_gradio.py<br/>demo_gradio_f1.py\"]\n        Requirements[\"requirements.txt<br/>Dependency Management\"]\n        BatchFiles[\"run.bat / update.bat<br/>Windows Automation\"]\n    end\n    \n    subgraph \"Model Management\"\n        ModelLoader[\"Model Loading System<br/>HunyuanVideo 13B\"]\n        SwapSystem[\"DynamicSwapInstaller<br/>CPU↔GPU Model Swapping\"]\n        HFDownload[\"Automatic Downloads<br/>>30GB from HuggingFace\"]\n    end\n    \n    subgraph \"Generation Pipeline\"\n        NextFramePred[\"Next-Frame-Section Prediction\"]\n        ContextCompress[\"Constant Context Compression\"]\n        ProgressiveDiff[\"Progressive Diffusion Process\"]\n    end\n    \n    subgraph \"Hardware Adaptation\"\n        MemoryMgmt[\"Memory Management<br/>6GB minimum requirement\"]\n        AttentionOpt[\"Attention Optimization<br/>PyTorch/Flash/Sage/xformers\"]\n        TeaCacheOpt[\"TeaCache System<br/>1.5s vs 2.5s per frame\"]\n    end\n    \n    DemoFiles --> ModelLoader\n    Requirements --> SwapSystem\n    BatchFiles --> HFDownload\n    \n    ModelLoader --> NextFramePred\n    SwapSystem --> ContextCompress\n    HFDownload --> ProgressiveDiff\n    \n    NextFramePred --> MemoryMgmt\n    ContextCompress --> AttentionOpt\n    ProgressiveDiff --> TeaCacheOpt"
             }
-          ]
+          ],
+          "sub": "gen"
         },
         {
           "id": "ltx-video",
@@ -29316,7 +29320,7 @@
           "license": "Apache-2.0",
           "license_class": "permissive",
           "role": "tool",
-          "group": "gen",
+          "group": "parts",
           "decisions": [
             "shot",
             "motion",
@@ -29429,7 +29433,8 @@
               "verified_at": "2026-08-16"
             }
           ],
-          "license_note": "代码 Apache-2.0；部分权重另按 OpenRail-M 发布"
+          "license_note": "代码 Apache-2.0；部分权重另按 OpenRail-M 发布",
+          "sub": "gen"
         },
         {
           "id": "minimax-h3",
@@ -29446,7 +29451,7 @@
             "repro"
           ],
           "role": "tool",
-          "group": "gen",
+          "group": "parts",
           "scope": "全模态生成：文字、图片、视频、音频进同一个 Transformer，出带 32kHz 立体声的视频。24 帧、4–15 秒、短边 768。",
           "control": "权重可下载、可离线跑，请求体里有 `seed`（官方示例脚本就叫 reproducible-768p-*）。**但开源的只有中间那一段** —— 前置的 H3-Context-IR 和后置的 2K 重生成都没放出来，仍要调它的云端 API。",
           "hw": "官方部署示例是 4 张卡（`sglang serve --num-gpus 4 --ulysses-degree 4`）；**仓库没有给单卡显存数字**",
@@ -29574,7 +29579,8 @@
               "verified_at": "2026-08-16"
             }
           ],
-          "license_note": "排除欧盟 / 英国 / 韩国 / 美国；年营收超 2000 万美元需另行书面授权"
+          "license_note": "排除欧盟 / 英国 / 韩国 / 美国；年营收超 2000 万美元需另行书面授权",
+          "sub": "gen"
         },
         {
           "id": "controlnet",
@@ -29693,7 +29699,7 @@
           "pushed_at": "2024-02-25",
           "stars_per_month": 803,
           "stale_months": 30,
-          "group": "control",
+          "group": "parts",
           "tutorials": [
             {
               "title": "ComfyUI 官方：ControlNet 入门",
@@ -29719,7 +29725,8 @@
               "lang": "zh",
               "verified_at": "2026-08-16"
             }
-          ]
+          ],
+          "sub": "control"
         },
         {
           "id": "ip-adapter",
@@ -29835,7 +29842,8 @@
           "pushed_at": "2024-06-28",
           "stars_per_month": 185,
           "stale_months": 26,
-          "group": "control"
+          "group": "parts",
+          "sub": "control"
         },
         {
           "id": "instantid",
@@ -29950,8 +29958,9 @@
           "pushed_at": "2024-07-18",
           "stars_per_month": 373,
           "stale_months": 25,
-          "group": "control",
-          "license_note": "权重仅研究用途"
+          "group": "parts",
+          "license_note": "权重仅研究用途",
+          "sub": "control"
         },
         {
           "id": "ace-step",
@@ -30074,7 +30083,7 @@
           "pushed_at": "2026-02-15",
           "stars_per_month": 305,
           "stale_months": 6,
-          "group": "sound",
+          "group": "parts",
           "tutorials": [
             {
               "title": "ComfyUI 官方：ACE-Step 出音乐",
@@ -30084,7 +30093,8 @@
               "lang": "zh",
               "verified_at": "2026-08-16"
             }
-          ]
+          ],
+          "sub": "sound"
         },
         {
           "id": "pyvideotrans",
@@ -30203,7 +30213,7 @@
           "pushed_at": "2026-08-16",
           "stars_per_month": 542,
           "stale_months": 0,
-          "group": "sound",
+          "group": "parts",
           "tutorials": [
             {
               "title": "官方文档站",
@@ -30213,7 +30223,8 @@
               "lang": "zh",
               "verified_at": "2026-08-16"
             }
-          ]
+          ],
+          "sub": "sound"
         },
         {
           "id": "real-esrgan",
@@ -30328,7 +30339,7 @@
           "pushed_at": "2024-08-06",
           "stars_per_month": 599,
           "stale_months": 24,
-          "group": "post",
+          "group": "parts",
           "tutorials": [
             {
               "title": "作者本人的 B 站讲解",
@@ -30354,7 +30365,8 @@
               "lang": "zh",
               "verified_at": "2026-08-16"
             }
-          ]
+          ],
+          "sub": "post"
         },
         {
           "id": "practical-rife",
@@ -30368,7 +30380,7 @@
           "license": "MIT",
           "license_class": "permissive",
           "role": "tool",
-          "group": "post",
+          "group": "parts",
           "decisions": [
             "shot"
           ],
@@ -30468,7 +30480,8 @@
               "verified_at": "2026-08-16",
               "mermaid": "flowchart TD\n    subgraph \"Optical Flow in RIFE\"\n        A[\"Input Frame I0\"] --> F[\"IFNet<br/>Flow Estimation\"]\n        B[\"Input Frame I1\"] --> F\n        F --> G[\"Bidirectional Flow Fields\"]\n        G --> H[\"Frame Synthesis\"]\n        H --> I[\"Intermediate Frame\"]\n    end\n    \n    subgraph \"flownet.pkl\"\n        F\n    end"
             }
-          ]
+          ],
+          "sub": "post"
         },
         {
           "id": "codeformer",
@@ -30482,7 +30495,7 @@
           "license": "S-Lab License 1.0",
           "license_class": "noncommercial",
           "role": "tool",
-          "group": "post",
+          "group": "parts",
           "decisions": [
             "shot"
           ],
@@ -30583,7 +30596,8 @@
               "mermaid": "graph TD\n    subgraph \"CodeFormer Overview\"\n        ID[\"Input Degraded Image\"] --> FD[\"Face Detection\"]\n        FD --> FA[\"Face Alignment\"]\n        FA --> CF[\"CodeFormer Model\"]\n        CF --> RF[\"Restored Face\"]\n        RF --> FP[\"Face Pasting\"]\n        \n        ID --> BG[\"Background Processing\"]\n        BG --> FP\n        \n        FP --> EI[\"Enhanced Image\"]\n    end\n\n    classDef process stroke:#333,stroke-width:1px;\n    class ID,FD,FA,CF,RF,BG,FP,EI process;"
             }
           ],
-          "license_note": "**仅限非商业用途**，许可证正文第一句写明"
+          "license_note": "**仅限非商业用途**，许可证正文第一句写明",
+          "sub": "post"
         },
         {
           "id": "motionctrl",
@@ -30687,7 +30701,7 @@
               "verified_at": "2026-08-16"
             }
           ],
-          "group": "control",
+          "group": "parts",
           "tutorials": [
             {
               "title": "官方：SVD 分支用法与示例",
@@ -30697,7 +30711,8 @@
               "lang": "en",
               "verified_at": "2026-08-16"
             }
-          ]
+          ],
+          "sub": "control"
         },
         {
           "id": "latentsync",
@@ -30800,7 +30815,8 @@
               "verified_at": "2026-08-16"
             }
           ],
-          "group": "sound"
+          "group": "parts",
+          "sub": "sound"
         },
         {
           "id": "index-tts",
@@ -30814,7 +30830,7 @@
           "license": "bilibili Model Use License",
           "license_class": "restricted",
           "role": "tool",
-          "group": "sound",
+          "group": "parts",
           "decisions": [
             "sound"
           ],
@@ -30919,7 +30935,8 @@
               "mermaid": "graph LR\n    subgraph \"Input Modalities\"\n        SPK_IN[\"Speaker Prompt<br/>(prompt_audio)\"]\n        EMO_IN[\"Style Source<br/>(emo_audio / emo_vec / emo_text)\"]\n    end\n\n    subgraph \"Feature Disentanglement\"\n        SpkEnc[\"CAMPPlus Style Extractor<br/>(indextts.utils.feature_extractors)\"]\n        EmoEnc[\"Emotion Feature Extractor<br/>(W2V-BERT / Qwen)\"]\n    end\n\n    subgraph \"Fusion & Synthesis\"\n        Fusion[\"Alpha Blending<br/>(emo_weight)\"]\n        GPT[\"UnifiedVoice GPT<br/>(model_v2_5.py)\"]\n        S2Mel[\"S2Mel Component<br/>(DiT + CFM)\"]\n    end\n\n    SPK_IN --> SpkEnc\n    EMO_IN --> EmoEnc\n    \n    SpkEnc --> Fusion\n    EmoEnc --> Fusion\n    \n    Fusion --> GPT\n    GPT --> S2Mel\n    S2Mel --> Waveform[\"Final Audio\"]"
             }
           ],
-          "license_note": "月活超 1 亿或年营收超 10 亿人民币需另行申请；不得用于改进其它 AI 模型"
+          "license_note": "月活超 1 亿或年营收超 10 亿人民币需另行申请；不得用于改进其它 AI 模型",
+          "sub": "sound"
         },
         {
           "id": "sd-scripts",
@@ -31022,7 +31039,8 @@
               "verified_at": "2026-08-16"
             }
           ],
-          "group": "train"
+          "group": "parts",
+          "sub": "train"
         },
         {
           "id": "musubi-tuner",
@@ -31036,7 +31054,7 @@
           "license": "无 LICENSE 文件",
           "license_class": "restricted",
           "role": "tool",
-          "group": "train",
+          "group": "parts",
           "decisions": [
             "identity",
             "compose"
@@ -31156,7 +31174,8 @@
               "verified_at": "2026-08-16"
             }
           ],
-          "license_note": "仓库根目录没有 LICENSE 文件；README 声明大部分代码 Apache-2.0，hunyuan_model 等目录随上游许可"
+          "license_note": "仓库根目录没有 LICENSE 文件；README 声明大部分代码 Apache-2.0，hunyuan_model 等目录随上游许可",
+          "sub": "train"
         },
         {
           "id": "ollama",
@@ -31257,7 +31276,7 @@
               "verified_at": "2026-08-16"
             }
           ],
-          "group": "base",
+          "group": "parts",
           "tutorials": [
             {
               "title": "官方快速上手",
@@ -31267,7 +31286,8 @@
               "lang": "en",
               "verified_at": "2026-08-16"
             }
-          ]
+          ],
+          "sub": "base"
         },
         {
           "id": "diffsynth",
@@ -31281,7 +31301,7 @@
           "license": "Apache-2.0",
           "license_class": "permissive",
           "role": "base",
-          "group": "base",
+          "group": "parts",
           "decisions": [
             "shot",
             "compose",
@@ -31402,7 +31422,8 @@
               "lang": "zh",
               "verified_at": "2026-08-16"
             }
-          ]
+          ],
+          "sub": "base"
         },
         {
           "id": "moneyprinter",
@@ -32336,6 +32357,286 @@
           "license_note": "转载 / 二次发布要保留原作者、仓库链接、LICENSE 与 NOTICE.md"
         },
         {
+          "id": "openchatcut",
+          "zh": "OpenChatCut",
+          "url": "https://github.com/0xsline/OpenChatCut",
+          "stars": 1162,
+          "created_at": "2026-07-15",
+          "pushed_at": "2026-08-16",
+          "stars_per_month": 1109,
+          "stale_months": 0,
+          "license": "AGPL-3.0",
+          "license_note": "传染性：改了并对外提供服务就要开源",
+          "license_class": "copyleft",
+          "role": "tool",
+          "group": "agent",
+          "decisions": [
+            "pace",
+            "sound"
+          ],
+          "engine": "yours",
+          "scope": "对话式视频剪辑器，本地优先。你说「第二条音轨第 8 秒加个故障转场」，它就去改那一刀。",
+          "control": "**别人是「一句话出片」，它是「一句话改这一刀」** —— 时间轴是真的，Agent 通过 MCP 读写工程。所以你能一直待在对话里做精修，而不是不满意就整条重生成。可换大模型当「大脑」。",
+          "hw": "不需要显卡；浏览器里跑，工程与素材在本地",
+          "arch": "本地优先的编辑器 + 一个可被 Agent 读写的工程仓（MCP）。扩展中心装可视化资源包（`openchatcut-plugin@1` 格式，运行时校验），官方资源 MIT，社区资源各自选许可、每张卡上标作者与许可。",
+          "good": [
+            "**对话式精修**这条路上目前最成型的一个 —— 剪辑不是重摇，是改具体那一刀",
+            "本地优先，素材与工程不出本机",
+            "Agent 大脑可换（issue 里有人在问接小米 MiMo）",
+            "扩展中心的资源包每张都标作者与许可证"
+          ],
+          "bad": [
+            "**AGPL-3.0**，做成对外服务就得开源",
+            "**issue #63：启动后工程锁卡住，Agent 与 MCP 读不到工程**（开着）—— 这条直接卡住它的核心用法",
+            "issue #27：fcpxml 导出还不能引用原始素材路径（开着）",
+            "单文件 10GB 上限（issue #28，已关闭）；导出曾有严重 bug（issue #35，已关闭）"
+          ],
+          "unfit": "想「一句话出整片」的人 —— 它是剪辑器，前提是你已经有素材。",
+          "src": "github README + GitHub API + DeepWiki 架构页",
+          "verified_at": "2026-08-17",
+          "autonomy": {
+            "weights": "api",
+            "seed": "na",
+            "swap": "few",
+            "note": "剪辑在本地；Agent 大脑走接口，可换"
+          },
+          "hands": {
+            "layers": [
+              "docs",
+              "wiki",
+              "issue"
+            ],
+            "install": [
+              {
+                "step": "装编辑器",
+                "gate": "浏览器里跑，本地优先 —— 素材不上传"
+              },
+              {
+                "step": "接 Agent",
+                "gate": "**issue #63 就卡在这一步**：工程锁没释放时 Agent 与 MCP 读不到工程"
+              },
+              {
+                "step": "装资源包",
+                "gate": "扩展中心里贴安装 URL；**注意每个包各自的许可证**，官方的才是 MIT"
+              }
+            ],
+            "modify": [
+              {
+                "path": "扩展中心 · openchatcut-plugin@1",
+                "effect": "可视化资源包的格式。做自己的转场 / 字幕样式从这里进"
+              },
+              {
+                "path": "MCP 工程接口",
+                "effect": "Agent 读写时间轴的通道"
+              }
+            ],
+            "pitfalls": [
+              {
+                "where": "Agent 读不到工程",
+                "note": "**issue #63「project store lock guard is busy」开着** —— 它是这个项目的立身之本，卡住就等于退回成普通剪辑器"
+              },
+              {
+                "where": "导出到剪辑软件",
+                "note": "**issue #27：fcpxml 还不能引用原始素材路径**（开着）—— 要接后续精剪的人先看这条"
+              },
+              {
+                "where": "换大脑",
+                "note": "**issue #6：用 Gemini 当大脑时 400**（已关闭）；换模型前先搜一下有没有人踩过"
+              }
+            ],
+            "issue_src": "github issues 按回复数排序 · 核验 2026-08-17"
+          },
+          "diagrams": [
+            {
+              "id": "occ-arch",
+              "title": "编辑器与 Agent 怎么接",
+              "kind": "架构图",
+              "src": "DeepWiki 架构页 · 抓取 2026-08-17",
+              "verified_at": "2026-08-17",
+              "mermaid": "graph TD\n    subgraph \"NaturalLanguageSpace\"\n        User[\"User Instruction\"]\n        Agent[\"Built-in Agent / External MCP\"]\n    end\n\n    subgraph \"CodeEntitySpace\"\n        Tools[\"AgentTools (src/agent/tools.ts)\"]\n        EC[\"EditorCore\"]\n        Store[\"ProjectStore / IndexedDB\"]\n        Render[\"Remotion / FFmpeg\"]\n    end\n\n    User -->|\"Prompt\"| Agent\n    Agent -->|\"calls\"| Tools\n    Tools -->|\"dispatches commands\"| EC\n    EC -->|\"updates state\"| Store\n    EC -->|\"feeds\"| Render\n    Render -->|\"produces\"| MP4[\"Deliverables (MP4/FCPXML)\"]"
+            },
+            {
+              "id": "occ-flow",
+              "title": "一句话怎么改到时间轴上",
+              "kind": "流程图",
+              "src": "DeepWiki 架构页 · 抓取 2026-08-17",
+              "verified_at": "2026-08-17",
+              "mermaid": "graph LR\n    subgraph \"External\"\n        ExtAgent[\"External Agents (Codex/Claude)\"]\n    end\n\n    subgraph \"LocalServer (Node/Electron)\"\n        Broker[\"External MCP Broker\"]\n        Plugins[\"serverPlugins (server/plugins/index.ts)\"]\n        Keystore[\"seedKeystore (server/keystore.ts)\"]\n    end\n\n    subgraph \"Frontend (React/Vite)\"\n        Core[\"EditorCore (Commands)\"]\n        UI[\"Editor UI\"]\n        Preview[\"Remotion Player\"]\n    end\n\n    ExtAgent -- \"MCP Protocol\" --> Broker\n    Broker -- \"Tool Calls\" --> Core\n    UI -- \"User Actions\" --> Core\n    Core -- \"Timeline State\" --> Preview\n    Core -- \"API Requests\" --> Plugins\n    Keystore -- \"Inject Keys\" --> Plugins"
+            }
+          ]
+        },
+        {
+          "id": "video-podcast-maker",
+          "zh": "video-podcast-maker",
+          "url": "https://github.com/Agents365-ai/video-podcast-maker",
+          "stars": 1555,
+          "created_at": "2026-02-24",
+          "pushed_at": "2026-08-16",
+          "stars_per_month": 262,
+          "stale_months": 0,
+          "license": "CC BY-NC 4.0",
+          "license_note": "**不可商用**",
+          "license_class": "noncommercial",
+          "role": "tool",
+          "group": "agent",
+          "decisions": [
+            "topic",
+            "pace",
+            "sound"
+          ],
+          "engine": "yours",
+          "scope": "给编码 Agent 用的 skill：给一个主题，出一条 4K 带解说的讲解片。11 套 TTS 后端。",
+          "control": "**它把素材出处当一等公民**：每条片子生成一份素材清单（manifest），逐条记这个素材是用户的、是许可证过审的图库的、还是 AI 生成的。**要花钱生成的一律先问**。声音走它自家的 ttscn，11 个后端可换。",
+          "hw": "不需要显卡；要 FFmpeg、Node、Python3，另装 ttscn",
+          "arch": "skill 被 Agent 唤起 → 定选题与脚本 → 从五类来源取素材（用户文件 / assetseeker 图库 / imagencn AI 静帧 / videogencn AI B-roll / HyperFrames 叠加层）→ 每条素材写进 `assets/manifest.json`（角色 / 来源 / 许可证）→ Remotion 渲 4K。",
+          "good": [
+            "**素材清单逐条记许可证出处** —— 这一类里少见的自觉",
+            "**要花钱的生成先问**，不会跑着跑着把账烧了",
+            "11 套 TTS 后端可换，中文侧接了火山豆包",
+            "选题这一步它真接（九道工序里最没人做的那一步）"
+          ],
+          "bad": [
+            "**CC BY-NC 4.0，不可商用**",
+            "默认出 4K —— issue #7 与 #25 都在问能不能降到 1080p，4K 渲染慢得多",
+            "改提示词重生成找不到入口（issue #21，已关闭）",
+            "依赖它自家的 ttscn / assetseeker 几个仓库，装的东西不止一个"
+          ],
+          "unfit": "接商单的人 —— 许可证禁止商业使用。",
+          "src": "github README + GitHub API（DeepWiki 未索引）",
+          "verified_at": "2026-08-17",
+          "wiki": "none",
+          "wiki_note": "DeepWiki 没有索引这个仓库（2026-08-17 查，页面返回 not found）。所以这一页只有 README 与 issue 两层，没有由源码生成的图。",
+          "autonomy": {
+            "weights": "api",
+            "seed": "no",
+            "swap": "few",
+            "note": "渲染在本地；配音与 AI 素材走接口，后端可换"
+          },
+          "hands": {
+            "layers": [
+              "docs",
+              "issue"
+            ],
+            "install": [
+              {
+                "step": "装系统依赖",
+                "gate": "`brew install ffmpeg node python3`（Ubuntu 用 apt）"
+              },
+              {
+                "step": "装 ttscn",
+                "gate": "**必装** —— 11 个 TTS 后端都在它后面。装到 `~/.claude/skills/ttscn` 或设 `TTSCN_HOME`"
+              },
+              {
+                "step": "装 skill 依赖",
+                "gate": "`pip install -r skills/video-podcast-maker/requirements.txt`"
+              }
+            ],
+            "modify": [
+              {
+                "path": "assets/manifest.json",
+                "effect": "素材清单：角色 / 来源 / 许可证。要核素材出处看这份"
+              },
+              {
+                "path": "skills/video-podcast-maker/",
+                "effect": "skill 本体"
+              }
+            ],
+            "pitfalls": [
+              {
+                "where": "默认 4K 很慢",
+                "note": "**issue #7「为什么选择输出 4K，改成 1080p 会不会快很多」、#25「预览阶段一调整就自动渲 4K」** —— 两条都已关闭，但这是最常撞的体感问题"
+              },
+              {
+                "where": "改了提示词想重来",
+                "note": "**issue #21：出完 mp4 之后再改提示词找不到入口**（已关闭）"
+              },
+              {
+                "where": "上下文太大",
+                "note": "**issue #4「Request too large (max 20MB)」**（已关闭）—— 素材一多就会撞"
+              }
+            ],
+            "issue_src": "github issues 按回复数排序 · 核验 2026-08-17"
+          }
+        },
+        {
+          "id": "motion-skills",
+          "zh": "motion-skills",
+          "url": "https://github.com/iart-ai/motion-skills",
+          "stars": 355,
+          "created_at": "2026-02-04",
+          "pushed_at": "2026-06-17",
+          "stars_per_month": 198,
+          "stale_months": 2,
+          "license": "MIT",
+          "license_class": "permissive",
+          "role": "tool",
+          "group": "agent",
+          "decisions": [
+            "compose",
+            "pace"
+          ],
+          "engine": "yours",
+          "scope": "50 个动效 skill，教编码 Agent 做动态图形。装完 Claude Code、Cursor、Codex 等 40 多个 Agent 自动发现。",
+          "control": "**动态图形这一格之前一个项目都没有** —— 它不生成画面，是把「怎么做一段动效」写成 Agent 读得懂的 skill，按包安装、按提示词自动激活。",
+          "hw": "不需要显卡；跟着你用的 Agent 走",
+          "arch": "50 个 skill 分包发布，每包单独装。装完由 Agent 自动发现，**提示词匹配到就自己激活**，不用显式调用。",
+          "good": [
+            "**动效这一格的唯一一个**",
+            "40 多个 Agent 通吃，不绑定某一家",
+            "按包装，用不上的不装",
+            "MIT"
+          ],
+          "bad": [
+            "**停更 2 个月**",
+            "355 星，社区还很小，遇到问题几乎搜不到中文资料",
+            "**DeepWiki 没索引**，仓库自己也没有 issue 讨论可查",
+            "它教的是「怎么做」，真做出来还得靠你那套渲染工具"
+          ],
+          "unfit": "不用编码 Agent 的人 —— 它的形态就是 skill，脱开 Agent 没有入口。",
+          "src": "github README + GitHub API（DeepWiki 未索引）",
+          "verified_at": "2026-08-17",
+          "wiki": "none",
+          "wiki_note": "DeepWiki 没有索引这个仓库（2026-08-17 查，页面返回 not found）。它本身是一批 markdown skill，也没有多少调用关系可画。",
+          "autonomy": {
+            "weights": "na",
+            "seed": "na",
+            "swap": "1",
+            "note": "不涉及模型；skill 按包装卸"
+          },
+          "hands": {
+            "layers": [
+              "docs"
+            ],
+            "install": [
+              {
+                "step": "按包装",
+                "gate": "**每个包单独装** —— 用不上的别装，Agent 的上下文是有成本的"
+              },
+              {
+                "step": "不用显式调用",
+                "gate": "装完自动被发现，**提示词匹配到就自己激活**"
+              }
+            ],
+            "modify": [
+              {
+                "path": "各 skill 的 markdown",
+                "effect": "改动效做法就改这些文件 —— 它们本身就是给 Agent 看的说明"
+              }
+            ],
+            "pitfalls": [
+              {
+                "where": "装太多",
+                "note": "50 个包全装会占掉 Agent 不少上下文。**按需装**是它分包发布的原因"
+              },
+              {
+                "where": "遇到问题没处问",
+                "note": "仓库里几乎没有 issue 讨论，社区还小 —— 这一点在决定投入前要知道"
+              }
+            ],
+            "issue_src": "github issues · 核验 2026-08-17（仓库讨论极少）"
+          }
+        },
+        {
           "id": "comfyui-manager",
           "zh": "ComfyUI-Manager",
           "url": "https://github.com/Comfy-Org/ComfyUI-Manager",
@@ -32347,7 +32648,7 @@
           "license": "GPL-3.0",
           "license_class": "copyleft",
           "role": "tool",
-          "group": "workflow",
+          "group": "parts",
           "decisions": [
             "shot",
             "compose"
@@ -32458,7 +32759,8 @@
               "lang": "zh",
               "verified_at": "2026-08-16"
             }
-          ]
+          ],
+          "sub": "workflow"
         },
         {
           "id": "wanvideowrapper",
@@ -32472,7 +32774,7 @@
           "license": "Apache-2.0",
           "license_class": "permissive",
           "role": "tool",
-          "group": "workflow",
+          "group": "parts",
           "decisions": [
             "shot",
             "motion",
@@ -32549,7 +32851,8 @@
               }
             ],
             "issue_src": "github issues · 核验 2026-08-16"
-          }
+          },
+          "sub": "workflow"
         },
         {
           "id": "comfy-templates",
@@ -32563,7 +32866,7 @@
           "license": "MIT",
           "license_class": "permissive",
           "role": "tool",
-          "group": "workflow",
+          "group": "parts",
           "decisions": [
             "shot",
             "compose",
@@ -32649,7 +32952,8 @@
               "lang": "zh",
               "verified_at": "2026-08-16"
             }
-          ]
+          ],
+          "sub": "workflow"
         },
         {
           "id": "waoowaoo",
@@ -33176,42 +33480,6 @@
       ],
       "groups": [
         {
-          "id": "base",
-          "zh": "底座",
-          "intro": "跑其它一切的地方：工作流引擎和本地模型服务。它们自己不出画面，上面几类多半挂在它们身上。",
-          "kind": "projects"
-        },
-        {
-          "id": "gen",
-          "zh": "视频生成",
-          "intro": "把文字或图片变成一段会动的画面。整条链路的发动机，也是显存吃得最凶的一环。",
-          "kind": "projects"
-        },
-        {
-          "id": "control",
-          "zh": "画面控制",
-          "intro": "不靠形容词、靠结构信号说话：线稿、姿势、深度、参考图、运动轨迹。要什么画面就给什么信号。",
-          "kind": "projects"
-        },
-        {
-          "id": "train",
-          "zh": "训练与微调",
-          "intro": "把一套画风或一个角色训进模型，以后不必每次都重新描述。",
-          "kind": "projects"
-        },
-        {
-          "id": "sound",
-          "zh": "声音",
-          "intro": "配乐、配音、翻译、口型 —— 画面之外的另一半，也是这条链路上最容易自己拿下的一段。",
-          "kind": "projects"
-        },
-        {
-          "id": "post",
-          "zh": "后期",
-          "intro": "画面出来之后的补救与放大。",
-          "kind": "projects"
-        },
-        {
           "id": "allinone",
           "zh": "一站式",
           "intro": "从一句主题或一部小说到一条成片全包。**它们省掉的是编排，不是算力钱** —— 画面从哪来，决定了它到底帮你做了什么。另外注意：**这一类里「开源」的成色差得很远** —— 有的源码比安装包旧好几个版本，有的已宣布不再同步源码，有的许可证根本禁止商用。",
@@ -33224,10 +33492,10 @@
           "intro": "**用智能体驱动模型接口出片**：你说一句话，Agent 去查规格、拆分镜、调接口、拼成片。它们自己一帧画面都不生成 —— 干的是编排和把需求逼成可执行的规格。这一类是这半年才长出来的，而且长得极快。"
         },
         {
-          "id": "workflow",
-          "zh": "工作流与节点包",
+          "id": "parts",
+          "zh": "模型与组件",
           "kind": "projects",
-          "intro": "ComfyUI 生态里的装配件：装节点的、把某个模型接进来的、以及官方给的现成工作流。**它们不是模型，是让模型跑起来的那一层** —— 多数人第一次卡住都卡在这里。"
+          "intro": "自己搭一套时用得上的零件：底座、生成模型、画面控制、训练、声音、后期、以及 ComfyUI 的装配件。**这一类里的东西大多还活着，只是不再是热闹的那一头** —— 现在长得最快的是上面两类（一站式与 Agent）。这是判断，不是厂商说法。"
         },
         {
           "id": "basics",
@@ -33309,6 +33577,11 @@
           "zh": "余烬之后（After the Ember）",
           "why": "查不到制作方公开的管线说明 —— 只找到成片本身与播放渠道，没有「用了什么」的公开口径。按规矩不收。",
           "verified_at": "2026-08-16"
+        },
+        {
+          "zh": "2026-08-17 又搜了一轮",
+          "why": "换了四个角度找「制作方自己公开过管线」的新作品（中文爆款幕后 / 英文导演访谈 / 工作流复盘 / 平台官方案例），**捞上来的全是工具指南和平台宣传，没有一部具体作品的制作方公开写过自己的管线**。这一格暂时就这三部。",
+          "verified_at": "2026-08-17"
         }
       ],
       "basics": [
@@ -33352,6 +33625,42 @@
               "note": "为什么背景该虚该实。这一条直接影响画面像不像「电影」。",
               "page_title": "景深 - 维基百科，自由的百科全书",
               "verified_at": "2026-08-16"
+            },
+            {
+              "title": "电影摄影是什么",
+              "url": "https://www.studiobinder.com/blog/what-is-cinematography/",
+              "site": "StudioBinder",
+              "lang": "en",
+              "note": "把摄影师到底在决定什么讲清楚 —— 读完你会知道「镜头感」不是玄学。",
+              "page_title": "What Is Cinematography? Definition, Techniques, and Examples",
+              "verified_at": "2026-08-17"
+            },
+            {
+              "title": "景深怎么控",
+              "url": "https://www.studiobinder.com/blog/what-is-depth-of-field-definition/",
+              "site": "StudioBinder",
+              "lang": "en",
+              "note": "配合词条读。**虚化多少是一个可以指定的量**，不是模型随机给你的。",
+              "page_title": "What is Depth of Field? Examples of Shallow vs Deep Depth of Field",
+              "verified_at": "2026-08-17"
+            },
+            {
+              "title": "分镜脚本（词条）",
+              "url": "https://zh.wikipedia.org/wiki/分鏡腳本",
+              "site": "维基百科",
+              "lang": "zh",
+              "note": "分镜和分镜脚本不是一回事 —— 后者是给全组人看的执行文件。",
+              "page_title": "分鏡 - 维基百科，自由的百科全书",
+              "verified_at": "2026-08-17"
+            },
+            {
+              "title": "怎么列镜头表",
+              "url": "https://www.studiobinder.com/blog/what-is-a-shot-list/",
+              "site": "StudioBinder",
+              "lang": "en",
+              "note": "**镜头表是提示词的上游**。列完再写提示词，比边想边写省一半重摇。",
+              "page_title": "What is a Shot List? Examples and a Brief Definition",
+              "verified_at": "2026-08-17"
             }
           ]
         },
@@ -33379,31 +33688,13 @@
               "verified_at": "2026-08-16"
             },
             {
-              "title": "三点布光",
-              "url": "https://www.studiobinder.com/blog/three-point-lighting-setup/",
-              "site": "StudioBinder",
-              "lang": "en",
-              "note": "主光、辅光、轮廓光。AI 出图时描述光位，用的就是这套词。",
-              "page_title": "Three-Point Video Lighting: Key, Fill, &#038; Backlight Setup Guide",
-              "verified_at": "2026-08-16"
-            },
-            {
-              "title": "画幅比例",
-              "url": "https://www.studiobinder.com/blog/what-is-aspect-ratio/",
-              "site": "StudioBinder",
-              "lang": "en",
-              "note": "16:9、2.39:1、9:16 各自意味着什么。**先定画幅再写提示词**，反过来会白做。",
-              "page_title": "What is Aspect Ratio? A Formula for Framing Success",
-              "verified_at": "2026-08-16"
-            },
-            {
-              "title": "颜色（词条）",
-              "url": "https://zh.wikipedia.org/wiki/颜色",
+              "title": "场面调度（词条）",
+              "url": "https://zh.wikipedia.org/wiki/場面調度",
               "site": "维基百科",
               "lang": "zh",
-              "note": "色调与情绪的关系从这里补底 —— 原来指的「色彩学」在中文维基会跳到这一条。",
-              "page_title": "颜色 - 维基百科，自由的百科全书",
-              "verified_at": "2026-08-16"
+              "note": "画面里的一切怎么摆：人、景、光、动。这是「构图」上面那一层。",
+              "page_title": "场面调度 - 维基百科，自由的百科全书",
+              "verified_at": "2026-08-17"
             }
           ]
         },
@@ -33447,6 +33738,33 @@
               "note": "中文侧的总览。",
               "page_title": "剪輯 - 维基百科，自由的百科全书",
               "verified_at": "2026-08-16"
+            },
+            {
+              "title": "跳接（词条）",
+              "url": "https://zh.wikipedia.org/wiki/跳接",
+              "site": "维基百科",
+              "lang": "zh",
+              "note": "AI 分段生成最容易出的就是跳接感 —— 先知道它叫什么，才好判断是不是要避。",
+              "page_title": "跳接 - 维基百科，自由的百科全书",
+              "verified_at": "2026-08-17"
+            },
+            {
+              "title": "跳接：什么时候是错，什么时候是风格",
+              "url": "https://www.studiobinder.com/blog/what-is-a-jump-cut/",
+              "site": "StudioBinder",
+              "lang": "en",
+              "note": "同一个现象，用错了是穿帮，用对了是节奏。",
+              "page_title": "What is a Jump Cut? 5 Ways to Use Jump Cuts in Film",
+              "verified_at": "2026-08-17"
+            },
+            {
+              "title": "J 剪与 L 剪：声音先进或后走",
+              "url": "https://www.studiobinder.com/blog/what-is-a-j-cut/",
+              "site": "StudioBinder",
+              "lang": "en",
+              "note": "**让画面接得顺的头号技巧，而且只跟声音有关** —— 多数新手完全不知道有这回事。",
+              "page_title": "What is a J-Cut in Film — Editing Techniques Explained",
+              "verified_at": "2026-08-17"
             }
           ]
         },
@@ -33481,6 +33799,24 @@
               "note": "把故事拆成一格一格 —— 这一步做完，提示词几乎是照抄。",
               "page_title": "分鏡 - 维基百科，自由的百科全书",
               "verified_at": "2026-08-16"
+            },
+            {
+              "title": "一句话梗概（logline）怎么写",
+              "url": "https://www.studiobinder.com/blog/what-is-a-logline/",
+              "site": "StudioBinder",
+              "lang": "en",
+              "note": "**一句话说不清的故事，三分钟也讲不清。** 这是开工前最省时间的一步。",
+              "page_title": "What is a Logline? [with FREE Logline Formula Template]",
+              "verified_at": "2026-08-17"
+            },
+            {
+              "title": "剧本（词条）",
+              "url": "https://zh.wikipedia.org/wiki/劇本",
+              "site": "维基百科",
+              "lang": "zh",
+              "note": "格式与构成。中文对照用。",
+              "page_title": "剧本 - 维基百科，自由的百科全书",
+              "verified_at": "2026-08-17"
             }
           ]
         },
@@ -33497,8 +33833,269 @@
               "note": "环境音、角色说话是画面里的；配乐、旁白是画面外的。两者混着用才有层次。",
               "page_title": "What is Diegetic Sound? Definition &amp; Examples in Film",
               "verified_at": "2026-08-16"
+            },
+            {
+              "title": "声音设计是什么",
+              "url": "https://www.studiobinder.com/blog/what-is-sound-design/",
+              "site": "StudioBinder",
+              "lang": "en",
+              "note": "对白、音效、环境、配乐四层怎么叠。**画面糊观众能忍，声音不对立刻出戏。**",
+              "page_title": "What is Sound Design for Film? Definition, Examples &amp; Ultimate Guide",
+              "verified_at": "2026-08-17"
             }
           ]
+        },
+        {
+          "id": "light",
+          "zh": "光怎么打",
+          "intro": "**AI 出图时描述光位，用的就是这一套词。** 不知道这些词，你能写的只有「好看的光」——而那正是模型最没法执行的一句。",
+          "items": [
+            {
+              "title": "三点布光",
+              "url": "https://www.studiobinder.com/blog/three-point-lighting-setup/",
+              "site": "StudioBinder",
+              "lang": "en",
+              "note": "主光、辅光、轮廓光。最基础的一套，提示词里直接能用。",
+              "page_title": "Three-Point Video Lighting: Key, Fill, &#038; Backlight Setup Guide",
+              "verified_at": "2026-08-17"
+            },
+            {
+              "title": "高调布光",
+              "url": "https://www.studiobinder.com/blog/what-is-high-key-lighting/",
+              "site": "StudioBinder",
+              "lang": "en",
+              "note": "整体亮、阴影浅 —— 广告、喜剧、访谈常用。",
+              "page_title": "What is High Key Lighting — Examples &amp; Creative Uses",
+              "verified_at": "2026-08-17"
+            },
+            {
+              "title": "低调布光",
+              "url": "https://www.studiobinder.com/blog/what-is-low-key-lighting/",
+              "site": "StudioBinder",
+              "lang": "en",
+              "note": "大面积暗、对比强 —— 悬疑与情绪戏的标配。和上一条对着读。",
+              "page_title": "What is Low Key Lighting — Definition, Examples in Photo &amp; Film",
+              "verified_at": "2026-08-17"
+            },
+            {
+              "title": "伦勃朗光",
+              "url": "https://www.studiobinder.com/blog/rembrandt-lighting/",
+              "site": "StudioBinder",
+              "lang": "en",
+              "note": "脸颊上那块三角形光斑。**一个有名字的具体布光，提示词里点名就能要。**",
+              "page_title": "How to Master Rembrandt Lighting in Photography and Video",
+              "verified_at": "2026-08-17"
+            },
+            {
+              "title": "有动机的光",
+              "url": "https://www.studiobinder.com/blog/what-is-motivated-lighting/",
+              "site": "StudioBinder",
+              "lang": "en",
+              "note": "光要像是从画面里某个东西来的。**这条不守，画面会说不出哪里假。**",
+              "page_title": "What is Motivated Lighting in Film — Building a World with Light",
+              "verified_at": "2026-08-17"
+            },
+            {
+              "title": "色温（词条）",
+              "url": "https://zh.wikipedia.org/wiki/色溫",
+              "site": "维基百科",
+              "lang": "zh",
+              "note": "为什么同一个场景一半偏蓝一半偏橙。混色温是新手最常见的翻车点。",
+              "page_title": "色温 - 维基百科，自由的百科全书",
+              "verified_at": "2026-08-17"
+            }
+          ]
+        },
+        {
+          "id": "color",
+          "zh": "色彩怎么用",
+          "intro": "色调决定观众对一个画面的第一判断，而它常常是提示词里唯一没写的东西。",
+          "items": [
+            {
+              "title": "色彩理论",
+              "url": "https://www.studiobinder.com/blog/what-is-color-theory/",
+              "site": "StudioBinder",
+              "lang": "en",
+              "note": "互补、类似、三分色这些配色关系，读完你会知道自己在选什么。",
+              "page_title": "What is Color Theory — A Guide for Image Makers",
+              "verified_at": "2026-08-17"
+            },
+            {
+              "title": "电影的配色方案",
+              "url": "https://www.studiobinder.com/blog/movie-color-palette/",
+              "site": "StudioBinder",
+              "lang": "en",
+              "note": "拿真实影片拆配色。**照着挑一套当参考，比形容「电影感」有用得多。**",
+              "page_title": "How To Create A Movie Color Palette Like Akira Kurosawa",
+              "verified_at": "2026-08-17"
+            },
+            {
+              "title": "色彩心理学（词条）",
+              "url": "https://zh.wikipedia.org/wiki/色彩心理學",
+              "site": "维基百科",
+              "lang": "zh",
+              "note": "颜色与情绪的对应关系从哪来。别当定律，但值得知道。",
+              "page_title": "色彩心理學 - 维基百科，自由的百科全书",
+              "verified_at": "2026-08-17"
+            },
+            {
+              "title": "颜色（词条）",
+              "url": "https://zh.wikipedia.org/wiki/颜色",
+              "site": "维基百科",
+              "lang": "zh",
+              "note": "底层概念补齐用。",
+              "page_title": "颜色 - 维基百科，自由的百科全书",
+              "verified_at": "2026-08-17"
+            }
+          ]
+        },
+        {
+          "id": "people",
+          "zh": "人物怎么立",
+          "intro": "**这是 AI 目前完全帮不上的那一半。** 画面它能给，一个让人看得下去的人它给不了。",
+          "items": [
+            {
+              "title": "角色弧光",
+              "url": "https://www.studiobinder.com/blog/what-is-a-character-arc/",
+              "site": "StudioBinder",
+              "lang": "en",
+              "note": "人物在片子里变成了什么样。**三分钟的短片也需要它**，只是变化更小。",
+              "page_title": "What is a Character Arc — Definition &amp; Types Explained",
+              "verified_at": "2026-08-17"
+            },
+            {
+              "title": "对白怎么写",
+              "url": "https://www.studiobinder.com/blog/how-to-write-dialogue/",
+              "site": "StudioBinder",
+              "lang": "en",
+              "note": "怎么让人物说话像人。AI 写对白最容易写成公告。",
+              "page_title": "How to Write Dialogue — Examples &amp; Techniques for Screenwriters &amp; Fiction Writers",
+              "verified_at": "2026-08-17"
+            },
+            {
+              "title": "对白（词条）",
+              "url": "https://zh.wikipedia.org/wiki/對白",
+              "site": "维基百科",
+              "lang": "zh",
+              "note": "中文对照。",
+              "page_title": "對白 - 维基百科，自由的百科全书",
+              "verified_at": "2026-08-17"
+            }
+          ]
+        },
+        {
+          "id": "spec",
+          "zh": "交付前要懂的数",
+          "intro": "这几个数**定错了就得整条重来** —— 而它们全都在你按下生成之前就该定好。",
+          "items": [
+            {
+              "title": "画幅比例",
+              "url": "https://www.studiobinder.com/blog/what-is-aspect-ratio/",
+              "site": "StudioBinder",
+              "lang": "en",
+              "note": "16:9、2.39:1、9:16 各自意味着什么。**先定画幅再写提示词。**",
+              "page_title": "What is Aspect Ratio? A Formula for Framing Success",
+              "verified_at": "2026-08-17"
+            },
+            {
+              "title": "帧率（词条）",
+              "url": "https://zh.wikipedia.org/wiki/幀率",
+              "site": "维基百科",
+              "lang": "zh",
+              "note": "24 / 25 / 30 / 60 的差别。**AI 出片多是 24 或 30，混着剪会顿。**",
+              "page_title": "帧率 - 维基百科，自由的百科全书",
+              "verified_at": "2026-08-17"
+            },
+            {
+              "title": "长宽比（词条）",
+              "url": "https://zh.wikipedia.org/wiki/長寬比_(影像)",
+              "site": "维基百科",
+              "lang": "zh",
+              "note": "中文对照，术语用。",
+              "page_title": "長寬比 (影像) - 维基百科，自由的百科全书",
+              "verified_at": "2026-08-17"
+            }
+          ]
+        },
+        {
+          "id": "law",
+          "zh": "法与权",
+          "intro": "**做 AI 视频在中国是有强制标识义务的** —— 2025-09-01 起施行。这一条最实用，也最少有人讲。素材与音乐的授权同理：出事的时候，「我不知道」不是理由。",
+          "items": [
+            {
+              "title": "《人工智能生成合成内容标识办法》全文",
+              "url": "https://www.cac.gov.cn/2025-03/14/c_1743654684782215.htm",
+              "site": "国家网信办",
+              "lang": "zh",
+              "note": "**四部门联合发布，2025-09-01 起施行。** 显式标识与隐式标识都要做；用户往平台传 AI 生成内容时，**要主动声明并用平台的标识功能**。",
+              "page_title": "关于印发《人工智能生成合成内容标识办法》的通知_中央网络安全和信息化委员会办公室",
+              "verified_at": "2026-08-17"
+            },
+            {
+              "title": "官方答记者问",
+              "url": "http://www.news.cn/politics/20250314/a1b951d7fc3145deaa6c0f3410ef5aff/c.html",
+              "site": "新华网",
+              "lang": "zh",
+              "note": "比法条好读。想快速知道「我到底要做什么」，先看这篇。",
+              "page_title": "国家互联网信息办公室有关负责人就《人工智能生成合成内容标识办法》答记者问-新华网",
+              "verified_at": "2026-08-17"
+            },
+            {
+              "title": "著作权（词条）",
+              "url": "https://zh.wikipedia.org/wiki/著作權",
+              "site": "维基百科",
+              "lang": "zh",
+              "note": "素材、音乐、字体各自的授权都落在这里。**免费下载 ≠ 可商用。**",
+              "page_title": "著作權 - 维基百科，自由的百科全书",
+              "verified_at": "2026-08-17"
+            },
+            {
+              "title": "肖像权（词条）",
+              "url": "https://zh.wikipedia.org/wiki/肖像權",
+              "site": "维基百科",
+              "lang": "zh",
+              "note": "拿真人照片做参考图、做数字人之前先读这一条。",
+              "page_title": "人格權 - 维基百科，自由的百科全书",
+              "verified_at": "2026-08-17"
+            }
+          ]
+        }
+      ],
+      "subgroups": [
+        {
+          "id": "base",
+          "zh": "底座",
+          "intro": "跑其它一切的地方：工作流引擎和本地模型服务。它们自己不出画面，上面几类多半挂在它们身上。"
+        },
+        {
+          "id": "gen",
+          "zh": "视频生成",
+          "intro": "把文字或图片变成一段会动的画面。整条链路的发动机，也是显存吃得最凶的一环。"
+        },
+        {
+          "id": "control",
+          "zh": "画面控制",
+          "intro": "不靠形容词、靠结构信号说话：线稿、姿势、深度、参考图、运动轨迹。要什么画面就给什么信号。"
+        },
+        {
+          "id": "train",
+          "zh": "训练与微调",
+          "intro": "把一套画风或一个角色训进模型，以后不必每次都重新描述。"
+        },
+        {
+          "id": "sound",
+          "zh": "声音",
+          "intro": "配乐、配音、翻译、口型 —— 画面之外的另一半，也是这条链路上最容易自己拿下的一段。"
+        },
+        {
+          "id": "post",
+          "zh": "后期",
+          "intro": "画面出来之后的补救与放大。"
+        },
+        {
+          "id": "workflow",
+          "zh": "工作流与节点包",
+          "intro": "ComfyUI 生态里的装配件：装节点的、把某个模型接进来的、以及官方给的现成工作流。**它们不是模型，是让模型跑起来的那一层** —— 多数人第一次卡住都卡在这里。"
         }
       ]
     }

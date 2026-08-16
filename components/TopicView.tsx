@@ -228,7 +228,11 @@ export default function TopicView({ t }: { t: Topic }) {
     history.replaceState(null, "", `#g-${id}`);
   };
 
-  const of = (g: string) => t.projects.filter((p) => p.group === g);
+  const of = (g: string, sub?: string) =>
+    t.projects.filter((p) => p.group === g && (sub === undefined || p.sub === sub));
+  /** 这个 tab 里有没有小节。有就分节渲染，没有就平铺。 */
+  const subsOf = (g: string) =>
+    (t.subgroups ?? []).filter((sg) => t.projects.some((p) => p.group === g && p.sub === sg.id));
   /** 一个 tab 里有几条 —— 项目类数项目，作品类数作品。 */
   const countOf = (g: { id: string; kind?: string }) =>
     g.kind === "works" ? (t.works?.length ?? 0)
@@ -290,7 +294,24 @@ export default function TopicView({ t }: { t: Topic }) {
           <div className="space-y-3">
             {g.kind === "works" ? (t.works ?? []).map((w) => <WorkCard key={w.id} w={w} />)
               : g.kind === "basics" ? null
-                : of(g.id).map((p) => <ProjectCard key={p.id} p={p} topic={t.id} />)}
+                : subsOf(g.id).length
+                  /*
+                   * 24 个项目摊在一个 tab 里不分节就是一堵墙。
+                   * 小节标题只做锚，不再重复一遍 tab 的说明。
+                   */
+                  ? subsOf(g.id).map((sg) => (
+                    <section key={sg.id} className="pt-2">
+                      <div className="flex items-baseline gap-2.5 border-b border-rule pb-1.5 mb-3">
+                        <h3 className="text-[15px] tracking-tight">{sg.zh}</h3>
+                        <span className="text-[11px] text-hatch tnum">{of(g.id, sg.id).length}</span>
+                        <p className="text-[11.5px] text-muted truncate"><Rich text={sg.intro} /></p>
+                      </div>
+                      <div className="space-y-3">
+                        {of(g.id, sg.id).map((p) => <ProjectCard key={p.id} p={p} topic={t.id} />)}
+                      </div>
+                    </section>
+                  ))
+                  : of(g.id).map((p) => <ProjectCard key={p.id} p={p} topic={t.id} />)}
           </div>
           {/* 常识五组两列并排 —— 每组本身不长，竖着排要滚很久才看得完。 */}
           {g.kind === "basics" && (
