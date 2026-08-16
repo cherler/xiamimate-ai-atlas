@@ -6,7 +6,7 @@
     <atom:link href="https://xiamimate.com/atlas/changes.xml" rel="self" type="application/rss+xml"/>
     <description>AI 视频模型的版本、停服、价格与能力变化。每条带 Before / After / 为什么重要，以及厂商官方来源。</description>
     <language>zh-CN</language>
-    <lastBuildDate>Fri, 14 Aug 2026 00:00:00 GMT</lastBuildDate>
+    <lastBuildDate>Sat, 15 Aug 2026 00:00:00 GMT</lastBuildDate>
     <item>
       <title>Tripo API V2：官方公告：2026-10-01 起不再更新与支持，2026-11-01 起 V2 端点全部停止接收请求</title>
       <link>https://xiamimate.com/atlas/changes#tripo-v2-eol-2026-11-01</link>
@@ -32,12 +32,76 @@
       <description>&lt;p&gt;&lt;b&gt;Kimi&lt;/b&gt; · status&lt;/p&gt;&lt;p&gt;此前：Moonshot V1 系列（8k / 32k / 128k 及其 vision 版）在售&lt;/p&gt;&lt;p&gt;现在：官方价格页写明「预计 8 月 31 日全平台下线」&lt;/p&gt;&lt;p&gt;&lt;b&gt;为什么重要：&lt;/b&gt;这是这条产品线的第一代，下线之后 Kimi 的可用型号只剩 K2.x / K3。**在用旧接口的要提前迁**。&lt;/p&gt;&lt;p&gt;影响：kimi&lt;/p&gt;&lt;p&gt;来源：&lt;a href=&quot;https://platform.kimi.com/docs/pricing/chat&quot;&gt;Kimi 开放平台 · 模型推理价格&lt;/a&gt;&lt;/p&gt;</description>
     </item>
     <item>
+      <title>科学 AI 立为第九卷：那条规则同日作废（它已被世界模型卷与具身智能卷推翻），判据只剩「产出物是不是另一类东西」—— 分子结构、气象场、晶体结构和前八卷全不重合，**按判据它一直是成立的**</title>
+      <link>https://xiamimate.com/atlas/changes#science-admitted-2026-08-15</link>
+      <guid isPermaLink="false">science-admitted-2026-08-15</guid>
+      <pubDate>Sat, 15 Aug 2026 00:00:00 GMT</pubDate>
+
+      <description>&lt;p&gt;&lt;b&gt;科学 AI 立为第九卷&lt;/b&gt; · 收录变更（这一条是我们记错了）&lt;/p&gt;&lt;p&gt;此前：规则一补充「面向内容创作」会把它挡在门外&lt;/p&gt;&lt;p&gt;现在：那条规则同日作废（它已被世界模型卷与具身智能卷推翻），判据只剩「产出物是不是另一类东西」—— 分子结构、气象场、晶体结构和前八卷全不重合，**按判据它一直是成立的**&lt;/p&gt;&lt;p&gt;&lt;b&gt;为什么重要：&lt;/b&gt;负责人拍板「科学 AI？收啊」。**值得记的是顺序**：先发现旧规则自相矛盾、把它作废，这一卷才进得来 —— **一条过期的规则挡住的东西，往往不是它当初想挡的那个**。&lt;/p&gt;&lt;p&gt;影响：alphafold；boltz；esm&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>这一卷里许可比精度更决定你能不能用：AlphaFold 3 只有服务器、明写「for **academic use**」；Boltz 是 MIT 完全开源；ESM-2 权重公开但它是语言模型不是结构预测器</title>
+      <link>https://xiamimate.com/atlas/changes#science-license-over-accuracy-2026-08-15</link>
+      <guid isPermaLink="false">science-license-over-accuracy-2026-08-15</guid>
+      <pubDate>Sat, 15 Aug 2026 00:00:00 GMT</pubDate>
+      <category>alphafold</category>
+      <description>&lt;p&gt;&lt;b&gt;这一卷里许可比精度更决定你能不能用&lt;/b&gt; · 已知限制&lt;/p&gt;&lt;p&gt;此前：按前八卷的习惯，先看谁强&lt;/p&gt;&lt;p&gt;现在：AlphaFold 3 只有服务器、明写「for **academic use**」；Boltz 是 MIT 完全开源；ESM-2 权重公开但它是语言模型不是结构预测器&lt;/p&gt;&lt;p&gt;&lt;b&gt;为什么重要：&lt;/b&gt;**前八卷的模型基本都能买到或下到，这一卷不是。** 最有名的那支恰恰拿不到，所以选型的第一个问题从「哪个准」变成了「哪个我能用」。&lt;/p&gt;&lt;p&gt;影响：alphafold；boltz&lt;/p&gt;&lt;p&gt;来源：&lt;a href=&quot;https://blog.google/technology/ai/google-deepmind-isomorphic-alphafold-3-ai-model/&quot;&gt;Google 官方博客 · AlphaFold 3&lt;/a&gt;&lt;/p&gt;</description>
+    </item>
+    <item>
       <title>MuseTalk 的形象保真：MuseTalk 官方在「已知限制」里明写做不到：「Identity preservation: Some details of the original face are not well preserved, such as mustache, lip shape and color」</title>
       <link>https://xiamimate.com/atlas/changes#musetalk-identity-2026-08-14</link>
       <guid isPermaLink="false">musetalk-identity-2026-08-14</guid>
       <pubDate>Fri, 14 Aug 2026 00:00:00 GMT</pubDate>
       <category>musetalk</category>
       <description>&lt;p&gt;&lt;b&gt;MuseTalk 的形象保真&lt;/b&gt; · 已知限制&lt;/p&gt;&lt;p&gt;此前：我们把「形象一致」默认当成这一卷各家都在做的事&lt;/p&gt;&lt;p&gt;现在：MuseTalk 官方在「已知限制」里明写做不到：「Identity preservation: Some details of the original face are not well preserved, such as mustache, lip shape and color」&lt;/p&gt;&lt;p&gt;&lt;b&gt;为什么重要：&lt;/b&gt;**厂商自己承认做不到的，比我们推断出来的可靠得多** —— 这一格因此记 ❌ 而不是 ⬜&lt;/p&gt;&lt;p&gt;影响：musetalk&lt;/p&gt;&lt;p&gt;来源：&lt;a href=&quot;https://huggingface.co/TMElyralab/MuseTalk&quot;&gt;HF · 腾讯音乐 MuseTalk&lt;/a&gt;&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>具身智能卷分两轨：分 `er`（具身推理）与 `vla`（动作策略）两轨。`er` 沿用老问法，因为 Google 在官方文档里给五项能力起了名字；`vla` 那一轨的轴改成问「**你能不能拿它跑起来**」—— 本体标签、零样本、微调路径、数据格式、边缘部署、框架</title>
+      <link>https://xiamimate.com/atlas/changes#embodied-two-tracks-2026-08-14</link>
+      <guid isPermaLink="false">embodied-two-tracks-2026-08-14</guid>
+      <pubDate>Fri, 14 Aug 2026 00:00:00 GMT</pubDate>
+
+      <description>&lt;p&gt;&lt;b&gt;具身智能卷分两轨&lt;/b&gt; · 口径确立（这一条是我们记错了）&lt;/p&gt;&lt;p&gt;此前：按老办法给一个新方向定一根能力轴，问「能不能做某件事」&lt;/p&gt;&lt;p&gt;现在：分 `er`（具身推理）与 `vla`（动作策略）两轨。`er` 沿用老问法，因为 Google 在官方文档里给五项能力起了名字；`vla` 那一轨的轴改成问「**你能不能拿它跑起来**」—— 本体标签、零样本、微调路径、数据格式、边缘部署、框架&lt;/p&gt;&lt;p&gt;&lt;b&gt;为什么重要：&lt;/b&gt;openpi / GR00T / OpenVLA 三家 README **一句能力命名都没有**，讲的全是怎么微调怎么部署。**硬套「能不能做某件事」会得到一整列 ⬜，而那是我们的问法不对，不是厂商不透明。**&lt;/p&gt;&lt;p&gt;影响：groot；openvla；pi；smolvla&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>MolmoAct2 的零样本可用：Ai2 官方在 `Intended Use` 里明写：「It is intended as a foundation checkpoint for further robot fine-tuning **rather than as a ready-to-run policy for a single deployment setting**」</title>
+      <link>https://xiamimate.com/atlas/changes#molmoact-not-ready-2026-08-14</link>
+      <guid isPermaLink="false">molmoact-not-ready-2026-08-14</guid>
+      <pubDate>Fri, 14 Aug 2026 00:00:00 GMT</pubDate>
+      <category>molmoact</category>
+      <description>&lt;p&gt;&lt;b&gt;MolmoAct2 的零样本可用&lt;/b&gt; · 已知限制&lt;/p&gt;&lt;p&gt;此前：开源基座模型默认可以先拿来直接试试&lt;/p&gt;&lt;p&gt;现在：Ai2 官方在 `Intended Use` 里明写：「It is intended as a foundation checkpoint for further robot fine-tuning **rather than as a ready-to-run policy for a single deployment setting**」&lt;/p&gt;&lt;p&gt;&lt;b&gt;为什么重要：&lt;/b&gt;**这是这一卷第一个够格判 ❌ 的格子。** 具身智能这一卷最难的就是找到「官方明确说不能」的句子 —— 厂商通常只说自己能做什么。对照 SmolVLA 只说「建议拿去微调」，那句不够判 ❌，仍是 ⬜。&lt;/p&gt;&lt;p&gt;影响：molmoact&lt;/p&gt;&lt;p&gt;来源：&lt;a href=&quot;https://huggingface.co/allenai/MolmoAct2&quot;&gt;Ai2 官方 · MolmoAct2 模型卡&lt;/a&gt;&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>OpenVLA 停在 2024-06：`openvla/openvla-7b` 建于 2024-06-10，此后该组织只发过 LIBERO 基准微调档，**两年没有新代**；仓库最后一次 push 是 2025-03-23。状态记 `maintained` 而不是 `active`</title>
+      <link>https://xiamimate.com/atlas/changes#openvla-maintained-2026-08-14</link>
+      <guid isPermaLink="false">openvla-maintained-2026-08-14</guid>
+      <pubDate>Fri, 14 Aug 2026 00:00:00 GMT</pubDate>
+      <category>openvla</category>
+      <description>&lt;p&gt;&lt;b&gt;OpenVLA 停在 2024-06&lt;/b&gt; · 生命周期&lt;/p&gt;&lt;p&gt;此前：OpenVLA 是这一卷最有名的开源基座，默认它还在迭代&lt;/p&gt;&lt;p&gt;现在：`openvla/openvla-7b` 建于 2024-06-10，此后该组织只发过 LIBERO 基准微调档，**两年没有新代**；仓库最后一次 push 是 2025-03-23。状态记 `maintained` 而不是 `active`&lt;/p&gt;&lt;p&gt;&lt;b&gt;为什么重要：&lt;/b&gt;**「名气大」和「还在更新」是两件事。** 它至今仍是被第三方微调最多的一支，容易让人以为它是当前主力。&lt;/p&gt;&lt;p&gt;影响：openvla&lt;/p&gt;&lt;p&gt;来源：&lt;a href=&quot;https://huggingface.co/openvla/openvla-7b&quot;&gt;openvla/openvla 官方仓库与模型卡&lt;/a&gt;&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>世界模型的「全能」不是跨卷：**判归属看自述在不在「模拟世界」这件事上，不看它输出了几种模态。** Cosmos 整支留在世界模型卷不拆；`Cosmos-Reason` 是 GR00T 的骨干，那是依赖关系，不改归属</title>
+      <link>https://xiamimate.com/atlas/changes#world-omni-is-definition-2026-08-14</link>
+      <guid isPermaLink="false">world-omni-is-definition-2026-08-14</guid>
+      <pubDate>Fri, 14 Aug 2026 00:00:00 GMT</pubDate>
+
+      <description>&lt;p&gt;&lt;b&gt;世界模型的「全能」不是跨卷&lt;/b&gt; · 口径确立（这一条是我们记错了）&lt;/p&gt;&lt;p&gt;此前：按产出物判归属 —— Cosmos 能出视频/图/音频/动作，就要拆到四卷里去&lt;/p&gt;&lt;p&gt;现在：**判归属看自述在不在「模拟世界」这件事上，不看它输出了几种模态。** Cosmos 整支留在世界模型卷不拆；`Cosmos-Reason` 是 GR00T 的骨干，那是依赖关系，不改归属&lt;/p&gt;&lt;p&gt;&lt;b&gt;为什么重要：&lt;/b&gt;负责人原话：「世界模型做的就是全能模型，是模拟世界的一个方向。」**一个世界模型能出画面出声音出动作，不是越界，是它做到了目标** —— 老判据在这里会把规则三（Family 是一等实体）搞坏。&lt;/p&gt;&lt;p&gt;影响：cosmos&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Oasis 3 从排除清单里收回来：收进世界模型卷。**排除记录留着不删**</title>
+      <link>https://xiamimate.com/atlas/changes#oasis-unexcluded-2026-08-14</link>
+      <guid isPermaLink="false">oasis-unexcluded-2026-08-14</guid>
+      <pubDate>Fri, 14 Aug 2026 00:00:00 GMT</pubDate>
+      <category>oasis</category>
+      <description>&lt;p&gt;&lt;b&gt;Oasis 3 从排除清单里收回来&lt;/b&gt; · 收录变更（这一条是我们记错了）&lt;/p&gt;&lt;p&gt;此前：排除，理由「官网定位是为机器人/自动驾驶做可交互物理环境，**用途不是内容创作**」&lt;/p&gt;&lt;p&gt;现在：收进世界模型卷。**排除记录留着不删**&lt;/p&gt;&lt;p&gt;&lt;b&gt;为什么重要：&lt;/b&gt;当时那条理由是**视频卷的边界**，在当时是对的。**变的是地图的范围，不是事实。** 同批还有 HunyuanWorld 与 lingbot-world。&lt;/p&gt;&lt;p&gt;影响：oasis&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>V-JEPA 2 官方两处说法不同：Meta 博客标题写「Introducing the **V-JEPA 2 world model**」，而 HF 上的官方模型卡第一句写「A frontier **video understanding** model」</title>
+      <link>https://xiamimate.com/atlas/changes#vjepa-two-mouths-2026-08-14</link>
+      <guid isPermaLink="false">vjepa-two-mouths-2026-08-14</guid>
+      <pubDate>Fri, 14 Aug 2026 00:00:00 GMT</pubDate>
+      <category>vjepa</category>
+      <description>&lt;p&gt;&lt;b&gt;V-JEPA 2 官方两处说法不同&lt;/b&gt; · 口径不一致&lt;/p&gt;&lt;p&gt;此前：以为「是不是世界模型」看官方一句话就够&lt;/p&gt;&lt;p&gt;现在：Meta 博客标题写「Introducing the **V-JEPA 2 world model**」，而 HF 上的官方模型卡第一句写「A frontier **video understanding** model」&lt;/p&gt;&lt;p&gt;&lt;b&gt;为什么重要：&lt;/b&gt;**同一家对同一个模型有两种定位，我们得选一个并说明选了哪个。** 按博客收（那是对外定位），但读者该知道模型卡不是这么说的 —— 这正是「每格都带原文」的价值。&lt;/p&gt;&lt;p&gt;影响：vjepa&lt;/p&gt;&lt;p&gt;来源：&lt;a href=&quot;https://ai.meta.com/blog/v-jepa-2-world-model-benchmarks/&quot;&gt;Meta 官方博客 · V-JEPA 2 world model&lt;/a&gt;&lt;/p&gt;</description>
     </item>
     <item>
       <title>混元 3D 的版本：改记 3.1；那句话说窄了 —— **开源线停在 2.1，托管线已到 3.1**</title>

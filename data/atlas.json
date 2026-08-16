@@ -28448,21 +28448,43 @@
       "id": "video",
       "zh": "AI 视频制作",
       "en": "Making Video with AI",
-      "intro": "本研究记录一条视频的制作过程中，各项决定当前由谁做出、有哪些可用的控制手段，以及可自行运行的开源替代。",
+      "intro": "按做一条视频的九道工序逐步比：这一步**平台侧做不做得到**、**自持侧有没有还活着的开源项目**，以及什么场景下该走哪边。",
       "decisions": [
         {
           "id": "topic",
           "zh": "选题与钩子",
           "owner": "user",
           "cap": null,
-          "handle": "—"
+          "handle": "—",
+          "fit": "没有工具接这一步，包括四个一站式在内 —— 它们全都把选题留给你。",
+          "scenarios": [
+            {
+              "when": "想让模型替你想选题",
+              "use": "没有现成方案。一站式工具里的「输入主题」是从你的选题开始，不是替你选"
+            }
+          ]
         },
         {
           "id": "shot",
           "zh": "分镜",
           "owner": "platform",
           "cap": "i2v",
-          "handle": "先出图，再图生视频"
+          "handle": "先出图，再图生视频",
+          "fit": "偶尔几条用平台，成批出片自持才划算。",
+          "scenarios": [
+            {
+              "when": "偶尔几条，不想装环境",
+              "use": "上平台图生视频 —— 十家里绝大多数都写进了官方文档"
+            },
+            {
+              "when": "成批出，要压边际成本",
+              "use": "本地跑 Wan2.2，装完之后每条不再花钱"
+            },
+            {
+              "when": "只是要把成片放大",
+              "use": "Real-ESRGAN 单独做这一件事，不用整套流水线"
+            }
+          ]
         },
         {
           "id": "compose",
@@ -28470,21 +28492,58 @@
           "owner": "platform",
           "cap": null,
           "handle": "线稿 / 姿势 / 深度约束",
-          "note": "不是视频能力，靠图像侧的结构信号"
+          "note": "不是视频能力，靠图像侧的结构信号",
+          "fit": "要精确控线稿、姿势、深度，只有开源这条路；但那两根支柱都已停更。",
+          "scenarios": [
+            {
+              "when": "要按线稿 / 姿势 / 深度精确控画面",
+              "use": "ControlNet 系列 —— 用结构信号锁住构图，不靠提示词描述"
+            },
+            {
+              "when": "只要「像这张图的风格」",
+              "use": "IP-Adapter，参考图直接参与生成，不用训练"
+            },
+            {
+              "when": "要固定一套自己的画风",
+              "use": "用 sd-scripts 训一个 LoRA"
+            }
+          ]
         },
         {
           "id": "identity",
           "zh": "角色跨镜头一致",
           "owner": "platform",
           "cap": "charref",
-          "handle": "角色参考 · 多参考 · LoRA"
+          "handle": "角色参考 · 多参考 · LoRA",
+          "fit": "同一个角色跨镜头不变形，平台侧和开源侧都有解，差别在要不要训练。",
+          "scenarios": [
+            {
+              "when": "临时一两个角色",
+              "use": "平台的角色参考功能，传一张脸就行"
+            },
+            {
+              "when": "同一个角色要反复用",
+              "use": "InstantID 或训一个角色 LoRA，稳定性比每次传参考图高"
+            }
+          ]
         },
         {
           "id": "motion",
           "zh": "运动幅度与方向",
           "owner": "platform",
           "cap": "flf",
-          "handle": "首尾帧约束"
+          "handle": "首尾帧约束",
+          "fit": "想精确指定动作幅度和方向，目前只能靠首尾帧兜。",
+          "scenarios": [
+            {
+              "when": "要控制动作幅度",
+              "use": "首尾帧约束 —— 给起点和终点，中间交给模型"
+            },
+            {
+              "when": "要指定物体沿轨迹运动",
+              "use": "MotionCtrl 的物体轨迹，但要手画或从现成视频里提"
+            }
+          ]
         },
         {
           "id": "camera",
@@ -28492,21 +28551,58 @@
           "owner": "platform",
           "cap": "camera",
           "handle": "无可用手段",
-          "note": "10 个核心模型里只有 1 家给了官方说法"
+          "note": "10 个核心模型里只有 1 家给了官方说法",
+          "fit": "这一格整个方向都还没做成，不是选谁的问题。",
+          "scenarios": [
+            {
+              "when": "只要镜头稍微动一下",
+              "use": "接受模型自由发挥，或用首尾帧间接带出位移"
+            },
+            {
+              "when": "要指定推拉摇移",
+              "use": "MotionCtrl 的镜头位姿，代价是套 RealEstate10K 数据格式，而它已停更"
+            }
+          ]
         },
         {
           "id": "pace",
           "zh": "时长与节奏",
           "owner": "partial",
           "cap": null,
-          "handle": "时长可设，节奏靠剪辑"
+          "handle": "时长可设，节奏靠剪辑",
+          "fit": "生成模型都不管节奏，这一步属于剪辑 —— 也正是一站式工具真正的卖点。",
+          "scenarios": [
+            {
+              "when": "要按稿子自动切片配音",
+              "use": "MoneyPrinterTurbo / NarratoAI 这类一站式，它们接管的就是这一段"
+            },
+            {
+              "when": "要自己掌控每一刀",
+              "use": "还是回剪辑软件，没有 AI 方案"
+            }
+          ]
         },
         {
           "id": "sound",
           "zh": "声音",
           "owner": "partial",
           "cap": "audio",
-          "handle": "后期配音：改词不重出视频"
+          "handle": "后期配音：改词不重出视频",
+          "fit": "九步里最容易自己拿下的一步：开源侧成熟且在维护。",
+          "scenarios": [
+            {
+              "when": "要配乐",
+              "use": "ACE-Step，8GB 显存就能跑"
+            },
+            {
+              "when": "要换语言配音",
+              "use": "pyvideotrans，识别 → 翻译 → 合成 → 对齐每一段都能换实现"
+            },
+            {
+              "when": "要让画面里的人对上口型",
+              "use": "LatentSync"
+            }
+          ]
         },
         {
           "id": "repro",
@@ -28514,7 +28610,18 @@
           "owner": "platform",
           "cap": "openweights",
           "handle": "权重与随机种子在本地",
-          "note": "生成结果由权重、提示与参考、随机种子三项共同决定。闭源平台只开放第二项，且模型版本会在后台更新。"
+          "note": "生成结果由权重、提示与参考、随机种子三项共同决定。闭源平台只开放第二项，且模型版本会在后台更新。",
+          "fit": "同样的输入要出同样的结果，只有权重和随机种子都在自己手上时才成立。",
+          "scenarios": [
+            {
+              "when": "要复现三个月前那一条",
+              "use": "本地权重 + 锁定版本 + 固定随机种子"
+            },
+            {
+              "when": "接商单要留存证据",
+              "use": "同上，另外注意许可证是否允许商用"
+            }
+          ]
         }
       ],
       "chapters": [
@@ -28694,9 +28801,18 @@
             {
               "id": "comfyui-core",
               "title": "代码结构",
+              "kind": "架构图",
               "src": "DeepWiki 架构页 · 2026-08-12 索引",
               "verified_at": "2026-08-16",
               "mermaid": "flowchart LR\n  main[\"main.py<br/>入口\"] --> srv[\"执行引擎<br/>只重跑变化的那部分图\"]\n  nodes[\"nodes.py<br/>节点注册\"] --> srv\n  srv --> sd[\"comfy/sd.py<br/>模型装载\"]\n  sd --> base[\"BaseModel<br/>跨架构统一操作层\"]\n  base --> mem[\"显存管理<br/>自动卸载 · 量化\"]\n  base --> arch[\"各家模型架构<br/>Wan · LTX · HunyuanVideo\"]\n  ext[\"自定义节点<br/>扩展与插件系统\"] --> nodes"
+            },
+            {
+              "id": "comfyui-exec",
+              "title": "一次执行经过什么",
+              "kind": "流程图",
+              "mermaid": "graph TD\n  PE[\"PromptExecutor\"] --> OC[\"outputs 缓存<br/>存节点结果\"]\n  PE --> BC[\"objects 缓存<br/>存节点实例\"]\n  PE --> GI[\"get_input_data()<br/>解析连线与常量\"]\n  PE --> IC[\"IsChangedCache<br/>比对 IS_CHANGED 指纹\"]\n  GI --> MN[\"_async_map_node_over_list()<br/>批处理与异步\"]\n  IC -->|\"指纹没变\"| OC\n  MN --> OUT[\"节点输出\"]",
+              "src": "DeepWiki 架构页 · 抓取 2026-08-16",
+              "verified_at": "2026-08-16"
             }
           ],
           "autonomy": {
@@ -28818,9 +28934,18 @@
             {
               "id": "wan22-modules",
               "title": "代码结构",
+              "kind": "架构图",
               "src": "DeepWiki 架构页 · 2026-08 索引",
               "verified_at": "2026-08-16",
               "mermaid": "flowchart LR\n  cfg[\"wan/configs/__init__.py<br/>模型参数与尺寸\"] --> dit\n  subgraph 五条流水线\n    t2v[\"wan/image2video.py<br/>T2V · I2V · TI2V\"]\n    s2v[\"wan/speech2video.py<br/>语音驱动\"]\n    ani[\"wan/animate.py<br/>角色动画\"]\n  end\n  t2v --> dit[\"wan/modules/models/wan_model.py<br/>DiT 主干\"]\n  s2v --> dit\n  ani --> dit\n  dit --> hi[\"高噪专家 ~13.5B\"]\n  dit --> lo[\"低噪专家 ~13.5B\"]\n  hi --> out[\"视频 480P / 720P\"]\n  lo --> out"
+            },
+            {
+              "id": "wan22-moe",
+              "title": "两个专家怎么切",
+              "kind": "流程图",
+              "mermaid": "graph TB\n  T[\"时间步 t\"] --> SNR[\"SNR = alpha_t² / sigma_t²\"]\n  SNR --> TH[\"阈值 t_moe<br/>取 SNR 降到 SNR_min/2 的那一步\"]\n  TH --> R{\"t ≥ t_moe ?\"}\n  R -->|\"是 · 去噪前期\"| HI[\"high_noise_expert<br/>约 13.5B · 管布局与构图\"]\n  R -->|\"否 · 去噪后期\"| LO[\"low_noise_expert<br/>约 13.5B · 管细节\"]\n  HI --> O[\"去噪后的隐变量\"]\n  LO --> O",
+              "src": "DeepWiki 架构页 · 抓取 2026-08-16",
+              "verified_at": "2026-08-16"
             }
           ],
           "autonomy": {
@@ -28927,9 +29052,18 @@
             {
               "id": "controlnet-arch",
               "title": "代码结构",
+              "kind": "架构图",
               "src": "DeepWiki 架构页 · 2025-04-18 索引",
               "verified_at": "2026-08-16",
               "mermaid": "flowchart LR\n  img[\"输入图\"] --> ann\n  subgraph ann[\"标注器 · 把图变成结构信号\"]\n    c[\"Canny 边缘\"]\n    h[\"HED 软边缘\"]\n    m[\"M-LSD 直线\"]\n    o[\"OpenPose 姿势\"]\n    d[\"MiDaS 深度\"]\n    u[\"Uniformer 分割\"]\n  end\n  ann --> sig[\"控制信号\"]\n  sig --> tc[\"可训练副本<br/>14 个接入点\"]\n  tc -->|\"零卷积 1×1<br/>权重偏置初始化为 0\"| unet\n  lock[\"锁定副本<br/>不参与梯度\"] --> unet[\"SD UNet\"]\n  unet --> out[\"输出图\"]"
+            },
+            {
+              "id": "controlnet-flow",
+              "title": "控制信号怎么进模型",
+              "kind": "流程图",
+              "mermaid": "graph LR\n  I[\"输入图\"] --> P[\"预处理器<br/>Annotator\"]\n  P --> C[\"控制信号<br/>边缘 / 深度 / 姿态\"]\n  C --> CN[\"ControlNet\"]\n  TP[\"文本提示词\"] --> SD[\"Stable Diffusion\"]\n  CN -->|\"作为条件注入\"| SD\n  SD --> O[\"生成图\"]",
+              "src": "DeepWiki 架构页 · 抓取 2026-08-16",
+              "verified_at": "2026-08-16"
             }
           ],
           "autonomy": {
@@ -29037,9 +29171,18 @@
             {
               "id": "ipadapter-arch",
               "title": "代码结构",
+              "kind": "架构图",
               "src": "DeepWiki 架构页",
               "verified_at": "2026-08-16",
               "mermaid": "flowchart LR\n  ref[\"参考图\"] --> clip[\"CLIP 图像编码器\"]\n  clip --> proj[\"投影模块<br/>Full 变体走 MLP\"]\n  proj --> ipa[\"解耦交叉注意力<br/>22M 参数\"]\n  txt[\"文本提示\"] --> xattn[\"原有交叉注意力\"]\n  ipa --> unet[\"SD UNet 注意力层\"]\n  xattn --> unet\n  unet --> out[\"输出图\"]\n  note[\"变体：Base 1.5 · Plus 细粒度<br/>XL · Full · FaceID\"] -.-> ipa"
+            },
+            {
+              "id": "ipadapter-flow",
+              "title": "图像提示词走的是另一条路",
+              "kind": "流程图",
+              "mermaid": "flowchart TD\n  TP[\"文本提示词\"] --> TE[\"文本编码器\"]\n  IP[\"图像提示词\"] --> CLIP[\"CLIP 图像编码器\"]\n  CLIP --> IPM[\"图像投影模型\"]\n  IPM --> AP[\"IPAdapterAttnProcessor\"]\n  TE --> TEMB[\"文本嵌入\"]\n  AP --> ATTN[\"被改写的注意力层\"]\n  TEMB --> UNET[\"UNet\"]\n  ATTN --> UNET\n  UNET --> LV[\"隐变量\"]\n  LV --> VAE[\"VAE 解码器\"]\n  VAE --> OUT[\"生成图\"]",
+              "src": "DeepWiki 架构页 · 抓取 2026-08-16",
+              "verified_at": "2026-08-16"
             }
           ],
           "autonomy": {
@@ -29142,9 +29285,18 @@
             {
               "id": "instantid-arch",
               "title": "代码结构",
+              "kind": "架构图",
               "src": "DeepWiki 架构页；antelopev2 权重为非商用",
               "verified_at": "2026-08-16",
               "mermaid": "flowchart LR\n  face[\"一张脸照\"] --> ins[\"InsightFace antelopev2\"]\n  ins --> emb[\"人脸嵌入\"]\n  ins --> kp[\"面部关键点\"]\n  emb --> ipa[\"IP-Adapter 交叉注意力<br/>ip_adapter_scale\"]\n  kp --> idn[\"IdentityNet / ControlNet<br/>controlnet_conditioning_scale\"]\n  ipa --> pipe[\"StableDiffusionXLInstantIDPipeline\"]\n  idn --> pipe\n  txt[\"文本提示<br/>guidance_scale\"] --> pipe\n  pipe --> out[\"输出图 · 零样本免调优\"]"
+            },
+            {
+              "id": "instantid-flow",
+              "title": "一张脸拆成两路输入",
+              "kind": "流程图",
+              "mermaid": "flowchart TD\n  A[\"人脸参考图\"] --> B[\"InsightFace 人脸分析\"]\n  B --> C[\"人脸嵌入\"]\n  B --> D[\"人脸关键点\"]\n  D --> E[\"送进 ControlNet\"]\n  C --> F[\"送进 IP-Adapter\"]\n  E --> G[\"StableDiffusionXLInstantIDPipeline\"]\n  F --> G\n  H[\"文本提示词\"] --> G\n  G --> I[\"生成图\"]",
+              "src": "DeepWiki 架构页 · 抓取 2026-08-16",
+              "verified_at": "2026-08-16"
             }
           ],
           "autonomy": {
@@ -29247,9 +29399,18 @@
             {
               "id": "acestep-arch",
               "title": "代码结构",
+              "kind": "架构图",
               "src": "DeepWiki 架构页",
               "verified_at": "2026-08-16",
               "mermaid": "flowchart LR\n  p[\"文本提示\"] --> t5[\"UMT5EncoderModel\"]\n  l[\"歌词 · 19 语种\"] --> tok[\"VoiceBpeTokenizer\"]\n  t5 --> dit\n  tok --> dit[\"ACEStepTransformer2DModel<br/>28 层 · 3.5B · 潜空间去噪\"]\n  dit -->|\"PingPongFlowScheduler\"| dec[\"MusicDCAE 解码<br/>overlapped_decode\"]\n  dec --> wav[\"音频 · 最长 4 分钟\"]\n  lora[\"LoRA · peft<br/>子任务微调\"] -.-> dit"
+            },
+            {
+              "id": "acestep-offload",
+              "title": "低显存靠的是什么",
+              "kind": "时序图",
+              "mermaid": "sequenceDiagram\n  participant C as infer.py\n  participant P as ACEStepPipeline\n  participant O as CpuOffloader\n  participant G as 显存\n  C->>P: 初始化 cpu_offload=True\n  C->>P: 传入提示词与歌词\n  Note over P,O: 第一段：文本编码\n  P->>O: 进入上下文\n  O->>G: 文本编码器搬进显存\n  P->>G: 算嵌入\n  O->>G: 搬回内存并清空缓存\n  Note over P,O: 第二段：扩散\n  P->>O: 进入上下文\n  O->>G: Transformer 搬进显存\n  P->>G: 迭代去噪\n  O->>G: 搬回内存\n  C->>C: 写出音频",
+              "src": "DeepWiki 架构页 · 抓取 2026-08-16",
+              "verified_at": "2026-08-16"
             }
           ],
           "autonomy": {
@@ -29360,9 +29521,18 @@
             {
               "id": "pyvt-arch",
               "title": "九段流水线",
+              "kind": "流程图",
               "src": "DeepWiki：九段而非四段 —— README 的概述省略了中间五段",
               "verified_at": "2026-08-16",
               "mermaid": "flowchart LR\n  a1[\"prepare\"] --> a2[\"recogn<br/>语音识别\"] --> a3[\"diariz<br/>说话人分离\"] --> a4[\"trans<br/>翻译\"]\n  a4 --> a5[\"dubbing<br/>语音合成\"] --> a6[\"align<br/>对齐\"] --> a7[\"recogn2pass<br/>二次识别\"] --> a8[\"assembling<br/>回封装\"] --> a9[\"task_done\"]\n  base[\"BaseTrans / BaseTTS<br/>换引擎只换实现\"] -.-> a4\n  base -.-> a5"
+            },
+            {
+              "id": "pyvt-provider",
+              "title": "每一段都能换实现",
+              "kind": "流程图",
+              "mermaid": "flowchart LR\n  IN[\"视频 / 音频\"] --> ASR[\"语音识别<br/>Faster-Whisper · Qwen3-ASR\"]\n  ASR --> MT[\"机器翻译<br/>DeepSeek · ChatGPT · Google\"]\n  MT --> TTS[\"语音合成<br/>Edge-TTS · CosyVoice · Azure\"]\n  TTS --> SY[\"音画对齐<br/>FFmpeg · SpeedRate\"]\n  SY --> OUT[\"译制视频\"]\n  AP[\"BaseRecogn\"] -.->|\"抽象基类\"| ASR\n  MP[\"BaseTrans\"] -.->|\"抽象基类\"| MT\n  TP[\"BaseTTS\"] -.->|\"抽象基类\"| TTS",
+              "src": "DeepWiki 架构页 · 抓取 2026-08-16",
+              "verified_at": "2026-08-16"
             }
           ],
           "autonomy": {
@@ -29469,9 +29639,18 @@
             {
               "id": "resrgan-arch",
               "title": "代码结构",
+              "kind": "架构图",
               "src": "DeepWiki 架构页",
               "verified_at": "2026-08-16",
               "mermaid": "flowchart LR\n  img[\"输入图 / 视频帧\"] --> tile[\"分块处理<br/>大图省显存\"]\n  tile --> net\n  subgraph net[\"网络\"]\n    r[\"RRDBNet<br/>通用\"]\n    v[\"SRVGGNetCompact<br/>轻量\"]\n  end\n  net --> up[\"RealESRGANer 推理<br/>2× / 3× / 4×\"]\n  up --> face[\"GFPGAN 人脸增强<br/>可选\"]\n  up --> out[\"输出图\"]\n  face --> out"
+            },
+            {
+              "id": "resrgan-flow",
+              "title": "两条推理路径",
+              "kind": "流程图",
+              "mermaid": "flowchart LR\n  I[\"输入图 / 视频\"] --> PR[\"处理\"]\n  subgraph PR[\"处理\"]\n    PY[\"Python / PyTorch\"] --> RE[\"RealESRGANer 类\"]\n    NC[\"NCNN\"] --> NR[\"NCNN 可执行文件\"]\n    RE --> TI[\"可选：分块\"]\n    RE --> FE[\"可选：人脸增强\"]\n  end\n  PR --> O[\"放大后的输出\"]",
+              "src": "DeepWiki 架构页 · 抓取 2026-08-16",
+              "verified_at": "2026-08-16"
             }
           ],
           "autonomy": {
@@ -29626,7 +29805,25 @@
           "created_at": "2023-12-06",
           "pushed_at": "2025-02-19",
           "stars_per_month": 46,
-          "stale_months": 18
+          "stale_months": 18,
+          "diagrams": [
+            {
+              "id": "motionctrl-arch",
+              "title": "代码结构",
+              "kind": "架构图",
+              "mermaid": "graph TD\n  subgraph \"界面\"\n    App[\"app.py\"] --> PC[\"page_control.py\"]\n  end\n  subgraph \"轨迹准备\"\n    PC --> CU[\"camera_utils.py<br/>镜头位姿\"]\n    PC --> TU[\"traj_utils.py<br/>物体轨迹\"]\n    TU --> FU[\"flow_utils.py<br/>光流\"]\n  end\n  subgraph \"推理\"\n    CU --> MC[\"motionctrl_inference.py\"]\n    TU --> MC\n  end\n  MC --> VGM[\"底座视频模型<br/>SVD · VideoCrafter · AnimateDiff\"]\n  VGM --> OUT[\"生成视频\"]",
+              "src": "DeepWiki 架构页 · 抓取 2026-08-16",
+              "verified_at": "2026-08-16"
+            },
+            {
+              "id": "motionctrl-flow",
+              "title": "镜头与物体分开下指令",
+              "kind": "流程图",
+              "mermaid": "flowchart TD\n  MC[\"MotionCtrl 核心\"] --> D{\"condtype\"}\n  TP[\"文本提示词\"] --> MC\n  CP[\"镜头位姿<br/>RealEstate10K 格式\"] --> CMC[\"镜头运动控制\"]\n  OT[\"物体轨迹<br/>HandyTrajDrawer 手画\"] --> OMC[\"物体运动控制\"]\n  PS[\"ParticleSfM\"] -->|\"从现成视频里提\"| OT\n  CMC --> MC\n  OMC --> MC\n  D -->|\"camera_motion\"| E[\"只控镜头\"]\n  D -->|\"object_motion\"| F[\"只控物体\"]\n  D -->|\"both\"| G[\"两个都控\"]\n  E --> OUT[\"生成视频\"]\n  F --> OUT\n  G --> OUT",
+              "src": "DeepWiki 架构页 · 抓取 2026-08-16",
+              "verified_at": "2026-08-16"
+            }
+          ]
         },
         {
           "id": "latentsync",
@@ -29710,7 +29907,25 @@
           "created_at": "2024-12-11",
           "pushed_at": "2025-06-20",
           "stars_per_month": 298,
-          "stale_months": 14
+          "stale_months": 14,
+          "diagrams": [
+            {
+              "id": "latentsync-arch",
+              "title": "代码结构",
+              "kind": "架构图",
+              "mermaid": "graph TD\n  subgraph \"gradio_app.py\"\n    GB[\"gr.Blocks()\"] --> PV[\"process_video()\"]\n    PV --> CA[\"create_args()\"]\n  end\n  PV --> MI[\"scripts/inference.py<br/>main()\"]\n  MI --> LP[\"LipsyncPipeline\"]\n  subgraph \"核心流水线\"\n    LP --> U[\"UNet3DConditionModel\"]\n    LP --> V[\"AutoencoderKL\"]\n    LP --> A[\"Audio2Feature\"]\n  end",
+              "src": "DeepWiki 架构页 · 抓取 2026-08-16",
+              "verified_at": "2026-08-16"
+            },
+            {
+              "id": "latentsync-flow",
+              "title": "音频与画面在哪一步汇合",
+              "kind": "流程图",
+              "mermaid": "flowchart TB\n  A[\"输入音频\"] --> W[\"Whisper 编码器\"]\n  V[\"输入视频\"] --> I[\"ImageProcessor\"]\n  W -->|\"音频嵌入\"| U[\"UNet3DConditionModel\"]\n  I -->|\"参考帧\"| U\n  I -->|\"遮住嘴部的帧\"| U\n  U -->|\"去噪后的隐变量\"| D[\"AutoencoderKL 解码器\"]\n  D -->|\"生成帧\"| O[\"口型对上的视频\"]",
+              "src": "DeepWiki 架构页 · 抓取 2026-08-16",
+              "verified_at": "2026-08-16"
+            }
+          ]
         },
         {
           "id": "sd-scripts",
@@ -29794,7 +30009,25 @@
           "created_at": "2022-12-18",
           "pushed_at": "2026-08-02",
           "stars_per_month": 164,
-          "stale_months": 0
+          "stale_months": 0,
+          "diagrams": [
+            {
+              "id": "sdscripts-arch",
+              "title": "代码结构",
+              "kind": "架构图",
+              "mermaid": "graph TB\n  subgraph \"底层\"\n    TU[\"train_util.py<br/>历史接口转发\"]\n    MIO[\"model_io.py<br/>模型读写 · 哈希 · 元数据\"]\n    CFG[\"config_util.py<br/>数据集配置蓝图\"]\n    AS[\"accelerator_setup.py<br/>硬件与精度初始化\"]\n  end\n  subgraph \"训练逻辑层\"\n    DS[\"dataset.py<br/>分桶\"]\n    LS[\"loss.py<br/>噪声调度与损失\"]\n    OPT[\"optimizer.py<br/>优化器与学习率\"]\n    CKP[\"checkpoint_io.py<br/>存档轮换与命名\"]\n  end\n  subgraph \"结构层\"\n    SB[\"strategy_base.py<br/>策略接口\"]\n  end\n  TU --> MIO\n  TU --> AS\n  TU --> DS\n  TU --> LS",
+              "src": "DeepWiki 架构页 · 抓取 2026-08-16",
+              "verified_at": "2026-08-16"
+            },
+            {
+              "id": "sdscripts-lora",
+              "title": "LoRA 到底把什么挂上去了",
+              "kind": "时序图",
+              "mermaid": "sequenceDiagram\n  participant T as train_network.py\n  participant N as LoRANetwork\n  participant M as LoRAModule\n  participant O as 原来的 nn.Linear\n  T->>N: create_network()\n  N->>M: 为每个目标层建 lora_down / lora_up\n  N->>M: apply_to()\n  M->>O: 替换掉原来的 forward\n  Note over O,M: 输出 = 原层(x) + up(down(x)) × scale",
+              "src": "DeepWiki 架构页 · 抓取 2026-08-16",
+              "verified_at": "2026-08-16"
+            }
+          ]
         },
         {
           "id": "ollama",
@@ -29876,7 +30109,25 @@
           "created_at": "2023-06-26",
           "pushed_at": "2026-08-15",
           "stars_per_month": 4741,
-          "stale_months": 0
+          "stale_months": 0,
+          "diagrams": [
+            {
+              "id": "ollama-arch",
+              "title": "一个请求怎么找到模型",
+              "kind": "架构图",
+              "mermaid": "graph TD\n  RQ[\"server.GenerateHandler\"] --> SR[\"server.scheduleRunner\"]\n  SR --> GM[\"server.GetModel\"]\n  GM --> GR[\"server.Scheduler.getRunner\"]\n  subgraph \"server.Scheduler\"\n    GR --> CK[\"查已装载的 runner\"]\n    CK -->|\"没装载\"| LD[\"llm.NewLlamaServer\"]\n  end\n  LD --> RR[\"server.runnerRef\"]\n  RR --> EX[\"llm.LlamaServer.Completion\"]",
+              "src": "DeepWiki 架构页 · 抓取 2026-08-16",
+              "verified_at": "2026-08-16"
+            },
+            {
+              "id": "ollama-flow",
+              "title": "ollama run 之后发生了什么",
+              "kind": "时序图",
+              "mermaid": "sequenceDiagram\n  participant U as 用户\n  participant C as cmd/cmd.go\n  participant R as server/routes.go\n  participant S as Scheduler\n  participant L as llm.LlamaServer\n  U->>C: ollama run 某模型 \"问题\"\n  C->>R: POST /api/generate\n  R->>R: GetModel()\n  R->>S: scheduleRunner()\n  S->>S: 查已装载的 runner\n  Note over S: 没装载就先起一个 llamaServer\n  S-->>R: runnerRef\n  R->>L: Completion()\n  loop 流式返回\n    L-->>R: token\n    R-->>C: JSON 分片\n    C-->>U: 逐字显示\n  end",
+              "src": "DeepWiki 架构页 · 抓取 2026-08-16",
+              "verified_at": "2026-08-16"
+            }
+          ]
         },
         {
           "id": "moneyprinter",
@@ -29973,7 +30224,25 @@
           "created_at": "2024-03-11",
           "pushed_at": "2026-08-13",
           "stars_per_month": 3567,
-          "stale_months": 0
+          "stale_months": 0,
+          "diagrams": [
+            {
+              "id": "moneyprinter-arch",
+              "title": "代码结构",
+              "kind": "架构图",
+              "mermaid": "graph TB\n  subgraph \"接口层 app/asgi.py\"\n    FA[\"FastAPI 实例\"] --> RT[\"root_api_router<br/>app/router.py\"]\n    RT --> VC[\"video.router<br/>controllers/v1/video.py\"]\n    RT --> LC[\"llm.router<br/>controllers/v1/llm.py\"]\n  end\n  subgraph \"任务管理 app/controllers/manager/\"\n    TM[\"task_manager<br/>内存版 或 Redis 版\"]\n    ST[\"state<br/>app/services/state.py\"]\n  end\n  subgraph \"核心服务 app/services/\"\n    TO[\"tm.start<br/>task.py\"]\n    LL[\"llm.generate_script<br/>llm.py\"]\n  end\n  VC --> TM\n  VC --> ST\n  LC --> LL\n  TM --> TO",
+              "src": "DeepWiki 架构页 · 抓取 2026-08-16",
+              "verified_at": "2026-08-16"
+            },
+            {
+              "id": "moneyprinter-flow",
+              "title": "一站式的五段流水线",
+              "kind": "流程图",
+              "mermaid": "flowchart TD\n  S[\"打开网页\"] --> SU[\"填视频主题\"]\n  SU --> SE[\"配置 VideoParams\"]\n  SE --> G[\"点生成\"]\n  subgraph \"tm.start(params)\"\n    G --> S1[\"llm.generate_script()<br/>写脚本\"]\n    S1 --> S2[\"llm.generate_terms()<br/>提搜索词\"]\n    S2 --> S3[\"MaterialService.search()<br/>搜素材\"]\n    S3 --> S4[\"voice.tts()<br/>配音\"]\n    S4 --> S5[\"VideoProcessor.combine()<br/>合成\"]\n  end\n  S5 --> R[\"下载成片\"]",
+              "src": "DeepWiki 架构页 · 抓取 2026-08-16",
+              "verified_at": "2026-08-16"
+            }
+          ]
         },
         {
           "id": "narratoai",
@@ -30065,7 +30334,25 @@
           "created_at": "2024-08-12",
           "pushed_at": "2026-07-23",
           "stars_per_month": 445,
-          "stale_months": 1
+          "stale_months": 1,
+          "diagrams": [
+            {
+              "id": "narratoai-arch",
+              "title": "画面是怎么被读懂的",
+              "kind": "架构图",
+              "mermaid": "flowchart LR\n  subgraph \"抽帧\"\n    VP[\"video_processor.py\"] -->|\"抽关键帧\"| ST[\"storage/temp/\"]\n    ST -->|\"按批\"| GT[\"get_batch_timestamps()<br/>webui/tools/base.py\"]\n  end\n  subgraph \"时间戳解析\"\n    GT -->|\"解析文件名\"| ET[\"extract_time()\"]\n    ET --> FT[\"format_timestamp()<br/>HH:MM:SS,mmm\"]\n  end\n  subgraph \"交给大模型\"\n    FT -->|\"作为上下文\"| VA[\"VisionAnalyzer\"]\n    VA -->|\"解说词\"| SC[\"脚本 JSON\"]\n  end",
+              "src": "DeepWiki 架构页 · 抓取 2026-08-16",
+              "verified_at": "2026-08-16"
+            },
+            {
+              "id": "narratoai-flow",
+              "title": "解说视频的六段",
+              "kind": "流程图",
+              "mermaid": "flowchart LR\n  I[\"视频 + 主题\"] --> V[\"VisionAnalyzer<br/>读关键帧\"]\n  V --> S[\"大模型写解说词\"]\n  S --> T[\"TTS 逐段配音\"]\n  T --> C[\"clip_video<br/>统一切片\"]\n  C --> M[\"merger_video<br/>拼接\"]\n  M --> R[\"generate_video_v3<br/>最终渲染\"]\n  R --> O[\"成片 MP4\"]",
+              "src": "DeepWiki 架构页 · 抓取 2026-08-16",
+              "verified_at": "2026-08-16"
+            }
+          ]
         },
         {
           "id": "huobao",
@@ -30150,7 +30437,25 @@
           "created_at": "2026-01-05",
           "pushed_at": "2026-08-14",
           "stars_per_month": 1909,
-          "stale_months": 0
+          "stale_months": 0,
+          "diagrams": [
+            {
+              "id": "huobao-arch",
+              "title": "镜像是怎么搭出来的",
+              "kind": "工程图",
+              "mermaid": "graph LR\n  subgraph \"第一段 前端构建\"\n    S1A[\"node:20-slim\"] --> S1B[\"npm run generate\"]\n    S1B --> S1C[\".output/public\"]\n  end\n  subgraph \"第二段 后端构建\"\n    S2A[\"node:20-slim\"] --> S2B[\"装 python3 / make / g++\"]\n    S2B --> S2C[\"npm ci --omit=dev\"]\n    S2C --> S2D[\"node_modules<br/>sqlite 原生模块已编译\"]\n  end\n  subgraph \"第三段 运行镜像\"\n    S3A[\"node:20-slim\"] --> S3B[\"装 ffmpeg 与 tsx\"]\n    S3B --> S3C[\"拷前端产物\"]\n    S3C --> S3D[\"拷后端源码\"]\n    S3D --> S3E[\"入口 tsx backend/src/index.ts\"]\n  end\n  S1C -->|\"COPY 到 /frontend/dist\"| S3C\n  S2D -->|\"COPY 到 /backend/node_modules\"| S3D",
+              "src": "DeepWiki 架构页 · 抓取 2026-08-16",
+              "verified_at": "2026-08-16"
+            },
+            {
+              "id": "huobao-flow",
+              "title": "一个分镜从配音到出片",
+              "kind": "时序图",
+              "mermaid": "sequenceDiagram\n  participant A as 分镜接口\n  participant T as TTS 服务\n  participant D as SQLite · Drizzle\n  participant F as FFmpeg 合成\n  participant S as 本地存储\n  A->>D: 取分镜的台词与音色\n  A->>T: generateTTS(文本, 音色)\n  T->>S: 存 .mp3\n  T-->>A: 音频地址\n  A->>D: 回写音频地址\n  A->>F: composeStoryboard(id)\n  F->>S: 由台词生成 .srt\n  F->>S: 跑 FFmpeg 合成 画面 + 配音 + 字幕\n  F->>S: 存 composed.mp4\n  F-->>A: 成片地址\n  A->>D: 状态改成 completed",
+              "src": "DeepWiki 架构页 · 抓取 2026-08-16",
+              "verified_at": "2026-08-16"
+            }
+          ]
         },
         {
           "id": "toonflow",
@@ -30247,7 +30552,25 @@
           "created_at": "2026-01-29",
           "pushed_at": "2026-07-28",
           "stars_per_month": 2134,
-          "stale_months": 1
+          "stale_months": 1,
+          "diagrams": [
+            {
+              "id": "toonflow-arch",
+              "title": "三层 Agent 分工",
+              "kind": "架构图",
+              "mermaid": "graph TD\n  U[\"用户消息\"] --> DE[\"决策层 decisionAI\"]\n  subgraph \"执行层 子 Agent\"\n    DE -->|\"派活\"| E1[\"编剧<br/>骨架 / 改编\"]\n    DE -->|\"派活\"| E2[\"导演<br/>分镜 / 素材\"]\n  end\n  E1 --> SU[\"监督层 Supervision Agent\"]\n  E2 --> SU\n  SU -->|\"打回重做\"| E1\n  SU -->|\"通过\"| ME[\"记忆系统<br/>src/utils/agent/memory.ts\"]\n  ME --> SO[\"Socket.IO 回传前端\"]",
+              "src": "DeepWiki 架构页 · 抓取 2026-08-16",
+              "verified_at": "2026-08-16"
+            },
+            {
+              "id": "toonflow-flow",
+              "title": "点一次生成之后",
+              "kind": "时序图",
+              "mermaid": "sequenceDiagram\n  participant C as 前端\n  participant R as router.ts\n  participant H as generateVideo.ts\n  participant D as SQLite o_video\n  participant A as u.Ai.Video\n  C->>R: POST /production/workbench/generateVideo\n  R->>H: 转发\n  H->>H: validateFields(req.body)\n  H->>D: INSERT 一条 state=生成中\n  H-->>C: 200 返回 videoId\n  Note over H,A: 之后是异步生成\n  H->>A: run(提示词, 图片)\n  A-->>H: 视频结果\n  H->>D: UPDATE state=生成成功",
+              "src": "DeepWiki 架构页 · 抓取 2026-08-16",
+              "verified_at": "2026-08-16"
+            }
+          ]
         }
       ]
     }

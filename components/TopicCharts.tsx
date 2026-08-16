@@ -1,4 +1,5 @@
-import { forkCoverage, topicAppName, type Decision, type TopicProject } from "@/lib/atlas";
+import { capBreakdown, forkCoverage, topicAppName, type Decision, type TopicProject } from "@/lib/atlas";
+import { Rich } from "./Fact";
 
 /**
  * 专项页的图表。**全部内联 SVG，颜色走令牌，深浅外观自动跟随。**
@@ -211,6 +212,20 @@ const ENGINE = {
 export function AllInOneChart({ projects, decisions }: { projects: TopicProject[]; decisions: Decision[] }) {
   return (
     <div className="border border-rule rounded-lg divide-y divide-rule">
+      {/*
+        * 列头是这张图的必需品，不是修饰。
+        * 上一版每一格只有 `title` 属性 —— **悬停才出现，手机上根本不存在**，
+        * 于是负责人看到的就是「几根条，不知道分别表示什么」。
+        * 九列对所有行都是同一批步骤，所以列头只画一次。
+        */}
+      <div className="px-4 pt-3 pb-1.5 flex gap-1">
+        {decisions.map((d, i) => (
+          <span key={d.id} className="flex-1 min-w-0 text-[9.5px] text-muted leading-[1.15] text-center">
+            <b className="block tnum text-hatch">{i + 1}</b>
+            <span className="block truncate" title={d.zh}>{d.zh}</span>
+          </span>
+        ))}
+      </div>
       {projects.map((p) => (
         <div key={p.id} className="px-4 py-3">
           <div className="flex items-baseline gap-2.5 flex-wrap mb-2">
@@ -445,4 +460,75 @@ export function ProjectCharts({ id }: { id: string }) {
   if (id === "controlnet") return <ControlNetCharts />;
   if (id === "ace-step") return <AceCharts />;
   return null;
+}
+
+/* ══════════ 主线：做一条视频的九步 ══════════ */
+
+/**
+ * 九步阶梯：这一页的主视觉。
+ *
+ * 它取代了上一版的三色九格条。那根条按「这一步归你 / 一半 / 归平台」上色，
+ * 于是整页第一眼就在讲**归属**，而负责人 2026-08-16 说得很直接：
+ * 「自持 vs 官网各有优点，主要是物美价廉四个字，而且看适用场景而不是简单区分。」
+ *
+ * 所以这里只画**顺序**：做一条视频要过的九道工序，一道接一道。
+ * 颜色不表态，编号才是信息 —— 结构是信息，不是装饰。
+ */
+export function StepLadder({ decisions }: { decisions: Decision[] }) {
+  return (
+    <ol className="grid grid-cols-3 sm:grid-cols-9 gap-1.5 items-stretch">
+      {decisions.map((d, i) => (
+        <li key={d.id} className="h-full">
+          <a href={`#step-${d.id}`}
+            className="flex h-full flex-col border border-rule rounded-md px-1.5 py-2 hover:border-yes hover:bg-card">
+            <b className="block text-[11px] tnum text-hatch leading-none mb-1.5">{String(i + 1).padStart(2, "0")}</b>
+            <span className="block text-[11px] text-ink leading-tight">{d.zh}</span>
+          </a>
+        </li>
+      ))}
+    </ol>
+  );
+}
+
+/**
+ * 一步的**能力拆解 · 平台侧**：十家逐一列出，各自带官方原文。
+ *
+ * 这一段是专项页的重心。上一版这里是一根聚合条（「9 家写进官方文档」），
+ * 负责人连否两次 ——「不要把中心放在自持、平台的对比上」
+ * 「你就把每一步有对应能力的项目、平台做详细拆解就好」。
+ * **一个统计数字回答不了「这一步怎么做」，只有逐家的原文能。**
+ *
+ * ⬜ 官方没说的**照样列**：它不是缺口，是一条查过的事实。
+ */
+const ST = {
+  yes: { mark: "●", cls: "text-yes", zh: "官方写了" },
+  no: { mark: "✕", cls: "text-no", zh: "官方说做不到" },
+  unknown: { mark: "○", cls: "text-hatch", zh: "官方没说" },
+} as const;
+
+export function PlatformBreakdown({ cap }: { cap: string }) {
+  const rows = capBreakdown(cap);
+  return (
+    <div className="border border-rule rounded-lg divide-y divide-rule">
+      {rows.map((r) => {
+        const st = ST[r.state as keyof typeof ST] ?? ST.unknown;
+        return (
+          <div key={r.id} className="px-3.5 py-2.5 grid grid-cols-[14px_minmax(96px,132px)_1fr] gap-3 items-baseline">
+            <span className={`text-[12px] leading-none ${st.cls}`} aria-label={st.zh}>{st.mark}</span>
+            <b className="text-[12.5px]">{r.zh}</b>
+            <span className="text-[12px] text-muted leading-relaxed min-w-0">
+              {r.note ? <Rich text={r.note} /> : <i className="text-hatch not-italic">{st.zh}</i>}
+            </span>
+          </div>
+        );
+      })}
+      <div className="px-3.5 py-2 flex gap-4 text-[11px] text-muted">
+        {Object.values(ST).map((x) => (
+          <span key={x.zh} className="flex items-center gap-1.5">
+            <i className={`not-italic ${x.cls}`}>{x.mark}</i>{x.zh}
+          </span>
+        ))}
+      </div>
+    </div>
+  );
 }

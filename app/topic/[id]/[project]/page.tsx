@@ -93,15 +93,28 @@ function LayerBadges({ layers }: { layers: readonly string[] }) {
   );
 }
 
-/** 六节固定，目录与小节共用这份清单 —— 各写一份迟早漂开。 */
+/**
+ * 六节固定，目录与小节共用这份清单 —— 各写一份迟早漂开。
+ *
+ * **图排在最前面。** 这一页存在的理由是把一个开源项目讲清楚，
+ * 而讲清楚一个项目最快的方式是先看它长什么样、数据怎么走，不是先读三段字。
+ */
 const SECS = [
+  { id: "read", zh: "读懂层" },
   { id: "decisions", zh: "它管哪几个决定" },
   { id: "autonomy", zh: "自持能力" },
-  { id: "read", zh: "读懂层" },
   { id: "hands", zh: "动手层" },
   { id: "judge", zh: "判断" },
   { id: "siblings", zh: "相关项目" },
 ] as const;
+
+/** 图种的配色。四类各自回答一类问题，颜色只用来区分，不表态好坏。 */
+const KIND_CLS: Record<string, string> = {
+  架构图: "border-yes text-yes-ink",
+  流程图: "border-rule text-ink",
+  时序图: "border-chip-warm-ink text-chip-warm-ink",
+  工程图: "border-rule text-muted",
+};
 
 function Toc({ ids }: { ids: string[] }) {
   return (
@@ -185,6 +198,30 @@ export default async function ProjectPage({ params }: { params: Promise<{ id: st
         </div>
       </header>
 
+      {(p.diagrams?.length || p.arch) && (
+        <Section id="read" title="读懂层">
+          {p.diagrams && p.diagrams.length > 1 && (
+            <p className="text-[11.5px] text-muted mb-4">
+              {p.diagrams.length} 张 · {[...new Set(p.diagrams.map((d) => d.kind))].join(" / ")}
+            </p>
+          )}
+          {p.diagrams?.map((d) => svgs[d.id] && (
+            <figure key={d.id} className="mb-6">
+              <figcaption className="flex items-center gap-2 mb-2">
+                <span className={`border rounded-full px-2 py-0.5 text-[10.5px] shrink-0 ${KIND_CLS[d.kind] ?? "border-rule text-muted"}`}>
+                  {d.kind}
+                </span>
+                <b className="text-[13.5px]">{d.title}</b>
+              </figcaption>
+              <div className="border border-rule rounded-lg p-3 overflow-x-auto [&_svg]:max-w-full [&_svg]:h-auto"
+                dangerouslySetInnerHTML={{ __html: svgs[d.id] }} />
+              <p className="text-[10.5px] text-muted mt-1 border-l-2 border-rule pl-2">{d.src} · 核验 {d.verified_at}</p>
+            </figure>
+          ))}
+          {p.arch && <p className="text-[13px] text-muted leading-relaxed max-w-[62ch]">{p.arch}</p>}
+        </Section>
+      )}
+
       <Section id="decisions" title="它管哪几个决定">
         <div className="border border-rule rounded-lg divide-y divide-rule">
           {mine.map((d) => {
@@ -214,20 +251,6 @@ export default async function ProjectPage({ params }: { params: Promise<{ id: st
       <Section id="autonomy" title="自持能力">
         <AutonomyBox p={p} />
       </Section>
-
-      {(p.diagrams?.length || p.arch) && (
-        <Section id="read" title="读懂层">
-          {p.arch && <p className="text-[13px] text-muted leading-relaxed mb-4 max-w-[62ch]">{p.arch}</p>}
-          {p.diagrams?.map((d) => svgs[d.id] && (
-            <figure key={d.id} className="mb-5">
-              <figcaption className="text-[11px] tracking-wider text-muted font-bold mb-1.5">{d.title}</figcaption>
-              <div className="border border-rule rounded-lg p-3 overflow-x-auto [&_svg]:max-w-full [&_svg]:h-auto"
-                dangerouslySetInnerHTML={{ __html: svgs[d.id] }} />
-              <p className="text-[10.5px] text-muted mt-1 border-l-2 border-rule pl-2">{d.src} · 核验 {d.verified_at}</p>
-            </figure>
-          ))}
-        </Section>
-      )}
 
       {p.hands ? (
         <Section id="hands" title="动手层">

@@ -3,76 +3,54 @@
 import { useState } from "react";
 import Link from "next/link";
 import { Rich } from "./Fact";
-import { forkCoverage, topicAppName, type Decision, type Topic, type TopicProject } from "@/lib/atlas";
+import { topicAppName, type Decision, type Topic, type TopicProject } from "@/lib/atlas";
 import { capHref, topicProjectHref } from "@/lib/slug";
-import { ActivityChart, AllInOneChart, CoverageChart, HardwareChart, LicenseChart, MatrixChart, ProjectCharts, ProjectDiagrams } from "./TopicCharts";
+import {
+  ActivityChart, AllInOneChart, CoverageChart, HardwareChart, LicenseChart,
+  MatrixChart, PlatformBreakdown, StepLadder,
+} from "./TopicCharts";
 
 /**
  * 专项页的交互层。
  *
- * ## 为什么要重做
+ * ## 主线：做一条视频的九步
  *
- * 上一版把九个决定、九个片型、八个项目**同时铺开**，负责人一句话说穿：
- * 「内容太多、布局太挤，第一眼没有看下去的欲望。」
+ * 这一页被否过三次，第三次说到了根子上（负责人 2026-08-16）：
  *
- * 根因不是文案长，是**把所有信息摆给所有人**：八张项目卡里，
- * 对任何一个具体读者有用的最多三张 —— 剩下五张是噪音，而噪音没有层次。
+ * > 「感觉乱乱的，就是没有把握住专项研究的主线。现在像我说的，
+ * > 按做视频的几个步骤，分别对比项目下自持、平台的适应性。」
  *
- * 所以改成**按选择逐层展开**：先看一个事实 → 选片型 → 只出这个片型的命门决定
- * → 每个决定只挂对应的项目。同屏信息量降到三分之一，层次自己就出来了。
+ * 前两版的骨架是**「这一步归谁」**（归你 / 一半 / 归平台），首屏就是一根三色条。
+ * 那个分法本身没什么用 ——
  *
- * ## 一屏一件事
+ * > 「自持 vs 官网各有优点，主要是物美价廉四个字，
+ * > 而且看适用场景而不是简单区分自持、平台。」
  *
- * 每段之间留足留白。上一版各段之间只有 `mt-9`，九段挤在两屏里 ——
- * **留白不是装饰，它是「这里换了个话题」的唯一信号。**
+ * 所以现在：**顺序是主线，两侧对比是内容，适用场景是结论**。
+ * 九个决定本来就是做视频的九道工序，以前只是没按这个顺序摆。
  *
- * ## 不做钩子
+ * ## 排版的逻辑性来自「同一件事只讲一遍」
  *
- * 中间稿试过两种引子：「不满意，只能重摇。」和「其中 6 个不归你」。
- * 两次都被否，第二次说得最清楚：
- * **「不要做这种挑衅。我不需要这种钩子来吸引人看下去，
- * 能被这种钩子勾住的也不是我的用户。」**
+ * 上一版把覆盖度、许可证、活跃度、硬件做成四张并列图表摊在中段 ——
+ * 那是**项目集合的属性**，不是工序。读者得自己在脑子里按步骤重拼一遍，
+ * 这就是「排版不够有逻辑性」的来源。现在它们降为附录，
+ * 每一步需要的那两个数直接长在那一步里。
  *
- * 所以这一页就是一份说明文档：标题是正式名词，导语说清这一页有什么，
- * 数据摆到位，**不替读者下结论、不制造反差**。
- * 九格条是数据可视化，不是修辞 —— 保留；它下面那句「其中 N 个不归你」是修辞，删掉。
+ * ## 可点与不可点必须一眼分得出
+ *
+ * > 「跳转链接有的可点有的不可点很奇怪。」
+ *
+ * 定死一条规矩：**可点的一律有 `→`，并且 hover 变边框色；没有 `→` 的一律不可点。**
+ * 图表本身永远不可点 —— 要跳转就在图下面放一条明写的链接。
  */
-const OWNER = {
-  user: { zh: "归你", cls: "text-yes-ink" },
-  partial: { zh: "一半", cls: "text-chip-warm-ink" },
-  platform: { zh: "归平台", cls: "text-no" },
-} as const;
 
-/** 九格条：整页的记号。大号当主视觉，小号当片型卡的缩略。 */
-function Strip({ decisions, size = "lg", only }: { decisions: Decision[]; size?: "lg" | "sm"; only?: string[] }) {
-  const h = size === "lg" ? "h-16 sm:h-24" : "h-2";
-  return (
-    <div className={`flex gap-1 ${size === "lg" ? "gap-1.5" : ""}`}>
-      {decisions.map((d) => {
-        const on = !only || only.includes(d.id);
-        const bg = d.owner === "user" ? "bg-yes" : d.owner === "partial" ? "bg-chip-warm-ink" : "bg-no";
-        return <span key={d.id} className={`flex-1 rounded-sm ${h} ${bg} ${on ? "opacity-90" : "opacity-15"}`} />;
-      })}
-    </div>
-  );
-}
-
-function Cov({ cap }: { cap: string }) {
-  const c = forkCoverage(cap);
-  const w = (n: number) => `${(n / c.total) * 100}%`;
-  return (
-    <a href={capHref(cap)} className="block group">
-      <span className="flex h-2.5 border border-rule group-hover:border-yes">
-        <i style={{ width: w(c.yes) }} className="bg-yes" />
-        <i style={{ width: w(c.no) }} className="bg-no" />
-        <i style={{ width: w(c.unknown) }} className="hatch" />
-      </span>
-      <span className="text-[11px] text-muted tnum mt-1 block">
-        {c.yes}/{c.total} 家给了官方说法
-        {c.no > 0 && <> · <b className="text-no">{c.no} 家明确拒绝</b></>}
-      </span>
-    </a>
-  );
+/** 可点的东西只有这一种长相。加 `→`、hover 变色，此外一律不可点。 */
+function Go({ href, children, className = "" }: { href: string; children: React.ReactNode; className?: string }) {
+  const cls = `inline-flex items-center gap-1.5 hover:text-yes-ink ${className}`;
+  const inner = <>{children}<span className="text-hatch shrink-0">→</span></>;
+  return href.startsWith("http")
+    ? <a href={href} target="_blank" rel="noopener noreferrer" className={cls}>{inner}</a>
+    : <Link href={href} className={cls}>{inner}</Link>;
 }
 
 const LIC = {
@@ -83,47 +61,65 @@ const LIC = {
 
 /**
  * 专项页里的项目 = **网上的一个节点**，点进去是它自己的解析页。
- *
- * 上一版是折叠卡，细节点开就地展开 —— 负责人否掉：
- * 「开源项目的拆解跟我想象中不太一样」。诊断是**我把重心做成了索引**：
- * 那张卡回答「这几个里选哪个」，而重心是「它怎么工作、我能改哪里」，
- * 那份东西塞不进一张卡。现在卡只做导航，内容全在项目页。
+ * 卡只做导航，内容全在项目页 —— 那份东西塞不进一张卡。
  */
 function ProjectLink({ p, topic }: { p: TopicProject; topic: string }) {
-  const a = p.autonomy;
+  const stale = (p.stale_months ?? 0) >= 12;
   return (
     <Link href={topicProjectHref(topic, p.id)}
-      className="border border-rule rounded-lg px-4 py-3 flex items-center gap-3 flex-wrap hover:border-yes">
-      <b className="text-[14.5px]">{p.zh}</b>
+      className="border border-rule rounded-lg px-3.5 py-2.5 flex items-center gap-2.5 flex-wrap hover:border-yes">
+      <b className="text-[14px]">{p.zh}</b>
       <span className={`text-[11px] border rounded-full px-2 ${LIC[p.license_class].cls}`}>
         {LIC[p.license_class].zh}
       </span>
-      {a?.weights === "local" && (
-        <span className="text-[11px] border border-rule rounded-full px-2 text-muted">权重可下载</span>
+      {stale && (
+        <span className="text-[11px] border border-no rounded-full px-2 text-no">停更 {p.stale_months} 个月</span>
       )}
-      {p.hands && <span className="text-[11px] border border-rule rounded-full px-2 text-muted">含动手层</span>}
-      <span className="text-[11px] text-muted tnum ml-auto">★ {(p.stars / 1000).toFixed(1)}k</span>
+      <span className="text-[11px] text-muted tnum ml-auto">{p.diagrams?.length ?? 0} 张图</span>
       <span className="text-hatch">→</span>
     </Link>
   );
 }
 
 /**
- * 左侧目录。**目录项与小节从同一份清单渲染**，标题只写一处 ——
- * 各写一份迟早会漂开，而漂开的症状是「点了跳错地方」，没人会报错。
- *
- * 小屏不显示：200px 的固定栏在手机上会把正文挤成一条。
- * 目录本身不做高亮跟随 —— 那要监听滚动，收益不抵一个常驻的 observer。
+ * 开源侧拆解里的一行。**和上面的项目卡不是同一件东西**：
+ * 卡是导航（点进去看那个项目），行是拆解（它靠什么做到这一步、门槛多少）。
+ * `control` 正是「它怎么做到的」这一栏 —— 项目页里那份长解析的一句话摘要。
+ */
+function ProjectRow({ p, topic }: { p: TopicProject; topic: string }) {
+  const stale = (p.stale_months ?? 0) >= 12;
+  return (
+    <div className="px-3.5 py-3">
+      <div className="flex items-baseline gap-2 flex-wrap mb-1">
+        <b className="text-[13px]">{p.zh}</b>
+        <span className={`text-[10.5px] border rounded-full px-1.5 ${LIC[p.license_class].cls}`}>
+          {LIC[p.license_class].zh}
+        </span>
+        {stale && (
+          <span className="text-[10.5px] border border-no rounded-full px-1.5 text-no">停更 {p.stale_months} 个月</span>
+        )}
+        <span className="ml-auto text-[11.5px]">
+          <Go href={topicProjectHref(topic, p.id)} className="text-muted">拆解</Go>
+        </span>
+      </div>
+      {p.control && (
+        <p className="text-[12px] text-muted leading-relaxed"><Rich text={p.control} /></p>
+      )}
+      {p.hw && <p className="text-[11.5px] text-hatch mt-1">门槛：<Rich text={p.hw} /></p>}
+    </div>
+  );
+}
+
+/**
+ * 左侧目录。**目录项与小节从同一份清单渲染** —— 各写一份迟早漂开，
+ * 而漂开的症状是「点了跳错地方」，没人会报错。
  */
 const SEC = {
-  coverage: { id: "coverage", zh: "官方说法覆盖度" },
-  license:  { id: "license",  zh: "许可证" },
-  activity: { id: "activity", zh: "活跃度" },
-  hardware: { id: "hardware", zh: "硬件门槛" },
-  matrix:   { id: "matrix",   zh: "片型 × 决定" },
-  picked:   { id: "picked",   zh: "关键决定" },
+  types:    { id: "types",    zh: "片型 × 步骤" },
+  steps:    { id: "steps",    zh: "九步逐步比" },
   allinone: { id: "allinone", zh: "整包篇" },
-  axis:     { id: "axis",     zh: "自持程度" },
+  props:    { id: "props",    zh: "附录 · 项目属性" },
+  axis:     { id: "axis",     zh: "自持程度三篇" },
 } as const;
 
 function Toc({ items }: { items: { id: string; zh: string }[] }) {
@@ -144,13 +140,87 @@ function Toc({ items }: { items: { id: string; zh: string }[] }) {
   );
 }
 
-/** 一个小节：id 与标题都由清单给，正文当 children 传进来。 */
 function Sec({ id, zh, sub, children }: { id: string; zh: string; sub?: React.ReactNode; children: React.ReactNode }) {
   return (
     <section id={id} className="py-12 border-t border-rule scroll-mt-16">
       <h2 className="text-[22px] tracking-tight mb-1.5">{zh}</h2>
-      {sub && <div className="text-[13px] text-muted mb-5 max-w-[54ch]">{sub}</div>}
+      {sub && <div className="text-[13px] text-muted mb-6 max-w-[54ch]">{sub}</div>}
       {children}
+    </section>
+  );
+}
+
+/**
+ * 一道工序。**主体是能力拆解**，不是「自持 vs 平台」的两栏比较。
+ *
+ * 顺序是刻意的：先给场景答案（读者最想要的那一句），再摊开拆解（真材实料）。
+ * 中间那句结论标着「判断」—— 拆解是事实，结论是我们的话，两者必须分得开。
+ */
+function Step({
+  d, i, projects, topic, dim,
+}: { d: Decision; i: number; projects: TopicProject[]; topic: string; dim: boolean }) {
+  return (
+    <section id={`step-${d.id}`} className={`scroll-mt-16 transition-opacity ${dim ? "opacity-40" : ""}`}>
+      <div className="flex items-baseline gap-3 flex-wrap">
+        <b className="text-[13px] tnum text-hatch">{String(i + 1).padStart(2, "0")}</b>
+        <h3 className="text-[19px] tracking-tight">{d.zh}</h3>
+      </div>
+      {d.handle && d.handle !== "—" && (
+        <p className="text-[13px] text-muted mt-1 max-w-[56ch]">{d.handle}</p>
+      )}
+
+      {/* ── 场景答案：读者最想要的那一句，摆在拆解之前 ── */}
+      {d.scenarios && d.scenarios.length > 0 && (
+        <dl className="mt-5 border border-rule rounded-lg divide-y divide-rule">
+          {d.scenarios.map((s) => (
+            <div key={s.when} className="px-4 py-3 sm:grid sm:grid-cols-[minmax(150px,190px)_1fr] sm:gap-5">
+              <dt className="text-[12.5px] text-muted">{s.when}</dt>
+              <dd className="text-[13px] text-ink leading-relaxed mt-1 sm:mt-0">{s.use}</dd>
+            </div>
+          ))}
+        </dl>
+      )}
+
+      {/* ── 重心：能力拆解 ── */}
+      <div className="mt-7">
+        <h4 className="text-[13px] font-bold mb-1">能力拆解</h4>
+
+        <p className="text-[11px] tracking-wider text-muted font-bold mt-4 mb-1.5">
+          平台侧 · 十家逐一
+        </p>
+        {d.cap ? (
+          <>
+            <PlatformBreakdown cap={d.cap} />
+            <p className="text-[11.5px] mt-2">
+              <Go href={capHref(d.cap)} className="text-muted">这项能力的完整核对页</Go>
+            </p>
+          </>
+        ) : (
+          <p className="text-[12.5px] text-muted border border-rule rounded-lg px-4 py-3 hatch">
+            这一步没有对应的能力格，平台侧还没有逐家核对过。
+          </p>
+        )}
+
+        <p className="text-[11px] tracking-wider text-muted font-bold mt-7 mb-1.5">
+          开源侧 · 逐个
+        </p>
+        {projects.length > 0 ? (
+          <div className="border border-rule rounded-lg divide-y divide-rule">
+            {projects.map((p) => <ProjectRow key={p.id} p={p} topic={topic} />)}
+          </div>
+        ) : (
+          <p className="text-[12.5px] text-muted border border-rule rounded-lg px-4 py-3 hatch">
+            没有开源项目接这一步。
+          </p>
+        )}
+      </div>
+
+      {d.fit && (
+        <div className="mt-6 border-l-2 border-chip-warm-ink pl-3 max-w-[58ch]">
+          <p className="text-[13px] text-ink leading-relaxed">{d.fit}</p>
+          <p className="text-[10.5px] text-muted mt-1.5">这一句是判断，不是厂商说法。</p>
+        </div>
+      )}
     </section>
   );
 }
@@ -159,149 +229,130 @@ export default function TopicView({ t }: { t: Topic }) {
   const [pick, setPick] = useState<string | null>(null);
   const matrix = t.chapters.find((c) => c.matrix)?.matrix;
   const axis = t.chapters.filter((c) => c.kind === "axis").sort((a, b) => (a.axis_pos ?? 0) - (b.axis_pos ?? 0));
-  const platform = t.decisions.filter((d) => d.owner === "platform").length;
 
-  /**
-   * 选了片型之后**只留命门**（权重 3）。
-   *
-   * ⚠️ 第一版取的是「≥2 重要及以上」，AI短剧筛出来 8 条 —— **等于没筛**，
-   * 那句「先夺回这几个」就成了空话。筛选的价值在于**它必须筛掉大部分**。
-   * 同时去掉本来就归用户的那条：告诉人「选题归你」不构成信息。
-   */
-  const key = pick && matrix
-    ? t.decisions.filter((d) => (matrix[pick]?.[d.id] ?? 0) >= 3 && d.owner !== "user")
-    : [];
-  /** 底座不挂在决定下面 —— ComfyUI 横跨四个决定，逐条重复四次就成了噪音。 */
-  const bases = t.projects.filter((p) => p.role === "base");
   const allinone = t.projects.filter((p) => p.role === "allinone");
-  /** 整包不挂在决定下面 —— 它替你做决定，所以自成一篇。 */
+  /** 底座横跨多步（ComfyUI 一个人管四步），挂在每一步下面会重复四次，所以单列。 */
+  const bases = t.projects.filter((p) => p.role === "base");
+  /** 那一步下面**逐个列出来**的项目：只列工具，底座在上面单列过了。 */
   const projectsFor = (dId: string) =>
     t.projects.filter((p) => p.role === "tool" && p.decisions.includes(dId));
+  /**
+   * 自持侧那根条**要数底座**。
+   *
+   * 第一版只数了工具，于是「分镜」那一步写着「共 2 个」——
+   * 而 ComfyUI 明明也做分镜，只是因为它被单列成底座就没算进去。
+   * **条是在回答「自持这一步有没有东西可用」，不是在回答「这一节列了几张卡」。**
+   * 一站式不算：它替你做掉这一步，是另一条路，自成一篇。
+   */
+  const countFor = (dId: string) =>
+    t.projects.filter((p) => p.role !== "allinone" && p.decisions.includes(dId));
 
-  /** 目录只列真的渲染出来的小节 —— 点了跳空比没有目录更糟。 */
-  const toc = [SEC.coverage, SEC.license, SEC.activity, SEC.hardware, SEC.matrix,
-    ...(pick ? [SEC.picked] : []), ...(allinone.length ? [SEC.allinone] : []), SEC.axis];
+  /** 选了片型就把非命门的步骤压暗 —— **过滤不是换一屏内容，是同一条主线上做减法**。 */
+  const isKey = (d: Decision) => !pick || !matrix || (matrix[pick]?.[d.id] ?? 0) >= 3;
+
+  const toc = [...(matrix ? [SEC.types] : []), SEC.steps,
+    ...(allinone.length ? [SEC.allinone] : []), SEC.props, SEC.axis];
 
   return (
     <div className="lg:flex lg:gap-10">
       <Toc items={toc} />
       <div className="min-w-0 flex-1">
-      {/*
-        * ── 第一屏 ──
-        *
-        * 标题用正式的名词短语，**张力交给紧跟其后的数据扛**。
-        * 中间稿用过「不满意，只能重摇。」当大标题 —— 钩子是有了，但负责人否掉：
-        * **「不要用这种口语化标题，就正经的标题。」**
-        *
-        * 这条否得对，而且和早先那条「解释性句子全去掉」是同一个道理：
-        * **页面不替读者产生情绪，只把事实摆到位。**
-        *
-        * ⚠️ 标题里也不放数量。负责人后来又纠了一次：
-        * **「不是教程，是研究。标题里写『九个决定』，感觉是在教人。」**
-        * ——「教」的口气是「记住这几条」，「研究」的口气是「我们查到了什么」。
-        * 所以标题只说研究的对象（控制权归属），数量留在正文里当结果。
-        */}
-      <section className="pt-12 pb-14 sm:pt-16 sm:pb-16">
+
+      {/* ── 第一屏：主线就是顺序 ── */}
+      <section className="pt-12 pb-12 sm:pt-16">
         <p className="text-[11px] tracking-[0.2em] text-yes-ink font-bold mb-4">专项研究</p>
-        <h1 className="text-[30px] sm:text-[40px] leading-[1.15] tracking-tight mb-4 max-w-[18ch]">
-          {t.zh}
-        </h1>
-        <p className="text-[15px] text-muted leading-relaxed max-w-[34ch] mb-10">
+        <h1 className="text-[30px] sm:text-[40px] leading-[1.15] tracking-tight mb-4 max-w-[18ch]">{t.zh}</h1>
+        <p className="text-[15px] text-muted leading-relaxed max-w-[36ch] mb-9">
           <Rich text={t.intro} />
         </p>
-
-        <Strip decisions={t.decisions} />
-        <div className="grid grid-cols-3 sm:grid-cols-9 gap-1.5 mt-2">
-          {t.decisions.map((d) => (
-            <span key={d.id} className="text-[10.5px] text-muted leading-tight text-center">{d.zh}</span>
-          ))}
-        </div>
-        <div className="flex gap-5 mt-5 text-[12px] text-muted">
-          <span className="flex items-center gap-1.5"><i className="w-3 h-3 bg-yes rounded-sm inline-block" />归你</span>
-          <span className="flex items-center gap-1.5"><i className="w-3 h-3 bg-chip-warm-ink rounded-sm inline-block" />一半</span>
-          <span className="flex items-center gap-1.5"><i className="w-3 h-3 bg-no rounded-sm inline-block" />归平台</span>
-        </div>
+        <p className="text-[11px] tracking-wider text-muted font-bold mb-2.5">做一条视频要过的九步</p>
+        <StepLadder decisions={t.decisions} />
       </section>
 
-      <Sec {...SEC.coverage} sub="10 个核心模型里，各项能力有几家写进了官方文档。">
-        <CoverageChart decisions={t.decisions} />
-      </Sec>
-
-      <Sec {...SEC.license} sub="按能不能拿去接商单分档，不按许可证名字分。">
-        <LicenseChart projects={t.projects} />
-      </Sec>
-
-      <Sec {...SEC.activity} sub={<>星数绝对值在新领域里是年龄的函数。这里按<b className="text-ink">增速</b>排，
-          并单列<b className="text-ink">最后一次提交距今多久</b> —— 两个轴谁也别单独用。</>}>
-        <ActivityChart projects={t.projects} />
-      </Sec>
-
-      <Sec {...SEC.hardware} sub="数值取自各仓库自述。">
-        <HardwareChart projects={t.projects} />
-      </Sec>
-
-      {/* ── 片型 × 决定 热力矩阵。点行选片型。 ── */}
-      <section id={SEC.matrix.id} className="py-12 border-t border-rule scroll-mt-16">
-        <h2 className="text-[22px] tracking-tight mb-1.5">{SEC.matrix.zh}</h2>
-        <p className="text-[13px] text-muted mb-5">格子越实＝该决定对这一片型越关键。点一行展开。</p>
-        {matrix && <MatrixChart matrix={matrix} decisions={t.decisions} pick={pick} onPick={(id) => setPick(id === pick ? null : id)} />}
-        <p className="text-[11px] text-muted mt-1.5 border-l-2 border-chip-warm-ink pl-2.5">权重是判断，不是厂商说法。</p>
-      </section>
-
-      {/* ── 选了才展开 ── */}
-      {pick && (
-        <section id={SEC.picked.id} className="py-14 border-t border-rule scroll-mt-16">
-          <h2 className="text-[22px] tracking-tight mb-1.5">
-            {topicAppName(pick)} · 关键决定 <span className="tnum">{key.length}</span> 项
-          </h2>
-          <p className="text-[13px] text-muted mb-7">其余各项对该片型不构成瓶颈。</p>
-          {bases.length > 0 && (
-            <div className="mb-9">
-              <p className="text-[11px] tracking-wider text-muted font-bold mb-2">底座</p>
-              <div className="space-y-2">{bases.map((p) => <ProjectLink key={p.id} p={p} topic={t.id} />)}</div>
-            </div>
+      {/* ── 片型是过滤器，不是另一屏内容 ── */}
+      {matrix && (
+        <Sec {...SEC.types} sub="格子越实＝这一步对该片型越关键。点一行，下面九步里非命门的会压暗。">
+          <MatrixChart matrix={matrix} decisions={t.decisions} pick={pick}
+            onPick={(id) => setPick(id === pick ? null : id)} />
+          <p className="text-[11px] text-muted mt-2 border-l-2 border-chip-warm-ink pl-2.5">
+            权重是判断，不是厂商说法。
+          </p>
+          {pick && (
+            <p className="text-[12.5px] mt-4">
+              正在按 <b className="text-ink">{topicAppName(pick)}</b> 过滤 ——
+              九步里 <b className="tnum text-ink">{t.decisions.filter(isKey).length}</b> 步是命门。
+              <button onClick={() => setPick(null)}
+                className="ml-2 border border-rule rounded px-2 py-0.5 text-[11.5px] text-muted hover:border-yes">
+                取消过滤
+              </button>
+            </p>
           )}
-          <div className="space-y-10">
-            {key.map((d) => {
-              const ps = projectsFor(d.id);
-              return (
-                <div key={d.id}>
-                  <div className="flex items-baseline gap-3 flex-wrap mb-1">
-                    <h3 className="text-[18px]">{d.zh}</h3>
-                    <span className={`text-[12px] ${OWNER[d.owner].cls}`}>现在{OWNER[d.owner].zh}</span>
-                  </div>
-                  <p className="text-[13px] text-muted mb-3">{d.handle}</p>
-                  {d.cap && <div className="max-w-[360px] mb-5"><Cov cap={d.cap} /></div>}
-                  {ps.length > 0 && <div className="space-y-2">{ps.map((p) => <ProjectLink key={p.id} p={p} topic={t.id} />)}</div>}
-                </div>
-              );
-            })}
-          </div>
-        </section>
+        </Sec>
       )}
 
-      {/* ── 自持程度 ── */}
-      {/*
-        * ── 整包篇 ──
-        * 和自建篇共用同一张九格条：**它替你做掉哪几个决定、留给你哪几个**。
-        * 摆在一起，「它帮你做了什么、又拿走了什么」自己就看出来了，不用我们说。
-        */}
+      {/* ── 主体：九步 ── */}
+      <Sec {...SEC.steps}
+        sub={<>每一步都问同两个问题：<b className="text-ink">平台侧做不做得到</b>、
+          <b className="text-ink">自持侧有没有还活着的项目</b>。结论是「什么时候用哪边」，不是谁更高级。</>}>
+        {bases.length > 0 && (
+          <div className="mb-10 border border-rule rounded-lg px-4 py-3.5">
+            <p className="text-[11px] tracking-wider text-muted font-bold mb-2">底座 · 横跨多步</p>
+            <div className="grid sm:grid-cols-2 gap-2">
+              {bases.map((p) => <ProjectLink key={p.id} p={p} topic={t.id} />)}
+            </div>
+          </div>
+        )}
+        <div className="space-y-14">
+          {t.decisions.map((d, i) => (
+            <Step key={d.id} d={d} i={i} topic={t.id} projects={countFor(d.id)} dim={!isKey(d)} />
+          ))}
+        </div>
+      </Sec>
+
+      {/* ── 整包篇 ── */}
       {allinone.length > 0 && (
-        <section id={SEC.allinone.id} className="py-14 border-t border-rule scroll-mt-16">
-          <h2 className="text-[22px] tracking-tight mb-1.5">{SEC.allinone.zh}</h2>
-          <p className="text-[13px] text-muted mb-5 max-w-[52ch]">
-            <Rich text={t.chapters.find((c) => c.id === "allinone")?.intro ?? ""} />
-          </p>
+        <Sec {...SEC.allinone}
+          sub={<Rich text={t.chapters.find((c) => c.id === "allinone")?.intro ?? ""} />}>
           <AllInOneChart projects={allinone} decisions={t.decisions} />
           <div className="grid sm:grid-cols-2 gap-2 mt-3">
             {allinone.map((p) => <ProjectLink key={p.id} p={p} topic={t.id} />)}
           </div>
-        </section>
+        </Sec>
       )}
 
-      <section id={SEC.axis.id} className="py-14 border-t border-rule scroll-mt-16">
-        <h2 className="text-[22px] tracking-tight mb-1.5">{SEC.axis.zh}</h2>
-        <p className="text-[13px] text-muted mb-7">由低到高：先出片 → 要控制 → 沉淀方法。</p>
+      {/*
+        * ── 附录 ──
+        * 这四张图是**项目集合的属性**，不是工序。摆在中段会打断主线，
+        * 但它们本身是查过的事实，删掉可惜 —— 所以降到附录，谁想比谁来翻。
+        */}
+      <Sec {...SEC.props} sub="下面四张是项目集合的整体属性，和九步的顺序无关，放在最后备查。">
+        <div className="space-y-10">
+          <div>
+            <h3 className="text-[15px] mb-1">官方说法覆盖度</h3>
+            <p className="text-[12px] text-muted mb-3">10 个核心模型里，各项能力有几家写进了官方文档。</p>
+            <CoverageChart decisions={t.decisions} />
+          </div>
+          <div>
+            <h3 className="text-[15px] mb-1">许可证</h3>
+            <p className="text-[12px] text-muted mb-3">按能不能拿去接商单分档，不按许可证名字分。</p>
+            <LicenseChart projects={t.projects} />
+          </div>
+          <div>
+            <h3 className="text-[15px] mb-1">活跃度</h3>
+            <p className="text-[12px] text-muted mb-3">
+              星数绝对值在新领域里是年龄的函数。这里按增速排，并单列最后一次提交距今多久 —— 两个轴谁也别单独用。
+            </p>
+            <ActivityChart projects={t.projects} />
+          </div>
+          <div>
+            <h3 className="text-[15px] mb-1">硬件门槛</h3>
+            <p className="text-[12px] text-muted mb-3">数值取自各仓库自述。</p>
+            <HardwareChart projects={t.projects} />
+          </div>
+        </div>
+      </Sec>
+
+      <Sec {...SEC.axis} sub="由低到高：先出片 → 要控制 → 沉淀方法。">
         <div className="grid sm:grid-cols-3 gap-2.5">
           {axis.map((c) => (
             <div key={c.id} className={`border rounded-xl px-4 py-4 ${c.state === "live" ? "border-yes bg-card" : "border-rule"}`}>
@@ -313,7 +364,7 @@ export default function TopicView({ t }: { t: Topic }) {
             </div>
           ))}
         </div>
-      </section>
+      </Sec>
       </div>
     </div>
   );

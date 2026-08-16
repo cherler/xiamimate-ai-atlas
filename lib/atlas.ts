@@ -466,12 +466,41 @@ export type Availability = {
  */
 /** 一个决定当前归谁。partial = 平台给了参数但不完全交出控制。 */
 export type DecisionOwner = "user" | "partial" | "platform";
+
+/**
+ * 这一步更该走哪边。**不是打分，是「什么时候用哪边」的归类。**
+ *
+ * `both` 和 `neither` 不是中间档，是两种相反的处境：
+ * 前者两边都成熟、随你挑，后者两边都还没做成、挑不挑都一样。
+ */
+export type DecisionLean = "self" | "platform" | "both" | "neither" | "none";
+
 export type Decision = {
   id: string; zh: string; owner: DecisionOwner;
   /** 引能力 id，覆盖度由 support[] 现算；null = 这条不是一项能力 */
   cap: string | null;
   handle: string; note?: string;
+  /**
+   * 适用性判断。**判断，不是厂商说法** —— 页面必须标出来。
+   *
+   * 负责人 2026-08-16 定的主线：「按做视频的几个步骤，分别对比项目下
+   * 自持、平台的适应性。」在此之前这一页的骨架是「这一步归谁」，
+   * 而那个分法**本身没什么用** ——「自持 vs 官网各有优点，
+   * 主要是物美价廉四个字，而且看适用场景」。
+   *
+   * 所以判断里**不写死数字**：两侧的数字就在同一行显示，
+   * 写进句子只会和图打架，而且数据一更新句子就成了错的。
+   */
+  fit?: string;
+  /**
+   * 场景 → 用什么。**答案按场景给，不按「谁拥有它」分组。**
+   * 负责人否掉了两栏对比之后定的形式：读者要的是「我这种情况该用什么」。
+   */
+  scenarios?: { when: string; use: string }[];
 };
+/** 图种。四类各自回答一类问题：东西怎么摆 / 数据怎么走 / 谁先谁后 / 怎么搭起来。 */
+export type DiagramKind = "架构图" | "流程图" | "时序图" | "工程图";
+
 export type TopicProject = {
   id: string; zh: string; url: string; stars: number;
   license: string;
@@ -506,8 +535,11 @@ export type TopicProject = {
   /** ⚠️ 判断，不是厂商说过的话 */
   good: string[]; bad: string[]; unfit: string;
   src: string; verified_at: string;
-  /** 架构图：mermaid 源存在数据里，构建时渲染成 public/diagrams/<id>.svg */
-  diagrams?: { id: string; title: string; src: string; verified_at: string; mermaid: string }[];
+  /**
+   * 图：mermaid 源存在数据里，构建时渲染成 public/diagrams/<id>.svg。
+   * `kind` 是图种（架构图 / 流程图 / 时序图 / 工程图）—— 读者得知道这张图在回答哪一类问题。
+   */
+  diagrams?: { id: string; title: string; kind: DiagramKind; src: string; verified_at: string; mermaid: string }[];
   /**
    * 自持能力三问。**「自己把握制作能力」必须落成能查的东西，否则永远是形容词。**
    * weights 权重在不在本地 · seed 种子能不能填 · swap 换掉它要动几处。
@@ -929,6 +961,26 @@ export const availModels = () => [
  *   页面一跑出来就和真值表对不上。**分母必须跟着数字一起显示**，
  *   「5 家支持」不写清是 5/10 还是 5/21，就是一句没头没尾的话。
  */
+/**
+ * 一步的**能力拆解**：有这项能力的十家逐一列出，各自带官方原文。
+ *
+ * 这是专项页的重心（负责人 2026-08-16：「你就把每一步有对应能力的项目、平台
+ * 做详细拆解就好，重心是这个能力拆解」）。所以返回的不是一个统计数字，
+ * 而是**每一家各自是什么状态、原文怎么说、出处在哪**。
+ *
+ * 排序：说了能做的在前、明确说不行的其次、没说的最后 ——
+ * **⬜「官方没说」不是缺口，是一条事实**，所以它照样列出来，不省略。
+ */
+export function capBreakdown(capId: string) {
+  const RANK = { yes: 0, no: 1, unknown: 2 } as const;
+  return modelsOf("clip")
+    .map((m) => {
+      const c = cell(m.id, capId);
+      return { id: m.id, zh: label(m), state: c.state, note: c.note ?? null, src: c.src ?? null };
+    })
+    .sort((x, y) => RANK[x.state] - RANK[y.state] || x.zh.localeCompare(y.zh, "zh"));
+}
+
 export function forkCoverage(capId: string) {
   const models = modelsOf("clip");
   let yes = 0, no = 0, unknown = 0;

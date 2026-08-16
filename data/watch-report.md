@@ -1,6 +1,6 @@
-# 信息源监视报告 · 2026-08-15
+# 信息源监视报告 · 2026-08-16
 
-本次检查 0 个到期源（共 407 个）：变化 0 · 首次 0 · 无变化 0 · **抓不到 0**
+本次检查 2 个到期源（共 448 个）：变化 0 · 首次 0 · 无变化 0 · **抓不到 2**
 
 > 这份报告是给人看的那 20 条待办的来源（§59.3 的负反馈：人每周要看的条目 ≤ 20）。
 > 「抓不到」不是失败，是**信息本身** —— 一个长期抓不到的官方源，说明那家厂商没有可 diff 的公开更新入口，
@@ -12,7 +12,10 @@
 
 ## 抓不到（要处理）
 
-（无）
+- **sora-eol-search**（B/html）OpenAI Sora 停服说明（⚠️ 页面反爬，我们抓不到，内容来自搜索摘要转述） — HTTP 403
+  https://help.openai.com/en/articles/20001152-what-to-know-about-the-sora-discontinuation
+- **sora-2**（A/html）OpenAI · Sora 2 发布页（⚠️ 对我们的采集器返回 403，本轮未能一手复核） — HTTP 403
+  https://openai.com/index/sora-2/
 
 ## 有变化
 
@@ -429,3 +432,44 @@
 | wham-card | A | html | 未到期（上次 2026-08-14） |
 | vjepa2-blog | A | html | 未到期（上次 2026-08-14） |
 | vjepa2-card | B | html | 未到期（上次 2026-08-14） |
+| sci-boltz-gh | A | html | 未到期（上次 2026-08-15） |
+| sci-af3-blog | A | html | 未到期（上次 2026-08-15） |
+| sci-esm2-card | B | html | 未到期（上次 2026-08-15） |
+| sci-wn-gh | A | html | 未到期（上次 2026-08-15） |
+| sci-aurora-gh | A | html | 未到期（上次 2026-08-15） |
+| sci-neuralgcm-gh | A | html | 未到期（上次 2026-08-15） |
+| sci-mattergen-gh | A | html | 未到期（上次 2026-08-15） |
+| sci-mace-gh | A | html | 未到期（上次 2026-08-15） |
+| sci-gnome-gh | A | html | 未到期（上次 2026-08-15） |
+| kling-api | A | html | 未到期（上次 2026-08-15） |
+| seed-25 | A | html | 未到期（上次 2026-08-15） |
+| veo-doc | A | html | 未到期（上次 2026-08-15） |
+| sora-eol-search | B | html | 抓不到（HTTP 403） |
+| sora-api | A | html | 未到期（上次 2026-08-15） |
+| sora-2 | A | html | 抓不到（HTTP 403） |
+| wan-site | A | html | 未到期（上次 2026-08-15） |
+| mm-hf-api | A | json | 未到期（上次 2026-08-15） |
+| vidu-fl | A | html | 未到期（上次 2026-08-15） |
+| vidu-up | A | html | 未到期（上次 2026-08-15） |
+| vidu-mm | A | html | 未到期（上次 2026-08-15） |
+| rw-changelog | A | html | 未到期（上次 2026-08-15） |
+| vidu-s1-paper | A | html | 未到期（上次 2026-08-15） |
+| omni-doc | A | html | 未到期（上次 2026-08-15） |
+| g-video | A | html | 未到期（上次 2026-08-15） |
+| ltx-hf-23 | A | html | 未到期（上次 2026-08-15） |
+| aa-board | B | html | 未到期（上次 2026-08-15） |
+| gemini-image-docs | A | html | 未到期（上次 2026-08-15） |
+| openai-image-docs | A | html | 未到期（上次 2026-08-15） |
+| recraft-docs | A | html | 未到期（上次 2026-08-15） |
+| bfl-docs | A | html | 未到期（上次 2026-08-15） |
+| zimage-card | A | html | 未到期（上次 2026-08-15） |
+| hunyuan-image-card | A | html | 未到期（上次 2026-08-15） |
+| smolvla-card | A | html | 未到期（上次 2026-08-15） |
+| molmoact-card | A | html | 未到期（上次 2026-08-15） |
+| hf-whisper | A | html | 未到期（上次 2026-08-15） |
+| hf-sensevoice | A | html | 未到期（上次 2026-08-15） |
+| hf-qwen3-asr | A | html | 未到期（上次 2026-08-15） |
+| minimax-release-notes | A | html | 未到期（上次 2026-08-15） |
+| seed-blog-1_5 | A | html | 未到期（上次 2026-08-15） |
+| seed-blog-2_0 | A | html | 未到期（上次 2026-08-15） |
+| ideogram-x | A | html | 未到期（上次 2026-08-15） |

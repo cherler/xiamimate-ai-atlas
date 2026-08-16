@@ -201,6 +201,50 @@ for (const t of a.topics ?? []) {
 }
 
 /**
+ * R82 —— **每一步都要有适用性判断。**
+ *
+ * 这一页的主线是「按做视频的步骤，分别对比自持与平台的适应性」。
+ * 少了 `fit`，那一步就退回成一堆数字而没有结论 ——
+ * **而摆数字不下结论，正是上一版被否的原因。**
+ */
+{
+  for (const t of a.topics ?? [])
+    for (const d of t.decisions ?? []) {
+      if (!d.fit) errs.push(`R82 专项「${t.zh}」› 步骤「${d.zh}」没写结论（fit）`);
+      if (!(d.scenarios ?? []).length)
+        errs.push(`R82 专项「${t.zh}」› 步骤「${d.zh}」没写场景答案（scenarios）—— ` +
+          `没有「什么场景用什么」，这一步就只剩一堆枚举`);
+      if (d.lean !== undefined)
+        errs.push(`R82 专项「${t.zh}」› 步骤「${d.zh}」还留着 lean —— ` +
+          `「自持更合适 / 平台更合适」这套标签已被否掉，不要再加回来`);
+      // 判断里写死数字，数据一更新就和图打架
+      if (d.fit && /\d+\s*(家|个)/.test(d.fit))
+        errs.push(`R82 专项「${t.zh}」› 步骤「${d.zh}」的判断里写死了数字 —— 数字交给图，句子只下结论`);
+    }
+}
+
+/**
+ * R81 —— **每个项目至少两张图，且图种必须是那四类之一。**
+ *
+ * 这条是被打回来才加的：项目解析一度退化成「一张图 + 八百字」，
+ * 而八百字里绝大部分本来就是结构化数据，只是被渲染成了列表。
+ * 门槛定在两张（怎么摆 + 怎么走），比一张能挡住的退化多得多。
+ */
+{
+  const KINDS = new Set(["架构图", "流程图", "时序图", "工程图"]);
+  for (const t of a.topics ?? [])
+    for (const p of t.projects ?? []) {
+      const ds = p.diagrams ?? [];
+      if (ds.length < 2)
+        errs.push(`R81 专项「${t.zh}」› ${p.zh} 只有 ${ds.length} 张图 —— 至少要「怎么摆」和「怎么走」各一张`);
+      for (const d of ds)
+        if (!KINDS.has(d.kind))
+          errs.push(`R81 专项「${t.zh}」› ${p.zh} 的图「${d.title}」图种是「${d.kind ?? "空"}」，` +
+            `只能是 ${[...KINDS].join(" / ")}`);
+    }
+}
+
+/**
  * R79 —— **每个开源项目都必须有至少一个片型能引到它。**
  *
  * 页面按片型的命门决定筛项目。一个项目如果不在任何片型的命门决定上，
