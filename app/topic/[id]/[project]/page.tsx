@@ -104,6 +104,7 @@ const SECS = [
   { id: "decisions", zh: "它管哪几个决定" },
   { id: "autonomy", zh: "自持能力" },
   { id: "hands", zh: "动手层" },
+  { id: "tutorials", zh: "教程" },
   { id: "judge", zh: "判断" },
   { id: "siblings", zh: "相关项目" },
 ] as const;
@@ -134,6 +135,18 @@ function Toc({ ids }: { ids: string[] }) {
   );
 }
 
+/**
+ * 星数怎么说。**「星/月」对一个刚开源两周的仓库是假精确** —— 把冷启动的爆发外推成了常态。
+ * 不满两个月就直说「多少星 · 开源多少天」，判断留给读者。基准日取数据自己的口径日。
+ */
+function starsLabel(p: TopicProject) {
+  const days = p.created_at
+    ? Math.floor((Date.parse(atlas.generated_at) - Date.parse(p.created_at)) / 86400000) : null;
+  if (days != null && days < 60) return `${p.stars} 星 · 开源 ${days} 天`;
+  const k = `${(p.stars / 1000).toFixed(1)}k`;
+  return p.stars_per_month ? `${k}　${p.stars_per_month} 星/月` : k;
+}
+
 function Section({ id, title, children }: { id: string; title: string; children: React.ReactNode }) {
   return (
     <section id={id} className="py-10 border-t border-rule scroll-mt-16">
@@ -147,6 +160,8 @@ const LIC = {
   permissive: { zh: "可商用", cls: "border-yes text-yes-ink" },
   copyleft: { zh: "传染性许可", cls: "border-chip-warm-ink text-chip-warm-ink" },
   noncommercial: { zh: "不可商用", cls: "border-no text-no" },
+  /** 允许商用，但许可证里写了地区或规模门槛 —— 具体条件写在 `license` 字段里。 */
+  restricted: { zh: "有条件商用", cls: "border-chip-warm-ink text-chip-warm-ink" },
 } as const;
 
 export default async function ProjectPage({ params }: { params: Promise<{ id: string; project: string }> }) {
@@ -164,11 +179,11 @@ export default async function ProjectPage({ params }: { params: Promise<{ id: st
   const siblings = t.projects.filter((x) => x.id !== p.id && x.decisions.some((d) => p.decisions.includes(d)));
 
   return (
-    <main className="max-w-[1000px] mx-auto px-5 pb-16 lg:flex lg:gap-9">
+    <main className="max-w-[1240px] mx-auto px-5 pb-16 lg:flex lg:gap-9">
       <Toc ids={[
         "decisions", "autonomy",
         ...(p.diagrams?.length || p.arch ? ["read"] : []),
-        "hands", "judge",
+        "hands", "tutorials", "judge",
         ...(siblings.length ? ["siblings"] : []),
       ]} />
       <div className="min-w-0 flex-1">
@@ -179,14 +194,12 @@ export default async function ProjectPage({ params }: { params: Promise<{ id: st
       <header className="pt-8 pb-9">
         <p className="text-[11px] tracking-[0.2em] text-yes-ink font-bold mb-3">开源项目解析</p>
         <h1 className="text-[32px] leading-tight tracking-tight mb-3">{p.zh}</h1>
-        <p className="text-[14.5px] text-muted leading-relaxed max-w-[46ch] mb-5">{p.scope}</p>
+        <p className="text-[14.5px] text-muted leading-relaxed max-w-[84ch] mb-5">{p.scope}</p>
         <div className="flex flex-wrap gap-2 items-center text-[11.5px]">
           <span className={`border rounded-full px-2.5 py-0.5 ${LIC[p.license_class].cls}`}>
             {p.license}　{LIC[p.license_class].zh}
           </span>
-          <span className="border border-rule rounded-full px-2.5 py-0.5 text-muted tnum">
-            ★ {(p.stars / 1000).toFixed(1)}k{p.stars_per_month ? `　${p.stars_per_month} 星/月` : ""}
-          </span>
+          <span className="border border-rule rounded-full px-2.5 py-0.5 text-muted tnum">★ {starsLabel(p)}</span>
           {p.stale_months != null && (
             <span className={`border rounded-full px-2.5 py-0.5 tnum ${
               p.stale_months >= 12 ? "border-no text-no" : "border-yes text-yes-ink"}`}>
@@ -196,10 +209,22 @@ export default async function ProjectPage({ params }: { params: Promise<{ id: st
           <a href={p.url} target="_blank" rel="noopener noreferrer"
             className="border border-rule rounded-full px-2.5 py-0.5 text-yes-ink hover:border-yes">仓库 ↗</a>
         </div>
+        {/* 附加条件不进圆标 —— 圆标放得下名字，放不下一整句条件。 */}
+        {p.license_note && (
+          <p className="mt-3 text-[12px] text-chip-warm-ink leading-relaxed max-w-[84ch]">
+            许可证附加条件：<Rich text={p.license_note} />
+          </p>
+        )}
       </header>
 
-      {(p.diagrams?.length || p.arch) && (
+      {(p.diagrams?.length || p.arch || p.wiki === "none") && (
         <Section id="read" title="读懂层">
+          {/* 没图不是漏了，是 DeepWiki 没收这个仓库 —— 这条要写在页面上，不能悄悄少一节。 */}
+          {p.wiki === "none" && (
+            <p className="text-[12.5px] text-muted border border-rule rounded-lg px-4 py-3 hatch mb-5">
+              <b className="text-ink">没有由源码生成的图。</b>　{p.wiki_note}
+            </p>
+          )}
           {p.diagrams && p.diagrams.length > 1 && (
             <p className="text-[11.5px] text-muted mb-4">
               {p.diagrams.length} 张 · {[...new Set(p.diagrams.map((d) => d.kind))].join(" / ")}
@@ -218,7 +243,7 @@ export default async function ProjectPage({ params }: { params: Promise<{ id: st
               <p className="text-[10.5px] text-muted mt-1 border-l-2 border-rule pl-2">{d.src} · 核验 {d.verified_at}</p>
             </figure>
           ))}
-          {p.arch && <p className="text-[13px] text-muted leading-relaxed max-w-[62ch]">{p.arch}</p>}
+          {p.arch && <p className="text-[13px] text-muted leading-relaxed max-w-[100ch]">{p.arch}</p>}
         </Section>
       )}
 
@@ -296,6 +321,39 @@ export default async function ProjectPage({ params }: { params: Promise<{ id: st
           </p>
         </Section>
       )}
+
+      <Section id="tutorials" title="教程">
+        {p.tutorials?.length ? (
+          <>
+            {/*
+              * 只收官方口径的教程。三方博客不收 —— 它们烂得比我们回查得动的速度快，
+              * 而**一条 404 的教程比没有教程更伤**。
+              */}
+            <p className="text-[11.5px] text-muted mb-3">
+              官方文档、作者本人的视频，以及 ComfyUI 官方给的原生工作流示例。每条都验过还打得开。
+            </p>
+            <ul className="border border-rule rounded-lg divide-y divide-rule">
+              {p.tutorials.map((tu) => (
+                <li key={tu.url}>
+                  <a href={tu.url} target="_blank" rel="noopener noreferrer"
+                    className="flex items-baseline gap-2.5 flex-wrap px-4 py-3 hover:text-yes-ink">
+                    <b className="text-[13.5px]">{tu.title}</b>
+                    <span className="text-[10.5px] border border-yes rounded-full px-1.5 text-yes-ink">{tu.kind}</span>
+                    <span className="text-[10.5px] border border-rule rounded-full px-1.5 text-muted">
+                      {tu.lang === "zh" ? "中文" : "英文"}
+                    </span>
+                    <span className="ml-auto text-[11px] text-muted">核验 {tu.verified_at}　↗</span>
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </>
+        ) : (
+          <p className="text-[13px] text-muted border border-rule rounded-lg px-4 py-3 hatch">
+            没找到官方口径的教程 —— 官方只给了 README。
+          </p>
+        )}
+      </Section>
 
       <Section id="judge" title="判断">
         <div className="grid sm:grid-cols-2 gap-x-8 gap-y-5 border-l-2 border-chip-warm-ink pl-4">

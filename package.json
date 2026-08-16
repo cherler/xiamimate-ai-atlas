@@ -13,7 +13,11 @@
     "gateway": "node scripts/local-gateway.mjs",
     "gateway:static": "node scripts/local-gateway.mjs --main=static --atlas=static",
     "modelscope": "node scripts/modelscope.mjs --json",
-    "diagrams": "node scripts/make-diagrams.mjs"
+    "diagrams": "node scripts/make-diagrams.mjs",
+    "diagrams:check": "node scripts/diagram-contrast.mjs",
+    "topic:tabs": "node scripts/topic-tabs.mjs",
+    "tutorials:check": "node scripts/tutorials-check.mjs",
+    "deepwiki": "node scripts/deepwiki.mjs"
   },
   "dependencies": {
     "geist": "^1.7.2",

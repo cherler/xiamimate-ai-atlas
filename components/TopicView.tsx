@@ -1,52 +1,46 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Link from "next/link";
 import { Rich } from "./Fact";
-import { topicAppName, type Decision, type Topic, type TopicProject } from "@/lib/atlas";
-import { capHref, topicProjectHref } from "@/lib/slug";
-import {
-  ActivityChart, AllInOneChart, CoverageChart, HardwareChart, LicenseChart,
-  MatrixChart, PlatformBreakdown, StepLadder,
-} from "./TopicCharts";
+import { atlas, type Topic, type TopicBasic, type TopicProject, type TopicWork } from "@/lib/atlas";
+import { topicProjectHref } from "@/lib/slug";
 
 /**
- * 专项页的交互层。
+ * 专项页的交互层。**这一页是一份按类型分好的开源项目名册，重心在项目拆解。**
  *
- * ## 主线：做一条视频的九步
+ * ## 分类轴换了三次，前两次都被否
  *
- * 这一页被否过三次，第三次说到了根子上（负责人 2026-08-16）：
+ * 1. 「这一步归谁」（自持 / 一半 / 平台）——「其实那个不是很重要」
+ * 2. 「做视频的九道工序」——「不要对比、不要片型、步骤」
+ * 3. 现在：**按开源项目的类型**（负责人 2026-08-16）
  *
- * > 「感觉乱乱的，就是没有把握住专项研究的主线。现在像我说的，
- * > 按做视频的几个步骤，分别对比项目下自持、平台的适应性。」
+ * > 「一页内容太长太多了，在制作页的最上面，加几个 tab 页，按类别划分开源项目或内容。」
+ * > 「就按开源项目的类型，做不同的 tab 页，然后再跳转项目拆解页、教程等。」
+ * > 「重心还是在项目拆解。」
  *
- * 前两版的骨架是**「这一步归谁」**（归你 / 一半 / 归平台），首屏就是一根三色条。
- * 那个分法本身没什么用 ——
+ * 前两个轴共同的毛病是**它们回答的不是读者的问题**。按归属分，读者得先认领一种身份；
+ * 按工序分，读者得先把自己的活拆成九步。按类型分不用 —— 想配音就点声音，
+ * 三个项目摆在那儿，挑一个点进去。
  *
- * > 「自持 vs 官网各有优点，主要是物美价廉四个字，
- * > 而且看适用场景而不是简单区分自持、平台。」
+ * ## 一页只干一件事：把人送进项目页
  *
- * 所以现在：**顺序是主线，两侧对比是内容，适用场景是结论**。
- * 九个决定本来就是做视频的九道工序，以前只是没按这个顺序摆。
+ * 那些条状图（片型 × 步骤、九步逐步比、整包篇、四张属性图）全撤了。
+ * 它们回答的是「这一堆里选哪个」，而定下来的重心是「它是怎么工作的、我能改哪里」——
+ * 后者是一份要读十几分钟的东西，只能在项目页里给。这一页负责把人准确地送到那一页。
  *
- * ## 排版的逻辑性来自「同一件事只讲一遍」
+ * 九步与片型矩阵的**数据仍在** `atlas.json` 里，项目页靠 `decisions` 结网；
+ * 只是不再当这一页的骨架。
  *
- * 上一版把覆盖度、许可证、活跃度、硬件做成四张并列图表摊在中段 ——
- * 那是**项目集合的属性**，不是工序。读者得自己在脑子里按步骤重拼一遍，
- * 这就是「排版不够有逻辑性」的来源。现在它们降为附录，
- * 每一步需要的那两个数直接长在那一步里。
+ * ## 分 tab 但不藏内容
  *
- * ## 可点与不可点必须一眼分得出
- *
- * > 「跳转链接有的可点有的不可点很奇怪。」
- *
- * 定死一条规矩：**可点的一律有 `→`，并且 hover 变边框色；没有 `→` 的一律不可点。**
- * 图表本身永远不可点 —— 要跳转就在图下面放一条明写的链接。
+ * 七类全部渲染进 DOM，切换只是 `hidden`。静态导出的页面如果只吐当前 tab，
+ * 另外六类在源码里就不存在了 —— 搜索引擎和不跑 JS 的读者会看到一页残页。
  */
 
 /** 可点的东西只有这一种长相。加 `→`、hover 变色，此外一律不可点。 */
 function Go({ href, children, className = "" }: { href: string; children: React.ReactNode; className?: string }) {
-  const cls = `inline-flex items-center gap-1.5 hover:text-yes-ink ${className}`;
+  const cls = `inline-flex items-center gap-1 hover:text-yes-ink ${className}`;
   const inner = <>{children}<span className="text-hatch shrink-0">→</span></>;
   return href.startsWith("http")
     ? <a href={href} target="_blank" rel="noopener noreferrer" className={cls}>{inner}</a>
@@ -57,315 +51,275 @@ const LIC = {
   permissive: { zh: "可商用", cls: "border-yes text-yes-ink" },
   copyleft: { zh: "传染性许可", cls: "border-chip-warm-ink text-chip-warm-ink" },
   noncommercial: { zh: "不可商用", cls: "border-no text-no" },
+  restricted: { zh: "有条件商用", cls: "border-chip-warm-ink text-chip-warm-ink" },
 } as const;
 
 /**
- * 专项页里的项目 = **网上的一个节点**，点进去是它自己的解析页。
- * 卡只做导航，内容全在项目页 —— 那份东西塞不进一张卡。
+ * 星数怎么显示。**「星/月」对一个刚开源两周的仓库是假精确** ——
+ * 6233 星除以 0.56 个月得一万一，那不是速度，是把冷启动的爆发外推成了常态。
+ * 负责人 2026-08-16：「要把 star 和发布时间结合起来看。」
+ * 所以不满两个月的仓库改说「多少星 · 开源多少天」，把判断留给读者。
  */
-function ProjectLink({ p, topic }: { p: TopicProject; topic: string }) {
-  const stale = (p.stale_months ?? 0) >= 12;
-  return (
-    <Link href={topicProjectHref(topic, p.id)}
-      className="border border-rule rounded-lg px-3.5 py-2.5 flex items-center gap-2.5 flex-wrap hover:border-yes">
-      <b className="text-[14px]">{p.zh}</b>
-      <span className={`text-[11px] border rounded-full px-2 ${LIC[p.license_class].cls}`}>
-        {LIC[p.license_class].zh}
-      </span>
-      {stale && (
-        <span className="text-[11px] border border-no rounded-full px-2 text-no">停更 {p.stale_months} 个月</span>
-      )}
-      <span className="text-[11px] text-muted tnum ml-auto">{p.diagrams?.length ?? 0} 张图</span>
-      <span className="text-hatch">→</span>
-    </Link>
-  );
+const YOUNG_DAYS = 60;
+function stars(p: TopicProject) {
+  /** 基准日取数据自己的口径日，不取 `Date.now()` —— 客户端组件里读当前时间会和预渲染对不上。 */
+  const days = p.created_at
+    ? Math.floor((Date.parse(atlas.generated_at) - Date.parse(p.created_at)) / 86400000) : null;
+  if (days != null && days < YOUNG_DAYS) return `${p.stars} 星 · 开源 ${days} 天`;
+  return p.stars_per_month != null ? `${p.stars_per_month} 星/月` : `${p.stars} 星`;
+}
+
+/** 一站式专用：画面到底从哪来。**这是整包这一类的分水岭**，不是可有可无的标签。 */
+const ENGINE = {
+  stock: "画面来自检索素材库",
+  yours: "画面来自你自己的素材",
+  cloud: "画面来自云端 API",
+  local: "画面来自本地权重",
+} as const;
+
+function Chip({ cls = "border-rule text-muted", children }: { cls?: string; children: React.ReactNode }) {
+  return <span className={`text-[11px] border rounded-full px-2 py-0.5 whitespace-nowrap ${cls}`}>{children}</span>;
 }
 
 /**
- * 开源侧拆解里的一行。**和上面的项目卡不是同一件东西**：
- * 卡是导航（点进去看那个项目），行是拆解（它靠什么做到这一步、门槛多少）。
- * `control` 正是「它怎么做到的」这一栏 —— 项目页里那份长解析的一句话摘要。
+ * 一个项目一张卡。**卡是拆解页的引子，不是拆解页的替代品。**
+ *
+ * 所以卡上只放决定「点不点进去」的东西：它干什么、能不能商用、还活着吗、
+ * 我的显卡跑不跑得动、它靠什么做到的。剩下的全在拆解页。
  */
-function ProjectRow({ p, topic }: { p: TopicProject; topic: string }) {
+function ProjectCard({ p, topic }: { p: TopicProject; topic: string }) {
   const stale = (p.stale_months ?? 0) >= 12;
   return (
-    <div className="px-3.5 py-3">
-      <div className="flex items-baseline gap-2 flex-wrap mb-1">
-        <b className="text-[13px]">{p.zh}</b>
-        <span className={`text-[10.5px] border rounded-full px-1.5 ${LIC[p.license_class].cls}`}>
-          {LIC[p.license_class].zh}
-        </span>
-        {stale && (
-          <span className="text-[10.5px] border border-no rounded-full px-1.5 text-no">停更 {p.stale_months} 个月</span>
-        )}
-        <span className="ml-auto text-[11.5px]">
-          <Go href={topicProjectHref(topic, p.id)} className="text-muted">拆解</Go>
-        </span>
+    <article data-count-item className="border border-rule rounded-xl px-4 py-4 sm:px-5 sm:py-5">
+      <div className="flex items-baseline gap-2.5 flex-wrap mb-2">
+        <h3 className="text-[17px] tracking-tight">
+          <Link href={topicProjectHref(topic, p.id)} className="hover:text-yes-ink">{p.zh}</Link>
+        </h3>
+        <Chip cls={LIC[p.license_class].cls}>{p.license}　{LIC[p.license_class].zh}</Chip>
+        <Chip cls={stale ? "border-no text-no" : "border-yes text-yes-ink"}>
+          {stale ? `停更 ${p.stale_months} 个月` : "在维护"}
+        </Chip>
+        <Chip>{stars(p)}</Chip>
+        {p.engine && <Chip cls="border-chip-warm-ink text-chip-warm-ink">{ENGINE[p.engine]}</Chip>}
       </div>
-      {p.control && (
-        <p className="text-[12px] text-muted leading-relaxed"><Rich text={p.control} /></p>
+
+      {/* 许可证的附加条件单独一行 —— 塞进圆标会把那一行拉成横幅。 */}
+      {p.license_note && (
+        <p className="text-[11.5px] text-chip-warm-ink leading-relaxed max-w-[88ch] -mt-1 mb-2">
+          许可证附加条件：<Rich text={p.license_note} />
+        </p>
       )}
-      {p.hw && <p className="text-[11.5px] text-hatch mt-1">门槛：<Rich text={p.hw} /></p>}
-    </div>
+      <p className="text-[13.5px] text-ink leading-relaxed max-w-[88ch]">{p.scope}</p>
+
+      {/* 宽屏上「靠什么做到」和「门槛」并排 —— 竖着排会让卡里空出一大片右侧。 */}
+      <dl className="mt-3.5 space-y-1.5 xl:space-y-0 xl:grid xl:grid-cols-2 xl:gap-x-9">
+        <div className="sm:flex sm:gap-3">
+          <dt className="text-[11.5px] text-muted sm:w-[6em] sm:shrink-0 sm:text-right">靠什么做到</dt>
+          <dd className="text-[12.5px] text-muted leading-relaxed max-w-[84ch]"><Rich text={p.control} /></dd>
+        </div>
+        <div className="sm:flex sm:gap-3">
+          <dt className="text-[11.5px] text-muted sm:w-[6em] sm:shrink-0 sm:text-right xl:w-[3.5em]">门槛</dt>
+          <dd className="text-[12.5px] text-muted leading-relaxed max-w-[84ch]"><Rich text={p.hw} /></dd>
+        </div>
+      </dl>
+
+      <div className="mt-4 pt-3 border-t border-rule flex items-center gap-4 flex-wrap text-[12.5px]">
+        <Go href={topicProjectHref(topic, p.id)} className="text-ink font-bold">项目拆解</Go>
+        <Go href={`${topicProjectHref(topic, p.id)}#hands`} className="text-muted">上手步骤</Go>
+        {/* 教程数写在链接上 —— **没有教程就不给这条路**，比点进去看空页面诚实。 */}
+        {!!p.tutorials?.length && (
+          <Go href={`${topicProjectHref(topic, p.id)}#tutorials`} className="text-muted">
+            教程 {p.tutorials.length}
+          </Go>
+        )}
+        <Go href={p.url} className="text-muted">仓库</Go>
+        {!!p.diagrams?.length && (
+          <span className="ml-auto text-[11px] text-hatch tnum">{p.diagrams.length} 张图</span>
+        )}
+      </div>
+    </article>
   );
 }
 
 /**
- * 左侧目录。**目录项与小节从同一份清单渲染** —— 各写一份迟早漂开，
- * 而漂开的症状是「点了跳错地方」，没人会报错。
+ * 一部作品。**这一栏的价值全在「管线是公开的」这一点上** ——
+ * 所以卡上最显眼的不是片名，是它用了什么、以及那个说法出自哪里。
+ * 没有出处的作品不收，所以每张卡底下一定有链接。
  */
-const SEC = {
-  types:    { id: "types",    zh: "片型 × 步骤" },
-  steps:    { id: "steps",    zh: "九步逐步比" },
-  allinone: { id: "allinone", zh: "整包篇" },
-  props:    { id: "props",    zh: "附录 · 项目属性" },
-  axis:     { id: "axis",     zh: "自持程度三篇" },
+const OPEN = {
+  closed: { zh: "闭源平台", cls: "border-no text-no" },
+  open: { zh: "全开源", cls: "border-yes text-yes-ink" },
+  mixed: { zh: "开源 + 平台", cls: "border-chip-warm-ink text-chip-warm-ink" },
 } as const;
 
-function Toc({ items }: { items: { id: string; zh: string }[] }) {
+function WorkCard({ w }: { w: TopicWork }) {
   return (
-    <nav className="hidden lg:block sticky top-16 self-start w-[150px] shrink-0 pt-14">
-      <p className="text-[10.5px] tracking-[0.16em] text-muted font-bold mb-2.5">目录</p>
-      <ul className="space-y-1.5 border-l border-rule">
-        {items.map((i) => (
-          <li key={i.id}>
-            <a href={`#${i.id}`}
-              className="block text-[12.5px] text-muted hover:text-ink border-l-2 border-transparent hover:border-yes -ml-px pl-3 py-0.5">
-              {i.zh}
-            </a>
+    <article data-count-item className="border border-rule rounded-xl px-4 py-4 sm:px-5 sm:py-5">
+      <div className="flex items-baseline gap-2.5 flex-wrap mb-2">
+        <h3 className="text-[17px] tracking-tight">{w.zh}</h3>
+        <Chip>{w.year}</Chip>
+        <Chip cls={OPEN[w.open].cls}>{OPEN[w.open].zh}</Chip>
+      </div>
+      {/* 宽屏并排 —— 两条都短，竖着排等于白白空掉右半张卡。 */}
+      <dl className="space-y-1.5 mb-3 xl:space-y-0 xl:grid xl:grid-cols-2 xl:gap-x-9">
+        <div className="sm:flex sm:gap-3">
+          <dt className="text-[11.5px] text-muted sm:w-[4em] sm:shrink-0 sm:text-right">制作方</dt>
+          <dd className="text-[12.5px] text-ink leading-relaxed max-w-[84ch]">{w.maker}</dd>
+        </div>
+        <div className="sm:flex sm:gap-3">
+          <dt className="text-[11.5px] text-muted sm:w-[4em] sm:shrink-0 sm:text-right">用了什么</dt>
+          <dd className="text-[12.5px] text-ink leading-relaxed max-w-[84ch]">{w.stack}</dd>
+        </div>
+      </dl>
+      <p className="text-[12.5px] text-muted leading-relaxed max-w-[88ch]"><Rich text={w.note} /></p>
+      <div className="mt-4 pt-3 border-t border-rule flex items-center gap-4 flex-wrap text-[12px]">
+        {w.src.map((s) => <Go key={s.url} href={s.url} className="text-muted">{s.title}</Go>)}
+        <span className="ml-auto text-[11px] text-hatch">核验 {w.verified_at}</span>
+      </div>
+    </article>
+  );
+}
+
+/**
+ * 一组入门读物。**这一栏是索引不是教材** —— 每条只回答「它解决你哪个困惑」，
+ * 剩下的交给原文。`note` 是我们的判断，所以整组底下标一次。
+ */
+function BasicGroup({ b }: { b: TopicBasic }) {
+  return (
+    <section className="border border-rule rounded-xl px-4 py-4 sm:px-5 sm:py-5">
+      <h3 className="text-[17px] tracking-tight mb-1.5">{b.zh}</h3>
+      <p className="text-[12.5px] text-muted leading-relaxed max-w-[88ch] mb-4"><Rich text={b.intro} /></p>
+      <ul className="border border-rule rounded-lg divide-y divide-rule">
+        {b.items.map((it) => (
+          <li key={it.url} data-count-item className="px-3.5 py-3">
+            <div className="flex items-baseline gap-2 flex-wrap mb-1">
+              <a href={it.url} target="_blank" rel="noopener noreferrer"
+                className="text-[13.5px] font-bold hover:text-yes-ink">
+                {it.title}<span className="text-hatch ml-1.5">↗</span>
+              </a>
+              <Chip>{it.site}</Chip>
+              <Chip>{it.lang === "zh" ? "中文" : "英文"}</Chip>
+            </div>
+            <p className="text-[12.5px] text-muted leading-relaxed max-w-[88ch]"><Rich text={it.note} /></p>
           </li>
         ))}
       </ul>
-    </nav>
-  );
-}
-
-function Sec({ id, zh, sub, children }: { id: string; zh: string; sub?: React.ReactNode; children: React.ReactNode }) {
-  return (
-    <section id={id} className="py-12 border-t border-rule scroll-mt-16">
-      <h2 className="text-[22px] tracking-tight mb-1.5">{zh}</h2>
-      {sub && <div className="text-[13px] text-muted mb-6 max-w-[54ch]">{sub}</div>}
-      {children}
-    </section>
-  );
-}
-
-/**
- * 一道工序。**主体是能力拆解**，不是「自持 vs 平台」的两栏比较。
- *
- * 顺序是刻意的：先给场景答案（读者最想要的那一句），再摊开拆解（真材实料）。
- * 中间那句结论标着「判断」—— 拆解是事实，结论是我们的话，两者必须分得开。
- */
-function Step({
-  d, i, projects, topic, dim,
-}: { d: Decision; i: number; projects: TopicProject[]; topic: string; dim: boolean }) {
-  return (
-    <section id={`step-${d.id}`} className={`scroll-mt-16 transition-opacity ${dim ? "opacity-40" : ""}`}>
-      <div className="flex items-baseline gap-3 flex-wrap">
-        <b className="text-[13px] tnum text-hatch">{String(i + 1).padStart(2, "0")}</b>
-        <h3 className="text-[19px] tracking-tight">{d.zh}</h3>
-      </div>
-      {d.handle && d.handle !== "—" && (
-        <p className="text-[13px] text-muted mt-1 max-w-[56ch]">{d.handle}</p>
-      )}
-
-      {/* ── 场景答案：读者最想要的那一句，摆在拆解之前 ── */}
-      {d.scenarios && d.scenarios.length > 0 && (
-        <dl className="mt-5 border border-rule rounded-lg divide-y divide-rule">
-          {d.scenarios.map((s) => (
-            <div key={s.when} className="px-4 py-3 sm:grid sm:grid-cols-[minmax(150px,190px)_1fr] sm:gap-5">
-              <dt className="text-[12.5px] text-muted">{s.when}</dt>
-              <dd className="text-[13px] text-ink leading-relaxed mt-1 sm:mt-0">{s.use}</dd>
-            </div>
-          ))}
-        </dl>
-      )}
-
-      {/* ── 重心：能力拆解 ── */}
-      <div className="mt-7">
-        <h4 className="text-[13px] font-bold mb-1">能力拆解</h4>
-
-        <p className="text-[11px] tracking-wider text-muted font-bold mt-4 mb-1.5">
-          平台侧 · 十家逐一
-        </p>
-        {d.cap ? (
-          <>
-            <PlatformBreakdown cap={d.cap} />
-            <p className="text-[11.5px] mt-2">
-              <Go href={capHref(d.cap)} className="text-muted">这项能力的完整核对页</Go>
-            </p>
-          </>
-        ) : (
-          <p className="text-[12.5px] text-muted border border-rule rounded-lg px-4 py-3 hatch">
-            这一步没有对应的能力格，平台侧还没有逐家核对过。
-          </p>
-        )}
-
-        <p className="text-[11px] tracking-wider text-muted font-bold mt-7 mb-1.5">
-          开源侧 · 逐个
-        </p>
-        {projects.length > 0 ? (
-          <div className="border border-rule rounded-lg divide-y divide-rule">
-            {projects.map((p) => <ProjectRow key={p.id} p={p} topic={topic} />)}
-          </div>
-        ) : (
-          <p className="text-[12.5px] text-muted border border-rule rounded-lg px-4 py-3 hatch">
-            没有开源项目接这一步。
-          </p>
-        )}
-      </div>
-
-      {d.fit && (
-        <div className="mt-6 border-l-2 border-chip-warm-ink pl-3 max-w-[58ch]">
-          <p className="text-[13px] text-ink leading-relaxed">{d.fit}</p>
-          <p className="text-[10.5px] text-muted mt-1.5">这一句是判断，不是厂商说法。</p>
-        </div>
-      )}
     </section>
   );
 }
 
 export default function TopicView({ t }: { t: Topic }) {
-  const [pick, setPick] = useState<string | null>(null);
-  const matrix = t.chapters.find((c) => c.matrix)?.matrix;
-  const axis = t.chapters.filter((c) => c.kind === "axis").sort((a, b) => (a.axis_pos ?? 0) - (b.axis_pos ?? 0));
+  const groups = t.groups;
+  const [tab, setTab] = useState(groups[0].id);
 
-  const allinone = t.projects.filter((p) => p.role === "allinone");
-  /** 底座横跨多步（ComfyUI 一个人管四步），挂在每一步下面会重复四次，所以单列。 */
-  const bases = t.projects.filter((p) => p.role === "base");
-  /** 那一步下面**逐个列出来**的项目：只列工具，底座在上面单列过了。 */
-  const projectsFor = (dId: string) =>
-    t.projects.filter((p) => p.role === "tool" && p.decisions.includes(dId));
-  /**
-   * 自持侧那根条**要数底座**。
-   *
-   * 第一版只数了工具，于是「分镜」那一步写着「共 2 个」——
-   * 而 ComfyUI 明明也做分镜，只是因为它被单列成底座就没算进去。
-   * **条是在回答「自持这一步有没有东西可用」，不是在回答「这一节列了几张卡」。**
-   * 一站式不算：它替你做掉这一步，是另一条路，自成一篇。
-   */
-  const countFor = (dId: string) =>
-    t.projects.filter((p) => p.role !== "allinone" && p.decisions.includes(dId));
+  /** 深链：`#g-sound` 直接落到声音那一类。分享一个 tab 得能分享得出去。 */
+  useEffect(() => {
+    const read = () => {
+      const g = location.hash.replace(/^#g-/, "");
+      if (g && groups.some((x) => x.id === g)) setTab(g);
+    };
+    read();
+    addEventListener("hashchange", read);
+    return () => removeEventListener("hashchange", read);
+  }, [groups]);
 
-  /** 选了片型就把非命门的步骤压暗 —— **过滤不是换一屏内容，是同一条主线上做减法**。 */
-  const isKey = (d: Decision) => !pick || !matrix || (matrix[pick]?.[d.id] ?? 0) >= 3;
+  const pick = (id: string) => {
+    setTab(id);
+    history.replaceState(null, "", `#g-${id}`);
+  };
 
-  const toc = [...(matrix ? [SEC.types] : []), SEC.steps,
-    ...(allinone.length ? [SEC.allinone] : []), SEC.props, SEC.axis];
+  const of = (g: string) => t.projects.filter((p) => p.group === g);
+  /** 一个 tab 里有几条 —— 项目类数项目，作品类数作品。 */
+  const countOf = (g: { id: string; kind?: string }) =>
+    g.kind === "works" ? (t.works?.length ?? 0)
+      : g.kind === "basics" ? (t.basics ?? []).reduce((n, b) => n + b.items.length, 0)
+        : of(g.id).length;
+  const diagrams = t.projects.reduce((n, p) => n + (p.diagrams?.length ?? 0), 0);
 
   return (
-    <div className="lg:flex lg:gap-10">
-      <Toc items={toc} />
-      <div className="min-w-0 flex-1">
-
-      {/* ── 第一屏：主线就是顺序 ── */}
-      <section className="pt-12 pb-12 sm:pt-16">
+    <div>
+      <header className="pt-12 pb-8 sm:pt-16">
         <p className="text-[11px] tracking-[0.2em] text-yes-ink font-bold mb-4">专项研究</p>
         <h1 className="text-[30px] sm:text-[40px] leading-[1.15] tracking-tight mb-4 max-w-[18ch]">{t.zh}</h1>
-        <p className="text-[15px] text-muted leading-relaxed max-w-[36ch] mb-9">
+        <p className="text-[15px] text-muted leading-relaxed max-w-[84ch] mb-3">
           <Rich text={t.intro} />
         </p>
-        <p className="text-[11px] tracking-wider text-muted font-bold mb-2.5">做一条视频要过的九步</p>
-        <StepLadder decisions={t.decisions} />
-      </section>
+        {/* 规模从数据现算。写进 intro 的句子里，数据一涨它就成了错的。 */}
+        <p className="text-[12px] text-hatch tnum">
+          {groups.length} 类 · {t.projects.length} 个项目 · {diagrams} 张图
+        </p>
 
-      {/* ── 片型是过滤器，不是另一屏内容 ── */}
-      {matrix && (
-        <Sec {...SEC.types} sub="格子越实＝这一步对该片型越关键。点一行，下面九步里非命门的会压暗。">
-          <MatrixChart matrix={matrix} decisions={t.decisions} pick={pick}
-            onPick={(id) => setPick(id === pick ? null : id)} />
-          <p className="text-[11px] text-muted mt-2 border-l-2 border-chip-warm-ink pl-2.5">
-            权重是判断，不是厂商说法。
-          </p>
-          {pick && (
-            <p className="text-[12.5px] mt-4">
-              正在按 <b className="text-ink">{topicAppName(pick)}</b> 过滤 ——
-              九步里 <b className="tnum text-ink">{t.decisions.filter(isKey).length}</b> 步是命门。
-              <button onClick={() => setPick(null)}
-                className="ml-2 border border-rule rounded px-2 py-0.5 text-[11.5px] text-muted hover:border-yes">
-                取消过滤
-              </button>
-            </p>
-          )}
-        </Sec>
-      )}
-
-      {/* ── 主体：九步 ── */}
-      <Sec {...SEC.steps}
-        sub={<>每一步都问同两个问题：<b className="text-ink">平台侧做不做得到</b>、
-          <b className="text-ink">自持侧有没有还活着的项目</b>。结论是「什么时候用哪边」，不是谁更高级。</>}>
-        {bases.length > 0 && (
-          <div className="mb-10 border border-rule rounded-lg px-4 py-3.5">
-            <p className="text-[11px] tracking-wider text-muted font-bold mb-2">底座 · 横跨多步</p>
-            <div className="grid sm:grid-cols-2 gap-2">
-              {bases.map((p) => <ProjectLink key={p.id} p={p} topic={t.id} />)}
-            </div>
-          </div>
-        )}
-        <div className="space-y-14">
-          {t.decisions.map((d, i) => (
-            <Step key={d.id} d={d} i={i} topic={t.id} projects={countFor(d.id)} dim={!isKey(d)} />
-          ))}
-        </div>
-      </Sec>
-
-      {/* ── 整包篇 ── */}
-      {allinone.length > 0 && (
-        <Sec {...SEC.allinone}
-          sub={<Rich text={t.chapters.find((c) => c.id === "allinone")?.intro ?? ""} />}>
-          <AllInOneChart projects={allinone} decisions={t.decisions} />
-          <div className="grid sm:grid-cols-2 gap-2 mt-3">
-            {allinone.map((p) => <ProjectLink key={p.id} p={p} topic={t.id} />)}
-          </div>
-        </Sec>
-      )}
+      </header>
 
       {/*
-        * ── 附录 ──
-        * 这四张图是**项目集合的属性**，不是工序。摆在中段会打断主线，
-        * 但它们本身是查过的事实，删掉可惜 —— 所以降到附录，谁想比谁来翻。
+        * 分类条。**它是这一页的导航，所以钉在顶上** ——
+        * 页面本身还是很长（七类摊开十六个项目），滚下去还能换类才叫 tab。
         */}
-      <Sec {...SEC.props} sub="下面四张是项目集合的整体属性，和九步的顺序无关，放在最后备查。">
-        <div className="space-y-10">
-          <div>
-            <h3 className="text-[15px] mb-1">官方说法覆盖度</h3>
-            <p className="text-[12px] text-muted mb-3">10 个核心模型里，各项能力有几家写进了官方文档。</p>
-            <CoverageChart decisions={t.decisions} />
-          </div>
-          <div>
-            <h3 className="text-[15px] mb-1">许可证</h3>
-            <p className="text-[12px] text-muted mb-3">按能不能拿去接商单分档，不按许可证名字分。</p>
-            <LicenseChart projects={t.projects} />
-          </div>
-          <div>
-            <h3 className="text-[15px] mb-1">活跃度</h3>
-            <p className="text-[12px] text-muted mb-3">
-              星数绝对值在新领域里是年龄的函数。这里按增速排，并单列最后一次提交距今多久 —— 两个轴谁也别单独用。
-            </p>
-            <ActivityChart projects={t.projects} />
-          </div>
-          <div>
-            <h3 className="text-[15px] mb-1">硬件门槛</h3>
-            <p className="text-[12px] text-muted mb-3">数值取自各仓库自述。</p>
-            <HardwareChart projects={t.projects} />
-          </div>
+      <div role="tablist" aria-label="项目类型"
+        /* 只有下边框：粘住之后上边框正好压在导航条自己的下边框底下，画两条等于没画。 */
+        className="sticky top-12 z-10 -mx-5 px-5 py-2.5 bg-paper border-b border-rule overflow-x-auto">
+        <div className="flex gap-1.5 w-max">
+          {groups.map((g) => {
+            const on = g.id === tab;
+            return (
+              <button key={g.id} role="tab" aria-selected={on} onClick={() => pick(g.id)}
+                className={`text-[13px] rounded-full px-3.5 py-1.5 border whitespace-nowrap ${
+                  on ? "border-yes text-yes-ink bg-card font-bold" : "border-rule text-muted hover:text-ink"}`}>
+                {g.zh}
+                <span className="ml-1.5 text-[11px] tnum opacity-70">{countOf(g)}</span>
+              </button>
+            );
+          })}
         </div>
-      </Sec>
-
-      <Sec {...SEC.axis} sub="由低到高：先出片 → 要控制 → 沉淀方法。">
-        <div className="grid sm:grid-cols-3 gap-2.5">
-          {axis.map((c) => (
-            <div key={c.id} className={`border rounded-xl px-4 py-4 ${c.state === "live" ? "border-yes bg-card" : "border-rule"}`}>
-              <b className="text-[15px]">{c.zh}</b>
-              <p className="text-[12.5px] text-muted mt-2 leading-relaxed"><Rich text={c.intro} /></p>
-              {c.state !== "live" && (
-                <span className="inline-block mt-3 text-[11px] text-muted border border-rule rounded px-2">在建</span>
-              )}
-            </div>
-          ))}
-        </div>
-      </Sec>
       </div>
+
+      {groups.map((g) => (
+        <section key={g.id} role="tabpanel" hidden={g.id !== tab} className="py-9">
+          <h2 className="text-[22px] tracking-tight mb-1.5">{g.zh}</h2>
+          <p className="text-[13px] text-muted leading-relaxed max-w-[92ch] mb-6"><Rich text={g.intro} /></p>
+          {/*
+            * ⚠️ **`ch` 是按「0」这个字形量的，而一个汉字大约占 2ch。**
+            *
+            * 这一页的正文上限原来照拉丁文的习惯写成 46~52ch，落到中文上
+            * **一行只剩二十几个字** —— 于是每段都被挤成一条窄带，右边空一大片。
+            * 负责人 2026-08-16：「有没有觉得红框外围很空啊。为什么一定要挤在一起呢。」
+            *
+            * 所以中文正文的上限一律按「目标字数 × 2」来设：想要一行 40 字左右就写 84ch。
+            * 卡本身不再另设宽度，跟着容器铺满。
+            */}
+          <div className="space-y-3">
+            {g.kind === "works" ? (t.works ?? []).map((w) => <WorkCard key={w.id} w={w} />)
+              : g.kind === "basics" ? null
+                : of(g.id).map((p) => <ProjectCard key={p.id} p={p} topic={t.id} />)}
+          </div>
+          {/* 常识五组两列并排 —— 每组本身不长，竖着排要滚很久才看得完。 */}
+          {g.kind === "basics" && (
+            <div className="grid xl:grid-cols-2 gap-3 items-start">
+              {(t.basics ?? []).map((b) => <BasicGroup key={b.id} b={b} />)}
+            </div>
+          )}
+          {/* 「它解决你哪个困惑」是我们的判断，整组标一次，别每条都啰嗦。 */}
+          {g.kind === "basics" && (
+            <p className="mt-4 text-[11.5px] text-muted border-l-2 border-chip-warm-ink pl-2.5">
+              每条下面那句「它解决你哪个困惑」是我们的判断，链接指向的原文才是出处。
+            </p>
+          )}
+          {/* 查过没收的也要露面 —— 否则读者会以为我们漏了。 */}
+          {g.kind === "works" && !!t.works_skipped?.length && (
+            <div className="mt-6 border border-rule rounded-lg px-4 py-3.5 hatch">
+              <p className="text-[11px] tracking-wider text-muted font-bold mb-2">查过，按规矩没收</p>
+              <ul className="space-y-1.5">
+                {t.works_skipped.map((w) => (
+                  <li key={w.zh} className="text-[12.5px] text-muted leading-relaxed">
+                    <b className="text-ink">{w.zh}</b>　{w.why}
+                    <span className="text-hatch">　核验 {w.verified_at}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
+        </section>
+      ))}
     </div>
   );
 }

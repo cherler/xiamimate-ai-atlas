@@ -515,10 +515,35 @@ export type TopicProject = {
    */
   created_at?: string; pushed_at?: string;
   stars_per_month?: number; stale_months?: number;
-  /** permissive 可商用 · copyleft 传染性 · noncommercial 不可商用 */
-  license_class: "permissive" | "copyleft" | "noncommercial";
+  /**
+   * permissive 可商用 · copyleft 传染性 · noncommercial 不可商用
+   * · restricted **有条件商用**
+   *
+   * `restricted` 是 2026-08-16 为 MiniMax H3 加的第四档：它允许商用，
+   * 但**把使用地区和营收规模写进了许可证**（H3 排除欧盟 / 英国 / 韩国 / 美国，
+   * 年营收超两千万美元要另行书面授权）。塞进前三档哪一档都是错的 ——
+   * 说它「可商用」漏掉了硬门槛，说它「不可商用」是假的。
+   * **限制条件本身要写在 `license` 字段里，读者得看得见具体是什么条件。**
+   */
+  license_class: "permissive" | "copyleft" | "noncommercial" | "restricted";
+  /**
+   * 许可证的附加条件（地区排除、营收门槛、署名要求、权重与代码不同许可…）。
+   *
+   * **和 `license` 分开存**：卡上的小圆标只放许可证名字，
+   * 把整句条件塞进圆标里，那一行会拉成一条横幅，还把后面的标签挤到看不见。
+   * 条件不是不重要 —— 它单独一行显示在卡里，字小但读得到。
+   */
+  license_note?: string;
   /** 这个项目管哪几个决定 */
   decisions: string[];
+  /**
+   * 它属于哪一类项目 —— 引 `Topic.groups` 的 id。**专项页的分 tab 就按这个。**
+   *
+   * 和 `role` 不是一回事：`role` 说的是它在页面上怎么摆（底座 / 工具 / 整包），
+   * `group` 说的是**它干什么活**。负责人 2026-08-16 定的分法：
+   * 「就按开源项目的类型，做不同的 tab 页」——不按片型、不按步骤、不做两侧对比。
+   */
+  group: string;
   /**
    * base 底座（横跨多个决定，只出现一次）· tool 单点工具（挂在决定下面）
    * · allinone 整包（**它替你做决定，所以要单独一篇**）
@@ -540,6 +565,34 @@ export type TopicProject = {
    * `kind` 是图种（架构图 / 流程图 / 时序图 / 工程图）—— 读者得知道这张图在回答哪一类问题。
    */
   diagrams?: { id: string; title: string; kind: DiagramKind; src: string; verified_at: string; mermaid: string }[];
+  /**
+   * **DeepWiki 没有索引这个仓库时的明写豁免。**
+   *
+   * 项目页的图一律来自 DeepWiki（由源码生成），R81 因此要求每个项目至少两张。
+   * 但确实有仓库 DeepWiki 没收 —— 这时候只有两条路：把项目整个漏掉，
+   * 或者**把「为什么没图」写在页面上**。前者是静默丢内容，所以选后者。
+   *
+   * `wiki: "none"` 时 R81 放行，但 `wiki_note` 变成必填，且页面必须显示它。
+   * **豁免要看得见，不能悄悄生效。**
+   */
+  wiki?: "none";
+  wiki_note?: string;
+  /**
+   * 用这个项目的教程。
+   *
+   * 负责人 2026-08-16：「也可以在开源项目里，配一些使用此项目的教程。」
+   *
+   * **只收官方口径**：仓库 README 里链出去的、官方文档站、作者本人的视频，
+   * 以及 ComfyUI 官方文档给的原生工作流示例（这些项目绝大多数人就是在 ComfyUI 里用的）。
+   * 三方博客不收 —— 它们烂得比我们回查得动的速度快，而一条 404 的教程比没有教程更伤。
+   *
+   * `page_title` 存的是**页面自己报的标题**，不是我们起的名字：
+   * 下次回查时链接还在、内容换了，靠它才发现得了。
+   */
+  tutorials?: {
+    title: string; page_title?: string; url: string;
+    kind: "官方" | "社区"; lang: "zh" | "en"; verified_at: string;
+  }[];
   /**
    * 自持能力三问。**「自己把握制作能力」必须落成能查的东西，否则永远是形容词。**
    * weights 权重在不在本地 · seed 种子能不能填 · swap 换掉它要动几处。
@@ -591,8 +644,79 @@ export type TopicChapter = {
   /** 片型篇专用：应用 id → 决定 id → 权重 3 命门 / 2 重要 / 1 次要 / 0 不适用 */
   matrix?: Record<string, Record<string, number>>;
 };
+/**
+ * 项目类型。**专项页的骨架就是这一份清单。**
+ *
+ * 分类轴换过三次，前两次都被否：先是「这一步归谁」（自持 / 一半 / 平台），
+ * 再是「做视频的九道工序」。第三次负责人说到底：
+ * 「不要对比、不要片型、步骤。就按开源项目的类型，做不同的 tab 页。」
+ *
+ * 判分类对不对只有一条：**这一类里的项目彼此可替换吗。**
+ * 能替换才是一类 —— 三个声音项目里挑一个是真选择，
+ * 「都归自持」里挑一个不是。
+ */
+export type TopicGroup = {
+  id: string; zh: string; intro: string;
+  /**
+   * 这个 tab 里摆的是什么。默认 `projects`。
+   * 负责人 2026-08-16 的原话是「按类别划分开源项目**或内容**」—— 作品就是那个「内容」。
+   */
+  kind?: "projects" | "works" | "basics";
+};
+
+/**
+ * 作品：这条路做出过什么。
+ *
+ * **收录规矩：只收制作方自己公开说明过管线的作品** —— 查不到用了什么就不收。
+ * 这条规矩现在咬到了一个结论：公开写明过管线的中文 AI 影视作品，
+ * 用的全是闭源平台模型；**开源侧一部都没有**。不缺模型也不缺教程，
+ * 缺的是有人把一部完整作品的管线公开出来。
+ *
+ * `open` 记的是那条管线的性质：closed 全闭源平台 · open 全开源 · mixed 混着用。
+ */
+export type TopicWork = {
+  id: string; zh: string; year: string; maker: string; stack: string;
+  open: "closed" | "open" | "mixed";
+  note: string;
+  src: { title: string; url: string }[];
+  verified_at: string;
+};
+
+/**
+ * 查过、按规矩没收的作品。**「我们查了，没查到」和「我们没查」是两件事** ——
+ * 不写下来，下次还会有人把同一条重新查一遍，而且会误以为是遗漏。
+ */
+export type TopicWorkSkipped = { zh: string; why: string; verified_at: string };
+
+/**
+ * 视频常识：给不做视频的人的入门读物清单。
+ *
+ * 负责人 2026-08-16：「AI 视频模型把制作视频的门槛降得很低，谁都可以制作，
+ * 但其实对于视频的相关知识是不知道的……可以不局限在 AI 视频制作。」
+ *
+ * **我们不写教材，只做索引。** 这些知识有一百年的积累，自己重写一版
+ * 既没有出处、又必然按记忆填数据 —— 那正是这个站最忌讳的事。
+ *
+ * 收录标准和项目教程不同（视频常识没有「官方」），换成两条：
+ * **词条型**（定义稳定、可回查）与**成体系的免费指南**（有主体、成系列）。
+ * 个人博客与聚合站转载一概不收 —— 代价是中文侧偏少，这一点要在页面上直说。
+ *
+ * `note` 是**我们的判断**：这一条解决你哪个困惑。`page_title` 用来发现「链接还在、内容换了」。
+ */
+export type TopicBasic = {
+  id: string; zh: string; intro: string;
+  items: {
+    title: string; url: string; site: string; lang: "zh" | "en";
+    note: string; page_title?: string; verified_at: string;
+  }[];
+};
+
 export type Topic = {
   id: string; zh: string; en: string; intro: string;
+  groups: TopicGroup[];
+  works?: TopicWork[];
+  works_skipped?: TopicWorkSkipped[];
+  basics?: TopicBasic[];
   decisions: Decision[]; chapters: TopicChapter[]; projects: TopicProject[];
 };
 

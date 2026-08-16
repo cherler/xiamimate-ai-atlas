@@ -1,6 +1,6 @@
 {
   "version": "1.7",
-  "generated_at": "2026-08-15",
+  "generated_at": "2026-08-16",
   "note": "第九版。clip 轨九个 Family 已全部用厂商官方源逐格重核（86% 的格子挂官方来源）。全部由 Agent 录入，未经人工核验（§59.3 转述层）。模型按 version_as_of 降序；status 标生命周期。",
   "changelog": [
     "v1.7 公司升为一等实体（阿里此前在库里是两家）+ 能力轴按方向隔离 + 平台透明度四档（⬜「我们没看到」≠🔴「只字不提」）+ 价格（**七家七种计价方式，不可比才是结论**）",
@@ -28448,7 +28448,7 @@
       "id": "video",
       "zh": "AI 视频制作",
       "en": "Making Video with AI",
-      "intro": "按做一条视频的九道工序逐步比：这一步**平台侧做不做得到**、**自持侧有没有还活着的开源项目**，以及什么场景下该走哪边。",
+      "intro": "做 AI 视频用得上的开源项目，按它们干的活分类摆开 —— 想配音就点声音，想把画面控住就点画面控制。",
       "decisions": [
         {
           "id": "topic",
@@ -28898,7 +28898,26 @@
           "created_at": "2023-02-01",
           "pushed_at": "2026-08-16",
           "stars_per_month": 3011,
-          "stale_months": 0
+          "stale_months": 0,
+          "group": "base",
+          "tutorials": [
+            {
+              "title": "官方入门：第一次出图",
+              "page_title": "开始 ComfyUI 的 AI 绘图之旅 - ComfyUI",
+              "url": "https://docs.comfy.org/zh-CN/get_started/first_generation",
+              "kind": "官方",
+              "lang": "zh",
+              "verified_at": "2026-08-16"
+            },
+            {
+              "title": "官方教程：文生图工作流",
+              "page_title": "ComfyUI 文生图工作流 - ComfyUI",
+              "url": "https://docs.comfy.org/zh-CN/tutorials/basic/text-to-image",
+              "kind": "官方",
+              "lang": "zh",
+              "verified_at": "2026-08-16"
+            }
+          ]
         },
         {
           "id": "wan22",
@@ -29019,7 +29038,543 @@
           "created_at": "2025-07-28",
           "pushed_at": "2026-03-17",
           "stars_per_month": 1359,
-          "stale_months": 5
+          "stale_months": 5,
+          "group": "gen",
+          "tutorials": [
+            {
+              "title": "ComfyUI 官方：Wan2.2 工作流",
+              "page_title": "Wan2.2 视频生成ComfyUI 官方原生工作流示例 - ComfyUI",
+              "url": "https://docs.comfy.org/zh-CN/tutorials/video/wan/wan2_2",
+              "kind": "官方",
+              "lang": "zh",
+              "verified_at": "2026-08-16"
+            },
+            {
+              "title": "ComfyUI 官方：Wan 首尾帧",
+              "page_title": "ComfyUI Wan2.1 FLF2V 原生示例 - ComfyUI",
+              "url": "https://docs.comfy.org/zh-CN/tutorials/video/wan/wan-flf",
+              "kind": "官方",
+              "lang": "zh",
+              "verified_at": "2026-08-16"
+            }
+          ]
+        },
+        {
+          "id": "hunyuanvideo",
+          "zh": "HunyuanVideo",
+          "url": "https://github.com/Tencent-Hunyuan/HunyuanVideo",
+          "stars": 12429,
+          "created_at": "2024-11-28",
+          "pushed_at": "2026-06-29",
+          "stars_per_month": 605,
+          "stale_months": 2,
+          "license": "Tencent Hunyuan Community License",
+          "license_class": "restricted",
+          "role": "tool",
+          "group": "gen",
+          "decisions": [
+            "shot",
+            "repro"
+          ],
+          "scope": "腾讯的开源视频生成模型，文生视频与图生视频。720×1280、129 帧。",
+          "control": "权重可下载可离线跑，`--seed` 是命令行参数。**它把大参数视频模型的门槛摆到了明处**：官方自己写清了 720p 要 60GB、540p 要 45GB，没有含糊。",
+          "hw": "**720×1280×129 帧最低 60GB 显存，544×960×129 帧 45GB**；官方推荐 80GB。开 `--use-cpu-offload` 才可能往下压",
+          "arch": "文本走两路编码器（MLLM + CLIP），提示词还先过一道改写模型；主干是双流转单流的 DiT，用 ModulateDiT 分别调制图像 token 与文本 token。官方另放了 FP8 权重用来省显存。",
+          "good": [
+            "官方把显存要求写成了表格，60GB / 45GB 明码标价，不用自己试出来",
+            "`--seed` 是命令行参数，可复现是明写的",
+            "官方另发了 FP8 权重，以及 xDiT 的多卡并行推理路径",
+            "生态接得最全 —— 后面 musubi-tuner、FramePack 都是从它这一支长出来的"
+          ],
+          "bad": [
+            "**消费级显卡直接跑不了**：最低 45GB，而 4090 是 24GB",
+            "许可证正文第一句就把欧盟、英国、韩国排除在外",
+            "已经两个月没动了，而这个领域两个月不短",
+            "flash-attention 装不上是高频问题（issue #51 就是这个）"
+          ],
+          "unfit": "只有一张消费级显卡的人 —— 官方门槛 45GB 起，社区的 GPU-Poor 分支是另一个项目、另一套代码。",
+          "src": "github README + GitHub API + LICENSE.txt 原文 + DeepWiki 架构页",
+          "verified_at": "2026-08-16",
+          "autonomy": {
+            "weights": "local",
+            "seed": "yes",
+            "swap": "few",
+            "note": "权重可下载，--seed 是命令行参数"
+          },
+          "hands": {
+            "layers": [
+              "docs",
+              "wiki",
+              "issue"
+            ],
+            "install": [
+              {
+                "step": "装依赖",
+                "gate": "推荐 CUDA 12.4 或 11.8；`pip install ninja` 之后再装 flash-attention"
+              },
+              {
+                "step": "拉权重",
+                "gate": "**想省显存就取 FP8 那份**（官方 2024-12-18 单独发的）"
+              },
+              {
+                "step": "跑 sample_video.py",
+                "gate": "**先按分辨率对显存**：720p 60GB、540p 45GB。不够就加 `--use-cpu-offload`"
+              }
+            ],
+            "modify": [
+              {
+                "path": "sample_video.py",
+                "effect": "命令行入口。参数表（含 --seed）从这里查"
+              },
+              {
+                "path": "hyvideo/inference.py",
+                "effect": "sampler.predict() 与出片保存在这里"
+              },
+              {
+                "path": "hyvideo/modules/",
+                "effect": "DiT 主干与 ModulateDiT 调制。要看双流怎么转单流，看这里"
+              }
+            ],
+            "pitfalls": [
+              {
+                "where": "flash-attention 装不上",
+                "note": "**issue #51 就是这个**（已关闭）—— 它是按指定 commit 从源码装的，编译环境不对就挂"
+              },
+              {
+                "where": "以为 24GB 能跑",
+                "note": "**官方最低 45GB**。24GB 卡上跑的是社区的 HunyuanVideoGP 分支（issue #109 / #165），不是这个仓库"
+              },
+              {
+                "where": "多卡并行",
+                "note": "**issue #129「Parallel Inference with xDit unsuccessful」、#85 四卡 RTX6000 共 192GB 仍 OOM** —— xDiT 那条路不是装上就能用"
+              },
+              {
+                "where": "多卡怎么开",
+                "note": "**issue #33「How to run on multiple GPUs?」回复 18 条**（已关闭）—— 单卡跑不动之后第一个撞上的问题"
+              }
+            ],
+            "issue_src": "github issues 按回复数排序 · 核验 2026-08-16"
+          },
+          "diagrams": [
+            {
+              "id": "hunyuan-arch",
+              "title": "整套怎么摆",
+              "kind": "架构图",
+              "src": "DeepWiki 架构页 · 抓取 2026-08-16",
+              "verified_at": "2026-08-16",
+              "mermaid": "graph TB\n    subgraph \"User Interface Layer\"\n        CLI[\"sample_video.py<br/>Command-line interface\"]\n        WebUI[\"gradio_server.py<br/>Web interface on port 8081\"]\n        ShellScript[\"run_sample_video.sh<br/>Preconfigured execution\"]\n    end\n    \n    subgraph \"Inference Orchestration\"\n        Sampler[\"HunyuanVideoSampler<br/>hyvideo/inference.py<br/>Top-level API\"]\n        Pipeline[\"HunyuanVideoPipeline<br/>Coordinates generation\"]\n        Config[\"parse_args()<br/>hyvideo/config.py<br/>Configuration management\"]\n    end\n    \n    subgraph \"Core Model Components\"\n        VAE[\"AutoencoderKLCausal3D<br/>hyvideo/vae/autoencoder_kl_causal_3d.py<br/>3D VAE: 4x8x16 compression\"]\n        Transformer[\"HYVideoDiffusionTransformer<br/>hyvideo/modules/models.py<br/>Dual→Single Stream<br/>20 double blocks + 40 single blocks\"]\n        TextEnc1[\"MLLM Text Encoder<br/>LLaVA-LLaMA-3-8B<br/>4096-dim embeddings\"]\n        TextEnc2[\"CLIP Text Encoder<br/>CLIP-ViT-L/14<br/>768-dim embeddings\"]\n    end\n    \n    subgraph \"Scheduling System\"\n        Scheduler[\"FlowMatchDiscreteScheduler<br/>flow_match.py<br/>Euler solver, shift=7.0\"]\n    end\n    \n    subgraph \"Storage\"\n        Checkpoints[(\"Model Weights<br/>ckpts/\")]\n        Output[(\"Generated Videos<br/>results/\")]\n    end\n    \n    CLI --> Config\n    WebUI --> Config\n    ShellScript --> CLI\n    \n    Config --> Sampler\n    Sampler --> Pipeline\n    \n    Pipeline --> Transformer\n    Pipeline --> VAE\n    Pipeline --> TextEnc1\n    Pipeline --> TextEnc2\n    Pipeline --> Scheduler\n    \n    Checkpoints --> Sampler\n    Pipeline --> Output"
+            },
+            {
+              "id": "hunyuan-flow",
+              "title": "从提示词到一段视频",
+              "kind": "流程图",
+              "src": "DeepWiki 架构页 · 抓取 2026-08-16",
+              "verified_at": "2026-08-16",
+              "mermaid": "graph LR\n    subgraph \"Text Processing Pipeline\"\n        UserPrompt[\"User Text Prompt\"]\n        PromptRewrite[\"PromptRewriter<br/>hyvideo/prompt_rewrite.py\"]\n        MLLMEnc[\"TextEncoder<br/>llava_next_qwen_tokenizer<br/>llava_next_encoder\"]\n        TokenRefine[\"SingleTokenRefiner<br/>modules/posemb_layers.py<br/>Bidirectional refinement\"]\n        CLIPEnc[\"TextEncoder2<br/>clip_tokenizer<br/>clip_encoder\"]\n    end\n    \n    subgraph \"Latent Generation\"\n        Noise[\"Gaussian Noise<br/>torch.randn()\"]\n        DiT[\"HYVideoDiffusionTransformer<br/>forward()\"]\n        FlowSched[\"FlowMatchDiscreteScheduler<br/>set_timesteps()<br/>scale_model_input()\"]\n    end\n    \n    subgraph \"Decoding\"\n        Latent[\"Latent Tensor<br/>shape: [B,C,T,H,W]\"]\n        VAEDec[\"AutoencoderKLCausal3D.decode()<br/>DecoderCausal3D\"]\n        Video[\"Video Output<br/>shape: [B,3,F,H,W]\"]\n    end\n    \n    UserPrompt --> PromptRewrite\n    PromptRewrite --> MLLMEnc\n    MLLMEnc --> TokenRefine\n    UserPrompt --> CLIPEnc\n    \n    TokenRefine --> DiT\n    CLIPEnc --> DiT\n    Noise --> DiT\n    FlowSched --> DiT\n    \n    DiT --> Latent\n    Latent --> VAEDec\n    VAEDec --> Video"
+            }
+          ],
+          "tutorials": [
+            {
+              "title": "ComfyUI 官方：HunyuanVideo 工作流",
+              "page_title": "ComfyUI 混元视频示例 - ComfyUI",
+              "url": "https://docs.comfy.org/zh-CN/tutorials/video/hunyuan/hunyuan-video",
+              "kind": "官方",
+              "lang": "zh",
+              "verified_at": "2026-08-16"
+            },
+            {
+              "title": "ComfyUI 官方：HunyuanVideo 1.5",
+              "page_title": "混元视频 1.5 ComfyUI 教程 - ComfyUI",
+              "url": "https://docs.comfy.org/zh-CN/tutorials/video/hunyuan/hunyuan-video-1-5",
+              "kind": "官方",
+              "lang": "zh",
+              "verified_at": "2026-08-16"
+            }
+          ],
+          "license_note": "许可证正文首句写明不适用于欧盟、英国、韩国"
+        },
+        {
+          "id": "framepack",
+          "zh": "FramePack",
+          "url": "https://github.com/lllyasviel/FramePack",
+          "stars": 17210,
+          "created_at": "2025-04-12",
+          "pushed_at": "2025-10-16",
+          "stars_per_month": 1068,
+          "stale_months": 10,
+          "license": "Apache-2.0",
+          "license_class": "permissive",
+          "role": "tool",
+          "group": "gen",
+          "decisions": [
+            "shot",
+            "motion"
+          ],
+          "scope": "把 13B 视频模型压进 6GB 显存的桌面程序。图生视频，一分钟长度、30 帧。",
+          "control": "**它换的是生成顺序，不是模型**：一段一段往下预测，并把已生成的上下文压成固定大小 —— 所以显存占用不随视频长度增长。作者是 ControlNet 的作者 lllyasviel。",
+          "hw": "**最低 6GB 显存**（官方原话「Yes 6 GB, not a typo」），RTX 30/40/50 系；模型要下 30GB 以上",
+          "arch": "两个机制叠起来：下一帧段预测（Next-Frame-Section Prediction）把长视频拆成定长段逐段生成；定长上下文压缩（Constant Context Compression）把已生成的历史压到固定尺寸喂回去。底座是 HunyuanVideo 的 VAE 与文本编码器（LLaMA + CLIP），另接 SiglipVision 读输入图。",
+          "good": [
+            "**6GB 显存出一分钟视频** —— 这一格没有第二个开源项目做得到",
+            "笔记本显卡就能跑，作者把它做成了带界面的桌面程序，不是一堆脚本",
+            "显存占用不随时长增长，这是机制决定的，不是调参调出来的",
+            "Apache-2.0，商用没有灰色地带"
+          ],
+          "bad": [
+            "**已经停更 10 个月** —— 底座停在 HunyuanVideo，后面的新模型接不进来",
+            "慢：issue #117 有人在 3090 上生成 5 秒花了 16 分钟，issue #151 报 4060 笔记本「慢得离谱」",
+            "**复杂的连续动作跟不住提示词**（issue #28，开着）",
+            "开头只出 1 秒是正常的 —— 它在逐段补，但这条 README 得读到才知道，很多人当成坏了"
+          ],
+          "unfit": "要接最新底座的人 —— 它停在 HunyuanVideo 那一代，而这一年底座换了好几轮。",
+          "src": "github README + GitHub API + DeepWiki 架构页",
+          "verified_at": "2026-08-16",
+          "autonomy": {
+            "weights": "local",
+            "seed": "yes",
+            "swap": "many",
+            "note": "本地权重、界面里可填种子；但它和 HunyuanVideo 底座绑得很紧"
+          },
+          "hands": {
+            "layers": [
+              "docs",
+              "wiki",
+              "issue"
+            ],
+            "install": [
+              {
+                "step": "装 torch",
+                "gate": "官方给的是 cu126 那条源"
+              },
+              {
+                "step": "装依赖",
+                "gate": "**注意力核装不上不影响能跑** —— 默认走 PyTorch attention，xformers / flash-attn / sage 都是可选加速"
+              },
+              {
+                "step": "跑 demo_gradio.py",
+                "gate": "**模型自动下，30GB 以上**，先把盘腾出来"
+              }
+            ],
+            "modify": [
+              {
+                "path": "demo_gradio.py",
+                "effect": "主界面与生成入口。demo_gradio_f1.py 是另一条采样路线"
+              },
+              {
+                "path": "diffusers_helper/",
+                "effect": "显存调度（高显存全驻留 / 低显存 CPU↔GPU 换进换出）在这里"
+              }
+            ],
+            "pitfalls": [
+              {
+                "where": "只出了 1 秒",
+                "note": "**README 明写这是预期行为** —— 它在逐段生成，等着就会补齐。这条不读 README 一定会误判成坏了"
+              },
+              {
+                "where": "慢",
+                "note": "**issue #117：3090 上 5 秒视频 16 分钟；issue #151：4060 笔记本慢得离谱**，都开着。6GB 能跑不等于跑得快"
+              },
+              {
+                "where": "复杂动作",
+                "note": "**issue #28「Fails to follow prompts to generate complex sequential actions」开着** —— 连续多动作跟不住"
+              },
+              {
+                "where": "Windows 上装加速核",
+                "note": "**issue #138 有人做了一键安装 bat（回复 179 条）、#327 针对 5090** —— 官方没管这一段，社区在补"
+              }
+            ],
+            "issue_src": "github issues 按回复数排序 · 核验 2026-08-16"
+          },
+          "diagrams": [
+            {
+              "id": "framepack-arch",
+              "title": "组件怎么摆",
+              "kind": "架构图",
+              "src": "DeepWiki 架构页 · 抓取 2026-08-16",
+              "verified_at": "2026-08-16",
+              "mermaid": "graph TD\n    subgraph \"User Interface Layer\"\n        GradioMain[\"demo_gradio.py<br/>Main Gradio Interface\"]\n        GradioF1[\"demo_gradio_f1.py<br/>FramePack-F1 Interface\"]\n    end\n    \n    subgraph \"Core Generation Engine\"\n        Engine[\"FramePack Engine<br/>Progressive Video Generation\"]\n        Pipeline[\"K-Diffusion Pipeline<br/>sample_hunyuan integration\"]\n        Memory[\"DynamicSwapInstaller<br/>Memory Management System\"]\n    end\n    \n    subgraph \"AI Model Stack\"\n        Transformer[\"HunyuanVideoTransformer3D<br/>13B Parameter Model\"]\n        TextEnc[\"Text Encoders<br/>LLaMA + CLIP\"]\n        ImageEnc[\"SiglipVision<br/>Image Encoder\"]\n        VAE[\"HunyuanVideo VAE<br/>Latent Space Codec\"]\n    end\n    \n    subgraph \"Optimization Systems\"\n        TeaCache[\"TeaCache<br/>Skip Redundant Computation\"]\n        Attention[\"Attention Backends<br/>Flash/Sage/PyTorch/xformers\"]\n        Quantization[\"Mixed Precision<br/>FP16/BF16 Support\"]\n    end\n    \n    subgraph \"Infrastructure\"\n        HuggingFace[\"HuggingFace Integration<br/>Model Downloads\"]\n        Utils[\"Utility Functions<br/>Image/Video Processing\"]\n        Threading[\"AsyncStream<br/>Threading Management\"]\n    end\n    \n    GradioMain --> Engine\n    GradioF1 --> Engine\n    Engine --> Pipeline\n    Engine --> Memory\n    Pipeline --> Transformer\n    Pipeline --> TextEnc\n    Pipeline --> ImageEnc\n    Pipeline --> VAE\n    \n    Transformer --> TeaCache\n    Transformer --> Attention\n    Engine --> Quantization\n    Engine --> HuggingFace\n    Engine --> Utils\n    GradioMain --> Threading"
+            },
+            {
+              "id": "framepack-flow",
+              "title": "两个机制怎么配合",
+              "kind": "流程图",
+              "src": "DeepWiki 架构页 · 抓取 2026-08-16",
+              "verified_at": "2026-08-16",
+              "mermaid": "graph TB\n    subgraph \"File System Organization\"\n        DemoFiles[\"demo_gradio.py<br/>demo_gradio_f1.py\"]\n        Requirements[\"requirements.txt<br/>Dependency Management\"]\n        BatchFiles[\"run.bat / update.bat<br/>Windows Automation\"]\n    end\n    \n    subgraph \"Model Management\"\n        ModelLoader[\"Model Loading System<br/>HunyuanVideo 13B\"]\n        SwapSystem[\"DynamicSwapInstaller<br/>CPU↔GPU Model Swapping\"]\n        HFDownload[\"Automatic Downloads<br/>>30GB from HuggingFace\"]\n    end\n    \n    subgraph \"Generation Pipeline\"\n        NextFramePred[\"Next-Frame-Section Prediction\"]\n        ContextCompress[\"Constant Context Compression\"]\n        ProgressiveDiff[\"Progressive Diffusion Process\"]\n    end\n    \n    subgraph \"Hardware Adaptation\"\n        MemoryMgmt[\"Memory Management<br/>6GB minimum requirement\"]\n        AttentionOpt[\"Attention Optimization<br/>PyTorch/Flash/Sage/xformers\"]\n        TeaCacheOpt[\"TeaCache System<br/>1.5s vs 2.5s per frame\"]\n    end\n    \n    DemoFiles --> ModelLoader\n    Requirements --> SwapSystem\n    BatchFiles --> HFDownload\n    \n    ModelLoader --> NextFramePred\n    SwapSystem --> ContextCompress\n    HFDownload --> ProgressiveDiff\n    \n    NextFramePred --> MemoryMgmt\n    ContextCompress --> AttentionOpt\n    ProgressiveDiff --> TeaCacheOpt"
+            }
+          ]
+        },
+        {
+          "id": "ltx-video",
+          "zh": "LTX-Video",
+          "url": "https://github.com/Lightricks/LTX-Video",
+          "stars": 10857,
+          "created_at": "2024-11-20",
+          "pushed_at": "2026-01-05",
+          "stars_per_month": 522,
+          "stale_months": 7,
+          "license": "Apache-2.0",
+          "license_class": "permissive",
+          "role": "tool",
+          "group": "gen",
+          "decisions": [
+            "shot",
+            "motion",
+            "repro"
+          ],
+          "scope": "Lightricks 的视频生成模型，主打快。文生 / 图生 / 视频续写，默认 1216×704、30 帧。",
+          "control": "**这一格里唯一把「快」当第一目标的**：蒸馏版在 8GB 的 4060 上不到一分钟出 720×480×121 帧，官方称最小 1GB 显存可跑。`--seed` 是命令行参数。",
+          "hw": "官方称蒸馏版**最低 1GB 显存**；实测口径是 **8GB 的 RTX 4060 不到一分钟出 720×480×121 帧**",
+          "arch": "T5 编码文本，CausalVideoAutoencoder 编解码视频，中间是 Transformer3DModel。配置走 yaml（`configs/ltxv-*.yaml`），换模型变体就是换一个配置文件。",
+          "good": [
+            "**快**：8GB 卡上不到一分钟出 121 帧，这一类里没有第二个",
+            "首尾帧、多段条件都通过 `--conditioning_media_paths` 一个参数给，接口统一",
+            "代码 Apache-2.0；蒸馏版 + FP8 一路做到消费级显卡",
+            "0.9.8 起支持最长 60 秒"
+          ],
+          "bad": [
+            "**已经停更 7 个月**，而 LTX-2 迟迟没开源（issue #256 问的就是这个，已关闭）",
+            "「1GB 显存」是官方口径，issue #4「VRAM info」回复 24 条 —— 实际要多少一直在被追问",
+            "13B 版出片质量被报不稳（issue #173，开着）",
+            "FP8 那条路有接口不匹配的报错（issue #231，开着）"
+          ],
+          "unfit": "要最高画质的活 —— 它的取舍从头到尾都是拿质量换速度。",
+          "src": "github README + GitHub API + LICENSE 原文 + DeepWiki 架构页",
+          "verified_at": "2026-08-16",
+          "autonomy": {
+            "weights": "local",
+            "seed": "yes",
+            "swap": "few",
+            "note": "权重可下载，--seed 是命令行参数，模型变体靠换 yaml 配置"
+          },
+          "hands": {
+            "layers": [
+              "docs",
+              "wiki",
+              "issue"
+            ],
+            "install": [
+              {
+                "step": "建虚拟环境",
+                "gate": "`python -m venv env`，官方给的就是这条"
+              },
+              {
+                "step": "装包",
+                "gate": "`pip install -e .[inference]`。**FP8 加速核在另一个仓库**（LTXVideo-Q8-Kernels），要 Ada 及以后的卡"
+              },
+              {
+                "step": "跑 inference.py",
+                "gate": "**变体靠 `--pipeline_config` 指配置文件**，蒸馏版和完整版是两个 yaml"
+              }
+            ],
+            "modify": [
+              {
+                "path": "inference.py",
+                "effect": "命令行入口。参数（含 --seed、--conditioning_start_frames）从这里查"
+              },
+              {
+                "path": "configs/*.yaml",
+                "effect": "模型变体与采样参数。换模型 = 换这个文件，不改代码"
+              },
+              {
+                "path": "ltx_video/",
+                "effect": "管线本体：LTXVideoPipeline、CausalVideoAutoencoder、Transformer3DModel"
+              }
+            ],
+            "pitfalls": [
+              {
+                "where": "信「1GB 显存」",
+                "note": "**issue #4「VRAM info」回复 24 条**（已关闭）—— 那是蒸馏 + 量化之后的极限口径，不是默认配置"
+              },
+              {
+                "where": "13B 出片发怪",
+                "note": "**issue #173「Weird video out put with ltx 13b model」开着**"
+              },
+              {
+                "where": "用 FP8 核",
+                "note": "**issue #231：FP8Linear.forward() 参数不匹配，开着**"
+              },
+              {
+                "where": "等 LTX-2 开源",
+                "note": "**issue #256「When is LTX2 going to be open-sourced?」已关闭** —— 这个仓库停在 7 个月前"
+              }
+            ],
+            "issue_src": "github issues 按回复数排序 · 核验 2026-08-16"
+          },
+          "diagrams": [
+            {
+              "id": "ltx-arch",
+              "title": "接口与管线怎么摆",
+              "kind": "架构图",
+              "src": "DeepWiki 架构页 · 抓取 2026-08-16",
+              "verified_at": "2026-08-16",
+              "mermaid": "graph TD\n    User[User] --> |\"Text Prompts,\nImages,\nVideos\"| Interfaces\n    \n    subgraph \"User Interfaces\"\n        InferenceScript[\"inference.py\n(main script)\"]\n        ComfyUIIntegration[\"ComfyUI-LTXVideo\n(nodes)\"]\n        DiffusersAPI[\"Diffusers API\n(HuggingFace)\"]\n        OnlinePlatforms[\"LTX-Studio\nFal.ai\nReplicate\"]\n    end\n    \n    Interfaces --> InferenceConfig[\"InferenceConfig\n(dataclass)\"]\n    InferenceConfig --> PipelineChoice{\"Pipeline Type\"}\n    \n    PipelineChoice --> |\"Standard\"| LTXVideoPipeline[\"LTXVideoPipeline\n(main pipeline)\"]\n    PipelineChoice --> |\"Multi-scale\"| LTXMultiScalePipeline[\"LTXMultiScalePipeline\n(upscaling)\"]\n    \n    subgraph \"Core Components\"\n        LTXVideoPipeline --> T5TextEncoder[\"T5EncoderModel\n(text encoding)\"]\n        LTXVideoPipeline --> PromptEnhancer[\"PromptEnhancer\n(Florence-2 + Llama)\"]\n        LTXVideoPipeline --> Transformer3DModel[\"Transformer3DModel\n(main model)\"]\n        LTXVideoPipeline --> CausalVideoAutoencoder[\"CausalVideoAutoencoder\n(VAE)\"]\n        LTXVideoPipeline --> RectifiedFlowScheduler[\"RectifiedFlowScheduler\n(timestep scheduling)\"]\n        \n        Transformer3DModel --> SymmetricPatchifier[\"SymmetricPatchifier\n(patch processing)\"]\n        Transformer3DModel --> BasicTransformerBlock[\"BasicTransformerBlock\n(attention layers)\"]\n        \n        LTXMultiScalePipeline --> LatentUpsampler[\"LatentUpsampler\n(spatial/temporal)\"]\n    end\n    \n    CoreComponents --> OutputVideo[\"Generated Video\n(.mp4)\"]\n    OutputVideo --> User"
+            },
+            {
+              "id": "ltx-flow",
+              "title": "一次生成走过哪几步",
+              "kind": "流程图",
+              "src": "DeepWiki 架构页 · 抓取 2026-08-16",
+              "verified_at": "2026-08-16",
+              "mermaid": "flowchart TD\n    A[\"InferenceConfig\n(user input)\"] --> B[\"prompt_enhance\n(if enabled)\"]\n    B --> C[\"T5EncoderModel\n(__call__)\"]\n    C --> D[\"Text Embeddings\n(tensor)\"]\n    \n    subgraph \"Latent Space Processing\"\n        E[\"CausalVideoAutoencoder\n(encode)\"] --> F[\"Latent Tensor\n(B, C, T, H, W)\"]\n        F --> G[\"SymmetricPatchifier\n(patchify)\"]\n        G --> H[\"Patch Tokens\n(B, N, D)\"]\n    end\n    \n    subgraph \"Diffusion Loop\"\n        H --> I[\"RectifiedFlowScheduler\n(timesteps)\"]\n        I --> J[\"Transformer3DModel\n(forward)\"]\n        J --> K[\"BasicTransformerBlock\n(self/cross attention)\"]\n        K --> L[\"Skip Layer Strategy\n(attention optimization)\"]\n        L --> M[\"RectifiedFlowScheduler\n(step)\"]\n        M --> N{\"timestep == 0?\"}\n        N -->|\"No\"| J\n        N -->|\"Yes\"| O[\"Denoised Latents\"]\n    end\n    \n    O --> P[\"SymmetricPatchifier\n(unpatchify)\"]\n    P --> Q[\"CausalVideoAutoencoder\n(decode)\"]\n    Q --> R[\"Output Video\n(torch.Tensor)\"]\n    \n    A --> E\n    D --> K"
+            }
+          ],
+          "tutorials": [
+            {
+              "title": "ComfyUI 官方：LTX-Video 工作流",
+              "page_title": "LTX-0.9.5 ComfyUI 工作流示例 - ComfyUI",
+              "url": "https://docs.comfy.org/zh-CN/tutorials/video/ltxv",
+              "kind": "官方",
+              "lang": "zh",
+              "verified_at": "2026-08-16"
+            }
+          ],
+          "license_note": "代码 Apache-2.0；部分权重另按 OpenRail-M 发布"
+        },
+        {
+          "id": "minimax-h3",
+          "zh": "MiniMax H3",
+          "url": "https://github.com/MiniMax-AI/MiniMax-H3",
+          "stars": 6233,
+          "license": "MiniMax H3 Community License",
+          "license_class": "restricted",
+          "decisions": [
+            "shot",
+            "identity",
+            "motion",
+            "sound",
+            "repro"
+          ],
+          "role": "tool",
+          "group": "gen",
+          "scope": "全模态生成：文字、图片、视频、音频进同一个 Transformer，出带 32kHz 立体声的视频。24 帧、4–15 秒、短边 768。",
+          "control": "权重可下载、可离线跑，请求体里有 `seed`（官方示例脚本就叫 reproducible-768p-*）。**但开源的只有中间那一段** —— 前置的 H3-Context-IR 和后置的 2K 重生成都没放出来，仍要调它的云端 API。",
+          "hw": "官方部署示例是 4 张卡（`sglang serve --num-gpus 4 --ulysses-degree 4`）；**仓库没有给单卡显存数字**",
+          "arch": "H3-Omni-Transformer 是 33B 稠密单流结构，其中 AdaLN 调制约占 13B。文字走 Qwen2TokenizerFast，图/视频/音频走 Qwen3VLProcessor，两路汇进 MiniMaxH3Qwen3VLHFEncoder，取第 50 层隐状态喂给 MiniMaxH3DiTModel；视频与音频各有一个 VAE 解码。训练最后阶段用了原生稀疏注意力，但**稀疏实现没随首发开源**，现在跑的是全注意力。",
+          "good": [
+            "音频是原生生成的，不是画面出完再配 —— 32kHz 立体声与画面同一个模型出",
+            "Ref2VA 一次可接 9 张参考图、3 段参考视频、3 段参考音频，都带时长上限",
+            "请求体里有 seed，官方自己给的示例脚本就叫 reproducible-*，可复现是明写的",
+            "首帧 / 尾帧 / 首尾帧三种约束都在 FL2VA 一个变体里"
+          ],
+          "bad": [
+            "**开源的只是三段里的中间一段**：Context-IR 和 2K 重生成都要调云端 API，本地只出 768p",
+            "许可证按地区排除欧盟 / 英国 / 韩国 / 美国 —— 不是「注意合规」，是那些地方根本没被授权",
+            "官方部署示例四卡起，单卡显存要求仓库没写",
+            "稀疏注意力没开源，长序列的算力优势现在拿不到"
+          ],
+          "unfit": "面向欧美市场交付的商单 —— 许可证把那几个地区排除在授权范围之外，不是加个免责声明能绕过去的。",
+          "src": "github README + GitHub API + HuggingFace LICENSE 原文 + DeepWiki 架构页",
+          "verified_at": "2026-08-16",
+          "autonomy": {
+            "weights": "local",
+            "seed": "yes",
+            "swap": "few",
+            "note": "权重可下载，seed 是请求体参数；但整条链路要原样复刻还得配它的云端 Context-IR"
+          },
+          "hands": {
+            "layers": [
+              "docs",
+              "wiki",
+              "issue"
+            ],
+            "install": [
+              {
+                "step": "拉权重",
+                "gate": "`hf download MiniMaxAI/MiniMax-H3 --include \"model_index.json\" \"FL2VA/*\" \"Ref2VA/*\"` —— **两个变体是分开的**：FL2VA 管文生 / 首尾帧，Ref2VA 管参考生成"
+              },
+              {
+                "step": "起服务",
+                "gate": "`sglang serve --num-gpus 4 --ulysses-degree 4 --model-variant fl2va`。**`--model-variant` 要和你想跑的任务对上**，两个变体各占一个端口"
+              },
+              {
+                "step": "发请求",
+                "gate": "POST `/v1/videos`，body 里 `task` 填 fl2va / ref2va，`target.short_edge` 默认 768。**要 2K 得再调官方的 regeneration 接口**，本地这一段出不了 2K"
+              }
+            ],
+            "modify": [
+              {
+                "path": "transformer/",
+                "effect": "MiniMaxH3DiTModel 主干。要看 AdaLN 调制怎么切，看这里"
+              },
+              {
+                "path": "vae/ 与 audio_vae/",
+                "effect": "画面和声音各一个解码器 —— 音频是生成出来的，不是后期配上去的"
+              },
+              {
+                "path": "scripts/readme/",
+                "effect": "官方给的 18 个示例脚本，`reproducible-768p-*` 那三个是可复现口径的模板"
+              }
+            ],
+            "pitfalls": [
+              {
+                "where": "以为下下来就能出 2K",
+                "note": "**README 明写 H3-Regenerate-2K 未开源**，本地只到 768p。而且它还说 Context-IR「对最终质量至关重要」——少了它，本地效果和官网不是一个东西"
+              },
+              {
+                "where": "用 vLLM 部署",
+                "note": "**issue #18「Code hangs during inference deployment with vLLM」开着** —— APIServer 起来之后就卡住"
+              },
+              {
+                "where": "用 diffusers 跑",
+                "note": "**issue #48：FL2VA 与主干 checkpoint 的 QKV 权重对不上**（其余参数一致）；**issue #4：README 指的 diffusers PR 分支报 branch not found**。两条都开着"
+              },
+              {
+                "where": "音频开头有杂音",
+                "note": "**issue #50 / #51 都开着**：成片开头约 0.1 秒有爆破音，还有毫秒级的「幽灵人声」碎片"
+              },
+              {
+                "where": "多主体对话",
+                "note": "**issue #17：Ref2VA 多主体时声音会串** —— 画面上人分得清，嗓音会跑到另一个人身上"
+              },
+              {
+                "where": "苹果芯片",
+                "note": "**issue #56：官方 FL2VA ComfyUI INT8 路径在 MPS 上挂在 `aten::_int_mm`** —— M 系列跑不了量化那条路"
+              }
+            ],
+            "issue_src": "github issues 按回复数排序 · 核验 2026-08-16"
+          },
+          "created_at": "2026-07-30",
+          "pushed_at": "2026-08-15",
+          "stars_per_month": 11160,
+          "stale_months": 0,
+          "diagrams": [
+            {
+              "id": "h3-arch",
+              "title": "输入到主干怎么摆",
+              "kind": "架构图",
+              "src": "DeepWiki 架构页 · 抓取 2026-08-16",
+              "verified_at": "2026-08-16",
+              "mermaid": "graph TD\n    subgraph \"Input Modalities\"\n        Text[\"Text Input\"]\n        Img[\"Image Inputs (<= 9)\"]\n        Vid[\"Video Clips (<= 3)\"]\n        Aud[\"Audio Clips (<= 3)\"]\n    end\n\n    subgraph \"Code Entities: Preprocessing\"\n        Token[\"Qwen2TokenizerFast\"]\n        Proc[\"Qwen3VLProcessor\"]\n        Enc[\"MiniMaxH3Qwen3VLHFEncoder\"]\n    end\n\n    subgraph \"Code Entities: Transformer Core\"\n        DiT[\"MiniMaxH3DiTModel\"]\n        AdaLN[\"AdaLN Modulation\"]\n        RoPE[\"MM-RoPE Embeddings\"]\n    end\n\n    Text --> Token\n    Img --> Proc\n    Vid --> Proc\n    Aud --> Proc\n    \n    Token --> Enc\n    Proc --> Enc\n    \n    Enc -- \"Hidden States (Layer 50)\" --> DiT\n    DiT --> AdaLN\n    DiT --> RoPE"
+            },
+            {
+              "id": "h3-stages",
+              "title": "三段流水线谁先谁后",
+              "kind": "时序图",
+              "src": "DeepWiki 架构页 · 抓取 2026-08-16",
+              "verified_at": "2026-08-16",
+              "mermaid": "sequenceDiagram\n    participant User\n    participant CIR as H3-Context-IR\n    participant Base as H3-Base (768p)\n    participant R2K as H3-Regenerate-2K (2K)\n\n    User->>CIR: Multimodal Instructions (Text/Img/Vid)\n    CIR->>Base: Context Intermediate Representation\n    Base->>R2K: 768p Video + Audio Latents\n    R2K->>User: Final 2K Omni-modal Video"
+            }
+          ],
+          "tutorials": [
+            {
+              "title": "ComfyUI 官方：MiniMax H3 工作流",
+              "page_title": "在 ComfyUI 中使用 MiniMax H3：T2V、I2V 和 R2V 视频工作流 - ComfyUI",
+              "url": "https://docs.comfy.org/zh-CN/tutorials/video/minimax/minimax-h3",
+              "kind": "官方",
+              "lang": "zh",
+              "verified_at": "2026-08-16"
+            },
+            {
+              "title": "SGLang cookbook：H3 部署",
+              "page_title": "MiniMax-H3 - SGLang Documentation",
+              "url": "https://docs.sglang.io/cookbook/diffusion/MiniMax/MiniMax-H3",
+              "kind": "官方",
+              "lang": "en",
+              "verified_at": "2026-08-16"
+            }
+          ],
+          "license_note": "排除欧盟 / 英国 / 韩国 / 美国；年营收超 2000 万美元需另行书面授权"
         },
         {
           "id": "controlnet",
@@ -29137,7 +29692,34 @@
           "created_at": "2023-02-01",
           "pushed_at": "2024-02-25",
           "stars_per_month": 803,
-          "stale_months": 30
+          "stale_months": 30,
+          "group": "control",
+          "tutorials": [
+            {
+              "title": "ComfyUI 官方：ControlNet 入门",
+              "page_title": "ComfyUI ControlNet 使用示例 - ComfyUI",
+              "url": "https://docs.comfy.org/zh-CN/tutorials/controlnet/controlnet",
+              "kind": "官方",
+              "lang": "zh",
+              "verified_at": "2026-08-16"
+            },
+            {
+              "title": "ComfyUI 官方：姿势控制两遍出图",
+              "page_title": "ComfyUI Pose ControlNet 使用示例 - ComfyUI",
+              "url": "https://docs.comfy.org/zh-CN/tutorials/controlnet/pose-controlnet-2-pass",
+              "kind": "官方",
+              "lang": "zh",
+              "verified_at": "2026-08-16"
+            },
+            {
+              "title": "ComfyUI 官方：深度图控制",
+              "page_title": "ComfyUI Depth ControlNet 使用示例 - ComfyUI",
+              "url": "https://docs.comfy.org/zh-CN/tutorials/controlnet/depth-controlnet",
+              "kind": "官方",
+              "lang": "zh",
+              "verified_at": "2026-08-16"
+            }
+          ]
         },
         {
           "id": "ip-adapter",
@@ -29252,14 +29834,15 @@
           "created_at": "2023-08-16",
           "pushed_at": "2024-06-28",
           "stars_per_month": 185,
-          "stale_months": 26
+          "stale_months": 26,
+          "group": "control"
         },
         {
           "id": "instantid",
           "zh": "InstantID",
           "url": "https://github.com/instantX-research/InstantID",
           "stars": 11985,
-          "license": "代码 Apache-2.0 · 权重仅研究用途",
+          "license": "代码 Apache-2.0",
           "license_class": "noncommercial",
           "decisions": [
             "identity"
@@ -29366,7 +29949,9 @@
           "created_at": "2023-12-11",
           "pushed_at": "2024-07-18",
           "stars_per_month": 373,
-          "stale_months": 25
+          "stale_months": 25,
+          "group": "control",
+          "license_note": "权重仅研究用途"
         },
         {
           "id": "ace-step",
@@ -29488,7 +30073,18 @@
           "created_at": "2025-04-28",
           "pushed_at": "2026-02-15",
           "stars_per_month": 305,
-          "stale_months": 6
+          "stale_months": 6,
+          "group": "sound",
+          "tutorials": [
+            {
+              "title": "ComfyUI 官方：ACE-Step 出音乐",
+              "page_title": "ComfyUI ACE-Step 原生示例 - ComfyUI",
+              "url": "https://docs.comfy.org/zh-CN/tutorials/audio/ace-step/ace-step-v1",
+              "kind": "官方",
+              "lang": "zh",
+              "verified_at": "2026-08-16"
+            }
+          ]
         },
         {
           "id": "pyvideotrans",
@@ -29606,7 +30202,18 @@
           "created_at": "2023-10-02",
           "pushed_at": "2026-08-16",
           "stars_per_month": 542,
-          "stale_months": 0
+          "stale_months": 0,
+          "group": "sound",
+          "tutorials": [
+            {
+              "title": "官方文档站",
+              "page_title": "pyVideoTrans官网-开源免费视频翻译配音软件 pyvideotrans.com pyvideotrans github github.com/jianchang512/pyvideotrans",
+              "url": "https://pyvideotrans.com",
+              "kind": "官方",
+              "lang": "zh",
+              "verified_at": "2026-08-16"
+            }
+          ]
         },
         {
           "id": "real-esrgan",
@@ -29720,7 +30327,263 @@
           "created_at": "2021-07-19",
           "pushed_at": "2024-08-06",
           "stars_per_month": 599,
-          "stale_months": 24
+          "stale_months": 24,
+          "group": "post",
+          "tutorials": [
+            {
+              "title": "作者本人的 B 站讲解",
+              "page_title": "Real-ESRGAN 论文简介（自动英语解说+英文字幕）_哔哩哔哩_bilibili",
+              "url": "https://www.bilibili.com/video/BV1H34y1m7sS/",
+              "kind": "官方",
+              "lang": "zh",
+              "verified_at": "2026-08-16"
+            },
+            {
+              "title": "ComfyUI 官方：视频放大",
+              "page_title": "ComfyUI 视频放大 - ComfyUI",
+              "url": "https://docs.comfy.org/zh-CN/tutorials/utility/video-upscale",
+              "kind": "官方",
+              "lang": "zh",
+              "verified_at": "2026-08-16"
+            },
+            {
+              "title": "ComfyUI 官方：图片放大",
+              "page_title": "ComfyUI 图像放大 - ComfyUI",
+              "url": "https://docs.comfy.org/zh-CN/tutorials/utility/image-upscale",
+              "kind": "官方",
+              "lang": "zh",
+              "verified_at": "2026-08-16"
+            }
+          ]
+        },
+        {
+          "id": "practical-rife",
+          "zh": "Practical-RIFE",
+          "url": "https://github.com/hzwer/Practical-RIFE",
+          "stars": 993,
+          "created_at": "2021-06-16",
+          "pushed_at": "2025-11-20",
+          "stars_per_month": 16,
+          "stale_months": 9,
+          "license": "MIT",
+          "license_class": "permissive",
+          "role": "tool",
+          "group": "post",
+          "decisions": [
+            "shot"
+          ],
+          "scope": "视频插帧：在两帧之间算出中间帧，把 24 帧的片子补成 48、60 帧。作者是 RIFE 论文作者。",
+          "control": "**靠光流，不靠生成**：IFNet 估双向光流，再把两帧按流场扭曲、融合出中间帧 —— 所以它不会凭空编内容，只会把已有的两帧之间填满。这是它和生成式补帧的根本区别。",
+          "hw": "**没有显存门槛这一说**（4K 素材建议 `--scale=0.5`）；Python ≤ 3.11",
+          "arch": "两条线：RIFE v4.xx 系列做插帧（inference_video.py / inference_img.py），SAFA v0.5 做增强（inference_video_enhance.py）。读、算、写三个线程各自跑，中间用队列缓冲。",
+          "good": [
+            "**插帧这一格在开源侧就只有它** —— 星数只有 993，但这不是冷门，是这一格总共就这么大",
+            "作者是 RIFE 论文本人，模型一路更新到 4.26",
+            "MIT，商用无灰色地带",
+            "不吃显存，普通机器就能批量跑"
+          ],
+          "bad": [
+            "**停更 9 个月**，模型更新节奏明显放缓（issue #68「Will there be another Rife model?」开着）",
+            "高倍率插帧时部分运动不平滑（issue #81，已关闭）；SVP 里的伪影至今开着（issue #34，回复 56 条）",
+            "4.7 之后去掉了 ensemble，效果取舍有争议（issue #41）",
+            "泛化性被质疑（issue #136，开着）"
+          ],
+          "unfit": "指望它补出原片没有的内容 —— 它是把两帧之间填满，不是生成新画面。",
+          "src": "github README + GitHub API + LICENSE 原文 + DeepWiki 架构页",
+          "verified_at": "2026-08-16",
+          "autonomy": {
+            "weights": "local",
+            "seed": "na",
+            "swap": "1",
+            "note": "模型是几个 .pkl，放进 train_log/ 即可，换掉只动一处"
+          },
+          "hands": {
+            "layers": [
+              "docs",
+              "wiki",
+              "issue"
+            ],
+            "install": [
+              {
+                "step": "装依赖",
+                "gate": "`pip3 install -r requirements.txt`。**Python 要 ≤ 3.11**"
+              },
+              {
+                "step": "下模型",
+                "gate": "**模型不在仓库里**，下下来放进 `train_log/`，不放就跑不起来"
+              },
+              {
+                "step": "跑 inference_video.py",
+                "gate": "**4K 素材加 `--scale=0.5`**（默认 1.0），不加容易崩"
+              }
+            ],
+            "modify": [
+              {
+                "path": "inference_video.py",
+                "effect": "视频插帧入口。--fps、--scale 这些参数在这里"
+              },
+              {
+                "path": "train_log/",
+                "effect": "放模型的地方。换模型版本就是换这个目录里的文件"
+              },
+              {
+                "path": "inference_video_enhance.py",
+                "effect": "SAFA 增强那条线，和插帧是两码事"
+              }
+            ],
+            "pitfalls": [
+              {
+                "where": "模型没放对",
+                "note": "仓库里不带模型，**必须手动下到 `train_log/`** —— 这是第一次跑失败最常见的原因"
+              },
+              {
+                "where": "4K 素材",
+                "note": "**README 明写要加 `--scale=0.5`**，默认 1.0 在高分辨率上吃不消"
+              },
+              {
+                "where": "高倍率插帧",
+                "note": "**issue #81：4.20 在高倍率下部分运动反而不如老版本平滑**（已关闭）"
+              },
+              {
+                "where": "伪影",
+                "note": "**issue #34 回复 56 条、至今开着** —— SVP 场景下的伪影改善了但没消失"
+              }
+            ],
+            "issue_src": "github issues 按回复数排序 · 核验 2026-08-16"
+          },
+          "diagrams": [
+            {
+              "id": "rife-layout",
+              "title": "仓库怎么摆",
+              "kind": "工程图",
+              "src": "DeepWiki 架构页 · 抓取 2026-08-16",
+              "verified_at": "2026-08-16",
+              "mermaid": "flowchart TD\n    subgraph \"Practical-RIFE System\"\n        A[\"Practical-RIFE Repository\"]\n        \n        subgraph \"Frame Interpolation Module\"\n            B[\"RIFE Models (v4.xx series)\"]\n            C[\"inference_video.py\"]\n            D[\"inference_img.py\"]\n        end\n        \n        subgraph \"Video Enhancement Module\"\n            E[\"SAFA Model (v0.5)\"]\n            F[\"inference_video_enhance.py\"]\n        end\n        \n        A --> B\n        A --> E\n        B --> C\n        B --> D\n        E --> F\n        \n        C --> G[\"High FPS Videos\"]\n        D --> H[\"Interpolated Image Frames\"]\n        F --> I[\"Enhanced Videos\"]\n    end"
+            },
+            {
+              "id": "rife-flow",
+              "title": "一帧是怎么插出来的",
+              "kind": "流程图",
+              "src": "DeepWiki 架构页 · 抓取 2026-08-16",
+              "verified_at": "2026-08-16",
+              "mermaid": "flowchart TD\n    subgraph \"Optical Flow in RIFE\"\n        A[\"Input Frame I0\"] --> F[\"IFNet<br/>Flow Estimation\"]\n        B[\"Input Frame I1\"] --> F\n        F --> G[\"Bidirectional Flow Fields\"]\n        G --> H[\"Frame Synthesis\"]\n        H --> I[\"Intermediate Frame\"]\n    end\n    \n    subgraph \"flownet.pkl\"\n        F\n    end"
+            }
+          ]
+        },
+        {
+          "id": "codeformer",
+          "zh": "CodeFormer",
+          "url": "https://github.com/sczhou/CodeFormer",
+          "stars": 18107,
+          "created_at": "2022-06-21",
+          "pushed_at": "2025-11-18",
+          "stars_per_month": 363,
+          "stale_months": 9,
+          "license": "S-Lab License 1.0",
+          "license_class": "noncommercial",
+          "role": "tool",
+          "group": "post",
+          "decisions": [
+            "shot"
+          ],
+          "scope": "人脸修复：把糊掉、压坏、老照片里的脸修回来。图片与视频都能做。",
+          "control": "**靠码本，不靠猜**：先训一个人脸 VQGAN 学出 1024 条码本，修复时用 Transformer 去预测该取哪几条码 —— 所以它补出来的一定是「像人脸」的东西，不会糊成一团。可调保真度与画质的权衡。",
+          "hw": "**最低 4GB 显存、8GB 内存**、10GB 硬盘放模型（DeepWiki 环境要求页）",
+          "arch": "三段式训练：先训 VQGAN 学码本，再训码预测，最后训可控模块（保真度与质量之间的旋钮）。推理时先人脸检测（RetinaFace / YOLO / dlib）、对齐，修完再贴回原图，背景可选另走超分。",
+          "good": [
+            "人脸这一格做得最扎实的开源项目，图片视频都支持",
+            "保真度可调 —— 一个旋钮在「像原人」和「更好看」之间挪",
+            "带人脸检测与贴回的整条流水线，不用自己拼",
+            "显存门槛低，4GB 就能跑"
+          ],
+          "bad": [
+            "**S-Lab License 1.0 只许非商业用途** —— 接商单不能用，这是硬约束",
+            "停更 9 个月",
+            "修出来的脸锐度被质疑（issue #25，开着）",
+            "整图结果不如单独的人脸结果清楚（issue #274，已关闭）—— 贴回那一步是损耗点"
+          ],
+          "unfit": "任何要收钱的活 —— 许可证只给非商业用途，没有商用授权入口。",
+          "src": "github README + GitHub API + LICENSE 原文 + DeepWiki 架构页",
+          "verified_at": "2026-08-16",
+          "autonomy": {
+            "weights": "local",
+            "seed": "na",
+            "swap": "few",
+            "note": "权重本地，人脸检测器可换（RetinaFace / YOLO / dlib）"
+          },
+          "hands": {
+            "layers": [
+              "docs",
+              "wiki",
+              "issue"
+            ],
+            "install": [
+              {
+                "step": "装依赖",
+                "gate": "`pip3 install -r requirements.txt`；用 dlib 检测器才需要额外装 dlib"
+              },
+              {
+                "step": "装 BasicSR",
+                "gate": "`python basicsr/setup.py develop` —— 少这一步后面全报找不到模块"
+              },
+              {
+                "step": "下预训练权重",
+                "gate": "`python scripts/download_pretrained_models.py facelib`，检测器和修复模型分开下"
+              }
+            ],
+            "modify": [
+              {
+                "path": "basicsr/archs/codeformer_arch.py",
+                "effect": "码本与 Transformer 主干。要看 1024 条码本怎么用，看这里"
+              },
+              {
+                "path": "facelib/",
+                "effect": "人脸检测与对齐。换检测器改这里"
+              },
+              {
+                "path": "inference_codeformer.py",
+                "effect": "推理入口，保真度权重参数在这里"
+              }
+            ],
+            "pitfalls": [
+              {
+                "where": "许可证",
+                "note": "**S-Lab License 1.0 明写 non-commercial** —— README 里还专门列了一串「未经授权用我们模型」的网站，作者在意这件事"
+              },
+              {
+                "where": "整图结果发糊",
+                "note": "**issue #274：final_result 不清楚但 restored_faces 清楚**（已关闭）—— 问题出在贴回与背景超分那一步，不是修脸本身"
+              },
+              {
+                "where": "锐度",
+                "note": "**issue #25「Sharpness of the restored face」开着** —— 修得干净但偏软，是已知取舍"
+              },
+              {
+                "where": "CPU 上跑",
+                "note": "**issue #176 开着** —— 能跑，但要 PyTorch 与 CUDA 版本对得上，否则报错在别处"
+              }
+            ],
+            "issue_src": "github issues 按回复数排序 · 核验 2026-08-16"
+          },
+          "diagrams": [
+            {
+              "id": "codeformer-arch",
+              "title": "码本是怎么用的",
+              "kind": "架构图",
+              "src": "DeepWiki 架构页 · 抓取 2026-08-16",
+              "verified_at": "2026-08-16",
+              "mermaid": "graph TD\n    subgraph \"CodeFormer Model\"\n        I[\"Input Face\"] --> E[\"Encoder\"]\n        E --> FE[\"Feature Embeddings\"]\n        FE --> T[\"Transformer Layers\"]\n        \n        CB[\"Codebook (1024 entries)\"] -.-> T\n        \n        T --> QL[\"Quantized Latents\"]\n        QL --> G[\"Generator/Decoder\"]\n        \n        FW[\"Fidelity Weight (w)\"] -.-> G\n        \n        G --> R[\"Restored Face\"]\n    end\n\n    classDef component stroke:#333,stroke-width:1px;\n    class I,E,FE,T,CB,QL,G,FW,R component;"
+            },
+            {
+              "id": "codeformer-flow",
+              "title": "一张脸从检测到贴回",
+              "kind": "流程图",
+              "src": "DeepWiki 架构页 · 抓取 2026-08-16",
+              "verified_at": "2026-08-16",
+              "mermaid": "graph TD\n    subgraph \"CodeFormer Overview\"\n        ID[\"Input Degraded Image\"] --> FD[\"Face Detection\"]\n        FD --> FA[\"Face Alignment\"]\n        FA --> CF[\"CodeFormer Model\"]\n        CF --> RF[\"Restored Face\"]\n        RF --> FP[\"Face Pasting\"]\n        \n        ID --> BG[\"Background Processing\"]\n        BG --> FP\n        \n        FP --> EI[\"Enhanced Image\"]\n    end\n\n    classDef process stroke:#333,stroke-width:1px;\n    class ID,FD,FA,CF,RF,BG,FP,EI process;"
+            }
+          ],
+          "license_note": "**仅限非商业用途**，许可证正文第一句写明"
         },
         {
           "id": "motionctrl",
@@ -29821,6 +30684,17 @@
               "kind": "流程图",
               "mermaid": "flowchart TD\n  MC[\"MotionCtrl 核心\"] --> D{\"condtype\"}\n  TP[\"文本提示词\"] --> MC\n  CP[\"镜头位姿<br/>RealEstate10K 格式\"] --> CMC[\"镜头运动控制\"]\n  OT[\"物体轨迹<br/>HandyTrajDrawer 手画\"] --> OMC[\"物体运动控制\"]\n  PS[\"ParticleSfM\"] -->|\"从现成视频里提\"| OT\n  CMC --> MC\n  OMC --> MC\n  D -->|\"camera_motion\"| E[\"只控镜头\"]\n  D -->|\"object_motion\"| F[\"只控物体\"]\n  D -->|\"both\"| G[\"两个都控\"]\n  E --> OUT[\"生成视频\"]\n  F --> OUT\n  G --> OUT",
               "src": "DeepWiki 架构页 · 抓取 2026-08-16",
+              "verified_at": "2026-08-16"
+            }
+          ],
+          "group": "control",
+          "tutorials": [
+            {
+              "title": "官方：SVD 分支用法与示例",
+              "page_title": "MotionCtrl/doc/showcase_svd.md at svd · TencentARC/MotionCtrl · GitHub",
+              "url": "https://github.com/TencentARC/MotionCtrl/blob/svd/doc/showcase_svd.md",
+              "kind": "官方",
+              "lang": "en",
               "verified_at": "2026-08-16"
             }
           ]
@@ -29925,14 +30799,134 @@
               "src": "DeepWiki 架构页 · 抓取 2026-08-16",
               "verified_at": "2026-08-16"
             }
-          ]
+          ],
+          "group": "sound"
+        },
+        {
+          "id": "index-tts",
+          "zh": "IndexTTS2",
+          "url": "https://github.com/index-tts/index-tts",
+          "stars": 22952,
+          "created_at": "2025-02-06",
+          "pushed_at": "2026-08-13",
+          "stars_per_month": 1257,
+          "stale_months": 0,
+          "license": "bilibili Model Use License",
+          "license_class": "restricted",
+          "role": "tool",
+          "group": "sound",
+          "decisions": [
+            "sound"
+          ],
+          "scope": "B 站开源的零样本语音合成：给一段参考音就能克隆音色，情感可以单独指定。中英双语。",
+          "control": "**它把音色和情感拆成了两个输入**：说话人参考音管音色，情感可以用另一段音频、一段文字、或者一个 8 维向量单独给 —— 所以能做到「同一个人，换一种情绪」，这是多数 TTS 做不到的。",
+          "hw": "仓库未给显存数字；**FP16/BF16 半精度更快也更省**（README 原话）。装法只给了 uv 一条路",
+          "arch": "文本与说话人参考音各自编码，情感走第三条输入（音频 / 文字 / 8 维向量），在 UnifiedVoice GPT 里合成语义码，再由 S2Mel（DiT + CFM）出梅尔谱、声码器出波形。v1.5 与 v2 / v2.5 三条推理路径并存于同一仓库。",
+          "good": [
+            "**情感与音色分开给** —— 换情绪不用换参考音",
+            "中英双语，中文侧口碑最好的开源 TTS 之一",
+            "今天还在提交，是这一类里最活的",
+            "情感可以用一句话描述（emo_text），不必去找一段对味的参考音"
+          ],
+          "bad": [
+            "**许可证有营收与月活门槛**，还禁止用它的输出去改进别的 AI 模型",
+            "只支持中英（issue #418 问其它语言，开着）",
+            "推理速度被反复吐槽（issue #96，开着）",
+            "**只给了 uv 一条安装路**，issue #313 就是在问有没有别的（开着）；Windows 安装是高频问题（issue #392）"
+          ],
+          "unfit": "要做多语种配音的活 —— 目前只有中英两种。",
+          "src": "github README + GitHub API + LICENSE 原文 + DeepWiki 架构页",
+          "verified_at": "2026-08-16",
+          "autonomy": {
+            "weights": "local",
+            "seed": "partial",
+            "swap": "few",
+            "note": "权重本地可跑；情感向量、emo_weight 这些是可填的控制量"
+          },
+          "hands": {
+            "layers": [
+              "docs",
+              "wiki",
+              "issue"
+            ],
+            "install": [
+              {
+                "step": "装 uv",
+                "gate": "**官方只给了 uv 这一条路**（`pip install -U uv`），别的装法要自己趟"
+              },
+              {
+                "step": "`uv sync --all-extras`",
+                "gate": "要 webui 或加速扩展就加 `--extra webui` / `--extra accel`"
+              },
+              {
+                "step": "下模型",
+                "gate": "首次运行自动拉；先 `git lfs install`"
+              }
+            ],
+            "modify": [
+              {
+                "path": "indextts/infer_v2.py",
+                "effect": "IndexTTS2 的推理入口。情感三种给法都在这里汇合"
+              },
+              {
+                "path": "indextts/models/s2mel.py",
+                "effect": "语义码到梅尔谱那一段（DiT + CFM）"
+              },
+              {
+                "path": "webui.py",
+                "effect": "界面。想看参数怎么传，从这里往下追最快"
+              }
+            ],
+            "pitfalls": [
+              {
+                "where": "装不上",
+                "note": "**issue #283「总结一些部署过程中您可能遇到的错误」回复 27 条、开着** —— 先看这一条再提问；Windows 另见 issue #392（已关闭）"
+              },
+              {
+                "where": "只认 uv",
+                "note": "**issue #313：有没有 uv 之外的部署方式，开着** —— 目前官方口径就是 uv"
+              },
+              {
+                "where": "慢",
+                "note": "**issue #96「推理速度还是很慢」开着**。开 FP16/BF16 是官方给的第一招"
+              },
+              {
+                "where": "语言",
+                "note": "**issue #418：是否支持其它语言，开着** —— 现在只有中英"
+              },
+              {
+                "where": "想自己微调",
+                "note": "**issue #501 是非官方的训练/微调代码（回复 50 条，开着）** —— 官方没放训练代码"
+              }
+            ],
+            "issue_src": "github issues 按回复数排序 · 核验 2026-08-16"
+          },
+          "diagrams": [
+            {
+              "id": "indextts-arch",
+              "title": "三条输入怎么汇起来",
+              "kind": "架构图",
+              "src": "DeepWiki 架构页 · 抓取 2026-08-16",
+              "verified_at": "2026-08-16",
+              "mermaid": "graph TB\n    subgraph \"Input_Space\"\n        Text[\"Text Input\"]\n        SpkAudio[\"Speaker Prompt (Audio)\"]\n        EmoInput[\"Emotion Input (Text/Audio/Vector)\"]\n    end\n    \n    subgraph \"Text_Processing\"\n        Normalizer[\"TextNormalizer (indextts/text/normalizer.py)\"]\n        Tokenizer[\"TextTokenizer (indextts/text/tokenizer.py)\"]\n    end\n    \n    subgraph \"Feature_Extraction\"\n        W2V[\"w2v-bert-2.0 (indextts/models/semantic_codec.py)\"]\n        Codec[\"SemanticCodec (indextts/models/semantic_codec.py)\"]\n        StyleExt[\"CAMPPlus Style Extraction\"]\n    end\n    \n    subgraph \"Neural_Generation\"\n        GPT[\"UnifiedVoice GPT (indextts/models/model_v2_5.py)\"]\n        S2Mel[\"S2Mel DiT (indextts/models/s2mel.py)\"]\n        Vocoder[\"BigVGAN (indextts/models/bigvgan/model.py)\"]\n    end\n    \n    Text --> Normalizer --> Tokenizer --> GPT\n    SpkAudio --> W2V --> Codec --> GPT\n    SpkAudio --> StyleExt --> S2Mel\n    EmoInput --> GPT\n    \n    GPT --> S2Mel --> Vocoder --> Audio[\"Generated Waveform\"]"
+            },
+            {
+              "id": "indextts-flow",
+              "title": "音色与情感是怎么混的",
+              "kind": "流程图",
+              "src": "DeepWiki 架构页 · 抓取 2026-08-16",
+              "verified_at": "2026-08-16",
+              "mermaid": "graph LR\n    subgraph \"Input Modalities\"\n        SPK_IN[\"Speaker Prompt<br/>(prompt_audio)\"]\n        EMO_IN[\"Style Source<br/>(emo_audio / emo_vec / emo_text)\"]\n    end\n\n    subgraph \"Feature Disentanglement\"\n        SpkEnc[\"CAMPPlus Style Extractor<br/>(indextts.utils.feature_extractors)\"]\n        EmoEnc[\"Emotion Feature Extractor<br/>(W2V-BERT / Qwen)\"]\n    end\n\n    subgraph \"Fusion & Synthesis\"\n        Fusion[\"Alpha Blending<br/>(emo_weight)\"]\n        GPT[\"UnifiedVoice GPT<br/>(model_v2_5.py)\"]\n        S2Mel[\"S2Mel Component<br/>(DiT + CFM)\"]\n    end\n\n    SPK_IN --> SpkEnc\n    EMO_IN --> EmoEnc\n    \n    SpkEnc --> Fusion\n    EmoEnc --> Fusion\n    \n    Fusion --> GPT\n    GPT --> S2Mel\n    S2Mel --> Waveform[\"Final Audio\"]"
+            }
+          ],
+          "license_note": "月活超 1 亿或年营收超 10 亿人民币需另行申请；不得用于改进其它 AI 模型"
         },
         {
           "id": "sd-scripts",
           "zh": "kohya sd-scripts",
           "url": "https://github.com/kohya-ss/sd-scripts",
           "stars": 7198,
-          "license": "Apache-2.0（主体）",
+          "license": "Apache-2.0",
           "license_class": "permissive",
           "role": "tool",
           "decisions": [
@@ -30027,7 +31021,142 @@
               "src": "DeepWiki 架构页 · 抓取 2026-08-16",
               "verified_at": "2026-08-16"
             }
-          ]
+          ],
+          "group": "train"
+        },
+        {
+          "id": "musubi-tuner",
+          "zh": "musubi-tuner",
+          "url": "https://github.com/kohya-ss/musubi-tuner",
+          "stars": 1994,
+          "created_at": "2024-12-31",
+          "pushed_at": "2026-08-16",
+          "stars_per_month": 102,
+          "stale_months": 0,
+          "license": "无 LICENSE 文件",
+          "license_class": "restricted",
+          "role": "tool",
+          "group": "train",
+          "decisions": [
+            "identity",
+            "compose"
+          ],
+          "scope": "视频模型的 LoRA 训练器。同一套代码训 Wan 2.1/2.2、HunyuanVideo、FramePack、Qwen-Image 等多条线。",
+          "control": "**它是 sd-scripts 作者 kohya 做的视频版**：一个模型一套 `*_train_network.py` 脚本，共用同一个 LoRA / LyCORIS 网络实现。真正的活儿在显存 —— 块交换（block swap）与隐变量预缓存，让 12GB 也能训。",
+          "hw": "**图像训练 12GB 起、视频训练 24GB 起**；内存建议 64GB。12GB 要把分辨率压到 960×544 并开 `--blocks_to_swap`、`--fp8_llm`",
+          "arch": "每个底座一组脚本（`wan_*` / `hv_*` / `fpack_*` …），都汇到 `library/train_util.py` 与 `networks/lora.py`。省显存靠两招：把 DiT 的块在 CPU 与 GPU 之间轮换（BlockSwapConfig），以及先把 VAE 隐变量与文本编码结果缓存到磁盘（cache_latents.py）。",
+          "good": [
+            "**这一格里唯一在维护的**（今天还有提交）—— sd-scripts 管图，它管视频",
+            "一套代码覆盖 Wan、HunyuanVideo、FramePack、Qwen-Image 多个底座，不用每换一个模型换一套训练器",
+            "12GB 也能训图像 LoRA，靠的是块交换与预缓存，不是砍质量",
+            "作者就是 sd-scripts 的 kohya，参数命名与习惯一脉相承"
+          ],
+          "bad": [
+            "**仓库根目录没有 LICENSE 文件** —— 只有 README 里一段说明，且各目录随上游，商用前要逐目录看",
+            "星数只有 1994，遇到问题能搜到的中文资料很少",
+            "视频训练 24GB 起，消费级里只有 3090/4090 这一档够",
+            "OOM 是最常撞的墙（issue #46，回复 30 条）"
+          ],
+          "unfit": "只训图片 LoRA 的人 —— 那是 sd-scripts 的活，用这个是绕远路。",
+          "src": "github README + GitHub API + DeepWiki 架构页",
+          "verified_at": "2026-08-16",
+          "autonomy": {
+            "weights": "local",
+            "seed": "yes",
+            "swap": "few",
+            "note": "本地训练，产出是 LoRA 文件；底座换一个就换一组脚本"
+          },
+          "hands": {
+            "layers": [
+              "docs",
+              "wiki",
+              "issue"
+            ],
+            "install": [
+              {
+                "step": "装 torch",
+                "gate": "按显卡选 cu124 / cu128 / cu130 三条源之一"
+              },
+              {
+                "step": "`pip install -e .`",
+                "gate": "另外还要 `pip install ascii-magic matplotlib tensorboard prompt-toolkit`"
+              },
+              {
+                "step": "配 accelerate",
+                "gate": "**问到「只用 CPU 吗」要答 NO** —— 答错了训练会静悄悄跑在 CPU 上"
+              }
+            ],
+            "modify": [
+              {
+                "path": "wan_train_network.py 等",
+                "effect": "一个底座一个入口脚本。要训哪个模型就跑哪个"
+              },
+              {
+                "path": "library/train_util.py",
+                "effect": "训练主循环与通用参数。所有底座共用这一份"
+              },
+              {
+                "path": "cache_latents.py",
+                "effect": "隐变量预缓存。显存不够时这一步是必跑的"
+              }
+            ],
+            "pitfalls": [
+              {
+                "where": "显存不够",
+                "note": "**issue #46「Training on videos failed with OOM」回复 30 条**（已关闭）—— 12GB 要同时压分辨率到 960×544、开 `--blocks_to_swap` 和 `--fp8_llm`，缺一样就爆"
+              },
+              {
+                "where": "许可证",
+                "note": "**根目录没有 LICENSE 文件**。README 说其余代码 Apache-2.0，但 `hunyuan_model`、`hunyuan_video_1_5` 两个目录随上游腾讯许可 —— 而那份许可排除欧盟、英国、韩国"
+              },
+              {
+                "where": "accelerate 配置",
+                "note": "配置向导问「是否只用 CPU」，答错不报错，只是慢到离谱"
+              },
+              {
+                "where": "块交换的环形缓冲",
+                "note": "`--block_swap_ring_size` 默认 2，**设成 1 最省显存**，但要配合 `--gradient_checkpointing`"
+              }
+            ],
+            "issue_src": "github issues 按回复数排序 · 核验 2026-08-16"
+          },
+          "diagrams": [
+            {
+              "id": "musubi-arch",
+              "title": "一套训练器覆盖了什么",
+              "kind": "架构图",
+              "src": "DeepWiki 架构页 · 抓取 2026-08-16",
+              "verified_at": "2026-08-16",
+              "mermaid": "graph TD\n    subgraph \"Natural Language Space\"\n        MT[\"Musubi Tuner System\"]\n        TRAIN_ENV[\"Training Environment\"]\n        VRAM_OPT[\"Memory Optimization\"]\n        UI_EXT[\"Gradio Interface\"]\n    end\n\n    subgraph \"Code Entity Space (pyproject.toml)\"\n        PROJECT[\"[project]\"]\n        DEPS[\"dependencies\"]\n        EXTRAS[\"[project.optional-dependencies]\"]\n        \n        ACCEL[\"accelerate==1.6.0\"]\n        DIFF[\"diffusers==0.32.1\"]\n        TRANS[\"transformers==4.57.6\"]\n        BNB[\"bitsandbytes\"]\n        AV[\"av==14.0.1\"]\n        GUI[\"gradio>=4.0.0, <6.0.0\"]\n    end\n\n    MT --> PROJECT\n    PROJECT --> DEPS\n    DEPS --> ACCEL\n    DEPS --> DIFF\n    DEPS --> TRANS\n    DEPS --> BNB\n    DEPS --> AV\n    \n    TRAIN_ENV --> EXTRAS\n    VRAM_OPT --> BNB\n    UI_EXT --> GUI"
+            },
+            {
+              "id": "musubi-flow",
+              "title": "显存是怎么省下来的",
+              "kind": "流程图",
+              "src": "DeepWiki 架构页 · 抓取 2026-08-16",
+              "verified_at": "2026-08-16",
+              "mermaid": "graph TB\n    subgraph \"Memory Optimization Logic\"\n        direction LR\n        Swap[\"Block Swapping<br/>(BlockSwapConfig)\"]\n        H2D[\"H2D-only Mode<br/>(--block_swap_h2d_only)\"]\n        Cache[\"Latent Caching<br/>(cache_latents.py)\"]\n        Grad[\"Gradient Checkpointing<br/>(gradient_checkpointing)\"]\n    end\n\n    subgraph \"Code Entities\"\n        Trainer[\"NetworkTrainer class\"]\n        DIT[\"DiT Transformer Blocks\"]\n        VAE[\"VAE / Autoencoder\"]\n    end\n\n    Swap -- \"Offloads to CPU\" --> DIT\n    H2D -- \"Removes D2H overhead\" --> DIT\n    Cache -- \"Pre-calculates\" --> VAE\n    Grad -- \"Reduces Activation Memory\" --> DIT\n    Trainer -- \"Manages\" --> Swap"
+            }
+          ],
+          "tutorials": [
+            {
+              "title": "官方文档：训 Wan 的 LoRA",
+              "page_title": "musubi-tuner/docs/wan.md at main · kohya-ss/musubi-tuner · GitHub",
+              "url": "https://github.com/kohya-ss/musubi-tuner/blob/main/docs/wan.md",
+              "kind": "官方",
+              "lang": "en",
+              "verified_at": "2026-08-16"
+            },
+            {
+              "title": "官方文档：训 FramePack 的 LoRA",
+              "page_title": "musubi-tuner/docs/framepack.md at main · kohya-ss/musubi-tuner · GitHub",
+              "url": "https://github.com/kohya-ss/musubi-tuner/blob/main/docs/framepack.md",
+              "kind": "官方",
+              "lang": "en",
+              "verified_at": "2026-08-16"
+            }
+          ],
+          "license_note": "仓库根目录没有 LICENSE 文件；README 声明大部分代码 Apache-2.0，hunyuan_model 等目录随上游许可"
         },
         {
           "id": "ollama",
@@ -30125,6 +31254,152 @@
               "kind": "时序图",
               "mermaid": "sequenceDiagram\n  participant U as 用户\n  participant C as cmd/cmd.go\n  participant R as server/routes.go\n  participant S as Scheduler\n  participant L as llm.LlamaServer\n  U->>C: ollama run 某模型 \"问题\"\n  C->>R: POST /api/generate\n  R->>R: GetModel()\n  R->>S: scheduleRunner()\n  S->>S: 查已装载的 runner\n  Note over S: 没装载就先起一个 llamaServer\n  S-->>R: runnerRef\n  R->>L: Completion()\n  loop 流式返回\n    L-->>R: token\n    R-->>C: JSON 分片\n    C-->>U: 逐字显示\n  end",
               "src": "DeepWiki 架构页 · 抓取 2026-08-16",
+              "verified_at": "2026-08-16"
+            }
+          ],
+          "group": "base",
+          "tutorials": [
+            {
+              "title": "官方快速上手",
+              "page_title": "Quickstart - Ollama",
+              "url": "https://docs.ollama.com/quickstart",
+              "kind": "官方",
+              "lang": "en",
+              "verified_at": "2026-08-16"
+            }
+          ]
+        },
+        {
+          "id": "diffsynth",
+          "zh": "DiffSynth-Studio",
+          "url": "https://github.com/modelscope/DiffSynth-Studio",
+          "stars": 12940,
+          "created_at": "2023-12-07",
+          "pushed_at": "2026-08-14",
+          "stars_per_month": 401,
+          "stale_months": 0,
+          "license": "Apache-2.0",
+          "license_class": "permissive",
+          "role": "base",
+          "group": "base",
+          "decisions": [
+            "shot",
+            "compose",
+            "sound",
+            "repro"
+          ],
+          "scope": "魔搭的扩散模型工程框架：一套 API 跑 Wan、FLUX、Qwen-Image、ACE-Step 等多条线，推理与训练都管。",
+          "control": "**它和 ComfyUI 不是一类底座**：ComfyUI 是连线的，它是写代码的 —— `pipe(prompt=..., seed=42)` 三行起步。真正的卖点是显存管理做到了层级、能把模型换到磁盘上，所以 6GB 也能跑本来要 24GB 的活。",
+          "hw": "按所跑模型定；**官方举例：HunyuanVideo 129×720×1280 在 24GB 上跑，129×512×384 压到 6GB**",
+          "arch": "`Pipeline.from_pretrained()` 按 ModelConfig 拉模型进 ModelPool，推理时按需 `load_models_to_device()` 逐段搬运，用完即卸。各家模型（WanModel、FluxDiT、QwenImageDiT、AceStepDiT…）实现在 `diffsynth/models/`，管线在 `diffsynth/pipelines/`，训练在 `diffsynth/training/`。同时支持 CUDA 与昇腾 NPU。",
+          "good": [
+            "**写代码的底座**：不想连线的人在这里三行出片，`seed=42` 直接是参数",
+            "一个框架覆盖图、视频、音乐多条线，换模型不换框架",
+            "显存管理做到层级与磁盘卸载 —— 官方举例 HunyuanVideo 能从 24GB 压到 6GB",
+            "魔搭官方在维护，今天还有提交；Apache-2.0"
+          ],
+          "bad": [
+            "**要写 Python** —— 不接受这一点的人应该去用 ComfyUI",
+            "覆盖面广带来的代价是坑分散：训练侧 OOM、DeepSpeed 张量形状不一致这类 issue 长期开着（#532、#687）",
+            "文档按模型分散在 `docs/` 下几十个文件里，没有一条主线",
+            "新模型支持来得快，但也意味着接口变动频繁"
+          ],
+          "unfit": "完全不写代码的人 —— 它的入口就是 Python API，没有图形界面这一层。",
+          "src": "github README + GitHub API + LICENSE 原文 + DeepWiki 架构页",
+          "verified_at": "2026-08-16",
+          "autonomy": {
+            "weights": "local",
+            "seed": "yes",
+            "swap": "few",
+            "note": "本地权重，seed 是 pipe() 的参数；换模型改 ModelConfig 一处"
+          },
+          "hands": {
+            "layers": [
+              "docs",
+              "wiki",
+              "issue"
+            ],
+            "install": [
+              {
+                "step": "`pip install -e .`",
+                "gate": "非 NVIDIA 卡（含昇腾）另看官方 Setup 文档"
+              },
+              {
+                "step": "选模型",
+                "gate": "**先去 `docs/*/Model_Details/` 找对应那一篇** —— 每个模型的显存与参数都写在各自的文档里"
+              },
+              {
+                "step": "跑示例",
+                "gate": "`examples/` 下按模型分目录，照着改比从头写快"
+              }
+            ],
+            "modify": [
+              {
+                "path": "diffsynth/pipelines/",
+                "effect": "各家模型的管线。要看一次生成怎么走，从这里进"
+              },
+              {
+                "path": "diffsynth/models/",
+                "effect": "模型结构实现（WanModel、FluxDiT、AceStepDiT…）"
+              },
+              {
+                "path": "docs/*/Pipeline_Usage/VRAM_management.md",
+                "effect": "显存管理。6GB 跑大模型的开关都在这一篇"
+              }
+            ],
+            "pitfalls": [
+              {
+                "where": "训练 OOM",
+                "note": "**issue #532：8 卡 4090 训 Wan2.1 14B I2V 仍 OOM，开着** —— 推理省显存的那套开关不等于训练也省"
+              },
+              {
+                "where": "用 DeepSpeed",
+                "note": "**issue #687：zero_stage 3 训练时张量形状不一致，开着**"
+              },
+              {
+                "where": "加载模型被 kill",
+                "note": "**issue #333「Loading checkpoint shards: 56% killed」回复 49 条**（已关闭）—— 是内存不是显存"
+              },
+              {
+                "where": "找文档",
+                "note": "**文档按模型分散在 `docs/` 下**，没有总入口。先确定模型名，再去 Model_Details 里找那一篇"
+              }
+            ],
+            "issue_src": "github issues 按回复数排序 · 核验 2026-08-16"
+          },
+          "diagrams": [
+            {
+              "id": "diffsynth-layout",
+              "title": "仓库怎么摆",
+              "kind": "工程图",
+              "src": "DeepWiki 架构页 · 抓取 2026-08-16",
+              "verified_at": "2026-08-16",
+              "mermaid": "graph TB\n    subgraph \"Repository Root\"\n        diffsynth[\"diffsynth/\"]\n        examples[\"examples/\"]\n        docs[\"docs/\"]\n    end\n    \n    subgraph \"diffsynth/ Package\"\n        pipelines[\"pipelines/<br/>Pipeline implementations\"]\n        models[\"models/<br/>Model architectures\"]\n        training_mod[\"training/<br/>Training modules\"]\n        utils[\"utils/<br/>Utilities & data\"]\n        schedulers[\"schedulers/<br/>Noise schedulers\"]\n        dataset[\"dataset/<br/>Data loading\"]\n        core[\"core/<br/>Core primitives\"]\n    end\n    \n    subgraph \"Pipeline Modules\"\n        qwen_pipe[\"qwen_image.py<br/>QwenImagePipeline\"]\n        flux_pipe[\"flux_image.py<br/>FluxImagePipeline\"]\n        wan_pipe[\"wan_video.py<br/>WanVideoPipeline\"]\n        ltx_pipe[\"ltx2_audio_video.py<br/>LTX2AudioVideoPipeline\"]\n        ideo_pipe[\"ideogram4.py<br/>Ideogram4Pipeline\"]\n        ace_pipe[\"ace_step.py<br/>AceStepPipeline\"]\n    end\n    \n    subgraph \"Model Components\"\n        dit_models[\"DiT Models<br/>QwenImageDiT, FluxDiT, WanModel, LTXModel, Ideogram4DiT\"]\n        vae_models[\"VAE Models<br/>WanVideoVAE, LTX2VideoVAE, Ideogram4VAE\"]\n        encoders[\"Encoders<br/>WanTextEncoder, LTX2TextEncoder, QwenImageTextEncoder\"]\n    end\n    \n    subgraph \"Training Infrastructure\"\n        train_module[\"training_module.py<br/>DiffusionTrainingModule\"]\n        unified_dataset[\"unified_dataset.py<br/>UnifiedDataset\"]\n        loss_functions[\"loss.py<br/>FlowMatchSFTLoss\"]\n    end\n    \n    diffsynth --> pipelines\n    diffsynth --> models\n    diffsynth --> training_mod\n    diffsynth --> utils\n    diffsynth --> schedulers\n    diffsynth --> dataset\n    diffsynth --> core\n    \n    pipelines --> qwen_pipe\n    pipelines --> flux_pipe\n    pipelines --> wan_pipe\n    pipelines --> ltx_pipe\n    pipelines --> ideo_pipe\n    pipelines --> ace_pipe\n    \n    models --> dit_models\n    models --> vae_models\n    models --> encoders\n    \n    training_mod --> train_module\n    training_mod --> unified_dataset\n    training_mod --> loss_functions"
+            },
+            {
+              "id": "diffsynth-flow",
+              "title": "模型是怎么被加载起来的",
+              "kind": "流程图",
+              "src": "DeepWiki 架构页 · 抓取 2026-08-16",
+              "verified_at": "2026-08-16",
+              "mermaid": "graph LR\n    subgraph \"User Code\"\n        user[\"User Script\"]\n        config[\"ModelConfig objects\"]\n    end\n    \n    subgraph \"Pipeline Factory\"\n        from_pretrained[\"Pipeline.from_pretrained()\"]\n        model_pool[\"model_pool<br/>ModelPool.fetch_model()\"]\n    end\n    \n    subgraph \"Model Loading\"\n        download[\"download_and_load_models()\"]\n        state_dict[\"State Dict Loading\"]\n        converter[\"State Dict Converters\"]\n    end\n    \n    subgraph \"Execution\"\n        units[\"PipelineUnit chain\"]\n        model_fn[\"model_fn()<br/>Core iteration\"]\n        scheduler[\"FlowMatchScheduler\"]\n        vram_mgr[\"VRAM Manager\"]\n    end\n    \n    user --> config\n    config --> from_pretrained\n    from_pretrained --> model_pool\n    model_pool --> download\n    download --> state_dict\n    state_dict --> converter\n    \n    from_pretrained --> units\n    from_pretrained --> model_fn\n    from_pretrained --> scheduler\n    \n    model_fn --> vram_mgr"
+            }
+          ],
+          "tutorials": [
+            {
+              "title": "官方中文文档",
+              "page_title": "DiffSynth-Studio/docs/zh at main · modelscope/DiffSynth-Studio · GitHub",
+              "url": "https://github.com/modelscope/DiffSynth-Studio/tree/main/docs/zh",
+              "kind": "官方",
+              "lang": "zh",
+              "verified_at": "2026-08-16"
+            },
+            {
+              "title": "官方：显存管理怎么开",
+              "page_title": "DiffSynth-Studio/docs/zh/Pipeline_Usage/VRAM_management.md at main · modelscope/DiffSynth-Studio · GitHub",
+              "url": "https://github.com/modelscope/DiffSynth-Studio/blob/main/docs/zh/Pipeline_Usage/VRAM_management.md",
+              "kind": "官方",
+              "lang": "zh",
               "verified_at": "2026-08-16"
             }
           ]
@@ -30242,7 +31517,8 @@
               "src": "DeepWiki 架构页 · 抓取 2026-08-16",
               "verified_at": "2026-08-16"
             }
-          ]
+          ],
+          "group": "allinone"
         },
         {
           "id": "narratoai",
@@ -30352,6 +31628,25 @@
               "src": "DeepWiki 架构页 · 抓取 2026-08-16",
               "verified_at": "2026-08-16"
             }
+          ],
+          "group": "allinone",
+          "tutorials": [
+            {
+              "title": "官方文档（飞书）",
+              "page_title": "NarratoAI 官方文档",
+              "url": "https://p9mf6rjv3c.feishu.cn/wiki/SP8swLLZki5WRWkhuFvc2CyInDg",
+              "kind": "官方",
+              "lang": "zh",
+              "verified_at": "2026-08-16"
+            },
+            {
+              "title": "仓库 Wiki",
+              "page_title": "Home · linyqh/NarratoAI Wiki · GitHub",
+              "url": "https://github.com/linyqh/NarratoAI/wiki",
+              "kind": "官方",
+              "lang": "zh",
+              "verified_at": "2026-08-16"
+            }
           ]
         },
         {
@@ -30455,14 +31750,15 @@
               "src": "DeepWiki 架构页 · 抓取 2026-08-16",
               "verified_at": "2026-08-16"
             }
-          ]
+          ],
+          "group": "allinone"
         },
         {
           "id": "toonflow",
           "zh": "Toonflow",
           "url": "https://github.com/HBAI-Ltd/Toonflow-app",
           "stars": 13952,
-          "license": "Apache-2.0 + 商用补充条款",
+          "license": "Apache-2.0",
           "license_class": "copyleft",
           "decisions": [
             "shot",
@@ -30568,6 +31864,1638 @@
               "kind": "时序图",
               "mermaid": "sequenceDiagram\n  participant C as 前端\n  participant R as router.ts\n  participant H as generateVideo.ts\n  participant D as SQLite o_video\n  participant A as u.Ai.Video\n  C->>R: POST /production/workbench/generateVideo\n  R->>H: 转发\n  H->>H: validateFields(req.body)\n  H->>D: INSERT 一条 state=生成中\n  H-->>C: 200 返回 videoId\n  Note over H,A: 之后是异步生成\n  H->>A: run(提示词, 图片)\n  A-->>H: 视频结果\n  H->>D: UPDATE state=生成成功",
               "src": "DeepWiki 架构页 · 抓取 2026-08-16",
+              "verified_at": "2026-08-16"
+            }
+          ],
+          "group": "allinone",
+          "tutorials": [
+            {
+              "title": "官方演示视频（B 站）",
+              "page_title": "【AI短剧漫剧Agent工具开源】新版Toonflow 12分钟快速上手_哔哩哔哩_bilibili",
+              "url": "https://www.bilibili.com/video/BV1oXD7BqEqJ",
+              "kind": "官方",
+              "lang": "zh",
+              "verified_at": "2026-08-16"
+            }
+          ],
+          "license_note": "附商用补充条款"
+        },
+        {
+          "id": "openmontage",
+          "zh": "OpenMontage",
+          "url": "https://github.com/calesthio/OpenMontage",
+          "stars": 48294,
+          "created_at": "2026-03-29",
+          "pushed_at": "2026-08-14",
+          "stars_per_month": 10549,
+          "stale_months": 0,
+          "license": "AGPL-3.0",
+          "license_class": "copyleft",
+          "role": "allinone",
+          "group": "agent",
+          "decisions": [
+            "shot",
+            "compose",
+            "pace",
+            "sound"
+          ],
+          "engine": "cloud",
+          "scope": "让 Claude / Cursor 这类 Agent 当导演的视频生产系统。一句话进去，12 条流水线自己挑一条走完。",
+          "control": "**它把「怎么拍」写成了 Agent 读得懂的文件**：`pipeline_defs/*.yaml` 定流水线、`skills/pipelines/*.md` 是给 Agent 看的作业指导、`tools/tool_registry.py` 管有哪些工具可用。换模型不改代码，改注册表。云端 API 与本地 GPU（Wan 2.1/2.2、Hunyuan）两条路都接。",
+          "hw": "不装 GPU 也能跑（全走云端 API）；**有 GPU 可以切到本地免费出片**。要装 FFmpeg、Python 与 Node",
+          "arch": "三层：Agent 读 `skills/` 里的作业指导 → 按 `pipeline_defs/*.yaml` 选流水线 → 经 ToolRegistry 调具体工具（TTS、图、视频、音乐各一组）。成片用 Remotion 合。用户自带素材时会先探每个文件的分辨率、编码、声道、时长，README 原话是「不从文件名幻想内容」。",
+          "good": [
+            "**这一类里最有名的**：五个月 4.8 万星",
+            "12 条流水线覆盖解说、纪录片式蒙太奇、动画讲解等常见片型，不用自己从零编排",
+            "云端与本地 GPU 双路，有卡就免费出片",
+            "会先探素材真实参数再做创作决定，而不是靠文件名猜"
+          ],
+          "bad": [
+            "**AGPL-3.0**：改了拿去对外提供服务就得开源",
+            "依赖链长（Python + Node + FFmpeg + Remotion），装起来不算轻",
+            "画面质量的上限仍然取决于你配的那个模型接口，它本身不生成",
+            "218 个 issue 开着 —— 涨得太快，问题也堆得快"
+          ],
+          "unfit": "只想出一条片子的人 —— 它是一套生产系统，装它的成本要摊在很多条片子上才划算。",
+          "src": "github README + GitHub API + DeepWiki 架构页",
+          "verified_at": "2026-08-16",
+          "autonomy": {
+            "weights": "api",
+            "seed": "partial",
+            "swap": "1",
+            "note": "默认走云端接口；工具注册表里换一处就换供应商，也可切本地 GPU"
+          },
+          "hands": {
+            "layers": [
+              "docs",
+              "wiki",
+              "issue"
+            ],
+            "install": [
+              {
+                "step": "装 FFmpeg",
+                "gate": "`brew install ffmpeg` / `apt install ffmpeg` —— 少了它后面全是合成失败"
+              },
+              {
+                "step": "`make setup`",
+                "gate": "**没有 make 也行**，README 给了 macOS/Linux 与 Windows PowerShell 两条手动命令"
+              },
+              {
+                "step": "配 key",
+                "gate": "`.env` 里按供应商填。**有 GPU 的话可以不配**，切本地 Wan / Hunyuan"
+              }
+            ],
+            "modify": [
+              {
+                "path": "pipeline_defs/*.yaml",
+                "effect": "12 条流水线的定义。要改流程从这里，不改代码"
+              },
+              {
+                "path": "skills/pipelines/*.md",
+                "effect": "给 Agent 看的作业指导 —— 这一层才是它「懂怎么拍」的原因"
+              },
+              {
+                "path": "tools/tool_registry.py",
+                "effect": "有哪些工具可用。换模型供应商改这里"
+              }
+            ],
+            "pitfalls": [
+              {
+                "where": "想要「纯实拍素材」的片子",
+                "note": "**README 明写要显式说 use real footage only**，并指定 documentary montage / tone poem 这类片型，否则它会去生成画面"
+              },
+              {
+                "where": "依赖装不全",
+                "note": "FFmpeg、Node、Python、Remotion 四样缺一不可；README 的 `make setup` 是一条龙，手装容易漏 `piper-tts`"
+              },
+              {
+                "where": "许可证",
+                "note": "**AGPL-3.0** —— 自己用没事，做成对外服务就得开源"
+              }
+            ],
+            "issue_src": "github issues 按回复数排序 · 核验 2026-08-16"
+          },
+          "diagrams": [
+            {
+              "id": "openmontage-arch",
+              "title": "Agent 是怎么被喂懂的",
+              "kind": "架构图",
+              "src": "DeepWiki 架构页 · 抓取 2026-08-16",
+              "verified_at": "2026-08-16",
+              "mermaid": "graph TD\n    User[\"User Prompt\"] -- \"Natural Language\" --> Agent[\"AI Agent (Claude/Cursor)\"]\n    Agent -- \"Reads\" --> Manifest[\"pipeline_defs/*.yaml\"]\n    Agent -- \"Follows\" --> Skill[\"skills/pipelines/*.md\"]\n    Agent -- \"Executes\" --> Tool[\"tools/tool_registry.py\"]\n    Tool -- \"Instantiates\" --> BaseTool[\"tools/base_tool.py\"]\n    Agent -- \"Persists\" --> Checkpoint[\"lib/checkpoint.py\"]\n    \n    subgraph \"Natural Language Space\"\n    User\n    end\n    \n    subgraph \"Code Entity Space\"\n    Manifest\n    Skill\n    Tool\n    BaseTool\n    Checkpoint\n    end"
+            },
+            {
+              "id": "openmontage-flow",
+              "title": "一次工具调用怎么走",
+              "kind": "流程图",
+              "src": "DeepWiki 架构页 · 抓取 2026-08-16",
+              "verified_at": "2026-08-16",
+              "mermaid": "graph LR\n    subgraph \"Natural Language Space\"\n    Req[\"'Generate a TTS voice'\"]\n    end\n\n    subgraph \"Code Entity Space\"\n    Selector[\"tools/audio/tts_selector.py\"]\n    Registry[\"tools/tool_registry.py\"]\n    Contract[\"tools/base_tool.py (BaseTool)\"]\n    Provider[\"tools/audio/elevenlabs_tts.py\"]\n    Result[\"tools/base_tool.py (ToolResult)\"]\n    end\n\n    Req --> Selector\n    Selector -- \"Queries\" --> Registry\n    Registry -- \"Returns available\" --> Contract\n    Contract -- \"Implemented by\" --> Provider\n    Provider -- \"Returns\" --> Result"
+            }
+          ],
+          "license_note": "传染性：改了并对外提供服务就要开源"
+        },
+        {
+          "id": "video-shotcraft",
+          "zh": "video-shotcraft",
+          "url": "https://github.com/Vincentwei1021/video-shotcraft",
+          "stars": 5207,
+          "created_at": "2026-07-19",
+          "pushed_at": "2026-08-14",
+          "stars_per_month": 5761,
+          "stale_months": 0,
+          "license": "Apache-2.0",
+          "license_class": "permissive",
+          "role": "tool",
+          "group": "agent",
+          "decisions": [
+            "shot",
+            "camera",
+            "pace"
+          ],
+          "engine": "yours",
+          "scope": "给 Claude Code / Codex 用的产品宣传片 Skill：152 种镜头写成参考文件，用 Remotion 渲染。",
+          "control": "**它不调视频生成模型，它用代码渲染** —— 网页截图当素材、PageCam 组件做推拉摇移、Remotion 出片。所以画面是确定的、可复现的，代价是只适合产品演示这一类。Agent 读 `SKILL.md` 和 `references/shots/*.md` 决定用哪个镜头。",
+          "hw": "不需要显卡（不跑生成模型）；要 Node 与 Chrome（截图靠无头浏览器）",
+          "arch": "Agent 读 SKILL.md → 从 `references/shots/*.md` 里挑镜头 → `capture-template.mjs` 把产品网页截成贴图与 `layout.json` → `PageCam` 按 layout 做镜头运动 → Remotion 渲出 mp4。自带一条验证过的模板：36.2 秒、1920×1080、30fps、10 个镜头。",
+          "good": [
+            "**画面确定、可复现** —— 代码渲染，不是抽卡；同样输入必然同样输出",
+            "152 种镜头成文，Agent 直接按名字取用",
+            "自带完整可跑的样片模板（36.2 秒 / 10 镜头），不用从空白开始",
+            "Apache-2.0；连它自己的 38 秒展示片都是用它做的"
+          ],
+          "bad": [
+            "**只适合产品演示类**：它的素材来自网页截图，不是任意实拍或生成画面",
+            "**开源才 27 天** —— 5207 星涨得极快，但沉淀时间还很短",
+            "剪辑成本被用户提过（issue #37 在问有没有高性价比模型）",
+            "剪映草稿导出只在 mac 上测过，Windows 未测（README 自述）"
+          ],
+          "unfit": "要拍真实场景或人物的片子 —— 它的画面来自网页截图与代码渲染，不是这条路。",
+          "src": "github README + GitHub API + DeepWiki 架构页",
+          "verified_at": "2026-08-16",
+          "autonomy": {
+            "weights": "na",
+            "seed": "yes",
+            "swap": "few",
+            "note": "不涉及生成模型；渲染确定，随机量由代码里的种子函数控制"
+          },
+          "hands": {
+            "layers": [
+              "docs",
+              "wiki",
+              "issue"
+            ],
+            "install": [
+              {
+                "step": "让 Agent 装",
+                "gate": "README 的装法是**让 Agent 自己 clone 并链进 skills 目录** —— 不是手动 pip/npm"
+              },
+              {
+                "step": "备 Node 与 Chrome",
+                "gate": "截图走无头浏览器，少了 Chrome 拿不到贴图"
+              },
+              {
+                "step": "跑模板",
+                "gate": "先照 36.2 秒那条模板跑通，再改镜头 —— 从空白开始容易卡在 layout 上"
+              }
+            ],
+            "modify": [
+              {
+                "path": "references/shots/*.md",
+                "effect": "152 种镜头的说明。Agent 就是读这些决定怎么拍"
+              },
+              {
+                "path": "assets/lib/PageCam.tsx",
+                "effect": "镜头运动的实现。推拉摇移在这里"
+              },
+              {
+                "path": "assets/scripts/capture-template.mjs",
+                "effect": "把产品网页截成贴图与 layout.json"
+              }
+            ],
+            "pitfalls": [
+              {
+                "where": "以为它会生成画面",
+                "note": "**它不调视频模型**。画面来自网页截图 + 代码渲染 —— 这既是它可复现的原因，也是它的边界"
+              },
+              {
+                "where": "成本",
+                "note": "**issue #37「有推荐的高性价比模型吗？目前看剪辑成本很高」**（已关闭）—— 规划环节走大模型，账单在那里"
+              },
+              {
+                "where": "剪映导出",
+                "note": "README 自述 `jianying-export/` 是 **mac tested / win untested**"
+              }
+            ],
+            "issue_src": "github issues 按回复数排序 · 核验 2026-08-16"
+          },
+          "diagrams": [
+            {
+              "id": "shotcraft-arch",
+              "title": "Skill 是怎么被读懂的",
+              "kind": "架构图",
+              "src": "DeepWiki 架构页 · 抓取 2026-08-16",
+              "verified_at": "2026-08-16",
+              "mermaid": "graph TD\n    User[\"User Prompt\"] -- \"Install/Invoke\" --> Agent[\"AI Agent (Claude Code/Codex)\"]\n    Agent -- \"Reads Rules\" --> SKILL[\"SKILL.md\"]\n    Agent -- \"Selects Recipe\" --> Recipes[\"references/shots/*.md\"]\n    \n    subgraph \"Implementation Layer\"\n        Recipes -- \"Copy Logic\" --> Demos[\"demos/*.tsx\"]\n        Demos -- \"Uses Primitives\" --> Lib[\"assets/lib/\"]\n        Lib -- \"Camera Engine\" --> PageCam[\"assets/lib/PageCam.tsx\"]\n    end\n\n    subgraph \"Template Execution\"\n        Agent -- \"Hydrates\" --> Template[\"template/Main.tsx\"]\n        Template -- \"Captures UI\" --> Scripts[\"assets/scripts/capture-template.mjs\"]\n    end\n\n    PageCam --> Final[\"Remotion Render (MP4)\"]\n    Template --> Final"
+            },
+            {
+              "id": "shotcraft-flow",
+              "title": "从产品网页到成片",
+              "kind": "流程图",
+              "src": "DeepWiki 架构页 · 抓取 2026-08-16",
+              "verified_at": "2026-08-16",
+              "mermaid": "graph LR\n    subgraph \"Natural Language Space\"\n        Input[\"Product URL & Brand Voice\"]\n    end\n\n    subgraph \"Code Entity Space\"\n        Script[\"assets/scripts/capture-template.mjs\"]\n        Textures[\"public/textures/live/*.png\"]\n        Layout[\"public/textures/live/layout.json\"]\n        MainTSX[\"template/src/Main.tsx\"]\n    end\n\n    Input --> Script\n    Script -- \"Puppeteer Capture\" --> Textures\n    Script -- \"DOM Coordinates\" --> Layout\n    Textures --> MainTSX\n    Layout -- \"PageCam Coordinates\" --> MainTSX\n    MainTSX -- \"Remotion Render\" --> Output[\"promo.mp4\"]"
+            }
+          ],
+          "license_note": "音频素材另按各自许可，见 ATTRIBUTION.md"
+        },
+        {
+          "id": "gen-media-skills",
+          "zh": "Generative Media Skills",
+          "url": "https://github.com/SamurAIGPT/Generative-Media-Skills",
+          "stars": 4072,
+          "created_at": "2023-05-25",
+          "pushed_at": "2026-08-15",
+          "stars_per_month": 105,
+          "stale_months": 0,
+          "license": "MIT",
+          "license_class": "permissive",
+          "role": "tool",
+          "group": "agent",
+          "decisions": [
+            "shot",
+            "identity",
+            "pace"
+          ],
+          "engine": "cloud",
+          "scope": "给 Agent（Claude Code / Cursor / Gemini CLI）用的多模态生成 Skill 库，一套 CLI 打通上百个模型。",
+          "control": "**它是一层统一的接口**：`generate-video.sh` / `generate-image.sh` 这些脚本背后是 muapi-cli，再往后接 Seedance 2.0、Kling 3.0、Veo3、Flux Kontext 等。Agent 不需要知道每家的参数长什么样，只按 `schema_data.json` 填。",
+          "hw": "不需要显卡（全走云端）；装 `muapi-cli`（npm 或 pip 都行）",
+          "arch": "Agent → CLI 脚本（`core/media/*.sh`）→ `schema_data.json` 校验参数 → muapi-cli → 各家模型。库里按用途分目录（`library/motion/` 下有打斗分镜、UGC 广告等成套配方）。",
+          "good": [
+            "**一套接口打通上百个模型**，Agent 不用为每家写一遍适配",
+            "参数会先按 schema 校验（分辨率 / 画幅 / 时长），不合法的组合在发请求前就拦下",
+            "`library/` 里有成套配方，比如 16 格分镜图驱动打斗场面、人像 + 产品图出 UGC 竖屏广告",
+            "MIT"
+          ],
+          "bad": [
+            "**必须走 muapi 这个中间层** —— 多一层依赖，也多一层账",
+            "**仓库 2023 年就建了，但内容被改成了现在这个方向**；早期 issue 还留着 PrivateGPT 时代的报错，所以「105 星/月」这个数字被前三年稀释了，实际热度集中在近期",
+            "画面质量完全取决于背后那家模型",
+            "文档主要是英文"
+          ],
+          "unfit": "想直连某一家官方 API 的人 —— 它的价值在统一中间层，只用一家就是多套一层。",
+          "src": "github README + GitHub API + DeepWiki 架构页",
+          "verified_at": "2026-08-16",
+          "autonomy": {
+            "weights": "api",
+            "seed": "partial",
+            "swap": "1",
+            "note": "全云端；换模型改一处 CLI 参数"
+          },
+          "hands": {
+            "layers": [
+              "docs",
+              "wiki",
+              "issue"
+            ],
+            "install": [
+              {
+                "step": "装 muapi-cli",
+                "gate": "`npm install -g muapi-cli` 或 `pip install muapi-cli`，也可以不装直接跑"
+              },
+              {
+                "step": "配鉴权",
+                "gate": "`muapi auth configure`，配置落在 `~/.muapi/config.json`"
+              },
+              {
+                "step": "把 skill 挂进 Agent",
+                "gate": "按各家 Agent 的 skill 目录规范链进去"
+              }
+            ],
+            "modify": [
+              {
+                "path": "core/media/generate-video.sh",
+                "effect": "出视频的入口脚本"
+              },
+              {
+                "path": "schema_data.json",
+                "effect": "各模型的参数表。加新模型改这里"
+              },
+              {
+                "path": "library/motion/",
+                "effect": "成套配方（打斗分镜、UGC 广告…）"
+              }
+            ],
+            "pitfalls": [
+              {
+                "where": "看 issue 判断项目状态",
+                "note": "**早期 issue 是这个仓库上一个用途留下的**（PrivateGPT 相关报错），和现在的内容无关 —— 别照着排查"
+              },
+              {
+                "where": "参数不合法",
+                "note": "脚本会先按 `schema_data.json` 校验画幅、分辨率、时长；报错在这一步是好事，说明没白花钱"
+              },
+              {
+                "where": "多一层账",
+                "note": "muapi 是中间层，计费口径与直连官方 API 不同，用之前先算"
+              }
+            ],
+            "issue_src": "github issues 按回复数排序 · 核验 2026-08-16"
+          },
+          "diagrams": [
+            {
+              "id": "gms-arch",
+              "title": "一层 CLI 接住上百个模型",
+              "kind": "架构图",
+              "src": "DeepWiki 架构页 · 抓取 2026-08-16",
+              "verified_at": "2026-08-16",
+              "mermaid": "graph TD\n    subgraph \"Natural Language Space\"\n        UserIntent[\"'Create a cinematic 10s video of a dragon'\"]\n    end\n\n    subgraph \"Expert Library Space (Creative Logic)\"\n        CinemaDirector[\"library/motion/cinema-director/scripts/generate-film.sh\"]\n    end\n\n    subgraph \"Core Primitive Space (Technical Execution)\"\n        GenVideo[\"core/media/generate-video.sh\"]\n        Upload[\"core/media/upload.sh\"]\n    end\n\n    subgraph \"Infrastructure Space\"\n        MUAPI[\"muapi-cli (External)\"]\n        SchemaData[\"schema_data.json\"]\n    end\n\n    UserIntent --> CinemaDirector\n    CinemaDirector -- \"Applies Cinematography Logic\" --> GenVideo\n    GenVideo -- \"Lookups Model Endpoints\" --> SchemaData\n    GenVideo -- \"Executes API Call\" --> MUAPI\n    Upload -- \"CDN Provisioning\" --> MUAPI"
+            },
+            {
+              "id": "gms-flow",
+              "title": "Agent 一次调用怎么走",
+              "kind": "流程图",
+              "src": "DeepWiki 架构页 · 抓取 2026-08-16",
+              "verified_at": "2026-08-16",
+              "mermaid": "graph LR\n    subgraph \"AI Agent (Claude/Cursor)\"\n        AgentLogic[\"Agent Planning\"]\n    end\n\n    subgraph \"MCP Server (muapi mcp serve)\"\n        Tool1[\"muapi_image_generate\"]\n        Tool2[\"muapi_video_generate\"]\n        Tool3[\"muapi_predict_result\"]\n    end\n\n    subgraph \"Codebase Entities\"\n        Script1[\"core/media/generate-image.sh\"]\n        Script2[\"core/media/generate-video.sh\"]\n        Script3[\"core/platform/check-result.sh\"]\n    end\n\n    AgentLogic -- \"Calls Tool\" --> Tool1\n    AgentLogic -- \"Polls Status\" --> Tool3\n    Tool1 -- \"Invokes\" --> Script1\n    Tool2 -- \"Invokes\" --> Script2\n    Tool3 -- \"Invokes\" --> Script3"
+            }
+          ]
+        },
+        {
+          "id": "chengfeng-videocut",
+          "zh": "乘风视频剪辑 Skills",
+          "url": "https://github.com/Agentchengfeng/chengfeng-videocut-skills",
+          "stars": 2872,
+          "created_at": "2026-01-14",
+          "pushed_at": "2026-08-06",
+          "stars_per_month": 410,
+          "stale_months": 0,
+          "license": "Apache-2.0",
+          "license_class": "permissive",
+          "role": "tool",
+          "group": "agent",
+          "decisions": [
+            "pace",
+            "sound"
+          ],
+          "engine": "yours",
+          "scope": "用 Claude Code Skills 做的视频剪辑 Agent。中文侧最成型的一个，专攻口播成片。",
+          "control": "**它管的是剪，不是生成** —— 「剪口播」「口播成片」这类中文指令直接触发对应 skill，背后是 `videocut-cli.cjs`。还带一个 MCP 工具在动手前把流程摆给你确认。",
+          "hw": "不需要显卡；要 Bun、Node、FFmpeg 与 Chrome",
+          "arch": "用户说「剪口播」→ 命中 `chengfeng-videocut:cut-talking-head` skill → `show_workflow_confirmation`（MCP 工具）先把要做的事列出来让你确认 → 再交给 `scripts/videocut-cli.cjs` 执行。仓库对署名很在意，LICENSE / NOTICE.md / CITATION.cff 三件套齐。",
+          "good": [
+            "**中文指令直接触发**，不用把需求翻成英文提示词",
+            "动手前先把流程摆出来确认，不是一句话就开始改你的素材",
+            "口播这一类做得深（剪 + 成片两个 skill 分开）",
+            "Apache-2.0，署名要求写得很清楚"
+          ],
+          "bad": [
+            "**只覆盖口播这一类**，别的片型接不上",
+            "**issue #19「第一次安装，配置火山引擎全都是坑」开着** —— 依赖火山引擎的语音服务",
+            "**issue #17：Claude 识别不出它是个 skill**（开着）—— 装法对新手不友好",
+            "issue #8：还需要开通上一代豆包语音；issue #12：生成的 html 播不了。都开着"
+          ],
+          "unfit": "不做口播类内容的人 —— 它的两个 skill 都是围着口播转的。",
+          "src": "github README + GitHub API + DeepWiki 架构页",
+          "verified_at": "2026-08-16",
+          "autonomy": {
+            "weights": "api",
+            "seed": "no",
+            "swap": "few",
+            "note": "剪辑本身在本地跑；语音走火山引擎"
+          },
+          "hands": {
+            "layers": [
+              "docs",
+              "wiki",
+              "issue"
+            ],
+            "install": [
+              {
+                "step": "装运行时",
+                "gate": "macOS：`brew install oven-sh/bun/bun node ffmpeg`，Chrome 从官网装。Windows 用 winget"
+              },
+              {
+                "step": "挂成 Claude skill",
+                "gate": "**issue #17 就卡在这一步** —— Claude 认不出来时先核对 skill 目录与 plugin.json"
+              },
+              {
+                "step": "配火山引擎语音",
+                "gate": "**issue #19 说这一步「全都是坑」**；另注意 issue #8 提到要开通上一代豆包语音"
+              }
+            ],
+            "modify": [
+              {
+                "path": "plugin.json",
+                "effect": "skill 清单。Claude 认不出来先看这个文件"
+              },
+              {
+                "path": "scripts/videocut-cli.cjs",
+                "effect": "真正干活的命令行。剪辑逻辑在这"
+              },
+              {
+                "path": "NOTICE.md / CITATION.cff",
+                "effect": "署名要求。二次发布要保留"
+              }
+            ],
+            "pitfalls": [
+              {
+                "where": "装不上",
+                "note": "**issue #17「claude 好像识别不出是个 skill」开着** —— 中文侧第一次装最常撞的墙"
+              },
+              {
+                "where": "配语音",
+                "note": "**issue #19「配置火山引擎全都是坑」开着**，issue #8 还提到要开通上一代豆包语音"
+              },
+              {
+                "where": "成片播不了",
+                "note": "**issue #12：生成的 html 不能正确播放，开着**"
+              }
+            ],
+            "issue_src": "github issues 按回复数排序 · 核验 2026-08-16"
+          },
+          "diagrams": [
+            {
+              "id": "chengfeng-arch",
+              "title": "一句中文怎么变成一次剪辑",
+              "kind": "架构图",
+              "src": "DeepWiki 架构页 · 抓取 2026-08-16",
+              "verified_at": "2026-08-16",
+              "mermaid": "graph TD\n    subgraph \"Natural Language Space (Codex)\"\n        A[\"'剪口播' (Skill Request)\"]\n        B[\"'口播成片' (Skill Request)\"]\n    end\n\n    subgraph \"Plugin Entity Space (Code)\"\n        C[\"chengfeng-videocut:cut-talking-head\"]\n        D[\"chengfeng-videocut:finish-talking-head\"]\n        E[\"show_workflow_confirmation (MCP Tool)\"]\n        F[\"plugin.json (Manifest)\"]\n    end\n\n    subgraph \"Runtime Entity Space (Local System)\"\n        G[\"scripts/ensure-runtime.cjs\"]\n        H[\"scripts/videocut-cli.cjs\"]\n        I[\"~/.chengfeng-videocut (Binary)\"]\n        J[\"project.json (Source of Truth)\"]\n    end\n\n    A --> C\n    B --> D\n    C & D --> G\n    G --> I\n    C & D -.-> E\n    E --> H\n    H --> I\n    I --> J\n    F --> C\n    F --> D"
+            },
+            {
+              "id": "chengfeng-flow",
+              "title": "两个 skill 各管什么",
+              "kind": "流程图",
+              "src": "DeepWiki 架构页 · 抓取 2026-08-16",
+              "verified_at": "2026-08-16",
+              "mermaid": "graph TD\n    subgraph \"Natural Language Space\"\n        User[\"User Prompt: '剪口播'\"]\n        UserFinish[\"User Prompt: '口播成片'\"]\n    end\n\n    subgraph \"Codex Plugin Layer\"\n        SkillCut[\"skill: cut-talking-head\"]\n        SkillFinish[\"skill: finish-talking-head\"]\n        MCP[\"MCP Tool: show_workflow_confirmation\"]\n    end\n\n    subgraph \"Code Entity Space (Runtime)\"\n        CLI[\"scripts/videocut-cli.cjs\"]\n        Doctor[\"scripts/ensure-runtime.cjs\"]\n        Binary[\"~/.chengfeng-videocut/bin\"]\n        ProjectJSON[\"project.json (State Truth)\"]\n    end\n\n    User --> SkillCut\n    UserFinish --> SkillFinish\n    \n    SkillCut --> Doctor\n    SkillFinish --> Doctor\n    \n    Doctor --> CLI\n    CLI --> Binary\n    Binary --> ProjectJSON\n    \n    SkillCut -.-> MCP\n    MCP -.-> UI[\"public/review-confirm.html\"]"
+            }
+          ],
+          "license_note": "转载 / 二次发布要保留原作者、仓库链接、LICENSE 与 NOTICE.md"
+        },
+        {
+          "id": "comfyui-manager",
+          "zh": "ComfyUI-Manager",
+          "url": "https://github.com/Comfy-Org/ComfyUI-Manager",
+          "stars": 15788,
+          "created_at": "2023-04-23",
+          "pushed_at": "2026-08-15",
+          "stars_per_month": 397,
+          "stale_months": 0,
+          "license": "GPL-3.0",
+          "license_class": "copyleft",
+          "role": "tool",
+          "group": "workflow",
+          "decisions": [
+            "shot",
+            "compose"
+          ],
+          "scope": "ComfyUI 的节点管理器：装节点、装模型、修依赖、查注册表。ComfyUI 生态的事实标准。",
+          "control": "**它解决的是「工作流打开一片红」这件事** —— 缺哪个节点它去找、去装、去修依赖。界面与命令行（`cm-cli.py`）两套入口，背后是几份注册表 JSON。",
+          "hw": "跟着 ComfyUI 走，本身不吃显存；要 Python 3 与 git",
+          "arch": "浏览器界面（`comfyui-manager.js`）与命令行（`cm-cli.py`）都打到 `manager_server.py` 的 HTTP 接口，任务进异步队列。节点来源是 `custom-node-list.json` 等几份注册表。装依赖时会先过 `pip_overrides.json`（包名重映射）与 `pip_blacklist.list`（禁装名单），再跑各节点自己的 `install.py`。",
+          "good": [
+            "**几乎所有 ComfyUI 工作流的前置条件** —— 别人给的工作流缺节点，靠它一键补齐",
+            "带 pip 重映射与黑名单，挡掉一批「装完 ComfyUI 就坏了」的依赖冲突",
+            "界面与命令行两套入口，服务器上也能用",
+            "官方组织维护，还在持续更新"
+          ],
+          "bad": [
+            "**GPL-3.0**，传染性许可",
+            "**409 个 issue 开着** —— 它站在所有第三方节点与 Python 依赖的交叉口，问题天然多",
+            "安全等级配置容易把自己锁在外面（issue #1049，已关闭但回复 41 条）",
+            "桌面版升级后管理器消失是长期问题（issue #2374，回复 51 条，开着）"
+          ],
+          "unfit": "不用 ComfyUI 的人 —— 它是那个生态的装配件，脱开没有意义。",
+          "src": "github README + GitHub API + DeepWiki 架构页",
+          "verified_at": "2026-08-16",
+          "autonomy": {
+            "weights": "na",
+            "seed": "na",
+            "swap": "many",
+            "note": "它管的是别的节点；换掉它等于换整套装配方式"
+          },
+          "hands": {
+            "layers": [
+              "docs",
+              "wiki",
+              "issue"
+            ],
+            "install": [
+              {
+                "step": "确认前置",
+                "gate": "**Python 3 与 git 是硬前置**，README 第一句就写了"
+              },
+              {
+                "step": "装到现有 ComfyUI 上",
+                "gate": "克隆进 `custom_nodes/`；桌面版另有装法（见 issue #2374 的坑）"
+              },
+              {
+                "step": "装节点",
+                "gate": "**先看安全等级设置** —— 设太严会禁掉 `Install via git url` 与 `pip install`"
+              }
+            ],
+            "modify": [
+              {
+                "path": "custom-node-list.json",
+                "effect": "节点注册表。要加自己的节点从这里提"
+              },
+              {
+                "path": "pip_overrides.json / pip_blacklist.list",
+                "effect": "依赖重映射与禁装名单。依赖打架时看这两个"
+              },
+              {
+                "path": "cm-cli.py",
+                "effect": "命令行入口。没有界面的机器上用它"
+              }
+            ],
+            "pitfalls": [
+              {
+                "where": "桌面版升级后管理器不见了",
+                "note": "**issue #2374 回复 51 条、开着** —— ComfyUI Desktop 升级后最常见的一条"
+              },
+              {
+                "where": "被安全等级锁住",
+                "note": "**issue #1049「Locked out by security level configuration」回复 41 条**（已关闭）—— 设严了连改回来的入口都没了"
+              },
+              {
+                "where": "git 报错",
+                "note": "**issue #257 `Cmd('git') failed exit code(3221225725)` 开着，回复 39 条** —— Windows 上高频"
+              },
+              {
+                "where": "装完 numpy 坏了",
+                "note": "**issue #1665「Failed to restore numpy」回复 27 条**（已关闭）—— 依赖冲突的典型"
+              }
+            ],
+            "issue_src": "github issues 按回复数排序 · 核验 2026-08-16"
+          },
+          "diagrams": [
+            {
+              "id": "cmm-arch",
+              "title": "界面、命令行与注册表怎么摆",
+              "kind": "架构图",
+              "src": "DeepWiki 架构页 · 抓取 2026-08-16",
+              "verified_at": "2026-08-16",
+              "mermaid": "graph TB\n    subgraph \"User Interfaces\"\n        WebUI[\"comfyui-manager.js<br/>Browser-based GUI\"]\n        CLI[\"cm-cli.py<br/>Command-line tool\"]\n    end\n    \n    subgraph \"Backend Services\"\n        ManagerServer[\"manager_server.py<br/>HTTP API endpoints\"]\n        ManagerCore[\"manager_core.py<br/>UnifiedManager<br/>Business logic\"]\n        TaskQueue[\"Task Queue System<br/>Async operations\"]\n    end\n    \n    subgraph \"Data Registries\"\n        MainRegistry[\"custom-node-list.json<br/>Main Registry\"]\n        NewRegistry[\"node_db/new/<br/>New Registry\"]\n        DevRegistry[\"node_db/dev/<br/>Dev Registry\"]\n        ExtensionMap[\"extension-node-map.json\"]\n        GitHubStats[\"github-stats.json\"]\n        ModelList[\"model-list.json\"]\n    end\n    \n    subgraph \"External Systems\"\n        GitHub[\"GitHub API<br/>Custom node sources\"]\n        HuggingFace[\"Hugging Face Hub<br/>Model sources\"]\n        Channels[\"Channel URLs<br/>Remote data sources\"]\n    end\n    \n    subgraph \"Local Storage\"\n        CustomNodes[\"custom_nodes/<br/>Installed extensions\"]\n        Models[\"models/<br/>Downloaded models\"]\n        Snapshots[\"snapshots/<br/>Environment states\"]\n        Cache[\"Cache<br/>1-day cached data\"]\n    end\n    \n    WebUI --> ManagerServer\n    CLI --> ManagerCore\n    ManagerServer --> ManagerCore\n    ManagerServer --> TaskQueue\n    \n    ManagerCore --> MainRegistry\n    ManagerCore --> NewRegistry\n    ManagerCore --> DevRegistry\n    ManagerCore --> ExtensionMap\n    ManagerCore --> GitHubStats\n    ManagerCore --> ModelList\n    \n    ManagerCore --> GitHub\n    ManagerCore --> HuggingFace\n    ManagerCore --> Channels\n    \n    ManagerCore --> CustomNodes\n    ManagerCore --> Models\n    ManagerCore --> Snapshots\n    ManagerCore --> Cache\n    \n    TaskQueue --> CustomNodes\n    TaskQueue --> Models"
+            },
+            {
+              "id": "cmm-flow",
+              "title": "装一个节点都发生了什么",
+              "kind": "流程图",
+              "src": "DeepWiki 架构页 · 抓取 2026-08-16",
+              "verified_at": "2026-08-16",
+              "mermaid": "graph TD\n    CheckReqs[\"Check for<br/>requirements.txt\"]\n    PIPOverride[\"pip_overrides.json<br/>Package remapping\"]\n    PIPBlacklist[\"pip_blacklist.list<br/>Blocked packages\"]\n    DowngradeBlock[\"downgrade_blacklist<br/>Prevent version downgrades\"]\n    InstallPIP[\"Execute pip install<br/>or uv install\"]\n    PIPFixer[\"PIPFixer<br/>Track & restore broken packages\"]\n    CheckInstallPy[\"Check for<br/>install.py\"]\n    RunInstall[\"Execute custom<br/>install.py script\"]\n    UpdateRegistry[\"Update UnifiedManager<br/>state registries\"]\n    \n    CheckReqs --> PIPOverride\n    PIPOverride --> PIPBlacklist\n    PIPBlacklist --> DowngradeBlock\n    DowngradeBlock --> InstallPIP\n    InstallPIP --> PIPFixer\n    PIPFixer --> CheckInstallPy\n    CheckInstallPy -->|exists| RunInstall\n    CheckInstallPy -->|no file| UpdateRegistry\n    RunInstall --> UpdateRegistry"
+            }
+          ],
+          "tutorials": [
+            {
+              "title": "ComfyUI 官方：怎么装自定义节点",
+              "page_title": "如何在 ComfyUI 中安装自定义节点 - ComfyUI",
+              "url": "https://docs.comfy.org/zh-CN/installation/install_custom_node",
+              "kind": "官方",
+              "lang": "zh",
+              "verified_at": "2026-08-16"
+            }
+          ]
+        },
+        {
+          "id": "wanvideowrapper",
+          "zh": "ComfyUI-WanVideoWrapper",
+          "url": "https://github.com/Kijai/ComfyUI-WanVideoWrapper",
+          "stars": 6666,
+          "created_at": "2025-02-25",
+          "pushed_at": "2026-05-24",
+          "stars_per_month": 378,
+          "stale_months": 3,
+          "license": "Apache-2.0",
+          "license_class": "permissive",
+          "role": "tool",
+          "group": "workflow",
+          "decisions": [
+            "shot",
+            "motion",
+            "identity"
+          ],
+          "scope": "把 Wan 系列模型接进 ComfyUI 的节点包。社区里跑 Wan 的事实标准封装。",
+          "control": "**它的价值全在显存调度上**：块交换（block swap）、异步预取、LoRA 权重作为 buffer 挂进块里 —— 所以同一张卡上能跑起官方仓库跑不动的配置。作者 Kijai 是 ComfyUI 生态里最高产的节点作者之一。",
+          "hw": "跟着所跑的 Wan 变体走；**块交换的块数是主要调节旋钮**（README 用「1GB LoRA / 20 块 → 多占 500MB」举了例）",
+          "arch": "包在 Wan 官方实现外面的一层 ComfyUI 节点。核心是显存策略：把 DiT 的块在显存与内存之间轮换，LoRA 权重挂进块里跟着一起换，并支持 torch.compile。README 大半篇幅在讲这些开关怎么互相影响。",
+          "wiki": "none",
+          "wiki_note": "DeepWiki 没有索引这个仓库（2026-08-16 查，页面返回 not found）。所以这一页只有 README 与 issue 两层，没有由源码生成的图。",
+          "good": [
+            "**社区里跑 Wan 的事实标准封装**，多数 Wan 工作流都基于它",
+            "显存调度做得细：块交换 + 异步预取 + LoRA 挂进块，同一张卡能跑更大的配置",
+            "作者持续跟进 Wan 的新变体",
+            "Apache-2.0"
+          ],
+          "bad": [
+            "**1281 个 issue 开着** —— 这个数字本身说明它站在显存、torch.compile、triton 缓存的交叉口上",
+            "已经 3 个月没更新",
+            "**README 明说改过 LoRA 的加载方式**：老工作流不改块数会比以前多占显存",
+            "torch.compile 相关的显存异常需要手动清 triton 缓存，README 给了目录但这不是个自动的事"
+          ],
+          "unfit": "不用 ComfyUI 的人；以及想读一份稳定文档的人 —— 它的 README 更像一份持续更新的变更说明。",
+          "src": "github README + GitHub API（DeepWiki 未索引）",
+          "verified_at": "2026-08-16",
+          "autonomy": {
+            "weights": "local",
+            "seed": "yes",
+            "swap": "few",
+            "note": "本地权重；显存策略由节点参数控制"
+          },
+          "hands": {
+            "layers": [
+              "docs",
+              "issue"
+            ],
+            "install": [
+              {
+                "step": "装进 custom_nodes",
+                "gate": "用 ComfyUI-Manager 装最省事"
+              },
+              {
+                "step": "定块交换的块数",
+                "gate": "**这是主要旋钮**。显存不够就多换几块，代价是慢"
+              },
+              {
+                "step": "决定用不用 torch.compile",
+                "gate": "**不用也能跑** —— README 说已经降低了对它的依赖"
+              }
+            ],
+            "modify": [
+              {
+                "path": "节点参数 · blocks to swap",
+                "effect": "显存与速度的主要权衡点"
+              },
+              {
+                "path": "triton 缓存目录",
+                "effect": "compile 后首次显存暴涨时要手动清，README 给了默认路径"
+              }
+            ],
+            "pitfalls": [
+              {
+                "where": "升级后老工作流爆显存",
+                "note": "**README 明写 LoRA 权重的加载方式改了**：不用块交换的人会看到显存上涨，用块交换的人块变大了，要多换几块补回来"
+              },
+              {
+                "where": "torch.compile 首跑显存暴涨",
+                "note": "**README：多见于 Windows**，多半是旧 pytorch/triton 或旧 triton 缓存。清掉缓存目录，再跑一次就正常"
+              },
+              {
+                "where": "issue 太多找不到自己那条",
+                "note": "**1281 个开着** —— 搜之前先把 Wan 变体名和显卡型号一起当关键词"
+              }
+            ],
+            "issue_src": "github issues · 核验 2026-08-16"
+          }
+        },
+        {
+          "id": "comfy-templates",
+          "zh": "ComfyUI 官方工作流模板",
+          "url": "https://github.com/Comfy-Org/workflow_templates",
+          "stars": 802,
+          "created_at": "2025-02-28",
+          "pushed_at": "2026-08-15",
+          "stars_per_month": 46,
+          "stale_months": 0,
+          "license": "MIT",
+          "license_class": "permissive",
+          "role": "tool",
+          "group": "workflow",
+          "decisions": [
+            "shot",
+            "compose",
+            "sound"
+          ],
+          "scope": "ComfyUI 内置的那批官方工作流模板与子图蓝图的真身仓库。",
+          "control": "**你在 ComfyUI 里「浏览模板」看到的就是它** —— 每个新模型上线时官方给的那份能跑的工作流，都先进这个仓库。另外还有子图蓝图（可复用的节点组件），出现在节点面板里。",
+          "hw": "本身只是 JSON 与预览图；跑起来的门槛由所选模板对应的模型决定",
+          "arch": "按媒介分包：`packages/core` 是清单与加载器，`packages/media_*` 按媒介放工作流 JSON 与预览图，`packages/blueprints` 放子图蓝图。另有一个 Astro 静态站（`site/`）把模板做成可搜索的网页，支持 11 种语言。",
+          "good": [
+            "**官方口径的现成工作流** —— 新模型出来第一时间能跑的那份就在这里",
+            "带子图蓝图，可复用的节点组件不用自己攒",
+            "有可搜索的模板站（templates.comfy.org），比在 ComfyUI 里翻菜单快",
+            "MIT"
+          ],
+          "bad": [
+            "它只是模板，**跑得动跑不动取决于你的显卡与所选模型**",
+            "星数不高（802）—— 因为多数人是通过 ComfyUI 界面用它，不知道有这个仓库",
+            "模板更新跟着 ComfyUI 版本走，老版本装新模板可能缺节点",
+            "68 个 issue 开着"
+          ],
+          "unfit": "想找社区花式工作流的人 —— 这里只有官方那一份最小可用版。",
+          "src": "github README + GitHub API（DeepWiki 未索引）",
+          "verified_at": "2026-08-16",
+          "wiki": "none",
+          "wiki_note": "DeepWiki 没有索引这个仓库（2026-08-16 查，页面返回 not found）。它主要是工作流 JSON 与预览图，本来也没什么调用关系可画。",
+          "autonomy": {
+            "weights": "na",
+            "seed": "na",
+            "swap": "1",
+            "note": "模板本身不含模型；换模板就是换一个 JSON"
+          },
+          "hands": {
+            "layers": [
+              "docs"
+            ],
+            "install": [
+              {
+                "step": "不用装",
+                "gate": "**它随 ComfyUI 一起来** —— 菜单里「工作流 → 浏览模板」就是它"
+              },
+              {
+                "step": "想单独取",
+                "gate": "从 `templates/` 或 `packages/media_*` 里直接下 JSON"
+              },
+              {
+                "step": "看模板站",
+                "gate": "templates.comfy.org 可搜索，比翻菜单快"
+              }
+            ],
+            "modify": [
+              {
+                "path": "templates/",
+                "effect": "工作流 JSON 本体"
+              },
+              {
+                "path": "blueprints/",
+                "effect": "子图蓝图 —— 可复用的节点组件"
+              },
+              {
+                "path": "packages/core",
+                "effect": "清单与加载器。要理解模板怎么被 ComfyUI 找到，看这里"
+              }
+            ],
+            "pitfalls": [
+              {
+                "where": "模板打不开",
+                "note": "模板跟着 ComfyUI 版本走 —— **老版本装新模板会缺节点**，先升级 ComfyUI 再说"
+              },
+              {
+                "where": "以为这里有社区工作流",
+                "note": "**只有官方那份最小可用版**。社区花活在各自的仓库里"
+              }
+            ],
+            "issue_src": "github issues · 核验 2026-08-16"
+          },
+          "tutorials": [
+            {
+              "title": "ComfyUI 官方：模板功能怎么用",
+              "page_title": "工作流模板 - ComfyUI 内置工作流模板 - ComfyUI",
+              "url": "https://docs.comfy.org/zh-CN/interface/features/template",
+              "kind": "官方",
+              "lang": "zh",
+              "verified_at": "2026-08-16"
+            }
+          ]
+        },
+        {
+          "id": "waoowaoo",
+          "zh": "waoowaoo",
+          "url": "https://github.com/waooAI/waoowaoo",
+          "stars": 13624,
+          "created_at": "2026-01-22",
+          "pushed_at": "2026-08-13",
+          "stars_per_month": 704,
+          "stale_months": 0,
+          "license": "CC BY-NC-SA 4.0",
+          "license_class": "noncommercial",
+          "role": "allinone",
+          "group": "allinone",
+          "decisions": [
+            "shot",
+            "identity",
+            "compose",
+            "pace"
+          ],
+          "engine": "cloud",
+          "takes_over": [
+            "shot",
+            "compose",
+            "identity",
+            "motion",
+            "pace"
+          ],
+          "leaves": [
+            "topic",
+            "camera",
+            "sound",
+            "repro"
+          ],
+          "scope": "把一部小说灌进去，自动拆角色、拆场景、出分镜，再合成整集短剧。中英双界面。",
+          "control": "**入口是小说全文，不是一句主题** —— 它先做剧本分析抽出角色与场景，把资产沉淀下来再逐镜生成，最后用 Remotion 合片。画面走云端模型接口，本地只跑编排。",
+          "hw": "不需要显卡 —— 画面全走云端 API；本地要 Node 环境与 Redis（任务队列走 BullMQ）",
+          "arch": "Next.js 管界面与 API，BullMQ + Redis 跑图片与视频两类 worker，素材落 S3 / MinIO，成片由 Remotion 合成。模型调用统一走 `src/lib/model-gateway`。",
+          "good": [
+            "**从小说全文进**，不是从一句话进 —— 长内容改编这条路上它是最完整的",
+            "角色、场景先沉淀成资产再逐镜用，一致性不是靠每次重描述",
+            "队列化架构，批量出集比串行脚本稳",
+            "中英双语界面"
+          ],
+          "bad": [
+            "**CC BY-NC-SA 4.0，不可商用**。而且它的 LICENSE 自己写着「这不是严格意义上的开源软件许可，用它是为了保护本项目的商业权利」—— 这句话值得读两遍",
+            "画面全靠云端 API，**省掉的是编排不是算力钱**",
+            "issue #163「作者失联了？」、#35 / #154「交流群满了」—— 支持渠道是微信群，而群满了",
+            "配置保存失败（issue #96）、登录不上（issue #98）这类基础问题反复出现"
+          ],
+          "unfit": "接商单 —— 许可证明确禁止商业使用。",
+          "src": "github README + GitHub API + LICENSE 原文 + DeepWiki 架构页",
+          "verified_at": "2026-08-16",
+          "autonomy": {
+            "weights": "api",
+            "seed": "no",
+            "swap": "few",
+            "note": "画面全在云端，本地只有编排；换模型改 model-gateway 一处"
+          },
+          "hands": {
+            "layers": [
+              "docs",
+              "wiki",
+              "issue"
+            ],
+            "install": [
+              {
+                "step": "先复制环境变量文件",
+                "gate": "**README 明写要在 `npm install` 之前做完**，顺序反了会装出错的配置"
+              },
+              {
+                "step": "`npm install` 并起 Redis",
+                "gate": "任务队列走 BullMQ，没有 Redis 跑不动"
+              },
+              {
+                "step": "配模型 key",
+                "gate": "画面全走云端，**key 不配就一步都走不了**"
+              }
+            ],
+            "modify": [
+              {
+                "path": "src/lib/model-gateway",
+                "effect": "所有模型调用的出口。换供应商只动这里"
+              },
+              {
+                "path": "src/lib/worker-handlers",
+                "effect": "小说分析、分镜、出图、出片各一个 handler"
+              },
+              {
+                "path": "src/lib/storage",
+                "effect": "素材落地。本地目录与 MinIO 两条路"
+              }
+            ],
+            "pitfalls": [
+              {
+                "where": "网页卡顿",
+                "note": "**README 自己给的解法是装 Caddy 开 HTTPS** —— HTTP 下浏览器并发连接数会卡住它"
+              },
+              {
+                "where": "登录 / 保存失败",
+                "note": "**issue #98 登录不上（已关闭）、#96 设置保存失败（开着）** —— 本地起来了不等于能用"
+              },
+              {
+                "where": "找不到人问",
+                "note": "**issue #163「作者失联了？」、#35 / #154「交流群满了」** —— 官方支持只有微信群这一条路，而它满了"
+              },
+              {
+                "where": "语音模型",
+                "note": "**issue #59：调不了 qwen 的语音模型，开着**"
+              }
+            ],
+            "issue_src": "github issues 按回复数排序 · 核验 2026-08-16"
+          },
+          "diagrams": [
+            {
+              "id": "waoo-arch",
+              "title": "四层怎么摆",
+              "kind": "架构图",
+              "src": "DeepWiki 架构页 · 抓取 2026-08-16",
+              "verified_at": "2026-08-16",
+              "mermaid": "graph TD\n    subgraph \"Web Layer (Next.js)\"\n        A[\"[src/app] UI Components\"] -- \"Submits Task\" --> B[\"[src/lib/api-handler] apiHandler\"]\n        B -- \"Writes to\" --> DB[(\"MySQL (Prisma)\")]\n    end\n\n    subgraph \"Worker Layer (BullMQ)\"\n        C[\"[src/lib/workers/index.ts] Worker Process\"] -- \"Polls\" --> R[(\"Redis Queue\")]\n        C -- \"Executes\" --> H[\"[src/lib/worker-handlers] Task Handlers\"]\n    end\n\n    subgraph \"Storage Layer\"\n        H -- \"Uploads Media\" --> S[\"[src/lib/storage] S3/MinIO\"]\n    end\n\n    B -- \"Adds Job\" --> R\n    H -- \"Updates Status\" --> DB"
+            },
+            {
+              "id": "waoo-flow",
+              "title": "小说到成片走哪几步",
+              "kind": "流程图",
+              "src": "DeepWiki 架构页 · 抓取 2026-08-16",
+              "verified_at": "2026-08-16",
+              "mermaid": "graph LR\n    subgraph \"Pipeline Stages\"\n        Novel[\"Novel Text\"] --> Script[\"[analyze-novel] Handler\"]\n        Script --> Storyboard[\"[script-to-storyboard] Handler\"]\n        Storyboard --> Media[\"[image/video] Workers\"]\n        Media --> Final[\"[clips-build] Remotion\"]\n    end\n\n    subgraph \"Model Gateway\"\n        LLM[\"[src/lib/model-gateway]\"]\n        LLM -- \"Calls\" --> OpenAI[\"OpenAI / DeepSeek\"]\n        LLM -- \"Calls\" --> Fal[\"Fal.ai (Flux/Luma)\"]\n    end\n\n    Script -.-> LLM\n    Storyboard -.-> LLM\n    Media -.-> LLM"
+            }
+          ],
+          "license_note": "**不可商用**；许可证正文自称「不是严格意义上的开源软件许可」"
+        },
+        {
+          "id": "jellyfish",
+          "zh": "Jellyfish",
+          "url": "https://github.com/Forget-C/Jellyfish",
+          "stars": 5983,
+          "created_at": "2026-03-06",
+          "pushed_at": "2026-07-30",
+          "stars_per_month": 1120,
+          "stale_months": 1,
+          "license": "Apache-2.0",
+          "license_class": "permissive",
+          "role": "allinone",
+          "group": "allinone",
+          "decisions": [
+            "shot",
+            "identity",
+            "pace"
+          ],
+          "engine": "cloud",
+          "takes_over": [
+            "shot",
+            "compose",
+            "identity",
+            "pace"
+          ],
+          "leaves": [
+            "topic",
+            "motion",
+            "camera",
+            "sound",
+            "repro"
+          ],
+          "scope": "AI 短剧的端到端工作台：从剧本进，到分镜、角色一致性管理、出片、导出。",
+          "control": "**这一类里源码最全的一个**（Apache-2.0，前后端都在）。做法是把 AI 能力当基础设施：模型管理、提示词模板、文件、OpenAPI 契约各自成模块，前后端类型由 OpenAPI 生成。",
+          "hw": "不需要显卡；后端 FastAPI + Python，前端 pnpm，素材落 S3 或本地",
+          "arch": "前端 React、后端 FastAPI，`chains/` 放 AI Agent，`services/` 放业务，`models/` 是 ORM，对外契约走 OpenAPI —— 前端的请求函数与类型是从 OpenAPI 生成的，不手写。",
+          "good": [
+            "**Apache-2.0 且源码是全的** —— 这一类里少见",
+            "前后端契约走 OpenAPI 自动生成，二次开发时接口不会两边对不上",
+            "模型管理、提示词模板做成了可扩展模块，不是写死一家",
+            "自带单元与集成测试"
+          ],
+          "bad": [
+            "**issue #24「有没有跑起来的举个手」、#22「一大堆问题，根本没法用」** —— 都已关闭，但问题问出来了",
+            "**issue #9「TOKEN 消耗太吓人了」** —— 全链路走大模型，账单是真实成本",
+            "**issue #1「请问哪里能看到系统做出来的成片？」** —— 官方至今没给成片样例",
+            "**issue #17「现在刷 Star 的真多，图啥」** —— 五个月涨到近六千星，这个速度它自己的社区都在质疑"
+          ],
+          "unfit": "想开箱即用的人 —— 它是给二次开发者的工作台，不是给创作者的成品软件。",
+          "src": "github README + GitHub API + LICENSE + DeepWiki 架构页",
+          "verified_at": "2026-08-16",
+          "autonomy": {
+            "weights": "api",
+            "seed": "no",
+            "swap": "1",
+            "note": "模型管理是独立模块，换供应商在界面里配，不改代码"
+          },
+          "hands": {
+            "layers": [
+              "docs",
+              "wiki",
+              "issue"
+            ],
+            "install": [
+              {
+                "step": "起后端",
+                "gate": "Python 侧用 uv；**先跑 `init_db.py` 与 `init_storage.py`**，少一步后面全是找不到表"
+              },
+              {
+                "step": "起前端",
+                "gate": "`pnpm install`"
+              },
+              {
+                "step": "配模型",
+                "gate": "在模型管理里配 key。**账单会很快** —— 全链路都在调大模型"
+              }
+            ],
+            "modify": [
+              {
+                "path": "backend/app/chains/",
+                "effect": "AI Agent 都在这里。改生成逻辑从这里进"
+              },
+              {
+                "path": "backend/app/api/v1/routes/",
+                "effect": "接口定义。改了要重新生成前端的类型"
+              },
+              {
+                "path": "front/src/",
+                "effect": "界面。请求函数由 OpenAPI 生成，别手改"
+              }
+            ],
+            "pitfalls": [
+              {
+                "where": "跑不起来",
+                "note": "**issue #24「有没有跑起来的举个手」回复 8 条、#4 `ModuleNotFoundError: No module named 'app.utils'`** —— 都已关闭，但装的时候仍要按顺序初始化"
+              },
+              {
+                "where": "费用",
+                "note": "**issue #9「TOKEN 消耗太吓人了」** —— 剧本、分镜、图、片全走模型，跑一集的账单要先估"
+              },
+              {
+                "where": "看不到成品",
+                "note": "**issue #1 问「哪里能看到系统做出来的成片」** —— 决定要不要投时间之前，这一条挺关键"
+              }
+            ],
+            "issue_src": "github issues 按回复数排序 · 核验 2026-08-16"
+          },
+          "diagrams": [
+            {
+              "id": "jellyfish-arch",
+              "title": "前后端怎么摆",
+              "kind": "架构图",
+              "src": "DeepWiki 架构页 · 抓取 2026-08-16",
+              "verified_at": "2026-08-16",
+              "mermaid": "graph TD\n    subgraph \"Client Space\"\n        User[\"User Browser\"]\n        CLI[\"Developer CLI (pnpm/uv)\"]\n    end\n\n    subgraph \"Jellyfish Platform\"\n        FE[\"React Frontend (front/src/)\"]\n        BE[\"FastAPI Backend (backend/app/)\"]\n        DB[(\"SQLAlchemy / SQLite (jellyfish.db)\")]\n        S3[\"Object Storage (S3/Local)\"]\n    end\n\n    subgraph \"AI Provider Space\"\n        LLM[\"LLM Providers (OpenAI/Claude)\"]\n        Gen[\"Media Gen (Video/Image)\"]\n    end\n\n    User -->|\"HTTP/HTTPS\"| FE\n    FE -->|\"OpenAPI Client (services/generated/)\"| BE\n    BE -->|\"Async Engine\"| DB\n    BE -->|\"Boto3\"| S3\n    BE -->|\"LangChain / HTTPX\"| LLM\n    BE -->|\"Async Tasks\"| Gen\n    CLI -->|\"uv run uvicorn\"| BE\n    CLI -->|\"pnpm run dev\"| FE"
+            },
+            {
+              "id": "jellyfish-flow",
+              "title": "一次生成的时序",
+              "kind": "时序图",
+              "src": "DeepWiki 架构页 · 抓取 2026-08-16",
+              "verified_at": "2026-08-16",
+              "mermaid": "sequenceDiagram\n    participant UI as \"React ChapterStudio\"\n    participant API as \"FastAPI routes/film.py\"\n    participant SK as \"SkillRegistry / Agent\"\n    participant TM as \"TaskManager\"\n    participant LLM as \"LLM (GPT-4o/etc)\"\n\n    UI->>API: POST /extract/shotlist (script_text)\n    API->>SK: invoke(FilmShotlistStoryboarder)\n    SK->>LLM: PromptTemplate + script\n    LLM-->>SK: JSON Shotlist\n    SK-->>API: FilmShotlistResult\n    API-->>UI: Structured Shots\n\n    UI->>API: POST /generate/video (shot_id)\n    API->>TM: submit_task(VideoGenTask)\n    TM-->>API: task_id\n    API-->>UI: 202 Accepted (task_id)\n    \n    loop Polling\n        UI->>API: GET /tasks/{task_id}\n        API->>TM: get_status()\n        TM-->>UI: Status (Pending/Success)\n    end"
+            }
+          ]
+        },
+        {
+          "id": "moyin",
+          "zh": "魔因漫创",
+          "url": "https://github.com/MemeCalculate/moyin-creator",
+          "stars": 4364,
+          "created_at": "2026-02-09",
+          "pushed_at": "2026-07-15",
+          "stars_per_month": 709,
+          "stale_months": 1,
+          "license": "AGPL-3.0",
+          "license_class": "copyleft",
+          "role": "allinone",
+          "group": "allinone",
+          "decisions": [
+            "shot",
+            "identity",
+            "compose",
+            "pace"
+          ],
+          "engine": "cloud",
+          "takes_over": [
+            "shot",
+            "compose",
+            "identity",
+            "pace"
+          ],
+          "leaves": [
+            "topic",
+            "motion",
+            "camera",
+            "sound",
+            "repro"
+          ],
+          "scope": "桌面端 AI 影视工具（Electron）：剧本 → 角色 → 场景 → 导演 → 成片五个面板串起来。",
+          "control": "**它是装在本机的桌面软件，不是网页服务** —— 素材与工程文件落在本地目录，五个面板对应制作的五个阶段，一路往下推。画面调云端模型（自述支持 Seedance 2.0）。",
+          "hw": "不需要显卡；**0.2.6 起没有 macOS 打包版**（issue #31，开着）",
+          "arch": "Electron 主进程 + React 界面，状态用 Zustand，文件读写通过 preload 暴露的 fileStorage API。素材按 media / scenes / storyboards / videos 分目录落本地。",
+          "good": [
+            "桌面软件形态，装完就能用，不用起服务、配 Redis",
+            "五个面板对应制作五个阶段，流程是明的",
+            "工程文件落本地目录，看得见摸得着",
+            "AGPL-3.0，自己用没有约束"
+          ],
+          "bad": [
+            "**源码停在 0.2.3，Release 已经发到 0.2.9** —— 发行版比公开源码新六个小版本（issue #26 / #32 问的就是这个，都开着）",
+            "AGPL-3.0 是传染性许可，改了拿去对外提供服务就得开源",
+            "**0.2.6 起没有 macOS 打包版**（issue #31，开着）",
+            "生图模型选择被限死（issue #4：只能用 nano 和 gpt，问能不能用 seedream，开着）；视频生成报错也开着（issue #35）"
+          ],
+          "unfit": "想读源码或二次开发的人 —— 公开的那份比你下到的安装包旧六个版本。",
+          "src": "github README + GitHub API + Releases 接口 + package.json + DeepWiki 架构页",
+          "verified_at": "2026-08-16",
+          "autonomy": {
+            "weights": "api",
+            "seed": "no",
+            "swap": "few",
+            "note": "画面全在云端；桌面软件，工程文件在本地"
+          },
+          "hands": {
+            "layers": [
+              "docs",
+              "wiki",
+              "issue"
+            ],
+            "install": [
+              {
+                "step": "取安装包",
+                "gate": "**别从源码构建** —— 源码是 0.2.3，Release 是 0.2.9。macOS 用户注意 0.2.6 起没有打包版"
+              },
+              {
+                "step": "配模型 key",
+                "gate": "画面走云端；**生图模型可选项有限**（issue #4）"
+              },
+              {
+                "step": "按五个面板往下走",
+                "gate": "剧本 → 角色 → 场景 → 导演 → 成片，顺序是设计好的"
+              }
+            ],
+            "modify": [
+              {
+                "path": "electron/preload.ts",
+                "effect": "本地文件读写的出口。要改素材落盘位置看这里"
+              },
+              {
+                "path": "src/stores/",
+                "effect": "Zustand 状态。工程数据结构在这里"
+              },
+              {
+                "path": "src/DirectorPanel / SeedancePanel",
+                "effect": "导演与 S 级两个面板，出片逻辑在这"
+              }
+            ],
+            "pitfalls": [
+              {
+                "where": "源码和安装包对不上",
+                "note": "**`package.json` 是 0.2.3，Release 到 0.2.9** —— issue #26 / #32 都在问，都开着。想读源码理解新功能会白读"
+              },
+              {
+                "where": "macOS",
+                "note": "**issue #31：0.2.6 没有 macOS 打包版，开着**"
+              },
+              {
+                "where": "换生图模型",
+                "note": "**issue #4：只能用 nano 和 gpt，seedream 用不了，开着**"
+              },
+              {
+                "where": "视频生成报错",
+                "note": "**issue #35 开着**，另有 #17 视频模型调用失败"
+              }
+            ],
+            "issue_src": "github issues 按回复数排序 · 核验 2026-08-16"
+          },
+          "diagrams": [
+            {
+              "id": "moyin-arch",
+              "title": "桌面端怎么摆",
+              "kind": "架构图",
+              "src": "DeepWiki 架构页 · 抓取 2026-08-16",
+              "verified_at": "2026-08-16",
+              "mermaid": "graph TB\n    subgraph \"Entry Points\"\n        MAIN_TS[\"electron/main.ts\"]\n        PRELOAD_TS[\"electron/preload.ts\"]\n        APP_TSX[\"src/App.tsx\"]\n    end\n    \n    subgraph \"Five Main Panels (src/components/panels/)\"\n        SCRIPT_PANEL[\"ScriptPanel.tsx\"]\n        CHARACTER_PANEL[\"CharacterPanel.tsx\"]\n        SCENE_PANEL[\"ScenePanel.tsx\"]\n        DIRECTOR_PANEL[\"DirectorPanel.tsx\"]\n        SEEDANCE_PANEL[\"SeedancePanel.tsx\"]\n    end\n    \n    subgraph \"State Management (src/stores/)\"\n        PROJECT_STORE[\"projectStore.ts\"]\n        CHARACTER_STORE[\"characterStore.ts\"]\n        SCENE_STORE[\"sceneStore.ts\"]\n        SHOT_STORE[\"shotStore.ts\"]\n        SEEDANCE_STORE[\"seedanceStore.ts\"]\n        SETTINGS_STORE[\"settingsStore.ts\"]\n    end\n    \n    subgraph \"AI Integration (src/packages/ai-core/)\"\n        PROMPT_COMPILER[\"prompt-compiler/\"]\n        CHARACTER_BIBLE[\"character-bible/\"]\n        TASK_POLLER[\"task-poller/\"]\n        SEEDANCE_PROTOCOL[\"seedance-protocol/\"]\n    end\n    \n    subgraph \"Storage APIs (electron/)\"\n        FILE_STORAGE[\"fileStorage IPC handlers\"]\n        IMAGE_STORAGE[\"imageStorage IPC handlers\"]\n        STORAGE_MANAGER[\"storageManager IPC handlers\"]\n    end\n    \n    APP_TSX --> SCRIPT_PANEL\n    APP_TSX --> CHARACTER_PANEL\n    APP_TSX --> SCENE_PANEL\n    APP_TSX --> DIRECTOR_PANEL\n    APP_TSX --> SEEDANCE_PANEL\n    \n    SCRIPT_PANEL --> PROJECT_STORE\n    CHARACTER_PANEL --> CHARACTER_STORE\n    SCENE_PANEL --> SCENE_STORE\n    DIRECTOR_PANEL --> SHOT_STORE\n    SEEDANCE_PANEL --> SEEDANCE_STORE\n    \n    CHARACTER_PANEL --> CHARACTER_BIBLE\n    DIRECTOR_PANEL --> PROMPT_COMPILER\n    SEEDANCE_PANEL --> SEEDANCE_PROTOCOL\n    \n    PROMPT_COMPILER --> TASK_POLLER\n    CHARACTER_BIBLE --> IMAGE_STORAGE\n    \n    PRELOAD_TS --> FILE_STORAGE\n    PRELOAD_TS --> IMAGE_STORAGE\n    PRELOAD_TS --> STORAGE_MANAGER\n    \n    MAIN_TS --> FILE_STORAGE\n    MAIN_TS --> IMAGE_STORAGE\n    MAIN_TS --> STORAGE_MANAGER"
+            },
+            {
+              "id": "moyin-flow",
+              "title": "五个面板怎么串",
+              "kind": "流程图",
+              "src": "DeepWiki 架构页 · 抓取 2026-08-16",
+              "verified_at": "2026-08-16",
+              "mermaid": "graph LR\n    subgraph \"AI Core Modules\"\n        PC[\"PromptCompiler<br/>3-layer prompt fusion<br/>Action + Cinematic + Dialogue\"]\n        CB[\"CharacterBible<br/>Consistency management<br/>6-layer identity anchors\"]\n        TP[\"TaskPoller<br/>Async task execution<br/>Retry logic\"]\n        SP[\"SeedanceProtocol<br/>Multi-modal references<br/>Constraint validation\"]\n    end\n    \n    subgraph \"Panel Integration\"\n        DIRECTOR[\"DirectorPanel\"]\n        SEEDANCE[\"SeedancePanel\"]\n        CHARACTER[\"CharacterPanel\"]\n    end\n    \n    subgraph \"External Services\"\n        AI_IMG[\"Image Generation APIs<br/>Multiple vendors\"]\n        AI_VID[\"Video Generation APIs<br/>Multiple vendors\"]\n        SEEDANCE_API[\"Seedance 2.0 API<br/>@Image/@Video/@Audio\"]\n    end\n    \n    DIRECTOR --> PC\n    SEEDANCE --> PC\n    SEEDANCE --> SP\n    CHARACTER --> CB\n    \n    PC --> TP\n    CB --> TP\n    SP --> TP\n    \n    TP --> AI_IMG\n    TP --> AI_VID\n    SP --> SEEDANCE_API"
+            }
+          ],
+          "license_note": "传染性：改了并对外提供服务就要开源"
+        },
+        {
+          "id": "bigbanana",
+          "zh": "BigBanana AI Director",
+          "url": "https://github.com/shuyu-labs/BigBanana-AI-Director",
+          "stars": 1757,
+          "created_at": "2026-01-31",
+          "pushed_at": "2026-08-13",
+          "stars_per_month": 272,
+          "stale_months": 0,
+          "license": "CC BY-NC-SA 4.0",
+          "license_class": "noncommercial",
+          "role": "allinone",
+          "group": "allinone",
+          "decisions": [
+            "shot",
+            "identity",
+            "compose",
+            "pace"
+          ],
+          "engine": "cloud",
+          "takes_over": [
+            "shot",
+            "compose",
+            "identity",
+            "camera",
+            "pace"
+          ],
+          "leaves": [
+            "topic",
+            "motion",
+            "sound",
+            "repro"
+          ],
+          "scope": "一站式 AI 短剧 / 漫剧工作台，四阶段：剧本 → 视觉资产 → 分镜制作 → 导出。",
+          "control": "**它明确反对「抽卡」**，走的是 Script → Asset → Keyframe：先把角色、场景、道具沉淀成资产，还带世界观锚点（地图、区域、音乐风格），这些信息持续注入后面的剧情与镜头生成 —— 一致性靠资产库，不靠反复重摇。",
+          "hw": "不需要显卡；**部署方式是官方 Docker 镜像**，数据存在浏览器本地",
+          "arch": "四个 Stage 组件串成流程（StageScript / StageAssets / StageDirector / StageExport），项目状态在 App 根组件，1 秒防抖自动存进 IndexedDB。模型分 chat / image / video 三类可各自配。",
+          "good": [
+            "**「不抽卡」这条路线是明写的**：资产先行 + 关键帧控制，而不是重摇到满意",
+            "带世界观锚点（地图、区域、地点、音乐风格），长剧集之间能接得上",
+            "可一键补齐缺失的角色 / 场景 / 道具图",
+            "视频模型支持面广（自述 Sora-2、Veo-3.1、Vidu、Seedance 2.0 等）"
+          ],
+          "bad": [
+            "**CC BY-NC-SA 4.0，不可商用**",
+            "**后续版本只通过官方 Docker 镜像发布，不再同步公开源码** —— README 原话，理由是「出现大量抄袭、搬运不署名」。当前仓库「保留为公开说明与历史参考版本」",
+            "数据存在浏览器 IndexedDB，换机器就没了，适合个人轻量用",
+            "**issue #1「代码和界面看起来很眼熟呀」** —— 出处问题被公开问过（已关闭）"
+          ],
+          "unfit": "想长期跟着源码走的人 —— 它已经宣布不再同步源码了，你读到的是历史版本。",
+          "src": "github README 原文 + GitHub API + DeepWiki 架构页",
+          "verified_at": "2026-08-16",
+          "autonomy": {
+            "weights": "api",
+            "seed": "no",
+            "swap": "few",
+            "note": "画面全在云端；chat / image / video 三类模型可分别配"
+          },
+          "hands": {
+            "layers": [
+              "docs",
+              "wiki",
+              "issue"
+            ],
+            "install": [
+              {
+                "step": "拉官方 Docker 镜像",
+                "gate": "**别去编译源码** —— README 明说部署与升级以官方镜像为准"
+              },
+              {
+                "step": "配三类模型",
+                "gate": "chat / image / video 分开配，可以混不同供应商"
+              },
+              {
+                "step": "按四个 Stage 往下走",
+                "gate": "剧本 → 资产 → 分镜 → 导出。**资产要先补齐**，它整套设计都建立在这一步上"
+              }
+            ],
+            "modify": [
+              {
+                "path": "docker-compose.yaml",
+                "effect": "**这是仓库现在的主角** —— 部署入口"
+              },
+              {
+                "path": "src/Stage*.tsx",
+                "effect": "四个阶段各一个组件（历史参考版本）"
+              },
+              {
+                "path": "src/storageService",
+                "effect": "IndexedDB 存取。数据在浏览器里"
+              }
+            ],
+            "pitfalls": [
+              {
+                "where": "想看新版源码",
+                "note": "**没有了**。README：「后续功能更新将只通过官方 Docker 镜像提供，不再同步公开源码」"
+              },
+              {
+                "where": "数据安全",
+                "note": "**项目数据主要保存在本地浏览器环境中** —— 清缓存或换机器就没了"
+              },
+              {
+                "where": "生成图片失败",
+                "note": "**issue #25：做角色和场景时生成图片失败**（已关闭）"
+              },
+              {
+                "where": "许可证",
+                "note": "CC BY-NC-SA 4.0 **禁止商业使用**；商业版另有源码交付，但那是另一条路"
+              }
+            ],
+            "issue_src": "github issues 按回复数排序 · 核验 2026-08-16"
+          },
+          "diagrams": [
+            {
+              "id": "bigbanana-arch",
+              "title": "界面与状态怎么摆",
+              "kind": "架构图",
+              "src": "DeepWiki 架构页 · 抓取 2026-08-16",
+              "verified_at": "2026-08-16",
+              "mermaid": "graph TB\n    subgraph \"Entry Point\"\n        AppTsx[\"App.tsx<br/>Root Component\"]\n    end\n    \n    subgraph \"Navigation Layer\"\n        Sidebar[\"Sidebar.tsx<br/>Stage Selection\"]\n        Dashboard[\"Dashboard.tsx<br/>Project Management\"]\n    end\n    \n    subgraph \"Stage Components\"\n        StageScript[\"StageScript.tsx\"]\n        StageAssets[\"StageAssets.tsx\"]\n        StageDirector[\"StageDirector.tsx\"]\n        StageExport[\"StageExport.tsx\"]\n        StagePrompts[\"StagePrompts.tsx\"]\n    end\n    \n    subgraph \"Core Services\"\n        GeminiService[\"geminiService.ts\"]\n        ModelRegistry[\"modelRegistry.ts\"]\n        StorageService[\"storageService.ts\"]\n        AssetLibraryService[\"assetLibraryService.ts\"]\n        RenderLogService[\"renderLogService.ts\"]\n    end\n    \n    subgraph \"Persistence\"\n        IndexedDB[\"IndexedDB<br/>('BigBananaDB')\"]\n        LocalStorage[\"localStorage<br/>(API keys, config)\"]\n    end\n    \n    AppTsx --> Sidebar\n    AppTsx --> Dashboard\n    AppTsx --> StageScript\n    AppTsx --> StageAssets\n    AppTsx --> StageDirector\n    AppTsx --> StageExport\n    AppTsx --> StagePrompts\n    \n    StageScript --> GeminiService\n    StageAssets --> GeminiService\n    StageDirector --> GeminiService\n    \n    StageAssets --> AssetLibraryService\n    StageDirector --> AssetLibraryService\n    \n    GeminiService --> ModelRegistry\n    GeminiService --> RenderLogService\n    \n    AppTsx --> StorageService\n    Dashboard --> StorageService\n    \n    StorageService --> IndexedDB\n    ModelRegistry --> LocalStorage\n    AssetLibraryService --> IndexedDB"
+            },
+            {
+              "id": "bigbanana-flow",
+              "title": "四个阶段怎么串",
+              "kind": "流程图",
+              "src": "DeepWiki 架构页 · 抓取 2026-08-16",
+              "verified_at": "2026-08-16",
+              "mermaid": "graph TB\n    subgraph \"User Journey\"\n        UserScript[\"1. Raw Script Input\"]\n        UserAssets[\"2. Visual Asset Creation\"]\n        UserDirector[\"3. Shot Production\"]\n        UserExport[\"4. Final Export\"]\n    end\n    \n    subgraph \"React Components (src/components/)\"\n        StageScript[\"StageScript.tsx<br/>AI Script Analysis\"]\n        StageAssets[\"StageAssets.tsx<br/>Character & Scene Gen\"]\n        StageDirector[\"StageDirector.tsx<br/>Keyframe & Video Gen\"]\n        StageExport[\"StageExport.tsx<br/>Timeline Preview\"]\n    end\n    \n    subgraph \"Data Structures (src/types.ts)\"\n        ProjectState[\"ProjectState<br/>{rawScript, scriptData, shots}\"]\n        ScriptData[\"ScriptData<br/>{characters[], scenes[], storyParagraphs[]}\"]\n        Shot[\"Shot<br/>{startKeyframe, endKeyframe, videoIntervals[]}\"]\n        Keyframe[\"Keyframe<br/>{imageUrl, prompt, status}\"]\n    end\n    \n    subgraph \"AI Services (src/services/)\"\n        GeminiService[\"geminiService.ts<br/>AI Orchestration Layer\"]\n        ModelRegistry[\"modelRegistry.ts<br/>Provider & Model Config\"]\n    end\n    \n    UserScript --> StageScript\n    StageScript --> ProjectState\n    ProjectState --> ScriptData\n    \n    UserAssets --> StageAssets\n    StageAssets --> ScriptData\n    \n    UserDirector --> StageDirector\n    StageDirector --> Shot\n    Shot --> Keyframe\n    \n    UserExport --> StageExport\n    \n    StageScript --> GeminiService\n    StageAssets --> GeminiService\n    StageDirector --> GeminiService\n    \n    GeminiService --> ModelRegistry"
+            }
+          ],
+          "license_note": "**不可商用**；且 README 明说后续只发 Docker 镜像、不再同步源码"
+        }
+      ],
+      "groups": [
+        {
+          "id": "base",
+          "zh": "底座",
+          "intro": "跑其它一切的地方：工作流引擎和本地模型服务。它们自己不出画面，上面几类多半挂在它们身上。",
+          "kind": "projects"
+        },
+        {
+          "id": "gen",
+          "zh": "视频生成",
+          "intro": "把文字或图片变成一段会动的画面。整条链路的发动机，也是显存吃得最凶的一环。",
+          "kind": "projects"
+        },
+        {
+          "id": "control",
+          "zh": "画面控制",
+          "intro": "不靠形容词、靠结构信号说话：线稿、姿势、深度、参考图、运动轨迹。要什么画面就给什么信号。",
+          "kind": "projects"
+        },
+        {
+          "id": "train",
+          "zh": "训练与微调",
+          "intro": "把一套画风或一个角色训进模型，以后不必每次都重新描述。",
+          "kind": "projects"
+        },
+        {
+          "id": "sound",
+          "zh": "声音",
+          "intro": "配乐、配音、翻译、口型 —— 画面之外的另一半，也是这条链路上最容易自己拿下的一段。",
+          "kind": "projects"
+        },
+        {
+          "id": "post",
+          "zh": "后期",
+          "intro": "画面出来之后的补救与放大。",
+          "kind": "projects"
+        },
+        {
+          "id": "allinone",
+          "zh": "一站式",
+          "intro": "从一句主题或一部小说到一条成片全包。**它们省掉的是编排，不是算力钱** —— 画面从哪来，决定了它到底帮你做了什么。另外注意：**这一类里「开源」的成色差得很远** —— 有的源码比安装包旧好几个版本，有的已宣布不再同步源码，有的许可证根本禁止商用。",
+          "kind": "projects"
+        },
+        {
+          "id": "agent",
+          "zh": "Agent 与 Skill",
+          "kind": "projects",
+          "intro": "**用智能体驱动模型接口出片**：你说一句话，Agent 去查规格、拆分镜、调接口、拼成片。它们自己一帧画面都不生成 —— 干的是编排和把需求逼成可执行的规格。这一类是这半年才长出来的，而且长得极快。"
+        },
+        {
+          "id": "workflow",
+          "zh": "工作流与节点包",
+          "kind": "projects",
+          "intro": "ComfyUI 生态里的装配件：装节点的、把某个模型接进来的、以及官方给的现成工作流。**它们不是模型，是让模型跑起来的那一层** —— 多数人第一次卡住都卡在这里。"
+        },
+        {
+          "id": "basics",
+          "zh": "视频常识",
+          "kind": "basics",
+          "intro": "AI 把出画面的门槛砍到了几乎为零，**但没砍掉「什么样的画面才对」这件事**。这一栏是给不做视频的人准备的入门读物清单，按你会遇到的困惑分组。**我们不重写教材** —— 这些知识有一百年的积累，我们只负责挑出来、验过、说清楚它解决你哪个困惑。只收词条型与成体系的免费指南，不收个人博客与聚合站转载；**因此中文侧偏少，这是实情，不是遗漏**。"
+        },
+        {
+          "id": "works",
+          "zh": "作品",
+          "kind": "works",
+          "intro": "这条路做出过什么。**只收制作方自己公开说明过管线的作品** —— 查不到用了什么就不收，**2024 年那批也已经下掉**：这一格过期得比什么都快。查下来一件事：公开写明过管线的，用的全是闭源平台；开源侧一部都没有。"
+        }
+      ],
+      "works": [
+        {
+          "id": "kok-boru",
+          "zh": "Kök Börü",
+          "year": "2026-08",
+          "maker": "Higgsfield · 12 人团队（5 名动画师、2 名编剧、3 名声音制作、1 名色彩、1 名声音总监）",
+          "stack": "Higgsfield Soul Cartoon + Motion Control + Cinema Studio / Supercomputer（闭源平台）",
+          "open": "closed",
+          "note": "15 分钟历史题材动画，SIGGRAPH 2026 首映，**现场把整条混合管线讲了一遍**：角色、环境、布局先用 Soul Cartoon 生成，再由动画师在数位板上手绘细化；表演用真人拍下来再经 Motion Control 迁到动画角色上，**不用动捕服也不用绿幕**。**12 人两周**，对照传统一到两年、100 万～200 万美元。人声是哈萨克语母语演员配的。",
+          "src": [
+            {
+              "title": "Variety：Higgsfield 在 SIGGRAPH 首映《Kök Börü》",
+              "url": "https://variety.com/2026/film/news/ai-studio-higgsfield-short-film-kok-boru-siggraph-1236817807/"
+            },
+            {
+              "title": "AWN：混合人机动画管线详解",
+              "url": "https://www.awn.com/news/higgsfield-debuts-k-k-b-r-showcasing-hybrid-human-ai-animation-pipeline"
+            }
+          ],
+          "verified_at": "2026-08-16"
+        },
+        {
+          "id": "zombie-cleaner",
+          "zh": "丧尸清道夫",
+          "year": "2026-05",
+          "maker": "刘梓瑜（Mx-shell），一个人",
+          "stack": "字节小云雀 + Seedance 2.0（闭源平台）",
+          "open": "closed",
+          "note": "3 分 34 秒短片，抖音播放 460 万以上、点赞 222 万。**10 天、3000 块**。作者受访时把做法说透了：不写死剧本，用「场景参考图 + 角色图 + 文字指令」控机位，**成片里 80~90% 的画面直接来自 Seedance 2.0**、音画同出所以省掉了单独做声音；一段舞蹈重摇了将近 20 次。**片尾把用到的模型当剧组人员一样署了名。**",
+          "src": [
+            {
+              "title": "腾讯新闻：对话《丧尸清道夫》作者 —— 10 天 3000 块",
+              "url": "https://news.qq.com/rain/a/20260515A09X1300"
+            },
+            {
+              "title": "B 站：人物一致性怎么保持（制作拆解）",
+              "url": "https://www.bilibili.com/video/BV1565961EAr/"
+            }
+          ],
+          "verified_at": "2026-08-16"
+        },
+        {
+          "id": "hell-grind",
+          "zh": "Hell Grind",
+          "year": "2026-05",
+          "maker": "导演 Aitore Zholdaskali、联合编剧 Adilkhan Yerzhanov，另有 15 人的导演 / 摄影 / 剪辑团队",
+          "stack": "Higgsfield（闭源平台，全片在其平台上完成）",
+          "open": "closed",
+          "note": "95 分钟动作奇幻长片，戛纳期间首映 —— **号称第一部完全在一个 AI 平台上做出来的长片**。公开的成本与周期是**14 天、50 万美元以内**。这两个数字是它值得记一笔的原因：长片的门槛第一次被压到这个量级。",
+          "src": [
+            {
+              "title": "Variety：我在戛纳看了 Hell Grind",
+              "url": "https://variety.com/2026/film/features/i-saw-hell-grind-ai-generated-film-cannes-shocking-realistic-1236770720/"
+            },
+            {
+              "title": "Screen Daily：Higgsfield 在戛纳公开全 AI 长片",
+              "url": "https://www.screendaily.com/news/in-pictures-higgsfield-unveils-fully-ai-generated-feature-hell-grind-in-cannes/5216871.article"
+            }
+          ],
+          "verified_at": "2026-08-16"
+        }
+      ],
+      "works_skipped": [
+        {
+          "zh": "余烬之后（After the Ember）",
+          "why": "查不到制作方公开的管线说明 —— 只找到成片本身与播放渠道，没有「用了什么」的公开口径。按规矩不收。",
+          "verified_at": "2026-08-16"
+        }
+      ],
+      "basics": [
+        {
+          "id": "lens",
+          "zh": "镜头怎么说话",
+          "intro": "同一句台词，用远景还是特写，观众感受完全不同。**这是视频里最基本的一层语法**，也是提示词里最容易漏写的一层。",
+          "items": [
+            {
+              "title": "景别、角度、构图、焦段、运镜：一篇讲完",
+              "url": "https://www.studiobinder.com/blog/ultimate-guide-to-camera-shots/",
+              "site": "StudioBinder",
+              "lang": "en",
+              "note": "50 多种镜头逐个拆。写提示词时「近景 / 中景 / 广角」到底指什么，看这一篇就够。",
+              "page_title": "50+ Types of Camera Shots, Angles, and Techniques",
+              "verified_at": "2026-08-16"
+            },
+            {
+              "title": "运镜的类型与用法",
+              "url": "https://www.studiobinder.com/blog/different-types-of-camera-movements-in-film/",
+              "site": "StudioBinder",
+              "lang": "en",
+              "note": "推、拉、摇、移、跟各自在表达什么 —— 而不只是「镜头动了一下」。",
+              "page_title": "Definitive Guide to Every Type of Camera Movement in Film",
+              "verified_at": "2026-08-16"
+            },
+            {
+              "title": "电影摄影（词条）",
+              "url": "https://zh.wikipedia.org/wiki/電影攝影",
+              "site": "维基百科",
+              "lang": "zh",
+              "note": "中文侧的总览入口，术语对照用。",
+              "page_title": "电影摄影 - 维基百科，自由的百科全书",
+              "verified_at": "2026-08-16"
+            },
+            {
+              "title": "景深（词条）",
+              "url": "https://zh.wikipedia.org/wiki/景深",
+              "site": "维基百科",
+              "lang": "zh",
+              "note": "为什么背景该虚该实。这一条直接影响画面像不像「电影」。",
+              "page_title": "景深 - 维基百科，自由的百科全书",
+              "verified_at": "2026-08-16"
+            }
+          ]
+        },
+        {
+          "id": "frame",
+          "zh": "画面怎么摆",
+          "intro": "「好看」不是玄学，是可以拆开说的几条规则。**知道规则之后，你至少知道自己在破什么。**",
+          "items": [
+            {
+              "title": "三分法（词条）",
+              "url": "https://zh.wikipedia.org/wiki/三分法",
+              "site": "维基百科",
+              "lang": "zh",
+              "note": "构图的第一条规则，也是最容易被机械套用的一条。",
+              "page_title": "三分法 - 维基百科，自由的百科全书",
+              "verified_at": "2026-08-16"
+            },
+            {
+              "title": "三分法：怎么用、什么时候该破",
+              "url": "https://www.studiobinder.com/blog/rule-of-thirds/",
+              "site": "StudioBinder",
+              "lang": "en",
+              "note": "配合上面那条词条读 —— 词条讲是什么，这篇讲什么时候不该听它的。",
+              "page_title": "The Rule of Thirds in Film — Ultimate Guide",
+              "verified_at": "2026-08-16"
+            },
+            {
+              "title": "三点布光",
+              "url": "https://www.studiobinder.com/blog/three-point-lighting-setup/",
+              "site": "StudioBinder",
+              "lang": "en",
+              "note": "主光、辅光、轮廓光。AI 出图时描述光位，用的就是这套词。",
+              "page_title": "Three-Point Video Lighting: Key, Fill, &#038; Backlight Setup Guide",
+              "verified_at": "2026-08-16"
+            },
+            {
+              "title": "画幅比例",
+              "url": "https://www.studiobinder.com/blog/what-is-aspect-ratio/",
+              "site": "StudioBinder",
+              "lang": "en",
+              "note": "16:9、2.39:1、9:16 各自意味着什么。**先定画幅再写提示词**，反过来会白做。",
+              "page_title": "What is Aspect Ratio? A Formula for Framing Success",
+              "verified_at": "2026-08-16"
+            },
+            {
+              "title": "颜色（词条）",
+              "url": "https://zh.wikipedia.org/wiki/颜色",
+              "site": "维基百科",
+              "lang": "zh",
+              "note": "色调与情绪的关系从这里补底 —— 原来指的「色彩学」在中文维基会跳到这一条。",
+              "page_title": "颜色 - 维基百科，自由的百科全书",
+              "verified_at": "2026-08-16"
+            }
+          ]
+        },
+        {
+          "id": "cut",
+          "zh": "怎么剪才不跳",
+          "intro": "AI 一次只给你几秒钟，**接起来的活全是你的**。剪辑是这条链路上 AI 最帮不上忙、也最决定成片质感的一段。",
+          "items": [
+            {
+              "title": "连贯剪辑：让观众感觉不到剪过",
+              "url": "https://www.studiobinder.com/blog/what-is-continuity-editing/",
+              "site": "StudioBinder",
+              "lang": "en",
+              "note": "为什么两个镜头接在一起会「跳」。这是最该先读的一篇。",
+              "page_title": "What is Continuity Editing in Film? Definition and Editing Techniques",
+              "verified_at": "2026-08-16"
+            },
+            {
+              "title": "180 度规则",
+              "url": "https://www.studiobinder.com/blog/what-is-the-180-degree-rule/",
+              "site": "StudioBinder",
+              "lang": "en",
+              "note": "越轴之后观众会突然分不清谁在左谁在右 —— 而 AI 生成的镜头**经常自己就越轴了**。",
+              "page_title": "What is the 180 Degree Rule in Film &amp; How to Break It",
+              "verified_at": "2026-08-16"
+            },
+            {
+              "title": "蒙太奇（词条）",
+              "url": "https://zh.wikipedia.org/wiki/蒙太奇",
+              "site": "维基百科",
+              "lang": "zh",
+              "note": "两个镜头并置产生第三种意思。这是剪辑的立身之本。",
+              "page_title": "蒙太奇 - 维基百科，自由的百科全书",
+              "verified_at": "2026-08-16"
+            },
+            {
+              "title": "剪辑（词条）",
+              "url": "https://zh.wikipedia.org/wiki/剪輯",
+              "site": "维基百科",
+              "lang": "zh",
+              "note": "中文侧的总览。",
+              "page_title": "剪輯 - 维基百科，自由的百科全书",
+              "verified_at": "2026-08-16"
+            }
+          ]
+        },
+        {
+          "id": "story",
+          "zh": "故事怎么搭",
+          "intro": "选题和结构是 AI 现在完全不接的一步（九道工序里，这一步没有任何工具替你做）。",
+          "items": [
+            {
+              "title": "三幕结构",
+              "url": "https://www.studiobinder.com/blog/three-act-structure/",
+              "site": "StudioBinder",
+              "lang": "en",
+              "note": "最通用的一套骨架。短视频也吃这一套，只是每一幕被压到几秒。",
+              "page_title": "Three Act Structure in Film: Definition and Examples",
+              "verified_at": "2026-08-16"
+            },
+            {
+              "title": "三幕剧（词条）",
+              "url": "https://zh.wikipedia.org/wiki/三幕劇",
+              "site": "维基百科",
+              "lang": "zh",
+              "note": "中文对照。",
+              "page_title": "三幕劇 - 维基百科，自由的百科全书",
+              "verified_at": "2026-08-16"
+            },
+            {
+              "title": "分镜（词条）",
+              "url": "https://zh.wikipedia.org/wiki/分鏡",
+              "site": "维基百科",
+              "lang": "zh",
+              "note": "把故事拆成一格一格 —— 这一步做完，提示词几乎是照抄。",
+              "page_title": "分鏡 - 维基百科，自由的百科全书",
+              "verified_at": "2026-08-16"
+            }
+          ]
+        },
+        {
+          "id": "audio",
+          "zh": "声音怎么用",
+          "intro": "新手最容易整段忽略的一层。**画面糊一点观众能忍，声音不对他们立刻出戏。**",
+          "items": [
+            {
+              "title": "有声源与无声源：声音从画面里来还是从画面外来",
+              "url": "https://www.studiobinder.com/blog/what-is-diegetic-sound/",
+              "site": "StudioBinder",
+              "lang": "en",
+              "note": "环境音、角色说话是画面里的；配乐、旁白是画面外的。两者混着用才有层次。",
+              "page_title": "What is Diegetic Sound? Definition &amp; Examples in Film",
               "verified_at": "2026-08-16"
             }
           ]

@@ -203,9 +203,10 @@ for (const t of a.topics ?? []) {
 /**
  * R82 —— **每一步都要有适用性判断。**
  *
- * 这一页的主线是「按做视频的步骤，分别对比自持与平台的适应性」。
- * 少了 `fit`，那一步就退回成一堆数字而没有结论 ——
- * **而摆数字不下结论，正是上一版被否的原因。**
+ * ⚠️ 2026-08-16 起专项页改按项目类型分 tab，**`fit` / `scenarios` 暂时没有页面在渲染**。
+ * 九步本身仍然活着（项目页的「它管哪几个决定」和能力页靠它结网），
+ * 这条规则继续守着那份判断不烂掉；但它现在守的是库存，不是在线的东西 ——
+ * 哪天确定不再用，连字段带规则一起删，别留着当装饰。
  */
 {
   for (const t of a.topics ?? [])
@@ -224,6 +225,101 @@ for (const t of a.topics ?? []) {
 }
 
 /**
+ * R84 —— **教程每条都要能回查。**
+ *
+ * 教程是这一站里最容易腐坏的一类数据：链接死了、页面换了内容，
+ * 而**页面上照样显示得好好的**。所以三样必填 —— 出处（url）、口径（kind）、核验日 ——
+ * 少一样这条就回查不了，等于没记。三方博客不收：`kind` 只有官方 / 社区两档，
+ * 而「社区」也必须是生态里事实上的官方口径（比如 ComfyUI 官方文档）。
+ */
+{
+  const KIND = new Set(["官方", "社区"]);
+  const LANG = new Set(["zh", "en"]);
+  for (const t of a.topics ?? [])
+    for (const p of t.projects ?? [])
+      for (const tu of p.tutorials ?? []) {
+        const at = `R84 专项「${t.zh}」› ${p.zh} 的教程「${tu.title ?? "无题"}」`;
+        if (!tu.title) errs.push(`${at} 没有标题`);
+        if (!/^https?:\/\//.test(tu.url ?? "")) errs.push(`${at} 的 url 不是链接：${tu.url}`);
+        if (!KIND.has(tu.kind)) errs.push(`${at} 的口径是「${tu.kind ?? "空"}」，只能是 ${[...KIND].join(" / ")}`);
+        if (!LANG.has(tu.lang)) errs.push(`${at} 的语言是「${tu.lang ?? "空"}」，只能是 ${[...LANG].join(" / ")}`);
+        if (!/^\d{4}-\d{2}-\d{2}$/.test(tu.verified_at ?? "")) errs.push(`${at} 没写核验日`);
+      }
+}
+
+/**
+ * R83 —— **每个项目都要归到一个真实存在的类型，且没有空类型。**
+ *
+ * 专项页的骨架就是这份类型清单（`topic.groups`）：漏归一个项目，
+ * 它在页面上**不是显示错，是整个消失** —— 没人会来报错。
+ * 空类型同理：tab 点进去一片空白，比不列这一类还糟。
+ */
+{
+  for (const t of a.topics ?? []) {
+    const gs = t.groups ?? [];
+    if (!gs.length) { errs.push(`R83 专项「${t.zh}」没有类型清单（groups）—— 页面按类型分 tab，缺它整页没东西可摆`); continue; }
+    const ids = new Set(gs.map((g) => g.id));
+    for (const g of gs)
+      if (!g.zh || !g.intro) errs.push(`R83 专项「${t.zh}」› 类型 ${g.id} 缺 ${!g.zh ? "中文名" : "一句说明"}`);
+    for (const p of t.projects ?? []) {
+      if (!p.group) errs.push(`R83 专项「${t.zh}」› ${p.zh} 没归类（group）—— 它会从页面上整个消失`);
+      else if (!ids.has(p.group)) errs.push(`R83 专项「${t.zh}」› ${p.zh} 归到了不存在的类型 ${p.group}`);
+    }
+    for (const g of gs) {
+      /** 作品这一类摆的是 `topic.works`，不是项目 —— 拿项目去数它永远是空。 */
+      const n = g.kind === "works" ? (t.works ?? []).length
+        : g.kind === "basics" ? (t.basics ?? []).reduce((k, b) => k + (b.items ?? []).length, 0)
+          : (t.projects ?? []).filter((p) => p.group === g.id).length;
+      if (!n) errs.push(`R83 专项「${t.zh}」› 类型「${g.zh}」一条都没有 —— 点进去是空白 tab，要么补内容要么删这一类`);
+    }
+  }
+}
+
+/**
+ * R86 —— **入门读物每条都要能回查。**
+ *
+ * 这一栏是索引不是教材：**我们没写内容，全部价值在于链接指得对**。
+ * 所以出处（url）、来源主体（site）、核验日必填，`note` 也必填 ——
+ * 少了 note 这一条就退回成一个裸链接，读者不知道为什么要点它。
+ */
+{
+  const LANG = new Set(["zh", "en"]);
+  for (const t of a.topics ?? [])
+    for (const b of t.basics ?? []) {
+      if (!b.zh || !b.intro) errs.push(`R86 专项「${t.zh}」› 常识组 ${b.id} 缺中文名或说明`);
+      if (!(b.items ?? []).length) errs.push(`R86 专项「${t.zh}」› 常识组「${b.zh}」一条读物都没有`);
+      for (const it of b.items ?? []) {
+        const at = `R86 专项「${t.zh}」› 常识「${it.title ?? "无题"}」`;
+        if (!/^https?:\/\//.test(it.url ?? "")) errs.push(`${at} 的 url 不是链接：${it.url}`);
+        if (!it.site) errs.push(`${at} 没写来源主体 —— 「谁说的」和「说了什么」一样重要`);
+        if (!LANG.has(it.lang)) errs.push(`${at} 的语言是「${it.lang ?? "空"}」，只能是 zh / en`);
+        if (!it.note) errs.push(`${at} 没写「它解决你哪个困惑」—— 没有这句就只是个裸链接`);
+        if (!/^\d{4}-\d{2}-\d{2}$/.test(it.verified_at ?? "")) errs.push(`${at} 没写核验日`);
+      }
+    }
+}
+
+/**
+ * R85 —— **作品必须带出处。**
+ *
+ * 作品篇的收录规矩是「只收制作方自己公开说明过管线的作品」。
+ * 少了出处，这一条就退回成传闻 —— 而传闻正是这一篇立项时要挡的东西。
+ */
+{
+  const OPEN = new Set(["closed", "open", "mixed"]);
+  for (const t of a.topics ?? [])
+    for (const w of t.works ?? []) {
+      const at = `R85 专项「${t.zh}」› 作品「${w.zh ?? "无名"}」`;
+      if (!w.zh || !w.maker || !w.stack) errs.push(`${at} 缺片名 / 制作方 / 用了什么`);
+      if (!OPEN.has(w.open)) errs.push(`${at} 的管线性质是「${w.open ?? "空"}」，只能是 ${[...OPEN].join(" / ")}`);
+      if (!(w.src ?? []).length) errs.push(`${at} 没有出处 —— 查不到用了什么就不该收`);
+      for (const s of w.src ?? [])
+        if (!/^https?:\/\//.test(s.url ?? "")) errs.push(`${at} 的出处不是链接：${s.url}`);
+      if (!/^\d{4}-\d{2}-\d{2}$/.test(w.verified_at ?? "")) errs.push(`${at} 没写核验日`);
+    }
+}
+
+/**
  * R81 —— **每个项目至少两张图，且图种必须是那四类之一。**
  *
  * 这条是被打回来才加的：项目解析一度退化成「一张图 + 八百字」，
@@ -235,6 +331,11 @@ for (const t of a.topics ?? []) {
   for (const t of a.topics ?? [])
     for (const p of t.projects ?? []) {
       const ds = p.diagrams ?? [];
+      /** DeepWiki 没收这个仓库 —— 放行，但必须写明为什么，而且页面要显示出来。 */
+      if (p.wiki === "none") {
+        if (!p.wiki_note) errs.push(`R81 专项「${t.zh}」› ${p.zh} 声明了 wiki:none 却没写 wiki_note —— 豁免必须看得见`);
+        continue;
+      }
       if (ds.length < 2)
         errs.push(`R81 专项「${t.zh}」› ${p.zh} 只有 ${ds.length} 张图 —— 至少要「怎么摆」和「怎么走」各一张`);
       for (const d of ds)
