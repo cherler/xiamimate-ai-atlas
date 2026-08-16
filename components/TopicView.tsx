@@ -117,6 +117,8 @@ export default function TopicView({ t }: { t: Topic }) {
     .filter((d) => d.cap)
     .sort((a, b) => forkCoverage(a.cap!).yes - forkCoverage(b.cap!).yes)[0];
   const worstCov = worst ? forkCoverage(worst.cap!) : { yes: 0, total: 0 };
+  const best = t.decisions.filter((d) => d.cap).sort((a, b) => forkCoverage(b.cap!).yes - forkCoverage(a.cap!).yes)[0];
+  const bestCov = best ? forkCoverage(best.cap!) : { yes: 0, total: 0 };
 
   /**
    * 选了片型之后**只留命门**（权重 3）。
@@ -136,52 +138,52 @@ export default function TopicView({ t }: { t: Topic }) {
   return (
     <>
       {/*
-        * ── 钩子 ──
+        * ── 第一屏 ──
         *
-        * 负责人：「你应该让我有读下去的欲望才行。」
-        * 中性地摆一个统计数字换不来欲望。**能换来的只有读者真受过的罪** ——
-        * 用过 AI 出视频的人都受过同一种：不满意，只能重摇，而且不知道为什么。
-        * 所以先说那个感觉，再说它的成因；整页就成了那句话的答案。
+        * 标题用正式的名词短语，**张力交给紧跟其后的数据扛**。
+        * 中间稿用过「不满意，只能重摇。」当大标题 —— 钩子是有了，但负责人否掉：
+        * **「不要用这种口语化标题，就正经的标题。」**
+        *
+        * 这条否得对，而且和早先那条「解释性句子全去掉」是同一个道理：
+        * **页面不替读者产生情绪，只把事实摆到位。** 九格条里六格是红的，
+        * 那个红本身就够扎人，不需要标题再喊一遍。
         */}
-      <section className="pt-14 pb-16 sm:pt-20 sm:pb-24">
-        <p className="text-[11px] tracking-[0.2em] text-yes-ink font-bold mb-5">专项</p>
-        <h1 className="text-[38px] sm:text-[56px] leading-[1.08] tracking-tight mb-7 max-w-[14ch]">
-          不满意，<br />只能重摇。
+      <section className="pt-12 pb-14 sm:pt-16 sm:pb-16">
+        <p className="text-[11px] tracking-[0.2em] text-yes-ink font-bold mb-4">专项</p>
+        <h1 className="text-[30px] sm:text-[40px] leading-[1.15] tracking-tight mb-4 max-w-[18ch]">
+          {t.zh}
         </h1>
-        <p className="text-[16px] sm:text-[18px] text-muted leading-relaxed max-w-[26ch]">
-          因为这一条里的 <b className="text-ink tnum">{t.decisions.length}</b> 个决定，
-          是<b className="text-ink">一次性</b>替你做完的。
+        <p className="text-[15px] text-muted leading-relaxed max-w-[34ch] mb-10">
+          <Rich text={t.intro} />
         </p>
-      </section>
 
-      {/* ── 九个决定摊开 ── */}
-      <section className="py-14 border-t border-rule">
-        <h2 className="text-[22px] tracking-tight mb-7">这九个决定，谁做的？</h2>
         <Strip decisions={t.decisions} />
         <div className="grid grid-cols-3 sm:grid-cols-9 gap-1.5 mt-2">
           {t.decisions.map((d) => (
             <span key={d.id} className="text-[10.5px] text-muted leading-tight text-center">{d.zh}</span>
           ))}
         </div>
-        <p className="mt-8 text-[17px] sm:text-[19px] leading-relaxed max-w-[28ch]">
+        <p className="mt-7 text-[17px] sm:text-[19px] leading-relaxed max-w-[28ch]">
           其中 <b className="text-no tnum text-[26px]">{platform}</b> 个不归你 ——
           <b className="text-ink">而且不能单独改</b>。
         </p>
-        <div className="flex gap-5 mt-5 text-[12px] text-muted">
+        <div className="flex gap-5 mt-4 text-[12px] text-muted">
           <span className="flex items-center gap-1.5"><i className="w-3 h-3 bg-yes rounded-sm inline-block" />归你</span>
           <span className="flex items-center gap-1.5"><i className="w-3 h-3 bg-chip-warm-ink rounded-sm inline-block" />一半</span>
-          <span className="flex items-center gap-1.5"><i className="w-3 h-3 bg-no rounded-sm inline-block" />归平台</span>
+          <span className="flex itemsecenter gap-1.5"><i className="w-3 h-3 bg-no rounded-sm inline-block" />归平台</span>
         </div>
       </section>
 
       {/*
-        * ── 一个具体到扎人的数字 ──
-        * 抽象的「8 个不归你」还只是结构；这一条把它变成一件读者立刻能对上的事：
-        * 他一直以为是自己提示词写得烂。
+        * ── 覆盖度最低的那一项 ──
+        *
+        * 上一节的「N 个不归你」还只是结构；这一节把它落到一个具体数字上。
+        * **哪一项最低不写死，现算** —— 数据变了它自己换人。
+        * 旁边并排给出覆盖最广的那一项，读者才有标尺；只报一个数字不构成对比。
         */}
       {worst && (
         <section className="py-14 border-t border-rule">
-          <h2 className="text-[22px] tracking-tight mb-6">最狠的一个</h2>
+          <h2 className="text-[22px] tracking-tight mb-6">覆盖度最低的一项</h2>
           <p className="text-[30px] sm:text-[38px] leading-tight tracking-tight max-w-[18ch]">
             {worst.zh}：<span className="tnum text-no">{worstCov.yes}</span>
             <span className="text-muted tnum"> / {worstCov.total}</span>
@@ -191,15 +193,15 @@ export default function TopicView({ t }: { t: Topic }) {
             在官方文档里承诺过你能控制它。
           </p>
           <p className="mt-3 text-[15px] leading-relaxed max-w-[30ch]">
-            <b className="text-ink">你一直以为是自己提示词写得不好。</b>
+            与之相比，覆盖最广的一项有 <b className="text-ink tnum">{bestCov.yes}</b> 家。
           </p>
         </section>
       )}
 
       {/* ── 选片型 ── */}
       <section className="py-14 border-t border-rule">
-        <h2 className="text-[22px] tracking-tight mb-1.5">你做哪种片？</h2>
-        <p className="text-[13px] text-muted mb-7">不同片型该先夺回的决定不同。</p>
+        <h2 className="text-[22px] tracking-tight mb-1.5">片型</h2>
+        <p className="text-[13px] text-muted mb-7">不同片型的命门决定不同。</p>
         <div className="grid grid-cols-2 sm:grid-cols-3 gap-2.5">
           {matrix && Object.keys(matrix).map((app) => {
             const on = pick === app;
@@ -219,12 +221,12 @@ export default function TopicView({ t }: { t: Topic }) {
       {pick && (
         <section className="py-14 border-t border-rule">
           <h2 className="text-[22px] tracking-tight mb-1.5">
-            做{topicAppName(pick)}，先夺回这 <span className="tnum">{key.length}</span> 个
+            {topicAppName(pick)} · 优先夺回的 <span className="tnum">{key.length}</span> 项
           </h2>
-          <p className="text-[13px] text-muted mb-7">其余的可以先交给平台。</p>
+          <p className="text-[13px] text-muted mb-7">其余可先交给平台。</p>
           {bases.length > 0 && (
             <div className="mb-9">
-              <p className="text-[11px] tracking-wider text-muted font-bold mb-2">先装底座</p>
+              <p className="text-[11px] tracking-wider text-muted font-bold mb-2">底座</p>
               <div className="space-y-2">{bases.map((p) => <Project key={p.id} p={p} />)}</div>
             </div>
           )}
@@ -249,8 +251,8 @@ export default function TopicView({ t }: { t: Topic }) {
 
       {/* ── 自持程度 ── */}
       <section className="py-14 border-t border-rule">
-        <h2 className="text-[22px] tracking-tight mb-1.5">你愿意自持到什么程度？</h2>
-        <p className="text-[13px] text-muted mb-7">从右往左走：先出片，再要控制，最后沉淀方法。</p>
+        <h2 className="text-[22px] tracking-tight mb-1.5">自持程度</h2>
+        <p className="text-[13px] text-muted mb-7">由低到高：先出片 → 要控制 → 沉淀方法。</p>
         <div className="grid sm:grid-cols-3 gap-2.5">
           {axis.map((c) => (
             <div key={c.id} className={`border rounded-xl px-4 py-4 ${c.state === "live" ? "border-yes bg-card" : "border-rule"}`}>
