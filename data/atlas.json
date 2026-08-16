@@ -12461,8 +12461,8 @@
       "c": "d-openweights",
       "state": "yes",
       "verified_for": "2.1",
-      "src": "hf-hunyuan3d-21",
-      "note": "**权重长在 2.1 那一支上**：README 写「releases full model weights and training code」。⚠️ 托管的 3.1 没有对应的权重发布 —— 这一格是同门别支，不是当前版本的能力",
+      "src": "gh-hunyuan3d-21",
+      "note": "**权重长在 2.1 那一支上**：README 写「releases full model weights and training code」。⚠️ 托管的 3.1 没有对应的权重发布 —— 这一格是同门别支，不是当前版本的能力 🔧 **2026-08-16 改了署名的源**：原署 `hf-hunyuan3d-21`，实际这句话在 `gh-hunyuan3d-21` 里。人审备注：通用",
       "via": "native",
       "as_of": "2026-08-13",
       "sibling": "2.1"
