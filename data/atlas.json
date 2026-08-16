@@ -12862,9 +12862,9 @@
       "c": "d-t23d",
       "state": "unknown",
       "verified_for": "TRELLIS.2-4B",
-      "note": "⚠️ 首发那支明写「takes in **text or image** prompts」，而第二代模型卡通篇只讲 image-to-3D，标签也只有 `image-to-3d` —— **文生那一支（TRELLIS-text-*）停在 2025-03**，第二代有没有接上，官方没说",
+      "note": "⚠️ 首发那支明写「takes in **text or image** prompts」，而第二代模型卡通篇只讲 image-to-3D，标签也只有 `image-to-3d` —— **文生那一支（TRELLIS-text-*）停在 2025-03**，第二代有没有接上，官方没说 🔧 **2026-08-16 改了署名的源**：原署 `hf-trellis2`，实际这句话在 `gh-trellis` 里。",
       "as_of": "2026-08-14",
-      "src": "hf-trellis2",
+      "src": "gh-trellis",
       "via": "native"
     },
     {

@@ -76,6 +76,17 @@
       "at_label": "hunyuan3d × d-openweights",
       "kind": "本页没有·别处有",
       "from": "hf-hunyuan3d-21"
+    },
+    {
+      "id": "hf-trellis2|trellis × d-t23d",
+      "at": "2026-08-16 04:28:16",
+      "who": "admin",
+      "action": "repoint",
+      "why": "",
+      "src": "hf-trellis2",
+      "at_label": "trellis × d-t23d",
+      "kind": "本页没有·别处有",
+      "from": "hf-trellis2"
     }
   ]
 }
