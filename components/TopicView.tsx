@@ -152,11 +152,15 @@ export default function TopicView({ t }: { t: Topic }) {
         * **「不要用这种口语化标题，就正经的标题。」**
         *
         * 这条否得对，而且和早先那条「解释性句子全去掉」是同一个道理：
-        * **页面不替读者产生情绪，只把事实摆到位。** 九格条里六格是红的，
-        * 那个红本身就够扎人，不需要标题再喊一遍。
+        * **页面不替读者产生情绪，只把事实摆到位。**
+        *
+        * ⚠️ 标题里也不放数量。负责人后来又纠了一次：
+        * **「不是教程，是研究。标题里写『九个决定』，感觉是在教人。」**
+        * ——「教」的口气是「记住这几条」，「研究」的口气是「我们查到了什么」。
+        * 所以标题只说研究的对象（控制权归属），数量留在正文里当结果。
         */}
       <section className="pt-12 pb-14 sm:pt-16 sm:pb-16">
-        <p className="text-[11px] tracking-[0.2em] text-yes-ink font-bold mb-4">专项</p>
+        <p className="text-[11px] tracking-[0.2em] text-yes-ink font-bold mb-4">专项研究</p>
         <h1 className="text-[30px] sm:text-[40px] leading-[1.15] tracking-tight mb-4 max-w-[18ch]">
           {t.zh}
         </h1>
@@ -207,9 +211,9 @@ export default function TopicView({ t }: { t: Topic }) {
       {pick && (
         <section className="py-14 border-t border-rule">
           <h2 className="text-[22px] tracking-tight mb-1.5">
-            {topicAppName(pick)} · 优先夺回的 <span className="tnum">{key.length}</span> 项
+            {topicAppName(pick)} · 关键决定 <span className="tnum">{key.length}</span> 项
           </h2>
-          <p className="text-[13px] text-muted mb-7">其余可先交给平台。</p>
+          <p className="text-[13px] text-muted mb-7">其余各项对该片型不构成瓶颈。</p>
           {bases.length > 0 && (
             <div className="mb-9">
               <p className="text-[11px] tracking-wider text-muted font-bold mb-2">底座</p>

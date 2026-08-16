@@ -97,7 +97,7 @@ export default function Pick() {
       {atlas.topics.length > 0 && (
         <section className="mt-9">
           <h2 className="text-[13px] tracking-[0.14em] text-muted font-bold mb-2.5">
-            或者，从一件要做的事出发
+            专项研究
           </h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
             {atlas.topics.map((t) => (
@@ -105,8 +105,9 @@ export default function Pick() {
                 className="border border-rule rounded-xl px-4 py-3 bg-card hover:border-yes block">
                 <b className="text-[15px]">{t.zh}</b>
                 <span className="block text-[12.5px] text-muted mt-1 leading-relaxed">
-                  {t.decisions.length} 个决定 · {t.chapters.filter((c) => c.state === "live").length}/{t.chapters.length} 篇已建 ·
-                  {" "}{t.projects.length} 个开源项目，每条都标了许可证与门槛
+                  横跨 {new Set(t.projects.flatMap((p) => p.decisions)).size} 项决定 ·
+                  {" "}{t.chapters.filter((c) => c.state === "live").length}/{t.chapters.length} 篇已建 ·
+                  {" "}{t.projects.length} 个开源项目，逐个记许可证与运行门槛
                 </span>
               </Link>
             ))}

@@ -28446,9 +28446,9 @@
   "topics": [
     {
       "id": "video",
-      "zh": "AI 视频制作：九个决定",
-      "en": "Making Video with AI: Nine Decisions",
-      "intro": "一条视频由九个独立的决定构成。这一页列出每个决定当前由谁做出、可用的控制手段，以及对应的开源项目。",
+      "zh": "AI 视频制作：控制权归属",
+      "en": "Making Video with AI: Where Control Sits",
+      "intro": "本研究记录一条视频的制作过程中，各项决定当前由谁做出、有哪些可用的控制手段，以及可自行运行的开源替代。",
       "decisions": [
         {
           "id": "topic",
