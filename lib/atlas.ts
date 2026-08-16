@@ -441,6 +441,41 @@ export type Availability = {
   note?: string;
 };
 
+/**
+ * 专项：横着切的上手评估（2026-08-16 立）。
+ *
+ * 九卷是按「模型产出什么」纵切的，专项是按「人要做成一件什么事」横切的 ——
+ * 两者交叉才有信息。一件事需要的能力天然不在同一卷里。
+ *
+ * ## 为什么不是教程
+ *
+ * 第一版写成了「从零开始的六步」，负责人一句话否掉：
+ * **「就像『把大象关进冰箱需要几步』一样，正确却是废话。」** 他是对的 ——
+ * **教程的骨架是顺序，而顺序人人都知道**，所以只能写成那样。
+ * 改成岔口之后废话就没地方待了：**岔口的骨架是取舍，而取舍必须有依据**，
+ * 依据就是我们攒了三个月的真值表。
+ *
+ * ## 只存骨架（方案 C）
+ *
+ * `route.cap` 引能力 id，覆盖度由 `support[]` **现算**，不落库；
+ * `route.app` + `route.res` 引某个应用里的一条资源，许可证与来源仍只维护一份。
+ * 好处是应用页改了资源，专项页下次构建自动跟上。
+ *
+ * `cap` 为 null 表示**这条路根本不是一项能力** —— 比如「把长相写进提示词」，
+ * 真值表里没有这一格，**那本身就是结论**：没有任何厂商承诺它有效。
+ */
+export type TopicRoute = {
+  zh: string; sub?: string;
+  /** 引能力 id；null = 这条路不是一项能力，没有覆盖度可言 */
+  cap?: string | null;
+  /** 引某个应用里的一条资源：app 是应用 id，res 是资源名 */
+  app?: string; res?: string;
+  /** ⚠️ good/bad 是我们的判断，不是厂商说过的话 —— 全站第一次，必须与事实栏分开显示 */
+  good: string; bad: string;
+};
+export type TopicFork = { zh: string; why: string; routes: TopicRoute[] };
+export type Topic = { id: string; zh: string; en: string; intro: string; guide: string; forks: TopicFork[] };
+
 export const atlas = raw as unknown as {
   platforms: Platform[];
   availability: Availability[];
@@ -459,6 +494,7 @@ export const atlas = raw as unknown as {
   versions: Version[];
   skills: Skill[];
   applications: Application[];
+  topics: Topic[];
   toolkit: Toolkit[];
   effect: Effect[];
   discount: Discount[];
@@ -792,3 +828,34 @@ export const availModels = () => [
   ...modelsOf("clip"),
   ...atlas.models.filter((m) => (m.tier ?? "core") !== "core" && atlas.availability.some((v) => v.m === m.id)),
 ];
+
+/**
+ * 一条路的覆盖度：这项能力上，有几家给了官方说法。
+ *
+ * **现算，不落库。** 落库就会和真值表漂开 —— 而这一页卖的就是「和真值表对得上」。
+ *
+ * 口径两条，都要和全站一致，否则同一件事在两页上是两个数：
+ * - 只数**成片类**（`clip`）：实时类那几个不做成片，数进来会稀释分母
+ * - 只数**核心模型**（`modelsOf` 已经在做）：真值表展示的就是这一批，
+ *   拿全部 21 个成片模型去数会得到另一套数字 —— 我起草时正是这么算的，
+ *   页面一跑出来就和真值表对不上。**分母必须跟着数字一起显示**，
+ *   「5 家支持」不写清是 5/10 还是 5/21，就是一句没头没尾的话。
+ */
+export function forkCoverage(capId: string) {
+  const models = modelsOf("clip");
+  let yes = 0, no = 0, unknown = 0;
+  for (const m of models) {
+    const s = cell(m.id, capId).state;
+    if (s === "yes") yes++;
+    else if (s === "no") no++;
+    else unknown++;
+  }
+  return { yes, no, unknown, total: models.length };
+}
+
+/** 一条路引的那条资源（许可证、来源都在应用那一份里，这里不复制）。 */
+export function routeResource(r: { app?: string; res?: string }) {
+  if (!r.app || !r.res) return undefined;
+  const app = atlas.applications.find((x) => x.id === r.app);
+  return app?.resources?.find((x) => x.name === r.res);
+}

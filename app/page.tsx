@@ -85,6 +85,36 @@ export default function Pick() {
       </p>
 
       {/**
+        * 专项入口：**横着切的那一层，站在九卷之上**。
+        *
+        * 九卷是按「模型产出什么」纵切的，专项是按「人要做成一件什么事」横切的 ——
+        * 做一条视频要跨图像（分镜）、声音（配音）、数字人、视频四卷。
+        * **正因为它跨卷，它不能挂在任何一卷下面**，只能和方向卡并列。
+        *
+        * 放在方向卡之后而不是之前：进站第一句话仍然是「先选一个方向」。
+        * 已经知道自己要做什么的人才需要专项，那是第二个问题。
+        */}
+      {atlas.topics.length > 0 && (
+        <section className="mt-9">
+          <h2 className="text-[13px] tracking-[0.14em] text-muted font-bold mb-2.5">
+            或者，从一件要做的事出发
+          </h2>
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
+            {atlas.topics.map((t) => (
+              <Link key={t.id} href={`/topic/${t.id}`}
+                className="border border-rule rounded-xl px-4 py-3 bg-card hover:border-yes block">
+                <b className="text-[15px]">{t.zh}</b>
+                <span className="block text-[12.5px] text-muted mt-1 leading-relaxed">
+                  横跨 {new Set(t.forks.flatMap((f) => f.routes.map((r) => r.cap).filter(Boolean))).size} 项能力 ·
+                  {" "}{t.forks.length} 个必须选的岔口，每条路标了有几家厂商真给了官方说法
+                </span>
+              </Link>
+            ))}
+          </div>
+        </section>
+      )}
+
+      {/**
         * 公共页入口。**和四个方向首页那一排完全一样、顺序也一样** ——
         * 负责人 2026-08-12 提：这几条应该在首页也能看到。
         *

@@ -118,6 +118,69 @@ for (const m of a.models) {
 }
 
 /**
+ * R75 —— **专项引的能力 id 必须真实存在。**
+ *
+ * 专项那一列「几家支持 / 几家明确不支持 / 几家没说」是从 `support[]` **现算**的。
+ * 引了一个不存在的能力 id，`forkCoverage()` 会老老实实数出 `0 / 0 / 全部没说` ——
+ * **一个看起来很有信息量、其实全错的结论**，页面不会报任何错。
+ * 这正是校验存在的理由：让它在提交前红，而不是让读者去信一条假数据。
+ *
+ * ⚠️ `cap: null` 是**合法且有意义**的，不要顺手把它也判违规：
+ * 它表示「这条路根本不是一项能力」（比如「把长相写进提示词」），
+ * 真值表里没有这一格 —— **那本身就是结论**。
+ */
+for (const t of a.topics ?? []) {
+  for (const f of t.forks) {
+    for (const r of f.routes) {
+      if (r.cap === null || r.cap === undefined) continue;
+      if (!a.capabilities.some((c) => c.id === r.cap))
+        errs.push(`R75 专项「${t.zh}」› ${f.zh} › ${r.zh} 引了不存在的能力 ${r.cap} —— ` +
+          `覆盖度会算成「全部没说」，页面不报错但结论是假的`);
+    }
+  }
+}
+
+/**
+ * R76 —— **专项引的资源必须能在那个应用里找到。**
+ *
+ * 方案 C 的全部好处（许可证与来源只维护一份、应用页改了专项页自动跟上）
+ * 都建立在「引得到」上。引不到时页面只是**悄悄少显示一个许可证** ——
+ * 而少显示的恰恰是「这个项目能不能商用」，最不该悄悄少的那一条。
+ */
+for (const t of a.topics ?? []) {
+  for (const f of t.forks) {
+    for (const r of f.routes) {
+      if (!r.app && !r.res) continue;
+      if (!r.app || !r.res) {
+        errs.push(`R76 专项「${t.zh}」› ${r.zh} 的 app/res 只写了一半 —— 引资源要两个都给`);
+        continue;
+      }
+      const app = a.applications.find((x) => x.id === r.app);
+      if (!app) { errs.push(`R76 专项「${t.zh}」› ${r.zh} 引了不存在的应用 ${r.app}`); continue; }
+      if (!(app.resources ?? []).some((x) => x.name === r.res))
+        errs.push(`R76 专项「${t.zh}」› ${r.zh} 在应用「${app.zh}」里找不到资源「${r.res}」 —— ` +
+          `许可证会悄悄不显示，而那是最不该少的一条`);
+    }
+  }
+}
+
+/**
+ * R77 —— **专项的每条路都必须同时有 good 和 bad。**
+ *
+ * 只写好处的一栏是广告，不是评估。这条和 Skill 页「已知限制必填」（R45）同一条道理：
+ * **一个没有坏处的选项，说明我们没查够，不说明它没有坏处。**
+ */
+for (const t of a.topics ?? []) {
+  for (const f of t.forks) {
+    for (const r of f.routes) {
+      if (!r.good?.trim() || !r.bad?.trim())
+        errs.push(`R77 专项「${t.zh}」› ${f.zh} › ${r.zh} 缺 ${!r.good?.trim() ? "good" : "bad"} —— ` +
+          `只写好处的一栏是广告不是评估`);
+    }
+  }
+}
+
+/**
  * R67 —— 数据集日期不能早于任何一格的核验日。
  * 页脚印的「数据截至 X」是给读者的新鲜度承诺；有格子比它还新，那句话就是错的。
  */
