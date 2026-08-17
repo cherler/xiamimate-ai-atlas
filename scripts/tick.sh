@@ -62,6 +62,27 @@ elif [ -z "${MINIMAX_API_KEY:-}" ]; then
   echo "   没有 MINIMAX_API_KEY，跳过抽取（采集本身不需要模型）" >> "$LOG"
 fi
 
+# ── 开源项目的仓库数字：只报，不写
+#
+# 42 个项目的星数、停更月数是**会过期的事实** —— 一个月后「在维护」
+# 可能已经变成「停更 1 个月」，而页面照写不误。
+#
+# **但这里只跑 --dry。** 上面第 1 条纪律说得很清楚：机器不碰 atlas.json。
+# 星数虽然是机器算得出来的，可「停更 12 个月」这条线一跨，
+# 卡上的标签、`unfit` 里的判断、甚至要不要继续收录都得跟着重想 ——
+# 那是认定，不是抓取。所以这一步的产出是**报警**，真正写回由人在上线前跑
+# `npm run repos`（见 deploy/README.md）。
+if ! node scripts/refresh-repos.mjs --dry >> "$LOG" 2>&1; then
+  {
+    echo ""
+    echo "## 开源项目仓库有变（${STAMP}）"
+    echo ""
+    echo "\`npm run repos --dry\` 报了要人看一眼的变化，详见 \`data/watch.log\`。"
+    echo "确认后跑 \`npm run repos\` 写回，再上线。"
+  } >> data/watch-report.md
+  echo "   refresh-repos 有要人看的变化，已写进报告" >> "$LOG"
+fi
+
 # ── 引文回查：署的那个来源，今天还找得到这句话吗？
 #
 # **必须放在 watch 之后**：它比对的是刚落地的快照。

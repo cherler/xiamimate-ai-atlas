@@ -19,7 +19,9 @@
     "tutorials:check": "node scripts/tutorials-check.mjs",
     "deepwiki": "node scripts/deepwiki.mjs",
     "readme": "node scripts/fetch-readme.mjs",
-    "basepath": "node scripts/basepath-check.mjs"
+    "basepath": "node scripts/basepath-check.mjs",
+    "repos": "node scripts/refresh-repos.mjs",
+    "fresh": "node scripts/refresh-repos.mjs && node scripts/tutorials-check.mjs"
   },
   "dependencies": {
     "geist": "^1.7.2",

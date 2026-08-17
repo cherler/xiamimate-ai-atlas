@@ -208,3 +208,23 @@ ssh <server> 'cd /srv/xiamimate/xiamimate-ai-atlas &&
 
 脚本只管切，**不管构建对不对** —— 上面那三道闸门（DONE_0 / 日志行数 / 页数对得上）
 仍然要先过，它们拦住过一次静默回滚。
+
+## 上线前先刷仓库数字
+
+```bash
+npm run repos          # 刷 42 个项目的星数 / 停更月数 / 许可证，写回 atlas.json
+npm run tutorials:check # 127 条外链还活着吗
+```
+
+`npm run repos` **要么全写要么全不写**：有一个仓库抓不到就整体中止 ——
+`verified_at` 是对整份数据的承诺，不能有一半是旧的。
+
+它只碰机器算得出来的字段（stars / created_at / pushed_at / stars_per_month /
+stale_months / verified_at）。`scope`、`good`、`bad`、`tags`、`license_class`
+这些是人写的判断，脚本一个都不动，**上游变了它只喊，改不改由人定**。
+
+会喊的四种（其余变化默默写回，不打扰）：
+跨过 12 个月停更线 · 许可证变了 · 仓库改名或没了 · 星速掉一半以上。
+
+每天 09:23 的 `tick.sh` 会跑 `--dry` 版**只报警不写**，
+报警落在 `data/watch-report.md` —— 机器不碰 `atlas.json` 是这条管线的第一条纪律。

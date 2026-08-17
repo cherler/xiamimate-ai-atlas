@@ -225,6 +225,36 @@ for (const t of a.topics ?? []) {
 }
 
 /**
+ * R88 —— **星速与停更月数必须和公式对得上。**
+ *
+ * 这两个数是从 `stars / created_at / pushed_at` 算出来的，不是独立事实。
+ * 手写录入时算错了，页面照样显示得好好的 —— 2026-08-17 一次性查出两处：
+ * waoowaoo 少报三倍（704 而不是 2003）、motion-skills 多报三倍（198 而不是 56）。
+ * **而「星速」正是我们判断「有名」的判据**，判据本身错了，结论就全歪。
+ *
+ * 容差 25%：数据是按某个口径日算的，跑校验时已经过了几天，允许这点漂移；
+ * 超过就说明不是漂移，是算错了。修法：`npm run repos`。
+ */
+{
+  const MONTH = 1000 * 86400 * 30.44;
+  const asOf = Date.parse(a.generated_at ?? new Date().toISOString().slice(0, 10));
+  for (const t of a.topics ?? [])
+    for (const p of t.projects ?? []) {
+      if (!p.created_at || p.stars == null) continue;
+      const want = Math.round(p.stars / ((asOf - Date.parse(p.created_at)) / MONTH));
+      if (p.stars_per_month != null && Math.abs(want - p.stars_per_month) > p.stars_per_month * 0.25)
+        errs.push(`R88 专项「${t.zh}」› ${p.zh} 的星速对不上：库里 ${p.stars_per_month}，` +
+          `按 ${p.stars} 星 / ${p.created_at} 起算应为 ${want} —— 跑 npm run repos`);
+      if (p.pushed_at) {
+        const stale = Math.max(0, Math.round((asOf - Date.parse(p.pushed_at)) / MONTH));
+        if (p.stale_months != null && Math.abs(stale - p.stale_months) > 1)
+          errs.push(`R88 专项「${t.zh}」› ${p.zh} 的停更月数对不上：库里 ${p.stale_months}，` +
+            `按最后提交 ${p.pushed_at} 应为 ${stale} —— 跑 npm run repos`);
+      }
+    }
+}
+
+/**
  * R87 —— **特点标签不许和圆标重复，也不许写成谁都能贴的话。**
  *
  * 标签存在的意义是「它凭什么跟别人不一样」。一旦写成「功能全」「易上手」，
