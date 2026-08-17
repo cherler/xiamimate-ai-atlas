@@ -6,7 +6,7 @@
     <atom:link href="https://xiamimate.com/atlas/changes.xml" rel="self" type="application/rss+xml"/>
     <description>AI 视频模型的版本、停服、价格与能力变化。每条带 Before / After / 为什么重要，以及厂商官方来源。</description>
     <language>zh-CN</language>
-    <lastBuildDate>Sun, 16 Aug 2026 00:00:00 GMT</lastBuildDate>
+    <lastBuildDate>Mon, 17 Aug 2026 00:00:00 GMT</lastBuildDate>
     <item>
       <title>Tripo API V2：官方公告：2026-10-01 起不再更新与支持，2026-11-01 起 V2 端点全部停止接收请求</title>
       <link>https://xiamimate.com/atlas/changes#tripo-v2-eol-2026-11-01</link>
