@@ -1,11 +1,11 @@
-# 引文回查 · 2026-08-16
+# 引文回查 · 2026-08-17
 
-回查 1205 条：无英文锚 730 · 快照无正文 35 · 对得上 314 · 找不到 95 · 无快照 13 · 本页没有·别处有 18
+回查 1205 条：无英文锚 730 · 快照无正文 35 · 对得上 320 · 找不到 95 · 无快照 13 · 本页没有·别处有 12
 
 > 这份报告回答一件事：**一格引文里的原句，在它署名的那份快照里还在不在。**
 > ⚠️ **失败不等于引文错。** 三种成因要分开：真署错了页 / 这一页的快照是残的（抓回来的是导航不是正文）/ 当初记的就不是逐字原文。**脚本不猜。**
 
-## 失败 ≥3 条的源（17 个）—— 这几个大概率是抓法不对
+## 失败 ≥3 条的源（15 个）—— 这几个大概率是抓法不对
 
 - **hf-text-org**（21 条）：发布 deepseek-V3.2-把算力效率和推理/Agent 表现放到一起、发布 deepseek-V4-换代：Pro 1.6T（激活 49B）与 Flash 两档 MoE、发布 glm-GLM-4.5-这一代的开放权重发布 …
 - **comfy-docs**（8 条）：发布 hidream-HiDream-I1-17B 出图底座，MIT、发布 ernie-image-ERNIE-Image-8B DiT 正式档，apache-2.0、发布 ovis-image-Ovis-Image-7B-7B 专攻图上出字 …
@@ -18,8 +18,6 @@
 - **heygen-changelog**（4 条）：发布 heygen-v3api、发布 heygen-avatar3、发布 heygen-batch …
 - **veo-doc**（3 条）：veo × flf、veo × charref、veo × extend
 - **decart-site**（3 条）：lucy × rt-endless、模型 lucy 版本、发布 lucy-Lucy2.5-Lucy2.5
-- **hf-hunyuan3d-21**（3 条）：hunyuan3d × d-pbr、hunyuan3d × d-openweights、发布 hy3d-2.1
-- **hf-trellis2**（3 条）：trellis × d-t23d、trellis × d-multiview、trellis × d-edit
 - **minimax-release-notes**（3 条）：发布 hailuo-01-运镜控制、发布 hailuo-02-换代02：1080p、发布 hailuo-2.3-换代2.3：肢体动作与表情
 - **wiki-midjourney**（3 条）：发布 midjourney-V6-这一代起大幅改善提示词跟随、发布 midjourney-V6.1-画质与细节一致性迭代、发布 midjourney-V7-Draft Mode 与 Omni Reference
 - **meshy-changelog**（3 条）：发布 meshy-remesh、发布 meshy-format、发布 meshy-7
@@ -27,15 +25,9 @@
 
 ## 全部
 
-### 本页没有·别处有（18）
+### 本页没有·别处有（12）
 
-- `ideogram-edit` ideogram × i-edit —— 锚「Prompt fidelity, crystal-clear type, reliable editing, and production-」（这句在 ideogram-overview）
 - `ideogram-v3-reframe` ideogram × i-outpaint —— 锚「Take a starting image and extend it to match your desired resolution.」（这句在 ideogram-overview）
-- `ideogram-v3-generate` ideogram × i-styleref —— 锚「Using any of the API V3 endpoints, you can use a style_preset」（这句在 ideogram-overview）
-- `ideogram-hf` ideogram × i-openweights —— 锚「across the app, API, MCP, and open weights」（这句在 ideogram-overview）
-- `hf-hunyuan3d-21` hunyuan3d × d-pbr —— 锚「the upgraded PBR pipeline leverages physics-grounded material simulati」（这句在 gh-hunyuan3d-21）
-- `hf-hunyuan3d-21` hunyuan3d × d-openweights —— 锚「releases full model weights and training code」（这句在 gh-hunyuan3d-21）
-- `hf-trellis2` trellis × d-t23d —— 锚「takes in text or image prompts」（这句在 gh-trellis）
 - `hf-trellis2` trellis × d-multiview —— 锚「Implementation of multi-image conditioning」（这句在 gh-trellis）
 - `hf-trellis2` trellis × d-edit —— 锚「local 3D editing capabilities」（这句在 gh-trellis）
 - `arxiv-seed3d-20` seed3d × d-scene —— 锚「the system scales to complete scene generation through assembling obje」（这句在 arxiv-seed3d-10）
