@@ -129,6 +129,52 @@ for (const T of topics) for (const [w, h, name] of [[1280, 900, "桌面"], [390,
   await p.close();
 }
 
+/**
+ * 返回不许转圈。
+ *
+ * 负责人 2026-08-17 撞到：专项页 → 点进项目拆解页 → 点它的「← AI 游戏制作」
+ * 回到专项页 → 再点专项页的「← 返回」→ **又回到项目页**，两页之间来回弹。
+ *
+ * 根因是「返回」被当成了两种意思：项目页上是「上一层」（结构），
+ * 专项页上却是「上一页」（历史）—— 从下级走上来时这两者正好相反。
+ *
+ * **这条只能在浏览器里量**：静态产物里两个链接看起来都很正常，
+ * 转圈只在真的点下去、且带着历史的时候才发生。
+ *
+ * ⚠️ **点完不能用 `waitForLoadState("networkidle")` 判到没到。**
+ * 那一句对**当前这张（旧的）页**立刻就满足了 —— 导航还没开始，
+ * 读到的 URL 还是原来那个，于是这条检查第一版全红，而产品是好的。
+ * 又一次「量错却不自知」。判据换成**等 URL 真的变**。
+ */
+console.log("\n── 返回不转圈 ──");
+for (const t of topics) {
+  const p = await br.newPage({ viewport: { width: 1280, height: 900 } });
+  const path = () => new URL(p.url()).pathname;
+  await p.goto(`${ORIGIN}${BASE}/topic/${t.id}`, { waitUntil: "networkidle" });
+
+  /** 走一遍真实动线：专项页 → 项目页 → 返回专项页 → 再返回。 */
+  await Promise.all([
+    p.waitForURL(`**${BASE}/topic/${t.id}/**`, { timeout: 15000 }),
+    p.locator(`article a[href^="${BASE}/topic/${t.id}/"]`).first().click(),
+  ]);
+  const at = path();
+  ok(at.startsWith(`${BASE}/topic/${t.id}/`), `${t.zh} 进得了项目页（${at}）`);
+
+  await Promise.all([
+    p.waitForURL(`**${BASE}/topic/${t.id}`, { timeout: 15000 }),
+    p.locator(`a[href="${BASE}/topic/${t.id}"]`).filter({ hasText: /^←/ }).first().click(),
+  ]);
+  ok(path() === `${BASE}/topic/${t.id}`, `${t.zh} 项目页的返回回到专项页`);
+
+  /** 关键一步：这时候点专项页的返回，**不能又掉回刚才那个项目页**。 */
+  await Promise.all([
+    p.waitForURL((u) => new URL(u).pathname !== `${BASE}/topic/${t.id}`, { timeout: 15000 }),
+    p.locator("main a, main button").filter({ hasText: /^←/ }).first().click(),
+  ]);
+  ok(path() !== at, `${t.zh} 专项页的返回没转回项目页（到了 ${path()}）`);
+  await p.close();
+}
+
 /** 深链：分享某一类得分享得出去。每个专项都试它最后一个 tab。 */
 console.log("\n── 深链 ──");
 for (const t of topics) {

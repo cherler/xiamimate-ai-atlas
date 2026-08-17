@@ -27,7 +27,15 @@ export default async function TopicPage({ params }: { params: Promise<{ id: stri
   if (!t) return null;
   return (
     <main className="max-w-[1240px] mx-auto px-5 pb-16">
-      <BackLink />
+      {/*
+        * **专项页的「返回」必须写死回首页，不能用 `router.back()`。**
+        *
+        * 专项只在首页那一栏列出（跨卷，挂不进任何一个方向）。而它有下级 ——
+        * 项目拆解页。从下级点「← AI 游戏制作」走上来之后，若这里还按历史返回，
+        * 就正好弹回刚才那个项目页：两页之间来回转，出不去。
+        * 负责人 2026-08-17 撞到并截图。
+        */}
+      <BackLink href="/" zh="首页" />
       <TopicView t={t} />
       <div className="border-t border-rule pt-5 mt-6 text-[12px] text-muted max-w-[96ch]">
         <p className="mb-2">

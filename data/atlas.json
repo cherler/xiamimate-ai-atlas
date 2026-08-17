@@ -36525,6 +36525,12 @@
           "zh": "游戏设计常识",
           "kind": "basics",
           "intro": "**AI 把「做出来」的门槛砍到接近零，没砍掉「什么样的才对」。** 核心循环、心流与难度、关卡、手感、数值、类型，然后是绕不开的授权，最后是上哪儿补课。只收词条型、成体系的免费读物与还活着的精选清单。"
+        },
+        {
+          "id": "works",
+          "zh": "作品",
+          "kind": "works",
+          "intro": "这条路做出过什么。**只收制作方自己公开说明过管线的作品** —— 查不到用了什么就不收。收到的两部正好演示了两种相反的透明度：一部用的全是闭源工具，却把提示词一条不落地写了下来；另一部生成器开源，产能却接三家闭源模型。"
         }
       ],
       "subgroups": [
@@ -40502,6 +40508,65 @@
               "verified_at": "2026-08-17"
             }
           ]
+        }
+      ],
+      "works": [
+        {
+          "id": "tower-of-time",
+          "zh": "Tower of Time",
+          "year": "2025",
+          "maker": "maciej-trebacz（m4v3k）",
+          "stack": "Phaser.js + Phaser Editor；Augment Code 与 Cursor 的 Agent 模式驱动 Claude Sonnet 4（偶尔用 o3 与 Opus 4）",
+          "open": "closed",
+          "note": "2025 年 Beginner's Jam Summer 的参赛作品，时间倒流机制的塔防。**作者自述约 95% 的代码由 AI 写成**，并把近四万字的 `PROMPTS.md` 一并放出 —— 按对话分节记录几乎全部提示词，还诚实标明哪些部分是自己手写的、哪些是用 Phaser 编辑器摆的。**这是我们在两个专项里见过最彻底的一份管线公开。** 他还写下了教训：AI 让原型飞快，但从原型转成品时要格外小心；AI 爱写很多代码，这个项目的代码量本可以少一半；卡住时让它加日志再把日志喂回去。",
+          "src": [
+            {
+              "title": "项目仓库（README 写明工具清单与 95% 的比例）",
+              "url": "https://github.com/maciej-trebacz/tower-of-time-game"
+            },
+            {
+              "title": "PROMPTS.md：按对话记录的全部提示词",
+              "url": "https://github.com/maciej-trebacz/tower-of-time-game/blob/main/PROMPTS.md"
+            }
+          ],
+          "verified_at": "2026-08-17"
+        },
+        {
+          "id": "godogen-demos",
+          "zh": "Godogen 的四个演示作",
+          "year": "2026",
+          "maker": "htdt（Godogen 作者）",
+          "stack": "Godogen + Godot 4 / Bevy / Babylon.js；素材走 Gemini（参考图与角色）、Grok（贴图与视频）、Tripo3D（3D 与绑定）",
+          "open": "mixed",
+          "note": "四个作品：等高线地图风的俯视竞速 CartoRally、阿姆斯特丹自行车道横版游戏、阿尔卑斯滑雪模拟、以及一个河岸自然场景。**作者把每一个的完整提示词原样公开**，配一段演示视频。它们是工具作者的演示而非发行游戏 —— 但正因为如此，**管线的可复现程度反而是最高的：拿同一段提示词就能自己跑一遍。** 透明度上它和上面那部正好相反：编排开源、产能闭源。",
+          "src": [
+            {
+              "title": "Godogen 仓库",
+              "url": "https://github.com/htdt/godogen"
+            },
+            {
+              "title": "demo_prompts.md：四个演示各自的完整提示词",
+              "url": "https://github.com/htdt/godogen/blob/master/docs/demo_prompts.md"
+            }
+          ],
+          "verified_at": "2026-08-17"
+        }
+      ],
+      "works_skipped": [
+        {
+          "zh": "用 Claude Code Game Studios 做出的完整游戏",
+          "why": "**查了，公开地还没有。** 这个项目星速全场最高，而它自己的 issue 区正在追问这件事：#34「有人做出过完整能玩的游戏吗」十二条回复里，两位重度用户分别在第 5 个与第 62 个冲刺，都还没发布；另有用户直接反问「我到现在没看到这东西真产出过游戏」。中文的 #53 更直接，多位用户反馈「一直在产生文档」「跑了十来天，一行代码不带写」。**这不是我们没查到，是社区自己也没查到** —— 所以它按规矩不收，但值得写下来。",
+          "verified_at": "2026-08-17"
+        },
+        {
+          "zh": "issue 里被贴出的那个 Reddit 小游戏",
+          "why": "有人在 #34 里贴了一个「两周 vibe code 出来的」小游戏链接，但**贴的人自己就说明「这看起来不是用 CCGS 做的」**，且没有可回查的管线文档。按「只收制作方自己公开说明过管线」的规矩，不收。",
+          "verified_at": "2026-08-17"
+        },
+        {
+          "zh": "itch.io 上的 AI 游戏 jam 作品",
+          "why": "**从我们这边连不上 itch.io**（域名解析得到，连接失败），没法逐条打开核。这是可得性限制不是「不存在」—— 记在这里，等换个网络环境再补。",
+          "verified_at": "2026-08-17"
         }
       ]
     }
