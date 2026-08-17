@@ -23,7 +23,10 @@
     "repos": "node scripts/refresh-repos.mjs",
     "fresh": "node scripts/refresh-repos.mjs && node scripts/readme-drift.mjs && node scripts/tutorials-check.mjs",
     "readme:drift": "node scripts/readme-drift.mjs",
-    "film": "node scripts/film.mjs"
+    "film:capture": "node scripts/film-capture.mjs",
+    "film:audio": "node scripts/film-audio.mjs",
+    "film:cut": "node scripts/film-cut.mjs",
+    "film:mix": "node scripts/film-mix.mjs"
   },
   "dependencies": {
     "geist": "^1.7.2",

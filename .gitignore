@@ -37,3 +37,6 @@ public/diagrams/
 
 # 宣传片的中间帧（840 张 PNG，由 scripts/film.mjs 重新生成）
 assets/film-frames/
+assets/film-shots/
+assets/film-cut/
+assets/film-audio/
