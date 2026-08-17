@@ -22,7 +22,8 @@
     "basepath": "node scripts/basepath-check.mjs",
     "repos": "node scripts/refresh-repos.mjs",
     "fresh": "node scripts/refresh-repos.mjs && node scripts/readme-drift.mjs && node scripts/tutorials-check.mjs",
-    "readme:drift": "node scripts/readme-drift.mjs"
+    "readme:drift": "node scripts/readme-drift.mjs",
+    "film": "node scripts/film.mjs"
   },
   "dependencies": {
     "geist": "^1.7.2",

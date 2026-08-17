@@ -33104,23 +33104,23 @@
             "pace"
           ],
           "engine": "yours",
-          "scope": "50 个动效 skill，教编码 Agent 做动态图形。装完 Claude Code、Cursor、Codex 等 40 多个 Agent 自动发现。",
-          "control": "**动态图形这一格之前一个项目都没有** —— 它不生成画面，是把「怎么做一段动效」写成 Agent 读得懂的 skill，按包安装、按提示词自动激活。",
+          "scope": "**它本身是一个索引** —— 51 个动效 skill 分在 15 个各自独立的仓库里（短视频、电商、广告、数据动画、讲解、地图、网页动效、动效设计、动态排版、3D/WebGL、数学动画、生成插画等），按包各装各的。装完 Claude Code、Cursor、Codex 等 40 多个 Agent 自动发现。",
+          "control": "**每支 skill 都带一个「交付即自检」的回路**：渲一帧 → 截图 → 核对，让 Agent 检查自己的产出而不是交上去碰运气。这是它和一堆提示词模板最实质的区别 —— 动效最难的从来不是知道该怎么做，是**做完不知道对不对**。",
           "hw": "不需要显卡；跟着你用的 Agent 走",
           "arch": "50 个 skill 分包发布，每包单独装。装完由 Agent 自动发现，**提示词匹配到就自己激活**，不用显式调用。",
           "good": [
             "**动效这一格的唯一一个**",
-            "40 多个 Agent 通吃，不绑定某一家",
-            "按包装，用不上的不装",
+            "带「渲一帧 → 截图 → 核对」的自检回路，不是只给做法",
+            "40 多个 Agent 通吃，不绑定某一家；按包装，用不上的不装",
             "MIT"
           ],
           "bad": [
-            "**停更 2 个月**",
-            "355 星，社区还很小，遇到问题几乎搜不到中文资料",
-            "**DeepWiki 没索引**，仓库自己也没有 issue 讨论可查",
-            "它教的是「怎么做」，真做出来还得靠你那套渲染工具"
+            "**356 星是这个索引仓库的**，真正要装的分包各自只有个位数到十几星 —— 别把索引的热度当成内容的成熟度",
+            "**停更 2 个月**，15 个分仓也都停在同一天",
+            "自述是商业产品 iart.ai 背后的开源部分，开源这一支的投入取决于那家公司",
+            "**DeepWiki 没索引**，仓库自己也没有 issue 讨论可查"
           ],
-          "unfit": "不用编码 Agent 的人 —— 它的形态就是 skill，脱开 Agent 没有入口。",
+          "unfit": "想要一个装完就能出片的工具 —— 它教的是手艺，渲染还得你自己接。",
           "src": "github README + GitHub API（DeepWiki 未索引）",
           "verified_at": "2026-08-17",
           "wiki": "none",
@@ -33164,9 +33164,9 @@
             "issue_src": "github issues · 核验 2026-08-17（仓库讨论极少）"
           },
           "tags": [
-            "动效这一格的唯一一个",
-            "40+ Agent 通吃",
-            "按包安装"
+            "索引仓库，skill 在 15 个分仓",
+            "51 个 skill 按包装",
+            "40+ Agent 通吃"
           ]
         },
         {
@@ -36572,6 +36572,27 @@
             {
               "title": "仓库 README 的前置条件一节",
               "url": "https://github.com/Anil-matcha/Open-AI-UGC"
+            }
+          ],
+          "verified_at": "2026-08-17"
+        },
+        {
+          "project": "motion-skills",
+          "what": "**356 星是索引仓库的，真正要装的那些包各自只有个位数到十几星**",
+          "said": "51 个开源 skill 教你的 AI 编码助手做动效、动画与视频，十五个可安装的包",
+          "hit": "索引仓库 `iart-ai/motion-skills` 树里只有 LICENSE、README、showcase 和四个校验脚本，**一个 skill 都没有**；skill 在 15 个分仓里，数据动画包 4 星、动态排版包 7 星、动效设计包 15 星（2026-08-17 核）",
+          "src": [
+            {
+              "title": "索引仓库（README 列出 15 个分包）",
+              "url": "https://github.com/iart-ai/motion-skills"
+            },
+            {
+              "title": "数据动画包（3 个 skill）",
+              "url": "https://github.com/iart-ai/data-animation-skills"
+            },
+            {
+              "title": "动效设计包（9 个 skill）",
+              "url": "https://github.com/iart-ai/motion-design-skills"
             }
           ],
           "verified_at": "2026-08-17"

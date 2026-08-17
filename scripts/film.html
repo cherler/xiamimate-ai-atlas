@@ -1,0 +1,231 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><title>atlas film</title>
+<style>
+/*
+ * 宣传片的一帧。**所有位置、透明度、数值都由 setFrame(n) 算，CSS 里没有一条 transition。**
+ *
+ * 这是 motion-skills 的 `chart-animation` 第一条铁律：
+ * 值必须是帧号的纯函数 —— 一旦交给 CSS 过渡或库的动画时钟，
+ * 渲染器和那个时钟就会不同步，逐帧截出来会闪、会错位。
+ *
+ * 配色用站自己的深色令牌（globals.css 的 --dk-*），不另造一套：
+ * 片子和站看起来得是同一个东西。
+ */
+:root{
+  --paper:#10151a; --card:#171d24; --ink:#ccd6e0; --muted:#8b98a6;
+  --rule:#2a333d; --brand:#31a596; --no:#e2695c; --unknown:#5c6874; --hatch:#3f4a56;
+  /* shot-composition：1920 宽、外边距 100、12 栏、栏距 24 → 栏宽 121.3 */
+  --margin:100px;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{width:1920px;height:1080px;overflow:hidden;background:var(--paper);color:var(--ink)}
+body{font-family:"PingFang SC","Hiragino Sans GB",system-ui,-apple-system,sans-serif;
+  -webkit-font-smoothing:antialiased;position:relative}
+.stage{position:absolute;inset:0}
+/* Texture 层：极慢的网格漂移。**它永远不该被注意到** —— ambient 的定义。 */
+#grid{position:absolute;inset:-200px;opacity:.5;
+  background-image:linear-gradient(var(--rule) 1px,transparent 1px),linear-gradient(90deg,var(--rule) 1px,transparent 1px);
+  background-size:120px 120px}
+.wrap{position:absolute;left:var(--margin);right:var(--margin);top:0;bottom:0}
+.beat{position:absolute;left:0;right:0;top:0;bottom:0;display:flex;flex-direction:column;justify-content:center}
+.eyebrow{font-size:22px;letter-spacing:.42em;color:var(--brand);font-weight:700;margin-bottom:32px}
+.q{font-size:76px;line-height:1.22;letter-spacing:-.01em;font-weight:600}
+.q em{font-style:normal;color:var(--brand)}
+.sub{font-size:26px;color:var(--muted);line-height:1.6;margin-top:32px}
+/* 数字：等宽数位，跳动时不左右晃 —— 计数器最忌讳这个。 */
+.tnum{font-variant-numeric:tabular-nums;font-feature-settings:"tnum" 1}
+.stats{display:flex;gap:96px;margin-top:8px}
+.stat .v{font-size:104px;font-weight:600;line-height:1;letter-spacing:-.02em}
+.stat .k{font-size:22px;color:var(--muted);margin-top:16px;letter-spacing:.08em}
+.barwrap{margin-top:56px}
+.bar{height:56px;display:flex;border-radius:6px;overflow:hidden;background:#0b1015}
+.seg{height:100%}
+.legend{display:flex;gap:56px;margin-top:28px;font-size:24px;color:var(--muted)}
+.legend b{color:var(--ink);font-weight:600}
+.dot{display:inline-block;width:14px;height:14px;border-radius:3px;margin-right:12px;vertical-align:-1px}
+.big{font-size:152px;font-weight:600;letter-spacing:-.03em;line-height:1}
+.big .slash{color:var(--hatch);margin:0 20px;font-weight:300}
+.cols{display:grid;grid-template-columns:1fr 1fr;gap:0 88px;margin-top:12px;align-items:start}
+.col{border-top:2px solid var(--rule);padding-top:26px}
+.col.hit{border-top-color:var(--no)}
+.col h4{font-size:20px;letter-spacing:.2em;color:var(--muted);font-weight:700;margin-bottom:22px}
+.col.hit h4{color:var(--no)}
+.col p{font-size:27px;line-height:1.62}
+.col.said p{color:var(--muted)}
+.who{font-size:30px;color:var(--brand);letter-spacing:.06em;margin-bottom:10px;font-weight:600}
+.what{font-size:38px;line-height:1.4;font-weight:600;margin-bottom:44px;max-width:1500px}
+/* 收尾行**跨两栏**。不给它上分隔线与足够间距的话，它会紧贴在较短的那一栏下面，
+   被读成那一栏的续行 —— 逐帧核对时就是这么发现的。 */
+.tail{margin-top:56px;padding-top:26px;border-top:1px solid var(--rule);font-size:26px;color:var(--muted)}
+.url{font-size:58px;font-weight:600;letter-spacing:.01em}
+.foot{font-size:22px;color:var(--muted);margin-top:28px;letter-spacing:.06em}
+/* 进度条：给剪辑的人一个刻度，不是给观众的 —— 渲染时关掉。 */
+</style></head>
+<body>
+<div class="stage">
+  <div id="grid"></div>
+  <div class="wrap" id="wrap"></div>
+</div>
+<script>
+const D = __DATA__;
+
+/* ── 缓动。全部来自 motion-skills 的 animation-principles ────────────── */
+const clamp=(t)=>Math.max(0,Math.min(1,t));
+/** 进场：快起、缓落。「眼睛对慢起手的容忍远低于慢收尾」。 */
+const easeOut=(t)=>1-Math.pow(1-clamp(t),3);
+/** 出场：缓起、快落。 */
+const easeIn=(t)=>Math.pow(clamp(t),3);
+/** 移动（留在画面上）：对称。 */
+const easeInOut=(t)=>{t=clamp(t);return t<.5?4*t*t*t:1-Math.pow(-2*t+2,3)/2};
+/** 帧 → 0..1 的进度。**一切都从这里出发。** */
+const p=(f,a,b)=>clamp((f-a)/(b-a));
+
+/**
+ * 一个段落的进出。返回 {o:透明度, y:位移px}。
+ * 进场用 easeOut、出场用 easeIn —— 两头用不同的曲线，这是 animation-principles 的原话。
+ */
+function seg(f,inA,inB,outA,outB,dy=44){
+  const i=easeOut(p(f,inA,inB));
+  const o=outA==null?0:easeIn(p(f,outA,outB));
+  return {o:i*(1-o), y:(1-i)*dy + o*(-dy*0.5)};
+}
+/** 错位入场：第 k 个元素晚 step 帧。列表动效的基本功。 */
+const stagger=(f,base,k,step=7)=>seg(f,base+k*step,base+k*step+22,null,null,34);
+
+/**
+ * 计数器。**绝不线性** —— 线性在标题数字上显得机械（chart-animation 原话）。
+ * easeOutCubic 读起来像「稳定在一个数上」。
+ */
+const count=(f,a,b,to)=>Math.round(easeOut(p(f,a,b))*to);
+const fmt=(n)=>new Intl.NumberFormat("en-US").format(n);
+
+/* ── 分镜。每个 beat 只做一次镜头运动。 ─────────────────────────────── */
+const BEATS=[
+  {id:"hook",  a:0,   b:100},
+  {id:"scale", a:100, b:262},
+  {id:"cells", a:262, b:432},
+  {id:"claim", a:432, b:562},
+  {id:"vs",    a:562, b:742},
+  {id:"end",   a:742, b:840},
+];
+
+function render(f){
+  const wrap=document.getElementById("wrap");
+  /* Texture：一分钟漂 120px，慢到不该被注意到。linear 只留给这种无限背景。 */
+  const gx=(f/30)*2, gy=(f/30)*1.2;
+  document.getElementById("grid").style.transform=`translate(${-gx}px,${-gy}px)`;
+
+  let h="";
+
+  /* ① 钩子 */
+  {const s=seg(f,4,40,86,100);
+   const s2=seg(f,22,58,86,100);
+   h+=`<div class="beat" style="opacity:${s.o}">
+     <div class="eyebrow" style="opacity:${s.o};transform:translateY(${s.y}px)">虾米看AI</div>
+     <div class="q" style="transform:translateY(${s.y}px)">这一行里，<em>谁能做什么</em><br>一直是一笔糊涂账。</div>
+     <div class="sub" style="opacity:${s2.o};transform:translateY(${s2.y}px)">厂商各说各的，测评各排各的榜。<br>我们换了个笨办法：一格一格去核。</div>
+   </div>`;}
+
+  /* ② 规模：错位入场 + 计数器 */
+  {const B=BEATS[1];
+   const gone=easeIn(p(f,B.b-22,B.b));
+   const items=[["卷",D.domains],["个模型",D.models],["项能力",D.caps],["家公司",D.orgs]];
+   let cards="";
+   items.forEach(([k,v],i)=>{const s=stagger(f,B.a+8,i);
+     const n=count(f,B.a+14+i*7,B.a+14+i*7+56,v);
+     cards+=`<div class="stat" style="opacity:${s.o};transform:translateY(${s.y}px)">
+       <div class="v tnum">${fmt(n)}</div><div class="k">${k}</div></div>`;});
+   const t=seg(f,B.a,B.a+30,null,null,30);
+   h+=`<div class="beat" style="opacity:${1-gone}">
+     <div class="eyebrow" style="opacity:${t.o}">核过的范围</div>
+     <div class="stats">${cards}</div>
+   </div>`;}
+
+  /* ③ 1012 格拆成三段：条形分段生长（chart-animation 的本行） */
+  {const B=BEATS[2];
+   const gone=easeIn(p(f,B.b-22,B.b));
+   const t=seg(f,B.a,B.a+28,null,null,30);
+   const tot=D.cells;
+   /* 三段依次生长，不是一起 —— 一起长就读不出比例关系。 */
+   const g1=easeOut(p(f,B.a+18,B.a+68));
+   const g2=easeOut(p(f,B.a+50,B.a+96));
+   const g3=easeOut(p(f,B.a+78,B.a+128));
+   const w=(v,g)=>(v/tot*100*g).toFixed(3);
+   const lg=seg(f,B.a+96,B.a+128,null,null,24);
+   h+=`<div class="beat" style="opacity:${1-gone}">
+     <div class="eyebrow" style="opacity:${t.o}">真值表</div>
+     <div class="q" style="opacity:${t.o};transform:translateY(${t.y}px)">
+       <span class="tnum">${fmt(count(f,B.a+6,B.a+56,tot))}</span> 格，一格一个断言。</div>
+     <div class="barwrap">
+       <div class="bar">
+         <div class="seg" style="width:${w(D.yes,g1)}%;background:var(--brand)"></div>
+         <div class="seg" style="width:${w(D.no,g2)}%;background:var(--no)"></div>
+         <div class="seg" style="width:${w(D.unknown,g3)}%;background:var(--unknown)"></div>
+       </div>
+       <div class="legend" style="opacity:${lg.o};transform:translateY(${lg.y}px)">
+         <span><i class="dot" style="background:var(--brand)"></i><b class="tnum">${fmt(D.yes)}</b> 官方说能</span>
+         <span><i class="dot" style="background:var(--no)"></i><b class="tnum">${fmt(D.no)}</b> 官方说不能</span>
+         <span><i class="dot" style="background:var(--unknown)"></i><b class="tnum">${fmt(D.unknown)}</b> 官方没说</span>
+       </div>
+     </div>
+   </div>`;}
+
+  /* ④ 核心断言：520 / 520 */
+  {const B=BEATS[3];
+   const gone=easeIn(p(f,B.b-22,B.b));
+   const t=seg(f,B.a,B.a+30,null,null,34);
+   const s2=seg(f,B.a+34,B.a+68,null,null,30);
+   const s3=seg(f,B.a+62,B.a+96,null,null,26);
+   h+=`<div class="beat" style="opacity:${1-gone}">
+     <div class="eyebrow" style="opacity:${t.o}">这一格的分量</div>
+     <div class="big tnum" style="opacity:${t.o};transform:translateY(${t.y}px)">
+       ${fmt(count(f,B.a+8,B.a+62,D.yesSrc))}<span class="slash">/</span>${fmt(D.yes)}</div>
+     <div class="sub" style="opacity:${s2.o};transform:translateY(${s2.y}px);font-size:34px;color:var(--ink)">
+       说「能」的每一格，<b style="color:var(--brand)">都点得开官方原文</b>。</div>
+     <div class="sub" style="opacity:${s3.o};transform:translateY(${s3.y}px)">
+       那 ${fmt(D.unknown)} 格「官方没说」不是我们没查 ——<br>是查了，针对当前版本找不到明确说明。<b style="color:var(--ink)">那本身就是结论。</b></div>
+   </div>`;}
+
+  /* ⑤ 对照：左右分栏错位入场 */
+  {const B=BEATS[4];
+   const gone=easeIn(p(f,B.b-24,B.b));
+   const t=seg(f,B.a,B.a+30,null,null,32);
+   const L=seg(f,B.a+30,B.a+64,null,null,30);
+   const R=seg(f,B.a+52,B.a+88,null,null,30);
+   const tail=seg(f,B.a+108,B.a+140,null,null,24);
+   h+=`<div class="beat" style="opacity:${1-gone}">
+     <div class="eyebrow" style="opacity:${t.o}">而官方说了，也未必是实情</div>
+     <div class="who" style="opacity:${t.o};transform:translateY(${t.y}px)">${D.conflict.project}</div>
+     <div class="what" style="opacity:${t.o};transform:translateY(${t.y}px)">${D.conflict.what}</div>
+     <div class="cols">
+       <div class="col said" style="opacity:${L.o};transform:translateY(${L.y}px)">
+         <h4>它自己说</h4><p>${D.conflict.said}</p></div>
+       <div class="col hit" style="opacity:${R.o};transform:translateY(${R.y}px)">
+         <h4>实际撞到的</h4><p>${D.conflict.hit}</p></div>
+     </div>
+     <div class="tail" style="opacity:${tail.o};transform:translateY(${tail.y}px)">
+       这样的对照，站上有 <b style="color:var(--ink)" class="tnum">${D.conflicts}</b> 条 —— 每条都摆得出两侧出处，一条都不靠转述。</div>
+   </div>`;}
+
+  /* ⑥ 收 */
+  {const B=BEATS[5];
+   const t=seg(f,B.a,B.a+34,null,null,36);
+   const u=seg(f,B.a+26,B.a+62,null,null,30);
+   const ft=seg(f,B.a+50,B.a+84,null,null,22);
+   h+=`<div class="beat" style="opacity:1">
+     <div class="q" style="opacity:${t.o};transform:translateY(${t.y}px);font-size:60px">
+       不替你下判断。<br><em>把每一格的出处摆出来。</em></div>
+     <div class="url" style="opacity:${u.o};transform:translateY(${u.y}px);margin-top:52px">xiamimate.com/atlas</div>
+     <div class="foot" style="opacity:${ft.o};transform:translateY(${ft.y}px)">
+       ${D.domains} 卷 · ${fmt(D.models)} 个模型 · ${fmt(D.projects)} 个开源项目 · 数据口径 ${D.at}</div>
+   </div>`;}
+
+  wrap.innerHTML=h;
+  /* 只显示当前 beat —— 其余整个不画，省得叠在一起。 */
+  const idx=BEATS.findIndex((b)=>f>=b.a&&f<b.b);
+  [...wrap.children].forEach((el,i)=>{el.style.display=(i===Math.max(0,idx))?"flex":"none"});
+}
+window.setFrame=render;
+render(0);
+</script>
+</body></html>
