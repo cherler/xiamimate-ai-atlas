@@ -36500,7 +36500,7 @@
       "id": "game",
       "zh": "AI 游戏制作",
       "en": "AI Game Development",
-      "intro": "**用 AI 做游戏这条路已经有人跑通了一个可跑的版本** —— 描述一个游戏，agent 建工程、生素材、跑引擎、录像自证，全程可以不用你在场。但那条路的产能是买来的：编排开源，出图出模型全接闭源接口。这一页把三十多个开源项目按这条路的顺序摆开，每一格是通是断、通到什么程度都标出来。",
+      "intro": "**用 AI 做游戏这条路已经跑得通一个可跑的版本** —— 描述一个游戏，agent 建工程、生素材、跑引擎、录像自证，全程可以不用你在场。真正没人接的只剩**玩法设计**一格；骨骼绑定、精灵图、音效都有能用的开源方案，只是它们服务的是整个 3D 与音频行业，不挂「游戏」的招牌，所以不好找。",
       "groups": [
         {
           "id": "auto",
@@ -36518,7 +36518,7 @@
           "id": "asset",
           "zh": "游戏素材",
           "kind": "projects",
-          "intro": "模型、贴图、精灵图、音乐、NPC。**这一栏的空格和满格一样值钱** —— 3D、2D 精灵图与音乐都已经有能用的开源方案，**骨骼动画与音效这两格开源侧还基本没人做**。"
+          "intro": "模型、贴图、精灵图、骨骼、音效、音乐、NPC。**这一栏最值钱的一句是：能用的东西比想象中多，只是它们多半不挂『游戏』的招牌** —— 自动绑骨的项目服务整个 3D 行业，音效模型服务整个音频行业。按场景搜什么都搜不到，按能力搜就有。"
         },
         {
           "id": "basics",
@@ -36577,6 +36577,16 @@
           "id": "sprite2d",
           "zh": "2D 精灵图",
           "intro": "角色精灵表与逐帧动画。**上一轮我判这一格是空的，那是搜错了** —— 它有人做，而且做的正是那几个真难点。"
+        },
+        {
+          "id": "rigging",
+          "zh": "骨骼与动画",
+          "intro": "让网格能动。**上一轮我判这一格是空的 —— 错在按「游戏」去搜，而这些项目服务的是整个 3D 行业。**"
+        },
+        {
+          "id": "sfx",
+          "zh": "音效",
+          "intro": "脚步、开门、打击这类短音。和音乐是两回事，也确实有专门为它做的模型。"
         }
       ],
       "decisions": [
@@ -36586,7 +36596,7 @@
           "owner": "user",
           "cap": null,
           "handle": "—",
-          "fit": "没有任何一个项目接这一步。星速最高的那个在 README 里自己写着「你仍然做每一个决定」——它给的是分工与流程，不是玩法。",
+          "fit": "**这是整条路上唯一真的空着的一格。** 换六组关键词搜，星数上得了台面的项目一个都没有。星速最高的那个整套班子在 README 里自己写着「你仍然做每一个决定」—— 它给的是分工与流程，不是玩法。",
           "scenarios": [
             {
               "when": "想让 AI 替你想玩法",
@@ -36673,18 +36683,22 @@
         {
           "id": "rig",
           "zh": "骨骼与动画",
-          "owner": "user",
+          "owner": "partial",
           "cap": "d-rig",
-          "handle": "自动绑定",
-          "fit": "开源侧这一格基本是空的。生成模型给你一个不会动的网格，绑骨、蒙皮、做动画还是老办法 —— 这是「AI 做游戏素材」这条路上最明显的断点。",
+          "handle": "自动绑骨 / 文生动作",
+          "fit": "**这一格上一轮我判错了，写成「开源侧基本是空的」。** 实际上自动绑骨有 SIGGRAPH 级别的开源实现，文生 3D 人体动作也有能导出带骨骼动画的方案。错因是我按「游戏」这个场景去搜 —— 而这些项目服务的是整个 3D 行业，不挂游戏的招牌。",
           "scenarios": [
             {
-              "when": "要一个能动的角色",
-              "use": "没有一步到位的开源方案。生成网格之后进建模软件手工绑"
+              "when": "手上有网格，要它能动",
+              "use": "自动绑骨那一类：一个模型同时预测骨架与蒙皮权重，人形与非人形都吃"
             },
             {
-              "when": "只要环境物件",
-              "use": "不需要这一步，图生 3D 直接能用"
+              "when": "要一段具体动作",
+              "use": "文生动作那一类：描述动作出 3D 人体动画，可导 GLB 或 FBX"
+            },
+            {
+              "when": "要精细的表演级动画",
+              "use": "还是得人做。自动绑骨解决的是「能不能动」，不是「动得好不好看」"
             }
           ]
         },
@@ -36716,7 +36730,7 @@
           "owner": "partial",
           "cap": "s-m-prompt",
           "handle": "描述生成音乐",
-          "fit": "音乐这一格是通的，开源模型能出整首带结构的曲子。**音效不通** —— 脚步、开门、打击这类短音，开源侧没有专门的项目。",
+          "fit": "音乐早就通了。**音效这一格我上一轮也判错了** —— 不但通，而且有厂商专门为音效做的基础模型，还支持从一段视频反推该配什么声音。",
           "scenarios": [
             {
               "when": "要背景音乐",
@@ -36724,7 +36738,11 @@
             },
             {
               "when": "要一套音效",
-              "use": "开源侧没有专做这个的。走通用文生音频或者买素材"
+              "use": "专做音效的基础模型那一类；通用条件音频生成的框架也能训自己的"
+            },
+            {
+              "when": "要给一段已有画面配音效",
+              "use": "支持视频生音频的那一支：它看画面决定该响什么"
             }
           ]
         },
@@ -39668,6 +39686,334 @@
               "src": "DeepWiki · 抓取 2026-08-17",
               "verified_at": "2026-08-17",
               "mermaid": "sequenceDiagram\n    participant FE as Frontend (React)\n    participant APP as App (Go)\n    participant GEN as internal/gen (Provider)\n    participant PIPE as Sprite Pipeline\n\n    FE->>APP: GenerateState(stateName, prompt)\n    APP->>APP: genContext() (Create & Track CancelFunc)\n    APP->>GEN: Request Image (Attempt 1)\n    GEN-->>APP: Raw Strip PNG\n    APP->>PIPE: Process & Inspect (ScoreFrames)\n    alt Score < Threshold\n        APP->>APP: Inject RetryHints\n        APP->>GEN: Request Image (Attempt 2)\n    else Score >= Threshold\n        APP->>FE: Return Result\n    end\n    APP->>APP: release() (Cleanup Context)"
+            }
+          ],
+          "verified_at": "2026-08-17"
+        },
+        {
+          "id": "unirig",
+          "zh": "UniRig",
+          "sub": "rigging",
+          "group": "asset",
+          "role": "tool",
+          "license": "MIT",
+          "license_class": "permissive",
+          "decisions": [
+            "rig"
+          ],
+          "tags": [
+            "一个模型通吃各种骨架",
+            "SIGGRAPH 2025",
+            "已有更强的后继"
+          ],
+          "scope": "自动给 3D 模型绑骨的统一框架：一个模型处理各类骨架，不区分人形与非人形。",
+          "control": "**它把绑骨拆成两段做**：先预测骨架，再算蒙皮权重。这是「上传一个网格、拿回一个能动的模型」这条路上目前最正经的开源实现。",
+          "hw": "README 有独立的系统要求一节；需要显卡。",
+          "good": [
+            "**论文进了 SIGGRAPH 2025（TOG）**，不是随手攒的实现",
+            "各种骨架一个模型通吃，不用按品类换工具",
+            "MIT，商用没有附加条件"
+          ],
+          "bad": [
+            "**作者自己已经推出后继 SkinTokens**（蒙皮精度提升 98%–133%、骨骼预测提升 17%–22%），新项目会从那边开始，这个仓库的角色变成了「上一代」",
+            "两段式做法意味着两处都可能出错，得分别验",
+            "解决的是「能不能动」，动得好不好看还是人的活"
+          ],
+          "unfit": "要表演级的精细动画 —— 自动绑骨给的是可动，不是好看。",
+          "src": "github README + DeepWiki",
+          "url": "https://github.com/VAST-AI-Research/UniRig",
+          "stars": 1705,
+          "created_at": "2025-04-08",
+          "pushed_at": "2026-06-04",
+          "stars_per_month": 105,
+          "stale_months": 2,
+          "diagrams": [
+            {
+              "id": "g3-unirig-1",
+              "title": "东西怎么摆",
+              "kind": "架构图",
+              "src": "DeepWiki · 抓取 2026-08-17",
+              "verified_at": "2026-08-17",
+              "mermaid": "graph LR\n    A[\"merge()\"] --> B{\"Output Format?\"}\n    B --> C[\"VRM<br/>bpy.ops.export_scene.vrm()\"]\n    B --> D[\"FBX<br/>bpy.ops.export_scene.fbx()\"]\n    B --> E[\"GLTF<br/>bpy.ops.export_scene.gltf()\"]\n    B --> F[\"COLLADA<br/>bpy.ops.wm.collada_export()\"]\n    B --> G[\"Blender<br/>bpy.data.libraries.load()\"]"
+            },
+            {
+              "id": "g3-unirig-2",
+              "title": "一次调用经过什么",
+              "kind": "时序图",
+              "src": "DeepWiki · 抓取 2026-08-17",
+              "verified_at": "2026-08-17",
+              "mermaid": "sequenceDiagram\n    participant Client as \"Inference Script\"\n    participant Download as \"download()\"\n    participant MAP as \"Checkpoint MAP\"\n    participant Hub as \"Hugging Face Hub\"\n    \n    Client->>Download: download(ckpt_name)\n    Download->>MAP: Check if ckpt_name exists\n    alt Checkpoint found\n        Download->>Hub: hf_hub_download(repo_id, filename)\n        Hub-->>Download: Local checkpoint path\n        Download-->>Client: Return local path\n    else Checkpoint not found\n        Download-->>Client: Return original ckpt_name\n    end\n    \n    Note over Download,Hub: Exception handling returns original path"
+            }
+          ],
+          "verified_at": "2026-08-17"
+        },
+        {
+          "id": "comfyui-unirig",
+          "zh": "ComfyUI-UniRig",
+          "sub": "rigging",
+          "group": "asset",
+          "role": "tool",
+          "license": "GPL-3.0",
+          "license_class": "copyleft",
+          "license_note": "GPL-3.0 有传染性。它是封装层，上游 UniRig 本身是 MIT —— **两层许可证不同，要分开算**。",
+          "decisions": [
+            "rig"
+          ],
+          "tags": [
+            "把绑骨接进节点图",
+            "和出模型串成一条线"
+          ],
+          "scope": "UniRig 的 ComfyUI 封装：把自动绑骨做成节点，接进工作流。",
+          "control": "**它的意义不在功能，在位置** —— 绑骨进了节点图，就能和图生 3D 那几步串成一条线：出网格、绑骨、导出，一次跑完，不用在几个工具间搬文件。",
+          "hw": "跟 ComfyUI 与上游 UniRig 的要求走。",
+          "good": [
+            "**有人把它封进节点图，本身就是「这条路进了生产管线」的证据**",
+            "和图生 3D 那一批共用一个底座，串起来省事",
+            "仍在维护"
+          ],
+          "bad": [
+            "**GPL-3.0 比上游的 MIT 严**，商用前要分层核对",
+            "封装层的稳定性受上游与 ComfyUI 双重影响",
+            "DeepWiki 抓不到由源码生成的图"
+          ],
+          "unfit": "不用 ComfyUI 的人 —— 直接用上游即可。",
+          "src": "github README",
+          "wiki": "none",
+          "wiki_note": "DeepWiki 抓不到由源码生成的图（2026-08-17 核）。这是一层薄封装，主体逻辑在上游 UniRig 那边。",
+          "url": "https://github.com/PozzettiAndrea/ComfyUI-UniRig",
+          "stars": 415,
+          "created_at": "2025-11-12",
+          "pushed_at": "2026-08-10",
+          "stars_per_month": 45,
+          "stale_months": 0,
+          "verified_at": "2026-08-17"
+        },
+        {
+          "id": "hy-motion",
+          "zh": "ComfyUI-HY-Motion1",
+          "sub": "rigging",
+          "group": "asset",
+          "role": "tool",
+          "license": "没有许可证文件（上游为腾讯社区许可）",
+          "license_class": "restricted",
+          "license_note": "封装仓库里没有 LICENSE 文件（2026-08-17 查目录确认）。**上游 HY-Motion 1.0 是腾讯社区许可：授权区域不含欧盟、英国、韩国。** 两层都要看，出海产品尤其。",
+          "decisions": [
+            "rig"
+          ],
+          "tags": [
+            "文字直接出人体动作",
+            "导出带骨骼的 GLB/FBX",
+            "有骨架实时预览"
+          ],
+          "scope": "基于混元 HY-Motion 1.0 的 ComfyUI 插件：文字生成 3D 人体动作。带提示词改写与时长估计、多样本并发、骨架实时预览、Three.js 交互播放，可导出带骨骼动画的 GLB 与标准 FBX。",
+          "control": "**出口是引擎认的格式** —— 带骨骼动画的 GLB 与 FBX 能直接进 Unity 与虚幻。这一点决定了它是「能用」还是「只能看」。",
+          "hw": "跟 ComfyUI 与上游模型的要求走；需要显卡。",
+          "good": [
+            "**文字直接出动作，不用动捕也不用 K 帧**",
+            "GLB 导出不需要额外依赖，FBX 也支持 —— 落地路径通",
+            "带骨架预览，不用导出去才知道对不对"
+          ],
+          "bad": [
+            "**上游许可证排除欧盟、英国、韩国**",
+            "封装仓库自己没有许可证文件",
+            "只做人体动作，四足与机械体不在范围内"
+          ],
+          "unfit": "要非人形角色的动作 —— 它训的是人体。",
+          "src": "github README + 上游 LICENSE 原文 + DeepWiki",
+          "url": "https://github.com/jtydhr88/ComfyUI-HY-Motion1",
+          "stars": 305,
+          "created_at": "2025-12-30",
+          "pushed_at": "2026-04-28",
+          "stars_per_month": 40,
+          "stale_months": 4,
+          "diagrams": [
+            {
+              "id": "g3-hy-motion-1",
+              "title": "东西怎么摆",
+              "kind": "架构图",
+              "src": "DeepWiki · 抓取 2026-08-17",
+              "verified_at": "2026-08-17",
+              "mermaid": "flowchart LR\n    LP[\"HYMotionLoadPrompter\n(nodes.py)\"] -- \"HYMOTION_PROMPTER\" --> RW[\"HYMotionRewritePrompt\n(nodes.py)\"]\n    RW -- \"rewritten_text: STRING\" --> ENC[\"HYMotionEncodeText\"]\n    RW -- \"duration: FLOAT\" --> GEN[\"HYMotionGenerate\"]\n\n    subgraph \"HYMotionPrompterWrapper\"\n        W[\"HYMotionPrompterWrapper.rewriter\n= PromptRewriter instance\"]\n    end\n\n    LP --> W\n    W --> RW"
+            },
+            {
+              "id": "g3-hy-motion-2",
+              "title": "一次调用经过什么",
+              "kind": "流程图",
+              "src": "DeepWiki · 抓取 2026-08-17",
+              "verified_at": "2026-08-17",
+              "mermaid": "flowchart TD\n    A[\"Load tokenizer\nfrom GGUF directory\"] -->|\"success\"| DONE[\"tokenizer_loaded = True\"]\n    A -->|\"fail\"| B[\"Scan all Qwen3\ndirectories in ckpts/\"]\n    B -->|\"success\"| DONE\n    B -->|\"fail\"| C[\"Load from\nckpts/Qwen3-8B (default)\"]\n    C -->|\"success\"| DONE\n    C -->|\"fail\"| E[\"FileNotFoundError\"]"
+            }
+          ],
+          "verified_at": "2026-08-17"
+        },
+        {
+          "id": "woosh",
+          "zh": "Woosh",
+          "sub": "sfx",
+          "group": "asset",
+          "role": "tool",
+          "license": "Apache-2.0",
+          "license_class": "permissive",
+          "decisions": [
+            "audio"
+          ],
+          "tags": [
+            "索尼 AI 专做音效",
+            "能看画面配音",
+            "权重公开"
+          ],
+          "scope": "索尼 AI 的**音效生成模型族**，公开推理代码与权重，覆盖文生音频与视频生音频两类任务：音频编解码器、文本-音频对齐模型、两个文生音频的隐扩散模型，以及一个视频生音频的多模态模型。",
+          "control": "**这是这一格里唯一一个把「音效」当成正题的** —— 不是音乐模型顺带能做，而是从编解码器到条件模型整套为音效设计。视频生音频那一支还能**看着画面决定该响什么**。",
+          "hw": "用 uv 装依赖；需要显卡跑扩散推理。",
+          "good": [
+            "**厂商专门为音效做的基础模型**，开源侧独一份",
+            "视频生音频那一支正好对上「给已有画面配音效」这个真实需求",
+            "Apache-2.0，权重公开，商用无附加地区与规模限制"
+          ],
+          "bad": [
+            "星数不高 —— 但那反映的是「音效这件事关注度低」，不是它不行",
+            "整套四个模型，要搞清楚哪个管哪一段才用得起来",
+            "不做音乐，配乐要另找"
+          ],
+          "unfit": "要背景音乐 —— 那是音乐模型的活。",
+          "src": "github README + DeepWiki",
+          "url": "https://github.com/SonyResearch/Woosh",
+          "stars": 368,
+          "created_at": "2025-11-25",
+          "pushed_at": "2026-05-21",
+          "stars_per_month": 42,
+          "stale_months": 3,
+          "diagrams": [
+            {
+              "id": "g3-woosh-1",
+              "title": "东西怎么摆",
+              "kind": "架构图",
+              "src": "DeepWiki · 抓取 2026-08-17",
+              "verified_at": "2026-08-17",
+              "mermaid": "graph TD\n    subgraph \"Natural Language Space\"\n        V[\"Woosh-VFlow\"]\n        DV[\"Woosh-DVFlow\"]\n    end\n\n    subgraph \"Code Entity Space (woosh.module.model)\"\n        VK[\"VideoKontextLDM\"]\n        VK_LDM[\"VideoKontextLDM (Nested)\"]\n        VE[\"VideoEncoderConditioner\"]\n        DIT_V[\"SFXFlow\"]\n    end\n\n    V --> VK\n    DV --> VK\n    VK --> VK_LDM\n    VK_LDM --> DIT_V\n    VK_LDM --> VE"
+            },
+            {
+              "id": "g3-woosh-2",
+              "title": "一次调用经过什么",
+              "kind": "流程图",
+              "src": "DeepWiki · 抓取 2026-08-17",
+              "verified_at": "2026-08-17",
+              "mermaid": "graph TD\n    User[\"User (Tkinter UI)\"] -- \"text prompt\" --> GenFunc[\"generate()\"]\n    GenFunc -- \"HTTP POST (GenerateArgs)\" --> API[\"Woosh API Server\"]\n    API -- \"FLAC Audio Stream\" --> GenFunc\n    GenFunc -- \"Write to Disk\" --> TempFile[\"/tmp/sfxfm_flac/*.flac\"]\n    TempFile --> InsertFunc[\"insert_file_at_cursor()\"]\n    InsertFunc -- \"reapy.Project()\" --> Reaper[\"REAPER DAW\"]\n    Reaper -- \"RPR.InsertMedia()\" --> Timeline[\"Timeline Cursor\"]"
+            }
+          ],
+          "verified_at": "2026-08-17"
+        },
+        {
+          "id": "stable-audio-tools",
+          "zh": "stable-audio-tools",
+          "sub": "sfx",
+          "group": "asset",
+          "role": "base",
+          "license": "MIT",
+          "license_class": "permissive",
+          "decisions": [
+            "audio"
+          ],
+          "tags": [
+            "训练与推理都给",
+            "能训自己的音效模型",
+            "这一格的底座"
+          ],
+          "scope": "条件音频生成模型的训练与推理代码。**不是一个模型，是做模型的一套工具。**",
+          "control": "**它给的是训练那一半** —— 上面那些是「拿现成模型出声音」，这里是「用自己的素材训一个只出你要那类声音的模型」。游戏音效风格统一这件事，这条路最彻底。",
+          "hw": "PyTorch 2.5 以上（要 Flash Attention 与 Flex Attention）；Python 3.10；用 uv 装。",
+          "good": [
+            "训练与推理都给，是这一格事实上的底座",
+            "MIT，改了不用回馈",
+            "一直在维护，星数在音频生成里排前列"
+          ],
+          "bad": [
+            "**要自己有数据、有算力** —— 训练不是配好就能跑",
+            "它不带现成的音效模型，得自己训或接别人的权重",
+            "门槛明显高于「装上就出声」的那一类"
+          ],
+          "unfit": "只想出几个音效就走 —— 那用现成模型。",
+          "src": "github README + DeepWiki",
+          "url": "https://github.com/Stability-AI/stable-audio-tools",
+          "stars": 3842,
+          "created_at": "2023-05-23",
+          "pushed_at": "2026-08-09",
+          "stars_per_month": 99,
+          "stale_months": 0,
+          "diagrams": [
+            {
+              "id": "g3-stable-audio-tools-1",
+              "title": "东西怎么摆",
+              "kind": "架构图",
+              "src": "DeepWiki · 抓取 2026-08-17",
+              "verified_at": "2026-08-17",
+              "mermaid": "flowchart LR\n    Input[\"User Input (Text/Audio)\"] --> MC[\"MultiConditioner\"]\n    MC --> Cross[\"cross_attn_cond\"]\n    MC --> Global[\"global_embed\"]\n    MC --> Prepend[\"prepend_cond\"]\n    \n    Cross --> Model[\"ConditionedDiffusionModel\"]\n    Global --> Model\n    Prepend --> Model"
+            },
+            {
+              "id": "g3-stable-audio-tools-2",
+              "title": "一次调用经过什么",
+              "kind": "时序图",
+              "src": "DeepWiki · 抓取 2026-08-17",
+              "verified_at": "2026-08-17",
+              "mermaid": "sequenceDiagram\n    participant B as Batch Data\n    participant PT as Pretransform (Encoder)\n    participant W as Training Wrapper\n    participant M as Model (DiT/UNet)\n    participant L as Loss Function\n\n    B->>W: Raw Audio + Metadata\n    W->>PT: Encode to Latents\n    PT-->>W: Latent Representation\n    W->>W: Sample Timestep (t)\n    W->>W: Add Noise (sigma)\n    W->>M: Noised Latents + t + Conditioning\n    M-->>W: Predicted v / Noise\n    W->>L: Compare Prediction vs Target\n    L-->>W: Scalar Loss\n    W->>W: Update EMA Weights"
+            }
+          ],
+          "verified_at": "2026-08-17"
+        },
+        {
+          "id": "stable-audio-3",
+          "zh": "Stable Audio 3",
+          "sub": "sfx",
+          "group": "asset",
+          "role": "tool",
+          "license": "代码 MIT，权重为 Stability AI 社区许可",
+          "license_class": "restricted",
+          "license_note": "2026-08-17 核官方许可页：**年营收低于一百万美元的个人与组织可免费商用**，超过则须另行获取企业许可。**仓库代码与模型权重是两套许可，别只看仓库那个标签。**",
+          "decisions": [
+            "audio"
+          ],
+          "tags": [
+            "音频与音乐同一族",
+            "权重公开",
+            "营收超百万要另谈"
+          ],
+          "scope": "Stability 的新一代开放音频平台：推理与微调，声音与音乐同一族模型。由 stable-audio-tools 的经验演进而来。",
+          "control": "**推理与微调收在一起、砍掉研究包袱** —— README 明说做基础研究或用旧版模型的人应该继续留在 stable-audio-tools。两个仓库是分工不是替代。",
+          "hw": "需要显卡；模型权重在 Hugging Face 上分多个集合。",
+          "good": [
+            "音效与音乐一套模型都覆盖，不用维护两条链路",
+            "权重公开，可本地跑也可微调",
+            "还在维护，有技术报告可查"
+          ],
+          "bad": [
+            "**权重不是 MIT** —— 年营收过百万美元要另谈企业许可",
+            "定位是「用与微调」，想改底层还得回上一个仓库",
+            "新，长期维护看不出来"
+          ],
+          "unfit": "年营收过百万美元又不想谈授权的团队 —— 直接看 Apache-2.0 那一支。",
+          "src": "github README + Stability 官方许可页 + DeepWiki",
+          "url": "https://github.com/Stability-AI/stable-audio-3",
+          "stars": 681,
+          "created_at": "2026-03-19",
+          "pushed_at": "2026-08-04",
+          "stars_per_month": 137,
+          "stale_months": 0,
+          "diagrams": [
+            {
+              "id": "g3-stable-audio-3-1",
+              "title": "东西怎么摆",
+              "kind": "架构图",
+              "src": "DeepWiki · 抓取 2026-08-17",
+              "verified_at": "2026-08-17",
+              "mermaid": "graph LR\n    subgraph \"Interfaces\"\n        CLI[\"stable_audio_3.cli:main\"]\n        Gradio[\"run_gradio.py\"]\n    end\n\n    subgraph \"Core Library\"\n        SAM[\"stable_audio_3.model:StableAudioModel\"]\n        AEM[\"stable_audio_3.model:AutoencoderModel\"]\n    end\n\n    subgraph \"Subsystems\"\n        DIT[\"stable_audio_3.models.dit\"]\n        SAME[\"stable_audio_3.models.autoencoders\"]\n        COND[\"stable_audio_3.models.conditioning\"]\n    end\n\n    CLI & Gradio --> SAM\n    SAM --> DIT & SAME & COND\n    AEM --> SAME"
+            },
+            {
+              "id": "g3-stable-audio-3-2",
+              "title": "一次调用经过什么",
+              "kind": "时序图",
+              "src": "DeepWiki · 抓取 2026-08-17",
+              "verified_at": "2026-08-17",
+              "mermaid": "sequenceDiagram\n    participant CLI as \"insert_audio.py\"\n    participant RS as \"AudioInserter (Remote Script)\"\n    participant API as \"Live Python API\"\n\n    CLI->>CLI: find_latest_audio() or use explicit path\n    CLI->>RS: send_command({\"action\": \"insert_audio\", \"file_path\": \"...\"})\n    RS->>RS: _handle_command(data)\n    RS->>RS: schedule_message(1, do_insert)\n    Note over RS, API: Executes in Main Thread\n    RS->>API: song.create_audio_track(-1)\n    RS->>API: slot.create_audio_clip(unique_path)\n    RS->>API: track.duplicate_clip_to_arrangement(clip, insert_time)\n    RS->>API: slot.delete_clip()\n    RS-->>CLI: {\"ok\": True, \"message\": \"Done\"}"
             }
           ],
           "verified_at": "2026-08-17"
