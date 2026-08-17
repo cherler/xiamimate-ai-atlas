@@ -43,10 +43,16 @@ const blocks = [...text.matchAll(/```mermaid\n([\s\S]*?)```/g)].map((m) => m[1].
 
 /**
  * **DeepWiki 自己也会生成语法坏掉的 mermaid。**
- * 见过的一种：`[HV] ["标签"]` —— 节点 id 被套进了方括号，mermaid 直接解析失败。
- * 挑图时不标出来，就会一路带到 `make-diagrams` 才炸，还得回头找是哪一块。
+ *
+ * 见过两种，本质是同一个错：**语句以 `[` 开头，节点 id 丢了。**
+ *   `[HV] ["HunyuanVideo…"]`              ← 2026-08-16 撞的
+ *   `[web/src/services/api/image.ts] --> C` ← 2026-08-17 撞的
+ *
+ * 第一版检查只认前一种（`] [` 挨着），第二种就漏了过去，
+ * 一路带到 `make-diagrams` 才炸 —— **检查写窄了，等于没写。**
+ * 现在按根因判：flowchart 里任何语句都不能以 `[` 开头。
  */
-const broken = (b) => /^\s*\[[^\]]+\]\s+\[/m.test(b);
+const broken = (b) => /(^|\n)[ \t]*\[/.test(b);
 
 const uniq = [...new Set(blocks)];
 const bad = uniq.filter(broken).length;

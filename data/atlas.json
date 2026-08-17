@@ -31902,6 +31902,349 @@
           "license_note": "附商用补充条款"
         },
         {
+          "id": "infinite-canvas",
+          "zh": "infinite-canvas",
+          "url": "https://github.com/basketikun/infinite-canvas",
+          "stars": 5141,
+          "created_at": "2026-05-19",
+          "pushed_at": "2026-08-16",
+          "stars_per_month": 1739,
+          "stale_months": 0,
+          "license": "MIT",
+          "license_note": "README 明写「也可以用于闭源产品」",
+          "license_class": "permissive",
+          "role": "allinone",
+          "group": "allinone",
+          "decisions": [
+            "shot",
+            "compose",
+            "identity"
+          ],
+          "engine": "cloud",
+          "scope": "面向 AI 创作的无限画布工作台：生图、参考图编辑、视频生成、Agent 助手、画布编排在一张板子上。",
+          "control": "**它换的是交互形态，不是模型** —— 节点、连线、拖拽、缩放、撤销重做，你在一张能无限延伸的板子上边摆边生成，而不是填一个表单等结果。数据默认落在浏览器（IndexedDB），模型走你自己配的渠道。",
+          "hw": "不需要显卡（画面全走云端渠道）；用 Bun 装，可 Docker 部署",
+          "arch": "前端 Next.js + Zustand，画布状态与素材默认存在浏览器的 IndexedDB（localForage）；模型请求经 Next.js 代理转到 Go（Gin）后端，再按渠道配置选上游。Docker 部署时默认 SQLite、JWT 密钥自动生成。",
+          "good": [
+            "**无限画布这一形态里最热的一个** —— 90 天涨到 5141 星、1306 个 fork",
+            "MIT，README 明写可用于闭源产品",
+            "画布状态本地存，不配后端也能先玩起来",
+            "渠道可自配，接中转站的人很多（issue 里一整片）"
+          ],
+          "bad": [
+            "**画面全靠云端渠道** —— 省的是编排不是算力钱，而且要自备 key",
+            "**接中转站是高频坑**：issue #63 配置中转站拉不到模型、#14 sub2api 搭的站配不上（都已关闭）",
+            "高分辨率一直被追问（issue #9 要稳定出 2K/4K、#153 出不了更高分辨率）",
+            "在线 demo 曾经关掉过（issue #52）；NAS/Docker 下的数据持久化还在提（issue #159，开着）"
+          ],
+          "unfit": "想一句话出成片的人 —— 它是让你自己摆的工作台，不是自动流水线。",
+          "src": "github README + GitHub API + LICENSE + DeepWiki 架构页",
+          "verified_at": "2026-08-17",
+          "autonomy": {
+            "weights": "api",
+            "seed": "partial",
+            "swap": "1",
+            "note": "全云端；渠道在设置里配，换供应商不改代码"
+          },
+          "hands": {
+            "layers": [
+              "docs",
+              "wiki",
+              "issue"
+            ],
+            "install": [
+              {
+                "step": "`bun install`",
+                "gate": "官方给的就是 Bun，不是 npm"
+              },
+              {
+                "step": "配模型渠道",
+                "gate": "**接中转站的先看 issue #63 / #14** —— 这是最常撞的一堵墙"
+              },
+              {
+                "step": "（可选）Docker",
+                "gate": "默认 SQLite、JWT 自动生成；**数据卷挂载还在讨论**（issue #159）"
+              }
+            ],
+            "modify": [
+              {
+                "path": "画布状态 · useCanvasStore",
+                "effect": "节点与连线的状态。要改画布行为从这里进"
+              },
+              {
+                "path": "Next.js 代理 route.ts",
+                "effect": "模型请求的出口，渠道选择在它后面的 Go 服务里"
+              }
+            ],
+            "pitfalls": [
+              {
+                "where": "配中转站",
+                "note": "**issue #63「配置中转站 api 无法拉取模型和生图」回复 7 条、#14「sub2api 搭的中转站无法配置」回复 5 条**（都已关闭）—— 用官方渠道以外的先搜这两条"
+              },
+              {
+                "where": "出高分辨率",
+                "note": "**issue #9「调整图像质量选项以达到稳定生成 2K/4K」回复 8 条、#153「无法生成更高分辨率的图像」**（都已关闭）"
+              },
+              {
+                "where": "填新模型的参数",
+                "note": "**issue #17「调用 veo3.1 的时候参数要怎么填」回复 7 条** —— 渠道自配的代价是参数得自己对"
+              },
+              {
+                "where": "数据存哪",
+                "note": "默认存浏览器 IndexedDB。**NAS / Docker 下持久化到挂载目录还是 open 的**（issue #159）"
+              }
+            ],
+            "issue_src": "github issues 按回复数排序 · 核验 2026-08-17"
+          },
+          "diagrams": [
+            {
+              "id": "ic-arch",
+              "title": "浏览器里存什么、服务端做什么",
+              "kind": "架构图",
+              "src": "DeepWiki 架构页 · 抓取 2026-08-17",
+              "verified_at": "2026-08-17",
+              "mermaid": "graph TD\n    subgraph Browser [\"Browser Environment\"]\n        Canvas[\"InfiniteCanvas Component\"]\n        Store[\"useCanvasStore (Zustand)\"]\n        LocalDB[\"localForage (IndexedDB)\"]\n    end\n\n    subgraph NextJS [\"Next.js (Port 3000)\"]\n        UI[\"App Router Pages\"]\n        Proxy[\"/api/[...path]/route.ts\"]\n    end\n\n    subgraph GoBackend [\"Go API Server (Port 8080)\"]\n        Router[\"Gin/Std Router\"]\n        AIService[\"handler/ai.go\"]\n        Settings[\"service/settings.go\"]\n        DB[(\"SQLite/PostgreSQL\")]\n    end\n\n    Canvas <--> Store\n    Store <--> LocalDB\n    UI <--> Proxy\n    Proxy <--> Router\n    Router <--> AIService\n    AIService <--> Settings\n    Settings <--> DB"
+            },
+            {
+              "id": "ic-flow",
+              "title": "一句话怎么变成一次生成",
+              "kind": "流程图",
+              "src": "DeepWiki 架构页 · 抓取 2026-08-17",
+              "verified_at": "2026-08-17",
+              "mermaid": "graph LR\n    Intent[\"'Generate an image'\"] -- \"Captured by\" --> TextNode[\"CanvasNodeData (Text)\"]\n    TextNode -- \"Triggers\" --> ReqGen[\"requestGeneration()\"]\n    ReqGen -- \"POST /api/v1/images/generations\" --> Proxy[\"route.ts:proxy()\"]\n    Proxy -- \"Forwards to\" --> AIHandler[\"handler/ai.go:AIImagesGenerations\"]\n    AIHandler -- \"Selects Channel\" --> Select[\"service:SelectModelChannel\"]\n    Select -- \"Returns\" --> Channel[\"model:ModelChannel\"]"
+            }
+          ]
+        },
+        {
+          "id": "open-ai-canvas",
+          "zh": "open-ai-canvas",
+          "url": "https://github.com/ddcat-ai/open-ai-canvas",
+          "stars": 587,
+          "created_at": "2026-07-23",
+          "pushed_at": "2026-08-16",
+          "stars_per_month": 694,
+          "stale_months": 0,
+          "license": "MIT",
+          "license_class": "permissive",
+          "role": "allinone",
+          "group": "allinone",
+          "decisions": [
+            "shot",
+            "compose",
+            "identity",
+            "pace"
+          ],
+          "engine": "cloud",
+          "scope": "面向 AI 影视创作的无限画布：多模态生成、分镜编排、素材管理、Agent 工作流。",
+          "control": "**同是画布，它把重心放在影视这条线上** —— 分镜编排与素材管理是一等功能，后端是 Go（Gin）+ PostgreSQL + 异步 Worker，素材可落阿里云 OSS 或本地。后台还统一管上传上限与账号容量（默认单文件 50MB、日上传 200MB，可调到 999MB）。",
+          "hw": "不需要显卡；一条命令装服务端（脚本），或 Docker 起 Go 后端 + Nginx + PostgreSQL",
+          "arch": "React 前端 + Go/Gin 后端分层（handler → service → repository/GORM），生成任务交给异步 Worker，模型请求经渠道中继转到各家上游。存储走阿里云 OSS 或本地卷，Nginx 请求体硬上限 1024MB。",
+          "good": [
+            "**画布 + 分镜编排**：影视这条线上做得比通用画布深",
+            "有真正的后端（Go + PostgreSQL + 异步 Worker），不是纯前端玩具",
+            "上传上限、账号容量、日上传总量后台统一可调 —— 想自建给团队用的话这层很重要",
+            "MIT；一条命令装服务端"
+          ],
+          "bad": [
+            "**开源才 25 天** —— 587 星涨得快，但沉淀时间极短",
+            "画面全走云端渠道，要自备 key",
+            "issue 里大量是设计与交互提案（连线样式、工具栏收纳、气泡布局），**说明产品形态还在动**",
+            "火山方舟视频生成要求参考素材是公网可访问地址，**不开 OSS 就用不了**（issue #70）"
+          ],
+          "unfit": "只想在本机跑一下的人 —— 它的完整形态是带数据库与对象存储的服务端。",
+          "src": "github README + GitHub API + DeepWiki 架构页",
+          "verified_at": "2026-08-17",
+          "autonomy": {
+            "weights": "api",
+            "seed": "partial",
+            "swap": "few",
+            "note": "全云端；渠道与存储都在后台配"
+          },
+          "hands": {
+            "layers": [
+              "docs",
+              "wiki",
+              "issue"
+            ],
+            "install": [
+              {
+                "step": "装服务端",
+                "gate": "官方给了一条 `curl … | sudo bash` 的安装脚本；**这类装法先看一眼脚本内容**"
+              },
+              {
+                "step": "配存储",
+                "gate": "**要用火山方舟的视频生成就得开 OSS** —— 它要求参考素材有公网地址（issue #70）"
+              },
+              {
+                "step": "调上传上限",
+                "gate": "后台「资源与策略」里改，单文件业务上限最高 999MB，Nginx 硬上限 1024MB"
+              }
+            ],
+            "modify": [
+              {
+                "path": "backend/internal/worker",
+                "effect": "异步生成任务。要看任务怎么排队看这里"
+              },
+              {
+                "path": "backend handler → service → repository",
+                "effect": "三层分层，加接口按这条链走"
+              },
+              {
+                "path": "web/src/router.tsx",
+                "effect": "前端路由与画布页面"
+              }
+            ],
+            "pitfalls": [
+              {
+                "where": "不开 OSS",
+                "note": "**issue #70：火山方舟视频生成要求参考素材有公网可访问地址，不开 OSS 直接失败**（已关闭）"
+              },
+              {
+                "where": "画布基础操作",
+                "note": "**issue #54「画布没有框选功能」、#150「画布 agent 中无法输入」**（都已关闭）—— 太新，基础交互还在补"
+              },
+              {
+                "where": "Windows",
+                "note": "**issue #52：win 系统分镜放大模糊**（已关闭）"
+              }
+            ],
+            "issue_src": "github issues 按回复数排序 · 核验 2026-08-17"
+          },
+          "diagrams": [
+            {
+              "id": "oac-arch",
+              "title": "前后端与存储怎么摆",
+              "kind": "架构图",
+              "src": "DeepWiki 架构页 · 抓取 2026-08-17",
+              "verified_at": "2026-08-17",
+              "mermaid": "graph TD\n    subgraph \"Frontend (React + Zustand)\"\n        UI[\"AppWorkspaceShell [web/src/components/layout/app-top-nav.tsx]\"]\n        Router[\"React Router [web/src/router.tsx]\"]\n        Canvas[\"Infinite Canvas [web/src/pages/canvas/project.tsx]\"]\n        Stores[\"Zustand Stores (useConfigStore, useUserStore)\"]\n    end\n\n    subgraph \"Backend (Go + Gin)\"\n        API[\"HTTP API Handlers\"]\n        Worker[\"Task Worker [backend/internal/worker]\"]\n        Proxy[\"Channel Relay/Proxy\"]\n        DB[(\"PostgreSQL / SQLite\")]\n    end\n\n    subgraph \"External Providers\"\n        AI[\"AI Providers (OpenAI, Seedance, Volcengine, etc.)\"]\n        OSS[\"Storage (Aliyun OSS / Local)\"]\n    end\n\n    UI --> Router\n    Router --> Canvas\n    Canvas --> Stores\n    Stores --> API\n    API --> DB\n    API --> Worker\n    Worker --> AI\n    API --> Proxy\n    Proxy --> AI\n    Worker --> OSS"
+            },
+            {
+              "id": "oac-flow",
+              "title": "一个生成任务怎么排队",
+              "kind": "流程图",
+              "src": "DeepWiki 架构页 · 抓取 2026-08-17",
+              "verified_at": "2026-08-17",
+              "mermaid": "graph TD\n    subgraph \"Frontend (React)\"\n        UI[\"Canvas UI\"] -- \"POST /api/tasks\" --> ServiceLayer[\"task-center.ts\"]\n    end\n\n    subgraph \"Backend Handler (Gin)\"\n        R[\"RegisterTaskRoutes\"] --> H[\"POST /tasks Handler\"]\n        H --> Val[\"enforceRateLimit\"]\n        H --> Svc[\"service.CreateTask\"]\n    end\n\n    subgraph \"Service & Repository\"\n        Svc --> Repo[\"ClaimNextTask / CreateTask\"]\n        Repo --> DB[(\"SQLite/Postgres\")]\n    end\n\n    subgraph \"Worker Loop\"\n        Worker[\"StartWorker()\"] -- \"Polls\" --> DB\n        Worker --> Exec[\"processClaimedTask\"]\n    end\n\n    UI -- \"Event: task:created\" --> UI"
+            }
+          ]
+        },
+        {
+          "id": "vozeb-pro",
+          "zh": "VOZEB PRO",
+          "url": "https://github.com/csyqlz/VOZEB-PRO",
+          "stars": 368,
+          "created_at": "2026-07-18",
+          "pushed_at": "2026-08-17",
+          "stars_per_month": 365,
+          "stale_months": 0,
+          "license": "AGPL-3.0",
+          "license_note": "传染性：改了并对外提供服务就要开源",
+          "license_class": "copyleft",
+          "role": "allinone",
+          "group": "allinone",
+          "decisions": [
+            "shot",
+            "compose",
+            "identity",
+            "pace",
+            "sound"
+          ],
+          "engine": "cloud",
+          "scope": "把统一创作 Agent、画布、短剧生产线、素材库和商业运营后台放进同一套 Next.js 全栈应用。",
+          "control": "**这一类里唯一把「开门做生意」也做进去的** —— 除了画布与短剧产线，它还带用户、套餐、优惠券、积分、订单、支付、退款、对账、内容治理、审计日志。短剧线是完整的：剧本 → 审核 → 角色/场景/道具 → 分镜 → 镜头视频 → 配音 → 字幕 → FFmpeg 合成。",
+          "hw": "不需要显卡；要 PostgreSQL，媒体可落本地目录或 S3 兼容对象存储",
+          "arch": "Next.js 全栈 + PostgreSQL。**独立 Worker 负责续取生成任务** —— 页面关掉或实例切换后仍能接着查原来的上游任务。模型侧由管理员维护渠道、协议、真实模型与逻辑模型的映射，覆盖 OpenAI、Gemini、Seedance 2.0、Stable Diffusion、A1111/Forge 及自定义协议。密钥只在服务端用。",
+          "good": [
+            "**画布 + 短剧产线 + 商业后台三件套在一个仓库里**，这一类里独一份",
+            "生成任务由独立 Worker 续取，**关掉页面不丢任务**",
+            "真实模型与逻辑模型分开映射，换上游不动业务代码",
+            "README 自带 9 张流程图，作者把每条链路都画了 —— 这一点在开源项目里少见"
+          ],
+          "bad": [
+            "**AGPL-3.0**：带着商业后台却是传染性许可 —— 想拿它开服务就得开源，这条要先想清楚",
+            "**开源才 30 天**，版本还在 0.0.6",
+            "摊子铺得很大（创作 + 电商 + 治理 + 财务），**维护面同样大**",
+            "画面仍全走云端渠道，要自备 key"
+          ],
+          "unfit": "只想要一个生成工具的人 —— 它有一半是运营后台，那部分你多半用不上。",
+          "src": "github README + GitHub API + LICENSE 原文（DeepWiki 未索引，图取自 README）",
+          "verified_at": "2026-08-17",
+          "autonomy": {
+            "weights": "api",
+            "seed": "partial",
+            "swap": "1",
+            "note": "全云端；管理员在后台维护渠道与模型映射，换上游改一处"
+          },
+          "hands": {
+            "layers": [
+              "docs",
+              "issue"
+            ],
+            "install": [
+              {
+                "step": "备 PostgreSQL",
+                "gate": "账号与业务数据都在它里面，**这是硬依赖**"
+              },
+              {
+                "step": "定媒体落哪",
+                "gate": "本地目录或 S3 兼容对象存储，二选一先定 —— 之后迁移要走它的对象迁移功能"
+              },
+              {
+                "step": "后台配渠道",
+                "gate": "**先配「真实模型 → 逻辑模型」的映射**，业务侧只认逻辑模型，这一层没配好前端选不到东西"
+              }
+            ],
+            "modify": [
+              {
+                "path": "管理后台 · 上游配置",
+                "effect": "渠道、协议、真实模型、逻辑模型、能力与优先级都在这里"
+              },
+              {
+                "path": "独立 Worker",
+                "effect": "图片 / 视频 / 音频 / Agent 任务的续取。任务卡住先看它"
+              },
+              {
+                "path": "docs/",
+                "effect": "作者写了完整文档索引与页面图册，比读代码快"
+              }
+            ],
+            "pitfalls": [
+              {
+                "where": "许可证",
+                "note": "**AGPL-3.0 + 自带商业后台是一个别扭的组合** —— 它把开服务需要的东西都给你了，但许可证要求你开源。想商用先读 LICENSE"
+              },
+              {
+                "where": "版本还很早",
+                "note": "v0.0.6、开源 30 天。**功能表很长不等于每条都稳**，上生产前自己压一遍"
+              },
+              {
+                "where": "逻辑模型没配",
+                "note": "业务侧只认逻辑模型 —— 后台没建映射时，前端会「什么都选不到」，但不会明确报错"
+              }
+            ],
+            "issue_src": "github issues · 核验 2026-08-17（仓库暂无开放 issue）"
+          },
+          "diagrams": [
+            {
+              "id": "vozeb-arch",
+              "title": "工作区分成哪几块",
+              "kind": "架构图",
+              "src": "仓库 README 自带的流程图 · 抓取 2026-08-17",
+              "verified_at": "2026-08-17",
+              "mermaid": "flowchart TB\n    USER[\"用户工作区<br/>加载用户、积分、模型和站点配置\"]\n\n    USER --> CREATE[\"统一创作 Agent /create<br/>文本、图片、视频、音频与服务端会话\"]\n\n    USER --> CANVAS[\"Canvas 项目 /canvas<br/>创建、搜索、重命名和删除\"]\n    CANVAS --> CANVAS_ID[\"Canvas 编辑器 /canvas/:id\"]\n\n    USER --> DRAMA[\"短剧项目 /drama<br/>项目和生产进度管理\"]\n    DRAMA --> DRAMA_ID[\"短剧编辑器 /drama/:id\"]\n\n    USER --> PROMPTS[\"公共提示词 /prompts\"]\n    USER --> MY_PROMPTS[\"我的提示词 /my-prompts\"]\n    USER --> ASSETS[\"我的素材 /assets\"]\n    USER --> HELP[\"帮助中心 /help\"]\n    USER --> PROFILE[\"个人中心 /profile\"]\n    USER --> BILLING[\"充值中心 /billing\"]\n\n    PROMPTS --> CREATE\n    MY_PROMPTS --> CREATE\n    ASSETS --> CREATE\n    ASSETS --> CANVAS_ID\n    ASSETS --> DRAMA_ID"
+            },
+            {
+              "id": "vozeb-flow",
+              "title": "一次创作请求怎么走",
+              "kind": "流程图",
+              "src": "仓库 README 自带的流程图 · 抓取 2026-08-17",
+              "verified_at": "2026-08-17",
+              "mermaid": "flowchart LR\n    PAGE[\"所有用户页和管理页\"] --> CLIENT[\"前端 API Service\"]\n    CLIENT --> ROUTE[\"Next.js Route Handler\"]\n    ROUTE --> AUTH[\"Session、用户归属和角色鉴权\"]\n    AUTH --> SERVICE[\"业务服务和任务编排\"]\n\n    SERVICE --> REPO[\"Repository<br/>参数化查询和事务\"]\n    REPO --> PG[(\"PostgreSQL 16\")]\n\n    SERVICE --> ROUTER[\"逻辑模型路由\"]\n    ROUTER --> PROVIDER[\"外部 AI 模型\"]\n    PROVIDER --> TASK[\"幂等任务和状态轮询\"]\n\n    TASK --> BILLING[\"积分扣费和套餐用量\"]\n    BILLING --> PG\n\n    TASK -->|失败或取消| REFUND[\"幂等退款\"]\n    REFUND --> PG\n\n    TASK --> MEDIA[\"媒体下载、规范化和登记\"]\n    MEDIA --> SWITCH{\"存储位置\"}\n    SWITCH -->|本地| LOCAL[\"服务器数据目录\"]\n    SWITCH -->|外部| S3[\"S3 兼容对象存储\"]\n    MEDIA --> PG\n\n    PG --> RESPONSE[\"统一返回 code / data / msg\"]\n    LOCAL --> RESPONSE\n    S3 --> RESPONSE\n    RESPONSE --> PAGE"
+            }
+          ]
+        },
+        {
           "id": "openmontage",
           "zh": "OpenMontage",
           "url": "https://github.com/calesthio/OpenMontage",
@@ -33482,7 +33825,7 @@
         {
           "id": "allinone",
           "zh": "一站式",
-          "intro": "从一句主题或一部小说到一条成片全包。**它们省掉的是编排，不是算力钱** —— 画面从哪来，决定了它到底帮你做了什么。另外注意：**这一类里「开源」的成色差得很远** —— 有的源码比安装包旧好几个版本，有的已宣布不再同步源码，有的许可证根本禁止商用。",
+          "intro": "从一句主题或一部小说到一条成片全包，**另外还有一支「无限画布」**：节点连线、边摆边生成，你自己当导演而不是等一键出片。两种形态省掉的都是编排，**不是算力钱** —— 画面从哪来，决定了它到底帮你做了什么。另外注意：**这一类里「开源」的成色差得很远** —— 有的源码比安装包旧好几个版本，有的已宣布不再同步源码，有的许可证根本禁止商用。",
           "kind": "projects"
         },
         {
