@@ -225,6 +225,72 @@ for (const t of a.topics ?? []) {
 }
 
 /**
+ * R90 —— **「自述与实测打架」每条都要引得到项目、带得出出处。**
+ *
+ * 这一类是 `/claims` 页上唯一手写的部分（许可证那几类全是现算的）。
+ * 手写就意味着它可能腐坏：项目改了 id 就挂空，出处没了就退回成传闻 ——
+ * **而传闻正是这一页要挡的东西。**
+ *
+ * 「它自己说」和「实际撞到的」两侧都必须有：只有一侧的叫抱怨，不叫对照。
+ */
+{
+  for (const t of a.topics ?? []) {
+    const ids = new Set((t.projects ?? []).map((p) => p.id));
+    for (const c of t.conflicts ?? []) {
+      const at = `R90 专项「${t.zh}」› 对照「${c.project ?? "无名"}」`;
+      if (!ids.has(c.project))
+        errs.push(`${at} 引了不存在的项目 —— 它会从 /claims 页上整个消失，页面不报错`);
+      if (!c.what?.trim()) errs.push(`${at} 没写差在哪（what）`);
+      if (!c.said?.trim() || !c.hit?.trim())
+        errs.push(`${at} 缺「${!c.said?.trim() ? "它自己说" : "实际撞到的"}」—— 只有一侧的是抱怨不是对照`);
+      if (!(c.src ?? []).length)
+        errs.push(`${at} 没有出处 —— 没出处的对照就是传闻，而这一页正是要挡传闻`);
+      for (const s of c.src ?? [])
+        if (!/^https?:\/\//.test(s.url ?? "")) errs.push(`${at} 的出处不是链接：${s.url}`);
+      if (!/^\d{4}-\d{2}-\d{2}$/.test(c.verified_at ?? "")) errs.push(`${at} 没写核验日`);
+    }
+  }
+}
+
+/**
+ * R89 —— **说「这一格是空的」，就得交代搜过哪些词。**
+ *
+ * 2026-08-17 同一天在这上面栽了五次：Godot 侧、自动开发游戏、2D 精灵图、
+ * 骨骼动画、音效 —— 全是搜得太窄就下能力断言，五条后来全被推翻。
+ *
+ * 错的形状很固定：**把「没有专门为这个场景做的工具」写成了「AI 做不到」。**
+ * 搜 `game rigging` 几乎什么都没有，搜 `auto rigging 3d` 立刻冒出 SIGGRAPH
+ * 论文项目 —— 因为它服务的是整个 3D 行业，不挂「游戏」的招牌。
+ *
+ * 所以「空」这个结论要付代价：列出搜过的词、写上日期。
+ * **十二组是下限** —— 少于这个数，那句话说的其实是「我没找到」。
+ *
+ * ⚠️ 只查「断定没有」的句子。「上一轮我判错了」这种**认错的句子放过** ——
+ * 它们含「没有」二字，但说的正好相反。
+ */
+{
+  const CLAIM = /(没有人?做|没人做|一个都没有|基本是空的|真的空|开源侧没有|整支是空的|没有现成方案|没有(任何)?一个)/;
+  const FIXED = /(判错|错在|我错了|不成立|上一轮)/;
+  const MIN = 12;
+  for (const t of a.topics ?? [])
+    for (const d of t.decisions ?? []) {
+      const txt = `${d.fit ?? ""}${(d.scenarios ?? []).map((s) => s.use).join("")}`;
+      if (!CLAIM.test(txt) || FIXED.test(txt)) continue;
+      const q = d.searched;
+      if (!q) {
+        errs.push(`R89 专项「${t.zh}」› 决定「${d.zh}」断定这一格没有东西，却没写搜过哪些词（searched）—— ` +
+          `**「我没搜到」和「它不存在」是两句话**，这个错 2026-08-17 一天犯了五次`);
+        continue;
+      }
+      if (!Array.isArray(q.terms) || q.terms.length < MIN)
+        errs.push(`R89 专项「${t.zh}」› 决定「${d.zh}」只搜了 ${q.terms?.length ?? 0} 组关键词（要 ${MIN} 组以上）—— ` +
+          `搜得不够就只能说「我搜到的都很小」，不能说「没有」`);
+      if (!/^\d{4}-\d{2}-\d{2}$/.test(q.at ?? ""))
+        errs.push(`R89 专项「${t.zh}」› 决定「${d.zh}」的搜索没写日期 —— 这类结论会过期，没有日期就没法复查`);
+    }
+}
+
+/**
  * R88 —— **星速与停更月数必须和公式对得上。**
  *
  * 这两个数是从 `stars / created_at / pushed_at` 算出来的，不是独立事实。

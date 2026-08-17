@@ -503,6 +503,24 @@ export type Decision = {
    * 负责人否掉了两栏对比之后定的形式：读者要的是「我这种情况该用什么」。
    */
   scenarios?: { when: string; use: string }[];
+  /**
+   * **说「这一格是空的」时，搜过哪些词。**
+   *
+   * 2026-08-17 这一天，我在同一个错上栽了五次：Godot 侧、自动开发游戏、
+   * 2D 精灵图、骨骼动画、音效 —— **全是搜得太窄就下了能力断言**，
+   * 五条后来全被推翻。负责人问「后边这几个断点没有 AI 可实现吗」时才查出来。
+   *
+   * 错的形状很固定：**把「没有专门为这个场景做的工具」写成了「AI 做不到」**。
+   * 骨骼那一格最典型 —— 搜 `game rigging` 几乎什么都没有，
+   * 搜 `auto rigging 3d` 立刻冒出 SIGGRAPH 论文项目，因为它服务的是整个 3D 行业。
+   *
+   * 所以「空」这个结论要付出代价：**列出搜过的词，写上日期**。
+   * 好处有两层 —— 逼自己搜够（少于十二组根本不该下结论），
+   * 以及下次复查时有据可依，不用从零再搜一遍。
+   *
+   * 由 R89 强制：`fit` 里出现「没有 / 没人做 / 一个都没有」这类断言而缺这个字段，校验红。
+   */
+  searched?: { terms: string[]; at: string; note?: string };
 };
 /** 图种。四类各自回答一类问题：东西怎么摆 / 数据怎么走 / 谁先谁后 / 怎么搭起来。 */
 export type DiagramKind = "架构图" | "流程图" | "时序图" | "工程图";
@@ -784,6 +802,20 @@ export type Topic = {
   basics?: TopicBasic[];
   basic_parts?: TopicBasicPart[];
   decisions: Decision[]; chapters: TopicChapter[]; projects: TopicProject[];
+  /**
+   * **自述与实测打架的地方。** 见 `lib/claims.ts` 与 `/claims` 页。
+   *
+   * 这一类和许可证那几类不一样：**算不出来**。
+   * 它是两段文字的矛盾（README 说 A、issue 说 B），得有人读过两边才判得了。
+   * 所以它手写 —— 但**两侧都必须带出处**，少了出处就退回成传闻，
+   * 而传闻正是这一页要挡的东西。
+   *
+   * `project` 引 `projects[].id`。由 R90 强制查出处与引用。
+   */
+  conflicts?: {
+    project: string; what: string; said: string; hit: string;
+    src: { title: string; url: string }[]; verified_at: string;
+  }[];
 };
 
 export const atlas = raw as unknown as {

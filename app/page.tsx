@@ -134,6 +134,9 @@ export default function Pick() {
           ["/basics", "看不懂那些词？先看这里"],
           ["/changes", "最近有什么变化"],
           ["/caveats", "能力对了，未必用得上"],
+          /* 专项那一百多张卡里最值钱的是「什么是假的」，但它散在各卡的「局限」里 ——
+             这里给它一个入口，否则一个只想问「我该当心什么」的人凑不齐。 */
+          ["/claims", "项目说的，和用的人撞到的"],
           ["/toolkit", "想查一件事，去哪个站"],
         ].map(([href, zh]) => (
           <Link key={href} href={href} className="hover:text-ink underline">{zh} →</Link>

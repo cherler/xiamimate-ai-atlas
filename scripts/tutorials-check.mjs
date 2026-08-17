@@ -39,6 +39,9 @@ for (const t of a.topics ?? []) {
    */
   for (const w of t.works ?? [])
     for (const s of w.src ?? []) rows.push({ project: `作品 · ${w.zh}`, ...s });
+  /** 「自述与实测」的出处同理 —— **出处一死，那条对照就退回成传闻**。 */
+  for (const c of t.conflicts ?? [])
+    for (const s of c.src ?? []) rows.push({ project: `对照 · ${c.project}`, ...s });
 }
 
 if (!rows.length) { console.log("没有教程可查。"); process.exit(0); }

@@ -135,6 +135,13 @@ const ROUTES = [
    * 「多记真内容反而算退步」是错的度量，和 /changes 当初那个错同一类。
    */
   { path: "/caveats", must: "你未必用得上", zh: 90, per: "section > div > div", built: true },
+  /**
+   * `/claims`（2026-08-17 新增）。**字数按每条均摊** —— 和 /changes、/caveats 同一个理由：
+   * 多核出一条对不上的地方不该算退步。`also` 钉三样最容易掉的：
+   * 两侧对照的栏名、以及「现算」这件事本身（它是这一页可信的根据）。
+   */
+  { path: "/claims", must: "自述与实测", zh: 150, per: "article", built: true,
+    also: ["它自己说", "实际撞到的", "从数据现算"] },
   { path: "/compare/kling-vs-seedance", must: "还是", zh: 800, built: true },
   { path: "/skill/motion", must: "动作复刻", zh: 1400, built: true, also: ["拿什么跑", "原生模型就能做", "得用它的变体", "自己部署", "Motion Control 是独立模型"] },
   { path: "/skill/openweights", must: "开源自部署", zh: 1600, built: true, also: ["拿什么跑", "家能做这件事"] },
@@ -856,6 +863,7 @@ if (FLOWS) {
     topic: "问专项的 domain（可为空 = 横跨，显示「全站」）",
     changes: "跨方向", method: "跨方向", toolkit: "跨方向", caveats: "跨方向", basics: "跨方向",
     compare: "跨方向", release: "跨方向", where: "跨方向", search: "跨方向", map: "跨方向",
+    claims: "跨方向（自述与实测，横跨所有专项）",
   };
   /** 不是页面的东西不算路由家族。 */
   const SKIP = /^(_next|og|diagrams|assets|images|fonts|favicon|robots|sitemap|changes\.xml|404|index)/;

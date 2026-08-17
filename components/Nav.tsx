@@ -106,7 +106,7 @@ export default function Nav() {
    * **不属于谁就别声称属于谁。** 切换器在这些页显示「全站」，菜单里两个方向都不实心。
    * （四个主链接仍要有落点，用 live 方向；这是导航选择，不是身份声明。）
    */
-  const CROSS = ["changes", "method", "toolkit", "caveats", "basics"];
+  const CROSS = ["changes", "method", "toolkit", "caveats", "basics", "claims"];
   /**
    * **根页 `/` 也不属于任何方向** —— 它就是方向选择页（「先选一个方向」）。
    * 2026-08-12 负责人截图指出：站在 /atlas 上，左上角却写着「AI 视频」。

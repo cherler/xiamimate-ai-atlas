@@ -28454,16 +28454,44 @@
         {
           "id": "topic",
           "zh": "选题与钩子",
-          "owner": "user",
+          "owner": "partial",
           "cap": null,
-          "handle": "—",
-          "fit": "没有工具接这一步，包括四个一站式在内 —— 它们全都把选题留给你。",
+          "handle": "热搜聚合 → 趋势分析 → 选题",
+          "fit": "**这一条上一轮我判错了，写成「没有工具接这一步」。** 换十四组词重搜之后，中文侧至少四个项目正面做「爆款选题」，而且都从热搜与舆情数据出发，不是凭空想。**错在按「视频」去搜** —— 它们服务的是图文内容运营（公众号、小红书），所以挂的招牌不是视频。但选题这一步和载体无关：热搜是同一份热搜。",
           "scenarios": [
             {
-              "when": "想让模型替你想选题",
-              "use": "没有现成方案。一站式工具里的「输入主题」是从你的选题开始，不是替你选"
+              "when": "要从热点里找选题",
+              "use": "内容运营那一类：热搜聚合加趋势分析出选题，虽然它们的出口是图文"
+            },
+            {
+              "when": "已有选题、要写钩子",
+              "use": "提示词那一栏的技能包，钩子库是它们的标配之一"
+            },
+            {
+              "when": "指望一站式工具替你选题",
+              "use": "别指望 —— 一站式的入口是「你给一句主题」，那已经是选题之后的事"
             }
-          ]
+          ],
+          "searched": {
+            "terms": [
+              "content idea generator ai",
+              "viral hook generator",
+              "video topic research ai",
+              "trending topic analysis tool",
+              "youtube idea generator",
+              "short video hook ai",
+              "content strategy ai agent",
+              "video script hook generator",
+              "content calendar ai",
+              "trend analysis tiktok",
+              "选题 工具",
+              "爆款 选题 分析",
+              "audience research ai tool",
+              "video title generator ai"
+            ],
+            "at": "2026-08-17",
+            "note": "十四组词。**命中的不是零** —— AIWriteX（热搜舆情聚合 + 爆款选题）、Beav 与 xhs_content_agent（小红书选题与写作）、social-media-skills 都在做这件事，只是出口是图文不是视频。所以原来那句「没有工具接这一步」是错的，已改。"
+          }
         },
         {
           "id": "shot",
@@ -36494,6 +36522,60 @@
           "zh": "法与权",
           "intro": "**在中国做 AI 视频有强制标识义务**，2025-09-01 起施行。素材与音乐的授权同理。"
         }
+      ],
+      "conflicts": [
+        {
+          "project": "livetalking",
+          "what": "**README 说支持被打断，实测说最快三秒 —— 这一条直接决定它能不能做直播**",
+          "said": "实时交互流式数字人引擎，特性列表第三条写着「支持数字人说话被打断」",
+          "hit": "issue #510（21 条回复）标题：「打断能力太弱了，响应最快 3 秒，最慢更多，没法直接用在对语音有实时性很高追求的项目上」",
+          "src": [
+            {
+              "title": "issue #510",
+              "url": "https://github.com/lipku/LiveTalking/issues/510"
+            }
+          ],
+          "verified_at": "2026-08-17"
+        },
+        {
+          "project": "clipforge",
+          "what": "功能表列了二十来项，**而 README 是营销口吻 —— 成熟度要按你真正要用的那两三项单独验**",
+          "said": "一张商品图出成片，另有主播库、模板库、爆款复刻、变体矩阵、Agent 出片等二十余项能力",
+          "hit": "这些能力目前只有 README 自述，仓库开源不到半年、没有开着的 issue 可交叉印证 ——**「没有人报问题」和「没有问题」是两回事**，更可能是用的人还少",
+          "src": [
+            {
+              "title": "仓库 README",
+              "url": "https://github.com/xixihhhh/clipforge"
+            }
+          ],
+          "verified_at": "2026-08-17"
+        },
+        {
+          "project": "yt-shorts-gen",
+          "what": "开源切片工具，**默认档走的是作者自家的付费接口**",
+          "said": "Opus Clip 等商业切片工具的开源替代，不按条计费、不打水印",
+          "hit": "README 的前置条件写明：默认模式要一个自家平台的密钥（下载、转写、高光排序、切片都走它）；要真正本地跑得加 `--mode local`，那时只有语言模型那一步走远端",
+          "src": [
+            {
+              "title": "仓库 README 的前置条件一节",
+              "url": "https://github.com/Anil-matcha/AI-Youtube-Shorts-Generator"
+            }
+          ],
+          "verified_at": "2026-08-17"
+        },
+        {
+          "project": "open-ai-ugc",
+          "what": "叫「开源替代」，**但它其实是一套要配数据库与支付的 SaaS 模板**",
+          "said": "Arcads 与 MakeUGC 的免费开源替代，不锁演员库、不按席位收费、不打水印",
+          "hit": "前置条件是 Node 18+、一个 PostgreSQL 数据库、作者自家平台的密钥、Google OAuth 客户端，以及一个 Stripe 账户 —— **要把这一套起起来才跑得动**",
+          "src": [
+            {
+              "title": "仓库 README 的前置条件一节",
+              "url": "https://github.com/Anil-matcha/Open-AI-UGC"
+            }
+          ],
+          "verified_at": "2026-08-17"
+        }
       ]
     },
     {
@@ -36612,7 +36694,27 @@
               "when": "已经有玩法、想把它拆成能干的活",
               "use": "整套班子那一类：它把一句想法拆成设计文档、史诗、故事卡"
             }
-          ]
+          ],
+          "searched": {
+            "terms": [
+              "game design assistant llm",
+              "game mechanics generator",
+              "procedural quest generation",
+              "game balance ai tool",
+              "playtesting ai agent",
+              "game design copilot",
+              "level design ai tool",
+              "game idea generator ai",
+              "gameplay prototype ai",
+              "game economy simulation tool",
+              "game rules generator",
+              "narrative design ai tool",
+              "difficulty tuning ai",
+              "game designer agent"
+            ],
+            "at": "2026-08-17",
+            "note": "十四组词，两百星以上只命中四个，且**全都不相干**（Nginx 防 DDoS 脚本、爬虫工具、Figma 助手、编程练习清单）—— 是搜索词撞上了别的领域，不是这一格有东西。"
+          }
         },
         {
           "id": "code",
@@ -40574,6 +40676,94 @@
         {
           "zh": "itch.io 上其余的 AI 游戏 jam 作品",
           "why": "itch.io 已经打得开（上一轮记成「连不上」是我把代理关了，判断有误）。**平台有强制的 AI 披露字段**，靠它能筛出用过 AI 的作品 —— 但披露只说「用了」，不说「怎么用的」。按「制作方自己公开说明过管线」的规矩，光有披露字段还不够，得有提示词或过程记录。逐条筛这件事这一轮没做完，留着下轮。",
+          "verified_at": "2026-08-17"
+        }
+      ],
+      "conflicts": [
+        {
+          "project": "cc-game-studios",
+          "what": "星速全场最高，但**社区自己在追问「有人真做出来过吗」，至今没人拿得出成品**",
+          "said": "把一个会话组织成一间工作室：49 个 agent、73 个流程命令、三大引擎各配专家",
+          "hit": "issue #34（12 条回复）问「有人做出过完整能玩的游戏吗」——两位重度用户分别在第 5 个与第 62 个冲刺，都还没发布；另有人直接说「我到现在没看到它真产出过游戏」。中文 issue #53 里多位用户：「一直在产生文档」「跑了十来天，一行代码不带写，硬逼着写 demo 出来非常粗糙」",
+          "src": [
+            {
+              "title": "issue #34：Has anyone created a finished, playable game successfully?",
+              "url": "https://github.com/Donchitos/Claude-Code-Game-Studios/issues/34"
+            },
+            {
+              "title": "issue #53：有人用这个搭建过一个完整的游戏吗?",
+              "url": "https://github.com/Donchitos/Claude-Code-Game-Studios/issues/53"
+            }
+          ],
+          "verified_at": "2026-08-17"
+        },
+        {
+          "project": "unrealclaude",
+          "what": "宣传里蓝图编辑是主打，**README 自己又写着「别完全依赖」**，而 issue 说压根读不了",
+          "said": "能建和改蓝图、动画蓝图与状态机 —— 这是它功能表里的第一梯队",
+          "hit": "同一份 README 在那一行后面括号里写着「还有些 bug，别完全依赖」；issue #31（6 条回复）标题就是「Claude 读不了蓝图、用不了其它自定义工具」",
+          "src": [
+            {
+              "title": "issue #31：Claude cannot read Blueprints or use other custom tools",
+              "url": "https://github.com/Natfii/UnrealClaude/issues/31"
+            }
+          ],
+          "verified_at": "2026-08-17"
+        },
+        {
+          "project": "locus",
+          "what": "主打全流程开发，**但在某个 Unity 版本上核心工具「从没成功过」**",
+          "said": "在编辑器里写 C#、读改对象与资源、完成完整的功能开发流程",
+          "hit": "issue #84（4 条回复）：「unity execute 脚本这个工具，在我的 unity 2022.3.14 中从没有成功过，都是 failed」",
+          "src": [
+            {
+              "title": "issue #84",
+              "url": "https://github.com/r1n7aro/Locus/issues/84"
+            }
+          ],
+          "verified_at": "2026-08-17"
+        },
+        {
+          "project": "cocos-mcp",
+          "what": "开源仓库，**但 README 主体在推一个第三方公司维护的付费版**",
+          "said": "适用于 Cocos Creator 3.8+ 的综合性 MCP 服务插件，一键安装",
+          "hit": "README 大篇幅介绍由另一家公司打造并持续维护的 Pro 版（16 个意图级工具覆盖 231 项操作），免费版写明 50 个工具 —— 两者的能力边界要自己划；且仓库里没有 LICENSE 文件",
+          "src": [
+            {
+              "title": "仓库 README",
+              "url": "https://github.com/DaxianLee/cocos-mcp-server"
+            }
+          ],
+          "verified_at": "2026-08-17"
+        },
+        {
+          "project": "godogen",
+          "what": "「自动开发游戏」跑得通，**但产能全是买来的 —— 开源的是编排不是能力**",
+          "said": "描述一个游戏，agent 建工程、生素材、跑引擎、录像自证，全程可以不用你在场",
+          "hit": "同一份 README 的前置条件里列着三个闭源接口的密钥：参考图与角色走 Gemini、贴图与视频走 Grok、3D 与绑定走 Tripo3D，缺一不可；并说明一次完整生成要几个小时，建议放到 GPU 服务器上用 tmux 挂着跑",
+          "src": [
+            {
+              "title": "仓库 README 的前置条件一节",
+              "url": "https://github.com/htdt/godogen"
+            }
+          ],
+          "verified_at": "2026-08-17"
+        },
+        {
+          "project": "unreal-mcp",
+          "what": "虚幻侧星数最多的一个，**作者自己不建议用于生产**，而且停更超过一年",
+          "said": "全面的虚幻控制工具：Actor、蓝图、节点图、编辑器视口",
+          "hit": "README 顶部的实验性声明：「不建议用于生产」「可能无预警地发生破坏性变更」；issue #15「spawn_blueprint_actor 不工作」、#5「加蓝图事件节点与函数节点有问题」都还开着",
+          "src": [
+            {
+              "title": "issue #15：spawn_blueprint_actor doesn't work",
+              "url": "https://github.com/chongdashu/unreal-mcp/issues/15"
+            },
+            {
+              "title": "issue #12：Error when setting up with Cursor（8 条回复，最热）",
+              "url": "https://github.com/chongdashu/unreal-mcp/issues/12"
+            }
+          ],
           "verified_at": "2026-08-17"
         }
       ]
