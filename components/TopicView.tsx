@@ -214,7 +214,7 @@ function BasicGroup({ b, no }: { b: TopicBasic; no: number }) {
       <p className="text-[11.5px] text-muted leading-relaxed max-w-[88ch] mb-3 pl-[1.6em]">
         <Rich text={b.intro} />
       </p>
-      <ul className="grid md:grid-cols-2 gap-x-9 gap-y-4 pl-[1.6em]">
+      <ul className="grid md:grid-cols-2 gap-x-10 gap-y-5 pl-[1.6em]">
         {b.items.map((it) => (
           <li key={it.url} data-count-item>
             <a href={it.url} target="_blank" rel="noopener noreferrer"
@@ -224,14 +224,33 @@ function BasicGroup({ b, no }: { b: TopicBasic; no: number }) {
             <span className="text-[10.5px] text-hatch ml-1.5 whitespace-nowrap">
               {it.site}·{it.lang === "zh" ? "中" : "英"}
             </span>
-            {/* **为什么好看是主角**，正文色、排前面；下面那句小一号，是「跟 AI 视频有什么关系」。 */}
-            {it.why && <p className="text-[12.5px] text-ink leading-relaxed mt-1"><Rich text={it.why} /></p>}
-            <p className="text-[11.5px] text-muted leading-relaxed mt-1"><Rich text={it.note} /></p>
-            {it.example && (
-              <p className="text-[11.5px] mt-1">
-                <Go href={it.example.url} className="text-yes-ink">代表作 {it.example.zh}</Go>
-              </p>
-            )}
+            {/*
+              * ⚠️ **一眼只给两行。**
+              *
+              * 上一版每条摊开三段（一句话 + 为什么好看 + 代表作），两列一排下来
+              * 就是一屏密字。负责人 2026-08-17：「这密密麻麻的文字挤在一起……看着我头痛。」
+              *
+              * 长的那段（`why`，通常四五行）收进折叠 —— **它是要读的，不是要扫的**。
+              * 默认露出的是可执行的那一句和代表作：扫的时候够用，想懂了再点开。
+              * 用 `<details>` 而不是自己写状态：静态导出、不跑 JS 也能开合。
+              */}
+            <p className="text-[12.5px] text-ink leading-relaxed mt-1"><Rich text={it.note} /></p>
+            <div className="flex items-baseline gap-3 flex-wrap mt-1">
+              {it.example && (
+                <Go href={it.example.url} className="text-[11.5px] text-yes-ink">代表作 {it.example.zh}</Go>
+              )}
+              {it.why && (
+                <details className="group text-[11.5px]">
+                  <summary className="cursor-pointer text-muted hover:text-yes-ink list-none marker:content-['']">
+                    为什么好看<span className="ml-1 group-open:hidden">▾</span>
+                    <span className="ml-1 hidden group-open:inline">▴</span>
+                  </summary>
+                  <p className="text-[12px] text-muted leading-relaxed mt-1.5 border-l-2 border-rule pl-2.5">
+                    <Rich text={it.why} />
+                  </p>
+                </details>
+              )}
+            </div>
           </li>
         ))}
       </ul>
