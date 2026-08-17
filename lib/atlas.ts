@@ -728,6 +728,19 @@ export type TopicBasic = {
   items: {
     title: string; url: string; site: string; lang: "zh" | "en";
     note: string; page_title?: string; verified_at: string;
+    /**
+     * **为什么这么拍好看。** 负责人 2026-08-17：
+     * 「你只说了『韦斯·安德森的对称正面平移』，谁知道是什么呢？」
+     *
+     * `note` 说的是「这一条解决你哪个困惑」（冲着 AI 视频说），
+     * `why` 说的是**通识**：这么拍观众会有什么感觉。两句都是我们的判断。
+     */
+    why?: string;
+    /**
+     * 一部代表作 + 百科条目。**看一眼就懂，不用信我们的话** ——
+     * 这是三样里唯一不靠我们的：链接指向别人写的条目。
+     */
+    example?: { zh: string; url: string; page_title?: string; verified_at: string };
   }[];
 };
 

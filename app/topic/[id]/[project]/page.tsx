@@ -309,14 +309,22 @@ export default async function ProjectPage({ params }: { params: Promise<{ id: st
                   <span className="block text-[12px] text-muted mt-0.5">{d!.handle}</span>
                 </div>
                 {c && (
-                  <a href={capHref(d!.cap!)} className="text-right group">
+                  /*
+                   * ⚠️ **站内链接必须用 `<Link>`，不能用 `<a>`。**
+                   * 这个站挂在 `/atlas` 下（`basePath`），`<Link>` 会自动补前缀，
+                   * 原生 `<a>` 不会 —— 于是这条链接一直指向 `/capability/i2v`，
+                   * 线上 404。**它长得完全正常、点了才知道**，
+                   * 所以从上线那天起没人发现，直到 2026-08-17 负责人点了一下。
+                   * 全站因此有 73 处死链，全出自这一行。
+                   */
+                  <Link href={capHref(d!.cap!)} className="text-right group">
                     <span className="flex h-2.5 w-[110px] border border-rule group-hover:border-yes">
                       <i style={{ width: `${(c.yes / c.total) * 100}%` }} className="bg-yes" />
                       <i style={{ width: `${(c.no / c.total) * 100}%` }} className="bg-no" />
                       <i style={{ width: `${(c.unknown / c.total) * 100}%` }} className="hatch" />
                     </span>
                     <span className="text-[10.5px] text-muted tnum">{c.yes}/{c.total} 家有官方说法</span>
-                  </a>
+                  </Link>
                 )}
               </div>
             );

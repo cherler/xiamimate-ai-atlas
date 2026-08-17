@@ -22,7 +22,11 @@ for (const t of a.topics ?? []) {
     for (const tu of p.tutorials ?? []) rows.push({ project: p.zh, ...tu });
   /** 视频常识那一栏烂起来和教程一模一样，所以一起查 —— 分两个脚本迟早只跑一个。 */
   for (const b of t.basics ?? [])
-    for (const it of b.items ?? []) rows.push({ project: `常识 · ${b.zh}`, ...it });
+    for (const it of b.items ?? []) {
+      rows.push({ project: `知识 · ${b.zh}`, ...it });
+      /** 代表作的百科条目一样会烂 —— **它才是「看一眼就懂」那一步的落点**，更不能死。 */
+      if (it.example?.url) rows.push({ project: `代表作 · ${b.zh}`, title: it.example.zh, ...it.example });
+    }
 }
 
 if (!rows.length) { console.log("没有教程可查。"); process.exit(0); }

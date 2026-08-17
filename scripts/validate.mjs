@@ -325,6 +325,8 @@ for (const t of a.topics ?? []) {
  */
 {
   const LANG = new Set(["zh", "en"]);
+  /** 这几组讲的是「可以点名要的风格」—— 它们比别的组多两样必填。 */
+  const STYLE = new Set(["director", "anime", "actor", "genre"]);
   for (const t of a.topics ?? [])
     for (const b of t.basics ?? []) {
       if (!b.zh || !b.intro) errs.push(`R86 专项「${t.zh}」› 常识组 ${b.id} 缺中文名或说明`);
@@ -336,6 +338,16 @@ for (const t of a.topics ?? []) {
         if (!LANG.has(it.lang)) errs.push(`${at} 的语言是「${it.lang ?? "空"}」，只能是 zh / en`);
         if (!it.note) errs.push(`${at} 没写「它解决你哪个困惑」—— 没有这句就只是个裸链接`);
         if (!/^\d{4}-\d{2}-\d{2}$/.test(it.verified_at ?? "")) errs.push(`${at} 没写核验日`);
+        /**
+         * **风格类条目光有名字没用。** 负责人 2026-08-17：
+         * 「你只说了『韦斯·安德森的对称正面平移』，谁知道是什么呢？」
+         * 所以这几组里每条都要有「为什么好看」和一部代表作。
+         */
+        if (STYLE.has(b.id)) {
+          if (!it.why) errs.push(`${at} 没写「为什么好看」—— 光给名字等于没说`);
+          if (!it.example?.url || !/^https?:\/\//.test(it.example.url))
+            errs.push(`${at} 没给代表作链接 —— 看一眼就懂那一步不能省`);
+        }
       }
     }
 }

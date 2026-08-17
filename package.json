@@ -17,7 +17,9 @@
     "diagrams:check": "node scripts/diagram-contrast.mjs",
     "topic:tabs": "node scripts/topic-tabs.mjs",
     "tutorials:check": "node scripts/tutorials-check.mjs",
-    "deepwiki": "node scripts/deepwiki.mjs"
+    "deepwiki": "node scripts/deepwiki.mjs",
+    "readme": "node scripts/fetch-readme.mjs",
+    "basepath": "node scripts/basepath-check.mjs"
   },
   "dependencies": {
     "geist": "^1.7.2",

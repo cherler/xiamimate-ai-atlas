@@ -209,6 +209,21 @@ function BasicGroup({ b }: { b: TopicBasic }) {
               <Chip>{it.lang === "zh" ? "中文" : "英文"}</Chip>
             </div>
             <p className="text-[12.5px] text-muted leading-relaxed max-w-[88ch]"><Rich text={it.note} /></p>
+            {/*
+              * 「为什么好看」用正文色，比 note 显眼 —— **它才是让人真正看懂的那一句**。
+              * 代表作跟在后面：看一眼就懂，不用信我们。
+              */}
+            {it.why && (
+              <p className="text-[12.5px] text-ink leading-relaxed max-w-[88ch] mt-1.5">
+                <Rich text={it.why} />
+              </p>
+            )}
+            {it.example && (
+              <p className="text-[11.5px] mt-1.5">
+                <span className="text-muted">代表作　</span>
+                <Go href={it.example.url} className="text-yes-ink">{it.example.zh}</Go>
+              </p>
+            )}
           </li>
         ))}
       </ul>
@@ -330,7 +345,8 @@ export default function TopicView({ t }: { t: Topic }) {
           {/* 「它解决你哪个困惑」是我们的判断，整组标一次，别每条都啰嗦。 */}
           {g.kind === "basics" && (
             <p className="mt-4 text-[11.5px] text-muted border-l-2 border-chip-warm-ink pl-2.5">
-              每条下面那句「它解决你哪个困惑」是我们的判断，链接指向的原文才是出处。
+              每条下面的「它解决你哪个困惑」与「为什么这么拍好看」都是我们的判断；
+              链接指向的原文和代表作条目才是出处。
             </p>
           )}
           {/* 查过没收的也要露面 —— 否则读者会以为我们漏了。 */}
