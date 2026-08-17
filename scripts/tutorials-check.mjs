@@ -27,12 +27,37 @@ for (const t of a.topics ?? []) {
       /** 代表作的百科条目一样会烂 —— **它才是「看一眼就懂」那一步的落点**，更不能死。 */
       if (it.example?.url) rows.push({ project: `代表作 · ${b.zh}`, title: it.example.zh, ...it.example });
     }
+  /**
+   * **作品的出处也要查，而且它是最该查的一类。**
+   *
+   * 2026-08-17 加游戏专项的作品栏时发现：这支脚本一直漏着 `works[].src` ——
+   * 教程和常识都查了，唯独作品的出处没查过。
+   *
+   * 而作品栏的立身之本就是那几条出处：收录规矩是「只收制作方自己公开说明过管线的」，
+   * **出处一死，这一条就退回成传闻** —— 正是这一栏当初要挡的东西。
+   * 何况它们比教程更容易烂：个人站、论坛帖、itch.io 页，没人维护。
+   */
+  for (const w of t.works ?? [])
+    for (const s of w.src ?? []) rows.push({ project: `作品 · ${w.zh}`, ...s });
 }
 
 if (!rows.length) { console.log("没有教程可查。"); process.exit(0); }
-console.log(`回查 ${rows.length} 条外链（教程 + 视频常识）\n`);
+console.log(`回查 ${rows.length} 条外链（教程 + 常识 + 作品出处）\n`);
 
-const dead = [], drift = [];
+/**
+ * **限流不是死链。**
+ *
+ * 429（请求太密）与 503（暂时不可用）说的是「现在拿不到」，
+ * 不是「这个东西没了」—— 服务器正在正常响应，只是把我们挡了一下。
+ * 2026-08-17 连着敲了几次 itch.io 就吃到 429；
+ * 要是把它算进死链，下一步就是去改一条本来好好的出处。
+ *
+ * 这个项目在「取不到 vs 不存在」上栽过好几次（GitHub 限流被报成「仓库没了」、
+ * 匿名接口限流被报成「这些仓库没有 README」）。**同一个错，这里不再犯。**
+ * 所以单独归一类：报出来提醒人，但不判失败。
+ */
+const RETRYABLE = new Set(["429", "503", "502", "504"]);
+const dead = [], drift = [], throttled = [];
 for (const r of rows) {
   let out = "";
   try {
@@ -44,6 +69,11 @@ for (const r of rows) {
 
   const code = out.match(/__STATUS__(\d+)\s*$/)?.[1] ?? "?";
   const title = (out.match(/<title[^>]*>([\s\S]{0,200}?)<\/title>/i)?.[1] ?? "").replace(/\s+/g, " ").trim();
+  if (RETRYABLE.has(code)) {
+    throttled.push({ ...r, why: `HTTP ${code}` });
+    console.log(`  ⏳ ${code} ${r.project} · ${r.title}（限流，不算死链）`);
+    continue;
+  }
   if (code !== "200") { dead.push({ ...r, why: `HTTP ${code}` }); console.log(`  ✗ ${code} ${r.project} · ${r.title}`); continue; }
   /** 标题拿不到多半是前端渲染的页面（飞书这类），不算变 —— 只在两边都有标题时才比。 */
   if (r.page_title && title && title !== r.page_title) {
@@ -54,7 +84,13 @@ for (const r of rows) {
   console.log(`  ✓ ${r.project} · ${r.title}`);
 }
 
-console.log(`\n${rows.length} 条：通过 ${rows.length - dead.length - drift.length} · 打不开 ${dead.length} · 标题变了 ${drift.length}`);
+console.log(`\n${rows.length} 条：通过 ${rows.length - dead.length - drift.length - throttled.length}` +
+  ` · 打不开 ${dead.length} · 标题变了 ${drift.length} · 被限流 ${throttled.length}`);
 if (dead.length) console.log("打不开的要么换链接、要么删掉，别留着：\n  " + dead.map((d) => `${d.why} ${d.url}`).join("\n  "));
 if (drift.length) console.log("标题变了的要人看一眼内容还对不对，对就更新 page_title 与 verified_at。");
+if (throttled.length) {
+  console.log("被限流的**不是死链**，隔一会儿单独再跑一次就行：\n  " +
+    throttled.map((d) => `${d.why} ${d.url}`).join("\n  "));
+}
+/** 只有真死链才判失败 —— 限流判失败会逼人去改本来好好的数据。 */
 process.exit(dead.length ? 1 : 0);
