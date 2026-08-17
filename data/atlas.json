@@ -28449,6 +28449,7 @@
       "zh": "AI 视频制作",
       "en": "Making Video with AI",
       "intro": "做 AI 视频用得上的开源项目，按它们干的活分类摆开 —— 想配音就点声音，想把画面控住就点画面控制。",
+      "domain": "video",
       "decisions": [
         {
           "id": "topic",
@@ -36499,13 +36500,13 @@
       "id": "game",
       "zh": "AI 游戏制作",
       "en": "AI Game Development",
-      "intro": "**用 AI 做游戏这条路，现在走到了「Agent 能碰编辑器」。**离「自动开发游戏」还差着玩法设计、骨骼动画、2D 精灵图与音效四个断点 —— 这一页把三十多个开源项目按这条路的顺序摆开，每一格是通是断都标出来。",
+      "intro": "**用 AI 做游戏这条路已经有人跑通了一个可跑的版本** —— 描述一个游戏，agent 建工程、生素材、跑引擎、录像自证，全程可以不用你在场。但那条路的产能是买来的：编排开源，出图出模型全接闭源接口。这一页把三十多个开源项目按这条路的顺序摆开，每一格是通是断、通到什么程度都标出来。",
       "groups": [
         {
           "id": "auto",
           "zh": "自动开发游戏",
           "kind": "projects",
-          "intro": "**这条路目前走到「Agent 有分工」，没走到「不用你」。** 这一类不碰引擎，它给的是一整套角色、流程与检查点，让一个会话里的 AI 像一个studio一样干活。"
+          "intro": "**这一栏有两条方向相反的路。** 一条真的能自己跑完（描述 → 建工程 → 生素材 → 跑起来 → 录像自证），但**产能全在闭源模型那边，开源的只是编排**；另一条星速更高，却明确把人留在决策位上。两条都不碰引擎接口，它们给的是角色、流程与检查点。"
         },
         {
           "id": "engine",
@@ -36517,13 +36518,13 @@
           "id": "asset",
           "zh": "游戏素材",
           "kind": "projects",
-          "intro": "模型、贴图、音乐、NPC。**这一栏的空格和满格一样值钱**：3D 与音乐已经能用，骨骼动画、2D 精灵图、音效在开源侧基本没有人做。"
+          "intro": "模型、贴图、精灵图、音乐、NPC。**这一栏的空格和满格一样值钱** —— 3D、2D 精灵图与音乐都已经有能用的开源方案，**骨骼动画与音效这两格开源侧还基本没人做**。"
         },
         {
           "id": "basics",
           "zh": "游戏设计常识",
           "kind": "basics",
-          "intro": "**AI 把「做出来」的门槛砍到接近零，没砍掉「什么样的才对」。** 这一栏给不做游戏的人：核心循环、心流与难度、关卡、手感、数值、类型，最后是绕不开的授权。只收词条型与成体系的免费读物，**因此中文侧偏少，这是实情不是遗漏**。"
+          "intro": "**AI 把「做出来」的门槛砍到接近零，没砍掉「什么样的才对」。** 核心循环、心流与难度、关卡、手感、数值、类型，然后是绕不开的授权，最后是上哪儿补课。只收词条型、成体系的免费读物与还活着的精选清单。"
         }
       ],
       "subgroups": [
@@ -36571,6 +36572,11 @@
           "id": "npcai",
           "zh": "NPC",
           "intro": "两条互不替代的路：把语言模型塞进游戏里，或者用强化学习训出操作水平。"
+        },
+        {
+          "id": "sprite2d",
+          "zh": "2D 精灵图",
+          "intro": "角色精灵表与逐帧动画。**上一轮我判这一格是空的，那是搜错了** —— 它有人做，而且做的正是那几个真难点。"
         }
       ],
       "decisions": [
@@ -36685,18 +36691,22 @@
         {
           "id": "art2d",
           "zh": "2D 美术与精灵图",
-          "owner": "user",
+          "owner": "partial",
           "cap": "i-t2i",
           "handle": "文生图",
-          "fit": "**开源侧没有专做游戏 2D 素材的项目。** 换了好几组关键词搜，能找到的全在几十星量级。通用文生图当然能画，但精灵表的对齐、调色板一致、多帧同一个角色，没有人做成工具。",
+          "fit": "**这一格上一轮我判错了。** 换一批关键词重搜之后，开源侧是有专做游戏精灵图的：帧数对齐、跨帧同一角色、全透明背景、锚点不抖 —— 这几个真难点有人正面处理。通用文生图当然也能画，但它给不了这几条约束。",
           "scenarios": [
             {
               "when": "要一张概念图",
               "use": "通用文生图，走图像卷"
             },
             {
-              "when": "要一整套能进游戏的精灵表",
-              "use": "开源侧没有。技能包那一类里有把「锁定视觉目标再成组产出」写成流程的，但它调的还是通用模型"
+              "when": "要一整套能进引擎的精灵表",
+              "use": "专做精灵图的那一类：它按帧数与八方向成组产出，导出的格式引擎能直接导入"
+            },
+            {
+              "when": "要把已有的 AI 图片与视频洗成可用素材",
+              "use": "美术管线技能那一类：抠背景、稳锚点、压缩、跑运行时检查"
             }
           ]
         },
@@ -39397,6 +39407,270 @@
             }
           ],
           "verified_at": "2026-08-17"
+        },
+        {
+          "id": "godogen",
+          "zh": "Godogen",
+          "sub": "studio",
+          "group": "auto",
+          "role": "allinone",
+          "license": "MIT",
+          "license_class": "permissive",
+          "decisions": [
+            "design",
+            "code",
+            "scene",
+            "art3d",
+            "art2d",
+            "rig",
+            "build"
+          ],
+          "tags": [
+            "真的能无人值守跑完",
+            "拿跑起来的画面自证",
+            "三个引擎各一套指南"
+          ],
+          "scope": "**一个生成游戏的生成器**：选好引擎与宿主 Agent，它先产出一个很薄的游戏仓库（一份运行时清单、一页引擎指南、一个素材生成技能），Agent 再在那个仓库里把游戏建出来。支持 Godot 4（C#/.NET）、Bevy（Rust）、Babylon.js（浏览器）。",
+          "control": "**它不看编译过没过，它看跑起来长什么样** —— README 的原话是「以证据代替声明」：Agent 从运行中的游戏（一个实时网址或一段录屏）判断结果，于是看得见的缺陷会驱动下一轮迭代。你可以盯着实时画面随时插手，也可以完全不管、最后收一段十几二十秒的自证录像。",
+          "hw": "按引擎装 Godot .NET / Rust / Node 22.12+；Chrome 加硬件 WebGL2；Python 3；以及 vulkan-tools、xvfb、ffmpeg、imagemagick。**另需三个闭源接口的密钥。** 在 Ubuntu、Debian、macOS 上测过。",
+          "arch": "发布期把引擎与宿主 Agent 渲染成一份运行时布局：`prompts/runtime.md` 是清单，`asset-gen/` 是跨引擎的素材生成技能，`engines/*.md` 各是一页引擎指南。工程脚手架与截屏工具由 Agent 照着指南自己重建。",
+          "good": [
+            "**这一类里唯一明说能无人值守跑完的**，而且给出了「怎么算跑通」的判据：录像",
+            "三个引擎横着支持，不押注单一技术栈",
+            "素材、代码、运行、验证接成一条闭环，不是只写代码"
+          ],
+          "bad": [
+            "**产能全是买来的**：参考图与角色走 Gemini、贴图与视频走 Grok、3D 与绑定走 Tripo3D —— 三个密钥缺一不可，开源的是编排不是能力",
+            "**一次完整生成要几个小时**，作者自己建议放到 GPU 服务器上跑并用 tmux 挂着",
+            "依赖列表很长（引擎 + Rust + Node + Python + 四个系统包），装起来是真门槛"
+          ],
+          "unfit": "想在自己笔记本上十分钟出个东西 —— 它的运行尺度是「小时」和「服务器」。",
+          "src": "github README + DeepWiki",
+          "url": "https://github.com/htdt/godogen",
+          "stars": 5480,
+          "created_at": "2026-02-06",
+          "pushed_at": "2026-07-26",
+          "stars_per_month": 869,
+          "stale_months": 1,
+          "diagrams": [
+            {
+              "id": "g2-godogen-1",
+              "title": "东西怎么摆",
+              "kind": "架构图",
+              "src": "DeepWiki · 抓取 2026-08-17",
+              "verified_at": "2026-08-17",
+              "mermaid": "graph LR\n    subgraph \"Scene Builder (Build Time)\"\n        SB_VAR[\"var player := CharacterBody3D.new()\"]\n        SB_NAME[\"player.name = 'Player'\"]\n        SB_SCRIPT[\"player.set_script(...)\"]\n    end\n\n    subgraph \"Runtime Script (Execution Time)\"\n        RS_EXT[\"extends CharacterBody3D\"]\n        RS_REF[\"@onready var hitbox: Area3D = $Hitbox\"]\n        RS_SIG[\"hitbox.body_entered.connect(...)\"]\n    end\n\n    SB_NAME -.-> RS_REF\n    SB_SCRIPT -.-> RS_EXT"
+            },
+            {
+              "id": "g2-godogen-2",
+              "title": "一次调用经过什么",
+              "kind": "时序图",
+              "src": "DeepWiki · 抓取 2026-08-17",
+              "verified_at": "2026-08-17",
+              "mermaid": "sequenceDiagram\n    participant O as Orchestrator\n    participant AG as asset_gen.py\n    participant B as budget.json\n    participant AI as AI Services (Gemini/Tripo3D)\n\n    O->>AG: Call subcommand (image/glb/spritesheet)\n    AG->>B: check_budget(cost_cents)\n    B-->>AG: Budget OK\n    AG->>AI: generate_content() / create_task()\n    AI-->>AG: Binary Data / Task ID\n    AG->>B: record_spend(cost, service)\n    AG-->>O: JSON Result {\"ok\": true, \"path\": \"...\"}"
+            }
+          ],
+          "verified_at": "2026-08-17"
+        },
+        {
+          "id": "story-to-game",
+          "zh": "Story-to-Game",
+          "sub": "studio",
+          "group": "auto",
+          "role": "allinone",
+          "license": "MIT",
+          "license_class": "permissive",
+          "decisions": [
+            "design",
+            "build"
+          ],
+          "tags": [
+            "小说直接变分支文游",
+            "启动器是单个 HTML",
+            "作者是编剧导演"
+          ],
+          "scope": "从「小说 / 剧本转互动文字游戏」到「运行互动文游」的全套：一个 AI 技能把任意体量的小说、剧本或故事大纲转成符合规范的分支剧情 JSON，一个单文件 HTML 启动器直接加载它开玩。",
+          "control": "**产出物是一份 JSON，不是一坨代码** —— 于是剧情、变量、分支、结局都看得见改得动，而不是藏在生成的程序里。启动器支持存档读档、条件选项、自动路由、结局与成就。",
+          "hw": "启动器是单文件 HTML，浏览器直接开，无依赖；技能部分要一个支持技能的 AI 客户端。",
+          "good": [
+            "**绕开了「游戏要能跑」这个最难的一关** —— 文字游戏的运行时只有一个 HTML",
+            "作者是有作品入围国际影展的编剧与导演，叙事那一半的判断力不是攒出来的",
+            "中文原生，剧本、变量、成就这些概念都按中文创作习惯设计"
+          ],
+          "bad": [
+            "**只做纯文字分支剧情**，要画面要玩法都不在范围内",
+            "生成质量取决于原作素材，大纲太薄它补不出戏",
+            "DeepWiki 抓不到由源码生成的图"
+          ],
+          "unfit": "要做有画面、有操作的游戏 —— 它的边界就在文字这一层，这是设计选择不是缺陷。",
+          "src": "github README",
+          "wiki": "none",
+          "wiki_note": "DeepWiki 抓不到由源码生成的图（2026-08-17 核）。主体是一个单文件 HTML 启动器加一份技能定义，没有多模块的调用关系可画。",
+          "url": "https://github.com/Shanyin-ai/Story-to-game",
+          "stars": 422,
+          "created_at": "2026-05-11",
+          "pushed_at": "2026-06-02",
+          "stars_per_month": 131,
+          "stale_months": 2,
+          "verified_at": "2026-08-17"
+        },
+        {
+          "id": "art-pipeline-skill",
+          "zh": "AI Game Art Pipeline Skill",
+          "sub": "skills",
+          "group": "auto",
+          "role": "tool",
+          "license": "MIT",
+          "license_class": "permissive",
+          "decisions": [
+            "art2d",
+            "mat"
+          ],
+          "tags": [
+            "管的是出图之后那一段",
+            "不绑模型厂商",
+            "带运行时检查"
+          ],
+          "scope": "把 AI 出的图片与视频洗成能进游戏的素材：规划、生成、清理、打包、质检 —— 覆盖精灵、图标、背景、视频转帧动画、大招演出、锚点、压缩与运行时检查。",
+          "control": "**它的价值在「出图之后」** —— README 说得很直白：多数 AI 游戏美术演示止步于一张好看的图，而游戏要的是不抖的透明精灵、跨帧身份稳定且轮廓可读的动画。这一段没有工具的话全是手工活。",
+          "hw": "一个支持技能的 AI 客户端；不绑定任何模型厂商。",
+          "good": [
+            "**补的正好是别人不管的那一段**：从「一张图」到「一个能进引擎的素材」",
+            "厂商中立，换模型不用重写流程",
+            "带运行时检查，不是生成完就算完"
+          ],
+          "bad": [
+            "它不生成素材，只加工 —— 前面还得有出图的工具",
+            "体量小，覆盖的素材类型有限",
+            "DeepWiki 抓不到图，仓库主体是技能定义文件"
+          ],
+          "unfit": "还没开始出图的人 —— 它的输入是已经有的图片与视频。",
+          "src": "github README",
+          "wiki": "none",
+          "wiki_note": "DeepWiki 抓不到由源码生成的图（2026-08-17 核）。仓库主体是 Markdown 技能定义，没有调用关系可画。",
+          "url": "https://github.com/ybuild-ai/ai-game-art-pipeline-skill",
+          "stars": 282,
+          "created_at": "2026-05-04",
+          "pushed_at": "2026-06-17",
+          "stars_per_month": 82,
+          "stale_months": 2,
+          "verified_at": "2026-08-17"
+        },
+        {
+          "id": "unity-skills-besty",
+          "zh": "UnitySkills",
+          "sub": "unity",
+          "group": "engine",
+          "role": "tool",
+          "license": "MIT",
+          "license_class": "permissive",
+          "decisions": [
+            "code",
+            "scene",
+            "build"
+          ],
+          "tags": [
+            "走 REST 不走 MCP",
+            "技能式而非工具式",
+            "基线 Unity 2022.3+"
+          ],
+          "scope": "基于 REST 接口的 Unity 编辑器自动化引擎：让 AI 通过「技能」直接操作 Unity 场景。",
+          "control": "**接法和这一栏其它项目不一样** —— 别人走 MCP 协议，它走 REST 接口。好处是任何能发 HTTP 的东西都接得上，不必是 MCP 客户端。",
+          "hw": "官方维护基线是 Unity 2022.3+；README 明说代码里可能还留着 2021 的兼容逻辑，但后续开发与回归测试只面向 2022.3+ 与 Unity 6。",
+          "good": [
+            "REST 接法门槛低，不挑客户端",
+            "已被 DeepWiki 收录，结构查得到",
+            "开源不久星速就到了 Unity 侧第三"
+          ],
+          "bad": [
+            "**不走 MCP**，意味着接主流 AI 客户端时要自己搭一层",
+            "Unity 2021 的兼容「可能还在」但不再测试 —— 老工程用它是碰运气",
+            "文档以中文与英文混排，找具体接口要翻"
+          ],
+          "unfit": "已经在用 MCP 客户端的团队 —— 那条路上有更成熟的选择。",
+          "src": "github README + DeepWiki",
+          "url": "https://github.com/Besty0728/Unity-Skills",
+          "stars": 1611,
+          "created_at": "2026-01-18",
+          "pushed_at": "2026-08-17",
+          "stars_per_month": 232,
+          "stale_months": 0,
+          "diagrams": [
+            {
+              "id": "g2-unity-skills-besty-1",
+              "title": "东西怎么摆",
+              "kind": "架构图",
+              "src": "DeepWiki · 抓取 2026-08-17",
+              "verified_at": "2026-08-17",
+              "mermaid": "flowchart TD\n    Call[\"SkillRouter.Execute('netcode_start_host')\"]\n    \n    CheckDefine{\"#if NETCODE_GAMEOBJECTS\"}\n    \n    subgraph \"NetcodeSkills.cs\"\n        Impl[\"NetworkManager.Singleton.StartHost()\"]\n        Error[\"return 'Netcode package missing'\"]\n    end\n    \n    Call --> CheckDefine\n    CheckDefine -->|Symbol Defined| Impl\n    CheckDefine -->|Symbol Missing| Error"
+            },
+            {
+              "id": "g2-unity-skills-besty-2",
+              "title": "一次调用经过什么",
+              "kind": "时序图",
+              "src": "DeepWiki · 抓取 2026-08-17",
+              "verified_at": "2026-08-17",
+              "mermaid": "sequenceDiagram\n    participant Client as HTTP Client\n    participant Listener as ListenLoop Thread\n    participant Queue as _jobQueue\n    participant Pool as _requestJobPool\n    participant Counter as _pendingRequests\n    participant Responder as ThreadPool\n    \n    Client->>Listener: HTTP Request\n    Listener->>Listener: CheckAdmissionRateLimit()\n    alt Rate limit exceeded\n        Listener->>Client: 429 Too Many Requests\n    end\n    \n    Listener->>Counter: TryReservePendingSlot()\n    alt Pending limit exceeded\n        Listener->>Client: 503 Service Unavailable\n    end\n    \n    Listener->>Listener: Read request body (max 10MB)\n    alt Body too large\n        Listener->>Client: 413 Payload Too Large\n    end\n    \n    Listener->>Pool: RentRequestJob()\n    Pool-->>Listener: RequestJob instance\n    Listener->>Listener: job.Prepare(context, method, path, body)\n    \n    Listener->>Queue: Enqueue(job)\n    alt Queue full\n        Listener->>Listener: Set error response\n        Listener->>Listener: Signal completion\n    end\n    \n    Listener->>Responder: QueueUserWorkItem(WaitAndRespond, job)"
+            }
+          ],
+          "verified_at": "2026-08-17"
+        },
+        {
+          "id": "perfectpixel",
+          "zh": "PerfectPixel",
+          "sub": "sprite2d",
+          "group": "asset",
+          "role": "tool",
+          "license": "MIT",
+          "license_class": "permissive",
+          "decisions": [
+            "art2d"
+          ],
+          "tags": [
+            "一句话出整套精灵表",
+            "八方向 100+ 动作",
+            "正面对付身份漂移"
+          ],
+          "scope": "AI 精灵动画工作室：一句角色描述先出基础角色，再自动生成一百多种动作动画（走、跑、攻击、法术……）与完整的八方向精灵组，导出成引擎能直接导入的格式。",
+          "control": "**它把游戏精灵图的几个真难点当成正题来解**，README 列得很清楚：六帧走路必须正好六帧、每帧必须读作同一个角色（身份漂移）、背景必须全透明、锚点不能逐帧抖。通用文生图给不了这几条 —— 帧数会错、姿势会串、发色会中途变、抠像会啃到轮廓。",
+          "hw": "仓库未说明本机硬件要求；示例流水线用的是闭源图像模型。",
+          "good": [
+            "**开源侧正面做游戏 2D 精灵图的，目前就它一个成规模的**",
+            "把「一致性」「帧数」「透明」「锚点」写成了明确目标，而不是含糊的「效果好」",
+            "直接导出引擎能用的格式，省掉最烦的一段手工整理"
+          ],
+          "bad": [
+            "示例流水线依赖闭源图像模型，产能不在开源这边",
+            "开源时间短，长期维护看不出来",
+            "只做角色精灵，场景与图块不在范围内"
+          ],
+          "unfit": "要三维角色 —— 它的产出是二维精灵表。",
+          "src": "github README + DeepWiki",
+          "url": "https://github.com/gykim80/perfectpixel-studio",
+          "stars": 528,
+          "created_at": "2026-06-14",
+          "pushed_at": "2026-06-22",
+          "stars_per_month": 251,
+          "stale_months": 2,
+          "diagrams": [
+            {
+              "id": "g2-perfectpixel-1",
+              "title": "东西怎么摆",
+              "kind": "架构图",
+              "src": "DeepWiki · 抓取 2026-08-17",
+              "verified_at": "2026-08-17",
+              "mermaid": "graph LR\n    subgraph \"UI Space\"\n        Btn[\"'Generate' Button\"]\n    end\n\n    subgraph \"App Space (main/App)\"\n        GenChar[\"GenerateCharacter(desc, style)\"]\n        GenState[\"GenerateState(stateID, refStrip)\"]\n    end\n\n    subgraph \"Config Space (internal/config)\"\n        GetCfg[\"Settings.Cfg(provider)\"]\n    end\n\n    subgraph \"Provider Space (internal/gen)\"\n        PNew[\"New(provider, key, model)\"]\n        PGen[\"Provider.GenerateImage(...)\"]\n    end\n\n    Btn --> GenChar\n    GenChar --> GetCfg\n    GetCfg --> PNew\n    PNew --> PGen\n    GenChar --> GenState"
+            },
+            {
+              "id": "g2-perfectpixel-2",
+              "title": "一次调用经过什么",
+              "kind": "时序图",
+              "src": "DeepWiki · 抓取 2026-08-17",
+              "verified_at": "2026-08-17",
+              "mermaid": "sequenceDiagram\n    participant FE as Frontend (React)\n    participant APP as App (Go)\n    participant GEN as internal/gen (Provider)\n    participant PIPE as Sprite Pipeline\n\n    FE->>APP: GenerateState(stateName, prompt)\n    APP->>APP: genContext() (Create & Track CancelFunc)\n    APP->>GEN: Request Image (Attempt 1)\n    GEN-->>APP: Raw Strip PNG\n    APP->>PIPE: Process & Inspect (ScoreFrames)\n    alt Score < Threshold\n        APP->>APP: Inject RetryHints\n        APP->>GEN: Request Image (Attempt 2)\n    else Score >= Threshold\n        APP->>FE: Return Result\n    end\n    APP->>APP: release() (Cleanup Context)"
+            }
+          ],
+          "verified_at": "2026-08-17"
         }
       ],
       "readme_src": {
@@ -39422,6 +39696,12 @@
           "no": "三",
           "zh": "类型与法务",
           "intro": "类型是一整套约定，点一个类型等于一次性给出几十条设计约束。最后一组是绕不开的授权问题。"
+        },
+        {
+          "id": "learn",
+          "no": "四",
+          "zh": "上哪儿学",
+          "intro": "前三段讲的是「该知道什么」，这一段是「去哪儿补」。**成体系的书管深度，精选清单管广度**，两样都要。"
         }
       ],
       "basics": [
@@ -39756,6 +40036,123 @@
               "lang": "en",
               "note": "**AI 生成素材的版权归属各国口径不同，且还在变。** 商业项目要按发行地单独确认。",
               "page_title": "AI art - Wikipedia",
+              "verified_at": "2026-08-17"
+            }
+          ]
+        },
+        {
+          "id": "books",
+          "zh": "成体系的免费书",
+          "part": "learn",
+          "intro": "**全文免费、成系列、有主体。** 这几本是这一行公认的底子 —— AI 能替你写代码，但「这段代码为什么该这么组织」得你自己知道，否则你审不了它写的东西。",
+          "items": [
+            {
+              "title": "游戏编程模式（全文免费）",
+              "url": "https://gameprogrammingpatterns.com/",
+              "site": "Robert Nystrom",
+              "lang": "en",
+              "note": "**这一行最常被引用的一本。** 游戏循环、状态机、组件、对象池——AI 生成的游戏代码好不好，多半就看它有没有用对这几个模式。",
+              "why": "游戏代码的难点不是算法，是「每帧都要跑、还不能卡」。这些模式全是为这个约束长出来的。",
+              "page_title": "Game Programming Patterns",
+              "verified_at": "2026-08-17"
+            },
+            {
+              "title": "游戏编程模式 · 中文版",
+              "url": "https://gpp.tkchu.me/",
+              "site": "tkchu",
+              "lang": "zh",
+              "note": "上一条的中文全文。**中文侧成体系的免费游戏开发读物极少，这是其中最好的一本。**",
+              "page_title": "游戏编程模式",
+              "verified_at": "2026-08-17"
+            },
+            {
+              "title": "The Book of Shaders",
+              "url": "https://thebookofshaders.com/",
+              "site": "Patricio Gonzalez Vivo",
+              "lang": "en",
+              "note": "着色器入门，每一节都能在页面上改参数看效果。**画面「为什么长这样」的答案在这里。**",
+              "why": "着色器是逐像素跑的小程序。理解它之后，「卡通渲染」「描边」「溶解」这些效果不再是黑箱。",
+              "page_title": "The Book of Shaders",
+              "verified_at": "2026-08-17"
+            },
+            {
+              "title": "Red Blob Games",
+              "url": "https://www.redblobgames.com/",
+              "site": "Red Blob Games",
+              "lang": "en",
+              "note": "六边形网格、A* 寻路这些讲得比教科书清楚，全是可交互的。**AI 能写寻路代码，选哪种网格是你的决定。**",
+              "page_title": "Red Blob Games",
+              "verified_at": "2026-08-17"
+            }
+          ]
+        },
+        {
+          "id": "hubs",
+          "zh": "官方文档与精选清单",
+          "part": "learn",
+          "intro": "**不熟一个方向时，先要的不是「这个概念是什么」，是「这个方向上都有些什么」。** 官方文档管前者，精选清单管后者。清单类最怕烂尾，所以每条都标了还活不活。",
+          "items": [
+            {
+              "title": "Godot 官方文档",
+              "url": "https://docs.godotengine.org/en/stable/",
+              "site": "Godot",
+              "lang": "en",
+              "note": "**三大引擎里文档最好读的一个**，而且引擎本身 MIT、没有分成。新手从这儿入门成本最低。",
+              "page_title": "Godot Docs – 4.7 branch &mdash; Godot Engine (stable) documentation in English",
+              "verified_at": "2026-08-17"
+            },
+            {
+              "title": "Unity 官方学习站",
+              "url": "https://learn.unity.com/",
+              "site": "Unity",
+              "lang": "en",
+              "note": "官方成体系课程。**注意先看授权那一组**——Unity 是按营收分档收费的。",
+              "page_title": "Learn game development w/ Unity | Courses &amp; tutorials in game design, VR, AR, &amp; Real-time 3D | Unity Learn",
+              "verified_at": "2026-08-17"
+            },
+            {
+              "title": "虚幻引擎官方文档",
+              "url": "https://dev.epicgames.com/documentation/en-us/unreal-engine/unreal-engine-5-6-documentation",
+              "site": "Epic 开发者社区",
+              "lang": "en",
+              "note": "虚幻的总入口。**5.8 起引擎自带 MCP 服务**，Agent 接入那一节要读的就是这里。",
+              "page_title": "",
+              "verified_at": "2026-08-17"
+            },
+            {
+              "title": "awesome-godot（Godot 官方组织维护）",
+              "url": "https://github.com/godotengine/awesome-godot",
+              "site": "GitHub",
+              "lang": "en",
+              "note": "**由引擎官方组织维护**，这在精选清单里很少见——意味着它不会烂尾。插件、脚本、附加组件都在。",
+              "page_title": "GitHub - godotengine/awesome-godot: A curated list of free/libre plugins, scripts and add-ons for Godot · GitHub",
+              "verified_at": "2026-08-17"
+            },
+            {
+              "title": "GameDevMind 游戏开发技术图谱",
+              "url": "https://github.com/gonglei007/GameDevMind",
+              "site": "GitHub",
+              "lang": "zh",
+              "note": "**中文侧最全的一份游戏开发知识地图。** 不熟这一行时，先在这张图上找到自己缺哪块。",
+              "page_title": "GitHub - gonglei007/GameDevMind: 最全面的游戏开发技术图谱(Game Development Map)。帮助游戏开发者们在已知问题上节省时间，省出更多的精力投入到更有创造性的工作中去。 · GitHub",
+              "verified_at": "2026-08-17"
+            },
+            {
+              "title": "magictools 游戏开发资源大全",
+              "url": "https://github.com/ellisonleao/magictools",
+              "site": "GitHub",
+              "lang": "en",
+              "note": "体量最大的一份综合清单，引擎、工具、素材、教程都收。**量大，要带着问题去翻。**",
+              "page_title": "GitHub - ellisonleao/magictools: :video_game: A list of Game Development resources to make magic happen. · GitHub",
+              "verified_at": "2026-08-17"
+            },
+            {
+              "title": "awesome-learn-gamedev 学习资源精选",
+              "url": "https://github.com/dawdle-deer/awesome-learn-gamedev",
+              "site": "GitHub",
+              "lang": "en",
+              "note": "专收「怎么学」的那一类，和上面按工具分的清单互补。",
+              "page_title": "GitHub - dawdle-deer/awesome-learn-gamedev: A curated collection of game development learning resources · GitHub",
               "verified_at": "2026-08-17"
             }
           ]

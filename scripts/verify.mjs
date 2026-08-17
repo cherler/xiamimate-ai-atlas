@@ -827,6 +827,75 @@ if (FLOWS) {
   console.log("\n（还没有 data/flows.json，动线可达性没查 —— A1 会补上）");
 }
 
+// ── 路由家族归类：新加一类路由，必须先说它属于哪一卷 ──────────────────
+/**
+ * **这条是被同一个错第三次咬出来才加的。**
+ *
+ * 导航最左边那块显示「你在哪一卷」。它按路径第一段判断，
+ * 判不出来就**退回第一个 live 方向** —— 于是每加一类不带方向前缀的路由，
+ * 那一类的页面就默认顶着「AI 视频」：
+ *
+ * - 2026-08-12 `/skill/[id]`：图像 Skill 顶着「AI 视频」
+ * - 2026-08-12 `/model/[id]`、`/capability/[id]`：四卷一百多页，除视频外全错
+ * - 2026-08-17 `/topic/[id]`：负责人截图，游戏专项顶着「AI 视频」
+ *
+ * 三次的修法都是「给这一类加个特判」，**于是下一类照样漏**。
+ * 上面那条方向隔离检查也帮不上忙 —— 它只走 `/{方向}/…`，
+ * `/topic/…` 这种在所有方向之外的路径，它一次都没访问过。
+ *
+ * 所以这一版换个判据：**产物里出现没归类的顶层路由段，就红。**
+ * 加新路由时会被逼着回答「它属于哪一卷」，而不是等用户截图。
+ */
+{
+  console.log("\n══════ 路由家族归类 ══════");
+  const raw3 = JSON.parse(readFileSync(join(ROOT, "data/atlas.json"), "utf8"));
+  /** 每一类各是怎么定归属的 —— 改 Nav 的判断逻辑时，这张表要跟着改。 */
+  const KNOWN = {
+    ...Object.fromEntries((raw3.domains ?? []).map((d) => [d.id, "方向自己"])),
+    skill: "问实体的 domain", model: "问实体的 domain", capability: "问实体的 domain",
+    topic: "问专项的 domain（可为空 = 横跨，显示「全站」）",
+    changes: "跨方向", method: "跨方向", toolkit: "跨方向", caveats: "跨方向", basics: "跨方向",
+    compare: "跨方向", release: "跨方向", where: "跨方向", search: "跨方向", map: "跨方向",
+  };
+  /** 不是页面的东西不算路由家族。 */
+  const SKIP = /^(_next|og|diagrams|assets|images|fonts|favicon|robots|sitemap|changes\.xml|404|index)/;
+
+  const outDir = join(ROOT, "out");
+  let fams = [];
+  try {
+    fams = readdirSync(outDir)
+      .map((f) => f.replace(/\.html$/, ""))
+      .filter((f) => !SKIP.test(f) && !f.includes("."));
+  } catch { /* 没有 out/ 时这条不判 —— dev 模式下本来就没有产物 */ }
+
+  if (!fams.length) {
+    ok(true, "没有构建产物，这条跳过（先 npm run build）");
+  } else {
+    const unknown = fams.filter((f) => !(f in KNOWN));
+    ok(unknown.length === 0,
+      `${fams.length} 个顶层路由家族全部归过类` +
+      (unknown.length ? ` —— **没归类的：${unknown.join("、")}**。` +
+        "导航会让它们默认顶着第一个 live 方向的名字，页面不报错但标签在骗人。" +
+        "去 components/Nav.tsx 说清楚它属于哪一卷，并把它加进这张表" : ""));
+    /** 归了类还不够，**得真的显示对** —— 抽查专项页：有归属显示那一卷，没归属显示「全站」。 */
+    for (const t of raw3.topics ?? []) {
+      const page = await browser.newPage({ viewport: { width: 1280, height: 900 } });
+      await page.goto(`${ORIGIN}${BASE}/topic/${t.id}`,
+        { waitUntil: DEV ? "domcontentloaded" : "networkidle", timeout: 45000 });
+      const chip = (await page.evaluate(
+        'document.querySelector("nav[data-nav=global] button[aria-haspopup=menu]")?.innerText ?? ""'))
+        .replace(/\s+/g, " ").trim();
+      const want = t.domain
+        ? (raw3.domains.find((d) => d.id === t.domain)?.name ?? t.domain)
+        : "全站";
+      ok(chip.includes(want),
+        `专项「${t.zh}」的方向标签是「${chip}」，应含「${want}」` +
+        (t.domain ? "" : "（没声明归属 = 横跨多卷）"));
+      await page.close();
+    }
+  }
+}
+
 await browser.close();
 server?.close();
 

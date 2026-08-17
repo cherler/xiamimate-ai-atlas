@@ -77,10 +77,26 @@ export default function Nav() {
    * 当时 skill 页被发现顶错方向，改法是给 skill 加一条特判，
    * 而没问「还有哪些页也是不带方向前缀、却属于某个方向的」。
    */
+  /**
+   * ⚠️ **第三次了：`/topic/[id]` 也不带方向前缀。**
+   *
+   * 2026-08-17 负责人截图：站在 `/atlas/topic/game` 上，左上角写着「AI 视频」。
+   * 上面那段注释刚写完「修 bug 时只修了报出来的那一个」，加专项路由时又漏了。
+   *
+   * 所以这一版把判据挪到数据上：**专项自己声明属于哪一卷，声明不了就说横跨**。
+   * 游戏专项没有 `domain`（站里没有「游戏」这一卷），于是走 cross 显示「全站」——
+   * 那是实话，比挂到任意一卷强。
+   *
+   * 另加了一条守门的检查（verify.mjs「路由家族归类」）：
+   * **产物里出现没归类的顶层路由段就红**。这次漏掉正是因为
+   * 原来那条方向隔离检查只走 `/{方向}/…`，`/topic/…` 它一次都没访问过。
+   */
+  const topic = seg === "topic" ? atlas.topics.find((t) => t.id === parts[1]) : undefined;
   const owner =
     seg === "skill" ? atlas.skills.find((k) => k.id === parts[1])?.domain
     : seg === "model" ? modelBySlug(parts[1] ?? "")?.domain
     : seg === "capability" ? capBySlug(parts[1] ?? "")?.domain
+    : seg === "topic" ? topic?.domain
     : undefined;
   /**
    * **有些页本来就不属于任何一个方向**：变更记录、方法、工具站、注意事项 ——
@@ -97,7 +113,11 @@ export default function Nav() {
    * 原因是 `seg` 为空串，既不在 CROSS 里、也不是方向 id，于是退回了第一个 live 方向。
    * **一个让你选方向的页面，自己顶着某个方向的名字，是在骗人。**
    */
-  const cross = CROSS.includes(seg) || seg === "";
+  /**
+   * 专项没声明归属 = 横跨多卷，按跨方向页处理。
+   * **「查不到归属」和「归属是第一个 live 方向」是两件事** —— 后者是猜，而且会猜错。
+   */
+  const cross = CROSS.includes(seg) || seg === "" || (seg === "topic" && !topic?.domain);
   const dom = atlas.domains.some((d) => d.id === seg)
     ? seg
     : owner && atlas.domains.some((d) => d.id === owner)

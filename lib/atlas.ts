@@ -755,6 +755,21 @@ export type TopicBasic = {
 
 export type Topic = {
   id: string; zh: string; en: string; intro: string;
+  /**
+   * 这个专项属于哪一卷（引 `Domain.id`）。**可以没有 —— 没有就是「横跨多卷」。**
+   *
+   * 导航最左边那块要靠它。2026-08-17 负责人截图指出：站在
+   * `/atlas/topic/game` 上，左上角写着「AI 视频」。原因是 `topic` 既不是方向 id、
+   * 也不在跨方向页的名单里，于是 Nav 退回了第一个 live 方向。
+   *
+   * **这是同一个错第三次犯**（先 skill 页、再 model / capability 页），
+   * 三次的根都一样：**新加一类路由，没人问它「属于谁」。**
+   *
+   * 视频专项 `domain: "video"` —— 它讲的确实是视频卷的事。
+   * 游戏专项**不填** —— 做游戏横跨 3D、声音与代码，站里根本没有「游戏」这一卷，
+   * 硬挂到任何一卷都是假的。不填时导航显示「全站」，那是实话。
+   */
+  domain?: string;
   groups: TopicGroup[];
   /** tab 内的小节定义。项目靠 `sub` 引它。 */
   subgroups?: TopicGroup[];
