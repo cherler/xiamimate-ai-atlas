@@ -17,6 +17,12 @@
  * 搜索引擎和不跑 JS 的读者一页残页），一旦 `hidden` 的开关写错，
  * 页面会变成七类叠在一起 —— 而那看起来只是「有点长」，不像出错。
  *
+ * ## 遍历所有专项，不写死某一个
+ *
+ * 第一版把路径写成 `topic/video`。**加第二个专项那天，它照样全绿** ——
+ * 因为它压根没去看新那一页。测试只测它认识的东西，等于给新东西开了后门。
+ * 现在专项清单从数据里读，加一个专项就自动多测一轮。
+ *
  * 用法：npm run topic:tabs   （要先 npm run build）
  */
 import { chromium } from "playwright";
@@ -60,13 +66,15 @@ await new Promise((r) => server.listen(PORT, "127.0.0.1", r));
 const bad = [];
 const ok = (c, m) => { console.log(`${c ? "  ✓" : "  ✗"} ${m}`); if (!c) bad.push(m); };
 
+const { topics } = JSON.parse(await readFile(join(ROOT, "data/atlas.json"), "utf8"));
+
 const br = await chromium.launch();
-for (const [w, h, name] of [[1280, 900, "桌面"], [390, 844, "手机"]]) {
+for (const T of topics) for (const [w, h, name] of [[1280, 900, "桌面"], [390, 844, "手机"]]) {
   const p = await br.newPage({ viewport: { width: w, height: h } });
   const errs = [];
   p.on("pageerror", (e) => errs.push(String(e)));
-  await p.goto(`${ORIGIN}${BASE}/topic/video`, { waitUntil: "networkidle" });
-  console.log(`\n── ${name} ${w}×${h} ──`);
+  await p.goto(`${ORIGIN}${BASE}/topic/${T.id}`, { waitUntil: "networkidle" });
+  console.log(`\n── ${T.zh} · ${name} ${w}×${h} ──`);
 
   const tabs = p.locator('[role="tab"]');
   const n = await tabs.count();
@@ -84,6 +92,23 @@ for (const [w, h, name] of [[1280, 900, "桌面"], [390, 844, "手机"]]) {
     const got = await p.locator('[role="tabpanel"]:not([hidden]) [data-count-item]').count();
     const vis = await p.locator('[role="tabpanel"]:not([hidden])').count();
     ok(got === want && vis === 1, `${txt} → ${got} 张卡，可见面板 ${vis}`);
+
+    /**
+     * **条数多的 tab 必须有快捷导航。**
+     *
+     * 负责人为这件事说过两次。第一次修完只给「有小节」的 tab 发了锚点条，
+     * 一站式与 Agent 那两个平铺的 tab 一个都没拿到 —— 于是同一天又被指出来。
+     * **判据是条数，不是有没有小节。** 这条检查按条数判，平铺的也算。
+     *
+     * 锚点还必须真的指得到东西：`#c-xxx` 落空时页面照样正常，只是点了不动。
+     */
+    if (got >= 6) {
+      const jumps = await p.$$eval('[role="tabpanel"]:not([hidden]) nav a[href^="#"]',
+        (as) => as.map((x) => x.getAttribute("href").slice(1)));
+      const missing = await p.evaluate((ids) => ids.filter((i) => !document.getElementById(i)), jumps);
+      ok(jumps.length > 0 && missing.length === 0,
+        `${txt} 有快捷导航（${jumps.length} 个锚点，落空 ${missing.length}）`);
+    }
   }
 
   const over = await p.evaluate(() => document.documentElement.scrollWidth - document.documentElement.clientWidth);
@@ -104,26 +129,25 @@ for (const [w, h, name] of [[1280, 900, "桌面"], [390, 844, "手机"]]) {
   await p.close();
 }
 
-/** 深链：分享某一类得分享得出去。类型 id 从数据里取，别写死。 */
-{
-  const { topics } = JSON.parse(await readFile(join(ROOT, "data/atlas.json"), "utf8"));
-  const t = topics[0];
+/** 深链：分享某一类得分享得出去。每个专项都试它最后一个 tab。 */
+console.log("\n── 深链 ──");
+for (const t of topics) {
   const g = t.groups[t.groups.length - 1];
   const p = await br.newPage({ viewport: { width: 1280, height: 900 } });
   await p.goto(`${ORIGIN}${BASE}/topic/${t.id}#g-${g.id}`, { waitUntil: "networkidle" });
   await p.waitForTimeout(300);
   const h = await p.locator('[role="tabpanel"]:not([hidden]) h2').innerText();
-  ok(h === g.zh, `深链 #g-${g.id} 落到「${h}」`);
+  ok(h === g.zh, `${t.zh} 深链 #g-${g.id} 落到「${h}」`);
   await p.close();
 }
 
 /** 卡上给的每条路都得走得通 —— 这一页存在的理由就是把人送进那些页。 */
-{
+for (const t of topics) {
   const p = await br.newPage({ viewport: { width: 1280, height: 900 } });
-  await p.goto(`${ORIGIN}${BASE}/topic/video`, { waitUntil: "networkidle" });
+  await p.goto(`${ORIGIN}${BASE}/topic/${t.id}`, { waitUntil: "networkidle" });
   const hrefs = await p.$$eval("article a[href]", (as) => [...new Set(as.map((a) => a.getAttribute("href")))]);
   const local = hrefs.filter((x) => x.startsWith(BASE));
-  console.log(`\n── 卡上的站内链接 ${local.length} 条 ──`);
+  console.log(`\n── ${t.zh} 卡上的站内链接 ${local.length} 条 ──`);
   let dead = 0, noAnchor = 0;
   for (const href of local) {
     const [path, frag] = href.split("#");
@@ -132,8 +156,8 @@ for (const [w, h, name] of [[1280, 900, "桌面"], [390, 844, "手机"]]) {
     // 锚点也要真的存在：`#hands` 指不到东西时页面照样 200，只是滚不过去
     if (frag && !(await r.text()).includes(`id="${frag}"`)) { noAnchor++; console.log(`  ✗ 锚点不存在 ${href}`); }
   }
-  ok(dead === 0, `站内链接全部可达（死链 ${dead}）`);
-  ok(noAnchor === 0, `锚点全部存在（落空 ${noAnchor}）`);
+  ok(dead === 0, `${t.zh} 站内链接全部可达（死链 ${dead}）`);
+  ok(noAnchor === 0, `${t.zh} 锚点全部存在（落空 ${noAnchor}）`);
   await p.close();
 }
 

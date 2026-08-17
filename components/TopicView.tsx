@@ -90,7 +90,9 @@ function Chip({ cls = "border-rule text-muted", children }: { cls?: string; chil
 function ProjectCard({ p, topic }: { p: TopicProject; topic: string }) {
   const stale = (p.stale_months ?? 0) >= 12;
   return (
-    <article data-count-item className="border border-rule rounded-xl px-4 py-4 sm:px-5 sm:py-5">
+    /* `scroll-mt` 是给跳转条留的：不留这一截，锚点落位会被顶栏盖住半张卡。 */
+    <article id={`c-${p.id}`} data-count-item
+      className="border border-rule rounded-xl px-4 py-4 sm:px-5 sm:py-5 scroll-mt-28">
       <div className="flex items-baseline gap-2.5 flex-wrap mb-2">
         <h3 className="text-[17px] tracking-tight">
           <Link href={topicProjectHref(topic, p.id)} className="hover:text-yes-ink">{p.zh}</Link>
@@ -292,9 +294,16 @@ function BasicPart({ part, groups }: { part: TopicBasicPart; groups: TopicBasic[
  * 负责人 2026-08-17：「整个专项页不同 tab 下，好像都没有快捷访问通道？」
  * 确实没有 —— 顶上那排 tab 只能换类，换进来之后要找「法与权」得滚到底。
  * 组多的 tab（视听语言 14 组、模型与组件 7 节）必须给一排锚点。
+ *
+ * **同一天第二次被指出来**：「一站式 tab 页里，没有快捷导航」。
+ * 上一版只给**有小节**的 tab 发锚点条，而一站式与 Agent 那两个 tab 是平铺的 ——
+ * 于是修的那次它们一个都没拿到。**「有小节」不是「需要导航」的判据，条数才是。**
+ * 平铺的 tab 就直接跳到项目卡本身（`#c-<id>`）。
+ *
+ * `n` 可以不给：小节跳转带个数有意义，跳到某一张卡带个数是噪音。
  */
 function Jump({ items, label, href }: {
-  items: { id: string; zh: string; n: number }[]; label?: string; href?: string;
+  items: { id: string; zh: string; n?: number }[]; label?: string; href?: string;
 }) {
   if (!label && items.length < 3) return null;
   return (
@@ -306,7 +315,7 @@ function Jump({ items, label, href }: {
       {items.map((x) => (
         <a key={x.id} href={`#${x.id}`}
           className="text-[12px] text-muted hover:text-yes-ink whitespace-nowrap">
-          {x.zh}<span className="text-hatch tnum ml-1">{x.n}</span>
+          {x.zh}{x.n !== undefined && <span className="text-hatch tnum ml-1">{x.n}</span>}
         </a>
       ))}
     </nav>
@@ -394,7 +403,22 @@ export default function TopicView({ t }: { t: Topic }) {
                 items={(t.basics ?? []).filter((b) => b.part === pt.id)
                   .map((b) => ({ id: `b-${b.id}`, zh: b.zh, n: b.items.length }))} />
             ))
-            : <Jump items={subsOf(g.id).map((sg) => ({ id: `s-${sg.id}`, zh: sg.zh, n: of(g.id, sg.id).length }))} />}
+            : (() => {
+              /*
+               * **跳哪一层，由「跳得动几下」决定，不由「有没有小节」决定。**
+               *
+               * 只有两个小节时，跳转条被 `Jump` 的「少于三条不显示」吞掉，
+               * 于是「自动开发游戏」那个八张卡的 tab 一个锚点都没有 ——
+               * 而它看起来只是「没有那一行」，不像出错。浏览器检查抓到的就是这个。
+               *
+               * 所以小节少于三个就退回跳卡片本身：读者要的是跳得过去，
+               * 至于跳到的是小节标题还是卡，无所谓。
+               */
+              const subs = subsOf(g.id);
+              return subs.length >= 3
+                ? <Jump items={subs.map((sg) => ({ id: `s-${sg.id}`, zh: sg.zh, n: of(g.id, sg.id).length }))} />
+                : <Jump items={of(g.id).map((p) => ({ id: `c-${p.id}`, zh: p.zh }))} />;
+            })()}
           {/*
             * ⚠️ **`ch` 是按「0」这个字形量的，而一个汉字大约占 2ch。**
             *

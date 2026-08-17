@@ -44,15 +44,24 @@ const blocks = [...text.matchAll(/```mermaid\n([\s\S]*?)```/g)].map((m) => m[1].
 /**
  * **DeepWiki 自己也会生成语法坏掉的 mermaid。**
  *
- * 见过两种，本质是同一个错：**语句以 `[` 开头，节点 id 丢了。**
- *   `[HV] ["HunyuanVideo…"]`              ← 2026-08-16 撞的
- *   `[web/src/services/api/image.ts] --> C` ← 2026-08-17 撞的
+ * 见过三种，本质是同一个错：**语句开头不是节点 id。**
+ *   `[HV] ["HunyuanVideo…"]`                ← 2026-08-16 撞的
+ *   `[web/src/services/api/image.ts] --> C`  ← 2026-08-17 撞的
+ *   `"McpServer" --> "WebSocketServer"`      ← 2026-08-17 又撞的
  *
- * 第一版检查只认前一种（`] [` 挨着），第二种就漏了过去，
- * 一路带到 `make-diagrams` 才炸 —— **检查写窄了，等于没写。**
- * 现在按根因判：flowchart 里任何语句都不能以 `[` 开头。
+ * 三次都是同一个剧本：**判据比根因窄一格，下一种变体就漏过去。**
+ * 第一版只认 `] [` 挨着，第二版扩到「以 `[` 开头」，
+ * 结果引号开头的第三种照样一路带到 `make-diagrams` 才炸。
+ *
+ * 所以这一版按根因写死：语句只能以标识符（字母或下划线）起头。
+ * 中括号、引号、数字开头一律判坏 —— **宁可少挑几张，不要放坏图进去**，
+ * 因为坏图在页面上是「静默少一张」，没人会来报错。
  */
-const broken = (b) => /(^|\n)[ \t]*\[/.test(b);
+const broken = (b) => /(^|\n)[ \t]*["'[\d]/.test(
+  /** 先剥掉图类型声明与方向行，它们本来就不是语句。 */
+  b.replace(/^\s*(flowchart|graph|sequenceDiagram|stateDiagram\S*|classDiagram|erDiagram)[^\n]*\n/, "")
+    .replace(/(^|\n)[ \t]*direction[^\n]*/g, ""),
+);
 
 const uniq = [...new Set(blocks)];
 const bad = uniq.filter(broken).length;

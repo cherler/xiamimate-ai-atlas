@@ -34011,6 +34011,1084 @@
             "带世界观锚点",
             "已宣布不再同步源码"
           ]
+        },
+        {
+          "id": "clipforge",
+          "zh": "ClipForge",
+          "license": "AGPL-3.0",
+          "license_class": "copyleft",
+          "license_note": "AGPL-3.0 传染性最强的一档：**改过之后拿去做联网服务，也要放出源码**。自己内部批量出片不受影响，做成对外的 SaaS 就要当心。",
+          "group": "allinone",
+          "role": "allinone",
+          "engine": "yours",
+          "decisions": [
+            "shot",
+            "identity",
+            "pace",
+            "sound"
+          ],
+          "takes_over": [
+            "shot",
+            "compose",
+            "identity",
+            "motion",
+            "camera",
+            "pace",
+            "sound"
+          ],
+          "leaves": [
+            "topic",
+            "repro"
+          ],
+          "tags": [
+            "一张商品图出成片",
+            "商品本体一个像素不改",
+            "免费档与付费档明选"
+          ],
+          "scope": "带货短视频专用的一站式工具：上传商品图，自动提炼卖点、写种草脚本、配音配字幕加背景乐，产出可直接发抖音小店 / 快手 / 小红书 / 视频号 / TikTok Shop 的成片。原名「带货剪手」。",
+          "control": "**它把「商品长什么样」当成不可动的输入** —— 换背景、打光都做，商品本体不改。这是带货和其它题材最根本的区别：短剧可以让 AI 自由发挥，商品不行，改了就是虚假宣传。主播用多视图定妆照锁一致性，跨镜头跨条视频不换脸。",
+          "hw": "免费档全程本地合成、不需要显卡也不需要密钥；AI 生成档用你自己的模型平台密钥，费用付给平台。",
+          "good": [
+            "**带货这一格里唯一成体系的开源项目**，从选题到发布物料一条链",
+            "免费档与付费档在创建时就明标，不会跑一半才发现要花钱",
+            "自带 AIGC 标识、违禁词扫描与发布门禁 —— 合规是默认开的，不是事后补",
+            "MCP / CLI / Skill 都有，能在 Claude 或 Cursor 里一句话出片"
+          ],
+          "bad": [
+            "**AGPL-3.0 是传染性最强的一档**，做对外服务前必须过法务",
+            "README 是营销口吻，功能清单很长，实际成熟度要自己按需验",
+            "开源不到半年，长期维护还看不出来"
+          ],
+          "unfit": "非商品题材 —— 它的整套设定（卖点、种草、转化钩子）都围着卖东西转，做别的是杀鸡用牛刀。",
+          "src": "github README + DeepWiki",
+          "url": "https://github.com/xixihhhh/clipforge",
+          "stars": 563,
+          "created_at": "2026-03-23",
+          "pushed_at": "2026-08-13",
+          "stars_per_month": 117,
+          "stale_months": 0,
+          "diagrams": [
+            {
+              "id": "v-clipforge-1",
+              "title": "东西怎么摆",
+              "kind": "架构图",
+              "src": "DeepWiki · 抓取 2026-08-17",
+              "verified_at": "2026-08-17",
+              "mermaid": "graph LR\n    subgraph \"Code Entities\"\n        Handler[\"/api/llm/publish (POST)\"]\n        PromptBuilder[\"buildPublishPrompt()\"]\n        JSONExtractor[\"extractJSON()\"]\n    end\n\n    subgraph \"External/Shared\"\n        OpenAIClient[\"OpenAI SDK Client\"]\n        Settings[\"useSettingsStore()\"]\n    end\n\n    Settings -- \"API Key / Base URL\" --> Handler\n    Handler --> PromptBuilder\n    PromptBuilder -- \"Formatted String\" --> OpenAIClient\n    OpenAIClient -- \"Raw Markdown/JSON\" --> JSONExtractor\n    JSONExtractor -- \"Parsed Object\" --> Handler"
+            },
+            {
+              "id": "v-clipforge-2",
+              "title": "一次调用经过什么",
+              "kind": "时序图",
+              "src": "DeepWiki · 抓取 2026-08-17",
+              "verified_at": "2026-08-17",
+              "mermaid": "sequenceDiagram\n    participant UI as VideoPage (Client)\n    participant API as /api/project/[id]/compose\n    participant DB as SQLite (Drizzle)\n    participant Worker as FFmpeg Worker\n\n    UI->>API: POST startCompose(config)\n    API->>DB: Update project status to 'composing'\n    API->>Worker: Spawn FFmpeg Process\n    API-->>UI: 202 Accepted (jobId)\n    \n    loop Polling\n        UI->>API: GET status\n        API->>DB: Query current progress\n        DB-->>API: Progress %\n        API-->>UI: { progress, status }\n    end\n\n    Worker->>DB: Update status to 'done' + outputUrl\n    UI->>API: GET status (final)\n    API-->>UI: { status: 'done', outputUrl: '/api/output/...' }\n    UI->>UI: setComposeDone(true)"
+            }
+          ],
+          "verified_at": "2026-08-17",
+          "hands": {
+            "install": [
+              {
+                "step": "按仓库说明装",
+                "gate": "免费档全程本地合成，不需要显卡也不需要密钥"
+              },
+              {
+                "step": "要用 AI 生成档就填自己的模型平台密钥",
+                "gate": "**费用付给模型平台，不付给这个项目**。创建时会标出这一次要花多少"
+              },
+              {
+                "step": "先跑一遍免费档验证链路",
+                "gate": "链路通了再开付费档，别一上来就烧钱"
+              }
+            ],
+            "modify": [
+              {
+                "path": "主播库",
+                "effect": "自建带货主播，用四视图定妆照当人物锚，跨镜头跨条视频不换脸"
+              },
+              {
+                "path": "成片模板",
+                "effect": "按商品自动推荐，可以套用、定制、分享"
+              }
+            ],
+            "pitfalls": [
+              {
+                "where": "许可证",
+                "note": "**AGPL-3.0 是传染性最强的一档**：改过之后拿去做联网服务，也要放出源码。自己内部批量出片不受影响"
+              },
+              {
+                "where": "功能清单很长",
+                "note": "README 是营销口吻，列了二十来项能力。**按你真正要用的那两三项单独验**，别照单全收"
+              },
+              {
+                "where": "合规",
+                "note": "自带 AIGC 标识、违禁词扫描与发布门禁，**默认是开的** —— 别为了省事关掉"
+              }
+            ],
+            "layers": [
+              "docs",
+              "wiki",
+              "issue"
+            ],
+            "issue_src": "github issues 按回复数排序 · 核验 2026-08-17"
+          },
+          "tutorials": [
+            {
+              "title": "项目官网",
+              "url": "https://xixihhhh.github.io/clipforge",
+              "kind": "官方",
+              "lang": "zh",
+              "page_title": "ClipForge — 开源 AI 带货短视频神器:一张商品图,秒变会卖货的短视频",
+              "verified_at": "2026-08-17"
+            }
+          ]
+        },
+        {
+          "id": "short-video-factory",
+          "zh": "短视频工厂",
+          "license": "AGPL-3.0",
+          "license_class": "copyleft",
+          "license_note": "AGPL-3.0：改过之后拿去做联网服务要放出源码。桌面端自用不受影响。",
+          "group": "allinone",
+          "role": "allinone",
+          "engine": "yours",
+          "decisions": [
+            "shot",
+            "pace",
+            "sound"
+          ],
+          "takes_over": [
+            "shot",
+            "compose",
+            "pace",
+            "sound"
+          ],
+          "leaves": [
+            "topic",
+            "identity",
+            "motion",
+            "camera",
+            "repro"
+          ],
+          "tags": [
+            "桌面端装了就用",
+            "批量自动剪辑",
+            "产品营销与泛内容都做"
+          ],
+          "scope": "跨平台桌面应用：给提示词文本加分镜素材，自动剪出产品营销或泛内容短视频。集成文案生成、语音合成、视频剪辑、字幕特效。",
+          "control": "**它剪的是你给的素材，不生成画面** —— 于是画面可控性来自你自己的素材库，AI 负责的是文案、配音与拼接节奏。这条路的稳定性比全靠生成高得多。",
+          "hw": "桌面端应用，本机不跑推理；文案与配音走外部服务。",
+          "good": [
+            "带货这一类里星数最高的，社区最厚",
+            "装了就能用的桌面端，不用配 Python 环境",
+            "批量自动剪辑，一次处理一批素材"
+          ],
+          "bad": [
+            "**要你自己有分镜素材** —— 没有素材它剪不出东西",
+            "AGPL-3.0，做对外服务要当心",
+            "角色一致性、运镜这些不归它管，它是剪辑不是生成"
+          ],
+          "unfit": "手里一条素材都没有、想让 AI 从零生成画面 —— 那要找生成向的工具。",
+          "src": "github README + DeepWiki",
+          "url": "https://github.com/YILS-LIN/short-video-factory",
+          "stars": 5143,
+          "created_at": "2025-07-09",
+          "pushed_at": "2026-07-23",
+          "stars_per_month": 388,
+          "stale_months": 1,
+          "diagrams": [
+            {
+              "id": "v-short-video-factory-1",
+              "title": "东西怎么摆",
+              "kind": "架构图",
+              "src": "DeepWiki · 抓取 2026-08-17",
+              "verified_at": "2026-08-17",
+              "mermaid": "graph LR\n    SourceFiles[\"Source Files<br/>.ts .vue .json\"]\n    PrettierCmd[\"pnpm format<br/>prettier --write .\"]\n    FormattedFiles[\"Formatted Files\"]\n    VSCodeFormat[\"VS Code Auto-Format<br/>on Save\"]\n    \n    SourceFiles --> PrettierCmd\n    PrettierCmd --> FormattedFiles\n    \n    SourceFiles --> VSCodeFormat\n    VSCodeFormat --> FormattedFiles"
+            },
+            {
+              "id": "v-short-video-factory-2",
+              "title": "一次调用经过什么",
+              "kind": "时序图",
+              "src": "DeepWiki · 抓取 2026-08-17",
+              "verified_at": "2026-08-17",
+              "mermaid": "sequenceDiagram\n    participant HomeView as \"Home View<br/>(Orchestrator)\"\n    participant TextGen as \"TextGenerateInstance\"\n    participant AppStore as \"useAppStore\"\n    \n    Note over HomeView: User clicks Render Video\n    HomeView->>AppStore: updateRenderStatus(GenerateText)\n    \n    alt Output text already exists\n        HomeView->>TextGen: getCurrentOutputText()\n        TextGen-->>HomeView: return outputText.value\n    else Need to generate\n        HomeView->>TextGen: handleGenerate()\n        TextGen->>TextGen: streamText() loop\n        TextGen-->>HomeView: return outputText.value\n    end\n    \n    HomeView->>HomeView: Continue to TTS stage\n    \n    Note over HomeView: After video completion<br/>in auto-batch mode\n    HomeView->>TextGen: clearOutputText()\n    TextGen->>TextGen: outputText.value = ''\n    HomeView->>HomeView: Restart pipeline"
+            }
+          ],
+          "verified_at": "2026-08-17",
+          "hands": {
+            "install": [
+              {
+                "step": "下载桌面端安装包",
+                "gate": "跨平台，装了就用，不用配 Python 环境"
+              },
+              {
+                "step": "准备分镜素材",
+                "gate": "**它剪的是你给的素材，不生成画面** —— 没素材它剪不出东西"
+              },
+              {
+                "step": "写提示词生成文案",
+                "gate": "文案与配音走外部服务，要配好对应的密钥"
+              }
+            ],
+            "modify": [
+              {
+                "path": "字幕样式",
+                "effect": "issue #27（5 条回复）在要更多样式调整选项 —— 现在能调的有限"
+              }
+            ],
+            "pitfalls": [
+              {
+                "where": "时长",
+                "note": "issue #42（5 条回复）：自定义时长的需求还没满足"
+              },
+              {
+                "where": "渲染",
+                "note": "issue #69（4 条回复）：渲染失败。素材格式不统一时容易踩"
+              },
+              {
+                "where": "语音识别",
+                "note": "issue #71（4 条回复）在建议集成本地语音识别做字幕 —— 现在字幕这一段还依赖外部服务"
+              },
+              {
+                "where": "许可证",
+                "note": "AGPL-3.0，做对外服务要当心"
+              }
+            ],
+            "layers": [
+              "docs",
+              "wiki",
+              "issue"
+            ],
+            "issue_src": "github issues 按回复数排序 · 核验 2026-08-17"
+          }
+        },
+        {
+          "id": "yt-shorts-gen",
+          "zh": "AI YouTube Shorts Generator",
+          "license": "没有许可证文件",
+          "license_class": "restricted",
+          "license_note": "**仓库里没有 LICENSE 文件**（2026-08-17 核）。没有明示授权即保留所有权利，商用前要问作者。",
+          "group": "allinone",
+          "role": "allinone",
+          "engine": "yours",
+          "decisions": [
+            "shot",
+            "pace"
+          ],
+          "takes_over": [
+            "shot",
+            "compose",
+            "pace"
+          ],
+          "leaves": [
+            "topic",
+            "identity",
+            "motion",
+            "camera",
+            "sound",
+            "repro"
+          ],
+          "tags": [
+            "长视频切成竖屏短片",
+            "本地档只要 ffmpeg",
+            "对标 Opus Clip"
+          ],
+          "scope": "把一条长视频切成一批排好序的竖屏短片：用语言模型找高光片段、用 Whisper 转写、自动裁成 9:16 发抖音 / Reels / Shorts。",
+          "control": "**高光判定的算法是开的** —— 商业切片工具那一套「它觉得哪儿好」你改不了，这个能改。",
+          "hw": "Python 3.10+。本地档只要 ffmpeg 加一个语言模型密钥；默认档走它自家的付费接口。",
+          "good": [
+            "直播回放切带货片段这个场景对得上，长转短是最省事的一条路",
+            "本地档只有语言模型那一步走远端，其余都在本机",
+            "高光排序逻辑可改，不是黑箱"
+          ],
+          "bad": [
+            "**默认档绑它自家的付费接口**，README 大篇幅在导流，用之前先切到本地档",
+            "没有许可证文件，授权状态不明",
+            "只做切片，不生成任何新画面"
+          ],
+          "unfit": "手上没有长视频 —— 它的输入就是长视频。",
+          "src": "github README",
+          "wiki": "none",
+          "wiki_note": "DeepWiki 抓不到由源码生成的图（2026-08-17 核）。**这是抓不到，不是没有代码** —— 那边没有索引这个仓库，所以这一项只有 README 与文档两层。",
+          "url": "https://github.com/Anil-matcha/AI-Youtube-Shorts-Generator",
+          "stars": 4614,
+          "created_at": "2024-06-28",
+          "pushed_at": "2026-07-29",
+          "stars_per_month": 180,
+          "stale_months": 1,
+          "verified_at": "2026-08-17"
+        },
+        {
+          "id": "open-ai-ugc",
+          "zh": "Open AI UGC",
+          "license": "MIT",
+          "license_class": "permissive",
+          "group": "allinone",
+          "role": "allinone",
+          "engine": "cloud",
+          "decisions": [
+            "shot",
+            "identity",
+            "sound"
+          ],
+          "takes_over": [
+            "shot",
+            "compose",
+            "identity",
+            "motion",
+            "camera",
+            "pace",
+            "sound"
+          ],
+          "leaves": [
+            "topic",
+            "repro"
+          ],
+          "tags": [
+            "生成真人感的口播演员",
+            "演员库不锁死",
+            "自带整套 SaaS 骨架"
+          ],
+          "scope": "生成 UGC 风格的口播广告：用多个视频模型出真人感的 AI 演员念你的脚本。定位是 Arcads 与 MakeUGC 的开源替代。",
+          "control": "**演员库是开的** —— 商业同类把演员锁在自家库里按人头收费，这个不锁。",
+          "hw": "Node.js 18+；另需 PostgreSQL、它自家的接口密钥、Google OAuth 与 Stripe 账户。",
+          "good": [
+            "口播带货这个场景对得上，不用真人出镜",
+            "演员不锁库、不按席位收费、不打水印",
+            "MIT，授权干净"
+          ],
+          "bad": [
+            "**它其实是一套 SaaS 模板不是工具** —— 要配数据库、登录与支付才跑得起来",
+            "画面全靠它自家的接口，本地一个模型都不跑",
+            "DeepWiki 抓不到图"
+          ],
+          "unfit": "只想在本机出几条视频 —— 起这一套的成本远超收益。",
+          "src": "github README",
+          "wiki": "none",
+          "wiki_note": "DeepWiki 抓不到由源码生成的图（2026-08-17 核）。那边没有索引这个仓库，**是抓不到不是没有** —— 这一项只有 README 与文档两层。",
+          "url": "https://github.com/Anil-matcha/Open-AI-UGC",
+          "stars": 251,
+          "created_at": "2023-05-22",
+          "pushed_at": "2026-07-27",
+          "stars_per_month": 6,
+          "stale_months": 1,
+          "verified_at": "2026-08-17"
+        },
+        {
+          "id": "vigenair",
+          "zh": "ViGenAiR",
+          "license": "Apache-2.0",
+          "license_class": "permissive",
+          "license_note": "Apache-2.0，商用无附加限制。**注意 README 明写「这不是 Google 的官方产品」** —— 它在 Google 的营销方案仓库下，但不享受官方产品的支持承诺。",
+          "group": "allinone",
+          "role": "allinone",
+          "engine": "yours",
+          "decisions": [
+            "shot",
+            "pace"
+          ],
+          "takes_over": [
+            "shot",
+            "compose",
+            "pace"
+          ],
+          "leaves": [
+            "topic",
+            "identity",
+            "motion",
+            "camera",
+            "sound",
+            "repro"
+          ],
+          "tags": [
+            "把一条广告重剪成多条",
+            "挂在 Google 营销方案下",
+            "明说不是官方产品"
+          ],
+          "scope": "把一条已有的视频广告用生成式 AI 重新剪成适配不同版位与时长的多条。",
+          "control": "**输入是已经拍好的成片** —— 于是画面质量的下限就是原片的质量，AI 只负责重新组织。这条路避开了生成模型最不稳的那一段。",
+          "hw": "跑在 Google Cloud 上，需要相应的云资源。",
+          "good": [
+            "一条主片派生多个版位，这是投放侧真实的需求",
+            "画面来自原片，不会出现生成模型那种翻车",
+            "Apache-2.0，授权干净"
+          ],
+          "bad": [
+            "**README 明写不是 Google 官方产品**，别当成有官方支持",
+            "绑 Google Cloud，国内落地要另算账",
+            "要先有一条拍好的广告片"
+          ],
+          "unfit": "没有成片、想从零做一条 —— 它的起点是已有素材。",
+          "src": "github README + DeepWiki",
+          "url": "https://github.com/google-marketing-solutions/vigenair",
+          "stars": 228,
+          "created_at": "2024-05-08",
+          "pushed_at": "2026-06-20",
+          "stars_per_month": 8,
+          "stale_months": 2,
+          "diagrams": [
+            {
+              "id": "v-vigenair-1",
+              "title": "东西怎么摆",
+              "kind": "架构图",
+              "src": "DeepWiki · 抓取 2026-08-17",
+              "verified_at": "2026-08-17",
+              "mermaid": "graph TB\n    AngularDist[\"Angular Dist Files\"] --> DeployScript[\"deploy-ui.mjs\"]\n    DeployScript --> HTMLProcessing[\"HTML Processing<br/>Inline CSS/JS\"]\n    DeployScript --> AssetProcessing[\"Asset Processing<br/>Base64 Encoding\"]\n    HTMLProcessing --> AppsScriptHTML[\"Apps Script HTML Files\"]\n    AssetProcessing --> AppsScriptHTML\n    AppsScriptHTML --> DistFolder[\"dist/ Directory\"]"
+            },
+            {
+              "id": "v-vigenair-2",
+              "title": "一次调用经过什么",
+              "kind": "时序图",
+              "src": "DeepWiki · 抓取 2026-08-17",
+              "verified_at": "2026-08-17",
+              "mermaid": "sequenceDiagram\n    participant Input as \"Video Input\"\n    participant Extractor as \"Extractor Service\"\n    participant VideoAPI as \"Video Intelligence\"\n    participant Whisper as \"Whisper/Gemini\"\n    participant Spleeter as \"Spleeter\"\n    participant Gemini as \"Vertex AI Gemini\"\n    participant Storage as \"GCS Storage\"\n    \n    Input->>Extractor: Upload video file\n    Extractor->>VideoAPI: Analyse video content\n    Extractor->>Whisper: Transcribe audio\n    Extractor->>Spleeter: Separate audio tracks\n    \n    VideoAPI-->>Extractor: Shot detection, labels, objects\n    Whisper-->>Extractor: Timestamped transcript\n    Spleeter-->>Extractor: Vocal/music tracks\n    \n    Extractor->>Gemini: Annotate segments\n    Gemini-->>Extractor: Scene descriptions\n    \n    Extractor->>Storage: Store analysis.json, data.json\n    \n    Note over Storage: User requests variants\n    \n    Storage->>Gemini: Generate variants with prompt\n    Gemini-->>Storage: Scored combinations\n    \n    Storage->>Gemini: Generate text assets\n    Gemini-->>Storage: Headlines and descriptions"
+            }
+          ],
+          "verified_at": "2026-08-17"
+        },
+        {
+          "id": "livetalking",
+          "zh": "LiveTalking",
+          "license": "Apache-2.0",
+          "license_class": "permissive",
+          "group": "parts",
+          "sub": "gen",
+          "role": "tool",
+          "decisions": [
+            "identity",
+            "sound"
+          ],
+          "tags": [
+            "实时可打断",
+            "四种数字人模型换着用",
+            "WebRTC/RTMP 直出"
+          ],
+          "scope": "实时交互流式数字人引擎，音视频同步对话。支持 ernerf、musetalk、wav2lip、Ultralight-Digital-Human 四种模型，声音克隆、全身视频拼接、多并发。",
+          "control": "**支持说话被打断** —— 这是直播和录播的分水岭：录播只要口型对上，直播要能在观众提问时立刻停下来接话。另有动作编排，不说话时播自定义视频。",
+          "hw": "要显卡跑实时推理；具体占用取决于选哪种数字人模型。",
+          "good": [
+            "**直播带货这一格开源侧的主力**，README 称已在业内广泛商用",
+            "四种模型可换，效果与算力可以按预算权衡",
+            "WebRTC、RTMP、虚拟摄像头三种输出，接现成直播工具不用改"
+          ],
+          "bad": [
+            "**它不出成片，它开直播** —— 想要一条可以发布的视频文件，这不是对的工具",
+            "实时推理要一直占着显卡，成本按时长算",
+            "数字人形象与声音克隆涉及肖像权与声音权，用之前要拿到授权"
+          ],
+          "unfit": "做录播成片 —— 那条路上有更省事的口型工具，不需要扛实时的复杂度。",
+          "src": "github README + DeepWiki",
+          "url": "https://github.com/lipku/LiveTalking",
+          "stars": 8813,
+          "created_at": "2023-12-19",
+          "pushed_at": "2026-08-07",
+          "stars_per_month": 276,
+          "stale_months": 0,
+          "diagrams": [
+            {
+              "id": "v-livetalking-1",
+              "title": "东西怎么摆",
+              "kind": "架构图",
+              "src": "DeepWiki · 抓取 2026-08-17",
+              "verified_at": "2026-08-17",
+              "mermaid": "flowchart TD\n    Start[\"llm_response() called\"]\n    StartTimer[\"start = time.perf_counter()\"]\n    ImportOpenAI[\"from openai import OpenAI\"]\n    CreateClient[\"OpenAI(api_key=DASHSCOPE_API_KEY, base_url=dashscope_url)\"]\n    LogInit[\"logger.info('llm Time init')\"]\n    CreateCompletion[\"client.chat.completions.create()\"]\n    \n    Start --> StartTimer\n    StartTimer --> ImportOpenAI\n    ImportOpenAI --> CreateClient\n    CreateClient --> LogInit\n    LogInit --> CreateCompletion"
+            },
+            {
+              "id": "v-livetalking-2",
+              "title": "一次调用经过什么",
+              "kind": "时序图",
+              "src": "DeepWiki · 抓取 2026-08-17",
+              "verified_at": "2026-08-17",
+              "mermaid": "sequenceDiagram\n    participant ClientJS as \"client.js\"\n    participant PC as \"RTCPeerConnection\"\n    participant Server as \"app.py /offer\"\n    participant Session as \"nerfreals[sessionid]\"\n    \n    ClientJS->>PC: \"addTransceiver('video', {direction: 'recvonly'})\"\n    ClientJS->>PC: \"addTransceiver('audio', {direction: 'recvonly'})\"\n    ClientJS->>PC: \"createOffer()\"\n    PC->>ClientJS: \"SDP offer\"\n    ClientJS->>PC: \"setLocalDescription(offer)\"\n    \n    Note over ClientJS: Wait for ICE gathering complete\n    \n    ClientJS->>Server: \"POST /offer {sdp: offer.sdp, type: offer.type}\"\n    Server->>Session: \"Create new session with sessionid\"\n    Server->>Session: \"Store RTCPeerConnection\"\n    Server->>ClientJS: \"{sdp: answer.sdp, type: answer.type, sessionid: int}\"\n    \n    ClientJS->>PC: \"setRemoteDescription(answer)\"\n    PC->>ClientJS: \"ontrack events (video/audio)\"\n    ClientJS->>ClientJS: \"Store sessionid in #sessionid field\""
+            }
+          ],
+          "verified_at": "2026-08-17",
+          "hands": {
+            "install": [
+              {
+                "step": "准备显卡跑实时推理",
+                "gate": "占用取决于选哪种数字人模型"
+              },
+              {
+                "step": "选模型：ernerf / musetalk / wav2lip / Ultralight",
+                "gate": "**效果与算力在这一步权衡**，选完再调参"
+              },
+              {
+                "step": "接输出：WebRTC / RTMP / 虚拟摄像头",
+                "gate": "接现成直播工具走虚拟摄像头最省事"
+              }
+            ],
+            "modify": [
+              {
+                "path": "前端 API 接口",
+                "effect": "对接自己的业务系统从这里进"
+              }
+            ],
+            "pitfalls": [
+              {
+                "where": "打断到底行不行",
+                "note": "**README 写「支持数字人说话被打断」，而 issue #510（21 条回复）标题是「打断能力太弱了，响应最快 3 秒，最慢更多，没法直接用在对实时性要求高的项目上」。自述和实测在这一点上是打架的 —— 上生产前必须自己测一遍**"
+              },
+              {
+                "where": "换形象",
+                "note": "issue #423（20 条回复）：实时切换数字人形象遇到的问题与解法 —— 能做，但要按帖子里的办法绕"
+              },
+              {
+                "where": "云主机",
+                "note": "issue #120（20 条回复）：在某些云平台的镜像上跑不出画面"
+              },
+              {
+                "where": "肖像与声音",
+                "note": "数字人形象与声音克隆涉及肖像权与声音权。**用真人形象前要拿到授权**，这一条不是技术问题"
+              }
+            ],
+            "layers": [
+              "docs",
+              "wiki",
+              "issue"
+            ],
+            "issue_src": "github issues 按回复数排序 · 核验 2026-08-17"
+          },
+          "tutorials": [
+            {
+              "title": "国内镜像（Gitee）",
+              "url": "https://gitee.com/lipku/LiveTalking",
+              "kind": "官方",
+              "lang": "zh",
+              "page_title": "",
+              "verified_at": "2026-08-17"
+            }
+          ]
+        },
+        {
+          "id": "seedance2-skill",
+          "zh": "Seedance 2.0 Prompt Skills",
+          "sub": "pskill",
+          "license": "MIT",
+          "license_class": "permissive",
+          "decisions": [
+            "shot",
+            "camera",
+            "pace"
+          ],
+          "tags": [
+            "@ 引用语法讲透",
+            "按片型给模板",
+            "中英双份"
+          ],
+          "scope": "给 Agent 装的 Seedance 2.0 提示词技能：讲输入约束、@ 引用语法、镜头语言、提示词结构，并按广告 / 短剧 / MV / 教学几类片型给现成模板。",
+          "control": "**它管的是「怎么把要求说清楚」，不是「生成什么」** —— 装上以后，你说一句白话，Agent 按这套结构替你展开成模型认的提示词。",
+          "hw": "只要一个支持技能的 AI 编码客户端；把 SKILL.md 拷进技能目录即可。",
+          "good": [
+            "这一类里星数最高的，中英两份都维护",
+            "把 @ 引用语法单独讲透 —— 这是 Seedance 最容易写错的一处",
+            "按片型给模板，不是给一堆零散技巧"
+          ],
+          "bad": [
+            "**只对 Seedance 2.0 一家有效**，换模型整套要重写",
+            "**已停更半年，而模型在这半年里改过版** —— 提示词项目最怕这个",
+            "仓库是纯 Markdown，没有可查的代码结构"
+          ],
+          "unfit": "不用 Seedance 的人 —— 里面的语法是这一家专有的。",
+          "src": "github README",
+          "wiki": "none",
+          "wiki_note": "DeepWiki 抓不到由源码生成的图（2026-08-17 核）。这个仓库主体是 Markdown 提示词文件，没有调用关系可画 —— **不是我们没抓，是没有那个东西**。",
+          "group": "prompt",
+          "role": "tool",
+          "url": "https://github.com/dexhunter/seedance2-skill",
+          "stars": 3314,
+          "created_at": "2026-02-11",
+          "pushed_at": "2026-02-18",
+          "stars_per_month": 539,
+          "stale_months": 6,
+          "verified_at": "2026-08-17"
+        },
+        {
+          "id": "drama-skills",
+          "zh": "Drama Skills",
+          "sub": "pskill",
+          "license": "MIT",
+          "license_class": "permissive",
+          "decisions": [
+            "topic",
+            "shot",
+            "identity",
+            "pace",
+            "sound"
+          ],
+          "tags": [
+            "从上千个真实项目蒸出来",
+            "十个技能一条链",
+            "每步要你确认"
+          ],
+          "scope": "面向编剧与漫剧工作室的短剧创作流水线：十个技能把一个点子或一部长篇材料，一路做成分集剧本、资产设定、图片提示词、分镜关键帧、视频提示词与审查记录。",
+          "control": "**靠三样东西咬住连贯性**：每一步的产出归属明确、创作者要明确确认、跨集之间有连续性契约。产出的核心是文本，图片与视频要另配适配器才执行。",
+          "hw": "Claude Code / Codex 或其它支持 Agent Skill 规范的运行环境。",
+          "good": [
+            "**来历是这一类里最硬的**：README 自述来自自家漫剧产线，2025 年至今上千个项目蒸馏而成",
+            "作者明说前后端近八万行的自建工具维护不动了，才转成技能 —— **这是把教训做成了产品**",
+            "提示词要先预览、经你确认才执行，不会闷头烧钱"
+          ],
+          "bad": [
+            "**只服务短剧 / 漫剧这一类题材**，做别的用不上",
+            "十个技能一条链，中途插手要懂它的交接约定",
+            "图片与视频的实际生成靠项目外的适配器，那一半要自己配"
+          ],
+          "unfit": "做单条视频 —— 这套东西的回报来自成集、成系列的连贯性。",
+          "src": "github README",
+          "wiki": "none",
+          "wiki_note": "DeepWiki 抓不到由源码生成的图（2026-08-17 核）。这个仓库主体是 Markdown 提示词文件，没有调用关系可画 —— **不是我们没抓，是没有那个东西**。",
+          "group": "prompt",
+          "role": "tool",
+          "url": "https://github.com/worldwonderer/drama-skills",
+          "stars": 770,
+          "created_at": "2026-07-16",
+          "pushed_at": "2026-08-17",
+          "stars_per_month": 732,
+          "stale_months": 0,
+          "verified_at": "2026-08-17"
+        },
+        {
+          "id": "seedance-storyboard",
+          "zh": "Seedance2 Storyboard Generator",
+          "sub": "pskill",
+          "license": "没有许可证文件",
+          "license_class": "restricted",
+          "license_note": "**仓库里没有 LICENSE 文件**（2026-08-17 查目录确认）。没有明示授权即保留所有权利，商用前要问作者。",
+          "decisions": [
+            "topic",
+            "shot",
+            "pace"
+          ],
+          "tags": [
+            "剧本直接出分镜",
+            "结构化提示语"
+          ],
+          "scope": "开源剧情剧本技能：把故事拆成分镜，并整合成 Seedance 2.0 认的结构化提示语。",
+          "control": "**入口是剧本不是单句提示词** —— 于是镜头之间的顺序与因果由剧本保证，而不是靠你每条单独描述时碰运气。",
+          "hw": "支持技能的 AI 编码客户端。",
+          "good": [
+            "从剧本一步到分镜，中间那段手工活省掉了",
+            "中文侧，说明与模板都是中文"
+          ],
+          "bad": [
+            "没有许可证文件，授权状态不明",
+            "绑 Seedance 2.0",
+            "README 偏营销，能力边界要自己划"
+          ],
+          "unfit": "没有剧本、只想出一条镜头 —— 它的价值在成段的结构上。",
+          "src": "github README + DeepWiki",
+          "group": "prompt",
+          "role": "tool",
+          "url": "https://github.com/liangdabiao/Seedance2-Storyboard-Generator",
+          "stars": 2114,
+          "created_at": "2026-02-16",
+          "pushed_at": "2026-06-19",
+          "stars_per_month": 354,
+          "stale_months": 2,
+          "diagrams": [
+            {
+              "id": "p-seedance-storyboard-1",
+              "title": "东西怎么摆",
+              "kind": "架构图",
+              "src": "DeepWiki · 抓取 2026-08-17",
+              "verified_at": "2026-08-17",
+              "mermaid": "flowchart LR\n    A[\"[Title]_剧本.md\n(four-act script)\"]\n    B[\"Asset Planning\n(Claude Code)\"]\n    C[\"[Title]_素材清单.md\n(numbered prompts)\"]\n    D[\"Image Generator\n(Nana Banana Pro)\"]\n    E[\"素材/ directory\n(image files)\"]\n\n    A --> B\n    B --> C\n    C --> D\n    D --> E"
+            },
+            {
+              "id": "p-seedance-storyboard-2",
+              "title": "一次调用经过什么",
+              "kind": "流程图",
+              "src": "DeepWiki · 抓取 2026-08-17",
+              "verified_at": "2026-08-17",
+              "mermaid": "flowchart LR\n    SKILL[\"SKILL.md\n(skill definition)\"]\n\n    SKILL --> F1[\"Title_剧本.md\nFour-act script\nwith episode breakdown\"]\n    SKILL --> F2[\"Title_素材清单.md\nAll C/S/P asset\ngeneration prompts\"]\n    SKILL --> F3[\"Title_E01_分镜.md\nEpisode 1 storyboard\"]\n    SKILL --> F4[\"Title_E02_分镜.md\nEpisode 2 storyboard\"]\n    SKILL --> FN[\"Title_E[XX]_分镜.md\n...\"]\n\n    F1 -->|\"narrative structure\"| F3\n    F2 -->|\"asset IDs for @图片X refs\"| F3\n    F3 -->|\"尾帧描述 feeds\"| F4\n    F4 -->|\"尾帧描述 feeds\"| FN"
+            }
+          ],
+          "verified_at": "2026-08-17"
+        },
+        {
+          "id": "shortfilm-prompts",
+          "zh": "AI Shortfilm Prompts",
+          "sub": "pskill",
+          "license": "MIT",
+          "license_class": "permissive",
+          "decisions": [
+            "shot",
+            "camera",
+            "compose"
+          ],
+          "tags": [
+            "一个点子直出可用提示词",
+            "偏电影语言"
+          ],
+          "scope": "一个 Claude Code 技能：把任意一个想法变成电影语言的、模型直接能用的视频提示词。",
+          "control": "把「电影怎么说话」那套词汇（景别、机位、运动、光线）固化进技能里 —— **你不必自己记那些词，它替你补**。",
+          "hw": "Claude Code。",
+          "good": [
+            "体量小，读得完，改得动",
+            "MIT，授权干净",
+            "不绑单一模型"
+          ],
+          "bad": [
+            "功能单一，只做「点子 → 提示词」这一步",
+            "星数在这一类里偏小",
+            "没有可查的代码结构"
+          ],
+          "unfit": "已经有成套提示词、只想找现成词库的人。",
+          "src": "github README",
+          "wiki": "none",
+          "wiki_note": "DeepWiki 抓不到由源码生成的图（2026-08-17 核）。这个仓库主体是 Markdown 提示词文件，没有调用关系可画 —— **不是我们没抓，是没有那个东西**。",
+          "group": "prompt",
+          "role": "tool",
+          "url": "https://github.com/jnMetaCode/ai-shortfilm-prompts",
+          "stars": 352,
+          "created_at": "2026-05-18",
+          "pushed_at": "2026-07-23",
+          "stars_per_month": 118,
+          "stale_months": 1,
+          "verified_at": "2026-08-17"
+        },
+        {
+          "id": "awesome-seedance2-prompts",
+          "zh": "Awesome Seedance 2 Prompts",
+          "sub": "plib",
+          "license": "见仓库 LICENSE 文件",
+          "license_class": "restricted",
+          "license_note": "仓库有 LICENSE 文件，但 GitHub 识别不出是哪一种（标为 Other，2026-08-17 核）。**抄提示词之前先自己读一遍那份文件**。",
+          "decisions": [
+            "shot",
+            "compose",
+            "camera"
+          ],
+          "tags": [
+            "两千条起",
+            "按风格分门别类",
+            "每天更新"
+          ],
+          "scope": "整理好的 Seedance 2.0 视频提示词库，README 自述两千条以上，覆盖电影感、动画、UGC 等多种风格，声称每日更新。",
+          "control": "**它给的是成品不是方法** —— 找到最接近的一条改几个词，比从零写快得多。",
+          "hw": "无，看网页就行。",
+          "good": [
+            "量最大的一份 Seedance 提示词库",
+            "按风格分类，找「我要的那种感觉」比按功能找快",
+            "还在更新 —— 提示词库最怕停更"
+          ],
+          "bad": [
+            "**许可证识别不出来**，商用前要自己读原文",
+            "只对 Seedance 一家",
+            "成品多但缺方法，抄得到抄不懂"
+          ],
+          "unfit": "想弄明白为什么这么写的人 —— 这是词典不是教材。",
+          "src": "github README",
+          "wiki": "none",
+          "wiki_note": "DeepWiki 抓不到由源码生成的图（2026-08-17 核）。这个仓库主体是 Markdown 提示词文件，没有调用关系可画 —— **不是我们没抓，是没有那个东西**。",
+          "group": "prompt",
+          "role": "tool",
+          "url": "https://github.com/YouMind-OpenLab/awesome-seedance-2-prompts",
+          "stars": 1854,
+          "created_at": "2026-02-11",
+          "pushed_at": "2026-08-17",
+          "stars_per_month": 302,
+          "stale_months": 0,
+          "verified_at": "2026-08-17"
+        },
+        {
+          "id": "guizang-prompt",
+          "zh": "歸藏的提示词库",
+          "sub": "plib",
+          "license": "MIT",
+          "license_class": "permissive",
+          "decisions": [
+            "shot",
+            "compose"
+          ],
+          "tags": [
+            "中文侧最有名的个人库",
+            "覆盖多家模型"
+          ],
+          "scope": "中文 AI 圈里流传最广的个人提示词仓库之一，存放作者为各家模型撰写的提示词。",
+          "control": "**一个人一以贯之的口味** —— 好处是风格统一、可信；坏处是覆盖面取决于作者用什么。",
+          "hw": "无。",
+          "good": [
+            "中文侧知名度最高的一份，圈内引用最多",
+            "不绑单一模型",
+            "MIT，可自由取用"
+          ],
+          "bad": [
+            "**已停更七个月**，其中对着旧模型版本写的那部分要自己判断还灵不灵",
+            "个人库，覆盖面取决于作者的兴趣",
+            "以图像居多，视频那部分占比不高"
+          ],
+          "unfit": "要系统覆盖某一家模型全部能力的人。",
+          "src": "github README",
+          "wiki": "none",
+          "wiki_note": "DeepWiki 抓不到由源码生成的图（2026-08-17 核）。这个仓库主体是 Markdown 提示词文件，没有调用关系可画 —— **不是我们没抓，是没有那个东西**。",
+          "group": "prompt",
+          "role": "tool",
+          "url": "https://github.com/op7418/guizang-s-prompt",
+          "stars": 1441,
+          "created_at": "2025-12-29",
+          "pushed_at": "2026-01-06",
+          "stars_per_month": 190,
+          "stale_months": 7,
+          "verified_at": "2026-08-17"
+        },
+        {
+          "id": "mj-styles-ref",
+          "zh": "MidJourney 风格与关键词参考",
+          "sub": "plib",
+          "license": "没有许可证文件",
+          "license_class": "restricted",
+          "license_note": "**仓库里没有 LICENSE 文件**（2026-08-17 查目录确认）。README 也声明作者与 MidJourney 官方无关。词表本身是事实性罗列，但整包转载前要问作者。",
+          "decisions": [
+            "compose"
+          ],
+          "tags": [
+            "风格词表带对照图",
+            "一万两千星的老库",
+            "停更一年多"
+          ],
+          "scope": "一份带示例图的风格与关键词对照表：同一个提示词加不同风格词，画面变成什么样，逐个列出来。",
+          "control": "**它的价值不在 MidJourney，在那份词表本身** —— 「厚涂」「赛璐璐」「低多边形」这类词跨模型通用，配上对照图就知道该点哪个。配着本站「视听语言 › 动画的画法」一起读。",
+          "hw": "无。",
+          "good": [
+            "**带对照图**，这是纯文字词库给不了的：一眼看出这个词长什么样",
+            "词表规模与整理程度在这一类里最高",
+            "词汇跨模型通用，不因为是 MidJourney 的就用不上"
+          ],
+          "bad": [
+            "**停更超过一年**，新出的风格词与新模型的表现都不在里面",
+            "没有许可证文件",
+            "示例图是 MidJourney 出的，换模型同一个词的效果不保证一样"
+          ],
+          "unfit": "要视频侧的运动与镜头词 —— 它是静态画面的词表。",
+          "src": "github README + DeepWiki",
+          "group": "prompt",
+          "role": "tool",
+          "url": "https://github.com/willwulfken/MidJourney-Styles-and-Keywords-Reference",
+          "stars": 12293,
+          "created_at": "2022-07-03",
+          "pushed_at": "2025-04-11",
+          "stars_per_month": 248,
+          "stale_months": 16,
+          "diagrams": [
+            {
+              "id": "p-mj-styles-ref-1",
+              "title": "东西怎么摆",
+              "kind": "架构图",
+              "src": "DeepWiki · 抓取 2026-08-17",
+              "verified_at": "2026-08-17",
+              "mermaid": "flowchart TD\n    A[\"Beta Parameters\"] --> B[\"--test\"]\n    A --> C[\"--testp\"]\n    B --> D[\"--test --creative\"]\n    C --> E[\"--testp --creative\"]\n    \n    B --> F[\"More photographic model\"]\n    C --> G[\"More painterly model\"]\n    D --> H[\"Experimental photographic model\"]\n    E --> I[\"Experimental painterly model\"]"
+            },
+            {
+              "id": "p-mj-styles-ref-2",
+              "title": "一次调用经过什么",
+              "kind": "时序图",
+              "src": "DeepWiki · 抓取 2026-08-17",
+              "verified_at": "2026-08-17",
+              "mermaid": "sequenceDiagram\n    participant U as \"User\"\n    participant P as \"Prompt Parser\"\n    participant S as \"Style Recognition System\"\n    participant G as \"Generation Engine\"\n    participant I as \"Image Output\"\n    \n    U->>P: \"a futuristic cityscape, cyberpunk style\"\n    P->>S: Parse for style keywords\n    S->>S: Identify \"futuristic\" and \"cyberpunk\" as Themes\n    S->>G: Apply theme parameters\n    G->>I: Generate themed image\n    I->>U: Display stylized image"
+            }
+          ],
+          "verified_at": "2026-08-17"
+        },
+        {
+          "id": "visual-prompt-cookbook",
+          "zh": "AI Visual Prompt Cookbook",
+          "sub": "plib",
+          "license": "MIT",
+          "license_class": "permissive",
+          "decisions": [
+            "compose",
+            "shot"
+          ],
+          "tags": [
+            "提示词写成 JSON 模板",
+            "参数可换不用重写"
+          ],
+          "scope": "一套可复用的 JSON 提示词模板与风格参考。",
+          "control": "**把提示词拆成结构化字段**，于是换风格只改一个字段，不用整句重写 —— 批量出多个变体时这一点是决定性的。",
+          "hw": "无。",
+          "good": [
+            "结构化写法适合批量出变体做对比",
+            "还在维护",
+            "MIT，可以直接抄进自己的产线"
+          ],
+          "bad": [
+            "结构化的前提是模型认这种写法，不是每家都认",
+            "体量比大词库小得多",
+            "没有可查的代码结构"
+          ],
+          "unfit": "只写单条提示词 —— 结构化的收益来自复用。",
+          "src": "github README",
+          "wiki": "none",
+          "wiki_note": "DeepWiki 抓不到由源码生成的图（2026-08-17 核）。这个仓库主体是 Markdown 提示词文件，没有调用关系可画 —— **不是我们没抓，是没有那个东西**。",
+          "group": "prompt",
+          "role": "tool",
+          "url": "https://github.com/VigoZhao/AI-Visual-Prompt-Cookbook",
+          "stars": 559,
+          "created_at": "2026-05-11",
+          "pushed_at": "2026-08-14",
+          "stars_per_month": 174,
+          "stale_months": 0,
+          "verified_at": "2026-08-17"
+        },
+        {
+          "id": "prompt-lens",
+          "zh": "PromptLens",
+          "sub": "pmethod",
+          "license": "MIT",
+          "license_class": "permissive",
+          "decisions": [
+            "shot",
+            "pace",
+            "sound"
+          ],
+          "tags": [
+            "从成片反推提示词",
+            "顺带扒台词",
+            "网页版"
+          ],
+          "scope": "AI 视频提示词分析工具：丢进一条别人的视频，反推出它的提示词与创作脚本，并做画面分析、音频识别（可提取台词文案），还能一句话剪出你要的片段。",
+          "control": "**方向和其它项目相反** —— 别人是「想法 → 提示词」，它是「成片 → 提示词」。这条路的好处是有参照物：你看得见目标长什么样。",
+          "hw": "网页版；分析要接模型接口。",
+          "good": [
+            "**逆向这条路开源侧几乎只有它**，想复刻某条爆款时最直接",
+            "画面与音频一起分析，台词也能扒出来",
+            "还在维护，MIT"
+          ],
+          "bad": [
+            "**反推出来的是「像什么」不是「原本是什么」** —— 别当成原始提示词用",
+            "复刻别人的创意涉及版权与平台规则，用之前先想清楚边界",
+            "体量小，稳定性要自己验"
+          ],
+          "unfit": "从零原创 —— 它的前提是手上有一条想学的片子。",
+          "src": "github README + DeepWiki",
+          "group": "prompt",
+          "role": "tool",
+          "url": "https://github.com/raojiacui/prompt-lens",
+          "stars": 485,
+          "created_at": "2026-03-17",
+          "pushed_at": "2026-08-08",
+          "stars_per_month": 96,
+          "stale_months": 0,
+          "diagrams": [
+            {
+              "id": "p-prompt-lens-1",
+              "title": "东西怎么摆",
+              "kind": "架构图",
+              "src": "DeepWiki · 抓取 2026-08-17",
+              "verified_at": "2026-08-17",
+              "mermaid": "graph TD\n    subgraph \"Local Environment\"\n        SQL[\"setup-rls.sql\"]\n        PY[\"exec-rls.py\"]\n    end\n\n    subgraph \"Supabase / Postgres\"\n        DB[(\"PostgreSQL Instance\")]\n        RLS[\"RLS Engine\"]\n    end\n\n    PY -- \"Reads\" --> SQL\n    PY -- \"psycopg2.connect()\" --> DB\n    PY -- \"cur.execute(stmt)\" --> DB\n    DB -- \"Enforces\" --> RLS"
+            },
+            {
+              "id": "p-prompt-lens-2",
+              "title": "一次调用经过什么",
+              "kind": "时序图",
+              "src": "DeepWiki · 抓取 2026-08-17",
+              "verified_at": "2026-08-17",
+              "mermaid": "sequenceDiagram\n    participant U as Client\n    participant API as POST /api/upload\n    participant RL as checkRateLimit\n    participant B2 as Backblaze B2 (R2 Lib)\n    participant DB as Drizzle (operationLogs)\n\n    U->>API: Multipart Form (File)\n    API->>RL: checkRateLimit(userId, uploadConfig)\n    RL-->>API: allowed: true\n    API->>API: isFileSizeValid & isAllowedFileType\n    API->>B2: uploadToR2(buffer, key, contentType)\n    B2-->>API: Success\n    API->>B2: getSignedUrlFromR2(key, 3600)\n    B2-->>API: Signed URL\n    API->>DB: db.insert(operationLogs)\n    API-->>U: JSON { url, key, mediaType }"
+            }
+          ],
+          "verified_at": "2026-08-17"
+        },
+        {
+          "id": "prompt-guide",
+          "zh": "Prompt Engineering Guide",
+          "sub": "pmethod",
+          "license": "MIT",
+          "license_class": "permissive",
+          "decisions": [
+            "topic",
+            "shot"
+          ],
+          "tags": [
+            "七万五千星的方法论底座",
+            "论文与笔记齐全",
+            "多语种"
+          ],
+          "scope": "提示词工程的系统性指南：教程、论文、课程笔记与可运行的示例。不针对视频，讲的是提示词这件事本身。",
+          "control": "**它管的是「为什么这么写有效」** —— 上面那些词库给的是成品，这里给的是原理。两者是互补不是替代。",
+          "hw": "无。",
+          "good": [
+            "这个方向上引用最多、体量最大的一份",
+            "有论文出处，不是经验之谈的堆砌",
+            "多语种，含中文"
+          ],
+          "bad": [
+            "**不讲视频** —— 镜头、运动、时长这些视频特有的东西它不覆盖",
+            "偏语言模型，图像与视频侧的结论要自己迁移",
+            "内容很多，当参考书读，别通读"
+          ],
+          "unfit": "只想拿一条能用的提示词就走 —— 那去词库。",
+          "src": "github README + DeepWiki",
+          "group": "prompt",
+          "role": "tool",
+          "url": "https://github.com/dair-ai/Prompt-Engineering-Guide",
+          "stars": 77517,
+          "created_at": "2022-12-16",
+          "pushed_at": "2026-03-11",
+          "stars_per_month": 1761,
+          "stale_months": 5,
+          "diagrams": [
+            {
+              "id": "p-prompt-guide-1",
+              "title": "东西怎么摆",
+              "kind": "架构图",
+              "src": "DeepWiki · 抓取 2026-08-17",
+              "verified_at": "2026-08-17",
+              "mermaid": "graph LR\n    UserInput[\"User Input<br/>(Question/Task)\"]\n    PromptConstruction[\"Prompt Construction<br/>Elements + Formatting\"]\n    LLMProcessing[\"LLM Processing<br/>Model: gpt-3.5-turbo<br/>Settings Applied\"]\n    ModelOutput[\"Model Output<br/>Generated Response\"]\n    \n    UserInput --> PromptConstruction\n    PromptConstruction --> LLMProcessing\n    LLMProcessing --> ModelOutput"
+            },
+            {
+              "id": "p-prompt-guide-2",
+              "title": "一次调用经过什么",
+              "kind": "流程图",
+              "src": "DeepWiki · 抓取 2026-08-17",
+              "verified_at": "2026-08-17",
+              "mermaid": "graph LR\n    Models[\"Model Comparison\"]\n    \n    Models --> Traditional[\"Traditional ML:<br/>DeBERTa-V3<br/>(strong baseline)\"]\n    Models --> OlderGPT[\"Older GPT-3<br/>variants\"]\n    Models --> GPT35[\"gpt-3.5-turbo<br/>(optimized)\"]\n    \n    Traditional -->|\"outperformed by\"| GPT35\n    OlderGPT -->|\"outperformed by\"| GPT35\n    \n    GPT35 --> KeyMetrics[\"Key Advantages:<br/>- Higher F1 (91.7)<br/>- No fine-tuning<br/>- Adaptable via prompts\"]\n    \n    GPT35 --> Tradeoff[\"Trade-off:<br/>- Lower template adherence<br/>- Requires parsing\"]"
+            }
+          ],
+          "verified_at": "2026-08-17"
+        },
+        {
+          "id": "lanshu-video-kit",
+          "zh": "蓝书 AI 视频工具包",
+          "sub": "pmethod",
+          "license": "MIT",
+          "license_class": "permissive",
+          "decisions": [
+            "shot",
+            "pace"
+          ],
+          "tags": [
+            "提示词配方法论一起给",
+            "从企业项目里逼出来的"
+          ],
+          "scope": "README 自述来自做企业 AI 视频项目的实践：411 条提示词、15 个模型、7 个 Claude 技能、14 篇方法论文章打包在一起。",
+          "control": "**提示词和方法论放在一起** —— 这一类里少见：多数要么只给词、要么只讲理，而真正难的是「什么场合用哪条」。",
+          "hw": "无；技能部分要 Claude Code。",
+          "good": [
+            "词、模型、技能、方法论四样一起给，不用在几个仓库间来回翻",
+            "来自真实的企业项目，不是攒出来的清单",
+            "MIT，中文"
+          ],
+          "bad": [
+            "体量小，覆盖面不如专门的大词库",
+            "「企业项目」的口径与个人创作未必对得上",
+            "没有可查的代码结构"
+          ],
+          "unfit": "只做个人短视频 —— 里面不少约束是企业交付才有的。",
+          "src": "github README",
+          "wiki": "none",
+          "wiki_note": "DeepWiki 抓不到由源码生成的图（2026-08-17 核）。这个仓库主体是 Markdown 提示词文件，没有调用关系可画 —— **不是我们没抓，是没有那个东西**。",
+          "group": "prompt",
+          "role": "tool",
+          "url": "https://github.com/cclank/lanshu-awesome-ai-video-kit",
+          "stars": 353,
+          "created_at": "2026-05-25",
+          "pushed_at": "2026-06-01",
+          "stars_per_month": 128,
+          "stale_months": 3,
+          "verified_at": "2026-08-17"
         }
       ],
       "groups": [
@@ -34027,6 +35105,12 @@
           "intro": "**用智能体驱动模型接口出片** —— 它们自己一帧不生成，干的是编排。"
         },
         {
+          "id": "prompt",
+          "zh": "提示词",
+          "kind": "projects",
+          "intro": "**换掉任何一个工具，这一层都还在。** 提示词是你和模型之间唯一的接口，所以它既不算工具也不算知识，反倒一直没有位置。三节：技能包替你写、词与例给你抄、逆向与方法教你为什么。**这一格的停更月数比别处更要紧** —— 模型换一版，昨天有效的写法今天就未必。"
+        },
+        {
           "id": "parts",
           "zh": "模型与组件",
           "kind": "projects",
@@ -34036,7 +35120,7 @@
           "id": "basics",
           "zh": "视听语言",
           "kind": "basics",
-          "intro": "**画面和声音怎么说话。** 前半是基本功，后半是**可以点名要的风格** —— 「韦斯·安德森式对称」比「构图好看」具体一百倍。"
+          "intro": "**画面和声音怎么说话。** 前半是基本功，后半是**可以点名要的风格** —— 既有导演、工作室、演员与类型片这些「谁的风格」，也有水墨、赛璐璐、厚涂、胶片颗粒、青橙调色这些**画法与质感**。「赛璐璐平涂加清晰描边」比「日漫风」具体一百倍。"
         },
         {
           "id": "works",
@@ -35026,6 +36110,269 @@
           "part": "style"
         },
         {
+          "id": "paint",
+          "zh": "动画的画法",
+          "part": "style",
+          "intro": "**这一组答的是「这一帧是怎么画出来的」，和上面几组答的「谁的风格」是两回事。** 「水墨」「厚涂」「赛璐璐」不属于任何一个作者 —— 正因为如此，它们才是最干净的提示词：点一个画法，等于一次性锁死线条、上色、帧率与质感。",
+          "items": [
+            {
+              "title": "水墨画（词条）",
+              "url": "https://zh.wikipedia.org/wiki/水墨畫",
+              "site": "维基百科",
+              "lang": "zh",
+              "note": "**中文侧最有辨识度的一种画法**，模型认「水墨」这个词。（注：中文维基没有「水墨动画」独立条目，画法看这条、动画那一支看代表作。）",
+              "why": "墨色靠水稀释出浓淡，边缘自然晕开、没有描边线。要它就别再要「线条清晰」—— 两个要求互相打架。",
+              "example": {
+                "zh": "中国动画（词条，水墨动画那一支在这里）",
+                "url": "https://zh.wikipedia.org/wiki/中国动画",
+                "page_title": "中国动画 - 维基百科，自由的百科全书",
+                "verified_at": "2026-08-17"
+              },
+              "page_title": "水墨画 - 维基百科，自由的百科全书",
+              "verified_at": "2026-08-17"
+            },
+            {
+              "title": "赛璐璐（词条）",
+              "url": "https://zh.wikipedia.org/wiki/賽璐璐",
+              "site": "维基百科",
+              "lang": "zh",
+              "note": "**「日漫风」说的多半就是它**：平涂色块 + 清晰描边 + 两三档阴影。比说「动漫风格」准得多。",
+              "why": "早期动画画在透明赛璐璐片上，颜料只能平涂、阴影只能分档 —— 今天的「二次元感」是那套工艺留下的痕迹。",
+              "example": {
+                "zh": "传统动画（英文词条）",
+                "url": "https://en.wikipedia.org/wiki/Traditional_animation",
+                "page_title": "Traditional animation - Wikipedia",
+                "verified_at": "2026-08-17"
+              },
+              "page_title": "賽璐珞 - 维基百科，自由的百科全书",
+              "verified_at": "2026-08-17"
+            },
+            {
+              "title": "有限帧动画（英文词条）",
+              "url": "https://en.wikipedia.org/wiki/Limited_animation",
+              "site": "Wikipedia",
+              "lang": "en",
+              "note": "**日式作画那种「一顿一顿」的节奏，来源在这儿。** 想要那个味道就点它，别只点「anime」。",
+              "why": "为省成本一秒只画八到十二张、只动局部。省下来的钱堆到关键帧上，于是形成了「静止—爆发」的独特节奏。",
+              "page_title": "Limited animation - Wikipedia",
+              "verified_at": "2026-08-17"
+            },
+            {
+              "title": "日本动画（词条）",
+              "url": "https://zh.wikipedia.org/wiki/日本动画",
+              "site": "维基百科",
+              "lang": "zh",
+              "note": "总览。知道它由哪些具体做法构成，才不会只会写「日漫风」三个字。",
+              "page_title": "日本动画 - 维基百科，自由的百科全书",
+              "verified_at": "2026-08-17"
+            },
+            {
+              "title": "厚涂（词条）",
+              "url": "https://zh.wikipedia.org/wiki/厚涂",
+              "site": "维基百科",
+              "lang": "zh",
+              "note": "**「厚涂风」的正名。** 笔触留在画面上、不描线、靠明暗塑形。",
+              "why": "颜料堆得厚，笔触本身成为造型手段。所以它天然和「线稿清晰」冲突 —— 要厚涂就别再要描边。",
+              "example": {
+                "zh": "Impasto（英文词条）",
+                "url": "https://en.wikipedia.org/wiki/Impasto",
+                "page_title": "Impasto - Wikipedia",
+                "verified_at": "2026-08-17"
+              },
+              "page_title": "厚塗 - 维基百科，自由的百科全书",
+              "verified_at": "2026-08-17"
+            },
+            {
+              "title": "像素艺术（词条）",
+              "url": "https://zh.wikipedia.org/wiki/像素艺术",
+              "site": "维基百科",
+              "lang": "zh",
+              "note": "**AI 最容易做假的一种** —— 生成模型给的多半是「像素风滤镜」，不是真的按网格对齐。",
+              "why": "真像素画每个点都是人放的，分辨率与调色板都受限。模型不受这些限制，于是出来的东西放大看是糊的。",
+              "page_title": "像素画 - 维基百科，自由的百科全书",
+              "verified_at": "2026-08-17"
+            },
+            {
+              "title": "低多边形（词条）",
+              "url": "https://zh.wikipedia.org/wiki/低多邊形",
+              "site": "维基百科",
+              "lang": "zh",
+              "note": "面数少、棱角硬、色块平。**一个词就能唤起一整套画面。**",
+              "why": "早期三维硬件跑不动高面数，如今反过来被当作风格用 —— 技术限制变成美学。",
+              "page_title": "低多边形 - 维基百科，自由的百科全书",
+              "verified_at": "2026-08-17"
+            },
+            {
+              "title": "卡通渲染（词条）",
+              "url": "https://zh.wikipedia.org/wiki/卡通渲染",
+              "site": "维基百科",
+              "lang": "zh",
+              "note": "三维模型渲成二维手绘的样子。**要「三渲二」就点这个词**，别描述半天。",
+              "why": "把连续的光照压成两三档色阶、再补一圈描边，于是立体的东西看起来像画的。",
+              "page_title": "卡通渲染 - 维基百科，自由的百科全书",
+              "verified_at": "2026-08-17"
+            },
+            {
+              "title": "皮影戏（词条）",
+              "url": "https://zh.wikipedia.org/wiki/皮影戏",
+              "site": "维基百科",
+              "lang": "zh",
+              "note": "剪纸片与皮影动画的源头。**中文语境里点得出名字的画法之一**，剪影加半透明色。",
+              "why": "形象是剪出来的平面片，关节处分件、逐格摆动 —— 所以动作天然是「转折式」的，不连贯反倒是特征。",
+              "example": {
+                "zh": "剪纸（词条）",
+                "url": "https://zh.wikipedia.org/wiki/剪紙",
+                "page_title": "剪纸 - 维基百科，自由的百科全书",
+                "verified_at": "2026-08-17"
+              },
+              "page_title": "皮影戲 - 维基百科，自由的百科全书",
+              "verified_at": "2026-08-17"
+            },
+            {
+              "title": "转描（英文词条）",
+              "url": "https://en.wikipedia.org/wiki/Rotoscoping",
+              "site": "Wikipedia",
+              "lang": "en",
+              "note": "照着实拍逐帧描。**运动像真人、画面像手绘** —— 这个组合别的做法给不了。",
+              "why": "动作数据来自实拍，所以重心与惯性是对的；但描出来的线条又带手绘的抖动。",
+              "page_title": "Rotoscoping - Wikipedia",
+              "verified_at": "2026-08-17"
+            },
+            {
+              "title": "黏土动画（英文词条）",
+              "url": "https://en.wikipedia.org/wiki/Claymation",
+              "site": "Wikipedia",
+              "lang": "en",
+              "note": "定格里最好认的一支，指纹与材质都留在画面上。",
+              "why": "黏土会被手捏变形，每一帧都有微小差异 —— 那种「呼吸感」正是它区别于三维动画的地方。",
+              "example": {
+                "zh": "逐格动画（词条）",
+                "url": "https://zh.wikipedia.org/wiki/逐格動畫",
+                "page_title": "定格动画 - 维基百科，自由的百科全书",
+                "verified_at": "2026-08-17"
+              },
+              "page_title": "Claymation - Wikipedia",
+              "verified_at": "2026-08-17"
+            }
+          ]
+        },
+        {
+          "id": "look",
+          "zh": "实拍的影像质感",
+          "part": "style",
+          "intro": "**同一场戏，用什么拍、怎么调，出来是两部片。** 这一组是实拍侧对应「画法」的那一层：颗粒、宽银幕、色调、景深。它们不改内容，只改「看起来像什么年代、什么成本、什么心情」。",
+          "items": [
+            {
+              "title": "胶片颗粒（英文词条）",
+              "url": "https://en.wikipedia.org/wiki/Film_grain",
+              "site": "Wikipedia",
+              "lang": "en",
+              "note": "**「电影感」里最容易被点到、也最容易被用过头的一项。**",
+              "why": "颗粒是感光银盐的物理结构，随机分布且随亮度变化。数字加的均匀噪点假就假在这里 —— 太规则。",
+              "example": {
+                "zh": "底片（词条）",
+                "url": "https://zh.wikipedia.org/wiki/膠卷",
+                "page_title": "底片 - 维基百科，自由的百科全书",
+                "verified_at": "2026-08-17"
+              },
+              "page_title": "Film grain - Wikipedia",
+              "verified_at": "2026-08-17"
+            },
+            {
+              "title": "变形宽银幕（英文词条）",
+              "url": "https://en.wikipedia.org/wiki/Anamorphic_format",
+              "site": "Wikipedia",
+              "lang": "en",
+              "note": "横向拉伸的画幅、椭圆形的光斑、横向的蓝色光晕。**「大片感」很大一部分来自它。**",
+              "why": "镜头先把画面横向压缩录进底片，放映时再拉开。这个来回让焦外散景变成椭圆、强光拉出横条。",
+              "example": {
+                "zh": "变形镜头（词条）",
+                "url": "https://zh.wikipedia.org/wiki/變形鏡頭",
+                "page_title": "變形格式 - 维基百科，自由的百科全书",
+                "verified_at": "2026-08-17"
+              },
+              "page_title": "Anamorphic format - Wikipedia",
+              "verified_at": "2026-08-17"
+            },
+            {
+              "title": "特艺七彩（词条）",
+              "url": "https://zh.wikipedia.org/wiki/特藝七彩",
+              "site": "维基百科",
+              "lang": "zh",
+              "note": "**要「上世纪中叶好莱坞那种浓艳」就点这个名字**，比说「色彩鲜艳」准得多。",
+              "why": "三条黑白底片分别记录红绿蓝再套印，色彩饱和度远超自然 —— 那种红是化学工艺的产物，不是调出来的。",
+              "page_title": "特藝七彩 - 维基百科，自由的百科全书",
+              "verified_at": "2026-08-17"
+            },
+            {
+              "title": "黑白电影（词条）",
+              "url": "https://zh.wikipedia.org/wiki/黑白電影",
+              "site": "维基百科",
+              "lang": "zh",
+              "note": "去掉颜色不是减法，是把注意力全压到光影与构图上。",
+              "why": "没有色彩区分主体，就只能靠明暗对比和形状 —— 所以黑白片的布光通常比彩色片硬得多。",
+              "page_title": "黑白 - 维基百科，自由的百科全书",
+              "verified_at": "2026-08-17"
+            },
+            {
+              "title": "明暗对照法（英文词条）",
+              "url": "https://en.wikipedia.org/wiki/Chiaroscuro",
+              "site": "Wikipedia",
+              "lang": "en",
+              "note": "大面积暗、小块强光。**黑色电影、恐怖片、审讯戏的底层做法。**",
+              "why": "光比拉大到只剩轮廓可辨，观众自动往暗处补想象 —— 恐惧来自看不见，不是来自看见。",
+              "page_title": "Chiaroscuro - Wikipedia",
+              "verified_at": "2026-08-17"
+            },
+            {
+              "title": "青橙调色（英文词条）",
+              "url": "https://en.wikipedia.org/wiki/Teal_and_orange",
+              "site": "Wikipedia",
+              "lang": "en",
+              "note": "**现代商业片最泛滥的一套调色**。知道它叫什么，才知道怎么避开它。",
+              "why": "人的肤色偏橙，把背景推向青蓝就能让人物跳出来。好用，也正因为太好用而变得千片一面。",
+              "example": {
+                "zh": "调色（英文词条）",
+                "url": "https://en.wikipedia.org/wiki/Color_grading",
+                "page_title": "Color grading - Wikipedia",
+                "verified_at": "2026-08-17"
+              },
+              "page_title": "Color grading - Wikipedia",
+              "verified_at": "2026-08-17"
+            },
+            {
+              "title": "焦外散景（英文词条）",
+              "url": "https://en.wikipedia.org/wiki/Bokeh",
+              "site": "Wikipedia",
+              "lang": "en",
+              "note": "背景化开的那一片光。**说「浅景深」是参数，说「散景」是质感** —— 后者模型更认。",
+              "why": "光圈叶片的形状决定光斑是圆是多边，镜头的光学缺陷决定它是柔是硬。所以不同镜头的散景不一样。",
+              "page_title": "Bokeh - Wikipedia",
+              "verified_at": "2026-08-17"
+            },
+            {
+              "title": "手持摄影（英文词条）",
+              "url": "https://en.wikipedia.org/wiki/Handheld_camera",
+              "site": "Wikipedia",
+              "lang": "en",
+              "note": "**要「纪录片感」「临场感」就点它。** 但要清楚：AI 生成的抖动多半是噪声不是运动。",
+              "why": "人扛着机器走，抖动跟着呼吸和步伐走，是有节律的。随机抖只会让人晕，不会让人信。",
+              "page_title": "Hand-held camera - Wikipedia",
+              "verified_at": "2026-08-17"
+            },
+            {
+              "title": "自然光（Available light，英文词条）",
+              "url": "https://en.wikipedia.org/wiki/Available_light",
+              "site": "Wikipedia",
+              "lang": "en",
+              "note": "不打灯、只用现场光。**和「电影感布光」是相反的两条路**，别同时点。",
+              "why": "只用现场光意味着接受高感光噪点与不均匀的照度 —— 换来的是真实感和不可复制的偶然性。",
+              "page_title": "Available light - Wikipedia",
+              "verified_at": "2026-08-17"
+            }
+          ]
+        },
+        {
           "id": "law",
           "zh": "法与权",
           "intro": "素材、音乐、肖像的授权同理 —— 出事时「我不知道」不是理由。",
@@ -35105,6 +36452,21 @@
           "id": "workflow",
           "zh": "工作流与节点包",
           "intro": "ComfyUI 生态里的装配件：装节点的、把某个模型接进来的、以及官方给的现成工作流。**它们不是模型，是让模型跑起来的那一层** —— 多数人第一次卡住都卡在这里。"
+        },
+        {
+          "id": "pskill",
+          "zh": "技能包",
+          "intro": "装给 Agent 的。你说一句白话，它按一套结构替你展开成模型认的提示词。"
+        },
+        {
+          "id": "plib",
+          "zh": "词与例",
+          "intro": "现成的提示词与风格关键词，找到最接近的一条改几个字就能用。**给的是成品不是方法。**"
+        },
+        {
+          "id": "pmethod",
+          "zh": "逆向与方法",
+          "intro": "从别人的成片反推提示词，以及「为什么这么写有效」这件事本身。"
         }
       ],
       "readme_src": {
@@ -35130,6 +36492,3273 @@
           "no": "三",
           "zh": "法与权",
           "intro": "**在中国做 AI 视频有强制标识义务**，2025-09-01 起施行。素材与音乐的授权同理。"
+        }
+      ]
+    },
+    {
+      "id": "game",
+      "zh": "AI 游戏制作",
+      "en": "AI Game Development",
+      "intro": "**用 AI 做游戏这条路，现在走到了「Agent 能碰编辑器」。**离「自动开发游戏」还差着玩法设计、骨骼动画、2D 精灵图与音效四个断点 —— 这一页把三十多个开源项目按这条路的顺序摆开，每一格是通是断都标出来。",
+      "groups": [
+        {
+          "id": "auto",
+          "zh": "自动开发游戏",
+          "kind": "projects",
+          "intro": "**这条路目前走到「Agent 有分工」，没走到「不用你」。** 这一类不碰引擎，它给的是一整套角色、流程与检查点，让一个会话里的 AI 像一个studio一样干活。"
+        },
+        {
+          "id": "engine",
+          "zh": "Agent 接引擎",
+          "kind": "projects",
+          "intro": "让 AI 真的能碰编辑器：建节点、改属性、写脚本、按播放键。按引擎分四节，**三大引擎的处境完全不一样** —— 这本身就是这一节最该看的东西。"
+        },
+        {
+          "id": "asset",
+          "zh": "游戏素材",
+          "kind": "projects",
+          "intro": "模型、贴图、音乐、NPC。**这一栏的空格和满格一样值钱**：3D 与音乐已经能用，骨骼动画、2D 精灵图、音效在开源侧基本没有人做。"
+        },
+        {
+          "id": "basics",
+          "zh": "游戏设计常识",
+          "kind": "basics",
+          "intro": "**AI 把「做出来」的门槛砍到接近零，没砍掉「什么样的才对」。** 这一栏给不做游戏的人：核心循环、心流与难度、关卡、手感、数值、类型，最后是绕不开的授权。只收词条型与成体系的免费读物，**因此中文侧偏少，这是实情不是遗漏**。"
+        }
+      ],
+      "subgroups": [
+        {
+          "id": "studio",
+          "zh": "整套班子",
+          "intro": "一次给你几十个角色和一整套流程文档，管的是「怎么组织」不是「怎么下手」。"
+        },
+        {
+          "id": "skills",
+          "zh": "技能包",
+          "intro": "一批按需加载的技能文件。不连编辑器、不起服务，只在 AI 写代码时给它引擎侧的正确做法。"
+        },
+        {
+          "id": "unity",
+          "zh": "Unity",
+          "intro": "接入项目最多、最成熟的一侧，头部项目星速最高且一直在维护。"
+        },
+        {
+          "id": "unreal",
+          "zh": "虚幻",
+          "intro": "**唯一被引擎官方接管的一侧** —— 虚幻 5.8 自带 MCP 服务，第三方那批的位置正在改变。"
+        },
+        {
+          "id": "godot",
+          "zh": "Godot",
+          "intro": "项目最多、最碎的一侧。开源引擎配开源工具，但同名项目一大把，挑的成本比另外两家高。"
+        },
+        {
+          "id": "other",
+          "zh": "其它引擎",
+          "intro": "Cocos 与 Roblox。中文侧的 Cocos 有人做，但要留意开源版与付费版的关系。"
+        },
+        {
+          "id": "model3d",
+          "zh": "3D 模型",
+          "intro": "一张图出一个网格。这一格是素材侧唯一真的成熟的地方。"
+        },
+        {
+          "id": "sound",
+          "zh": "音乐",
+          "intro": "整首带结构的曲子能本地生成。音效不在此列 —— 开源侧没有。"
+        },
+        {
+          "id": "npcai",
+          "zh": "NPC",
+          "intro": "两条互不替代的路：把语言模型塞进游戏里，或者用强化学习训出操作水平。"
+        }
+      ],
+      "decisions": [
+        {
+          "id": "design",
+          "zh": "玩法与关卡设计",
+          "owner": "user",
+          "cap": null,
+          "handle": "—",
+          "fit": "没有任何一个项目接这一步。星速最高的那个在 README 里自己写着「你仍然做每一个决定」——它给的是分工与流程，不是玩法。",
+          "scenarios": [
+            {
+              "when": "想让 AI 替你想玩法",
+              "use": "没有现成方案。整套 agent 班子里的「游戏设计师」角色是来提问和评审的，不是来定案的"
+            },
+            {
+              "when": "已经有玩法、想把它拆成能干的活",
+              "use": "整套班子那一类：它把一句想法拆成设计文档、史诗、故事卡"
+            }
+          ]
+        },
+        {
+          "id": "code",
+          "zh": "代码与游戏逻辑",
+          "owner": "partial",
+          "cap": "t-code",
+          "handle": "写脚本 / 改脚本",
+          "fit": "这一步是整条路上唯一真的被拿下的。写 C#、GDScript、蓝图节点，接引擎那一类项目全都覆盖，差别只在它能不能验证自己写对了。",
+          "scenarios": [
+            {
+              "when": "写完想立刻知道编译过没过",
+              "use": "带静态分析或热重载的那几个 —— 只会写不会验的，错要等你手动编译才冒出来"
+            },
+            {
+              "when": "只想让它写脚本文件、不碰工程",
+              "use": "技能包那一类：它不连编辑器，只往你的仓库里写代码"
+            }
+          ]
+        },
+        {
+          "id": "scene",
+          "zh": "场景搭建与摆放",
+          "owner": "partial",
+          "cap": null,
+          "handle": "建节点 / 摆物件 / 连信号",
+          "fit": "这是接引擎那一类真正的分水岭 —— 能不能建节点、改属性、连信号。工具数量差着一个数量级，但工具多不等于摆得对：它看不见画面，只能靠你描述。",
+          "scenarios": [
+            {
+              "when": "要批量摆物件、改属性",
+              "use": "接引擎那一类，挑工具覆盖面广的"
+            },
+            {
+              "when": "要它自己看着画面调",
+              "use": "能截图回传的那几个才有戏，其余全是盲操作"
+            }
+          ]
+        },
+        {
+          "id": "art3d",
+          "zh": "3D 模型",
+          "owner": "partial",
+          "cap": "d-i23d",
+          "handle": "图生 3D / 文生 3D",
+          "fit": "一张图出一个网格已经是成熟的一步，开源侧有好几家能用。但出来的是**一整块网格**，不是能直接进游戏的资产 —— 拓扑、面数、UV 都还得人管。",
+          "scenarios": [
+            {
+              "when": "要一个能看的静物模型",
+              "use": "图生 3D 那几家，显存够就行"
+            },
+            {
+              "when": "要一个能拆开、能动的模型",
+              "use": "按零件生成那一类；整块网格拆不开"
+            }
+          ]
+        },
+        {
+          "id": "mat",
+          "zh": "材质与贴图",
+          "owner": "partial",
+          "cap": "d-pbr",
+          "handle": "PBR 贴图",
+          "fit": "生成模型多数只给一层烘出来的颜色，**不是 PBR 那一套通道**。要金属度、粗糙度、法线分开的，开源侧的选项少得多。",
+          "scenarios": [
+            {
+              "when": "只要一个看着对的贴图",
+              "use": "图生 3D 自带的烘焙贴图够用"
+            },
+            {
+              "when": "要进引擎参与光照",
+              "use": "得找明说出 PBR 通道的那一类，或者到建模软件里自己接"
+            }
+          ]
+        },
+        {
+          "id": "rig",
+          "zh": "骨骼与动画",
+          "owner": "user",
+          "cap": "d-rig",
+          "handle": "自动绑定",
+          "fit": "开源侧这一格基本是空的。生成模型给你一个不会动的网格，绑骨、蒙皮、做动画还是老办法 —— 这是「AI 做游戏素材」这条路上最明显的断点。",
+          "scenarios": [
+            {
+              "when": "要一个能动的角色",
+              "use": "没有一步到位的开源方案。生成网格之后进建模软件手工绑"
+            },
+            {
+              "when": "只要环境物件",
+              "use": "不需要这一步，图生 3D 直接能用"
+            }
+          ]
+        },
+        {
+          "id": "art2d",
+          "zh": "2D 美术与精灵图",
+          "owner": "user",
+          "cap": "i-t2i",
+          "handle": "文生图",
+          "fit": "**开源侧没有专做游戏 2D 素材的项目。** 换了好几组关键词搜，能找到的全在几十星量级。通用文生图当然能画，但精灵表的对齐、调色板一致、多帧同一个角色，没有人做成工具。",
+          "scenarios": [
+            {
+              "when": "要一张概念图",
+              "use": "通用文生图，走图像卷"
+            },
+            {
+              "when": "要一整套能进游戏的精灵表",
+              "use": "开源侧没有。技能包那一类里有把「锁定视觉目标再成组产出」写成流程的，但它调的还是通用模型"
+            }
+          ]
+        },
+        {
+          "id": "audio",
+          "zh": "音乐与音效",
+          "owner": "partial",
+          "cap": "s-m-prompt",
+          "handle": "描述生成音乐",
+          "fit": "音乐这一格是通的，开源模型能出整首带结构的曲子。**音效不通** —— 脚步、开门、打击这类短音，开源侧没有专门的项目。",
+          "scenarios": [
+            {
+              "when": "要背景音乐",
+              "use": "开源音乐模型，显存够就能本地跑"
+            },
+            {
+              "when": "要一套音效",
+              "use": "开源侧没有专做这个的。走通用文生音频或者买素材"
+            }
+          ]
+        },
+        {
+          "id": "npc",
+          "zh": "NPC 行为与对白",
+          "owner": "partial",
+          "cap": null,
+          "handle": "本地大模型 / 强化学习",
+          "fit": "分两条完全不同的路：**让 NPC 会说话**（把小模型塞进游戏里）和**让 NPC 会打**（用强化学习训策略）。两条都有成熟的开源项目，但互相替代不了。",
+          "scenarios": [
+            {
+              "when": "要 NPC 能对话、有人设",
+              "use": "把本地模型嵌进引擎的那一类，注意它吃玩家机器的内存"
+            },
+            {
+              "when": "要 NPC 的操作水平",
+              "use": "强化学习那一类，要自己搭训练环境和奖励函数"
+            }
+          ]
+        },
+        {
+          "id": "build",
+          "zh": "打包运行与试玩",
+          "owner": "partial",
+          "cap": null,
+          "handle": "跑测试 / 进播放模式 / 出包",
+          "fit": "能不能自己按下播放键、看到报错、再改回去 —— **这一步决定了它是助手还是自动机**。多数项目只到「能出包」，能读回运行时状态的是少数。",
+          "scenarios": [
+            {
+              "when": "要它自己跑通再交给你",
+              "use": "明说支持进播放模式并读回日志的那几个"
+            },
+            {
+              "when": "只要它写完代码",
+              "use": "任意一个都行，验证你自己来"
+            }
+          ]
+        }
+      ],
+      "chapters": [],
+      "projects": [
+        {
+          "id": "cc-game-studios",
+          "zh": "Claude Code Game Studios",
+          "license": "MIT",
+          "license_class": "permissive",
+          "group": "auto",
+          "sub": "studio",
+          "role": "allinone",
+          "decisions": [
+            "design",
+            "code",
+            "build"
+          ],
+          "tags": [
+            "49 个角色分三层",
+            "73 个流程命令",
+            "三大引擎各配专家"
+          ],
+          "scope": "把一个 Claude Code 会话组织成一间工作室：49 个 agent 分导演 / 部门主管 / 专才三层，73 个斜杠命令覆盖从头脑风暴到发版，外加 12 个钩子、11 条规则、41 份文档模板。",
+          "control": "靠三样东西咬住质量：角色有明确的上报路径、钩子在提交与推送时跑校验、文档模板逼你把设计写下来。它不产出美术也不碰引擎，产出的是**结构**。",
+          "hw": "只要 Claude Code 本身；jq 与 Python 3 可选，缺了只是少一层校验，不影响用。",
+          "arch": "全部是 `.claude/` 下的 Markdown 与 shell：agents / skills / hooks / rules / docs。没有服务、没有依赖，clone 下来就是一套配置。",
+          "good": [
+            "把「一个人配一个 AI」补成了「有人评审、有人验收」",
+            "Godot / Unity / 虚幻三套专家角色都给了，不用自己写",
+            "钩子在提交时拦，规矩不靠自觉"
+          ],
+          "bad": [
+            "**README 自己写明「你仍然做每一个决定」** —— 它不替你定玩法",
+            "只对 Claude Code 有效，换个客户端整套失效",
+            "角色和命令加起来一百多个，第一次用光是读清单就是负担"
+          ],
+          "unfit": "想让它自己把游戏做出来 —— 它管的是分工与流程，一行引擎代码都不替你跑。",
+          "src": "github README + DeepWiki",
+          "url": "https://github.com/Donchitos/Claude-Code-Game-Studios",
+          "stars": 23949,
+          "created_at": "2026-02-12",
+          "pushed_at": "2026-05-21",
+          "stars_per_month": 3919,
+          "stale_months": 3,
+          "diagrams": [
+            {
+              "id": "g-cc-game-studios-1",
+              "title": "东西怎么摆",
+              "kind": "架构图",
+              "src": "DeepWiki · 抓取 2026-08-17",
+              "verified_at": "2026-08-17",
+              "mermaid": "graph LR\n    subgraph \"Testing Framework\"\n        CATALOG[\"catalog.yaml\"]\n        RUBRIC[\"quality-rubric.md\"]\n        SPECS[\"behavioral-specs/*.md\"]\n    end\n\n    subgraph \"Execution\"\n        CMD_TEST[\"/skill-test\"]\n        CMD_IMP[\"/skill-improve\"]\n    end\n\n    SKILL_FILE[\".claude/skills/*/SKILL.md\"]\n\n    CATALOG --> CMD_TEST\n    RUBRIC --> CMD_TEST\n    SPECS --> CMD_TEST\n    SKILL_FILE --> CMD_TEST\n    \n    CMD_TEST -->|FAIL| CMD_IMP\n    CMD_IMP -->|PROPOSE FIX| SKILL_FILE"
+            },
+            {
+              "id": "g-cc-game-studios-2",
+              "title": "一次调用经过什么",
+              "kind": "时序图",
+              "src": "DeepWiki · 抓取 2026-08-17",
+              "verified_at": "2026-08-17",
+              "mermaid": "sequenceDiagram\n    participant U as User\n    participant D as Director (Tier 1)\n    participant L as Lead (Tier 2)\n    participant S as Specialist (Tier 3)\n\n    U->>D: /team-combat \"Add fire damage\"\n    D->>L: Delegate Design (game-designer)\n    L->>S: Draft Implementation (gameplay-programmer)\n    S-->>L: Code + Tests\n    L->>S: Validate (qa-tester)\n    S-->>D: Validation Report\n    D->>U: Final Approval Request"
+            }
+          ],
+          "verified_at": "2026-08-17",
+          "hands": {
+            "install": [
+              {
+                "step": "克隆仓库到你的游戏工程根目录",
+                "gate": "它整套东西都在 `.claude/` 下 —— 放错层级 Claude Code 就看不见"
+              },
+              {
+                "step": "在 Claude Code 里跑 `/start`",
+                "gate": "**先跑这一条**，它会探测工程处于哪个阶段再给你路线，跳过这一步等于放弃了它的编排"
+              },
+              {
+                "step": "`/setup-engine` 选引擎",
+                "gate": "Godot / Unity / 虚幻三套专家角色互斥，选错了后面所有建议都对不上"
+              },
+              {
+                "step": "装 jq 与 Python 3（可选）",
+                "gate": "缺了钩子会优雅降级 —— **也就是校验静默失效**，不会报错"
+              }
+            ],
+            "modify": [
+              {
+                "path": ".claude/agents/",
+                "effect": "49 个角色的定义。想改某个角色的判断标准，改这里"
+              },
+              {
+                "path": ".claude/skills/",
+                "effect": "73 个斜杠命令。每个是一份 SKILL.md"
+              },
+              {
+                "path": ".claude/hooks/",
+                "effect": "提交与推送时跑的校验脚本"
+              },
+              {
+                "path": ".claude/docs/templates/",
+                "effect": "41 份文档模板，设计文档的骨架从这里来"
+              }
+            ],
+            "pitfalls": [
+              {
+                "where": "「它能不能自己做出一款游戏」",
+                "note": "**最热的两条 issue 问的正是这个**：#34（12 条回复）「有人成功做出过一款完整能玩的游戏吗」、#53（10 条回复）中文同题。**社区自己在追问这件事，说明它还不是既成事实。** README 也明写「你仍然做每一个决定」"
+              },
+              {
+                "where": "文档一长就读不完",
+                "note": "issue #64：`/dev-story` 里「完整读取 ADR」这条指令在文档超过 2.5 万 token 时失败，要退回分段读取"
+              },
+              {
+                "where": "角色太多",
+                "note": "49 个角色 73 个命令，第一次用光读清单就是负担。**先只用 `/start` 给你的那条路线**，别通读"
+              }
+            ],
+            "layers": [
+              "docs",
+              "wiki",
+              "issue"
+            ],
+            "issue_src": "github issues 按回复数排序 · 核验 2026-08-17"
+          }
+        },
+        {
+          "id": "ultragamestudio",
+          "zh": "UltraGameStudio",
+          "license": "MIT",
+          "license_class": "permissive",
+          "group": "auto",
+          "sub": "studio",
+          "role": "allinone",
+          "decisions": [
+            "design",
+            "code",
+            "art3d",
+            "art2d",
+            "audio"
+          ],
+          "tags": [
+            "按引擎概念重做的 Agent",
+            "素材也归它管",
+            "贵活便宜活分开走"
+          ],
+          "scope": "一个照着游戏引擎的实际工作量重写的编码 Agent：代码只是一小块，其余是材质、蓝图、地形、UI、骨骼动画、打包与性能。它同时负责生成图像、3D、精灵动画、图集、音频。",
+          "control": "把日常杂活分流到免费或低价通道，把额度留给真正难的那部分 —— 这是它和通用编码 Agent 最不一样的地方。",
+          "hw": "仓库未说明硬件要求；素材生成走外部通道，本机不承担推理。",
+          "good": [
+            "承认「引擎里代码只占一小块」，覆盖面按这个来定",
+            "素材与代码在同一个 Agent 里，不用自己在两套工具间搬",
+            "十种语言的说明，中文侧完整"
+          ],
+          "bad": [
+            "开源不到三个月，能不能长期维护还看不出来",
+            "「分流到免费通道」意味着产出质量取决于那些通道，README 没说是哪些",
+            "DeepWiki 抓不到由源码生成的图，结构只能看 README 自述"
+          ],
+          "unfit": "只想要一个写代码的助手 —— 它的重量全压在素材与管线那一半，用不上就是浪费。",
+          "src": "github README",
+          "wiki": "none",
+          "wiki_note": "DeepWiki 首页抓不到由源码生成的图（2026-08-17 核）。这个项目主体是 Agent 配置与提示词，没有可画的调用关系 —— 不是我们没抓，是没有那个东西。",
+          "url": "https://github.com/wellingfeng/UltraGameStudio",
+          "stars": 286,
+          "created_at": "2026-05-30",
+          "pushed_at": "2026-08-16",
+          "stars_per_month": 110,
+          "stale_months": 0,
+          "verified_at": "2026-08-17"
+        },
+        {
+          "id": "autonomix",
+          "zh": "Autonomix",
+          "license": "MIT",
+          "license_class": "permissive",
+          "group": "auto",
+          "sub": "studio",
+          "role": "allinone",
+          "decisions": [
+            "code",
+            "scene",
+            "build"
+          ],
+          "tags": [
+            "蓝图靠 T3D 注入",
+            "每步可回滚",
+            "编辑器内聊天"
+          ],
+          "scope": "装在虚幻编辑器里的自主开发插件：建蓝图、改 C++ 源码、管关卡、材质、网格、控件、PCG 图与动画，全部在编辑器内的对话面板里完成。",
+          "control": "每一次动作都打检查点、可审计、可回滚 —— **这是它和「让 AI 随便改工程」之间唯一的区别**。蓝图不是靠界面点，是靠 T3D 文本注入。",
+          "hw": "虚幻 5.3 以上（README 说在 5.3 / 5.4 / 5.5 上测过）。",
+          "good": [
+            "动作有检查点，改坏了能退回去",
+            "蓝图用 T3D 注入，比逐个节点点快得多",
+            "README 主动把自己和虚幻 5.7 自带的 AI 助手划清界限：那个是讲解，这个是动手"
+          ],
+          "bad": [
+            "只测到虚幻 5.5，而官方 MCP 是 5.8 才进引擎的 —— 两者的关系 README 没说",
+            "自主改工程本身就是风险，检查点是补救不是预防",
+            "星速在这一类里偏低，社区体量小"
+          ],
+          "unfit": "Unity 或 Godot 项目 —— 它只认虚幻。",
+          "src": "github README + DeepWiki",
+          "url": "https://github.com/PRQELT/Autonomix",
+          "stars": 197,
+          "created_at": "2026-03-10",
+          "pushed_at": "2026-05-08",
+          "stars_per_month": 37,
+          "stale_months": 3,
+          "diagrams": [
+            {
+              "id": "g-autonomix-1",
+              "title": "东西怎么摆",
+              "kind": "架构图",
+              "src": "DeepWiki · 抓取 2026-08-17",
+              "verified_at": "2026-08-17",
+              "mermaid": "graph LR\n    subgraph \"Action Router Layer\"\n        TR[\"RouteToolCall\"]\n        PV[\"PreviewToolCall\"]\n    end\n\n    subgraph \"Safety Gate Layer\"\n        SG[\"FAutonomixSafetyGate\"]\n        RL[\"EAutonomixRiskLevel\"]\n        PP[\"Protected Paths (*.uplugin, *.Build.cs)\"]\n    end\n\n    TR --> SG\n    PV --> SG\n    SG --> RL\n    SG -- \"Deny if\" --> PP"
+            },
+            {
+              "id": "g-autonomix-2",
+              "title": "一次调用经过什么",
+              "kind": "时序图",
+              "src": "DeepWiki · 抓取 2026-08-17",
+              "verified_at": "2026-08-17",
+              "mermaid": "sequenceDiagram\n    participant Session as \"FAutonomixChatSession\"\n    participant Client as \"IAutonomixLLMClient\"\n    participant Router as \"FAutonomixActionRouter\"\n    participant Exec as \"IAutonomixActionExecutor\"\n\n    Session->>Client: SendMessage(History, Tools)\n    Client-->>Session: OnMessageDelta (Streaming Text)\n    Client-->>Session: OnMessageReceived (FAutonomixMessage w/ ToolCalls)\n    \n    loop For each ToolCall in Message\n        Session->>Router: RouteAction(ToolCall)\n        Router->>Exec: ExecuteAction(Arguments)\n        Exec-->>Router: FAutonomixActionResult\n        Router-->>Session: Update Tool Result\n    end\n\n    Session->>Client: SendMessage (Results)"
+            }
+          ],
+          "verified_at": "2026-08-17"
+        },
+        {
+          "id": "gamedev-skills",
+          "zh": "awesome-gamedev-agent-skills",
+          "license": "Apache-2.0",
+          "license_class": "permissive",
+          "group": "auto",
+          "sub": "skills",
+          "role": "tool",
+          "decisions": [
+            "code",
+            "design",
+            "art2d"
+          ],
+          "tags": [
+            "十个引擎横着覆盖",
+            "路由器自己挑技能",
+            "每条钉死引擎版本"
+          ],
+          "scope": "67 个游戏开发技能加一个路由器。你说要做什么，路由器认出引擎与任务，只加载对得上的那几条。覆盖 Godot、Unity、虚幻、Phaser、PixiJS、three.js、Bevy、pygame、LÖVE、Roblox。",
+          "control": "每条技能都从一手文档写成、**钉死在写明的引擎版本上**，并由一支校验脚本查过 —— 这是技能包这一类里少见的自我约束。",
+          "hw": "只要一个支持技能加载的 AI 编码客户端。",
+          "good": [
+            "十个引擎横着覆盖，不押注单一引擎",
+            "不用你挑技能，路由器按引擎与任务自动加载",
+            "美术那条写的是「先定视觉目标再成组产出」，不是一次一张地碰运气"
+          ],
+          "bad": [
+            "钉死版本的另一面是引擎升级后技能会过期，得跟着仓库走",
+            "只给做法不给工具，实际动手还得配别的东西",
+            "DeepWiki 抓不到图，仓库主体是 Markdown 技能文件"
+          ],
+          "unfit": "想要能直接操作编辑器的东西 —— 它一行引擎 API 都不调。",
+          "src": "github README",
+          "wiki": "none",
+          "wiki_note": "DeepWiki 首页抓不到由源码生成的图（2026-08-17 核）。仓库主体是 67 份 Markdown 技能文件，没有调用关系可画。",
+          "url": "https://github.com/gamedev-skills/awesome-gamedev-agent-skills",
+          "stars": 528,
+          "created_at": "2026-06-24",
+          "pushed_at": "2026-08-11",
+          "stars_per_month": 298,
+          "stale_months": 0,
+          "verified_at": "2026-08-17"
+        },
+        {
+          "id": "unity-skills",
+          "zh": "Unity 官方技能包",
+          "license": "Unity Companion License",
+          "license_class": "restricted",
+          "license_note": "Unity 伴生许可证（2026-08-17 核 LICENSE.md）：**只授权用于依赖 Unity 的项目**，且明写按现状提供、不作任何担保。这不是通行的开源许可证，拿去做非 Unity 的东西不在授权范围内。",
+          "group": "auto",
+          "sub": "skills",
+          "role": "tool",
+          "decisions": [
+            "code"
+          ],
+          "tags": [
+            "Unity 官方出品",
+            "提示词与斜杠命令",
+            "许可证绑死 Unity 项目"
+          ],
+          "scope": "Unity 官方给 AI 编码 Agent 的一批可复用技能：提示词、斜杠命令与配套说明。",
+          "control": "出处就是控制力 —— 引擎厂商自己写的做法，不用担心它讲的是过时版本。",
+          "hw": "只要一个支持技能的 AI 编码客户端。",
+          "good": [
+            "引擎厂商自己出的，做法的权威性是第三方技能包给不了的",
+            "体量小，读得完"
+          ],
+          "bad": [
+            "**许可证把用途绑死在 Unity 项目上**，不是通行开源许可",
+            "内容比第三方技能包薄得多",
+            "DeepWiki 抓不到图"
+          ],
+          "unfit": "非 Unity 项目 —— 许可证本身就不允许。",
+          "src": "github README + LICENSE 原文",
+          "wiki": "none",
+          "wiki_note": "DeepWiki 首页抓不到由源码生成的图（2026-08-17 核）。仓库是提示词与命令的集合，没有代码结构。",
+          "url": "https://github.com/Unity-Technologies/skills",
+          "stars": 259,
+          "created_at": "2026-05-05",
+          "pushed_at": "2026-08-14",
+          "stars_per_month": 76,
+          "stale_months": 0,
+          "verified_at": "2026-08-17",
+          "tutorials": [
+            {
+              "title": "Unity 伴生许可证原文（用之前必读）",
+              "url": "https://unity.com/legal/licenses/unity-companion-license",
+              "kind": "官方",
+              "lang": "en",
+              "page_title": "Unity Companion License (&quot;License&quot;)",
+              "verified_at": "2026-08-17"
+            }
+          ]
+        },
+        {
+          "id": "godotprompter",
+          "zh": "GodotPrompter",
+          "license": "MIT",
+          "license_class": "permissive",
+          "group": "auto",
+          "sub": "skills",
+          "role": "tool",
+          "decisions": [
+            "code"
+          ],
+          "tags": [
+            "只管 Godot 4.x",
+            "领域技能分得细"
+          ],
+          "scope": "给 AI 编码 Agent 的 Godot 4.x 技能框架，按领域切分成一条条专用技能。",
+          "control": "范围收窄换来的准确：只讲一个引擎的一个大版本，不做跨引擎抽象。",
+          "hw": "只要一个支持技能的 AI 编码客户端。",
+          "good": [
+            "专注 Godot 4.x，不做跨引擎妥协",
+            "开源半年内星速就到了这一类的前列"
+          ],
+          "bad": [
+            "只有 Godot，别的引擎用不上",
+            "技能包共同的问题：给做法不给工具"
+          ],
+          "unfit": "非 Godot 项目。",
+          "src": "github README + DeepWiki",
+          "url": "https://github.com/jame581/GodotPrompter",
+          "stars": 582,
+          "created_at": "2026-04-03",
+          "pushed_at": "2026-08-12",
+          "stars_per_month": 130,
+          "stale_months": 0,
+          "diagrams": [
+            {
+              "id": "g-godotprompter-1",
+              "title": "东西怎么摆",
+              "kind": "架构图",
+              "src": "DeepWiki · 抓取 2026-08-17",
+              "verified_at": "2026-08-17",
+              "mermaid": "graph LR\n    subgraph \"Prototyping\"\n        GD[\"GDScript (@tool)\"]\n    end\n\n    subgraph \"Optimization\"\n        CS[\"C# ([Tool])\"]\n        CPP[\"GDExtension (C++)\"]\n    end\n\n    GD -- \"Refactor for Performance\" --> CS\n    CS -- \"Native Bottleneck\" --> CPP\n    CPP -- \"Expose to Editor\" --> GD"
+            },
+            {
+              "id": "g-godotprompter-2",
+              "title": "一次调用经过什么",
+              "kind": "时序图",
+              "src": "DeepWiki · 抓取 2026-08-17",
+              "verified_at": "2026-08-17",
+              "mermaid": "sequenceDiagram\n    participant C as Client (Peer 2)\n    participant S as Server (Peer 1)\n    \n    Note over C: _physics_process\n    C->>C: _apply_input() (Prediction)\n    C->>S: _send_input_to_server(dir, tick)\n    \n    Note over S: _physics_process\n    S->>S: _apply_input() (Authority)\n    S->>C: _receive_server_correction(pos, ack_tick)\n    \n    Note over C: RPC Received\n    C->>C: Rewind to pos\n    C->>C: Replay pending inputs (Reconciliation)"
+            }
+          ],
+          "verified_at": "2026-08-17"
+        },
+        {
+          "id": "gd-agentic-skills",
+          "zh": "GD-Agentic-Skills",
+          "license": "LGPL-3.0",
+          "license_class": "copyleft",
+          "license_note": "LGPL-3.0 有传染性：改动这些文件本身要以同样许可证放出，用它写出来的游戏代码不受影响。",
+          "group": "auto",
+          "sub": "skills",
+          "role": "tool",
+          "decisions": [
+            "code"
+          ],
+          "tags": [
+            "定位成长期记忆",
+            "跟 Godot 4.7+"
+          ],
+          "scope": "自称 Godot 4.7+ AI Agent 的「长期记忆」：一批高密度的 Godot 领域知识文件。",
+          "control": "把引擎知识固化成文件，让 Agent 每次都从同一份事实出发 —— 而不是靠模型的记忆。",
+          "hw": "只要一个支持技能的 AI 编码客户端。",
+          "good": [
+            "把「别按记忆写引擎 API」变成了一份可查的文件",
+            "跟的是 Godot 较新的大版本"
+          ],
+          "bad": [
+            "LGPL 比同类的 MIT 严，改动要回馈",
+            "版本跟得紧的另一面是老项目用不上"
+          ],
+          "unfit": "还在 Godot 3.x 的项目。",
+          "src": "github README + DeepWiki",
+          "url": "https://github.com/thedivergentai/GD-Agentic-Skills",
+          "stars": 536,
+          "created_at": "2026-02-07",
+          "pushed_at": "2026-08-12",
+          "stars_per_month": 85,
+          "stale_months": 0,
+          "diagrams": [
+            {
+              "id": "g-gd-agentic-skills-1",
+              "title": "东西怎么摆",
+              "kind": "架构图",
+              "src": "DeepWiki · 抓取 2026-08-17",
+              "verified_at": "2026-08-17",
+              "mermaid": "graph TD\n    subgraph \"Natural Language Space\"\n        A[\"'Player Faction'\"]\n        B[\"'Hostile Detection'\"]\n        C[\"'World Collision'\"]\n    end\n\n    subgraph \"Code Entity Space (collision_bitmask_helper.gd)\"\n        A --> D[\"Faction.PLAYER = 1\"]\n        B --> E[\"node.set_collision_mask_value(Faction.ENEMY, true)\"]\n        C --> F[\"node.set_collision_mask_value(Faction.WORLD, true)\"]\n        D -.-> G[\"node.collision_layer\"]\n        E -.-> H[\"node.collision_mask\"]\n    end"
+            },
+            {
+              "id": "g-gd-agentic-skills-2",
+              "title": "一次调用经过什么",
+              "kind": "时序图",
+              "src": "DeepWiki · 抓取 2026-08-17",
+              "verified_at": "2026-08-17",
+              "mermaid": "sequenceDiagram\n    participant M as godot-master\n    participant A as Anara (Analyst)\n    participant V as godot-agent-vision\n    participant MS as Migration Station\n\n    M->>A: request_audit(project_path)\n    A->>A: Phase I: Project Mapping\n    alt is_legacy_version == true\n        A->>MS: route_to_migration()\n        MS-->>A: migration_complete\n    end\n    A->>V: capture_ui_state()\n    V-->>A: webp_manifest (.gdskills/vision/)\n    A->>A: Phase III: Specialized Scoring\n    A-->>M: audit_report (Score/100 + FixList)"
+            }
+          ],
+          "verified_at": "2026-08-17"
+        },
+        {
+          "id": "unreal-skills",
+          "zh": "unreal-engine-skills",
+          "license": "MIT",
+          "license_class": "permissive",
+          "group": "auto",
+          "sub": "skills",
+          "role": "tool",
+          "decisions": [
+            "code"
+          ],
+          "tags": [
+            "27 条 C++ 技能",
+            "偏玩法与渲染"
+          ],
+          "scope": "给 AI 编码 Agent 的 27 条虚幻 C++ 技能，覆盖玩法、渲染等方向。",
+          "control": "只讲 C++ 一侧 —— 蓝图那一半不在范围内，边界很清楚。",
+          "hw": "只要一个支持技能的 AI 编码客户端。",
+          "good": [
+            "虚幻侧少见的 C++ 专项技能包",
+            "条数不多，能通读"
+          ],
+          "bad": [
+            "半年没更新，而虚幻在这半年里内置了官方 MCP",
+            "不覆盖蓝图"
+          ],
+          "unfit": "以蓝图为主的项目。",
+          "src": "github README + DeepWiki",
+          "url": "https://github.com/quodsoler/unreal-engine-skills",
+          "stars": 311,
+          "created_at": "2026-03-01",
+          "pushed_at": "2026-03-01",
+          "stars_per_month": 56,
+          "stale_months": 6,
+          "diagrams": [
+            {
+              "id": "g-unreal-skills-1",
+              "title": "东西怎么摆",
+              "kind": "架构图",
+              "src": "DeepWiki · 抓取 2026-08-17",
+              "verified_at": "2026-08-17",
+              "mermaid": "graph LR\n    subgraph \"Natural Language Space\"\n        NL_Class[\"'Create a new class'\"]\n        NL_Prop[\"'Expose variable to BP'\"]\n        NL_Func[\"'Make a console command'\"]\n    end\n\n    subgraph \"Code Entity Space\"\n        UCLASS[\"UCLASS(Blueprintable)\"]\n        UPROPERTY[\"UPROPERTY(EditAnywhere)\"]\n        UFUNCTION[\"UFUNCTION(Exec)\"]\n        GenBody[\"GENERATED_BODY()\"]\n    end\n\n    NL_Class --> UCLASS\n    NL_Prop --> UPROPERTY\n    NL_Func --> UFUNCTION\n    UCLASS -.-> GenBody\n    UPROPERTY -.-> GenBody"
+            },
+            {
+              "id": "g-unreal-skills-2",
+              "title": "一次调用经过什么",
+              "kind": "时序图",
+              "src": "DeepWiki · 抓取 2026-08-17",
+              "verified_at": "2026-08-17",
+              "mermaid": "sequenceDiagram\n    participant E as Engine/World\n    participant A as AActor Instance\n    participant C as UActorComponent\n\n    Note over A: Constructor (CDO Pass)\n    E->>A: CreateDefaultSubobject<T>()\n    E->>A: PostInitializeComponents()\n    Note right of A: Safe to bind Component Delegates\n    E->>A: BeginPlay()\n    A->>C: BeginPlay()\n    Note over A,C: Gameplay Loop (Tick)\n    E->>A: EndPlay(Reason)\n    A->>C: EndPlay(Reason)\n    E->>A: Destroyed()"
+            }
+          ],
+          "verified_at": "2026-08-17"
+        },
+        {
+          "id": "unity-mcp",
+          "zh": "MCP for Unity",
+          "license": "MIT",
+          "license_class": "permissive",
+          "group": "engine",
+          "sub": "unity",
+          "role": "tool",
+          "decisions": [
+            "code",
+            "scene",
+            "build"
+          ],
+          "tags": [
+            "47 个工具入口",
+            "Unity 2021.3→6.x",
+            "任意 MCP 客户端"
+          ],
+          "scope": "把 Unity 编辑器接到任意 MCP 客户端：建场景与对象、改 C# 脚本、管资源、跑测试、性能分析、出包。README 写明 47 个工具入口。",
+          "control": "工具入口按职责切开，一个入口只干一件事 —— 靠这个避免「一个大工具什么都能干、于是什么都干不准」。",
+          "hw": "Unity 2021.3 LTS 到 6.x；Python 3.10+（用 uv 装）。任意 MCP 客户端。",
+          "arch": "Python 服务在中间，Unity 侧是一个包。客户端发 MCP 调用，服务转给插件中枢，再经传输层丢回 Unity 主线程执行 —— **编辑器 API 只能在主线程调，这一跳是必须的**。",
+          "good": [
+            "这一类里星速最高且一直在维护，出问题有人管",
+            "Unity 版本跨度大，老项目也接得上",
+            "不绑客户端，Claude / Cursor / VS Code / 本地模型都行"
+          ],
+          "bad": [
+            "要装 Python 与 uv，纯 Unity 的团队多一套环境要维护",
+            "由商业公司赞助维护，路线取决于对方的产品方向",
+            "工具再多也看不见画面，摆放对不对只能靠你描述"
+          ],
+          "unfit": "只想让 AI 写脚本文件、完全不想让它碰工程 —— 那用技能包更轻。",
+          "src": "github README + DeepWiki",
+          "url": "https://github.com/CoplayDev/unity-mcp",
+          "stars": 13451,
+          "created_at": "2025-03-18",
+          "pushed_at": "2026-08-07",
+          "stars_per_month": 792,
+          "stale_months": 0,
+          "diagrams": [
+            {
+              "id": "g-unity-mcp-1",
+              "title": "东西怎么摆",
+              "kind": "架构图",
+              "src": "DeepWiki · 抓取 2026-08-17",
+              "verified_at": "2026-08-17",
+              "mermaid": "graph LR\n    Client[\"AI Client\"] --> Server[\"execute_custom_tool<br/>(Python)\"]\n    Server --> Svc[\"CustomToolService.py\"]\n    Svc --> Hub[\"PluginHub.py\"]\n    Hub --> Unity[\"Unity Editor Handler\"]"
+            },
+            {
+              "id": "g-unity-mcp-2",
+              "title": "一次调用经过什么",
+              "kind": "时序图",
+              "src": "DeepWiki · 抓取 2026-08-17",
+              "verified_at": "2026-08-17",
+              "mermaid": "sequenceDiagram\n    participant Client as AI Client (Cursor/Claude)\n    participant Server as Python Server (mcpforunityserver)\n    participant Hub as PluginHub (Python)\n    participant Bridge as WebSocketTransportClient (Unity)\n    participant Tool as RefreshUnity (C#)\n\n    Client->>Server: MCP Call: \"refresh_unity\"\n    Server->>Server: UnityInstanceMiddleware identifies instance\n    Server->>Hub: Forward to PluginHub\n    Hub->>Bridge: JSON-RPC: \"execute_command\"\n    Bridge->>Bridge: TransportCommandDispatcher.RunOnMainThreadAsync\n    Note over Bridge: Executes on Unity Main Thread\n    Bridge->>Tool: HandleCommand(JObject params)\n    Tool-->>Bridge: return SuccessResponse\n    Bridge-->>Hub: JSON-RPC Response\n    Hub-->>Server: Forward Result\n    Server-->>Client: MCP Result: Success"
+            }
+          ],
+          "verified_at": "2026-08-17",
+          "hands": {
+            "install": [
+              {
+                "step": "Unity → Package Manager → 从 git URL 添加",
+                "gate": "**钉在版本 tag 上**，README 明写可以 `#v10.0.0`；跟 `#main` 等于每次拉都可能变"
+              },
+              {
+                "step": "装 Python 3.10+ 与 uv",
+                "gate": "纯 Unity 团队多一套环境要维护，这是它最大的隐性成本"
+              },
+              {
+                "step": "Window → MCP for Unity → 配置所有检测到的客户端",
+                "gate": "客户端没装或没跑，这一步探测不到，会静默少配"
+              },
+              {
+                "step": "对着客户端说「在原点建一个立方体并加刚体」",
+                "gate": "验通不通只有这一条路 —— 配好不等于连上了"
+              }
+            ],
+            "modify": [
+              {
+                "path": "工具目录",
+                "effect": "47 个工具入口各管一件事。想知道某个操作叫什么，查它的工具目录页比翻代码快"
+              }
+            ],
+            "pitfalls": [
+              {
+                "where": "Unity 版本",
+                "note": "README 写支持 2021.3 LTS 到 6.x —— **这是这一类里跨度最大的**，但具体功能在老版本上的可用性要自己验"
+              },
+              {
+                "where": "它看不见画面",
+                "note": "工具再多也只能按你描述的去摆。**「摆得对不对」它判断不了**，要自己回编辑器看"
+              },
+              {
+                "where": "主线程",
+                "note": "编辑器 API 只能在主线程调，所有命令都要经过一次跳线程。长操作会卡住编辑器界面"
+              }
+            ],
+            "layers": [
+              "docs",
+              "wiki",
+              "issue"
+            ],
+            "issue_src": "github issues 按回复数排序 · 核验 2026-08-17"
+          },
+          "tutorials": [
+            {
+              "title": "官方文档站",
+              "url": "https://coplaydev.github.io/unity-mcp/",
+              "kind": "官方",
+              "lang": "en",
+              "page_title": "MCP for Unity",
+              "verified_at": "2026-08-17"
+            },
+            {
+              "title": "官方工具目录：47 个入口各管什么",
+              "url": "https://coplaydev.github.io/unity-mcp/reference/tools",
+              "kind": "官方",
+              "lang": "en",
+              "page_title": "Tool reference | MCP for Unity",
+              "verified_at": "2026-08-17"
+            }
+          ]
+        },
+        {
+          "id": "unity-mcp-murzak",
+          "zh": "Unity-MCP（Murzak）",
+          "license": "Apache-2.0",
+          "license_class": "permissive",
+          "group": "engine",
+          "sub": "unity",
+          "role": "tool",
+          "decisions": [
+            "code",
+            "scene",
+            "build",
+            "npc"
+          ],
+          "tags": [
+            "能在打包后的游戏里跑",
+            "按环境自动生成技能",
+            "编辑器与运行时都覆盖"
+          ],
+          "scope": "编辑器与运行时都能用的 Unity AI 助手。除了常规的编辑器操作，**它能跑在你编译出来的游戏里** —— 用来实时调试，或者让 NPC 行为由模型驱动。",
+          "control": "按操作系统、Unity 版本与工程里装了什么插件，动态生成给 AI 的技能说明 —— 而不是给一份对所有人都一样的静态清单。",
+          "hw": "仓库未说明具体版本下限；服务另有 Docker 镜像。",
+          "good": [
+            "**进得了编译后的游戏**，这一点同类都做不到",
+            "技能按你的实际环境生成，不是一份通用清单",
+            "中日西三语说明齐全"
+          ],
+          "bad": [
+            "运行时嵌模型意味着玩家机器上要跑推理，成本转嫁给玩家",
+            "覆盖面比头部项目宽，但每一块的深度得自己验",
+            "README 极长，找一个具体功能要翻很久"
+          ],
+          "unfit": "只做编辑器侧自动化 —— 运行时那一半是它的主要重量，用不上就选更轻的。",
+          "src": "github README + DeepWiki",
+          "url": "https://github.com/IvanMurzak/Unity-MCP",
+          "stars": 3919,
+          "created_at": "2025-04-02",
+          "pushed_at": "2026-08-16",
+          "stars_per_month": 238,
+          "stale_months": 0,
+          "diagrams": [
+            {
+              "id": "g-unity-mcp-murzak-1",
+              "title": "东西怎么摆",
+              "kind": "架构图",
+              "src": "DeepWiki · 抓取 2026-08-17",
+              "verified_at": "2026-08-17",
+              "mermaid": "graph LR\n    ClientRequest[\"Client Request<br/>uri: /gameobjects/Player/Transform\"] --> UriMatcher[\"IsMatch()<br/>Regex Pattern Matching\"]\n    \n    UriMatcher --> Template1[\"/gameobjects/{name}\"]\n    UriMatcher --> Template2[\"/gameobjects/{id}/components\"]\n    UriMatcher --> Template3[\"/scenes/{scene}/gameobjects\"]\n    \n    Template1 --> ParameterExtraction[\"ParseUriParameters()<br/>{name: 'Player'}\"]\n    ParameterExtraction --> ResourceRunner[\"IRunResource.RunGetContent()\"]\n    ResourceRunner --> Response[\"ResponseResourceContent[]\"]"
+            },
+            {
+              "id": "g-unity-mcp-murzak-2",
+              "title": "一次调用经过什么",
+              "kind": "时序图",
+              "src": "DeepWiki · 抓取 2026-08-17",
+              "verified_at": "2026-08-17",
+              "mermaid": "sequenceDiagram\n    participant Client as \"AI Client\"\n    participant Server as \"Unity-MCP-Server\"\n    participant Plugin as \"Unity-MCP-Plugin\"\n    participant Unity as \"Unity Editor\"\n    \n    Client->>Server: MCP Protocol Request\n    Server->>Plugin: SignalR RPC Call\n    Plugin->>Unity: Unity API Call (Main Thread)\n    Unity-->>Plugin: Result\n    Plugin-->>Server: Response\n    Server-->>Client: MCP Response"
+            }
+          ],
+          "verified_at": "2026-08-17"
+        },
+        {
+          "id": "mcp-unity",
+          "zh": "MCP Unity",
+          "license": "MIT",
+          "license_class": "permissive",
+          "group": "engine",
+          "sub": "unity",
+          "role": "tool",
+          "decisions": [
+            "code",
+            "scene"
+          ],
+          "tags": [
+            "只要 Unity 6+",
+            "Node 服务不吃 Python"
+          ],
+          "scope": "Unity 编辑器的 MCP 接入，服务端走 Node.js。",
+          "control": "版本门槛提高换来实现简单：只支持 Unity 6 以后，不背历史包袱。",
+          "hw": "Unity 6 或更新；Node.js 18+、npm 9+。",
+          "good": [
+            "服务走 Node，不用在 Unity 团队里再养一套 Python",
+            "中日双语说明"
+          ],
+          "bad": [
+            "**要求 Unity 6 以上**，老工程直接出局",
+            "星速与工具覆盖都不如头部项目"
+          ],
+          "unfit": "Unity 2021 / 2022 的老工程。",
+          "src": "github README + DeepWiki",
+          "url": "https://github.com/CoderGamester/mcp-unity",
+          "stars": 1867,
+          "created_at": "2025-03-13",
+          "pushed_at": "2026-08-10",
+          "stars_per_month": 109,
+          "stale_months": 0,
+          "diagrams": [
+            {
+              "id": "g-mcp-unity-1",
+              "title": "东西怎么摆",
+              "kind": "架构图",
+              "src": "DeepWiki · 抓取 2026-08-17",
+              "verified_at": "2026-08-17",
+              "mermaid": "flowchart TD\n    subgraph \"Unity Editor\"\n        MCU[\"McpConfigUtils\"]\n    end\n    \n    subgraph \"AI Client Configurations\"\n        W[\"Windsurf Config File\"]\n        C[\"Claude Desktop Config File\"]\n        CU[\"Cursor Config File\"]\n    end\n    \n    MCU -- \"AddToWindsurfIdeConfig()\" --> W\n    MCU -- \"AddToClaudeDesktopConfig()\" --> C\n    MCU -- \"AddToCursorConfig()\" --> CU"
+            },
+            {
+              "id": "g-mcp-unity-2",
+              "title": "一次调用经过什么",
+              "kind": "时序图",
+              "src": "DeepWiki · 抓取 2026-08-17",
+              "verified_at": "2026-08-17",
+              "mermaid": "sequenceDiagram\n    participant AI as \"AI Assistant\"\n    participant Node as \"Node.js Server\"\n    participant Unity as \"Unity Editor\"\n    \n    AI->>Node: Request (JSON-RPC)\n    Note over Node: McpServer processes request\n    \n    alt Tool Execution\n        Node->>Unity: Tool request via WebSocket\n        Note over Unity: McpUnitySocketHandler\n        Unity->>Unity: Execute tool\n        Unity->>Node: Tool result\n    else Resource Fetch\n        Node->>Unity: Resource request via WebSocket\n        Note over Unity: McpUnitySocketHandler\n        Unity->>Unity: Fetch resource\n        Unity->>Node: Resource data\n    end\n    \n    Node->>AI: Response (JSON-RPC)"
+            }
+          ],
+          "verified_at": "2026-08-17"
+        },
+        {
+          "id": "locus",
+          "zh": "Locus",
+          "license": "GPL-3.0-or-later",
+          "license_class": "copyleft",
+          "license_note": "GPL-3.0 有传染性。README 明写主仓库源码按 GPL-3.0-or-later 放出 —— 嵌进闭源产品前必须核对条款。",
+          "group": "engine",
+          "sub": "unity",
+          "role": "tool",
+          "decisions": [
+            "code",
+            "build"
+          ],
+          "tags": [
+            "热重载不丢播放状态",
+            "Roslyn 语义分析",
+            "编辑器界面用 Vue 写"
+          ],
+          "scope": "Unity 的开源开发 Agent：写 C#、读改对象与资源、跑完整功能开发流程。自带热重载，改完 C# 不用重载程序域，播放模式的状态还在。",
+          "control": "**它能验证自己写对了没有** —— 内置 Roslyn 语义分析，代码一改就报编译级的错与警告。这是它和「只会写不会验」那一批最实质的区别。",
+          "hw": "仓库未说明版本下限。",
+          "good": [
+            "热重载保住播放状态，调玩法时省掉大量重启",
+            "Roslyn 静态分析当场报错，不用等你手动编译",
+            "能自己跑起来抓运行时状态去定位 bug"
+          ],
+          "bad": [
+            "**GPL-3.0 传染**，商业闭源项目要先过法务",
+            "编辑器界面用 Vue 写，团队要多会一门技术栈",
+            "开源时间短，星速高但沉淀少"
+          ],
+          "unfit": "不能接受 GPL 的商业项目。",
+          "src": "github README + DeepWiki",
+          "url": "https://github.com/r1n7aro/Locus",
+          "stars": 708,
+          "created_at": "2026-04-22",
+          "pushed_at": "2026-08-16",
+          "stars_per_month": 184,
+          "stale_months": 0,
+          "diagrams": [
+            {
+              "id": "g-locus-1",
+              "title": "东西怎么摆",
+              "kind": "架构图",
+              "src": "DeepWiki · 抓取 2026-08-17",
+              "verified_at": "2026-08-17",
+              "mermaid": "graph TD\n    subgraph \"Input_Sources\"\n        A[\"activeToolCalls_Prop\"]\n        B[\"messages_Prop\"]\n    end\n\n    subgraph \"toolCallBatches_ts\"\n        C[\"collectToolCallDisplayMatchState\"]\n        D[\"filterToolCallsByConsumableMatchState\"]\n        E[\"resolveToolCallInfosForRender\"]\n    end\n\n    A --> C\n    B --> E\n    C --> D\n    E --> D\n    D --> F[\"Final_Rendered_ToolBlock\"]"
+            },
+            {
+              "id": "g-locus-2",
+              "title": "一次调用经过什么",
+              "kind": "时序图",
+              "src": "DeepWiki · 抓取 2026-08-17",
+              "verified_at": "2026-08-17",
+              "mermaid": "sequenceDiagram\n    participant UI as KnowledgeSearchPanel.vue\n    participant TOOL as knowledge_query.json\n    participant RT as KnowledgeRuntime [mod.rs]\n    participant LEX as KnowledgeTantivyIndex\n    participant EMB as EmbeddingManager\n\n    UI->>TOOL: query(lexicalQuery, semanticQuery)\n    TOOL->>RT: query_documents_with_progress()\n    par Lexical Search\n        RT->>LEX: search(lexicalQuery)\n        LEX-->>RT: Vec<LexicalHit>\n    and Semantic Search\n        RT->>EMB: encode(semanticQuery)\n        EMB-->>RT: Vector\n        RT->>RT: vector_similarity_search()\n    end\n    RT->>RT: semantic_rank::passes_semantic_score_threshold()\n    RT-->>UI: Vec<KnowledgeSearchHit>"
+            }
+          ],
+          "verified_at": "2026-08-17",
+          "hands": {
+            "install": [
+              {
+                "step": "按仓库说明装进 Unity 工程",
+                "gate": "README 没写版本下限 —— 自己先在小工程上试"
+              },
+              {
+                "step": "确认热重载生效",
+                "gate": "**热重载是它的核心卖点**：改 C# 不重载程序域、播放状态保住。这条不生效就没必要用它"
+              }
+            ],
+            "modify": [
+              {
+                "path": "编辑器界面（Vue）",
+                "effect": "用 `/view` 命令生成，团队要多会一门技术栈"
+              }
+            ],
+            "pitfalls": [
+              {
+                "where": "老版本 Unity",
+                "note": "issue #84（4 条回复）：在 Unity 2022.3.14 上执行脚本的工具**从来没成功过**，全是 failed"
+              },
+              {
+                "where": "多开工程",
+                "note": "issue #123（5 条回复）：还不支持一次开多个工程"
+              },
+              {
+                "where": "许可证",
+                "note": "**GPL-3.0-or-later，有传染性**。闭源商业项目要先过法务"
+              }
+            ],
+            "layers": [
+              "docs",
+              "wiki",
+              "issue"
+            ],
+            "issue_src": "github issues 按回复数排序 · 核验 2026-08-17"
+          }
+        },
+        {
+          "id": "unreal-mcp",
+          "zh": "unreal-mcp（chongdashu）",
+          "license": "没有许可证文件",
+          "license_class": "restricted",
+          "license_note": "**仓库里没有 LICENSE 文件**（2026-08-17 查目录确认）。README 顶上挂着 MIT 徽章，但徽章不是许可证 —— 没有明示授权即保留所有权利，用之前得找作者确认。",
+          "group": "engine",
+          "sub": "unreal",
+          "role": "tool",
+          "decisions": [
+            "code",
+            "scene"
+          ],
+          "tags": [
+            "虚幻侧最早那批",
+            "README 自标实验性",
+            "蓝图节点图能接"
+          ],
+          "scope": "虚幻的 MCP 接入：管 Actor、建蓝图类与组件、接蓝图节点图、控制视口。",
+          "control": "C++ 插件起一个原生 TCP 服务，Python 侧的 MCP 服务连过去 —— 命令直达编辑器子系统。",
+          "hw": "虚幻 5.5+；Python 3.12+；一个 MCP 客户端。",
+          "good": [
+            "蓝图节点图能接（加事件节点、连线、加变量），不只是摆 Actor",
+            "虚幻侧最早成规模的一个，星数积累最多"
+          ],
+          "bad": [
+            "**停更超过一年**，而虚幻在这期间内置了官方 MCP",
+            "**README 自己写着「实验性、不建议用于生产」**，并说明可能无预警地改动接口",
+            "没有许可证文件，授权状态不明"
+          ],
+          "unfit": "生产项目 —— 作者自己不建议。想看虚幻侧怎么接，读它；想用，看官方那条路。",
+          "src": "github README + DeepWiki",
+          "url": "https://github.com/chongdashu/unreal-mcp",
+          "stars": 2058,
+          "created_at": "2025-03-28",
+          "pushed_at": "2025-04-22",
+          "stars_per_month": 124,
+          "stale_months": 16,
+          "diagrams": [
+            {
+              "id": "g-unreal-mcp-1",
+              "title": "东西怎么摆",
+              "kind": "架构图",
+              "src": "DeepWiki · 抓取 2026-08-17",
+              "verified_at": "2026-08-17",
+              "mermaid": "flowchart LR\n    subgraph \"Blueprint Graph Creation\"\n        create[\"add_blueprint_event_node\n(BeginPlay)\"] --> find\n        find[\"find_blueprint_nodes\n(get node ID)\"] --> add_function\n        add_function[\"add_blueprint_function_node\n(Print String)\"] --> connect\n        connect[\"connect_blueprint_nodes\n(BeginPlay → Print String)\"]\n    end"
+            },
+            {
+              "id": "g-unreal-mcp-2",
+              "title": "一次调用经过什么",
+              "kind": "时序图",
+              "src": "DeepWiki · 抓取 2026-08-17",
+              "verified_at": "2026-08-17",
+              "mermaid": "sequenceDiagram\n    participant Client as \"Client Application\"\n    participant MCP as \"Python MCP Server\"\n    participant Conn as \"UnrealConnection\"\n    participant UE as \"Unreal Engine\"\n    \n    Client->>MCP: Call tool function\n    MCP->>Conn: get_unreal_connection()\n    \n    alt No existing connection\n        Conn->>Conn: Create new connection\n        Conn->>UE: Connect socket\n        UE-->>Conn: Connection established\n    else Connection exists\n        Conn->>Conn: Verify connection\n        alt Connection valid\n            Conn-->>MCP: Return existing connection\n        else Connection invalid\n            Conn->>Conn: Create new connection\n            Conn->>UE: Connect socket\n            UE-->>Conn: Connection established\n        end\n    end\n    \n    MCP->>Conn: send_command(command, params)\n    Conn->>UE: Send JSON command\n    UE->>UE: Process command\n    UE-->>Conn: Return JSON response\n    Conn->>Conn: Parse response\n    Conn-->>MCP: Return parsed response\n    MCP-->>Client: Return result"
+            }
+          ],
+          "verified_at": "2026-08-17",
+          "hands": {
+            "install": [
+              {
+                "step": "虚幻 5.5+，Python 3.12+",
+                "gate": "**注意版本**：官方 MCP 是 5.8 才进引擎的，这个项目停在 5.5 那个时代"
+              },
+              {
+                "step": "装 UnrealMCP 插件（示例工程里带）",
+                "gate": "C++ 插件要能编译，工程得是 C++ 工程不能是纯蓝图工程"
+              },
+              {
+                "step": "起 Python MCP 服务，接 55557 端口",
+                "gate": "端口被占时报错不明显"
+              }
+            ],
+            "modify": [
+              {
+                "path": "Python/unreal_mcp_server.py",
+                "effect": "MCP 服务入口，工具在这里注册"
+              },
+              {
+                "path": "MCPGameProject/Plugins/UnrealMCP",
+                "effect": "C++ 插件，真正动编辑器的那一半"
+              }
+            ],
+            "pitfalls": [
+              {
+                "where": "作者自己的警告",
+                "note": "**README 顶上明写「实验性、不建议用于生产」**，并说接口可能无预警地改。这不是我们的判断，是作者的"
+              },
+              {
+                "where": "配置",
+                "note": "issue #12（8 条回复）：接 Cursor 时报错，是这个仓库最热的一条"
+              },
+              {
+                "where": "蓝图工具",
+                "note": "issue #15：`spawn_blueprint_actor` 不工作；#5：加蓝图事件节点与函数节点的两个方法有问题。**蓝图那一半是它宣传的重点，也是坏得最多的地方**"
+              },
+              {
+                "where": "还活不活",
+                "note": "停更超过一年，上面这些 issue 都还开着"
+              }
+            ],
+            "layers": [
+              "docs",
+              "wiki",
+              "issue"
+            ],
+            "issue_src": "github issues 按回复数排序 · 核验 2026-08-17"
+          },
+          "tutorials": [
+            {
+              "title": "Epic 官方：编辑器里的 Unreal MCP（引擎自带的那条路）",
+              "url": "https://dev.epicgames.com/documentation/en-us/unreal-engine/unreal-mcp-in-unreal-editor",
+              "kind": "官方",
+              "lang": "en",
+              "page_title": "Unreal MCP in Unreal Editor | Unreal Engine 5.8 Documentation | Epic Developer Community",
+              "verified_at": "2026-08-17"
+            }
+          ]
+        },
+        {
+          "id": "vibeue",
+          "zh": "VibeUE",
+          "license": "MIT",
+          "license_class": "permissive",
+          "group": "engine",
+          "sub": "unreal",
+          "role": "tool",
+          "decisions": [
+            "code",
+            "scene",
+            "mat"
+          ],
+          "tags": [
+            "挂在官方 MCP 上",
+            "不另起服务",
+            "覆盖到 Niagara 与行为树"
+          ],
+          "scope": "虚幻 5.8+ 的 MCP 扩展与编辑器工具集：蓝图、材质、地形、植被、动画、Niagara、UMG、音频、StateTree、行为树与黑板、游戏标签、输入、UV、性能分析。",
+          "control": "**它不自己起服务** —— 把能力注册进引擎自带的工具注册表与 MCP 服务，任何 MCP 客户端走虚幻的标准端点就能驱动。这是「跟着官方走」而不是「另起炉灶」。",
+          "hw": "虚幻 5.8+，且必须先启用官方 Unreal MCP 插件与 Editor Tools 插件。",
+          "good": [
+            "**建在官方 MCP 之上**，引擎升级时最不容易被甩掉",
+            "覆盖面是虚幻侧最宽的一个，连 Niagara 与行为树都在内",
+            "没有单独的服务进程，也没有编辑器内聊天窗，装的东西最少"
+          ],
+          "bad": [
+            "**要求虚幻 5.8**，5.7 及以前用不了",
+            "依赖官方 MCP 先配好，多一层前置步骤",
+            "需要一个免费 API key，得去它的站点申请"
+          ],
+          "unfit": "还在虚幻 5.7 及更早的项目 —— 官方 MCP 那时还不存在。",
+          "src": "github README + DeepWiki",
+          "url": "https://github.com/kevinpbuckley/VibeUE",
+          "stars": 602,
+          "created_at": "2025-09-12",
+          "pushed_at": "2026-08-17",
+          "stars_per_month": 54,
+          "stale_months": 0,
+          "diagrams": [
+            {
+              "id": "g-vibeue-1",
+              "title": "东西怎么摆",
+              "kind": "架构图",
+              "src": "DeepWiki · 抓取 2026-08-17",
+              "verified_at": "2026-08-17",
+              "mermaid": "graph LR\n    ChatWindow[\"SAIChatWindow<br/>Slate UI\"]\n    ChatSession[\"FChatSession\"]\n    MCPClient[\"FMCPClient\"]\n    PythonServer[\"vibe_ue_server.py\"]\n    UBridge[\"UBridge\"]\n    \n    ChatWindow --> ChatSession\n    ChatSession --> MCPClient\n    MCPClient --> PythonServer\n    PythonServer --> UBridge"
+            },
+            {
+              "id": "g-vibeue-2",
+              "title": "一次调用经过什么",
+              "kind": "时序图",
+              "src": "DeepWiki · 抓取 2026-08-17",
+              "verified_at": "2026-08-17",
+              "mermaid": "sequenceDiagram\n    participant Client as AI Client\n    participant Python as vibe_ue_server.py\n    participant UBridge as UBridge::RouteCommand\n    participant MatNodeCmd as FMaterialNodeCommands\n    participant MatNodeSvc as FMaterialNodeService\n    participant UE as Unreal Engine APIs\n    \n    Client->>Python: manage_material_node(action=\"create\")\n    Python->>UBridge: TCP JSON: {\"type\": \"manage_material_node\", \"params\": {...}}\n    UBridge->>UBridge: AsyncTask(GameThread)\n    UBridge->>MatNodeCmd: HandleCommand(\"manage_material_node\", params)\n    MatNodeCmd->>MatNodeCmd: ParseAction(\"create\")\n    MatNodeCmd->>MatNodeSvc: CreateExpression(material, class, x, y)\n    MatNodeSvc->>UE: UMaterialEditingLibrary::CreateMaterialExpression\n    UE-->>MatNodeSvc: UMaterialExpression*\n    MatNodeSvc->>MatNodeSvc: BuildExpressionInfo()\n    MatNodeSvc-->>MatNodeCmd: TResult<FMaterialExpressionInfo>::Success\n    MatNodeCmd-->>UBridge: JSON: {\"success\": true, \"expression\": {...}}\n    UBridge-->>Python: TCP Response\n    Python-->>Client: MCP Response"
+            }
+          ],
+          "verified_at": "2026-08-17",
+          "hands": {
+            "install": [
+              {
+                "step": "先启用虚幻自带的 Unreal MCP 插件（会自动带上工具注册表）",
+                "gate": "**这是前置**，跳过它 VibeUE 没有可挂的端点"
+              },
+              {
+                "step": "再启用 Editor Tools 插件并启动 MCP 服务",
+                "gate": "按 Epic 官方文档走，不是按这个项目的文档走"
+              },
+              {
+                "step": "装 VibeUE，在编辑器偏好里填一个免费 API key",
+                "gate": "key 要去它的站点申请"
+              }
+            ],
+            "modify": [
+              {
+                "path": "工具注册表",
+                "effect": "它把能力注册进引擎自己的 ToolsetRegistry，不另起服务 —— 排错要从引擎那侧看"
+              }
+            ],
+            "pitfalls": [
+              {
+                "where": "引擎版本",
+                "note": "**要求虚幻 5.8**。5.7 及以前根本没有官方 MCP，这条路走不通"
+              },
+              {
+                "where": "动画通知",
+                "note": "issue #538：`add_notify` / `add_notify_state` 一直返回 -1"
+              },
+              {
+                "where": "覆盖面太宽",
+                "note": "从蓝图到 Niagara 到行为树都声称支持，**每一块的成熟度差别很大**，按你要用的那块单独验"
+              }
+            ],
+            "layers": [
+              "docs",
+              "wiki",
+              "issue"
+            ],
+            "issue_src": "github issues 按回复数排序 · 核验 2026-08-17"
+          },
+          "tutorials": [
+            {
+              "title": "Epic 官方：编辑器里的 Unreal MCP",
+              "url": "https://dev.epicgames.com/documentation/en-us/unreal-engine/unreal-mcp-in-unreal-editor",
+              "kind": "官方",
+              "lang": "en",
+              "page_title": "Unreal MCP in Unreal Editor | Unreal Engine 5.8 Documentation | Epic Developer Community",
+              "verified_at": "2026-08-17"
+            },
+            {
+              "title": "项目主页",
+              "url": "https://www.vibeue.com/",
+              "kind": "官方",
+              "lang": "en",
+              "page_title": "VibeUE — AI Editor Toolset for Unreal Engine 5.8 | MCP Expansion",
+              "verified_at": "2026-08-17"
+            }
+          ]
+        },
+        {
+          "id": "unrealclaude",
+          "zh": "UnrealClaude",
+          "license": "MIT",
+          "license_class": "permissive",
+          "license_note": "LICENSE 放在 `UnrealClaude/` 子目录里，GitHub 的许可证识别因此是空的 —— 文件本身是标准 MIT（2026-08-17 核原文）。",
+          "group": "engine",
+          "sub": "unreal",
+          "role": "tool",
+          "decisions": [
+            "code",
+            "scene",
+            "build"
+          ],
+          "tags": [
+            "编辑器内聊天面板",
+            "用 Claude 订阅不用 API key",
+            "会看视口"
+          ],
+          "scope": "把 Claude Code CLI 直接嵌进虚幻 5.7 编辑器：停靠式聊天面板、20 多个 MCP 工具、动态加载 5.7 的 API 文档、蓝图与动画蓝图编辑、关卡与资源管理。",
+          "control": "带一个动态上下文加载器，按需喂进准确的 5.7 API 文档 —— **冲的就是模型按记忆写过时 API 这个毛病**。它还能看编辑器视口。",
+          "hw": "虚幻 5.7；需先装并登录 Claude Code CLI。Windows / Linux / macOS（Apple Silicon）。",
+          "good": [
+            "走 Claude Code 自己的登录，不用另管 API key",
+            "动态喂 5.7 文档，减少模型按记忆写错 API",
+            "能看视口、能读工程结构，不是纯盲操作"
+          ],
+          "bad": [
+            "**README 自己写着蓝图编辑「还有些 bug，别完全依赖」**",
+            "钉死虚幻 5.7，而官方 MCP 是 5.8 才有的",
+            "绑死 Claude，换模型厂商要走它自带的 MCP 那一半"
+          ],
+          "unfit": "不用 Claude 的团队 —— 编辑器面板那一半是白装的。",
+          "src": "github README + DeepWiki",
+          "url": "https://github.com/Natfii/UnrealClaude",
+          "stars": 882,
+          "created_at": "2026-01-03",
+          "pushed_at": "2026-06-26",
+          "stars_per_month": 119,
+          "stale_months": 2,
+          "diagrams": [
+            {
+              "id": "g-unrealclaude-1",
+              "title": "东西怎么摆",
+              "kind": "架构图",
+              "src": "DeepWiki · 抓取 2026-08-17",
+              "verified_at": "2026-08-17",
+              "mermaid": "graph LR\n    subgraph \"Input\"\n        TargetAsset[\"asset_path: /Game/T_Icon\"]\n    end\n    \n    subgraph \"Code Entity Space\"\n        RefTool[\"FMCPTool_AssetReferencers::Execute\"]\n        Registry[\"IAssetRegistry::GetReferencers\"]\n        QueryFlags[\"UE::AssetRegistry::FDependencyQuery\"]\n    end\n    \n    subgraph \"Output\"\n        RefList[\"JSON: {path, class, name}\"]\n    end\n    \n    TargetAsset --> RefTool\n    RefTool --> Registry\n    Registry --> QueryFlags\n    QueryFlags --> RefList"
+            },
+            {
+              "id": "g-unrealclaude-2",
+              "title": "一次调用经过什么",
+              "kind": "时序图",
+              "src": "DeepWiki · 抓取 2026-08-17",
+              "verified_at": "2026-08-17",
+              "mermaid": "sequenceDiagram\n    participant UI as SClaudeEditorWidget\n    participant Sub as FClaudeCodeSubsystem\n    participant Run as FClaudeCodeRunner\n    participant CLI as claude (Process)\n    participant Br as MCP Bridge (Node.js)\n    participant Srv as FUnrealClaudeMCPServer\n    participant Reg as FMCPToolRegistry\n    \n    UI->>Sub: SendPrompt(\"Spawn an actor\")\n    Sub->>Run: ExecuteAsync()\n    Run->>CLI: Write NDJSON to Stdin\n    CLI->>Br: HTTP POST /mcp/tool/spawn_actor\n    Br->>Srv: Forward to Plugin Port 3000\n    Srv->>Reg: HandleExecuteTool()\n    Reg->>Reg: FMCPTool_SpawnActor::Execute()\n    Reg-->>Srv: FMCPToolResult\n    Srv-->>Br: JSON Response\n    Br-->>CLI: Tool Result\n    CLI-->>Run: Read NDJSON from Stdout\n    Run-->>UI: Update Chat Stream"
+            }
+          ],
+          "verified_at": "2026-08-17",
+          "hands": {
+            "install": [
+              {
+                "step": "npm install -g @anthropic-ai/claude-code 并登录",
+                "gate": "走 Claude 订阅，不用单独的 API key —— 这是它省事的地方"
+              },
+              {
+                "step": "在虚幻 5.7 的插件浏览器里启用",
+                "gate": "**只认 5.7**。issue #44 就是在问会不会迁到 5.8，#38 在问能不能跑在 5.5"
+              },
+              {
+                "step": "打开编辑器内的聊天面板",
+                "gate": "面板是停靠式的，找不到就在 Window 菜单里翻"
+              }
+            ],
+            "modify": [
+              {
+                "path": "UnrealClaude/LICENSE",
+                "effect": "许可证在子目录里，所以 GitHub 识别不出来。是标准 MIT"
+              }
+            ],
+            "pitfalls": [
+              {
+                "where": "蓝图",
+                "note": "**README 自己写「还有些 bug，别完全依赖」**，issue #31（6 条回复）正是「Claude 读不了蓝图、用不了自定义工具」"
+              },
+              {
+                "where": "模型版本",
+                "note": "issue #14：命令行里是一个版本，插件里只到另一个版本 —— 插件对模型版本有自己的限制"
+              },
+              {
+                "where": "引擎版本",
+                "note": "钉死 5.7，而官方 MCP 在 5.8。**要不要现在上，取决于你打不打算升 5.8**"
+              }
+            ],
+            "layers": [
+              "docs",
+              "wiki",
+              "issue"
+            ],
+            "issue_src": "github issues 按回复数排序 · 核验 2026-08-17"
+          }
+        },
+        {
+          "id": "unreal-mcp-chir",
+          "zh": "Unreal Engine MCP Server",
+          "license": "MIT",
+          "license_class": "permissive",
+          "group": "engine",
+          "sub": "unreal",
+          "role": "tool",
+          "decisions": [
+            "code",
+            "scene",
+            "build"
+          ],
+          "tags": [
+            "C++ 自动化桥",
+            "覆盖到 Sequencer",
+            "上了 MCP 官方登记处"
+          ],
+          "scope": "经一个原生 C++ 自动化桥插件控制虚幻：资源管理、Actor、编辑器与播放模式、关卡、动画与物理、Niagara 特效、Sequencer 影视与渲染队列。TypeScript 加 C++ 写成。",
+          "control": "桥在 C++ 侧，能力边界跟着引擎的自动化接口走 —— 引擎能自动化的它基本都能调。",
+          "hw": "仓库未说明版本下限；提供 Docker 与 npm 包两种装法。",
+          "good": [
+            "覆盖到 Sequencer 与渲染队列，做过场动画这一块同类少见",
+            "已登记进 MCP 官方注册表，装起来省事",
+            "有 npm 包和 Docker 镜像两条路"
+          ],
+          "bad": [
+            "覆盖面铺得很宽，每一块的成熟度要自己验",
+            "TypeScript 加 C++ 双栈，出问题排查跨两边",
+            "和官方 5.8 MCP 的关系 README 没交代"
+          ],
+          "unfit": "只需要摆几个 Actor —— 这么大的覆盖面是负担。",
+          "src": "github README + DeepWiki",
+          "url": "https://github.com/ChiR24/Unreal_mcp",
+          "stars": 832,
+          "created_at": "2025-09-07",
+          "pushed_at": "2026-08-14",
+          "stars_per_month": 74,
+          "stale_months": 0,
+          "diagrams": [
+            {
+              "id": "g-unreal-mcp-chir-1",
+              "title": "东西怎么摆",
+              "kind": "架构图",
+              "src": "DeepWiki · 抓取 2026-08-17",
+              "verified_at": "2026-08-17",
+              "mermaid": "graph TB\n    subgraph \"Client Mode (MCP_AUTOMATION_CLIENT_MODE=false)\"\n        MCPServer1[\"MCP Server<br/>AutomationBridge<br/>WebSocket Client\"]\n        Plugin1[\"UE Plugin<br/>FMcpConnectionManager<br/>WebSocket Server<br/>Port 8091\"]\n        MCPServer1 -->|\"Connect to<br/>ws://127.0.0.1:8091\"| Plugin1\n    end\n    \n    subgraph \"Server Mode (MCP_AUTOMATION_CLIENT_MODE=true)\"\n        MCPServer2[\"MCP Server<br/>AutomationBridge<br/>WebSocket Server<br/>Port 8091\"]\n        Plugin2[\"UE Plugin<br/>FMcpConnectionManager<br/>WebSocket Client\"]\n        Plugin2 -->|\"Connect to<br/>ws://127.0.0.1:8091\"| MCPServer2\n    end"
+            },
+            {
+              "id": "g-unreal-mcp-chir-2",
+              "title": "一次调用经过什么",
+              "kind": "时序图",
+              "src": "DeepWiki · 抓取 2026-08-17",
+              "verified_at": "2026-08-17",
+              "mermaid": "sequenceDiagram\n    participant Tool as \"Tool Handler\"\n    participant UB as \"UnrealBridge\"\n    participant AB as \"AutomationBridge<br/>sendAutomationRequest()\"\n    participant WS as \"WebSocket\"\n    participant Mgr as \"FMcpConnectionManager\"\n    participant Sub as \"UMcpAutomationBridgeSubsystem\"\n    \n    Tool->>UB: executeConsoleCommand(cmd)\n    UB->>UB: CommandValidator.validate(cmd)\n    UB->>AB: sendAutomationRequest('console_command', {command})\n    AB->>AB: Generate request ID\n    AB->>WS: Send JSON {type:'command', id, action, args}\n    \n    WS->>Mgr: Binary WebSocket frame\n    Mgr->>Mgr: Validate size <= 5MB\n    Mgr->>Sub: Dispatch request\n    Sub->>Sub: Lookup handler in TMap\n    Sub->>Sub: Execute handler function\n    Sub-->>Mgr: Result\n    Mgr-->>WS: JSON response {type:'response', id, success, result}\n    \n    WS-->>AB: Parse response\n    AB->>AB: Match request ID\n    AB-->>UB: Return StandardActionResponse\n    UB-->>Tool: Success/error result\n    \n    Note over AB,WS: Timeout: 30s default<br/>Configurable per request"
+            }
+          ],
+          "verified_at": "2026-08-17",
+          "tutorials": [
+            {
+              "title": "MCP 官方注册表",
+              "url": "https://registry.modelcontextprotocol.io/",
+              "kind": "官方",
+              "lang": "en",
+              "page_title": "Official MCP Registry",
+              "verified_at": "2026-08-17"
+            }
+          ]
+        },
+        {
+          "id": "unreal-engine-mcp",
+          "zh": "unreal-engine-mcp（flopperam）",
+          "license": "没有许可证文件",
+          "license_class": "restricted",
+          "license_note": "**仓库里没有 LICENSE 文件**（2026-08-17 查目录确认）。没有明示授权即保留所有权利，商用前必须联系作者。",
+          "group": "engine",
+          "sub": "unreal",
+          "role": "tool",
+          "decisions": [
+            "code",
+            "scene"
+          ],
+          "tags": [
+            "已被商业方接手",
+            "README 转向自家产品"
+          ],
+          "scope": "虚幻的 MCP 接入。README 顶部已声明本项目转由一家商业公司持有，并引导去用其自家 Agent。",
+          "control": "和同类一样走插件加服务，能力边界在 README 里没有逐条列出。",
+          "hw": "仓库未说明。",
+          "good": [
+            "星数在虚幻侧靠前，早期用的人多",
+            "仍在维护"
+          ],
+          "bad": [
+            "**已转由商业方持有，README 主动引流到自家产品** —— 开源这一支的未来不明",
+            "没有许可证文件，授权状态不明",
+            "文档薄，能力清单要自己翻代码"
+          ],
+          "unfit": "需要长期依赖的生产项目 —— 归属已变，路线不由社区定。",
+          "src": "github README + DeepWiki",
+          "url": "https://github.com/flopperam/unreal-engine-mcp",
+          "stars": 1068,
+          "created_at": "2025-08-06",
+          "pushed_at": "2026-06-26",
+          "stars_per_month": 86,
+          "stale_months": 2,
+          "diagrams": [
+            {
+              "id": "g-unreal-engine-mcp-1",
+              "title": "东西怎么摆",
+              "kind": "架构图",
+              "src": "DeepWiki · 抓取 2026-08-17",
+              "verified_at": "2026-08-17",
+              "mermaid": "graph LR\n    A[\"spawn_physics_blueprint_actor\"] --> B[\"RedCube [0,0,0]\"]\n    A --> C[\"GreenCylinder [300,0,0]\"]\n    A --> D[\"YellowSphere [600,0,0]\"]\n    \n    B --> E[\"set_mesh_material_color([1,0,0,1])\"]\n    C --> F[\"set_mesh_material_color([0,1,0,1])\"]\n    D --> G[\"set_mesh_material_color([1,1,0,1])\"]\n    \n    E --> H[\"compile_blueprint\"]\n    F --> H\n    G --> H"
+            },
+            {
+              "id": "g-unreal-engine-mcp-2",
+              "title": "一次调用经过什么",
+              "kind": "时序图",
+              "src": "DeepWiki · 抓取 2026-08-17",
+              "verified_at": "2026-08-17",
+              "mermaid": "sequenceDiagram\n    participant Python as \"UnrealConnection\"\n    participant Socket as \"TCP Socket\"\n    participant Bridge as \"UEpicUnrealMCPBridge\"\n    participant GameThread as \"Unreal Game Thread\"\n    participant Engine as \"Unreal Engine APIs\"\n    \n    Python->>Socket: JSON Command\n    Socket->>Bridge: Raw TCP Data\n    Bridge->>Bridge: Parse JSON\n    Bridge->>GameThread: AsyncTask(ExecuteCommand)\n    \n    alt Editor Command\n        GameThread->>Engine: EditorCommands->HandleCommand()\n    else Blueprint Command\n        GameThread->>Engine: BlueprintCommands->HandleCommand()\n    end\n    \n    Engine-->>GameThread: Result\n    GameThread-->>Bridge: JSON Response\n    Bridge-->>Socket: Serialized Response\n    Socket-->>Python: TCP Response"
+            }
+          ],
+          "verified_at": "2026-08-17"
+        },
+        {
+          "id": "godot-mcp",
+          "zh": "Godot MCP",
+          "license": "MIT",
+          "license_class": "permissive",
+          "group": "engine",
+          "sub": "godot",
+          "role": "tool",
+          "decisions": [
+            "code",
+            "scene",
+            "build"
+          ],
+          "tags": [
+            "Godot 侧星数最高",
+            "能起项目看报错",
+            "TypeScript 服务"
+          ],
+          "scope": "Godot 引擎的 MCP 服务：启动项目、读取运行时报错、操作场景与脚本。",
+          "control": "能真的把项目跑起来并把错误回传 —— **它不只是写，还能看见写错了**。",
+          "hw": "本机装好 Godot；Node.js 18+ 与 npm；一个支持 MCP 的 AI 客户端。",
+          "good": [
+            "Godot 侧星数最高、社区最厚",
+            "能启动项目并回传报错，闭环比只写代码强得多",
+            "排错文档写得实在，常见坑（找不到 Godot、路径不对）都列了"
+          ],
+          "bad": [
+            "要设 `GODOT_PATH` 环境变量，装完第一次多半卡在这里",
+            "**同名项目一大把**（至少五个仓库都叫 godot-mcp），找错仓库很容易",
+            "要 Node 环境，纯 Godot 的人多一套东西要装"
+          ],
+          "unfit": "不想装 Node 的 —— 有原生实现的替代品。",
+          "src": "github README + DeepWiki",
+          "url": "https://github.com/Coding-Solo/godot-mcp",
+          "stars": 5230,
+          "created_at": "2025-02-26",
+          "pushed_at": "2026-04-16",
+          "stars_per_month": 296,
+          "stale_months": 4,
+          "diagrams": [
+            {
+              "id": "g-godot-mcp-1",
+              "title": "东西怎么摆",
+              "kind": "架构图",
+              "src": "DeepWiki · 抓取 2026-08-17",
+              "verified_at": "2026-08-17",
+              "mermaid": "flowchart TD\n    subgraph \"GodotServer (TypeScript)\"\n        U[\"handleUpdateProjectUids()\"]\n        V[\"isGodot44OrLater()\"]\n    end\n    \n    subgraph \"godot_operations.gd (GDScript)\"\n        R[\"resave_resources(params)\"]\n        F[\"find_files(path, extension)\"]\n        S[\"ResourceSaver.save(res)\"]\n    end\n    \n    U --> V\n    V -- \"Passed\" --> R\n    R --> F\n    F -- \".tscn, .gd, .shader\" --> R\n    R --> S\n    S -- \"Triggers sidecar creation\" --> FS[\".uid files created\"]"
+            },
+            {
+              "id": "g-godot-mcp-2",
+              "title": "一次调用经过什么",
+              "kind": "时序图",
+              "src": "DeepWiki · 抓取 2026-08-17",
+              "verified_at": "2026-08-17",
+              "mermaid": "sequenceDiagram\n    participant AI as \"AI Assistant\"\n    participant MCP as \"GodotServer\"\n    participant GodotOps as \"godot_operations.gd\"\n    participant Godot as \"Godot Engine\"\n    \n    AI->>MCP: Call tool (name + arguments)\n    \n    alt Direct CLI Tools\n        Note right of MCP: Simple tools like launch_editor, get_godot_version\n        MCP->>Godot: Execute CLI command\n        Godot-->>MCP: Return result\n    else GDScript Operations\n        Note right of MCP: Complex tools like create_scene, add_node\n        MCP->>MCP: Normalize & validate parameters\n        MCP->>MCP: Convert camelCase to snake_case\n        MCP->>Godot: Execute with --script godot_operations.gd\n        Godot->>GodotOps: Execute operation with parameters\n        GodotOps->>Godot: Perform operation (scene manipulation, etc.)\n        Godot-->>GodotOps: Operation result\n        GodotOps-->>MCP: Return output/errors\n    end\n    \n    MCP->>AI: Formatted response (JSON or error)"
+            }
+          ],
+          "verified_at": "2026-08-17",
+          "hands": {
+            "install": [
+              {
+                "step": "本机装好 Godot，设 `GODOT_PATH` 环境变量",
+                "gate": "**装完第一次多半卡在这里** —— issue #37「找不到活着的 Godot 进程」、#23「起不了编辑器」都是它"
+              },
+              {
+                "step": "Node.js 18+，npm install",
+                "gate": "纯 Godot 的人要多装一套 Node"
+              },
+              {
+                "step": "在 AI 客户端里注册这个 MCP 服务",
+                "gate": "Cursor 侧要用 Agent 模式，普通对话模式调不了工具"
+              }
+            ],
+            "modify": [
+              {
+                "path": "项目路径",
+                "effect": "必须指向含 `project.godot` 的目录，指错了报「无效项目路径」"
+              }
+            ],
+            "pitfalls": [
+              {
+                "where": "同名项目",
+                "note": "**GitHub 上至少五个仓库都叫 godot-mcp**。认作者名 `Coding-Solo`，别只认仓库名"
+              },
+              {
+                "where": "建场景",
+                "note": "issue #20（6 条回复）：建场景失败，报 JSON 解析错误"
+              },
+              {
+                "where": "客户端",
+                "note": "issue #73 在问怎么配另一个客户端 —— 不同客户端的接法差别不小，照着 README 里对应那一节走"
+              }
+            ],
+            "layers": [
+              "docs",
+              "wiki",
+              "issue"
+            ],
+            "issue_src": "github issues 按回复数排序 · 核验 2026-08-17"
+          },
+          "tutorials": [
+            {
+              "title": "Godot 官方下载（先装引擎再设 GODOT_PATH）",
+              "url": "https://godotengine.org/download",
+              "kind": "官方",
+              "lang": "en",
+              "page_title": "Download – Godot Engine",
+              "verified_at": "2026-08-17"
+            }
+          ]
+        },
+        {
+          "id": "godot-ai",
+          "zh": "Godot AI",
+          "license": "MIT",
+          "license_class": "permissive",
+          "group": "engine",
+          "sub": "godot",
+          "role": "tool",
+          "decisions": [
+            "code",
+            "scene"
+          ],
+          "tags": [
+            "Godot 资源库一键装",
+            "43 个工具 120 项操作",
+            "MCP for Unity 原班人马"
+          ],
+          "scope": "把 MCP 客户端直接接到运行中的 Godot 编辑器：建场景、改节点与脚本、连信号，并能配 UI、材质、动画、粒子、相机与环境。README 写明约 43 个 MCP 工具、120 多项操作。",
+          "control": "工具按对象类型分组，一个工具管一类东西的一批操作 —— 用更少的工具覆盖更多的操作。",
+          "hw": "Godot 4.5+（推荐 4.7+）；uv（跑 Python 服务）；一个 MCP 客户端。",
+          "good": [
+            "**已上 Godot 官方资源库，在编辑器里一键装** —— 这一类里唯一不用手工配仓库的",
+            "出自 MCP for Unity 的同一批人，做法上有延续",
+            "工具设计上花过心思：操作名拼错时会提示你「是不是想输入 xxx」"
+          ],
+          "bad": [
+            "**要 Godot 4.5 以上**，4.4 及更早用不了",
+            "还是要装 uv 跑 Python 服务，一键装只省了前半段",
+            "开源时间很短，长期维护看不出来"
+          ],
+          "unfit": "Godot 4.4 及更早的项目。",
+          "src": "github README + DeepWiki",
+          "url": "https://github.com/hi-godot/godot-ai",
+          "stars": 1723,
+          "created_at": "2026-04-12",
+          "pushed_at": "2026-08-16",
+          "stars_per_month": 413,
+          "stale_months": 0,
+          "diagrams": [
+            {
+              "id": "g-godot-ai-1",
+              "title": "东西怎么摆",
+              "kind": "架构图",
+              "src": "DeepWiki · 抓取 2026-08-17",
+              "verified_at": "2026-08-17",
+              "mermaid": "graph LR\n    subgraph \"Python Tool Layer\"\n        T1[\"@mcp.tool()\"]\n        T2[\"register_manage_tool()\"]\n    end\n\n    subgraph \"GDScript Handler Layer\"\n        H1[\"node_handler.gd\"]\n        H2[\"scene_handler.gd\"]\n        H3[\"script_handler.gd\"]\n    end\n\n    T1 -- \"mcp_dispatch\" --> H1\n    T2 -- \"mcp_dispatch\" --> H2\n    T2 -- \"mcp_dispatch\" --> H3"
+            },
+            {
+              "id": "g-godot-ai-2",
+              "title": "一次调用经过什么",
+              "kind": "时序图",
+              "src": "DeepWiki · 抓取 2026-08-17",
+              "verified_at": "2026-08-17",
+              "mermaid": "sequenceDiagram\n    participant C as AI Client\n    participant M as HintOpTypoOnManage\n    participant P as Pydantic (FastMCP)\n    participant R as MANAGE_TOOL_OPS\n\n    C->>M: node_manage(op=\"get_childen\")\n    M->>P: call_next(context)\n    Note over P: ValidationError: 'get_childen' not in Literal[...]\n    P-->>M: raise ValidationError\n    M->>R: get(\"node_manage\")\n    R-->>M: (\"get_children\", \"delete\", ...)\n    M->>M: difflib.get_close_matches(\"get_childen\")\n    M-->>C: raise ToolError(\"Did you mean 'get_children'?\")"
+            }
+          ],
+          "verified_at": "2026-08-17",
+          "hands": {
+            "install": [
+              {
+                "step": "Godot 编辑器 AssetLib 里搜 Godot AI，一键装",
+                "gate": "**这一类里唯一能一键装的**，但只省了插件那半段"
+              },
+              {
+                "step": "装 uv 跑 Python 服务",
+                "gate": "另一半还是要装 —— README 明说了"
+              },
+              {
+                "step": "Godot 4.5+（推荐 4.7+）",
+                "gate": "4.4 及更早用不了"
+              }
+            ],
+            "modify": [
+              {
+                "path": "GDScript handler 层",
+                "effect": "Python 侧的工具经 `mcp_dispatch` 转到 GDScript 处理器，真正动编辑器的是后者"
+              }
+            ],
+            "pitfalls": [
+              {
+                "where": "工具名拼错",
+                "note": "**它会提示你「是不是想输入 xxx」** —— 这是它工具设计上花过心思的地方，别当成报错"
+              },
+              {
+                "where": "试玩",
+                "note": "issue #814 在提议加带时序的试玩操作、#859 说试玩前的存活检查有漏洞。**「能不能自己跑起来验」这一格还在建设中**"
+              },
+              {
+                "where": "扩展",
+                "note": "issue #781（7 条回复）在讨论怎么让工程注册自己的工具而不改核心 —— 现在还做不到"
+              }
+            ],
+            "layers": [
+              "docs",
+              "wiki",
+              "issue"
+            ],
+            "issue_src": "github issues 按回复数排序 · 核验 2026-08-17"
+          },
+          "tutorials": [
+            {
+              "title": "Godot 官方资源库页（可一键装）",
+              "url": "https://godotengine.org/asset-library/asset/5050",
+              "kind": "官方",
+              "lang": "en",
+              "page_title": "Godot AI - Godot Asset Library",
+              "verified_at": "2026-08-17"
+            }
+          ]
+        },
+        {
+          "id": "godot-mcp-native",
+          "zh": "Godot MCP Native",
+          "license": "MIT",
+          "license_class": "permissive",
+          "group": "engine",
+          "sub": "godot",
+          "role": "tool",
+          "decisions": [
+            "code",
+            "scene",
+            "build"
+          ],
+          "tags": [
+            "不要 Node 不要 Python",
+            "155 个工具",
+            "中文说明齐全"
+          ],
+          "scope": "Godot 的 MCP 插件，**整个服务用 GDScript 原生实现**。README 写明 155 个工具：节点、脚本、场景、编辑器、调试各成一组，脚本侧还能做符号索引与定义跳转。",
+          "control": "不引外部运行时，服务就跑在编辑器里 —— **少一层进程就少一处会断的地方**。",
+          "hw": "Godot 4.x（推荐 4.5+）。无额外依赖。",
+          "good": [
+            "**零依赖**：不装 Node、不装 Python、不装 uv，这一类里唯一做到的",
+            "调试工具给了 71 项（含断点与调用栈），深度超出同类",
+            "中英双语 README"
+          ],
+          "bad": [
+            "原生实现意味着能力受 GDScript 限制，跨进程的活干不了",
+            "DeepWiki 抓不到由源码生成的图",
+            "作者与社区体量都小，出问题主要靠自己读代码"
+          ],
+          "unfit": "需要服务跑在另一台机器上的场景 —— 它就活在编辑器进程里。",
+          "src": "github README",
+          "wiki": "none",
+          "wiki_note": "DeepWiki 首页抓不到由源码生成的图（2026-08-17 核）。这个仓库 DeepWiki 没有索引到可画的结构，**不是我们没抓，是那边没有** —— 所以这一项只有 README 与文档两层。",
+          "url": "https://github.com/yurineko73/Godot-MCP-Native",
+          "stars": 706,
+          "created_at": "2026-05-04",
+          "pushed_at": "2026-08-03",
+          "stars_per_month": 205,
+          "stale_months": 0,
+          "verified_at": "2026-08-17",
+          "hands": {
+            "install": [
+              {
+                "step": "把插件放进工程的 addons 目录并启用",
+                "gate": "**零依赖**：不用 Node、不用 Python、不用 uv"
+              },
+              {
+                "step": "Godot 4.x（推荐 4.5+）",
+                "gate": "服务跑在编辑器进程里，Godot 版本就是唯一的版本约束"
+              }
+            ],
+            "modify": [
+              {
+                "path": "插件内的工具分组",
+                "effect": "155 个工具分节点 / 脚本 / 场景 / 编辑器 / 调试五组，调试那组给了 71 项"
+              }
+            ],
+            "pitfalls": [
+              {
+                "where": "客户端兼容",
+                "note": "issue #1（4 条回复）与 #24：某些命令行客户端加载不了它的 MCP。**「零依赖」省的是安装，不省客户端适配**"
+              },
+              {
+                "where": "资源库",
+                "note": "issue #27：在 AssetLib 里搜不到 —— 要手工装"
+              },
+              {
+                "where": "能力边界",
+                "note": "原生实现意味着受 GDScript 限制，跨进程或要调外部程序的活干不了"
+              }
+            ],
+            "layers": [
+              "docs",
+              "wiki",
+              "issue"
+            ],
+            "issue_src": "github issues 按回复数排序 · 核验 2026-08-17"
+          }
+        },
+        {
+          "id": "cocos-mcp",
+          "zh": "Cocos Creator MCP",
+          "license": "没有许可证文件",
+          "license_class": "restricted",
+          "license_note": "**仓库里没有 LICENSE 文件**（2026-08-17 查目录确认）。没有明示授权即保留所有权利。另外 README 大篇幅在推一个由第三方公司维护的付费 Pro 版 —— 开源这一支的边界要看清楚。",
+          "group": "engine",
+          "sub": "other",
+          "role": "tool",
+          "decisions": [
+            "code",
+            "scene"
+          ],
+          "tags": [
+            "中文侧唯一成规模的",
+            "十一种语言说明",
+            "免费版与 Pro 版并存"
+          ],
+          "scope": "Cocos Creator 3.8+ 的 MCP 服务插件，README 写明免费版提供 50 个融合工具。一键安装，省掉环境配置。",
+          "control": "把工具做成「融合工具」而不是一个操作一个入口 —— 用更少的调用覆盖更多操作，省 token。",
+          "hw": "Cocos Creator 3.8 以上。",
+          "good": [
+            "**中文引擎侧唯一成规模的接入**，国内团队绕不开",
+            "十一种语言的 README，本地化程度罕见",
+            "一键安装，不用配环境"
+          ],
+          "bad": [
+            "**没有许可证文件**，授权状态不明",
+            "README 主体在推付费 Pro 版，免费版的能力边界得自己划",
+            "首次安装前要手工删两个配置文件，否则工具列表显示异常 —— 这写在 README 的必读警告里"
+          ],
+          "unfit": "对授权状态有要求的商业项目 —— 先把许可证问清楚。",
+          "src": "github README + DeepWiki",
+          "url": "https://github.com/DaxianLee/cocos-mcp-server",
+          "stars": 1333,
+          "created_at": "2025-07-17",
+          "pushed_at": "2026-07-08",
+          "stars_per_month": 102,
+          "stale_months": 1,
+          "diagrams": [
+            {
+              "id": "g-cocos-mcp-1",
+              "title": "东西怎么摆",
+              "kind": "架构图",
+              "src": "DeepWiki · 抓取 2026-08-17",
+              "verified_at": "2026-08-17",
+              "mermaid": "flowchart LR\n    Input[\"value: 'node-uuid-string'<br/>propertyType: 'node'\"] --> Validate{\"Is string?\"}\n    Validate --> |Yes| Wrap[\"processedValue = {uuid: value}\"]\n    Validate --> |No| Error[\"Throw: Node reference<br/>must be string UUID\"]\n    Wrap --> SetProperty[\"Editor.Message.request<br/>'scene', 'set-property'<br/>dump: {value, type: 'cc.Node'}\"]"
+            },
+            {
+              "id": "g-cocos-mcp-2",
+              "title": "一次调用经过什么",
+              "kind": "时序图",
+              "src": "DeepWiki · 抓取 2026-08-17",
+              "verified_at": "2026-08-17",
+              "mermaid": "sequenceDiagram\n    participant UI as \"Control Panel<br/>Vue 3 UI\"\n    participant IPC as \"Editor.Message.send\"\n    participant Main as \"main.ts<br/>Message Handler\"\n    participant Server as \"MCPServer Instance\"\n    participant Setup as \"setupTools()\"\n    participant List as \"toolsList[]\"\n    \n    UI->>UI: User toggles tool<br/>checkbox\n    UI->>IPC: 'update-enabled-tools'<br/>[{category, name, enabled}]\n    IPC->>Main: Message received\n    Main->>Server: updateEnabledTools(enabledTools)\n    Server->>Server: this.enabledTools = enabledTools\n    Server->>Setup: setupTools() re-runs\n    Setup->>List: Rebuild tool list<br/>with new filters\n    List-->>Server: Updated toolsList\n    Server-->>Main: Update complete\n    Main-->>UI: Success response\n    UI->>UI: Update UI to reflect<br/>new state"
+            }
+          ],
+          "verified_at": "2026-08-17",
+          "hands": {
+            "install": [
+              {
+                "step": "**先删掉工程 settings 目录下的 mcp-server.json 与 tool-manager.json**",
+                "gate": "**这写在 README 的必读警告里** —— 不删，插件的工具列表显示会异常"
+              },
+              {
+                "step": "装插件，Cocos Creator 3.8+",
+                "gate": "3.8 以下不支持"
+              },
+              {
+                "step": "在 AI 客户端里注册",
+                "gate": "issue #9：某些客户端因方法名过长报错"
+              }
+            ],
+            "modify": [
+              {
+                "path": "settings/mcp-server.json",
+                "effect": "工具配置。升级前要删掉重建"
+              }
+            ],
+            "pitfalls": [
+              {
+                "where": "开源版与 Pro 版",
+                "note": "**README 主体在推第三方公司维护的付费 Pro 版**。免费版的能力边界要自己从工具清单划"
+              },
+              {
+                "where": "场景操作",
+                "note": "issue #18：保存场景有问题、挂脚本挂不上、建出来的场景不带摄像机、层级也不对。**场景那一块是最不稳的**"
+              },
+              {
+                "where": "面板",
+                "note": "issue #10（4 条回复）：`openPanel` 方法不存在"
+              },
+              {
+                "where": "许可证",
+                "note": "仓库里没有 LICENSE 文件，商用前先问作者"
+              }
+            ],
+            "layers": [
+              "docs",
+              "wiki",
+              "issue"
+            ],
+            "issue_src": "github issues 按回复数排序 · 核验 2026-08-17"
+          }
+        },
+        {
+          "id": "robloxstudio-mcp",
+          "zh": "Roblox Studio MCP",
+          "license": "MIT",
+          "license_class": "permissive",
+          "group": "engine",
+          "sub": "other",
+          "role": "tool",
+          "decisions": [
+            "code",
+            "build"
+          ],
+          "tags": [
+            "能控试玩",
+            "会截图回传"
+          ],
+          "scope": "Roblox Studio 的 MCP 服务：运行时调试、控制试玩、截图。",
+          "control": "**能截图回传** —— 在这一类普遍盲操作的背景下，能看见画面是实打实的区别。",
+          "hw": "仓库未说明。",
+          "good": [
+            "能控制试玩并截图，闭环比只写脚本强",
+            "Roblox 侧还在维护的少数之一"
+          ],
+          "bad": [
+            "体量小，工具覆盖窄",
+            "DeepWiki 抓不到图",
+            "Roblox 生态本身对外部工具限制多"
+          ],
+          "unfit": "非 Roblox 项目。",
+          "src": "github README",
+          "wiki": "none",
+          "wiki_note": "DeepWiki 首页抓不到由源码生成的图（2026-08-17 核）。仓库体量小，那边没有索引到可画的结构。",
+          "url": "https://github.com/Chrrxs/robloxstudio-mcp",
+          "stars": 172,
+          "created_at": "2026-05-23",
+          "pushed_at": "2026-08-02",
+          "stars_per_month": 61,
+          "stale_months": 0,
+          "verified_at": "2026-08-17"
+        },
+        {
+          "id": "blender-mcp",
+          "zh": "Blender MCP",
+          "license": "MIT",
+          "license_class": "permissive",
+          "group": "asset",
+          "sub": "model3d",
+          "role": "tool",
+          "decisions": [
+            "art3d",
+            "mat",
+            "rig",
+            "scene"
+          ],
+          "tags": [
+            "接的是建模软件不是模型",
+            "星数全场最高",
+            "改的是现成工程"
+          ],
+          "scope": "把 Blender 接到任意大模型：用对话做建模、搭场景、改物件。",
+          "control": "**它不生成模型，它操作建模软件** —— 于是拓扑、UV、绑骨这些生成模型给不了的东西，全都回到了你手里。这是素材侧和「图生 3D」完全不同的一条路。",
+          "hw": "uv；Blender；一个 MCP 客户端。不需要显卡跑推理。",
+          "good": [
+            "**绕开了生成模型最大的短板**：出来的是可编辑的工程，不是一坨网格",
+            "不吃显存，笔记本也能用",
+            "整个游戏素材方向星数最高的项目，教程与社区最厚"
+          ],
+          "bad": [
+            "你得会 Blender —— 它放大的是你的能力，不是替代",
+            "对话操作复杂建模效率不一定比手动高",
+            "和游戏引擎之间还隔着一次导出"
+          ],
+          "unfit": "完全不懂三维的人 —— 它假设你知道自己要什么。",
+          "src": "github README + DeepWiki",
+          "url": "https://github.com/ahujasid/blender-mcp",
+          "stars": 25931,
+          "created_at": "2025-03-07",
+          "pushed_at": "2026-08-16",
+          "stars_per_month": 1495,
+          "stale_months": 0,
+          "diagrams": [
+            {
+              "id": "g-blender-mcp-1",
+              "title": "东西怎么摆",
+              "kind": "架构图",
+              "src": "DeepWiki · 抓取 2026-08-17",
+              "verified_at": "2026-08-17",
+              "mermaid": "graph LR\n    Command[\"Command Object\"]\n    Type[\"type: string<br/>(required)\"]\n    Params[\"params: object<br/>(optional)\"]\n    \n    Command --> Type\n    Command --> Params\n    \n    Type -.example.-> TypeEx[\"'get_scene_info'<br/>'execute_code'<br/>'download_polyhaven_asset'\"]\n    Params -.example.-> ParamsEx[\"code: 'bpy.ops...'<br/>asset_id: 'rock_wall_02'<br/>resolution: '1k'\"]"
+            },
+            {
+              "id": "g-blender-mcp-2",
+              "title": "一次调用经过什么",
+              "kind": "时序图",
+              "src": "DeepWiki · 抓取 2026-08-17",
+              "verified_at": "2026-08-17",
+              "mermaid": "sequenceDiagram\n    participant Operator as \"BLENDERMCP_OT_connect\"\n    participant Server as \"BlenderMCPServer\"\n    participant Socket as \"socket.socket\"\n    participant Thread as \"server_thread\"\n    \n    Operator->>Server: __init__(host, port)\n    Server->>Server: Set running=False\n    Operator->>Server: start()\n    Server->>Socket: socket.socket(AF_INET, SOCK_STREAM)\n    Server->>Socket: setsockopt(SO_REUSEADDR, 1)\n    Server->>Socket: bind((host, port))\n    Server->>Socket: listen(1)\n    Server->>Thread: threading.Thread(target=_server_loop)\n    Server->>Thread: daemon=True\n    Server->>Thread: start()\n    Note over Server: Server ready on port 9876"
+            }
+          ],
+          "verified_at": "2026-08-17",
+          "hands": {
+            "install": [
+              {
+                "step": "装 uv",
+                "gate": "它的服务靠 uv 跑"
+              },
+              {
+                "step": "在 MCP 客户端里指向服务",
+                "gate": "配置格式各客户端不同，照 README 对应那一节抄"
+              },
+              {
+                "step": "在 Blender 里装插件",
+                "gate": "**两头都要装**：客户端一头、Blender 一头，少一头就连不上"
+              }
+            ],
+            "modify": [
+              {
+                "path": "Blender 插件面板",
+                "effect": "连接状态在这里看。连不上先看这里再看客户端"
+              }
+            ],
+            "pitfalls": [
+              {
+                "where": "你得会 Blender",
+                "note": "**它放大你的能力，不替代**。不知道要什么拓扑、什么 UV，对话也问不出来"
+              },
+              {
+                "where": "复杂建模",
+                "note": "对话操作复杂建模不一定比手动快。它最值的是重复性操作与批量摆放"
+              },
+              {
+                "where": "客户端",
+                "note": "issue #313 在问能不能配某个客户端 —— 非主流客户端要自己趟"
+              }
+            ],
+            "layers": [
+              "docs",
+              "wiki",
+              "issue"
+            ],
+            "issue_src": "github issues 按回复数排序 · 核验 2026-08-17"
+          },
+          "tutorials": [
+            {
+              "title": "项目官网",
+              "url": "https://blendermcp.org/",
+              "kind": "官方",
+              "lang": "en",
+              "page_title": "Official Blender MCP | AI-Powered 3D Modeling Agent for Blender",
+              "verified_at": "2026-08-17"
+            }
+          ]
+        },
+        {
+          "id": "trellis",
+          "zh": "TRELLIS",
+          "license": "MIT",
+          "license_class": "permissive",
+          "license_note": "主体 MIT，但 README 明说部分子模块（可微八叉树渲染器、改版 Flexicubes）另有许可证 —— 整包分发前要逐个核。",
+          "group": "asset",
+          "sub": "model3d",
+          "role": "tool",
+          "decisions": [
+            "art3d",
+            "mat"
+          ],
+          "tags": [
+            "一份表示出三种格式",
+            "微软出品",
+            "50 万物体训出来"
+          ],
+          "scope": "文字或图片进，3D 资产出，可以导成辐射场、3D 高斯或网格。用一种统一的结构化隐表示撑起三种输出格式，最大 20 亿参数。",
+          "control": "**一次生成，三种格式各取所需** —— 要进引擎取网格，要做展示取高斯。这是它和只出网格的同类最实质的区别。",
+          "hw": "**只在 Linux 上测过**（Windows 参考 issue #3，未完全验证）；NVIDIA 显卡至少 16GB 显存，在 A100 / A6000 上验过；需要 CUDA 工具链编译子模块。",
+          "good": [
+            "同一份表示能出三种格式，下游想怎么用都行",
+            "训练数据规模大，泛化比同类好",
+            "还在维护，微软背书"
+          ],
+          "bad": [
+            "**16GB 显存起步**，消费级显卡多数进不来",
+            "**只在 Linux 上测过**，Windows 要自己趟",
+            "子模块许可证与主体不同，商用分发要逐个核"
+          ],
+          "unfit": "没有 A 卡以上级别显卡的个人开发者 —— 门槛在硬件不在软件。",
+          "src": "github README + DeepWiki",
+          "url": "https://github.com/microsoft/TRELLIS",
+          "stars": 13451,
+          "created_at": "2024-12-02",
+          "pushed_at": "2026-06-26",
+          "stars_per_month": 657,
+          "stale_months": 2,
+          "diagrams": [
+            {
+              "id": "g-trellis-1",
+              "title": "东西怎么摆",
+              "kind": "架构图",
+              "src": "DeepWiki · 抓取 2026-08-17",
+              "verified_at": "2026-08-17",
+              "mermaid": "graph LR\n    InputImage[\"Input Image<br/>(518x518)\"]\n    DINOv2[\"DINOv2 ViT-L/14<br/>Feature Extractor\"]\n    Features[\"Image Features<br/>(1024 channels)\"]\n    Projection[\"Linear Projection<br/>to cond_channels\"]\n    FlowModel[\"ElasticSLatFlowModel\"]\n    \n    InputImage --> DINOv2\n    DINOv2 --> Features\n    Features --> Projection\n    Projection --> FlowModel"
+            },
+            {
+              "id": "g-trellis-2",
+              "title": "一次调用经过什么",
+              "kind": "时序图",
+              "src": "DeepWiki · 抓取 2026-08-17",
+              "verified_at": "2026-08-17",
+              "mermaid": "sequenceDiagram\n    participant User\n    participant Pipeline as \"TrellisImageTo3DPipeline\"\n    participant Outputs as \"Pipeline Outputs Dict\"\n    participant GLBExport as \"postprocessing_utils.to_glb()\"\n    participant PLYExport as \"gaussian.save_ply()\"\n    participant FileSystem as \"File System\"\n    \n    User->>Pipeline: run(image, seed=1)\n    Pipeline->>Outputs: Return {'gaussian': [...], 'mesh': [...]}\n    \n    Note over Outputs: User has 3D asset in memory<br/>Can extract multiple formats\n    \n    User->>GLBExport: to_glb(gaussian, mesh, simplify=0.95, texture_size=1024)\n    GLBExport->>GLBExport: Simplify mesh\n    GLBExport->>GLBExport: Bake texture from Gaussians\n    GLBExport->>GLBExport: Package into GLB\n    GLBExport-->>User: Return GLB object\n    User->>FileSystem: glb.export(\"output.glb\")\n    \n    User->>PLYExport: gaussian.save_ply(\"output.ply\")\n    PLYExport->>FileSystem: Write PLY file directly\n    \n    Note over FileSystem: Two formats available:<br/>output.glb (~5 MB)<br/>output.ply (~50 MB)"
+            }
+          ],
+          "verified_at": "2026-08-17",
+          "hands": {
+            "install": [
+              {
+                "step": "Linux 加 Conda",
+                "gate": "**README 明写只在 Linux 上测过**。Windows 见 issue #3（53 条回复，全站最热），作者说未完全验证"
+              },
+              {
+                "step": "CUDA 工具链，编译子模块",
+                "gate": "这一步最容易失败，CUDA 版本要和显卡驱动对上（在 11.8 与 12.2 上验过）"
+              },
+              {
+                "step": "NVIDIA 显卡 16GB 显存以上",
+                "gate": "**在 A100 / A6000 上验过**。消费级显卡见 issue #31（41 条回复）「12G 能不能跑」"
+              }
+            ],
+            "modify": [
+              {
+                "path": "导出格式",
+                "effect": "同一次生成可导 GLB（约 5MB）或 PLY（约 50MB），按下游选"
+              }
+            ],
+            "pitfalls": [
+              {
+                "where": "面数",
+                "note": "issue #58（34 条回复）：怎么生成面数更多的资产 —— **默认输出对游戏来说可能过简**"
+              },
+              {
+                "where": "商用",
+                "note": "issue #41（30 条回复）问的就是能不能商用。主体 MIT，但**子模块另有许可证**，整包分发前要逐个核"
+              },
+              {
+                "where": "显存",
+                "note": "16GB 是门槛不是建议。低于这个数的路子都在 issue 里，没有官方支持"
+              }
+            ],
+            "layers": [
+              "docs",
+              "wiki",
+              "issue"
+            ],
+            "issue_src": "github issues 按回复数排序 · 核验 2026-08-17"
+          },
+          "tutorials": [
+            {
+              "title": "在线体验空间",
+              "url": "https://huggingface.co/spaces/JeffreyXiang/TRELLIS",
+              "kind": "官方",
+              "lang": "en",
+              "page_title": "TRELLIS - a Hugging Face Space by trellis-community",
+              "verified_at": "2026-08-17"
+            }
+          ]
+        },
+        {
+          "id": "hunyuan3d21",
+          "zh": "混元 3D 2.1",
+          "license": "腾讯混元 3D 2.1 社区许可",
+          "license_class": "restricted",
+          "license_note": "2026-08-17 核许可证原文：**授权区域不含欧盟、英国、韩国**；且若你名下所有产品的月活合计超过一百万，必须另行向腾讯申请授权，未获批准前不得行使本协议下的权利。",
+          "group": "asset",
+          "sub": "model3d",
+          "role": "tool",
+          "decisions": [
+            "art3d",
+            "mat"
+          ],
+          "tags": [
+            "中文侧主力",
+            "带 PBR 材质",
+            "许可证排除三地"
+          ],
+          "scope": "腾讯混元的 3D 生成：图生 3D 与文生 3D，2.1 这一支带 PBR 材质生成。",
+          "control": "几何与材质分成两段做 —— 于是材质可以单独重跑，不用连几何一起重来。",
+          "hw": "仓库未在 README 中给出统一的显存下限，按模型分支不同。",
+          "good": [
+            "**开源侧少数明确做 PBR 材质的**，直接对上引擎的光照",
+            "中文文档与社区最厚，国内团队上手最快",
+            "模型权重公开可下载"
+          ],
+          "bad": [
+            "**许可证排除欧盟 / 英国 / 韩国**，出海产品要先看清楚",
+            "**月活超一百万要另行申请授权**",
+            "已停更十个月，2.1 之后没有新版"
+          ],
+          "unfit": "面向欧盟或英国市场的产品 —— 许可证不覆盖那些地区。",
+          "src": "github README + LICENSE 原文 + DeepWiki",
+          "url": "https://github.com/Tencent-Hunyuan/Hunyuan3D-2.1",
+          "stars": 3854,
+          "created_at": "2025-06-13",
+          "pushed_at": "2025-10-17",
+          "stars_per_month": 273,
+          "stale_months": 10,
+          "diagrams": [
+            {
+              "id": "g-hunyuan3d21-1",
+              "title": "东西怎么摆",
+              "kind": "架构图",
+              "src": "DeepWiki · 抓取 2026-08-17",
+              "verified_at": "2026-08-17",
+              "mermaid": "flowchart LR\n    Script[\"compile_mesh_painter.sh<br/>Build Script\"]\n    Setup[\"setup.py<br/>Extension Definition\"]\n    Sources[\"C++/CUDA Sources<br/>Mesh Painter Implementation\"]\n    \n    Build[\"pip install<br/>Build and Install\"]\n    Module[\"DifferentiableRenderer.so<br/>Compiled Module\"]\n    \n    Script --> Setup\n    Script --> Build\n    Setup --> Build\n    Sources --> Build\n    Build --> Module"
+            },
+            {
+              "id": "g-hunyuan3d21-2",
+              "title": "一次调用经过什么",
+              "kind": "时序图",
+              "src": "DeepWiki · 抓取 2026-08-17",
+              "verified_at": "2026-08-17",
+              "mermaid": "sequenceDiagram\n    participant Init as \"__init__\"\n    participant RemBG as \"BackgroundRemover\"\n    participant ShapePipe as \"Hunyuan3DDiTFlowMatching<br/>Pipeline\"\n    participant PaintPipe as \"Hunyuan3DPaintPipeline\"\n    participant FS as \"File System\"\n    \n    Init->>RemBG: Initialize rembg\n    Note over RemBG: model_worker.py:96\n    \n    Init->>ShapePipe: from_pretrained(model_path)\n    Note over ShapePipe: model_worker.py:99\n    \n    alt enable_flashvdm\n        Init->>ShapePipe: enable_flashvdm(mc_algo)\n        Note over ShapePipe: model_worker.py:100-102\n    end\n    \n    alt compile\n        Init->>ShapePipe: compile()\n        Note over ShapePipe: model_worker.py:103-104\n    end\n    \n    Init->>Init: Create Hunyuan3DPaintConfig\n    Note over Init: max_num_view=6<br/>resolution=512<br/>model_worker.py:107-112\n    \n    Init->>PaintPipe: Hunyuan3DPaintPipeline(conf)\n    Note over PaintPipe: model_worker.py:113\n    \n    Init->>FS: Clean cache directory\n    Note over FS: Remove old files<br/>model_worker.py:114-116"
+            }
+          ],
+          "verified_at": "2026-08-17",
+          "hands": {
+            "install": [
+              {
+                "step": "按仓库说明装依赖",
+                "gate": "issue #12（47 条回复）就是 Windows 安装问题，是这个仓库最热的一条"
+              },
+              {
+                "step": "下载模型权重",
+                "gate": "权重公开可下载，但**许可证限制授权区域**，下载前先读"
+              }
+            ],
+            "modify": [
+              {
+                "path": "几何与材质两段",
+                "effect": "分开做，材质可以单独重跑不用连几何一起重来"
+              }
+            ],
+            "pitfalls": [
+              {
+                "where": "授权区域",
+                "note": "**许可证不覆盖欧盟、英国、韩国**。出海产品先确认发行地"
+              },
+              {
+                "where": "月活门槛",
+                "note": "**名下产品月活合计超一百万要另行向腾讯申请授权**，未获批准前不得行使协议下的权利"
+              },
+              {
+                "where": "还活不活",
+                "note": "停更十个月。issue #111（27 条回复）在问后续版本会不会开源 —— 还没有答复"
+              },
+              {
+                "where": "Windows",
+                "note": "issue #12 与 #84 都是 Windows 安装，加起来七十多条回复。**在 Windows 上装是这个项目的主要成本**"
+              }
+            ],
+            "layers": [
+              "docs",
+              "wiki",
+              "issue"
+            ],
+            "issue_src": "github issues 按回复数排序 · 核验 2026-08-17"
+          },
+          "tutorials": [
+            {
+              "title": "模型权重页",
+              "url": "https://huggingface.co/tencent/Hunyuan3D-2.1",
+              "kind": "官方",
+              "lang": "en",
+              "page_title": "tencent/Hunyuan3D-2.1 · Hugging Face",
+              "verified_at": "2026-08-17"
+            }
+          ]
+        },
+        {
+          "id": "partcrafter",
+          "zh": "PartCrafter",
+          "license": "MIT",
+          "license_class": "permissive",
+          "group": "asset",
+          "sub": "model3d",
+          "role": "tool",
+          "decisions": [
+            "art3d"
+          ],
+          "tags": [
+            "一张图出可拆开的零件",
+            "8GB 显存能跑",
+            "NeurIPS 2025"
+          ],
+          "scope": "从一张图一次生成**多个零件**和多个物体，而不是一整块网格。",
+          "control": "**这是整条素材路上对游戏最要紧的一个区别** —— 整块网格进游戏是死的：门不能开、轮子不能转、部件不能单独换。按零件生成才有得动。",
+          "hw": "支持 CUDA 的显卡，至少 8GB 显存。零件数与 token 数可以调低省显存。",
+          "good": [
+            "**出来的东西可以拆开**，这是能不能进游戏做交互的分水岭",
+            "8GB 显存就能跑，消费级显卡进得来",
+            "还在维护，论文中了 NeurIPS 2025"
+          ],
+          "bad": [
+            "零件多了显存吃紧，得靠调低 token 数换",
+            "只做几何，材质不归它管",
+            "研究项目，工程化程度不如产品型仓库"
+          ],
+          "unfit": "只要一个静态摆件 —— 拆分能力用不上，选更省事的。",
+          "src": "github README + DeepWiki",
+          "url": "https://github.com/wgsxm/PartCrafter",
+          "stars": 2469,
+          "created_at": "2025-06-09",
+          "pushed_at": "2026-04-16",
+          "stars_per_month": 173,
+          "stale_months": 4,
+          "diagrams": [
+            {
+              "id": "g-partcrafter-1",
+              "title": "东西怎么摆",
+              "kind": "架构图",
+              "src": "DeepWiki · 抓取 2026-08-17",
+              "verified_at": "2026-08-17",
+              "mermaid": "flowchart LR\n    DenoisedLatents[\"denoised_latents\"]\n    TripoSGVAE[\"TripoSG VAE Decoder\"]\n    PartGeometries[\"part_geometries\"]\n    MeshGenerator[\"mesh_generator\"]\n    GLBExporter[\"glb_exporter\"]\n    \n    DenoisedLatents --> TripoSGVAE\n    TripoSGVAE --> PartGeometries\n    PartGeometries --> MeshGenerator\n    MeshGenerator --> GLBExporter"
+            },
+            {
+              "id": "g-partcrafter-2",
+              "title": "一次调用经过什么",
+              "kind": "流程图",
+              "src": "DeepWiki · 抓取 2026-08-17",
+              "verified_at": "2026-08-17",
+              "mermaid": "flowchart TD\n    LatentInput[\"structured_latent_input\"]\n    NoiseScheduler[\"noise_scheduler\"]\n    PartCrafterDiTModel[\"PartCrafterDiTModel\"]\n    PartEmbedding[\"part_embedding\"]\n    TimeEmbedding[\"time_embedding\"]\n    DenoisedLatents[\"denoised_latents\"]\n    \n    LatentInput --> NoiseScheduler\n    NoiseScheduler --> PartCrafterDiTModel\n    PartEmbedding -->|\"part-specific tokens\"| PartCrafterDiTModel\n    TimeEmbedding --> PartCrafterDiTModel\n    PartCrafterDiTModel --> DenoisedLatents"
+            }
+          ],
+          "verified_at": "2026-08-17",
+          "tutorials": [
+            {
+              "title": "模型权重与说明",
+              "url": "https://huggingface.co/wgsxm/PartCrafter",
+              "kind": "官方",
+              "lang": "en",
+              "page_title": "wgsxm/PartCrafter · Hugging Face",
+              "verified_at": "2026-08-17"
+            }
+          ]
+        },
+        {
+          "id": "triposg",
+          "zh": "TripoSG",
+          "license": "MIT",
+          "license_class": "permissive",
+          "group": "asset",
+          "sub": "model3d",
+          "role": "tool",
+          "decisions": [
+            "art3d"
+          ],
+          "tags": [
+            "卡通与草图也吃得住",
+            "8GB 显存",
+            "Tripo 出品"
+          ],
+          "scope": "图生 3D 的基础模型，主打几何保真与泛化：照片、卡通、草图都能进。",
+          "control": "训练数据覆盖多种画风 —— 于是输入不必是照片，**手绘草图也能出形**，这对做原型很有用。",
+          "hw": "支持 CUDA 的显卡，至少 8GB 显存。",
+          "good": [
+            "草图和卡通也能出形，不挑输入风格",
+            "8GB 显存门槛，个人开发者进得来",
+            "有在线体验空间，可以先试再装"
+          ],
+          "bad": [
+            "**已停更十六个月**",
+            "只出几何，材质与贴图另想办法",
+            "背后是一家做闭源产品的公司，开源这一支的投入不确定"
+          ],
+          "unfit": "需要长期跟进新版的生产管线 —— 它已经不动了。",
+          "src": "github README + DeepWiki",
+          "url": "https://github.com/VAST-AI-Research/TripoSG",
+          "stars": 1748,
+          "created_at": "2025-03-24",
+          "pushed_at": "2025-04-18",
+          "stars_per_month": 104,
+          "stale_months": 16,
+          "diagrams": [
+            {
+              "id": "g-triposg-1",
+              "title": "东西怎么摆",
+              "kind": "架构图",
+              "src": "DeepWiki · 抓取 2026-08-17",
+              "verified_at": "2026-08-17",
+              "mermaid": "flowchart TD\n    A1[\"Input Image\"] --> B[\"TripoSGPipeline\"]\n    A2[\"Scribble + Text\"] --> C[\"TripoSGScribblePipeline\"]\n    B --> D[\"3D Mesh\"]\n    C --> D"
+            },
+            {
+              "id": "g-triposg-2",
+              "title": "一次调用经过什么",
+              "kind": "流程图",
+              "src": "DeepWiki · 抓取 2026-08-17",
+              "verified_at": "2026-08-17",
+              "mermaid": "flowchart LR\n    A[\"Full Resolution Mesh\"] --> B{\"faces > target?\"}\n    B -->|Yes| C[\"Merge Close Vertices\"]\n    C --> D[\"Quadric Edge Collapse\"]\n    D --> E[\"Simplified Mesh\"]\n    B -->|No| E"
+            }
+          ],
+          "verified_at": "2026-08-17",
+          "hands": {
+            "install": [
+              {
+                "step": "支持 CUDA 的显卡，8GB 显存以上",
+                "gate": "门槛比同类低，消费级显卡进得来"
+              },
+              {
+                "step": "从 Hugging Face 拉权重",
+                "gate": "有在线体验空间，装之前可以先试"
+              }
+            ],
+            "modify": [
+              {
+                "path": "输入图片",
+                "effect": "照片、卡通、草图都吃得住 —— 这是它的强项，输入不必是照片"
+              }
+            ],
+            "pitfalls": [
+              {
+                "where": "只出几何",
+                "note": "**贴图不归它管**。issue #20（9 条回复）、#14（11 条回复）、#10（5 条回复）问的全是「怎么给网格上贴图」—— 这是它最大的缺口"
+              },
+              {
+                "where": "顶点色",
+                "note": "issue #64 在问顶点色。要 PBR 材质得另找工具"
+              },
+              {
+                "where": "还活不活",
+                "note": "停更十六个月，上面这些问题都还开着"
+              }
+            ],
+            "layers": [
+              "docs",
+              "wiki",
+              "issue"
+            ],
+            "issue_src": "github issues 按回复数排序 · 核验 2026-08-17"
+          },
+          "tutorials": [
+            {
+              "title": "项目页与在线体验",
+              "url": "https://yg256li.github.io/TripoSG-Page/",
+              "kind": "官方",
+              "lang": "en",
+              "page_title": "TripoSG: High-Fidelity 3D Shape Synthesis using Large-Scale Rectified Flow Models",
+              "verified_at": "2026-08-17"
+            }
+          ]
+        },
+        {
+          "id": "topia3dxl",
+          "zh": "3DTopia-XL",
+          "license": "Apache-2.0",
+          "license_class": "permissive",
+          "group": "asset",
+          "sub": "model3d",
+          "role": "tool",
+          "decisions": [
+            "art3d",
+            "mat"
+          ],
+          "tags": [
+            "直接出 PBR 资产",
+            "体素原语表示",
+            "CVPR 2025 亮点"
+          ],
+          "scope": "高质量 PBR 3D 资产生成，用一种带原语的表示同时承载几何与材质。",
+          "control": "几何与 PBR 材质**在同一个表示里一起生成**，不是先出形再贴图 —— 于是两者天然对齐。",
+          "hw": "仓库未在 README 中给出显存下限。",
+          "good": [
+            "开源侧少数把 PBR 当成一等目标的，直接对上引擎光照",
+            "Apache-2.0，商用无附加地区与规模限制",
+            "论文入选 CVPR 2025 亮点"
+          ],
+          "bad": [
+            "**已停更十三个月**",
+            "研究代码，装起来比产品型仓库费劲",
+            "社区体量小，遇到问题少有人答"
+          ],
+          "unfit": "要开箱即用的管线 —— 这是研究实现，工程化要自己补。",
+          "src": "github README + DeepWiki",
+          "url": "https://github.com/3DTopia/3DTopia-XL",
+          "stars": 1044,
+          "created_at": "2024-07-31",
+          "pushed_at": "2025-07-14",
+          "stars_per_month": 43,
+          "stale_months": 13,
+          "diagrams": [
+            {
+              "id": "g-topia3dxl-1",
+              "title": "东西怎么摆",
+              "kind": "架构图",
+              "src": "DeepWiki · 抓取 2026-08-17",
+              "verified_at": "2026-08-17",
+              "mermaid": "graph LR\n    subgraph \"DCT Processing Pipeline\"\n        FEAT[\"feat_param<br/>[N, 6*8³]\"]\n        FFT[\"torch.fft.fft()\"]\n        RESHAPE[\"Reshape & Permute<br/>[N, 12, 8, 8, 8]\"]\n        NORM[\"Normalize ÷ 20\"]\n        OUTPUT[\"gt tensor\"]\n        \n        FEAT --> FFT\n        FFT --> RESHAPE\n        RESHAPE --> NORM\n        NORM --> OUTPUT\n    end"
+            },
+            {
+              "id": "g-topia3dxl-2",
+              "title": "一次调用经过什么",
+              "kind": "时序图",
+              "src": "DeepWiki · 抓取 2026-08-17",
+              "verified_at": "2026-08-17",
+              "mermaid": "sequenceDiagram\n    participant User\n    participant Gradio as \"Gradio Web Interface\"\n    participant Model as \"3DTopia-XL Model\"\n    participant FileSystem as \"File System\"\n    \n    User->>Gradio: Upload image or enter text prompt\n    User->>Gradio: Adjust inference parameters\n    User->>Gradio: Click \"Generate\" button\n    Gradio->>Model: Process input with parameters\n    Model->>Gradio: Return generation progress\n    Gradio->>User: Display intermediate results\n    Model->>FileSystem: Save final 3D mesh (GLB)\n    FileSystem->>Gradio: Load 3D mesh for preview\n    Gradio->>User: Display 3D model viewer\n    Gradio->>User: Provide download link"
+            }
+          ],
+          "verified_at": "2026-08-17"
+        },
+        {
+          "id": "acestep15",
+          "zh": "ACE-Step 1.5",
+          "license": "MIT",
+          "license_class": "permissive",
+          "group": "asset",
+          "sub": "sound",
+          "role": "tool",
+          "decisions": [
+            "audio"
+          ],
+          "tags": [
+            "本地能出整首",
+            "12GB 显存起",
+            "MIT 无附加条件"
+          ],
+          "scope": "开源音乐生成模型。XL 这一支用 40 亿参数的 DiT 解码器，分基础 / 微调 / 快速三个变体。",
+          "control": "变体分档 —— 要质量取 XL，要速度取 turbo，显存不够开卸载。**选择权在显存这一侧**。",
+          "hw": "XL 系列需要 12GB 显存以上（开卸载），推荐 20GB 以上。",
+          "good": [
+            "**MIT，没有地区与规模限制** —— 素材侧少见的干净授权",
+            "本地就能出整首带结构的曲子，背景音乐这一格通了",
+            "一直在维护，版本迭代快"
+          ],
+          "bad": [
+            "**12GB 显存起步**，还得开卸载",
+            "只做音乐 —— 脚步、开门、打击这类音效它不管",
+            "生成的曲子版权归属要按你所在地的法规自己判断"
+          ],
+          "unfit": "要一套游戏音效 —— 它是音乐模型，不是音效模型。",
+          "src": "github README + DeepWiki",
+          "url": "https://github.com/ace-step/ACE-Step-1.5",
+          "stars": 12242,
+          "created_at": "2025-09-04",
+          "pushed_at": "2026-08-16",
+          "stars_per_month": 1074,
+          "stale_months": 0,
+          "diagrams": [
+            {
+              "id": "g-acestep15-1",
+              "title": "东西怎么摆",
+              "kind": "架构图",
+              "src": "DeepWiki · 抓取 2026-08-17",
+              "verified_at": "2026-08-17",
+              "mermaid": "graph LR\n    subgraph \"Model Injection Logic\"\n        direction TB\n        M[\"AceStepConditionGenerationModel\"]\n        L[\"inject_lora_into_dit\"]\n        K[\"inject_lokr_into_dit\"]\n        F[\"FixedLoRAModule._inject_lora\"]\n    end\n\n    subgraph \"Optimization\"\n        O[\"build_optimizer (AdamW/8bit)\"]\n        S[\"build_scheduler (Cosine/Linear)\"]\n    end\n\n    M --> L\n    M --> K\n    L --> F\n    K --> F\n    F --> O\n    O --> S"
+            },
+            {
+              "id": "g-acestep15-2",
+              "title": "一次调用经过什么",
+              "kind": "时序图",
+              "src": "DeepWiki · 抓取 2026-08-17",
+              "verified_at": "2026-08-17",
+              "mermaid": "sequenceDiagram\n    participant UI as \"Gradio Interface\"\n    participant BatchMgr as \"generate_with_batch_management<br/>(batch_management_wrapper.py)\"\n    participant Progress as \"generate_with_progress<br/>(generation_progress.py)\"\n    participant Music as \"generate_music<br/>(inference.py)\"\n    participant BQueue as \"Batch Queue<br/>(batch_queue.py)\"\n    \n    UI->>BatchMgr: Click \"Generate\"\n    BatchMgr->>Progress: Start Streaming Generator\n    \n    rect loop [Inference Pass]\n        Progress->>Music: Call inference pipeline\n        Music-->>Progress: Partial Tensors / Audio\n        Progress-->>BatchMgr: Yield UI Updates (46 core outputs)\n        BatchMgr-->>UI: Update Playback/Waveforms\n    end\n    \n    BatchMgr->>BQueue: store_batch_in_queue()\n    Note over BatchMgr, BQueue: Stores seeds, audio_paths, and params\n    BatchMgr-->>UI: Final Batch Navigation Update"
+            }
+          ],
+          "verified_at": "2026-08-17"
+        },
+        {
+          "id": "yue",
+          "zh": "YuE",
+          "license": "Apache-2.0",
+          "license_class": "permissive",
+          "group": "asset",
+          "sub": "sound",
+          "role": "tool",
+          "decisions": [
+            "audio"
+          ],
+          "tags": [
+            "整首带人声",
+            "Apache-2.0"
+          ],
+          "scope": "开源的整曲生成基础模型，做的是带人声的完整歌曲。",
+          "control": "按整首歌建模而不是按片段拼 —— 于是段落之间的连贯性由模型自己保证。",
+          "hw": "仓库未在 README 开头给出统一显存下限。",
+          "good": [
+            "整首带人声，做主题曲这类需求对得上",
+            "Apache-2.0 商用无附加限制"
+          ],
+          "bad": [
+            "**已停更十四个月**",
+            "带人声意味着推理更重",
+            "游戏里大部分场合要的是纯伴奏，人声反而是负担"
+          ],
+          "unfit": "要循环播放的背景音乐 —— 带人声的整曲不适合长时间循环。",
+          "src": "github README + DeepWiki",
+          "url": "https://github.com/multimodal-art-projection/YuE",
+          "stars": 6383,
+          "created_at": "2025-01-23",
+          "pushed_at": "2025-06-04",
+          "stars_per_month": 340,
+          "stale_months": 14,
+          "diagrams": [
+            {
+              "id": "g-yue-1",
+              "title": "东西怎么摆",
+              "kind": "架构图",
+              "src": "DeepWiki · 抓取 2026-08-17",
+              "verified_at": "2026-08-17",
+              "mermaid": "flowchart LR\n    subgraph \"License Structure\"\n        Apache[\"Apache License 2.0\"]\n        YuECode[\"YuE Codebase\"]\n        YuEModels[\"YuE Models\"]\n        Generated[\"Generated Content\"]\n        \n        Apache --> YuECode\n        Apache --> YuEModels\n        YuEModels --> |\"Creates\"| Generated\n        YuECode --> |\"Processes\"| Generated\n    end"
+            },
+            {
+              "id": "g-yue-2",
+              "title": "一次调用经过什么",
+              "kind": "时序图",
+              "src": "DeepWiki · 抓取 2026-08-17",
+              "verified_at": "2026-08-17",
+              "mermaid": "sequenceDiagram\n    participant Input as \"Input Preparation\"\n    participant MM as \"MMTokenizer\"\n    participant S1 as \"Stage 1 Model\"\n    participant CM as \"CodecManipulator\"\n    participant Output as \"Stage 1 Output\"\n    \n    Input->>MM: Genre tags & lyrics\n    \n    alt Using Audio Prompt (ICL mode)\n        Input->>CM: Encode audio prompt\n        CM->>MM: Add audio tokens to prompt\n    end\n    \n    MM->>S1: Tokenized prompt\n    \n    loop For each lyric segment\n        S1->>S1: Generate audio tokens\n        S1->>CM: Output raw token sequence\n        CM->>CM: Extract & separate vocal/instrumental\n    end\n    \n    CM->>Output: Save vocal tokens (.npy)\n    CM->>Output: Save instrumental tokens (.npy)"
+            }
+          ],
+          "verified_at": "2026-08-17"
+        },
+        {
+          "id": "ml-agents",
+          "zh": "Unity ML-Agents",
+          "license": "Apache-2.0",
+          "license_class": "permissive",
+          "license_note": "LICENSE.md 正文是标准 Apache-2.0（2026-08-17 核原文）。GitHub 的许可证识别标成「Other」，是因为文件开头加了版权声明行 —— **别信那个标签**。",
+          "group": "asset",
+          "sub": "npcai",
+          "role": "tool",
+          "decisions": [
+            "npc",
+            "build"
+          ],
+          "tags": [
+            "Unity 官方",
+            "强化学习与模仿学习",
+            "也能拿来自动测试"
+          ],
+          "scope": "把游戏与仿真变成训练环境的官方工具包：基于 PyTorch 的一批算法，训 2D / 3D / VR / AR 里的智能体。除了控 NPC，也能拿来自动测试构建、评估设计决策。",
+          "control": "训出来的是**策略**不是对白 —— 它管的是 NPC 打得怎么样，不管 NPC 说什么。这条边界和把语言模型塞进游戏那条路完全不重叠。",
+          "hw": "Unity 加 Python 训练侧；具体版本按发行分支。",
+          "good": [
+            "**引擎厂商官方维护**，这一格里唯一的",
+            "强化学习、模仿学习、神经演化都支持，也能接自己的算法",
+            "能拿来自动跑测试，用途不止 NPC"
+          ],
+          "bad": [
+            "要自己搭训练环境和奖励函数，这是真正的工作量所在",
+            "训练要时间要算力，不是配好就能用",
+            "只服务 Unity"
+          ],
+          "unfit": "想要会聊天的 NPC —— 这条路训的是操作，不是语言。",
+          "src": "github README + LICENSE 原文 + DeepWiki",
+          "url": "https://github.com/Unity-Technologies/ml-agents",
+          "stars": 19629,
+          "created_at": "2017-09-08",
+          "pushed_at": "2026-08-14",
+          "stars_per_month": 183,
+          "stale_months": 0,
+          "diagrams": [
+            {
+              "id": "g-ml-agents-1",
+              "title": "东西怎么摆",
+              "kind": "架构图",
+              "src": "DeepWiki · 抓取 2026-08-17",
+              "verified_at": "2026-08-17",
+              "mermaid": "graph LR\n    Console[\"mlagents-learn command\"]\n    Entry[\"learn.py:main()\"]\n    RunCLI[\"run_cli()\"]\n    Parse[\"parse_command_line()\"]\n    RunOptions[\"RunOptions.from_argparse()\"]\n    \n    Console --> Entry\n    Entry --> RunCLI\n    RunCLI --> Parse\n    Parse --> RunOptions\n    RunOptions --> Training[\"run_training()\"]"
+            },
+            {
+              "id": "g-ml-agents-2",
+              "title": "一次调用经过什么",
+              "kind": "流程图",
+              "src": "DeepWiki · 抓取 2026-08-17",
+              "verified_at": "2026-08-17",
+              "mermaid": "graph TD\n    Academy[\"Academy<br/>(Unity.MLAgents.Academy)\"]\n    Agent1[\"Agent<br/>(Unity.MLAgents.Agent)\"]\n    Agent2[\"Agent<br/>(Unity.MLAgents.Agent)\"]\n    \n    BP[\"BehaviorParameters<br/>(Unity.MLAgents.Policies.BehaviorParameters)\"]\n    DR[\"DecisionRequester<br/>(Unity.MLAgents.DecisionRequester)\"]\n    \n    Academy -->|\"EnvironmentStep()\"| Agent1\n    Academy -->|\"EnvironmentStep()\"| Agent2\n    \n    Agent1 --> BP\n    Agent1 --> DR\n    \n    Academy -.->|\"Communicator\"| RpcComm[\"RpcCommunicator\"]"
+            }
+          ],
+          "verified_at": "2026-08-17",
+          "tutorials": [
+            {
+              "title": "Unity 官方包文档",
+              "url": "https://docs.unity3d.com/Packages/com.unity.ml-agents@latest",
+              "kind": "官方",
+              "lang": "en",
+              "page_title": "Redirecting to latest version of com.unity.ml-agents",
+              "verified_at": "2026-08-17"
+            }
+          ]
+        },
+        {
+          "id": "llmunity",
+          "zh": "LLM for Unity",
+          "license": "Apache-2.0",
+          "license_class": "permissive",
+          "group": "asset",
+          "sub": "npcai",
+          "role": "tool",
+          "decisions": [
+            "npc"
+          ],
+          "tags": [
+            "模型跑在玩家机器上",
+            "自带检索增强",
+            "底座是 llama.cpp"
+          ],
+          "scope": "把大模型集成进 Unity，做能对话的 AI 角色。包含一套检索增强系统，可以在你自己的资料上做语义检索，给角色补背景知识。",
+          "control": "**模型跑在本地** —— 不联网、不按次计费、不受服务商停服影响。代价是它吃玩家的内存和算力。",
+          "hw": "后端是基于 llama.cpp 的独立 C++ / C# 库；实际占用取决于你选的模型大小。",
+          "good": [
+            "本地推理，发行后没有按次成本，也不怕接口变更",
+            "检索增强让角色能引用你写的设定，不是空口胡编",
+            "已上 Unity 资源商店，装配路径成熟"
+          ],
+          "bad": [
+            "**推理成本转嫁给玩家的机器**，低配设备会卡",
+            "模型越小越傻，够聪明的模型对玩家内存要求不低",
+            "只服务 Unity"
+          ],
+          "unfit": "面向低配移动设备的游戏 —— 本地推理这条路在那儿走不通。",
+          "src": "github README + DeepWiki",
+          "url": "https://github.com/undreamai/LLMUnity",
+          "stars": 1700,
+          "created_at": "2023-12-27",
+          "pushed_at": "2026-04-29",
+          "stars_per_month": 54,
+          "stale_months": 4,
+          "diagrams": [
+            {
+              "id": "g-llmunity-1",
+              "title": "东西怎么摆",
+              "kind": "架构图",
+              "src": "DeepWiki · 抓取 2026-08-17",
+              "verified_at": "2026-08-17",
+              "mermaid": "flowchart TD\n    BaseModel[\"Base LLM Model\"] --> |\"Applied with weights\"| ModelWithLora[\"Model + LoRAs\"]\n    LoRA1[\"LoRA 1\nWeight: 0.8\"] --> ModelWithLora\n    LoRA2[\"LoRA 2\nWeight: 0.5\"] --> ModelWithLora\n    ModelWithLora --> Inference[\"LLM Inference\"]"
+            },
+            {
+              "id": "g-llmunity-2",
+              "title": "一次调用经过什么",
+              "kind": "时序图",
+              "src": "DeepWiki · 抓取 2026-08-17",
+              "verified_at": "2026-08-17",
+              "mermaid": "sequenceDiagram\n    participant Client as \"LLMCaller (e.g., LLMCharacter)\"\n    participant LLM as \"LLM Component\"\n    participant LLMLib as \"LLMLib\"\n    participant Native as \"Native Library\"\n    \n    Client->>LLM: Register(llmCaller)\n    LLM-->>Client: id_slot\n    \n    Client->>LLM: Completion(jsonRequest, streamCallback)\n    LLM->>LLMLib: LLM_Completion(json, streamWrapper)\n    \n    LLMLib->>Native: Process Request\n    \n    loop Until complete\n        Native->>LLMLib: Stream response\n        LLMLib->>StreamWrapper: Update buffer\n        StreamWrapper->>Client: streamCallback(partialResult)\n    end\n    \n    LLMLib-->>LLM: Final result\n    LLM-->>Client: Return complete result"
+            }
+          ],
+          "verified_at": "2026-08-17",
+          "hands": {
+            "install": [
+              {
+                "step": "从 Unity 资源商店或仓库装",
+                "gate": "资源商店那条路更省事"
+              },
+              {
+                "step": "选一个模型",
+                "gate": "**模型大小直接决定玩家机器的内存占用**。这是发行前最要紧的一个决定"
+              },
+              {
+                "step": "要用检索增强的话，把设定文档喂进去",
+                "gate": "角色能引用你写的设定，靠的是这一步"
+              }
+            ],
+            "modify": [
+              {
+                "path": "LlamaLib 后端",
+                "effect": "基于 llama.cpp 的独立 C++/C# 库，模型格式与量化跟着它走"
+              }
+            ],
+            "pitfalls": [
+              {
+                "where": "玩家机器",
+                "note": "**推理成本转嫁给玩家**。低配设备会卡，这不是优化问题是架构选择"
+              },
+              {
+                "where": "模型加载",
+                "note": "issue #402（8 条回复）：某些新模型加载失败 —— 支持哪些模型跟着后端版本走，不是想用什么都行"
+              },
+              {
+                "where": "多模态",
+                "note": "issue #134（8 条回复）在问图像输入，还没有"
+              },
+              {
+                "where": "语音",
+                "note": "issue #44（16 条回复，最热）在要文字转语音与语音转文字。**光有对话没有声音，NPC 体验是半截的**"
+              }
+            ],
+            "layers": [
+              "docs",
+              "wiki",
+              "issue"
+            ],
+            "issue_src": "github issues 按回复数排序 · 核验 2026-08-17"
+          },
+          "tutorials": [
+            {
+              "title": "官方文档站",
+              "url": "https://undream.ai/LLMUnity",
+              "kind": "官方",
+              "lang": "en",
+              "page_title": "LLM for Unity: Overview",
+              "verified_at": "2026-08-17"
+            }
+          ]
+        },
+        {
+          "id": "godot-rl",
+          "zh": "Godot RL Agents",
+          "license": "MIT",
+          "license_class": "permissive",
+          "group": "asset",
+          "sub": "npcai",
+          "role": "tool",
+          "decisions": [
+            "npc"
+          ],
+          "tags": [
+            "Godot 侧的强化学习",
+            "接主流训练框架"
+          ],
+          "scope": "让 Godot 里的游戏成为强化学习的训练环境，供开发者与研究者训智能体。",
+          "control": "把 Godot 场景包装成标准的训练环境接口 —— 于是现成的训练框架直接能接上。",
+          "hw": "Godot 加 Python 训练侧。",
+          "good": [
+            "Godot 侧这一格几乎唯一的选择",
+            "接主流训练框架，不用自己造轮子",
+            "仍在维护"
+          ],
+          "bad": [
+            "星速在这一类里偏低，社区小",
+            "和 Unity 官方那套比，文档与示例少得多",
+            "同样要自己设计奖励函数"
+          ],
+          "unfit": "Unity 项目 —— 官方那套更成熟。",
+          "src": "github README + DeepWiki",
+          "url": "https://github.com/edbeeching/godot_rl_agents",
+          "stars": 1565,
+          "created_at": "2021-07-01",
+          "pushed_at": "2026-07-10",
+          "stars_per_month": 25,
+          "stale_months": 1,
+          "diagrams": [
+            {
+              "id": "g-godot-rl-1",
+              "title": "东西怎么摆",
+              "kind": "架构图",
+              "src": "DeepWiki · 抓取 2026-08-17",
+              "verified_at": "2026-08-17",
+              "mermaid": "graph LR\n    Package[\"godot_rl package\"]\n    \n    GDRL[\"gdrl<br/>(Deprecated CLI)<br/>→ godot_rl.main:main\"]\n    Interactive[\"gdrl.interactive<br/>(Interactive mode)<br/>→ godot_rl.core.godot_env:interactive\"]\n    DownloadEditor[\"gdrl.download_editor<br/>(Download Godot)<br/>→ download_godot_editor:download_editor\"]\n    EnvFromHub[\"gdrl.env_from_hub<br/>(Download examples)<br/>→ from_hub:main\"]\n    \n    Package --> GDRL\n    Package --> Interactive\n    Package --> DownloadEditor\n    Package --> EnvFromHub"
+            },
+            {
+              "id": "g-godot-rl-2",
+              "title": "一次调用经过什么",
+              "kind": "流程图",
+              "src": "DeepWiki · 抓取 2026-08-17",
+              "verified_at": "2026-08-17",
+              "mermaid": "graph LR\n    User[\"User/Wrapper\"] -->|\"close()\"| Close[\"GodotEnv.close()\"]\n    Close -->|\"JSON: {type: 'close'}\"| Send[\"_send_as_json\"]\n    Send --> Wait[\"time.sleep(1.0)\"]\n    Wait --> SocketClose[\"connection.close()\"]\n    SocketClose --> Unregister[\"atexit.unregister(_close)\"]"
+            }
+          ],
+          "verified_at": "2026-08-17"
+        }
+      ],
+      "readme_src": {
+        "dir": "data/readme",
+        "note": "每个项目一个文件，构建时不出网。",
+        "fetched_at": "2026-08-17"
+      },
+      "basic_parts": [
+        {
+          "id": "loop",
+          "no": "一",
+          "zh": "玩法为什么成立",
+          "intro": "在动手之前先搞清楚：人为什么会一直玩下去。这一段的每个词都不是形容词，是可以拆开检查的机制。"
+        },
+        {
+          "id": "craft",
+          "no": "二",
+          "zh": "关卡、手感与数值",
+          "intro": "把玩法落成具体的东西。这一段最吃经验 —— 也正是 AI 目前最帮不上忙的一段。"
+        },
+        {
+          "id": "genre",
+          "no": "三",
+          "zh": "类型与法务",
+          "intro": "类型是一整套约定，点一个类型等于一次性给出几十条设计约束。最后一组是绕不开的授权问题。"
+        }
+      ],
+      "basics": [
+        {
+          "id": "core",
+          "zh": "核心循环与机制",
+          "part": "loop",
+          "intro": "**一款游戏的骨架是「玩家反复在做的那几步」**，不是它的题材。搞不清核心循环，做出来的就是一堆互不相干的功能。",
+          "items": [
+            {
+              "title": "游戏机制（词条）",
+              "url": "https://zh.wikipedia.org/wiki/游戏机制",
+              "site": "维基百科",
+              "lang": "zh",
+              "note": "先把「机制」和「题材」分开 —— **AI 最会写题材，最不会设计机制**。",
+              "why": "机制是规则与状态的变化方式，题材只是它的皮。同一套机制换个皮还是同一个游戏。",
+              "page_title": "游戏机制 - 维基百科，自由的百科全书",
+              "verified_at": "2026-08-17"
+            },
+            {
+              "title": "Game mechanics（英文词条）",
+              "url": "https://en.wikipedia.org/wiki/Game_mechanics",
+              "site": "Wikipedia",
+              "lang": "en",
+              "note": "中文条目偏短，要看分类与例子读这一条。",
+              "page_title": "Game mechanics - Wikipedia",
+              "verified_at": "2026-08-17"
+            },
+            {
+              "title": "游戏设计（词条）",
+              "url": "https://zh.wikipedia.org/wiki/游戏设计",
+              "site": "维基百科",
+              "lang": "zh",
+              "note": "总览。知道这一行都在做哪些决定，才知道 AI 替你做掉了哪几个。",
+              "page_title": "游戏设计 - 维基百科，自由的百科全书",
+              "verified_at": "2026-08-17"
+            },
+            {
+              "title": "Game design document（英文词条）",
+              "url": "https://en.wikipedia.org/wiki/Game_design_document",
+              "site": "Wikipedia",
+              "lang": "en",
+              "note": "**整套 agent 班子那一类项目产出的就是这个东西。** 先知道它长什么样，才看得出生成的那份对不对。",
+              "page_title": "Game design document - Wikipedia",
+              "verified_at": "2026-08-17"
+            }
+          ]
+        },
+        {
+          "id": "flow",
+          "zh": "心流与难度",
+          "part": "loop",
+          "intro": "**「好玩」这件事有一个被研究了几十年的模型**：能力与挑战匹配时人会沉浸，失配就是无聊或焦虑。难度曲线是它的直接推论。",
+          "items": [
+            {
+              "title": "心流（词条）",
+              "url": "https://zh.wikipedia.org/wiki/心流",
+              "site": "维基百科",
+              "lang": "zh",
+              "note": "游戏设计里被引用最多的心理学概念，没有之一。",
+              "why": "挑战略高于当前能力时人最投入。难度不是越低越好，也不是越高越好，是要跟着玩家成长走。",
+              "page_title": "心流理論 - 维基百科，自由的百科全书",
+              "verified_at": "2026-08-17"
+            },
+            {
+              "title": "Flow（英文词条）",
+              "url": "https://en.wikipedia.org/wiki/Flow_(psychology)",
+              "site": "Wikipedia",
+              "lang": "en",
+              "note": "带那张经典的「焦虑 / 心流 / 无聊」三区图。",
+              "page_title": "Flow (psychology) - Wikipedia",
+              "verified_at": "2026-08-17"
+            },
+            {
+              "title": "Difficulty level（英文词条）",
+              "url": "https://en.wikipedia.org/wiki/Game_difficulty",
+              "site": "Wikipedia",
+              "lang": "en",
+              "note": "难度分档、动态难度调整都在这里。**动态难度是最容易做砸的一个** —— 玩家察觉到就毁了。",
+              "page_title": "Game balance - Wikipedia",
+              "verified_at": "2026-08-17"
+            },
+            {
+              "title": "游戏平衡（英文词条）",
+              "url": "https://en.wikipedia.org/wiki/Game_balance",
+              "site": "Wikipedia",
+              "lang": "en",
+              "note": "平衡不是「都一样强」，是「都有值得用的时候」。",
+              "page_title": "Game balance - Wikipedia",
+              "verified_at": "2026-08-17"
+            }
+          ]
+        },
+        {
+          "id": "level",
+          "zh": "关卡与空间",
+          "part": "craft",
+          "intro": "关卡不只是地图。**它是不说话的教学、是节奏的载体、也是引导玩家往哪走的手段。**",
+          "items": [
+            {
+              "title": "游戏关卡（词条）",
+              "url": "https://zh.wikipedia.org/wiki/遊戲關卡",
+              "site": "维基百科",
+              "lang": "zh",
+              "note": "先分清「地图」和「关卡」：前者是空间，后者是空间加上节奏与意图。",
+              "why": "同一张地图，敌人与道具摆放不同，难度与体验可以完全不一样 —— 摆放才是设计。",
+              "page_title": "遊戲關卡 - 维基百科，自由的百科全书",
+              "verified_at": "2026-08-17"
+            },
+            {
+              "title": "Level design（英文词条）",
+              "url": "https://en.wikipedia.org/wiki/Level_design",
+              "site": "Wikipedia",
+              "lang": "en",
+              "note": "中文条目短，方法与流程看这一条。",
+              "page_title": "Level (video games) - Wikipedia",
+              "verified_at": "2026-08-17"
+            },
+            {
+              "title": "Red Blob Games：网格与寻路",
+              "url": "https://www.redblobgames.com/",
+              "site": "Red Blob Games",
+              "lang": "en",
+              "note": "**成体系的免费交互式教程**，六边形网格、A* 寻路这些讲得比教科书清楚。AI 能替你写寻路代码，但选哪种网格是你的决定。",
+              "page_title": "Red Blob Games",
+              "verified_at": "2026-08-17"
+            },
+            {
+              "title": "程序化生成（词条）",
+              "url": "https://zh.wikipedia.org/wiki/程序化生成",
+              "site": "维基百科",
+              "lang": "zh",
+              "note": "在「让 AI 生成关卡」之前，先知道不用 AI 的那套办法能做到什么程度。",
+              "why": "程序化生成用规则换多样性，代价是缺乏意图；手工关卡反过来。多数好游戏是两者混用。",
+              "page_title": "程序化生成 - 维基百科，自由的百科全书",
+              "verified_at": "2026-08-17"
+            }
+          ]
+        },
+        {
+          "id": "feel",
+          "zh": "手感与反馈",
+          "part": "craft",
+          "intro": "**同样的机制，手感差一截就是两款游戏。** 这一组讲的是按下按钮到画面响应之间发生的事 —— 也是玩家说不出口但立刻能感觉到的那部分。",
+          "items": [
+            {
+              "title": "Game feel（英文词条）",
+              "url": "https://en.wikipedia.org/wiki/Game_feel",
+              "site": "Wikipedia",
+              "lang": "en",
+              "note": "**这个词本身就值得知道。** 说「手感不对」没法改，说「输入延迟太长 / 缺少击中反馈」才能改。",
+              "why": "手感由输入响应、动画过渡、镜头震动、音效与顿帧共同构成，每一项都可以单独调。",
+              "page_title": "Game feel - Wikipedia",
+              "verified_at": "2026-08-17"
+            },
+            {
+              "title": "Input lag（英文词条）",
+              "url": "https://en.wikipedia.org/wiki/Input_lag",
+              "site": "Wikipedia",
+              "lang": "en",
+              "note": "延迟从哪来、能压到多少。动作游戏里这是第一位的。",
+              "page_title": "Lag (video games) - Wikipedia",
+              "verified_at": "2026-08-17"
+            },
+            {
+              "title": "动画十二原则（词条）",
+              "url": "https://zh.wikipedia.org/wiki/動畫的12項基本法則",
+              "site": "维基百科",
+              "lang": "zh",
+              "note": "**迪士尼那套法则在游戏里同样管用** —— 预备动作、跟随、缓入缓出，直接决定角色动起来像不像回事。",
+              "why": "预备动作让攻击可预判，跟随让停下来不突兀 —— 这些不是为了好看，是为了玩家读得懂。",
+              "page_title": "動畫的12項基本法則 - 维基百科，自由的百科全书",
+              "verified_at": "2026-08-17"
+            },
+            {
+              "title": "Juiciness / 反馈堆叠（Game feel 章节）",
+              "url": "https://en.wikipedia.org/wiki/Game_feel#Juiciness",
+              "site": "Wikipedia",
+              "lang": "en",
+              "note": "同一次击中叠上震动、粒子、音效、顿帧 —— **廉价但极其有效**。",
+              "page_title": "Game feel - Wikipedia",
+              "verified_at": "2026-08-17"
+            }
+          ]
+        },
+        {
+          "id": "number",
+          "zh": "数值与经济",
+          "part": "craft",
+          "intro": "数值不是拍脑袋填的表。**一旦有了成长、掉落或内购，你就是在设计一个经济系统** —— 它会自己长出你没预料到的行为。",
+          "items": [
+            {
+              "title": "虚拟经济（词条）",
+              "url": "https://zh.wikipedia.org/wiki/虚拟经济",
+              "site": "维基百科",
+              "lang": "zh",
+              "note": "有交易、有产出、有消耗，通货膨胀就会来。",
+              "why": "产出大于消耗，货币贬值；反过来玩家寸步难行。回收口径和产出口径要一起设计。",
+              "page_title": "虛擬經濟 - 维基百科，自由的百科全书",
+              "verified_at": "2026-08-17"
+            },
+            {
+              "title": "Loot box（英文词条）",
+              "url": "https://en.wikipedia.org/wiki/Loot_box",
+              "site": "Wikipedia",
+              "lang": "en",
+              "note": "**多个国家已经立法监管**，做付费抽取前必须先看这一条。",
+              "page_title": "Loot box - Wikipedia",
+              "verified_at": "2026-08-17"
+            },
+            {
+              "title": "Random number generation in games",
+              "url": "https://en.wikipedia.org/wiki/Randomness#In_games",
+              "site": "Wikipedia",
+              "lang": "en",
+              "note": "真随机会让玩家觉得不公平 —— 这是设计问题不是数学问题。",
+              "page_title": "Randomness - Wikipedia",
+              "verified_at": "2026-08-17"
+            },
+            {
+              "title": "Progression（英文词条）",
+              "url": "https://en.wikipedia.org/wiki/Experience_point",
+              "site": "Wikipedia",
+              "lang": "en",
+              "note": "经验与等级这套东西的来历与变体。",
+              "page_title": "Experience point - Wikipedia",
+              "verified_at": "2026-08-17"
+            }
+          ]
+        },
+        {
+          "id": "kind",
+          "zh": "类型与流派",
+          "part": "genre",
+          "intro": "**点一个类型，等于一次性接受几十条设计约定。** 想让 AI 帮你做，先知道你要的是哪一类 —— 说「做个好玩的游戏」它接不住。",
+          "items": [
+            {
+              "title": "电子游戏类型（词条）",
+              "url": "https://zh.wikipedia.org/wiki/电子游戏类型",
+              "site": "维基百科",
+              "lang": "zh",
+              "note": "总览。先在这张地图上找到自己的位置。",
+              "page_title": "电子游戏类型 - 维基百科，自由的百科全书",
+              "verified_at": "2026-08-17"
+            },
+            {
+              "title": "Roguelike（词条）",
+              "url": "https://zh.wikipedia.org/wiki/Roguelike",
+              "site": "维基百科",
+              "lang": "zh",
+              "note": "**独立开发最常选的一类** —— 随机生成加永久死亡，用规则换内容量，正好绕开美术产能不足。",
+              "why": "每局重开意味着关卡可以程序化生成，一套机制能撑几十小时，不需要堆手工内容。",
+              "page_title": "Roguelike - 维基百科，自由的百科全书",
+              "verified_at": "2026-08-17"
+            },
+            {
+              "title": "平台游戏（词条）",
+              "url": "https://zh.wikipedia.org/wiki/平台游戏",
+              "site": "维基百科",
+              "lang": "zh",
+              "note": "手感要求最高的一类。跳跃曲线、土狼时间这些细节全在这儿。",
+              "page_title": "平台游戏 - 维基百科，自由的百科全书",
+              "verified_at": "2026-08-17"
+            },
+            {
+              "title": "沙盒游戏（词条）",
+              "url": "https://zh.wikipedia.org/wiki/沙盒游戏",
+              "site": "维基百科",
+              "lang": "zh",
+              "note": "自由度越高，你能验证的东西越少 —— 对小团队是陷阱。",
+              "page_title": "沙盒类游戏 - 维基百科，自由的百科全书",
+              "verified_at": "2026-08-17"
+            },
+            {
+              "title": "塔防游戏（词条）",
+              "url": "https://zh.wikipedia.org/wiki/塔防游戏",
+              "site": "维基百科",
+              "lang": "zh",
+              "note": "规则清晰、数值驱动，**是最适合先做出来验证的一类**。",
+              "page_title": "塔防游戏 - 维基百科，自由的百科全书",
+              "verified_at": "2026-08-17"
+            }
+          ]
+        },
+        {
+          "id": "law",
+          "zh": "授权与合规",
+          "part": "genre",
+          "intro": "**这一组是最容易被跳过、也最贵的一组。** 引擎怎么收钱、AI 生成的素材归谁、别人的资源能不能用 —— 出问题时全是硬成本。",
+          "items": [
+            {
+              "title": "Unity 官方定价与授权",
+              "url": "https://unity.com/pricing",
+              "site": "Unity",
+              "lang": "en",
+              "note": "**按营收分档收费**。开始做之前先确认自己落在哪一档。",
+              "page_title": "Unity Plans &amp; Pricing: Pro, Personal, Enterprise, Industry | Unity",
+              "verified_at": "2026-08-17"
+            },
+            {
+              "title": "虚幻引擎官方授权条款",
+              "url": "https://dev.epicgames.com/documentation/en-us/unreal-engine/unreal-engine-licensing-options",
+              "site": "Epic 开发者社区",
+              "lang": "en",
+              "note": "分成制。发行前必看，不是上线后再算。",
+              "page_title": "",
+              "verified_at": "2026-08-17"
+            },
+            {
+              "title": "Godot 官方许可说明",
+              "url": "https://godotengine.org/license/",
+              "site": "Godot",
+              "lang": "en",
+              "note": "MIT，**没有分成也没有营收门槛** —— 这是很多人选它的头号理由。",
+              "page_title": "License – Godot Engine",
+              "verified_at": "2026-08-17"
+            },
+            {
+              "title": "创用 CC 授权（词条）",
+              "url": "https://zh.wikipedia.org/wiki/知识共享许可协议",
+              "site": "维基百科",
+              "lang": "zh",
+              "note": "免费素材站最常见的一套授权。**「免费」和「可商用」是两件事**，署名要求也各不相同。",
+              "why": "CC 有六种组合，其中带 NC 的不可商用、带 ND 的不许改。看清后缀再用。",
+              "page_title": "知识共享许可协议 - 维基百科，自由的百科全书",
+              "verified_at": "2026-08-17"
+            },
+            {
+              "title": "生成式 AI 与著作权（英文词条）",
+              "url": "https://en.wikipedia.org/wiki/Artificial_intelligence_art#Copyright",
+              "site": "Wikipedia",
+              "lang": "en",
+              "note": "**AI 生成素材的版权归属各国口径不同，且还在变。** 商业项目要按发行地单独确认。",
+              "page_title": "AI art - Wikipedia",
+              "verified_at": "2026-08-17"
+            }
+          ]
         }
       ]
     }
