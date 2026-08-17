@@ -27,7 +27,25 @@ import { existsSync, mkdirSync, rmSync, readdirSync, renameSync } from "node:fs"
 import { extname, join } from "node:path";
 import { execFileSync } from "node:child_process";
 
-const W = 1920, H = 1080;
+/**
+ * ⚠️ **视口小、缩放高 —— 这是这支片子最要紧的一个数。**
+ *
+ * 上一版用 1920×1080、dSF 1 全屏录，成片在手机上（约 390px 宽）
+ * **除了字幕卡一个字都读不出来**：模型名、能力名、日期全糊成灰点。
+ * 画面里 95% 的像素是读不了的小字 —— 那才是「不够秀」的真正原因，
+ * 不是动效不够花。
+ *
+ * 改成**视口 960×540**：同一屏只装得下一半内容，而那一半在手机上读得清。
+ * 实测对比：能力名、「2024-10 起 5/10」这类元数据都认得出来。
+ *
+ * ⚠️ **`recordVideo` 按视口的 CSS 尺寸录，不吃 `deviceScaleFactor`。**
+ * 第一次改的时候把视口设成 960×540、录像尺寸却写 1920×1080 ——
+ * 结果内容缩在左上角四分之一，其余全是灰的。
+ * 所以录像尺寸必须等于视口，放大交给 ffmpeg：
+ * 放大会软一点，但**内容的相对尺寸翻倍了**，那才是手机上读不读得清的关键。
+ */
+const VW = 960, VH = 540;      // 录像尺寸 = 视口尺寸
+const W = 1920, H = 1080;      // 成片尺寸，由 ffmpeg 放大得到
 const OUT = "assets/film-shots";
 const RAW = "assets/film-shots/raw";
 const BASE = "/atlas";
@@ -81,8 +99,8 @@ const br = await chromium.launch();
 async function shot(id, url, act, { pre = 900 } = {}) {
   const dir = join(RAW, id);
   mkdirSync(dir, { recursive: true });
-  const ctx = await br.newContext({ viewport: { width: W, height: H }, deviceScaleFactor: 1,
-    recordVideo: { dir, size: { width: W, height: H } } });
+  const ctx = await br.newContext({ viewport: { width: VW, height: VH }, deviceScaleFactor: 2,
+    recordVideo: { dir, size: { width: VW, height: VH } } });
   await ctx.addInitScript(CURSOR);
   const page = await ctx.newPage();
   page.mouseTo = async (loc) => {
@@ -104,8 +122,10 @@ async function shot(id, url, act, { pre = 900 } = {}) {
   if (!f) throw new Error(`${id}: 没录到`);
   renameSync(join(dir, f), join(OUT, `${id}.webm`));
   /** 转 H.264 —— 后面要和图形层合成，webm 在 ffmpeg 里叠图麻烦。 */
-  execFileSync("ffmpeg", ["-y", "-i", join(OUT, `${id}.webm`), "-c:v", "libx264",
-    "-pix_fmt", "yuv420p", "-crf", "18", "-r", "30", join(OUT, `${id}.mp4`)],
+  /** 放大到成片尺寸。`lanczos` 比默认的双线性锐一些，小字放大时差别看得出来。 */
+  execFileSync("ffmpeg", ["-y", "-i", join(OUT, `${id}.webm`),
+    "-vf", `scale=${W}:${H}:flags=lanczos`, "-c:v", "libx264",
+    "-pix_fmt", "yuv420p", "-crf", "17", "-r", "30", join(OUT, `${id}.mp4`)],
     { stdio: ["ignore", "ignore", "pipe"] });
   console.log(`  ✓ ${id}.mp4`);
 }
@@ -127,14 +147,14 @@ await shot("quote", "/video", async (p) => {
   await sum.scrollIntoViewIfNeeded();
   await p.waitForTimeout(1100);
   await p.clickAt(sum, 2800);
-  await p.mouse.wheel(0, 420); await p.waitForTimeout(2400);
+  await p.mouse.wheel(0, 240); await p.waitForTimeout(2400);
 });
 
 /* ③ 自述与实测：两栏对照。**「说的 vs 撞到的」是这个站独有的东西。** */
 await shot("claims", "/claims", async (p) => {
   await p.waitForTimeout(1800);
-  await p.mouse.wheel(0, 620); await p.waitForTimeout(2600);
-  await p.mouse.wheel(0, 560); await p.waitForTimeout(2600);
+  await p.mouse.wheel(0, 340); await p.waitForTimeout(2600);
+  await p.mouse.wheel(0, 320); await p.waitForTimeout(2600);
 });
 
 /* ④ 专项：项目卡一张张。**证明这站不止一张表。** */
@@ -142,7 +162,7 @@ await shot("topic", "/topic/game", async (p) => {
   await p.waitForTimeout(1500);
   const tabs = p.locator('[role="tab"]');
   await p.clickAt(tabs.nth(1), 1600);
-  await p.mouse.wheel(0, 520); await p.waitForTimeout(2000);
+  await p.mouse.wheel(0, 300); await p.waitForTimeout(2000);
   await p.clickAt(tabs.nth(2), 1800);
   await p.waitForTimeout(1400);
 });

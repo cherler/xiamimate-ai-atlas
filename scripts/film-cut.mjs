@@ -75,11 +75,9 @@ const CUTS = [
   { src: "table",  ss: 6.6, dur: 2.2, cap: { k: "line", t: `虾米看AI · ${N.cells} 格，一格一个答案` } },
   { src: "quote",  ss: 3.4, dur: 2.6, cap: { k: "line", t: "每一格，点得开**官方原文**" } },
   { src: "quote",  ss: 6.2, dur: 2.4, cap: { k: "big",  t: `${N.yes} 格说「能」`, s: `${N.yesSrc} 格都带得出出处` } },
-  { src: "table",  ss: 8.4, dur: 2.0, cap: { k: "line", t: `另有 ${N.unknown} 格「官方没说」—— **那也是答案**` } },
   { src: "claims", ss: 2.2, dur: 2.4, cap: { k: "line", t: "而官方说了，**也未必是实情**" } },
   { src: "claims", ss: 5.0, dur: 2.6, cap: { k: "two",  t: "README 说支持打断", s: "issue 说最快 3 秒" } },
   { src: "topic",  ss: 3.0, dur: 2.2, cap: { k: "line", t: `${N.projects} 个开源项目，**拆到 issue 那一层**` } },
-  { src: "topic",  ss: 7.0, dur: 2.0, cap: { k: "line", t: "该用哪个、坑在哪，都写清楚" } },
   { src: "table",  ss: 1.0, dur: 2.8, cap: { k: "end",  t: "不替你下判断。**把每一格的出处摆出来。**", s: "xiamimate.com/atlas" } },
 ];
 
