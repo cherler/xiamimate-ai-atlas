@@ -40516,10 +40516,18 @@
           "zh": "Tower of Time",
           "year": "2025",
           "maker": "maciej-trebacz（m4v3k）",
-          "stack": "Phaser.js + Phaser Editor；Augment Code 与 Cursor 的 Agent 模式驱动 Claude Sonnet 4（偶尔用 o3 与 Opus 4）",
+          "stack": "Phaser.js + Phaser Editor + Aseprite；Augment Code 与 Cursor 的 Agent 模式驱动 Claude Sonnet 4（偶尔用 o3 与 Opus 4）。**美术与音效用的是别人做的现成素材** （六位作者的免费资源加 freesound.org），音乐一首由朋友创作、一首取自 Amnesia Fortnight 2012 原声。",
           "open": "closed",
-          "note": "2025 年 Beginner's Jam Summer 的参赛作品，时间倒流机制的塔防。**作者自述约 95% 的代码由 AI 写成**，并把近四万字的 `PROMPTS.md` 一并放出 —— 按对话分节记录几乎全部提示词，还诚实标明哪些部分是自己手写的、哪些是用 Phaser 编辑器摆的。**这是我们在两个专项里见过最彻底的一份管线公开。** 他还写下了教训：AI 让原型飞快，但从原型转成品时要格外小心；AI 爱写很多代码，这个项目的代码量本可以少一半；卡住时让它加日志再把日志喂回去。",
+          "note": "2025 年 Beginner's Jam Summer 的参赛作品，时间倒流机制的塔防，itch.io 上可以直接玩。**作者自述约 95% 的代码由 AI 写成**，并把近四万字的 `PROMPTS.md` 一并放出 —— 按对话分节记录几乎全部提示词，还诚实标明哪些部分是自己手写的、哪些是用 Phaser 编辑器摆的。**这条最值钱的地方是它划得出边界：AI 做的是代码那一段。** 美术与音效是现成素材，音乐是人写的，**数值平衡与波次设计由另一位合作者完成**（作者在评论区说明）。itch.io 的平台披露字段写的也正是「AI 辅助 · 代码」。他还写下教训：AI 让原型飞快，但从原型转成品时要格外小心；AI 爱写很多代码，这个项目的代码量本可以少一半；卡住时让它加日志再把日志喂回去。",
           "src": [
+            {
+              "title": "itch.io 作品页（含平台强制的 AI 披露字段与素材来源清单）",
+              "url": "https://m4v3k.itch.io/tower-of-time"
+            },
+            {
+              "title": "Show HN：I AI-coded a tower defense game and documented the whole process（319 分 152 评）",
+              "url": "https://news.ycombinator.com/item?id=44463967"
+            },
             {
               "title": "项目仓库（README 写明工具清单与 95% 的比例）",
               "url": "https://github.com/maciej-trebacz/tower-of-time-game"
@@ -40564,8 +40572,8 @@
           "verified_at": "2026-08-17"
         },
         {
-          "zh": "itch.io 上的 AI 游戏 jam 作品",
-          "why": "**从我们这边连不上 itch.io**（域名解析得到，连接失败），没法逐条打开核。这是可得性限制不是「不存在」—— 记在这里，等换个网络环境再补。",
+          "zh": "itch.io 上其余的 AI 游戏 jam 作品",
+          "why": "itch.io 已经打得开（上一轮记成「连不上」是我把代理关了，判断有误）。**平台有强制的 AI 披露字段**，靠它能筛出用过 AI 的作品 —— 但披露只说「用了」，不说「怎么用的」。按「制作方自己公开说明过管线」的规矩，光有披露字段还不够，得有提示词或过程记录。逐条筛这件事这一轮没做完，留着下轮。",
           "verified_at": "2026-08-17"
         }
       ]
