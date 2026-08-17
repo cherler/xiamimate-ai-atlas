@@ -110,6 +110,14 @@ function ProjectCard({ p, topic }: { p: TopicProject; topic: string }) {
         </p>
       )}
       <p className="text-[13.5px] text-ink leading-relaxed max-w-[88ch]">{p.scope}</p>
+      {/* 特点标签：**只写「它凭什么不一样」**，和上面那排圆标（许可证/活不活/星数）不重复。 */}
+      {!!p.tags?.length && (
+        <div className="flex flex-wrap gap-1.5 mt-2.5">
+          {p.tags.map((x) => (
+            <span key={x} className="text-[11.5px] bg-card border border-rule rounded-md px-2 py-0.5">{x}</span>
+          ))}
+        </div>
+      )}
 
       {/* 宽屏上「靠什么做到」和「门槛」并排 —— 竖着排会让卡里空出一大片右侧。 */}
       <dl className="mt-3.5 space-y-1.5 xl:space-y-0 xl:grid xl:grid-cols-2 xl:gap-x-9">

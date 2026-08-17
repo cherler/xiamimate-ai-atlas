@@ -28918,7 +28918,12 @@
               "verified_at": "2026-08-16"
             }
           ],
-          "sub": "base"
+          "sub": "base",
+          "tags": [
+            "节点式工作流",
+            "图/视频/音频/3D 共用一个底座",
+            "生态最大"
+          ]
         },
         {
           "id": "wan22",
@@ -29059,7 +29064,12 @@
               "verified_at": "2026-08-16"
             }
           ],
-          "sub": "gen"
+          "sub": "gen",
+          "tags": [
+            "混合专家按信噪比路由",
+            "5B 变体单张 4090 能跑",
+            "Apache 商用无灰色地带"
+          ]
         },
         {
           "id": "hunyuanvideo",
@@ -29194,7 +29204,12 @@
             }
           ],
           "license_note": "许可证正文首句写明不适用于欧盟、英国、韩国",
-          "sub": "gen"
+          "sub": "gen",
+          "tags": [
+            "官方把显存要求写成了表格",
+            "生态最全的开源底座",
+            "45GB 起，消费级跑不动"
+          ]
         },
         {
           "id": "framepack",
@@ -29306,7 +29321,12 @@
               "mermaid": "graph TB\n    subgraph \"File System Organization\"\n        DemoFiles[\"demo_gradio.py<br/>demo_gradio_f1.py\"]\n        Requirements[\"requirements.txt<br/>Dependency Management\"]\n        BatchFiles[\"run.bat / update.bat<br/>Windows Automation\"]\n    end\n    \n    subgraph \"Model Management\"\n        ModelLoader[\"Model Loading System<br/>HunyuanVideo 13B\"]\n        SwapSystem[\"DynamicSwapInstaller<br/>CPU↔GPU Model Swapping\"]\n        HFDownload[\"Automatic Downloads<br/>>30GB from HuggingFace\"]\n    end\n    \n    subgraph \"Generation Pipeline\"\n        NextFramePred[\"Next-Frame-Section Prediction\"]\n        ContextCompress[\"Constant Context Compression\"]\n        ProgressiveDiff[\"Progressive Diffusion Process\"]\n    end\n    \n    subgraph \"Hardware Adaptation\"\n        MemoryMgmt[\"Memory Management<br/>6GB minimum requirement\"]\n        AttentionOpt[\"Attention Optimization<br/>PyTorch/Flash/Sage/xformers\"]\n        TeaCacheOpt[\"TeaCache System<br/>1.5s vs 2.5s per frame\"]\n    end\n    \n    DemoFiles --> ModelLoader\n    Requirements --> SwapSystem\n    BatchFiles --> HFDownload\n    \n    ModelLoader --> NextFramePred\n    SwapSystem --> ContextCompress\n    HFDownload --> ProgressiveDiff\n    \n    NextFramePred --> MemoryMgmt\n    ContextCompress --> AttentionOpt\n    ProgressiveDiff --> TeaCacheOpt"
             }
           ],
-          "sub": "gen"
+          "sub": "gen",
+          "tags": [
+            "6GB 显存出一分钟",
+            "显存不随时长增长",
+            "作者是 ControlNet 作者"
+          ]
         },
         {
           "id": "ltx-video",
@@ -29434,7 +29454,12 @@
             }
           ],
           "license_note": "代码 Apache-2.0；部分权重另按 OpenRail-M 发布",
-          "sub": "gen"
+          "sub": "gen",
+          "tags": [
+            "主打快",
+            "8GB 卡一分钟出 121 帧",
+            "拿质量换速度"
+          ]
         },
         {
           "id": "minimax-h3",
@@ -29580,7 +29605,12 @@
             }
           ],
           "license_note": "排除欧盟 / 英国 / 韩国 / 美国；年营收超 2000 万美元需另行书面授权",
-          "sub": "gen"
+          "sub": "gen",
+          "tags": [
+            "音画同出，不是后期配音",
+            "只开源了三段里的中间一段",
+            "许可证按地区排除"
+          ]
         },
         {
           "id": "controlnet",
@@ -29726,7 +29756,12 @@
               "verified_at": "2026-08-16"
             }
           ],
-          "sub": "control"
+          "sub": "control",
+          "tags": [
+            "用结构信号控画面",
+            "线稿/姿势/深度",
+            "已停更但仍是事实标准"
+          ]
         },
         {
           "id": "ip-adapter",
@@ -29843,7 +29878,11 @@
           "stars_per_month": 185,
           "stale_months": 26,
           "group": "parts",
-          "sub": "control"
+          "sub": "control",
+          "tags": [
+            "参考图直接参与生成",
+            "不用训练"
+          ]
         },
         {
           "id": "instantid",
@@ -29960,7 +29999,11 @@
           "stale_months": 25,
           "group": "parts",
           "license_note": "权重仅研究用途",
-          "sub": "control"
+          "sub": "control",
+          "tags": [
+            "一张脸就能锁角色",
+            "权重仅研究用途"
+          ]
         },
         {
           "id": "ace-step",
@@ -30094,7 +30137,11 @@
               "verified_at": "2026-08-16"
             }
           ],
-          "sub": "sound"
+          "sub": "sound",
+          "tags": [
+            "8GB 显存出音乐",
+            "Apache 商用"
+          ]
         },
         {
           "id": "pyvideotrans",
@@ -30224,7 +30271,11 @@
               "verified_at": "2026-08-16"
             }
           ],
-          "sub": "sound"
+          "sub": "sound",
+          "tags": [
+            "识别→翻译→合成→对齐每段可换",
+            "官方文档站齐全"
+          ]
         },
         {
           "id": "real-esrgan",
@@ -30366,7 +30417,11 @@
               "verified_at": "2026-08-16"
             }
           ],
-          "sub": "post"
+          "sub": "post",
+          "tags": [
+            "只做放大这一件事",
+            "作者本人有讲解视频"
+          ]
         },
         {
           "id": "practical-rife",
@@ -30481,7 +30536,12 @@
               "mermaid": "flowchart TD\n    subgraph \"Optical Flow in RIFE\"\n        A[\"Input Frame I0\"] --> F[\"IFNet<br/>Flow Estimation\"]\n        B[\"Input Frame I1\"] --> F\n        F --> G[\"Bidirectional Flow Fields\"]\n        G --> H[\"Frame Synthesis\"]\n        H --> I[\"Intermediate Frame\"]\n    end\n    \n    subgraph \"flownet.pkl\"\n        F\n    end"
             }
           ],
-          "sub": "post"
+          "sub": "post",
+          "tags": [
+            "靠光流不靠生成",
+            "插帧这一格开源侧只有它",
+            "星数低但不是冷门"
+          ]
         },
         {
           "id": "codeformer",
@@ -30597,7 +30657,12 @@
             }
           ],
           "license_note": "**仅限非商业用途**，许可证正文第一句写明",
-          "sub": "post"
+          "sub": "post",
+          "tags": [
+            "靠 1024 条码本修脸",
+            "保真度可调",
+            "只许非商业用途"
+          ]
         },
         {
           "id": "motionctrl",
@@ -30712,7 +30777,12 @@
               "verified_at": "2026-08-16"
             }
           ],
-          "sub": "control"
+          "sub": "control",
+          "tags": [
+            "镜头位姿可指定",
+            "轨迹要手画或从视频里提",
+            "这一格唯一的开源方案"
+          ]
         },
         {
           "id": "latentsync",
@@ -30816,7 +30886,10 @@
             }
           ],
           "group": "parts",
-          "sub": "sound"
+          "sub": "sound",
+          "tags": [
+            "让画面里的人对上口型"
+          ]
         },
         {
           "id": "index-tts",
@@ -30936,7 +31009,12 @@
             }
           ],
           "license_note": "月活超 1 亿或年营收超 10 亿人民币需另行申请；不得用于改进其它 AI 模型",
-          "sub": "sound"
+          "sub": "sound",
+          "tags": [
+            "音色与情感分开给",
+            "B 站开源",
+            "有营收与月活门槛"
+          ]
         },
         {
           "id": "sd-scripts",
@@ -31040,7 +31118,11 @@
             }
           ],
           "group": "parts",
-          "sub": "train"
+          "sub": "train",
+          "tags": [
+            "图片 LoRA 的事实标准",
+            "参数命名一脉相承"
+          ]
         },
         {
           "id": "musubi-tuner",
@@ -31175,7 +31257,12 @@
             }
           ],
           "license_note": "仓库根目录没有 LICENSE 文件；README 声明大部分代码 Apache-2.0，hunyuan_model 等目录随上游许可",
-          "sub": "train"
+          "sub": "train",
+          "tags": [
+            "视频模型的 LoRA 训练器",
+            "一套代码覆盖多个底座",
+            "12GB 也能训"
+          ]
         },
         {
           "id": "ollama",
@@ -31287,7 +31374,11 @@
               "verified_at": "2026-08-16"
             }
           ],
-          "sub": "base"
+          "sub": "base",
+          "tags": [
+            "一条命令跑本地大模型",
+            "文本那条腿的底座"
+          ]
         },
         {
           "id": "diffsynth",
@@ -31423,7 +31514,12 @@
               "verified_at": "2026-08-16"
             }
           ],
-          "sub": "base"
+          "sub": "base",
+          "tags": [
+            "写代码的底座",
+            "一套 API 跑多家模型",
+            "显存能压到 6GB"
+          ]
         },
         {
           "id": "moneyprinter",
@@ -31539,7 +31635,11 @@
               "verified_at": "2026-08-16"
             }
           ],
-          "group": "allinone"
+          "group": "allinone",
+          "tags": [
+            "它不生成画面，它检索素材库",
+            "零显存"
+          ]
         },
         {
           "id": "narratoai",
@@ -31668,6 +31768,10 @@
               "lang": "zh",
               "verified_at": "2026-08-16"
             }
+          ],
+          "tags": [
+            "重组你已有的画面",
+            "画质上限就是素材上限"
           ]
         },
         {
@@ -31772,7 +31876,11 @@
               "verified_at": "2026-08-16"
             }
           ],
-          "group": "allinone"
+          "group": "allinone",
+          "tags": [
+            "中文短剧场景最完整之一",
+            "未放 LICENSE"
+          ]
         },
         {
           "id": "toonflow",
@@ -31899,7 +32007,11 @@
               "verified_at": "2026-08-16"
             }
           ],
-          "license_note": "附商用补充条款"
+          "license_note": "附商用补充条款",
+          "tags": [
+            "小说/剧本转动画短剧",
+            "剧本与分镜仍归你"
+          ]
         },
         {
           "id": "infinite-canvas",
@@ -32013,6 +32125,11 @@
               "verified_at": "2026-08-17",
               "mermaid": "graph LR\n    Intent[\"'Generate an image'\"] -- \"Captured by\" --> TextNode[\"CanvasNodeData (Text)\"]\n    TextNode -- \"Triggers\" --> ReqGen[\"requestGeneration()\"]\n    ReqGen -- \"POST /api/v1/images/generations\" --> Proxy[\"route.ts:proxy()\"]\n    Proxy -- \"Forwards to\" --> AIHandler[\"handler/ai.go:AIImagesGenerations\"]\n    AIHandler -- \"Selects Channel\" --> Select[\"service:SelectModelChannel\"]\n    Select -- \"Returns\" --> Channel[\"model:ModelChannel\"]"
             }
+          ],
+          "tags": [
+            "无限画布",
+            "画布状态存浏览器",
+            "1306 个 fork"
           ]
         },
         {
@@ -32127,6 +32244,11 @@
               "verified_at": "2026-08-17",
               "mermaid": "graph TD\n    subgraph \"Frontend (React)\"\n        UI[\"Canvas UI\"] -- \"POST /api/tasks\" --> ServiceLayer[\"task-center.ts\"]\n    end\n\n    subgraph \"Backend Handler (Gin)\"\n        R[\"RegisterTaskRoutes\"] --> H[\"POST /tasks Handler\"]\n        H --> Val[\"enforceRateLimit\"]\n        H --> Svc[\"service.CreateTask\"]\n    end\n\n    subgraph \"Service & Repository\"\n        Svc --> Repo[\"ClaimNextTask / CreateTask\"]\n        Repo --> DB[(\"SQLite/Postgres\")]\n    end\n\n    subgraph \"Worker Loop\"\n        Worker[\"StartWorker()\"] -- \"Polls\" --> DB\n        Worker --> Exec[\"processClaimedTask\"]\n    end\n\n    UI -- \"Event: task:created\" --> UI"
             }
+          ],
+          "tags": [
+            "画布 + 分镜编排",
+            "有真后端与异步 Worker",
+            "开源仅 25 天"
           ]
         },
         {
@@ -32242,6 +32364,11 @@
               "verified_at": "2026-08-17",
               "mermaid": "flowchart LR\n    PAGE[\"所有用户页和管理页\"] --> CLIENT[\"前端 API Service\"]\n    CLIENT --> ROUTE[\"Next.js Route Handler\"]\n    ROUTE --> AUTH[\"Session、用户归属和角色鉴权\"]\n    AUTH --> SERVICE[\"业务服务和任务编排\"]\n\n    SERVICE --> REPO[\"Repository<br/>参数化查询和事务\"]\n    REPO --> PG[(\"PostgreSQL 16\")]\n\n    SERVICE --> ROUTER[\"逻辑模型路由\"]\n    ROUTER --> PROVIDER[\"外部 AI 模型\"]\n    PROVIDER --> TASK[\"幂等任务和状态轮询\"]\n\n    TASK --> BILLING[\"积分扣费和套餐用量\"]\n    BILLING --> PG\n\n    TASK -->|失败或取消| REFUND[\"幂等退款\"]\n    REFUND --> PG\n\n    TASK --> MEDIA[\"媒体下载、规范化和登记\"]\n    MEDIA --> SWITCH{\"存储位置\"}\n    SWITCH -->|本地| LOCAL[\"服务器数据目录\"]\n    SWITCH -->|外部| S3[\"S3 兼容对象存储\"]\n    MEDIA --> PG\n\n    PG --> RESPONSE[\"统一返回 code / data / msg\"]\n    LOCAL --> RESPONSE\n    S3 --> RESPONSE\n    RESPONSE --> PAGE"
             }
+          ],
+          "tags": [
+            "画布+短剧产线+商业后台三件套",
+            "关掉页面不丢任务",
+            "AGPL 配商业后台很别扭"
           ]
         },
         {
@@ -32357,7 +32484,12 @@
               "mermaid": "graph LR\n    subgraph \"Natural Language Space\"\n    Req[\"'Generate a TTS voice'\"]\n    end\n\n    subgraph \"Code Entity Space\"\n    Selector[\"tools/audio/tts_selector.py\"]\n    Registry[\"tools/tool_registry.py\"]\n    Contract[\"tools/base_tool.py (BaseTool)\"]\n    Provider[\"tools/audio/elevenlabs_tts.py\"]\n    Result[\"tools/base_tool.py (ToolResult)\"]\n    end\n\n    Req --> Selector\n    Selector -- \"Queries\" --> Registry\n    Registry -- \"Returns available\" --> Contract\n    Contract -- \"Implemented by\" --> Provider\n    Provider -- \"Returns\" --> Result"
             }
           ],
-          "license_note": "传染性：改了并对外提供服务就要开源"
+          "license_note": "传染性：改了并对外提供服务就要开源",
+          "tags": [
+            "把「怎么拍」写成 Agent 读的文件",
+            "12 条流水线",
+            "云端与本地 GPU 双路"
+          ]
         },
         {
           "id": "video-shotcraft",
@@ -32471,7 +32603,12 @@
               "mermaid": "graph LR\n    subgraph \"Natural Language Space\"\n        Input[\"Product URL & Brand Voice\"]\n    end\n\n    subgraph \"Code Entity Space\"\n        Script[\"assets/scripts/capture-template.mjs\"]\n        Textures[\"public/textures/live/*.png\"]\n        Layout[\"public/textures/live/layout.json\"]\n        MainTSX[\"template/src/Main.tsx\"]\n    end\n\n    Input --> Script\n    Script -- \"Puppeteer Capture\" --> Textures\n    Script -- \"DOM Coordinates\" --> Layout\n    Textures --> MainTSX\n    Layout -- \"PageCam Coordinates\" --> MainTSX\n    MainTSX -- \"Remotion Render\" --> Output[\"promo.mp4\"]"
             }
           ],
-          "license_note": "音频素材另按各自许可，见 ATTRIBUTION.md"
+          "license_note": "音频素材另按各自许可，见 ATTRIBUTION.md",
+          "tags": [
+            "代码渲染，画面可复现",
+            "152 种镜头成文",
+            "只适合产品演示"
+          ]
         },
         {
           "id": "gen-media-skills",
@@ -32584,6 +32721,10 @@
               "verified_at": "2026-08-16",
               "mermaid": "graph LR\n    subgraph \"AI Agent (Claude/Cursor)\"\n        AgentLogic[\"Agent Planning\"]\n    end\n\n    subgraph \"MCP Server (muapi mcp serve)\"\n        Tool1[\"muapi_image_generate\"]\n        Tool2[\"muapi_video_generate\"]\n        Tool3[\"muapi_predict_result\"]\n    end\n\n    subgraph \"Codebase Entities\"\n        Script1[\"core/media/generate-image.sh\"]\n        Script2[\"core/media/generate-video.sh\"]\n        Script3[\"core/platform/check-result.sh\"]\n    end\n\n    AgentLogic -- \"Calls Tool\" --> Tool1\n    AgentLogic -- \"Polls Status\" --> Tool3\n    Tool1 -- \"Invokes\" --> Script1\n    Tool2 -- \"Invokes\" --> Script2\n    Tool3 -- \"Invokes\" --> Script3"
             }
+          ],
+          "tags": [
+            "一套 CLI 打通上百个模型",
+            "参数先校验再发请求"
           ]
         },
         {
@@ -32697,7 +32838,12 @@
               "mermaid": "graph TD\n    subgraph \"Natural Language Space\"\n        User[\"User Prompt: '剪口播'\"]\n        UserFinish[\"User Prompt: '口播成片'\"]\n    end\n\n    subgraph \"Codex Plugin Layer\"\n        SkillCut[\"skill: cut-talking-head\"]\n        SkillFinish[\"skill: finish-talking-head\"]\n        MCP[\"MCP Tool: show_workflow_confirmation\"]\n    end\n\n    subgraph \"Code Entity Space (Runtime)\"\n        CLI[\"scripts/videocut-cli.cjs\"]\n        Doctor[\"scripts/ensure-runtime.cjs\"]\n        Binary[\"~/.chengfeng-videocut/bin\"]\n        ProjectJSON[\"project.json (State Truth)\"]\n    end\n\n    User --> SkillCut\n    UserFinish --> SkillFinish\n    \n    SkillCut --> Doctor\n    SkillFinish --> Doctor\n    \n    Doctor --> CLI\n    CLI --> Binary\n    Binary --> ProjectJSON\n    \n    SkillCut -.-> MCP\n    MCP -.-> UI[\"public/review-confirm.html\"]"
             }
           ],
-          "license_note": "转载 / 二次发布要保留原作者、仓库链接、LICENSE 与 NOTICE.md"
+          "license_note": "转载 / 二次发布要保留原作者、仓库链接、LICENSE 与 NOTICE.md",
+          "tags": [
+            "中文指令直接触发",
+            "动手前先让你确认流程",
+            "只覆盖口播"
+          ]
         },
         {
           "id": "openchatcut",
@@ -32806,6 +32952,11 @@
               "verified_at": "2026-08-17",
               "mermaid": "graph LR\n    subgraph \"External\"\n        ExtAgent[\"External Agents (Codex/Claude)\"]\n    end\n\n    subgraph \"LocalServer (Node/Electron)\"\n        Broker[\"External MCP Broker\"]\n        Plugins[\"serverPlugins (server/plugins/index.ts)\"]\n        Keystore[\"seedKeystore (server/keystore.ts)\"]\n    end\n\n    subgraph \"Frontend (React/Vite)\"\n        Core[\"EditorCore (Commands)\"]\n        UI[\"Editor UI\"]\n        Preview[\"Remotion Player\"]\n    end\n\n    ExtAgent -- \"MCP Protocol\" --> Broker\n    Broker -- \"Tool Calls\" --> Core\n    UI -- \"User Actions\" --> Core\n    Core -- \"Timeline State\" --> Preview\n    Core -- \"API Requests\" --> Plugins\n    Keystore -- \"Inject Keys\" --> Plugins"
             }
+          ],
+          "tags": [
+            "一句话改这一刀，不是重摇",
+            "本地优先",
+            "Agent 通过 MCP 读写时间轴"
           ]
         },
         {
@@ -32899,7 +33050,12 @@
               }
             ],
             "issue_src": "github issues 按回复数排序 · 核验 2026-08-17"
-          }
+          },
+          "tags": [
+            "素材清单逐条记许可证",
+            "要花钱的生成先问",
+            "默认出 4K"
+          ]
         },
         {
           "id": "motion-skills",
@@ -32977,7 +33133,12 @@
               }
             ],
             "issue_src": "github issues · 核验 2026-08-17（仓库讨论极少）"
-          }
+          },
+          "tags": [
+            "动效这一格的唯一一个",
+            "40+ Agent 通吃",
+            "按包安装"
+          ]
         },
         {
           "id": "comfyui-manager",
@@ -33103,7 +33264,11 @@
               "verified_at": "2026-08-16"
             }
           ],
-          "sub": "workflow"
+          "sub": "workflow",
+          "tags": [
+            "解决「工作流打开一片红」",
+            "带 pip 重映射与黑名单"
+          ]
         },
         {
           "id": "wanvideowrapper",
@@ -33195,7 +33360,12 @@
             ],
             "issue_src": "github issues · 核验 2026-08-16"
           },
-          "sub": "workflow"
+          "sub": "workflow",
+          "tags": [
+            "社区跑 Wan 的事实标准封装",
+            "块交换省显存",
+            "1281 个 issue 开着"
+          ]
         },
         {
           "id": "comfy-templates",
@@ -33296,7 +33466,11 @@
               "verified_at": "2026-08-16"
             }
           ],
-          "sub": "workflow"
+          "sub": "workflow",
+          "tags": [
+            "官方现成工作流的真身",
+            "带可复用子图蓝图"
+          ]
         },
         {
           "id": "waoowaoo",
@@ -33428,7 +33602,11 @@
               "mermaid": "graph LR\n    subgraph \"Pipeline Stages\"\n        Novel[\"Novel Text\"] --> Script[\"[analyze-novel] Handler\"]\n        Script --> Storyboard[\"[script-to-storyboard] Handler\"]\n        Storyboard --> Media[\"[image/video] Workers\"]\n        Media --> Final[\"[clips-build] Remotion\"]\n    end\n\n    subgraph \"Model Gateway\"\n        LLM[\"[src/lib/model-gateway]\"]\n        LLM -- \"Calls\" --> OpenAI[\"OpenAI / DeepSeek\"]\n        LLM -- \"Calls\" --> Fal[\"Fal.ai (Flux/Luma)\"]\n    end\n\n    Script -.-> LLM\n    Storyboard -.-> LLM\n    Media -.-> LLM"
             }
           ],
-          "license_note": "**不可商用**；许可证正文自称「不是严格意义上的开源软件许可」"
+          "license_note": "**不可商用**；许可证正文自称「不是严格意义上的开源软件许可」",
+          "tags": [
+            "从小说全文进",
+            "许可证自称「不是严格意义的开源」"
+          ]
         },
         {
           "id": "jellyfish",
@@ -33554,6 +33732,11 @@
               "verified_at": "2026-08-16",
               "mermaid": "sequenceDiagram\n    participant UI as \"React ChapterStudio\"\n    participant API as \"FastAPI routes/film.py\"\n    participant SK as \"SkillRegistry / Agent\"\n    participant TM as \"TaskManager\"\n    participant LLM as \"LLM (GPT-4o/etc)\"\n\n    UI->>API: POST /extract/shotlist (script_text)\n    API->>SK: invoke(FilmShotlistStoryboarder)\n    SK->>LLM: PromptTemplate + script\n    LLM-->>SK: JSON Shotlist\n    SK-->>API: FilmShotlistResult\n    API-->>UI: Structured Shots\n\n    UI->>API: POST /generate/video (shot_id)\n    API->>TM: submit_task(VideoGenTask)\n    TM-->>API: task_id\n    API-->>UI: 202 Accepted (task_id)\n    \n    loop Polling\n        UI->>API: GET /tasks/{task_id}\n        API->>TM: get_status()\n        TM-->>UI: Status (Pending/Success)\n    end"
             }
+          ],
+          "tags": [
+            "这一类里源码最全",
+            "前后端契约走 OpenAPI",
+            "社区在质疑它的星数"
           ]
         },
         {
@@ -33686,7 +33869,11 @@
               "mermaid": "graph LR\n    subgraph \"AI Core Modules\"\n        PC[\"PromptCompiler<br/>3-layer prompt fusion<br/>Action + Cinematic + Dialogue\"]\n        CB[\"CharacterBible<br/>Consistency management<br/>6-layer identity anchors\"]\n        TP[\"TaskPoller<br/>Async task execution<br/>Retry logic\"]\n        SP[\"SeedanceProtocol<br/>Multi-modal references<br/>Constraint validation\"]\n    end\n    \n    subgraph \"Panel Integration\"\n        DIRECTOR[\"DirectorPanel\"]\n        SEEDANCE[\"SeedancePanel\"]\n        CHARACTER[\"CharacterPanel\"]\n    end\n    \n    subgraph \"External Services\"\n        AI_IMG[\"Image Generation APIs<br/>Multiple vendors\"]\n        AI_VID[\"Video Generation APIs<br/>Multiple vendors\"]\n        SEEDANCE_API[\"Seedance 2.0 API<br/>@Image/@Video/@Audio\"]\n    end\n    \n    DIRECTOR --> PC\n    SEEDANCE --> PC\n    SEEDANCE --> SP\n    CHARACTER --> CB\n    \n    PC --> TP\n    CB --> TP\n    SP --> TP\n    \n    TP --> AI_IMG\n    TP --> AI_VID\n    SP --> SEEDANCE_API"
             }
           ],
-          "license_note": "传染性：改了并对外提供服务就要开源"
+          "license_note": "传染性：改了并对外提供服务就要开源",
+          "tags": [
+            "桌面软件形态",
+            "源码比安装包旧六个版本"
+          ]
         },
         {
           "id": "bigbanana",
@@ -33818,7 +34005,12 @@
               "mermaid": "graph TB\n    subgraph \"User Journey\"\n        UserScript[\"1. Raw Script Input\"]\n        UserAssets[\"2. Visual Asset Creation\"]\n        UserDirector[\"3. Shot Production\"]\n        UserExport[\"4. Final Export\"]\n    end\n    \n    subgraph \"React Components (src/components/)\"\n        StageScript[\"StageScript.tsx<br/>AI Script Analysis\"]\n        StageAssets[\"StageAssets.tsx<br/>Character & Scene Gen\"]\n        StageDirector[\"StageDirector.tsx<br/>Keyframe & Video Gen\"]\n        StageExport[\"StageExport.tsx<br/>Timeline Preview\"]\n    end\n    \n    subgraph \"Data Structures (src/types.ts)\"\n        ProjectState[\"ProjectState<br/>{rawScript, scriptData, shots}\"]\n        ScriptData[\"ScriptData<br/>{characters[], scenes[], storyParagraphs[]}\"]\n        Shot[\"Shot<br/>{startKeyframe, endKeyframe, videoIntervals[]}\"]\n        Keyframe[\"Keyframe<br/>{imageUrl, prompt, status}\"]\n    end\n    \n    subgraph \"AI Services (src/services/)\"\n        GeminiService[\"geminiService.ts<br/>AI Orchestration Layer\"]\n        ModelRegistry[\"modelRegistry.ts<br/>Provider & Model Config\"]\n    end\n    \n    UserScript --> StageScript\n    StageScript --> ProjectState\n    ProjectState --> ScriptData\n    \n    UserAssets --> StageAssets\n    StageAssets --> ScriptData\n    \n    UserDirector --> StageDirector\n    StageDirector --> Shot\n    Shot --> Keyframe\n    \n    UserExport --> StageExport\n    \n    StageScript --> GeminiService\n    StageAssets --> GeminiService\n    StageDirector --> GeminiService\n    \n    GeminiService --> ModelRegistry"
             }
           ],
-          "license_note": "**不可商用**；且 README 明说后续只发 Docker 镜像、不再同步源码"
+          "license_note": "**不可商用**；且 README 明说后续只发 Docker 镜像、不再同步源码",
+          "tags": [
+            "明确反对「抽卡」",
+            "带世界观锚点",
+            "已宣布不再同步源码"
+          ]
         }
       ],
       "groups": [
@@ -33842,9 +34034,9 @@
         },
         {
           "id": "basics",
-          "zh": "视频常识",
+          "zh": "视频知识",
           "kind": "basics",
-          "intro": "AI 把出画面的门槛砍到了几乎为零，**但没砍掉「什么样的画面才对」这件事**。这一栏是给不做视频的人准备的入门读物清单，按你会遇到的困惑分组。**我们不重写教材** —— 这些知识有一百年的积累，我们只负责挑出来、验过、说清楚它解决你哪个困惑。只收词条型与成体系的免费指南，不收个人博客与聚合站转载；**因此中文侧偏少，这是实情，不是遗漏**。"
+          "intro": "AI 把出画面的门槛砍到了几乎为零，**但没砍掉「什么样的画面才对」这件事**。这一栏给不做视频的人：前半是基本功（镜头、画面、剪辑、故事、声音、光、色彩、人物、交付），后半是**可以点名要的风格** —— 导演的招牌手法、动画工作室、演员立住的类型、类型片的语法。**「韦斯·安德森式对称」比「构图好看」具体一百倍，模型认前者不认后者。**我们不重写教材，只负责挑出来、验过、说清楚它解决你哪个困惑；只收词条型与成体系的免费指南，**因此中文侧偏少，这是实情，不是遗漏**。"
         },
         {
           "id": "works",
@@ -34003,6 +34195,51 @@
               "lang": "en",
               "note": "**镜头表是提示词的上游**。列完再写提示词，比边想边写省一半重摇。",
               "page_title": "What is a Shot List? Examples and a Brief Definition",
+              "verified_at": "2026-08-17"
+            },
+            {
+              "title": "一镜到底（词条）",
+              "url": "https://zh.wikipedia.org/wiki/一鏡到底",
+              "site": "维基百科",
+              "lang": "zh",
+              "note": "**AI 现在最难做到的一种** —— 单次生成时长有限，接起来就露馅。想清楚再要。",
+              "page_title": "长镜头 - 维基百科，自由的百科全书",
+              "verified_at": "2026-08-17"
+            },
+            {
+              "title": "长镜头",
+              "url": "https://www.studiobinder.com/blog/long-take/",
+              "site": "StudioBinder",
+              "lang": "en",
+              "note": "为什么不剪反而更有压迫感。和上一条对着读。",
+              "page_title": "The Best Long Take Shots &amp; How They Push the Story Forward",
+              "verified_at": "2026-08-17"
+            },
+            {
+              "title": "荷兰角（斜角）",
+              "url": "https://www.studiobinder.com/blog/dutch-angle/",
+              "site": "StudioBinder",
+              "lang": "en",
+              "note": "把画面歪一下表示不安。**一个词就能点到的具体做法。**",
+              "page_title": "The Dutch Angle Shot in Film — Ultimate Guide",
+              "verified_at": "2026-08-17"
+            },
+            {
+              "title": "希区柯克变焦",
+              "url": "https://www.studiobinder.com/blog/dolly-zoom/",
+              "site": "StudioBinder",
+              "lang": "en",
+              "note": "推轨 + 反向变焦，背景「涌上来」。**有名字，模型也认这个名字。**",
+              "page_title": "The Dolly Zoom Shot in Film — Ultimate Guide",
+              "verified_at": "2026-08-17"
+            },
+            {
+              "title": "跟拍镜头",
+              "url": "https://www.studiobinder.com/blog/tracking-shot/",
+              "site": "StudioBinder",
+              "lang": "en",
+              "note": "镜头跟着人走。和「运镜」那一篇配合读。",
+              "page_title": "The Tracking Shot in Film — Ultimate Guide",
               "verified_at": "2026-08-17"
             }
           ]
@@ -34361,6 +34598,232 @@
           ]
         },
         {
+          "id": "director",
+          "zh": "导演的招牌手法",
+          "intro": "**这些名字是提示词里认得出的词。** 「韦斯·安德森式对称」比「构图好看」具体一百倍 —— 模型认前者，不认后者。先知道有哪些招牌，才知道自己能点什么。",
+          "items": [
+            {
+              "title": "韦斯·安德森：对称、正面、平移",
+              "url": "https://www.studiobinder.com/blog/wes-anderson-style/",
+              "site": "StudioBinder",
+              "lang": "en",
+              "note": "**辨识度最高、也最容易被模型认出的一种风格。** 对称构图 + 正面机位 + 横向平移，三条就够用。",
+              "page_title": "The Wes Anderson Style Explained: A Complete Visual Style Guide",
+              "verified_at": "2026-08-17"
+            },
+            {
+              "title": "斯皮尔伯格：他怎么调度镜头",
+              "url": "https://www.studiobinder.com/blog/steven-spielberg-movies/",
+              "site": "StudioBinder",
+              "lang": "en",
+              "note": "长镜头里完成信息交代、人物走位带动镜头。**「斯皮尔伯格式」指的是调度，不是画风。**",
+              "page_title": "Best Steven Spielberg Movies Explained — Directing the Extraordinary",
+              "verified_at": "2026-08-17"
+            },
+            {
+              "title": "诺兰：结构与实拍",
+              "url": "https://www.studiobinder.com/blog/christopher-nolan-movies/",
+              "site": "StudioBinder",
+              "lang": "en",
+              "note": "他的招牌一半在剪辑结构上 —— 这部分 AI 帮不了你，得自己搭。",
+              "page_title": "How Christopher Nolan Films use Circles to Warp Sight &#038; Sound",
+              "verified_at": "2026-08-17"
+            },
+            {
+              "title": "杜琪峰（词条）",
+              "url": "https://zh.wikipedia.org/wiki/杜琪峰",
+              "site": "维基百科",
+              "lang": "zh",
+              "note": "**「杜琪峰站位」说的是人物在画面里的几何关系** —— 静止对峙、三角构图、枪战里的位置感。中文侧最值得点名的一种调度风格。",
+              "page_title": "杜琪峯 - 维基百科，自由的百科全书",
+              "verified_at": "2026-08-17"
+            },
+            {
+              "title": "王家卫（词条）",
+              "url": "https://zh.wikipedia.org/wiki/王家卫",
+              "site": "维基百科",
+              "lang": "zh",
+              "note": "抽帧、色调、独白。**「王家卫感」在中文提示词里几乎是通用词。**",
+              "page_title": "王家卫 - 维基百科，自由的百科全书",
+              "verified_at": "2026-08-17"
+            },
+            {
+              "title": "昆汀·塔伦提诺（词条）",
+              "url": "https://zh.wikipedia.org/wiki/昆汀·塔倫提諾",
+              "site": "维基百科",
+              "lang": "zh",
+              "note": "章节式结构、长对白、脚部特写这类签名镜头。",
+              "page_title": "昆頓·塔倫天奴 - 维基百科，自由的百科全书",
+              "verified_at": "2026-08-17"
+            }
+          ]
+        },
+        {
+          "id": "anime",
+          "zh": "动画与工作室",
+          "intro": "动画不是一种风格，是好几套完全不同的做法。**点名到工作室，比说「动画风」准得多。**",
+          "items": [
+            {
+              "title": "皮克斯动画工作室（词条）",
+              "url": "https://zh.wikipedia.org/wiki/皮克斯动画工作室",
+              "site": "维基百科",
+              "lang": "zh",
+              "note": "**「皮克斯风」= 三维渲染 + 拟人化设定 + 明确的情感弧线。** 说这三个字模型基本能对上。",
+              "page_title": "皮克斯动画工作室 - 维基百科，自由的百科全书",
+              "verified_at": "2026-08-17"
+            },
+            {
+              "title": "吉卜力工作室（词条）",
+              "url": "https://zh.wikipedia.org/wiki/吉卜力工作室",
+              "site": "维基百科",
+              "lang": "zh",
+              "note": "手绘质感、自然光、慢节奏空镜。**注意：这是有版权的品牌名**，商用时点名要谨慎。",
+              "page_title": "吉卜力工作室 - 维基百科，自由的百科全书",
+              "verified_at": "2026-08-17"
+            },
+            {
+              "title": "宫崎骏（词条）",
+              "url": "https://zh.wikipedia.org/wiki/宮崎駿",
+              "site": "维基百科",
+              "lang": "zh",
+              "note": "和上一条一起读 —— 工作室的风格与个人的风格不完全是一回事。",
+              "page_title": "宫崎骏 - 维基百科，自由的百科全书",
+              "verified_at": "2026-08-17"
+            },
+            {
+              "title": "定格动画（词条）",
+              "url": "https://zh.wikipedia.org/wiki/定格动画",
+              "site": "维基百科",
+              "lang": "zh",
+              "note": "**一种模型很容易模仿出来的质感**：轻微抖动、材质感、帧率偏低。想要「手作感」点它。",
+              "page_title": "定格动画 - 维基百科，自由的百科全书",
+              "verified_at": "2026-08-17"
+            },
+            {
+              "title": "动画电影（词条）",
+              "url": "https://zh.wikipedia.org/wiki/動畫電影",
+              "site": "维基百科",
+              "lang": "zh",
+              "note": "总览。分清二维、三维、定格、剪纸各是什么之后，提示词才写得准。",
+              "page_title": "動畫電影 - 维基百科，自由的百科全书",
+              "verified_at": "2026-08-17"
+            }
+          ]
+        },
+        {
+          "id": "actor",
+          "zh": "演员立住的那一类",
+          "intro": "有些类型是**演员本人定义**的 —— 你想要那个味道，就得知道它叫什么、由什么构成。",
+          "items": [
+            {
+              "title": "成龙（词条）",
+              "url": "https://zh.wikipedia.org/wiki/成龙",
+              "site": "维基百科",
+              "lang": "zh",
+              "note": "**动作喜剧**：用环境道具打、危险动作配笑点、节奏靠剪辑不靠特效。这一套是可拆解的，不只是「打得好看」。",
+              "page_title": "成龍 - 维基百科，自由的百科全书",
+              "verified_at": "2026-08-17"
+            },
+            {
+              "title": "周星驰（词条）",
+              "url": "https://zh.wikipedia.org/wiki/周星驰",
+              "site": "维基百科",
+              "lang": "zh",
+              "note": "无厘头。**表演夸张 + 突然的静场 + 反差配乐** —— 三件套缺一件就不像。",
+              "page_title": "周星馳 - 维基百科，自由的百科全书",
+              "verified_at": "2026-08-17"
+            },
+            {
+              "title": "无厘头（词条）",
+              "url": "https://zh.wikipedia.org/wiki/無厘頭",
+              "site": "维基百科",
+              "lang": "zh",
+              "note": "把上一条那个「味道」讲成一套可描述的手法。",
+              "page_title": "無厘頭文化 - 维基百科，自由的百科全书",
+              "verified_at": "2026-08-17"
+            },
+            {
+              "title": "功夫片（词条）",
+              "url": "https://zh.wikipedia.org/wiki/功夫片",
+              "site": "维基百科",
+              "lang": "zh",
+              "note": "和动作片不是一回事。**功夫片讲究完整招式与实拍长镜**，这一点直接影响你要不要用长镜提示。",
+              "page_title": "功夫片 - 维基百科，自由的百科全书",
+              "verified_at": "2026-08-17"
+            }
+          ]
+        },
+        {
+          "id": "genre",
+          "zh": "类型片与流派",
+          "intro": "类型是一整套约定：光怎么打、故事怎么走、观众预期是什么。**点一个类型，等于一次性给出十几条约束。**",
+          "items": [
+            {
+              "title": "黑色电影",
+              "url": "https://www.studiobinder.com/blog/what-is-film-noir/",
+              "site": "StudioBinder",
+              "lang": "en",
+              "note": "低调布光、百叶窗阴影、雨夜街道。**最容易用一个词唤起一整套画面的类型。**",
+              "page_title": "What is Film Noir — History, Examples, and Style",
+              "verified_at": "2026-08-17"
+            },
+            {
+              "title": "黑色电影（词条）",
+              "url": "https://zh.wikipedia.org/wiki/黑色电影",
+              "site": "维基百科",
+              "lang": "zh",
+              "note": "中文对照。",
+              "page_title": "黑色电影 - 维基百科，自由的百科全书",
+              "verified_at": "2026-08-17"
+            },
+            {
+              "title": "西部片（词条）",
+              "url": "https://zh.wikipedia.org/wiki/西部片",
+              "site": "维基百科",
+              "lang": "zh",
+              "note": "广角、地平线、逆光剪影。类型与画幅、镜头选择绑得很紧。",
+              "page_title": "西部片 - 维基百科，自由的百科全书",
+              "verified_at": "2026-08-17"
+            },
+            {
+              "title": "赛博朋克（词条）",
+              "url": "https://zh.wikipedia.org/wiki/賽博朋克",
+              "site": "维基百科",
+              "lang": "zh",
+              "note": "**AI 出图最容易「用力过猛」的一个类型** —— 知道它的构成要素，才好做减法。",
+              "page_title": "赛博朋克 - 维基百科，自由的百科全书",
+              "verified_at": "2026-08-17"
+            },
+            {
+              "title": "法国新浪潮（词条）",
+              "url": "https://zh.wikipedia.org/wiki/法國新浪潮",
+              "site": "维基百科",
+              "lang": "zh",
+              "note": "跳接、手持、实景。**很多现在被当成「随性风格」的做法源头在这里。**",
+              "page_title": "法國新浪潮 - 维基百科，自由的百科全书",
+              "verified_at": "2026-08-17"
+            },
+            {
+              "title": "香港电影新浪潮（词条）",
+              "url": "https://zh.wikipedia.org/wiki/香港電影新浪潮",
+              "site": "维基百科",
+              "lang": "zh",
+              "note": "中文语境里绕不开的一段。",
+              "page_title": "香港電影新浪潮 - 维基百科，自由的百科全书",
+              "verified_at": "2026-08-17"
+            },
+            {
+              "title": "蒙太奇学派（词条）",
+              "url": "https://zh.wikipedia.org/wiki/蒙太奇學派",
+              "site": "维基百科",
+              "lang": "zh",
+              "note": "剪辑能产生意义这件事，是从这里被系统论证的。",
+              "page_title": "苏联蒙太奇学派 - 维基百科，自由的百科全书",
+              "verified_at": "2026-08-17"
+            }
+          ]
+        },
+        {
           "id": "law",
           "zh": "法与权",
           "intro": "**做 AI 视频在中国是有强制标识义务的** —— 2025-09-01 起施行。这一条最实用，也最少有人讲。素材与音乐的授权同理：出事的时候，「我不知道」不是理由。",
@@ -34440,7 +34903,12 @@
           "zh": "工作流与节点包",
           "intro": "ComfyUI 生态里的装配件：装节点的、把某个模型接进来的、以及官方给的现成工作流。**它们不是模型，是让模型跑起来的那一层** —— 多数人第一次卡住都卡在这里。"
         }
-      ]
+      ],
+      "readme_src": {
+        "dir": "data/readme",
+        "note": "各仓库 README 原文",
+        "fetched_at": "2026-08-17"
+      }
     }
   ],
   "$topics": "专项：横着切的评估系列。九卷按「模型产出什么」纵切，专项按「人要做成一件什么事」横切。\n\n**一根公共骨架贯穿全系列：`decisions[]` —— 一条视频由哪些决定构成，每个决定当前归谁。**「一句话生成」把这些决定一次性代办，输出不满意只能整条重来。各篇是同一根骨架的不同填法。\n\n篇的排法：`chapters[]`。片型篇是入口（做哪种片 → 该夺回哪几个决定）；自建 → 平台 → 整包是一条**自持程度由高到低**的轴；作品篇是证据层，不排在轴上。\n\n字段：topics[{id, zh, en, intro, decisions[{id, zh, owner, cap?, handle, note?}], chapters[{id, zh, kind, state, intro, ...}], projects[{...}]}]\n\n⚠️ **作品篇的收录规则只有一条：制作方自己公开说明过管线的才收。**查不到用了什么就不收 —— 宁可空着，也不能写「疑似使用了 XX」。与真值表里 ⬜ 同一条纪律。\n\n⚠️ good/bad/verdict/weight 是**我们的判断**，不是厂商说过的话，必须与事实栏在视觉上分开并可报错。",

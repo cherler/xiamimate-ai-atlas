@@ -105,6 +105,7 @@ const SECS = [
   { id: "autonomy", zh: "自持能力" },
   { id: "hands", zh: "动手层" },
   { id: "tutorials", zh: "教程" },
+  { id: "readme", zh: "项目自述" },
   { id: "judge", zh: "判断" },
   { id: "siblings", zh: "相关项目" },
 ] as const;
@@ -147,6 +148,36 @@ function starsLabel(p: TopicProject) {
   return p.stars_per_month ? `${k}　${p.stars_per_month} 星/月` : k;
 }
 
+/**
+ * README 摘出可读的一截。
+ *
+ * 原文直接贴上来是不能看的：开头永远是一坨 `<p align="center">`、徽章图片和
+ * 一行行的链接语法 —— **那部分是给 GitHub 页面看的装饰，不是给读者的信息。**
+ * 所以先把装饰剥掉，再取前面一截。
+ *
+ * 剥的是**呈现层**（标签、徽章、图片、锚点语法），留的是句子本身。
+ * 不做 markdown 渲染 —— 渲染意味着要处理别人 README 里的任意 HTML，
+ * 那是安全面，也没必要：读者要的只是「它自己怎么介绍自己」。
+ */
+function readmeExcerpt(raw: string, limit = 3200): string | null {
+  const text = raw
+    .replace(/<!--[\s\S]*?-->/g, "")                     // 注释
+    .replace(/<[^>]+>/g, "")                              // HTML 标签
+    .replace(/!\[[^\]]*\]\([^)]*\)/g, "")                 // 图片
+    .replace(/\[([^\]]*)\]\([^)]*\)/g, "$1")              // 链接留文字
+    .replace(/^\s*[-*]\s*$/gm, "")                        // 空列表项
+    .replace(/^#{1,6}\s+/gm, "")                           // 标题的井号（层级在这里没意义）
+    .replace(/\*\*([^*]+)\*\*/g, "$1")                     // 加粗标记
+    .replace(/`{1,3}/g, "")                                // 反引号
+    .split("\n")
+    .filter((l) => !/^\s*[|:\-\s]+$/.test(l))              // 表格分隔线
+    .join("\n")
+    .replace(/\n{3,}/g, "\n\n")
+    .trim();
+  if (text.length < 40) return null;                      // 剥完什么都不剩：不如不显示
+  return text.length > limit ? `${text.slice(0, limit).trimEnd()}\n\n……（后略，见原文）` : text;
+}
+
 function Section({ id, title, children }: { id: string; title: string; children: React.ReactNode }) {
   return (
     <section id={id} className="py-10 border-t border-rule scroll-mt-16">
@@ -170,6 +201,15 @@ export default async function ProjectPage({ params }: { params: Promise<{ id: st
   const p = t?.projects.find((x) => x.id === project);
   if (!t || !p) return null;
 
+  /**
+   * README 从 `data/readme/` 读，**不在构建时联网** ——
+   * 联网会让「同一个 commit 构建两次出同样的页」这条不再成立。
+   */
+  let readme: string | null = null;
+  try {
+    readme = readmeExcerpt(readFileSync(`data/readme/${p.id}.md`, "utf8"));
+  } catch { /* 没抓到就不显示这一节 */ }
+
   const svgs: Record<string, string> = {};
   for (const d of p.diagrams ?? []) {
     try { svgs[d.id] = readFileSync(`public/diagrams/${d.id}.svg`, "utf8"); } catch { /* 少一张图，不挂页 */ }
@@ -183,7 +223,7 @@ export default async function ProjectPage({ params }: { params: Promise<{ id: st
       <Toc ids={[
         "decisions", "autonomy",
         ...(p.diagrams?.length || p.arch ? ["read"] : []),
-        "hands", "tutorials", "judge",
+        "hands", "tutorials", "readme", "judge",
         ...(siblings.length ? ["siblings"] : []),
       ]} />
       <div className="min-w-0 flex-1">
@@ -194,7 +234,18 @@ export default async function ProjectPage({ params }: { params: Promise<{ id: st
       <header className="pt-8 pb-9">
         <p className="text-[11px] tracking-[0.2em] text-yes-ink font-bold mb-3">开源项目解析</p>
         <h1 className="text-[32px] leading-tight tracking-tight mb-3">{p.zh}</h1>
-        <p className="text-[14.5px] text-muted leading-relaxed max-w-[84ch] mb-5">{p.scope}</p>
+        <p className="text-[14.5px] text-muted leading-relaxed max-w-[84ch] mb-4">{p.scope}</p>
+        {/*
+          * 特点标签。**摆在许可证那一排之上** —— 读者先想知道「它特别在哪」，
+          * 再去关心能不能商用。这一排里没有任何一条和下面的圆标重复。
+          */}
+        {!!p.tags?.length && (
+          <div className="flex flex-wrap gap-1.5 mb-4">
+            {p.tags.map((t) => (
+              <span key={t} className="text-[12px] bg-card border border-rule rounded-md px-2 py-1">{t}</span>
+            ))}
+          </div>
+        )}
         <div className="flex flex-wrap gap-2 items-center text-[11.5px]">
           <span className={`border rounded-full px-2.5 py-0.5 ${LIC[p.license_class].cls}`}>
             {p.license}　{LIC[p.license_class].zh}
@@ -354,6 +405,25 @@ export default async function ProjectPage({ params }: { params: Promise<{ id: st
           </p>
         )}
       </Section>
+
+      {readme && (
+        <Section id="readme" title="项目自述">
+          {/*
+            * README 是别人的文字。**整篇搬过来既不礼貌也没必要** ——
+            * 读者要的是「这项目自己怎么介绍自己」，那句话永远在开头。
+            * 所以只放前面一截，标明出处与抓取日期，并给原文链接。
+            */}
+          <p className="text-[11.5px] text-muted mb-3">
+            以下是仓库 README 的开头部分（原文引用，抓取 {atlas.topics[0].readme_src?.fetched_at}）。
+            <a href={p.url} target="_blank" rel="noopener noreferrer" className="text-yes-ink hover:underline ml-1">
+              读全文 ↗
+            </a>
+          </p>
+          <div className="border border-rule rounded-lg px-4 py-3.5 max-h-[420px] overflow-y-auto">
+            <pre className="text-[12px] text-muted leading-relaxed whitespace-pre-wrap break-words font-sans">{readme}</pre>
+          </div>
+        </Section>
+      )}
 
       <Section id="judge" title="判断">
         <div className="grid sm:grid-cols-2 gap-x-8 gap-y-5 border-l-2 border-chip-warm-ink pl-4">

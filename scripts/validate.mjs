@@ -225,6 +225,30 @@ for (const t of a.topics ?? []) {
 }
 
 /**
+ * R87 —— **特点标签不许和圆标重复，也不许写成谁都能贴的话。**
+ *
+ * 标签存在的意义是「它凭什么跟别人不一样」。一旦写成「功能全」「易上手」，
+ * 或者把许可证、还活不活抄一遍，它就从信息退化成噪音 ——
+ * **而噪音标签的坏处是它看起来很像在提供信息。**
+ * README 原文也必须真的在库里，缺文件时页面会静默少一节。
+ */
+{
+  const BAN = ["功能全", "易上手", "简单易用", "开源", "免费", "强大", "好用", "值得一试"];
+  for (const t of a.topics ?? [])
+    for (const p of t.projects ?? []) {
+      const tg = p.tags ?? [];
+      if (!tg.length) { errs.push(`R87 专项「${t.zh}」› ${p.zh} 没写特点标签`); continue; }
+      if (tg.length > 4) errs.push(`R87 专项「${t.zh}」› ${p.zh} 标签 ${tg.length} 个 —— 超过 4 个就没人看了`);
+      for (const x of tg) {
+        if (x.length > 22) errs.push(`R87 专项「${t.zh}」› ${p.zh} 的标签太长：「${x}」`);
+        if (BAN.some((b) => x === b)) errs.push(`R87 专项「${t.zh}」› ${p.zh} 的标签「${x}」谁都能贴，不提供信息`);
+      }
+      if (!existsSync(`data/readme/${p.id}.md`))
+        errs.push(`R87 专项「${t.zh}」› ${p.zh} 没有 README 原文（data/readme/${p.id}.md）—— 跑 node scripts/fetch-readme.mjs`);
+    }
+}
+
+/**
  * R84 —— **教程每条都要能回查。**
  *
  * 教程是这一站里最容易腐坏的一类数据：链接死了、页面换了内容，

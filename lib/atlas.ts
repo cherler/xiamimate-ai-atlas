@@ -540,6 +540,14 @@ export type TopicProject = {
    * 条件不是不重要 —— 它单独一行显示在卡里，字小但读得到。
    */
   license_note?: string;
+  /**
+   * 特点标签。**只回答一件事：它凭什么跟别人不一样。**
+   *
+   * 许可证、还活不活、星数一律不做标签 —— 那些已经有专门的圆标，
+   * 重复一遍只会把卡挤满。写不出三个就写两个：硬凑第三个必然凑出
+   * 「功能全」「易上手」这种谁都能贴的话，那不是信息是噪音。
+   */
+  tags?: string[];
   /** 这个项目管哪几个决定 */
   decisions: string[];
   /**
@@ -728,6 +736,12 @@ export type Topic = {
   groups: TopicGroup[];
   /** tab 内的小节定义。项目靠 `sub` 引它。 */
   subgroups?: TopicGroup[];
+  /**
+   * README 原文存在哪、什么时候抓的。
+   * 正文按 `data/readme/<项目 id>.md` 一个项目一个文件存 —— **不塞进这个 JSON**：
+   * 40 多份加起来上兆，塞进来这个文件的 diff 就没法看了。
+   */
+  readme_src?: { dir: string; note: string; fetched_at: string };
   works?: TopicWork[];
   works_skipped?: TopicWorkSkipped[];
   basics?: TopicBasic[];
