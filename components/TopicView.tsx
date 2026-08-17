@@ -190,44 +190,75 @@ function WorkCard({ w }: { w: TopicWork }) {
 
 /**
  * 一组入门读物。**这一栏是索引不是教材** —— 每条只回答「它解决你哪个困惑」，
- * 剩下的交给原文。`note` 是我们的判断，所以整组底下标一次。
+ * 剩下的交给原文。
+ *
+ * ## 层级是这一版重做的重点
+ *
+ * 上一版把十四组塞进三列，结果是**一堵字墙**：13 条的组和 3 条的组挤在一起、
+ * 组标题被截成两行、每条里标题/说明/为什么/代表作四段一个粗细。
+ * 负责人 2026-08-17：「很混乱、没用层级、且全是文字。」
+ *
+ * 现在：**一组占满一行**（标题横贯，一眼看得出分组），组内的条目再分列。
+ * 条目内部三档分明 —— 标题（粗）→ 为什么好看（正文色，这是主角）→
+ * 它解决什么困惑（小、灰）→ 代表作（一枚可点的片名）。
  */
 function BasicGroup({ b }: { b: TopicBasic }) {
   return (
-    <section className="border border-rule rounded-xl px-4 py-4 sm:px-5 sm:py-5">
-      <h3 className="text-[17px] tracking-tight mb-1.5">{b.zh}</h3>
-      <p className="text-[12.5px] text-muted leading-relaxed max-w-[88ch] mb-4"><Rich text={b.intro} /></p>
-      <ul className="border border-rule rounded-lg divide-y divide-rule">
+    <section id={`b-${b.id}`} className="scroll-mt-28">
+      <div className="border-b border-rule pb-2 mb-4">
+        <div className="flex items-baseline gap-2.5">
+          <h3 className="text-[17px] tracking-tight">{b.zh}</h3>
+          <span className="text-[11px] text-hatch tnum">{b.items.length} 条</span>
+        </div>
+        {/* 组说明单独一行，不跟标题挤 —— 挤在一起就得 truncate，一 truncate 就等于没写。 */}
+        <p className="text-[12px] text-muted leading-relaxed max-w-[92ch] mt-1"><Rich text={b.intro} /></p>
+      </div>
+      <ul className="grid md:grid-cols-2 xl:grid-cols-3 gap-x-8 gap-y-5">
         {b.items.map((it) => (
-          <li key={it.url} data-count-item className="px-3.5 py-3">
-            <div className="flex items-baseline gap-2 flex-wrap mb-1">
-              <a href={it.url} target="_blank" rel="noopener noreferrer"
-                className="text-[13.5px] font-bold hover:text-yes-ink">
-                {it.title}<span className="text-hatch ml-1.5">↗</span>
-              </a>
-              <Chip>{it.site}</Chip>
-              <Chip>{it.lang === "zh" ? "中文" : "英文"}</Chip>
-            </div>
-            <p className="text-[12.5px] text-muted leading-relaxed max-w-[88ch]"><Rich text={it.note} /></p>
-            {/*
-              * 「为什么好看」用正文色，比 note 显眼 —— **它才是让人真正看懂的那一句**。
-              * 代表作跟在后面：看一眼就懂，不用信我们。
-              */}
+          <li key={it.url} data-count-item>
+            <a href={it.url} target="_blank" rel="noopener noreferrer"
+              className="text-[13.5px] font-bold hover:text-yes-ink">
+              {it.title}<span className="text-hatch ml-1">↗</span>
+            </a>
+            <span className="text-[10.5px] text-hatch ml-2 whitespace-nowrap">
+              {it.site}·{it.lang === "zh" ? "中" : "英"}
+            </span>
+            {/* **为什么好看是主角**，所以它用正文色、排在前面。 */}
             {it.why && (
-              <p className="text-[12.5px] text-ink leading-relaxed max-w-[88ch] mt-1.5">
-                <Rich text={it.why} />
-              </p>
+              <p className="text-[12.5px] text-ink leading-relaxed mt-1"><Rich text={it.why} /></p>
             )}
+            <p className="text-[11.5px] text-muted leading-relaxed mt-1"><Rich text={it.note} /></p>
             {it.example && (
-              <p className="text-[11.5px] mt-1.5">
-                <span className="text-muted">代表作　</span>
-                <Go href={it.example.url} className="text-yes-ink">{it.example.zh}</Go>
+              <p className="text-[11.5px] mt-1">
+                <Go href={it.example.url} className="text-yes-ink">代表作 {it.example.zh}</Go>
               </p>
             )}
           </li>
         ))}
       </ul>
     </section>
+  );
+}
+
+/**
+ * tab 内的快捷跳转条。
+ *
+ * 负责人 2026-08-17：「整个专项页不同 tab 下，好像都没有快捷访问通道？」
+ * 确实没有 —— 顶上那排 tab 只能换类，换进来之后要找「法与权」得滚到底。
+ * 组多的 tab（视听语言 14 组、模型与组件 7 节）必须给一排锚点。
+ */
+function Jump({ items }: { items: { id: string; zh: string; n: number }[] }) {
+  if (items.length < 3) return null;
+  return (
+    <nav className="flex flex-wrap gap-x-4 gap-y-1.5 mb-7 pb-4 border-b border-rule">
+      <span className="text-[11px] text-hatch tracking-wider">跳到</span>
+      {items.map((x) => (
+        <a key={x.id} href={`#${x.id}`}
+          className="text-[12px] text-muted hover:text-yes-ink whitespace-nowrap">
+          {x.zh}<span className="text-hatch tnum ml-1">{x.n}</span>
+        </a>
+      ))}
+    </nav>
   );
 }
 
@@ -303,7 +334,12 @@ export default function TopicView({ t }: { t: Topic }) {
       {groups.map((g) => (
         <section key={g.id} role="tabpanel" hidden={g.id !== tab} className="py-9">
           <h2 className="text-[22px] tracking-tight mb-1.5">{g.zh}</h2>
-          <p className="text-[13px] text-muted leading-relaxed max-w-[92ch] mb-6"><Rich text={g.intro} /></p>
+          {/* 一句话说完。**说明写长了不是啰嗦，是把内容顶到了第二屏。** */}
+          <p className="text-[13px] text-muted leading-relaxed max-w-[92ch] mb-5"><Rich text={g.intro} /></p>
+          {/* 换进这一类之后还得找得到东西 —— 组多的 tab 给一排锚点。 */}
+          <Jump items={g.kind === "basics"
+            ? (t.basics ?? []).map((b) => ({ id: `b-${b.id}`, zh: b.zh, n: b.items.length }))
+            : subsOf(g.id).map((sg) => ({ id: `s-${sg.id}`, zh: sg.zh, n: of(g.id, sg.id).length }))} />
           {/*
             * ⚠️ **`ch` 是按「0」这个字形量的，而一个汉字大约占 2ch。**
             *
@@ -323,11 +359,14 @@ export default function TopicView({ t }: { t: Topic }) {
                    * 小节标题只做锚，不再重复一遍 tab 的说明。
                    */
                   ? subsOf(g.id).map((sg) => (
-                    <section key={sg.id} className="pt-2">
-                      <div className="flex items-baseline gap-2.5 border-b border-rule pb-1.5 mb-3">
-                        <h3 className="text-[15px] tracking-tight">{sg.zh}</h3>
-                        <span className="text-[11px] text-hatch tnum">{of(g.id, sg.id).length}</span>
-                        <p className="text-[11.5px] text-muted truncate"><Rich text={sg.intro} /></p>
+                    <section key={sg.id} id={`s-${sg.id}`} className="pt-2 scroll-mt-28">
+                      <div className="border-b border-rule pb-2 mb-3">
+                        <div className="flex items-baseline gap-2.5">
+                          <h3 className="text-[17px] tracking-tight">{sg.zh}</h3>
+                          <span className="text-[11px] text-hatch tnum">{of(g.id, sg.id).length} 个</span>
+                        </div>
+                        {/* 说明单独一行 —— 和标题挤在一起就得截断，截断等于没写。 */}
+                        <p className="text-[12px] text-muted leading-relaxed max-w-[92ch] mt-1"><Rich text={sg.intro} /></p>
                       </div>
                       <div className="space-y-3">
                         {of(g.id, sg.id).map((p) => <ProjectCard key={p.id} p={p} topic={t.id} />)}
@@ -338,7 +377,7 @@ export default function TopicView({ t }: { t: Topic }) {
           </div>
           {/* 常识五组两列并排 —— 每组本身不长，竖着排要滚很久才看得完。 */}
           {g.kind === "basics" && (
-            <div className="grid xl:grid-cols-2 gap-3 items-start">
+            <div className="space-y-10">
               {(t.basics ?? []).map((b) => <BasicGroup key={b.id} b={b} />)}
             </div>
           )}
