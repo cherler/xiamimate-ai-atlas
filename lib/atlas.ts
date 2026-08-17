@@ -723,8 +723,17 @@ export type TopicWorkSkipped = { zh: string; why: string; verified_at: string };
  *
  * `note` 是**我们的判断**：这一条解决你哪个困惑。`page_title` 用来发现「链接还在、内容换了」。
  */
+/**
+ * 三大段。**编号不是装饰，是真的有先后**：
+ * 先会说话（基本功）→ 再谈风格（点名要的那些）→ 最后管合规。
+ * 十四组一个重量摆在一起就是一堵墙，负责人 2026-08-17：「好乱……标题和内容要层次分明」。
+ */
+export type TopicBasicPart = { id: string; no: string; zh: string; intro: string };
+
 export type TopicBasic = {
   id: string; zh: string; intro: string;
+  /** 属于哪一大段，引 `TopicBasicPart.id`。 */
+  part?: string;
   items: {
     title: string; url: string; site: string; lang: "zh" | "en";
     note: string; page_title?: string; verified_at: string;
@@ -758,6 +767,7 @@ export type Topic = {
   works?: TopicWork[];
   works_skipped?: TopicWorkSkipped[];
   basics?: TopicBasic[];
+  basic_parts?: TopicBasicPart[];
   decisions: Decision[]; chapters: TopicChapter[]; projects: TopicProject[];
 };
 

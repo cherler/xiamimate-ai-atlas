@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import { Rich } from "./Fact";
-import { atlas, type Topic, type TopicBasic, type TopicProject, type TopicWork } from "@/lib/atlas";
+import { atlas, type Topic, type TopicBasic, type TopicBasicPart, type TopicProject, type TopicWork } from "@/lib/atlas";
 import { topicProjectHref } from "@/lib/slug";
 
 /**
@@ -202,31 +202,30 @@ function WorkCard({ w }: { w: TopicWork }) {
  * 条目内部三档分明 —— 标题（粗）→ 为什么好看（正文色，这是主角）→
  * 它解决什么困惑（小、灰）→ 代表作（一枚可点的片名）。
  */
-function BasicGroup({ b }: { b: TopicBasic }) {
+function BasicGroup({ b, no }: { b: TopicBasic; no: number }) {
   return (
     <section id={`b-${b.id}`} className="scroll-mt-28">
-      <div className="border-b border-rule pb-2 mb-4">
-        <div className="flex items-baseline gap-2.5">
-          <h3 className="text-[17px] tracking-tight">{b.zh}</h3>
-          <span className="text-[11px] text-hatch tnum">{b.items.length} 条</span>
-        </div>
-        {/* 组说明单独一行，不跟标题挤 —— 挤在一起就得 truncate，一 truncate 就等于没写。 */}
-        <p className="text-[12px] text-muted leading-relaxed max-w-[92ch] mt-1"><Rich text={b.intro} /></p>
+      <div className="flex items-baseline gap-2 mb-0.5">
+        {/* 组编号只做定位用，所以细、小、不抢戏 —— 抢戏的是段编号。 */}
+        <span className="text-[11px] text-hatch tnum shrink-0">{no}</span>
+        <h4 className="text-[15px] tracking-tight">{b.zh}</h4>
+        <span className="text-[10.5px] text-hatch tnum">{b.items.length}</span>
       </div>
-      <ul className="grid md:grid-cols-2 xl:grid-cols-3 gap-x-8 gap-y-5">
+      <p className="text-[11.5px] text-muted leading-relaxed max-w-[88ch] mb-3 pl-[1.6em]">
+        <Rich text={b.intro} />
+      </p>
+      <ul className="grid md:grid-cols-2 gap-x-9 gap-y-4 pl-[1.6em]">
         {b.items.map((it) => (
           <li key={it.url} data-count-item>
             <a href={it.url} target="_blank" rel="noopener noreferrer"
-              className="text-[13.5px] font-bold hover:text-yes-ink">
+              className="text-[13px] font-bold hover:text-yes-ink">
               {it.title}<span className="text-hatch ml-1">↗</span>
             </a>
-            <span className="text-[10.5px] text-hatch ml-2 whitespace-nowrap">
+            <span className="text-[10.5px] text-hatch ml-1.5 whitespace-nowrap">
               {it.site}·{it.lang === "zh" ? "中" : "英"}
             </span>
-            {/* **为什么好看是主角**，所以它用正文色、排在前面。 */}
-            {it.why && (
-              <p className="text-[12.5px] text-ink leading-relaxed mt-1"><Rich text={it.why} /></p>
-            )}
+            {/* **为什么好看是主角**，正文色、排前面；下面那句小一号，是「跟 AI 视频有什么关系」。 */}
+            {it.why && <p className="text-[12.5px] text-ink leading-relaxed mt-1"><Rich text={it.why} /></p>}
             <p className="text-[11.5px] text-muted leading-relaxed mt-1"><Rich text={it.note} /></p>
             {it.example && (
               <p className="text-[11.5px] mt-1">
@@ -241,17 +240,49 @@ function BasicGroup({ b }: { b: TopicBasic }) {
 }
 
 /**
+ * 一大段。**这一层是这次重做加出来的** ——
+ * 原来十四组一个重量并排，读者没有任何落脚点。
+ * 现在段号（一/二/三）够大、够粗，一眼能把整栏切成三块。
+ */
+function BasicPart({ part, groups }: { part: TopicBasicPart; groups: TopicBasic[] }) {
+  return (
+    <section id={`p-${part.id}`} className="scroll-mt-28">
+      <div className="border-b-2 border-ink pb-2 mb-6">
+        <div className="flex items-baseline gap-3">
+          <span className="text-[26px] leading-none font-bold tracking-tight">{part.no}</span>
+          <h3 className="text-[21px] tracking-tight">{part.zh}</h3>
+          <span className="text-[11px] text-hatch tnum ml-auto">
+            {groups.length} 组 · {groups.reduce((n, g) => n + g.items.length, 0)} 条
+          </span>
+        </div>
+        <p className="text-[12.5px] text-muted leading-relaxed max-w-[92ch] mt-1.5">
+          <Rich text={part.intro} />
+        </p>
+      </div>
+      <div className="space-y-8">
+        {groups.map((b, i) => <BasicGroup key={b.id} b={b} no={i + 1} />)}
+      </div>
+    </section>
+  );
+}
+
+/**
  * tab 内的快捷跳转条。
  *
  * 负责人 2026-08-17：「整个专项页不同 tab 下，好像都没有快捷访问通道？」
  * 确实没有 —— 顶上那排 tab 只能换类，换进来之后要找「法与权」得滚到底。
  * 组多的 tab（视听语言 14 组、模型与组件 7 节）必须给一排锚点。
  */
-function Jump({ items }: { items: { id: string; zh: string; n: number }[] }) {
-  if (items.length < 3) return null;
+function Jump({ items, label, href }: {
+  items: { id: string; zh: string; n: number }[]; label?: string; href?: string;
+}) {
+  if (!label && items.length < 3) return null;
   return (
-    <nav className="flex flex-wrap gap-x-4 gap-y-1.5 mb-7 pb-4 border-b border-rule">
-      <span className="text-[11px] text-hatch tracking-wider">跳到</span>
+    <nav className="flex flex-wrap items-baseline gap-x-4 gap-y-1.5 mb-2 last:mb-6">
+      {label && href
+        /* 段名不许折行 —— 折了就和后面那排组名混成一团，跳转条本身反倒成了噪音。 */
+        ? <a href={href} className="text-[12px] font-bold w-[12em] shrink-0 whitespace-nowrap hover:text-yes-ink">{label}</a>
+        : <span className="text-[11px] text-hatch tracking-wider">跳到</span>}
       {items.map((x) => (
         <a key={x.id} href={`#${x.id}`}
           className="text-[12px] text-muted hover:text-yes-ink whitespace-nowrap">
@@ -337,9 +368,13 @@ export default function TopicView({ t }: { t: Topic }) {
           {/* 一句话说完。**说明写长了不是啰嗦，是把内容顶到了第二屏。** */}
           <p className="text-[13px] text-muted leading-relaxed max-w-[92ch] mb-5"><Rich text={g.intro} /></p>
           {/* 换进这一类之后还得找得到东西 —— 组多的 tab 给一排锚点。 */}
-          <Jump items={g.kind === "basics"
-            ? (t.basics ?? []).map((b) => ({ id: `b-${b.id}`, zh: b.zh, n: b.items.length }))
-            : subsOf(g.id).map((sg) => ({ id: `s-${sg.id}`, zh: sg.zh, n: of(g.id, sg.id).length }))} />
+          {g.kind === "basics"
+            ? (t.basic_parts ?? []).map((pt) => (
+              <Jump key={pt.id} label={`${pt.no}　${pt.zh}`} href={`#p-${pt.id}`}
+                items={(t.basics ?? []).filter((b) => b.part === pt.id)
+                  .map((b) => ({ id: `b-${b.id}`, zh: b.zh, n: b.items.length }))} />
+            ))
+            : <Jump items={subsOf(g.id).map((sg) => ({ id: `s-${sg.id}`, zh: sg.zh, n: of(g.id, sg.id).length }))} />}
           {/*
             * ⚠️ **`ch` 是按「0」这个字形量的，而一个汉字大约占 2ch。**
             *
@@ -377,8 +412,11 @@ export default function TopicView({ t }: { t: Topic }) {
           </div>
           {/* 常识五组两列并排 —— 每组本身不长，竖着排要滚很久才看得完。 */}
           {g.kind === "basics" && (
-            <div className="space-y-10">
-              {(t.basics ?? []).map((b) => <BasicGroup key={b.id} b={b} />)}
+            <div className="space-y-14">
+              {(t.basic_parts ?? []).map((pt) => (
+                <BasicPart key={pt.id} part={pt}
+                  groups={(t.basics ?? []).filter((b) => b.part === pt.id)} />
+              ))}
             </div>
           )}
           {/* 「它解决你哪个困惑」是我们的判断，整组标一次，别每条都啰嗦。 */}

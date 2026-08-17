@@ -34277,7 +34277,8 @@
                 "verified_at": "2026-08-17"
               }
             }
-          ]
+          ],
+          "part": "basic"
         },
         {
           "id": "frame",
@@ -34311,7 +34312,8 @@
               "page_title": "场面调度 - 维基百科，自由的百科全书",
               "verified_at": "2026-08-17"
             }
-          ]
+          ],
+          "part": "basic"
         },
         {
           "id": "cut",
@@ -34381,7 +34383,8 @@
               "page_title": "What is a J-Cut in Film — Editing Techniques Explained",
               "verified_at": "2026-08-17"
             }
-          ]
+          ],
+          "part": "basic"
         },
         {
           "id": "story",
@@ -34433,7 +34436,8 @@
               "page_title": "剧本 - 维基百科，自由的百科全书",
               "verified_at": "2026-08-17"
             }
-          ]
+          ],
+          "part": "basic"
         },
         {
           "id": "audio",
@@ -34458,7 +34462,8 @@
               "page_title": "What is Sound Design for Film? Definition, Examples &amp; Ultimate Guide",
               "verified_at": "2026-08-17"
             }
-          ]
+          ],
+          "part": "basic"
         },
         {
           "id": "light",
@@ -34519,7 +34524,8 @@
               "page_title": "色温 - 维基百科，自由的百科全书",
               "verified_at": "2026-08-17"
             }
-          ]
+          ],
+          "part": "basic"
         },
         {
           "id": "color",
@@ -34562,7 +34568,8 @@
               "page_title": "颜色 - 维基百科，自由的百科全书",
               "verified_at": "2026-08-17"
             }
-          ]
+          ],
+          "part": "basic"
         },
         {
           "id": "people",
@@ -34596,7 +34603,8 @@
               "page_title": "對白 - 维基百科，自由的百科全书",
               "verified_at": "2026-08-17"
             }
-          ]
+          ],
+          "part": "basic"
         },
         {
           "id": "spec",
@@ -34630,7 +34638,8 @@
               "page_title": "長寬比 (影像) - 维基百科，自由的百科全书",
               "verified_at": "2026-08-17"
             }
-          ]
+          ],
+          "part": "basic"
         },
         {
           "id": "director",
@@ -34733,7 +34742,8 @@
                 "verified_at": "2026-08-17"
               }
             }
-          ]
+          ],
+          "part": "style"
         },
         {
           "id": "anime",
@@ -34820,7 +34830,8 @@
                 "verified_at": "2026-08-17"
               }
             }
-          ]
+          ],
+          "part": "style"
         },
         {
           "id": "actor",
@@ -34891,7 +34902,8 @@
                 "verified_at": "2026-08-17"
               }
             }
-          ]
+          ],
+          "part": "style"
         },
         {
           "id": "genre",
@@ -35010,7 +35022,8 @@
                 "verified_at": "2026-08-17"
               }
             }
-          ]
+          ],
+          "part": "style"
         },
         {
           "id": "law",
@@ -35053,7 +35066,8 @@
               "page_title": "人格權 - 维基百科，自由的百科全书",
               "verified_at": "2026-08-17"
             }
-          ]
+          ],
+          "part": "law"
         }
       ],
       "subgroups": [
@@ -35097,7 +35111,27 @@
         "dir": "data/readme",
         "note": "各仓库 README 原文",
         "fetched_at": "2026-08-17"
-      }
+      },
+      "basic_parts": [
+        {
+          "id": "basic",
+          "no": "一",
+          "zh": "基本功",
+          "intro": "画面和声音怎么说话。**这一段学完，你才知道自己在要什么。**"
+        },
+        {
+          "id": "style",
+          "no": "二",
+          "zh": "可以点名要的风格",
+          "intro": "有名字的做法。**「韦斯·安德森式对称」比「构图好看」具体一百倍** —— 模型认前者。"
+        },
+        {
+          "id": "law",
+          "no": "三",
+          "zh": "法与权",
+          "intro": "**在中国做 AI 视频有强制标识义务**，2025-09-01 起施行。素材与音乐的授权同理。"
+        }
+      ]
     }
   ],
   "$topics": "专项：横着切的评估系列。九卷按「模型产出什么」纵切，专项按「人要做成一件什么事」横切。\n\n**一根公共骨架贯穿全系列：`decisions[]` —— 一条视频由哪些决定构成，每个决定当前归谁。**「一句话生成」把这些决定一次性代办，输出不满意只能整条重来。各篇是同一根骨架的不同填法。\n\n篇的排法：`chapters[]`。片型篇是入口（做哪种片 → 该夺回哪几个决定）；自建 → 平台 → 整包是一条**自持程度由高到低**的轴；作品篇是证据层，不排在轴上。\n\n字段：topics[{id, zh, en, intro, decisions[{id, zh, owner, cap?, handle, note?}], chapters[{id, zh, kind, state, intro, ...}], projects[{...}]}]\n\n⚠️ **作品篇的收录规则只有一条：制作方自己公开说明过管线的才收。**查不到用了什么就不收 —— 宁可空着，也不能写「疑似使用了 XX」。与真值表里 ⬜ 同一条纪律。\n\n⚠️ good/bad/verdict/weight 是**我们的判断**，不是厂商说过的话，必须与事实栏在视觉上分开并可报错。",
