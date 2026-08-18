@@ -1,8 +1,8 @@
 {
   "url": "https://huggingface.co/api/models?filter=text-to-video&sort=downloads&direction=-1&limit=60",
   "kind": "json",
-  "fetched_at": "2026-08-15",
-  "digest": "7726304a1127e583",
+  "fetched_at": "2026-08-18",
+  "digest": "63e9458a3cfd5b05",
   "items": [
     "Abiray/LTX-2.3-22B-DISTILLED-1.1-GGUF\t",
     "Abiray/LTX-2.5-Distilled-GGUF\t",
@@ -45,6 +45,7 @@
     "cerspense/zeroscope_v2_576w\t",
     "city96/Wan2.1-T2V-14B-gguf\t",
     "drbaph/MiniMax-H3-Turbo-Lora-ComfyUI\t",
+    "fal/MiniMax-H3-Realism-People-LoRA\t",
     "ibyteohdear/Lightricks-LTX-2-DISTILLED-10-Eros\t",
     "joeygambino/MiniMax-H3-GGUF\t",
     "joeygambino/MiniMax-H3-curve-GGUF\t",
@@ -60,7 +61,6 @@
     "vantagewithai/LTX-2.3-GGUF\t",
     "vantagewithai/MiniMax-H3-comfyUI-GGUF\t",
     "vantagewithai/Sulphur-2-Base-GGUF\t",
-    "vrgamedevgirl84/Wan14BT2VFusioniX\t",
     "wangfuyun/AnimateLCM\t",
     "zai-org/CogVideoX-2b\t",
     "zai-org/CogVideoX-5b\t"

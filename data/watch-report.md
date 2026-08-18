@@ -1,6 +1,6 @@
-# 信息源监视报告 · 2026-08-16
+# 信息源监视报告 · 2026-08-18
 
-本次检查 2 个到期源（共 448 个）：变化 0 · 首次 0 · 无变化 0 · **抓不到 2**
+本次检查 10 个到期源（共 448 个）：变化 6 · 首次 0 · 无变化 1 · **抓不到 3**
 
 > 这份报告是给人看的那 20 条待办的来源（§59.3 的负反馈：人每周要看的条目 ≤ 20）。
 > 「抓不到」不是失败，是**信息本身** —— 一个长期抓不到的官方源，说明那家厂商没有可 diff 的公开更新入口，
@@ -12,6 +12,8 @@
 
 ## 抓不到（要处理）
 
+- **aa-t2i**（A/spa）Artificial Analysis · 文生图竞技场 — 还是壳：渲染后正文只有 308 个字符
+  https://artificialanalysis.ai/text-to-image/arena
 - **sora-eol-search**（B/html）OpenAI Sora 停服说明（⚠️ 页面反爬，我们抓不到，内容来自搜索摘要转述） — HTTP 403
   https://help.openai.com/en/articles/20001152-what-to-know-about-the-sora-discontinuation
 - **sora-2**（A/html）OpenAI · Sora 2 发布页（⚠️ 对我们的采集器返回 403，本轮未能一手复核） — HTTP 403
@@ -19,7 +21,18 @@
 
 ## 有变化
 
-（首轮无基线可比）
+- **hf-t2v** Hugging Face · text-to-video 按下载量
+  新增 1 条：fal/MiniMax-H3-Realism-People-LoRA
+- **hf-i2v** Hugging Face · image-to-video 按下载量
+  新增 4 条：Abiray/LTX-2.5-Distilled-GGUF、Abiray/MiniMax-H3-Turbo-Lora-Pruned-ComfyUI、Comfy-Org/Wan_2.2_ComfyUI_Repackaged、city96/Wan2.1-I2V-14B-720P-gguf
+- **techcrunch-ai** TechCrunch · AI（RSS）
+  新增 13 条：Anthropic&#8217;s annualized revenue surges to $65B、AI automation startup Relay shuts down, staff joins Google&#8217;s Chrome team、Amazon, which started off selling books, is destroying rare texts to train AI、Groq raises $350M to fuel its pivot from AI chips to neocloud、Nvidia investing $1.5B in SoftBank data center developer behind OpenAI project、Wispr raises $280M at $2B valuation as it looks beyond dictation、Stripe will reportedly acquire AI gateway startup OpenRouter for $7B+、Why people aren&#8217;t buying Mark Zuckerberg’s AI future、Anthropic CEO says AI backlash is ‘fundamentally a crisis of trust’、Woman claims her stepfather used Grok to transform childhood photo into explicit imagery、Anthropic shares more details about how Claude’s new watermarks will work、SpaceX officially closes its Cursor acquisition …
+- **hf-t2i** Hugging Face · text-to-image 按下载量
+  新增 1 条：black-forest-labs/FLUX.2-klein-base-4b-fp8
+- **hf-i2i** Hugging Face · image-to-image 按下载量
+  新增 2 条：XLabs-AI/flux-ip-adapter-v2、prithivMLmods/Qwen-Image-Edit-2511-Object-Adder
+- **hf-text-org** Hugging Face 官方组织 · 文本模型
+  新增 254 条：26B-Suite/Plainspeak-Dial-Gemma-4-26B-A4B-BakeVector、AEON-7/Qwen3.6-35B-A3B-heretic-NVFP4、AEON-7/Qwen3.8-27B-AEON-ULTIMATE-UNCENSORED-BF16、AesSedai/Motif-3-GGUF、AlayaLab/Evoke、Ashen3/SNOFS、AutomatosX/AX-Qwen3.8-27B-MLX-AXQ-6bit-MTP、AyoubChLin/lfm2.5-2.6b-fable5-coding-agent、BeaverAI/Behemoth-128B-v3c-GGUF、BennyDaBall/Z-Image-Engineer-V6-GGUF、Bingsu/adetailer、Blackfrost-AI/Qwen3.8-27B-ABLITERATED-NVFP4 …
 
 ## 全部
 
@@ -52,8 +65,8 @@
 | epoch-notable | A | csv | 未到期（上次 2026-08-12） |
 | aa-t2v | A | spa | 未到期（上次 2026-08-12） |
 | aa-i2v | A | spa | 未到期（上次 2026-08-12） |
-| hf-t2v | A | json | 未到期（上次 2026-08-15） |
-| hf-i2v | A | json | 未到期（上次 2026-08-15） |
+| hf-t2v | A | json | 变了 |
+| hf-i2v | A | json | 变了 |
 | hf-v2v | A | json | 未到期（上次 2026-08-12） |
 | fal-video | S | spa | 未到期（上次 2026-08-12） |
 | replicate-t2v | S | html | 未到期（上次 2026-08-12） |
@@ -69,10 +82,10 @@
 | seed-models-hub | S | html | 未到期（上次 2026-08-12） |
 | apiyi-models | S | spa | 未到期（上次 2026-08-12） |
 | arxiv-worldmodel | S | atom | 未到期（上次 2026-08-12） |
-| techcrunch-ai | B | atom | 未到期（上次 2026-08-15） |
+| techcrunch-ai | B | atom | 变了 |
 | decart-blog | S | spa | 未到期（上次 2026-08-12） |
 | ltx-gh | S | json | 未到期（上次 2026-08-12） |
-| ltx-hf-org | S | json | 未到期（上次 2026-08-15） |
+| ltx-hf-org | S | json | 无变化 |
 | decart-site | S | spa | 未到期（上次 2026-08-14） |
 | picsart-video | C | html | 未到期（上次 2026-08-12） |
 | libtv | C | spa | 从未抓过 |
@@ -168,14 +181,14 @@
 | ms-foundry-blog | B | html | 未到期（上次 2026-08-12） |
 | hf-image-org | S | json | 未到期（上次 2026-08-12） |
 | mj-updates | S | html | 未到期（上次 2026-08-12） |
-| aa-t2i | A | spa | 未到期（上次 2026-08-11） |
-| hf-t2i | A | json | 未到期（上次 2026-08-15） |
-| hf-i2i | A | json | 未到期（上次 2026-08-15） |
+| aa-t2i | A | spa | 抓不到（还是壳：渲染后正文只有 308 个字符） |
+| hf-t2i | A | json | 变了 |
+| hf-i2i | A | json | 变了 |
 | anthropic-models | S | html | 未到期（上次 2026-08-12） |
 | deepseek-docs | S | html | 未到期（上次 2026-08-12） |
 | xai-docs | S | html | 未到期（上次 2026-08-12） |
 | doubao-force-2026 | B | html | 未到期（上次 2026-08-12） |
-| hf-text-org | S | json | 未到期（上次 2026-08-15） |
+| hf-text-org | S | json | 变了 |
 | wan3-qbitai | B | spa | 从未抓过 |
 | kimi-api | S | html | 未到期（上次 2026-08-12） |
 | glm-api | S | html | 未到期（上次 2026-08-12） |

@@ -1,8 +1,8 @@
 {
   "url": "https://huggingface.co/api/models?filter=text-to-image&sort=downloads&direction=-1&limit=60",
   "kind": "json",
-  "fetched_at": "2026-08-15",
-  "digest": "08a9d28125f13e14",
+  "fetched_at": "2026-08-18",
+  "digest": "3cd06ba997fe53c9",
   "items": [
     "ByteDance/SDXL-Lightning\t",
     "CompVis/stable-diffusion-v1-4\t",
@@ -10,7 +10,6 @@
     "HiDream-ai/HiDream-I1-Fast\t",
     "John6666/amanatsu-illustrious-v11-sdxl\t",
     "John6666/diving-illustrious-real-asian-v50-sdxl\t",
-    "John6666/hassaku-xl-illustrious-v31-sdxl\t",
     "John6666/janku-v5-nsfw-trained-noobai-rou-wei-illustrious-xl-v50-sdxl\t",
     "John6666/nova-furry-xl-il-v120-sdxl\t",
     "John6666/obsession-illustriousxl-v10-sdxl\t",
@@ -33,6 +32,7 @@
     "black-forest-labs/FLUX.2-klein-4B\t",
     "black-forest-labs/FLUX.2-klein-4b-fp8\t",
     "black-forest-labs/FLUX.2-klein-base-4B\t",
+    "black-forest-labs/FLUX.2-klein-base-4b-fp8\t",
     "black-forest-labs/FLUX.2-small-decoder\t",
     "cagliostrolab/animagine-xl-3.1\t",
     "cagliostrolab/animagine-xl-4.0\t",
