@@ -106,6 +106,9 @@ const SECS = [
   { id: "hands", zh: "动手层" },
   { id: "tutorials", zh: "教程" },
   { id: "readme", zh: "项目自述" },
+  /** 摆在「判断」之前 —— 它比判断硬：两侧都是原文，读者可以自己判。
+   *  只有真记过对照的项目才有这一节，由 Toc 的 ids 过滤。 */
+  { id: "conflict", zh: "自述与实测" },
   { id: "judge", zh: "判断" },
   { id: "siblings", zh: "相关项目" },
 ] as const;
@@ -217,13 +220,17 @@ export default async function ProjectPage({ params }: { params: Promise<{ id: st
   const mine = p.decisions.map((did) => t.decisions.find((d) => d.id === did)).filter(Boolean);
   /** 结网：同样管这些决定的其它项目。 */
   const siblings = t.projects.filter((x) => x.id !== p.id && x.decisions.some((d) => p.decisions.includes(d)));
+  /** 这个项目有没有被记过一条「自述与实测」的对照（见 lib/claims.ts 与 /claims 页）。 */
+  const conflict = (t.conflicts ?? []).find((c) => c.project === p.id);
 
   return (
     <main className="max-w-[1240px] mx-auto px-5 pb-16 lg:flex lg:gap-9">
       <Toc ids={[
         "decisions", "autonomy",
         ...(p.diagrams?.length || p.arch ? ["read"] : []),
-        "hands", "tutorials", "readme", "judge",
+        "hands", "tutorials", "readme",
+        ...(conflict ? ["conflict"] : []),
+        "judge",
         ...(siblings.length ? ["siblings"] : []),
       ]} />
       <div className="min-w-0 flex-1">
@@ -429,6 +436,43 @@ export default async function ProjectPage({ params }: { params: Promise<{ id: st
           </p>
           <div className="border border-rule rounded-lg px-4 py-3.5 max-h-[420px] overflow-y-auto">
             <pre className="text-[12px] text-muted leading-relaxed whitespace-pre-wrap break-words font-sans">{readme}</pre>
+          </div>
+        </Section>
+      )}
+
+      {/*
+        * **自述与实测的对照，摆在「判断」前面。**
+        *
+        * 这一条此前只活在 `/claims` 页上 —— 而一个人从专项点进这个项目页时，
+        * **完全不知道我们记过它一条对照**。那是这个站最锋利的一类信息，
+        * 却卡在一个他到不了的地方：内容在，分发不在。
+        *
+        * 放在判断之前是因为它比判断硬：判断是我们说的，
+        * 这里两侧都是原文，读者可以自己判。
+        */}
+      {conflict && (
+        <Section id="conflict" title="自述与实测">
+          <div className="border border-no rounded-lg px-4 py-4">
+            <p className="text-[13.5px] leading-relaxed mb-3"><Rich text={conflict.what} /></p>
+            <div className="grid sm:grid-cols-2 gap-x-7 gap-y-3 border-t border-rule pt-3">
+              <div>
+                <h3 className="text-[11px] tracking-wider text-muted font-bold mb-1.5">它自己说</h3>
+                <p className="text-[12.5px] text-muted leading-relaxed"><Rich text={conflict.said} /></p>
+              </div>
+              <div className="sm:border-l sm:border-rule sm:pl-7">
+                <h3 className="text-[11px] tracking-wider text-no font-bold mb-1.5">实际撞到的</h3>
+                <p className="text-[12.5px] leading-relaxed"><Rich text={conflict.hit} /></p>
+              </div>
+            </div>
+            <div className="mt-3 pt-2.5 border-t border-rule flex flex-wrap gap-x-4 gap-y-1 items-baseline">
+              {conflict.src.map((x) => (
+                <a key={x.url} href={x.url} target="_blank" rel="noopener noreferrer"
+                  className="text-[12px] text-muted underline hover:text-yes-ink">{x.title} ↗</a>
+              ))}
+              <Link href="/claims" className="text-[12px] text-yes-ink underline ml-auto">
+                全部对照 →
+              </Link>
+            </div>
           </div>
         </Section>
       )}

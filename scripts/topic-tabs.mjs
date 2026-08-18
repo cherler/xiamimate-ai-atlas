@@ -175,6 +175,32 @@ for (const t of topics) {
   await p.close();
 }
 
+/**
+ * **记过对照的项目，项目页上必须看得见。**
+ *
+ * 2026-08-17 体检查出来：`conflicts` 只被 `/claims` 页消费，
+ * 专项页和项目页**完全不知道它存在** —— 于是一个人从专项点进
+ * livetalking，看不到我们记过「README 说支持打断 / issue 说最快三秒」。
+ * **内容在，分发不在**，那是这个站最锋利的一类信息卡在了到不了的地方。
+ *
+ * 接上之后再加这条：它是「静默掉内容」型的问题 ——
+ * 少一节不报错、页面照样正常，只有专门去看才发现。
+ */
+console.log("\n── 对照接进项目页 ──");
+for (const t of topics) {
+  for (const c of t.conflicts ?? []) {
+    const p = await br.newPage({ viewport: { width: 1280, height: 900 } });
+    await p.goto(`${ORIGIN}${BASE}/topic/${t.id}/${c.project}`, { waitUntil: "networkidle" });
+    const txt = await p.locator("main").innerText();
+    const hasSec = txt.includes("自述与实测");
+    const hasBoth = txt.includes("它自己说") && txt.includes("实际撞到的");
+    const toClaims = await p.locator(`a[href="${BASE}/claims"]`).count();
+    ok(hasSec && hasBoth && toClaims > 0,
+      `${c.project} 页上有对照（小节 ${hasSec ? "有" : "无"} · 两侧 ${hasBoth ? "有" : "无"} · 去 /claims ${toClaims}）`);
+    await p.close();
+  }
+}
+
 /** 深链：分享某一类得分享得出去。每个专项都试它最后一个 tab。 */
 console.log("\n── 深链 ──");
 for (const t of topics) {

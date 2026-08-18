@@ -26,7 +26,9 @@
     "film:capture": "node scripts/film-capture.mjs",
     "film:audio": "node scripts/film-audio.mjs",
     "film:cut": "node scripts/film-cut.mjs",
-    "film:mix": "node scripts/film-mix.mjs"
+    "film:mix": "node scripts/film-mix.mjs",
+    "test:rules": "node scripts/test-rules.mjs",
+    "verify": "node scripts/verify.mjs"
   },
   "dependencies": {
     "geist": "^1.7.2",

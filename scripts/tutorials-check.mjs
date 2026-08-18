@@ -60,6 +60,29 @@ console.log(`回查 ${rows.length} 条外链（教程 + 常识 + 作品出处）
  * 所以单独归一类：报出来提醒人，但不判失败。
  */
 const RETRYABLE = new Set(["429", "503", "502", "504"]);
+
+/**
+ * **GitHub 的 issue 页对未登录请求回 404，而那个 issue 明明活着。**
+ *
+ * 2026-08-18 撞到：`chongdashu/unreal-mcp/issues/12` 匿名 curl 一律 404，
+ * 而 `gh api` 看得清清楚楚 —— open、8 条回复；同仓库主页 curl 又是 200。
+ * 这是反爬，不是链接死了。
+ *
+ * **要命的是它回的是 404，不是 429** —— 上面那套「限流不算死链」按状态码分，
+ * 在这里完全失效。判成死链的下一步就是去删一条本来好好的出处。
+ *
+ * 所以 github.com 的链接在判死前**必须用 `gh api` 复核一次**（已登录，5000/小时）。
+ * 站上有二十多条 issue 出处，这条会反复咬。
+ */
+const ghAlive = (url) => {
+  const iss = url.match(/github\.com\/([^/]+)\/([^/]+)\/issues\/(\d+)/);
+  const rep = url.match(/github\.com\/([^/]+)\/([^/]+)\/?$/);
+  const path = iss ? `repos/${iss[1]}/${iss[2]}/issues/${iss[3]}`
+    : rep ? `repos/${rep[1]}/${rep[2]}` : null;
+  if (!path) return null;          // 不是能用 api 复核的形状，交回给状态码判
+  try { execFileSync("gh", ["api", path], { stdio: ["ignore", "ignore", "pipe"] }); return true; }
+  catch (e) { return /404|Not Found/i.test(String(e.stderr ?? e)) ? false : null; }
+};
 const dead = [], drift = [], throttled = [];
 for (const r of rows) {
   let out = "";
@@ -77,7 +100,17 @@ for (const r of rows) {
     console.log(`  ⏳ ${code} ${r.project} · ${r.title}（限流，不算死链）`);
     continue;
   }
-  if (code !== "200") { dead.push({ ...r, why: `HTTP ${code}` }); console.log(`  ✗ ${code} ${r.project} · ${r.title}`); continue; }
+  if (code !== "200") {
+    /** 判死之前先问一次 api —— **「够不着」和「不存在」不能靠一个状态码定案**。 */
+    const alive = ghAlive(r.url);
+    if (alive === true) {
+      throttled.push({ ...r, why: `HTTP ${code}（gh api 说它活着，是反爬）` });
+      console.log(`  ⏳ ${code} ${r.project} · ${r.title}（GitHub 反爬，不算死链）`);
+      continue;
+    }
+    dead.push({ ...r, why: `HTTP ${code}${alive === false ? "（gh api 也说没了）" : ""}` });
+    console.log(`  ✗ ${code} ${r.project} · ${r.title}`); continue;
+  }
   /** 标题拿不到多半是前端渲染的页面（飞书这类），不算变 —— 只在两边都有标题时才比。 */
   if (r.page_title && title && title !== r.page_title) {
     drift.push({ ...r, now: title });

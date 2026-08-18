@@ -67,6 +67,73 @@ const CASES = [
   { name: "动线：中间步没有出口（死路）/ 引用了不存在的页",
     want: ["R41", "R42"],
     mut: (a, flows) => { flows.flows[0].steps[0].exits = []; flows.flows[0].steps[1].page = "/查无此页"; } },
+  /* ── 专项子系统（R77–R90）。**这一整族此前一条样本都没有** ──
+   *
+   * 2026-08-17 体检查出来：114 条规则只有 20 条被证明会响。
+   * 而专项那一族是最近半年长出来的、改动最频繁的一块 —— 恰恰全裸奔。
+   * 这里一次补上十条，把「专项页的骨架」这条线焊死。
+   */
+  { name: "专项项目：只写好处没写局限（那是广告不是评估）/ 引了不存在的决定",
+    want: ["R77"],
+    mut: (a) => { const p = a.topics[0].projects[0];
+      p.good = []; p.bad = []; p.unfit = ""; p.decisions = ["查无此决定"]; } },
+
+  { name: "专项项目：只有一张图、也没写 wiki:none 豁免",
+    want: ["R81"],
+    mut: (a) => { const p = a.topics[0].projects.find((x) => x.diagrams?.length >= 2);
+      p.diagrams = [p.diagrams[0]]; delete p.wiki; } },
+
+  { name: "专项：项目归到不存在的类型（它会从页面上整个消失，不报错）",
+    want: ["R83"],
+    mut: (a) => { a.topics[0].projects[0].group = "查无此类型"; } },
+
+  { name: "专项教程：缺链接与核验日（一条 404 的教程比没有教程更伤）",
+    want: ["R84"],
+    mut: (a) => { const p = a.topics[0].projects.find((x) => x.tutorials?.length);
+      p.tutorials = [{ title: "坏教程" }]; } },
+
+  { name: "作品：没有出处（少了出处它就退回成传闻）",
+    want: ["R85"],
+    mut: (a) => { const t = a.topics.find((x) => x.works?.length);
+      t.works[0] = { ...t.works[0], src: [], verified_at: "" }; } },
+
+  { name: "入门读物：缺链接与核验日",
+    want: ["R86"],
+    mut: (a) => { const t = a.topics.find((x) => x.basics?.length);
+      t.basics[0].items = [{ title: "坏条目" }]; } },
+
+  { name: "特点标签：空着 / 写成谁都能贴的话",
+    want: ["R87"],
+    mut: (a) => { a.topics[0].projects[0].tags = ["功能全"];
+      a.topics[0].projects[1].tags = []; } },
+
+  { name: "仓库数字：星速和公式对不上（数字是算出来的，不是独立事实）",
+    want: ["R88"],
+    mut: (a) => { const p = a.topics[0].projects.find((x) => x.stars_per_month);
+      p.stars_per_month = 99999; } },
+
+  /* 这两条是 2026-08-17 加的，加的当天就该有样本 —— 补上。 */
+  /**
+   * ⚠️ 这条样本第一版是错的，而**自测当场把它照出来了**：
+   * 我用 `find(x => x.searched)` 随手取了第一条带 searched 的决定，
+   * 结果取到的是视频专项「选题与钩子」—— 它的 fit 以「上一轮我判错了」开头，
+   * 正好落进 R89 的「认错句放过」豁免里，删掉 searched 也不会报。
+   *
+   * **样本必须挑真正会被判据命中的那一条**，否则它测的是豁免不是规则。
+   * 所以这里直接构造一条断定「没有」的决定，不去数据里碰运气。
+   */
+  { name: "「这一格是空的」却不交代搜过哪些词（我没搜到 ≠ 它不存在）",
+    want: ["R89"],
+    mut: (a) => { a.topics[0].decisions.push({
+      id: "test-empty", zh: "测试用的空格", owner: "user", cap: null, handle: "—",
+      fit: "开源侧没有做这件事的项目，一个都没有。",
+      scenarios: [{ when: "要做这件事", use: "没有现成方案" }],
+      /* 故意不给 searched —— 规则该在这里红 */ }); } },
+
+  { name: "自述与实测：引了不存在的项目 / 没有出处（没出处的对照就是传闻）",
+    want: ["R90"],
+    mut: (a) => { const t = a.topics.find((x) => x.conflicts?.length);
+      t.conflicts[0] = { ...t.conflicts[0], project: "查无此项目", src: [], verified_at: "" }; } },
 ];
 
 copyFileSync(LIVE, BAK);
