@@ -549,7 +549,21 @@ createServer(async (req, res) => {
   }
 
   json(res, 404, { error: "没有这个接口" });
-}).listen(PORT, HOST, () => {
-  console.log(`本机审阅台：http://${HOST}:${PORT}`);
-  console.log("只听 127.0.0.1 —— 它能写 atlas.json 并提交 git。");
-});
+})
+  /**
+   * 端口被占**多半是它自己已经开着**（launchd 那支，或者另一个终端里跑的）。
+   * 默认的 EADDRINUSE 会甩一整段 node 堆栈出来，读起来像「审阅台坏了」——
+   * 而正确的反应恰恰是「不用开了，直接去那个地址」。
+   */
+  .on("error", (e) => {
+    if (e.code !== "EADDRINUSE") throw e;
+    console.error(`${PORT} 端口已经有人在听了 —— 多半审阅台本来就开着。`);
+    console.error(`直接去 http://${HOST}:${PORT}`);
+    console.error(`要确认是谁：lsof -nP -iTCP:${PORT} | grep LISTEN`);
+    console.error(`要重开一个：launchctl kickstart -k gui/$(id -u)/com.xiamimate.atlas-station`);
+    process.exit(1);
+  })
+  .listen(PORT, HOST, () => {
+    console.log(`本机审阅台：http://${HOST}:${PORT}`);
+    console.log("只听 127.0.0.1 —— 它能写 atlas.json 并提交 git。");
+  });
