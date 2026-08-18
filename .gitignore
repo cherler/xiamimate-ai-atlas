@@ -10,6 +10,8 @@ tsconfig.tsbuildinfo
 assets/demo-raw/
 data/watch.log
 data/launchd.*.log
+# 审阅台的运行日志（launchd 起的时候往这儿写）。报告本身是要进 git 的，日志不是。
+data/station.log
 .env
 # data/inbox 先不进 git：候选里可能含厂商页面原文摘录，等人审流程定了再决定要不要留档
 data/inbox/

@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  本机审阅台的 launchd 定义。
+
+  ⚠️ **注意它和 atlas-watch 那支的区别：这一支不会自己启动。**
+
+  `RunAtLoad` 是 false、也没有 `KeepAlive` —— 装上它**不等于**开机自启。
+  2026-08-15 负责人拍过板「保持手动就好」，理由是这支服务
+  **能写 atlas.json 并直接提交 git**，常驻后台风险和收益不成正比。
+  那条决定这里原样保留。
+
+  那为什么还要一个 plist？因为「点通知 → 审阅台开起来」这条路，
+  自己 fork 一个后台进程是不成立的：app 一退出，LaunchServices
+  会把整个进程组一起收走，审阅台跟着没（2026-08-18 实测，见
+  ops/虾米待办.applescript 里那段）。交给 launchd 起，进程就不挂在 app 底下。
+
+  所以它的角色是**待命**：装着不跑，谁需要谁 kickstart。
+
+  安装：  launchctl bootstrap gui/$(id -u) ops/com.xiamimate.atlas-station.plist
+  开起来：launchctl kickstart gui/$(id -u)/com.xiamimate.atlas-station
+  关掉：  launchctl kill TERM gui/$(id -u)/com.xiamimate.atlas-station
+  卸载：  launchctl bootout gui/$(id -u)/com.xiamimate.atlas-station
+-->
+<plist version="1.0">
+<dict>
+  <key>Label</key>
+  <string>com.xiamimate.atlas-station</string>
+
+  <key>ProgramArguments</key>
+  <array>
+    <string>/opt/homebrew/bin/node</string>
+    <string>/Users/liuzhenhai/projects/xiamimate/xiamimate-ai-atlas/scripts/review-ui.mjs</string>
+  </array>
+
+  <!-- **待命，不自启。** 见上面那段。 -->
+  <key>RunAtLoad</key>
+  <false/>
+
+  <key>WorkingDirectory</key>
+  <string>/Users/liuzhenhai/projects/xiamimate/xiamimate-ai-atlas</string>
+
+  <key>StandardOutPath</key>
+  <string>/Users/liuzhenhai/projects/xiamimate/xiamimate-ai-atlas/data/station.log</string>
+  <key>StandardErrorPath</key>
+  <string>/Users/liuzhenhai/projects/xiamimate/xiamimate-ai-atlas/data/station.log</string>
+
+  <!--
+    审阅台会把这些原样传给它跑起来的那些活（保鲜巡检要出网抓 GitHub / 各家文档）。
+    launchd 不继承登录 shell 的环境变量，不给就等于代理没开。
+    密钥不写这里 —— plist 要进 git，密钥进 git 就废了；
+    审阅台自己会 source 仓库根的 .env（见 review-ui.mjs 的 childEnv）。
+  -->
+  <key>EnvironmentVariables</key>
+  <dict>
+    <key>HTTPS_PROXY</key><string>http://127.0.0.1:7890</string>
+    <key>HTTP_PROXY</key><string>http://127.0.0.1:7890</string>
+    <key>PATH</key><string>/opt/homebrew/bin:/usr/local/bin:/usr/bin:/bin</string>
+  </dict>
+
+  <key>LimitLoadToSessionType</key>
+  <string>Aqua</string>
+</dict>
+</plist>

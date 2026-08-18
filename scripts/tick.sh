@@ -62,26 +62,24 @@ elif [ -z "${MINIMAX_API_KEY:-}" ]; then
   echo "   没有 MINIMAX_API_KEY，跳过抽取（采集本身不需要模型）" >> "$LOG"
 fi
 
-# ── 开源项目的仓库数字：只报，不写
+# ── 保鲜巡检：页面上写的还成不成立
 #
-# 42 个项目的星数、停更月数是**会过期的事实** —— 一个月后「在维护」
-# 可能已经变成「停更 1 个月」，而页面照写不误。
+# 三支：开源项目的仓库数字 / README 上游改没改口径 / 教程与作品的外链。
 #
-# **但这里只跑 --dry。** 上面第 1 条纪律说得很清楚：机器不碰 atlas.json。
-# 星数虽然是机器算得出来的，可「停更 12 个月」这条线一跨，
+# **原来只有第一支挂在这儿，另外两支没有任何调度** —— 靠人想起来才跑，
+# 于是「上游把 README 改了、我们页面上那句引用成了假话」这件事，
+# 从来没有人会收到通知。2026-08-18 收进 `fresh.mjs` 一起跑。
+#
+# 三支都**只报不改**（仓库那支固定 `--dry`）：上面第 1 条纪律说得很清楚，
+# 机器不碰 atlas.json。星数虽然是机器算得出来的，可「停更 12 个月」这条线一跨，
 # 卡上的标签、`unfit` 里的判断、甚至要不要继续收录都得跟着重想 ——
-# 那是认定，不是抓取。所以这一步的产出是**报警**，真正写回由人在上线前跑
-# `npm run repos`（见 deploy/README.md）。
-if ! node scripts/refresh-repos.mjs --dry >> "$LOG" 2>&1; then
-  {
-    echo ""
-    echo "## 开源项目仓库有变（${STAMP}）"
-    echo ""
-    echo "\`npm run repos --dry\` 报了要人看一眼的变化，详见 \`data/watch.log\`。"
-    echo "确认后跑 \`npm run repos\` 写回，再上线。"
-  } >> data/watch-report.md
-  echo "   refresh-repos 有要人看的变化，已写进报告" >> "$LOG"
-fi
+# 那是认定，不是抓取。真正写回由人在审阅台上点。
+#
+# 结果落 `data/fresh.json`，下一步的 `todo.mjs` 会把它并进当天的待办 ——
+# **不再往 watch-report.md 里塞一段**：那份是盯梢报告，混进别的东西
+# 会让「快照变没变」这个判据读起来越来越费劲。
+node scripts/fresh.mjs >> "$LOG" 2>&1
+echo "   保鲜巡检跑完（退出码 $? ，明细 data/fresh-report.md）" >> "$LOG"
 
 # ── 引文回查：署的那个来源，今天还找得到这句话吗？
 #
@@ -101,9 +99,10 @@ node scripts/requote.mjs --report >> "$LOG" 2>&1 || echo "   requote.mjs 失败�
 # 要邮件/微信是另一件事，得先定渠道 —— 那是花钱和对外的决定。
 node scripts/todo.mjs --notify >> "$LOG" 2>&1 || echo "   todo.mjs 失败，见上方" >> "$LOG"
 
-# 待办表变了就提交 —— 它和快照一样是「这一天的事实」，要能回溯
-if [ -n "$(git status --porcelain data/TODO.md data/requote-report.md)" ]; then
-  git add data/TODO.md data/requote-report.md
+# 待办表变了就提交 —— 它和快照一样是「这一天的事实」，要能回溯。
+# 保鲜巡检的两份也一起：「那天上游 README 改了什么」以后要查得回来。
+if [ -n "$(git status --porcelain data/TODO.md data/requote-report.md data/fresh-report.md data/fresh.json)" ]; then
+  git add data/TODO.md data/requote-report.md data/fresh-report.md data/fresh.json
   git -c user.name='atlas-watch[bot]' -c user.email='atlas-watch@xiamimate.local' \
       commit -q -m "watch: ${STAMP} 待办表更新" && echo "   待办表已提交" >> "$LOG"
 fi

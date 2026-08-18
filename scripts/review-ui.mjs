@@ -19,6 +19,7 @@
  *   node scripts/review-ui.mjs      →  http://127.0.0.1:8230
  */
 import { createServer } from "node:http";
+import { spawn, execFile } from "node:child_process";
 import { readFileSync, existsSync } from "node:fs";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
@@ -33,6 +34,103 @@ const json = (res, code, body) => {
   res.writeHead(code, { "content-type": "application/json; charset=utf-8" });
   res.end(JSON.stringify(body));
 };
+
+/* ── 从这里能跑的活 ──────────────────────────────────────────────────
+ *
+ * 负责人 2026-08-18：「所有的操作，我只从本地审阅台一个地方处理。」
+ *
+ * 在那之前，待办通知里每一摞后面跟着一条不同的命令 —— 七摞七条，
+ * 意味着每天要开七次终端、记七个脚本名。**人不会那么做**，
+ * 于是通知照发、待办照攒，而这正是当初建 todo.mjs 想解决的毛病。
+ *
+ * 所以这里给出**白名单**里的活，点一下就跑。三条规矩：
+ *
+ *  1. **白名单，不是任意命令。** 这支服务能写 atlas.json、能提交 git，
+ *     留一个「跑任意命令」的口子等于把整台机器挂上去，哪怕只听 127.0.0.1。
+ *  2. **会写库的单独标出来**（`writes`），前端要二次确认。
+ *     「机器不碰 atlas.json」那条纪律管的是无人值守的 tick，
+ *     人在这里点写回是人自己的判断 —— 但必须点得明明白白，不能顺手点掉。
+ *  3. **后台跑 + 轮询**，不是同步等。教程外链那一支要查两百多条，
+ *     同步请求会挂住浏览器，人只会以为审阅台坏了。
+ */
+const JOBS = {
+  todo: { zh: "重算待办", cmd: ["node", "scripts/todo.mjs"], hint: "几秒" },
+  fresh: {
+    zh: "重跑保鲜巡检", cmd: ["node", "scripts/fresh.mjs"],
+    hint: "十几分钟，要查两百多条外链", why: "仓库数字 / README 口径 / 外链，三样一起查",
+  },
+  "fresh:repos": { zh: "只查仓库数字", cmd: ["node", "scripts/fresh.mjs", "repos"], hint: "一两分钟" },
+  "fresh:readme": { zh: "只查 README 漂移", cmd: ["node", "scripts/fresh.mjs", "readme"], hint: "几分钟" },
+  "fresh:links": { zh: "只查外链", cmd: ["node", "scripts/fresh.mjs", "links"], hint: "十几分钟" },
+  watch: { zh: "抓到期的源", cmd: ["node", "scripts/watch.mjs", "--due"], hint: "看当天到期几个" },
+  requote: { zh: "重算引文回查", cmd: ["node", "scripts/requote.mjs", "--report"], hint: "一两分钟" },
+  lineage: { zh: "重扫谱系候选", cmd: ["node", "scripts/hf-lineage.mjs", "--json"], hint: "一两分钟" },
+  candidates: { zh: "重算收录候选", cmd: ["node", "scripts/candidates.mjs"], hint: "一两分钟" },
+  validate: { zh: "跑一遍数据校验", cmd: ["node", "scripts/validate.mjs"], hint: "几秒" },
+  "repos:write": {
+    zh: "把仓库数字写回 atlas.json", cmd: ["node", "scripts/refresh-repos.mjs"],
+    writes: true, hint: "一两分钟",
+    why: "**这一支会改 atlas.json。** 先看过保鲜巡检里「会改变结论的变化」那几条再点 —— " +
+      "星数变了只是数字，「停更 12 个月」跨线会让卡上的标签和判断一起变成假话。",
+  },
+};
+
+/** 报告类文件：只读、白名单。**不接受任意路径** —— 这支进程读得到整个仓库。 */
+const DOCS = {
+  "TODO.md": "data/TODO.md",
+  "fresh-report.md": "data/fresh-report.md",
+  "watch-report.md": "data/watch-report.md",
+  "requote-report.md": "data/requote-report.md",
+  "candidates.md": "data/candidates.md",
+};
+
+/**
+ * 子进程的环境。**照抄 `tick.sh` 的三件事**：代理、PATH、`.env`。
+ *
+ * 手动开的审阅台继承的是登录 shell，看着好像什么都有 —— 但 `.env` 里的密钥
+ * 从来不在 shell 环境里（那是 tick.sh 每次 source 进来的）。不补这一段，
+ * 从审阅台点出去的活会和定时跑的**行为不一样**，而且是静默地不一样。
+ *
+ * ⚠️ 解析出来的值只往子进程传，**任何情况下不打印**。
+ */
+function childEnv() {
+  const env = { ...process.env };
+  env.HTTPS_PROXY ??= "http://127.0.0.1:7890";
+  env.HTTP_PROXY ??= env.HTTPS_PROXY;
+  env.PATH = `/opt/homebrew/bin:/usr/local/bin:${env.PATH ?? ""}`;
+  const f = join(ROOT, ".env");
+  if (existsSync(f))
+    for (const line of readFileSync(f, "utf8").split("\n")) {
+      const m = line.match(/^\s*(?:export\s+)?([A-Za-z_][A-Za-z0-9_]*)\s*=\s*(.*)$/);
+      if (m) env[m[1]] = m[2].trim().replace(/^(['"])(.*)\1$/, "$2");
+    }
+  return env;
+}
+
+/** 跑过的活。**留在内存里就够** —— 关掉审阅台等于这一轮结束，结论都在报告文件里。 */
+const runs = new Map();
+let runSeq = 0;
+
+function startJob(key) {
+  const j = JOBS[key];
+  if (!j) return { error: "没有这个活" };
+  /** 同一个活不许并行 —— 两个 fresh 一起跑会互相覆盖报告文件。 */
+  for (const r of runs.values()) if (r.key === key && r.running) return { error: `「${j.zh}」正在跑`, id: r.id };
+  const id = `r${++runSeq}`;
+  const rec = { id, key, zh: j.zh, running: true, out: "", exit: null, at: new Date().toISOString().slice(11, 16) };
+  runs.set(id, rec);
+  const ch = spawn(j.cmd[0], j.cmd.slice(1), { cwd: ROOT, env: childEnv() });
+  const push = (b) => {
+    rec.out += b.toString();
+    /** 输出可能很长（外链那支两百多行），只留尾部够看结论。 */
+    if (rec.out.length > 200_000) rec.out = `…（前面省略）\n${rec.out.slice(-160_000)}`;
+  };
+  ch.stdout.on("data", push);
+  ch.stderr.on("data", push);
+  ch.on("close", (code) => { rec.running = false; rec.exit = code; });
+  ch.on("error", (e) => { rec.running = false; rec.exit = -1; rec.out += `\n跑不起来：${e.code ?? e.message}\n`; });
+  return { id };
+}
 
 /**
  * ⚠️ **页面脚本里不要拼 onclick 字符串。**
@@ -76,6 +174,22 @@ const PAGE = `<!doctype html><html lang="zh-CN"><head><meta charset="utf-8">
  input{font:inherit;font-size:13.5px;border:1px solid var(--rule);border-radius:8px;padding:6px 10px;flex:1;min-width:200px}
  .done{color:var(--brand-ink);font-size:13px}
  .empty{color:var(--muted);padding:30px 0}
+ .pile{border:1px solid var(--rule);border-left:3px solid var(--brand);border-radius:10px;padding:12px 14px;margin:10px 0;background:var(--card)}
+ .pile h3{font-size:15px;margin:0 0 6px}
+ .pile .why{color:var(--muted);font-size:13px;margin:0 0 6px}
+ .pile .how{font-size:12.5px;color:#4a5866;background:#f6f7f8;padding:6px 9px;border-radius:6px}
+ .n{display:inline-block;min-width:22px;text-align:center;background:var(--ink);color:#fff;
+   border-radius:6px;font-size:12px;padding:1px 6px;margin-right:7px;font-variant-numeric:tabular-nums}
+ .runs{border:1px solid var(--rule);border-radius:10px;padding:12px 14px;margin:16px 0;background:var(--card)}
+ .runs h3{font-size:14px;margin:0 0 8px}
+ button.warn{border-color:#b0670a;color:#8a5108}
+ pre.log{background:#11181f;color:#d6e0ea;border-radius:8px;padding:10px 12px;overflow:auto;
+   max-height:340px;font:12px/1.5 ui-monospace,SFMono-Regular,Menlo,monospace;margin:8px 0 0;white-space:pre-wrap}
+ .spin{color:var(--brand-ink);font-size:12.5px}
+ details.doc{border:1px solid var(--rule);border-radius:10px;padding:8px 12px;margin:8px 0;background:var(--card)}
+ details.doc summary{cursor:pointer;font-size:13.5px}
+ details.doc pre{white-space:pre-wrap;font:12.5px/1.6 ui-monospace,Menlo,monospace;color:#33404d;
+   max-height:460px;overflow:auto;margin:8px 0 0}
 </style></head><body>
 <header>
   <h1>虾米看AI · 本机审阅台</h1>
@@ -83,10 +197,19 @@ const PAGE = `<!doctype html><html lang="zh-CN"><head><meta charset="utf-8">
 </header>
 <main>
   <div id="tabs" style="display:flex;gap:8px;margin-bottom:16px">
-    <button id="tab-inbox" class="pass">收件箱</button>
+    <button id="tab-todo" class="pass">待办 <span id="td-n"></span></button>
+    <button id="tab-inbox">收件箱 <span id="ib-n"></span></button>
     <button id="tab-rq">引文回查 <span id="rq-n"></span></button>
   </div>
-  <div id="pane-inbox">
+  <div id="pane-todo">
+    <div id="td-body" class="empty">算待办中…</div>
+    <!-- 跑起来的活单独放在这儿：上面那块会随刷新整片重画，日志不能跟着没。 -->
+    <div class="runs" id="runbox" hidden>
+      <h3 id="run-h"></h3>
+      <pre class="log" id="run-out"></pre>
+    </div>
+  </div>
+  <div id="pane-inbox" hidden>
     <div class="todo" id="todo"></div>
     <div id="list"></div>
   </div>
@@ -151,24 +274,112 @@ $('#pane-rq').addEventListener('click',async e=>{
   else setTimeout(loadRq,600);
 });
 
-$('#tab-inbox').onclick=()=>{$('#pane-inbox').hidden=false;$('#pane-rq').hidden=true;
-  $('#tab-inbox').className='pass';$('#tab-rq').className='';};
-$('#tab-rq').onclick=()=>{$('#pane-inbox').hidden=true;$('#pane-rq').hidden=false;
-  $('#tab-rq').className='pass';$('#tab-inbox').className='';loadRq();};
+/* ── 待办总览：这一页就是那「一个地方」 ──────────────────────────
+ *
+ * 负责人 2026-08-18：「所有的操作，我只从本地审阅台一个地方处理。」
+ *
+ * 在那之前，待办通知里每摞后面跟一条不同的命令 —— 七摞七条。
+ * 人不会每天开七次终端，于是通知照发、待办照攒。
+ * 所以这一页要同时干三件事：**看见每一摞、点得动每一支脚本、翻得开每一份报告**。
+ *
+ * 注意这段是写在服务端的模板字符串里的：**反斜杠要写两遍**
+ * （源码里的 \\* 到了页面上才是 \*），反引号一律用 \\x60 绕开。
+ * 文件头那条「改完必过 node --check」在这儿还不够 —— 转义错了语法照样是对的，
+ * 只是正则悄悄变成另一个意思，所以这一页必须真在浏览器里打开看过。
+ */
+function md(s){return esc(s)
+  .replace(/\\*\\*(.+?)\\*\\*/g,'<b>$1</b>')
+  .replace(/\\x60([^\\x60]+)\\x60/g,'<code>$1</code>');}
+
+let TD=null;
+async function loadTodo(){
+  const r=await fetch('/api/todo').then(x=>x.json()).catch(e=>({error:String(e)}));
+  if(r.error){$('#td-body').innerHTML='<div class="empty"><b>待办算不出来。</b><br>'+esc(r.error)+'</div>';return;}
+  TD=r;
+  $('#td-n').textContent=r.total?'('+r.total+')':'';
+  const piles=r.groups.length
+    ? r.groups.map(g=>'<div class="pile"><h3><span class="n">'+g.n+'</span>'+esc(g.t)+'</h3>'
+        +'<p class="why">'+md(g.why||'')+'</p><div class="how">→ '+md(g.how||'')+'</div></div>').join('')
+    : '<div class="empty"><b>没有待办。</b>这和「今天没跑」不是一回事 —— 这一摞是 '+esc(r.at)+' 现算的。</div>';
+  const jobs=r.jobs.map(j=>'<button data-job="'+esc(j.key)+'"'+(j.writes?' class="warn"':'')+'>'
+      +esc(j.zh)+(j.hint?'<span style="color:#8a97a5;font-weight:400"> · '+esc(j.hint)+'</span>':'')+'</button>').join(' ');
+  const docs=r.docs.map(d=>'<details class="doc" data-doc="'+esc(d)+'"><summary>'+esc(d)+'</summary><pre>点开读取…</pre></details>').join('');
+  $('#td-body').innerHTML=piles
+    +'<div class="runs"><h3>在这儿跑</h3>'
+    +'<div style="display:flex;gap:8px;flex-wrap:wrap">'+jobs+'</div>'
+    +'<p class="why" style="margin:10px 0 0;color:#647587;font-size:12.5px">'
+    +'橙色那个会改 <code>atlas.json</code>，点了要确认。其余只出报告，不动数据。</p></div>'
+    +'<h2 style="font-size:15px;margin:20px 0 6px">报告原文</h2>'+docs;
+}
+
+/* 报告点开才读 —— 有几份是几千行，一进页面全拉回来会卡住。 */
+$('#pane-todo').addEventListener('click',async e=>{
+  const s=e.target.closest('summary');
+  if(s&&s.parentElement.classList.contains('doc')){
+    const d=s.parentElement;
+    if(d.dataset.loaded) return;
+    d.dataset.loaded='1';
+    const j=await fetch('/api/doc?name='+encodeURIComponent(d.dataset.doc)).then(x=>x.json());
+    d.querySelector('pre').textContent=j.missing?'（还没有这份报告 —— 跑一次上面对应的活就有了）':(j.text||j.error||'');
+    return;
+  }
+  const b=e.target.closest('button[data-job]');
+  if(!b) return;
+  const j=TD.jobs.find(x=>x.key===b.dataset.job);
+  /**
+   * 会写库的必须二次确认。「机器不碰 atlas.json」那条纪律管的是无人值守的定时跑；
+   * 人在这里点写回是人自己的判断 —— 但要点得明明白白，不能和「出份报告」混在一排里顺手点掉。
+   */
+  if(j&&j.writes&&!confirm('「'+j.zh+'」会改 atlas.json（改完记得看 git diff 再上线）。确定跑？')) return;
+  document.querySelectorAll('#td-body button[data-job]').forEach(x=>x.disabled=true);
+  const r=await fetch('/api/run',{method:'POST',headers:{'content-type':'application/json'},
+    body:JSON.stringify({job:b.dataset.job})}).then(x=>x.json());
+  if(!r.id){alert(r.error||'起不来');document.querySelectorAll('#td-body button[data-job]').forEach(x=>x.disabled=false);return;}
+  $('#runbox').hidden=false;
+  poll(r.id);
+});
+
+async function poll(id){
+  const r=await fetch('/api/run?id='+id).then(x=>x.json());
+  $('#run-h').textContent=r.zh+(r.running?'　跑着…（'+r.at+' 起）':'　结束，退出码 '+r.exit);
+  const pre=$('#run-out'), 贴底=pre.scrollHeight-pre.scrollTop-pre.clientHeight<40;
+  pre.textContent=r.out||'（还没有输出）';
+  if(贴底) pre.scrollTop=pre.scrollHeight;
+  if(r.running){setTimeout(()=>poll(id),1200);return;}
+  document.querySelectorAll('#td-body button[data-job]').forEach(x=>x.disabled=false);
+  /** 跑完把摞重算一遍 —— 不然刚处理掉的东西还在页面上挂着。 */
+  loadTodo();
+}
+
+function show(name){
+  for(const k of ['todo','inbox','rq']){
+    $('#pane-'+k).hidden = k!==name;
+    $('#tab-'+k).className = k===name?'pass':'';
+  }
+  if(name==='rq') loadRq();
+  if(name==='todo') loadTodo();
+}
+$('#tab-todo').onclick=()=>show('todo');
+$('#tab-inbox').onclick=()=>show('inbox');
+$('#tab-rq').onclick=()=>show('rq');
 
 async function load(){
   const r=await fetch('/api/queue').then(r=>r.json());
-  $('#sub').textContent=\`待审 \${r.total} 条 · 能直接落格 \${r.landable} 条 · 审阅人 \${who}\`;
+  $('#ib-n').textContent=r.total?'('+r.total+')':'';
+  $('#sub').textContent=\`收件箱待审 \${r.total} 条 · 能直接落格 \${r.landable} 条 · 审阅人 \${who}\`;
+  /**
+   * 这里原来印的是「下面这几摞不在这里审」。**那句话现在过时了** ——
+   * 它们全在「待办」页上，连带那一页还能直接把对应的脚本跑起来。
+   * 留着会把人又推回终端，正是这一版要消掉的东西。
+   */
   $('#todo').innerHTML=(r.others&&r.others.length)
-    ? '<b>下面这几摞不在这里审</b>（审阅台只管收件箱那一摞），各自的下一步：<ul style="margin:.5em 0 0;padding-left:1.2em">'
-      + r.others.map(o=>'<li style="margin:.3em 0">'+esc(o.title)+(o.how?'<br><code style="font-size:.9em;color:#555">'+esc(o.how)+'</code>':'')+'</li>').join('')
-      + '</ul>'
+    ? '这一页只判收件箱。其余 <b>'+r.others.length+' 摞</b>在「待办」页上，那边能看能跑。'
     : '';
   if(!r.items.length){
     $('#list').innerHTML='<div class="empty">'
       +'<b>收件箱里没有待审的。</b>注意这和「今天没跑」不是一回事。<br>'
       +((r.others&&r.others.length)
-        ? '通知里说的那几十条<b>不是这一摞</b> —— 它们在上面列着，各有各的去处。'
+        ? '通知里那几十条<b>不是这一摞</b> —— 去「待办」页，它们在那儿，能看也能跑。'
         : '')
       +'</div>';
     return;
@@ -215,7 +426,7 @@ document.addEventListener('click',async e=>{
   box.querySelector('.acts').outerHTML='<div class="done">✓ '+esc(said)+'</div>';
 });
 
-load();loadRq();
+loadTodo();load();loadRq();
 </script></body></html>`;
 
 createServer(async (req, res) => {
@@ -224,6 +435,51 @@ createServer(async (req, res) => {
   if (path === "/" || path === "/index.html") {
     res.writeHead(200, { "content-type": "text/html; charset=utf-8" });
     return res.end(PAGE);
+  }
+
+  /**
+   * 待办总览。**每次现算，不吃模块缓存** —— 所以是另起进程跑 `todo.mjs --json`，
+   * 不是 `import`。刚在这个页面上跑完一支巡检、点刷新却看见旧数，
+   * 比不刷新更能骗人。
+   */
+  if (path === "/api/todo") {
+    return execFile("node", ["scripts/todo.mjs", "--json"], { cwd: ROOT, env: childEnv(), maxBuffer: 8 << 20 },
+      (err, stdout) => {
+        if (err) return json(res, 500, { error: `待办算不出来：${String(err.message).slice(0, 300)}` });
+        try {
+          /** `--json` 是最后一行 —— 前面可能有子模块打的进度。 */
+          const t = JSON.parse(stdout.trim().split("\n").pop());
+          const docs = Object.keys(DOCS).filter((k) => existsSync(join(ROOT, DOCS[k])));
+          const jobs = Object.entries(JOBS).map(([k, v]) => ({ key: k, ...v, cmd: v.cmd.join(" ") }));
+          return json(res, 200, { ...t, docs, jobs });
+        } catch (e) { return json(res, 500, { error: `待办输出读不动：${String(e.message)}` }); }
+      });
+  }
+
+  if (path === "/api/run" && req.method === "POST") {
+    let raw = "";
+    for await (const c of req) raw += c;
+    try {
+      const { job } = JSON.parse(raw || "{}");
+      const r = startJob(job);
+      return json(res, r.error && !r.id ? 400 : 200, r);
+    } catch (e) { return json(res, 400, { error: String(e.message) }); }
+  }
+
+  if (path === "/api/run") {
+    const id = new URL(req.url, "http://x").searchParams.get("id");
+    const r = runs.get(id);
+    if (!r) return json(res, 404, { error: "没有这次运行" });
+    return json(res, 200, r);
+  }
+
+  if (path === "/api/doc") {
+    const name = new URL(req.url, "http://x").searchParams.get("name");
+    const rel = DOCS[name];
+    if (!rel) return json(res, 400, { error: "不在白名单里" });
+    const f = join(ROOT, rel);
+    if (!existsSync(f)) return json(res, 200, { name, text: "", missing: true });
+    return json(res, 200, { name, path: rel, text: readFileSync(f, "utf8") });
   }
 
   if (path === "/api/queue") {

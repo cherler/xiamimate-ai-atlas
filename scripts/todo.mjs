@@ -226,13 +226,72 @@ if (hotN && Number(hotN) > 0) groups.push({
   why: "**失败不等于引文错。** 三种成因要分开：真署错了页 / 这一页的快照是残的（抓回来的是导航不是正文）/ 当初记的就不是逐字原文。**脚本不猜，人来分。**",
 });
 
+/**
+ * ⑦ 保鲜巡检：页面上写的**还成不成立**。
+ *
+ * 三支脚本（仓库数字 / README 漂移 / 外链）原来只打到标准输出、用退出码表态，
+ * 其中两支**根本没有调度**。现在由 `fresh.mjs` 统一跑、落 `data/fresh.json`，
+ * 这里只读结果 —— **不重新解析那篇人话报告**，一个口径解析两遍迟早两边不一样。
+ */
+try {
+  const fresh = JSON.parse(read("data/fresh.json") || "{}");
+  for (const j of fresh.jobs ?? []) {
+    /** 自己坏了要单独报。**「没解析出来」和「没有待办」在表上长得一模一样。** */
+    const bad = j.跑不起来 || j.数没对上;
+    if (bad) {
+      groups.push({ n: 1, t: `保鲜巡检「${j.zh}」这一支自己有问题`, how: `\`node scripts/fresh.mjs ${j.id}\` 看输出`, why: bad });
+      continue;
+    }
+    if (j.n > 0)
+      groups.push({
+        n: j.n,
+        t: `${j.zh}：${j.hits.map((h) => `${h.label} ${h.n}`).join(" · ")}`,
+        how: `${j.how} 明细在 data/fresh-report.md`,
+        why: j.why,
+      });
+  }
+  /**
+   * 跑过没有**本身就是信息**，而且是最容易漏的那一类：
+   * 没有报告时上面那个循环一声不吭，待办表上「保鲜这一摞是 0 条」
+   * 和「保鲜这一路根本没跑」长得一模一样 —— 而后者才是真出事了。
+   *
+   * **按支算日子，不看整份报告的日子。** 三支跑的频率可以不一样
+   * （外链那支慢，未必天天跑），拿整份的日子一刀切，
+   * 会让一支停了半个月的巡检被另外两支的新鲜日子盖住。
+   */
+  const 一周前 = new Date(Date.now() - 8 * 864e5).toISOString().slice(0, 10);
+  if (!fresh.jobs?.length)
+    groups.push({
+      n: 1, t: "保鲜巡检还没跑过一次",
+      how: "审阅台「待办」页点「重跑保鲜巡检」；命令行 `npm run fresh`",
+      why: "**没有报告不等于没有问题。** 仓库数字、README 口径、外链这三样是否还成立，目前一个都没查过。",
+    });
+  else
+    for (const j of fresh.jobs.filter((x) => (x.day ?? "0000") < 一周前))
+      groups.push({
+        n: 1, t: `保鲜巡检「${j.zh}」上次跑是 ${j.day ?? "不详"}，超过一周了`,
+        how: `审阅台「待办」页点对应那个按钮；命令行 \`node scripts/fresh.mjs ${j.id}\``,
+        why: "**报告旧了，不等于页面没问题** —— 只说明没人在看。",
+      });
+} catch { /* 报告没有或坏了不该拖垮整张待办表 */ }
+
 const total = groups.reduce((s, g) => s + g.n, 0);
+/**
+ * 待办表和审阅台是**同一摞东西的两个面**：这份是能进 git、能回溯的存档，
+ * 审阅台是能动手的地方。所以每一份都要指向对方 ——
+ * 负责人 2026-08-18 定的规矩：**所有操作只从审阅台一个地方走**。
+ */
+const STATION = `http://127.0.0.1:${process.env.ATLAS_REVIEW_PORT ?? 8230}`;
+
 const md = [
   `# 该你看了 · ${TODAY}`,
   ``,
   total
     ? `**${total} 条待办**，分 ${groups.length} 摞。每摞都指向它原本在的文件 —— **这里只汇总，不下判断**。`
     : `**没有待办。** 注意这和「今天没跑」不是一回事 —— 这份文件是 ${TODAY} 生成的。`,
+  ``,
+  `> **动手在审阅台：${STATION}**（\`npm run station\` 开）。`,
+  `> 这份文件是存档，看的是同一摞东西；判断、重跑、写回都在那边点，不要在两处各做一半。`,
   ``,
   ...groups.flatMap((g) => [
     `## ${g.t}`,
@@ -249,7 +308,21 @@ const md = [
 ].join("\n");
 
 writeFileSync(join(ROOT, "data/TODO.md"), `${md}\n`);
-console.log(`${total} 条待办 → data/TODO.md`);
+
+/**
+ * 审阅台走 `--json` 拿这几摞 —— **不另写一遍分摞逻辑**。
+ * 文件开头那条「审阅台、命令行、这张待办表三处必须是同一个口径」，
+ * 只有共用同一段代码才做得到；各写各的迟早给出不同的数。
+ *
+ * 为什么是另起进程而不是 `import`：ES 模块**只会执行一次**，
+ * 审阅台上刚跑完一支巡检、再点刷新，import 回来的还是开服那一刻的旧数。
+ * 「刷新了但数没变」比不刷新更能骗人。
+ */
+if (process.argv.includes("--json")) {
+  console.log(JSON.stringify({ at: TODAY, total, station: STATION, groups }));
+} else {
+  console.log(`${total} 条待办 → data/TODO.md`);
+}
 
 /**
  * 飞书群机器人。**协议照抄线上那支监控**
@@ -298,7 +371,12 @@ if (process.argv.includes("--notify") && total) {
    *
    * macOS 上通知的归属只能是**发出它的那个 app**，所以发送方做成一个 app 包
    * （`ops/虾米待办.app`，由 `osacompile` 生成、跟着仓库走）：
-   * 带参数运行 = 发通知；不带参数运行（也就是用户点了通知）= 打开 `data/TODO.md`。
+   * 带参数运行 = 发通知；不带参数运行（也就是用户点了通知）= **把审阅台拉起来并打开**。
+   *
+   * ⚠️ 2026-08-18 之前，点下去那一路**根本没跑通**：applet 被 LaunchServices
+   * 启动时不传 `argv`，脚本第一句 `count of argv` 当场抛错，一秒内退出 ——
+   * 没有报错、没有日志，看起来只是「点了没反应」。修在
+   * `ops/虾米待办.applescript`，那里也记了为什么必须用 `open` 实测而不是 `osascript`。
    *
    * 那个 app 不在时退回旧写法 —— **通知发不出去不该拖垮 TODO.md 的生成**。
    */
@@ -309,7 +387,7 @@ if (process.argv.includes("--notify") && total) {
     } else {
       execFileSync("osascript", [
         "-e",
-        `display notification ${JSON.stringify(brief.slice(0, 180))} with title "虾米看AI · ${total} 条待办" subtitle "data/TODO.md"`,
+        `display notification ${JSON.stringify(brief.slice(0, 180))} with title "虾米看AI · ${total} 条待办" subtitle ${JSON.stringify(STATION)}`,
       ]);
     }
   } catch { console.log("（系统通知发不出去，不影响 TODO.md）"); }
@@ -328,15 +406,29 @@ if (process.argv.includes("--notify") && total) {
    *
    * 现在：红色那句只在真有收件箱队列时才发；每一摞后面直接跟上它自己的下一步。
    */
+  /**
+   * ⚠️ 2026-08-18 改：**地址无条件带上，而且只带这一个地址。**
+   *
+   * 原来这里分两支：有收件箱队列才给审阅台地址，否则说「上面这几摞不在那里办，
+   * 各自的下一步见每条后面那行」。那句话当时是对的 —— 审阅台确实只读 `data/inbox`。
+   * 但它把人推回了「一摞一个命令」的老路：通知里列七摞、七个不同的下一步，
+   * 于是每天要开七次终端，人就不开了。
+   *
+   * 负责人这次定死：**所有操作只从审阅台一个地方处理。** 审阅台已经收全了
+   * （待办总览 + 收件箱 + 引文回查，能看能跑能写回），所以通知的落点只有一个。
+   * 每摞后面那行「下一步」留着，但它现在是**说明**，不是要人去敲的命令。
+   */
   const hasQueue = groups.some((g) => /收件箱/.test(g.t));
   console.log(
     await feishu(`虾米看AI · ${total} 条待办`, [
       ...groups.flatMap((g) => [`· ${g.t}`, `   → ${String(g.how).replace(/[`*]/g, "")}`]),
       "",
-      "清单：data/TODO.md",
+      `全部在审阅台处理：${STATION}`,
+      "没开的话：cd ~/projects/xiamimate/xiamimate-ai-atlas && npm run station",
+      "（只听 127.0.0.1，要在那台机器上开；存档在 data/TODO.md）",
       ...(hasQueue
-        ? ["收件箱那批红色的错了会污染整张图，必须人工：node scripts/review-ui.mjs → http://127.0.0.1:8230"]
-        : ["⚠️ 收件箱里没有待审的 —— **审阅台打开会是空的**，上面这几摞不在那里办，各自的下一步见每条后面那行。"]),
+        ? ["收件箱那批红色的错了会污染整张图，必须人工判 —— 审阅台「收件箱」页。"]
+        : []),
     ]),
   );
 }
