@@ -23,7 +23,7 @@
 import { chromium } from "playwright";
 import { createServer } from "node:http";
 import { readFile } from "node:fs/promises";
-import { existsSync, mkdirSync, rmSync, readdirSync, renameSync } from "node:fs";
+import { existsSync, mkdirSync, rmSync, readdirSync, renameSync, writeFileSync } from "node:fs";
 import { extname, join } from "node:path";
 import { execFileSync } from "node:child_process";
 
@@ -95,6 +95,20 @@ const CURSOR = `
 
 const br = await chromium.launch();
 
+/**
+ * 每段录像里**关键时刻的时间戳**，写进 `marks.json` 给切片脚本用。
+ *
+ * ## 为什么必须有
+ *
+ * 上一版切片脚本里是九个写死的秒数（`ss: 2.6 / 4.2 / 6.6 …`）。
+ * **站一改版、录屏内容位移，这些偏移就指向别的画面** ——
+ * 而出来的片子照样能播、照样有字幕，只是画面对不上旁白。
+ * 典型的「坏了不报错」，2026-08-18 评审时点出来的。
+ *
+ * 现在由录屏这一侧说话：谁最清楚「表滚到位是第几秒」？是录它的人。
+ */
+const MARKS = {};
+
 /** 一个镜头一段录像。`prep` 先把画面摆好**再开录** —— 第一帧就得是有冲击的那一帧。 */
 async function shot(id, url, act, { pre = 900 } = {}) {
   const dir = join(RAW, id);
@@ -115,6 +129,15 @@ async function shot(id, url, act, { pre = 900 } = {}) {
     await page.waitForTimeout(hold);
   };
   await page.goto(`${O}${url}`, { waitUntil: "networkidle" });
+  /**
+   * **录像的时间零点是 context 建好那一刻，不是 goto 之后。**
+   * 所以起点在这里取，导航与首屏等待都算进去 —— 少算这一段，
+   * 后面所有标记会整体前移，比写死还糟（因为它看起来是「算出来的」）。
+   */
+  const t0 = Date.now();
+  MARKS[id] = {};
+  /** 在这一刻打一个标记：`mark("表到位")` → 记下相对录像起点的秒数。 */
+  page.mark = (name) => { MARKS[id][name] = Number(((Date.now() - t0) / 1000).toFixed(2)); };
   await page.waitForTimeout(pre);
   await act(page);
   await ctx.close();
@@ -134,10 +157,13 @@ async function shot(id, url, act, { pre = 900 } = {}) {
 await shot("table", "/video", async (p) => {
   await p.evaluate(() => document.querySelector("table")?.scrollIntoView({ block: "center" }));
   await p.waitForTimeout(2600);
+  p.mark("表到位");
   /** 划过几格 —— 让人看见每一格是可以问的。 */
   const tds = p.locator("td[title]");
   const n = Math.min(await tds.count(), 5);
+  p.mark("开始划格");
   for (let i = 0; i < n; i++) { await p.mouseTo(tds.nth(i * 3)); await p.waitForTimeout(520); }
+  p.mark("划完");
   await p.waitForTimeout(900);
 });
 
@@ -146,15 +172,21 @@ await shot("quote", "/video", async (p) => {
   const sum = p.locator("summary", { hasText: "查到出处" }).first();
   await sum.scrollIntoViewIfNeeded();
   await p.waitForTimeout(1100);
+  p.mark("点开之前");
   await p.clickAt(sum, 2800);
+  p.mark("原文展开");
   await p.mouse.wheel(0, 240); await p.waitForTimeout(2400);
+  p.mark("原文滚过一屏");
 });
 
 /* ③ 自述与实测：两栏对照。**「说的 vs 撞到的」是这个站独有的东西。** */
 await shot("claims", "/claims", async (p) => {
   await p.waitForTimeout(1800);
+  p.mark("首屏");
   await p.mouse.wheel(0, 340); await p.waitForTimeout(2600);
+  p.mark("第一组对照");
   await p.mouse.wheel(0, 320); await p.waitForTimeout(2600);
+  p.mark("第二组对照");
 });
 
 /* ④ 专项：项目卡一张张。**证明这站不止一张表。** */
@@ -162,13 +194,20 @@ await shot("topic", "/topic/game", async (p) => {
   await p.waitForTimeout(1500);
   const tabs = p.locator('[role="tab"]');
   await p.clickAt(tabs.nth(1), 1600);
+  p.mark("换到第二类");
   await p.mouse.wheel(0, 300); await p.waitForTimeout(2000);
+  p.mark("项目卡");
   await p.clickAt(tabs.nth(2), 1800);
+  p.mark("换到第三类");
   await p.waitForTimeout(1400);
 });
 
 await br.close(); srv.close();
 rmSync(RAW, { recursive: true, force: true });
+writeFileSync(join(OUT, "marks.json"), JSON.stringify(MARKS, null, 1));
+console.log(`\n时间标记 → ${OUT}/marks.json`);
+for (const [k, v] of Object.entries(MARKS))
+  console.log(`  ${k.padEnd(8)} ${Object.entries(v).map(([n, t]) => `${n} ${t}s`).join(" · ")}`);
 console.log(`\n录完 → ${OUT}/`);
 for (const f of readdirSync(OUT).filter((x) => x.endsWith(".mp4"))) {
   const d = execFileSync("ffprobe", ["-v", "error", "-show_entries", "format=duration",

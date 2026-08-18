@@ -90,16 +90,24 @@ function Chip({ cls = "border-rule text-muted", children }: { cls?: string; chil
 function ProjectCard({ p, topic }: { p: TopicProject; topic: string }) {
   const stale = (p.stale_months ?? 0) >= 12;
   return (
-    /* `scroll-mt` 是给跳转条留的：不留这一截，锚点落位会被顶栏盖住半张卡。 */
+    /*
+     * `scroll-mt` 是给跳转条留的：不留这一截，锚点落位会被顶栏盖住半张卡。
+     *
+     * **停更超一年的整卡降一档**：底色压暗一点、内容稍微退后。
+     * 不是隐藏 —— 它还得读得清（ControlNet 那种量级的东西不能藏），
+     * 只是扫过去时不该和在维护的项目一样跳出来。
+     */
     <article id={`c-${p.id}`} data-count-item
-      className="border border-rule rounded-xl px-4 py-4 sm:px-5 sm:py-5 scroll-mt-28">
+      className={`border rounded-xl px-4 py-4 sm:px-5 sm:py-5 scroll-mt-28 ${
+        stale ? "border-rule/60 bg-card/40" : "border-rule"
+      }`}>
       <div className="flex items-baseline gap-2.5 flex-wrap mb-2">
         <h3 className="text-[17px] tracking-tight">
           <Link href={topicProjectHref(topic, p.id)} className="hover:text-yes-ink">{p.zh}</Link>
         </h3>
         <Chip cls={LIC[p.license_class].cls}>{p.license}　{LIC[p.license_class].zh}</Chip>
         <Chip cls={stale ? "border-no text-no" : "border-yes text-yes-ink"}>
-          {stale ? `停更 ${p.stale_months} 个月` : "在维护"}
+          {stale ? `停更 ${p.stale_months} 个月 · 存量` : "在维护"}
         </Chip>
         <Chip>{stars(p)}</Chip>
         {p.engine && <Chip cls="border-chip-warm-ink text-chip-warm-ink">{ENGINE[p.engine]}</Chip>}
@@ -342,8 +350,24 @@ export default function TopicView({ t }: { t: Topic }) {
     history.replaceState(null, "", `#g-${id}`);
   };
 
+  /**
+   * **停更超一年的沉到本节最后。**
+   *
+   * 负责人 2026-08-18：「这个要降级」。理由很直接 ——
+   * 一个 34068 星、停更 30 个月的项目（ControlNet）排在第一位，
+   * 读者会把它当成现在该用的东西。**星数是存量，停更才是现状。**
+   *
+   * 但不删：这类项目有历史地位，而且很多现存工作流还挂在它们上面。
+   * 所以是**降级不是移除** —— 沉到底、卡片降一档，一眼看出它是存量。
+   *
+   * ⚠️ 组内保持原有相对顺序（`stable sort`），别顺手把人工排的次序打乱。
+   */
+  const STALE = 12;
   const of = (g: string, sub?: string) =>
-    t.projects.filter((p) => p.group === g && (sub === undefined || p.sub === sub));
+    t.projects
+      .filter((p) => p.group === g && (sub === undefined || p.sub === sub))
+      .slice()
+      .sort((a, b) => Number((a.stale_months ?? 0) >= STALE) - Number((b.stale_months ?? 0) >= STALE));
   /** 这个 tab 里有没有小节。有就分节渲染，没有就平铺。 */
   const subsOf = (g: string) =>
     (t.subgroups ?? []).filter((sg) => t.projects.some((p) => p.group === g && p.sub === sg.id));

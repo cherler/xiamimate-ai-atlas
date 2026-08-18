@@ -69,16 +69,38 @@ const VOLENS = existsSync("assets/film-audio/vo-lens.json")
 /** 镜与镜之间留的呼吸。**不是 0** —— 一句压着一句听起来像机器念稿。 */
 const GAP = 0.28;
 
+/**
+ * **镜头起点由录屏那一侧的标记决定，不写死秒数。**
+ *
+ * 上一版这里是九个写死的 `ss: 2.6 / 4.2 / 6.6 …`。
+ * 站一改版、录屏内容位移，这些偏移就指向别的画面 ——
+ * 而片子照样能播、照样有字幕，只是画面对不上旁白。
+ * 典型的「坏了不报错」，2026-08-18 评审时点出来的。
+ *
+ * 现在 `at` 引 `marks.json` 里的名字（谁最清楚「表滚到位是第几秒」？录它的人）。
+ * `+n` 是在那个标记之后再等 n 秒 —— 让动作落定再开切。
+ */
+const MARKS = JSON.parse(readFileSync(`${SHOT}/marks.json`, "utf8"));
+const at = (src, name, plus = 0) => {
+  const t = MARKS[src]?.[name];
+  if (t == null) {
+    console.error(`❌ ${src} 里没有标记「${name}」—— 录屏那边改了名字或删了这一步，` +
+      `先去 film-capture.mjs 对一下。**不猜一个秒数顶上**，那正是这次要修掉的毛病。`);
+    process.exit(1);
+  }
+  return Number((t + plus).toFixed(2));
+};
+
 const CUTS = [
-  { src: "table",  ss: 2.6, dur: 1.6, cap: { k: "hook", t: "别再问「哪个 AI 最强」" } },
-  { src: "table",  ss: 4.2, dur: 2.2, cap: { k: "line", t: "要问的是：**它能不能做我要做的这件事**" } },
-  { src: "table",  ss: 6.6, dur: 2.2, cap: { k: "line", t: `虾米看AI · ${N.cells} 格，一格一个答案` } },
-  { src: "quote",  ss: 3.4, dur: 2.6, cap: { k: "line", t: "每一格，点得开**官方原文**" } },
-  { src: "quote",  ss: 6.2, dur: 2.4, cap: { k: "big",  t: `${N.yes} 格说「能」`, s: `${N.yesSrc} 格都带得出出处` } },
-  { src: "claims", ss: 2.2, dur: 2.4, cap: { k: "line", t: "而官方说了，**也未必是实情**" } },
-  { src: "claims", ss: 5.0, dur: 2.6, cap: { k: "two",  t: "README 说支持打断", s: "issue 说最快 3 秒" } },
-  { src: "topic",  ss: 3.0, dur: 2.2, cap: { k: "line", t: `${N.projects} 个开源项目，**拆到 issue 那一层**` } },
-  { src: "table",  ss: 1.0, dur: 2.8, cap: { k: "end",  t: "不替你下判断。**把每一格的出处摆出来。**", s: "xiamimate.com/atlas" } },
+  { src: "table",  ss: at("table", "表到位", 0.2),   dur: 1.6, cap: { k: "hook", t: "别再问「哪个 AI 最强」" } },
+  { src: "table",  ss: at("table", "开始划格", 0.3), dur: 2.2, cap: { k: "line", t: "要问的是：**它能不能做我要做的这件事**" } },
+  { src: "table",  ss: at("table", "划完", -1.2),    dur: 2.2, cap: { k: "line", t: `虾米看AI · ${N.cells} 格，一格一个答案` } },
+  { src: "quote",  ss: at("quote", "原文展开", 0.3), dur: 2.6, cap: { k: "line", t: "每一格，点得开**官方原文**" } },
+  { src: "quote",  ss: at("quote", "原文滚过一屏", -1.0), dur: 2.4, cap: { k: "big", t: `${N.yes} 格说「能」`, s: `${N.yesSrc} 格都带得出出处` } },
+  { src: "claims", ss: at("claims", "首屏", 0.2),    dur: 2.4, cap: { k: "line", t: "而官方说了，**也未必是实情**" } },
+  { src: "claims", ss: at("claims", "第一组对照", 0.2), dur: 2.6, cap: { k: "two", t: "README 说支持打断", s: "issue 说最快 3 秒" } },
+  { src: "topic",  ss: at("topic", "项目卡", 0.2),   dur: 2.2, cap: { k: "line", t: `${N.projects} 个开源项目，**拆到 issue 那一层**` } },
+  { src: "table",  ss: at("table", "表到位", 0.6),   dur: 2.8, cap: { k: "end", t: "不替你下判断。**把每一格的出处摆出来。**", s: "xiamimate.com/atlas" } },
 ];
 
 /** 有旁白就按旁白排轴：镜长 = 旁白时长 + 呼吸，且不短于「读得完」那个下限。 */

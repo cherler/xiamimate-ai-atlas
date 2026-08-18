@@ -176,6 +176,41 @@ for (const t of topics) {
 }
 
 /**
+ * **停更超一年的项目必须沉在本节最后。**
+ *
+ * 负责人 2026-08-18：「这个要降级」。一个 34068 星、停更 30 个月的项目
+ * （ControlNet）排在第一位，读者会把它当成现在该用的东西 ——
+ * **星数是存量，停更才是现状。**
+ *
+ * 这条只能在浏览器里量：排序坏了页面照样正常，卡还在、内容还对，
+ * 只是次序变回去了 —— **静默回退，没人会来报错。**
+ */
+console.log("\n── 停更的沉底 ──");
+for (const t of topics) {
+  const p = await br.newPage({ viewport: { width: 1280, height: 900 } });
+  await p.goto(`${ORIGIN}${BASE}/topic/${t.id}`, { waitUntil: "networkidle" });
+  const groups = (t.groups ?? []).filter((g) => !g.kind || g.kind === "projects");
+  for (const g of groups) {
+    const stale = new Set((t.projects ?? [])
+      .filter((x) => x.group === g.id && (x.stale_months ?? 0) >= 12).map((x) => x.id));
+    if (!stale.size) continue;
+    /** 按小节分别检查 —— 分节渲染时「最后」是每一节的最后，不是整个 tab 的。 */
+    const subs = [...new Set((t.projects ?? []).filter((x) => x.group === g.id).map((x) => x.sub ?? ""))];
+    let bad2 = 0;
+    for (const sub of subs) {
+      const ids = (await p.$$eval(`#s-${sub || "x"} article[id^="c-"], [role="tabpanel"] article[id^="c-"]`,
+        (els) => els.map((e) => e.id.slice(2))))
+        .filter((id) => (t.projects ?? []).some((x) => x.id === id && x.group === g.id && (x.sub ?? "") === sub));
+      const idx = ids.map((id) => stale.has(id));
+      /** 一旦出现「停更的后面还跟着在维护的」，就是没沉底。 */
+      if (idx.some((v, i) => v && idx.slice(i + 1).some((w) => !w))) bad2++;
+    }
+    ok(bad2 === 0, `${t.zh} › ${g.zh}：${stale.size} 个停更的都沉在各自小节最后`);
+  }
+  await p.close();
+}
+
+/**
  * **记过对照的项目，项目页上必须看得见。**
  *
  * 2026-08-17 体检查出来：`conflicts` 只被 `/claims` 页消费，
