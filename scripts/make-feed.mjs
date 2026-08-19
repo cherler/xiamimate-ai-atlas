@@ -28,28 +28,50 @@ const ch = JSON.parse(readFileSync(join(ROOT, "data/changes.json"), "utf8"));
 const SITE = "https://xiamimate.com/atlas";
 
 const esc = (s) => String(s ?? "").replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" })[c]);
+/**
+ * 站上的正文用 `**` 标重点（`components/Fact.tsx` 的 `Rich` 认它）。
+ * **RSS 这一路一直没认** —— 阅读器里出来的是一串裸星号，41 条全是这样。
+ * 转成 `<b>` 必须在转义之后：先转义会把尖括号变成实体，再替换就替换不到了。
+ */
+const rich = (s) => esc(s).replace(/\*\*(.+?)\*\*/g, "<b>$1</b>");
 const rfc = (d) => new Date(`${d}T08:00:00+08:00`).toUTCString();
 
+/**
+ * **快讯排在最前，而且不新开一个 feed。**
+ *
+ * 这支脚本开头那条立场原样成立：「一个源，用分类区分」——
+ * 给快讯单出一份 `alerts.xml` 是第二个要同步的东西，
+ * 而它解决的问题一个 `<category>快讯</category>` 就够了，阅读器自己能过滤。
+ *
+ * 排序上给它插队：同一天的普通变更和快讯混在一起，快讯就白标了。
+ * 过期的快讯不再插队 —— 它就是一条普通历史记录了。
+ */
+const TODAY = new Date().toISOString().slice(0, 10);
+/** 这一层叫什么写在数据里（`changes.json` 的 `$alert_label`）—— 四个出口共用一个名字。 */
+const LABEL = ch.$alert_label ?? "快讯";
+const hot = (e) => Boolean(e.alert && String(e.alert.until) >= TODAY);
+
 const items = [...ch.events]
-  .sort((x, y) => y.date.localeCompare(x.date))
+  .sort((x, y) => (hot(y) - hot(x)) || y.date.localeCompare(x.date))
   .slice(0, 50)
   .map((e) => {
     const src = e.src ? a.sources[e.src] : null;
     // Change + So What 三段都进摘要 —— **只有 after 的那是新闻，不是变更事件**
     const body = [
+      hot(e) ? `<p><b>${esc(LABEL)}</b>（挂到 ${esc(e.alert.until)}）：${esc(e.alert.headline)}</p>` : "",
       `<p><b>${esc(e.subject)}</b> · ${esc(e.kind)}${e.side === "ours" ? "（这一条是我们记错了）" : ""}</p>`,
-      `<p>此前：${esc(e.before)}</p>`,
-      `<p>现在：${esc(e.after)}</p>`,
-      `<p><b>为什么重要：</b>${esc(e.why)}</p>`,
+      `<p>此前：${rich(e.before)}</p>`,
+      `<p>现在：${rich(e.after)}</p>`,
+      `<p><b>为什么重要：</b>${rich(e.why)}</p>`,
       e.impact?.length ? `<p>影响：${e.impact.map(esc).join("；")}</p>` : "",
       src ? `<p>来源：<a href="${esc(src.url)}">${esc(src.name)}</a></p>` : "",
     ].join("");
     return `    <item>
-      <title>${esc(`${e.subject}：${e.after}`)}</title>
+      <title>${esc(hot(e) ? `【${LABEL}】${e.subject}：${e.after}` : `${e.subject}：${e.after}`)}</title>
       <link>${SITE}/changes#${esc(e.id)}</link>
       <guid isPermaLink="false">${esc(e.id)}</guid>
       <pubDate>${rfc(e.date)}</pubDate>
-${(e.models ?? []).map((m) => `      <category>${esc(m)}</category>`).join("\n")}
+${[...(hot(e) ? [LABEL] : []), ...(e.models ?? [])].map((m) => `      <category>${esc(m)}</category>`).join("\n")}
       <description>${esc(body)}</description>
     </item>`;
   });
@@ -69,4 +91,5 @@ ${items.join("\n")}
 `;
 mkdirSync(join(ROOT, "public"), { recursive: true });
 writeFileSync(join(ROOT, "public/changes.xml"), xml);
-console.log(`RSS 写好：public/changes.xml（${items.length} 条）`);
+const hots = ch.events.filter(hot).length;
+console.log(`RSS 写好：public/changes.xml（${items.length} 条${hots ? `，其中 ${hots} 条在架${LABEL}排在最前` : ""}）`);

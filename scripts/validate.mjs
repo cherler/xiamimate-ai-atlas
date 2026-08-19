@@ -1153,6 +1153,43 @@ for (const s of a.support) {
   perClass[cls][s.state] += 1;
 }
 
+/**
+ * ── 快讯（`alert`）────────────────────────────────────────────
+ *
+ * 快讯是**站上唯一会主动打断阅读的东西**，门槛得由机器守住，不能靠自觉。
+ * 下面几条都是「错了不会有任何物理症状」的那类：横幅照样渲染、RSS 照样生成，
+ * 只是内容站不住脚 —— 和违禁词一样，必须自动查。
+ *
+ * 用上面已经读好的 `CHANGES`，**不再单独读一遍 changes.json** ——
+ * 同一份数据在同一支脚本里读两遍，迟早两处用的不是同一份。
+ */
+{
+  const today = new Date().toISOString().slice(0, 10);
+  const hot = CHANGES.filter((e) => e.alert);
+  for (const e of hot) {
+    const at = `快讯 ${e.id ?? e.date}`;
+    if (!e.alert.headline) errs.push(`R92 ${at} 没有 headline —— 横幅上要显示的就是它`);
+    if (!e.alert.until) errs.push(`R93 ${at} 没有 until —— 不带下架日期的横幅会挂一年`);
+    /** 出处这条最要紧：横幅上没有出处，它就是一条广告，而这一站全部说服力都建立在出处上。 */
+    if (!e.src) errs.push(`R94 ${at} 没有 src —— 最显眼的位置更不能没有出处`);
+    if (!e.why) errs.push(`R96 ${at} 没有 why —— 只说发生了什么，那是厂商的 changelog`);
+    /**
+     * 挂多久由写的人定，但**不能无限期**。30 天是上限：
+     * 超过一个月还需要打断读者的事，说明它该进正文，不该当横幅。
+     */
+    const span = (Date.parse(e.alert.until) - Date.parse(e.date)) / 864e5;
+    if (Number.isFinite(span) && span > 30) errs.push(`R97 ${at} 挂 ${Math.round(span)} 天，超过 30 天上限 —— 挂这么久的事该写进正文`);
+    if (Number.isFinite(span) && span < 0) errs.push(`R98 ${at} 的 until 早于 date`);
+  }
+  /**
+   * **同时在架不超过 3 条。** 横幅一多就没人看了 —— 那时它比没有更糟，
+   * 因为读者会学会忽略页面顶部那一整块。
+   */
+  const live = hot.filter((e) => String(e.alert.until) >= today);
+  if (live.length > 3) errs.push(`R99 同时在架的快讯 ${live.length} 条，上限 3 条 —— 横幅一多就没人看了`);
+  if (hot.length) console.log(`快讯 ${hot.length} 条（在架 ${live.length}）`);
+}
+
 console.log(`Core 格子 ${by.yes + by.no + by.unknown}（库内共 ${a.support.length}） · ✅${by.yes} ❌${by.no} ⬜${by.unknown}（⬜ 占 ${Math.round((by.unknown / (by.yes + by.no + by.unknown)) * 100)}%）`);
 for (const [cls, t] of Object.entries(perClass))
   console.log(`  ${cls}：✅${t.yes} ❌${t.no} ⬜${t.unknown}`);

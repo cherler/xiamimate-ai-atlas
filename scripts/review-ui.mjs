@@ -19,7 +19,7 @@
  *   node scripts/review-ui.mjs      →  http://127.0.0.1:8230
  */
 import { createServer } from "node:http";
-import { spawn, execFile } from "node:child_process";
+import { spawn, execFile, execFileSync } from "node:child_process";
 import { readFileSync, existsSync } from "node:fs";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
@@ -67,6 +67,17 @@ const JOBS = {
   lineage: { zh: "重扫谱系候选", cmd: ["node", "scripts/hf-lineage.mjs", "--json"], hint: "一两分钟" },
   candidates: { zh: "重算收录候选", cmd: ["node", "scripts/candidates.mjs"], hint: "一两分钟" },
   validate: { zh: "跑一遍数据校验", cmd: ["node", "scripts/validate.mjs"], hint: "几秒" },
+  alert: {
+    zh: "重算快讯横幅", cmd: ["node", "scripts/alert.mjs"], hint: "几秒",
+    why: "按 `alert.until` 重新挑一遍在架的快讯，写 `data/alerts.json`。**过期的会自己下架** —— " +
+      "这一支不推送，只算横幅。",
+  },
+  "alert:push": {
+    zh: "把快讯推到飞书", cmd: ["node", "scripts/alert.mjs", "--push"],
+    writes: true, hint: "几秒",
+    why: "**这一支会往群里发消息，发出去收不回。** 只推没推过的（台账在 `data/alert-sent.json`），" +
+      "所以重复点不会重复发；但一条内容写错的快讯推出去就是错的。先在「重算快讯横幅」里看一眼文案。",
+  },
   "repos:write": {
     zh: "把仓库数字写回 atlas.json", cmd: ["node", "scripts/refresh-repos.mjs"],
     writes: true, hint: "一两分钟",
@@ -200,6 +211,7 @@ const PAGE = `<!doctype html><html lang="zh-CN"><head><meta charset="utf-8">
     <button id="tab-todo" class="pass">待办 <span id="td-n"></span></button>
     <button id="tab-inbox">收件箱 <span id="ib-n"></span></button>
     <button id="tab-rq">引文回查 <span id="rq-n"></span></button>
+    <button id="tab-git">改了什么 <span id="gt-n"></span></button>
   </div>
   <div id="pane-todo">
     <div id="td-body" class="empty">算待办中…</div>
@@ -214,6 +226,20 @@ const PAGE = `<!doctype html><html lang="zh-CN"><head><meta charset="utf-8">
     <div id="list"></div>
   </div>
   <div id="pane-rq" hidden></div>
+  <div id="pane-git" hidden>
+    <p class="hint">改动是台上这些活攒出来的。<b>勾上要提交的，写一句话，一次提交。</b>
+      逐个勾，<b>没有「全选」</b> —— 这一页的纪律是绝不提交不是自己改的东西，而全选按钮天生和它对着干。
+      <b>只提交，不推送</b>：上线是另一件事，不该藏在这个按钮后面。</p>
+    <div id="gt-body" class="empty">读取中…</div>
+    <div id="gt-form" hidden style="margin-top:14px">
+      <textarea id="gt-msg" rows="4" placeholder="这次改了什么、为什么" style="width:100%;font:inherit;padding:8px"></textarea>
+      <div style="margin-top:8px;display:flex;gap:8px;align-items:center">
+        <button id="gt-do" class="warn">提交勾中的 <span id="gt-k">0</span> 个</button>
+        <button id="gt-reload">重新读一遍</button>
+      </div>
+    </div>
+    <pre class="log" id="gt-out" hidden></pre>
+  </div>
 </main>
 <script>
 const $=s=>document.querySelector(s);
@@ -352,16 +378,63 @@ async function poll(id){
 }
 
 function show(name){
-  for(const k of ['todo','inbox','rq']){
+  for(const k of ['todo','inbox','rq','git']){
     $('#pane-'+k).hidden = k!==name;
     $('#tab-'+k).className = k===name?'pass':'';
   }
   if(name==='rq') loadRq();
   if(name==='todo') loadTodo();
+  if(name==='git') loadGit();
 }
 $('#tab-todo').onclick=()=>show('todo');
 $('#tab-inbox').onclick=()=>show('inbox');
 $('#tab-rq').onclick=()=>show('rq');
+$('#tab-git').onclick=()=>show('git');
+
+/* ── 改了什么 ─────────────────────────────────────────────────
+ * 审阅台原来没有提交的出口：台上的活都会改文件，而唯一会提交的是 tick.sh，
+ * 且它只提交自己那几份。于是点完一圈，工作区就一直脏着。
+ * 这一栏补的就是最后一步 —— 多选、一次提交、只提交、不推送。 */
+async function loadGit(){
+  const r=await fetch('/api/changed').then(x=>x.json()).catch(e=>({error:String(e)}));
+  const box=$('#gt-body');
+  if(r.error){ box.className=''; box.innerHTML='<p>读不到：'+esc(r.error)+'</p>'; return; }
+  $('#gt-n').textContent=r.files.length?r.files.length:'';
+  if(!r.files.length){ box.className='empty'; box.textContent='工作区是干净的，没有要提交的。'; $('#gt-form').hidden=true; return; }
+  box.className='';
+  box.innerHTML=r.files.map(function(f){
+    var num = f.untracked ? '新文件' : (f.add===null?'':('+'+f.add+' -'+f.del));
+    return '<label style="display:flex;gap:8px;align-items:baseline;padding:5px 0;border-bottom:1px solid #e6e1d8">'
+      +'<input type="checkbox" class="gt-c" data-p="'+esc(f.path)+'">'
+      +'<code style="flex:1">'+esc(f.path)+'</code>'
+      +'<span class="tag">'+esc(f.code)+'</span>'
+      +'<span style="min-width:92px;text-align:right;opacity:.65">'+esc(num)+'</span></label>';
+  }).join('');
+  $('#gt-form').hidden=false;
+  for(const c of document.querySelectorAll('.gt-c')) c.onchange=countGit;
+  countGit();
+}
+function countGit(){
+  var n=document.querySelectorAll('.gt-c:checked').length;
+  $('#gt-k').textContent=n;
+  $('#gt-do').disabled = n===0;
+}
+$('#gt-reload').onclick=loadGit;
+$('#gt-do').onclick=async function(){
+  var files=Array.from(document.querySelectorAll('.gt-c:checked')).map(function(c){return c.dataset.p});
+  var msg=$('#gt-msg').value.trim();
+  if(!files.length) return;
+  if(!msg){ alert('要写提交信息'); return; }
+  if(!confirm('提交这 '+files.length+' 个文件？' + String.fromCharCode(10,10) + files.join(String.fromCharCode(10)))) return;
+  $('#gt-do').disabled=true;
+  const r=await fetch('/api/commit',{method:'POST',headers:{'content-type':'application/json'},
+    body:JSON.stringify({files:files,message:msg})}).then(x=>x.json()).catch(e=>({error:String(e)}));
+  const out=$('#gt-out'); out.hidden=false;
+  out.textContent = r.error ? ('提交失败：' + String.fromCharCode(10) + r.error)
+    : ('已提交 '+r.n+' 个文件' + String.fromCharCode(10) + r.head + String.fromCharCode(10,10) + (r.out||''));
+  if(!r.error){ $('#gt-msg').value=''; loadGit(); }
+  $('#gt-do').disabled=false;
+};
 
 async function load(){
   const r=await fetch('/api/queue').then(r=>r.json());
@@ -546,6 +619,76 @@ createServer(async (req, res) => {
         return json(res, 400, { error: "否决必须写理由" });
       return json(res, 200, decide({ id, verdict, why: why ?? "", who: who ?? "local" }));
     } catch (e) { return json(res, 500, { error: String(e.message) }); }
+  }
+
+  /**
+   * 改了什么 —— **审阅台原来没有提交的出口。**
+   *
+   * 台上那些活（写回仓库数字、重算待办、重跑巡检）都会改文件，
+   * 而唯一会提交的是 `tick.sh` 里那两处，且**只提交它自己那几份**。
+   * 于是人在台上点了一圈之后，工作区就一直脏着 ——
+   * 2026-08-19 就是这样：`atlas.json`、`fresh.json`、`fresh-report.md` 三份挂了一天。
+   * 这不是用的人做错了，是这一页少了最后一步。
+   */
+  if (path === "/api/changed") {
+    try {
+      const raw = execFileSync("git", ["-c", "core.quotepath=false", "status", "--porcelain"],
+        { cwd: ROOT, encoding: "utf8" });
+      const files = raw.split("\n").filter(Boolean).map((line) => {
+        const code = line.slice(0, 2);
+        const f = line.slice(3);
+        /** 数字是给人做判断用的：改了三行还是三百行，决定要不要先看一眼 diff。 */
+        let add = null, del = null;
+        if (code !== "??") {
+          const st = execFileSync("git", ["diff", "HEAD", "--numstat", "--", f],
+            { cwd: ROOT, encoding: "utf8" }).trim().split("\t");
+          if (st.length >= 2) { add = Number(st[0]); del = Number(st[1]); }
+        }
+        return { path: f, code: code.trim() || "?", untracked: code === "??", add, del };
+      });
+      return json(res, 200, { files });
+    } catch (e) { return json(res, 500, { error: String(e.message) }); }
+  }
+
+  if (path === "/api/commit" && req.method === "POST") {
+    let raw = "";
+    for await (const c of req) raw += c;
+    try {
+      const { files, message } = JSON.parse(raw || "{}");
+      if (!Array.isArray(files) || !files.length) return json(res, 400, { error: "一个文件都没选" });
+      if (!String(message ?? "").trim()) return json(res, 400, { error: "要写提交信息" });
+      /**
+       * ⚠️ **只允许提交此刻真的有改动的路径。**
+       *
+       * 这支进程读写得到整个仓库。不校验的话，前端传什么就 `git add` 什么 ——
+       * 那等于开了一个「把任意路径加进暂存区」的口子，哪怕它只听 127.0.0.1。
+       * 校验的另一半好处：前端拿到列表之后有人在别处改了文件，这里会当场拦下来，
+       * 而不是把一份没人看过的改动一起提交上去。
+       */
+      const now = new Set(execFileSync("git", ["-c", "core.quotepath=false", "status", "--porcelain"],
+        { cwd: ROOT, encoding: "utf8" }).split("\n").filter(Boolean).map((l) => l.slice(3)));
+      const bad = files.filter((f) => !now.has(f));
+      if (bad.length) return json(res, 409, { error: `这几个现在没有改动（列表旧了，刷新一下）：${bad.join("、")}` });
+
+      /**
+       * **逐路径 `git add`，永远不用 `-A`。**
+       * 「绝不提交不是我改的代码」这条纪律，只有在这里落成代码才算数。
+       */
+      execFileSync("git", ["add", "--", ...files], { cwd: ROOT });
+      /**
+       * **不覆盖 author。** `tick.sh` 里那两处署的是 `atlas-watch[bot]`，
+       * 为的就是在 `git log` 里和人工提交一眼分得开 —— 人在台上点的这一次是人工提交，
+       * 署名就该是仓库默认的那个人。
+       */
+      const out = execFileSync("git", ["commit", "-m", String(message).trim()],
+        { cwd: ROOT, encoding: "utf8" });
+      const head = execFileSync("git", ["log", "-1", "--pretty=%h %s"], { cwd: ROOT, encoding: "utf8" }).trim();
+      /** **不 push。** 上线是另一件事，不该藏在「提交」这个按钮后面。 */
+      return json(res, 200, { ok: true, head, out: out.slice(-1500), n: files.length });
+    } catch (e) {
+      const msg = `${e.stdout ?? ""}${e.stderr ?? ""}` || String(e.message);
+      return json(res, 500, { error: msg.slice(-1500) });
+    }
   }
 
   json(res, 404, { error: "没有这个接口" });

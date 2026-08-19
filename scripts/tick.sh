@@ -99,10 +99,20 @@ node scripts/requote.mjs --report >> "$LOG" 2>&1 || echo "   requote.mjs 失败�
 # 要邮件/微信是另一件事，得先定渠道 —— 那是花钱和对外的决定。
 node scripts/todo.mjs --notify >> "$LOG" 2>&1 || echo "   todo.mjs 失败，见上方" >> "$LOG"
 
+# ── 突发：等不到周报的那几条，当天送出去。
+#
+# 待办报的是**我们自己要干的活**，突发报的是**世界变了、而且读者今天就该知道**。
+# 两件事，两条线：待办进飞书给自己看，突发同时上站内横幅、RSS，并推一条飞书。
+#
+# 它**只读 changes.json**，不碰 atlas.json —— 和 watch / fresh 同一条纪律。
+# 挂多久由 `breaking.until` 带着，**过期自己下架，不需要人记得撤**。
+# 推过的记在 data/alert-sent.json，不会天天重推。
+node scripts/alert.mjs --push >> "$LOG" 2>&1 || echo "   alert.mjs 失败，见上方" >> "$LOG"
+
 # 待办表变了就提交 —— 它和快照一样是「这一天的事实」，要能回溯。
 # 保鲜巡检的两份也一起：「那天上游 README 改了什么」以后要查得回来。
-if [ -n "$(git status --porcelain data/TODO.md data/requote-report.md data/fresh-report.md data/fresh.json)" ]; then
-  git add data/TODO.md data/requote-report.md data/fresh-report.md data/fresh.json
+if [ -n "$(git status --porcelain data/TODO.md data/requote-report.md data/fresh-report.md data/fresh.json data/alerts.json data/alert-sent.json)" ]; then
+  git add data/TODO.md data/requote-report.md data/fresh-report.md data/fresh.json data/alerts.json data/alert-sent.json
   git -c user.name='atlas-watch[bot]' -c user.email='atlas-watch@xiamimate.local' \
       commit -q -m "watch: ${STAMP} 待办表更新" && echo "   待办表已提交" >> "$LOG"
 fi

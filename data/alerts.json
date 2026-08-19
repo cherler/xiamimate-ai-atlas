@@ -1,0 +1,19 @@
+{
+ "at": "2026-08-19",
+ "label": "快讯",
+ "items": [
+  {
+   "id": "clay-previz-2026-08-17",
+   "date": "2026-08-17",
+   "until": "2026-09-16",
+   "headline": "白模预演成了新的控制轴：排完再生成，不再抽卡",
+   "why": "**这是一条新的控制轴，不是运镜控制的加强版。** 运镜控制给的是参数（推 / 拉 / 摇 / 移），白模给的是一整段空间信号 —— 多人的相对位置、朝向、动作先后、切在第几拍，一次全给。它把「抽卡」换成「排完再生成」，而抽卡正是多人复杂场景一直做不出来的原因。**限度也要记住**：白模只锁空间调度，出拳打法、防守姿态这类细动作仍归视频模型管。",
+   "domain": "video",
+   "src": {
+    "name": "ByteDance Seed 官方博客 · Seedance 2.5（2026-07-31）",
+    "url": "https://seed.bytedance.com/en/blog/one-take-creation-flexible-referencing-introducing-seedance-2-5",
+    "tier": "official"
+   }
+  }
+ ]
+}

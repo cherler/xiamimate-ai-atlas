@@ -12,6 +12,7 @@ import { GeistSans } from "geist/font/sans";
 import { BRAND } from "@/lib/brand";
 import "./globals.css";
 import Nav from "@/components/Nav";
+import Flash from "@/components/Flash";
 import { ChromeFooter, ChromeHeader } from "@/components/PlatformChrome";
 import NextSteps from "@/components/NextSteps";
 import AnchorHistory from "@/components/AnchorHistory";
@@ -95,6 +96,15 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <ChromeHeader />
         {/* Nav 和 NextSteps 挂在 layout 上 —— **每一页都有，否则总有页面是死路**。 */}
         <Nav />
+        {/**
+          * 突发横幅：**站上唯一一个会主动打断阅读的东西**，所以挂在 Nav 之下、内容之上，
+          * 每一页都有。没有在架的突发时它整个不渲染（`alerts.items` 为空 → 返回 null），
+          * 所以平时它一个像素都不占。
+          *
+          * 位置是有讲究的：放在 Nav **上面**会把站名挤下去，读者第一眼看到的是一条通知
+          * 而不是「这是哪儿」；放进各页正文里则要每页各挂一次，早晚漏。
+          */}
+        <Flash />
         {/* 页内锚点不进历史 —— 否则「← 返回」退的是上一次目录跳转，不是上一个页面 */}
         <AnchorHistory />
         <div className="flex-1">
