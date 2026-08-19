@@ -245,3 +245,12 @@ html .topbar.xm-embedded-chrome { z-index: 40; }
  * 所以那块补丁删了。**留着比没有更糟**：它会和真源那份打架，
  * 而且下一个人会以为「页眉深色是 atlas 特有的」。
  */
+
+/**
+ * 快讯条的两种形态**都渲染进 HTML**，由 <html> 上的类决定显示哪个。
+ * 走 JS 切换 display 会在首屏闪一下（静态导出的 HTML 里横幅是展开的）——
+ * 而这一条就挂在页面最顶上，闪起来最显眼。见 components/Flash.tsx 文件头。
+ */
+.fl-min { display: none; }
+html.flash-closed .fl-full { display: none; }
+html.flash-closed .fl-min { display: flex; }

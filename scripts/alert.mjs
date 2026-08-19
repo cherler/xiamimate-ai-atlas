@@ -36,6 +36,8 @@
  */
 import { readFileSync, writeFileSync, existsSync } from "node:fs";
 import { dirname, join } from "node:path";
+/** 挂多久的口径**只有一份**，validate 也读它 —— 见 scripts/lib/alert-window.mjs 文件头。 */
+import { untilOf, isLive } from "./lib/alert-window.mjs";
 import { fileURLToPath } from "node:url";
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), "..");
@@ -63,18 +65,12 @@ const changes = JSON.parse(readFileSync(join(ROOT, "data/changes.json"), "utf8")
 const LABEL = changes.$alert_label ?? "快讯";
 const atlas = JSON.parse(readFileSync(join(ROOT, "data/atlas.json"), "utf8"));
 
-/**
- * 挑：带 `alert`、且**还没过期**的。
- *
- * 判据用 `until` 而不是「几天之内」：一条停服公告值得挂两周，
- * 一条版本更迭挂三天就够了 —— 挂多久是**写这条的人**的判断，不该由脚本一刀切。
- */
 const live = changes.events
-  .filter((e) => e.alert && String(e.alert.until) >= TODAY)
+  .filter((e) => isLive(e, TODAY))
   .sort((a, b) => String(b.date).localeCompare(String(a.date)));
 
 /** 过期的也数出来 —— 「今天下架了一条」是要能看见的，静静消失等于没有台账。 */
-const expired = changes.events.filter((e) => e.alert && String(e.alert.until) < TODAY);
+const expired = changes.events.filter((e) => e.alert && !isLive(e, TODAY));
 
 /**
  * 给前端的那一份。**字段是抄出来的，不是引用** ——
@@ -89,7 +85,7 @@ const alerts = {
     return {
       id: e.id,
       date: e.date,
-      until: e.alert.until,
+      until: untilOf(e),
       headline: e.alert.headline,
       why: e.why,
       domain: e.domain ?? null,
@@ -102,8 +98,8 @@ const alerts = {
 if (!DRY) writeFileSync(join(ROOT, "data/alerts.json"), `${JSON.stringify(alerts, null, 1)}\n`);
 
 console.log(`${LABEL}：在架 ${live.length} 条${expired.length ? `，已下架 ${expired.length} 条` : ""}`);
-for (const e of live) console.log(`  · ${e.date} → ${e.alert.until}　${e.alert.headline}`);
-for (const e of expired) console.log(`  （已下架）${e.date} → ${e.alert.until}　${e.alert.headline}`);
+for (const e of live) console.log(`  · ${e.date} → ${untilOf(e)}　${e.alert.headline}`);
+for (const e of expired) console.log(`  （已下架）${e.date} → ${untilOf(e)}　${e.alert.headline}`);
 
 /* ── 飞书：只推没推过的 ─────────────────────────────────────────── */
 /**
@@ -135,7 +131,7 @@ if (!todo.length) {
       `为什么重要：${strip(e.why)}`,
       src ? `出处：${src.name}　${src.url}` : "（这条没有出处 —— 不该发出来，去 changes.json 补）",
       "",
-      `站上：https://xiamimate.com/atlas/changes　挂到 ${e.alert.until}`,
+      `站上：https://xiamimate.com/atlas/changes　挂到 ${untilOf(e)}`,
     ];
     const res = await fetch(HOOK, {
       method: "POST",

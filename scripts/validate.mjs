@@ -12,6 +12,8 @@
  *          填 `sibling` 明说是哪一支，R9c/d/e 接手，前台把型号名印出来。
  */
 import { readFileSync, existsSync } from "node:fs";
+/** 快讯挂多久的口径和 alert.mjs 共用一份 —— 各算各的会得出不同的条数。 */
+import { untilOf, isLive, CYCLE_DAYS } from "./lib/alert-window.mjs";
 
 const a = JSON.parse(readFileSync(new URL("../data/atlas.json", import.meta.url), "utf8"));
 const watchRegistry = JSON.parse(readFileSync(new URL("../data/sources.json", import.meta.url), "utf8"));
@@ -1169,23 +1171,25 @@ for (const s of a.support) {
   for (const e of hot) {
     const at = `快讯 ${e.id ?? e.date}`;
     if (!e.alert.headline) errs.push(`R92 ${at} 没有 headline —— 横幅上要显示的就是它`);
-    if (!e.alert.until) errs.push(`R93 ${at} 没有 until —— 不带下架日期的横幅会挂一年`);
+    /** `until` 现在可以不写：不写就是 date + 7 天（alert.mjs 的 CYCLE_DAYS）。 */
     /** 出处这条最要紧：横幅上没有出处，它就是一条广告，而这一站全部说服力都建立在出处上。 */
     if (!e.src) errs.push(`R94 ${at} 没有 src —— 最显眼的位置更不能没有出处`);
     if (!e.why) errs.push(`R96 ${at} 没有 why —— 只说发生了什么，那是厂商的 changelog`);
     /**
-     * 挂多久由写的人定，但**不能无限期**。30 天是上限：
-     * 超过一个月还需要打断读者的事，说明它该进正文，不该当横幅。
+     * 挂多久可以由写的人定，但**上限是一期（7 天）**。
+     * 原来是 30 天，负责人 08-19 判太久：挂满一个月的快讯第二周起就是背景板，
+     * 而横幅一旦被学会忽略，下一条真要紧的也一起没人看。
      */
-    const span = (Date.parse(e.alert.until) - Date.parse(e.date)) / 864e5;
-    if (Number.isFinite(span) && span > 30) errs.push(`R97 ${at} 挂 ${Math.round(span)} 天，超过 30 天上限 —— 挂这么久的事该写进正文`);
-    if (Number.isFinite(span) && span < 0) errs.push(`R98 ${at} 的 until 早于 date`);
+    const span = (Date.parse(untilOf(e)) - Date.parse(e.date)) / 864e5;
+    if (Number.isFinite(span) && span > CYCLE_DAYS)
+      errs.push(`R97 ${at} 挂 ${Math.round(span)} 天，超过一期（${CYCLE_DAYS} 天）—— 挂这么久的事该写进正文，不该当横幅`);
+    if (e.alert.until && Number.isFinite(span) && span < 0) errs.push(`R98 ${at} 的 until 早于 date`);
   }
   /**
    * **同时在架不超过 3 条。** 横幅一多就没人看了 —— 那时它比没有更糟，
    * 因为读者会学会忽略页面顶部那一整块。
    */
-  const live = hot.filter((e) => String(e.alert.until) >= today);
+  const live = hot.filter((e) => isLive(e, today));
   if (live.length > 3) errs.push(`R99 同时在架的快讯 ${live.length} 条，上限 3 条 —— 横幅一多就没人看了`);
   if (hot.length) console.log(`快讯 ${hot.length} 条（在架 ${live.length}）`);
 }
