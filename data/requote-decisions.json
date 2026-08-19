@@ -137,6 +137,16 @@
       "src": "seed-blog",
       "at_label": "模型 seedream 版本",
       "kind": "本页没有·别处有"
+    },
+    {
+      "id": "replicate-hunyuan3d-31|模型 hunyuan3d 版本",
+      "at": "2026-08-19 02:21:54",
+      "who": "admin",
+      "action": "accept",
+      "why": "已阅",
+      "src": "replicate-hunyuan3d-31",
+      "at_label": "模型 hunyuan3d 版本",
+      "kind": "本页没有·别处有"
     }
   ]
 }
