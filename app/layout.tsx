@@ -54,7 +54,21 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="zh-CN" className={GeistSans.variable}>
+    /**
+      * `suppressHydrationWarning` 只作用在 <html> 这一个元素的属性上,不影响任何子节点。
+      *
+      * 这里有两段**必须在 hydrate 之前跑**的同步脚本:主题(给 <html> 加 data-theme)
+      * 与快讯收起状态(给 <html> 加 .flash-closed)。它们改的正是 React 也会对账的那些属性,
+      * 于是服务端 HTML 和客户端对不上,控制台报「A tree hydrated but some attributes …」。
+      *
+      * 这两段脚本都不能挪到 React 里 —— 挪进去就会先按默认样子画一帧再改,
+      * 「每翻一页闪一下白」「横幅先展开再收起」正是它们要躲的东西。
+      * 所以对账要放过 <html> 的属性,这也是 Next 官方对预加载主题脚本给的做法。
+      *
+      * (2026-08-19 使用者在 /atlas 报的:收起过快讯或选过主题之后每次刷新都报。
+      *  没设过任何一项时不报 —— 因为那时脚本什么都没加。)
+      */
+    <html lang="zh-CN" className={GeistSans.variable} suppressHydrationWarning>
       {/**
         * `min-h-screen` + 纵向 flex：**内容不够一屏时，把空白留在页脚之上**。
         *
