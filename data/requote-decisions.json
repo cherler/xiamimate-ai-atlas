@@ -177,6 +177,16 @@
       "src": "hf-hunyuan3d-21",
       "at_label": "发布 hy3d-2.1",
       "kind": "本页没有·别处有"
+    },
+    {
+      "id": "openai-model-realtime|发布 gptrt-2025-08",
+      "at": "2026-08-19 02:22:41",
+      "who": "admin",
+      "action": "accept",
+      "why": "已阅",
+      "src": "openai-model-realtime",
+      "at_label": "发布 gptrt-2025-08",
+      "kind": "本页没有·别处有"
     }
   ]
 }
