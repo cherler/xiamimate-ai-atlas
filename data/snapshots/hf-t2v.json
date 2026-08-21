@@ -1,8 +1,8 @@
 {
   "url": "https://huggingface.co/api/models?filter=text-to-video&sort=downloads&direction=-1&limit=60",
   "kind": "json",
-  "fetched_at": "2026-08-18",
-  "digest": "63e9458a3cfd5b05",
+  "fetched_at": "2026-08-21",
+  "digest": "6e617e46e91df1ff",
   "items": [
     "Abiray/LTX-2.3-22B-DISTILLED-1.1-GGUF\t",
     "Abiray/LTX-2.5-Distilled-GGUF\t",
@@ -34,7 +34,6 @@
     "Wan-AI/Wan2.1-T2V-14B-Diffusers\t",
     "Wan-AI/Wan2.2-T2V-A14B-Diffusers\t",
     "Wan-AI/Wan2.2-TI2V-5B-Diffusers\t",
-    "aidealab/AnimeGen-I2V\t",
     "ali-vilab/i2vgen-xl\t",
     "ali-vilab/text-to-video-ms-1.7b\t",
     "alibaba-pai/Wan2.2-Fun-Reward-LoRAs\t",
@@ -44,6 +43,7 @@
     "calcuis/wan2-gguf\t",
     "cerspense/zeroscope_v2_576w\t",
     "city96/Wan2.1-T2V-14B-gguf\t",
+    "comfyicu/LTX-2.5\t",
     "drbaph/MiniMax-H3-Turbo-Lora-ComfyUI\t",
     "fal/MiniMax-H3-Realism-People-LoRA\t",
     "ibyteohdear/Lightricks-LTX-2-DISTILLED-10-Eros\t",
@@ -54,6 +54,7 @@
     "magespace/Wan2.2-I2V-A14B-Lightning-Diffusers\t",
     "molbal/MiniMax-H3-GGUF\t",
     "neuregex/Bernini-R-GGUF\t",
+    "realrebelai/LTX-2.5_GGUFs\t",
     "rockerBOO/minimax-h3-nvfp4-convrot\t",
     "rzgar/minimax_h3_fl2va_fp8_e4m3fn\t",
     "unsloth/LTX-2.3-GGUF\t",
@@ -61,7 +62,6 @@
     "vantagewithai/LTX-2.3-GGUF\t",
     "vantagewithai/MiniMax-H3-comfyUI-GGUF\t",
     "vantagewithai/Sulphur-2-Base-GGUF\t",
-    "wangfuyun/AnimateLCM\t",
     "zai-org/CogVideoX-2b\t",
     "zai-org/CogVideoX-5b\t"
   ]

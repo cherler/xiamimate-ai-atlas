@@ -1,7 +1,7 @@
 {
   "url": "https://huggingface.co/api/models?author=Lightricks&sort=downloads&direction=-1&limit=40",
   "kind": "json",
-  "fetched_at": "2026-08-18",
+  "fetched_at": "2026-08-21",
   "digest": "8c7b304ce2df93e0",
   "items": [
     "Lightricks/LTX-2\t",
