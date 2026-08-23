@@ -1,9 +1,21 @@
 {
   "url": "http://export.arxiv.org/api/query?search_query=abs:%22world%20model%22+AND+abs:%22video%22&sortBy=submittedDate&sortOrder=descending&max_results=40",
   "kind": "atom",
-  "fetched_at": "2026-08-12",
-  "digest": "11b51590a0e7e7a9",
+  "fetched_at": "2026-08-23",
+  "digest": "88f5addb3fdadfbd",
   "items": [
+    "Partition the Support, Reconstruct the Residual: Training-Free Sparse Attention for Video Generation and World Models",
+    "Hydra-0: Action Flow for Generalist World Modeling and Control",
+    "CaliBench: Are the Stochastic Dynamics of Video World Models Physically Calibrated?",
+    "Beyond Visual CoT: Internalized Visual Thinking for Proactive Video Reasoning",
+    "SCOPE: Score-Isolated Agentic Optimization for Video World Models",
+    "Marionette: Predicting World States, Rendering Geometry, Painting Appearance",
+    "ForgeWM: Progressive Causal Training for Few-Step Action-Conditioned Video World Models",
+    "PlayWorld: Benchmarking World Models with Agent Players over Long-Horizon Objectives",
+    "DreamX-Phi 1.0: Action-Conditioned Video World Model for Robotic Manipulation",
+    "ContactGuard: Pre-Contact Execution Monitoring with Action-Conditioned Latent World Models",
+    "H2R-Bench: Benchmarking Human-to-Robot Manipulation Video Generation in World Models",
+    "BrainWAM: Action-Space Coordination of Semantic Priors and Predictive Dynamics for Autonomous Driving",
     "Surgical WAM: A World-Action Model for Data-Efficient Surgical Robot Learning",
     "R4DSG: Relative 4D Scene Graph Memory for Object-Centric Question Answering in Long Egocentric Video",
     "Stream Forcing: Constructing Unified Training Trajectory for Robust Streaming Video Generation",
@@ -31,18 +43,6 @@
     "JoyAI-RA 0.5: Scaling Robot Manipulation Learning via Dual Action Alignment",
     "HERA: Historical Evidence Routing Adapter for Physical Prediction in Latent World Models",
     "HelloWorld: Enabling Socially Interactive Characters in Video World Models",
-    "DreamWAM: Beyond RGB Future Prediction for World Action Models",
-    "WorldCycle: Self-Verifiable Reinforcement Learning for Long-Horizon Video World Models",
-    "Overcoming Statistical Bias in Action-Controllable World Models",
-    "muSync-GS: Physics-Synchronized Driving Video Synthesis for Weather and Geometric Road Hazards",
-    "UniNav: A Unified World-Action Diffusion Model for Visual Navigation",
-    "CrossScope: A Role-Asymmetric World Model for Joint Dual-Scope Surgical Video Prediction",
-    "EmbodiedVAE: Disentangled Video VAE for Efficient and Controllable Embodied Manipulation",
-    "RealWeather: Realistic and Scene-Faithful Weather Translation with Driving World Models",
-    "WorldExam: Benchmarking World Models from Apparent Appearance to Inherent Reactivity",
-    "DF$^3$: World Modeling via Decoder-Free Feature Forecasting in Autonomous Navigation",
-    "Faster-WAM: Do World Action Models Need Deep Action Modules?",
-    "PhyCheck: Fine-Grained Evidence-Grounded Dataset for Physical Law Understanding in Video-LLMs",
-    "EndoWAM: A Grounded World-Action Model for Generalizable Endoscopic Navigation"
+    "DreamWAM: Beyond RGB Future Prediction for World Action Models"
   ]
 }

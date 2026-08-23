@@ -1,6 +1,6 @@
-# 信息源监视报告 · 2026-08-22
+# 信息源监视报告 · 2026-08-23
 
-本次检查 9 个到期源（共 448 个）：变化 1 · 首次 0 · 无变化 2 · **抓不到 6**
+本次检查 6 个到期源（共 448 个）：变化 2 · 首次 0 · 无变化 0 · **抓不到 4**
 
 > 这份报告是给人看的那 20 条待办的来源（§59.3 的负反馈：人每周要看的条目 ≤ 20）。
 > 「抓不到」不是失败，是**信息本身** —— 一个长期抓不到的官方源，说明那家厂商没有可 diff 的公开更新入口，
@@ -12,12 +12,8 @@
 
 ## 抓不到（要处理）
 
-- **kling-site**（S/spa）Kling AI 官网 — 还是壳：渲染后正文只有 232 个字符
+- **kling-site**（S/spa）Kling AI 官网 — 还是壳：渲染后正文只有 235 个字符
   https://klingai.com/
-- **arxiv-video**（S/atom）arXiv · 视频生成新论文 — HTTP 429
-  http://export.arxiv.org/api/query?search_query=abs:%22video%20generation%22&sortBy=submittedDate&sortOrder=descending&max_results=40
-- **arxiv-worldmodel**（S/atom）arXiv · world model / 实时视频生成 — The operation was aborted due to timeout
-  http://export.arxiv.org/api/query?search_query=abs:%22world%20model%22+AND+abs:%22video%22&sortBy=submittedDate&sortOrder=descending&max_results=40
 - **aa-t2i**（A/spa）Artificial Analysis · 文生图竞技场 — 还是壳：渲染后正文只有 308 个字符
   https://artificialanalysis.ai/text-to-image/arena
 - **sora-eol-search**（B/html）OpenAI Sora 停服说明（⚠️ 页面反爬，我们抓不到，内容来自搜索摘要转述） — HTTP 403
@@ -27,7 +23,10 @@
 
 ## 有变化
 
-- **nvidia-groot-gh** NVIDIA/Isaac-GR00T 官方仓库
+- **arxiv-video** arXiv · 视频生成新论文
+  新增 30 条：VGI-BENCH: Probing Visual Intelligence in Video Generation Models、Stream4D: 4D-Consistency for Streaming Autoregressive Diffusion Video Models、CamWorldQA: Perceptual Quality Assessment of Camera-Controlled World Video Generation、VA-Judger: Reward Modeling from Human Preference Feedback for Joint Video-Audio Generation、Partition the Support, Reconstruct the Residual: Training-Free Sparse Attention for Video Generation and World Models、Hydra-0: Action Flow for Generalist World Modeling and Control、LinCa: Accelerating Diffusion Models via Learnable Decomposed Feature Caching、Magnitude-Direction Decoupling for Fast Video Generation with Flow Matching Models、SemComp-Bench: Benchmarking Semantic Task Completion in Video Generation、PersonaShot: Benchmarking Person-Centric Narrative Continuity in Multi-Shot Video Generation、SQuad: Sub-Quadratic Attention Distillation for Efficient Video Generation、MLLM-Guided Semantic Correction for Text-to-Video Generation …
+- **arxiv-worldmodel** arXiv · world model / 实时视频生成
+  新增 12 条：Partition the Support, Reconstruct the Residual: Training-Free Sparse Attention for Video Generation and World Models、Hydra-0: Action Flow for Generalist World Modeling and Control、CaliBench: Are the Stochastic Dynamics of Video World Models Physically Calibrated?、Beyond Visual CoT: Internalized Visual Thinking for Proactive Video Reasoning、SCOPE: Score-Isolated Agentic Optimization for Video World Models、Marionette: Predicting World States, Rendering Geometry, Painting Appearance、ForgeWM: Progressive Causal Training for Few-Step Action-Conditioned Video World Models、PlayWorld: Benchmarking World Models with Agent Players over Long-Horizon Objectives、DreamX-Phi 1.0: Action-Conditioned Video World Model for Robotic Manipulation、ContactGuard: Pre-Contact Execution Monitoring with Action-Conditioned Latent World Models、H2R-Bench: Benchmarking Human-to-Robot Manipulation Video Generation in World Models、BrainWAM: Action-Space Coordination of Semantic Priors and Predictive Dynamics for Autonomous Driving
 
 ## 全部
 
@@ -36,7 +35,7 @@
 | seed-blog | S | html | 未到期（上次 2026-08-19） |
 | seed-models | S | html | 未到期（上次 2026-08-12） |
 | kling-api-updates | S | spa | 未到期（上次 2026-08-19） |
-| kling-site | S | spa | 抓不到（还是壳：渲染后正文只有 232 个字符） |
+| kling-site | S | spa | 抓不到（还是壳：渲染后正文只有 235 个字符） |
 | google-video-docs | S | html | 未到期（上次 2026-08-19） |
 | deepmind-veo | S | html | 未到期（上次 2026-08-12） |
 | vertex-video-ref | S | html | 未到期（上次 2026-08-12） |
@@ -56,7 +55,7 @@
 | pika-site | S | html | 未到期（上次 2026-08-12） |
 | higgsfield-site | S | html | 未到期（上次 2026-08-12） |
 | decart-research | S | html | 未到期（上次 2026-08-12） |
-| arxiv-video | S | atom | 抓不到（HTTP 429） |
+| arxiv-video | S | atom | 变了 |
 | epoch-notable | A | csv | 未到期（上次 2026-08-19） |
 | aa-t2v | A | spa | 未到期（上次 2026-08-19） |
 | aa-i2v | A | spa | 未到期（上次 2026-08-19） |
@@ -76,7 +75,7 @@
 | google-models | S | html | 未到期（上次 2026-08-19） |
 | seed-models-hub | S | html | 未到期（上次 2026-08-19） |
 | apiyi-models | S | spa | 未到期（上次 2026-08-19） |
-| arxiv-worldmodel | S | atom | 抓不到（The operation was aborted due to timeout） |
+| arxiv-worldmodel | S | atom | 变了 |
 | techcrunch-ai | B | atom | 未到期（上次 2026-08-21） |
 | decart-blog | S | spa | 未到期（上次 2026-08-19） |
 | ltx-gh | S | json | 未到期（上次 2026-08-19） |
@@ -325,7 +324,7 @@
 | recraft-nl-edit | A | html | 未到期（上次 2026-08-13） |
 | hunyuan-image-hf | A | json | 未到期（上次 2026-08-13） |
 | bfl-flux2-overview | A | html | 未到期（上次 2026-08-13） |
-| bfl-flux2-multiref | A | html | 无变化 |
+| bfl-flux2-multiref | A | html | 未到期（上次 2026-08-22） |
 | ark-seedream-api | A | spa | 未到期（上次 2026-08-13） |
 | arxiv-fp8 | A | html | 未到期（上次 2026-08-13） |
 | arxiv-int8 | A | html | 未到期（上次 2026-08-13） |
@@ -422,8 +421,8 @@
 | gemini-robotics-er | S | html | 未到期（上次 2026-08-21） |
 | figure-helix | A | html | 未到期（上次 2026-08-14） |
 | pi-pi05-blog | A | html | 未到期（上次 2026-08-14） |
-| pi-openpi-gh | A | html | 无变化 |
-| nvidia-groot-gh | A | html | 变了 |
+| pi-openpi-gh | A | html | 未到期（上次 2026-08-22） |
+| nvidia-groot-gh | A | html | 未到期（上次 2026-08-22） |
 | openvla-gh | A | html | 未到期（上次 2026-08-15） |
 | openvla-repo | A | html | 未到期（上次 2026-08-15） |
 | hf-robotics | B | json | 未到期（上次 2026-08-21） |
