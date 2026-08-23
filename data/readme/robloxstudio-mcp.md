@@ -1,52 +1,51 @@
 # Roblox Studio MCP
 
-Connects MCP clients to Roblox Studio's edit context and live server/client
-VMs. Agents can modify places, run Luau inside active playtests with the same
-module state as game scripts, automate solo and multiplayer sessions, and
-collect per-peer logs, screenshots, and profiler data.
+Connect your coding agent directly to Roblox Studio. It can edit places, run Luau
+in live server and client contexts, start and stop playtests, and collect logs,
+screenshots, memory reports, and profiler captures from each peer.
 
 [![NPM Version](https://img.shields.io/npm/v/@chrrxs/robloxstudio-mcp)](https://www.npmjs.com/package/@chrrxs/robloxstudio-mcp)
 
-## Tool overview
+## What it can do
 
-**Runtime debugging**
+### Debug a running game
 
-- `eval_server_runtime` / `eval_client_runtime`: run Luau in a server or client game VM with the same `require` cache as game scripts.
-- `breakpoints`: instrument live code and record execution without pausing the playtest.
-- `get_runtime_logs`: capture logs per peer (`edit`, `server`, `client-N`), including boot-time output and structured `LogService` data.
+- Run Luau with `eval_server_runtime` or `eval_client_runtime`. Both tools execute in a live server or client context and use the same `require` cache as your game scripts.
+- Instrument live code with `breakpoints`. It records each hit without pausing the playtest.
+- Read output from edit mode, the server, or a specific client with `get_runtime_logs`, including messages logged during startup.
 
-**Playtest automation**
+### Automate playtests
 
-- `solo_playtest` / `multiplayer_playtest`: start, inspect, and stop solo or multi-client playtests.
-- `manage_instance`: launch, inspect, and close Studio windows for baseplates, local files, published places, or place revisions.
+- Start, inspect, and stop solo or multi-client sessions with `solo_playtest` and `multiplayer_playtest`.
+- Open or close Studio windows with `manage_instance`. It can launch a baseplate, a local place file, a published place, or an older place revision.
 
-**Profiling & performance**
+### Find performance problems
 
-- `capture_script_profiler` / `capture_micro_profiler`: capture CPU timings on the server or a client.
-- `get_memory_breakdown` / `get_scene_analysis`: report memory and scene attribution per peer.
+- Record server or client CPU timings with `capture_script_profiler` and `capture_micro_profiler`.
+- Break down memory use with `get_memory_breakdown` or attribute scene cost with `get_scene_analysis`.
 
-**Editing**
+### Work in edit mode
 
-- `execute_luau`: run Luau in Studio's edit context and return its output.
-- `mass_set_property`, `bulk_set_attributes`, `find_and_replace_in_scripts`: update properties, attributes, or script text in bulk.
-- `capture_screenshot` and input tools: capture the viewport and send mouse or keyboard input.
+- Run Luau in Studio's edit context with `execute_luau`.
+- Use `set_properties` for instance properties and `find_and_replace_in_scripts` for script text. For project-specific bulk edits, use `execute_luau`.
+- Capture the viewport with `capture_screenshot`, then send mouse or keyboard input.
 
-**Creator Store asset workflow**
+### Inspect Creator Store assets
 
-- `search_assets`: search public assets; use `get_asset_details` to retrieve full metadata.
-- `preview_asset`: inspect an unparented asset's hierarchy, media metadata, and security scan.
-- `insert_asset`: remove scripts and package links, verify the result, and parent it in Studio.
+- Find public assets with `search_assets`, then read the full catalog metadata with `get_asset_details`.
+- Check an asset's hierarchy, media metadata, and security scan with `preview_asset` before adding it to the place.
+- Add an asset with `insert_asset`. The tool removes scripts and package links, verifies the cleaned result, and then parents it in Studio.
 
-**Agent guidance**
+### Look up Roblox APIs
 
-- `get_roblox_docs`: fetch official engine API documentation as Markdown.
-- `get_roblox_skills`: list and retrieve Roblox-authored skills.
+- Fetch official engine API documentation as Markdown with `get_roblox_docs`.
+- List and retrieve Roblox-authored skills with `get_roblox_skills`.
 
-...and much more. [Review all tools here](packages/core/src/tools/definitions.ts).
+See the [complete tool list](packages/core/src/tools/definitions.ts).
 
 ## Setup
 
-1. Wire up your AI. `--auto-install-plugin` installs the matching Studio plugin automatically:
+1. Add the server to your MCP client. `--auto-install-plugin` also installs the matching Studio plugin:
 
 ```bash
 # Claude Code
@@ -59,9 +58,11 @@ codex mcp add robloxstudio -- npx -y @chrrxs/robloxstudio-mcp@latest --auto-inst
 gemini mcp add robloxstudio npx --trust -- -y @chrrxs/robloxstudio-mcp@latest --auto-install-plugin
 ```
 
-2. Fully close and reopen Studio after the plugin is first installed or updated. The plugin shows **Connected** when ready.
+2. After the plugin is installed or updated, fully close and reopen Studio. The plugin shows **Connected** when it is ready.
 
-Multiple open places connect to the same server; call `get_connected_instances` and pass `instance_id` to route tool calls. Custom Plugins folder: set `MCP_PLUGINS_DIR`. Manual plugin install: `npx -y @chrrxs/robloxstudio-mcp@latest --install-plugin`.
+Multiple open places can connect to the same server. Call `get_connected_instances`, then pass the returned place's `id` as `instance_id` with later tool calls.
+
+Set `MCP_PLUGINS_DIR` to use a custom Plugins folder. For a manual plugin install, run `npx -y @chrrxs/robloxstudio-mcp@latest --install-plugin`.
 
 <details>
 <summary>Other MCP clients (Claude Desktop, Cursor, etc.)</summary>
@@ -90,11 +91,11 @@ On Windows, wrap with `cmd /c` if `npx` doesn't resolve:
 ```
 </details>
 
-## Inspector edition (read-only)
+## Inspector edition (DataModel read-only)
 
 [![NPM Version](https://img.shields.io/npm/v/@chrrxs/robloxstudio-mcp-inspector)](https://www.npmjs.com/package/@chrrxs/robloxstudio-mcp-inspector)
 
-39 read-only tools: no writes, no script edits. Safe for browsing, code review, and debugging without risk of accidental changes. Install only one variant at a time (the installers remove the other automatically):
+24 Studio-safe inspection tools: no DataModel or script edits. Export and profiler tools can still write files only to explicit local paths. Install only one variant at a time (the installers remove the other automatically):
 
 ```bash
 claude mcp add robloxstudio-inspector -- npx -y @chrrxs/robloxstudio-mcp-inspector@latest --auto-install-plugin
@@ -106,11 +107,12 @@ claude mcp add robloxstudio-inspector -- npx -y @chrrxs/robloxstudio-mcp-inspect
 - [Creator Store asset workflow](docs/creator-store-assets.md)
 - [Report a security vulnerability](SECURITY.md)
 - [Building from source](docs/building-from-source.md)
-- [Deprecated tool names](docs/deprecated-api.md)
+- [3.0 tool removals and replacements](docs/deprecated-api.md)
+- [Token-efficiency contract and budget](docs/token-efficiency.md)
 
 ---
 
 <!-- VERSION_LINE -->
-**v2.23.1**
+**v3.0.0**
 
 [Report Issues](https://github.com/chrrxs/robloxstudio-mcp/issues) · MIT Licensed · Based on [boshyxd/robloxstudio-mcp](https://github.com/boshyxd/robloxstudio-mcp) v2.7.0

@@ -14,8 +14,8 @@
 </p>
 
 <p align="center">
-  <img alt="Styles" src="https://img.shields.io/badge/styles-115-ff5a7a?style=flat-square">
-  <img alt="Previews" src="https://img.shields.io/badge/previews-230-4cc9f0?style=flat-square">
+  <img alt="Styles" src="https://img.shields.io/badge/styles-118-ff5a7a?style=flat-square">
+  <img alt="Previews" src="https://img.shields.io/badge/previews-236-4cc9f0?style=flat-square">
   <img alt="Format" src="https://img.shields.io/badge/format-style.json-111111?style=flat-square">
   <img alt="Languages" src="https://img.shields.io/badge/languages-6-f7b801?style=flat-square">
 </p>
@@ -119,11 +119,31 @@ Prefer the short path? Browse the generated [Copy Prompt Library](docs/copy-prom
 
 ## Featured Styles
 
-Six visual systems to start with. Every style ships as one JSON plus two preview images. Browse the complete set of 115 in the [All Styles](#all-styles) gallery below.
+Six visual systems to start with. Every style ships as one JSON plus two preview images. Browse the complete set of 118 in the [All Styles](#all-styles) gallery below.
 
 <!-- HTML table used for rich image+link cells -->
 
 <table>
+<tr>
+<td width="33%" valign="top">
+<a href="styles/primary-block-isometric-editorial-poster-style"><img src="assets/thumbs/primary-block-isometric-editorial-poster-style-16x9.jpg" alt="Primary Block Isometric Editorial Poster Style preview"></a>
+<h3>Primary Block Isometric Editorial Poster Style</h3>
+<p>A crisp editorial poster system built from a sparse diagonal cluster of oversized rounded cuboids, oblique isometric depth, black hairline construction, bright primary-color top planes, darker side faces, oversized grotesk labels, and tiny Swiss-style perimeter copy on warm white paper.</p>
+<p><a href="styles/primary-block-isometric-editorial-poster-style/style.json"><strong>Open style.json</strong></a> · <a href="docs/copy-prompts/primary-block-isometric-editorial-poster-style.md">Copy Prompt</a> · <a href="styles/primary-block-isometric-editorial-poster-style">Folder</a></p>
+</td>
+<td width="33%" valign="top">
+<a href="styles/signal-red-contour-poster"><img src="assets/thumbs/signal-red-contour-poster-16x9.jpg" alt="Signal Red Contour Poster preview"></a>
+<h3>Signal Red Contour Poster</h3>
+<p>A severe two-ink public-information poster system built from a near-black field, one monumental flat silhouette defined by an agitated signal-red contour, and detached white grotesk text arranged around the perimeter like urgent fragments.</p>
+<p><a href="styles/signal-red-contour-poster/style.json"><strong>Open style.json</strong></a> · <a href="docs/copy-prompts/signal-red-contour-poster.md">Copy Prompt</a> · <a href="styles/signal-red-contour-poster">Folder</a></p>
+</td>
+<td width="33%" valign="top">
+<a href="styles/electric-yellow-cutout-megatype-poster-style"><img src="assets/thumbs/electric-yellow-cutout-megatype-poster-style-16x9.jpg" alt="Electric Yellow Cutout Megatype Poster Style preview"></a>
+<h3>Electric Yellow Cutout Megatype Poster Style</h3>
+<p>A high-impact pop advertising poster system that places one oversized photoreal cutout subject over monumental warped display lettering, using an electric-yellow field, black upper type, cobalt-blue lower type, severe cropping, and tiny editorial metadata for scale contrast.</p>
+<p><a href="styles/electric-yellow-cutout-megatype-poster-style/style.json"><strong>Open style.json</strong></a> · <a href="docs/copy-prompts/electric-yellow-cutout-megatype-poster-style.md">Copy Prompt</a> · <a href="styles/electric-yellow-cutout-megatype-poster-style">Folder</a></p>
+</td>
+</tr>
 <tr>
 <td width="33%" valign="top">
 <a href="styles/burnt-orange-halftone-hero-collage"><img src="assets/thumbs/burnt-orange-halftone-hero-collage-16x9.jpg" alt="Burnt Orange Halftone Hero Collage preview"></a>
@@ -142,26 +162,6 @@ Six visual systems to start with. Every style ships as one JSON plus two preview
 <h3>Cobalt Pop Cutout Editorial</h3>
 <p>A high-saturation editorial poster system pairing one low-angle full-body photographic cutout with oversized irregular orange display lettering, a cobalt-to-sky-blue field, flat green organic edge shapes, and tiny cream callouts.</p>
 <p><a href="styles/cobalt-pop-cutout-editorial/style.json"><strong>Open style.json</strong></a> · <a href="docs/copy-prompts/cobalt-pop-cutout-editorial.md">Copy Prompt</a> · <a href="styles/cobalt-pop-cutout-editorial">Folder</a></p>
-</td>
-</tr>
-<tr>
-<td width="33%" valign="top">
-<a href="styles/crimson-noir-newsprint-editorial-style"><img src="assets/thumbs/crimson-noir-newsprint-editorial-style-16x9.jpg" alt="Crimson Noir Newsprint Editorial preview"></a>
-<h3>Crimson Noir Newsprint Editorial</h3>
-<p>A prestige culture-magazine cover system built from one monumental grayscale portrait, narrow Didone display type, condensed editorial callouts, selective deep-crimson documentary fragments, and a visibly fibrous newsprint finish.</p>
-<p><a href="styles/crimson-noir-newsprint-editorial-style/style.json"><strong>Open style.json</strong></a> · <a href="docs/copy-prompts/crimson-noir-newsprint-editorial-style.md">Copy Prompt</a> · <a href="styles/crimson-noir-newsprint-editorial-style">Folder</a></p>
-</td>
-<td width="33%" valign="top">
-<a href="styles/electric-cobalt-motion-type-poster-style"><img src="assets/thumbs/electric-cobalt-motion-type-poster-style-16x9.jpg" alt="Electric Cobalt Motion Type Poster preview"></a>
-<h3>Electric Cobalt Motion Type Poster</h3>
-<p>A high-energy community-event poster system that combines one full-bleed motion-smeared photograph, a cobalt-blue field, fluorescent green ultra-condensed display type, a compact white-and-orange center lockup, oversized lower-edge numerals, and deliberately imperfect analog print texture.</p>
-<p><a href="styles/electric-cobalt-motion-type-poster-style/style.json"><strong>Open style.json</strong></a> · <a href="docs/copy-prompts/electric-cobalt-motion-type-poster-style.md">Copy Prompt</a> · <a href="styles/electric-cobalt-motion-type-poster-style">Folder</a></p>
-</td>
-<td width="33%" valign="top">
-<a href="styles/cobalt-torn-didone-portrait-editorial-style"><img src="assets/thumbs/cobalt-torn-didone-portrait-editorial-style-16x9.jpg" alt="Cobalt Torn Didone Portrait Editorial preview"></a>
-<h3>Cobalt Torn Didone Portrait Editorial</h3>
-<p>A sparse fashion-editorial poster system built from a warm paper field, one centered halftone portrait or sculptural subject, monumental cobalt Didone typography, an irregular horizontal torn-paper reveal, and restrained calligraphic and catalog-like corner notes.</p>
-<p><a href="styles/cobalt-torn-didone-portrait-editorial-style/style.json"><strong>Open style.json</strong></a> · <a href="docs/copy-prompts/cobalt-torn-didone-portrait-editorial-style.md">Copy Prompt</a> · <a href="styles/cobalt-torn-didone-portrait-editorial-style">Folder</a></p>
 </td>
 </tr>
 </table>
@@ -196,13 +196,36 @@ python3 scripts/validate-style-json.py .
 
 ## All Styles
 
-Browse all 115 styles below.
+Browse all 118 styles below.
 
 The complete library, including the featured styles above. For full descriptions and all file links per style, see [docs/CATALOG.md](docs/CATALOG.md).
 
 <!-- HTML table used for rich image+link cells -->
 
 <table>
+<tr>
+<td width="33%" valign="top">
+<a id="primary-block-isometric-editorial-poster-style"></a>
+<a href="styles/primary-block-isometric-editorial-poster-style"><img src="assets/thumbs/primary-block-isometric-editorial-poster-style-16x9.jpg" alt="Primary Block Isometric Editorial Poster Style preview"></a>
+<p><strong><a href="styles/primary-block-isometric-editorial-poster-style">Primary Block Isometric Editorial Poster Style</a></strong><br>
+<em>Crisp editorial posters built from a diagonal cluster of oversized rounded cuboids in oblique isometric depth, with primary-color top planes, oversized grotesk labels, and Swiss-style perimeter copy.</em><br>
+<a href="styles/primary-block-isometric-editorial-poster-style/style.json">style.json</a> · <a href="docs/copy-prompts/primary-block-isometric-editorial-poster-style.md">prompt</a> · <a href="styles/primary-block-isometric-editorial-poster-style/preview-9x16.jpg">9:16</a></p>
+</td>
+<td width="33%" valign="top">
+<a id="signal-red-contour-poster"></a>
+<a href="styles/signal-red-contour-poster"><img src="assets/thumbs/signal-red-contour-poster-16x9.jpg" alt="Signal Red Contour Poster preview"></a>
+<p><strong><a href="styles/signal-red-contour-poster">Signal Red Contour Poster</a></strong><br>
+<em>Severe two-ink public-information posters with a near-black field, a monumental flat silhouette traced by an agitated signal-red contour, and detached white grotesk text fragments.</em><br>
+<a href="styles/signal-red-contour-poster/style.json">style.json</a> · <a href="docs/copy-prompts/signal-red-contour-poster.md">prompt</a> · <a href="styles/signal-red-contour-poster/preview-9x16.jpg">9:16</a></p>
+</td>
+<td width="33%" valign="top">
+<a id="electric-yellow-cutout-megatype-poster-style"></a>
+<a href="styles/electric-yellow-cutout-megatype-poster-style"><img src="assets/thumbs/electric-yellow-cutout-megatype-poster-style-16x9.jpg" alt="Electric Yellow Cutout Megatype Poster Style preview"></a>
+<p><strong><a href="styles/electric-yellow-cutout-megatype-poster-style">Electric Yellow Cutout Megatype Poster Style</a></strong><br>
+<em>High-impact pop ad posters placing an oversized photoreal cutout over monumental warped display lettering, on an electric-yellow field with black-and-cobalt type and severe cropping.</em><br>
+<a href="styles/electric-yellow-cutout-megatype-poster-style/style.json">style.json</a> · <a href="docs/copy-prompts/electric-yellow-cutout-megatype-poster-style.md">prompt</a> · <a href="styles/electric-yellow-cutout-megatype-poster-style/preview-9x16.jpg">9:16</a></p>
+</td>
+</tr>
 <tr>
 <td width="33%" valign="top">
 <a id="burnt-orange-halftone-hero-collage"></a>

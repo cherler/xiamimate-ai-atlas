@@ -84,6 +84,9 @@ const denoise = (s) => s
   .replace(/<img[^>]*(shields\.io|badgen|codecov)[^>]*>/g, "")
   .replace(/\b\d[\d,.]*\s*(stars?|forks?|downloads?|★)\b/gi, "")
   .replace(/<!--\s*recent-updates:start\s*-->[\s\S]*?<!--\s*recent-updates:end\s*-->/g, "")
+  // 机器自动生成的 README 里那句「Last updated: <时间戳>」每隔几小时自己重写一次，
+  // 内容一字没动也会算成漂移 —— 又一个「每次都响=等于没响」的源（awesome-seedance2 就是）。
+  .replace(/Last updated:\s*\d{4}-\d\d-\d\d[T \d:.Z]*/gi, "")
   .replace(/\s+/g, " ")
   .trim();
 
