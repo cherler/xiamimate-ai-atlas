@@ -119,7 +119,12 @@ console.log(head);
  * （抓回来的是侧边导航不是正文），改一次 URL 或选择器能一次性解决一片。
  */
 const bad = {};
-for (const r of rows) if (["本页没有·别处有", "找不到", "快照无正文"].includes(r.kind)) (bad[r.src] ??= []).push(r);
+// **「快照无正文」不进 hot。** 它按上面的定义就是「源登记得不对，不是引文错」——
+// 那些源（hf-text-org / hf-lineage 这类 `kind:json` 的目录 API）压根没有正文可比，
+// 引文的锚是模型卡的散文，本就不该在目录里找到。把它算进「≥3=抓法不对」是把一类
+// 结构性错配当成能一次改 URL 修好的东西，只会让人工待办里堆一摞永远动不了的。
+// 它仍在下面「## 全部」里照列，只是不再上浮成待办。
+for (const r of rows) if (["本页没有·别处有", "找不到"].includes(r.kind)) (bad[r.src] ??= []).push(r);
 const hot = Object.entries(bad).filter(([, v]) => v.length >= 3).sort((x, y) => y[1].length - x[1].length);
 
 if (process.argv.includes("--report")) {

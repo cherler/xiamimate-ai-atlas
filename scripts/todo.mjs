@@ -64,7 +64,9 @@ for (const [title, why] of [
   const body = sec(title);
   const items = body.split("\n").filter((l) => l.startsWith("- ") || l.startsWith("| "));
   if (items.length && !body.includes("（无）"))
-    groups.push({ n: items.length, t: `${title.split("（")[0]}：${items.length} 个源`, how: "见 data/watch-report.md 对应小节", why });
+    // 「抓不到」是结构性够不着（SPA 壳 / 限流 / 反爬），不是人能动手的 → 机器状态。
+    // 但「抓到了但没内容」那一类会静默污染，仍要给人看 → 不标 machine。
+    groups.push({ n: items.length, t: `${title.split("（")[0]}：${items.length} 个源`, how: "见 data/watch-report.md 对应小节", why, machine: title.startsWith("抓不到") });
 }
 
 /** ③ 谱系候选里我们还没收的。只报数，清单在候选文件里。 */
@@ -160,6 +162,9 @@ try {
   if (stale.length)
     groups.push({
       n: stale.length,
+      // 机器状态·等上游：卡点全是「厂商新版页受限/登录墙/只有版本号没能力说明」，人现在也核不成。
+      // 证据仍老实标着「核的是旧版」，不清不编；只是不该每周当成你的作业催 —— 等上游放开再动。
+      machine: true,
       t: `待重核 ${stale.length} 格（${Object.entries(by).map(([k, v]) => `${k} ${v}`).join(" · ")}）`,
       /**
        * ⚠️ **别只说「去厂商能力页看」。** 2026-08-14 卡住的这三家，
@@ -221,6 +226,10 @@ const rq = read("data/requote-report.md");
 const hotN = (rq.match(/^## 失败 ≥3 条的源（(\d+) 个）/m) ?? [])[1];
 if (hotN && Number(hotN) > 0) groups.push({
   n: Number(hotN),
+  // 机器状态：实测这几个热源全是结构性错配 —— 时序页（changelog/发布博客/目录）滚动窗口，
+  // 引的是已过去的版本公告，页面滚过去了但「那次确实发布过」并没变假。不是引文错，不用人拍板。
+  // 真要根治得给时序源存「引用当时的快照」（像 README 那样点时快照），那是另一件工程。
+  machine: true,
   t: `引文回查：${hotN} 个源上的原句对不上了`,
   how: "`node scripts/requote.mjs --report` 重算；清单在 data/requote-report.md",
   why: "**失败不等于引文错。** 三种成因要分开：真署错了页 / 这一页的快照是残的（抓回来的是导航不是正文）/ 当初记的就不是逐字原文。**脚本不猜，人来分。**",
@@ -275,7 +284,17 @@ try {
       });
 } catch { /* 报告没有或坏了不该拖垮整张待办表 */ }
 
-const total = groups.reduce((s, g) => s + g.n, 0);
+/**
+ * **两摞分开：该你拍板 vs 机器状态。**
+ * 负责人 2026-08-23 的判断：这份清单一直把「机器够不着 / 等上游 / 复查工具自查不过」
+ * 当成人的作业往外推，人看不懂也动不了，于是干脆不看 —— 一份没人看的待办等于没有。
+ * 所以只有**真需要人判断**的进「待办」并触发通知；机器自己的账另起一节、只存不催。
+ * `machine:true` 的那几摞（抓不到 / 待重核·等上游 / 引文回查·结构性）在各自 push 处已说明理由。
+ */
+const human = groups.filter((g) => !g.machine);
+const machine = groups.filter((g) => g.machine);
+const total = human.reduce((s, g) => s + g.n, 0);
+const machineTotal = machine.reduce((s, g) => s + g.n, 0);
 /**
  * 待办表和审阅台是**同一摞东西的两个面**：这份是能进 git、能回溯的存档，
  * 审阅台是能动手的地方。所以每一份都要指向对方 ——
@@ -287,13 +306,13 @@ const md = [
   `# 该你看了 · ${TODAY}`,
   ``,
   total
-    ? `**${total} 条待办**，分 ${groups.length} 摞。每摞都指向它原本在的文件 —— **这里只汇总，不下判断**。`
-    : `**没有待办。** 注意这和「今天没跑」不是一回事 —— 这份文件是 ${TODAY} 生成的。`,
+    ? `**${total} 条要你拍板**，分 ${human.length} 摞。每摞都指向它原本在的文件 —— **这里只汇总，不下判断**。`
+    : `**没有要你拍板的。**${machineTotal ? ` 机器还盯着 ${machineTotal} 条自己够不着 / 等上游 / 工具自查的，都不用你动手（见文末「机器状态」）。` : ""} 注意这和「今天没跑」不是一回事 —— 这份文件是 ${TODAY} 生成的。`,
   ``,
   `> **动手在审阅台：${STATION}**（\`npm run station\` 开）。`,
   `> 这份文件是存档，看的是同一摞东西；判断、重跑、写回都在那边点，不要在两处各做一半。`,
   ``,
-  ...groups.flatMap((g) => [
+  ...human.flatMap((g) => [
     `## ${g.t}`,
     ``,
     g.why,
@@ -301,9 +320,20 @@ const md = [
     `→ ${g.how}`,
     ``,
   ]),
+  ...(machine.length ? [
+    `---`,
+    ``,
+    `## 机器状态 · 不用你判断（${machineTotal}）`,
+    ``,
+    `> 这几摞是**机器自己的账**：够不着的源、等上游放开的重核、复查工具自查不过的结构性错配。`,
+    `> 留着是为了不假装「都好」，但**没有一条要你拍板**。要根治是改代码，不是你去看。`,
+    ``,
+    ...machine.map((g) => `- **${g.t}** —— ${String(g.why).replace(/\*\*/g, "").split(/。|——/)[0]}。`),
+    ``,
+  ] : []),
   `---`,
   ``,
-  `> 超过 20 条时 \`triage.mjs\` 会自动放宽一类规则（§59.3 的负反馈：**人每周看的必须 ≤20**）。`,
+  `> 「该你拍板」这一摞才受 §59.3「人每周看的 ≤20」的负反馈管；机器状态不算在内。`,
   `> 红色永远不放宽 —— 那批错了会污染整张图。`,
 ].join("\n");
 
@@ -319,7 +349,9 @@ writeFileSync(join(ROOT, "data/TODO.md"), `${md}\n`);
  * 「刷新了但数没变」比不刷新更能骗人。
  */
 if (process.argv.includes("--json")) {
-  console.log(JSON.stringify({ at: TODAY, total, station: STATION, groups }));
+  // 审阅台的「待办总览」读 total + groups —— 只给它「该你拍板」的那摞，和文件口径一致。
+  // 机器状态另放 machineGroups/machineTotal，要用再取（引文回查另有独立 pane）。
+  console.log(JSON.stringify({ at: TODAY, total, station: STATION, groups: human, machineTotal, machineGroups: machine }));
 } else {
   console.log(`${total} 条待办 → data/TODO.md`);
 }
@@ -359,7 +391,7 @@ async function feishu(title, lines) {
 }
 
 if (process.argv.includes("--notify") && total) {
-  const brief = groups.map((g) => `${g.n} ${g.t.split("（")[0].replace(/\s*\d+\s*条?$/, "")}`).join("；");
+  const brief = human.map((g) => `${g.n} ${g.t.split("（")[0].replace(/\s*\d+\s*条?$/, "")}`).join("；");
   /**
    * 本机通知：零成本、不需要凭据。和飞书**两条都发** —— 一条断了另一条还在。
    *
@@ -418,10 +450,10 @@ if (process.argv.includes("--notify") && total) {
    * （待办总览 + 收件箱 + 引文回查，能看能跑能写回），所以通知的落点只有一个。
    * 每摞后面那行「下一步」留着，但它现在是**说明**，不是要人去敲的命令。
    */
-  const hasQueue = groups.some((g) => /收件箱/.test(g.t));
+  const hasQueue = human.some((g) => /收件箱/.test(g.t));
   console.log(
     await feishu(`虾米看AI · ${total} 条待办`, [
-      ...groups.flatMap((g) => [`· ${g.t}`, `   → ${String(g.how).replace(/[`*]/g, "")}`]),
+      ...human.flatMap((g) => [`· ${g.t}`, `   → ${String(g.how).replace(/[`*]/g, "")}`]),
       "",
       `全部在审阅台处理：${STATION}`,
       "没开的话：cd ~/projects/xiamimate/xiamimate-ai-atlas && npm run station",
