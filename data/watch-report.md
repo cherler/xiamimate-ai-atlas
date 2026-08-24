@@ -1,6 +1,6 @@
-# 信息源监视报告 · 2026-08-23
+# 信息源监视报告 · 2026-08-24
 
-本次检查 6 个到期源（共 448 个）：变化 2 · 首次 0 · 无变化 0 · **抓不到 4**
+本次检查 11 个到期源（共 448 个）：变化 6 · 首次 0 · 无变化 1 · **抓不到 4**
 
 > 这份报告是给人看的那 20 条待办的来源（§59.3 的负反馈：人每周要看的条目 ≤ 20）。
 > 「抓不到」不是失败，是**信息本身** —— 一个长期抓不到的官方源，说明那家厂商没有可 diff 的公开更新入口，
@@ -12,7 +12,7 @@
 
 ## 抓不到（要处理）
 
-- **kling-site**（S/spa）Kling AI 官网 — 还是壳：渲染后正文只有 235 个字符
+- **kling-site**（S/spa）Kling AI 官网 — 还是壳：渲染后正文只有 232 个字符
   https://klingai.com/
 - **aa-t2i**（A/spa）Artificial Analysis · 文生图竞技场 — 还是壳：渲染后正文只有 308 个字符
   https://artificialanalysis.ai/text-to-image/arena
@@ -23,10 +23,18 @@
 
 ## 有变化
 
-- **arxiv-video** arXiv · 视频生成新论文
-  新增 30 条：VGI-BENCH: Probing Visual Intelligence in Video Generation Models、Stream4D: 4D-Consistency for Streaming Autoregressive Diffusion Video Models、CamWorldQA: Perceptual Quality Assessment of Camera-Controlled World Video Generation、VA-Judger: Reward Modeling from Human Preference Feedback for Joint Video-Audio Generation、Partition the Support, Reconstruct the Residual: Training-Free Sparse Attention for Video Generation and World Models、Hydra-0: Action Flow for Generalist World Modeling and Control、LinCa: Accelerating Diffusion Models via Learnable Decomposed Feature Caching、Magnitude-Direction Decoupling for Fast Video Generation with Flow Matching Models、SemComp-Bench: Benchmarking Semantic Task Completion in Video Generation、PersonaShot: Benchmarking Person-Centric Narrative Continuity in Multi-Shot Video Generation、SQuad: Sub-Quadratic Attention Distillation for Efficient Video Generation、MLLM-Guided Semantic Correction for Text-to-Video Generation …
-- **arxiv-worldmodel** arXiv · world model / 实时视频生成
-  新增 12 条：Partition the Support, Reconstruct the Residual: Training-Free Sparse Attention for Video Generation and World Models、Hydra-0: Action Flow for Generalist World Modeling and Control、CaliBench: Are the Stochastic Dynamics of Video World Models Physically Calibrated?、Beyond Visual CoT: Internalized Visual Thinking for Proactive Video Reasoning、SCOPE: Score-Isolated Agentic Optimization for Video World Models、Marionette: Predicting World States, Rendering Geometry, Painting Appearance、ForgeWM: Progressive Causal Training for Few-Step Action-Conditioned Video World Models、PlayWorld: Benchmarking World Models with Agent Players over Long-Horizon Objectives、DreamX-Phi 1.0: Action-Conditioned Video World Model for Robotic Manipulation、ContactGuard: Pre-Contact Execution Monitoring with Action-Conditioned Latent World Models、H2R-Bench: Benchmarking Human-to-Robot Manipulation Video Generation in World Models、BrainWAM: Action-Space Coordination of Semantic Priors and Predictive Dynamics for Autonomous Driving
+- **hf-t2v** Hugging Face · text-to-video 按下载量
+  新增 5 条：ChrisColeTech/LTX-2.3-uncensored-v1.4-FP8、ibyteohdear/Lightricks-LTX-2、larryvrh/MiniMax-H3-Turbo-Lora、rockerBOO/minimax-h3-nvfp4-fp8、vantagewithai/LTX-2.5-GGUF
+- **hf-i2v** Hugging Face · image-to-video 按下载量
+  新增 4 条：ChrisColeTech/LTX-2.3-uncensored-v1.4-FP8、comfyicu/LTX-2.5、realrebelai/LTX-2.5_GGUFs、rockerBOO/minimax-h3-nvfp4-fp8
+- **techcrunch-ai** TechCrunch · AI（RSS）
+  新增 12 条：Who&#8217;s behind the new ‘stealth model’ Ox Alpha?、Flock CEO calls for ‘compromise’ as surveillance company faces growing backlash、Is it legal to train AI models on copyrighted books? It’s complicated、Harvard’s $699 startup bootcamp offers AI avatars of its instructors、Inherent, founded by DeepMind alumni, says its AI &#8216;teammate&#8217; just outperformed Anthropic and OpenAI at replicating research、OpenAI says California should strengthen its AI safety bill、Frontier AI labs still won&#8217;t say how they&#8217;d contain a rogue model、Anthropic’s Opus 4.6 is a smut-machine、Nvidia partners with data center developer Cloverleaf、Nvidia just showed that the harness, not the AI model, is now the real hero、Starcloud raises $250 million for orbital data centers as launch options dry up、The DOJ is investigating a16z. What does this mean for venture capital?
+- **hf-t2i** Hugging Face · text-to-image 按下载量
+  新增 1 条：lopi999/Wan2.2-I2V_General-NSFW-LoRA
+- **hf-i2i** Hugging Face · image-to-image 按下载量
+  新增 2 条：WarmBloodAban/Krea2_Anything2RealCharacters、lllyasviel/control_v11f1p_sd15_depth
+- **hf-text-org** Hugging Face 官方组织 · 文本模型
+  新增 229 条：0xKitkat/Ox-Alpha-GGUF、ASLP-lab/MeanVC2、Abiray/10Eros-Max-fl2va-Beta2-GGUF、Abiray/OvisOCR2-GGUF、Alissonerdx/LTX-Best-Face-ID、AntResearch/4DAnyone、AutisticAF/Huihui-Qwen3.8-27B-abliterated-mlx-4Bit、BeaverAI/Orion-26B-A4B-v1d-GGUF、BeaverAI/Orion-26B-A4B-v1e-GGUF、BeaverAI/Orion-26B-A4B-v1f-GGUF、BennyDaBall/Qwen3.8-Uncensored-NVFP4-MTP、Bucoid/Qwen3.8-27B-Heretic-Ara-16GB-VRAM-IQ4-XS-MTP-GGUF …
 
 ## 全部
 
@@ -35,7 +43,7 @@
 | seed-blog | S | html | 未到期（上次 2026-08-19） |
 | seed-models | S | html | 未到期（上次 2026-08-12） |
 | kling-api-updates | S | spa | 未到期（上次 2026-08-19） |
-| kling-site | S | spa | 抓不到（还是壳：渲染后正文只有 235 个字符） |
+| kling-site | S | spa | 抓不到（还是壳：渲染后正文只有 232 个字符） |
 | google-video-docs | S | html | 未到期（上次 2026-08-19） |
 | deepmind-veo | S | html | 未到期（上次 2026-08-12） |
 | vertex-video-ref | S | html | 未到期（上次 2026-08-12） |
@@ -55,12 +63,12 @@
 | pika-site | S | html | 未到期（上次 2026-08-12） |
 | higgsfield-site | S | html | 未到期（上次 2026-08-12） |
 | decart-research | S | html | 未到期（上次 2026-08-12） |
-| arxiv-video | S | atom | 变了 |
+| arxiv-video | S | atom | 未到期（上次 2026-08-23） |
 | epoch-notable | A | csv | 未到期（上次 2026-08-19） |
 | aa-t2v | A | spa | 未到期（上次 2026-08-19） |
 | aa-i2v | A | spa | 未到期（上次 2026-08-19） |
-| hf-t2v | A | json | 未到期（上次 2026-08-21） |
-| hf-i2v | A | json | 未到期（上次 2026-08-21） |
+| hf-t2v | A | json | 变了 |
+| hf-i2v | A | json | 变了 |
 | hf-v2v | A | json | 未到期（上次 2026-08-19） |
 | fal-video | S | spa | 未到期（上次 2026-08-19） |
 | replicate-t2v | S | html | 未到期（上次 2026-08-19） |
@@ -75,11 +83,11 @@
 | google-models | S | html | 未到期（上次 2026-08-19） |
 | seed-models-hub | S | html | 未到期（上次 2026-08-19） |
 | apiyi-models | S | spa | 未到期（上次 2026-08-19） |
-| arxiv-worldmodel | S | atom | 变了 |
-| techcrunch-ai | B | atom | 未到期（上次 2026-08-21） |
+| arxiv-worldmodel | S | atom | 未到期（上次 2026-08-23） |
+| techcrunch-ai | B | atom | 变了 |
 | decart-blog | S | spa | 未到期（上次 2026-08-19） |
 | ltx-gh | S | json | 未到期（上次 2026-08-19） |
-| ltx-hf-org | S | json | 未到期（上次 2026-08-21） |
+| ltx-hf-org | S | json | 无变化 |
 | decart-site | S | spa | 未到期（上次 2026-08-21） |
 | picsart-video | C | html | 未到期（上次 2026-08-12） |
 | libtv | C | spa | 从未抓过 |
@@ -176,13 +184,13 @@
 | hf-image-org | S | json | 未到期（上次 2026-08-19） |
 | mj-updates | S | html | 未到期（上次 2026-08-12） |
 | aa-t2i | A | spa | 抓不到（还是壳：渲染后正文只有 308 个字符） |
-| hf-t2i | A | json | 未到期（上次 2026-08-21） |
-| hf-i2i | A | json | 未到期（上次 2026-08-21） |
+| hf-t2i | A | json | 变了 |
+| hf-i2i | A | json | 变了 |
 | anthropic-models | S | html | 未到期（上次 2026-08-19） |
 | deepseek-docs | S | html | 未到期（上次 2026-08-19） |
 | xai-docs | S | html | 未到期（上次 2026-08-19） |
 | doubao-force-2026 | B | html | 未到期（上次 2026-08-12） |
-| hf-text-org | S | json | 未到期（上次 2026-08-21） |
+| hf-text-org | S | json | 变了 |
 | wan3-qbitai | B | spa | 从未抓过 |
 | kimi-api | S | html | 未到期（上次 2026-08-12） |
 | glm-api | S | html | 未到期（上次 2026-08-12） |

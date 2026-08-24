@@ -1,8 +1,8 @@
 {
   "url": "https://huggingface.co/api/models?filter=text-to-image&sort=downloads&direction=-1&limit=60",
   "kind": "json",
-  "fetched_at": "2026-08-21",
-  "digest": "49e3e91d371d974a",
+  "fetched_at": "2026-08-24",
+  "digest": "f96007bb5cbf6a3e",
   "items": [
     "ByteDance/SDXL-Lightning\t",
     "CompVis/stable-diffusion-v1-4\t",
@@ -34,7 +34,6 @@
     "black-forest-labs/FLUX.2-klein-base-4B\t",
     "black-forest-labs/FLUX.2-klein-base-4b-fp8\t",
     "black-forest-labs/FLUX.2-small-decoder\t",
-    "cagliostrolab/animagine-xl-3.0\t",
     "cagliostrolab/animagine-xl-3.1\t",
     "cagliostrolab/animagine-xl-4.0\t",
     "city96/FLUX.1-dev-gguf\t",
@@ -47,6 +46,7 @@
     "lightx2v/Qwen-Image-2512-Lightning\t",
     "lightx2v/Qwen-Image-Lightning\t",
     "lodestones/Chroma1-HD\t",
+    "lopi999/Wan2.2-I2V_General-NSFW-LoRA\t",
     "nphSi/Z-Image-Lora\t",
     "nvidia/Cosmos3-Super-Text2Image-4Step\t",
     "playgroundai/playground-v2.5-1024px-aesthetic\t",
