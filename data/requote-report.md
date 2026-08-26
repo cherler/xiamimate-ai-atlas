@@ -1,11 +1,11 @@
-# 引文回查 · 2026-08-25
+# 引文回查 · 2026-08-26
 
-回查 1205 条：无英文锚 730 · 快照无正文 35 · 对得上 320 · 找不到 95 · 无快照 13 · 本页没有·别处有 12
+回查 1205 条：无英文锚 730 · 快照无正文 35 · 对得上 316 · 找不到 100 · 无快照 13 · 本页没有·别处有 11
 
 > 这份报告回答一件事：**一格引文里的原句，在它署名的那份快照里还在不在。**
 > ⚠️ **失败不等于引文错。** 三种成因要分开：真署错了页 / 这一页的快照是残的（抓回来的是导航不是正文）/ 当初记的就不是逐字原文。**脚本不猜。**
 
-## 失败 ≥3 条的源（13 个）—— 这几个大概率是抓法不对
+## 失败 ≥3 条的源（14 个）—— 这几个大概率是抓法不对
 
 - **comfy-docs**（8 条）：发布 hidream-HiDream-I1-17B 出图底座，MIT、发布 ernie-image-ERNIE-Image-8B DiT 正式档，apache-2.0、发布 ovis-image-Ovis-Image-7B-7B 专攻图上出字 …
 - **openai-image-docs**（7 条）：gpt-image × i-t2i、gpt-image × i-i2i、gpt-image × i-edit …
@@ -16,6 +16,7 @@
 - **heygen-changelog**（4 条）：发布 heygen-v3api、发布 heygen-avatar3、发布 heygen-batch …
 - **veo-doc**（3 条）：veo × flf、veo × charref、veo × extend
 - **decart-site**（3 条）：lucy × rt-endless、模型 lucy 版本、发布 lucy-Lucy2.5-Lucy2.5
+- **anthropic-models**（3 条）：claude × t-vision、claude × t-cache、模型 claude 版本
 - **minimax-release-notes**（3 条）：发布 hailuo-01-运镜控制、发布 hailuo-02-换代02：1080p、发布 hailuo-2.3-换代2.3：肢体动作与表情
 - **wiki-midjourney**（3 条）：发布 midjourney-V6-这一代起大幅改善提示词跟随、发布 midjourney-V6.1-画质与细节一致性迭代、发布 midjourney-V7-Draft Mode 与 Omni Reference
 - **meshy-changelog**（3 条）：发布 meshy-remesh、发布 meshy-format、发布 meshy-7
@@ -23,7 +24,7 @@
 
 ## 全部
 
-### 本页没有·别处有（12）
+### 本页没有·别处有（11）
 
 - `ideogram-v3-reframe` ideogram × i-outpaint —— 锚「Take a starting image and extend it to match your desired resolution.」（这句在 ideogram-overview）
 - `hf-trellis2` trellis × d-multiview —— 锚「Implementation of multi-image conditioning」（这句在 gh-trellis）
@@ -33,12 +34,11 @@
 - `seed-blog` 模型 seedream 版本 —— 锚「Seedream 5.0 Pro is a multimodal image generation model that features 」（这句在 seedream-page）
 - `replicate-hunyuan3d-31` 模型 hunyuan3d 版本 —— 锚「D models with texture fidelity and geometry precision」（这句在 replicate-3d）
 - `seed-blog` 发布 seedream-Seedream 5.0 Pro-分层输出 + 圈画标注式改图 —— 锚「Seedream 5.0 Pro is a multimodal image generation model that features 」（这句在 seedream-page）
-- `claude-deprecations` 发布 claude-Claude Fable 5-面向长程智能体；自适 —— 锚「Claude Fable 5 is generally available on the Claude API」（这句在 anthropic-models、claude-models）
 - `hf-hunyuan3d-21` 发布 hy3d-2.1 —— 锚「We release the first production-ready 3D asset generation model, Hunyu」（这句在 gh-hunyuan3d-21）
 - `openai-model-tts` 发布 gpttts-2025-12 —— 锚「slugs to point to the 2025-12-15 snapshots」（这句在 openai-changelog）
 - `openai-model-realtime` 发布 gptrt-2025-08 —— 锚「The OpenAI Realtime API is now generally available」（这句在 openai-changelog）
 
-### 找不到（95）
+### 找不到（100）
 
 - `veo-doc` veo × flf —— 锚「Frame-specific generation: Generate a video by specifying the first an」
 - `veo-doc` veo × charref —— 锚「Image-based direction: Use up to three reference images」
@@ -61,6 +61,9 @@
 - `hunyuan-image-card` hunyuan-image × i-i2i —— 锚「instruction reasoning and image-to-image generation including editing 」
 - `hunyuan-image-card` hunyuan-image × i-edit —— 锚「image-to-image generation including editing」
 - `anthropic-features` claude × t-search —— 锚「Augment Claude's comprehensive knowledge with current, real-world data」
+- `anthropic-models` claude × t-vision —— 锚「All current Claude models support text and image input, text output, m」
+- `claude-models` claude × t-audio —— 锚「All current Claude models support text and image input, text output, m」
+- `anthropic-models` claude × t-cache —— 锚「See Pricing for complete pricing information including Batch API disco」
 - `elevenlabs-docs` elevenlabs × s-design —— 锚「a guide on how to craft voices」
 - `elevenlabs-docs` elevenlabs × s-long —— 锚「a guide on how to create long-form content」
 - `gemini-music` lyria × s-m-lyrics —— 锚「Generation of lyrics alongside audio」
@@ -85,6 +88,7 @@
 - `hunyuanworld-gh` hunyuan-world × w-realtime —— 锚「December 18, 2025: We release HunyuanWorld-1.5」
 - `gemini-models` 模型 gemini-image 版本 —— 锚「our latest state-of-the-art image model.」
 - `recraft-blog` 模型 recraft 版本 —— 锚「Give V4.1 just a few words, and it'll give you something worth keeping」
+- `anthropic-models` 模型 claude 版本 —— 锚「Claude Fable 5 is generally available」
 - `pixverse-v6` 模型 pixverse 版本 —— 锚「Pro Lens Power, Endless Creation」
 - `hunyuanworld-gh` 模型 hunyuan-world 版本 —— 锚「April 16, 2026: We release HY-World-2.0, state-of-the-art 3D world mod」
 - `sci-af3-blog` 模型 alphafold 版本 —— 锚「AlphaFold 3 predicts the structure and interactions of all of life's m」
@@ -117,6 +121,7 @@
 - `comfy-docs` 发布 pixeldit-PixelDiT-1300M-1024px-不用 VAE，直接在像素空间扩散 —— 锚「PixelDiT is NVIDIA's pixel-space diffusion transformer for 1024px text」
 - `comfy-docs` 发布 boogu-image-Boogu-Image-0.1-生成与编辑合到一个模型，apache-2.0 —— 锚「Boogu-Image-0.1 is an Apache-2.0 open-source unified image generation 」
 - `comfy-docs` 发布 newbie-image-NewBie-image-Exp0.1-3.5B Next-DiT，二次元向 —— 锚「NewBie-image-Exp0.1 is a 3.5B parameter DiT model developed by NewBieA」
+- `claude-deprecations` 发布 claude-Claude Fable 5-面向长程智能体；自适 —— 锚「Claude Fable 5 is generally available on the Claude API」
 - `rodin-api-docs` 发布 rodin-gen2 —— 锚「glb, usdz, fbx, obj, and stl」
 - `rodin-api-docs` 发布 rodin-gen2.5 —— 锚「Best for quickly generating simple assets」
 - `meshy-changelog` 发布 meshy-remesh —— 锚「Added the Remesh APIs, which allow users to remesh and export existing」
