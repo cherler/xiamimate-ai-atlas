@@ -2223,6 +2223,13 @@
   ],
   "orgs": [
     {
+      "id": "luma",
+      "zh": "Luma AI（Luma Labs）",
+      "name": "Luma",
+      "kind": "startup",
+      "note": "Luma Labs，Ray / Dream Machine 系列视频模型。总部还没查 —— 立项当天只核了产品与官网，公司层留到下一轮。"
+    },
+    {
       "id": "manycore",
       "zh": "群核科技（酷家乐 / Coohom 母公司）",
       "en": "Manycore Tech",
@@ -3174,6 +3181,78 @@
   "$investments": "上游投资关系。\n\n## 更正：我先前判断错了\n\n我最初写的是「可得性上限只有 B/C 级，金额多半核不实」。**这个判断对一大半公司是错的。**\n实际查下来，可得性取决于**这家公司走到了哪一步的强制披露**：\n\n  S 级 · 招股书 / 年报 / 上市公告 —— 逐轮融资、金额、股东是**法定披露**，最硬的来源。\n         MiniMax 已过港交所聆讯（招股书公开），昆仑万维已在深交所上市（300418），\n         Alphabet 走 SEC，阿里同时有 SEC 和港交所。\n  S 级 · **公司自己发的融资新闻稿** —— 生数的 A+ 轮就是自己在 PRNewswire 发的，\n         轮次、金额、领投方、战略投资方全都写明。这是我们录进来的第一批。\n  A 级 · 政府/官方机构通报（如北京市科委对生数 A+ 轮的报道）。\n  B 级 · Crunchbase / PitchBook / CBInsights / IT桔子 —— 覆盖最全，但**多数在付费墙后**，\n         而且它们本身也是二手转述。\n  拿不到 —— 未上市公司的具体股比、未公开披露的早期轮次。\n\n**所以不是「本就不公开」，是「看这家公司有没有被逼着公开」。**\n规矩不变：每条带 src 和逐字 quote（校验 R25），拿不到金额就不写金额，不许估。\n\n字段：{from(投资方名，可以是外部机构), to(org id), round, role, date, src, quote}",
   "$chain": "产业链三层的可得性差得很远，别当成一件事：\n  下游运营商 —— ✅ 就是 platforms + availability，已经在库里且官方源核过。\n  公司归属/总部 —— ⚠️ 可查可证，但现在还没证（见 $orgs）。\n  上游投资 —— ⚠️ 上限 B/C 级，见 $investments。\n  终端用户分布 —— ❌ **不做**。没有厂商公开用户地理分布，画出来的热力一定是编的，那是自拆招牌。替代口径：reach_cn（大陆可达性）+ platforms.region。",
   "models": [
+    {
+      "id": "grok-image",
+      "class": "still",
+      "family": "Grok Imagine Image",
+      "org": "xai",
+      "version": "Image 2.0",
+      "version_as_of": "2026-08-27",
+      "status": "active",
+      "tier": "extended",
+      "domain": "image",
+      "weights": "closed",
+      "version_src": "xai-imagine-image",
+      "version_quote": "官方发布页：模型 id grok-imagine-image-2.0，「Precise image generation and editing, built for real creative work.」；「plans typography and layout the way a designer would, so dense, multi-part visuals hold together and small text comes out sharp.」API 已开放。",
+      "reach_cn": "unknown",
+      "reach_note": "还没测",
+      "note": "xAI 的图像生成/编辑模型（2026-08-07 发）。主打排版与小字：先规划版式再画，海报/信息图/标题屏这类密集多块视觉能稳结构、小字清晰。API 已可用。tier=extended：刚收，未逐格核。",
+      "zh_none": true
+    },
+    {
+      "id": "grok-video",
+      "class": "clip",
+      "family": "Grok Imagine Video",
+      "org": "xai",
+      "version": "Video 1.5",
+      "version_as_of": "2026-08-27",
+      "status": "active",
+      "tier": "extended",
+      "domain": "video",
+      "weights": "closed",
+      "version_src": "xai-imagine-video",
+      "version_quote": "官方发布页：模型 id grok-imagine-video-1.5（2026-06-16）；「better motion, better physics, better audio, at the fastest speeds」；720p、最长约 10 秒，音效/环境/对白同一遍生成；已在 API / 网页 / 移动端全面可用。",
+      "reach_cn": "unknown",
+      "reach_note": "还没测",
+      "note": "xAI 的图生视频模型（2026-06-16）。720p、约 6–10 秒，声音（音效/环境/对白）与画面同一遍出，主打速度（约 25 秒出一条 6 秒 720p）。tier=extended：刚收，未逐格核。⚠️ 早前扫描聚合站说「1080p / 5-31」是错的，官方页是 720p / 06-16。",
+      "zh_none": true
+    },
+    {
+      "id": "luma-ray",
+      "class": "clip",
+      "family": "Luma Ray",
+      "org": "luma",
+      "version": "Ray3.2",
+      "version_as_of": "2026-08-27",
+      "status": "active",
+      "tier": "extended",
+      "domain": "video",
+      "weights": "closed",
+      "version_src": "luma-ray32",
+      "version_quote": "官方发布页「Ray3.2 — Complete Creative Control for Video Generation」：clips up to 20 seconds at 1080p；native HDR Generation 与 16-bit EXR Export；单条最多 16 个关键帧；可同时追踪最多 8 张脸的完整表情。「For the first time, Ray3.2 is available as an API」。",
+      "reach_cn": "unknown",
+      "reach_note": "还没测",
+      "note": "Luma 的视频生成模型（Ray3.2，2026-06 发）。主打逐帧控制：单条 clip 内最多摆 16 个关键帧定运动/节奏；20 秒@1080p；原生 HDR + 16-bit EXR 导出；追踪最多 8 张脸表情；Ray3.2 首次开放 API。tier=extended：刚收，未逐格核。",
+      "zh_none": true
+    },
+    {
+      "id": "muse-spark",
+      "class": "chat",
+      "family": "Muse Spark",
+      "org": "meta",
+      "version": "Muse Spark 1.2",
+      "version_as_of": "2026-08-27",
+      "status": "active",
+      "tier": "extended",
+      "domain": "text",
+      "weights": "closed",
+      "version_src": "meta-muse",
+      "version_quote": "Meta AI Research 官方博客：Muse Spark 1.2 是「a coding-focused update to Muse Spark 1.1, with improvements in code generation, complex debugging, codebase understanding, and end-to-end developer workflows」；「available today in Muse Code and in Meta Model API」——无开源权重。",
+      "reach_cn": "unknown",
+      "reach_note": "还没测",
+      "note": "Meta 超级智能实验室（MSL）的代码向大模型（2026-08-05，Spark 线第三代：Spark 04 → 1.1 07 → 1.2 08）。配套的 Muse Code 是它驱动的终端编码 agent（对标 Claude Code / Codex）——那是应用层不是模型，这里只收模型本体。API / 产品可用，无开源权重。tier=extended：刚收，未逐格核。",
+      "zh_none": true
+    },
     {
       "id": "lux3d",
       "class": "asset",
@@ -4143,7 +4222,8 @@
       "version_src": "hf-text-org",
       "version_quote": "zai-org/GLM-5.2（官方 HF 组织 createdAt 2026-06-16，下载 252 万）",
       "reach_cn": "ok",
-      "reach_note": "docs.bigmodel.cn 直连 308（本机实测 08-11）"
+      "reach_note": "docs.bigmodel.cn 直连 308（本机实测 08-11）",
+      "note": "⚠️ **GLM-5.3 已发布（2026-08-26）但这里仍记 GLM-5.2**：旗舰 GLM-5.3 是 API-only（HF 上没有开源权重），zai-org 上开源的只有变体 GLM-5.3-Flash（320B-A18B、MIT），而 GLM-5.2 仍是 HF 上的开源旗舰（200 万下载）。这条记的是开源旗舰口径 —— 要不要改成追真旗舰（API-only）是口径决定，待拍板；详见 changes。"
     },
     {
       "id": "minimax-text",
@@ -5508,6 +5588,31 @@
     }
   ],
   "sources": {
+    "xai-imagine-image": {
+      "url": "https://x.ai/news/grok-imagine-image-2",
+      "name": "xAI · Grok Imagine Image 2.0 发布页",
+      "tier": "official"
+    },
+    "xai-imagine-video": {
+      "url": "https://x.ai/news/grok-imagine-video-1-5",
+      "name": "xAI · Grok Imagine Video 1.5 发布页",
+      "tier": "official"
+    },
+    "luma-ray32": {
+      "url": "https://lumalabs.ai/news/introducing-ray-3-2",
+      "name": "Luma · Ray3.2 发布页",
+      "tier": "official"
+    },
+    "meta-muse": {
+      "url": "https://research.meta.ai/blog/introducing-muse-code-and-muse-spark-1-2",
+      "name": "Meta AI Research · Muse Code / Muse Spark 1.2 博客",
+      "tier": "official"
+    },
+    "hf-glm53flash": {
+      "url": "https://huggingface.co/zai-org/GLM-5.3-Flash",
+      "name": "HuggingFace · zai-org/GLM-5.3-Flash",
+      "tier": "official"
+    },
     "lux3d-site": {
       "url": "https://lux3d.aholo3d.cn/lux3d/home",
       "name": "Lux3D 官网（群核 Aholo）",

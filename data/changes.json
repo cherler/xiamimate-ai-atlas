@@ -811,6 +811,96 @@
     "locateanything"
    ],
    "domain": "embodied"
+  },
+  {
+   "id": "grok-image-2026-08-07",
+   "date": "2026-08-07",
+   "side": "world",
+   "kind": "新模型",
+   "subject": "Grok Imagine Image 2.0",
+   "before": "图像卷没有 xAI 的出图模型",
+   "after": "xAI 放出 Grok Imagine Image 2.0（模型 id grok-imagine-image-2.0）：先规划版式再画，海报/信息图/标题屏这类密集视觉稳结构、小字清晰；API 已开放",
+   "why": "「先排版再画」是出图模型少见的能力轴 —— 密集小字一直是弱项。收进 extended，未逐格核。",
+   "impact": [
+    "grok-image"
+   ],
+   "src": "xai-imagine-image",
+   "models": [
+    "grok-image"
+   ],
+   "domain": "image"
+  },
+  {
+   "id": "grok-video-2026-06-16",
+   "date": "2026-06-16",
+   "side": "world",
+   "kind": "新模型",
+   "subject": "Grok Imagine Video 1.5",
+   "before": "视频卷没有 xAI 的出片模型",
+   "after": "xAI 的图生视频 Grok Imagine Video 1.5：720p、约 6–10 秒，声音与画面同一遍出，主打速度（约 25 秒出 6 秒片）；API / 网页 / 移动端全可用",
+   "why": "⚠️ 顺带纠了聚合站的错：不是「1080p / 5-31」，官方页是 720p / 06-16 —— 一手源对上才收。extended，未逐格核。",
+   "impact": [
+    "grok-video"
+   ],
+   "src": "xai-imagine-video",
+   "models": [
+    "grok-video"
+   ],
+   "domain": "video"
+  },
+  {
+   "id": "luma-ray32-2026-08-27",
+   "date": "2026-08-27",
+   "side": "world",
+   "kind": "新模型",
+   "subject": "Luma Ray3.2",
+   "before": "视频卷没收 Luma 这家",
+   "after": "Luma 的 Ray3.2（2026-06 发）：单条 clip 内最多 16 个关键帧逐帧控运动，20 秒@1080p，原生 HDR + 16-bit EXR 导出，追踪最多 8 张脸表情；首次开放 API",
+   "why": "逐帧关键帧控制是这卷少见的控制轴。新建 org luma。收 extended，未逐格核。",
+   "impact": [
+    "luma-ray"
+   ],
+   "src": "luma-ray32",
+   "models": [
+    "luma-ray"
+   ],
+   "domain": "video"
+  },
+  {
+   "id": "muse-spark-2026-08-05",
+   "date": "2026-08-05",
+   "side": "world",
+   "kind": "新模型",
+   "subject": "Muse Spark 1.2",
+   "before": "文本卷没有 Meta 的代码向模型",
+   "after": "Meta（MSL）放出 Muse Spark 1.2，代码向大模型；配套 Muse Code 是它驱动的终端编码 agent（对标 Claude Code / Codex）",
+   "why": "只收模型本体（Muse Spark 1.2），Muse Code 是应用层不进模型表。无开源权重、API/产品可用。extended，未逐格核。",
+   "impact": [
+    "muse-spark"
+   ],
+   "src": "meta-muse",
+   "models": [
+    "muse-spark"
+   ],
+   "domain": "text"
+  },
+  {
+   "id": "glm-5.3-2026-08-26",
+   "date": "2026-08-26",
+   "side": "world",
+   "kind": "新模型",
+   "subject": "GLM-5.3（atlas 暂不改版本号）",
+   "before": "atlas 的 glm 记 GLM-5.2（HF 开源旗舰，200 万下载）",
+   "after": "Z.ai 发 GLM-5.3：旗舰 GLM-5.3 **API-only**（HF 上没有开源权重），开源的只有变体 **GLM-5.3-Flash**（zai-org/GLM-5.3-Flash，320B-A18B，MIT，刚发 34 次下载）",
+   "why": "**没有直接把版本号更到 5.3**：这条记的是开源旗舰口径，而 5.3 旗舰不开源、HF 上只有 Flash 变体，硬改会和 weights:open + HF 来源打架。要不要改成追真旗舰（API-only）是口径决定，待拍板；14 个能力格若升版要走 recheck 重核。",
+   "impact": [
+    "glm"
+   ],
+   "src": "hf-glm53flash",
+   "models": [
+    "glm"
+   ],
+   "domain": "text"
   }
  ]
 }
