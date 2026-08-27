@@ -32,8 +32,23 @@ import alerts from "@/data/alerts.json";
  * 换了新快讯签名就变了，横幅自己重新展开 ——
  * 否则读者随手点一次 ×，这条通道就对他永久失效了，而他并不知道。
  */
+/**
+ * 快讯条目的形状（由 scripts/alert.mjs 单点写出）。
+ * **显式标出来是必需的**：alerts.json 一到「本期无快讯」就写成 items:[]，
+ * 而 TS 从空 JSON 数组推出的元素类型是 never —— items.map(a => a.id) 于是编不过，
+ * 整站构建失败（2026-08-27 一次真部署撞到，跟本次加模型无关）。
+ * 标了类型，空数组也当作 FlashItem[]，构建不再随「这周有没有快讯」时好时坏。
+ */
+type FlashItem = {
+  id: string;
+  headline: string;
+  date: string;
+  why: string;
+  src?: { url: string; name: string; tier: string };
+};
+
 export default function Flash() {
-  const items = alerts.items ?? [];
+  const items = (alerts.items ?? []) as FlashItem[];
   if (!items.length) return null;
   const label = alerts.label ?? "快讯";
   const sig = items.map((a) => a.id).join("|");
