@@ -775,6 +775,42 @@
    "alert": {
     "headline": "白模预演成了新的控制轴：排完再生成，不再抽卡"
    }
+  },
+  {
+   "id": "lux3d-2026-08-27",
+   "date": "2026-08-27",
+   "side": "world",
+   "kind": "新模型",
+   "subject": "Lux3D",
+   "before": "3D 卷里没有群核科技这条线",
+   "after": "群核放出自研 3D 生成模型 Lux3D（图生 3D，带几何 + PBR 材质，可导 GLB / API / ComfyUI），作 LuxReal 内容创作产品的底座",
+   "why": "**发布日期存疑**：用户口径 08-27，但核到的公开亮相是 2025-12 群核战略发布会；当天官方消息未核到。收进 extended，能力未逐格核。",
+   "impact": [
+    "lux3d"
+   ],
+   "src": "lux3d-site",
+   "models": [
+    "lux3d"
+   ],
+   "domain": "threed"
+  },
+  {
+   "id": "locateanything-2026-08-27",
+   "date": "2026-08-27",
+   "side": "world",
+   "kind": "新模型",
+   "subject": "LocateAnything-3B",
+   "before": "具身推理轨（er）只有 gemini-robotics-er 与 rynnbrain",
+   "after": "英伟达放出 LocateAnything-3B：3B 视觉-语言 grounding 模型，出框 / 点 / OCR / GUI 定位，Parallel Box Decoding 一步并行出框（官方称对既有方法 up to 2.5× 吞吐）",
+   "why": "按产出物归 er 轨，但它是**通用视觉 grounding 非机器人专用**。⚠️「英伟达开源」要打折：权重可下，许可 NVIDIA non-commercial 仅限学术/非营利研究，商用不允许 —— 不是可商用开源。",
+   "impact": [
+    "locateanything"
+   ],
+   "src": "hf-locateanything",
+   "models": [
+    "locateanything"
+   ],
+   "domain": "embodied"
   }
  ]
 }

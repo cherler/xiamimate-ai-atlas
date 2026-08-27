@@ -2223,6 +2223,14 @@
   ],
   "orgs": [
     {
+      "id": "manycore",
+      "zh": "群核科技（酷家乐 / Coohom 母公司）",
+      "en": "Manycore Tech",
+      "name": "Manycore",
+      "kind": "startup",
+      "note": "空间智能公司，消费侧产品酷家乐 / 国际版 Coohom；2026 年起开放底层空间智能能力（Aholo 平台），自研 3D 生成模型 Lux3D 与 3D AI 内容创作产品 LuxReal。总部还没查 —— 立项当天只核了产品与官网，公司层留到下一轮。"
+    },
+    {
       "id": "bytedance",
       "zh": "字节跳动",
       "name": "ByteDance",
@@ -3166,6 +3174,44 @@
   "$investments": "上游投资关系。\n\n## 更正：我先前判断错了\n\n我最初写的是「可得性上限只有 B/C 级，金额多半核不实」。**这个判断对一大半公司是错的。**\n实际查下来，可得性取决于**这家公司走到了哪一步的强制披露**：\n\n  S 级 · 招股书 / 年报 / 上市公告 —— 逐轮融资、金额、股东是**法定披露**，最硬的来源。\n         MiniMax 已过港交所聆讯（招股书公开），昆仑万维已在深交所上市（300418），\n         Alphabet 走 SEC，阿里同时有 SEC 和港交所。\n  S 级 · **公司自己发的融资新闻稿** —— 生数的 A+ 轮就是自己在 PRNewswire 发的，\n         轮次、金额、领投方、战略投资方全都写明。这是我们录进来的第一批。\n  A 级 · 政府/官方机构通报（如北京市科委对生数 A+ 轮的报道）。\n  B 级 · Crunchbase / PitchBook / CBInsights / IT桔子 —— 覆盖最全，但**多数在付费墙后**，\n         而且它们本身也是二手转述。\n  拿不到 —— 未上市公司的具体股比、未公开披露的早期轮次。\n\n**所以不是「本就不公开」，是「看这家公司有没有被逼着公开」。**\n规矩不变：每条带 src 和逐字 quote（校验 R25），拿不到金额就不写金额，不许估。\n\n字段：{from(投资方名，可以是外部机构), to(org id), round, role, date, src, quote}",
   "$chain": "产业链三层的可得性差得很远，别当成一件事：\n  下游运营商 —— ✅ 就是 platforms + availability，已经在库里且官方源核过。\n  公司归属/总部 —— ⚠️ 可查可证，但现在还没证（见 $orgs）。\n  上游投资 —— ⚠️ 上限 B/C 级，见 $investments。\n  终端用户分布 —— ❌ **不做**。没有厂商公开用户地理分布，画出来的热力一定是编的，那是自拆招牌。替代口径：reach_cn（大陆可达性）+ platforms.region。",
   "models": [
+    {
+      "id": "lux3d",
+      "class": "asset",
+      "family": "Lux3D",
+      "org": "manycore",
+      "version": "Lux3D",
+      "version_as_of": "2026-08-27",
+      "status": "active",
+      "tier": "extended",
+      "domain": "threed",
+      "weights": "closed",
+      "version_src": "lux3d-site",
+      "version_quote": "官网页面标题：「AI 图生 3D 模型生成器｜PBR 3D 资产 - Lux3D」—— 单图生成带几何与 PBR 材质的 3D 资产",
+      "lineage_note": "扩展层，只记当前形态，没采谱系 —— 群核未公开版本号",
+      "reach_cn": "unknown",
+      "reach_note": "还没测",
+      "note": "群核科技（酷家乐母公司）自研的 3D 生成底座模型，也是其 3D AI 内容创作产品 LuxReal 的底座；产品站 lux3d.aholo3d.cn 属群核 Aholo 空间智能开放平台。定位图生 3D：单张图 → 带几何 + PBR 材质的资产，官方能力清单含 GLB 导出 / API / ComfyUI。⚠️ **发布日期存疑**：用户口径「2026-08-27 发布」未能核到当天官方消息；核到的公开亮相是 2025-12-09 群核战略发布会（Lux3D 作 LuxReal 底座首次露面）。version_as_of 记的是登记日，不是发布日。⚠️ tier=extended：刚收，能力未逐格核。",
+      "zh_none": true
+    },
+    {
+      "id": "locateanything",
+      "class": "er",
+      "family": "LocateAnything",
+      "org": "nvidia",
+      "version": "LocateAnything-3B",
+      "version_as_of": "2026-08-27",
+      "status": "active",
+      "tier": "extended",
+      "domain": "embodied",
+      "weights": "open",
+      "version_src": "hf-locateanything",
+      "version_quote": "模型卡：「LocateAnything is a vision-language model for fast and high-quality visual grounding, enabling precise object localization, dense detection, and point-based localization across diverse domains.」许可：「NVIDIA License for non-commercial use ... academic and non-profit research purposes only.」",
+      "lineage_note": "扩展层，只记当前版本，没采谱系",
+      "reach_cn": "unknown",
+      "reach_note": "还没测",
+      "note": "英伟达的视觉-语言定位（grounding）模型，3B 参数。产出物是框 / 点 / OCR 文字位置 / GUI 元素定位 —— 按「方向由产出物定」归 er 轨（与 gemini-robotics-er、rynnbrain 并列）。⚠️ **但它是通用视觉 grounding，非机器人专用**：主打开放词表检测 / 指代定位 / OCR / 文档版面 / GUI，落 embodied 卷是按产出物判据、不是因为它做机器人。核心技术 Parallel Box Decoding：一步并行出整框，官方称对既有方法「up to 2.5× higher throughput」（注：10× vs Qwen3-VL 是三方博客说法，模型卡只写 2.5× vs prior approaches）。⚠️ **「英伟达开源」要打折**：权重可下载（safetensors），但许可是 NVIDIA non-commercial，仅学术/非营利研究，**商用不允许** —— 不是 Apache/MIT 那种可商用开源。发布约 2026-06（开源公告 06-29）。tier=extended：能力未逐格核。",
+      "zh_none": true
+    },
     {
       "id": "seedance",
       "class": "clip",
@@ -5462,6 +5508,16 @@
     }
   ],
   "sources": {
+    "lux3d-site": {
+      "url": "https://lux3d.aholo3d.cn/lux3d/home",
+      "name": "Lux3D 官网（群核 Aholo）",
+      "tier": "official"
+    },
+    "hf-locateanything": {
+      "url": "https://huggingface.co/nvidia/LocateAnything-3B",
+      "name": "HuggingFace · nvidia/LocateAnything-3B 模型卡",
+      "tier": "official"
+    },
     "kling-api": {
       "url": "https://kling.ai/document-api/updates/api",
       "tier": "official",
