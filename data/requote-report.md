@@ -1,6 +1,6 @@
-# 引文回查 · 2026-08-27
+# 引文回查 · 2026-08-28
 
-回查 1205 条：无英文锚 730 · 快照无正文 35 · 对得上 316 · 找不到 100 · 无快照 13 · 本页没有·别处有 11
+回查 1211 条：无英文锚 730 · 快照无正文 35 · 对得上 316 · 找不到 100 · 无快照 19 · 本页没有·别处有 11
 
 > 这份报告回答一件事：**一格引文里的原句，在它署名的那份快照里还在不在。**
 > ⚠️ **失败不等于引文错。** 三种成因要分开：真署错了页 / 这一页的快照是残的（抓回来的是导航不是正文）/ 当初记的就不是逐字原文。**脚本不猜。**
@@ -179,12 +179,18 @@
 - `hf-lineage` 发布 trellis-text —— 锚「takes in text or image prompts」
 - `hf-robotics` 发布 cosmos-reason2 —— 锚「replacing the Eagle backbone used in N1.6」
 
-### 无快照（13）
+### 无快照（19）
 
 - `sora-eol-search` sora × t2v
 - `sora-2` sora × charref
 - `sora-2` sora × audio
 - `seed3d-page` seed3d × d-splat
+- `xai-imagine-image` 模型 grok-image 版本
+- `xai-imagine-video` 模型 grok-video 版本
+- `luma-ray32` 模型 luma-ray 版本
+- `meta-muse` 模型 muse-spark 版本
+- `lux3d-site` 模型 lux3d 版本
+- `hf-locateanything` 模型 locateanything 版本
 - `wan3-qbitai` 模型 wan 版本
 - `modelscope-orgs` 模型 internvla 版本
 - `modelscope-orgs` 模型 hy-embodied 版本
