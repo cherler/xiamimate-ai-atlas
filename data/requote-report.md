@@ -1,19 +1,19 @@
-# 引文回查 · 2026-08-28
+# 引文回查 · 2026-08-29
 
-回查 1211 条：无英文锚 730 · 快照无正文 35 · 对得上 316 · 找不到 100 · 无快照 19 · 本页没有·别处有 11
+回查 1211 条：无英文锚 730 · 快照无正文 35 · 对得上 313 · 找不到 103 · 无快照 19 · 本页没有·别处有 11
 
 > 这份报告回答一件事：**一格引文里的原句，在它署名的那份快照里还在不在。**
 > ⚠️ **失败不等于引文错。** 三种成因要分开：真署错了页 / 这一页的快照是残的（抓回来的是导航不是正文）/ 当初记的就不是逐字原文。**脚本不猜。**
 
 ## 失败 ≥3 条的源（14 个）—— 这几个大概率是抓法不对
 
+- **openai-image-docs**（9 条）：gpt-image × i-t2i、gpt-image × i-i2i、gpt-image × i-edit …
 - **comfy-docs**（8 条）：发布 hidream-HiDream-I1-17B 出图底座，MIT、发布 ernie-image-ERNIE-Image-8B DiT 正式档，apache-2.0、发布 ovis-image-Ovis-Image-7B-7B 专攻图上出字 …
-- **openai-image-docs**（7 条）：gpt-image × i-t2i、gpt-image × i-i2i、gpt-image × i-edit …
 - **rodin-api-docs**（6 条）：rodin × d-multiview、rodin × d-pbr、rodin × d-edit …
 - **hunyuanworld-gh**（5 条）：hunyuan-world × w-sim、hunyuan-world × w-realtime、模型 hunyuan-world 版本 …
+- **heygen-changelog**（5 条）：发布 heygen-v3api、发布 heygen-avatar3、发布 heygen-avatar5 …
 - **seed-blog**（4 条）：模型 seedream 版本、发布 seedream-Seedream 3.0-原生 2K 直出 + 小字排版变准、发布 seedream-Seedream 4.0-出图与改图并进一个模型 …
 - **recraft-blog**（4 条）：模型 recraft 版本、发布 recraft-Recraft V3-长段文字 + 文字位置和大小可指定、发布 recraft-Recraft V4-按设计审美重训的一代 …
-- **heygen-changelog**（4 条）：发布 heygen-v3api、发布 heygen-avatar3、发布 heygen-batch …
 - **veo-doc**（3 条）：veo × flf、veo × charref、veo × extend
 - **decart-site**（3 条）：lucy × rt-endless、模型 lucy 版本、发布 lucy-Lucy2.5-Lucy2.5
 - **anthropic-models**（3 条）：claude × t-vision、claude × t-cache、模型 claude 版本
@@ -38,7 +38,7 @@
 - `openai-model-tts` 发布 gpttts-2025-12 —— 锚「slugs to point to the 2025-12-15 snapshots」（这句在 openai-changelog）
 - `openai-model-realtime` 发布 gptrt-2025-08 —— 锚「The OpenAI Realtime API is now generally available」（这句在 openai-changelog）
 
-### 找不到（100）
+### 找不到（103）
 
 - `veo-doc` veo × flf —— 锚「Frame-specific generation: Generate a video by specifying the first an」
 - `veo-doc` veo × charref —— 锚「Image-based direction: Use up to three reference images」
@@ -53,6 +53,8 @@
 - `openai-image-docs` gpt-image × i-inpaint —— 锚「Mask-based editing - Edit parts of images using mask overlays」
 - `openai-image-docs` gpt-image × i-multiref —— 锚「Image references - Create new images using other images as reference m」
 - `openai-image-docs` gpt-image × i-fidelity —— 锚「Input image fidelity - Control how strongly a model preserves details 」
+- `openai-image-docs` gpt-image × i-textrender —— 锚「Text Rendering: Although significantly improved, the model can still s」
+- `openai-image-docs` gpt-image × i-4k —— 锚「total pixels, typically referred to as 2K, are considered experimental」
 - `recraft-docs` recraft × i-t2i —— 锚「V4.1 is the latest generation」
 - `recraft-nl-edit` recraft × i-edit —— 锚「Recraft Studio supports targeted image editing using integrated extern」
 - `recraft-endpoints` recraft × i-outpaint —— 锚「The area to be generated can be specified either by per-side pixel mar」
@@ -129,6 +131,7 @@
 - `meshy-changelog` 发布 meshy-7 —— 锚「Added ai_model: meshy-7 to the Image to 3D API: our newest 3D generati」
 - `heygen-changelog` 发布 heygen-v3api —— 锚「New Voice Creation Endpoint」
 - `heygen-changelog` 发布 heygen-avatar3 —— 锚「videos to include support for the Avatar III engine」
+- `heygen-changelog` 发布 heygen-avatar5 —— 锚「Per-second video generation rates for Avatar V now match Avatar IV」
 - `heygen-changelog` 发布 heygen-batch —— 锚「Batch APIs for Translations, Lipsyncs, and Assets」
 - `heygen-changelog` 发布 heygen-consent —— 锚「Consent Video Upload Available for All Enterprise Accounts」
 - `elevenlabs-changelog` 发布 eleven-v3-ga —— 锚「v3 is out of alpha - it's more stable, accurate and has lower latency」
