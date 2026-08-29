@@ -4111,7 +4111,8 @@
       "version_src": "anthropic-models",
       "version_quote": "官方模型总览：「Claude Fable 5 is generally available … beginning June 9, 2026」；Opus 5 是推荐默认档",
       "reach_cn": "blocked",
-      "reach_note": "platform.claude.com 直连不通（连接失败）（本机实测 08-11）"
+      "reach_note": "platform.claude.com 直连不通（连接失败）（本机实测 08-11）",
+      "note": "⚠️ 2026-07-24 Anthropic 发布 **Opus 5**(anthropic.com/news/claude-opus-5):官方说法「comes close to the frontier intelligence of Claude Fable 5 at half the price」($5/$25,Claude Max 新默认款)。**本条仍记 Fable 5,因为它才是 frontier(顶配)**;Opus 5 是更便宜的日常默认款,不是能力升级。要改成追「默认款」口径可议。"
     },
     {
       "id": "gpt",
@@ -4138,15 +4139,15 @@
       "family": "Gemini",
       "zh": "Gemini",
       "org": "google",
-      "version": "Gemini 3.6 Flash",
-      "version_as_of": "2026-08-11",
+      "version": "Gemini 3.7 Flash",
+      "version_as_of": "2026-08-29",
       "status": "active",
       "tier": "core",
       "domain": "text",
       "weights": "closed",
       "team": "Google DeepMind",
-      "version_src": "gemini-models",
-      "version_quote": "官方模型清单里最新的一档是 gemini-3.6-flash。**日期是核验日** —— 该页不标发布日",
+      "version_src": "gemini-37-blog",
+      "version_quote": "Google 官方发布博客(2026-08-13):「our most intelligent workhorse model yet for coding and agents」;上下文 1,048,576;coding 较 3.6 明显提升(FrontierCode 1.1 43.6% vs 34.4%)。",
       "reach_cn": "blocked",
       "reach_note": "ai.google.dev 直连不通（连接失败）—— 读官方文档要出境（本机实测 08-11）"
     },
@@ -4212,18 +4213,17 @@
       "family": "GLM",
       "zh": "智谱 GLM",
       "org": "zhipu",
-      "version": "GLM-5.2",
-      "version_as_of": "2026-06-16",
+      "version": "GLM-5.3",
+      "version_as_of": "2026-08-29",
       "status": "active",
       "tier": "core",
       "domain": "text",
       "weights": "open",
       "team": "Z.ai",
       "version_src": "hf-text-org",
-      "version_quote": "zai-org/GLM-5.2（官方 HF 组织 createdAt 2026-06-16，下载 252 万）",
+      "version_quote": "zai-org/GLM-5.3(官方 HF 组织,createdAt 2026-08-25,含完整开源权重 GLM-5.3 / GLM-5.3-BF16,及变体 GLM-5.3-Flash)。上次(08-27)只有 Flash 变体、旗舰 API-only 故未升;现旗舰权重已开放,口径了结。",
       "reach_cn": "ok",
-      "reach_note": "docs.bigmodel.cn 直连 308（本机实测 08-11）",
-      "note": "⚠️ **GLM-5.3 已发布（2026-08-26）但这里仍记 GLM-5.2**：旗舰 GLM-5.3 是 API-only（HF 上没有开源权重），zai-org 上开源的只有变体 GLM-5.3-Flash（320B-A18B、MIT），而 GLM-5.2 仍是 HF 上的开源旗舰（200 万下载）。这条记的是开源旗舰口径 —— 要不要改成追真旗舰（API-only）是口径决定，待拍板；详见 changes。"
+      "reach_note": "docs.bigmodel.cn 直连 308（本机实测 08-11）"
     },
     {
       "id": "minimax-text",
@@ -4283,15 +4283,15 @@
       "family": "Grok",
       "zh": "Grok",
       "org": "xai",
-      "version": "4.5",
-      "version_as_of": "2026-08-11",
+      "version": "4.6",
+      "version_as_of": "2026-08-29",
       "status": "active",
       "tier": "extended",
       "domain": "text",
       "weights": "closed",
       "team": "xAI",
       "version_src": "xai-docs",
-      "version_quote": "官方模型清单：grok-4.5 为最新，知识截止 2026-02-01。**日期是核验日**",
+      "version_quote": "官方 API 模型 id `grok-4.6`(2026-08-12 发布,承接 4.5);500K 上下文,可配 reasoning effort(low/medium/high/xhigh)。**日期是核验日**",
       "reach_cn": "blocked",
       "reach_note": "docs.x.ai 直连不通（连接失败）（本机实测 08-11）"
     },
@@ -7687,6 +7687,16 @@
       "name": "Google DeepMind 官方仓库 · GNoME",
       "url": "https://github.com/google-deepmind/materials_discovery",
       "tier": "official"
+    },
+    "gemini-37-blog": {
+      "url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-3-7-flash/",
+      "name": "Google 官方 · Gemini 3.7 Flash 发布博客",
+      "tier": "official"
+    },
+    "claude-opus5": {
+      "url": "https://www.anthropic.com/news/claude-opus-5",
+      "name": "Anthropic 官方 · Introducing Claude Opus 5",
+      "tier": "official"
     }
   },
   "support": [
@@ -10115,7 +10125,8 @@
       "verified_for": "Gemini 3.6 Flash",
       "note": "文档 Core capabilities 下列「Thinking」（含 Thought signatures）",
       "src": "gemini-models",
-      "via": "native"
+      "via": "native",
+      "recheck": "Gemini 3.7 Flash"
     },
     {
       "m": "gemini-text",
@@ -10124,13 +10135,16 @@
       "verified_for": "Gemini 3.6 Flash",
       "note": "指南单列「Long context」一节",
       "src": "gemini-models",
-      "via": "native"
+      "via": "native",
+      "recheck": "Gemini 3.7 Flash"
     },
     {
       "m": "gemini-text",
       "c": "t-maxout",
       "state": "unknown",
-      "verified_for": "Gemini 3.6 Flash"
+      "verified_for": "Gemini 3.6 Flash",
+      "recheck": "Gemini 3.7 Flash",
+      "note": "旧结论核在 Gemini 3.6 Flash;Gemini 3.7 Flash 待重核。"
     },
     {
       "m": "gemini-text",
@@ -10139,7 +10153,8 @@
       "verified_for": "Gemini 3.6 Flash",
       "note": "Tools 下列「Function calling」",
       "src": "gemini-models",
-      "via": "native"
+      "via": "native",
+      "recheck": "Gemini 3.7 Flash"
     },
     {
       "m": "gemini-text",
@@ -10148,7 +10163,8 @@
       "verified_for": "Gemini 3.6 Flash",
       "note": "Core capabilities 下列「Structured outputs」",
       "src": "gemini-models",
-      "via": "native"
+      "via": "native",
+      "recheck": "Gemini 3.7 Flash"
     },
     {
       "m": "gemini-text",
@@ -10157,7 +10173,8 @@
       "verified_for": "Gemini 3.6 Flash",
       "note": "Tools 下列「Google Search」（Grounding with Search）",
       "src": "gemini-models",
-      "via": "native"
+      "via": "native",
+      "recheck": "Gemini 3.7 Flash"
     },
     {
       "m": "gemini-text",
@@ -10166,7 +10183,8 @@
       "verified_for": "Gemini 3.6 Flash",
       "note": "Tools 下列「Code execution」",
       "src": "gemini-models",
-      "via": "native"
+      "via": "native",
+      "recheck": "Gemini 3.7 Flash"
     },
     {
       "m": "gemini-text",
@@ -10176,7 +10194,8 @@
       "src": "gemini-computer-use",
       "note": "Computer Use 指南的 Model versions 一节列出 **gemini-3.6-flash**（与 3.5-flash-lite / 3.5-flash / 3-flash-preview 并列）；`environment` 支持 ENVIRONMENT_BROWSER / MOBILE / DESKTOP，另有 `enable_prompt_injection_detection` 等安全参数",
       "via": "native",
-      "as_of": "2026-08-11"
+      "as_of": "2026-08-11",
+      "recheck": "Gemini 3.7 Flash"
     },
     {
       "m": "gemini-text",
@@ -10186,7 +10205,8 @@
       "src": "gemini-vision",
       "note": "「All Gemini model versions are multimodal and can be utilized in a wide range of image processing and computer vision tasks」；示例同样全部用 `model=\"gemini-3.6-flash\"`；Gemini 3 另有 `media_resolution` 控制每张图分配的 token 上限",
       "via": "native",
-      "as_of": "2026-08-11"
+      "as_of": "2026-08-11",
+      "recheck": "Gemini 3.7 Flash"
     },
     {
       "m": "gemini-text",
@@ -10196,7 +10216,8 @@
       "src": "gemini-audio",
       "note": "音频理解指南全篇示例都是 `model=\"gemini-3.6-flash\"`（**正是我们记的这一支**）；并给了量：「32 tokens per second of audio（1 分钟 = 1,920 tokens）」「Max length: 9.5 hours of audio per prompt」",
       "via": "native",
-      "as_of": "2026-08-11"
+      "as_of": "2026-08-11",
+      "recheck": "Gemini 3.7 Flash"
     },
     {
       "m": "gemini-text",
@@ -10205,7 +10226,8 @@
       "verified_for": "Gemini 3.6 Flash",
       "note": "Optimization 下列「Context caching」",
       "src": "gemini-models",
-      "via": "native"
+      "via": "native",
+      "recheck": "Gemini 3.7 Flash"
     },
     {
       "m": "gemini-text",
@@ -10214,19 +10236,24 @@
       "verified_for": "Gemini 3.6 Flash",
       "note": "Optimization 下列「Batch API」",
       "src": "gemini-models",
-      "via": "native"
+      "via": "native",
+      "recheck": "Gemini 3.7 Flash"
     },
     {
       "m": "gemini-text",
       "c": "t-fim",
       "state": "unknown",
-      "verified_for": "Gemini 3.6 Flash"
+      "verified_for": "Gemini 3.6 Flash",
+      "recheck": "Gemini 3.7 Flash",
+      "note": "旧结论核在 Gemini 3.6 Flash;Gemini 3.7 Flash 待重核。"
     },
     {
       "m": "gemini-text",
       "c": "t-openweights",
       "state": "unknown",
-      "verified_for": "Gemini 3.6 Flash"
+      "verified_for": "Gemini 3.6 Flash",
+      "recheck": "Gemini 3.7 Flash",
+      "note": "旧结论核在 Gemini 3.6 Flash;Gemini 3.7 Flash 待重核。"
     },
     {
       "m": "qwen-text",
@@ -10604,7 +10631,8 @@
       "verified_for": "GLM-5.2",
       "src": "glm-api",
       "note": "ChatCompletionTextRequest 参数含 thinking 与 reasoning_effort",
-      "via": "native"
+      "via": "native",
+      "recheck": "GLM-5.3"
     },
     {
       "m": "glm",
@@ -10614,7 +10642,8 @@
       "src": "glm-52-doc",
       "note": "文档规格表：Context Length = 1M",
       "via": "native",
-      "as_of": "2026-08-11"
+      "as_of": "2026-08-11",
+      "recheck": "GLM-5.3"
     },
     {
       "m": "glm",
@@ -10624,7 +10653,8 @@
       "src": "glm-52-doc",
       "note": "文档规格表：Maximum Output Tokens = 128K",
       "via": "native",
-      "as_of": "2026-08-11"
+      "as_of": "2026-08-11",
+      "recheck": "GLM-5.3"
     },
     {
       "m": "glm",
@@ -10633,7 +10663,8 @@
       "verified_for": "GLM-5.2",
       "src": "glm-api",
       "note": "ChatCompletionTextRequest 参数含 tools / tool_choice（另有 tool_stream）",
-      "via": "native"
+      "via": "native",
+      "recheck": "GLM-5.3"
     },
     {
       "m": "glm",
@@ -10642,7 +10673,8 @@
       "verified_for": "GLM-5.2",
       "src": "glm-api",
       "note": "ChatCompletionTextRequest 参数含 response_format",
-      "via": "native"
+      "via": "native",
+      "recheck": "GLM-5.3"
     },
     {
       "m": "glm",
@@ -10658,13 +10690,17 @@
       "m": "glm",
       "c": "t-code",
       "state": "unknown",
-      "verified_for": "GLM-5.2"
+      "verified_for": "GLM-5.2",
+      "recheck": "GLM-5.3",
+      "note": "旧结论核在 GLM-5.2;GLM-5.3 待重核。"
     },
     {
       "m": "glm",
       "c": "t-computer",
       "state": "unknown",
-      "verified_for": "GLM-5.2"
+      "verified_for": "GLM-5.2",
+      "recheck": "GLM-5.3",
+      "note": "旧结论核在 GLM-5.2;GLM-5.3 待重核。"
     },
     {
       "m": "glm",
@@ -10673,7 +10709,8 @@
       "verified_for": "GLM-5.2",
       "src": "glm-api",
       "note": "API 参考单列 ChatCompletionVisionRequest —— 图像输入是独立的请求体。⚠️ 注意**不是同一个模型**：GLM-5.2 文档写明 Input/Output Modalities 均为 Text，视觉在另一支多模态型号上",
-      "via": "native"
+      "via": "native",
+      "recheck": "GLM-5.3"
     },
     {
       "m": "glm",
@@ -10694,7 +10731,8 @@
       "src": "glm-52-doc",
       "note": "Core Capabilities 列出 Context Caching（并列 Thinking Mode / Function Call / Structured Output / MCP）",
       "via": "native",
-      "as_of": "2026-08-11"
+      "as_of": "2026-08-11",
+      "recheck": "GLM-5.3"
     },
     {
       "m": "glm",
@@ -10704,13 +10742,16 @@
       "src": "glm-batch",
       "note": "「Batch API 专为处理大规模数据请求而设计……通过文件提交大量任务，且**价格降低 50%**（GLM-4-Flash 免费）、无并发限制」；任务文件为 .jsonl，每行打到 `/v4/chat/completions`。⚠️ 该页**没有列支持模型清单**，示例用的是 GLM-4-PLUS —— 接口本身按 body 里的 model 走，但「GLM-5.2 能不能进批量」这一句官方没明写",
       "via": "native",
-      "as_of": "2026-08-11"
+      "as_of": "2026-08-11",
+      "recheck": "GLM-5.3"
     },
     {
       "m": "glm",
       "c": "t-fim",
       "state": "unknown",
-      "verified_for": "GLM-5.2"
+      "verified_for": "GLM-5.2",
+      "recheck": "GLM-5.3",
+      "note": "旧结论核在 GLM-5.2;GLM-5.3 待重核。"
     },
     {
       "m": "glm",
@@ -10719,7 +10760,8 @@
       "verified_for": "GLM-5.2",
       "src": "hf-text-org",
       "via": "native",
-      "note": "官方 HF 组织下有可下载权重：zai-org/GLM-5.2"
+      "note": "官方 HF 组织下有可下载权重：zai-org/GLM-5.2",
+      "recheck": "GLM-5.3"
     },
     {
       "m": "minimax-text",
@@ -11078,7 +11120,9 @@
       "m": "grok",
       "c": "t-think",
       "state": "unknown",
-      "verified_for": "4.5"
+      "verified_for": "4.5",
+      "recheck": "4.6",
+      "note": "旧结论核在 4.5;4.6 待重核。"
     },
     {
       "m": "grok",
@@ -11088,55 +11132,72 @@
       "src": "xai-models",
       "note": "模型页 grok-4.5：**上下文 500k tokens**；≥200k prompt 走另一档价",
       "via": "native",
-      "as_of": "2026-08-12"
+      "as_of": "2026-08-12",
+      "recheck": "4.6"
     },
     {
       "m": "grok",
       "c": "t-maxout",
       "state": "unknown",
-      "verified_for": "4.5"
+      "verified_for": "4.5",
+      "recheck": "4.6",
+      "note": "旧结论核在 4.5;4.6 待重核。"
     },
     {
       "m": "grok",
       "c": "t-tools",
       "state": "unknown",
-      "verified_for": "4.5"
+      "verified_for": "4.5",
+      "recheck": "4.6",
+      "note": "旧结论核在 4.5;4.6 待重核。"
     },
     {
       "m": "grok",
       "c": "t-json",
       "state": "unknown",
-      "verified_for": "4.5"
+      "verified_for": "4.5",
+      "recheck": "4.6",
+      "note": "旧结论核在 4.5;4.6 待重核。"
     },
     {
       "m": "grok",
       "c": "t-search",
       "state": "unknown",
-      "verified_for": "4.5"
+      "verified_for": "4.5",
+      "recheck": "4.6",
+      "note": "旧结论核在 4.5;4.6 待重核。"
     },
     {
       "m": "grok",
       "c": "t-code",
       "state": "unknown",
-      "verified_for": "4.5"
+      "verified_for": "4.5",
+      "recheck": "4.6",
+      "note": "旧结论核在 4.5;4.6 待重核。"
     },
     {
       "m": "grok",
       "c": "t-computer",
       "state": "unknown",
-      "verified_for": "4.5"
+      "verified_for": "4.5",
+      "recheck": "4.6",
+      "note": "旧结论核在 4.5;4.6 待重核。"
     },
     {
       "m": "grok",
       "c": "t-vision",
       "state": "unknown",
-      "verified_for": "4.5"
+      "verified_for": "4.5",
+      "recheck": "4.6",
+      "note": "旧结论核在 4.5;4.6 待重核。"
     },
     {
       "m": "grok",
       "c": "t-audio",
       "state": "unknown",
-      "verified_for": "4.5"
+      "verified_for": "4.5",
+      "recheck": "4.6",
+      "note": "旧结论核在 4.5;4.6 待重核。"
     },
     {
       "m": "grok",
@@ -11146,25 +11207,32 @@
       "src": "xai-models",
       "note": "模型页给了独立的**缓存输入价**（$0.30/1M，≥200k 时 $0.60）—— 有缓存计价即支持缓存",
       "via": "native",
-      "as_of": "2026-08-12"
+      "as_of": "2026-08-12",
+      "recheck": "4.6"
     },
     {
       "m": "grok",
       "c": "t-batch",
       "state": "unknown",
-      "verified_for": "4.5"
+      "verified_for": "4.5",
+      "recheck": "4.6",
+      "note": "旧结论核在 4.5;4.6 待重核。"
     },
     {
       "m": "grok",
       "c": "t-fim",
       "state": "unknown",
-      "verified_for": "4.5"
+      "verified_for": "4.5",
+      "recheck": "4.6",
+      "note": "旧结论核在 4.5;4.6 待重核。"
     },
     {
       "m": "grok",
       "c": "t-openweights",
       "state": "unknown",
-      "verified_for": "4.5"
+      "verified_for": "4.5",
+      "recheck": "4.6",
+      "note": "旧结论核在 4.5;4.6 待重核。"
     },
     {
       "m": "mistral-text",

@@ -901,6 +901,78 @@
     "glm"
    ],
    "domain": "text"
+  },
+  {
+   "id": "gemini-3.7-2026-08-13",
+   "date": "2026-08-13",
+   "side": "world",
+   "kind": "版本更迭",
+   "subject": "Gemini 3.7 Flash",
+   "before": "atlas 记 Gemini 3.6 Flash",
+   "after": "Google 发 3.7 Flash:「most intelligent workhorse」,coding 明显提升,上下文 1,048,576",
+   "why": "核心模型升版,14 个能力格标 recheck 进待重核。",
+   "impact": [
+    "gemini-text"
+   ],
+   "src": "gemini-37-blog",
+   "models": [
+    "gemini-text"
+   ],
+   "domain": "text"
+  },
+  {
+   "id": "grok-4.6-2026-08-12",
+   "date": "2026-08-12",
+   "side": "world",
+   "kind": "版本更迭",
+   "subject": "Grok 4.6",
+   "before": "atlas 记 Grok 4.5",
+   "after": "xAI 发 4.6(API id grok-4.6),承接 4.5,500K 上下文,可配 reasoning effort",
+   "why": "扩展层,免能力格重核,直接升。",
+   "impact": [
+    "grok"
+   ],
+   "src": "xai-docs",
+   "models": [
+    "grok"
+   ],
+   "domain": "text"
+  },
+  {
+   "id": "glm-5.3-flagship-2026-08-25",
+   "date": "2026-08-25",
+   "side": "world",
+   "kind": "版本更迭",
+   "subject": "GLM-5.3(旗舰权重开放,口径了结)",
+   "before": "atlas 记 GLM-5.2(上次 08-27 因 5.3 旗舰 API-only 未升)",
+   "after": "zai-org 放出完整开源权重 GLM-5.3 / GLM-5.3-BF16(HF,08-25)——旗舰不再是 API-only,升到 5.3",
+   "why": "上次那个「追开源旗舰 vs 追真旗舰」的待拍板口径,随旗舰权重开放自然了结。14 个能力格标 recheck。",
+   "impact": [
+    "glm"
+   ],
+   "src": "hf-text-org",
+   "models": [
+    "glm"
+   ],
+   "domain": "text"
+  },
+  {
+   "id": "claude-opus5-2026-07-24",
+   "date": "2026-07-24",
+   "side": "world",
+   "kind": "新模型",
+   "subject": "Claude Opus 5",
+   "before": "Claude 5 家族顶配是 Fable 5",
+   "after": "Anthropic 发 Opus 5:「comes close to the frontier intelligence of Fable 5 at half the price」,$5/$25,Claude Max 新默认款",
+   "why": "**atlas 仍记 Fable 5(frontier)**;Opus 5 是更便宜的默认款不是能力升级,故只加 note+事件、不翻版本号。",
+   "impact": [
+    "claude"
+   ],
+   "src": "claude-opus5",
+   "models": [
+    "claude"
+   ],
+   "domain": "text"
   }
  ]
 }
