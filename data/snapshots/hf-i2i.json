@@ -1,8 +1,8 @@
 {
   "url": "https://huggingface.co/api/models?filter=image-to-image&sort=downloads&direction=-1&limit=60",
   "kind": "json",
-  "fetched_at": "2026-08-27",
-  "digest": "e26a171d60247822",
+  "fetched_at": "2026-08-30",
+  "digest": "841ec01d8230a664",
   "items": [
     "1038lab/Qwen-Image-Edit-2511-FP8\t",
     "Alissonerdx/BFS-Best-Face-Swap\t",
@@ -30,7 +30,6 @@
     "black-forest-labs/FLUX.2-klein-base-9b-fp8\t",
     "black-forest-labs/FLUX.2-small-decoder\t",
     "caidas/swin2SR-classical-sr-x2-64\t",
-    "caidas/swin2SR-realworld-sr-x4-64-bsrgan-psnr\t",
     "city96/FLUX.2-dev-gguf\t",
     "darknight9121/FLUX.2-klein-base-9B-bucket-uncensored\t",
     "diffusers/FLUX.2-dev-bnb-4bit\t",
@@ -54,6 +53,7 @@
     "prithivMLmods/Qwen-Image-Edit-2511-Hyper-Realistic-Portrait\t",
     "prithivMLmods/Qwen-Image-Edit-2511-Ultra-Realistic-Portrait\t",
     "prithivMLmods/Qwen-Image-Edit-2511-Unblur-Upscale\t",
+    "silveroxides/FLUX.2-dev-fp8_scaled\t",
     "stabilityai/stable-diffusion-xl-refiner-1.0\t",
     "starsfriday/Qwen-Image-Edit-2511-Upscale2K\t",
     "tencent/HunyuanImage-3.0-Instruct\t",

@@ -1,8 +1,8 @@
 {
   "url": "https://huggingface.co/api/models?filter=image-to-video&sort=downloads&direction=-1&limit=60",
   "kind": "json",
-  "fetched_at": "2026-08-27",
-  "digest": "dcc80f8402aedde3",
+  "fetched_at": "2026-08-30",
+  "digest": "583168ec12597faa",
   "items": [
     "Abiray/LTX-2.3-22B-DISTILLED-1.1-GGUF\t",
     "Abiray/LTX-2.5-Distilled-GGUF\t",
@@ -15,7 +15,6 @@
     "CornLogic/10EROS-INT8\t",
     "Lightricks/LTX-2\t",
     "Lightricks/LTX-2.3\t",
-    "Lightricks/LTX-2.3-22b-IC-LoRA-HDR\t",
     "Lightricks/LTX-2.3-fp8\t",
     "Lightricks/LTX-2.5\t",
     "Lightricks/LTX-2.5-Diffusers\t",
@@ -40,6 +39,7 @@
     "city96/Wan2.1-I2V-14B-720P-gguf\t",
     "comfyicu/LTX-2.5\t",
     "ibyteohdear/Lightricks-LTX-2\t",
+    "ibyteohdear/Lightricks-LTX-2-DISTILLED-10-Eros\t",
     "jayn7/WAN2.2-I2V_A14B-DISTILL-LIGHTX2V-4STEP-GGUF\t",
     "joeygambino/MiniMax-H3-GGUF\t",
     "joeygambino/MiniMax-H3-curve-GGUF\t",
@@ -53,7 +53,6 @@
     "nvidia/Cosmos3-Super-Image2Video\t",
     "nvidia/omni-dreams-models\t",
     "realrebelai/LTX-2.5_GGUFs\t",
-    "realrebelai/SCAIL-2_GGUF\t",
     "rockerBOO/minimax-h3-nvfp4-convrot\t",
     "rockerBOO/minimax-h3-nvfp4-fp8\t",
     "rzgar/minimax_h3_fl2va_fp8_e4m3fn\t",
@@ -61,7 +60,8 @@
     "stabilityai/stable-video-diffusion-img2vid-xt\t",
     "unsloth/LTX-2.3-GGUF\t",
     "unsloth/MiniMax-H3-GGUF\t",
-    "vantagewithai/LTX-2.3-GGUF\t",
+    "vantagewithai/LTX-2.5-GGUF\t",
+    "vantagewithai/LTX2.3-10Eros-1.4-GGUF\t",
     "vantagewithai/LTX2.3-10Eros-GGUF\t",
     "vantagewithai/MiniMax-H3-comfyUI-GGUF\t"
   ]
