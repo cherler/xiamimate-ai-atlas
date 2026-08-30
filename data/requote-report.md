@@ -1,6 +1,6 @@
-# 引文回查 · 2026-08-29
+# 引文回查 · 2026-08-30
 
-回查 1211 条：无英文锚 730 · 快照无正文 35 · 对得上 313 · 找不到 103 · 无快照 19 · 本页没有·别处有 11
+回查 1214 条：无英文锚 731 · 快照无正文 35 · 对得上 313 · 找不到 103 · 无快照 21 · 本页没有·别处有 11
 
 > 这份报告回答一件事：**一格引文里的原句，在它署名的那份快照里还在不在。**
 > ⚠️ **失败不等于引文错。** 三种成因要分开：真署错了页 / 这一页的快照是残的（抓回来的是导航不是正文）/ 当初记的就不是逐字原文。**脚本不猜。**
@@ -182,7 +182,7 @@
 - `hf-lineage` 发布 trellis-text —— 锚「takes in text or image prompts」
 - `hf-robotics` 发布 cosmos-reason2 —— 锚「replacing the Eagle backbone used in N1.6」
 
-### 无快照（19）
+### 无快照（21）
 
 - `sora-eol-search` sora × t2v
 - `sora-2` sora × charref
@@ -195,6 +195,7 @@
 - `lux3d-site` 模型 lux3d 版本
 - `hf-locateanything` 模型 locateanything 版本
 - `wan3-qbitai` 模型 wan 版本
+- `gemini-37-blog` 模型 gemini-text 版本
 - `modelscope-orgs` 模型 internvla 版本
 - `modelscope-orgs` 模型 hy-embodied 版本
 - `modelscope-orgs` 模型 g0-vla 版本
@@ -203,3 +204,4 @@
 - `modelscope-orgs` 发布 internvla-n1
 - `modelscope-orgs` 发布 internvla-a15
 - `modelscope-orgs` 发布 hy-embodied-05
+- `gemini-37-blog` 发布 gemini-text-Gemini 3.7-编码与智能体提升
