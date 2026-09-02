@@ -1,6 +1,6 @@
-# 引文回查 · 2026-09-01
+# 引文回查 · 2026-09-02
 
-回查 1214 条：无英文锚 731 · 快照无正文 35 · 对得上 313 · 找不到 103 · 无快照 21 · 本页没有·别处有 11
+回查 1214 条：无英文锚 731 · 快照无正文 35 · 对得上 311 · 找不到 105 · 无快照 21 · 本页没有·别处有 11
 
 > 这份报告回答一件事：**一格引文里的原句，在它署名的那份快照里还在不在。**
 > ⚠️ **失败不等于引文错。** 三种成因要分开：真署错了页 / 这一页的快照是残的（抓回来的是导航不是正文）/ 当初记的就不是逐字原文。**脚本不猜。**
@@ -38,7 +38,7 @@
 - `openai-model-tts` 发布 gpttts-2025-12 —— 锚「slugs to point to the 2025-12-15 snapshots」（这句在 openai-changelog）
 - `openai-model-realtime` 发布 gptrt-2025-08 —— 锚「The OpenAI Realtime API is now generally available」（这句在 openai-changelog）
 
-### 找不到（103）
+### 找不到（105）
 
 - `veo-doc` veo × flf —— 锚「Frame-specific generation: Generate a video by specifying the first an」
 - `veo-doc` veo × charref —— 锚「Image-based direction: Use up to three reference images」
@@ -66,6 +66,7 @@
 - `anthropic-models` claude × t-vision —— 锚「All current Claude models support text and image input, text output, m」
 - `claude-models` claude × t-audio —— 锚「All current Claude models support text and image input, text output, m」
 - `anthropic-models` claude × t-cache —— 锚「See Pricing for complete pricing information including Batch API disco」
+- `minimax-api-overview` mm-speech × s-format —— 锚「mp3, pcm, flac, wav」
 - `elevenlabs-docs` elevenlabs × s-design —— 锚「a guide on how to craft voices」
 - `elevenlabs-docs` elevenlabs × s-long —— 锚「a guide on how to create long-form content」
 - `gemini-music` lyria × s-m-lyrics —— 锚「Generation of lyrics alongside audio」
@@ -88,6 +89,7 @@
 - `openvla-gh` openvla × e-openweights —— 锚「All OpenVLA checkpoints, as well as our training codebase are released」
 - `hunyuanworld-gh` hunyuan-world × w-sim —— 锚「April 16, 2026: We release HY-World-2.0, state-of-the-art 3D world mod」
 - `hunyuanworld-gh` hunyuan-world × w-realtime —— 锚「December 18, 2025: We release HunyuanWorld-1.5」
+- `gemini-models` 模型 gemini-omni 版本 —— 锚「Fast, conversational video generation and editing」
 - `gemini-models` 模型 gemini-image 版本 —— 锚「our latest state-of-the-art image model.」
 - `recraft-blog` 模型 recraft 版本 —— 锚「Give V4.1 just a few words, and it'll give you something worth keeping」
 - `anthropic-models` 模型 claude 版本 —— 锚「Claude Fable 5 is generally available」
