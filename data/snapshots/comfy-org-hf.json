@@ -1,7 +1,7 @@
 {
   "url": "https://huggingface.co/api/models?author=Comfy-Org&sort=lastModified&direction=-1&limit=40",
   "kind": "json",
-  "fetched_at": "2026-08-26",
+  "fetched_at": "2026-09-02",
   "digest": "fc15e789703f95e5",
   "items": [
     "Comfy-Org/MiniMax-H3\t2026-08-25T04:20:30.000Z",
