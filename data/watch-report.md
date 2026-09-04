@@ -1,6 +1,6 @@
-# 信息源监视报告 · 2026-09-03
+# 信息源监视报告 · 2026-09-04
 
-本次检查 9 个到期源（共 448 个）：变化 4 · 首次 0 · 无变化 0 · **抓不到 5**
+本次检查 18 个到期源（共 448 个）：变化 13 · 首次 0 · 无变化 0 · **抓不到 5**
 
 > 这份报告是给人看的那 20 条待办的来源（§59.3 的负反馈：人每周要看的条目 ≤ 20）。
 > 「抓不到」不是失败，是**信息本身** —— 一个长期抓不到的官方源，说明那家厂商没有可 diff 的公开更新入口，
@@ -25,10 +25,19 @@
 
 ## 有变化
 
-- **recraft-endpoints** Recraft 官方 API 参考 · Endpoints
-- **recraft-nl-edit** Recraft Studio 文档 · 用自然语言改图
-- **hunyuan-image-hf** 腾讯官方 Hugging Face · HunyuanImage-3.0 模型卡
-- **bfl-flux2-overview** Black Forest Labs 官方文档 · FLUX.2 概览
+- **replicate-3d** Replicate · 3D 模型合集
+- **hf-image-to-3d** Hugging Face · Image-to-3D 任务页
+- **comfy-3d-hunyuan** ComfyUI 官方 · Hunyuan3D-2 教程
+- **gh-hunyuan3d-21** Tencent-Hunyuan/Hunyuan3D-2.1 仓库
+- **gh-hunyuan3d-part** Tencent-Hunyuan/Hunyuan3D-Part 仓库
+- **gh-spar3d** Stability-AI/stable-point-aware-3d 仓库
+- **gh-triposg** VAST-AI-Research/TripoSG 仓库
+- **gh-instantmesh** TencentARC/InstantMesh 仓库
+- **hf-instantmesh** Hugging Face · TencentARC/InstantMesh 模型卡
+- **hf-apple-sharp** Hugging Face · apple/Sharp 模型卡
+- **gh-hunyuan3d-api** 混元3D-2.1 仓库 · api_server.py / api_models.py
+- **hf-anysplat** Hugging Face · lhjiang/anysplat 模型卡
+- **hf-trellis2** Hugging Face · microsoft/TRELLIS.2-4B 模型卡
 
 ## 全部
 
@@ -322,10 +331,10 @@
 | hf-org-elevenlabs | A | json | 未到期（上次 2026-08-12） |
 | hf-org-openai | A | json | 未到期（上次 2026-08-12） |
 | ideogram-layerize | A | html | 未到期（上次 2026-08-12） |
-| recraft-endpoints | A | html | 变了 |
-| recraft-nl-edit | A | html | 变了 |
-| hunyuan-image-hf | A | json | 变了 |
-| bfl-flux2-overview | A | html | 变了 |
+| recraft-endpoints | A | html | 未到期（上次 2026-09-03） |
+| recraft-nl-edit | A | html | 未到期（上次 2026-09-03） |
+| hunyuan-image-hf | A | json | 未到期（上次 2026-09-03） |
+| bfl-flux2-overview | A | html | 未到期（上次 2026-09-03） |
 | bfl-flux2-multiref | A | html | 未到期（上次 2026-08-29） |
 | ark-seedream-api | A | spa | 未到期（上次 2026-08-27） |
 | arxiv-fp8 | A | html | 未到期（上次 2026-08-13） |
@@ -371,25 +380,25 @@
 | tripo-docs-animation | S | spa | 未到期（上次 2026-08-29） |
 | gh-hunyuan3d-buffalo | S | html | 未到期（上次 2026-08-29） |
 | replicate-hunyuan3d-31 | A | spa | 未到期（上次 2026-08-29） |
-| replicate-3d | A | spa | 未到期（上次 2026-08-14） |
-| hf-image-to-3d | A | spa | 未到期（上次 2026-08-14） |
-| comfy-3d-hunyuan | S | html | 未到期（上次 2026-08-14） |
-| gh-hunyuan3d-21 | S | html | 未到期（上次 2026-08-14） |
-| gh-hunyuan3d-part | S | html | 未到期（上次 2026-08-14） |
-| gh-spar3d | S | html | 未到期（上次 2026-08-14） |
-| gh-triposg | S | html | 未到期（上次 2026-08-14） |
-| gh-instantmesh | S | html | 未到期（上次 2026-08-14） |
+| replicate-3d | A | spa | 变了 |
+| hf-image-to-3d | A | spa | 变了 |
+| comfy-3d-hunyuan | S | html | 变了 |
+| gh-hunyuan3d-21 | S | html | 变了 |
+| gh-hunyuan3d-part | S | html | 变了 |
+| gh-spar3d | S | html | 变了 |
+| gh-triposg | S | html | 变了 |
+| gh-instantmesh | S | html | 变了 |
 | modelscope-orgs | S | json | 从未抓过 |
 | hf-wan-vace | S | html | 未到期（上次 2026-08-29） |
 | hf-ltx-25 | S | html | 未到期（上次 2026-08-29） |
 | meshy-changelog | S | spa | 未到期（上次 2026-08-29） |
-| hf-instantmesh | S | html | 未到期（上次 2026-08-14） |
-| hf-apple-sharp | S | html | 未到期（上次 2026-08-14） |
-| gh-hunyuan3d-api | S | html | 未到期（上次 2026-08-14） |
-| hf-anysplat | S | html | 未到期（上次 2026-08-14） |
+| hf-instantmesh | S | html | 变了 |
+| hf-apple-sharp | S | html | 变了 |
+| gh-hunyuan3d-api | S | html | 变了 |
+| hf-anysplat | S | html | 变了 |
 | arxiv-seed3d-20 | S | html | 未到期（上次 2026-08-14） |
 | arxiv-seed3d-10 | S | html | 未到期（上次 2026-08-14） |
-| hf-trellis2 | S | html | 未到期（上次 2026-08-14） |
+| hf-trellis2 | S | html | 变了 |
 | pixverse-caps | S | html | 未到期（上次 2026-08-29） |
 | pixverse-v6 | S | html | 未到期（上次 2026-08-29） |
 | pixverse-fusion | S | html | 未到期（上次 2026-08-29） |
