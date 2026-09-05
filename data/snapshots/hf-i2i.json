@@ -1,10 +1,9 @@
 {
   "url": "https://huggingface.co/api/models?filter=image-to-image&sort=downloads&direction=-1&limit=60",
   "kind": "json",
-  "fetched_at": "2026-09-02",
-  "digest": "715aaff69b84043e",
+  "fetched_at": "2026-09-05",
+  "digest": "17fc2b73cf0ecaec",
   "items": [
-    "1038lab/Qwen-Image-Edit-2511-FP8\t",
     "Alissonerdx/BFS-Best-Face-Swap\t",
     "ChrisColeTech/qwen-image-edit-uncensored-GGUF\t",
     "QuantStack/FLUX.1-Kontext-dev-GGUF\t",
@@ -43,6 +42,7 @@
     "lilylilith/AnyPose\t",
     "lilylilith/QIE-2511-MP-AnyLight\t",
     "lllyasviel/control_v11f1p_sd15_depth\t",
+    "lllyasviel/control_v11p_sd15_openpose\t",
     "lllyasviel/sd-controlnet-canny\t",
     "lllyasviel/sd-controlnet-openpose\t",
     "lovis93/next-scene-qwen-image-lora-2509\t",
