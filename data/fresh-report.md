@@ -1,122 +1,121 @@
-# 保鲜巡检 · 2026-09-04 01:24
+# 保鲜巡检 · 2026-09-05 01:24
 
 页面上写的**还成不成立**。三支各查一类，**只报不改** —— 写回由人在审阅台上点。
 
 ## 开源项目仓库数字　会改变结论的变化 1
 
-查于 2026-09-04 01:24
+查于 2026-09-05 01:24
 
 星数、停更月数是**会过期的事实**。「在维护」变成「停更 12 个月」之后，卡上的标签、`unfit` 里的判断、要不要继续收录，全都得跟着重想 —— 页面却照写不误。
 
 → 确认后跑 `npm run repos` 写回（审阅台上有按钮），再上线。
 
 ```
-口径日 2026-09-04（试跑，没写）
+口径日 2026-09-05（试跑，没写）
 
-数字有变动的 103 个：
-  ComfyUI                  ★131375 (+3064) · 3016/月 · 停更 0
-  Wan2.2                   ★ 17391 (+199) · 1314/月 · 停更 6
-  HunyuanVideo             ★ 12496 (+58) · 590/月 · 停更 2
-  FramePack                ★ 17245 (+30) · 1029/月 · 停更 11
-  LTX-Video                ★ 10931 (+68) · 510/月 · 停更 8
-  MiniMax H3               ★  7941 (+1652) · 6715/月 · 停更 1
-  ControlNet               ★ 34109 (+34) · 792/月 · 停更 30
+数字有变动的 102 个：
+  ComfyUI                  ★131536 (+3225) · 3017/月 · 停更 0
+  Wan2.2                   ★ 17402 (+210) · 1311/月 · 停更 6
+  HunyuanVideo             ★ 12496 (+58) · 589/月 · 停更 2
+  FramePack                ★ 17243 (+28) · 1027/月 · 停更 11
+  LTX-Video                ★ 10933 (+70) · 509/月 · 停更 8
+  MiniMax H3               ★  8037 (+1748) · 6612/月 · 停更 1
+  ControlNet               ★ 34109 (+34) · 791/月 · 停更 30
   IP-Adapter               ★  6682 (+13) · 182/月 · 停更 26
-  InstantID                ★ 11990 (+3) · 366/月 · 停更 26
-  ACE-Step                 ★  4800 (+23) · 296/月 · 停更 7
-  pyvideotrans             ★ 18885 (+157) · 538/月 · 停更 0
-  Real-ESRGAN              ★ 36678 (+166) · 596/月 · 停更 25
-  Practical-RIFE           ★  1004 (+10) · 16/月 · 停更 0
+  InstantID                ★ 11989 (+2) · 365/月 · 停更 26
+  ACE-Step                 ★  4801 (+24) · 295/月 · 停更 7
+  pyvideotrans             ★ 18888 (+160) · 538/月 · 停更 0
+  Real-ESRGAN              ★ 36691 (+179) · 596/月 · 停更 25
+  Practical-RIFE           ★  1006 (+12) · 16/月 · 停更 0
   CodeFormer               ★ 18125 (+14) · 359/月 · 停更 10
-  MotionCtrl               ★  1500 (+1) · 46/月 · 停更 18
-  LatentSync               ★  6049 (+42) · 291/月 · 停更 14
-  IndexTTS2                ★ 23716 (+552) · 1256/月 · 停更 1
-  kohya sd-scripts         ★  7219 (+18) · 162/月 · 停更 1
-  musubi-tuner             ★  2016 (+19) · 100/月 · 停更 0
-  Ollama                   ★180082 (+1178) · 4701/月 · 停更 0
-  DiffSynth-Studio         ★ 13047 (+84) · 396/月 · 停更 0
-  MoneyPrinterTurbo        ★120252 (+11555) · 4036/月 · 停更 0
-  NarratoAI                ★ 10968 (+215) · 443/月 · 停更 0
-  火宝短剧                     ★ 14759 (+742) · 1856/月 · 停更 0
-  Toonflow                 ★ 15098 (+1018) · 2108/月 · 停更 0
-  infinite-canvas          ★  6022 (+780) · 1682/月 · 停更 0
-  open-ai-canvas           ★   788 (+178) · 545/月 · 停更 0
-  VOZEB PRO                ★   841 (+257) · 522/月 · 停更 0
-  OpenMontage              ★ 55983 (+7187) · 10718/月 · 停更 0
-  video-shotcraft          ★  7319 (+1893) · 4740/月 · 停更 0
-  Generative Media Skills  ★  4214 (+126) · 107/月 · 停更 0
-  乘风视频剪辑 Skills            ★  2967 (+76) · 388/月 · 停更 0
-  OpenChatCut              ★  1563 (+318) · 933/月 · 停更 0
-  video-podcast-maker      ★  1600 (+38) · 244/月 · 停更 1
-  motion-skills            ★   409 (+43) · 168/月 · 停更 2
-  ComfyUI-Manager          ★ 16024 (+204) · 397/月 · 停更 0
-  ComfyUI-WanVideoWrapper  ★  6682 (+15) · 366/月 · 停更 3
-  ComfyUI 官方工作流模板          ★   866 (+54) · 48/月 · 停更 0
-  waoowaoo                 ★ 13958 (+295) · 1888/月 · 停更 0
-  Jellyfish                ★  6299 (+210) · 1054/月 · 停更 1
-  魔因漫创                     ★  4474 (+103) · 658/月 · 停更 0
-  BigBanana AI Director    ★  2077 (+335) · 293/月 · 停更 0
-  ClipForge                ★   697 (+122) · 129/月 · 停更 0
-  短视频工厂                    ★  5277 (+131) · 381/月 · 停更 0
-  AI YouTube Shorts Generator ★  4818 (+193) · 184/月 · 停更 0
-  Open AI UGC              ★   284 (+26) · 7/月 · 停更 1
-  ViGenAiR                 ★   232 (+4) · 8/月 · 停更 2
-  LiveTalking              ★  9377 (+545) · 288/月 · 停更 0
-  Seedance 2.0 Prompt Skills ★  3507 (+149) · 521/月 · 停更 7
-  Drama Skills             ★  1542 (+737) · 939/月 · 停更 0
-  Seedance2 Storyboard Generator ★  2262 (+136) · 344/月 · 停更 3
-  AI Shortfilm Prompts     ★   394 (+35) · 110/月 · 停更 0
-  Awesome Seedance 2 Prompts ★  1947 (+80) · 289/月 · 停更 0
-  歸藏的提示词库                  ★  1446 (+5) · 177/月 · 停更 8
-  MidJourney 风格与关键词参考      ★ 12292 (+1) · 246/月 · 停更 17
-  AI Visual Prompt Cookbook ★   588 (+23) · 154/月 · 停更 0
-  PromptLens               ★   521 (+35) · 93/月 · 停更 0
-  Prompt Engineering Guide ★ 78003 (+440) · 1748/月 · 停更 6
-  蓝书 AI 视频工具包              ★   388 (+29) · 116/月 · 停更 3
-  Claude Code Game Studios ★ 24802 (+666) · 3701/月 · 停更 3
-  UltraGameStudio          ★   296 (+7) · 93/月 · 停更 0
-  Autonomix                ★   206 (+8) · 35/月 · 停更 4
-  awesome-gamedev-agent-skills ★   816 (+272) · 345/月 · 停更 0
-  Unity 官方技能包              ★   688 (+421) · 172/月 · 停更 0
-  GodotPrompter            ★   664 (+75) · 131/月 · 停更 1
-  GD-Agentic-Skills        ★   652 (+108) · 95/月 · 停更 0
-  unreal-engine-skills     ★   329 (+17) · 54/月 · 停更 6
-  MCP for Unity            ★ 13889 (+385) · 790/月 · 停更 0
-  Unity-MCP（Murzak）        ★  4113 (+168) · 241/月 · 停更 0
+  LatentSync               ★  6050 (+43) · 291/月 · 停更 15
+  IndexTTS2                ★ 23739 (+575) · 1255/月 · 停更 1
+  kohya sd-scripts         ★  7221 (+20) · 162/月 · 停更 1
+  musubi-tuner             ★  2018 (+21) · 100/月 · 停更 0
+  Ollama                   ★180167 (+1263) · 4699/月 · 停更 0
+  DiffSynth-Studio         ★ 13053 (+90) · 396/月 · 停更 0
+  MoneyPrinterTurbo        ★120621 (+11924) · 4044/月 · 停更 0
+  NarratoAI                ★ 10980 (+227) · 443/月 · 停更 0
+  火宝短剧                     ★ 14790 (+773) · 1853/月 · 停更 0
+  Toonflow                 ★ 15134 (+1054) · 2104/月 · 停更 0
+  infinite-canvas          ★  6065 (+823) · 1678/月 · 停更 0
+  open-ai-canvas           ★   807 (+197) · 546/月 · 停更 0
+  VOZEB PRO                ★   857 (+273) · 522/月 · 停更 0
+  OpenMontage              ★ 56156 (+7360) · 10684/月 · 停更 0
+  video-shotcraft          ★  7482 (+2056) · 4745/月 · 停更 0
+  Generative Media Skills  ★  4219 (+131) · 107/月 · 停更 0
+  乘风视频剪辑 Skills            ★  2971 (+80) · 386/月 · 停更 0
+  OpenChatCut              ★  1583 (+338) · 927/月 · 停更 0
+  video-podcast-maker      ★  1600 (+38) · 242/月 · 停更 0
+  motion-skills            ★   413 (+47) · 168/月 · 停更 2
+  ComfyUI-Manager          ★ 16031 (+211) · 396/月 · 停更 0
+  ComfyUI-WanVideoWrapper  ★  6682 (+15) · 365/月 · 停更 3
+  ComfyUI 官方工作流模板          ★   872 (+60) · 48/月 · 停更 0
+  waoowaoo                 ★ 13969 (+306) · 1881/月 · 停更 0
+  Jellyfish                ★  6302 (+213) · 1048/月 · 停更 1
+  魔因漫创                     ★  4480 (+109) · 656/月 · 停更 0
+  BigBanana AI Director    ★  2087 (+345) · 293/月 · 停更 0
+  ClipForge                ★   706 (+131) · 129/月 · 停更 0
+  短视频工厂                    ★  5282 (+136) · 380/月 · 停更 0
+  AI YouTube Shorts Generator ★  4834 (+209) · 184/月 · 停更 0
+  Open AI UGC              ★   286 (+28) · 7/月 · 停更 1
+  ViGenAiR                 ★   232 (+4) · 8/月 · 停更 3
+  LiveTalking              ★  9398 (+566) · 289/月 · 停更 0
+  Seedance 2.0 Prompt Skills ★  3516 (+158) · 520/月 · 停更 7
+  Drama Skills             ★  1577 (+772) · 941/月 · 停更 0
+  Seedance2 Storyboard Generator ★  2274 (+148) · 344/月 · 停更 3
+  AI Shortfilm Prompts     ★   395 (+36) · 109/月 · 停更 0
+  Awesome Seedance 2 Prompts ★  1949 (+82) · 288/月 · 停更 0
+  歸藏的提示词库                  ★  1448 (+7) · 176/月 · 停更 8
+  MidJourney 风格与关键词参考      ★ 12292 (+1) · 245/月 · 停更 17
+  AI Visual Prompt Cookbook ★   590 (+25) · 154/月 · 停更 0
+  PromptLens               ★   537 (+51) · 95/月 · 停更 0
+  Prompt Engineering Guide ★ 78021 (+458) · 1748/月 · 停更 6
+  蓝书 AI 视频工具包              ★   387 (+28) · 114/月 · 停更 3
+  Claude Code Game Studios ★ 24821 (+685) · 3686/月 · 停更 4
+  UltraGameStudio          ★   297 (+8) · 92/月 · 停更 0
+  Autonomix                ★   207 (+9) · 35/月 · 停更 4
+  awesome-gamedev-agent-skills ★   831 (+287) · 347/月 · 停更 0
+  Unity 官方技能包              ★   711 (+444) · 176/月 · 停更 0
+  GodotPrompter            ★   673 (+84) · 132/月 · 停更 1
+  GD-Agentic-Skills        ★   656 (+112) · 95/月 · 停更 0
+  unreal-engine-skills     ★   330 (+18) · 53/月 · 停更 6
+  MCP for Unity            ★ 13919 (+415) · 790/月 · 停更 0
+  Unity-MCP（Murzak）        ★  4148 (+203) · 242/月 · 停更 0
   MCP Unity                ★  1885 (+18) · 106/月 · 停更 0
-  Locus                    ★   726 (+16) · 164/月 · 停更 0
+  Locus                    ★   727 (+17) · 163/月 · 停更 0
   unreal-mcp（chongdashu）   ★  2071 (+10) · 120/月 · 停更 16
-  VibeUE                   ★   650 (+44) · 55/月 · 停更 0
-  UnrealClaude             ★   894 (+12) · 112/月 · 停更 2
-  Unreal Engine MCP Server ★   855 (+17) · 72/月 · 停更 0
+  VibeUE                   ★   653 (+47) · 56/月 · 停更 0
+  UnrealClaude             ★   895 (+13) · 111/月 · 停更 2
+  Unreal Engine MCP Server ★   856 (+18) · 72/月 · 停更 0
   unreal-engine-mcp（flopperam） ★  1080 (+10) · 83/月 · 停更 2
-  Godot MCP                ★  5491 (+235) · 301/月 · 停更 5
-  Godot AI                 ★  2116 (+347) · 444/月 · 停更 0
-  Godot MCP Native         ★   755 (+47) · 187/月 · 停更 1
-  Cocos Creator MCP        ★  1374 (+34) · 101/月 · 停更 2
+  Godot MCP                ★  5501 (+245) · 301/月 · 停更 5
+  Godot AI                 ★  2134 (+365) · 445/月 · 停更 0
+  Godot MCP Native         ★   756 (+48) · 186/月 · 停更 1
+  Cocos Creator MCP        ★  1376 (+36) · 101/月 · 停更 2
   Roblox Studio MCP        ★   195 (+22) · 57/月 · 停更 0
-  Blender MCP              ★ 26741 (+725) · 1491/月 · 停更 0
-  TRELLIS                  ★ 13570 (+113) · 644/月 · 停更 2
-  混元 3D 2.1                ★  3962 (+99) · 269/月 · 停更 11
+  Blender MCP              ★ 26863 (+847) · 1495/月 · 停更 0
+  TRELLIS                  ★ 13574 (+117) · 644/月 · 停更 2
+  混元 3D 2.1                ★  3969 (+106) · 269/月 · 停更 11
   PartCrafter              ★  2472 (+2) · 166/月 · 停更 5
-  TripoSG                  ★  1768 (+20) · 102/月 · 停更 17
+  TripoSG                  ★  1771 (+23) · 102/月 · 停更 17
   3DTopia-XL               ★  1046 (+2) · 42/月 · 停更 14
-  ACE-Step 1.5             ★ 12533 (+263) · 1045/月 · 停更 0
-  YuE                      ★  6415 (+26) · 332/月 · 停更 15
-  Unity ML-Agents          ★ 19657 (+24) · 182/月 · 停更 0
-  LLM for Unity            ★  1704 (+4) · 53/月 · 停更 4
-  Godot RL Agents          ★  1580 (+13) · 25/月 · 停更 2
-  Godogen                  ★  6685 (+1188) · 969/月 · 停更 1
-  Story-to-Game            ★   440 (+16) · 115/月 · 停更 3
-  AI Game Art Pipeline Skill ★   289 (+5) · 72/月 · 停更 3
-  UnitySkills              ★  1701 (+84) · 226/月 · 停更 0
-  PerfectPixel             ★   557 (+24) · 207/月 · 停更 2
-  UniRig                   ★  1733 (+26) · 103/月 · 停更 3
+  ACE-Step 1.5             ★ 12548 (+278) · 1044/月 · 停更 0
+  YuE                      ★  6415 (+26) · 331/月 · 停更 15
+  Unity ML-Agents          ★ 19660 (+27) · 182/月 · 停更 0
+  LLM for Unity            ★  1706 (+6) · 53/月 · 停更 4
+  Godot RL Agents          ★  1581 (+14) · 25/月 · 停更 2
+  Godogen                  ★  6699 (+1202) · 966/月 · 停更 0
+  Story-to-Game            ★   441 (+17) · 115/月 · 停更 3
+  AI Game Art Pipeline Skill ★   290 (+6) · 71/月 · 停更 3
+  UnitySkills              ★  1707 (+90) · 226/月 · 停更 0
+  PerfectPixel             ★   559 (+26) · 205/月 · 停更 2
+  UniRig                   ★  1734 (+27) · 102/月 · 停更 3
   ComfyUI-UniRig           ★   421 (+6) · 43/月 · 停更 0
-  ComfyUI-HY-Motion1       ★   309 (+4) · 38/月 · 停更 0
-  Woosh                    ★   372 (+4) · 40/月 · 停更 3
-  stable-audio-tools       ★  3853 (+11) · 98/月 · 停更 0
-  Stable Audio 3           ★   720 (+37) · 130/月 · 停更 0
+  ComfyUI-HY-Motion1       ★   310 (+5) · 38/月 · 停更 1
+  Woosh                    ★   373 (+5) · 40/月 · 停更 4
+  stable-audio-tools       ★  3852 (+10) · 98/月 · 停更 0
+  Stable Audio 3           ★   723 (+40) · 129/月 · 停更 0
 
 ────────────────────────────────────────────────────────────
 要人看一眼的 1 条：
@@ -125,9 +124,9 @@
 **这些会让页面上的判断变成假话**，改完再上线。
 ```
 
-## README 漂移　上游改过话 29
+## README 漂移　上游改过话 31
 
-查于 2026-09-04 01:24
+查于 2026-09-05 01:24
 
 我们对开源项目的判断是从**当时那一版 README** 读出来的。上游改了口径，页面上那句引用就成了假话，而没有任何人会收到通知。
 
@@ -137,13 +136,18 @@
 比了 103 份 README
 
 ────────────────────────────────────────────────────────────────
-上游改过话的 29 个：
+上游改过话的 31 个：
 
   ❗ AI 视频制作 › ComfyUI   删 2 句 · 增 2 句
      https://github.com/Comfy-Org/ComfyUI
      **页面上有 1 处引了 README 的判断，逐条核：**
        · 坑：图上任意分支：接线不完整的分支不报错，直接不执行 —— 官方原话：只有输出端输入齐全的那部分图才会被执行。界面上看不出区别
      核完更新快照：node scripts/fetch-readme.mjs comfyui
+
+  ❗ AI 视频制作 › pyvideotrans   删 2 句 · 增 2 句
+     https://github.com/jianchang512/pyvideotrans
+     （页面上没有引原话的判断，风险低）
+     核完更新快照：node scripts/fetch-readme.mjs pyvideotrans
 
   ❗ AI 视频制作 › DiffSynth-Studio   删 1782 句 · 增 1353 句
      https://github.com/modelscope/DiffSynth-Studio
@@ -165,7 +169,7 @@
      （页面上没有引原话的判断，风险低）
      核完更新快照：node scripts/fetch-readme.mjs toonflow
 
-  ❗ AI 视频制作 › infinite-canvas   删 8 句 · 增 10 句
+  ❗ AI 视频制作 › infinite-canvas   删 8 句 · 增 17 句
      https://github.com/basketikun/infinite-canvas
      **页面上有 1 处引了 README 的判断，逐条核：**
        · 优势：MIT，README 明写可用于闭源产品
@@ -198,6 +202,11 @@
      https://github.com/0xsline/OpenChatCut
      （页面上没有引原话的判断，风险低）
      核完更新快照：node scripts/fetch-readme.mjs openchatcut
+
+  ❗ AI 视频制作 › video-podcast-maker   删 1 句 · 增 1 句
+     https://github.com/Agents365-ai/video-podcast-maker
+     （页面上没有引原话的判断，风险低）
+     核完更新快照：node scripts/fetch-readme.mjs video-podcast-maker
 
   ❗ AI 视频制作 › waoowaoo   删 5 句 · 增 3 句
      https://github.com/waooAI/waoowaoo
@@ -237,7 +246,7 @@
        · 优势：来历是这一类里最硬的：README 自述来自自家漫剧产线，2025 年至今上千个项目蒸馏而成
      核完更新快照：node scripts/fetch-readme.mjs drama-skills
 
-  ❗ AI 视频制作 › Awesome Seedance 2 Prompts   删 3648 句 · 增 3070 句
+  ❗ AI 视频制作 › Awesome Seedance 2 Prompts   删 3656 句 · 增 2922 句
      https://github.com/YouMind-OpenLab/awesome-seedance-2-prompts
      **页面上有 1 处引了 README 的判断，逐条核：**
        · 范围：整理好的 Seedance 2.0 视频提示词库，README 自述逾六千条，覆盖电影感、动画、UGC 等多种风格。
@@ -308,7 +317,7 @@
 
 ## 教程与作品链接　打不开 1
 
-查于 2026-09-04 01:24
+查于 2026-09-05 01:24
 
 外链是我们唯一给不了兜底的东西。**限流不算死链** —— 那支脚本已经分开了，这里取的只有真打不开的那一类。
 
@@ -333,7 +342,7 @@
       现在：深度 ControlNet 工作流示例 - ComfyUI
   ✓ ACE-Step · ComfyUI 官方：ACE-Step 出音乐
   ✓ pyvideotrans · 官方文档站
-  ✗ 412 Real-ESRGAN · 作者本人的 B 站讲解
+  ✓ Real-ESRGAN · 作者本人的 B 站讲解
   ✓ Real-ESRGAN · ComfyUI 官方：视频放大
   ✓ Real-ESRGAN · ComfyUI 官方：图片放大
   ✓ MotionCtrl · 官方：SVD 分支用法与示例
@@ -344,7 +353,7 @@
   ✓ DiffSynth-Studio · 官方：显存管理怎么开
   ✓ NarratoAI · 官方文档（飞书）
   ✓ NarratoAI · 仓库 Wiki
-  ✓ Toonflow · 官方演示视频（B 站）
+  ✗ 412 Toonflow · 官方演示视频（B 站）
   ✓ ComfyUI-Manager · ComfyUI 官方：怎么装自定义节点
   ✓ ComfyUI 官方工作流模板 · ComfyUI 官方：模板功能怎么用
   ✓ ClipForge · 项目官网
@@ -549,7 +558,7 @@
   ✓ 知识 · 官方文档与精选清单 · magictools 游戏开发资源大全
   ✓ 知识 · 官方文档与精选清单 · awesome-learn-gamedev 学习资源精选
   ✓ 作品 · Tower of Time · itch.io 作品页（含平台强制的 AI 披露字段与素材来源清单）
-  ⏳ 429 作品 · Tower of Time · Show HN：I AI-coded a tower defense game and documented the whole process（319 分 152 评）（限流，不算死链）
+  ✓ 作品 · Tower of Time · Show HN：I AI-coded a tower defense game and documented the whole process（319 分 152 评）
   ✓ 作品 · Tower of Time · 项目仓库（README 写明工具清单与 95% 的比例）
   ✓ 作品 · Tower of Time · PROMPTS.md：按对话记录的全部提示词
   ✓ 作品 · Godogen 的四个演示作 · Godogen 仓库
@@ -563,11 +572,9 @@
   ✓ 对照 · unreal-mcp · issue #15：spawn_blueprint_actor doesn't work
   ✓ 对照 · unreal-mcp · issue #12：Error when setting up with Cursor（8 条回复，最热）
 
-241 条：通过 237 · 打不开 1 · 标题变了 2 · 被限流 1
+241 条：通过 238 · 打不开 1 · 标题变了 2 · 被限流 0
 打不开的要么换链接、要么删掉，别留着：
-  HTTP 412 https://www.bilibili.com/video/BV1H34y1m7sS/
+  HTTP 412 https://www.bilibili.com/video/BV1oXD7BqEqJ
 标题变了的要人看一眼内容还对不对，对就更新 page_title 与 verified_at。
-被限流的**不是死链**，隔一会儿单独再跑一次就行：
-  HTTP 429 https://news.ycombinator.com/item?id=44463967
 ```
 
