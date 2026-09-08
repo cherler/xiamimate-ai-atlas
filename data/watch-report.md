@@ -1,6 +1,6 @@
-# 信息源监视报告 · 2026-09-06
+# 信息源监视报告 · 2026-09-08
 
-本次检查 7 个到期源（共 448 个）：变化 2 · 首次 0 · 无变化 0 · **抓不到 5**
+本次检查 12 个到期源（共 448 个）：变化 6 · 首次 0 · 无变化 1 · **抓不到 5**
 
 > 这份报告是给人看的那 20 条待办的来源（§59.3 的负反馈：人每周要看的条目 ≤ 20）。
 > 「抓不到」不是失败，是**信息本身** —— 一个长期抓不到的官方源，说明那家厂商没有可 diff 的公开更新入口，
@@ -12,7 +12,7 @@
 
 ## 抓不到（要处理）
 
-- **kling-site**（S/spa）Kling AI 官网 — 还是壳：渲染后正文只有 235 个字符
+- **kling-site**（S/spa）Kling AI 官网 — 还是壳：渲染后正文只有 232 个字符
   https://klingai.com/
 - **aa-t2i**（A/spa）Artificial Analysis · 文生图竞技场 — 还是壳：渲染后正文只有 321 个字符
   https://artificialanalysis.ai/text-to-image/arena
@@ -25,10 +25,18 @@
 
 ## 有变化
 
-- **arxiv-video** arXiv · 视频生成新论文
-  新增 31 条：Principia: Relational Physics Tests for Video Models、BooM-VVT: Boosting Mask-Free Video Virtual Try-On with Image-Level Pseudo Data、DSAQuant: Denoising-Stage-Aligned Quantization-Aware Training for Video Generation、Do Video Generators Track the World Across Segments? A Benchmark and Method for World-State Reasoning in Video Continuation、The Attention Triangle in Audio-Video Models、LeanGRPO: Eliminating Redundant Recomputation in Diffusion RL、SolarWM: Open Data and Scalable Training for Long-Horizon Video World Models、Thinking in Pictures: A Systematic Benchmark for Reasoning-driven Image Generation、The Missing Temporal Link: Temporal Context Routing for Script-Driven Audio-Video Generation、H3-World: Turning Language Understanding into World Control、VirSqueezer: Generating Realistic Deformations and Squeezing Dynamics in VR from Fine-Grained Squeezing Controls、MeRoPE: Metric Rotary Position Embedding for Camera-Controlled Video Generation …
-- **arxiv-worldmodel** arXiv · world model / 实时视频生成
-  新增 14 条：WorldReward: Reward Modeling for Camera-Conditioned World Models、SV-WAM: An Efficient Surround-View World-Action Model for End-to-End Autonomous Driving、Building Pretraining Data for World Models: An Unreal Engine-Based Pipeline for Action-Conditioned Video Generation、SolarWM: Open Data and Scalable Training for Long-Horizon Video World Models、Spatially Aware World Action Model via Geometric Latent Diffusion、AGI Maze Prediction Datasets: A Compact Benchmark for Learning World Dynamics with Transformers、H3-World: Turning Language Understanding into World Control、ZimaBlue: Evolving Generalizable World Action Models through Scalable Video Pre-training、CAER: Causal Action Effect Reweighting for World Model Training、Can Video World Models Track Unobserved World States?、Matrix-Game 3.5: Enhancing Real-Time Streaming Interactive World Models with Patch Memory、Off-Manifold Refinement: Guiding Video Generators with a Frozen World Model …
+- **hf-t2v** Hugging Face · text-to-video 按下载量
+  新增 5 条：FastVideo/FastVideo-FastH3-4-step-Preview-v1-VSA-DataFree、Rabinovich/LongLive-2.0-5B-Diffusers、WarmBloodAban/Minimax-h3_Singularity、nyxia/H3-Loras、unsloth/Wan2.2-TI2V-5B-GGUF
+- **hf-i2v** Hugging Face · image-to-video 按下载量
+  新增 3 条：WarmBloodAban/Minimax-h3_Singularity、realrebelai/SCAIL-2_GGUF、robbyant/lingbot-world-fast
+- **techcrunch-ai** TechCrunch · AI（RSS）
+  新增 7 条：Opaque recurrence, and other AI terms that you should probably know、Authors push back as publishers and agents make claims on Anthropic settlement、Travis Kalanick’s Atoms might be getting into the robotaxi business、Seattle Times and Newsday are the latest publications to sue OpenAI and Microsoft、Hikers rescued after using Google Gemini for planning、OpenAI confirms ‘wiki incident,’ says it’s ‘working on a framework’ for more disclosure、XDOF, just 3 months out of stealth, is in talks for a Series B at a $1.2B valuation
+- **hf-t2i** Hugging Face · text-to-image 按下载量
+  新增 1 条：lodestones/Chroma1-HD
+- **hf-i2i** Hugging Face · image-to-image 按下载量
+  新增 2 条：black-forest-labs/FLUX.2-klein-9b-kv、unsloth/FLUX.2-klein-base-9B-GGUF
+- **hf-text-org** Hugging Face 官方组织 · 文本模型
+  新增 211 条：0xWhiteMage/Qwen3.8-27B-Kearuga、AEON-7/Qwen3.8-27B-AEON-ULTIMATE-UNCENSORED-NVFP4-MIXED、AX1Y2JP/MiniMax-H3-W4A8-ConvRot、Akahsizrr/Fuse-2-MoE-GGUF、Alissonerdx/BFS-Best-Face-Swap-Video、AllSpark-Research/Iris-mini、BoldingBuilds/orcarouter_GLM-5.3-Flash-Uncensored-GGUF、CQdesign/LTX-2.5-CQ-Video-and-Image-Enhancer-LoRAs、CohereLabs/cohere-transcribe-arabic-07-2026、Comfy-Org/flux1-dev、Comfy-Org/sam3.1、Comfy-Org/vae-text-encorder-for-flux-klein-4b …
 
 ## 全部
 
@@ -37,7 +45,7 @@
 | seed-blog | S | html | 未到期（上次 2026-09-02） |
 | seed-models | S | html | 未到期（上次 2026-08-26） |
 | kling-api-updates | S | spa | 未到期（上次 2026-09-02） |
-| kling-site | S | spa | 抓不到（还是壳：渲染后正文只有 235 个字符） |
+| kling-site | S | spa | 抓不到（还是壳：渲染后正文只有 232 个字符） |
 | google-video-docs | S | html | 未到期（上次 2026-09-02） |
 | deepmind-veo | S | html | 未到期（上次 2026-08-26） |
 | vertex-video-ref | S | html | 未到期（上次 2026-08-26） |
@@ -57,12 +65,12 @@
 | pika-site | S | html | 未到期（上次 2026-08-26） |
 | higgsfield-site | S | html | 未到期（上次 2026-08-26） |
 | decart-research | S | html | 未到期（上次 2026-08-26） |
-| arxiv-video | S | atom | 变了 |
+| arxiv-video | S | atom | 未到期（上次 2026-09-06） |
 | epoch-notable | A | csv | 未到期（上次 2026-09-02） |
 | aa-t2v | A | spa | 未到期（上次 2026-09-02） |
 | aa-i2v | A | spa | 未到期（上次 2026-09-02） |
-| hf-t2v | A | json | 未到期（上次 2026-09-05） |
-| hf-i2v | A | json | 未到期（上次 2026-09-05） |
+| hf-t2v | A | json | 变了 |
+| hf-i2v | A | json | 变了 |
 | hf-v2v | A | json | 未到期（上次 2026-09-02） |
 | fal-video | S | spa | 未到期（上次 2026-09-02） |
 | replicate-t2v | S | html | 未到期（上次 2026-09-02） |
@@ -77,11 +85,11 @@
 | google-models | S | html | 未到期（上次 2026-09-02） |
 | seed-models-hub | S | html | 未到期（上次 2026-09-02） |
 | apiyi-models | S | spa | 未到期（上次 2026-09-02） |
-| arxiv-worldmodel | S | atom | 变了 |
-| techcrunch-ai | B | atom | 未到期（上次 2026-09-05） |
+| arxiv-worldmodel | S | atom | 未到期（上次 2026-09-06） |
+| techcrunch-ai | B | atom | 变了 |
 | decart-blog | S | spa | 未到期（上次 2026-09-02） |
 | ltx-gh | S | json | 未到期（上次 2026-09-02） |
-| ltx-hf-org | S | json | 未到期（上次 2026-09-05） |
+| ltx-hf-org | S | json | 无变化 |
 | decart-site | S | spa | 未到期（上次 2026-09-05） |
 | picsart-video | C | html | 未到期（上次 2026-08-12） |
 | libtv | C | spa | 从未抓过 |
@@ -178,13 +186,13 @@
 | hf-image-org | S | json | 未到期（上次 2026-09-02） |
 | mj-updates | S | html | 未到期（上次 2026-08-26） |
 | aa-t2i | A | spa | 抓不到（还是壳：渲染后正文只有 321 个字符） |
-| hf-t2i | A | json | 未到期（上次 2026-09-05） |
-| hf-i2i | A | json | 未到期（上次 2026-09-05） |
+| hf-t2i | A | json | 变了 |
+| hf-i2i | A | json | 变了 |
 | anthropic-models | S | html | 未到期（上次 2026-09-02） |
 | deepseek-docs | S | html | 未到期（上次 2026-09-02） |
 | xai-docs | S | html | 未到期（上次 2026-09-02） |
 | doubao-force-2026 | B | html | 未到期（上次 2026-08-12） |
-| hf-text-org | S | json | 未到期（上次 2026-09-05） |
+| hf-text-org | S | json | 变了 |
 | wan3-qbitai | B | spa | 从未抓过 |
 | kimi-api | S | html | 未到期（上次 2026-08-26） |
 | glm-api | S | html | 未到期（上次 2026-08-26） |

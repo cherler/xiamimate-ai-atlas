@@ -1,11 +1,17 @@
 {
   "url": "https://techcrunch.com/category/artificial-intelligence/feed/",
   "kind": "atom",
-  "fetched_at": "2026-09-05",
-  "digest": "b284a5b75dafeb2b",
+  "fetched_at": "2026-09-08",
+  "digest": "f29c3da1bb046284",
   "items": [
     "AI News &amp; Artificial Intelligence | TechCrunch",
-    "XDOF, just three months out of stealth, is in talks for a Series B at a $1.2B valuation",
+    "Opaque recurrence, and other AI terms that you should probably know",
+    "Authors push back as publishers and agents make claims on Anthropic settlement",
+    "Travis Kalanick’s Atoms might be getting into the robotaxi business",
+    "Seattle Times and Newsday are the latest publications to sue OpenAI and Microsoft",
+    "Hikers rescued after using Google Gemini for planning",
+    "OpenAI confirms ‘wiki incident,’ says it’s ‘working on a framework’ for more disclosure",
+    "XDOF, just 3 months out of stealth, is in talks for a Series B at a $1.2B valuation",
     "OpenAI&#8217;s rogue agents keep escaping, with no formal process to investigate them",
     "AI compute provider Nscale is looking for $3.5B in pre-IPO financing",
     "What will Apple&#8217;s John Ternus era look like?",
@@ -18,11 +24,6 @@
     "Accel reportedly in talks to lead $1B round for Thinking Machines at $40B valuation",
     "Abliteration.ai is making a business out of removing AI guardrails",
     "Meta is paying to peek at how you use their latest AI model",
-    "OpenAI launches Astra, its powerful (and controversial) new model",
-    "Ollie is betting its focus on privacy can help it win the AI assistant race",
-    "Google&#8217;s latest AI weather model gives you no excuse to forget your umbrella",
-    "Nvidia confirms it will buy Hugging Face for $12.9 billion",
-    "The Builders Stage brings practical strategies for scaling startups to TechCrunch Disrupt 2026",
-    "Palo Alto Networks paid $500M for Thrive-backed Console, sources say"
+    "OpenAI launches Astra, its powerful (and controversial) new model"
   ]
 }
