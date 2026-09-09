@@ -1,6 +1,6 @@
-# 引文回查 · 2026-09-08
+# 引文回查 · 2026-09-09
 
-回查 1214 条：无英文锚 731 · 快照无正文 35 · 对得上 311 · 找不到 105 · 无快照 21 · 本页没有·别处有 11
+回查 1214 条：无英文锚 731 · 快照无正文 35 · 对得上 310 · 找不到 106 · 无快照 21 · 本页没有·别处有 11
 
 > 这份报告回答一件事：**一格引文里的原句，在它署名的那份快照里还在不在。**
 > ⚠️ **失败不等于引文错。** 三种成因要分开：真署错了页 / 这一页的快照是残的（抓回来的是导航不是正文）/ 当初记的就不是逐字原文。**脚本不猜。**
@@ -38,7 +38,7 @@
 - `openai-model-tts` 发布 gpttts-2025-12 —— 锚「slugs to point to the 2025-12-15 snapshots」（这句在 openai-changelog）
 - `openai-model-realtime` 发布 gptrt-2025-08 —— 锚「The OpenAI Realtime API is now generally available」（这句在 openai-changelog）
 
-### 找不到（105）
+### 找不到（106）
 
 - `veo-doc` veo × flf —— 锚「Frame-specific generation: Generate a video by specifying the first an」
 - `veo-doc` veo × charref —— 锚「Image-based direction: Use up to three reference images」
@@ -112,6 +112,7 @@
 - `wiki-midjourney` 发布 midjourney-V6-这一代起大幅改善提示词跟随 —— 锚「V6 ... December 21, 2023」
 - `wiki-midjourney` 发布 midjourney-V6.1-画质与细节一致性迭代 —— 锚「V6.1 ... July 31, 2024」
 - `wiki-midjourney` 发布 midjourney-V7-Draft Mode 与 Omni Reference —— 锚「V7 ... April 4, 2025」
+- `krea-blog` 发布 krea-img-Krea 2-第一个完全从零训练的自研基座 —— 锚「our first foundation image model built completely from scratch」
 - `google-nb-blog` 发布 gemini-image-Nano Banana Pro-接上自家新一代大模型的推理，4K 与复杂版面 —— 锚「our new state-of-the art image generation and editing model.」
 - `google-nb-blog` 发布 gemini-image-Nano Banana 2-Pro 的质量按 Flash 的速度和价钱出 —— 锚「our latest state-of-the-art image model.」
 - `recraft-blog` 发布 recraft-Recraft V4-按设计审美重训的一代 —— 锚「brings true visual taste to AI image generation」
