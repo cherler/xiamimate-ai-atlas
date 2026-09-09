@@ -1,11 +1,11 @@
 {
   "url": "https://huggingface.co/api/models?author=Comfy-Org&sort=lastModified&direction=-1&limit=40",
   "kind": "json",
-  "fetched_at": "2026-09-02",
-  "digest": "fc15e789703f95e5",
+  "fetched_at": "2026-09-09",
+  "digest": "9d4ab31404c85205",
   "items": [
-    "Comfy-Org/MiniMax-H3\t2026-08-25T04:20:30.000Z",
-    "Comfy-Org/Pixal3D\t2026-08-23T05:02:47.000Z",
+    "Comfy-Org/MiniMax-H3\t2026-09-06T16:55:14.000Z",
+    "Comfy-Org/Pixal3D\t2026-09-02T18:50:37.000Z",
     "Comfy-Org/SDPose\t2026-08-17T06:08:12.000Z",
     "Comfy-Org/SeedVR2\t2026-08-17T06:08:30.000Z",
     "Comfy-Org/T2I-Adapter_ComfyUI_Repackaged\t2026-08-17T06:08:41.000Z",
