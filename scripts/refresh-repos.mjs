@@ -136,8 +136,34 @@ if (!DRY) {
       `   核验日是对整份数据的承诺，不能有一半是旧的。`);
     process.exit(2);
   }
-  a.generated_at = TODAY;
-  writeFileSync(F, JSON.stringify(a, null, 2) + "\n");
+  /**
+   * **落盘前重新读一遍，只把自己那几个字段贴回去。**
+   *
+   * 2026-09-10 被这条咬了一口：这支脚本在开头 `readFileSync` 了整份 atlas.json，
+   * 中间跑 40 多个仓库的网络请求（几十分钟），结束时把**开头那份内存副本整个写回**。
+   * 那几十分钟里有人（我）改了六处引文，全被这一下悄悄冲掉了 ——
+   * 校验通过、页面正常，只有引文回查那份报告多了四条「对不上」，
+   * 而那四条看起来就像我引文写得不好。**读一次、算很久、整份写回，就是在赌没人碰它。**
+   *
+   * 上面注释里已经写明这支脚本「只碰机器算得出来的字段」——
+   * 那就真的只写这几个字段，别把整份文档当自己的。
+   */
+  const 现盘 = JSON.parse(readFileSync(F, "utf8"));
+  const 我的字段 = ["stars", "created_at", "pushed_at", "stars_per_month", "stale_months", "verified_at"];
+  let 贴回 = 0;
+  for (const t of a.topics ?? []) {
+    const t2 = (现盘.topics ?? []).find((x) => x.zh === t.zh);
+    if (!t2) continue;
+    for (const p of t.projects ?? []) {
+      const p2 = (t2.projects ?? []).find((x) => x.zh === p.zh);
+      if (!p2) continue;
+      for (const k of 我的字段) if (p[k] !== undefined) p2[k] = p[k];
+      贴回++;
+    }
+  }
+  现盘.generated_at = TODAY;
+  writeFileSync(F, JSON.stringify(现盘, null, 2) + "\n");
+  console.log(`（写回 ${贴回} 个项目的机器字段，其余内容以落盘那一刻的 atlas.json 为准）`);
 }
 
 console.log(`口径日 ${TODAY}${DRY ? "（试跑，没写）" : ""}\n`);

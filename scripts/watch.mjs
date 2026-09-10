@@ -135,9 +135,24 @@ function fingerprint(kind, body) {
    * 就得有全文。4000 字把那份 3.2 万字的日志砍掉了 87%，
    * 于是「最早可证时间」这件事直接做不了。
    *
-   * 存 8 万字：git 里几十 KB 的文本，和它换来的可追溯性不成比例。
+   * 存 20 万字：git 里几十 KB 的文本，和它换来的可追溯性不成比例。
+   *
+   * ⚠️ **截断必须记下来，不然它会伪装成「这句话没了」。** 2026-09-10 发现：
+   * 上限原来是 8 万字，全站有 10 份快照正好卡在这个数上 —— 而 `requote.mjs`
+   * 在这些页上报的「找不到」，有一批根本不是引文错，是那句话落在 8 万字之外。
+   * 引文回查报告里排第一的 `openai-image-docs`（9 条）就是这么来的。
+   * **一个把「没抓到」说成「不成立」的检查，比没有检查更糟。**
+   * 所以：上限抬到 20 万，并且把 `full_len` / `truncated` 一起存进快照，
+   * 让下游能把「判不了」和「对不上」分开说。
    */
-  return { items: [], digest: sha(text), text: text.slice(0, 80000) };
+  const CAP = 200000;
+  return {
+    items: [],
+    digest: sha(text),
+    text: text.slice(0, CAP),
+    full_len: text.length,
+    truncated: text.length > CAP,
+  };
 }
 
 /**
@@ -326,7 +341,9 @@ for (const s of list) {
       digest: fp.digest, items: fp.items, added, fetched_at: TODAY,
     };
     writeFileSync(`${SNAP}/${s.id}.json`,
-      JSON.stringify({ url: s.url, kind: s.kind, fetched_at: TODAY, digest: fp.digest, items: fp.items, text: fp.text }, null, 2) + "\n");
+      // full_len / truncated 一起写：下游要能分清「这句话不在页上」和「这句话在 20 万字之外」
+      JSON.stringify({ url: s.url, kind: s.kind, fetched_at: TODAY, digest: fp.digest,
+        items: fp.items, text: fp.text, full_len: fp.full_len, truncated: fp.truncated }, null, 2) + "\n");
   } catch (e) {
     const why = e.cause?.code || e.cause?.message || "";
     row = { id: s.id, tier: s.tier, kind: s.kind, name: s.name, url: s.url, status: "抓不到", error: `${e.message}${why ? " / " + why : ""}`.slice(0, 90), added: [] };

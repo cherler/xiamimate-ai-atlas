@@ -285,6 +285,63 @@ try {
 } catch { /* 报告没有或坏了不该拖垮整张待办表 */ }
 
 /**
+ * ⑧ 版本哨兵：**快照里已经出现、我们却还没写回的版本号。**
+ *
+ * 2026-09-10 加。那天负责人报了三条我们「不知道」的模型更新，查下来最难堪的一条是：
+ * 其中两条早就躺在我们自己的快照里 —— `anthropic-models` 09-02 就写着 Fable 5.1、
+ * `openai-models` 09-09 就写着 gpt-6-astra，而库里还记着 Fable 5 和 GPT-5.6。
+ *
+ * **这一摞永远不标 `machine`。** 上一次这类信号（requote 发现「Claude Fable 5 is
+ * generally available」这句在页上没了）就是被归进「机器状态·不用你判断」才沉掉的。
+ * 换代是这张图最贵的事实，把它放进那一摞，等于给它装了个静音键。
+ */
+try {
+  const vs = JSON.parse(read("data/version-sentry.json") || "{}");
+  if (vs.n > 0) {
+    const 名 = (vs.rows ?? []).filter((r) => r.kind === "有更新的一代")
+      .map((r) => `${r.family ?? r.m} ${r.cur} → ${r.found}`).join("；");
+    groups.push({
+      n: vs.n,
+      t: `版本哨兵：${vs.n} 个模型的源上已经有更新的一代（${名}）`,
+      how: "审阅台上按这一条改 `data/atlas.json` 的 `version` / `version_as_of` / `version_quote`；" +
+        "**改完记得 verified_for 也要跟着走**（R9 会拦）。明细在 data/version-sentry.md；" +
+        "看过觉得不算的，记进 data/version-sentry-ack.json，它就不再报",
+      why: "**这不是「世界变了」，是「我们抓到了但没写回」** —— 快照里已经有了，只差有人认。" +
+        "版本号是这张图上最贵的事实：它一错，底下几十格证据全都在给上一代背书。",
+    });
+  }
+  const 一周前 = new Date(Date.now() - 8 * 864e5).toISOString().slice(0, 10);
+  if (!vs.generated_at)
+    groups.push({ n: 1, t: "版本哨兵还没跑过一次", how: "`node scripts/version-sentry.mjs --json`", why: "**没有报告不等于没有问题。**" });
+  else if (vs.generated_at < 一周前)
+    groups.push({ n: 1, t: `版本哨兵上次跑是 ${vs.generated_at}，超过一周了`, how: "`node scripts/version-sentry.mjs --json`", why: "**报告旧了不等于没新版**，只说明没人在盯。" });
+} catch { /* 报告没有或坏了不该拖垮整张待办表 */ }
+
+/**
+ * ⑨ 管线自己有没有整步整步地没跑。
+ *
+ * 2026-09-10 加。抽取那一步从 08-08 起连跳 34 天 —— 缺 MINIMAX_API_KEY，
+ * 脚本打一行 echo 进日志然后退出码 0。**定时任务天天「成功」，链路整月是断的。**
+ * 日志里的一行字不是留痕，人不看日志；进了这张表才算。
+ */
+try {
+  const pipe = JSON.parse(read("data/pipeline.json") || "{}");
+  for (const [id, st] of Object.entries(pipe.steps ?? {})) {
+    if (st.status === "ok") continue;
+    const days = st.skipped_since
+      ? Math.round((Date.parse(TODAY) - Date.parse(st.skipped_since)) / 864e5)
+      : null;
+    groups.push({
+      n: 1,
+      t: `管线「${id}」这一步${st.status === "skip" ? "被跳过" : "失败"}${days != null ? `，已经连着 ${days} 天` : ""}`,
+      how: st.why ? `原因：${st.why}` : "见 data/watch.log",
+      why: "**一个报告成功却什么都没做的定时任务，比一个明着失败的更糟。** " +
+        "整步没跑不会让任何一份报告变红 —— 那几份报告本来就只报它们自己看得见的东西。",
+    });
+  }
+} catch { /* 同上 */ }
+
+/**
  * **两摞分开：该你拍板 vs 机器状态。**
  * 负责人 2026-08-23 的判断：这份清单一直把「机器够不着 / 等上游 / 复查工具自查不过」
  * 当成人的作业往外推，人看不懂也动不了，于是干脆不看 —— 一份没人看的待办等于没有。

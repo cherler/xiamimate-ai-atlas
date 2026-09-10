@@ -2500,8 +2500,8 @@
    "kind": "html",
    "vendor": "deepseek",
    "name": "DeepSeek 官方文档 · 模型与价格",
-   "url": "https://api-docs.deepseek.com/quick_start/pricing",
-   "refresh_days": 7,
+   "url": "https://api-docs.deepseek.com/quick_start/pricing/",
+   "refresh_days": 3,
    "good_for": [
     "capability",
     "pricing"
@@ -2509,7 +2509,26 @@
    "expect": [
     "Context Length",
     "Max Output"
-   ]
+   ],
+   "note": "⚠️ **URL 末尾那个斜杠不是可有可无的。** 不带斜杠时 Docusaurus 返回 200，但正文是首页「Your First API Call」——抓得到、有内容、每次都「无变化」，而我们照着它记了一版价格与上下文长度。2026-09-10 补上斜杠后才拿到真的「Models & Pricing」页。（2026-09-10 同时把 refresh_days 从 7 收到 3：DeepSeek 那一格的 version_src 现在署的就是它，版本源该盯得比一般页勤）"
+  },
+  {
+   "id": "deepseek-updates",
+   "tier": "S",
+   "kind": "html",
+   "vendor": "deepseek",
+   "name": "DeepSeek 官方文档 · 更新日志",
+   "url": "https://api-docs.deepseek.com/updates/",
+   "refresh_days": 3,
+   "good_for": [
+    "version",
+    "capability"
+   ],
+   "expect": [
+    "Change Log",
+    "DeepSeek-V4"
+   ],
+   "note": "2026-09-10 补进来。此前 DeepSeek 名下三个源都是 API 用法页，**发布公告这一路一个都没监视** —— 于是 V4-Pro-0813（08-13）、V4-Flash-Vision-Exp（08-21）两次发布我们全都没看见。"
   },
   {
    "id": "bailian-models",
@@ -3021,11 +3040,12 @@
    "vendor": "lyria",
    "name": "Gemini API · Music generation（Lyria 3）",
    "url": "https://ai.google.dev/gemini-api/docs/music-generation",
-   "refresh_days": 14,
+   "refresh_days": 7,
    "good_for": [
     "capability",
     "version"
-   ]
+   ],
+   "note": "2026-09-10 起 refresh_days 从 14 收到 7：Lyria 那一格的 version_src 现在署的就是它。"
   },
   {
    "id": "glm-tts-doc",

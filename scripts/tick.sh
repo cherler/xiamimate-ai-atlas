@@ -56,10 +56,25 @@ fi
 
 # 有变化才调模型。**这是管线里唯一花钱的一步**，没变化时一分不花。
 # 抽出来的是候选，落在 data/inbox/，**不进 atlas.json** —— 那要走人审。
+#
+# ⚠️ **跳过必须留痕。** 2026-08-08 起这一步因为缺 MINIMAX_API_KEY 连跳了一个月，
+# 而当时唯一的痕迹是下面那行 echo —— 日志里的一行字，没人会看。
+# 后果：「页面变了 → 这意味着出了新版」这条链路整月没跑，
+# GPT-6 Astra 和 Claude Fable 5.1 就是在这段时间里抓到了却没人知道。
+# 现在状态写进 data/pipeline.json，`todo.mjs` 会把连跳的天数摆到人面前。
 if [ -n "${MINIMAX_API_KEY:-}" ] && [ "${CHANGED:-0}" != "0" ]; then
-  node scripts/extract.mjs >> "$LOG" 2>&1 || echo "   extract.mjs 失败，见上方" >> "$LOG"
+  if node scripts/extract.mjs >> "$LOG" 2>&1; then
+    node scripts/stamp.mjs extract ok
+  else
+    echo "   extract.mjs 失败，见上方" >> "$LOG"
+    node scripts/stamp.mjs extract fail "extract.mjs 退出码非零，见 data/watch.log"
+  fi
 elif [ -z "${MINIMAX_API_KEY:-}" ]; then
   echo "   没有 MINIMAX_API_KEY，跳过抽取（采集本身不需要模型）" >> "$LOG"
+  node scripts/stamp.mjs extract skip "没有 MINIMAX_API_KEY —— 密钥要写进仓库根的 .env"
+else
+  # 没变化不算跳过：这一步本来就只在有变化时才该跑
+  node scripts/stamp.mjs extract ok
 fi
 
 # ── 保鲜巡检：页面上写的还成不成立
@@ -91,6 +106,17 @@ echo "   保鲜巡检跑完（退出码 $? ，明细 data/fresh-report.md）" >>
 # 它只写报告，**不改 atlas.json**，和 watch 同一条纪律。
 node scripts/requote.mjs --report >> "$LOG" 2>&1 || echo "   requote.mjs 失败，见上方" >> "$LOG"
 
+# ── 版本哨兵：快照里已经出现、我们却还没写回的版本号。
+#
+# **必须放在 watch 之后**，它比对的是刚落地的快照。
+# 2026-09-10 加的，起因是负责人报了三条我们「不知道」的更新，
+# 而其中两条（GPT-6 Astra、Claude Fable 5.1）**早就躺在我们自己的快照里** ——
+# 抓到了，只是管线里没有任何一步会说「这条变了要写回」。
+# 退出码 1 表示「有更新的一代」，这里不当失败处理：它写报告，不改 atlas.json。
+node scripts/version-sentry.mjs --json >> "$LOG" 2>&1
+echo "   版本哨兵跑完（明细 data/version-sentry.md）" >> "$LOG"
+node scripts/stamp.mjs sentry ok
+
 # ── 待办：汇成一个文件，并且主动叫人。
 #
 # **管线会攒待办，但在这之前它不会叫人** —— 收件箱里 17 条从 08-07 躺到 08-11，
@@ -111,8 +137,9 @@ node scripts/alert.mjs --push >> "$LOG" 2>&1 || echo "   alert.mjs 失败，见�
 
 # 待办表变了就提交 —— 它和快照一样是「这一天的事实」，要能回溯。
 # 保鲜巡检的两份也一起：「那天上游 README 改了什么」以后要查得回来。
-if [ -n "$(git status --porcelain data/TODO.md data/requote-report.md data/fresh-report.md data/fresh.json data/alerts.json data/alert-sent.json)" ]; then
-  git add data/TODO.md data/requote-report.md data/fresh-report.md data/fresh.json data/alerts.json data/alert-sent.json
+PAPER="data/TODO.md data/requote-report.md data/fresh-report.md data/fresh.json data/alerts.json data/alert-sent.json data/version-sentry.md data/version-sentry.json data/pipeline.json"
+if [ -n "$(git status --porcelain $PAPER)" ]; then
+  git add $PAPER
   git -c user.name='atlas-watch[bot]' -c user.email='atlas-watch@xiamimate.local' \
       commit -q -m "watch: ${STAMP} 待办表更新" && echo "   待办表已提交" >> "$LOG"
 fi

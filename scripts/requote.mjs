@@ -43,6 +43,7 @@ const only = process.argv.includes("--src") ? process.argv[process.argv.indexOf(
 
 const cache = new Map();
 const hasText = new Map();
+const truncated = new Map();
 const textOf = (id) => {
   if (cache.has(id)) return cache.get(id);
   const f = `${ROOT}/data/snapshots/${id}.json`;
@@ -50,6 +51,8 @@ const textOf = (id) => {
   if (existsSync(f)) {
     const j = JSON.parse(readFileSync(f, "utf8"));
     hasText.set(id, (j.text ?? "").length > 200);
+    // **被截断的快照上，「找不到」是判不了，不是不成立。** 见 watch.mjs 里 CAP 那段注释。
+    truncated.set(id, !!j.truncated);
     t = ((j.text ?? "") + " " + JSON.stringify(j.items ?? [])).replace(/\s+/g, " ");
   }
   cache.set(id, t);
@@ -93,6 +96,15 @@ const push = (src, quote, at) => {
   // 找不到，且这个源的快照压根没有正文（GitHub release 接口那类）：
   // **是源登记得不对，不是引文错** —— 单独一摞。
   if (!hasText.get(src)) return rows.push({ at, src, kind: "快照无正文", anchor: k });
+  /**
+   * **快照被截断时不许判「找不到」。**
+   *
+   * 2026-09-10 查出来的：正文上限原来是 8 万字，全站 10 份快照正好卡在这个数上。
+   * 这份报告里排第一的热源 `openai-image-docs`（9 条）就是这么来的 ——
+   * 上限抬到 20 万字重抓之后，那一页 9.6 万字，那些「找不到」的句子好好地在页上。
+   * 一个把「没抓到」说成「不成立」的检查，会让人去改本来是对的引文。
+   */
+  if (truncated.get(src)) return rows.push({ at, src, kind: "快照被截断·判不了", anchor: k });
   const elsewhere = ALL.filter((id) => id !== src && (textOf(id) ?? "").includes(k));
   rows.push({ at, src, kind: elsewhere.length ? "本页没有·别处有" : "找不到", anchor: k, elsewhere });
 };
@@ -135,14 +147,14 @@ if (process.argv.includes("--report")) {
     `## 失败 ≥3 条的源（${hot.length} 个）—— 这几个大概率是抓法不对`, "",
     ...hot.map(([src, v]) => `- **${src}**（${v.length} 条）：${v.slice(0, 3).map((r) => r.at).join("、")}${v.length > 3 ? " …" : ""}`),
     "", "## 全部", "",
-    ...["本页没有·别处有", "找不到", "快照无正文", "无快照"].flatMap((k) =>
+    ...["本页没有·别处有", "找不到", "快照被截断·判不了", "快照无正文", "无快照"].flatMap((k) =>
       (by[k] ?? []).length ? [`### ${k}（${(by[k] ?? []).length}）`, "",
         ...(by[k] ?? []).map((r) => `- \`${r.src}\` ${r.at}${r.anchor ? ` —— 锚「${r.anchor.slice(0, 70)}」` : ""}${r.elsewhere?.length ? `（这句在 ${r.elsewhere.slice(0, 2).join("、")}）` : ""}`), ""] : []),
   ].join("\n");
   writeFileSync(`${ROOT}/data/requote-report.md`, md);
   console.log(`\n报告写在 data/requote-report.md · 失败 ≥3 条的源 ${hot.length} 个`);
 }
-for (const kind of ["本页没有·别处有", "找不到", "快照无正文", "无快照"]) {
+for (const kind of ["本页没有·别处有", "找不到", "快照被截断·判不了", "快照无正文", "无快照"]) {
   const list = by[kind] ?? [];
   if (!list.length) continue;
   console.log(`\n## ${kind}（${list.length}）`);

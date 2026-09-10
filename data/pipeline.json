@@ -1,0 +1,14 @@
+{
+  "$comment": "管线每一步的执行状态，由 scripts/stamp.mjs 写、todo.mjs 读。「跳过」在这里留痕，不然它只活在日志里，而人不看日志。",
+  "generated_at": "2026-09-10",
+  "steps": {
+    "extract": {
+      "status": "skip",
+      "at": "2026-09-10",
+      "why": "没有 MINIMAX_API_KEY —— .env 里只有飞书 webhook",
+      "last_ok": "2026-08-07",
+      "skipped_since": "2026-08-08",
+      "$seed": "这两个日子是 2026-09-10 回填的：data/inbox/ 里最后一份抽取结果是 2026-08-07.json，watch.log 里从那之后每一跑都是「跳过抽取」。"
+    }
+  }
+}

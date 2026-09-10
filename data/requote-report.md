@@ -1,13 +1,12 @@
 # 引文回查 · 2026-09-10
 
-回查 1214 条：无英文锚 731 · 快照无正文 35 · 对得上 310 · 找不到 106 · 无快照 21 · 本页没有·别处有 11
+回查 1223 条：无英文锚 729 · 快照无正文 34 · 对得上 338 · 找不到 89 · 无快照 20 · 本页没有·别处有 11 · 快照被截断·判不了 2
 
 > 这份报告回答一件事：**一格引文里的原句，在它署名的那份快照里还在不在。**
 > ⚠️ **失败不等于引文错。** 三种成因要分开：真署错了页 / 这一页的快照是残的（抓回来的是导航不是正文）/ 当初记的就不是逐字原文。**脚本不猜。**
 
-## 失败 ≥3 条的源（14 个）—— 这几个大概率是抓法不对
+## 失败 ≥3 条的源（12 个）—— 这几个大概率是抓法不对
 
-- **openai-image-docs**（9 条）：gpt-image × i-t2i、gpt-image × i-i2i、gpt-image × i-edit …
 - **comfy-docs**（8 条）：发布 hidream-HiDream-I1-17B 出图底座，MIT、发布 ernie-image-ERNIE-Image-8B DiT 正式档，apache-2.0、发布 ovis-image-Ovis-Image-7B-7B 专攻图上出字 …
 - **rodin-api-docs**（6 条）：rodin × d-multiview、rodin × d-pbr、rodin × d-edit …
 - **hunyuanworld-gh**（5 条）：hunyuan-world × w-sim、hunyuan-world × w-realtime、模型 hunyuan-world 版本 …
@@ -16,7 +15,6 @@
 - **recraft-blog**（4 条）：模型 recraft 版本、发布 recraft-Recraft V3-长段文字 + 文字位置和大小可指定、发布 recraft-Recraft V4-按设计审美重训的一代 …
 - **veo-doc**（3 条）：veo × flf、veo × charref、veo × extend
 - **decart-site**（3 条）：lucy × rt-endless、模型 lucy 版本、发布 lucy-Lucy2.5-Lucy2.5
-- **anthropic-models**（3 条）：claude × t-vision、claude × t-cache、模型 claude 版本
 - **minimax-release-notes**（3 条）：发布 hailuo-01-运镜控制、发布 hailuo-02-换代02：1080p、发布 hailuo-2.3-换代2.3：肢体动作与表情
 - **wiki-midjourney**（3 条）：发布 midjourney-V6-这一代起大幅改善提示词跟随、发布 midjourney-V6.1-画质与细节一致性迭代、发布 midjourney-V7-Draft Mode 与 Omni Reference
 - **meshy-changelog**（3 条）：发布 meshy-remesh、发布 meshy-format、发布 meshy-7
@@ -38,7 +36,7 @@
 - `openai-model-tts` 发布 gpttts-2025-12 —— 锚「slugs to point to the 2025-12-15 snapshots」（这句在 openai-changelog）
 - `openai-model-realtime` 发布 gptrt-2025-08 —— 锚「The OpenAI Realtime API is now generally available」（这句在 openai-changelog）
 
-### 找不到（106）
+### 找不到（89）
 
 - `veo-doc` veo × flf —— 锚「Frame-specific generation: Generate a video by specifying the first an」
 - `veo-doc` veo × charref —— 锚「Image-based direction: Use up to three reference images」
@@ -46,15 +44,6 @@
 - `decart-site` lucy × rt-endless —— 锚「infinite video, evolving continuously with the world」
 - `g-video` gemini-omni × flf —— 锚「Use Veo 3.1 for specific capabilities like last-frame control」
 - `gemini-image-docs` gemini-image × i-textrender —— 锚「Advanced text rendering: Capable of generating legible, stylized text 」
-- `openai-image-docs` gpt-image × i-t2i —— 锚「Generations - Generate images from scratch based on a text prompt」
-- `openai-image-docs` gpt-image × i-i2i —— 锚「Edits - Modify existing images using a new prompt, either partially or」
-- `openai-image-docs` gpt-image × i-edit —— 锚「Edits - Modify existing images using a new prompt」
-- `openai-image-docs` gpt-image × i-multiturn —— 锚「Multi-turn editing - Iteratively make high fidelity edits to images wi」
-- `openai-image-docs` gpt-image × i-inpaint —— 锚「Mask-based editing - Edit parts of images using mask overlays」
-- `openai-image-docs` gpt-image × i-multiref —— 锚「Image references - Create new images using other images as reference m」
-- `openai-image-docs` gpt-image × i-fidelity —— 锚「Input image fidelity - Control how strongly a model preserves details 」
-- `openai-image-docs` gpt-image × i-textrender —— 锚「Text Rendering: Although significantly improved, the model can still s」
-- `openai-image-docs` gpt-image × i-4k —— 锚「total pixels, typically referred to as 2K, are considered experimental」
 - `recraft-docs` recraft × i-t2i —— 锚「V4.1 is the latest generation」
 - `recraft-nl-edit` recraft × i-edit —— 锚「Recraft Studio supports targeted image editing using integrated extern」
 - `recraft-endpoints` recraft × i-outpaint —— 锚「The area to be generated can be specified either by per-side pixel mar」
@@ -62,14 +51,7 @@
 - `bfl-flux2-overview` flux × i-textrender —— 锚「Specialized for typography. Best for text rendering and preserving sma」
 - `hunyuan-image-card` hunyuan-image × i-i2i —— 锚「instruction reasoning and image-to-image generation including editing 」
 - `hunyuan-image-card` hunyuan-image × i-edit —— 锚「image-to-image generation including editing」
-- `anthropic-features` claude × t-search —— 锚「Augment Claude's comprehensive knowledge with current, real-world data」
-- `anthropic-models` claude × t-vision —— 锚「All current Claude models support text and image input, text output, m」
-- `claude-models` claude × t-audio —— 锚「All current Claude models support text and image input, text output, m」
-- `anthropic-models` claude × t-cache —— 锚「See Pricing for complete pricing information including Batch API disco」
 - `minimax-api-overview` mm-speech × s-format —— 锚「mp3, pcm, flac, wav」
-- `elevenlabs-docs` elevenlabs × s-design —— 锚「a guide on how to craft voices」
-- `elevenlabs-docs` elevenlabs × s-long —— 锚「a guide on how to create long-form content」
-- `gemini-music` lyria × s-m-lyrics —— 锚「Generation of lyrics alongside audio」
 - `hf-fishspeech15` fish-speech × s-openweights —— 锚「Any Commercial use of the Materials requires a separate license from F」
 - `hf-qwen-layered` qwen-image × i-layered —— 锚「We are excited to introduce Qwen-Image-Layered, a model capable of dec」
 - `gh-hunyuan3d-api` hunyuan3d × d-remesh —— 锚「Maximum number of faces for texture generation」
@@ -92,7 +74,6 @@
 - `gemini-models` 模型 gemini-omni 版本 —— 锚「Fast, conversational video generation and editing」
 - `gemini-models` 模型 gemini-image 版本 —— 锚「our latest state-of-the-art image model.」
 - `recraft-blog` 模型 recraft 版本 —— 锚「Give V4.1 just a few words, and it'll give you something worth keeping」
-- `anthropic-models` 模型 claude 版本 —— 锚「Claude Fable 5 is generally available」
 - `pixverse-v6` 模型 pixverse 版本 —— 锚「Pro Lens Power, Endless Creation」
 - `hunyuanworld-gh` 模型 hunyuan-world 版本 —— 锚「April 16, 2026: We release HY-World-2.0, state-of-the-art 3D world mod」
 - `sci-af3-blog` 模型 alphafold 版本 —— 锚「AlphaFold 3 predicts the structure and interactions of all of life's m」
@@ -147,7 +128,12 @@
 - `hunyuanworld-gh` 发布 hyworld-2 —— 锚「April 16, 2026: We release HY-World-2.0, state-of-the-art 3D world mod」
 - `sci-wn-gh` 发布 wn-gen —— 锚「WeatherNext Gen: Diffusion-based ensemble forecasting for medium-range」
 
-### 快照无正文（35）
+### 快照被截断·判不了（2）
+
+- `elevenlabs-docs` elevenlabs × s-design —— 锚「a guide on how to craft voices」
+- `elevenlabs-docs` elevenlabs × s-long —— 锚「a guide on how to create long-form content」
+
+### 快照无正文（34）
 
 - `kling-api` kling × camera —— 锚「motion brush, camera control」
 - `mm-hf-api` hailuo × openweights —— 锚「plan to open up the model weights in the coming days」
@@ -157,7 +143,6 @@
 - `hf-lineage` kokoro × s-clone —— 锚「No synthetic audio from open TTS models or custom voice clones」
 - `hf-lineage` hunyuan3d × d-edit —— 锚「Hunyuan 3D Part Segmentation and Generation Pipeline」
 - `hf-lineage` hunyuan3d × d-scene —— 锚「immersive 3D world generation」
-- `ms-foundry-blog` 模型 gpt-image 版本 —— 锚「GPT-image-2 brings real world intelligence, multilingual understanding」
 - `ms-foundry-blog` 发布 gpt-image-GPT-image-2-4K + 生成前先想（能自查、能搜网） —— 锚「GPT-image-2 brings real world intelligence, multilingual understanding」
 - `hf-image-org` 发布 ideogram-Ideogram 4-这一代把权重放了出来 —— 锚「released as an open-source model that runs entirely on your own hardwa」
 - `hf-text-org` 发布 deepseek-V3.2-把算力效率和推理/Agent 表现放到一起 —— 锚「We introduce DeepSeek-V3.2, a model that harmonizes high computational」
@@ -185,7 +170,7 @@
 - `hf-lineage` 发布 trellis-text —— 锚「takes in text or image prompts」
 - `hf-robotics` 发布 cosmos-reason2 —— 锚「replacing the Eagle backbone used in N1.6」
 
-### 无快照（21）
+### 无快照（20）
 
 - `sora-eol-search` sora × t2v
 - `sora-2` sora × charref
@@ -198,7 +183,6 @@
 - `lux3d-site` 模型 lux3d 版本
 - `hf-locateanything` 模型 locateanything 版本
 - `wan3-qbitai` 模型 wan 版本
-- `gemini-37-blog` 模型 gemini-text 版本
 - `modelscope-orgs` 模型 internvla 版本
 - `modelscope-orgs` 模型 hy-embodied 版本
 - `modelscope-orgs` 模型 g0-vla 版本
