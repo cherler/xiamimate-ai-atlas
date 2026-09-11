@@ -1,11 +1,12 @@
 {
   "url": "https://huggingface.co/api/models?filter=image-to-image&sort=downloads&direction=-1&limit=60",
   "kind": "json",
-  "fetched_at": "2026-09-08",
-  "digest": "d3bf9fa5c0bfbf15",
+  "fetched_at": "2026-09-11",
+  "digest": "a8952c4c4247271a",
   "items": [
     "Alissonerdx/BFS-Best-Face-Swap\t",
     "ChrisColeTech/qwen-image-edit-uncensored-GGUF\t",
+    "InstantX/Qwen-Image-ControlNet-Union\t",
     "QuantStack/FLUX.1-Kontext-dev-GGUF\t",
     "QuantStack/Qwen-Image-Edit-2509-GGUF\t",
     "QuantStack/Qwen-Image-Edit-GGUF\t",
@@ -18,6 +19,7 @@
     "autoweeb/Qwen-Image-Edit-2509-Photo-to-Anime\t",
     "black-forest-labs/FLUX.1-Kontext-dev\t",
     "black-forest-labs/FLUX.2-dev\t",
+    "black-forest-labs/FLUX.2-dev-NVFP4\t",
     "black-forest-labs/FLUX.2-klein-4B\t",
     "black-forest-labs/FLUX.2-klein-4b-fp8\t",
     "black-forest-labs/FLUX.2-klein-9B\t",
@@ -41,7 +43,6 @@
     "lightx2v/Qwen-Image-Edit-2511-Lightning\t",
     "lilylilith/AnyPose\t",
     "lilylilith/QIE-2511-MP-AnyLight\t",
-    "lllyasviel/control_v11f1p_sd15_depth\t",
     "lllyasviel/control_v11p_sd15_openpose\t",
     "lllyasviel/sd-controlnet-canny\t",
     "lllyasviel/sd-controlnet-openpose\t",
@@ -62,7 +63,6 @@
     "unsloth/FLUX.2-klein-4B-GGUF\t",
     "unsloth/FLUX.2-klein-9B-GGUF\t",
     "unsloth/FLUX.2-klein-base-9B-GGUF\t",
-    "unsloth/Qwen-Image-Edit-2511-GGUF\t",
-    "vafipas663/Qwen-Edit-2509-Upscale-LoRA\t"
+    "unsloth/Qwen-Image-Edit-2511-GGUF\t"
   ]
 }
