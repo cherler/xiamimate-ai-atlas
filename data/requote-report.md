@@ -1,6 +1,6 @@
-# 引文回查 · 2026-09-11
+# 引文回查 · 2026-09-12
 
-回查 1223 条：无英文锚 729 · 快照无正文 34 · 对得上 338 · 找不到 89 · 无快照 20 · 本页没有·别处有 11 · 快照被截断·判不了 2
+回查 1223 条：无英文锚 729 · 快照无正文 34 · 对得上 335 · 找不到 92 · 无快照 20 · 本页没有·别处有 11 · 快照被截断·判不了 2
 
 > 这份报告回答一件事：**一格引文里的原句，在它署名的那份快照里还在不在。**
 > ⚠️ **失败不等于引文错。** 三种成因要分开：真署错了页 / 这一页的快照是残的（抓回来的是导航不是正文）/ 当初记的就不是逐字原文。**脚本不猜。**
@@ -36,7 +36,7 @@
 - `openai-model-tts` 发布 gpttts-2025-12 —— 锚「slugs to point to the 2025-12-15 snapshots」（这句在 openai-changelog）
 - `openai-model-realtime` 发布 gptrt-2025-08 —— 锚「The OpenAI Realtime API is now generally available」（这句在 openai-changelog）
 
-### 找不到（89）
+### 找不到（92）
 
 - `veo-doc` veo × flf —— 锚「Frame-specific generation: Generate a video by specifying the first an」
 - `veo-doc` veo × charref —— 锚「Image-based direction: Use up to three reference images」
@@ -74,6 +74,8 @@
 - `gemini-models` 模型 gemini-omni 版本 —— 锚「Fast, conversational video generation and editing」
 - `gemini-models` 模型 gemini-image 版本 —— 锚「our latest state-of-the-art image model.」
 - `recraft-blog` 模型 recraft 版本 —— 锚「Give V4.1 just a few words, and it'll give you something worth keeping」
+- `bfl-flux3` 模型 flux-video 版本 —— 锚「FLUX 3 is one multimodal model. Video with synchronized audio, one req」
+- `meshy-site` 模型 meshy 版本 —— 锚「New Meshy 7 is live. Frontier 3D alignment.」
 - `pixverse-v6` 模型 pixverse 版本 —— 锚「Pro Lens Power, Endless Creation」
 - `hunyuanworld-gh` 模型 hunyuan-world 版本 —— 锚「April 16, 2026: We release HY-World-2.0, state-of-the-art 3D world mod」
 - `sci-af3-blog` 模型 alphafold 版本 —— 锚「AlphaFold 3 predicts the structure and interactions of all of life's m」
@@ -108,6 +110,7 @@
 - `comfy-docs` 发布 boogu-image-Boogu-Image-0.1-生成与编辑合到一个模型，apache-2.0 —— 锚「Boogu-Image-0.1 is an Apache-2.0 open-source unified image generation 」
 - `comfy-docs` 发布 newbie-image-NewBie-image-Exp0.1-3.5B Next-DiT，二次元向 —— 锚「NewBie-image-Exp0.1 is a 3.5B parameter DiT model developed by NewBieA」
 - `claude-deprecations` 发布 claude-Claude Fable 5-面向长程智能体；自适 —— 锚「Claude Fable 5 is generally available on the Claude API」
+- `bfl-flux3` 发布 flux-video-FLUX 3-BFL 从图像跨进视频 —— 锚「FLUX 3 is one multimodal model. Video with synchronized audio, one req」
 - `rodin-api-docs` 发布 rodin-gen2 —— 锚「glb, usdz, fbx, obj, and stl」
 - `rodin-api-docs` 发布 rodin-gen2.5 —— 锚「Best for quickly generating simple assets」
 - `meshy-changelog` 发布 meshy-remesh —— 锚「Added the Remesh APIs, which allow users to remesh and export existing」

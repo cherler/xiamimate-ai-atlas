@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-11",
+  "generated_at": "2026-09-12",
   "n": 0,
   "n_unclear": 0,
   "n_missing": 31,
@@ -24,7 +24,7 @@
       "cur_as_of": "2026-08-15",
       "found": null,
       "src": "sci-aurora-gh",
-      "src_at": "2026-08-29",
+      "src_at": "2026-09-12",
       "evidence": ""
     },
     {
@@ -46,7 +46,7 @@
       "cur_as_of": "2026-08-14",
       "found": null,
       "src": "cosmos3-card",
-      "src_at": "2026-09-05",
+      "src_at": "2026-09-12",
       "evidence": ""
     },
     {
@@ -81,7 +81,7 @@
       "cur_as_of": "2026-08",
       "found": null,
       "src": "bfl-flux3",
-      "src_at": "2026-08-29",
+      "src_at": "2026-09-12",
       "evidence": ""
     },
     {
@@ -103,7 +103,7 @@
       "cur_as_of": "2026-08-14",
       "found": null,
       "src": "genie3-blog",
-      "src_at": "2026-08-29",
+      "src_at": "2026-09-12",
       "evidence": ""
     },
     {
@@ -126,7 +126,7 @@
       "cur_as_of": "2026-08-15",
       "found": null,
       "src": "sci-gnome-gh",
-      "src_at": "2026-08-29",
+      "src_at": "2026-09-12",
       "evidence": ""
     },
     {
@@ -138,7 +138,7 @@
       "cur_as_of": "2026-07-31",
       "found": null,
       "src": "minimax-release-notes",
-      "src_at": "2026-08-29",
+      "src_at": "2026-09-12",
       "evidence": ""
     },
     {
@@ -149,7 +149,7 @@
       "cur_as_of": "2026-08-14",
       "found": null,
       "src": "hf-hunyuan-avatar",
-      "src_at": "2026-08-29",
+      "src_at": "2026-09-12",
       "evidence": ""
     },
     {
@@ -161,7 +161,7 @@
       "cur_as_of": "2026-08-13",
       "found": null,
       "src": "replicate-hunyuan3d-31",
-      "src_at": "2026-08-29",
+      "src_at": "2026-09-12",
       "evidence": ""
     },
     {
@@ -172,7 +172,7 @@
       "cur_as_of": "2026-08-14",
       "found": null,
       "src": "hf-liveportrait",
-      "src_at": "2026-08-29",
+      "src_at": "2026-09-12",
       "evidence": ""
     },
     {
@@ -184,7 +184,7 @@
       "cur_as_of": "2026-08-07",
       "found": null,
       "src": "decart-site",
-      "src_at": "2026-09-05",
+      "src_at": "2026-09-12",
       "evidence": ""
     },
     {
@@ -206,7 +206,7 @@
       "cur_as_of": "2026-08-15",
       "found": null,
       "src": "sci-mattergen-gh",
-      "src_at": "2026-08-29",
+      "src_at": "2026-09-12",
       "evidence": ""
     },
     {
@@ -229,7 +229,7 @@
       "cur_as_of": "2026-08-14",
       "found": null,
       "src": "hf-musetalk",
-      "src_at": "2026-08-29",
+      "src_at": "2026-09-12",
       "evidence": ""
     },
     {
@@ -240,7 +240,7 @@
       "cur_as_of": "2026-08-15",
       "found": null,
       "src": "sci-neuralgcm-gh",
-      "src_at": "2026-08-29",
+      "src_at": "2026-09-12",
       "evidence": ""
     },
     {
@@ -251,7 +251,7 @@
       "cur_as_of": "2026-08-14",
       "found": null,
       "src": "decart-site",
-      "src_at": "2026-09-05",
+      "src_at": "2026-09-12",
       "evidence": ""
     },
     {
@@ -273,7 +273,7 @@
       "cur_as_of": "2026-08-14",
       "found": null,
       "src": "openvla-gh",
-      "src_at": "2026-08-29",
+      "src_at": "2026-09-12",
       "evidence": ""
     },
     {
@@ -297,7 +297,7 @@
       "cur_as_of": "2026-08-15",
       "found": null,
       "src": "hf-qwen3-asr",
-      "src_at": "2026-08-29",
+      "src_at": "2026-09-12",
       "evidence": ""
     },
     {
@@ -308,7 +308,7 @@
       "cur_as_of": "2026-08-13",
       "found": null,
       "src": "rodin-api-docs",
-      "src_at": "2026-08-29",
+      "src_at": "2026-09-12",
       "evidence": ""
     },
     {
@@ -320,7 +320,7 @@
       "cur_as_of": "2025-12-11",
       "found": null,
       "src": "rw-changelog",
-      "src_at": "2026-08-29",
+      "src_at": "2026-09-12",
       "evidence": ""
     },
     {
@@ -342,7 +342,7 @@
       "cur_as_of": "2026-08-13",
       "found": null,
       "src": "stability-spar3d",
-      "src_at": "2026-08-29",
+      "src_at": "2026-09-12",
       "evidence": ""
     },
     {
