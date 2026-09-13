@@ -1,10 +1,23 @@
 {
-  "generated_at": "2026-09-12",
-  "n": 0,
+  "generated_at": "2026-09-13",
+  "n": 1,
   "n_unclear": 0,
   "n_missing": 31,
   "n_skipped": 53,
   "rows": [
+    {
+      "kind": "有更新的一代",
+      "m": "deepseek",
+      "family": "DeepSeek",
+      "zh": "深度求索",
+      "cur": "V4",
+      "cur_as_of": "2026-09-10",
+      "found": "V4.1",
+      "found_num": "4.1",
+      "src": "deepseek-pricing",
+      "src_at": "2026-09-13",
+      "evidence": "Format) https://api.deepseek.com BASE URL (Anthropic Format) https://api.deepseek.com/anthropic MODEL VERSION DeepSeek-V4.1-Flash DeepSeek-V4-Pro-0813 THINKING MODE Supports both non-thinking and thinking (default) modes See Thinking Mode for how to switch CONTEXT LENGTH 1M MAX OUTPUT MAXIMUM: 384K FEATURES Json Outpu"
+    },
     {
       "kind": "牌子摘了",
       "m": "anysplat",
@@ -353,7 +366,7 @@
       "cur_as_of": "2026-08-14",
       "found": null,
       "src": "vjepa2-blog",
-      "src_at": "2026-08-14",
+      "src_at": "2026-09-13",
       "evidence": ""
     }
   ],

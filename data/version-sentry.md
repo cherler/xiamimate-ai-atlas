@@ -1,9 +1,14 @@
-# 版本哨兵 · 2026-09-12
+# 版本哨兵 · 2026-09-13
 
-扫 132 个模型：**有更新的一代 0** · 口径存疑 0 · 牌子摘了 31 · 比不了 53
+扫 132 个模型：**有更新的一代 1** · 口径存疑 0 · 牌子摘了 31 · 比不了 53
 
 > 这份只回答一件事：**一格署的那个源上，今天有没有出现比我们记的更新的版本号？**
 > 报出来的不是「世界变了」，是「**我们抓到了但没写回**」—— 这两件事的严重程度不一样。
+
+## 有更新的一代（1）—— 这一摞要写回 atlas.json
+
+- **DeepSeek**（deepseek）库里记 `V4`（核于 2026-09-10），而 `deepseek-pricing` 的快照（2026-09-13）上写着 **V4.1**
+  > Format) https://api.deepseek.com BASE URL (Anthropic Format) https://api.deepseek.com/anthropic MODEL VERSION DeepSeek-V4.1-Flash DeepSeek-V4-Pro-0813 THINKING MODE Supports both non-thinking and thinking (default) modes See Thinking Mode for how to switch CONTEXT LENGTH 1M MAX OUTPUT MAXIMUM: 384K FEATURES Json Outpu
 
 ## 机器自查 · 牌子摘了（31）—— **不用你拍板**
 
@@ -42,7 +47,7 @@
 - **Runway Gen**（runway）记的是 `Gen-4.5`，`rw-changelog`（2026-09-12）上没有这个号
 - **ElevenLabs Scribe**（scribe）记的是 `v2`，`elevenlabs-models`（2026-09-09）上没有这个号
 - **SPAR3D**（spar3d）记的是 `Stable Point Aware 3D`，`stability-spar3d`（2026-09-12）上没有这个号
-- **Meta V-JEPA**（vjepa）记的是 `V-JEPA 2`，`vjepa2-blog`（2026-08-14）上没有这个号
+- **Meta V-JEPA**（vjepa）记的是 `V-JEPA 2`，`vjepa2-blog`（2026-09-13）上没有这个号
 
 ## 比不了（53）
 
