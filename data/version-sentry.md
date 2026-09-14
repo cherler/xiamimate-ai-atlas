@@ -1,4 +1,4 @@
-# 版本哨兵 · 2026-09-13
+# 版本哨兵 · 2026-09-14
 
 扫 132 个模型：**有更新的一代 1** · 口径存疑 0 · 牌子摘了 31 · 比不了 53
 
@@ -22,7 +22,7 @@
 - **CogVideoX**（cogvideox）记的是 `2b/5b`，`hf-cogvideox`（2026-09-05）上没有这个号
 - **NVIDIA Cosmos**（cosmos）记的是 `Cosmos3`，`cosmos3-card`（2026-09-12）上没有这个号
 - **Doubao**（doubao）记的是 `Seed-2.1 Pro`，`doubao-force-2026`（2026-08-12）上没有这个号
-- **ESM-2**（esm）记的是 `650M`，`sci-esm2-card`（2026-08-15）上没有这个号
+- **ESM-2**（esm）记的是 `650M`，`sci-esm2-card`（2026-09-14）上没有这个号
 - **FLUX 3**（flux-video）记的是 `3`，`bfl-flux3`（2026-09-12）上没有这个号
 - **Gemini TTS**（gemini-tts）记的是 `3.1 Flash TTS Preview`，`gemini-tts`（2026-09-09）上没有这个号
 - **Google Genie**（genie）记的是 `Genie 3`，`genie3-blog`（2026-09-12）上没有这个号
