@@ -1,8 +1,8 @@
 {
   "url": "https://huggingface.co/api/models?filter=text-to-video&sort=downloads&direction=-1&limit=60",
   "kind": "json",
-  "fetched_at": "2026-09-11",
-  "digest": "529e45711b3fbe96",
+  "fetched_at": "2026-09-14",
+  "digest": "ec3b4b8238e8f218",
   "items": [
     "Abiray/LTX-2.5-Distilled-GGUF\t",
     "Abiray/MiniMax-H3-GGUF\t",
@@ -20,6 +20,7 @@
     "Lightricks/LTX-2.3-fp8\t",
     "Lightricks/LTX-2.5\t",
     "Lightricks/LTX-2.5-Diffusers\t",
+    "Lightricks/LTX-Video-0.9.5\t",
     "Lightricks/LTX-Video-ICLoRA-detailer-13b-0.9.8\t",
     "MiniMaxAI/MiniMax-H3\t",
     "QuantStack/LTX-2.3-GGUF\t",
@@ -39,13 +40,14 @@
     "alibaba-pai/MiniMax-H3-Acc-LoRAs\t",
     "alibaba-pai/Wan2.2-Fun-Reward-LoRAs\t",
     "aptech0081/MiniMax-H3-Acc-LoRAs-ComfyUI\t",
-    "calcuis/wan-1.3b-gguf\t",
+    "brurpo/DaSiWa-MiniMax-H3-Hybrid\t",
     "calcuis/wan-gguf\t",
     "city96/Wan2.1-T2V-14B-gguf\t",
     "comfyicu/LTX-2.5\t",
     "drbaph/MiniMax-H3-Turbo-Lora-ComfyUI\t",
     "fal/MiniMax-H3-Realism-People-LoRA\t",
     "ibyteohdear/Lightricks-LTX-2\t",
+    "ibyteohdear/Lightricks-LTX-2-DISTILLED-10-Eros\t",
     "joeygambino/MiniMax-H3-curve-GGUF\t",
     "joeygambino/MiniMax-H3-encoder-GGUF\t",
     "joeygambino/MiniMax-H3-x-Z-Image-native\t",
@@ -61,8 +63,6 @@
     "unsloth/LTX-2.3-GGUF\t",
     "unsloth/MiniMax-H3-GGUF\t",
     "unsloth/Wan2.2-TI2V-5B-GGUF\t",
-    "vantagewithai/LTX-2.5-GGUF\t",
-    "vantagewithai/MiniMax-H3-comfyUI-GGUF\t",
     "zai-org/CogVideoX-2b\t"
   ]
 }
