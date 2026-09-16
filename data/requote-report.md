@@ -1,6 +1,6 @@
-# 引文回查 · 2026-09-15
+# 引文回查 · 2026-09-16
 
-回查 1223 条：无英文锚 729 · 快照无正文 34 · 对得上 335 · 找不到 92 · 无快照 20 · 本页没有·别处有 11 · 快照被截断·判不了 2
+回查 1223 条：无英文锚 729 · 快照无正文 34 · 对得上 334 · 找不到 92 · 无快照 20 · 本页没有·别处有 12 · 快照被截断·判不了 2
 
 > 这份报告回答一件事：**一格引文里的原句，在它署名的那份快照里还在不在。**
 > ⚠️ **失败不等于引文错。** 三种成因要分开：真署错了页 / 这一页的快照是残的（抓回来的是导航不是正文）/ 当初记的就不是逐字原文。**脚本不猜。**
@@ -22,7 +22,7 @@
 
 ## 全部
 
-### 本页没有·别处有（11）
+### 本页没有·别处有（12）
 
 - `ideogram-v3-reframe` ideogram × i-outpaint —— 锚「Take a starting image and extend it to match your desired resolution.」（这句在 ideogram-overview）
 - `hf-trellis2` trellis × d-multiview —— 锚「Implementation of multi-image conditioning」（这句在 gh-trellis）
@@ -31,6 +31,7 @@
 - `decart-site` 模型 lucy 版本 —— 锚「LUCY 2.5 IS LIVE」（这句在 decart-research）
 - `seed-blog` 模型 seedream 版本 —— 锚「Seedream 5.0 Pro is a multimodal image generation model that features 」（这句在 seedream-page）
 - `replicate-hunyuan3d-31` 模型 hunyuan3d 版本 —— 锚「D models with texture fidelity and geometry precision」（这句在 replicate-3d）
+- `vidu-changelog` 发布 viduq2 —— 锚「Video Direct Output Capability - Audio」（这句在 vidu-up）
 - `seed-blog` 发布 seedream-Seedream 5.0 Pro-分层输出 + 圈画标注式改图 —— 锚「Seedream 5.0 Pro is a multimodal image generation model that features 」（这句在 seedream-page）
 - `hf-hunyuan3d-21` 发布 hy3d-2.1 —— 锚「We release the first production-ready 3D asset generation model, Hunyu」（这句在 gh-hunyuan3d-21）
 - `openai-model-tts` 发布 gpttts-2025-12 —— 锚「slugs to point to the 2025-12-15 snapshots」（这句在 openai-changelog）

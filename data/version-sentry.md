@@ -1,14 +1,17 @@
-# 版本哨兵 · 2026-09-15
+# 版本哨兵 · 2026-09-16
 
-扫 132 个模型：**有更新的一代 1** · 口径存疑 0 · 牌子摘了 31 · 比不了 53
+扫 132 个模型：**有更新的一代 2** · 口径存疑 0 · 牌子摘了 31 · 比不了 53
 
 > 这份只回答一件事：**一格署的那个源上，今天有没有出现比我们记的更新的版本号？**
 > 报出来的不是「世界变了」，是「**我们抓到了但没写回**」—— 这两件事的严重程度不一样。
 
-## 有更新的一代（1）—— 这一摞要写回 atlas.json
+## 有更新的一代（2）—— 这一摞要写回 atlas.json
 
-- **DeepSeek**（deepseek）库里记 `V4`（核于 2026-09-10），而 `deepseek-pricing` 的快照（2026-09-13）上写着 **V4.1**
+- **DeepSeek**（deepseek）库里记 `V4`（核于 2026-09-10），而 `deepseek-pricing` 的快照（2026-09-16）上写着 **V4.1**
   > Format) https://api.deepseek.com BASE URL (Anthropic Format) https://api.deepseek.com/anthropic MODEL VERSION DeepSeek-V4.1-Flash DeepSeek-V4-Pro-0813 THINKING MODE Supports both non-thinking and thinking (default) modes See Thinking Mode for how to switch CONTEXT LENGTH 1M MAX OUTPUT MAXIMUM: 384K FEATURES Json Outpu
+
+- **Vidu S**（vidu-s）库里记 `S1`（核于 2026-07-03），而 `vidu-changelog` 的快照（2026-09-16）上写着 **Vidu S2**　⚠️ 这一格署的是 `vidu-s1-paper`，**那个源上看不见新版**
+  > API REFERENCE Update Notice [图标]Copy page [图标] [图标] Date Update Details September 15,2026 New Model -Vidu S2-Avatar: Real-Time Interactive Model Supports real-time voice interaction and complex motion control. Reference images can also be used for product interaction, outfit changes, and background r
 
 ## 机器自查 · 牌子摘了（31）—— **不用你拍板**
 
@@ -35,7 +38,7 @@
 - **Decart Lucy**（lucy）记的是 `Lucy 2.5`，`decart-site`（2026-09-12）上没有这个号
 - **MAGI**（magi）记的是 `2 Preview`，`hf-magi`（2026-09-05）上没有这个号
 - **MatterGen**（mattergen）记的是 `1`，`sci-mattergen-gh`（2026-09-12）上没有这个号
-- **MiniMax Speech**（mm-speech）记的是 `speech-2.8-hd`，`minimax-api-overview`（2026-09-09）上没有这个号
+- **MiniMax Speech**（mm-speech）记的是 `speech-2.8-hd`，`minimax-api-overview`（2026-09-16）上没有这个号
 - **MuseTalk**（musetalk）记的是 `1.0`，`hf-musetalk`（2026-09-12）上没有这个号
 - **NeuralGCM**（neuralgcm）记的是 `1`，`sci-neuralgcm-gh`（2026-09-12）上没有这个号
 - **Decart Oasis**（oasis）记的是 `Oasis 3`，`decart-site`（2026-09-12）上没有这个号

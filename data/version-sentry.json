@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-09-15",
-  "n": 1,
+  "generated_at": "2026-09-16",
+  "n": 2,
   "n_unclear": 0,
   "n_missing": 31,
   "n_skipped": 53,
@@ -15,8 +15,22 @@
       "found": "V4.1",
       "found_num": "4.1",
       "src": "deepseek-pricing",
-      "src_at": "2026-09-13",
+      "src_at": "2026-09-16",
       "evidence": "Format) https://api.deepseek.com BASE URL (Anthropic Format) https://api.deepseek.com/anthropic MODEL VERSION DeepSeek-V4.1-Flash DeepSeek-V4-Pro-0813 THINKING MODE Supports both non-thinking and thinking (default) modes See Thinking Mode for how to switch CONTEXT LENGTH 1M MAX OUTPUT MAXIMUM: 384K FEATURES Json Outpu"
+    },
+    {
+      "kind": "有更新的一代",
+      "m": "vidu-s",
+      "family": "Vidu S",
+      "zh": "Vidu S",
+      "cur": "S1",
+      "cur_as_of": "2026-07-03",
+      "found": "Vidu S2",
+      "found_num": "2",
+      "src": "vidu-changelog",
+      "src_at": "2026-09-16",
+      "via_other_src": "vidu-s1-paper",
+      "evidence": "API REFERENCE Update Notice [图标]Copy page [图标] [图标] Date Update Details September 15,2026 New Model -Vidu S2-Avatar: Real-Time Interactive Model Supports real-time voice interaction and complex motion control. Reference images can also be used for product interaction, outfit changes, and background r"
     },
     {
       "kind": "牌子摘了",
@@ -231,7 +245,7 @@
       "cur_as_of": "2026-08-12",
       "found": null,
       "src": "minimax-api-overview",
-      "src_at": "2026-09-09",
+      "src_at": "2026-09-16",
       "evidence": ""
     },
     {
