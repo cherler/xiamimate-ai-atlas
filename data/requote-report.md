@@ -1,6 +1,6 @@
-# 引文回查 · 2026-09-16
+# 引文回查 · 2026-09-17
 
-回查 1223 条：无英文锚 729 · 快照无正文 34 · 对得上 334 · 找不到 92 · 无快照 20 · 本页没有·别处有 12 · 快照被截断·判不了 2
+回查 1223 条：无英文锚 729 · 快照无正文 34 · 对得上 333 · 找不到 93 · 无快照 20 · 本页没有·别处有 12 · 快照被截断·判不了 2
 
 > 这份报告回答一件事：**一格引文里的原句，在它署名的那份快照里还在不在。**
 > ⚠️ **失败不等于引文错。** 三种成因要分开：真署错了页 / 这一页的快照是残的（抓回来的是导航不是正文）/ 当初记的就不是逐字原文。**脚本不猜。**
@@ -37,7 +37,7 @@
 - `openai-model-tts` 发布 gpttts-2025-12 —— 锚「slugs to point to the 2025-12-15 snapshots」（这句在 openai-changelog）
 - `openai-model-realtime` 发布 gptrt-2025-08 —— 锚「The OpenAI Realtime API is now generally available」（这句在 openai-changelog）
 
-### 找不到（92）
+### 找不到（93）
 
 - `veo-doc` veo × flf —— 锚「Frame-specific generation: Generate a video by specifying the first an」
 - `veo-doc` veo × charref —— 锚「Image-based direction: Use up to three reference images」
@@ -131,6 +131,7 @@
 - `hunyuanworld-gh` 发布 hyworld-15 —— 锚「December 18, 2025: We release HunyuanWorld-1.5」
 - `hunyuanworld-gh` 发布 hyworld-2 —— 锚「April 16, 2026: We release HY-World-2.0, state-of-the-art 3D world mod」
 - `sci-wn-gh` 发布 wn-gen —— 锚「WeatherNext Gen: Diffusion-based ensemble forecasting for medium-range」
+- `gemini-changelog` 发布 lyria-3.5-整首歌那一档换代 —— 锚「Lyria 3.5 in public preview: Released the next generation of Google's 」
 
 ### 快照被截断·判不了（2）
 
