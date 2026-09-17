@@ -1,9 +1,10 @@
 {
   "url": "https://huggingface.co/api/models?filter=text-to-image&sort=downloads&direction=-1&limit=60",
   "kind": "json",
-  "fetched_at": "2026-09-14",
-  "digest": "2ef1566b98a805a6",
+  "fetched_at": "2026-09-17",
+  "digest": "d62a196af68c2ba5",
   "items": [
+    "AlperKTS/Krea2_FP8\t",
     "ByteDance/SDXL-Lightning\t",
     "CompVis/stable-diffusion-v1-4\t",
     "HiDream-ai/HiDream-I1-Fast\t",
@@ -57,7 +58,6 @@
     "stable-diffusion-v1-5/stable-diffusion-inpainting\t",
     "stable-diffusion-v1-5/stable-diffusion-v1-5\t",
     "stablediffusionapi/revanimated\t",
-    "thibaud/controlnet-openpose-sdxl-1.0\t",
     "unsloth/FLUX.2-klein-4B-GGUF\t",
     "unsloth/Qwen-Image-2512-GGUF\t",
     "unsloth/Z-Image-Turbo-GGUF\t",

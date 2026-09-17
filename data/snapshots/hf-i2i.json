@@ -1,10 +1,11 @@
 {
   "url": "https://huggingface.co/api/models?filter=image-to-image&sort=downloads&direction=-1&limit=60",
   "kind": "json",
-  "fetched_at": "2026-09-14",
-  "digest": "d14b02dec4fb1b36",
+  "fetched_at": "2026-09-17",
+  "digest": "f5cff4a859b2f212",
   "items": [
     "Alissonerdx/BFS-Best-Face-Swap\t",
+    "ChrisColeTech/krea2-turbo-uncensored-v1.1-FP8\t",
     "ChrisColeTech/qwen-image-edit-uncensored-GGUF\t",
     "InstantX/Qwen-Image-ControlNet-Union\t",
     "MeiGen-AI/PosterOmni_v1\t",
@@ -56,7 +57,6 @@
     "silveroxides/FLUX.2-dev-fp8_scaled\t",
     "stabilityai/stable-diffusion-xl-refiner-1.0\t",
     "starsfriday/Qwen-Image-Edit-2511-Upscale2K\t",
-    "tencent/HunyuanImage-3.0-Instruct\t",
     "timbrooks/instruct-pix2pix\t",
     "tlennon-ie/qwen-edit-skin\t",
     "unsloth/FLUX.2-dev-GGUF\t",

@@ -1,8 +1,8 @@
 {
   "url": "https://huggingface.co/api/models?filter=text-to-video&sort=downloads&direction=-1&limit=60",
   "kind": "json",
-  "fetched_at": "2026-09-14",
-  "digest": "ec3b4b8238e8f218",
+  "fetched_at": "2026-09-17",
+  "digest": "c4c5b24dbe162c58",
   "items": [
     "Abiray/LTX-2.5-Distilled-GGUF\t",
     "Abiray/MiniMax-H3-GGUF\t",
@@ -20,7 +20,6 @@
     "Lightricks/LTX-2.3-fp8\t",
     "Lightricks/LTX-2.5\t",
     "Lightricks/LTX-2.5-Diffusers\t",
-    "Lightricks/LTX-Video-0.9.5\t",
     "Lightricks/LTX-Video-ICLoRA-detailer-13b-0.9.8\t",
     "MiniMaxAI/MiniMax-H3\t",
     "QuantStack/LTX-2.3-GGUF\t",
@@ -34,9 +33,9 @@
     "Wan-AI/Wan2.1-T2V-14B\t",
     "Wan-AI/Wan2.1-T2V-14B-Diffusers\t",
     "Wan-AI/Wan2.2-T2V-A14B-Diffusers\t",
+    "Wan-AI/Wan2.2-TI2V-5B\t",
     "Wan-AI/Wan2.2-TI2V-5B-Diffusers\t",
     "WarmBloodAban/Minimax-h3_Singularity\t",
-    "ali-vilab/i2vgen-xl\t",
     "alibaba-pai/MiniMax-H3-Acc-LoRAs\t",
     "alibaba-pai/Wan2.2-Fun-Reward-LoRAs\t",
     "aptech0081/MiniMax-H3-Acc-LoRAs-ComfyUI\t",
@@ -55,14 +54,15 @@
     "leejet/MiniMax-H3-GGUF\t",
     "magespace/Wan2.2-I2V-A14B-Lightning-Diffusers\t",
     "molbal/MiniMax-H3-GGUF\t",
-    "nyxia/H3-Loras\t",
     "realrebelai/LTX-2.5_GGUFs\t",
-    "rzgar/minimax_h3_fl2v_lightx2v_4step_int8-convrot_comfy\t",
+    "rockerBOO/minimax-h3-nvfp4-convrot\t",
     "samuelchristlie/Wan2.1-T2V-1.3B-GGUF\t",
     "samuelchristlie/Wan2.1-VACE-1.3B-GGUF\t",
+    "t8star/Vdn-Minimax-H3-Comfy\t",
     "unsloth/LTX-2.3-GGUF\t",
     "unsloth/MiniMax-H3-GGUF\t",
     "unsloth/Wan2.2-TI2V-5B-GGUF\t",
+    "wangfuyun/AnimateLCM\t",
     "zai-org/CogVideoX-2b\t"
   ]
 }
