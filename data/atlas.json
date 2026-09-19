@@ -5045,7 +5045,14 @@
       "zh": "π 系列",
       "version_src": "pi-openpi-gh",
       "version_quote": "`openpi` README 的 `Base Models` 表列三档：`π₀`、`π₀-FAST`、`π₀.₅`，检查点路径分别是 `gs://openpi-assets/checkpoints/pi0_base` / `pi0_fast_base` / `pi05_base`",
-      "note": "⚠️ **权重不在 Hugging Face，在 Google Cloud Storage。** HF 上的 `lerobot/pi0_base`（24,743 次下载）是转存 —— 拿 HF 下载量排这条线的座次会严重低估它。能力叙述在官方博客，用法在仓库，**两边都要读**。"
+      "note": "⚠️ **权重不在 Hugging Face，在 Google Cloud Storage。** HF 上的 `lerobot/pi0_base`（24,743 次下载）是转存 —— 拿 HF 下载量排这条线的座次会严重低估它。能力叙述在官方博客，用法在仓库，**两边都要读**。",
+      "aliases": [
+        "openpi",
+        "π₀",
+        "pi0",
+        "pi05",
+        "π0"
+      ]
     },
     {
       "id": "groot",
@@ -5061,7 +5068,13 @@
       "zh_none": true,
       "version_src": "nvidia-groot-gh",
       "version_quote": "HF 上 `nvidia/GR00T-N1.7-3B` 建于 2026-02-25，上一代 `GR00T-N1.6-3B` 建于 2025-12-01；README 有 `What's New in GR00T N1.7` 一节",
-      "note": "这一卷**文档最全的开源一支**。⚠️ 但最关键的本体标签清单**不在 README，在 `getting_started/policy.md`** —— README 只写「see the Policy API Guide」。"
+      "note": "这一卷**文档最全的开源一支**。⚠️ 但最关键的本体标签清单**不在 README，在 `getting_started/policy.md`** —— README 只写「see the Policy API Guide」。",
+      "aliases": [
+        "GR00T",
+        "Gr00tPolicy",
+        "Isaac GR00T",
+        "GR00T N"
+      ]
     },
     {
       "id": "openvla",
@@ -14658,10 +14671,14 @@
     {
       "m": "groot",
       "c": "e-framework",
-      "state": "unknown",
+      "state": "yes",
       "verified_for": "N1.7",
       "as_of": "2026-08-14",
-      "note": "读了 README 全文与 `getting_started/policy.md`：只有 PyTorch 一套实现，**没有看到第二种框架**，也没有一句话说不支持。所以是 ⬜ 不是 ❌ —— 官方没表态。对照 openpi 是明确给了 JAX 与 PyTorch 两套。"
+      "note": "提供 pytorch 与 tensorrt 两种推理模式，默认使用 PyTorch｜原文：「`pytorch` — standard PyTorch inference (default, no setup required) ; `tensorrt` — accelerated inference using TensorRT engine」",
+      "src": "groot-policy-doc",
+      "by": "human",
+      "reviewed_by": "liuzhenhai（经 Claude 代办）",
+      "reviewed_at": "2026-09-19 03:51:33"
     },
     {
       "m": "openvla",
@@ -14782,10 +14799,14 @@
     {
       "m": "pi",
       "c": "e-embodiment",
-      "state": "unknown",
+      "state": "yes",
       "verified_for": "π₀.₅",
       "as_of": "2026-08-14",
-      "note": "README 里没有本体标签这类机制，也没有「支持哪些机器人」的清单。⚠️ 它的能力叙述在**官方博客**（π₀.₅ 那篇讲 Open-World Generalization），仓库只讲怎么跑 —— 按规则十四的教训，这一格要读完博客再判，现在不填。"
+      "note": "openpi为多种机器人平台（DROID Franka、ALOHA双臂、LIBERO）分别提供专家检查点，支持跨本体迁移｜原文：「We also provide \"expert\" checkpoints for various robot platforms and tasks.」",
+      "src": "pi-openpi-gh",
+      "by": "human",
+      "reviewed_by": "liuzhenhai（经 Claude 代办）",
+      "reviewed_at": "2026-09-19 03:51:33"
     },
     {
       "m": "pi",
@@ -15983,10 +16004,14 @@
     {
       "m": "oasis",
       "c": "w-3d",
-      "state": "unknown",
+      "state": "yes",
       "verified_for": "Oasis 3",
       "as_of": "2026-08-14",
-      "note": "⚠️ **可核验度是这一卷最低的一支**：官网 9k 全是营销文案，`oasis.decart.ai` 是空壳，文档站 `docs.decart.ai` 2026-08-14 三次都抓不到。这些 ⬜ 是「够不着」不是「读完没找到」。"
+      "note": "Oasis 是可玩、可漫游的开放世界｜原文：「Decart's AI simulates a real-time, playable, open-world demo / first interactive \"open-world\" model」",
+      "src": "decart-site",
+      "by": "human",
+      "reviewed_by": "liuzhenhai（经 Claude 代办）",
+      "reviewed_at": "2026-09-19 03:51:32"
     },
     {
       "m": "oasis",
