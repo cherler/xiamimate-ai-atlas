@@ -1,18 +1,17 @@
 # Video Podcast Maker
 
-[![License: CC BY-NC 4.0](https://img.shields.io/badge/License-CC%20BY--NC%204.0-lightgrey.svg)](LICENSE)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 [![GitHub stars](https://img.shields.io/github/stars/Agents365-ai/video-podcast-maker?style=flat&logo=github)](https://github.com/Agents365-ai/video-podcast-maker/stargazers)
 [![GitHub forks](https://img.shields.io/github/forks/Agents365-ai/video-podcast-maker?style=flat&logo=github)](https://github.com/Agents365-ai/video-podcast-maker/network/members)
 [![Latest Release](https://img.shields.io/github/v/release/Agents365-ai/video-podcast-maker?logo=github)](https://github.com/Agents365-ai/video-podcast-maker/releases/latest)
 [![Last Commit](https://img.shields.io/github/last-commit/Agents365-ai/video-podcast-maker?logo=github)](https://github.com/Agents365-ai/video-podcast-maker/commits/main)
 
 [![SkillsMP](https://img.shields.io/badge/SkillsMP-listed-1f6feb)](https://skillsmp.com)
-[![Claude Code Plugin](https://img.shields.io/badge/Claude%20Code-plugin-8a2be2)](https://github.com/Agents365-ai/365-skills)
 [![Agent Skills](https://img.shields.io/badge/Agent%20Skills-compatible-2ea44f)](https://agentskills.io)
 
 [中文文档](README_CN.md)
 
-Automated pipeline to create professional video podcasts from a topic. **Supports Bilibili, YouTube, Xiaohongshu, Douyin, and WeChat Channels** with multi-language output (zh-CN, en-US). Combines research, script generation, multi-engine TTS (11 backends via the [ttscn](https://github.com/Agents365-ai/ttsCN) bridge), Remotion rendering, and FFmpeg mixing. Current release: **v5.2.1** — see [CHANGELOG.md](CHANGELOG.md) for version history.
+Automated pipeline to create professional video podcasts from a topic. **Supports Bilibili, YouTube, Xiaohongshu, Douyin, and WeChat Channels** with multi-language output (zh-CN, en-US). Combines research, script generation, local TTS (edge free, plus azure), Remotion rendering, and FFmpeg mixing. Current release: **v5.3.0** — see [CHANGELOG.md](CHANGELOG.md) for version history.
 
 **Works with:** [Claude Code](https://claude.ai/code) · [OpenClaw](https://openclaw.ai/) · [OpenCode](https://opencode.ai/) · [Codex](https://openai.com/index/introducing-codex/) · [Pi](https://github.com/earendil-works/pi-coding-agent) — any coding agent that supports SKILL.md
 
@@ -25,7 +24,7 @@ Automated pipeline to create professional video podcasts from a topic. **Support
 ## Features
 
 - **Topic → 4K video** - research, narration script, TTS audio, Remotion composition, 4K render + BGM in one pipeline
-- **11 TTS backends** - Edge (free), Azure, CosyVoice, Doubao, Tencent, Baidu, MiniMax, Xunfei, ElevenLabs, OpenAI, Google — all synthesized by the required [ttscn](https://github.com/Agents365-ai/ttsCN) component skill
+- **Local TTS backends** - Edge (free, no key) and Azure — synthesized in-house, no external component skill required
 - **Asset engine** - per-video manifest with license provenance; producers are user files, assetseeker stock, imagencn AI stills, videogencn AI B-roll, and Hyperframes overlays — paid generation always asks first
 - **4K output + Remotion-native subtitles** - 3840×2160; SRT rendered in React at 4K (legacy FFmpeg burn-in available)
 - **Design learning** - extract style profiles from reference videos/images; auto-applied when topics match
@@ -35,7 +34,13 @@ Automated pipeline to create professional video podcasts from a topic. **Support
 
 ## Quick Start
 
-**1. Install** — via the [365-skills marketplace](https://github.com/Agents365-ai/365-skills) (recommended) or by cloning this repo.
+**1. Install:** with the skills CLI, pointing at the full skill:
+
+```bash
+npx skills add Agents365-ai/video-podcast-maker/skills/video-podcast-maker -g
+```
+
+Drop the `/skills/video-podcast-maker` suffix to install all three variants (full, `-lite`, `-nano`), or clone this repo instead. Paths below are written from the repo root; under a skills CLI install the same files live in the agent's `${SKILL_DIR}`.
 
 **2. Set up** — Python 3.8+, Node.js 18+, FFmpeg, and a Remotion project:
 
@@ -45,6 +50,13 @@ pip install -r skills/video-podcast-maker/requirements.txt
 npx create-video@latest my-video-project   # or reuse an existing Remotion project
 cd my-video-project && npm i
 ```
+
+> **One-time cost:** a fresh Remotion project downloads ~2.2 GB of npm packages
+> plus a ~90 MB Chrome headless shell. **Prefer reusing an existing Remotion
+> project** (with `node_modules/` already installed) for your next video — the
+> heavy install happens once per project, not per video. Lottie animations are
+> optional (`@remotion/lottie` + `lottie-web`); install them per project only if
+> you use `LottieAnimation`.
 
 **3. Configure** — set `TTS_BACKEND` plus its API keys (see [TTS Backends](#tts-backends) and [Environment Variables](#environment-variables)).
 
@@ -75,14 +87,17 @@ The agent runs the whole workflow (research → script → TTS → Remotion comp
 
 ![Pipeline](images/pipeline.png)
 
-![Component Skills](images/skills.png)
-
-![Asset Flow](images/assets.png)
-
 ## Related Skills
 
-- **[remotion-best-practices](https://github.com/remotion-dev/skills)** - required; core Remotion patterns and guidelines
-- **[ttscn](https://github.com/Agents365-ai/ttsCN)** - required; the TTS engine behind all 11 backends (install under `~/.claude/skills/ttscn`, as a Pi skill, or set `TTSCN_HOME`)
+**Variants in this repo** (`skills/`):
+
+- **video-podcast-maker** — the full production pipeline (this README's subject)
+- **[video-podcast-maker-lite](skills/video-podcast-maker-lite/)** — minimal personal pipeline: Azure SSML TTS + Remotion, no bundled templates
+- **[video-podcast-maker-nano](skills/video-podcast-maker-nano/)** — tool-agnostic, logic-only pipeline (any TTS backend, any video tool); autonomous by default, oversight configured per project
+
+**External skills:**
+
+- **[remotion-best-practices](https://github.com/remotion-dev/skills)** - recommended; core Remotion patterns and guidelines (built-in minimum rules if absent)
 - **[assetseeker](https://github.com/Agents365-ai/assetSeeker)** - optional; license-vetted stock photos/video/BGM/SFX/icons/fonts
 - **[imagencn](https://github.com/Agents365-ai/imagenCN)** - optional; AI stills and thumbnails (paid APIs)
 - **[videogencn](https://github.com/Agents365-ai/videogenCN)** - optional; AI video clips for B-roll (paid APIs)
@@ -97,40 +112,32 @@ The agent runs the whole workflow (research → script → TTS → Remotion comp
 | **Node.js** | 18+ | Remotion video rendering |
 | **FFmpeg** | 4.0+ | Audio/video processing |
 
-> **Marketplace install (recommended):** users typically install this skill via the [365-skills marketplace](https://github.com/Agents365-ai/365-skills) rather than cloning. SKILL.md, scripts, and templates then live under the agent's `${SKILL_DIR}`; paths in this README are written from the repo-root perspective for contributors.
+> **Installed through the skills CLI?** SKILL.md, scripts, and templates then live under the agent's `${SKILL_DIR}`; paths in this README are written from the repo-root perspective, which is what a clone gives you.
 
-### TTS Backends (all via ttscn)
+### TTS Backends (local)
 
-All 11 platforms are synthesized by the **required** [ttscn](https://github.com/Agents365-ai/ttsCN) component skill. Set `TTS_BACKEND` to any platform id; only the active platform's env vars are needed:
+TTS synthesis is in-house — no external component skill required. Set `TTS_BACKEND` to a platform id; only the active platform's env vars are needed:
 
 | `TTS_BACKEND` | Provider | Required env vars | Get Key |
 | --------------- | ---------- | ------------------- | --------- |
 | `edge` (default) | Microsoft Edge TTS | *(none — free)* | — |
-| `azure` | Microsoft Azure Speech | `AZURE_SPEECH_KEY` (+ optional `AZURE_SPEECH_REGION`, default `eastasia`) | [Azure Portal](https://portal.azure.com/) |
-| `cosyvoice` | Aliyun CosyVoice | `DASHSCOPE_API_KEY` | [Aliyun Bailian](https://bailian.console.aliyun.com/) |
-| `doubao` | Volcengine Doubao | `VOLCENGINE_APPID`, `VOLCENGINE_ACCESS_TOKEN` | [Volcengine Console](https://console.volcengine.com/speech/service/8) |
-| `tencent` | Tencent Cloud TTS | `TENCENT_SECRET_ID`, `TENCENT_SECRET_KEY` | [Tencent Console](https://console.cloud.tencent.com/tts) |
-| `baidu` | Baidu AI TTS | `BAIDU_APP_ID`, `BAIDU_API_KEY`, `BAIDU_SECRET_KEY` | [Baidu Console](https://console.bce.baidu.com/ai/#/ai/speech/overview) |
-| `minimax` | MiniMax TTS | `MINIMAX_API_KEY` | [MiniMax Platform](https://platform.minimaxi.com/) |
-| `xunfei` | iFlytek Xunfei TTS | `XUNFEI_APP_ID`, `XUNFEI_API_KEY`, `XUNFEI_API_SECRET` | [Xfyun](https://www.xfyun.cn/) |
-| `elevenlabs` | ElevenLabs | `ELEVENLABS_API_KEY` | [ElevenLabs](https://elevenlabs.io/) |
-| `openai` | OpenAI TTS | `OPENAI_API_KEY` | [OpenAI Platform](https://platform.openai.com/) |
-| `google` | Google Cloud TTS | `GOOGLE_TTS_API_KEY` | [Google Cloud Console](https://console.cloud.google.com/) |
+| `azure` | Microsoft Azure Speech | `AZURE_SPEECH_KEY`, `AZURE_SPEECH_REGION` (default `eastasia`) | [Azure Portal](https://portal.azure.com/) |
 
-**Non-TTS keys (optional):** `GEMINI_API_KEY` / `DASHSCOPE_API_KEY` for AI thumbnails (imagencn).
+> **Want more platforms?** The former [ttscn](https://github.com/Agents365-ai/ttsCN) component skill (cosyvoice, doubao, tencent, baidu, minimax, xunfei, elevenlabs, openai, google) is no longer a dependency. Install it separately and call it directly if you need those.
 
 ### Environment Variables
 
 Add to `~/.zshrc` or `~/.bashrc`:
 
 ```bash
-export TTS_BACKEND="edge"                  # azure / cosyvoice / doubao / tencent / baidu / minimax / xunfei / elevenlabs / openai / google
-export TTS_VOICE="zh-CN-XiaoxiaoNeural"    # optional; unset = platform default
+export TTS_BACKEND="edge"                  # edge (default) / azure
+export TTS_VOICE="zh-CN-XiaoxiaoNeural"    # optional; unset = backend default
 export TTS_RATE="+5%"                      # optional; also settable in user_prefs.json (global.tts.rate)
 export TTS_STYLE="gentle"                  # optional; azure only
-export AZURE_SPEECH_KEY="..."              # keys for the active platform only (see table above)
-export GEMINI_API_KEY="..."                # optional: AI thumbnails
-export DASHSCOPE_API_KEY="..."             # optional: AI thumbnails (also the cosyvoice TTS key)
+export AZURE_SPEECH_KEY="..."              # keys for azure (see table above)
+export AZURE_SPEECH_REGION="eastasia"      # azure speech region
+export GEMINI_API_KEY="..."                # optional: AI thumbnails (imagencn)
+export DASHSCOPE_API_KEY="..."             # optional: AI thumbnails (imagencn; ark/hunyuan/zhipu/step also work)
 ```
 
 Then reload: `source ~/.zshrc`
@@ -208,4 +215,4 @@ If this project helps you, consider supporting the author:
 
 ## 📄 License
 
-[CC BY-NC 4.0](LICENSE) — Free for non-commercial use. Commercial use requires permission.
+[MIT](LICENSE) — Permission is hereby granted, free of charge, to any person obtaining a copy of this software.

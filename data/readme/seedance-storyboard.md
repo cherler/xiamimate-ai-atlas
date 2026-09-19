@@ -1,18 +1,39 @@
 # AI 视频制作工作流
 
-基于 Claude Code + Skill + Seedance 2.0 的完整 AI 视频制作流程，专注于将小说、故事转化为多集视频系列。
+基于  Skill + Seedance 2.0 的完整 AI 视频制作流程，专注于将小说、故事转化为多集视频系列。 在codex/workbuddy等agent直接命令使用则可以。
+
+安装方法： 命令agent 直接安装：https://github.com/liangdabiao/Seedance2-Storyboard-Generator
+
+我推荐同时安装 即梦cli:https://jimeng.jianying.com/ai-tool/install?from_page=explore , 这结合起来就可以随心所欲，vibe video，说话就可以生成和编辑视频！例如：
+
+> 利用 Seedance skill 制作 短视频， 故事为： 孟母三迁， 而生图生视频直接使用 即梦cli
+
+> 请利用 edge-tts 给短视频配上旁边，通俗易懂
+
+> 第三段视频和第四段需要增加一个过渡连接的视频
+
+> 30秒的镜头不对，修改为长镜头
+
 
 本项目参考学习了： 《用 Seedance 2.0 做了 20 集水墨漫剧，聊聊真实体验》北极的树 闲话AI ，感谢作者。
 
-感谢厚爱，已经上线直接免费使用： https://www.coze.cn/?skill_share_pid=7609341973090041882
+感谢厚爱，已经上线直接免费使用： https://skillhub.cn/skills/user_8bb4b4f5/seedance2-storyboard-generator
+
+同时基于本项目，我再制作几个风格版本给大家试试：
+
+上美影风格： https://github.com/liangdabiao/smy-seedance-storyboard
+
+乐高大电影风格： https://github.com/liangdabiao/lego-cinematic-remix
 
 项目首发于linux.do社区，感谢佬友认同： https://linux.do/t/topic/1619920
+
+
 
 ## 项目简介
 
 本项目提供了一套完整的 AI 视频制作工作流，通过三件套工具实现从故事到成片的自动化生产：
 
-- **Claude Code** - 剧本创作与分镜脚本生成
+- **Claude Code/Codex/workbuddy等** - 剧本创作与分镜脚本生成
 - **GPT-Image-2、Seedream 、Nana Banana Pro 等** - 角色、场景、道具素材图生成(可选其他生图ai)
 - **Seedance 2.0** - 视频生成与延长
 

@@ -1,296 +1,292 @@
+> Looking for the original YuE? Its code, documentation, and license are preserved on the **[YuE-v1 branch](https://github.com/multimodal-art-projection/YuE/tree/YuE-v1)**.
+
 <p align="center">
-    <picture>
-        <source srcset="./assets/logo/黑底.svg" media="(prefers-color-scheme: dark)">
-        <img src="./assets/logo/白底.svg" width="40%">
-    </picture>
+  <img src="assets/logo.png" alt="YuE" width="150" />
 </p>
 
 <p align="center">
-    <a href="https://map-yue.github.io/">Demo 🎶</a> &nbsp;|&nbsp; 📑 <a href="https://arxiv.org/abs/2503.08638">Paper</a>
-    <br>
-    <a href="https://huggingface.co/m-a-p/YuE-s1-7B-anneal-en-cot">YuE-s1-7B-anneal-en-cot 🤗</a> &nbsp;|&nbsp; <a href="https://huggingface.co/m-a-p/YuE-s1-7B-anneal-en-icl">YuE-s1-7B-anneal-en-icl 🤗</a> &nbsp;|&nbsp; <a href="https://huggingface.co/m-a-p/YuE-s1-7B-anneal-jp-kr-cot">YuE-s1-7B-anneal-jp-kr-cot 🤗</a>
-    <br>
-    <a href="https://huggingface.co/m-a-p/YuE-s1-7B-anneal-jp-kr-icl">YuE-s1-7B-anneal-jp-kr-icl 🤗</a> &nbsp;|&nbsp; <a href="https://huggingface.co/m-a-p/YuE-s1-7B-anneal-zh-cot">YuE-s1-7B-anneal-zh-cot 🤗</a> &nbsp;|&nbsp; <a href="https://huggingface.co/m-a-p/YuE-s1-7B-anneal-zh-icl">YuE-s1-7B-anneal-zh-icl 🤗</a>
-    <br>
-    <a href="https://huggingface.co/m-a-p/YuE-s2-1B-general">YuE-s2-1B-general 🤗</a> &nbsp;|&nbsp; <a href="https://huggingface.co/m-a-p/YuE-upsampler">YuE-upsampler 🤗</a>
+  <picture>
+    <source media="(max-width: 600px)" srcset="assets/institutions-mobile.svg" />
+    <img src="assets/institutions.svg" alt="HKUST, M·A·P, Tokenwave.AI, NYU, Stanford, MBZUAI, NOIZ, and ACE Studio" width="760" />
+  </picture>
 </p>
 
----
-Our model's name is **YuE (乐)**. In Chinese, the word means "music" and "happiness." Some of you may find words that start with Yu hard to pronounce. If so, you can just call it "yeah." We wrote a song with our model's name, see [here](assets/logo/yue.mp3).
+<h1 align="center">YuE2: Unifying Symbolic and Audio Music Generation at Frontier Quality</h1>
 
-YuE is a groundbreaking series of open-source foundation models designed for music generation, specifically for transforming lyrics into full songs (lyrics2song). It can generate a complete song, lasting several minutes, that includes both a catchy vocal track and accompaniment track. YuE is capable of modeling diverse genres/languages/vocal techniques. Please visit the [**Demo Page**](https://map-yue.github.io/) for amazing vocal performance.
+<p align="center"><strong>Compose in symbols. Create in sound.</strong></p>
 
-## News and Updates
-* 📌 Join Us on Discord! [<img alt="join discord" src="https://img.shields.io/discord/842440537755353128?color=%237289da&logo=discord"/>](https://discord.gg/ssAyWMnMzu)
+<p align="center">
+  <a href="https://map-yue2.github.io/">🎧 Demos</a> ·
+  <a href="https://arena.3-148-255-99.sslip.io:8080">🗳️ Music Arena</a> ·
+  <a href="https://huggingface.co/m-a-p/YuE2-3B">🤗 YuE2</a> ·
+  <a href="#quick-start">🚀 Quick start</a> ·
+  <a href="#agent-skill">🤖 Agent skill</a> ·
+  <a href="#benchmarks">📊 Benchmarks</a> ·
+  <a href="https://huggingface.co/m-a-p/MERT-v2-FullSong">🤗 MERT2</a> ·
+  <a href="https://huggingface.co/m-a-p/SheetSage2">🤗 SheetSage2</a> ·
+  <a href="https://huggingface.co/datasets/m-a-p/WildSongBench">🤗 WSB</a> ·
+  <a href="https://github.com/multimodal-art-projection/YuE/releases/tag/yue2-v0.1.6">📦 Release</a> ·
+  <a href="https://discord.gg/ssAyWMnMzu"><img alt="Join us on Discord" src="https://img.shields.io/discord/842440537755353128?color=5865F2&amp;logo=discord&amp;logoColor=white&amp;label=Discord&amp;style=flat-square" height="20" /></a>
+</p>
 
-* **2025.06.04 🔥** Now YuE supports LoRA finetune.
-* **2025.03.12 🔥 Paper Released🎉**: We now release [YuE technical report](https://arxiv.org/abs/2503.08638)!!! We discuss all the technical details, findings, and lessons learned. Enjoy, and feel free to cite us~
-* **2025.03.11 🫶** Now YuE supports incremental song generation!!! See [YuE-UI by joeljuvel](https://github.com/joeljuvel/YuE-UI). YuE-UI is a Gradio-based interface supporting batch generation, output selection, and continuation. You can flexibly experiment with audio prompts and different model settings, visualize your progress on an interactive timeline, rewind actions, quickly preview audio outputs at stage 1 before committing to refinement, and fully save/load your sessions (JSON format). Optimized to run smoothly even on GPUs with just 8GB VRAM using quantized models.
-* **2025.02.17 🫶** Now YuE supports music continuation and Google Colab! See [YuE-extend by Mozer](https://github.com/Mozer/YuE-extend).
-* **2025.02.07 🎉** Get YuE for Windows on [pinokio](https://pinokio.computer).
+**YuE2 brings frontier song quality to music generation with an editable composition.** Give it lyrics and a style prompt: it writes a melody-and-chord plan, then realizes that plan as a complete song with vocals and accompaniment.
 
-* **2025.01.30 🔥 Inference Update**: We now support dual-track ICL mode! You can prompt the model with a reference song, and it will generate a new song in a similar style (voice cloning [demo by @abrakjamson](https://x.com/abrakjamson/status/1885932885406093538), music style transfer [demo by @cocktailpeanut](https://x.com/cocktailpeanut/status/1886456240156348674), etc.). Try it out! 🔥🔥🔥 P.S. Be sure to check out the demos first—they're truly impressive. 
+<a id="music-arena"></a>
 
-* **2025.01.30 🔥 Announcement: A New Era Under Apache 2.0 🔥**: We are thrilled to announce that, in response to overwhelming requests from our community, **YuE** is now officially licensed under the **Apache 2.0** license. We sincerely hope this marks a watershed moment—akin to what Stable Diffusion and LLaMA have achieved in their respective fields—for music generation and creative AI. 🎉🎉🎉
+> **🎧 YuE2 needs your ears**
+>
+> We're running a public listening study comparing YuE2 with leading proprietary music generation systems. Listen to anonymous music clips and choose A, B, or a tie. Your honest feedback helps us understand how YuE2 sounds to real listeners.
+>
+> **[Listen & vote →](https://arena.3-148-255-99.sslip.io:8080)** · No account needed. Headphones recommended.
 
-* **2025.01.29 🎉**: We have updated the license description. we **ENCOURAGE** artists and content creators to sample and incorporate outputs generated by our model into their own works, and even monetize them. The only requirement is to credit our name: **YuE by HKUST/M-A-P** (alphabetic order).
-* **2025.01.28 🫶**: Thanks to Fahd for creating a tutorial on how to quickly get started with YuE. Here is his [demonstration](https://www.youtube.com/watch?v=RSMNH9GitbA).
-* **2025.01.26 🔥**: We have released the **YuE** series.
+- **Frontier quality.** YuE2 is competitive with Suno v5/v6 on WildSongBench. YuE2 (best-of-8) achieves **6.9632 SongBench Avg**, the highest observed mean among all evaluated settings.
+- **White-box music generation through symbolic planning.** Read, play, and change the composition before rendering it. Melody and chords become explicit controls that a person or an agent can inspect and edit.
+- **Zero-shot covers and agentic editing.** Reimagine a transcribed song in a new style, or refine a song through a conversation about its score, arrangement, and lyrics—all with the same generation checkpoint.
 
-<br>
+[![YuE2 song quality and text alignment on WildSongBench](assets/frontier-teaser.png)](https://map-yue2.github.io/#model-overview)
 
----
-## TODOs📋
+*192 WildSongBench prompts. Both YuE2 settings use symbolic planning. Bo8 = best-of-8. The axes are normalized comparison indices; bubble area represents AudioBox production quality. [Scores and evaluation protocol](docs/benchmarks.md). [Vector PDF](assets/frontier-teaser.pdf) · [SVG](assets/frontier-teaser.svg).*
 
-- [ ] Support stemgen mode https://github.com/multimodal-art-projection/YuE/issues/21
-- [ ] Support llama.cpp https://github.com/ggerganov/llama.cpp/issues/11467
-- [ ] Support transformers tensor parallel. https://github.com/multimodal-art-projection/YuE/issues/7
-- [ ] Online serving on huggingface space.
-- [ ] Support vLLM and sglang https://github.com/multimodal-art-projection/YuE/issues/66
-- [x] Release paper to Arxiv.
-- [x] Example LoRA finetune code using 🤗 Transformers.
-- [x] Support Colab: [YuE-extend by Mozer](https://github.com/Mozer/YuE-extend)
-- [x] Support gradio interface. https://github.com/multimodal-art-projection/YuE/issues/1
-- [x] Support dual-track ICL mode.
-- [x] Fix "instrumental" naming bug in output files. https://github.com/multimodal-art-projection/YuE/pull/26
-- [x] Support seeding https://github.com/multimodal-art-projection/YuE/issues/20
-- [x] Allow `--repetition_penalty` to customize repetition penalty. https://github.com/multimodal-art-projection/YuE/issues/45
+## Hear what you can make
 
----
+| Create | Cover | Edit with an agent |
+|---|---|---|
+| Lyrics + style → score → full song | Source recording → melody score → a new interpretation | Musical feedback → score, style, or lyric revisions → a new recording |
+| [Listen and inspect the score](https://map-yue2.github.io/#abc-cot-gen) | [Hear zero-shot covers](https://map-yue2.github.io/#cover) | [Follow an editing conversation](https://map-yue2.github.io/#agentic-music-editing) |
 
-## Hardware and Performance
+The agentic demo follows **The Last Train through 9 steps and 14 versions**, from Mandarin pop to English jazz with new harmony and a saxophone solo. Listen to each version and inspect its conversation, score, prompt, and lyrics.
 
-### **GPU Memory**
-YuE requires significant GPU memory for generating long sequences. Below are the recommended configurations:
-- **For GPUs with 24GB memory or less**: Run **up to 2 sessions** to avoid out-of-memory (OOM) errors. Thanks to the community, there are [YuE-exllamav2](https://github.com/sgsdxzy/YuE-exllamav2) and [YuEGP](https://github.com/deepbeepmeep/YuEGP) for those with limited GPU resources. While both enhance generation speed and coherence, they may compromise musicality. (P.S. Better prompts & ICL help!)
-- **For full song generation** (many sessions, e.g., 4 or more): Use **GPUs with at least 80GB memory**. i.e. H800, A100, or multiple RTX4090s with tensor parallel.
+## How it works
 
-To customize the number of sessions, the interface allows you to specify the desired session count. By default, the model runs **2 sessions** (1 verse + 1 chorus) to avoid OOM issue.
+![YuE2 architecture: style and lyrics become an editable score, semantic music tokens, acoustic latents, and audio](assets/architecture.png)
 
-### **Execution Time**
-On an **H800 GPU**, generating 30s audio takes **150 seconds**.
-On an **RTX 4090 GPU**, generating 30s audio takes approximately **360 seconds**. 
+One **AR–NAR Mixture-of-Transformers** backbone predicts the score and semantic tokens autoregressively, then generates acoustic latents with flow matching. A VAE decodes those latents into stereo audio. Creation, covering, and editing differ in where the score comes from: YuE2, a transcribed recording, or an edited composition.
 
----
+The staged Python API exposes `plan()` → `generate_semantic()` → `synthesize()` → `decode()`. See the [generation guide](docs/generation.md) for exact-plan reuse and decoder selection.
 
-## 🪟 Windows Users Quickstart
-- For a **one-click installer**, use [Pinokio](https://pinokio.computer).  
-- To use **Gradio with Docker**, see: [YuE-for-Windows](https://github.com/sdbds/YuE-for-windows)
+## Quick start
 
-## 🐧 Linux/WSL Users Quickstart
-For a **quick start**, watch this **video tutorial** by Fahd: [Watch here](https://www.youtube.com/watch?v=RSMNH9GitbA).  
-If you're new to **machine learning** or the **command line**, we highly recommend watching this video first.  
+**Linux · Python 3.12 · NVIDIA GPU with BF16 support and 24 GB VRAM.** YuE2 produces 48 kHz stereo audio without quantization. Model files download from Hugging Face on first use.
 
-To use a **GUI/Gradio** interface, check out:  
-- [YuE-exllamav2-UI](https://github.com/WrongProtocol/YuE-exllamav2-UI)
-- [YuEGP](https://github.com/deepbeepmeep/YuEGP)
-- [YuE-Interface](https://github.com/alisson-anjos/YuE-Interface)  
-
-### 1. Install environment and dependencies
-Make sure properly install flash attention 2 to reduce VRAM usage. 
 ```bash
-# We recommend using conda to create a new environment.
-conda create -n yue python=3.8 # Python >=3.8 is recommended.
-conda activate yue
-# install cuda >= 11.8
-conda install pytorch torchvision torchaudio cudatoolkit=11.8 -c pytorch -c nvidia
-pip install -r <(curl -sSL https://raw.githubusercontent.com/multimodal-art-projection/YuE/main/requirements.txt)
-
-# For saving GPU memory, FlashAttention 2 is mandatory. 
-# Without it, long audio may lead to out-of-memory (OOM) errors.
-# Be careful about matching the cuda version and flash-attn version
-pip install flash-attn --no-build-isolation
-```
-
-### 2. Download the infer code and tokenizer
-```bash
-# Make sure you have git-lfs installed (https://git-lfs.com)
-# if you don't have root, see https://github.com/git-lfs/git-lfs/issues/4134#issuecomment-1635204943
-sudo apt update
-sudo apt install git-lfs
-git lfs install
 git clone https://github.com/multimodal-art-projection/YuE.git
-
-cd YuE/inference/
-git clone https://huggingface.co/m-a-p/xcodec_mini_infer
+cd YuE
+python3.12 -m venv .venv
+source .venv/bin/activate
+python -m pip install --upgrade pip
+python -m pip install .
+python examples/generate.py --output outputs/first-song
 ```
 
-### 3. Run the inference
-Now generate music with **YuE** using 🤗 Transformers. Make sure your step [1](#1-install-environment-and-dependencies) and [2](#2-download-the-infer-code-and-tokenizer) are properly set up. 
+Open `outputs/first-song/audio.flac`. The output directory also retains the score, semantic tokens, acoustic latents, generation settings, and model identities.
 
-Note:
-- Set `--run_n_segments` to the number of lyric sections if you want to generate a full song. Additionally, you can increase `--stage2_batch_size` based on your available GPU memory.
+The Python interface is equally short:
 
-- You may customize the prompt in `genre.txt` and `lyrics.txt`. See prompt engineering guide [here](#prompt-engineering-guide).
+```python
+import json
+from pathlib import Path
+from yue2 import YuE2Pipeline
 
-- You can increase `--stage2_batch_size` to speed up the inference, but be careful for OOM.
+request = json.loads(Path("examples/song.json").read_text(encoding="utf-8"))
+with YuE2Pipeline.from_pretrained("m-a-p/YuE2-3B", device="cuda") as pipe:
+    song = pipe(**request)
+    song.save_artifacts("outputs/my-song")
+    print(song.truncated)
+```
 
-- LM ckpts will be automatically downloaded from huggingface. 
+| Setting | Behavior |
+|---|---|
+| `cot="full"` | Generate an editable melody-and-chord plan; the default for new songs |
+| `cot="melody"` | Use a melody plan with free accompaniment; recommended for covers |
+| `cot="off"` | Generate directly from lyrics and style |
+| `abc=...` | Supply your own score in `full` or `melody` mode |
 
+[Generation guide](docs/generation.md) · [Original example inputs](examples/README.md) · [v0.1.6 wheel archive](https://github.com/multimodal-art-projection/YuE/releases/download/yue2-v0.1.6/yue2_infer-0.1.6-py3-none-any.whl)
+
+## Cover a song
+
+Transcribe a source recording with **[🤗 SheetSage2](https://huggingface.co/m-a-p/SheetSage2)**, review its melody ABC, and provide new lyrics or a target style. For covers, use **`cot="melody"` and a score without chord symbols** so the accompaniment can adapt to the new style.
+
+```python
+from pathlib import Path
+from yue2 import YuE2Pipeline
+
+with YuE2Pipeline.from_pretrained("m-a-p/YuE2-3B", device="cuda") as pipe:
+    cover = pipe(
+        style="English, jazz-funk, warm lead vocal, Rhodes, bass and drums",
+        lyrics=Path("cover-lyrics.txt").read_text(encoding="utf-8"),
+        abc=Path("cover-score/score.abc").read_text(encoding="utf-8"),
+        cot="melody",
+        seed=42,
+    )
+    cover.save_artifacts("outputs/cover")
+```
+
+SheetSage2 runs in a separate environment and loads its MERT2 encoder automatically. The [cover guide](docs/covers.md) gives the complete transcription and generation commands. An included [original melody example](examples/melody.abc) also lets you try score-conditioned generation immediately.
+
+## Edit a composition
+
+Export a plan, revise the musical details, and render the edited score:
+
+```python
+import json
+from pathlib import Path
+from yue2 import YuE2Pipeline
+
+request = json.loads(Path("examples/song.json").read_text(encoding="utf-8"))
+with YuE2Pipeline.from_pretrained("m-a-p/YuE2-3B", device="cuda") as pipe:
+    plan = pipe.plan(**request)
+    plan.save("outputs/plan")
+```
+
+Copy `outputs/plan/score.abc` to `edited.abc`, then ask an agent to change its harmony, melody, tempo, or form. Supply the edited file as a new score:
 
 ```bash
-# This is the CoT mode.
-cd YuE/inference/
-python infer.py \
-    --cuda_idx 0 \
-    --stage1_model m-a-p/YuE-s1-7B-anneal-en-cot \
-    --stage2_model m-a-p/YuE-s2-1B-general \
-    --genre_txt ../prompt_egs/genre.txt \
-    --lyrics_txt ../prompt_egs/lyrics.txt \
-    --run_n_segments 2 \
-    --stage2_batch_size 4 \
-    --output_dir ../output \
-    --max_new_tokens 3000 \
-    --repetition_penalty 1.1
+python examples/generate.py --request examples/song.json \
+  --abc-file edited.abc --cot full --output outputs/edited
 ```
 
-We also support music in-context-learning (provide a reference song), there are 2 types: single-track (mix/vocal/instrumental) and dual-track. 
+The editable score is the white-box interface: you can inspect the intended composition and intervene on it. Editing generates a new complete recording; it does not preserve the original waveform outside an edit. [Editing guide and a reproducible harmony example](docs/editing.md).
 
-Note: 
-- ICL requires a different ckpt, e.g. `m-a-p/YuE-s1-7B-anneal-en-icl`.
+## Agent skill
 
-- Music ICL generally requires a 30s audio segment. The model will write new songs with similar style of the provided audio, and may improve musicality.
+The **[yue2-music skill](skills/yue2-music/SKILL.md)** teaches an agent how to generate songs, transcribe and cover recordings, edit ABC scores, check musical invariants, and organize listening comparisons. It includes portable helpers and references to the released model interfaces.
 
-- Dual-track ICL works better in general, requiring both vocal and instrumental tracks.
+Use **`skills/yue2-music/` from this repository** with an agent that supports `SKILL.md` packages. Install it using your agent's skill-directory or import mechanism; the Python runtime is installed separately with `pip install .`. The earlier [v0.1.6 skill ZIP](https://github.com/multimodal-art-projection/YuE/releases/download/yue2-v0.1.6/yue2-music.zip) remains available under its bundled license.
 
-- For single-track ICL, you can provide a mix, vocal, or instrumental track.
+Try a concrete request:
 
-- You can separate the vocal and instrumental tracks using [python-audio-separator](https://github.com/nomadkaraoke/python-audio-separator) or [Ultimate Vocal Remover GUI](https://github.com/Anjok07/ultimatevocalremovergui).
+> Use the yue2-music skill to create an English piano-pop song. Keep the original audio and score. Make a second version with jazz harmony, preserve the vocal melody and lyric order, and give me both versions to compare.
 
-```bash
-# This is the dual-track ICL mode.
-# To turn on dual-track mode, enable `--use_dual_tracks_prompt`
-# and provide `--vocal_track_prompt_path`, `--instrumental_track_prompt_path`, 
-# `--prompt_start_time`, and `--prompt_end_time`
-# The ref audio is taken from GTZAN test set.
-cd YuE/inference/
-python infer.py \
-    --cuda_idx 0 \
-    --stage1_model m-a-p/YuE-s1-7B-anneal-en-icl \
-    --stage2_model m-a-p/YuE-s2-1B-general \
-    --genre_txt ../prompt_egs/genre.txt \
-    --lyrics_txt ../prompt_egs/lyrics.txt \
-    --run_n_segments 2 \
-    --stage2_batch_size 4 \
-    --output_dir ../output \
-    --max_new_tokens 3000 \
-    --repetition_penalty 1.1 \
-    --use_dual_tracks_prompt \
-    --vocal_track_prompt_path ../prompt_egs/pop.00001.Vocals.mp3 \
-    --instrumental_track_prompt_path ../prompt_egs/pop.00001.Instrumental.mp3 \
-    --prompt_start_time 0 \
-    --prompt_end_time 30 
-```
+## Benchmarks
 
-```bash
-# This is the single-track (mix/vocal/instrumental) ICL mode.
-# To turn on single-track ICL, enable `--use_audio_prompt`, 
-# and provide `--audio_prompt_path` , `--prompt_start_time`, and `--prompt_end_time`. 
-# The ref audio is taken from GTZAN test set.
-cd YuE/inference/
-python infer.py \
-    --cuda_idx 0 \
-    --stage1_model m-a-p/YuE-s1-7B-anneal-en-icl \
-    --stage2_model m-a-p/YuE-s2-1B-general \
-    --genre_txt ../prompt_egs/genre.txt \
-    --lyrics_txt ../prompt_egs/lyrics.txt \
-    --run_n_segments 2 \
-    --stage2_batch_size 4 \
-    --output_dir ../output \
-    --max_new_tokens 3000 \
-    --repetition_penalty 1.1 \
-    --use_audio_prompt \
-    --audio_prompt_path ../prompt_egs/pop.00001.mp3 \
-    --prompt_start_time 0 \
-    --prompt_end_time 30 
-```
----
- 
-## Prompt Engineering Guide
-The prompt consists of three parts: genre tags, lyrics, and ref audio.
+**WildSongBench: 192 prompts, automatic evaluation, September 12, 2026.**
 
-### Genre Tagging Prompt
-1. An example genre tagging prompt can be found [here](prompt_egs/genre.txt).
+| System / setting | SongBench Avg ↑ | AudioBox PQ ↑ | MuLan ↑ | PER ↓ |
+|---|---:|---:|---:|---:|
+| **YuE2 (best-of-8)** † | **6.9632** | 8.2714 | 0.5051 | 9.79% |
+| Mureka 9 | 6.9377 | 8.0226 | 0.4394 | 11.69% |
+| Suno v5 | 6.8721 | 8.1698 | **0.5428** | 8.10% |
+| **YuE2** † | 6.7316 | 8.2598 | 0.5068 | 8.44% |
+| Suno v5.5 | 6.7150 | 8.1955 | 0.5089 | 5.96% |
+| Suno v4.5 | 6.6995 | 8.2541 | 0.5022 | **5.80%** |
+| Suno v6 | 6.5562 | 8.1296 | 0.4916 | 7.58% |
+| Suno v6 Wild | 6.4195 | 8.1785 | 0.4999 | 7.45% |
+| LeVo 2 † | 6.3247 | **8.3966** | 0.3542 | 26.12% |
+| MiniMax Music 2.6 | 6.3222 | 8.1711 | 0.4251 | 24.55% |
+| MiniMax Music 3 † | 6.2830 | 8.2825 | 0.3928 | 6.27% |
+| HeartMuLa † | 6.2483 | 8.2933 | 0.3823 | 10.71% |
+| Muse † | 6.0349 | 8.0517 | 0.3937 | 33.42% |
+| ACE-Step 1.5 † | 6.0118 | 8.0518 | 0.4372 | 7.46% |
+| DiffRhythm 2 † | 5.2428 | 7.9782 | 0.3782 | 18.41% |
+| YuE 1 † | 4.9165 | 7.8683 | 0.2623 | 36.38% |
+| SongBloom † | 4.2350 | 8.1539 | 0.2697 | 19.19% |
 
-2. A stable tagging prompt usually consists of five components: genre, instrument, mood, gender, and timbre. All five should be included if possible, separated by space (space delimiter).
+† Publicly available model weights. All 17 evaluated settings are shown, sorted by SongBench Avg; bold values mark the best result in each column.
 
-3. Although our tags have an open vocabulary, we have provided the top 200 most commonly used [tags](./top_200_tags.json). It is recommended to select tags from this list for more stable results.
+Both YuE2 settings use symbolic planning and the benchmark decoder, **YuE2-Vae-legacy**. Standard YuE2 selects from two candidates; best-of-8 selects from eight. Rankings vary by metric; the small gap between the highest means does not establish statistical significance. [Full results and selection protocols](docs/benchmarks.md).
 
-3. The order of the tags is flexible. For example, a stable genre tagging prompt might look like: "inspiring female uplifting pop airy vocal electronic bright vocal vocal."
+**Zero-shot covers.** On 948 works, full-score YuE2 reaches **0.647 CLEWS mAP**, compared with **0.006 without a score**, while using the general generator without cover-specific fine-tuning. Source-identity preservation and target-style quality are measured separately; melody-only covers offer more freedom to change the arrangement. [Cover evaluation](docs/benchmarks.md#zero-shot-cover-generation).
 
-4. Additionally, we have introduced the "Mandarin" and "Cantonese" tags to distinguish between Mandarin and Cantonese, as their lyrics often share similarities.
+### Reproduce the benchmarks
 
-### Lyrics Prompt
-1. An example lyric prompt can be found [here](prompt_egs/lyrics.txt).
+To reproduce the reported benchmark scores, follow the instructions on [🤗 WildSongBench (WSB)](https://huggingface.co/datasets/m-a-p/WildSongBench#reproduce-standard-yue2).
 
-2. We support multiple languages, including but not limited to English, Mandarin Chinese, Cantonese, Japanese, and Korean. The default top language distribution during the annealing phase is revealed in [issue 12](https://github.com/multimodal-art-projection/YuE/issues/12#issuecomment-2620845772). A language ID on a specific annealing checkpoint indicates that we have adjusted the mixing ratio to enhance support for that language.
+## MERT2
 
-3. The lyrics prompt should be divided into sessions, with structure labels (e.g., [verse], [chorus], [bridge], [outro]) prepended. Each session should be separated by 2 newline character "\n\n".
+**State-of-the-art music understanding:** SOTA on **14 of 15 MARBLE metrics**, with **91.72% genre accuracy on GTZAN**.
 
-4. **DONOT** put too many words in a single segment, since each session is around 30s (`--max_new_tokens 3000` by default).
+[Demo and results](https://map-yue2.github.io/#mert2) · [🤗 MERT2-30s](https://huggingface.co/m-a-p/MERT-v2-30s) · [🤗 MERT2-FS](https://huggingface.co/m-a-p/MERT-v2-FullSong)
 
-5. We find that [intro] label is less stable, so we recommend starting with [verse] or [chorus].
+## SheetSage2
 
-6. For generating music with no vocal (instrumental only), see [issue 18](https://github.com/multimodal-art-projection/YuE/issues/18).
+**State-of-the-art audio-to-score transcription:** SOTA on **10 of 13 benchmark metrics**, with **82.51% vocal melody pitch-class F1 on RWC-Pop**.
 
+[Demo and results](https://map-yue2.github.io/#sheetsage2) · [🤗 Model and inference](https://huggingface.co/m-a-p/SheetSage2)
 
-### Audio Prompt
+## Models and resources
 
-1. Audio prompt is optional. Providing ref audio for ICL usually increase the good case rate, and result in less diversity since the generated token space is bounded by the ref audio. CoT only (no ref) will result in a more diverse output.
+| Resource | Purpose |
+|---|---|
+| [🤗 YuE2-3B](https://huggingface.co/m-a-p/YuE2-3B) | Song generation, symbolic planning, covering, and editing |
+| [🤗 YuE2-Vae](https://huggingface.co/m-a-p/YuE2-Vae) | Default generation and listening decoder |
+| [🤗 YuE2-Vae-legacy](https://huggingface.co/m-a-p/YuE2-Vae-legacy) | Decoder for the reported benchmark protocol |
+| [🤗 SheetSage2](https://huggingface.co/m-a-p/SheetSage2) | Audio-to-score transcription for covers and editing |
+| [🤗 MERT-v2-FullSong](https://huggingface.co/m-a-p/MERT-v2-FullSong) | Full-song music representations; SheetSage2's encoder |
+| [🤗 MERT-v2-30s](https://huggingface.co/m-a-p/MERT-v2-30s) | Music representations for short recordings |
+| [🤗 WildSongBench](https://huggingface.co/datasets/m-a-p/WildSongBench) | Evaluation prompts and benchmark resources |
 
-2. We find that dual-track ICL mode gives the best musicality and prompt following. 
+MERT2 feature extraction is optional for generation. YuE2's pipeline does not require a separate MERT2 model download. [Demos and interactive results](https://map-yue2.github.io/) · [Release downloads](https://github.com/multimodal-art-projection/YuE/releases/tag/yue2-v0.1.6).
 
-3. Use the chorus part of the music as prompt will result in better musicality.
+## License
 
-4. Around 30s audio is recommended for ICL.
+| Use | Terms |
+| --- | --- |
+| **Personal users, content creators, and musicians** | Free to use YuE2 and monetize generated outputs, with **no fees or royalties payable to us**. |
+| **Academic research and education** | Free for **non-commercial use**. |
+| **Commercial use by companies** | [Contact us](#contact) to discuss a commercial license for the model weights. |
 
-5. For music continuation, see [YuE-extend by Mozer](https://github.com/Mozer/YuE-extend). Also supports Colab.
+We strongly encourage crediting **YuE2** or using **#YuE2** when sharing generated work; attribution is optional.
 
----
+**Responsible use.** The additional creator permission prohibits illegal, harmful, deceptive, or unethical use. YuE2 is provided **as is, without warranties**. Users are responsible for their inputs, outputs, and use; liability limits are set out in the [full terms](MODEL_LICENSE).
 
-## License Agreement \& Disclaimer  
-- The YuE model (including its weights) is now released under the **Apache License, Version 2.0**. We do not make any profit from this model, and we hope it can be used for the betterment of human creativity.
-- **Use & Attribution**: 
-    - We encourage artists and content creators to freely incorporate outputs generated by YuE into their own works, including commercial projects. 
-    - We encourage attribution to the model’s name (“YuE by HKUST/M-A-P”), especially for public and commercial use. 
-- **Originality & Plagiarism**: It is the sole responsibility of creators to ensure that their works, derived from or inspired by YuE outputs, do not plagiarize or unlawfully reproduce existing material. We strongly urge users to perform their own due diligence to avoid copyright infringement or other legal violations.
-- **Recommended Labeling**: When uploading works to streaming platforms or sharing them publicly, we **recommend** labeling them with terms such as: “AI-generated”, “YuE-generated", “AI-assisted” or “AI-auxiliated”. This helps maintain transparency about the creative process.
-- **Disclaimer of Liability**: 
-    - We do not assume any responsibility for the misuse of this model, including (but not limited to) illegal, malicious, or unethical activities. 
-    - Users are solely responsible for any content generated using the YuE model and for any consequences arising from its use. 
-    - By using this model, you agree that you understand and comply with all applicable laws and regulations regarding your generated content.
+**Code, agent skill, and documentation:** [Apache 2.0](LICENSE). **Model weights:** [CC BY-NC 4.0 with additional creator permission](MODEL_LICENSE).
 
----
-
-## Acknowledgements
-The project is co-lead by HKUST and M-A-P (alphabetic order). Also thanks moonshot.ai, bytedance, 01.ai, and geely for supporting the project.
-A friendly link to HKUST Audio group's [huggingface space](https://huggingface.co/HKUSTAudio). 
-
-We deeply appreciate all the support we received along the way. Long live open-source AI!
-
----
+*Copyright (c) 2026 the YuE2 authors. [Third-party components](THIRD_PARTY_NOTICES.md) and earlier releases retain their respective licenses.*
 
 ## Citation
 
-If you find our paper and code useful in your research, please consider giving a star :star: and citation :pencil: :)
+The YuE2 technical report is coming soon. For now, please cite **[MERT](https://arxiv.org/abs/2306.00107)** and **[YuE](https://arxiv.org/abs/2503.08638)**:
 
-```BibTeX
-@misc{yuan2025yuescalingopenfoundation,
-      title={YuE: Scaling Open Foundation Models for Long-Form Music Generation}, 
-      author={Ruibin Yuan and Hanfeng Lin and Shuyue Guo and Ge Zhang and Jiahao Pan and Yongyi Zang and Haohe Liu and Yiming Liang and Wenye Ma and Xingjian Du and Xinrun Du and Zhen Ye and Tianyu Zheng and Zhengxuan Jiang and Yinghao Ma and Minghao Liu and Zeyue Tian and Ziya Zhou and Liumeng Xue and Xingwei Qu and Yizhi Li and Shangda Wu and Tianhao Shen and Ziyang Ma and Jun Zhan and Chunhui Wang and Yatian Wang and Xiaowei Chi and Xinyue Zhang and Zhenzhu Yang and Xiangzhou Wang and Shansong Liu and Lingrui Mei and Peng Li and Junjie Wang and Jianwei Yu and Guojian Pang and Xu Li and Zihao Wang and Xiaohuan Zhou and Lijun Yu and Emmanouil Benetos and Yong Chen and Chenghua Lin and Xie Chen and Gus Xia and Zhaoxiang Zhang and Chao Zhang and Wenhu Chen and Xinyu Zhou and Xipeng Qiu and Roger Dannenberg and Jiaheng Liu and Jian Yang and Wenhao Huang and Wei Xue and Xu Tan and Yike Guo},
-      year={2025},
-      eprint={2503.08638},
-      archivePrefix={arXiv},
-      primaryClass={eess.AS},
-      url={https://arxiv.org/abs/2503.08638}, 
+```bibtex
+@article{li2023mert,
+  title = {{MERT}: Acoustic Music Understanding Model with Large-Scale Self-supervised Training},
+  author = {Li, Yizhi and Yuan, Ruibin and Zhang, Ge and Ma, Yinghao and Chen, Xingran and Yin, Hanzhi and Xiao, Chenghao and Lin, Chenghua and Ragni, Anton and Benetos, Emmanouil and Gyenge, Norbert and Dannenberg, Roger and Liu, Ruibo and Chen, Wenhu and Xia, Gus and Shi, Yemin and Huang, Wenhao and Wang, Zili and Guo, Yike and Fu, Jie},
+  journal = {arXiv preprint arXiv:2306.00107},
+  year = {2023},
+  eprint = {2306.00107},
+  archivePrefix = {arXiv},
+  url = {https://arxiv.org/abs/2306.00107}
 }
 
-@misc{yuan2025yue,
-  title={YuE: Open Music Foundation Models for Full-Song Generation},
-  author={Ruibin Yuan and Hanfeng Lin and Shawn Guo and Ge Zhang and Jiahao Pan and Yongyi Zang and Haohe Liu and Xingjian Du and Xeron Du and Zhen Ye and Tianyu Zheng and Zhengxuan Jiang and Yinghao Ma and Minghao Liu and Lijun Yu and Zeyue Tian and Ziya Zhou and Liumeng Xue and Xingwei Qu and Yizhi Li and Tianhao Shen and Ziyang Ma and Shangda Wu and Jun Zhan and Chunhui Wang and Yatian Wang and Xiaohuan Zhou and Xiaowei Chi and Xinyue Zhang and Zhenzhu Yang and Yiming Liang and Xiangzhou Wang and Shansong Liu and Lingrui Mei and Peng Li and Yong Chen and Chenghua Lin and Xie Chen and Gus Xia and Zhaoxiang Zhang and Chao Zhang and Wenhu Chen and Xinyu Zhou and Xipeng Qiu and Roger Dannenberg and Jiaheng Liu and Jian Yang and Stephen Huang and Wei Xue and Xu Tan and Yike Guo}, 
-  howpublished={\url{https://github.com/multimodal-art-projection/YuE}},
-  year={2025},
-  note={GitHub repository}
+@article{yuan2025yue,
+  title = {{YuE}: Scaling Open Foundation Models for Long-Form Music Generation},
+  author = {Yuan, Ruibin and Lin, Hanfeng and Guo, Shuyue and Zhang, Ge and Pan, Jiahao and Zang, Yongyi and Liu, Haohe and Liang, Yiming and Ma, Wenye and Du, Xingjian and Du, Xinrun and Ye, Zhen and Zheng, Tianyu and Jiang, Zhengxuan and Ma, Yinghao and Liu, Minghao and Tian, Zeyue and Zhou, Ziya and Xue, Liumeng and Qu, Xingwei and Li, Yizhi and Wu, Shangda and Shen, Tianhao and Ma, Ziyang and Zhan, Jun and Wang, Chunhui and Wang, Yatian and Chi, Xiaowei and Zhang, Xinyue and Yang, Zhenzhu and Wang, Xiangzhou and Liu, Shansong and Mei, Lingrui and Li, Peng and Wang, Junjie and Yu, Jianwei and Pang, Guojian and Li, Xu and Wang, Zihao and Zhou, Xiaohuan and Yu, Lijun and Benetos, Emmanouil and Chen, Yong and Lin, Chenghua and Chen, Xie and Xia, Gus and Zhang, Zhaoxiang and Zhang, Chao and Chen, Wenhu and Zhou, Xinyu and Qiu, Xipeng and Dannenberg, Roger and Liu, Jiaheng and Yang, Jian and Huang, Wenhao and Xue, Wei and Tan, Xu and Guo, Yike},
+  journal = {arXiv preprint arXiv:2503.08638},
+  year = {2025},
+  eprint = {2503.08638},
+  archivePrefix = {arXiv},
+  url = {https://arxiv.org/abs/2503.08638}
 }
 ```
-<br>
+
+## Contact
+
+<table>
+  <tr>
+    <td align="center" width="50%">
+      <strong><img src="assets/wechat.svg" width="20" height="20" alt="" />&nbsp;WeChat</strong><br>
+      <sub>Chinese-speaking users</sub>
+    </td>
+    <td align="center" width="50%">
+      <a href="https://discord.gg/ssAyWMnMzu"><strong><img src="assets/discord.svg" width="20" height="20" alt="" />&nbsp;Join&nbsp;Discord</strong></a><br>
+      <sub>Global users</sub>
+    </td>
+  </tr>
+  <tr>
+    <td align="center" colspan="2">
+      <details>
+        <summary><strong>Show WeChat QR code</strong></summary>
+        <br>
+        <a href="assets/wechat-yue2-group.png">
+          <img src="assets/wechat-yue2-group.png" alt="YuE2 WeChat group QR code" width="240" />
+        </a><br>
+        <sub>Click to enlarge<br>Valid until Sep 23, 2026</sub>
+      </details>
+    </td>
+  </tr>
+</table>
+
+- **Licensing inquiries:** [lauryliuyang@hkgai.org](mailto:lauryliuyang@hkgai.org)
+- **Data partnerships:** [gezhang@umich.edu](mailto:gezhang@umich.edu)
+- **Academic collaboration:** [ryuanab@connect.ust.hk](mailto:ryuanab@connect.ust.hk)

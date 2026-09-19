@@ -22,6 +22,8 @@ limitations under the License.
 
 **Disclaimer: This is not an official Google product.**
 
+> **Note:** This solution uses AI to edit or generate assets for your ads. Whether your content requires labeling depends on the nature of your assets, where your ads serve, and specific legal obligations that apply to you. In some circumstances Google may automatically apply a label. Please consult with your legal team to determine if/when a label is required for your ads. You can add labels in Google’s Ads products using the [AI label setting](https://support.google.com/google-ads/answer/17140115).
+
 [Overview](#overview) •
 [Get started](#get-started) •
 [What it solves](#why-use-vigenair) •
@@ -139,6 +141,33 @@ If you will also deploy Vigenair, you need to have the following additional role
 > * A Google Cloud Storage (GCS) bucket named <code>*<gcp_project_id>*-vigenair</code>
 > * A Cloud Function (2nd gen) named `vigenair` that fulfills both the [Extractor and Combiner services](#solution-details). Refer to [deploy.sh](./service/deploy.sh) for specs.
 > * An Apps Script deployment for the frontend web app.
+
+### AI Provenance Configuration
+
+C2PA signing is enabled by default (`CONFIG_C2PA_ENABLED: 'true'`). Rendered
+videos and generated image assets are signed with C2PA when the following Cloud
+Function environment variables are configured:
+
+```yaml
+CONFIG_C2PA_ENABLED: 'true'
+CONFIG_C2PA_REQUIRED: 'true'
+CONFIG_C2PA_CERTIFICATE: projects/<project>/secrets/<certificate>/versions/latest
+CONFIG_C2PA_PRIVATE_KEY: projects/<project>/secrets/<private-key>/versions/latest
+CONFIG_C2PA_TSA_URL: https://<approved-timestamp-authority>
+CONFIG_AI_DISCLOSURE: <approved compliance disclosure>
+```
+
+The `CONFIG_C2PA_CERTIFICATE` and `CONFIG_C2PA_PRIVATE_KEY` values must use an
+ECDSA P-256 key pair, which is required for the ES256 signing algorithm. Store
+the certificate chain and private key in Secret Manager. The deployment service
+account requires `roles/secretmanager.secretAccessor`. Do not place certificate
+or private-key contents in `.env.yaml` or source control.
+
+When `CONFIG_C2PA_REQUIRED` is `true`, rendering fails if signing is disabled
+or signing fails. Visible burn-in labels are not added because ViGenAiR edits
+existing source video rather than generating synthetic humans or deceptive
+content. This determination should be reconfirmed in case the code was modified
+to use GenAI for visual content, after all.
 
 ## Why use Vigenair?
 

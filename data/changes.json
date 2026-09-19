@@ -973,6 +973,42 @@
     "claude"
    ],
    "domain": "text"
+  },
+  {
+   "id": "deepseek-v4.1-flash-2026-09-10",
+   "date": "2026-09-10",
+   "side": "world",
+   "kind": "版本更迭",
+   "subject": "DeepSeek V4.1（新架构家族，先出 Flash 档）",
+   "before": "atlas 记 V4；官方在售两档是 V4-Flash-0731 与 V4-Pro-0813",
+   "after": "官方更新日志正式发布 DeepSeek-V4.1-Flash，称其为「the smallest model in our new architecture family」，原生多模态视觉理解；V4 Flash / V4 Flash Vision Exp 下线并路由到 V4.1 Flash；**Pro 档仍是 V4-Pro-0813 且继续提供服务**",
+   "why": "这一格记的是谱系最新一代，所以升 V4.1。**但别把它当成旗舰换代** —— 新一代目前只有最小档，Pro 还在上一代。权重口径没变，V4.1-Flash 在官方 HF 组织上可下载。",
+   "impact": [
+    "deepseek"
+   ],
+   "src": "deepseek-updates",
+   "models": [
+    "deepseek"
+   ],
+   "domain": "text"
+  },
+  {
+   "id": "vidu-s2-2026-09-15",
+   "date": "2026-09-15",
+   "side": "world",
+   "kind": "版本更迭",
+   "subject": "Vidu S2（实时线换代，兼修一处来源错配）",
+   "before": "atlas 记 S1，且这一格署的是 arXiv 上的 S1 论文",
+   "after": "官方 API 更新日志 09-15 上新 Vidu S2-Avatar（实时语音交互 + 复杂动作控制）与 Vidu S2-Editing（拿参考图实时改进来的视频流）；版本来源改署官方更新日志",
+   "why": "生数的实时线换代了。**顺带修的那处更要紧**：换代只在更新日志上宣布，论文页永远停在 S1 —— 署在论文上等于这条线以后换代我们也看不见。",
+   "impact": [
+    "vidu-s"
+   ],
+   "src": "vidu-changelog",
+   "models": [
+    "vidu-s"
+   ],
+   "domain": "video"
   }
  ]
 }

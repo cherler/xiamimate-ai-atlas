@@ -1,3 +1,32 @@
+<div align="center">
+<small>✨ 赞助商</small>
+</div>
+
+<table style="width:100%;border:1px solid #d1d9e0;border-radius:12px;border-collapse:separate;">
+  <tr>
+    <td align="center" style="padding:0;border:none;">
+      <a href="https://api.memefast.cc/" target="_blank">
+        <img width="100%" src="https://github.com/user-attachments/assets/bd9d2127-32e3-460c-a304-dde83a7c6a1d" alt="Memefast">
+      </a>
+    </td>
+  </tr>
+  <tr>
+    <td align="left" style="padding:18px 24px 22px 24px;border:none;background:#ffffff;">
+      <a href="https://api.memefast.cc/" target="_blank" style="text-decoration:none;font-size:22px;color:#24292f;font-weight:bold;">Memefast API中转聚合服务</a>
+      <br>
+      <span style="font-size:16px;color:#57606a;">更多模型，高稳定API通道</span>
+      <br>
+      <a href="https://api.memefast.cc/" target="_blank" style="font-size:16px;color:#0969da;margin-top:10px;display:inline-block;">🔗 https://api.memefast.cc/</a>
+    </td>
+  </tr>
+</table>
+
+<br>
+
+
+
+
+
 <p align="center">
   <img src="build/icon.png" width="120" alt="魔因漫创 Logo" />
 </p>

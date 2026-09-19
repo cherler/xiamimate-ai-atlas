@@ -6,104 +6,90 @@
 
 [![CI](https://github.com/hi-godot/godot-ai/actions/workflows/ci.yml/badge.svg)](https://github.com/hi-godot/godot-ai/actions/workflows/ci.yml)
 [![codecov](https://codecov.io/gh/hi-godot/godot-ai/graph/badge.svg)](https://codecov.io/gh/hi-godot/godot-ai)
-[![Godot Asset Library](https://img.shields.io/badge/Godot-Asset%20Library-478cbf?logo=godotengine&logoColor=white)](https://godotengine.org/asset-library/asset/5050)
 [![Discord](https://img.shields.io/badge/Discord-Join%20chat-5865F2?logo=discord&logoColor=white)](https://discord.gg/FDZ5fr2QkP)
 
-**Connect MCP clients directly to a live Godot editor** via the [Model Context Protocol](https://modelcontextprotocol.io/introduction). Over **120 ops across ~43 MCP tools** ([full list](docs/TOOLS.md)) let AI assistants (Claude Code, Codex, **Grok Build**, Antigravity, Hermes Agent, etc.) build scenes, edit nodes and scripts, wire signals, and configure UI, materials, animations, particles, cameras, and environments.
-
-> 🎉 **Now on the [Godot Asset Library](https://godotengine.org/asset-library/asset/5050) and the [new Godot Asset Store](https://store.godotengine.org/asset/dlight/godot-ai/)** — one-click install from Godot's **AssetLib** tab. You'll still need [uv](https://docs.astral.sh/uv/) for the Python server (see [Quick Start](#quick-start)).
-
-<img src="docs/images/assetlib.png" alt="Godot AI on the Godot Asset Library" width="312">
-
-> 💬 **[Join the Discord](https://discord.gg/FDZ5fr2QkP)** — questions, showcases, and contributor chat.
-
----
+**Godot AI connects Claude Code, Claude Desktop, Codex, Hermes Agent, and other
+[MCP](https://modelcontextprotocol.io/introduction) clients to a live Godot
+editor.** Its [46 tools and 120+ operations](docs/TOOLS.md) let AI assistants
+build scenes, edit nodes and scripts, wire signals, and configure UI, materials,
+animation, particles, cameras, and environments.
 
 <p align="center">
   <img src="docs/images/huddemo.gif" alt="Cyberpunk HUD demo" width="800"><br>
-  <em>UI demo built in ~2 hours with zero coding, zero image gen, all programmatically drawn by Godot AI — <a href="https://github.com/hi-godot/cyberpunk-hud-demo">source</a></em>
+  <em>Built in ~2 hours with Godot AI, without hand-written code or image generation — <a href="https://github.com/hi-godot/cyberpunk-hud-demo">source</a></em>
 </p>
-
----
 
 ## Quick Start
 
-### Prerequisites
+### Requirements
 
-- Godot `4.5+` (`4.7+` recommended)
-- [uv](https://docs.astral.sh/uv/) (for the Python server)
+- Godot **4.7+** within the 4.x line for Godot AI v4
+- [uv](https://docs.astral.sh/uv/getting-started/installation/), which provides
+  `uvx` for the Python server
+- An MCP client
 
-  <details>
-  <summary>How to install uv (macOS / Linux / Windows / package managers)</summary>
+### 1. Install or update
 
-  - **macOS / Linux:** `curl -LsSf https://astral.sh/uv/install.sh | sh`
-  - **Windows (PowerShell):** `powershell -ExecutionPolicy ByPass -c "irm https://astral.sh/uv/install.ps1 | iex"`
-  - **Prefer your package manager?** `uv` is a popular open-source tool packaged in
-    most distro repos, so you don't have to pipe a script from the web:
-    - **Arch:** `sudo pacman -S uv`
-    - **Debian / Ubuntu:** `sudo apt install uv` (older releases: `pipx install uv` or the script above)
-    - **Fedora:** `sudo dnf install uv`
-    - **macOS (Homebrew):** `brew install uv`
-  - Other options: [uv install docs](https://docs.astral.sh/uv/getting-started/installation/)
+**New project:** choose a published version from
+[GitHub Releases](https://github.com/hi-godot/godot-ai/releases) and follow its
+verification and installation instructions. The add-on belongs at
+`your-project/addons/godot_ai/`, with `plugin.cfg` inside that directory.
+Use the release's requirements and package—not a source snapshot copied over
+an existing installation.
 
-  </details>
-- An MCP client ([Claude Code](https://docs.anthropic.com/en/docs/claude-code) | [Codex](https://openai.com/index/codex/) | [Antigravity](https://www.antigravity.dev/))
+**Existing installation:** click **Update** in the Godot AI dock when an update
+is offered. The final signed v3 release supports a one-click migration to v4;
+Godot restarts once and owned, supported client entries are migrated
+automatically. Do not extract a new add-on over the old tree. See the
+[v3 → v4 migration guide](docs/v4-migration.md) for compatibility and recovery.
 
-### 1. Install the plugin
-
-**Recommended — install from source** (always the latest):
-
-```bash
-git clone https://github.com/hi-godot/godot-ai.git
-cp -r godot-ai/plugin/addons/godot_ai your-project/addons/
-```
-
-Or [download the latest release ZIP](https://github.com/hi-godot/godot-ai/releases/latest) and extract `addons/godot_ai` into your project's `addons/` folder.
-
-<details>
-<summary>Or via the Godot Asset Library</summary>
-
-In Godot, open the **AssetLib** tab, search for **Godot AI**, click **Download**, then **Install**. Note: Asset Library updates lag behind GitHub, so this version may not be the most recent.
-
-> 🚨 **If installing from the Asset Library**, most issues can be resolved by disabling and re-enabling the plugin in **Project > Project Settings > Plugins**.
-
-</details>
+For development from source, use the [contributor setup](docs/CONTRIBUTING.md).
 
 ### 2. Enable the plugin
 
-In Godot: **Project > Project Settings > Plugins** — enable **Godot AI**.
+In Godot: **Project → Project Settings → Plugins → Godot AI**.
 
-The plugin will automatically start the MCP server, connect over WebSocket, and show status in the **Godot AI** dock.
-
-<p align="center"><img src="docs/images/dock.png" alt="Godot AI dock — Clients & Tools button highlighted" width="350"></p>
+The plugin starts the MCP server and shows connection status in the **Godot AI**
+dock. If it is missing from the plugin list, check that the file is at
+`addons/godot_ai/plugin.cfg`, not `addons/plugin.cfg`.
 
 ### 3. Connect your MCP client
 
-The dock lists every supported client with a status dot and per-row
-**Configure** / **Remove** buttons, or press **Configure all**. Auto-configure
-covers:
+In the dock, press **Configure** next to your client, or **Configure all** for
+every detected client. If the client does not notice the new configuration,
+restart that client.
 
-- **Claude Code**, **Claude Desktop**, **Antigravity**, **Hermes Agent**
+Supported clients include **Claude Code**, **Claude Desktop**, **Codex**,
+**Antigravity**, **Hermes Agent**, **DeepSeek Harness**, **Cursor**, and **VS Code**.
+The dock lists all supported clients and provides a **Run this manually**
+fallback where needed.
+
+Use the dock-generated command: it includes the matching version, ports,
+resolver options, and excluded tool domains. V4 uses `godot-ai attach` over
+stdio; a bare `http://127.0.0.1:8000/mcp` entry cannot authenticate or follow
+capability rotation. Updates repin owned client entries automatically;
+reconfigure after changing ports, telemetry preferences, or tool domains.
+
+**Client exceptions:** Pi Coding Agent needs an MCP extension that reads
+`~/.pi/agent/mcp.json`. Cherry Studio is not supported in v4; remove stale v3
+entries in Cherry Studio itself.
 
 <details>
-<summary><strong>…and 17+ more clients</strong></summary>
+<summary><strong>Per-project configuration</strong></summary>
 
-Codex, **Grok Build**, Cursor, Devin Desktop (formerly Windsurf), VS Code, VS Code Insiders, Zed, Gemini CLI, Cline,
-Kilo Code, Roo Code, Zoo Code, Kiro, Trae, Cherry Studio, OpenCode, Qwen Code,
-Kimi Code.
+CLI-configured clients default to global `user` scope. Set **Editor Settings →
+Plugins → `godot_ai/mcp_client_scope`** to `project` (or `local`, where supported),
+then press **Configure** again.
+
+**Configure** removes existing `godot-ai` entries from every scope before
+writing the selected one. This can modify a checked-in `.mcp.json`, but does not
+touch other server entries. **Remove** affects only the selected scope.
+
+Launch Godot from the project directory so the client CLI writes configuration
+in the right place. Claude Code also requires one-time approval from `claude`
+run inside that project.
 
 </details>
-
-Nearly every client is configured with the client-owned `godot-ai attach`
-stdio bridge: the client launches a local command that starts or adopts the
-shared HTTP backend, so tools are discoverable before Godot opens and keep
-working across same-version editor restarts. Each dock row carries an
-`attach` / `URL` tag naming which transport Configure writes. If
-auto-configure can't find a compatible local launcher, the row exposes a
-**Run this manually** panel with a copyable snippet, and clients whose native
-configuration supports URL transport also show an advanced URL fallback.
-(Cherry Studio intentionally stays URL-mode — its MCP servers are managed
-inside the app, not via an external config file.)
 
 ### 4. Try it
 
@@ -114,286 +100,87 @@ inside the app, not via an external config file.)
 - *"Build a voxel block-world game with a player, blocks to place and destroy, and save slots."*
 
 <p align="center">
-  <img src="docs/images/blockarena.gif" alt="Block-world game scene built from MCP tool calls — voxel terrain, player, and UI" width="640">
+  <img src="docs/images/blockarena.gif" alt="Block-world game built with Godot AI" width="640"><br>
+  <em>A block-world game with a save system, built from a handful of prompts — <a href="https://github.com/dsarno/save-system-godot-claude">source</a></em>
 </p>
-<p align="center"><em>Demo gamelet with sophisticated save system built from a handful of Godot AI MCP prompts. Code and Godot project  <a href="https://github.com/dsarno/save-system-godot-claude">available free here</a>.</em></p>
 
----
-
-**Tools and resources:** see [docs/TOOLS.md](docs/TOOLS.md) for the full tool, op, and resource list (~43 tools exposing 120+ ops, plus read-only `godot://` resources), grouped by domain.
-
-**Testing:** the plugin ships an in-editor GDScript test framework — your AI client (or you) can write `McpTestSuite` suites for your own game under `res://tests/` and run them with `test_run`. See [docs/testing.md](docs/testing.md).
-
-<details>
-<summary><strong>Manual Client Configuration</strong></summary>
-
-**Claude Code**
-
-```bash
-claude mcp add --scope user --transport http godot-ai http://127.0.0.1:8000/mcp
-```
-
-**Claude Desktop** (`claude_desktop_config.json`)
-
-Claude Desktop local configuration requires a launched stdio command. Per
-[Anthropic's remote MCP guidance](https://support.claude.com/en/articles/11175166-get-started-with-custom-connectors-using-remote-mcp),
-it does not accept a remote `url` entry in `claude_desktop_config.json`;
-Claude's remote Connectors flow is cloud-brokered and cannot reach this
-loopback-only server.
-Use the dock-generated entry so the command is an absolute, GUI-safe launcher.
-Its non-Windows uvx shape is:
-
-```json
-{
-  "mcpServers": {
-    "godot-ai": {
-      "command": "/absolute/path/to/uvx",
-      "args": ["--link-mode", "copy", "--from", "godot-ai==VERSION", "godot-ai", "attach", "--port", "8000", "--ws-port", "9500"]
-    }
-  }
-}
-```
-
-On Windows, the dock also detects Store/MSIX AppData virtualization. When one
-Store package is installed, Configure uses its private `LocalCache/Roaming`
-path, creating the config there if necessary so a later copy-on-write cannot
-hide an entry written to conventional roaming. If the private file is new and
-the roaming config already exists, its full contents seed the private file
-before the `godot-ai` entry is merged; the roaming source remains byte-identical.
-Without a Store package it uses the conventional roaming config. Multiple
-matching Store packages fail with an actionable error instead of choosing one,
-and Configure never writes both.
-
-**Codex** (`~/.codex/config.toml`)
-
-```toml
-[mcp_servers."godot-ai"]
-command = "godot-ai"
-args = [
-  "attach",
-  "--port", "8000",
-  "--ws-port", "9500",
-]
-enabled = true
-startup_timeout_sec = 60
-tool_timeout_sec = 360
-```
-
-The dock chooses a compatible launcher automatically: a development venv,
-an exact-version `uvx --link-mode copy --from godot-ai==VERSION ...` command,
-or a matching system `godot-ai` install. Re-run **Configure** after changing
-ports, excluded tool domains, or plugin versions so those launch arguments
-stay synchronized.
-
-On Windows, **Configure** writes a `pythonw.exe` launch (and, for uvx/system
-tiers, a small stdio-preserving `CREATE_NO_WINDOW` bootstrap). This prevents a
-terminal window from opening with Claude Desktop or Codex while keeping the MCP
-process attached to the client's stdin/stdout pipes. Do not simplify that
-generated entry back to a console-subsystem `python.exe`, `uvx.exe`, or
-`godot-ai.exe` command. Antigravity is the exception: its spawner hangs tool
-calls behind a GUI-subsystem executable (#863), so its entry is written with
-the plain console command instead — Antigravity hides child console windows
-itself.
-
-Advanced fallback for clients intentionally kept in URL mode:
-
-```toml
-[mcp_servers."godot-ai"]
-url = "http://127.0.0.1:8000/mcp"
-enabled = true
-```
-
-URL mode depends on the client's own reconnect behavior. If Godot AI is not
-running when the client starts, a client restart may still be required.
-
-**Grok Build** (`~/.grok/config.toml`)
-
-```toml
-[mcp_servers."godot-ai"]
-command = "/absolute/path/to/uvx"
-args = [
-  "--link-mode",
-  "copy",
-  "--from",
-  "godot-ai==VERSION",
-  "godot-ai",
-  "attach",
-  "--port", "8000",
-  "--ws-port", "9500",
-]
-startup_timeout_sec = 60
-```
-
-Or dock → **Clients** → **Grok Build** → **Configure**.
-
-**Antigravity** (`~/.gemini/config/mcp_config.json`)
-
-```json
-{
-  "mcpServers": {
-    "godot-ai": {
-      "command": "/absolute/path/to/uvx",
-      "args": ["--link-mode", "copy", "--from", "godot-ai==VERSION", "godot-ai", "attach", "--port", "8000", "--ws-port", "9500"],
-      "disabled": false
-    }
-  }
-}
-```
-
-</details>
-
-<details>
-<summary><strong>How It Works</strong></summary>
+## How it works
 
 ```text
-MCP Client
-   | HTTP (/mcp)
-   v
-Python Server (FastMCP)      port 8000
-   | WebSocket               port 9500
-   v
-Godot Editor Plugin
-   | EditorInterface + SceneTree APIs
-   v
-Godot Editor
+MCP client
+  → godot-ai attach (stdio)
+  → Python server (authenticated HTTP, port 8000)
+  → Godot editor plugin (authenticated WebSocket, port 9500)
 ```
 
-The plugin starts or reuses the Python server, connects over WebSocket, and exposes editor capabilities as MCP tools and resources over HTTP.
+Both local hops use independent rotating capabilities; neither falls back to
+unauthenticated access. The editor WebSocket stays loopback-only. An agent in
+a container or on another machine runs the bridge on the editor machine over
+SSH; see [Agents on another machine or in a container](docs/client-configuration.md#agents-on-another-machine-or-in-a-container).
 
-</details>
+These controls do not protect against a compromised same-user process. Windows
+also does not claim isolation from other local accounts. See the
+[security model](docs/plugin-architecture.md#security-model) and
+[package trust boundaries](docs/packaging-distribution.md).
 
-<details>
-<summary><strong>Remote / LAN access (<code>--allow-host</code>)</strong></summary>
+## Telemetry and privacy
 
-The MCP server binds to `127.0.0.1` by default. To reach it from another
-machine on your network (e.g. a remote coding agent), pass `--allow-host`
-with one or more CIDRs or bare IPs (repeat the flag or comma-separate
-values) when launching the server:
+Usage telemetry records an installation UUID, event, outcome, duration,
+platform, and version—not code, scene contents, or project/file names.
+Project-directory slugs are hashed before transmission.
+
+Opt out with `GODOT_AI_DISABLE_TELEMETRY=true` or `DISABLE_TELEMETRY=true`.
+Opt-out creates no telemetry UUID, worker, or files.
+[Privacy details and editor settings](docs/TELEMETRY.md).
+
+## Documentation and help
+
+### Bazzite / Fedora Atomic Desktop: server exits before publishing capabilities
+
+On Bazzite and other Fedora Atomic desktops, `/home` is normally a symbolic
+link to `/var/home` (the ostree layout). Godot AI 4.0.2 and earlier refuse
+every capability-directory path that passes through a link, so on such a
+system the server exits with `Last pending: capability_record`
+([#993](https://github.com/hi-godot/godot-ai/issues/993)). The next release
+follows a link when it is root-owned and sits in a root-owned directory that
+other accounts cannot write, which is exactly that layout; no configuration is
+needed there.
+
+On 4.0.2 or earlier, close Godot and your MCP client, then run this in a
+terminal as your normal user:
 
 ```bash
-godot-ai --allow-host 192.168.1.0/24
+export GODOT_AI_CAPABILITY_DIR="$(
+  realpath -m "${XDG_CONFIG_HOME:-$HOME/.config}/godot-ai/capabilities"
+)"
+install -d -m 700 "$GODOT_AI_CAPABILITY_DIR"
+printf 'Using: %s\n' "$GODOT_AI_CAPABILITY_DIR"
 ```
 
-This binds the HTTP transport off loopback and gates every request on the
-real (unforgeable) socket peer address, so only hosts inside the named
-range(s) get in — DNS-rebinding defenses (Origin / Host / Sec-Fetch-Site
-checks) stay active. The plugin's WebSocket bridge to the editor always
-stays loopback-only since it's unauthenticated. Only name ranges you trust;
-prefer an SSH tunnel or Tailscale on untrusted networks.
+Launch **both Godot and your MCP client from that terminal** so the backend and
+`godot-ai attach` inherit the same directory. A desktop launcher does not
+automatically inherit a terminal's `export`; for persistent use, set the same
+canonical path in the launch environment of both applications. Keep the
+directory private to your user; do not copy capability tokens into client
+configuration. This workaround is for Linux; `GODOT_AI_CAPABILITY_DIR` is not
+supported on Windows.
 
-</details>
+### Reference and support
 
-<details>
-<summary><strong><code>ImportError</code> from <code>mcp-proxy</code> (<code>streamablehttp_client</code> or <code>request_ctx</code>)</strong></summary>
-
-An older client configuration may launch `mcp-proxy` against an unbounded
-`mcp>=1.17.0` dependency. `mcp` 2.x is incompatible with released
-`mcp-proxy` versions: 0.11.0 fails on `streamablehttp_client`, while 0.12.0
-contains both incompatible imports and may report `request_ctx` first.
-
-Preferred fix: update Godot AI, click **Configure** for Claude Desktop, and
-restart it. This replaces the legacy proxy entry with the current
-`godot-ai attach` launcher. As a temporary workaround, constrain the old uvx
-command with `--with "mcp<2"` before its `mcp-proxy` package argument.
-
-</details>
-
-<details>
-<summary><strong>Windows: an <code>uvx</code> attach launcher won't start (<code>pywin32</code> install fails)</strong></summary>
-
-Symptom (in your MCP client's server log):
-
-```text
-error: Failed to install: pywin32-311-cp313-cp313-win_amd64.whl (pywin32==311)
-  Caused by: failed to remove directory `C:\Users\<you>\AppData\Local\uv\cache\builds-v0\.tmpXXXXXX\Lib\site-packages\pywin32-311.data`: ... os error 32
-```
-
-Cause: uv hard-links shared `.pyd` files (notably
-`pydantic_core/_pydantic_core.cp313-win_amd64.pyd`) from `archive-v0\` into
-each new `builds-v0\.tmpXXXXXX\` build venv. The running `godot-ai` Python
-process has the same `.pyd` mapped via `LoadLibrary` — and because hard
-links share the inode, Windows refuses to delete it under any path until
-every process unmaps it. uv's post-install cleanup of the build venv then
-dies on a stale lock; the misleading `pywin32` mention is just the last
-package in the resolution order, not the actual lock holder.
-
-**Mitigation in this plugin:**
-
-1. `_stop_server` and `force_restart_server` both call
-   `McpUvCacheCleanup.purge_stale_builds()` immediately after killing the
-   server children, while the `.pyd` is briefly unmapped. See
-   [`plugin/addons/godot_ai/utils/uv_cache_cleanup.gd`](plugin/addons/godot_ai/utils/uv_cache_cleanup.gd).
-2. Attach entries put `--link-mode copy` directly in the generated uvx
-   arguments, telling uv to copy shared C extensions instead of hard-linking
-   them. This works for configuration formats that do not support an `env`
-   object and removes the reverse race where an MCP client starts its attach
-   launcher while a server child still holds the `.pyd`.
-
-The shape `client_configure` writes for Claude Desktop is now:
-
-```json
-{
-  "mcpServers": {
-    "godot-ai": {
-      "command": "/absolute/path/to/uvx",
-      "args": ["--link-mode", "copy", "--from", "godot-ai==VERSION", "godot-ai", "attach", "--port", "8000", "--ws-port", "9500"]
-    }
-  }
-}
-```
-
-The exact command may be an absolute uvx path or a Windows `pythonw.exe`
-bootstrap; use the dock-generated form rather than simplifying it. If you've
-already hit the lock, click **Configure** on Claude Desktop to rewrite its old
-mcp-proxy entry to the attach shape, then quit and reopen Claude Desktop. If the
-lock persists (rare — pre-existing orphans the cache sweeper couldn't reach),
-kill stray `python.exe` children whose command line contains
-`spawn_main(parent_pid=...)` and delete
-`%LOCALAPPDATA%\uv\cache\builds-v0\.tmp*` manually before retrying.
-
-</details>
-
-<details>
-<summary><strong>Contributing</strong></summary>
-
-See [CONTRIBUTING.md](docs/CONTRIBUTING.md) for development setup, testing, and PR guidelines. AI assistants should also read [AGENTS.md](AGENTS.md).
-
-**Windows contributors:** run `.\script\setup-dev.ps1` in PowerShell. It builds `test_project\addons\godot_ai` as a directory junction — no admin rights and no Windows Developer Mode required.
-
-</details>
-
-<details>
-<summary><strong>Telemetry &amp; Privacy</strong></summary>
-
-Godot AI ships anonymous, privacy-focused telemetry (no code, no scene contents, no project or file names, no personal data). Project-directory slugs are sha256-hashed before any event leaves your machine; only an anonymous installation UUID, the tool/event name, success/duration, and platform/version fields are sent.
-
-Opt out by setting either environment variable to `true`:
-
-```bash
-export GODOT_AI_DISABLE_TELEMETRY=true
-# or the cross-tool convention
-export DISABLE_TELEMETRY=true
-```
-
-Opt-out is fully side-effect-free — no UUID generated, no worker thread, no files written.
-
-Full details (what's collected, where data lives, how to self-host the endpoint): [docs/TELEMETRY.md](docs/TELEMETRY.md).
-
-</details>
-
----
+- [Tools, operations, and resources](docs/TOOLS.md)
+- [Write and run tests for your game](docs/testing.md)
+- [Client configuration details](docs/client-configuration.md)
+- [Upgrading from v3 and recovering interrupted migrations](docs/v4-migration.md)
+- [Changelog](CHANGELOG.md)
+- [Contributing and development setup](docs/CONTRIBUTING.md)
+- [Discord](https://discord.gg/FDZ5fr2QkP) for questions and showcases;
+  [GitHub Issues](https://github.com/hi-godot/godot-ai/issues) for bug reports
 
 ## Star History
 
-<!-- Regenerated daily by .github/workflows/star-history.yml (#750):
-     GitHub restricted stargazer history to repo collaborators, which broke
-     star-history.com's unauthenticated embed, so the chart is rendered in CI
-     and published to the dedicated `star-history` branch (do not delete it —
-     embedded below; a manual workflow run recreates it if needed). -->
+<!-- Generated by .github/workflows/star-history.yml on the star-history branch. -->
 <a href="https://github.com/hi-godot/godot-ai/stargazers">
   <img src="https://raw.githubusercontent.com/hi-godot/godot-ai/star-history/star-history.svg" alt="Star History Chart" width="700">
 </a>
 
----
-
-**License:** [MIT](LICENSE) | **Issues:** [GitHub](https://github.com/hi-godot/godot-ai/issues)
+**License:** [MIT](LICENSE)
