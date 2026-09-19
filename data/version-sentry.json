@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-18",
+  "generated_at": "2026-09-19",
   "n": 2,
   "n_unclear": 0,
   "n_missing": 31,
@@ -15,7 +15,7 @@
       "found": "V4.1",
       "found_num": "4.1",
       "src": "deepseek-pricing",
-      "src_at": "2026-09-16",
+      "src_at": "2026-09-19",
       "evidence": "Format) https://api.deepseek.com BASE URL (Anthropic Format) https://api.deepseek.com/anthropic MODEL VERSION DeepSeek-V4.1-Flash DeepSeek-V4-Pro-0813 THINKING MODE Supports both non-thinking and thinking (default) modes See Thinking Mode for how to switch CONTEXT LENGTH 1M MAX OUTPUT MAXIMUM: 384K FEATURES Json Outpu"
     },
     {
@@ -73,7 +73,7 @@
       "cur_as_of": "2026-08-14",
       "found": null,
       "src": "cosmos3-card",
-      "src_at": "2026-09-12",
+      "src_at": "2026-09-19",
       "evidence": ""
     },
     {
@@ -211,7 +211,7 @@
       "cur_as_of": "2026-08-07",
       "found": null,
       "src": "decart-site",
-      "src_at": "2026-09-12",
+      "src_at": "2026-09-19",
       "evidence": ""
     },
     {
@@ -278,7 +278,7 @@
       "cur_as_of": "2026-08-14",
       "found": null,
       "src": "decart-site",
-      "src_at": "2026-09-12",
+      "src_at": "2026-09-19",
       "evidence": ""
     },
     {
