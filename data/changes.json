@@ -40,7 +40,7 @@
    "impact": [
     "开源侧的格局第一次进表（Lightricks / NVIDIA / 智谱在闭源榜上完全隐形）"
    ],
-   "src": "aa-board",
+   "src": "aa-t2v",
    "models": [
     "ltx",
     "happyhorse",
@@ -219,7 +219,7 @@
     "新项目默认该用 Omni",
     "需要首尾帧或场景延长的仍得回 Veo"
    ],
-   "src": "g-video",
+   "src": "google-video-docs",
    "models": [
     "veo",
     "gemini-omni"
@@ -239,7 +239,7 @@
     "正在用 Sora API 的项目要排迁移",
     "Replicate 与 APIYI 上仍在售 —— 货架比上游慢"
    ],
-   "src": "sora-eol-search",
+   "src": "openai-sora-eol",
    "models": [
     "sora"
    ],
@@ -258,7 +258,7 @@
     "「去哪用」矩阵里 Runway 要占一行",
     "比较模型时别把平台转售的算进它自己的能力"
    ],
-   "src": "rw-changelog",
+   "src": "runway-changelog",
    "models": [
     "runway",
     "seedance"
@@ -278,7 +278,7 @@
    "impact": [
     "ideogram"
    ],
-   "src": "hf-image-org",
+   "src": "hf-org",
    "models": [
     "ideogram"
    ]
@@ -348,7 +348,7 @@
    "after": "22 条产品线、53 个谱系节点，补上 gpt-image-2、Nano Banana 2、Ideogram 4 等 14 代",
    "why": "**我们漏了整整一批。** 负责人一句「是不是少了」才发现 —— 采集没跟上，不是厂商没发",
    "impact": [],
-   "src": "hf-image-org",
+   "src": "hf-org",
    "models": []
   },
   {
@@ -483,7 +483,7 @@
    "impact": [
     "glm-tts"
    ],
-   "src": "hf-sound-org",
+   "src": "hf-org",
    "models": [
     "glm-tts",
     "glm-voice"
@@ -502,7 +502,7 @@
    "impact": [
     "qwen-omni"
    ],
-   "src": "hf-sound-org",
+   "src": "hf-org",
    "models": [
     "qwen-omni"
    ],
@@ -950,7 +950,7 @@
    "impact": [
     "glm"
    ],
-   "src": "hf-text-org",
+   "src": "hf-org",
    "models": [
     "glm"
    ],
@@ -1009,6 +1009,24 @@
     "vidu-s"
    ],
    "domain": "video"
+  },
+  {
+   "id": "gemini-robotics-er16-eol-2026-08-31",
+   "date": "2026-08-31",
+   "side": "world",
+   "kind": "生命周期",
+   "subject": "Gemini Robotics ER 1.6 关停",
+   "before": "具身推理这条线在 Gemini API 上有 ER 1.6 与 ER 2 两代并存",
+   "after": "官方文档写明「the Gemini Robotics ER 1.6 model will be shut down at the end of August」——只剩 ER 2 的两个端点（gemini-robotics-er-2-preview / -2-streaming-preview），且仍是 preview",
+   "why": "**在用 ER 1.6 的要迁。** 这一卷只有这一支有公开 API 和定价，关停一代等于这条线上唯一能调的接口换了签名；而它整支还挂着 preview，随时可能再动。",
+   "impact": [
+    "gemini-robotics-er"
+   ],
+   "src": "gemini-robotics-er",
+   "models": [
+    "gemini-robotics-er"
+   ],
+   "domain": "embodied"
   }
  ]
 }

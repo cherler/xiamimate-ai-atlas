@@ -1,6 +1,6 @@
 # 版本哨兵 · 2026-09-19
 
-扫 132 个模型：**有更新的一代 0** · 口径存疑 0 · 牌子摘了 29 · 比不了 53
+扫 133 个模型：**有更新的一代 0** · 口径存疑 0 · 牌子摘了 29 · 比不了 54
 
 > 这份只回答一件事：**一格署的那个源上，今天有没有出现比我们记的更新的版本号？**
 > 报出来的不是「世界变了」，是「**我们抓到了但没写回**」—— 这两件事的严重程度不一样。
@@ -36,13 +36,13 @@
 - **Qwen Omni**（qwen-omni）记的是 `3.5-omni-plus`，`bailian-websearch`（2026-09-09）上没有这个号
 - **Qwen3-ASR**（qwen3-asr）记的是 `1.7B`，`hf-qwen3-asr`（2026-09-12）上没有这个号
 - **Rodin**（rodin）记的是 `Gen-2.5`，`rodin-api-docs`（2026-09-12）上没有这个号
-- **Runway Gen**（runway）记的是 `Gen-4.5`，`rw-changelog`（2026-09-12）上没有这个号
+- **Runway Gen**（runway）记的是 `Gen-4.5`，`runway-changelog`（2026-09-16）上没有这个号
 - **ElevenLabs Scribe**（scribe）记的是 `v2`，`elevenlabs-models`（2026-09-09）上没有这个号
 - **SPAR3D**（spar3d）记的是 `Stable Point Aware 3D`，`stability-spar3d`（2026-09-12）上没有这个号
 - **Tripo**（tripo）记的是 `P1-20260311`，`tripo-docs-generation`（2026-09-12）上没有这个号
 - **Meta V-JEPA**（vjepa）记的是 `V-JEPA 2`，`vjepa2-blog`（2026-09-13）上没有这个号
 
-## 比不了（53）
+## 比不了（54）
 
 > **比不了不等于没问题**，只等于这支脚本够不着。列出来是为了不假装全站都盯住了。
 
@@ -75,10 +75,10 @@
 - anima —— 没署 version_src，这家也没有标 good_for: version 的源
 - boogu-image —— 没署 version_src，这家也没有标 good_for: version 的源
 - newbie-image —— 没署 version_src，这家也没有标 good_for: version 的源
-- llama —— hf-text-org 都没有可比对的正文（没快照，或只有 json/atom 的 items）
+- llama —— hf-org 都没有可比对的正文（没快照，或只有 json/atom 的 items）
 - glm-tts —— 版本串「GLM-TTS」里没有数字，比不了
-- cosyvoice —— hf-sound-org 都没有可比对的正文（没快照，或只有 json/atom 的 items）
-- fish-speech —— hf-sound-org 都没有可比对的正文（没快照，或只有 json/atom 的 items）
+- cosyvoice —— hf-org 都没有可比对的正文（没快照，或只有 json/atom 的 items）
+- fish-speech —— hf-org 都没有可比对的正文（没快照，或只有 json/atom 的 items）
 - apple-sharp —— 版本串「Sharp」里没有数字，比不了
 - i2vgen —— 版本串「XL」里没有数字，比不了
 - longcat-image —— 版本串「Edit」里没有数字，比不了
@@ -99,3 +99,4 @@
 - oasis500m —— hf-robotics 都没有可比对的正文（没快照，或只有 json/atom 的 items）
 - sensevoice —— 版本串「Small」里没有数字，比不了
 - mace —— 版本串「MP」里没有数字，比不了
+- funcineforge —— hf-funcineforge 都没有可比对的正文（没快照，或只有 json/atom 的 items）

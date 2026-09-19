@@ -1,6 +1,6 @@
 # 引文回查 · 2026-09-19
 
-回查 1226 条：无英文锚 725 · 快照无正文 34 · 对得上 339 · 找不到 93 · 无快照 20 · 人审认过·非逐字 12 · 快照被截断·判不了 2 · 本页没有·别处有 1
+回查 1227 条：无英文锚 726 · 对得上 340 · 找不到 94 · 无快照 20 · 快照无正文 33 · 人审认过·非逐字 12 · 快照被截断·判不了 2
 
 > 这份报告回答一件事：**一格引文里的原句，在它署名的那份快照里还在不在。**
 > ⚠️ **失败不等于引文错。** 三种成因要分开：真署错了页 / 这一页的快照是残的（抓回来的是导航不是正文）/ 当初记的就不是逐字原文。**脚本不猜。**
@@ -22,17 +22,13 @@
 
 ## 全部
 
-### 本页没有·别处有（1）
-
-- `vidu-changelog` 发布 viduq2 —— 锚「Video Direct Output Capability - Audio」（这句在 vidu-up）
-
-### 找不到（93）
+### 找不到（94）
 
 - `veo-doc` veo × flf —— 锚「Frame-specific generation: Generate a video by specifying the first an」
 - `veo-doc` veo × charref —— 锚「Image-based direction: Use up to three reference images」
 - `veo-doc` veo × extend —— 锚「Video extension: Extend videos that were previously generated using Ve」
 - `decart-site` lucy × rt-endless —— 锚「infinite video, evolving continuously with the world」
-- `g-video` gemini-omni × flf —— 锚「Use Veo 3.1 for specific capabilities like last-frame control」
+- `google-video-docs` gemini-omni × flf —— 锚「Use Veo 3.1 for specific capabilities like last-frame control」
 - `gemini-image-docs` gemini-image × i-textrender —— 锚「Advanced text rendering: Capable of generating legible, stylized text 」
 - `recraft-docs` recraft × i-t2i —— 锚「V4.1 is the latest generation」
 - `recraft-nl-edit` recraft × i-edit —— 锚「Recraft Studio supports targeted image editing using integrated extern」
@@ -74,8 +70,9 @@
 - `minimax-release-notes` 发布 hailuo-01-运镜控制 —— 锚「Released a video generation model with enhanced camera control, offeri」
 - `minimax-release-notes` 发布 hailuo-02-换代02：1080p —— 锚「Released MiniMax Hailuo 02, a next-generation video generation model w」
 - `minimax-release-notes` 发布 hailuo-2.3-换代2.3：肢体动作与表情 —— 锚「Fast, featuring breakthroughs in body movement, facial expressions, ph」
-- `rw-changelog` 发布 aleph2 —— 锚「Edit Studio Get the video you need from the video you already hav Alep」
+- `runway-changelog` 发布 aleph2 —— 锚「Edit Studio Get the video you need from the video you already hav Alep」
 - `vidu-changelog` 发布 vidu-q-Q1-参考生视频 —— 锚「Reference video generation launched, supporting viduq1, vidu2.0, vidu1」
+- `vidu-changelog` 发布 viduq2 —— 锚「Video Direct Output Capability - Audio」
 - `decart-site` 发布 lucy-Lucy2.5-Lucy2.5 —— 锚「LUCY 2.5 IS LIVE Decart」
 - `azure-foundry-blog` 发布 gpt-image-gpt-image-1-API 首次开放出图 —— 锚「the launch of GPT-image-1, the latest and most advanced image generati」
 - `google-gemini-blog` 发布 gemini-image-Nano Banana-对话式改图（多轮指令改同一张） —— 锚「Today in the Gemini app, we're unveiling a new image editing model fro」
@@ -127,9 +124,8 @@
 - `elevenlabs-docs` elevenlabs × s-design —— 锚「a guide on how to craft voices」
 - `elevenlabs-docs` elevenlabs × s-long —— 锚「a guide on how to create long-form content」
 
-### 快照无正文（34）
+### 快照无正文（33）
 
-- `kling-api` kling × camera —— 锚「motion brush, camera control」
 - `mm-hf-api` hailuo × openweights —— 锚「plan to open up the model weights in the coming days」
 - `llama-card` llama × t-long —— 锚「Maximum Context Length: 10M tokens」
 - `hf-lineage` cosyvoice × s-design —— 锚「Instruct Support: Supports various instructions such as languages, dia」
@@ -138,37 +134,36 @@
 - `hf-lineage` hunyuan3d × d-edit —— 锚「Hunyuan 3D Part Segmentation and Generation Pipeline」
 - `hf-lineage` hunyuan3d × d-scene —— 锚「immersive 3D world generation」
 - `ms-foundry-blog` 发布 gpt-image-GPT-image-2-4K + 生成前先想（能自查、能搜网） —— 锚「GPT-image-2 brings real world intelligence, multilingual understanding」
-- `hf-image-org` 发布 ideogram-Ideogram 4-这一代把权重放了出来 —— 锚「released as an open-source model that runs entirely on your own hardwa」
-- `hf-text-org` 发布 deepseek-V3.2-把算力效率和推理/Agent 表现放到一起 —— 锚「We introduce DeepSeek-V3.2, a model that harmonizes high computational」
-- `hf-text-org` 发布 deepseek-V4-换代：Pro 1.6T（激活 49B）与 Flash 两档 MoE —— 锚「We present a preview version of DeepSeek-V4 series, including two stro」
-- `hf-text-org` 发布 glm-GLM-4.5-这一代的开放权重发布 —— 锚「GLM-4.5 technical blog, technical report, and Zhipu AI technical docum」
-- `hf-text-org` 发布 glm-GLM-4.6-小版本迭代 —— 锚「GLM-4.6 technical blog, technical report」
-- `hf-text-org` 发布 glm-GLM-4.7-小版本迭代 —— 锚「GLM-4.7 technical blog, technical report」
-- `hf-text-org` 发布 glm-GLM-5-换代：冲复杂系统工程与长程 Agent 任务 —— 锚「We are launching GLM-5, targeting complex systems engineering and long」
-- `hf-text-org` 发布 glm-GLM-5.1-小版本迭代 —— 锚「GLM-5.1 blog and GLM-5 Technical report」
-- `hf-text-org` 发布 glm-GLM-5.2-小版本迭代 —— 锚「GLM-5.2 blog and GLM-5 Technical report」
-- `hf-text-org` 发布 kimi-K2-1T 参数 MoE（激活 32B），用 Muon 优化器训 —— 锚「language model with 32 billion activated parameters and 1 trillion tot」
-- `hf-text-org` 发布 kimi-K2-Thinking-边推理边调工具的思考档 —— 锚「Kimi K2 Thinking is the latest, most capable version of open-source th」
-- `hf-text-org` 发布 kimi-K2.5-转原生多模态：在 K2-Base 上继续预训 15T 图文混合 token —— 锚「Kimi K2.5 is an open-source, native multimodal agentic model built thr」
-- `hf-text-org` 发布 kimi-K2.6-长程编码、自主执行与群体任务编排 —— 锚「advances practical capabilities in long-horizon coding, coding-driven 」
-- `hf-text-org` 发布 kimi-K3-2.8T 参数，换新注意力（KDA + AttnRes） —— 锚「Kimi K3 is an open-weight, native multimodal agentic model and our mos」
-- `hf-text-org` 发布 minimax-text-M2-主打写代码与 Agent 流程的小模型 —— 锚「Today, we release and open source MiniMax-M2, a Mini model built for M」
-- `hf-text-org` 发布 minimax-text-M2.5-小版本迭代 —— 锚「Today we're introducing our latest model, MiniMax-M2.5.」
-- `hf-text-org` 发布 minimax-text-M3-转原生多模态 + 1M 上下文（约 428B 参数、激活 23B） —— 锚「MiniMax-M3 is a native multimodal model with 1M context. It has」
-- `hf-text-org` 发布 mistral-text-Large 3-675B 总参 / 41B 激活的多模态细粒度 MoE —— 锚「Mistral Large 3 is a state-of-the-art general-purpose Multimodal granu」
-- `hf-text-org` 发布 mistral-text-Small 4-把 Instruct / Reasoning 等三支合成一个混合模型 —— 锚「Mistral Small 4 is a powerful hybrid model capable of acting as both a」
-- `hf-text-org` 发布 mistral-text-Medium 3.5-第一个「合并」旗舰：128B 稠密 + 256k 上下文 —— 锚「Mistral Medium 3.5 is our first flagship merged model. It is a dense 1」
-- `hf-text-org` 发布 qwen-text-Qwen3.5-换代 —— 锚「Qwen3.5 represents a significant leap forward, integrating breakthroug」
-- `hf-text-org` 发布 qwen-text-Qwen3.6-按社区反馈做稳定性与可靠性 —— 锚「Following the February release of the Qwen3.5 series, we're pleased to」
+- `hf-org` 发布 ideogram-Ideogram 4-这一代把权重放了出来 —— 锚「released as an open-source model that runs entirely on your own hardwa」
+- `hf-org` 发布 deepseek-V3.2-把算力效率和推理/Agent 表现放到一起 —— 锚「We introduce DeepSeek-V3.2, a model that harmonizes high computational」
+- `hf-org` 发布 deepseek-V4-换代：Pro 1.6T（激活 49B）与 Flash 两档 MoE —— 锚「We present a preview version of DeepSeek-V4 series, including two stro」
+- `hf-org` 发布 glm-GLM-4.5-这一代的开放权重发布 —— 锚「GLM-4.5 technical blog, technical report, and Zhipu AI technical docum」
+- `hf-org` 发布 glm-GLM-4.6-小版本迭代 —— 锚「GLM-4.6 technical blog, technical report」
+- `hf-org` 发布 glm-GLM-4.7-小版本迭代 —— 锚「GLM-4.7 technical blog, technical report」
+- `hf-org` 发布 glm-GLM-5-换代：冲复杂系统工程与长程 Agent 任务 —— 锚「We are launching GLM-5, targeting complex systems engineering and long」
+- `hf-org` 发布 glm-GLM-5.1-小版本迭代 —— 锚「GLM-5.1 blog and GLM-5 Technical report」
+- `hf-org` 发布 glm-GLM-5.2-小版本迭代 —— 锚「GLM-5.2 blog and GLM-5 Technical report」
+- `hf-org` 发布 kimi-K2-1T 参数 MoE（激活 32B），用 Muon 优化器训 —— 锚「language model with 32 billion activated parameters and 1 trillion tot」
+- `hf-org` 发布 kimi-K2-Thinking-边推理边调工具的思考档 —— 锚「Kimi K2 Thinking is the latest, most capable version of open-source th」
+- `hf-org` 发布 kimi-K2.5-转原生多模态：在 K2-Base 上继续预训 15T 图文混合 token —— 锚「Kimi K2.5 is an open-source, native multimodal agentic model built thr」
+- `hf-org` 发布 kimi-K2.6-长程编码、自主执行与群体任务编排 —— 锚「advances practical capabilities in long-horizon coding, coding-driven 」
+- `hf-org` 发布 kimi-K3-2.8T 参数，换新注意力（KDA + AttnRes） —— 锚「Kimi K3 is an open-weight, native multimodal agentic model and our mos」
+- `hf-org` 发布 minimax-text-M2-主打写代码与 Agent 流程的小模型 —— 锚「Today, we release and open source MiniMax-M2, a Mini model built for M」
+- `hf-org` 发布 minimax-text-M2.5-小版本迭代 —— 锚「Today we're introducing our latest model, MiniMax-M2.5.」
+- `hf-org` 发布 minimax-text-M3-转原生多模态 + 1M 上下文（约 428B 参数、激活 23B） —— 锚「MiniMax-M3 is a native multimodal model with 1M context. It has」
+- `hf-org` 发布 mistral-text-Large 3-675B 总参 / 41B 激活的多模态细粒度 MoE —— 锚「Mistral Large 3 is a state-of-the-art general-purpose Multimodal granu」
+- `hf-org` 发布 mistral-text-Small 4-把 Instruct / Reasoning 等三支合成一个混合模型 —— 锚「Mistral Small 4 is a powerful hybrid model capable of acting as both a」
+- `hf-org` 发布 mistral-text-Medium 3.5-第一个「合并」旗舰：128B 稠密 + 256k 上下文 —— 锚「Mistral Medium 3.5 is our first flagship merged model. It is a dense 1」
+- `hf-org` 发布 qwen-text-Qwen3.5-换代 —— 锚「Qwen3.5 represents a significant leap forward, integrating breakthroug」
+- `hf-org` 发布 qwen-text-Qwen3.6-按社区反馈做稳定性与可靠性 —— 锚「Following the February release of the Qwen3.5 series, we're pleased to」
 - `hf-lineage` 发布 hy3d-part —— 锚「Hunyuan 3D Part Segmentation and Generation Pipeline」
 - `hf-lineage` 发布 trellis-text —— 锚「takes in text or image prompts」
 - `hf-robotics` 发布 cosmos-reason2 —— 锚「replacing the Eagle backbone used in N1.6」
 
 ### 无快照（20）
 
-- `sora-eol-search` sora × t2v
-- `sora-2` sora × charref
-- `sora-2` sora × audio
+- `openai-sora-2` sora × charref
+- `openai-sora-2` sora × audio
 - `seed3d-page` seed3d × d-splat
 - `xai-imagine-image` 模型 grok-image 版本
 - `xai-imagine-video` 模型 grok-video 版本
@@ -181,6 +176,7 @@
 - `modelscope-orgs` 模型 hy-embodied 版本
 - `modelscope-orgs` 模型 g0-vla 版本
 - `modelscope-orgs` 模型 lingbot-vla 版本
+- `hf-funcineforge` 模型 funcineforge 版本
 - `seed3d-page` 发布 seed3d-1.0
 - `modelscope-orgs` 发布 internvla-n1
 - `modelscope-orgs` 发布 internvla-a15

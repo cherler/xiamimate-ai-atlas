@@ -89,7 +89,7 @@
         "尾帧"
       ],
       "since": "2024-10",
-      "since_src": "rw-changelog",
+      "since_src": "runway-changelog",
       "since_quote": "Keyframes in Gen-3 Alpha Turbo：Provide both first and last frame inputs for Gen-3 Alpha Turbo"
     },
     {
@@ -111,7 +111,7 @@
         "Ingredients"
       ],
       "since": "2025-03",
-      "since_src": "kling-api",
+      "since_src": "kling-api-updates",
       "since_quote": "Selecting Face as reference：可让面部与参考图保持一致，再用提示词改其它部分",
       "alias_bit_us": "**就是这一项让我们记错过。** 我们按自己的词「角色参考」去各家文档搜，搜不到就记成了不支持 —— 而 Kling 管它叫 Element、LTX 叫 Ingredients、Midjourney 系叫 Omni Reference、还有人叫 cameo。重核 22 格时发现 8 格错，其中 5 格是这么来的假阴性。"
     },
@@ -133,7 +133,7 @@
         "多主体"
       ],
       "since": "2025-07",
-      "since_src": "kling-api",
+      "since_src": "kling-api-updates",
       "since_quote": "Multi-Elements 上线：对已有视频做元素的增 / 换 / 删"
     },
     {
@@ -154,7 +154,7 @@
         "pose control"
       ],
       "since": "2025-12",
-      "since_src": "kling-api",
+      "since_src": "kling-api-updates",
       "since_quote": "Motion Control Launched：需同时上传参考图与参考视频"
     },
     {
@@ -174,7 +174,7 @@
         "camera movement"
       ],
       "since": "2024-11",
-      "since_src": "rw-changelog",
+      "since_src": "runway-changelog",
       "since_quote": "Camera Control in Gen-3 Alpha Turbo：Advanced Camera Control is now available"
     },
     {
@@ -194,7 +194,7 @@
         "native sound"
       ],
       "since": "2025-11",
-      "since_src": "vidu-up",
+      "since_src": "vidu-changelog",
       "since_quote": "Audio&Video Direct Output：音视频直出。⚠️ 更早的 Kling「Video-to-Audio」（2025-08）是给**已生成的成片**配音，不是原生音视频，按 via 的口径不算"
     },
     {
@@ -213,7 +213,7 @@
         "口型对齐"
       ],
       "since": "2024-01",
-      "since_src": "rw-changelog",
+      "since_src": "runway-changelog",
       "since_quote": "Custom Voices：可为 Text to Speech 或 Lip Sync 视频创建自定义音色（说明彼时 Lip Sync 已存在）"
     },
     {
@@ -232,7 +232,7 @@
         "extend"
       ],
       "since": "2024-11",
-      "since_src": "kling-api",
+      "since_src": "kling-api-updates",
       "since_quote": "New Feature: Video Extension —— 支持直接延长 V1.0 生成的视频，每次加 4~5 秒"
     },
     {
@@ -3177,7 +3177,7 @@
       "round": "B",
       "role": "领投",
       "date": "2025-06-05",
-      "src": "recraft-blog-b",
+      "src": "recraft-blog",
       "quote": "官方博客原文：「Exciting milestone for Recraft: **we've raised a $30M Series B funding round, led by Accel.**」"
     }
   ],
@@ -3409,7 +3409,7 @@
       "arch_quote": null,
       "arch_note": null,
       "arch_basis": "common",
-      "version_src": "rw-changelog",
+      "version_src": "runway-changelog",
       "version_quote": "谱系节点「4.5」（2026-01-21）：Gen-4.5 Image to Video You can now supply a first frame image alongside your"
     },
     {
@@ -4208,7 +4208,7 @@
       "domain": "text",
       "weights": "open",
       "team": "Moonshot AI",
-      "version_src": "hf-text-org",
+      "version_src": "hf-org",
       "version_quote": "moonshotai/Kimi-K3（官方 HF 组织 createdAt 2026-06-13，下载 157 万）",
       "reach_cn": "ok",
       "reach_note": "platform.kimi.com 直连 200（本机实测 08-11）"
@@ -4226,7 +4226,7 @@
       "domain": "text",
       "weights": "open",
       "team": "Z.ai",
-      "version_src": "hf-text-org",
+      "version_src": "hf-org",
       "version_quote": "zai-org/GLM-5.3(官方 HF 组织,createdAt 2026-08-25,含完整开源权重 GLM-5.3 / GLM-5.3-BF16,及变体 GLM-5.3-Flash)。上次(08-27)只有 Flash 变体、旗舰 API-only 故未升;现旗舰权重已开放,口径了结。",
       "reach_cn": "ok",
       "reach_note": "docs.bigmodel.cn 直连 308（本机实测 08-11）"
@@ -4244,7 +4244,7 @@
       "domain": "text",
       "weights": "open",
       "team": "MiniMax",
-      "version_src": "hf-text-org",
+      "version_src": "hf-org",
       "version_quote": "MiniMaxAI/MiniMax-M3（官方 HF 组织 createdAt 2026-06-02）。**注意别取 MiniMax-H3** —— 那是视频那一卷的海螺，同组织不同卷",
       "reach_cn": "ok",
       "reach_note": "platform.minimaxi.com 直连 307（本机实测 08-11）"
@@ -4280,7 +4280,7 @@
       "domain": "text",
       "weights": "open",
       "team": "Meta AI",
-      "version_src": "hf-text-org",
+      "version_src": "hf-org",
       "version_quote": "meta-llama/Llama-4-Maverick-17B-128E-Instruct（官方 HF 组织 createdAt 2025-04-04）"
     },
     {
@@ -4314,7 +4314,7 @@
       "domain": "text",
       "weights": "open",
       "team": "Mistral AI",
-      "version_src": "hf-text-org",
+      "version_src": "hf-org",
       "version_quote": "mistralai/Mistral-Medium-3.5-128B（官方 HF 组织 createdAt 2026-03-31）"
     },
     {
@@ -4546,7 +4546,7 @@
       "tier": "core",
       "domain": "sound",
       "weights": "open",
-      "version_src": "hf-sound-org",
+      "version_src": "hf-org",
       "version_quote": "官方 HF 组织 FunAudioLLM/Fun-CosyVoice3-0.5B-2512，createdAt 2025-12-11（♥615）",
       "reach_cn": "blocked",
       "reach_note": "funaudiollm.github.io 返回 404；权重在 huggingface.co，该域直连不可达（本机实测 08-12）",
@@ -4564,7 +4564,7 @@
       "tier": "core",
       "domain": "sound",
       "weights": "open",
-      "version_src": "hf-sound-org",
+      "version_src": "hf-org",
       "version_quote": "官方 HF 组织 fishaudio/s2-pro，createdAt 2026-03-09（♥1232）",
       "reach_cn": "blocked",
       "reach_note": "fish.audio 直连不通（连接失败）（本机实测 08-12）",
@@ -4582,7 +4582,7 @@
       "tier": "core",
       "domain": "sound",
       "weights": "open",
-      "version_src": "hf-sound-org",
+      "version_src": "hf-org",
       "version_quote": "官方 HF 组织 hexgrad/Kokoro-82M-v1.1-zh，createdAt 2025-02-27（♥222）",
       "reach_cn": "blocked",
       "reach_note": "权重在 huggingface.co，该域直连不可达 —— **想自部署得先解决可达性**（本机实测 08-12）",
@@ -5250,7 +5250,12 @@
       "zh_none": true,
       "version_src": "cosmos3-card",
       "version_quote": "模型卡标题：「**Cosmos 3: Omnimodal World Models for Physical AI**」；`Cosmos3-Nano` 建于 2026-03-10、`Cosmos3-Edge` 2026-07-01",
-      "note": "**这一卷的锚点**：唯一一份写全了输入输出规格、各本体动作维度、许可与基准的官方模型卡（44k）。⚠️ **整个 Cosmos 家族留在这一卷不拆**（规则十六 D-1）：`Cosmos-Reason` 是 VLM 且是 GR00T N1.7 的视觉骨干、`Cosmos-Policy-DROID` 出机器人动作、`Cosmos3-Super-Image2Video` 是图生视频 —— **它们是同一个世界模型平台的不同出口，不是四条产品线**。⚠️ 下载量最高的 `Cosmos-Reason2-8B`（72 万次）与 `Cosmos-Predict2-Video2World` 的**模型卡要登录才能看（HTTP 401）**。"
+      "note": "**这一卷的锚点**：唯一一份写全了输入输出规格、各本体动作维度、许可与基准的官方模型卡（44k）。⚠️ **整个 Cosmos 家族留在这一卷不拆**（规则十六 D-1）：`Cosmos-Reason` 是 VLM 且是 GR00T N1.7 的视觉骨干、`Cosmos-Policy-DROID` 出机器人动作、`Cosmos3-Super-Image2Video` 是图生视频 —— **它们是同一个世界模型平台的不同出口，不是四条产品线**。⚠️ 下载量最高的 `Cosmos-Reason2-8B`（72 万次）与 `Cosmos-Predict2-Video2World` 的**模型卡要登录才能看（HTTP 401）**。",
+      "arch": "hybrid",
+      "arch_basis": "official",
+      "arch_src": "cosmos3-card",
+      "arch_quote": "Cosmos3 is an Omni-modal foundation model built on a Mixture-of-Transformers (MoT) architecture consisting of two complementary transformer towers: an autoregressive transformer for discrete token generation and a diffusion transformer for continuous multimodal generation.",
+      "arch_note": "**世界卷里目前唯一标了架构的一支** —— 这一卷其余九支都是 R59「架构未采」，不是我们判断它们不是混合，是官方没写、我们也不按常识填。"
     },
     {
       "id": "genie",
@@ -5605,6 +5610,25 @@
       "version_src": "sci-gnome-gh",
       "version_quote": "官方仓库：「this repository serves to share the discovery of **381,000 novel stable materials** … via the updated **convex hull**. As of **August 2024**, we have expanded the dataset」",
       "note": "⚠️ **它主要是一份数据集不是一个可调用的模型** —— 仓库放的是发现结果与凸包，不是权重。状态记 `maintained`：官方自述最后一次扩充是 2024-08。"
+    },
+    {
+      "id": "funcineforge",
+      "class": "tts",
+      "family": "Fun-CineForge",
+      "org": "alibaba",
+      "version": "Fun-CineForge",
+      "version_as_of": "2026-09-19",
+      "status": "active",
+      "tier": "extended",
+      "domain": "sound",
+      "weights": "open",
+      "version_src": "hf-funcineforge",
+      "version_quote": "官方模型卡标题：「Fun-CineForge: A Unified Dataset Pipeline and Model for Zero-Shot Movie Dubbing in Diverse Cinematic Scenes」；正文：「an end-to-end dataset pipeline for producing large-scale dubbing datasets and an MLLM-based dubbing model designed for diverse cinematic scenes」。许可 apache-2.0（HF 与魔搭两边一致）。",
+      "lineage_note": "扩展层，只记当前版本，没采谱系",
+      "reach_cn": "ok",
+      "reach_note": "魔搭上有同一份（FunAudioLLM/Fun-CineForge），国内直连可取",
+      "note": "阿里 FunAudioLLM 的**影视配音**模型，不是 CosyVoice 的新版本，是另起的一条产品线 —— 它填的是声音卷「视频配音」那个应用一直没有对得上号的模型。自述做的是零样本配音：独白 / 旁白 / 对白 / 多说话人四类场景，评的是音质、口型同步、音色过渡、指令跟随。同时开源一条数据集流水线，并用它造了 CineDub-CN（自述「the first large-scale Chinese television dubbing dataset」）与 CineDub-EN。权重与推理代码 2026-03-16 开源，Apache-2.0，HF 与魔搭两边都有。\n\n⚠️ **放扩展层不是因为它差，是因为进 Core 要先把 27 条声音能力轴逐格核一遍** —— 那是另一件事，不该顺手做。扩展层的含义是「库里有、不进主要视觉」：**上面这些能力描述来自官方模型卡，不是我们逐格核验的结论。**",
+      "zh_none": true
     }
   ],
   "sources": {
@@ -5643,11 +5667,6 @@
       "name": "HuggingFace · nvidia/LocateAnything-3B 模型卡",
       "tier": "official"
     },
-    "kling-api": {
-      "url": "https://kling.ai/document-api/updates/api",
-      "tier": "official",
-      "name": "Kling AI · API 更新日志（171 条，需 JS 渲染）"
-    },
     "seed-25": {
       "url": "https://seed.bytedance.com/en/blog/one-take-creation-flexible-referencing-introducing-seedance-2-5",
       "tier": "official",
@@ -5668,21 +5687,6 @@
       "tier": "official",
       "name": "Decart 官网（首屏标当前版本与产品线）"
     },
-    "vidu-fl": {
-      "url": "https://platform.vidu.com/docs/function-list",
-      "tier": "official",
-      "name": "Vidu 平台 · Function List（官方功能清单）"
-    },
-    "vidu-mm": {
-      "url": "https://platform.vidu.com/docs/model-map",
-      "tier": "official",
-      "name": "Vidu 平台 · Model Map（官方模型清单）"
-    },
-    "vidu-up": {
-      "url": "https://platform.vidu.com/docs/update",
-      "tier": "official",
-      "name": "Vidu 平台 · Update Notice（官方更新日志）"
-    },
     "veo-doc": {
       "url": "https://ai.google.dev/gemini-api/docs/veo",
       "tier": "official",
@@ -5692,11 +5696,6 @@
       "url": "https://ai.google.dev/gemini-api/docs/omni",
       "tier": "official",
       "name": "Google · Gemini Omni Flash 官方文档"
-    },
-    "g-video": {
-      "url": "https://ai.google.dev/gemini-api/docs/video",
-      "tier": "official",
-      "name": "Google · 视频生成总览（两个模型如何取舍）"
     },
     "mm-blog": {
       "url": "https://www.minimax.io/blog/minimax-h3",
@@ -5708,25 +5707,10 @@
       "tier": "official",
       "name": "HF API · MiniMaxAI/MiniMax-H3 元数据（许可与文件清单）"
     },
-    "rw-changelog": {
-      "url": "https://runway.com/changelog",
-      "tier": "official",
-      "name": "Runway · 官方 Changelog"
-    },
     "wan-site": {
       "url": "https://wan.video/",
       "tier": "official",
       "name": "通义万相官网（首屏，仅营销描述）"
-    },
-    "sora-eol-search": {
-      "url": "https://help.openai.com/en/articles/20001152-what-to-know-about-the-sora-discontinuation",
-      "tier": "third-party",
-      "name": "OpenAI Sora 停服说明（⚠️ 页面反爬，我们抓不到，内容来自搜索摘要转述）"
-    },
-    "sora-2": {
-      "url": "https://openai.com/index/sora-2/",
-      "tier": "official",
-      "name": "OpenAI · Sora 2 发布页（⚠️ 对我们的采集器返回 403，本轮未能一手复核）"
     },
     "sora-api": {
       "url": "https://developers.openai.com/api/docs/models/sora-2",
@@ -5737,11 +5721,6 @@
       "url": "https://huggingface.co/api/models?author=Wan-AI&sort=lastModified&direction=-1",
       "tier": "official",
       "name": "HF API · Wan-AI 组织下全部仓库"
-    },
-    "aa-board": {
-      "url": "https://artificialanalysis.ai/video/leaderboard/text-to-video",
-      "tier": "third-party",
-      "name": "Artificial Analysis 榜（只证明「存在且有人用」，不证明能力）"
     },
     "ltx-gh": {
       "url": "https://github.com/Lightricks/LTX-2",
@@ -6114,7 +6093,7 @@
       "tier": "official"
     },
     "comfyui-gh": {
-      "name": "GitHub · Comfy-Org/ComfyUI",
+      "name": "GitHub · Comfy-Org/ComfyUI（仓库页）",
       "url": "https://github.com/Comfy-Org/ComfyUI",
       "tier": "official"
     },
@@ -6333,11 +6312,6 @@
       "url": "https://techcommunity.microsoft.com/category/azure-ai-foundry-blog",
       "tier": "secondary"
     },
-    "hf-image-org": {
-      "name": "Hugging Face 官方组织",
-      "url": "https://huggingface.co",
-      "tier": "official"
-    },
     "mj-updates": {
       "name": "Midjourney 官方更新日志",
       "url": "https://updates.midjourney.com/",
@@ -6362,11 +6336,6 @@
       "name": "新华网 · 豆包 2.1 Pro 发布",
       "url": "https://www.news.cn/tech/20260623/acd6f2f27fc34459a7d1684c03278431/c.html",
       "tier": "secondary"
-    },
-    "hf-text-org": {
-      "name": "Hugging Face 官方组织",
-      "url": "https://huggingface.co",
-      "tier": "official"
     },
     "wan3-qbitai": {
       "name": "量子位 · Wan3.0 开启公测",
@@ -6568,11 +6537,6 @@
       "url": "https://platform.minimaxi.com/docs/api-reference/api-overview",
       "tier": "official"
     },
-    "claude-models": {
-      "name": "Anthropic · Models overview",
-      "url": "https://platform.claude.com/docs/en/about-claude/models/overview",
-      "tier": "official"
-    },
     "openai-caching": {
       "name": "OpenAI · Prompt Caching",
       "url": "https://developers.openai.com/api/docs/guides/prompt-caching",
@@ -6738,19 +6702,9 @@
       "url": "https://docs.x.ai/docs/guides/voice",
       "tier": "official"
     },
-    "hf-sound-org": {
-      "name": "Hugging Face · 官方组织（声音）",
-      "url": "https://huggingface.co/api/models",
-      "tier": "official"
-    },
     "kokoro-card": {
       "name": "Hugging Face · hexgrad/Kokoro-82M 模型卡",
       "url": "https://huggingface.co/hexgrad/Kokoro-82M",
-      "tier": "official"
-    },
-    "xai-models": {
-      "name": "xAI · Models",
-      "url": "https://docs.x.ai/docs/models",
       "tier": "official"
     },
     "mistral-models": {
@@ -6816,11 +6770,6 @@
     "s-abcreator-gh": {
       "name": "GitHub · prakharsr/audiobook-creator（星标 521，许可 GPL-3.0）",
       "url": "https://github.com/prakharsr/audiobook-creator",
-      "tier": "third-party"
-    },
-    "s-pvt-gh": {
-      "name": "GitHub · jianchang512/pyvideotrans（星标 18,655，许可 GPL-3.0）",
-      "url": "https://github.com/jianchang512/pyvideotrans",
       "tier": "third-party"
     },
     "s-smartsub-gh": {
@@ -7138,11 +7087,6 @@
       "url": "https://stability.ai/terms-of-use",
       "tier": "official"
     },
-    "recraft-blog-b": {
-      "name": "Recraft 官方博客 · Recraft's Next Chapter（2025-06-05）",
-      "url": "https://www.recraft.ai/blog",
-      "tier": "official"
-    },
     "gh-llm-universe": {
       "name": "GitHub · datawhalechina/llm-universe（动手学大模型应用开发）",
       "url": "https://github.com/datawhalechina/llm-universe",
@@ -7183,30 +7127,15 @@
       "url": "https://github.com/RVC-Boss/GPT-SoVITS/blob/main/docs/cn/README.md",
       "tier": "third-party"
     },
-    "gh-cosyvoice-doc": {
-      "name": "CosyVoice 官方仓库文档",
-      "url": "https://github.com/QwenAudio/CosyVoice",
-      "tier": "third-party"
-    },
     "gh-chattts-cn": {
       "name": "ChatTTS 官方中文文档",
       "url": "https://github.com/2noise/ChatTTS/blob/main/docs/cn/README.md",
       "tier": "third-party"
     },
-    "gh-pyvideotrans-doc": {
-      "name": "pyvideotrans 官方仓库（中文）",
-      "url": "https://github.com/jianchang512/pyvideotrans",
-      "tier": "third-party"
-    },
-    "gh-comfy-zho": {
-      "name": "GitHub · ZHO 的 ComfyUI 中文工作流合集",
-      "url": "https://github.com/ZHO-ZHO-ZHO/ComfyUI-Workflows-ZHO",
-      "tier": "third-party"
-    },
     "gh-comfyui": {
-      "name": "GitHub · Comfy-Org/ComfyUI",
+      "name": "GitHub · Comfy-Org/ComfyUI（仓库元数据）",
       "url": "https://github.com/Comfy-Org/ComfyUI",
-      "tier": "third-party"
+      "tier": "official"
     },
     "gh-sdbook": {
       "name": "GitHub · StableDiffusionBook（中文 AI 绘画手册）",
@@ -7722,6 +7651,41 @@
       "name": "DeepSeek 官方文档 · 更新日志",
       "url": "https://api-docs.deepseek.com/updates/",
       "tier": "official"
+    },
+    "google-video-docs": {
+      "name": "Google · 视频生成总览（两个模型如何取舍）",
+      "url": "https://ai.google.dev/gemini-api/docs/video",
+      "tier": "official"
+    },
+    "openai-sora-eol": {
+      "name": "OpenAI 帮助中心 · Sora 停服说明（⚠️ 页面反爬抓不到，我们记的内容来自搜索摘要转述）",
+      "url": "https://help.openai.com/en/articles/20001152-what-to-know-about-the-sora-discontinuation",
+      "tier": "third-party"
+    },
+    "openai-sora-2": {
+      "name": "OpenAI · Sora 2 发布页（⚠️ 对我们的采集器返回 403，未能一手复核）",
+      "url": "https://openai.com/index/sora-2/",
+      "tier": "official"
+    },
+    "vidu-model-map": {
+      "name": "Vidu 平台 · Model Map（官方模型清单）",
+      "url": "https://platform.vidu.com/docs/model-map",
+      "tier": "official"
+    },
+    "vidu-function-list": {
+      "name": "Vidu 平台 · Function List（官方功能清单）",
+      "url": "https://platform.vidu.com/docs/function-list",
+      "tier": "official"
+    },
+    "runway-changelog": {
+      "name": "Runway · 官方 Changelog",
+      "url": "https://runway.com/changelog",
+      "tier": "official"
+    },
+    "hf-org": {
+      "name": "Hugging Face 官方组织目录（模型接口）",
+      "url": "https://huggingface.co/api/models",
+      "tier": "official"
     }
   },
   "support": [
@@ -7731,7 +7695,7 @@
       "state": "yes",
       "verified_for": "3.0",
       "note": "2026-06-17「Kling 3.0 Turbo 正式发布」：同时支持文生视频与图生视频，720P/1080P",
-      "src": "kling-api",
+      "src": "kling-api-updates",
       "via": "native"
     },
     {
@@ -7740,7 +7704,7 @@
       "state": "yes",
       "verified_for": "3.0",
       "note": "同上；另有 Multi-Image to Video 一系列条目",
-      "src": "kling-api",
+      "src": "kling-api-updates",
       "via": "native"
     },
     {
@@ -7749,7 +7713,7 @@
       "state": "yes",
       "verified_for": "3.0",
       "note": "2026-05-07：多镜头视频可定义首尾帧，并解除了「多镜头」与「首尾帧」的互斥。⚠️ 边界：2026-03-11 明确「多机位（multi-camera）不支持首尾帧」，且 kling-video-o1 生成首尾帧时不支持引用 element。条目未点名 3.0，属通用能力升级",
-      "src": "kling-api",
+      "src": "kling-api-updates",
       "via": "native"
     },
     {
@@ -7758,7 +7722,7 @@
       "state": "yes",
       "verified_for": "3.0",
       "note": "**Kling 管角色参考叫 Element（元素）**，不叫 Character Reference。2026-02-25 元素体系全面升级，可用视频创建元素并绑定音色；2026-01-23 可由正面图推断其它角度",
-      "src": "kling-api",
+      "src": "kling-api-updates",
       "via": "native"
     },
     {
@@ -7767,7 +7731,7 @@
       "state": "yes",
       "verified_for": "3.0",
       "note": "2026-04-01：3.0 Omni 的 image_list / element_list 参数，支持多图元素；2025-07-21 Multi-Elements 上线（对已有视频做元素增/换/删）",
-      "src": "kling-api",
+      "src": "kling-api-updates",
       "via": "native"
     },
     {
@@ -7776,7 +7740,7 @@
       "state": "yes",
       "verified_for": "3.0",
       "note": "**Motion Control 是独立模型，不是 Kling 3.0 的一个参数** —— 2026-07-15 的新 API 支持清单里，Kling 3.0 / 3.0 Omni / 3.0 Motion Control 三者并列。2025-12-22 首发时要求同时上传参考图与参考视频，参考视频最长 30 秒",
-      "src": "kling-api",
+      "src": "kling-api-updates",
       "via": "separate-task"
     },
     {
@@ -7785,7 +7749,7 @@
       "state": "unknown",
       "verified_for": "3.0",
       "note": "官方日志里对运镜控制的明确说明停留在 V1.5/V1.6 时代（2025-03-12「motion brush, camera control (simple only)」）；3.0 时代只见到「多机位 multi-camera」相关条目，未把运镜作为独立控制位重述 —— 按规则三之一退回未知",
-      "src": "kling-api"
+      "src": "kling-api-updates"
     },
     {
       "m": "kling",
@@ -7793,7 +7757,7 @@
       "state": "yes",
       "verified_for": "3.0",
       "note": "2025-12-15：通过 sound 参数控制生成视频时是否包含音频。⚠️ 要与 Video-to-Audio 区分开 —— 后者（2025-08-01 起）是给**已生成的视频**配音效/BGM，不是生成时的原生音频",
-      "src": "kling-api",
+      "src": "kling-api-updates",
       "via": "native"
     },
     {
@@ -7802,7 +7766,7 @@
       "state": "yes",
       "verified_for": "3.0",
       "note": "2024-12-23 首发；2025-09-15 支持多人画面对口型，用 face_id 指定说话人、sound_insert_time 指定起始时间。⚠️ Lip-Sync 是作用于**已有视频**的独立功能，不是生成时的一步",
-      "src": "kling-api",
+      "src": "kling-api-updates",
       "via": "separate-task"
     },
     {
@@ -7811,7 +7775,7 @@
       "state": "unknown",
       "verified_for": "3.0",
       "note": "官方明确说明是 2024-11-15（V1.0，每次续 4~5 秒）与 2025-03-31（V1.5/V1.6 支持视频延长）—— **3.0 没有重述**，按规则三之一退回未知",
-      "src": "kling-api"
+      "src": "kling-api-updates"
     },
     {
       "m": "kling",
@@ -8013,7 +7977,7 @@
       "c": "t2v",
       "state": "yes",
       "verified_for": "2",
-      "src": "sora-eol-search",
+      "src": "openai-sora-eol",
       "note": "该产品线已终止：App 2026-04-26 关停，API 计划 2026-09-24 停止 —— 能力属实，但不建议用于新项目 ⚠️ openai.com 对我们的采集器返回 403，本轮未能一手复核；且该产品线已公告停服（API 2026-09-24）"
     },
     {
@@ -8037,7 +8001,7 @@
       "c": "charref",
       "state": "yes",
       "verified_for": "2",
-      "src": "sora-2",
+      "src": "openai-sora-2",
       "note": "cameo 角色客串机制 ⚠️ openai.com 对我们的采集器返回 403，本轮未能一手复核；且该产品线已公告停服（API 2026-09-24）"
     },
     {
@@ -8069,7 +8033,7 @@
       "c": "audio",
       "state": "yes",
       "verified_for": "2",
-      "src": "sora-2",
+      "src": "openai-sora-2",
       "note": "同步对白、音效与背景音乐 ⚠️ openai.com 对我们的采集器返回 403，本轮未能一手复核；且该产品线已公告停服（API 2026-09-24）"
     },
     {
@@ -8283,7 +8247,7 @@
       "state": "yes",
       "verified_for": "Q3",
       "note": "官方功能清单「Text to Video」；2026-02-11 viduq3-turbo 进 text2video",
-      "src": "vidu-fl",
+      "src": "vidu-function-list",
       "via": "native"
     },
     {
@@ -8292,7 +8256,7 @@
       "state": "yes",
       "verified_for": "Q3",
       "note": "官方功能清单「Image to Video」",
-      "src": "vidu-fl",
+      "src": "vidu-function-list",
       "via": "native"
     },
     {
@@ -8301,7 +8265,7 @@
       "state": "yes",
       "verified_for": "Q3",
       "note": "官方有一等功能「Start end to video」，且 2026-02-11 明确 viduq3-turbo 与 viduq3-pro 都进了 start-end2video 🔧 **2026-08-15 改了署名的源**：原署 `vidu-up`，实际这句话在 `vidu-fl` 里。人审备注：这句「Start end to video」在功能清单页里，vidu-up 是升级说明页，署错了",
-      "src": "vidu-fl",
+      "src": "vidu-function-list",
       "via": "native"
     },
     {
@@ -8310,7 +8274,7 @@
       "state": "yes",
       "verified_for": "Q3",
       "note": "官方「Reference to Video」：用输入图里的主体或场景作参考",
-      "src": "vidu-fl",
+      "src": "vidu-function-list",
       "via": "native"
     },
     {
@@ -8319,7 +8283,7 @@
       "state": "yes",
       "verified_for": "Q3",
       "note": "同上，官方写明「Supports uploading multiple images」",
-      "src": "vidu-fl",
+      "src": "vidu-function-list",
       "via": "native"
     },
     {
@@ -8328,7 +8292,7 @@
       "state": "yes",
       "verified_for": "Q3",
       "note": "官方有独立任务 **Motion Sync**；2026-02-04 更新写明「输入动作参考视频＋角色图，生成角色按参考视频动作的视频」。注意它是独立接口，不是 viduq3 生成时的一步",
-      "src": "vidu-fl",
+      "src": "vidu-function-list",
       "via": "separate-task"
     },
     {
@@ -8337,7 +8301,7 @@
       "state": "unknown",
       "verified_for": "Q3",
       "note": "官方 function-list 与 update 两页里「camera / 运镜 / 镜头」**零命中**；只提供「motion amplitude（运动幅度）」。我上一版标「支持」是拿第三方知识库当官方了",
-      "src": "vidu-fl"
+      "src": "vidu-function-list"
     },
     {
       "m": "vidu-q",
@@ -8345,7 +8309,7 @@
       "state": "yes",
       "verified_for": "Q3",
       "note": "官方 Model Map：ViduQ3 全系「Supports simultaneous audio & video output」；2025-11-13 起「Audio&Video Direct Output」",
-      "src": "vidu-mm",
+      "src": "vidu-model-map",
       "via": "native"
     },
     {
@@ -8354,7 +8318,7 @@
       "state": "yes",
       "verified_for": "Q3",
       "note": "官方独立任务 Lip Sync：让视频角色按指定文本对口型，支持数百种音色与语言",
-      "src": "vidu-fl",
+      "src": "vidu-function-list",
       "via": "separate-task"
     },
     {
@@ -8363,7 +8327,7 @@
       "state": "yes",
       "verified_for": "Q3",
       "note": "官方独立任务 **Video Extension**，「Supports extension from 1～7s」",
-      "src": "vidu-fl",
+      "src": "vidu-function-list",
       "via": "separate-task"
     },
     {
@@ -8378,7 +8342,7 @@
       "c": "t2v",
       "state": "yes",
       "verified_for": "Gen-4.5",
-      "src": "rw-changelog",
+      "src": "runway-changelog",
       "via": "native",
       "note": "2025-12-11 Gen-4.5 发布"
     },
@@ -8387,7 +8351,7 @@
       "c": "i2v",
       "state": "yes",
       "verified_for": "Gen-4.5",
-      "src": "rw-changelog",
+      "src": "runway-changelog",
       "via": "native",
       "note": "2026-01-21「Gen-4.5 Image to Video：可在文本提示外提供一张首帧图」"
     },
@@ -8396,7 +8360,7 @@
       "c": "flf",
       "state": "unknown",
       "verified_for": "Gen-4.5",
-      "src": "rw-changelog",
+      "src": "runway-changelog",
       "note": "官方只写了**首帧**（2026-01-21），**未见尾帧**。与 Kling / Vidu / Veo 的「首尾帧成对」不是一回事，故不记为支持"
     },
     {
@@ -8404,7 +8368,7 @@
       "c": "charref",
       "state": "yes",
       "verified_for": "Gen-4.5",
-      "src": "rw-changelog",
+      "src": "runway-changelog",
       "via": "separate-task",
       "note": "Act-Two 角色表演界面（2025-08 起）；Gen-4 时代的 reference consistency 一脉"
     },
@@ -8413,14 +8377,14 @@
       "c": "multiref",
       "state": "unknown",
       "verified_for": "Gen-4.5",
-      "src": "rw-changelog"
+      "src": "runway-changelog"
     },
     {
       "m": "runway",
       "c": "motion",
       "state": "yes",
       "verified_for": "Gen-4.5",
-      "src": "rw-changelog",
+      "src": "runway-changelog",
       "via": "separate-task",
       "note": "Act-Two 可直接生成角色表演；另有 Aleph 2.0 视频编辑模型（2026-05-21）"
     },
@@ -8429,7 +8393,7 @@
       "c": "camera",
       "state": "unknown",
       "verified_for": "Gen-4.5",
-      "src": "rw-changelog",
+      "src": "runway-changelog",
       "note": "官方 changelog 未见把运镜作为独立控制位重述（Motion Brush / Camera Control 是 Gen-3 时代的说法）"
     },
     {
@@ -8437,7 +8401,7 @@
       "c": "audio",
       "state": "no",
       "verified_for": "Gen-4.5",
-      "src": "rw-changelog",
+      "src": "runway-changelog",
       "note": "官方把音频放在**独立的 Audio 工具**里：2025-12-18「Text to Speech 进 Audio 页签，另有 SFX 与 Speech to Speech 应用」；2026-06-29 Seed Audio 1.0 可生成最长 120 秒语音/音效/音乐。**都不是 Gen-4.5 生成时的原生音频**"
     },
     {
@@ -8445,14 +8409,14 @@
       "c": "lipsync",
       "state": "unknown",
       "verified_for": "Gen-4.5",
-      "src": "rw-changelog"
+      "src": "runway-changelog"
     },
     {
       "m": "runway",
       "c": "extend",
       "state": "unknown",
       "verified_for": "Gen-4.5",
-      "src": "rw-changelog"
+      "src": "runway-changelog"
     },
     {
       "m": "runway",
@@ -8569,7 +8533,7 @@
       "state": "no",
       "verified_for": "Flash",
       "note": "官方总览页把首尾帧明确指向 Veo：「Use Veo 3.1 for specific capabilities like **last-frame control**」；Omni 文档里也未见对应参数",
-      "src": "g-video"
+      "src": "google-video-docs"
     },
     {
       "m": "gemini-omni",
@@ -8626,7 +8590,7 @@
       "state": "no",
       "verified_for": "Flash",
       "note": "官方总览页把场景延长明确指向 Veo：「Use Veo 3.1 for specific capabilities like **scene extension**」",
-      "src": "g-video"
+      "src": "google-video-docs"
     },
     {
       "m": "gemini-omni",
@@ -8754,7 +8718,7 @@
       "c": "t2v",
       "state": "yes",
       "verified_for": "1.1",
-      "src": "aa-board",
+      "src": "aa-t2v",
       "note": "榜单上有它（Elo 1148），说明能出片、且有人在用。**其余能力一格未核** —— Extended 层只保证「它存在」，不保证核过"
     },
     {
@@ -8762,7 +8726,7 @@
       "c": "t2v",
       "state": "yes",
       "verified_for": "V3",
-      "src": "aa-board",
+      "src": "aa-t2v",
       "note": "榜单上有它（Elo 1107），说明能出片、且有人在用。**其余能力一格未核** —— Extended 层只保证「它存在」，不保证核过"
     },
     {
@@ -10465,7 +10429,7 @@
       "c": "t-openweights",
       "state": "yes",
       "verified_for": "Qwen3.6",
-      "src": "hf-text-org",
+      "src": "hf-org",
       "via": "native",
       "note": "**权重长在同门的上一代上。** 当前主力 `qwen3.8-max` 是只在百炼上调的闭源模型；要自部署最新只能到 Qwen3.6。**「Qwen 开源」和「你现在调的这一版开源」不是一回事** —— 这条产品线上这两件事差了两代。（另有 2026-06-22 的 Qwen-AgentWorld-35B-A3B 开了权重，但那是 Agent 专用支线，不是通用主线。）",
       "as_of": "2026-08-12",
@@ -10599,7 +10563,7 @@
       "c": "t-openweights",
       "state": "yes",
       "verified_for": "V4.1",
-      "src": "hf-text-org",
+      "src": "hf-org",
       "via": "native",
       "note": "官方 HF 组织下有可下载权重：deepseek-ai/DeepSeek-V4.1-Flash（2026-09-19 抓到；上一代的 DeepSeek-V4-Flash / V4-Pro 仍在）",
       "as_of": "2026-09-19"
@@ -10712,7 +10676,7 @@
       "c": "t-openweights",
       "state": "yes",
       "verified_for": "K3",
-      "src": "hf-text-org",
+      "src": "hf-org",
       "via": "native",
       "note": "官方 HF 组织下有可下载权重：moonshotai/Kimi-K3"
     },
@@ -10850,7 +10814,7 @@
       "c": "t-openweights",
       "state": "yes",
       "verified_for": "GLM-5.2",
-      "src": "hf-text-org",
+      "src": "hf-org",
       "via": "native",
       "note": "官方 HF 组织下有可下载权重：zai-org/GLM-5.2",
       "recheck": "GLM-5.3"
@@ -10978,7 +10942,7 @@
       "c": "t-openweights",
       "state": "yes",
       "verified_for": "M3",
-      "src": "hf-text-org",
+      "src": "hf-org",
       "via": "native",
       "note": "官方 HF 组织下有可下载权重：MiniMaxAI/MiniMax-M3"
     },
@@ -11221,7 +11185,7 @@
       "c": "t-long",
       "state": "yes",
       "verified_for": "4.5",
-      "src": "xai-models",
+      "src": "xai-docs",
       "note": "模型页 grok-4.5：**上下文 500k tokens**；≥200k prompt 走另一档价",
       "via": "native",
       "as_of": "2026-08-12",
@@ -11296,7 +11260,7 @@
       "c": "t-cache",
       "state": "yes",
       "verified_for": "4.5",
-      "src": "xai-models",
+      "src": "xai-docs",
       "note": "模型页给了独立的**缓存输入价**（$0.30/1M，≥200k 时 $0.60）—— 有缓存计价即支持缓存",
       "via": "native",
       "as_of": "2026-08-12",
@@ -11796,7 +11760,7 @@
       "c": "s-design",
       "state": "yes",
       "verified_for": "3.5-omni-plus",
-      "src": "hf-sound-org",
+      "src": "hf-org",
       "note": "官方 HF 组织有 `Qwen/Qwen3-TTS-12Hz-1.7B-**VoiceDesign**`（2026-01-21）—— 型号名本身就是能力声明",
       "via": "native",
       "as_of": "2026-08-12"
@@ -12311,7 +12275,7 @@
       "c": "s-lang",
       "state": "yes",
       "verified_for": "82M v1.1-zh",
-      "src": "hf-sound-org",
+      "src": "hf-org",
       "note": "`hexgrad/Kokoro-82M-v1.1-zh`（2025-02-27）在 82M 基础上加中文 —— 型号名里的 `-zh` 即依据。⚠️ 这只证明「有中文」，**没有语言总数**",
       "via": "native",
       "as_of": "2026-08-12"
@@ -14671,14 +14635,10 @@
     {
       "m": "groot",
       "c": "e-framework",
-      "state": "yes",
+      "state": "unknown",
       "verified_for": "N1.7",
       "as_of": "2026-08-14",
-      "note": "提供 pytorch 与 tensorrt 两种推理模式，默认使用 PyTorch｜原文：「`pytorch` — standard PyTorch inference (default, no setup required) ; `tensorrt` — accelerated inference using TensorRT engine」",
-      "src": "groot-policy-doc",
-      "by": "human",
-      "reviewed_by": "liuzhenhai（经 Claude 代办）",
-      "reviewed_at": "2026-09-19 03:51:33"
+      "note": "读了 README 全文与 `getting_started/policy.md`：只有 PyTorch 一套实现，**没有看到第二种框架**，也没有一句话说不支持。所以是 ⬜ 不是 ❌ —— 官方没表态。对照 openpi 是明确给了 JAX 与 PyTorch 两套。　（2026-09-19 收件箱里有一条「提供 pytorch 与 tensorrt 两种推理模式」想落这一格 —— **TensorRT 是部署运行时，不是第二套框架实现**，这条轴的判据是 openpi 那种 JAX / PyTorch 两套。那句话已记在 e-edge 上。）"
     },
     {
       "m": "openvla",
@@ -14799,14 +14759,10 @@
     {
       "m": "pi",
       "c": "e-embodiment",
-      "state": "yes",
+      "state": "unknown",
       "verified_for": "π₀.₅",
       "as_of": "2026-08-14",
-      "note": "openpi为多种机器人平台（DROID Franka、ALOHA双臂、LIBERO）分别提供专家检查点，支持跨本体迁移｜原文：「We also provide \"expert\" checkpoints for various robot platforms and tasks.」",
-      "src": "pi-openpi-gh",
-      "by": "human",
-      "reviewed_by": "liuzhenhai（经 Claude 代办）",
-      "reviewed_at": "2026-09-19 03:51:33"
+      "note": "README 里没有本体标签这类机制，也没有「支持哪些机器人」的清单。⚠️ 它的能力叙述在**官方博客**（π₀.₅ 那篇讲 Open-World Generalization），仓库只讲怎么跑 —— 按规则十四的教训，这一格要读完博客再判，现在不填。　（2026-09-19 收件箱里有一条「为多种机器人平台分别提供专家检查点」想落这一格 —— **原句说的是每个本体一个专家 checkpoint，那恰恰是跨本体的反面**；「支持跨本体迁移」是抽取器加的，官方原句里没有。）"
     },
     {
       "m": "pi",
@@ -16004,14 +15960,10 @@
     {
       "m": "oasis",
       "c": "w-3d",
-      "state": "yes",
+      "state": "unknown",
       "verified_for": "Oasis 3",
       "as_of": "2026-08-14",
-      "note": "Oasis 是可玩、可漫游的开放世界｜原文：「Decart's AI simulates a real-time, playable, open-world demo / first interactive \"open-world\" model」",
-      "src": "decart-site",
-      "by": "human",
-      "reviewed_by": "liuzhenhai（经 Claude 代办）",
-      "reviewed_at": "2026-09-19 03:51:32"
+      "note": "⚠️ **可核验度是这一卷最低的一支**：官网 9k 全是营销文案，`oasis.decart.ai` 是空壳，文档站 `docs.decart.ai` 2026-08-14 三次都抓不到。这些 ⬜ 是「够不着」不是「读完没找到」。　（2026-09-19 收件箱里有一条想落这一格，引的是官网上转载的媒体标题拼接串「playable, open-world demo / first interactive open-world model」——**带 ` / ` 的拼接串不是厂商原句**，不作数。）"
     },
     {
       "m": "oasis",
@@ -17185,7 +17137,7 @@
       "note": "⚠️ 既做自己的 Gen 系列，也转售别家 —— 平台与厂商两个身份要分开看",
       "kind2": "third-party",
       "discloses": "yes",
-      "discloses_src": "rw-changelog",
+      "discloses_src": "runway-changelog",
       "discloses_quote": "Get unlimited Seedance 2.5 on new Max plans until August 14th",
       "discloses_why": "**自己也是模型厂商，却明写在转售字节的 Seedance** —— 两个身份都摆出来了，没有含糊。"
     },
@@ -17611,7 +17563,7 @@
       "m": "seedance",
       "listed": "Seedance 2.5",
       "status": "available",
-      "src": "rw-changelog",
+      "src": "runway-changelog",
       "quote": "Get unlimited Seedance 2.5 on new Max plans until August 14th",
       "match": "same",
       "note": "⚠️ Runway 既是厂商也转售别家 —— 它上面能用到字节的模型",
@@ -17625,7 +17577,7 @@
       "p": "anthropic-api",
       "m": "claude",
       "listed": "claude-fable-5",
-      "src": "claude-models",
+      "src": "anthropic-models",
       "quote": "「Claude Fable 5 is generally available on the Claude API … beginning June 9, 2026」",
       "region": "全球",
       "status": "available",
@@ -17639,7 +17591,7 @@
       "p": "bedrock",
       "m": "claude",
       "listed": "anthropic.claude-fable-5",
-      "src": "claude-models",
+      "src": "anthropic-models",
       "quote": "模型总览表 AWS Bedrock ID 一行：`anthropic.claude-fable-5`",
       "region": "全球",
       "status": "available",
@@ -17653,7 +17605,7 @@
       "p": "vertex",
       "m": "claude",
       "listed": "claude-fable-5",
-      "src": "claude-models",
+      "src": "anthropic-models",
       "quote": "模型总览表 Google Cloud ID 一行：`claude-fable-5`",
       "region": "全球",
       "status": "available",
@@ -17667,7 +17619,7 @@
       "p": "ms-foundry",
       "m": "claude",
       "listed": "claude-fable-5",
-      "src": "claude-models",
+      "src": "anthropic-models",
       "quote": "「Models are available through the Claude API, Amazon Bedrock, Claude Platform on AWS, Google Cloud, and Microsoft Foundry」",
       "region": "全球",
       "status": "available",
@@ -18587,7 +18539,7 @@
       "version": "4.5",
       "date": "2025-12-11",
       "added": "换代 Gen-4.5",
-      "src": "rw-changelog",
+      "src": "runway-changelog",
       "quote": "Introducing Gen-4.5, the world's best video model",
       "cap_skip": "同上",
       "id": "gen4.5"
@@ -18597,7 +18549,7 @@
       "version": "4.5",
       "date": "2026-01-21",
       "added": "首帧图输入",
-      "src": "rw-changelog",
+      "src": "runway-changelog",
       "quote": "Gen-4.5 Image to Video You can now supply a first frame image alongside your",
       "cap": "i2v",
       "id": "gen4.5-i2v",
@@ -18608,7 +18560,7 @@
       "version": "Aleph 2.0",
       "date": "2026-05-21",
       "added": "Aleph 2.0 与剪辑台",
-      "src": "rw-changelog",
+      "src": "runway-changelog",
       "quote": "Aleph 2.0 & Edit Studio Get the video you need from the video you already hav",
       "cap_skip": "平台侧功能，不是模型能力",
       "id": "aleph2",
@@ -19357,7 +19309,7 @@
       "version": "Qwen-Image-Layered",
       "date": "2025-12-17",
       "added": "分层输出（图层可分开拿）",
-      "src": "hf-image-org",
+      "src": "hf-org",
       "quote": "Qwen/Qwen-Image-Layered（官方 HF 组织 createdAt 2025-12-17，Apache-2.0）",
       "parent": "qwen-image-Qwen-Image-Edit-2511-抑制图像漂移、角色一致性、集成 LoRA",
       "cap": "i-layered"
@@ -19368,7 +19320,7 @@
       "version": "Qwen-Image-2512",
       "date": "2025-12-30",
       "added": "底座换代",
-      "src": "hf-image-org",
+      "src": "hf-org",
       "quote": "Qwen/Qwen-Image-2512（官方 HF 组织 createdAt 2025-12-30，Apache-2.0）",
       "parent": "qwen-image-Qwen-Image-Layered-分层输出（图层可分开拿）",
       "cap_skip": "发布记录或形态调整，没有声明能力轴上的新增项"
@@ -19379,7 +19331,7 @@
       "version": "Z-Image",
       "date": "2026-01-23",
       "added": "Turbo 之外的完整档",
-      "src": "hf-image-org",
+      "src": "hf-org",
       "quote": "Tongyi-MAI/Z-Image（官方 HF 组织 createdAt 2026-01-23）",
       "parent": "z-image-Z-Image-Turbo-6B、8 步出图、16G 显存可跑；中英双语文字渲染",
       "cap_skip": "尺寸 / 速度 / 价格档位，不是新增能力"
@@ -19390,7 +19342,7 @@
       "version": "Ideogram 4",
       "date": "2026-05-30",
       "added": "这一代把权重放了出来",
-      "src": "hf-image-org",
+      "src": "hf-org",
       "quote": "ideogram-ai/ideogram-4-fp8 与 ideogram-4-nf4（官方 HF 组织 createdAt 2026-05-30，下载 3.2 万 / 4.0 万）",
       "note": "ComfyUI 官方教程也写「released as an open-source model that runs entirely on your own hardware」。",
       "parent": "ideogram-3.0-画布编辑（Magic Fill / Extend）",
@@ -19407,7 +19359,7 @@
       "version": "SD 3 Medium",
       "date": "2024-05-30",
       "added": "换 MMDiT 架构",
-      "src": "hf-image-org",
+      "src": "hf-org",
       "quote": "stabilityai/stable-diffusion-3-medium（官方 HF 组织 createdAt 2024-05-30）",
       "parent": "sd-SDXL 1.0-base + refiner 的专家集成流水线",
       "cap_skip": "架构或规模变化，能力轴上没有对应项"
@@ -19418,7 +19370,7 @@
       "version": "SD 3.5 Large",
       "date": "2024-10-22",
       "added": "3.x 的大档",
-      "src": "hf-image-org",
+      "src": "hf-org",
       "quote": "stabilityai/stable-diffusion-3.5-large（官方 HF 组织 createdAt 2024-10-22）",
       "parent": "sd-SD 3 Medium-换 MMDiT 架构",
       "cap_skip": "尺寸 / 速度 / 价格档位，不是新增能力"
@@ -19472,7 +19424,7 @@
       "version": "HiDream-E1.1",
       "date": "2025-07-16",
       "added": "按指令改图的分支",
-      "src": "hf-image-org",
+      "src": "hf-org",
       "quote": "HiDream-ai/HiDream-E1-1（官方 HF 组织 createdAt 2025-07-16，MIT）",
       "parent": "hidream-HiDream-I1-17B 出图底座，MIT",
       "cap": "i-edit"
@@ -19483,7 +19435,7 @@
       "version": "HiDream-O1-Image",
       "date": "2026-05-08",
       "added": "这一代加了推理",
-      "src": "hf-image-org",
+      "src": "hf-org",
       "quote": "HiDream-ai/HiDream-O1-Image（官方 HF 组织 createdAt 2026-05-08，MIT）",
       "parent": "hidream-HiDream-E1.1-按指令改图的分支",
       "cap_skip": "待挂：上一轮挂错了方向，撤回重判"
@@ -19494,7 +19446,7 @@
       "version": "ERNIE-Image-Turbo",
       "date": "2026-04-02",
       "added": "快档先出",
-      "src": "hf-image-org",
+      "src": "hf-org",
       "quote": "baidu/ERNIE-Image-Turbo（官方 HF 组织 createdAt 2026-04-02）",
       "cap_skip": "速度档，不是新增能力"
     },
@@ -19515,7 +19467,7 @@
       "version": "ERNIE-Image-Aes",
       "date": "2026-05-18",
       "added": "审美取向的调校档",
-      "src": "hf-image-org",
+      "src": "hf-org",
       "quote": "baidu/ERNIE-Image-Aes（官方 HF 组织 createdAt 2026-05-18，apache-2.0）",
       "parent": "ernie-image-ERNIE-Image-8B DiT 正式档，apache-2.0",
       "cap_skip": "尺寸 / 速度 / 价格档位，不是新增能力"
@@ -19568,7 +19520,7 @@
       "version": "Anima",
       "date": "2026-01-29",
       "added": "—",
-      "src": "hf-image-org",
+      "src": "hf-org",
       "quote": "circlestone-labs/Anima（官方 HF 组织 createdAt 2026-01-29，下载 75 万）",
       "cap_skip": "这一代没采到「新增了什么」，added 是空的"
     },
@@ -19588,7 +19540,7 @@
       "version": "Boogu-Image-0.1-Edit-Turbo",
       "date": "2026-06-30",
       "added": "改图的快档",
-      "src": "hf-image-org",
+      "src": "hf-org",
       "quote": "Boogu/Boogu-Image-0.1-Edit-Turbo（官方 HF 组织 createdAt 2026-06-30，apache-2.0）",
       "parent": "boogu-image-Boogu-Image-0.1-生成与编辑合到一个模型，apache-2.0",
       "cap_skip": "尺寸 / 速度 / 价格档位，不是新增能力"
@@ -19609,7 +19561,7 @@
       "version": "FLUX.1-Fill-dev",
       "date": "2024-11-20",
       "added": "专做重绘与扩图的一档",
-      "src": "hf-image-org",
+      "src": "hf-org",
       "quote": "black-forest-labs/FLUX.1-Fill-dev（官方 HF 组织 createdAt 2024-11-20，下载 377,737）",
       "parent": "flux-FLUX.1-schnell-首发，快档（少步数）",
       "cap": "i-inpaint"
@@ -19620,7 +19572,7 @@
       "version": "FLUX.1-Canny-dev",
       "date": "2024-11-20",
       "added": "线稿控制档",
-      "src": "hf-image-org",
+      "src": "hf-org",
       "quote": "black-forest-labs/FLUX.1-Canny-dev（官方 HF 组织 createdAt 2024-11-20，下载 4,492）",
       "parent": "flux-FLUX.1-schnell-首发，快档（少步数）",
       "cap_skip": "尺寸 / 速度 / 价格档位，不是新增能力"
@@ -19631,7 +19583,7 @@
       "version": "FLUX.1-Depth-dev",
       "date": "2024-11-20",
       "added": "深度控制档",
-      "src": "hf-image-org",
+      "src": "hf-org",
       "quote": "black-forest-labs/FLUX.1-Depth-dev（官方 HF 组织 createdAt 2024-11-20，下载 2,751）",
       "parent": "flux-FLUX.1-schnell-首发，快档（少步数）",
       "cap_skip": "尺寸 / 速度 / 价格档位，不是新增能力"
@@ -19642,7 +19594,7 @@
       "version": "FLUX.1-Redux-dev",
       "date": "2024-11-20",
       "added": "图生变体档",
-      "src": "hf-image-org",
+      "src": "hf-org",
       "quote": "black-forest-labs/FLUX.1-Redux-dev（官方 HF 组织 createdAt 2024-11-20，下载 6,926）",
       "parent": "flux-FLUX.1-schnell-首发，快档（少步数）",
       "cap": "i-i2i"
@@ -19653,7 +19605,7 @@
       "version": "FLUX.2-klein-4B",
       "date": "2026-01-14",
       "added": "同代的 4B 小档",
-      "src": "hf-image-org",
+      "src": "hf-org",
       "quote": "black-forest-labs/FLUX.2-klein-4B（官方 HF 组织 createdAt 2026-01-14，下载 354,074）",
       "parent": "flux-FLUX.2-dev-第二代",
       "cap_skip": "尺寸 / 速度 / 价格档位，不是新增能力"
@@ -19664,7 +19616,7 @@
       "version": "FLUX.2-klein-base-4B",
       "date": "2026-01-14",
       "added": "4B 的未后训基座",
-      "src": "hf-image-org",
+      "src": "hf-org",
       "quote": "black-forest-labs/FLUX.2-klein-base-4B（官方 HF 组织 createdAt 2026-01-14，下载 139,501）",
       "parent": "flux-FLUX.2-dev-第二代",
       "cap_skip": "尺寸 / 速度 / 价格档位，不是新增能力"
@@ -19675,7 +19627,7 @@
       "version": "FLUX.2-klein-base-9B",
       "date": "2026-01-14",
       "added": "9B 的未后训基座",
-      "src": "hf-image-org",
+      "src": "hf-org",
       "quote": "black-forest-labs/FLUX.2-klein-base-9B（官方 HF 组织 createdAt 2026-01-14，下载 104,782）",
       "parent": "flux-FLUX.2-dev-第二代",
       "cap_skip": "尺寸 / 速度 / 价格档位，不是新增能力"
@@ -19686,7 +19638,7 @@
       "version": "SDXL 0.9",
       "date": "2023-06-19",
       "added": "SDXL 的预览档",
-      "src": "hf-image-org",
+      "src": "hf-org",
       "quote": "stabilityai/stable-diffusion-xl-base-0.9（官方 HF 组织 createdAt 2023-06-19，下载 44）",
       "parent": "sd-SD 1.4-首个广泛传播的开放权重出图模型",
       "cap_skip": "尺寸 / 速度 / 价格档位，不是新增能力"
@@ -19697,7 +19649,7 @@
       "version": "SDXL Turbo",
       "date": "2023-11-27",
       "added": "少步数蒸馏，一步出图",
-      "src": "hf-image-org",
+      "src": "hf-org",
       "quote": "stabilityai/sdxl-turbo（官方 HF 组织 createdAt 2023-11-27，下载 1,226,446）",
       "parent": "sd-SDXL 1.0-base + refiner 的专家集成流水线",
       "cap_skip": "尺寸 / 速度 / 价格档位，不是新增能力"
@@ -19708,7 +19660,7 @@
       "version": "SD 3.5 Large Turbo",
       "date": "2024-10-22",
       "added": "3.5 的少步数档",
-      "src": "hf-image-org",
+      "src": "hf-org",
       "quote": "stabilityai/stable-diffusion-3.5-large-turbo（官方 HF 组织 createdAt 2024-10-22，下载 7,470）",
       "parent": "sd-SD 3 Medium-换 MMDiT 架构",
       "cap_skip": "尺寸 / 速度 / 价格档位，不是新增能力"
@@ -19719,7 +19671,7 @@
       "version": "SD 3.5 Medium",
       "date": "2024-10-29",
       "added": "3.5 的中档",
-      "src": "hf-image-org",
+      "src": "hf-org",
       "quote": "stabilityai/stable-diffusion-3.5-medium（官方 HF 组织 createdAt 2024-10-29，下载 89,301）",
       "parent": "sd-SD 3.5 Large-3.x 的大档",
       "cap_skip": "尺寸 / 速度 / 价格档位，不是新增能力"
@@ -19730,7 +19682,7 @@
       "version": "HiDream-I1-Fast",
       "date": "2025-04-06",
       "added": "I1 的快档",
-      "src": "hf-image-org",
+      "src": "hf-org",
       "quote": "HiDream-ai/HiDream-I1-Fast（官方 HF 组织 createdAt 2025-04-06，下载 86,324）",
       "cap_skip": "尺寸 / 速度 / 价格档位，不是新增能力"
     },
@@ -19740,7 +19692,7 @@
       "version": "HiDream-I1-Dev",
       "date": "2025-04-06",
       "added": "I1 的开发档",
-      "src": "hf-image-org",
+      "src": "hf-org",
       "quote": "HiDream-ai/HiDream-I1-Dev（官方 HF 组织 createdAt 2025-04-06，下载 573）",
       "cap_skip": "尺寸 / 速度 / 价格档位，不是新增能力"
     },
@@ -19750,7 +19702,7 @@
       "version": "HiDream-E1-Full",
       "date": "2025-04-27",
       "added": "按指令改图的第一版",
-      "src": "hf-image-org",
+      "src": "hf-org",
       "quote": "HiDream-ai/HiDream-E1-Full（官方 HF 组织 createdAt 2025-04-27，下载 174）",
       "parent": "hidream-HiDream-I1-Fast-I1 的快档",
       "cap": "i-edit"
@@ -19761,7 +19713,7 @@
       "version": "HiDream-O1-Image-Dev",
       "date": "2026-05-08",
       "added": "O1 的开发档",
-      "src": "hf-image-org",
+      "src": "hf-org",
       "quote": "HiDream-ai/HiDream-O1-Image-Dev（官方 HF 组织 createdAt 2026-05-08，下载 1,618）",
       "parent": "hidream-HiDream-E1.1-按指令改图的分支",
       "cap_skip": "尺寸 / 速度 / 价格档位，不是新增能力"
@@ -19772,7 +19724,7 @@
       "version": "HiDream-O1-Image-Dev-2604",
       "date": "2026-05-13",
       "added": "O1 开发档的日期戳更新",
-      "src": "hf-image-org",
+      "src": "hf-org",
       "quote": "HiDream-ai/HiDream-O1-Image-Dev-2604（官方 HF 组织 createdAt 2026-05-13，下载 1,026）",
       "parent": "hidream-HiDream-O1-Image-这一代加了推理",
       "cap_skip": "换代或小版本记录，没有声明新增能力"
@@ -19783,7 +19735,7 @@
       "version": "HunyuanImage-2.1",
       "date": "2025-09-05",
       "added": "3.0 的前一代",
-      "src": "hf-image-org",
+      "src": "hf-org",
       "quote": "tencent/HunyuanImage-2.1（官方 HF 组织 createdAt 2025-09-05，下载 170）",
       "cap_skip": "发布记录或形态调整，没有声明能力轴上的新增项"
     },
@@ -19793,7 +19745,7 @@
       "version": "PixelDiT-ImageNet",
       "date": "2026-03-30",
       "added": "ImageNet 上的对照档",
-      "src": "hf-image-org",
+      "src": "hf-org",
       "quote": "nvidia/PixelDiT-ImageNet（官方 HF 组织 createdAt 2026-03-30，下载 0）",
       "cap_skip": "尺寸 / 速度 / 价格档位，不是新增能力"
     },
@@ -19803,7 +19755,7 @@
       "version": "Boogu-Image-0.1-Base",
       "date": "2026-06-16",
       "added": "0.1 的基座档",
-      "src": "hf-image-org",
+      "src": "hf-org",
       "quote": "Boogu/Boogu-Image-0.1-Base（官方 HF 组织 createdAt 2026-06-16，下载 800）",
       "cap_skip": "尺寸 / 速度 / 价格档位，不是新增能力"
     },
@@ -19813,7 +19765,7 @@
       "version": "Boogu-Image-0.1-Edit",
       "date": "2026-06-16",
       "added": "0.1 的改图档",
-      "src": "hf-image-org",
+      "src": "hf-org",
       "quote": "Boogu/Boogu-Image-0.1-Edit（官方 HF 组织 createdAt 2026-06-16，下载 868）",
       "cap_skip": "尺寸 / 速度 / 价格档位，不是新增能力"
     },
@@ -19823,7 +19775,7 @@
       "version": "Boogu-Image-0.1-Turbo",
       "date": "2026-06-16",
       "added": "0.1 的快档",
-      "src": "hf-image-org",
+      "src": "hf-org",
       "quote": "Boogu/Boogu-Image-0.1-Turbo（官方 HF 组织 createdAt 2026-06-16，下载 870）",
       "cap_skip": "尺寸 / 速度 / 价格档位，不是新增能力"
     },
@@ -19833,7 +19785,7 @@
       "version": "Boogu-Image-0.0-Base-exp-pt",
       "date": "2026-06-18",
       "added": "0.1 之前的实验档",
-      "src": "hf-image-org",
+      "src": "hf-org",
       "quote": "Boogu/Boogu-Image-0.0-Base-exp-pt（官方 HF 组织 createdAt 2026-06-18，下载 164）",
       "parent": "boogu-image-Boogu-Image-0.1-生成与编辑合到一个模型，apache-2.0",
       "cap_skip": "尺寸 / 速度 / 价格档位，不是新增能力"
@@ -19844,7 +19796,7 @@
       "version": "Boogu-Image-0.0-Edit-exp-pt",
       "date": "2026-06-18",
       "added": "实验档的改图版",
-      "src": "hf-image-org",
+      "src": "hf-org",
       "quote": "Boogu/Boogu-Image-0.0-Edit-exp-pt（官方 HF 组织 createdAt 2026-06-18，下载 159）",
       "parent": "boogu-image-Boogu-Image-0.1-生成与编辑合到一个模型，apache-2.0",
       "cap_skip": "尺寸 / 速度 / 价格档位，不是新增能力"
@@ -19855,7 +19807,7 @@
       "version": "V3.2",
       "date": "2025-12-01",
       "added": "把算力效率和推理/Agent 表现放到一起",
-      "src": "hf-text-org",
+      "src": "hf-org",
       "quote": "We introduce DeepSeek-V3.2, a model that harmonizes high computational efficiency with superior reasoning and agent performance.",
       "parent": "deepseek-V3.1-换代；同年 9 月出",
       "repos": [
@@ -19870,7 +19822,7 @@
       "version": "V4",
       "date": "2026-04-22",
       "added": "换代：Pro 1.6T（激活 49B）与 Flash 两档 MoE",
-      "src": "hf-text-org",
+      "src": "hf-org",
       "quote": "We present a preview version of DeepSeek-V4 series, including two strong Mixture-of-Experts (MoE) language models — DeepSeek-V4-Pro with 1.6T parameters (49B activated) and DeepSeek-V4-Flash",
       "parent": "deepseek-V3.2-把算力效率和推理/Agent 表现放到一起",
       "repos": [
@@ -19885,7 +19837,7 @@
       "version": "V4-Flash-0731",
       "date": "2026-07-31",
       "added": "Flash 档的日期戳更新",
-      "src": "hf-text-org",
+      "src": "hf-org",
       "quote": "deepseek-ai/DeepSeek-V4-Flash-0731（官方 HF 组织 createdAt 2026-07-31，下载 105 万）",
       "parent": "deepseek-V4-换代：Pro 1.6T（激活 49B）与 Flash 两档 MoE",
       "cap_skip": "换代或小版本记录，没有声明新增能力"
@@ -19896,7 +19848,7 @@
       "version": "GLM-4.5",
       "date": "2025-07-20",
       "added": "这一代的开放权重发布",
-      "src": "hf-text-org",
+      "src": "hf-org",
       "quote": "GLM-4.5 technical blog, technical report, and Zhipu AI technical documentation（模型卡首段）",
       "note": "官方模型卡只给了博客链接，**没写这一代新增了什么** —— 这一条本身就是可记的事实",
       "parent": "glm-GLM-4-改名 GLM-4，脱",
@@ -19911,7 +19863,7 @@
       "version": "GLM-4.6",
       "date": "2025-09-29",
       "added": "小版本迭代",
-      "src": "hf-text-org",
+      "src": "hf-org",
       "quote": "GLM-4.6 technical blog, technical report(GLM-4.5)",
       "note": "官方模型卡只给了博客链接，**没写这一代新增了什么** —— 这一条本身就是可记的事实",
       "parent": "glm-GLM-4.5-这一代的开放权重发布",
@@ -19926,7 +19878,7 @@
       "version": "GLM-4.7",
       "date": "2025-12-22",
       "added": "小版本迭代",
-      "src": "hf-text-org",
+      "src": "hf-org",
       "quote": "GLM-4.7 technical blog, technical report(GLM-4.5)",
       "note": "官方模型卡只给了博客链接，**没写这一代新增了什么** —— 这一条本身就是可记的事实",
       "parent": "glm-GLM-4.6-小版本迭代",
@@ -19938,7 +19890,7 @@
       "version": "GLM-5",
       "date": "2026-02-11",
       "added": "换代：冲复杂系统工程与长程 Agent 任务",
-      "src": "hf-text-org",
+      "src": "hf-org",
       "quote": "We are launching GLM-5, targeting complex systems engineering and long-horizon agentic tasks.",
       "parent": "glm-GLM-4.7-小版本迭代",
       "repos": [
@@ -19952,7 +19904,7 @@
       "version": "GLM-5.1",
       "date": "2026-04-03",
       "added": "小版本迭代",
-      "src": "hf-text-org",
+      "src": "hf-org",
       "quote": "GLM-5.1 blog and GLM-5 Technical report",
       "note": "官方模型卡只给了博客链接，**没写这一代新增了什么** —— 这一条本身就是可记的事实",
       "parent": "glm-GLM-5-换代：冲复杂系统工程与长程 Agent 任务",
@@ -19967,7 +19919,7 @@
       "version": "GLM-5.2",
       "date": "2026-06-16",
       "added": "小版本迭代",
-      "src": "hf-text-org",
+      "src": "hf-org",
       "quote": "GLM-5.2 blog and GLM-5 Technical report",
       "note": "官方模型卡只给了博客链接，**没写这一代新增了什么** —— 这一条本身就是可记的事实",
       "parent": "glm-GLM-5.1-小版本迭代",
@@ -19982,7 +19934,7 @@
       "version": "K2",
       "date": "2025-07-11",
       "added": "1T 参数 MoE（激活 32B），用 Muon 优化器训",
-      "src": "hf-text-org",
+      "src": "hf-org",
       "quote": "Kimi K2 is a state-of-the-art mixture-of-experts (MoE) language model with 32 billion activated parameters and 1 trillion total parameters. Trained with the Muon optimizer",
       "parent": "kimi-Kimi-Dev-面向软件工程任务的专",
       "repos": [
@@ -19996,7 +19948,7 @@
       "version": "K2-Thinking",
       "date": "2025-11-04",
       "added": "边推理边调工具的思考档",
-      "src": "hf-text-org",
+      "src": "hf-org",
       "quote": "Kimi K2 Thinking is the latest, most capable version of open-source thinking model … a thinking agent that reasons step-by-step while dynamically invoking tools",
       "parent": "kimi-K2-1T 参数 MoE（激活 32B），用 Muon 优化器训",
       "repos": [
@@ -20010,7 +19962,7 @@
       "version": "K2.5",
       "date": "2026-01-01",
       "added": "转原生多模态：在 K2-Base 上继续预训 15T 图文混合 token",
-      "src": "hf-text-org",
+      "src": "hf-org",
       "quote": "Kimi K2.5 is an open-source, native multimodal agentic model built through continual pretraining on approximately 15 trillion mixed visual and text tokens atop Kimi-K2-Base.",
       "parent": "kimi-K2-Thinking-边推理边调工具的思考档",
       "repos": [
@@ -20024,7 +19976,7 @@
       "version": "K2.6",
       "date": "2026-04-14",
       "added": "长程编码、自主执行与群体任务编排",
-      "src": "hf-text-org",
+      "src": "hf-org",
       "quote": "Kimi K2.6 … advances practical capabilities in long-horizon coding, coding-driven design, proactive autonomous execution, and swarm-based task orchestration",
       "parent": "kimi-K2.5-转原生多模态：在 K2-Base 上继续预训 15T 图文混合 token",
       "repos": [
@@ -20038,7 +19990,7 @@
       "version": "K3",
       "date": "2026-06-13",
       "added": "2.8T 参数，换新注意力（KDA + AttnRes）",
-      "src": "hf-text-org",
+      "src": "hf-org",
       "quote": "Kimi K3 is an open-weight, native multimodal agentic model and our most capable model to date. It is a 2.8T-parameter model built on Kimi Delta Attention (KDA) and Attention Residuals (AttnRes)",
       "parent": "kimi-K2.6-长程编码、自主执行与群体任务编排",
       "repos": [
@@ -20052,7 +20004,7 @@
       "version": "Llama 4",
       "date": "2025-04-02",
       "added": "Scout 与 Maverick 两档 MoE",
-      "src": "hf-text-org",
+      "src": "hf-org",
       "quote": "meta-llama/Llama-4-Scout-17B-16E-Instruct（官方 HF 组织 createdAt 2025-04-02，下载 46 万）。**模型卡是 gated，读不到正文**",
       "parent": "llama-Llama 3.3-只发 70B Ins",
       "repos": [
@@ -20067,7 +20019,7 @@
       "version": "M2",
       "date": "2025-10-22",
       "added": "主打写代码与 Agent 流程的小模型",
-      "src": "hf-text-org",
+      "src": "hf-org",
       "quote": "Today, we release and open source MiniMax-M2, a Mini model built for Max coding & agentic workflows.",
       "parent": "minimax-text-M1-推理模型，按",
       "repos": [
@@ -20081,7 +20033,7 @@
       "version": "M2.5",
       "date": "2026-02-12",
       "added": "小版本迭代",
-      "src": "hf-text-org",
+      "src": "hf-org",
       "quote": "Today we're introducing our latest model, MiniMax-M2.5.",
       "note": "官方卡只有一句发布语，没展开这一代加了什么",
       "parent": "minimax-text-M2.1-小版本迭代",
@@ -20096,7 +20048,7 @@
       "version": "M3",
       "date": "2026-06-02",
       "added": "转原生多模态 + 1M 上下文（约 428B 参数、激活 23B）",
-      "src": "hf-text-org",
+      "src": "hf-org",
       "quote": "MiniMax-M3 is a native multimodal model with 1M context. It has ~428B parameters and ~23B activated parameters.",
       "parent": "minimax-text-M2.7-小版本迭代",
       "repos": [
@@ -20110,7 +20062,7 @@
       "version": "Large 3",
       "date": "2025-11-28",
       "added": "675B 总参 / 41B 激活的多模态细粒度 MoE",
-      "src": "hf-text-org",
+      "src": "hf-org",
       "quote": "Mistral Large 3 is a state-of-the-art general-purpose Multimodal granular Mixture-of-Experts model with 41B active parameters and 675B total parameters",
       "parent": "mistral-text-Ministral 3-端侧档换代；同日放出",
       "repos": [
@@ -20124,7 +20076,7 @@
       "version": "Small 4",
       "date": "2026-01-23",
       "added": "把 Instruct / Reasoning 等三支合成一个混合模型",
-      "src": "hf-text-org",
+      "src": "hf-org",
       "quote": "Mistral Small 4 is a powerful hybrid model capable of acting as both a general instruction model and a reasoning model. It unifies the capabilities of three different model families",
       "parent": "mistral-text-Large 3-675B 总参 / 41B 激活的多模态细粒度 MoE",
       "repos": [
@@ -20138,7 +20090,7 @@
       "version": "Medium 3.5",
       "date": "2026-03-31",
       "added": "第一个「合并」旗舰：128B 稠密 + 256k 上下文",
-      "src": "hf-text-org",
+      "src": "hf-org",
       "quote": "Mistral Medium 3.5 is our first flagship merged model. It is a dense 128B model with a 256k context window",
       "parent": "mistral-text-Leanstral-定理证明支线",
       "repos": [
@@ -20152,7 +20104,7 @@
       "version": "Qwen3.5",
       "date": "2026-02-24",
       "added": "换代",
-      "src": "hf-text-org",
+      "src": "hf-org",
       "quote": "Qwen3.5 represents a significant leap forward, integrating breakthroughs（模型卡首段）",
       "parent": "qwen-text-Qwen3-Next-新架构试验档 80B",
       "repos": [
@@ -20167,7 +20119,7 @@
       "version": "Qwen3.6",
       "date": "2026-04-15",
       "added": "按社区反馈做稳定性与可靠性",
-      "src": "hf-text-org",
+      "src": "hf-org",
       "quote": "Following the February release of the Qwen3.5 series, we're pleased to share the first open-weight variant of Qwen3.6. Built on direct feedback from the community, Qwen3.6 prioritizes stability and re…",
       "parent": "qwen-text-Qwen3.5-换代",
       "repos": [
@@ -20633,7 +20585,7 @@
       "version": "Qwen-7B",
       "date": "2023-08-03",
       "added": "这条线的第一代开放权重",
-      "src": "hf-text-org",
+      "src": "hf-org",
       "quote": "官方 HF 组织 Qwen/Qwen-7B，createdAt 2023-08-03（同代 6 个仓库）",
       "note": "日期取官方 HF 组织的 createdAt（**不是 lastModified**）；同一代的多个尺寸档与量化档已折成一个节点",
       "repos": [
@@ -20647,7 +20599,7 @@
       "version": "Qwen1.5",
       "date": "2024-01-22",
       "added": "铺开 0.5B 到 110B 的尺寸档",
-      "src": "hf-text-org",
+      "src": "hf-org",
       "quote": "Qwen/Qwen1.5-0.5B 起，createdAt 2024-01-22（同代 16 个仓库）",
       "note": "日期取官方 HF 组织的 createdAt（**不是 lastModified**）；同一代的多个尺寸档与量化档已折成一个节点",
       "parent": "qwen-text-Qwen-7B-这条线的第一代开放权",
@@ -20659,7 +20611,7 @@
       "version": "Qwen2",
       "date": "2024-05-22",
       "added": "加 MoE（57B-A14B）",
-      "src": "hf-text-org",
+      "src": "hf-org",
       "quote": "Qwen/Qwen2-72B 与 Qwen2-57B-A14B，createdAt 2024-05-22",
       "note": "日期取官方 HF 组织的 createdAt（**不是 lastModified**）；同一代的多个尺寸档与量化档已折成一个节点",
       "parent": "qwen-text-Qwen1.5-铺开 0.5B 到 ",
@@ -20675,7 +20627,7 @@
       "version": "Qwen2.5",
       "date": "2024-09-15",
       "added": "同期分出 Coder 支线",
-      "src": "hf-text-org",
+      "src": "hf-org",
       "quote": "Qwen/Qwen2.5-0.5B 起 createdAt 2024-09-15；次日 Qwen2.5-Coder-7B",
       "note": "日期取官方 HF 组织的 createdAt（**不是 lastModified**）；同一代的多个尺寸档与量化档已折成一个节点",
       "parent": "qwen-text-Qwen2-加 MoE（57B-",
@@ -20687,7 +20639,7 @@
       "version": "QwQ",
       "date": "2025-03-05",
       "added": "专做推理的支线（Preview 2024-11-27 起）",
-      "src": "hf-text-org",
+      "src": "hf-org",
       "quote": "Qwen/QwQ-32B createdAt 2025-03-05（♥2961）；Preview 版 2024-11-27",
       "note": "日期取官方 HF 组织的 createdAt（**不是 lastModified**）；同一代的多个尺寸档与量化档已折成一个节点",
       "parent": "qwen-text-Qwen2.5-同期分出 Coder",
@@ -20703,7 +20655,7 @@
       "version": "Qwen3",
       "date": "2025-04-27",
       "added": "换代；同年 7 月拆出 Instruct / Thinking 两条",
-      "src": "hf-text-org",
+      "src": "hf-org",
       "quote": "Qwen/Qwen3-0.6B 起 createdAt 2025-04-27（同代 11 个仓库）",
       "note": "日期取官方 HF 组织的 createdAt（**不是 lastModified**）；同一代的多个尺寸档与量化档已折成一个节点",
       "parent": "qwen-text-QwQ-专做推理的支线（Pr",
@@ -20719,7 +20671,7 @@
       "version": "Qwen3-Next",
       "date": "2025-09-09",
       "added": "新架构试验档 80B-A3B",
-      "src": "hf-text-org",
+      "src": "hf-org",
       "quote": "Qwen/Qwen3-Next-80B-A3B-Instruct 与 -Thinking，createdAt 2025-09-09",
       "note": "日期取官方 HF 组织的 createdAt（**不是 lastModified**）；同一代的多个尺寸档与量化档已折成一个节点",
       "parent": "qwen-text-Qwen3-换代；同年 7 月拆",
@@ -20735,7 +20687,7 @@
       "version": "Llama 2",
       "date": "2023-07-09",
       "added": "这条线在 HF 上的第一代",
-      "src": "hf-text-org",
+      "src": "hf-org",
       "quote": "meta-llama/Llama-2-7b createdAt 2023-07-09（♥4522，同代 6 个仓库）",
       "note": "日期取官方 HF 组织的 createdAt（**不是 lastModified**）；同一代的多个尺寸档与量化档已折成一个节点",
       "repos": [
@@ -20749,7 +20701,7 @@
       "version": "Llama 3",
       "date": "2024-04-17",
       "added": "换代",
-      "src": "hf-text-org",
+      "src": "hf-org",
       "quote": "meta-llama/Meta-Llama-3-70B createdAt 2024-04-17",
       "note": "日期取官方 HF 组织的 createdAt（**不是 lastModified**）；同一代的多个尺寸档与量化档已折成一个节点",
       "parent": "llama-Llama 2-这条线在 HF 上的",
@@ -20764,7 +20716,7 @@
       "version": "Llama 3.1",
       "date": "2024-07-14",
       "added": "405B 档",
-      "src": "hf-text-org",
+      "src": "hf-org",
       "quote": "meta-llama/Llama-3.1-8B 起 createdAt 2024-07-14（同代 6 个仓库）",
       "note": "日期取官方 HF 组织的 createdAt（**不是 lastModified**）；同一代的多个尺寸档与量化档已折成一个节点",
       "parent": "llama-Llama 3-换代",
@@ -20779,7 +20731,7 @@
       "version": "Llama 3.2",
       "date": "2024-09-18",
       "added": "下探到 1B / 3B 端侧档",
-      "src": "hf-text-org",
+      "src": "hf-org",
       "quote": "meta-llama/Llama-3.2-1B 起 createdAt 2024-09-18",
       "note": "日期取官方 HF 组织的 createdAt（**不是 lastModified**）；同一代的多个尺寸档与量化档已折成一个节点",
       "parent": "llama-Llama 3.1-405B 档",
@@ -20794,7 +20746,7 @@
       "version": "Llama 3.3",
       "date": "2024-11-26",
       "added": "只发 70B Instruct",
-      "src": "hf-text-org",
+      "src": "hf-org",
       "quote": "meta-llama/Llama-3.3-70B-Instruct createdAt 2024-11-26（♥2948）",
       "note": "日期取官方 HF 组织的 createdAt（**不是 lastModified**）；同一代的多个尺寸档与量化档已折成一个节点",
       "parent": "llama-Llama 3.2-下探到 1B / 3",
@@ -20809,7 +20761,7 @@
       "version": "Qwen1.5-MoE",
       "date": "2024-02-29",
       "added": "这条线的第一个 MoE（激活 2.7B）",
-      "src": "hf-text-org",
+      "src": "hf-org",
       "quote": "官方 HF 组织 Qwen/Qwen1.5-MoE-A2.7B，createdAt 2024-02-29（同代 2 个仓库）",
       "note": "日期取官方 HF 组织的 createdAt（**不是 lastModified**）；同一代的多个尺寸档与量化档已折成一个节点。跨模态支线（视觉 / 音频 / 图像生成）不在这棵树上 —— 它们的产出物不是文本。",
       "parent": "qwen-text-Qwen1.5-铺开 0.5B 到 ",
@@ -20825,7 +20777,7 @@
       "version": "Qwen2.5-Coder",
       "date": "2024-09-16",
       "added": "分出代码支线",
-      "src": "hf-text-org",
+      "src": "hf-org",
       "quote": "官方 HF 组织 Qwen/Qwen2.5-Coder-7B，createdAt 2024-09-16（同代 12 个仓库）",
       "note": "日期取官方 HF 组织的 createdAt（**不是 lastModified**）；同一代的多个尺寸档与量化档已折成一个节点。跨模态支线（视觉 / 音频 / 图像生成）不在这棵树上 —— 它们的产出物不是文本。",
       "parent": "qwen-text-Qwen2.5-同期分出 Coder",
@@ -20841,7 +20793,7 @@
       "version": "Qwen3-2507",
       "date": "2025-07-21",
       "added": "Instruct 与 Thinking 拆成两个发布，不再靠开关切",
-      "src": "hf-text-org",
+      "src": "hf-org",
       "quote": "官方 HF 组织 Qwen/Qwen3-235B-A22B-Instruct-2507，createdAt 2025-07-21（同代 2 个仓库）",
       "note": "日期取官方 HF 组织的 createdAt（**不是 lastModified**）；同一代的多个尺寸档与量化档已折成一个节点。跨模态支线（视觉 / 音频 / 图像生成）不在这棵树上 —— 它们的产出物不是文本。",
       "parent": "qwen-text-Qwen3-换代；同年 7 月拆",
@@ -20857,7 +20809,7 @@
       "version": "Qwen3-Coder",
       "date": "2025-07-22",
       "added": "代码支线跟进到 Qwen3（480B-A35B）",
-      "src": "hf-text-org",
+      "src": "hf-org",
       "quote": "官方 HF 组织 Qwen/Qwen3-Coder-480B-A35B-Instruct，createdAt 2025-07-22（同代 2 个仓库）",
       "note": "日期取官方 HF 组织的 createdAt（**不是 lastModified**）；同一代的多个尺寸档与量化档已折成一个节点。跨模态支线（视觉 / 音频 / 图像生成）不在这棵树上 —— 它们的产出物不是文本。",
       "parent": "qwen-text-Qwen3-换代；同年 7 月拆",
@@ -20874,7 +20826,7 @@
       "version": "Qwen3-Coder-Next",
       "date": "2026-01-30",
       "added": "代码支线接上 Next 架构",
-      "src": "hf-text-org",
+      "src": "hf-org",
       "quote": "官方 HF 组织 Qwen/Qwen3-Coder-Next，createdAt 2026-01-30（同代 2 个仓库）",
       "note": "日期取官方 HF 组织的 createdAt（**不是 lastModified**）；同一代的多个尺寸档与量化档已折成一个节点。跨模态支线（视觉 / 音频 / 图像生成）不在这棵树上 —— 它们的产出物不是文本。",
       "parent": "qwen-text-Qwen3-Coder-代码支线跟进到 Qw",
@@ -20889,7 +20841,7 @@
       "version": "Qwen-AgentWorld",
       "date": "2026-06-22",
       "added": "面向智能体环境的专门发布",
-      "src": "hf-text-org",
+      "src": "hf-org",
       "quote": "官方 HF 组织 Qwen/Qwen-AgentWorld-35B-A3B，createdAt 2026-06-22",
       "note": "日期取官方 HF 组织的 createdAt（**不是 lastModified**）；同一代的多个尺寸档与量化档已折成一个节点。跨模态支线（视觉 / 音频 / 图像生成）不在这棵树上 —— 它们的产出物不是文本。",
       "parent": "qwen-text-Qwen3.6-按社区反馈做稳定性与可靠性",
@@ -20904,7 +20856,7 @@
       "version": "deepseek-coder",
       "date": "2023-10-23",
       "added": "这条线在 HF 上最早的发布，从代码模型起步",
-      "src": "hf-text-org",
+      "src": "hf-org",
       "quote": "官方 HF 组织 deepseek-ai/deepseek-coder-6.7b-base，createdAt 2023-10-23（同代 6 个仓库）",
       "note": "日期取官方 HF 组织的 createdAt（**不是 lastModified**）；同一代的多个尺寸档与量化档已折成一个节点。跨模态支线（视觉 / 音频 / 图像生成）不在这棵树上 —— 它们的产出物不是文本。",
       "repos": [
@@ -20918,7 +20870,7 @@
       "version": "deepseek-llm",
       "date": "2023-11-29",
       "added": "第一个通用语言模型",
-      "src": "hf-text-org",
+      "src": "hf-org",
       "quote": "官方 HF 组织 deepseek-ai/deepseek-llm-7b-base，createdAt 2023-11-29（同代 4 个仓库）",
       "note": "日期取官方 HF 组织的 createdAt（**不是 lastModified**）；同一代的多个尺寸档与量化档已折成一个节点。跨模态支线（视觉 / 音频 / 图像生成）不在这棵树上 —— 它们的产出物不是文本。",
       "parent": "deepseek-deepseek-coder-这条线在 HF 上最",
@@ -20933,7 +20885,7 @@
       "version": "deepseek-moe",
       "date": "2024-01-08",
       "added": "转 MoE 架构",
-      "src": "hf-text-org",
+      "src": "hf-org",
       "quote": "官方 HF 组织 deepseek-ai/deepseek-moe-16b-base，createdAt 2024-01-08（同代 2 个仓库）",
       "note": "日期取官方 HF 组织的 createdAt（**不是 lastModified**）；同一代的多个尺寸档与量化档已折成一个节点。跨模态支线（视觉 / 音频 / 图像生成）不在这棵树上 —— 它们的产出物不是文本。",
       "parent": "deepseek-deepseek-llm-第一个通用语言模型",
@@ -20948,7 +20900,7 @@
       "version": "V2",
       "date": "2024-04-22",
       "added": "换代；同月出 Lite 档",
-      "src": "hf-text-org",
+      "src": "hf-org",
       "quote": "官方 HF 组织 deepseek-ai/DeepSeek-V2，createdAt 2024-04-22（同代 2 个仓库）",
       "note": "日期取官方 HF 组织的 createdAt（**不是 lastModified**）；同一代的多个尺寸档与量化档已折成一个节点。跨模态支线（视觉 / 音频 / 图像生成）不在这棵树上 —— 它们的产出物不是文本。",
       "parent": "deepseek-deepseek-moe-转 MoE 架构",
@@ -20965,7 +20917,7 @@
       "version": "Coder-V2",
       "date": "2024-06-14",
       "added": "代码支线跟到 V2",
-      "src": "hf-text-org",
+      "src": "hf-org",
       "quote": "官方 HF 组织 deepseek-ai/DeepSeek-Coder-V2-Lite-Base，createdAt 2024-06-14（同代 2 个仓库）",
       "note": "日期取官方 HF 组织的 createdAt（**不是 lastModified**）；同一代的多个尺寸档与量化档已折成一个节点。跨模态支线（视觉 / 音频 / 图像生成）不在这棵树上 —— 它们的产出物不是文本。",
       "parent": "deepseek-V2-换代；同月出 Lit",
@@ -20980,7 +20932,7 @@
       "version": "V2.5",
       "date": "2024-09-05",
       "added": "把通用与代码两条线合回一个模型",
-      "src": "hf-text-org",
+      "src": "hf-org",
       "quote": "官方 HF 组织 deepseek-ai/DeepSeek-V2.5，createdAt 2024-09-05（同代 2 个仓库）",
       "note": "日期取官方 HF 组织的 createdAt（**不是 lastModified**）；同一代的多个尺寸档与量化档已折成一个节点。跨模态支线（视觉 / 音频 / 图像生成）不在这棵树上 —— 它们的产出物不是文本。",
       "parent": "deepseek-V2-换代；同月出 Lit",
@@ -20995,7 +20947,7 @@
       "version": "V3",
       "date": "2024-12-25",
       "added": "换代",
-      "src": "hf-text-org",
+      "src": "hf-org",
       "quote": "官方 HF 组织 deepseek-ai/DeepSeek-V3-Base，createdAt 2024-12-25（同代 3 个仓库）",
       "note": "日期取官方 HF 组织的 createdAt（**不是 lastModified**）；同一代的多个尺寸档与量化档已折成一个节点。跨模态支线（视觉 / 音频 / 图像生成）不在这棵树上 —— 它们的产出物不是文本。",
       "parent": "deepseek-V2.5-把通用与代码两条线合",
@@ -21010,7 +20962,7 @@
       "version": "R1",
       "date": "2025-01-20",
       "added": "推理模型：同日放出 R1-Zero 与蒸馏到 Qwen / Llama 的小档",
-      "src": "hf-text-org",
+      "src": "hf-org",
       "quote": "官方 HF 组织 deepseek-ai/DeepSeek-R1，createdAt 2025-01-20（同代 2 个仓库）",
       "note": "日期取官方 HF 组织的 createdAt（**不是 lastModified**）；同一代的多个尺寸档与量化档已折成一个节点。跨模态支线（视觉 / 音频 / 图像生成）不在这棵树上 —— 它们的产出物不是文本。",
       "parent": "deepseek-V3-换代",
@@ -21028,7 +20980,7 @@
       "version": "V3.1",
       "date": "2025-08-19",
       "added": "换代；同年 9 月出 Terminus 修订",
-      "src": "hf-text-org",
+      "src": "hf-org",
       "quote": "官方 HF 组织 deepseek-ai/DeepSeek-V3.1-Base，createdAt 2025-08-19（同代 2 个仓库）",
       "note": "日期取官方 HF 组织的 createdAt（**不是 lastModified**）；同一代的多个尺寸档与量化档已折成一个节点。跨模态支线（视觉 / 音频 / 图像生成）不在这棵树上 —— 它们的产出物不是文本。",
       "parent": "deepseek-R1-推理模型：同",
@@ -21044,7 +20996,7 @@
       "version": "ChatGLM-6B",
       "date": "2023-03-13",
       "added": "这条线的起点，中文开源对话模型",
-      "src": "hf-text-org",
+      "src": "hf-org",
       "quote": "官方 HF 组织 zai-org/chatglm-6b，createdAt 2023-03-13",
       "note": "日期取官方 HF 组织的 createdAt（**不是 lastModified**）；同一代的多个尺寸档与量化档已折成一个节点。跨模态支线（视觉 / 音频 / 图像生成）不在这棵树上 —— 它们的产出物不是文本。",
       "repos": [
@@ -21058,7 +21010,7 @@
       "version": "ChatGLM2",
       "date": "2023-06-24",
       "added": "换代；同年 7 月出 32k 长上下文档",
-      "src": "hf-text-org",
+      "src": "hf-org",
       "quote": "官方 HF 组织 zai-org/chatglm2-6b，createdAt 2023-06-24",
       "note": "日期取官方 HF 组织的 createdAt（**不是 lastModified**）；同一代的多个尺寸档与量化档已折成一个节点。跨模态支线（视觉 / 音频 / 图像生成）不在这棵树上 —— 它们的产出物不是文本。",
       "parent": "glm-ChatGLM-6B-这条线的起点，中文开",
@@ -21074,7 +21026,7 @@
       "version": "ChatGLM3",
       "date": "2023-10-25",
       "added": "换代；同期出 32k / 128k 档",
-      "src": "hf-text-org",
+      "src": "hf-org",
       "quote": "官方 HF 组织 zai-org/chatglm3-6b，createdAt 2023-10-25（同代 2 个仓库）",
       "note": "日期取官方 HF 组织的 createdAt（**不是 lastModified**）；同一代的多个尺寸档与量化档已折成一个节点。跨模态支线（视觉 / 音频 / 图像生成）不在这棵树上 —— 它们的产出物不是文本。",
       "parent": "glm-ChatGLM2-换代；同年 7 月出",
@@ -21090,7 +21042,7 @@
       "version": "GLM-4",
       "date": "2024-06-04",
       "added": "改名 GLM-4，脱离 ChatGLM 命名",
-      "src": "hf-text-org",
+      "src": "hf-org",
       "quote": "官方 HF 组织 zai-org/glm-4-9b，createdAt 2024-06-04（同代 5 个仓库）",
       "note": "日期取官方 HF 组织的 createdAt（**不是 lastModified**）；同一代的多个尺寸档与量化档已折成一个节点。跨模态支线（视觉 / 音频 / 图像生成）不在这棵树上 —— 它们的产出物不是文本。",
       "parent": "glm-ChatGLM3-换代；同期出 32k",
@@ -21105,7 +21057,7 @@
       "version": "CodeGeeX2",
       "date": "2023-07-19",
       "added": "代码支线",
-      "src": "hf-text-org",
+      "src": "hf-org",
       "quote": "官方 HF 组织 zai-org/codegeex2-6b，createdAt 2023-07-19",
       "note": "日期取官方 HF 组织的 createdAt（**不是 lastModified**）；同一代的多个尺寸档与量化档已折成一个节点。跨模态支线（视觉 / 音频 / 图像生成）不在这棵树上 —— 它们的产出物不是文本。",
       "parent": "glm-ChatGLM2-换代；同年 7 月出",
@@ -21120,7 +21072,7 @@
       "version": "CodeGeeX4",
       "date": "2024-07-05",
       "added": "代码支线跟到 GLM-4 时代",
-      "src": "hf-text-org",
+      "src": "hf-org",
       "quote": "官方 HF 组织 zai-org/codegeex4-all-9b，createdAt 2024-07-05",
       "note": "日期取官方 HF 组织的 createdAt（**不是 lastModified**）；同一代的多个尺寸档与量化档已折成一个节点。跨模态支线（视觉 / 音频 / 图像生成）不在这棵树上 —— 它们的产出物不是文本。",
       "parent": "glm-CodeGeeX2-代码支线",
@@ -21135,7 +21087,7 @@
       "version": "GLM-4.7-Flash",
       "date": "2026-01-19",
       "added": "4.7 的轻量档（♥180 万下载，是这条线最热的一个仓库）",
-      "src": "hf-text-org",
+      "src": "hf-org",
       "quote": "官方 HF 组织 zai-org/GLM-4.7-Flash，createdAt 2026-01-19",
       "note": "日期取官方 HF 组织的 createdAt（**不是 lastModified**）；同一代的多个尺寸档与量化档已折成一个节点。跨模态支线（视觉 / 音频 / 图像生成）不在这棵树上 —— 它们的产出物不是文本。",
       "parent": "glm-GLM-4.7-小版本迭代",
@@ -21151,7 +21103,7 @@
       "version": "Moonlight",
       "date": "2025-02-22",
       "added": "这条线在 HF 上最早的发布，16B MoE（激活 3B）",
-      "src": "hf-text-org",
+      "src": "hf-org",
       "quote": "官方 HF 组织 moonshotai/Moonlight-16B-A3B，createdAt 2025-02-22（同代 2 个仓库）",
       "note": "日期取官方 HF 组织的 createdAt（**不是 lastModified**）；同一代的多个尺寸档与量化档已折成一个节点。跨模态支线（视觉 / 音频 / 图像生成）不在这棵树上 —— 它们的产出物不是文本。",
       "repos": [
@@ -21165,7 +21117,7 @@
       "version": "Kimi-Dev",
       "date": "2025-06-16",
       "added": "面向软件工程任务的专门发布",
-      "src": "hf-text-org",
+      "src": "hf-org",
       "quote": "官方 HF 组织 moonshotai/Kimi-Dev-72B，createdAt 2025-06-16",
       "note": "日期取官方 HF 组织的 createdAt（**不是 lastModified**）；同一代的多个尺寸档与量化档已折成一个节点。跨模态支线（视觉 / 音频 / 图像生成）不在这棵树上 —— 它们的产出物不是文本。",
       "parent": "kimi-Moonlight-这条线在 HF 上最",
@@ -21180,7 +21132,7 @@
       "version": "K2-0905",
       "date": "2025-09-03",
       "added": "K2 的日期戳更新",
-      "src": "hf-text-org",
+      "src": "hf-org",
       "quote": "官方 HF 组织 moonshotai/Kimi-K2-Instruct-0905，createdAt 2025-09-03",
       "note": "日期取官方 HF 组织的 createdAt（**不是 lastModified**）；同一代的多个尺寸档与量化档已折成一个节点。跨模态支线（视觉 / 音频 / 图像生成）不在这棵树上 —— 它们的产出物不是文本。",
       "parent": "kimi-K2-1T 参数 MoE（激活 32B），用 Muon 优化器训",
@@ -21195,7 +21147,7 @@
       "version": "Kimi-Linear",
       "date": "2025-10-30",
       "added": "线性注意力试验档（48B-A3B）",
-      "src": "hf-text-org",
+      "src": "hf-org",
       "quote": "官方 HF 组织 moonshotai/Kimi-Linear-48B-A3B-Instruct，createdAt 2025-10-30（同代 2 个仓库）",
       "note": "日期取官方 HF 组织的 createdAt（**不是 lastModified**）；同一代的多个尺寸档与量化档已折成一个节点。跨模态支线（视觉 / 音频 / 图像生成）不在这棵树上 —— 它们的产出物不是文本。",
       "parent": "kimi-K2-1T 参数 MoE（激活 32B），用 Muon 优化器训",
@@ -21210,7 +21162,7 @@
       "version": "K2.7-Code",
       "date": "2026-06-11",
       "added": "代码专用档，官方标为多模态",
-      "src": "hf-text-org",
+      "src": "hf-org",
       "quote": "官方 HF 组织 moonshotai/Kimi-K2.7-Code，createdAt 2026-06-11",
       "note": "日期取官方 HF 组织的 createdAt（**不是 lastModified**）；同一代的多个尺寸档与量化档已折成一个节点。跨模态支线（视觉 / 音频 / 图像生成）不在这棵树上 —— 它们的产出物不是文本。",
       "parent": "kimi-K2.6-长程编码、自主执行与群体任务编排",
@@ -21225,7 +21177,7 @@
       "version": "Text-01",
       "date": "2025-01-12",
       "added": "这条线的第一代",
-      "src": "hf-text-org",
+      "src": "hf-org",
       "quote": "官方 HF 组织 MiniMaxAI/MiniMax-Text-01，createdAt 2025-01-12",
       "note": "日期取官方 HF 组织的 createdAt（**不是 lastModified**）；同一代的多个尺寸档与量化档已折成一个节点。跨模态支线（视觉 / 音频 / 图像生成）不在这棵树上 —— 它们的产出物不是文本。",
       "repos": [
@@ -21239,7 +21191,7 @@
       "version": "M1",
       "date": "2025-06-13",
       "added": "推理模型，按上下文长度分 40k / 80k 两档",
-      "src": "hf-text-org",
+      "src": "hf-org",
       "quote": "官方 HF 组织 MiniMaxAI/MiniMax-M1-80k，createdAt 2025-06-13",
       "note": "日期取官方 HF 组织的 createdAt（**不是 lastModified**）；同一代的多个尺寸档与量化档已折成一个节点。跨模态支线（视觉 / 音频 / 图像生成）不在这棵树上 —— 它们的产出物不是文本。",
       "parent": "minimax-text-Text-01-这条线的第一代",
@@ -21255,7 +21207,7 @@
       "version": "M2.1",
       "date": "2025-12-20",
       "added": "小版本迭代",
-      "src": "hf-text-org",
+      "src": "hf-org",
       "quote": "官方 HF 组织 MiniMaxAI/MiniMax-M2.1，createdAt 2025-12-20",
       "note": "日期取官方 HF 组织的 createdAt（**不是 lastModified**）；同一代的多个尺寸档与量化档已折成一个节点。跨模态支线（视觉 / 音频 / 图像生成）不在这棵树上 —— 它们的产出物不是文本。",
       "parent": "minimax-text-M2-主打写代码与 Agent 流程的小模型",
@@ -21270,7 +21222,7 @@
       "version": "M2.7",
       "date": "2026-04-09",
       "added": "小版本迭代",
-      "src": "hf-text-org",
+      "src": "hf-org",
       "quote": "官方 HF 组织 MiniMaxAI/MiniMax-M2.7，createdAt 2026-04-09",
       "note": "日期取官方 HF 组织的 createdAt（**不是 lastModified**）；同一代的多个尺寸档与量化档已折成一个节点。跨模态支线（视觉 / 音频 / 图像生成）不在这棵树上 —— 它们的产出物不是文本。",
       "parent": "minimax-text-M2.5-小版本迭代",
@@ -21285,7 +21237,7 @@
       "version": "Mistral 7B",
       "date": "2023-09-20",
       "added": "这条线的起点，7B 稠密",
-      "src": "hf-text-org",
+      "src": "hf-org",
       "quote": "官方 HF 组织 mistralai/Mistral-7B-v0.1，createdAt 2023-09-20",
       "note": "日期取官方 HF 组织的 createdAt（**不是 lastModified**）；同一代的多个尺寸档与量化档已折成一个节点。跨模态支线（视觉 / 音频 / 图像生成）不在这棵树上 —— 它们的产出物不是文本。",
       "repos": [
@@ -21301,7 +21253,7 @@
       "version": "Mixtral 8x7B",
       "date": "2023-12-01",
       "added": "稀疏 MoE（8 专家）",
-      "src": "hf-text-org",
+      "src": "hf-org",
       "quote": "官方 HF 组织 mistralai/Mixtral-8x7B-v0.1，createdAt 2023-12-01（同代 2 个仓库）",
       "note": "日期取官方 HF 组织的 createdAt（**不是 lastModified**）；同一代的多个尺寸档与量化档已折成一个节点。跨模态支线（视觉 / 音频 / 图像生成）不在这棵树上 —— 它们的产出物不是文本。",
       "parent": "mistral-text-Mistral 7B-这条线的起点，7B ",
@@ -21317,7 +21269,7 @@
       "version": "Mistral 7B v0.3",
       "date": "2024-05-22",
       "added": "扩词表并加函数调用",
-      "src": "hf-text-org",
+      "src": "hf-org",
       "quote": "官方 HF 组织 mistralai/Mistral-7B-v0.3，createdAt 2024-05-22",
       "note": "日期取官方 HF 组织的 createdAt（**不是 lastModified**）；同一代的多个尺寸档与量化档已折成一个节点。跨模态支线（视觉 / 音频 / 图像生成）不在这棵树上 —— 它们的产出物不是文本。",
       "parent": "mistral-text-Mixtral 8x7B-稀疏 MoE",
@@ -21333,7 +21285,7 @@
       "version": "Codestral",
       "date": "2024-05-29",
       "added": "分出代码支线（22B）",
-      "src": "hf-text-org",
+      "src": "hf-org",
       "quote": "官方 HF 组织 mistralai/Codestral-22B-v0.1，createdAt 2024-05-29",
       "note": "日期取官方 HF 组织的 createdAt（**不是 lastModified**）；同一代的多个尺寸档与量化档已折成一个节点。跨模态支线（视觉 / 音频 / 图像生成）不在这棵树上 —— 它们的产出物不是文本。",
       "parent": "mistral-text-Mistral 7B v0.3-扩词表并加函数调用",
@@ -21348,7 +21300,7 @@
       "version": "Mistral Nemo",
       "date": "2024-07-18",
       "added": "与 NVIDIA 合作的 12B",
-      "src": "hf-text-org",
+      "src": "hf-org",
       "quote": "官方 HF 组织 mistralai/Mistral-Nemo-Base-2407，createdAt 2024-07-18",
       "note": "日期取官方 HF 组织的 createdAt（**不是 lastModified**）；同一代的多个尺寸档与量化档已折成一个节点。跨模态支线（视觉 / 音频 / 图像生成）不在这棵树上 —— 它们的产出物不是文本。",
       "parent": "mistral-text-Mistral 7B v0.3-扩词表并加函数调用",
@@ -21364,7 +21316,7 @@
       "version": "Mistral Large",
       "date": "2024-07-24",
       "added": "第一代旗舰",
-      "src": "hf-text-org",
+      "src": "hf-org",
       "quote": "官方 HF 组织 mistralai/Mistral-Large-Instruct-2407，createdAt 2024-07-24（同代 2 个仓库）",
       "note": "日期取官方 HF 组织的 createdAt（**不是 lastModified**）；同一代的多个尺寸档与量化档已折成一个节点。跨模态支线（视觉 / 音频 / 图像生成）不在这棵树上 —— 它们的产出物不是文本。",
       "parent": "mistral-text-Mistral Nemo-与 NVIDIA 合",
@@ -21379,7 +21331,7 @@
       "version": "Mistral Small",
       "date": "2024-09-17",
       "added": "中档产品线开张",
-      "src": "hf-text-org",
+      "src": "hf-org",
       "quote": "官方 HF 组织 mistralai/Mistral-Small-Instruct-2409，createdAt 2024-09-17（同代 2 个仓库）",
       "note": "日期取官方 HF 组织的 createdAt（**不是 lastModified**）；同一代的多个尺寸档与量化档已折成一个节点。跨模态支线（视觉 / 音频 / 图像生成）不在这棵树上 —— 它们的产出物不是文本。",
       "parent": "mistral-text-Mistral Large-第一代旗舰",
@@ -21394,7 +21346,7 @@
       "version": "Ministral",
       "date": "2024-10-15",
       "added": "端侧档（8B）",
-      "src": "hf-text-org",
+      "src": "hf-org",
       "quote": "官方 HF 组织 mistralai/Ministral-8B-Instruct-2410，createdAt 2024-10-15",
       "note": "日期取官方 HF 组织的 createdAt（**不是 lastModified**）；同一代的多个尺寸档与量化档已折成一个节点。跨模态支线（视觉 / 音频 / 图像生成）不在这棵树上 —— 它们的产出物不是文本。",
       "parent": "mistral-text-Mistral Small-中档产品线开张",
@@ -21409,7 +21361,7 @@
       "version": "Mistral Small 3",
       "date": "2025-01-23",
       "added": "换代到 24B",
-      "src": "hf-text-org",
+      "src": "hf-org",
       "quote": "官方 HF 组织 mistralai/Mistral-Small-24B-Base-2501，createdAt 2025-01-23",
       "note": "日期取官方 HF 组织的 createdAt（**不是 lastModified**）；同一代的多个尺寸档与量化档已折成一个节点。跨模态支线（视觉 / 音频 / 图像生成）不在这棵树上 —— 它们的产出物不是文本。",
       "parent": "mistral-text-Ministral-端侧档（8B）",
@@ -21424,7 +21376,7 @@
       "version": "Mistral Small 3.1",
       "date": "2025-03-11",
       "added": "小版本迭代",
-      "src": "hf-text-org",
+      "src": "hf-org",
       "quote": "官方 HF 组织 mistralai/Mistral-Small-3.1-24B-Instruct-2503，createdAt 2025-03-11",
       "note": "日期取官方 HF 组织的 createdAt（**不是 lastModified**）；同一代的多个尺寸档与量化档已折成一个节点。跨模态支线（视觉 / 音频 / 图像生成）不在这棵树上 —— 它们的产出物不是文本。",
       "parent": "mistral-text-Mistral Small 3-换代到 24B",
@@ -21440,7 +21392,7 @@
       "version": "Devstral",
       "date": "2025-05-12",
       "added": "分出软件工程支线",
-      "src": "hf-text-org",
+      "src": "hf-org",
       "quote": "官方 HF 组织 mistralai/Devstral-Small-2505，createdAt 2025-05-12（同代 2 个仓库）",
       "note": "日期取官方 HF 组织的 createdAt（**不是 lastModified**）；同一代的多个尺寸档与量化档已折成一个节点。跨模态支线（视觉 / 音频 / 图像生成）不在这棵树上 —— 它们的产出物不是文本。",
       "parent": "mistral-text-Codestral-分出代码支线（22B",
@@ -21455,7 +21407,7 @@
       "version": "Magistral",
       "date": "2025-06-04",
       "added": "推理支线",
-      "src": "hf-text-org",
+      "src": "hf-org",
       "quote": "官方 HF 组织 mistralai/Magistral-Small-2506，createdAt 2025-06-04（同代 3 个仓库）",
       "note": "日期取官方 HF 组织的 createdAt（**不是 lastModified**）；同一代的多个尺寸档与量化档已折成一个节点。跨模态支线（视觉 / 音频 / 图像生成）不在这棵树上 —— 它们的产出物不是文本。",
       "parent": "mistral-text-Mistral Small 3.1-小版本迭代",
@@ -21470,7 +21422,7 @@
       "version": "Mistral Small 3.2",
       "date": "2025-06-19",
       "added": "小版本迭代",
-      "src": "hf-text-org",
+      "src": "hf-org",
       "quote": "官方 HF 组织 mistralai/Mistral-Small-3.2-24B-Instruct-2506，createdAt 2025-06-19",
       "note": "日期取官方 HF 组织的 createdAt（**不是 lastModified**）；同一代的多个尺寸档与量化档已折成一个节点。跨模态支线（视觉 / 音频 / 图像生成）不在这棵树上 —— 它们的产出物不是文本。",
       "parent": "mistral-text-Magistral-推理支线",
@@ -21485,7 +21437,7 @@
       "version": "Ministral 3",
       "date": "2025-10-31",
       "added": "端侧档换代；同日放出 Base / Reasoning / 14B 三种",
-      "src": "hf-text-org",
+      "src": "hf-org",
       "quote": "官方 HF 组织 mistralai/Ministral-3-3B-Base-2512，createdAt 2025-10-31（同代 3 个仓库）",
       "note": "日期取官方 HF 组织的 createdAt（**不是 lastModified**）；同一代的多个尺寸档与量化档已折成一个节点。跨模态支线（视觉 / 音频 / 图像生成）不在这棵树上 —— 它们的产出物不是文本。",
       "parent": "mistral-text-Mistral Small 3.2-小版本迭代",
@@ -21502,7 +21454,7 @@
       "version": "Devstral 2",
       "date": "2025-11-28",
       "added": "软件工程支线换代（123B）",
-      "src": "hf-text-org",
+      "src": "hf-org",
       "quote": "官方 HF 组织 mistralai/Devstral-2-123B-Instruct-2512，createdAt 2025-11-28",
       "note": "日期取官方 HF 组织的 createdAt（**不是 lastModified**）；同一代的多个尺寸档与量化档已折成一个节点。跨模态支线（视觉 / 音频 / 图像生成）不在这棵树上 —— 它们的产出物不是文本。",
       "parent": "mistral-text-Devstral-分出软件工程支线",
@@ -21518,7 +21470,7 @@
       "version": "Leanstral",
       "date": "2026-03-11",
       "added": "定理证明支线（Lean）",
-      "src": "hf-text-org",
+      "src": "hf-org",
       "quote": "官方 HF 组织 mistralai/Leanstral-2603，createdAt 2026-03-11",
       "note": "日期取官方 HF 组织的 createdAt（**不是 lastModified**）；同一代的多个尺寸档与量化档已折成一个节点。跨模态支线（视觉 / 音频 / 图像生成）不在这棵树上 —— 它们的产出物不是文本。",
       "parent": "mistral-text-Small 4-把 Instruct / Reasoning 等三支合成一个混合模型",
@@ -21533,7 +21485,7 @@
       "version": "Shieldstral",
       "date": "2026-07-16",
       "added": "安全护栏支线（3B）",
-      "src": "hf-text-org",
+      "src": "hf-org",
       "quote": "官方 HF 组织 mistralai/Shieldstral-1.0-3B，createdAt 2026-07-16",
       "note": "日期取官方 HF 组织的 createdAt（**不是 lastModified**）；同一代的多个尺寸档与量化档已折成一个节点。跨模态支线（视觉 / 音频 / 图像生成）不在这棵树上 —— 它们的产出物不是文本。",
       "parent": "mistral-text-Medium 3.5-第一个「合并」旗舰：128B 稠密 + 256k 上下文",
@@ -21548,7 +21500,7 @@
       "version": "Coder-v1.5",
       "date": "2024-01-25",
       "added": "代码支线的 v1.5 修订",
-      "src": "hf-text-org",
+      "src": "hf-org",
       "quote": "官方 HF 组织 deepseek-ai/deepseek-coder-7b-instruct-v1.5，createdAt 2024-01-25",
       "note": "日期取官方 HF 组织的 createdAt（**不是 lastModified**）；同一代的多个尺寸档与量化档已折成一个节点，`repos` 列出这一代覆盖了哪些仓库。跨模态支线（视觉 / 音频 / 图像生成）不在这棵树上 —— 它们的产出物不是文本。",
       "repos": [
@@ -21563,7 +21515,7 @@
       "version": "R1-0528",
       "date": "2025-05-29",
       "added": "R1 的 5 月修订，并蒸馏到 Qwen3-8B",
-      "src": "hf-text-org",
+      "src": "hf-org",
       "quote": "官方 HF 组织 deepseek-ai/DeepSeek-R1-0528-Qwen3-8B，createdAt 2025-05-29",
       "note": "日期取官方 HF 组织的 createdAt（**不是 lastModified**）；同一代的多个尺寸档与量化档已折成一个节点，`repos` 列出这一代覆盖了哪些仓库。跨模态支线（视觉 / 音频 / 图像生成）不在这棵树上 —— 它们的产出物不是文本。",
       "repos": [
@@ -21578,7 +21530,7 @@
       "version": "Mathstral",
       "date": "2024-07-16",
       "added": "数学专用支线",
-      "src": "hf-text-org",
+      "src": "hf-org",
       "quote": "官方 HF 组织 mistralai/Mathstral-7B-v0.1，createdAt 2024-07-16",
       "note": "日期取官方 HF 组织的 createdAt（**不是 lastModified**）；同一代的多个尺寸档与量化档已折成一个节点，`repos` 列出这一代覆盖了哪些仓库。跨模态支线（视觉 / 音频 / 图像生成）不在这棵树上 —— 它们的产出物不是文本。",
       "repos": [
@@ -21593,7 +21545,7 @@
       "version": "Mamba-Codestral",
       "date": "2024-07-16",
       "added": "代码支线的 Mamba 架构试验档",
-      "src": "hf-text-org",
+      "src": "hf-org",
       "quote": "官方 HF 组织 mistralai/Mamba-Codestral-7B-v0.1，createdAt 2024-07-16",
       "note": "日期取官方 HF 组织的 createdAt（**不是 lastModified**）；同一代的多个尺寸档与量化档已折成一个节点，`repos` 列出这一代覆盖了哪些仓库。跨模态支线（视觉 / 音频 / 图像生成）不在这棵树上 —— 它们的产出物不是文本。",
       "repos": [
@@ -21608,7 +21560,7 @@
       "version": "Leanstral 1.5",
       "date": "2026-07-01",
       "added": "定理证明支线换代（119B-A6B）",
-      "src": "hf-text-org",
+      "src": "hf-org",
       "quote": "官方 HF 组织 mistralai/Leanstral-1.5-119B-A6B，createdAt 2026-07-01",
       "note": "日期取官方 HF 组织的 createdAt（**不是 lastModified**）；同一代的多个尺寸档与量化档已折成一个节点，`repos` 列出这一代覆盖了哪些仓库。跨模态支线（视觉 / 音频 / 图像生成）不在这棵树上 —— 它们的产出物不是文本。",
       "repos": [
@@ -21623,7 +21575,7 @@
       "version": "Qwen-Audio",
       "date": "2023-11-30",
       "added": "这条线的起点：音频理解",
-      "src": "hf-sound-org",
+      "src": "hf-org",
       "quote": "官方 HF 组织 Qwen/Qwen-Audio，createdAt 2023-11-30",
       "note": "日期取官方 HF 组织的 createdAt（**不是 lastModified**）；同一代的尺寸档与量化档折成一个节点。⚠️ **ASR 不在这棵树上**（ontology 规则十一）—— SenseVoice、Qwen-Audio 的识别向分支产出的是文本。",
       "repos": [
@@ -21637,7 +21589,7 @@
       "version": "Qwen2-Audio",
       "date": "2024-07-16",
       "added": "换代",
-      "src": "hf-sound-org",
+      "src": "hf-org",
       "quote": "官方 HF 组织 Qwen/Qwen2-Audio-7B，createdAt 2024-07-16",
       "note": "日期取官方 HF 组织的 createdAt（**不是 lastModified**）；同一代的尺寸档与量化档折成一个节点。⚠️ **ASR 不在这棵树上**（ontology 规则十一）—— SenseVoice、Qwen-Audio 的识别向分支产出的是文本。",
       "repos": [
@@ -21652,7 +21604,7 @@
       "version": "Qwen2.5-Omni",
       "date": "2025-03-22",
       "added": "转 Omni：多模态进、文本或语音出",
-      "src": "hf-sound-org",
+      "src": "hf-org",
       "quote": "官方 HF 组织 Qwen/Qwen2.5-Omni-7B，createdAt 2025-03-22",
       "note": "日期取官方 HF 组织的 createdAt（**不是 lastModified**）；同一代的尺寸档与量化档折成一个节点。⚠️ **ASR 不在这棵树上**（ontology 规则十一）—— SenseVoice、Qwen-Audio 的识别向分支产出的是文本。",
       "repos": [
@@ -21667,7 +21619,7 @@
       "version": "Qwen3-Omni",
       "date": "2025-09-20",
       "added": "换代到 30B-A3B，分 Instruct / Thinking / Captioner 三支",
-      "src": "hf-sound-org",
+      "src": "hf-org",
       "quote": "官方 HF 组织 Qwen/Qwen3-Omni-30B-A3B-Instruct，createdAt 2025-09-20",
       "note": "日期取官方 HF 组织的 createdAt（**不是 lastModified**）；同一代的尺寸档与量化档折成一个节点。⚠️ **ASR 不在这棵树上**（ontology 规则十一）—— SenseVoice、Qwen-Audio 的识别向分支产出的是文本。",
       "repos": [
@@ -21683,7 +21635,7 @@
       "version": "Qwen3-TTS",
       "date": "2026-01-21",
       "added": "分出专门的 TTS 支线，含 CustomVoice 与 VoiceDesign 两个变体",
-      "src": "hf-sound-org",
+      "src": "hf-org",
       "quote": "官方 HF 组织 Qwen/Qwen3-TTS-12Hz-1.7B-Base，createdAt 2026-01-21",
       "note": "日期取官方 HF 组织的 createdAt（**不是 lastModified**）；同一代的尺寸档与量化档折成一个节点。⚠️ **ASR 不在这棵树上**（ontology 规则十一）—— SenseVoice、Qwen-Audio 的识别向分支产出的是文本。",
       "repos": [
@@ -21700,7 +21652,7 @@
       "version": "GLM-TTS",
       "date": "2025-12-10",
       "added": "这一代的开放权重发布",
-      "src": "hf-sound-org",
+      "src": "hf-org",
       "quote": "官方 HF 组织 zai-org/GLM-TTS，createdAt 2025-12-10",
       "note": "日期取官方 HF 组织的 createdAt（**不是 lastModified**）；同一代的尺寸档与量化档折成一个节点。⚠️ **ASR 不在这棵树上**（ontology 规则十一）—— SenseVoice、Qwen-Audio 的识别向分支产出的是文本。",
       "repos": [
@@ -21714,7 +21666,7 @@
       "version": "SenseVoiceSmall",
       "date": "2024-07-03",
       "added": "这个组织在 HF 上最早的发布",
-      "src": "hf-sound-org",
+      "src": "hf-org",
       "quote": "官方 HF 组织 FunAudioLLM/SenseVoiceSmall，createdAt 2024-07-03",
       "note": "日期取官方 HF 组织的 createdAt（**不是 lastModified**）；同一代的尺寸档与量化档折成一个节点。⚠️ **ASR 不在这棵树上**（ontology 规则十一）—— SenseVoice、Qwen-Audio 的识别向分支产出的是文本。",
       "repos": [
@@ -21728,7 +21680,7 @@
       "version": "Fun-CosyVoice3",
       "date": "2025-12-11",
       "added": "CosyVoice 第三代（0.5B）",
-      "src": "hf-sound-org",
+      "src": "hf-org",
       "quote": "官方 HF 组织 FunAudioLLM/Fun-CosyVoice3-0.5B-2512，createdAt 2025-12-11",
       "note": "日期取官方 HF 组织的 createdAt（**不是 lastModified**）；同一代的尺寸档与量化档折成一个节点。⚠️ **ASR 不在这棵树上**（ontology 规则十一）—— SenseVoice、Qwen-Audio 的识别向分支产出的是文本。",
       "repos": [
@@ -21743,7 +21695,7 @@
       "version": "Fun-Audio-Chat",
       "date": "2025-12-23",
       "added": "语音对话向的 8B",
-      "src": "hf-sound-org",
+      "src": "hf-org",
       "quote": "官方 HF 组织 FunAudioLLM/Fun-Audio-Chat-8B，createdAt 2025-12-23",
       "note": "日期取官方 HF 组织的 createdAt（**不是 lastModified**）；同一代的尺寸档与量化档折成一个节点。⚠️ **ASR 不在这棵树上**（ontology 规则十一）—— SenseVoice、Qwen-Audio 的识别向分支产出的是文本。",
       "repos": [
@@ -21758,7 +21710,7 @@
       "version": "fish-speech 1.2",
       "date": "2024-07-02",
       "added": "这条线在 HF 上最早的发布",
-      "src": "hf-sound-org",
+      "src": "hf-org",
       "quote": "官方 HF 组织 fishaudio/fish-speech-1.2，createdAt 2024-07-02",
       "note": "日期取官方 HF 组织的 createdAt（**不是 lastModified**）；同一代的尺寸档与量化档折成一个节点。⚠️ **ASR 不在这棵树上**（ontology 规则十一）—— SenseVoice、Qwen-Audio 的识别向分支产出的是文本。",
       "repos": [
@@ -21772,7 +21724,7 @@
       "version": "fish-speech 1.4",
       "date": "2024-09-10",
       "added": "换代",
-      "src": "hf-sound-org",
+      "src": "hf-org",
       "quote": "官方 HF 组织 fishaudio/fish-speech-1.4，createdAt 2024-09-10",
       "note": "日期取官方 HF 组织的 createdAt（**不是 lastModified**）；同一代的尺寸档与量化档折成一个节点。⚠️ **ASR 不在这棵树上**（ontology 规则十一）—— SenseVoice、Qwen-Audio 的识别向分支产出的是文本。",
       "repos": [
@@ -21787,7 +21739,7 @@
       "version": "fish-speech 1.5",
       "date": "2024-11-24",
       "added": "换代",
-      "src": "hf-sound-org",
+      "src": "hf-org",
       "quote": "官方 HF 组织 fishaudio/fish-speech-1.5，createdAt 2024-11-24",
       "note": "日期取官方 HF 组织的 createdAt（**不是 lastModified**）；同一代的尺寸档与量化档折成一个节点。⚠️ **ASR 不在这棵树上**（ontology 规则十一）—— SenseVoice、Qwen-Audio 的识别向分支产出的是文本。",
       "repos": [
@@ -21802,7 +21754,7 @@
       "version": "fish-agent",
       "date": "2024-10-29",
       "added": "语音智能体支线（3B）",
-      "src": "hf-sound-org",
+      "src": "hf-org",
       "quote": "官方 HF 组织 fishaudio/fish-agent-v0.1-3b，createdAt 2024-10-29",
       "note": "日期取官方 HF 组织的 createdAt（**不是 lastModified**）；同一代的尺寸档与量化档折成一个节点。⚠️ **ASR 不在这棵树上**（ontology 规则十一）—— SenseVoice、Qwen-Audio 的识别向分支产出的是文本。",
       "repos": [
@@ -21817,7 +21769,7 @@
       "version": "s1-mini",
       "date": "2025-05-31",
       "added": "改名 s 系列",
-      "src": "hf-sound-org",
+      "src": "hf-org",
       "quote": "官方 HF 组织 fishaudio/s1-mini，createdAt 2025-05-31",
       "note": "日期取官方 HF 组织的 createdAt（**不是 lastModified**）；同一代的尺寸档与量化档折成一个节点。⚠️ **ASR 不在这棵树上**（ontology 规则十一）—— SenseVoice、Qwen-Audio 的识别向分支产出的是文本。",
       "repos": [
@@ -21832,7 +21784,7 @@
       "version": "s2-pro",
       "date": "2026-03-09",
       "added": "s 系列换代",
-      "src": "hf-sound-org",
+      "src": "hf-org",
       "quote": "官方 HF 组织 fishaudio/s2-pro，createdAt 2026-03-09",
       "note": "日期取官方 HF 组织的 createdAt（**不是 lastModified**）；同一代的尺寸档与量化档折成一个节点。⚠️ **ASR 不在这棵树上**（ontology 规则十一）—— SenseVoice、Qwen-Audio 的识别向分支产出的是文本。",
       "repos": [
@@ -21847,7 +21799,7 @@
       "version": "Kokoro-82M",
       "date": "2024-12-26",
       "added": "这条线的起点，82M 小模型（♥6677，声音卷里最热的开源仓库）",
-      "src": "hf-sound-org",
+      "src": "hf-org",
       "quote": "官方 HF 组织 hexgrad/Kokoro-82M，createdAt 2024-12-26",
       "note": "日期取官方 HF 组织的 createdAt（**不是 lastModified**）；同一代的尺寸档与量化档折成一个节点。⚠️ **ASR 不在这棵树上**（ontology 规则十一）—— SenseVoice、Qwen-Audio 的识别向分支产出的是文本。",
       "repos": [
@@ -21861,7 +21813,7 @@
       "version": "Kokoro 82M v1.1-zh",
       "date": "2025-02-27",
       "added": "加中文",
-      "src": "hf-sound-org",
+      "src": "hf-org",
       "quote": "官方 HF 组织 hexgrad/Kokoro-82M-v1.1-zh，createdAt 2025-02-27",
       "note": "日期取官方 HF 组织的 createdAt（**不是 lastModified**）；同一代的尺寸档与量化档折成一个节点。⚠️ **ASR 不在这棵树上**（ontology 规则十一）—— SenseVoice、Qwen-Audio 的识别向分支产出的是文本。",
       "repos": [
@@ -23440,7 +23392,7 @@
       "version": "GLM-5.3",
       "date": "2026-08-25",
       "added": "旗舰完整开源权重开放(此前 5.3 旗舰 API-only)",
-      "src": "hf-text-org",
+      "src": "hf-org",
       "quote": "zai-org/GLM-5.3 / GLM-5.3-BF16(官方 HF 组织,createdAt 2026-08-25);另有变体 GLM-5.3-Flash",
       "parent": "glm-GLM-5.2-小版本迭代",
       "cap_skip": "换代/小版本记录,没有声明能力轴上的新增项"
@@ -24611,7 +24563,7 @@
         "调内部 API",
         "操作浏览器"
       ],
-      "src": "hf-text-org",
+      "src": "hf-org",
       "quote": "各家都把它叫 Function calling / Tool Calls；MCP 是近两年收敛出的工具描述协议",
       "verified_at": "2026-08-11",
       "domain": "text",
@@ -24659,7 +24611,7 @@
         "分类打标",
         "填表"
       ],
-      "src": "hf-text-org",
+      "src": "hf-org",
       "quote": "OpenAI / Google 叫 Structured outputs，DeepSeek 叫 JSON Output，Kimi 叫 JSON Mode",
       "verified_at": "2026-08-11",
       "domain": "text",
@@ -24726,7 +24678,7 @@
         "合同问答",
         "论文速读"
       ],
-      "src": "hf-text-org",
+      "src": "hf-org",
       "quote": "文档解析这一环有 MarkItDown / MinerU / Unstructured 三条路，产出都是给模型读的干净文本",
       "verified_at": "2026-08-11",
       "domain": "text"
@@ -24792,7 +24744,7 @@
         "离线环境",
         "省 API 钱"
       ],
-      "src": "hf-text-org",
+      "src": "hf-org",
       "quote": "Ollama 的自述里直接列着 Kimi-K2.6、GLM-5.2、DeepSeek、Qwen —— 开源那半边的落地入口",
       "verified_at": "2026-08-11",
       "domain": "text",
@@ -24844,7 +24796,7 @@
         "行业术语",
         "风格对齐"
       ],
-      "src": "hf-text-org",
+      "src": "hf-org",
       "quote": "LLaMA-Factory 自述「Unified Efficient Fine-Tuning of 100+ LLMs & VLMs」",
       "verified_at": "2026-08-11",
       "domain": "text"
@@ -24926,7 +24878,7 @@
         "批量处理",
         "调研任务"
       ],
-      "src": "hf-text-org",
+      "src": "hf-org",
       "quote": "这一摞的许可证差异最大 —— 挑框架时先看能不能商用，再看好不好用",
       "verified_at": "2026-08-11",
       "domain": "text"
@@ -24983,7 +24935,7 @@
         "写测试",
         "重构"
       ],
-      "src": "hf-text-org",
+      "src": "hf-org",
       "quote": "Aider 自述「AI pair programming in your terminal」；Cline 是「Autonomous coding agent」",
       "verified_at": "2026-08-11",
       "domain": "text"
@@ -25019,7 +24971,7 @@
         "灰度切换",
         "成本核算"
       ],
-      "src": "hf-text-org",
+      "src": "hf-org",
       "quote": "LiteLLM 自述「Call 100+ LLM APIs in OpenAI (or native) format with cost tracking」",
       "verified_at": "2026-08-11",
       "domain": "text"
@@ -25040,14 +24992,14 @@
         {
           "name": "Fish Speech s2-pro（权重公开）",
           "url": "https://huggingface.co/fishaudio/s2-pro",
-          "src": "hf-sound-org",
+          "src": "hf-org",
           "quote": "fishaudio/s2-pro，createdAt 2026-03-09（♥1232）",
           "note": "⚠️ 权重公开 ≠ 可商用：Fish Audio 研究许可写明商用需单独授权（见 https://github.com/fishaudio/fish-speech/blob/main/LICENSE）"
         },
         {
           "name": "Qwen3-TTS CustomVoice（权重公开）",
           "url": "https://huggingface.co/Qwen/Qwen3-TTS-12Hz-1.7B-CustomVoice",
-          "src": "hf-sound-org",
+          "src": "hf-org",
           "quote": "Qwen/Qwen3-TTS-12Hz-1.7B-CustomVoice，createdAt 2026-01-21（♥1871）"
         },
         {
@@ -26671,7 +26623,7 @@
           "kind": "course",
           "name": "ComfyUI 中文工作流合集（ZHO）",
           "url": "https://github.com/ZHO-ZHO-ZHO/ComfyUI-Workflows-ZHO",
-          "src": "gh-comfy-zho",
+          "src": "zho-wf-gh",
           "quote": "GitHub · ZHO 的 ComfyUI 中文工作流合集",
           "note": "**模特图与试穿要靠工作流串起来**（换装、姿态、脸部一致），这份是中文侧被抄得最多的工作流合集。⚠️ 最后推送 2024-12，节点可能对不上新版 ComfyUI。"
         },
@@ -27215,7 +27167,7 @@
           "kind": "course",
           "name": "ComfyUI 中文工作流合集（ZHO）",
           "url": "https://github.com/ZHO-ZHO-ZHO/ComfyUI-Workflows-ZHO",
-          "src": "gh-comfy-zho",
+          "src": "zho-wf-gh",
           "quote": "GitHub · ZHO 的 ComfyUI 中文工作流合集",
           "note": "**游戏美术要的是批量与一致性** —— 同一套工作流跑不同素材。这份合集里有可直接导入的 JSON。⚠️ 2024-12 后未更新。"
         },
@@ -27833,7 +27785,7 @@
           "kind": "project",
           "name": "pyvideotrans（识别→翻译→合成→回封装的整条流水线）",
           "url": "https://github.com/jianchang512/pyvideotrans",
-          "src": "s-pvt-gh",
+          "src": "pyvideotrans-gh",
           "quote": "jianchang512/pyvideotrans：Translate the video from one language to another and embed dubbing & subtitles.（★18,655，许可 GPL-3.0）",
           "license": "GPL-3.0",
           "note": "中文侧配音工具里最完整的一支，声音复刻可挂 F5-TTS / CosyVoice / GPT-SoVITS。**GPL-3.0，传染性许可**"
@@ -27860,7 +27812,7 @@
           "kind": "docs",
           "name": "pyvideotrans 中文文档",
           "url": "https://github.com/jianchang512/pyvideotrans",
-          "src": "gh-pyvideotrans-doc",
+          "src": "pyvideotrans-gh",
           "quote": "pyvideotrans 官方仓库（中文）",
           "note": "**整条配音流水线的中文说明**：识别 → 翻译 → 合成 → 回封装，每一段可以换哪些引擎都列了。⚠️ GPL-3.0 是传染性许可。"
         },
@@ -27935,7 +27887,7 @@
           "kind": "docs",
           "name": "CosyVoice 官方文档",
           "url": "https://github.com/QwenAudio/CosyVoice",
-          "src": "gh-cosyvoice-doc",
+          "src": "s-cosyvoice-gh",
           "quote": "CosyVoice 官方仓库文档",
           "note": "**语音助手要的是流式合成与低延迟**，这份文档给了推理/训练/部署的全栈说明（Apache-2.0）。⚠️ 仓库已从 FunAudioLLM 迁到 QwenAudio 名下。"
         },
@@ -28010,7 +27962,7 @@
           "kind": "docs",
           "name": "CosyVoice 官方文档 · 部署部分",
           "url": "https://github.com/QwenAudio/CosyVoice",
-          "src": "gh-cosyvoice-doc",
+          "src": "s-cosyvoice-gh",
           "quote": "CosyVoice 官方仓库文档",
           "note": "⚠️ **这一条是借用**：配乐这一类目前没找到成体系的中文教程，先放一份讲「音频模型怎么在本机跑起来」的中文文档顶上。**这是缺口不是答案**，找到真正讲音乐生成的中文材料就替换。"
         },
@@ -41805,7 +41757,7 @@
       "value": "「世界最好的视频模型」",
       "quote": "Introducing Gen-4.5, the world's best video model",
       "as_of": "2026-08-09",
-      "src": "rw-changelog"
+      "src": "runway-changelog"
     },
     {
       "m": "veo",

@@ -24,12 +24,9 @@
 
 ### 二、Hugging Face 下载量前列、我们没收的组织（开源侧的实际采用度）
 
-> ⚠️ 另有 **7 个组织被判成量化 / 搬运号**（仓库八成以上是 GGUF、AWQ、mlx 这类二次分发档），已从下表略过：`ChrisColeTech`、`QuantStack`、`city96`、`molbal`、`realrebelai`、`samuelchristlie` 等。**判据是仓库名，不是人品** —— 它们里面若有自训模型，会因为名字不带量化后缀而照常出现在上表。
+> ⚠️ 另有 **9 个组织被判成量化 / 搬运号**（仓库八成以上是 GGUF、AWQ、mlx 这类二次分发档），已从下表略过：`ChrisColeTech`、`QuantStack`、`city96`、`drbaph`、`joeygambino`、`molbal` 等。**判据是仓库名，不是人品** —— 它们里面若有自训模型，会因为名字不带量化后缀而照常出现在上表。
 
-| 组织 | 仓库数 | 示例 |
-|---|---:|---|
-| joeygambino | 3 | `joeygambino/MiniMax-H3-curve-GGUF` |
-| drbaph | 2 | `drbaph/MiniMax-H3-Turbo-Lora-ComfyUI` |
+（无）
 
 > ⚠️ HF 这一路混着个人搬运号与量化号（QuantStack、city96、calcuis 之类）。
 > **脚本分不出「自己训模型」和「搬别人的」** —— 那要人看一眼组织主页。
@@ -170,6 +167,7 @@
 - `material` MatterGen 1（2026-08-15）
 - `material` MACE MP（2026-08-15）
 - `material` GNoME 1（2026-08-15） — **maintained**
+- `tts` Fun-CineForge Fun-CineForge（2026-09-19）
 
 > clip 轨只剩 1 个空位。按规则四，再进新的就必须先踢一个 ——
 > 最该出去的是 **Sora 2**（已公告停服）。但**停服的模型不该从库里删**：
@@ -326,47 +324,14 @@
 - `material` MatterGen 1（2026-08-15）
 - `material` MACE MP（2026-08-15）
 - `material` GNoME 1（2026-08-15） — **maintained**
+- `tts` Fun-CineForge Fun-CineForge（2026-09-19）
 
 > clip 轨只剩 1 个空位。按规则四，再进新的就必须先踢一个 ——
 > 最该出去的是 **Sora 2**（已公告停服）。但**停服的模型不该从库里删**：
 > 「它没了」本身是有用的信息，应降到 Extended 层，而不是消失。
 
-## 人工发现的（自动那两路看不见的）
 
-> 两条自动路各有盲区：AA 榜只收上了竞技场的闭源模型，HF 那一路只看开源权重。
-> **落在两边之外的，只能人看见** —— 写在 `data/candidates-manual.json` 里，不会被重跑冲掉。
+## 已处置的人工候选（2）—— 不用再看
 
-### `video` Black Forest Labs · FLUX 3（2026-08-13 发现）
-
-**为什么两路都捞不到**：**BFL 从图像跨进了视频**，而两条自动路都看不见这件事：AA 的文生图榜不收视频模型，HF 那一路只看开源权重而 FLUX 3 是闭源 API。
-
-**怎么撞见的**：给图像卷的 FLUX 补 ⬜ 时，从官方文档索引 docs.bfl.ai/llms.txt 里看到有一整组 flux_3 文档
-
-- 「FLUX 3 is one multimodal model. Video with synchronized audio, one request shape keyed by mode.」
-- 「One model trained across image, video, and audio.」
-- 三种模式：`t2v`（纯提示词）、`i2v`（1–10 张图，可用 `[seconds, image]` 把关键帧钉到时间轴上）、Video Continuation（给一段 clip 接着往下生成）
-- 「More images, more control: two pin the start and end frames, up to ten storyboard the clip」—— **首尾帧与多关键帧**
-- 「Audio is on by default: multilingual speech with lipsync, effects, and ambience rendered scene-aware alongside the frames. No second model, no second pass.」—— **原生音频 + 对口型**
-- 规格：5–20 秒、24fps、`hd` 或 `fhd`；宽高比 21:9 / 2:1 / 16:9 等
-- 价格表（官方）：t2v / i2v $0.17/s hd、$0.29/s fhd；Video Continuation $0.43/s hd、$0.54/s fhd；draft 档 $0.06/s
-- ⚠️ 官方自述「FLUX 3 is a **preview** model. **Video editing** and **Omni Reference with images and videos** will be available soon.」—— 视频编辑还没有
-
-来源：https://docs.bfl.ml/flux_3/flux3_overview.md
-
-****待人工定。** 按规则四，clip 轨已经 9/10（见 candidates.md 末尾那句「只剩 1 个空位」），进它就要先安排一个出去。证据够厚（t2v/i2v/首尾帧/原生音频/对口型/视频续写全有官方原文），但**收不收是范围决定，不是采集决定**。**
-
-> ⚠️ 我在 2026-08-12 的提交里把这条写成了「BFL 已经出到 FLUX 3，我们库里最新还是 FLUX 2-dev」，**那句话是错的**：FLUX 3 不是 FLUX 2 的新版本，它是另一个模态。图像卷的 flux 停在 FLUX 2-dev 是对的，不该跟着改版本号。
-
-### `sound` 阿里 · FunAudioLLM · Fun-CineForge（2026-08-13 发现）
-
-**为什么两路都捞不到**：**是条新产品线，不是 CosyVoice 的新版本** —— 官方模型卡：「A Unified Dataset Pipeline and Model for **Zero-Shot Movie Dubbing** in Diverse Cinematic Scenes」，自述包含一条端到端的配音数据集流水线 + 一个基于 MLLM 的配音模型。**声音卷已经有「配音」这个应用**，缺的正是能对上的模型。
-
-**怎么撞见的**：加魔搭那条源之后第一轮扫描捞到（FunAudioLLM 组织，↓6,567，Apache-2.0）
-
-- 模型卡标题：「🎬 Fun-CineForge: A Unified Dataset Pipeline and Model for Zero-Shot Movie Dubbing in Diverse Cinematic Scenes」
-- 任务标签 Text-to-Speech；许可 Apache License 2.0；13.61GB；更新于 2026-03-24
-- ⚠️ 魔搭页面上没看到 HF 对应仓库 —— FunAudioLLM 在 HF 有组织，但这一支没在那边出现
-
-来源：https://modelscope.cn/models/FunAudioLLM/Fun-CineForge
-
-****待人工定**：按规则四要看声音卷还收不收新产品线；它填的是「配音」这个应用的空。**收不收是范围决定，不是采集决定。****
+- `video` Black Forest Labs · FLUX 3 —— 2026-08-13 收进**扩展层** `flux-video`（clip 轨 10/10，不为收新的踢老的）。轨满就进折叠列表，是负责人定的做法。
+- `sound` 阿里 · FunAudioLLM · Fun-CineForge —— 2026-09-19 收进**扩展层** `funcineforge`（声音卷 tts 轨 9/10，有位置，但进 Core 要先把 27 条声音能力轴逐格核一遍 —— 那是另一件事）。同日核实：**HF 上有同一份** `FunAudioLLM/Fun-CineForge`（apache-2.0），此前「魔搭页面上没看到 HF 对应仓库」那句不成立了。

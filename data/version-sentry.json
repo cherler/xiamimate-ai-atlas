@@ -3,7 +3,7 @@
   "n": 0,
   "n_unclear": 0,
   "n_missing": 29,
-  "n_skipped": 53,
+  "n_skipped": 54,
   "rows": [
     {
       "kind": "牌子摘了",
@@ -285,8 +285,8 @@
       "cur": "Gen-4.5",
       "cur_as_of": "2025-12-11",
       "found": null,
-      "src": "rw-changelog",
-      "src_at": "2026-09-12",
+      "src": "runway-changelog",
+      "src_at": "2026-09-16",
       "evidence": ""
     },
     {
@@ -453,7 +453,7 @@
     },
     {
       "m": "llama",
-      "why": "hf-text-org 都没有可比对的正文（没快照，或只有 json/atom 的 items）"
+      "why": "hf-org 都没有可比对的正文（没快照，或只有 json/atom 的 items）"
     },
     {
       "m": "glm-tts",
@@ -461,11 +461,11 @@
     },
     {
       "m": "cosyvoice",
-      "why": "hf-sound-org 都没有可比对的正文（没快照，或只有 json/atom 的 items）"
+      "why": "hf-org 都没有可比对的正文（没快照，或只有 json/atom 的 items）"
     },
     {
       "m": "fish-speech",
-      "why": "hf-sound-org 都没有可比对的正文（没快照，或只有 json/atom 的 items）"
+      "why": "hf-org 都没有可比对的正文（没快照，或只有 json/atom 的 items）"
     },
     {
       "m": "apple-sharp",
@@ -546,6 +546,10 @@
     {
       "m": "mace",
       "why": "版本串「MP」里没有数字，比不了"
+    },
+    {
+      "m": "funcineforge",
+      "why": "hf-funcineforge 都没有可比对的正文（没快照，或只有 json/atom 的 items）"
     }
   ]
 }
