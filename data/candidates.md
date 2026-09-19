@@ -1,4 +1,4 @@
-# 收录候选 · 2026-08-14
+# 收录候选 · 2026-09-19
 
 
 
@@ -24,17 +24,26 @@
 
 ### 二、Hugging Face 下载量前列、我们没收的组织（开源侧的实际采用度）
 
-> ⚠️ 另有 **8 个组织被判成量化 / 搬运号**（仓库八成以上是 GGUF、AWQ、mlx 这类二次分发档），已从下表略过：`Abiray`、`QuantStack`、`bullerwins`、`calcuis`、`city96`、`joeygambino` 等。**判据是仓库名，不是人品** —— 它们里面若有自训模型，会因为名字不带量化后缀而照常出现在上表。
+> ⚠️ 另有 **7 个组织被判成量化 / 搬运号**（仓库八成以上是 GGUF、AWQ、mlx 这类二次分发档），已从下表略过：`ChrisColeTech`、`QuantStack`、`city96`、`molbal`、`realrebelai`、`samuelchristlie` 等。**判据是仓库名，不是人品** —— 它们里面若有自训模型，会因为名字不带量化后缀而照常出现在上表。
 
-（无）
+| 组织 | 仓库数 | 示例 |
+|---|---:|---|
+| joeygambino | 3 | `joeygambino/MiniMax-H3-curve-GGUF` |
+| drbaph | 2 | `drbaph/MiniMax-H3-Turbo-Lora-ComfyUI` |
 
 > ⚠️ HF 这一路混着个人搬运号与量化号（QuantStack、city96、calcuis 之类）。
 > **脚本分不出「自己训模型」和「搬别人的」** —— 那要人看一眼组织主页。
 > 不要照单全收，也不要因为混了噪音就整路丢掉：Lightricks、nvidia、zai-org
 > 都是这一路捞出来的，而它们在闭源榜上完全隐形。
 
-### 当前 Core（clip 轨 10/10，realtime 轨 2/10；括号里是含扩展层的总数 21 / 2）
+### 当前 Core（clip 轨 10/10，realtime 轨 2/10；括号里是含扩展层的总数 23 / 2）
 
+- `still` Grok Imagine Image Image 2.0（2026-08-27）
+- `clip` Grok Imagine Video Video 1.5（2026-08-27）
+- `clip` Luma Ray Ray3.2（2026-08-27）
+- `chat` Muse Spark Muse Spark 1.2（2026-08-27）
+- `asset` Lux3D Lux3D（2026-08-27）
+- `er` LocateAnything LocateAnything-3B（2026-08-27）
 - `clip` Seedance 2.5（2026-07-31）
 - `clip` MiniMax Hailuo H3（2026-07-31）
 - `clip` Gemini Omni Flash（2026-05-19）
@@ -44,7 +53,7 @@
 - `clip` Vidu Q Q3（2026-04-13）
 - `clip` Veo 3.1（2025-10） — **superseded**
 - `clip` Sora 2（2025-09） — **discontinued**
-- `realtime` Vidu S S1（2026-07-03）
+- `realtime` Vidu S S2（2026-09-19）
 - `realtime` Decart Lucy Lucy 2.5（2026-08-07）
 - `clip` LTX 2.5（2026-08-13）
 - `clip` HappyHorse 1.1（2026-06）
@@ -61,7 +70,7 @@
 - `still` Krea 2-Raw（2026-06-18）
 - `still` Seedream 5.0 Pro（2026-08-11）
 - `still` Nano Banana 2（gemini-3.1-flash-image）（2026-08-11）
-- `still` GPT Image 2（gpt-image-2）（2026-08-11）
+- `still` GPT Image 2.5（sunburst / flare）（2026-09-10）
 - `still` Kolors 待核（2026-08-11）
 - `still` Midjourney 待核（2026-08-11）
 - `still` Ideogram 4.0（2026-08-12）
@@ -75,17 +84,17 @@
 - `still` Anima Anima（2026-01-29）
 - `still` Boogu-Image 0.1-Turbo（2026-06-16）
 - `still` NewBie-image Exp0.1（2025-11-30）
-- `chat` Claude Fable 5（2026-06-09）
-- `chat` GPT GPT-5.6（2026-08-11）
-- `chat` Gemini Gemini 3.6 Flash（2026-08-11）
+- `chat` Claude Fable 5.1（2026-09-10）
+- `chat` GPT GPT-6 Astra（2026-09-10）
+- `chat` Gemini Gemini 3.8 Flash（2026-09-10）
 - `chat` Qwen 3.8-max（2026-08-11）
-- `chat` DeepSeek V4（2026-07-31）
+- `chat` DeepSeek V4.1（2026-09-19）
 - `chat` Kimi K3（2026-06-13）
-- `chat` GLM GLM-5.2（2026-06-16）
+- `chat` GLM GLM-5.3（2026-08-29）
 - `chat` MiniMax M3（2026-06-02）
 - `chat` Doubao Seed-2.1 Pro（2026-06-23）
 - `chat` Llama 4（2025-04-05）
-- `chat` Grok 4.5（2026-08-11）
+- `chat` Grok 4.6（2026-08-29）
 - `chat` Mistral Medium 3.5（2026-03-31）
 - `tts` MiniMax Speech speech-2.8-hd（2026-08-12）
 - `tts` ElevenLabs Eleven v3（2026-08-12）
@@ -95,7 +104,7 @@
 - `tts` Qwen Omni 3.5-omni-plus（2026-08-12）
 - `music` MiniMax Music music-3.0（2026-08-12）
 - `music` Eleven Music v2（2026-08-12）
-- `music` Lyria 3 Pro Preview（2026-08-12）
+- `music` Lyria 3.5（2026-09-10）
 - `voice-rt` GPT Realtime 2.1（2026-08-12）
 - `voice-rt` Grok Voice think-fast-2.0（2026-08-12）
 - `tts` GLM-TTS GLM-TTS（2026-08-12）
@@ -118,6 +127,49 @@
 - `clip` CogVideoX 2b/5b（2026-08-14）
 - `clip` I2VGen-XL XL（2026-08-14）
 - `still` LongCat Image Edit（2026-08-14）
+- `avatar` HeyGen Avatar V（2026-08-14）
+- `avatar` LongCat Video Avatar 1.5（2026-08-14）
+- `avatar` HunyuanVideo-Avatar 1.0（2026-08-14）
+- `avatar` LivePortrait 1.0（2026-08-14）
+- `avatar` MuseTalk 1.0（2026-08-14）
+- `avatar` Hallo2 Hallo-Live（2026-08-14）
+- `er` Gemini Robotics ER ER 2 Preview（2026-08-14）
+- `vla` MolmoAct MolmoAct2（2026-08-14）
+- `vla` π（Physical Intelligence） π₀.₅（2026-08-14）
+- `vla` NVIDIA Isaac GR00T N N1.7（2026-08-14）
+- `vla` OpenVLA 7B（2026-08-14） — **maintained**
+- `vla` SmolVLA base（2026-08-14）
+- `vla` Helix Helix（2026-08-14）
+- `vla` X-VLA 0.9B（2026-08-14）
+- `er` RynnBrain 1.1（2026-08-14）
+- `vla` InternVLA A1.5（2026-08-14）
+- `vla` 混元具身 0.5（2026-08-14）
+- `vla` Xiaomi Robotics 1（2026-08-14）
+- `vla` Galaxea G0 G0-VLA（2026-08-14）
+- `vla` lingbot-vla v2-6b（2026-08-14）
+- `world` NVIDIA Cosmos Cosmos3（2026-08-14）
+- `world` Google Genie Genie 3（2026-08-14）
+- `world` World Labs Marble Marble（2026-08-14）
+- `world` Odyssey Odyssey-2（2026-08-14）
+- `world` Matrix-Game 3.0（2026-08-14）
+- `world` 混元世界 HY-World 2.0（2026-08-14）
+- `world` Microsoft WHAM WHAM（2026-08-14）
+- `world` Meta V-JEPA V-JEPA 2（2026-08-14）
+- `world` Decart Oasis Oasis 3（2026-08-14）
+- `world` Etched Oasis-500M 500M（2026-08-14）
+- `asr` ElevenLabs Scribe v2（2026-08-15）
+- `asr` Whisper large-v3（2026-08-15） — **maintained**
+- `asr` SenseVoice Small（2026-08-15）
+- `asr` Qwen3-ASR 1.7B（2026-08-15）
+- `bio` AlphaFold 3（2026-08-15）
+- `bio` Boltz 2（2026-08-15）
+- `bio` ESM-2 650M（2026-08-15） — **maintained**
+- `weather` WeatherNext 2（2026-08-15）
+- `weather` Aurora 1（2026-08-15）
+- `weather` NeuralGCM 1（2026-08-15）
+- `material` MatterGen 1（2026-08-15）
+- `material` MACE MP（2026-08-15）
+- `material` GNoME 1（2026-08-15） — **maintained**
 
 > clip 轨只剩 1 个空位。按规则四，再进新的就必须先踢一个 ——
 > 最该出去的是 **Sora 2**（已公告停服）。但**停服的模型不该从库里删**：
@@ -131,7 +183,7 @@
 
 ### 二、Hugging Face 下载量前列、我们没收的组织（开源侧的实际采用度）
 
-> ⚠️ 另有 **3 个组织被判成量化 / 搬运号**（仓库八成以上是 GGUF、AWQ、mlx 这类二次分发档），已从下表略过：`city96`、`xinsir`、`QuantStack`。**判据是仓库名，不是人品** —— 它们里面若有自训模型，会因为名字不带量化后缀而照常出现在上表。
+> ⚠️ 另有 **4 个组织被判成量化 / 搬运号**（仓库八成以上是 GGUF、AWQ、mlx 这类二次分发档），已从下表略过：`city96`、`xinsir`、`ChrisColeTech`、`QuantStack`。**判据是仓库名，不是人品** —— 它们里面若有自训模型，会因为名字不带量化后缀而照常出现在上表。
 
 （无）
 
@@ -140,8 +192,14 @@
 > 不要照单全收，也不要因为混了噪音就整路丢掉：Lightricks、nvidia、zai-org
 > 都是这一路捞出来的，而它们在闭源榜上完全隐形。
 
-### 当前 Core（clip 轨 10/10，realtime 轨 2/10；括号里是含扩展层的总数 21 / 2）
+### 当前 Core（clip 轨 10/10，realtime 轨 2/10；括号里是含扩展层的总数 23 / 2）
 
+- `still` Grok Imagine Image Image 2.0（2026-08-27）
+- `clip` Grok Imagine Video Video 1.5（2026-08-27）
+- `clip` Luma Ray Ray3.2（2026-08-27）
+- `chat` Muse Spark Muse Spark 1.2（2026-08-27）
+- `asset` Lux3D Lux3D（2026-08-27）
+- `er` LocateAnything LocateAnything-3B（2026-08-27）
 - `clip` Seedance 2.5（2026-07-31）
 - `clip` MiniMax Hailuo H3（2026-07-31）
 - `clip` Gemini Omni Flash（2026-05-19）
@@ -151,7 +209,7 @@
 - `clip` Vidu Q Q3（2026-04-13）
 - `clip` Veo 3.1（2025-10） — **superseded**
 - `clip` Sora 2（2025-09） — **discontinued**
-- `realtime` Vidu S S1（2026-07-03）
+- `realtime` Vidu S S2（2026-09-19）
 - `realtime` Decart Lucy Lucy 2.5（2026-08-07）
 - `clip` LTX 2.5（2026-08-13）
 - `clip` HappyHorse 1.1（2026-06）
@@ -168,7 +226,7 @@
 - `still` Krea 2-Raw（2026-06-18）
 - `still` Seedream 5.0 Pro（2026-08-11）
 - `still` Nano Banana 2（gemini-3.1-flash-image）（2026-08-11）
-- `still` GPT Image 2（gpt-image-2）（2026-08-11）
+- `still` GPT Image 2.5（sunburst / flare）（2026-09-10）
 - `still` Kolors 待核（2026-08-11）
 - `still` Midjourney 待核（2026-08-11）
 - `still` Ideogram 4.0（2026-08-12）
@@ -182,17 +240,17 @@
 - `still` Anima Anima（2026-01-29）
 - `still` Boogu-Image 0.1-Turbo（2026-06-16）
 - `still` NewBie-image Exp0.1（2025-11-30）
-- `chat` Claude Fable 5（2026-06-09）
-- `chat` GPT GPT-5.6（2026-08-11）
-- `chat` Gemini Gemini 3.6 Flash（2026-08-11）
+- `chat` Claude Fable 5.1（2026-09-10）
+- `chat` GPT GPT-6 Astra（2026-09-10）
+- `chat` Gemini Gemini 3.8 Flash（2026-09-10）
 - `chat` Qwen 3.8-max（2026-08-11）
-- `chat` DeepSeek V4（2026-07-31）
+- `chat` DeepSeek V4.1（2026-09-19）
 - `chat` Kimi K3（2026-06-13）
-- `chat` GLM GLM-5.2（2026-06-16）
+- `chat` GLM GLM-5.3（2026-08-29）
 - `chat` MiniMax M3（2026-06-02）
 - `chat` Doubao Seed-2.1 Pro（2026-06-23）
 - `chat` Llama 4（2025-04-05）
-- `chat` Grok 4.5（2026-08-11）
+- `chat` Grok 4.6（2026-08-29）
 - `chat` Mistral Medium 3.5（2026-03-31）
 - `tts` MiniMax Speech speech-2.8-hd（2026-08-12）
 - `tts` ElevenLabs Eleven v3（2026-08-12）
@@ -202,7 +260,7 @@
 - `tts` Qwen Omni 3.5-omni-plus（2026-08-12）
 - `music` MiniMax Music music-3.0（2026-08-12）
 - `music` Eleven Music v2（2026-08-12）
-- `music` Lyria 3 Pro Preview（2026-08-12）
+- `music` Lyria 3.5（2026-09-10）
 - `voice-rt` GPT Realtime 2.1（2026-08-12）
 - `voice-rt` Grok Voice think-fast-2.0（2026-08-12）
 - `tts` GLM-TTS GLM-TTS（2026-08-12）
@@ -225,6 +283,49 @@
 - `clip` CogVideoX 2b/5b（2026-08-14）
 - `clip` I2VGen-XL XL（2026-08-14）
 - `still` LongCat Image Edit（2026-08-14）
+- `avatar` HeyGen Avatar V（2026-08-14）
+- `avatar` LongCat Video Avatar 1.5（2026-08-14）
+- `avatar` HunyuanVideo-Avatar 1.0（2026-08-14）
+- `avatar` LivePortrait 1.0（2026-08-14）
+- `avatar` MuseTalk 1.0（2026-08-14）
+- `avatar` Hallo2 Hallo-Live（2026-08-14）
+- `er` Gemini Robotics ER ER 2 Preview（2026-08-14）
+- `vla` MolmoAct MolmoAct2（2026-08-14）
+- `vla` π（Physical Intelligence） π₀.₅（2026-08-14）
+- `vla` NVIDIA Isaac GR00T N N1.7（2026-08-14）
+- `vla` OpenVLA 7B（2026-08-14） — **maintained**
+- `vla` SmolVLA base（2026-08-14）
+- `vla` Helix Helix（2026-08-14）
+- `vla` X-VLA 0.9B（2026-08-14）
+- `er` RynnBrain 1.1（2026-08-14）
+- `vla` InternVLA A1.5（2026-08-14）
+- `vla` 混元具身 0.5（2026-08-14）
+- `vla` Xiaomi Robotics 1（2026-08-14）
+- `vla` Galaxea G0 G0-VLA（2026-08-14）
+- `vla` lingbot-vla v2-6b（2026-08-14）
+- `world` NVIDIA Cosmos Cosmos3（2026-08-14）
+- `world` Google Genie Genie 3（2026-08-14）
+- `world` World Labs Marble Marble（2026-08-14）
+- `world` Odyssey Odyssey-2（2026-08-14）
+- `world` Matrix-Game 3.0（2026-08-14）
+- `world` 混元世界 HY-World 2.0（2026-08-14）
+- `world` Microsoft WHAM WHAM（2026-08-14）
+- `world` Meta V-JEPA V-JEPA 2（2026-08-14）
+- `world` Decart Oasis Oasis 3（2026-08-14）
+- `world` Etched Oasis-500M 500M（2026-08-14）
+- `asr` ElevenLabs Scribe v2（2026-08-15）
+- `asr` Whisper large-v3（2026-08-15） — **maintained**
+- `asr` SenseVoice Small（2026-08-15）
+- `asr` Qwen3-ASR 1.7B（2026-08-15）
+- `bio` AlphaFold 3（2026-08-15）
+- `bio` Boltz 2（2026-08-15）
+- `bio` ESM-2 650M（2026-08-15） — **maintained**
+- `weather` WeatherNext 2（2026-08-15）
+- `weather` Aurora 1（2026-08-15）
+- `weather` NeuralGCM 1（2026-08-15）
+- `material` MatterGen 1（2026-08-15）
+- `material` MACE MP（2026-08-15）
+- `material` GNoME 1（2026-08-15） — **maintained**
 
 > clip 轨只剩 1 个空位。按规则四，再进新的就必须先踢一个 ——
 > 最该出去的是 **Sora 2**（已公告停服）。但**停服的模型不该从库里删**：

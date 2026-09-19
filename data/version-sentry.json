@@ -1,37 +1,10 @@
 {
   "generated_at": "2026-09-19",
-  "n": 2,
+  "n": 0,
   "n_unclear": 0,
-  "n_missing": 31,
+  "n_missing": 29,
   "n_skipped": 53,
   "rows": [
-    {
-      "kind": "有更新的一代",
-      "m": "deepseek",
-      "family": "DeepSeek",
-      "zh": "深度求索",
-      "cur": "V4",
-      "cur_as_of": "2026-09-10",
-      "found": "V4.1",
-      "found_num": "4.1",
-      "src": "deepseek-pricing",
-      "src_at": "2026-09-19",
-      "evidence": "Format) https://api.deepseek.com BASE URL (Anthropic Format) https://api.deepseek.com/anthropic MODEL VERSION DeepSeek-V4.1-Flash DeepSeek-V4-Pro-0813 THINKING MODE Supports both non-thinking and thinking (default) modes See Thinking Mode for how to switch CONTEXT LENGTH 1M MAX OUTPUT MAXIMUM: 384K FEATURES Json Outpu"
-    },
-    {
-      "kind": "有更新的一代",
-      "m": "vidu-s",
-      "family": "Vidu S",
-      "zh": "Vidu S",
-      "cur": "S1",
-      "cur_as_of": "2026-07-03",
-      "found": "Vidu S2",
-      "found_num": "2",
-      "src": "vidu-changelog",
-      "src_at": "2026-09-16",
-      "via_other_src": "vidu-s1-paper",
-      "evidence": "API REFERENCE Update Notice [图标]Copy page [图标] [图标] Date Update Details September 15,2026 New Model -Vidu S2-Avatar: Real-Time Interactive Model Supports real-time voice interaction and complex motion control. Reference images can also be used for product interaction, outfit changes, and background r"
-    },
     {
       "kind": "牌子摘了",
       "m": "anysplat",
@@ -63,17 +36,6 @@
       "found": null,
       "src": "hf-cogvideox",
       "src_at": "2026-09-05",
-      "evidence": ""
-    },
-    {
-      "kind": "牌子摘了",
-      "m": "cosmos",
-      "family": "NVIDIA Cosmos",
-      "cur": "Cosmos3",
-      "cur_as_of": "2026-08-14",
-      "found": null,
-      "src": "cosmos3-card",
-      "src_at": "2026-09-19",
       "evidence": ""
     },
     {
@@ -120,17 +82,6 @@
       "found": null,
       "src": "gemini-tts",
       "src_at": "2026-09-09",
-      "evidence": ""
-    },
-    {
-      "kind": "牌子摘了",
-      "m": "genie",
-      "family": "Google Genie",
-      "cur": "Genie 3",
-      "cur_as_of": "2026-08-14",
-      "found": null,
-      "src": "genie3-blog",
-      "src_at": "2026-09-12",
       "evidence": ""
     },
     {
@@ -204,18 +155,6 @@
     },
     {
       "kind": "牌子摘了",
-      "m": "lucy",
-      "family": "Decart Lucy",
-      "zh": "Lucy",
-      "cur": "Lucy 2.5",
-      "cur_as_of": "2026-08-07",
-      "found": null,
-      "src": "decart-site",
-      "src_at": "2026-09-19",
-      "evidence": ""
-    },
-    {
-      "kind": "牌子摘了",
       "m": "magi",
       "family": "MAGI",
       "cur": "2 Preview",
@@ -272,17 +211,6 @@
     },
     {
       "kind": "牌子摘了",
-      "m": "oasis",
-      "family": "Decart Oasis",
-      "cur": "Oasis 3",
-      "cur_as_of": "2026-08-14",
-      "found": null,
-      "src": "decart-site",
-      "src_at": "2026-09-19",
-      "evidence": ""
-    },
-    {
-      "kind": "牌子摘了",
       "m": "openai-tts",
       "family": "GPT TTS",
       "cur": "GPT-4o mini TTS",
@@ -300,6 +228,17 @@
       "cur_as_of": "2026-08-14",
       "found": null,
       "src": "openvla-gh",
+      "src_at": "2026-09-12",
+      "evidence": ""
+    },
+    {
+      "kind": "牌子摘了",
+      "m": "pixverse",
+      "family": "PixVerse",
+      "cur": "V6",
+      "cur_as_of": "2026-08-14",
+      "found": null,
+      "src": "pixverse-v6",
       "src_at": "2026-09-12",
       "evidence": ""
     },
@@ -369,6 +308,17 @@
       "cur_as_of": "2026-08-13",
       "found": null,
       "src": "stability-spar3d",
+      "src_at": "2026-09-12",
+      "evidence": ""
+    },
+    {
+      "kind": "牌子摘了",
+      "m": "tripo",
+      "family": "Tripo",
+      "cur": "P1-20260311",
+      "cur_as_of": "2026-08-13",
+      "found": null,
+      "src": "tripo-docs-generation",
       "src_at": "2026-09-12",
       "evidence": ""
     },

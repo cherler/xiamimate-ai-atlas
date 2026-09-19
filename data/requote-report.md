@@ -1,20 +1,20 @@
 # 引文回查 · 2026-09-19
 
-回查 1223 条：无英文锚 729 · 快照无正文 34 · 对得上 333 · 找不到 93 · 无快照 20 · 本页没有·别处有 12 · 快照被截断·判不了 2
+回查 1226 条：无英文锚 725 · 快照无正文 34 · 对得上 339 · 找不到 93 · 无快照 20 · 人审认过·非逐字 12 · 快照被截断·判不了 2 · 本页没有·别处有 1
 
 > 这份报告回答一件事：**一格引文里的原句，在它署名的那份快照里还在不在。**
 > ⚠️ **失败不等于引文错。** 三种成因要分开：真署错了页 / 这一页的快照是残的（抓回来的是导航不是正文）/ 当初记的就不是逐字原文。**脚本不猜。**
+> 「人审认过·非逐字」那一摞是**审阅台上已经判过的**，列在这里只为不假装它们消失了 —— 不用再看。
 
-## 失败 ≥3 条的源（12 个）—— 这几个大概率是抓法不对
+## 失败 ≥3 条的源（11 个）—— 这几个大概率是抓法不对
 
 - **comfy-docs**（8 条）：发布 hidream-HiDream-I1-17B 出图底座，MIT、发布 ernie-image-ERNIE-Image-8B DiT 正式档，apache-2.0、发布 ovis-image-Ovis-Image-7B-7B 专攻图上出字 …
 - **rodin-api-docs**（6 条）：rodin × d-multiview、rodin × d-pbr、rodin × d-edit …
 - **hunyuanworld-gh**（5 条）：hunyuan-world × w-sim、hunyuan-world × w-realtime、模型 hunyuan-world 版本 …
 - **heygen-changelog**（5 条）：发布 heygen-v3api、发布 heygen-avatar3、发布 heygen-avatar5 …
-- **seed-blog**（4 条）：模型 seedream 版本、发布 seedream-Seedream 3.0-原生 2K 直出 + 小字排版变准、发布 seedream-Seedream 4.0-出图与改图并进一个模型 …
 - **recraft-blog**（4 条）：模型 recraft 版本、发布 recraft-Recraft V3-长段文字 + 文字位置和大小可指定、发布 recraft-Recraft V4-按设计审美重训的一代 …
 - **veo-doc**（3 条）：veo × flf、veo × charref、veo × extend
-- **decart-site**（3 条）：lucy × rt-endless、模型 lucy 版本、发布 lucy-Lucy2.5-Lucy2.5
+- **vidu-changelog**（3 条）：模型 vidu-s 版本、发布 vidu-q-Q1-参考生视频、发布 viduq2
 - **minimax-release-notes**（3 条）：发布 hailuo-01-运镜控制、发布 hailuo-02-换代02：1080p、发布 hailuo-2.3-换代2.3：肢体动作与表情
 - **wiki-midjourney**（3 条）：发布 midjourney-V6-这一代起大幅改善提示词跟随、发布 midjourney-V6.1-画质与细节一致性迭代、发布 midjourney-V7-Draft Mode 与 Omni Reference
 - **meshy-changelog**（3 条）：发布 meshy-remesh、发布 meshy-format、发布 meshy-7
@@ -22,20 +22,9 @@
 
 ## 全部
 
-### 本页没有·别处有（12）
+### 本页没有·别处有（1）
 
-- `ideogram-v3-reframe` ideogram × i-outpaint —— 锚「Take a starting image and extend it to match your desired resolution.」（这句在 ideogram-overview）
-- `hf-trellis2` trellis × d-multiview —— 锚「Implementation of multi-image conditioning」（这句在 gh-trellis）
-- `hf-trellis2` trellis × d-edit —— 锚「local 3D editing capabilities」（这句在 gh-trellis）
-- `arxiv-seed3d-20` seed3d × d-scene —— 锚「the system scales to complete scene generation through assembling obje」（这句在 arxiv-seed3d-10）
-- `decart-site` 模型 lucy 版本 —— 锚「LUCY 2.5 IS LIVE」（这句在 decart-research）
-- `seed-blog` 模型 seedream 版本 —— 锚「Seedream 5.0 Pro is a multimodal image generation model that features 」（这句在 seedream-page）
-- `replicate-hunyuan3d-31` 模型 hunyuan3d 版本 —— 锚「D models with texture fidelity and geometry precision」（这句在 replicate-3d）
 - `vidu-changelog` 发布 viduq2 —— 锚「Video Direct Output Capability - Audio」（这句在 vidu-up）
-- `seed-blog` 发布 seedream-Seedream 5.0 Pro-分层输出 + 圈画标注式改图 —— 锚「Seedream 5.0 Pro is a multimodal image generation model that features 」（这句在 seedream-page）
-- `hf-hunyuan3d-21` 发布 hy3d-2.1 —— 锚「We release the first production-ready 3D asset generation model, Hunyu」（这句在 gh-hunyuan3d-21）
-- `openai-model-tts` 发布 gpttts-2025-12 —— 锚「slugs to point to the 2025-12-15 snapshots」（这句在 openai-changelog）
-- `openai-model-realtime` 发布 gptrt-2025-08 —— 锚「The OpenAI Realtime API is now generally available」（这句在 openai-changelog）
 
 ### 找不到（93）
 
@@ -73,6 +62,7 @@
 - `hunyuanworld-gh` hunyuan-world × w-sim —— 锚「April 16, 2026: We release HY-World-2.0, state-of-the-art 3D world mod」
 - `hunyuanworld-gh` hunyuan-world × w-realtime —— 锚「December 18, 2025: We release HunyuanWorld-1.5」
 - `gemini-models` 模型 gemini-omni 版本 —— 锚「Fast, conversational video generation and editing」
+- `vidu-changelog` 模型 vidu-s 版本 —— 锚「New Model - Vidu S2-Avatar: Real-Time Interactive Model」
 - `gemini-models` 模型 gemini-image 版本 —— 锚「our latest state-of-the-art image model.」
 - `recraft-blog` 模型 recraft 版本 —— 锚「Give V4.1 just a few words, and it'll give you something worth keeping」
 - `bfl-flux3` 模型 flux-video 版本 —— 锚「FLUX 3 is one multimodal model. Video with synchronized audio, one req」
@@ -110,7 +100,6 @@
 - `comfy-docs` 发布 pixeldit-PixelDiT-1300M-1024px-不用 VAE，直接在像素空间扩散 —— 锚「PixelDiT is NVIDIA's pixel-space diffusion transformer for 1024px text」
 - `comfy-docs` 发布 boogu-image-Boogu-Image-0.1-生成与编辑合到一个模型，apache-2.0 —— 锚「Boogu-Image-0.1 is an Apache-2.0 open-source unified image generation 」
 - `comfy-docs` 发布 newbie-image-NewBie-image-Exp0.1-3.5B Next-DiT，二次元向 —— 锚「NewBie-image-Exp0.1 is a 3.5B parameter DiT model developed by NewBieA」
-- `claude-deprecations` 发布 claude-Claude Fable 5-面向长程智能体；自适 —— 锚「Claude Fable 5 is generally available on the Claude API」
 - `bfl-flux3` 发布 flux-video-FLUX 3-BFL 从图像跨进视频 —— 锚「FLUX 3 is one multimodal model. Video with synchronized audio, one req」
 - `rodin-api-docs` 发布 rodin-gen2 —— 锚「glb, usdz, fbx, obj, and stl」
 - `rodin-api-docs` 发布 rodin-gen2.5 —— 锚「Best for quickly generating simple assets」
@@ -197,3 +186,18 @@
 - `modelscope-orgs` 发布 internvla-a15
 - `modelscope-orgs` 发布 hy-embodied-05
 - `gemini-37-blog` 发布 gemini-text-Gemini 3.7-编码与智能体提升
+
+### 人审认过·非逐字（12）
+
+- `ideogram-v3-reframe` ideogram × i-outpaint —— 锚「Take a starting image and extend it to match your desired resolution.」（这句在 ideogram-overview）
+- `hf-trellis2` trellis × d-multiview —— 锚「Implementation of multi-image conditioning」（这句在 gh-trellis）
+- `hf-trellis2` trellis × d-edit —— 锚「local 3D editing capabilities」（这句在 gh-trellis）
+- `arxiv-seed3d-20` seed3d × d-scene —— 锚「the system scales to complete scene generation through assembling obje」（这句在 arxiv-seed3d-10）
+- `decart-site` 模型 lucy 版本 —— 锚「LUCY 2.5 IS LIVE」（这句在 decart-research）
+- `seed-blog` 模型 seedream 版本 —— 锚「Seedream 5.0 Pro is a multimodal image generation model that features 」（这句在 seedream-page）
+- `replicate-hunyuan3d-31` 模型 hunyuan3d 版本 —— 锚「D models with texture fidelity and geometry precision」（这句在 replicate-3d）
+- `seed-blog` 发布 seedream-Seedream 5.0 Pro-分层输出 + 圈画标注式改图 —— 锚「Seedream 5.0 Pro is a multimodal image generation model that features 」（这句在 seedream-page）
+- `claude-deprecations` 发布 claude-Claude Fable 5-面向长程智能体；自适 —— 锚「Claude Fable 5 is generally available on the Claude API」
+- `hf-hunyuan3d-21` 发布 hy3d-2.1 —— 锚「We release the first production-ready 3D asset generation model, Hunyu」（这句在 gh-hunyuan3d-21）
+- `openai-model-tts` 发布 gpttts-2025-12 —— 锚「slugs to point to the 2025-12-15 snapshots」（这句在 openai-changelog）
+- `openai-model-realtime` 发布 gptrt-2025-08 —— 锚「The OpenAI Realtime API is now generally available」（这句在 openai-changelog）
