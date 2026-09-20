@@ -1,8 +1,8 @@
 {
   "url": "https://huggingface.co/api/models?filter=text-to-video&sort=downloads&direction=-1&limit=60",
   "kind": "json",
-  "fetched_at": "2026-09-17",
-  "digest": "c4c5b24dbe162c58",
+  "fetched_at": "2026-09-20",
+  "digest": "805aa4f7c3b9fa21",
   "items": [
     "Abiray/LTX-2.5-Distilled-GGUF\t",
     "Abiray/MiniMax-H3-GGUF\t",
@@ -14,6 +14,7 @@
     "FastVideo/FastWan2.2-TI2V-5B-FullAttn-Diffusers\t",
     "Hearmeman/minimax-h3-loras\t",
     "IPostYellow/TurboWan2.1-T2V-1.3B-Diffusers\t",
+    "Jojocodex/minimax-h3-Camera-Motion-lora\t",
     "Jojocodex/minimax-h3-spatial-physics-lora\t",
     "Lightricks/LTX-2\t",
     "Lightricks/LTX-2.3\t",
@@ -26,7 +27,6 @@
     "QuantStack/Wan2.1_14B_VACE-GGUF\t",
     "QuantStack/Wan2.2-T2V-A14B-GGUF\t",
     "QuantStack/Wan2.2-TI2V-5B-GGUF\t",
-    "Rabinovich/LongLive-2.0-5B-Diffusers\t",
     "SulphurAI/Sulphur-2-base\t",
     "Wan-AI/Wan2.1-T2V-1.3B\t",
     "Wan-AI/Wan2.1-T2V-1.3B-Diffusers\t",
@@ -56,13 +56,13 @@
     "molbal/MiniMax-H3-GGUF\t",
     "realrebelai/LTX-2.5_GGUFs\t",
     "rockerBOO/minimax-h3-nvfp4-convrot\t",
+    "rzgar/minimax_h3_fl2v_lightx2v_4step_int8-convrot_comfy\t",
     "samuelchristlie/Wan2.1-T2V-1.3B-GGUF\t",
     "samuelchristlie/Wan2.1-VACE-1.3B-GGUF\t",
     "t8star/Vdn-Minimax-H3-Comfy\t",
     "unsloth/LTX-2.3-GGUF\t",
     "unsloth/MiniMax-H3-GGUF\t",
     "unsloth/Wan2.2-TI2V-5B-GGUF\t",
-    "wangfuyun/AnimateLCM\t",
-    "zai-org/CogVideoX-2b\t"
+    "wangfuyun/AnimateLCM\t"
   ]
 }

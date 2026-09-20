@@ -1,8 +1,8 @@
 {
   "url": "https://huggingface.co/api/models?filter=image-to-video&sort=downloads&direction=-1&limit=60",
   "kind": "json",
-  "fetched_at": "2026-09-17",
-  "digest": "86b6098e46d73597",
+  "fetched_at": "2026-09-20",
+  "digest": "5f34a26ade67b8cf",
   "items": [
     "Abiray/LTX-2.5-Distilled-GGUF\t",
     "Abiray/MiniMax-H3-GGUF\t",
@@ -21,7 +21,6 @@
     "Lightricks/LTX-Video-ICLoRA-detailer-13b-0.9.8\t",
     "MiniMaxAI/MiniMax-H3\t",
     "OpenMOSS-Team/MOVA-360p\t",
-    "Patarapoom/h3-vbvr\t",
     "QuantStack/LTX-2.3-GGUF\t",
     "QuantStack/Wan2.2-I2V-A14B-GGUF\t",
     "TenStrip/LTX2.3-10Eros\t",
@@ -63,6 +62,7 @@
     "unsloth/LTX-2.3-GGUF\t",
     "unsloth/MiniMax-H3-GGUF\t",
     "vantagewithai/SCAIL-2-GGUF-ComfyUI\t",
+    "yuvraj108c/LTX-2.5\t",
     "zai-org/CogVideoX-5b-I2V\t"
   ]
 }
