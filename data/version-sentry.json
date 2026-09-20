@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-19",
+  "generated_at": "2026-09-20",
   "n": 0,
   "n_unclear": 0,
   "n_missing": 29,
@@ -549,7 +549,7 @@
     },
     {
       "m": "funcineforge",
-      "why": "hf-funcineforge 都没有可比对的正文（没快照，或只有 json/atom 的 items）"
+      "why": "版本串「Fun-CineForge」里没有数字，比不了"
     }
   ]
 }

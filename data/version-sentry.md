@@ -1,4 +1,4 @@
-# 版本哨兵 · 2026-09-19
+# 版本哨兵 · 2026-09-20
 
 扫 133 个模型：**有更新的一代 0** · 口径存疑 0 · 牌子摘了 29 · 比不了 54
 
@@ -99,4 +99,4 @@
 - oasis500m —— hf-robotics 都没有可比对的正文（没快照，或只有 json/atom 的 items）
 - sensevoice —— 版本串「Small」里没有数字，比不了
 - mace —— 版本串「MP」里没有数字，比不了
-- funcineforge —— hf-funcineforge 都没有可比对的正文（没快照，或只有 json/atom 的 items）
+- funcineforge —— 版本串「Fun-CineForge」里没有数字，比不了

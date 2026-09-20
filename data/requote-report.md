@@ -1,6 +1,6 @@
-# 引文回查 · 2026-09-19
+# 引文回查 · 2026-09-20
 
-回查 1227 条：无英文锚 726 · 对得上 340 · 找不到 94 · 无快照 20 · 快照无正文 33 · 人审认过·非逐字 12 · 快照被截断·判不了 2
+回查 1227 条：无英文锚 726 · 对得上 341 · 找不到 94 · 无快照 19 · 快照无正文 33 · 人审认过·非逐字 12 · 快照被截断·判不了 2
 
 > 这份报告回答一件事：**一格引文里的原句，在它署名的那份快照里还在不在。**
 > ⚠️ **失败不等于引文错。** 三种成因要分开：真署错了页 / 这一页的快照是残的（抓回来的是导航不是正文）/ 当初记的就不是逐字原文。**脚本不猜。**
@@ -160,7 +160,7 @@
 - `hf-lineage` 发布 trellis-text —— 锚「takes in text or image prompts」
 - `hf-robotics` 发布 cosmos-reason2 —— 锚「replacing the Eagle backbone used in N1.6」
 
-### 无快照（20）
+### 无快照（19）
 
 - `openai-sora-2` sora × charref
 - `openai-sora-2` sora × audio
@@ -176,7 +176,6 @@
 - `modelscope-orgs` 模型 hy-embodied 版本
 - `modelscope-orgs` 模型 g0-vla 版本
 - `modelscope-orgs` 模型 lingbot-vla 版本
-- `hf-funcineforge` 模型 funcineforge 版本
 - `seed3d-page` 发布 seed3d-1.0
 - `modelscope-orgs` 发布 internvla-n1
 - `modelscope-orgs` 发布 internvla-a15
