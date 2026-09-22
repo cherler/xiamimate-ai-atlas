@@ -1,6 +1,6 @@
-# 信息源监视报告 · 2026-09-20
+# 信息源监视报告 · 2026-09-22
 
-本次检查 11 个到期源（共 429 个）：变化 6 · 首次 2 · 无变化 0 · **抓不到 3**
+本次检查 6 个到期源（共 429 个）：变化 2 · 首次 0 · 无变化 1 · **抓不到 3**
 
 > 这份报告是给人看的那 20 条待办的来源（§59.3 的负反馈：人每周要看的条目 ≤ 20）。
 > 「抓不到」不是失败，是**信息本身** —— 一个长期抓不到的官方源，说明那家厂商没有可 diff 的公开更新入口，
@@ -21,18 +21,9 @@
 
 ## 有变化
 
-- **hf-t2v** Hugging Face · text-to-video 按下载量
-  新增 2 条：Jojocodex/minimax-h3-Camera-Motion-lora、rzgar/minimax_h3_fl2v_lightx2v_4step_int8-convrot_comfy
-- **hf-i2v** Hugging Face · image-to-video 按下载量
-  新增 1 条：yuvraj108c/LTX-2.5
-- **techcrunch-ai** TechCrunch · AI（RSS）
-  新增 20 条：Flock reportedly tries to shrink workforce with employee buyouts、Trump says it&#8217;s time to rebrand AI with a new name — and he&#8217;s also creating an AI Force、Google’s Gemini is the latest AI model to hack other companies、Petlibro’s new AI-powered feeder is a game changer for multi-cat homes、AI safety conversations have gotten unbelievable、Prices go up in 7 days. Get your Disrupt ticket now.、Vals, backed by Andreessen Horowitz, is looking to become the gold standard for AI benchmarking、India forces caller-ID apps to feed spam reports to telcos、Tilly Norwood&#8217;s press tour is going about as well as you&#8217;d expect for an AI、A startup that builds other startups raised $100M and is all-in on physical AI、Anthropic is operating a lab that conducts biology experiments、AI hallucination nearly triggers US military operation …
-- **ltx-hf-org** Hugging Face · Lightricks 组织全部仓库
-  新增 1 条：Lightricks/LTX-2.5-22b-IC-LoRA-Clean-Plate
-- **hf-t2i** Hugging Face · text-to-image 按下载量
-  新增 2 条：Runpod/FLUX.2-klein-4B-mflux-4bit、ifmylove2011/girlslike-krea2
-- **hf-i2i** Hugging Face · image-to-image 按下载量
-  新增 2 条：lllyasviel/control_v11f1p_sd15_depth、tencent/HunyuanImage-3.0-Instruct
+- **deepseek-pricing** DeepSeek 官方文档 · 模型与价格
+- **hf-org** Hugging Face 官方组织目录（模型接口）
+  新增 237 条：0bserverx/Qwen3.8-27B-Heretic-GSQ-RCO-GGUF、0xSojalSec/Qwen-Image-2.1-Uncensored-GGUF、Abiray/MiniMax-H3-Pruned-Ref-Delta-Fused-GGUF、Abiray/MiniMax-H3-Singularity-GGUF、Abiray/Qwen-Image-2.1-GGUF、Ae55667/halogen-qwen3.8-flash-next-abliterated、AetherLabs-AI/CausalWM、AikidoSec/altar-1、AlperKTS/Qwen-Image-2.1-GGUF、Altworld/Hemmingway-1、BAAI/bge-small-en-v1.5、Beidouqixing/minimax-h3-4step-lora-flashgen …
 
 ## 全部
 
@@ -65,8 +56,8 @@
 | epoch-notable | A | csv | 未到期（上次 2026-09-16） |
 | aa-t2v | A | spa | 未到期（上次 2026-09-16） |
 | aa-i2v | A | spa | 未到期（上次 2026-09-16） |
-| hf-t2v | A | json | 变了 |
-| hf-i2v | A | json | 变了 |
+| hf-t2v | A | json | 未到期（上次 2026-09-20） |
+| hf-i2v | A | json | 未到期（上次 2026-09-20） |
 | hf-v2v | A | json | 未到期（上次 2026-09-16） |
 | fal-video | S | spa | 未到期（上次 2026-09-17） |
 | replicate-t2v | S | html | 未到期（上次 2026-09-16） |
@@ -81,9 +72,9 @@
 | seed-models-hub | S | html | 未到期（上次 2026-09-16） |
 | apiyi-models | S | spa | 未到期（上次 2026-09-16） |
 | arxiv-worldmodel | S | atom | 未到期（上次 2026-09-16） |
-| techcrunch-ai | B | atom | 变了 |
+| techcrunch-ai | B | atom | 未到期（上次 2026-09-20） |
 | ltx-gh | S | json | 未到期（上次 2026-09-16） |
-| ltx-hf-org | S | json | 变了 |
+| ltx-hf-org | S | json | 未到期（上次 2026-09-20） |
 | decart-site | S | spa | 未到期（上次 2026-09-19） |
 | picsart-video | C | html | 未到期（上次 2026-09-11） |
 | libtv | C | spa | 从未抓过 |
@@ -179,8 +170,8 @@
 | ms-foundry-blog | B | html | 未到期（上次 2026-09-11） |
 | mj-updates | S | html | 未到期（上次 2026-09-09） |
 | aa-t2i | A | spa | 抓不到（还是壳：渲染后正文只有 321 个字符） |
-| hf-t2i | A | json | 变了 |
-| hf-i2i | A | json | 变了 |
+| hf-t2i | A | json | 未到期（上次 2026-09-20） |
+| hf-i2i | A | json | 未到期（上次 2026-09-20） |
 | anthropic-models | S | html | 未到期（上次 2026-09-17） |
 | deepseek-docs | S | html | 未到期（上次 2026-09-17） |
 | xai-docs | S | html | 未到期（上次 2026-09-17） |
@@ -216,8 +207,8 @@
 | mcpservers-gh | S | json | 未到期（上次 2026-09-11） |
 | anthropic-features | S | html | 未到期（上次 2026-09-17） |
 | openai-docs | S | html | 未到期（上次 2026-09-17） |
-| deepseek-pricing | S | html | 未到期（上次 2026-09-19） |
-| deepseek-updates | S | html | 未到期（上次 2026-09-19） |
+| deepseek-pricing | S | html | 变了 |
+| deepseek-updates | S | html | 无变化 |
 | bailian-models | S | html | 未到期（上次 2026-09-16） |
 | kimi-pricing | S | html | 未到期（上次 2026-09-09） |
 | glm-52-doc | S | html | 未到期（上次 2026-09-09） |
@@ -464,6 +455,6 @@
 | seed-blog-1_5 | A | html | 未到期（上次 2026-09-12） |
 | seed-blog-2_0 | A | html | 未到期（上次 2026-09-12） |
 | ideogram-x | A | html | 未到期（上次 2026-09-12） |
-| hf-funcineforge | S | html | 首次 |
-| hf-org | S | json | 未到期（上次 2026-09-19） |
-| gh-gptsovits-cn | C | json | 首次 |
+| hf-funcineforge | S | html | 未到期（上次 2026-09-20） |
+| hf-org | S | json | 变了 |
+| gh-gptsovits-cn | C | json | 未到期（上次 2026-09-20） |
