@@ -161,8 +161,8 @@ export function queue() {
           m && f.capability && capIds.has(f.capability) && !cell &&
             `${m.id} 身上没有「${f.capability}」这一格 —— 能力轴按方向隔离（R26），这是跨卷的断言`,
           resold &&
-            `\`${f.source}\` 是转售目录/聚合榜，${m.id} 不是它自家的 —— **转售方的商品说明不是厂商自述**，` +
-            `要落格得找到 ${m.org} 自己写的那一页`,
+            `\`${f.source}\` 不是 ${m.org} 自己的页（转售目录 / 聚合商 / 第三方榜单）—— ` +
+            `**别人对这个模型的描述不算厂商自述**，要落格得找到 ${m.org} 自己写的那一句`,
         ].filter(Boolean),
       });
       }
