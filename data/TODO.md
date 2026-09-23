@@ -1,37 +1,25 @@
 # 该你看了 · 2026-09-23
 
-**1183 条要你拍板**，分 3 摞。每摞都指向它原本在的文件 —— **这里只汇总，不下判断**。
+**4 条要你拍板**，分 1 摞。每摞都指向它原本在的文件 —— **这里只汇总，不下判断**。
 
 > **动手在审阅台：http://127.0.0.1:8230**（`npm run station` 开）。
 > 这份文件是存档，看的是同一摞东西；判断、重跑、写回都在那边点，不要在两处各做一半。
 
-## 收件箱里等你定的 1163 条（能直接落格 474 条）
+## 收录候选 4 条（人工发现 4：Seed Audio 1.0、SeedRealtime、Seed GR-3、Protenix）
 
-红的共同点是**错了会污染整张图且难回滚**：新实体、要推理才得出的结论、摘不出原文的。
+两路都只是**发现**，不是收录。收不收按 ontology 规则一与规则四人工定。
 
-→ **开审阅台**：`node scripts/review-ui.mjs` → http://127.0.0.1:8230 ；命令行版 `node scripts/review.mjs`。分级理由看 `node scripts/triage.mjs`
-
-## README 漂移：上游改过话 19
-
-我们对开源项目的判断是从**当时那一版 README** 读出来的。上游改了口径，页面上那句引用就成了假话，而没有任何人会收到通知。
-
-→ 逐条核页面上引它的判断；核完 `node scripts/fetch-readme.mjs <项目 id>` 更新快照。 明细在 data/fresh-report.md
-
-## 版本哨兵：1 个模型的源上已经有更新的一代（Eleven Music v2 → Eleven Music v2.5）
-
-**这不是「世界变了」，是「我们抓到了但没写回」** —— 快照里已经有了，只差有人认。版本号是这张图上最贵的事实：它一错，底下几十格证据全都在给上一代背书。
-
-→ 审阅台上按这一条改 `data/atlas.json` 的 `version` / `version_as_of` / `version_quote`；**改完记得 verified_for 也要跟着走**（R9 会拦）。明细在 data/version-sentry.md；看过觉得不算的，记进 data/version-sentry-ack.json，它就不再报
+→ `node scripts/candidates.mjs` 重算；清单在 data/candidates.md，人工那摞的真源是 data/candidates-manual.json（定了就在那一行加 `resolved`）
 
 ---
 
-## 机器状态 · 不用你判断（104）
+## 机器状态 · 不用你判断（82）
 
 > 这几摞是**机器自己的账**：够不着的源、等上游放开的重核、复查工具自查不过的结构性错配。
 > 留着是为了不假装「都好」，但**没有一条要你拍板**。要根治是改代码，不是你去看。
 
-- **抓不到：30 个源** —— 长期抓不到本身是信息：那家没有可 diff 的公开入口，也解释了它名下的格子为什么最差。
-- **待重核 63 格（vidu-s 3 · ltx 9 · gpt-image 2 · gemini-text 11 · deepseek 5 · glm 12 · grok 14 · hunyuan3d 3 · hallo2 4）** —— 厂商的能力页常常落后于它自己的模型清单。
+- **抓不到：3 个源** —— 长期抓不到本身是信息：那家没有可 diff 的公开入口，也解释了它名下的格子为什么最差。
+- **待重核 68 格（vidu-s 3 · ltx 9 · gpt-image 2 · gemini-text 11 · deepseek 5 · glm 12 · grok 14 · eleven-music 5 · hunyuan3d 3 · hallo2 4）** —— 厂商的能力页常常落后于它自己的模型清单。
 - **引文回查：11 个源上的原句对不上了** —— 失败不等于引文错。
 
 ---
