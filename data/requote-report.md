@@ -1,6 +1,6 @@
 # 引文回查 · 2026-09-23
 
-回查 1227 条：无英文锚 726 · 对得上 338 · 找不到 93 · 无快照 19 · 快照无正文 39 · 人审认过·非逐字 10 · 快照被截断·判不了 2
+回查 1232 条：无英文锚 725 · 对得上 343 · 找不到 94 · 无快照 19 · 快照无正文 39 · 人审认过·非逐字 10 · 快照被截断·判不了 2
 
 > 这份报告回答一件事：**一格引文里的原句，在它署名的那份快照里还在不在。**
 > ⚠️ **失败不等于引文错。** 三种成因要分开：真署错了页 / 这一页的快照是残的（抓回来的是导航不是正文）/ 当初记的就不是逐字原文。**脚本不猜。**
@@ -22,7 +22,7 @@
 
 ## 全部
 
-### 找不到（93）
+### 找不到（94）
 
 - `veo-doc` veo × flf —— 锚「Frame-specific generation: Generate a video by specifying the first an」
 - `veo-doc` veo × charref —— 锚「Image-based direction: Use up to three reference images」
@@ -39,6 +39,7 @@
 - `hunyuan-image-card` hunyuan-image × i-edit —— 锚「image-to-image generation including editing」
 - `minimax-api-overview` mm-speech × s-format —— 锚「mp3, pcm, flac, wav」
 - `openai-realtime` gpt-realtime × s-rt-transport —— 锚「Choose a connection method」
+- `cosyvoice-card` cosyvoice × s-style —— 锚「Instruct Support: Supports various instructions such as languages, dia」
 - `hf-fishspeech15` fish-speech × s-openweights —— 锚「Any Commercial use of the Materials requires a separate license from F」
 - `hf-qwen-layered` qwen-image × i-layered —— 锚「We are excited to introduce Qwen-Image-Layered, a model capable of dec」
 - `gh-hunyuan3d-api` hunyuan3d × d-remesh —— 锚「Maximum number of faces for texture generation」

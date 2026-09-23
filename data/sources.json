@@ -423,9 +423,7 @@
     "LTX",
     "CogVideo",
     "Mochi"
-   ],
-   "resells": true,
-   "own_org": null
+   ]
   },
   {
    "id": "hf-i2v",
@@ -446,9 +444,7 @@
     "LTX",
     "CogVideo",
     "Mochi"
-   ],
-   "resells": true,
-   "own_org": null
+   ]
   },
   {
    "id": "hf-v2v",
@@ -5990,9 +5986,7 @@
     "version",
     "opensource"
    ],
-   "note": "**原来是 `hf-text-org` / `hf-image-org` / `hf-sound-org` 三个 id，2026-09-19 合成一个。** 三个的 `url` 完全相同（`https://huggingface.co/api/models`，没有任何 query 参数），实测三份快照内容一致 —— 名字里的「文本 / 出图 / 声音」是假的，同一个接口一天抓三遍，还让引文按引了哪个 id 显示出不同的出处名。合并后引用一律指到这里。",
-   "resells": true,
-   "own_org": null
+   "note": "**原来是 `hf-text-org` / `hf-image-org` / `hf-sound-org` 三个 id，2026-09-19 合成一个。** 三个的 `url` 完全相同（`https://huggingface.co/api/models`，没有任何 query 参数），实测三份快照内容一致 —— 名字里的「文本 / 出图 / 声音」是假的，同一个接口一天抓三遍，还让引文按引了哪个 id 显示出不同的出处名。合并后引用一律指到这里。"
   },
   {
    "id": "gh-gptsovits-cn",
