@@ -1,14 +1,9 @@
 # 版本哨兵 · 2026-09-23
 
-扫 133 个模型：**有更新的一代 1** · 口径存疑 0 · 牌子摘了 31 · 比不了 54
+扫 133 个模型：**有更新的一代 0** · 口径存疑 0 · 牌子摘了 31 · 比不了 54
 
 > 这份只回答一件事：**一格署的那个源上，今天有没有出现比我们记的更新的版本号？**
 > 报出来的不是「世界变了」，是「**我们抓到了但没写回**」—— 这两件事的严重程度不一样。
-
-## 有更新的一代（1）—— 这一摞要写回 atlas.json
-
-- **Eleven Music**（eleven-music）库里记 `v2`（核于 2026-08-12），而 `elevenlabs-models` 的快照（2026-09-23）上写着 **Eleven Music v2.5**
-  > n Scribe v2 Same accuracy on everyday speech as Scribe v2 Same features, languages, pricing, and API as Scribe v2 Music Eleven Music v2.5 Our most advanced music model Improved quality and prompt adherence Richer melodies, deeper arrangements, and more layered instruments. Same workflows and support: composition plans,
 
 ## 机器自查 · 牌子摘了（31）—— **不用你拍板**
 

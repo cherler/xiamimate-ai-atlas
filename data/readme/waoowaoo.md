@@ -6,8 +6,6 @@
 
 <p align="center">An AI creative workspace for images and videos: develop ideas with the right-hand Assistant, upload references, and organize and refine your work on a canvas.</p>
 
-<p align="center"><a href="https://www.waoowaoo.com/">Join Waitlist</a> · <a href="https://github.com/waooAI/waoowaoo/issues">Report Bug</a></p>
-
 [English](README.md) · [简体中文](README_zh.md) · [日本語](README_ja.md) · [한국어](README_ko.md)
 
 > [!IMPORTANT]

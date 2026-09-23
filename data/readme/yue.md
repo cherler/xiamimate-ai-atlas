@@ -17,7 +17,9 @@
 
 <p align="center">
   <a href="https://map-yue2.github.io/">🎧 Demos</a> ·
+  <a href="https://yue.noizai.net/">🚀 Try online (free)</a> ·
   <a href="https://arena.3-148-255-99.sslip.io:8080">🗳️ Music Arena</a> ·
+  <a href="#news">📰 News</a> ·
   <a href="https://huggingface.co/m-a-p/YuE2-3B">🤗 YuE2</a> ·
   <a href="#quick-start">🚀 Quick start</a> ·
   <a href="#agent-skill">🤖 Agent skill</a> ·
@@ -29,15 +31,26 @@
   <a href="https://discord.gg/ssAyWMnMzu"><img alt="Join us on Discord" src="https://img.shields.io/discord/842440537755353128?color=5865F2&amp;logo=discord&amp;logoColor=white&amp;label=Discord&amp;style=flat-square" height="20" /></a>
 </p>
 
+<p align="center">
+  <a href="https://trendshift.io/repositories/32209">
+    <img src="https://trendshift.io/api/badge/repositories/32209" alt="YuE — GitHub Trending #1 Repository of the Day" width="250" height="55" />
+  </a>
+  <br />
+  <sub>All languages · September 14, 2026</sub>
+</p>
+
+<p align="center">
+  <a href="https://web.archive.org/web/20260917003427/https://huggingface.co/models?sort=trending">
+    <img src="https://img.shields.io/static/v1?label=HF%20Global%20Trending&amp;message=Reached%20%233&amp;color=FFD21E&amp;logo=huggingface&amp;logoColor=FFD21E" alt="Hugging Face Global Model Trending: reached #3 on September 17, 2026" height="20" />
+  </a>
+  <a href="https://huggingface.co/models?pipeline_tag=text-to-audio&amp;sort=trending">
+    <img src="https://img.shields.io/static/v1?label=HF%20Text-to-Audio%20Trending&amp;message=Reached%20%231&amp;color=FFD21E&amp;logo=huggingface&amp;logoColor=FFD21E" alt="Hugging Face Text-to-Audio Trending: reached #1 on September 20, 2026" height="20" />
+  </a>
+  <br />
+  <sub>Global: September 17, 2026 · Text-to-Audio: September 20, 2026</sub>
+</p>
+
 **YuE2 brings frontier song quality to music generation with an editable composition.** Give it lyrics and a style prompt: it writes a melody-and-chord plan, then realizes that plan as a complete song with vocals and accompaniment.
-
-<a id="music-arena"></a>
-
-> **🎧 YuE2 needs your ears**
->
-> We're running a public listening study comparing YuE2 with leading proprietary music generation systems. Listen to anonymous music clips and choose A, B, or a tie. Your honest feedback helps us understand how YuE2 sounds to real listeners.
->
-> **[Listen & vote →](https://arena.3-148-255-99.sslip.io:8080)** · No account needed. Headphones recommended.
 
 - **Frontier quality.** YuE2 is competitive with Suno v5/v6 on WildSongBench. YuE2 (best-of-8) achieves **6.9632 SongBench Avg**, the highest observed mean among all evaluated settings.
 - **White-box music generation through symbolic planning.** Read, play, and change the composition before rendering it. Melody and chords become explicit controls that a person or an agent can inspect and edit.
@@ -46,6 +59,16 @@
 [![YuE2 song quality and text alignment on WildSongBench](assets/frontier-teaser.png)](https://map-yue2.github.io/#model-overview)
 
 *192 WildSongBench prompts. Both YuE2 settings use symbolic planning. Bo8 = best-of-8. The axes are normalized comparison indices; bubble area represents AudioBox production quality. [Scores and evaluation protocol](docs/benchmarks.md). [Vector PDF](assets/frontier-teaser.pdf) · [SVG](assets/frontier-teaser.svg).*
+
+## News
+
+<a id="music-arena"></a>
+
+- **🎧 YuE2 needs your ears.** We're running a public blind listening study comparing YuE2 with leading proprietary music generation systems. Hear anonymous clips and choose A, B, or a tie. **[Listen & vote →](https://arena.3-148-255-99.sslip.io:8080)** · No account needed; headphones recommended.
+- **🚀 Try YuE2 online for free.** Create a song in your browser with the [NOIZ-hosted demo →](https://yue.noizai.net/). No installation required.
+- **⚡ YuE2-Turbo.** [NOIZ's inference and serving toolkit →](https://github.com/NoizAI/YuE2-Turbo) accelerates YuE2 and supports concurrent requests.
+- **🎛️ ComfyUI.** YuE2 has native nodes and an [official text-to-music workflow →](https://github.com/Comfy-Org/workflow_templates/blob/main/templates/audio_yue2_text2music.json).
+- **🎬 Maestro.** [Maestro →](https://github.com/Blizaine/Maestro) includes YuE2 for local song generation, composition planning, and covers. [Creator's post →](https://x.com/blizaine/status/2101852048538968458)
 
 ## Hear what you can make
 
@@ -281,7 +304,7 @@ The YuE2 technical report is coming soon. For now, please cite **[MERT](https://
         <a href="assets/wechat-yue2-group.png">
           <img src="assets/wechat-yue2-group.png" alt="YuE2 WeChat group QR code" width="240" />
         </a><br>
-        <sub>Click to enlarge<br>Valid until Sep 23, 2026</sub>
+        <sub>Click to enlarge<br>Valid until Sep 29, 2026</sub>
       </details>
     </td>
   </tr>
