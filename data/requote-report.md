@@ -1,6 +1,6 @@
-# 引文回查 · 2026-09-23
+# 引文回查 · 2026-09-24
 
-回查 1232 条：无英文锚 725 · 对得上 343 · 找不到 94 · 无快照 19 · 快照无正文 39 · 人审认过·非逐字 10 · 快照被截断·判不了 2
+回查 1235 条：无英文锚 726 · 对得上 344 · 找不到 95 · 无快照 19 · 快照无正文 39 · 人审认过·非逐字 10 · 快照被截断·判不了 2
 
 > 这份报告回答一件事：**一格引文里的原句，在它署名的那份快照里还在不在。**
 > ⚠️ **失败不等于引文错。** 三种成因要分开：真署错了页 / 这一页的快照是残的（抓回来的是导航不是正文）/ 当初记的就不是逐字原文。**脚本不猜。**
@@ -22,7 +22,7 @@
 
 ## 全部
 
-### 找不到（94）
+### 找不到（95）
 
 - `veo-doc` veo × flf —— 锚「Frame-specific generation: Generate a video by specifying the first an」
 - `veo-doc` veo × charref —— 锚「Image-based direction: Use up to three reference images」
@@ -63,6 +63,7 @@
 - `vidu-changelog` 模型 vidu-s 版本 —— 锚「New Model - Vidu S2-Avatar: Real-Time Interactive Model」
 - `gemini-models` 模型 gemini-image 版本 —— 锚「our latest state-of-the-art image model.」
 - `recraft-blog` 模型 recraft 版本 —— 锚「Give V4.1 just a few words, and it'll give you something worth keeping」
+- `anthropic-models` 模型 claude 版本 —— 锚「Use Claude Fable 5.1 for demanding reasoning and long-horizon agentic 」
 - `bfl-flux3` 模型 flux-video 版本 —— 锚「FLUX 3 is one multimodal model. Video with synchronized audio, one req」
 - `meshy-site` 模型 meshy 版本 —— 锚「New Meshy 7 is live. Frontier 3D alignment.」
 - `pixverse-v6` 模型 pixverse 版本 —— 锚「Pro Lens Power, Endless Creation」
