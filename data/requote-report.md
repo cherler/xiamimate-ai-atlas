@@ -1,6 +1,6 @@
-# 引文回查 · 2026-09-25
+# 引文回查 · 2026-09-26
 
-回查 1235 条：无英文锚 726 · 对得上 344 · 找不到 95 · 无快照 19 · 快照无正文 39 · 人审认过·非逐字 10 · 快照被截断·判不了 2
+回查 1235 条：无英文锚 726 · 对得上 342 · 找不到 97 · 无快照 19 · 快照无正文 39 · 人审认过·非逐字 10 · 快照被截断·判不了 2
 
 > 这份报告回答一件事：**一格引文里的原句，在它署名的那份快照里还在不在。**
 > ⚠️ **失败不等于引文错。** 三种成因要分开：真署错了页 / 这一页的快照是残的（抓回来的是导航不是正文）/ 当初记的就不是逐字原文。**脚本不猜。**
@@ -22,7 +22,7 @@
 
 ## 全部
 
-### 找不到（95）
+### 找不到（97）
 
 - `veo-doc` veo × flf —— 锚「Frame-specific generation: Generate a video by specifying the first an」
 - `veo-doc` veo × charref —— 锚「Image-based direction: Use up to three reference images」
@@ -57,6 +57,7 @@
 - `nvidia-groot-gh` groot × e-openweights —— 锚「This model is released under the NVIDIA Open Model License Agreement」
 - `nvidia-groot-gh` groot × e-finetune —— 锚「Developers and researchers can post-train GR00T N1.7 with real or synt」
 - `openvla-gh` openvla × e-openweights —— 锚「All OpenVLA checkpoints, as well as our training codebase are released」
+- `odyssey-site` odyssey × w-sim —— 锚「Our most powerful general purpose world model yet」
 - `hunyuanworld-gh` hunyuan-world × w-sim —— 锚「April 16, 2026: We release HY-World-2.0, state-of-the-art 3D world mod」
 - `hunyuanworld-gh` hunyuan-world × w-realtime —— 锚「December 18, 2025: We release HunyuanWorld-1.5」
 - `gemini-models` 模型 gemini-omni 版本 —— 锚「Fast, conversational video generation and editing」
@@ -67,6 +68,7 @@
 - `bfl-flux3` 模型 flux-video 版本 —— 锚「FLUX 3 is one multimodal model. Video with synchronized audio, one req」
 - `meshy-site` 模型 meshy 版本 —— 锚「New Meshy 7 is live. Frontier 3D alignment.」
 - `pixverse-v6` 模型 pixverse 版本 —— 锚「Pro Lens Power, Endless Creation」
+- `odyssey-site` 模型 odyssey 版本 —— 锚「Our most powerful general purpose world model yet, materially advancin」
 - `hunyuanworld-gh` 模型 hunyuan-world 版本 —— 锚「April 16, 2026: We release HY-World-2.0, state-of-the-art 3D world mod」
 - `sci-af3-blog` 模型 alphafold 版本 —— 锚「AlphaFold 3 predicts the structure and interactions of all of life's m」
 - `sci-wn-gh` 模型 weathernext 版本 —— 锚「the global, medium-range atmospheric and cyclone forecasting model dev」
