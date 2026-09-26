@@ -1,8 +1,8 @@
 {
   "url": "https://huggingface.co/api/models?filter=text-to-video&sort=downloads&direction=-1&limit=60",
   "kind": "json",
-  "fetched_at": "2026-09-23",
-  "digest": "0189cb4a6567828c",
+  "fetched_at": "2026-09-26",
+  "digest": "33fe7fab4b848234",
   "items": [
     "Abiray/LTX-2.5-Distilled-GGUF\t",
     "Abiray/MiniMax-H3-GGUF\t",
@@ -15,6 +15,7 @@
     "FastVideo/FastWan2.2-TI2V-5B-FullAttn-Diffusers\t",
     "Hearmeman/minimax-h3-loras\t",
     "IPostYellow/TurboWan2.1-T2V-1.3B-Diffusers\t",
+    "Jojocodex/minimax-h3-Camera-Motion-lora\t",
     "Jojocodex/minimax-h3-spatial-physics-lora\t",
     "Lightricks/LTX-2\t",
     "Lightricks/LTX-2.3\t",
@@ -55,7 +56,6 @@
     "leejet/MiniMax-H3-GGUF\t",
     "magespace/Wan2.2-I2V-A14B-Lightning-Diffusers\t",
     "molbal/MiniMax-H3-GGUF\t",
-    "realrebelai/LTX-2.5_GGUFs\t",
     "rockerBOO/minimax-h3-nvfp4-convrot\t",
     "samuelchristlie/Wan2.1-T2V-1.3B-GGUF\t",
     "samuelchristlie/Wan2.1-VACE-1.3B-GGUF\t",
