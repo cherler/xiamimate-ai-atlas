@@ -1,6 +1,6 @@
-# 信息源监视报告 · 2026-09-27
+# 信息源监视报告 · 2026-09-28
 
-本次检查 5 个到期源（共 429 个）：变化 0 · 首次 0 · 无变化 1 · **抓不到 4**
+本次检查 7 个到期源（共 429 个）：变化 1 · 首次 0 · 无变化 2 · **抓不到 4**
 
 > 这份报告是给人看的那 20 条待办的来源（§59.3 的负反馈：人每周要看的条目 ≤ 20）。
 > 「抓不到」不是失败，是**信息本身** —— 一个长期抓不到的官方源，说明那家厂商没有可 diff 的公开更新入口，
@@ -12,7 +12,7 @@
 
 ## 抓不到（要处理）
 
-- **kling-site**（S/spa）Kling AI 官网 — 还是壳：渲染后正文只有 232 个字符
+- **kling-site**（S/spa）Kling AI 官网 — 还是壳：渲染后正文只有 215 个字符
   https://klingai.com/
 - **aa-t2i**（A/spa）Artificial Analysis · 文生图竞技场 — 还是壳：渲染后正文只有 310 个字符
   https://artificialanalysis.ai/text-to-image/arena
@@ -23,7 +23,8 @@
 
 ## 有变化
 
-（首轮无基线可比）
+- **hf-org** Hugging Face 官方组织目录（模型接口）
+  新增 197 条：0xSojalSec/Qwen-Image-2.1-Uncensored-HF、Abiray/Artemis-31B-v1.2-GGUF、Abiray/Qwen-Image-2.1-viggle-turbo-v0.2.1-6step-GGUF、Abiray/Qwen3.8-27B-Q4_K_M-GGUF、Akahsizrr/Cyber-Prime-1.1-2.6B、AliveAi/Krea-2-Edit-Outfit-Transfer、Aratako/Irodori-TTS-v4-Large、Baekpica/MiMo-V2.6-Flash-RL-Mixed-Quant-GGUF、Blackfrost-AI/CYBER-FROST-3.8-BF16、Blackfrost-AI/Qwen3.8-27B-ABLITERATED-GGUF、CSWRY/VOSR、CohereLabs/cohere-transcribe-arabic-07-2026 …
 
 ## 全部
 
@@ -32,7 +33,7 @@
 | seed-blog | S | html | 未到期（上次 2026-09-23） |
 | seed-models | S | html | 未到期（上次 2026-09-23） |
 | kling-api-updates | S | spa | 未到期（上次 2026-09-23） |
-| kling-site | S | spa | 抓不到（还是壳：渲染后正文只有 232 个字符） |
+| kling-site | S | spa | 抓不到（还是壳：渲染后正文只有 215 个字符） |
 | google-video-docs | S | html | 未到期（上次 2026-09-23） |
 | deepmind-veo | S | html | 未到期（上次 2026-09-23） |
 | vertex-video-ref | S | html | 未到期（上次 2026-09-23） |
@@ -207,8 +208,8 @@
 | mcpservers-gh | S | json | 未到期（上次 2026-09-11） |
 | anthropic-features | S | html | 未到期（上次 2026-09-24） |
 | openai-docs | S | html | 未到期（上次 2026-09-24） |
-| deepseek-pricing | S | html | 未到期（上次 2026-09-25） |
-| deepseek-updates | S | html | 未到期（上次 2026-09-25） |
+| deepseek-pricing | S | html | 无变化 |
+| deepseek-updates | S | html | 无变化 |
 | bailian-models | S | html | 未到期（上次 2026-09-23） |
 | kimi-pricing | S | html | 未到期（上次 2026-09-23） |
 | glm-52-doc | S | html | 未到期（上次 2026-09-23） |
@@ -456,5 +457,5 @@
 | seed-blog-2_0 | A | html | 未到期（上次 2026-09-26） |
 | ideogram-x | A | html | 未到期（上次 2026-09-26） |
 | hf-funcineforge | S | html | 未到期（上次 2026-09-20） |
-| hf-org | S | json | 未到期（上次 2026-09-25） |
-| gh-gptsovits-cn | C | json | 无变化 |
+| hf-org | S | json | 变了 |
+| gh-gptsovits-cn | C | json | 未到期（上次 2026-09-27） |
