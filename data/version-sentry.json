@@ -1,10 +1,24 @@
 {
-  "generated_at": "2026-09-28",
-  "n": 2,
+  "generated_at": "2026-09-29",
+  "n": 3,
   "n_unclear": 0,
   "n_missing": 32,
   "n_skipped": 56,
   "rows": [
+    {
+      "kind": "有更新的一代",
+      "m": "kling",
+      "family": "Kling",
+      "zh": "可灵",
+      "cur": "3.0",
+      "cur_as_of": "2026-02-04",
+      "found": "Kling 4.0",
+      "found_num": "4.0",
+      "src": "kling-site",
+      "src_at": "2026-09-29",
+      "via_other_src": "kling-api-updates",
+      "evidence": "Kling AI Video and Image Generator [图标] Kling 4.0 全新升级 全能班底，你和可灵 [图标] 钢琴师在巨浪中的船头演奏。 开启创作 Kling 4.0 [图标] [图标] 视听表现，让画面真实 大幅度动态表现稳定、视听体验沉浸，从画面生成迈向专业级成片 [图标] [图标] 立即体验 [图标] Kling Image 3.0 强化影视级叙事 精准理解镜头语言，让每张静帧都拥有电影叙事张力 原生4K超清直出 原生直出4K超清画面，纹理"
+    },
     {
       "kind": "有更新的一代",
       "m": "meshy",
