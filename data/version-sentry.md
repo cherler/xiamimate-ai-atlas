@@ -1,11 +1,14 @@
-# 版本哨兵 · 2026-09-30
+# 版本哨兵 · 2026-10-01
 
-扫 136 个模型：**有更新的一代 4** · 口径存疑 0 · 牌子摘了 32 · 比不了 56
+扫 136 个模型：**有更新的一代 5** · 口径存疑 0 · 牌子摘了 32 · 比不了 56
 
 > 这份只回答一件事：**一格署的那个源上，今天有没有出现比我们记的更新的版本号？**
 > 报出来的不是「世界变了」，是「**我们抓到了但没写回**」—— 这两件事的严重程度不一样。
 
-## 有更新的一代（4）—— 这一摞要写回 atlas.json
+## 有更新的一代（5）—— 这一摞要写回 atlas.json
+
+- **GPT**（gpt）库里记 `GPT-6 Astra`（核于 2026-09-10），而 `openai-models` 的快照（2026-10-01）上写着 **GPT-6.1**
+  > model If you re not sure where to start, use GPT-6 Astra , our flagship model for complex reasoning and coding. Choose GPT-6.1 Sol to balance intelligence and cost, or GPT-6 Luna for cost-sensitive, high-volume workloads. All latest OpenAI models support text and image input, text output, multilingual capabilities, an
 
 - **Kling**（kling）库里记 `3.0`（核于 2026-02-04），而 `kling-site` 的快照（2026-09-29）上写着 **Kling 4.0**　⚠️ 这一格署的是 `kling-api-updates`，**那个源上看不见新版**
   > Kling AI Video and Image Generator [图标] Kling 4.0 全新升级 全能班底，你和可灵 [图标] 钢琴师在巨浪中的船头演奏。 开启创作 Kling 4.0 [图标] [图标] 视听表现，让画面真实 大幅度动态表现稳定、视听体验沉浸，从画面生成迈向专业级成片 [图标] [图标] 立即体验 [图标] Kling Image 3.0 强化影视级叙事 精准理解镜头语言，让每张静帧都拥有电影叙事张力 原生4K超清直出 原生直出4K超清画面，纹理
@@ -44,7 +47,7 @@
 - **MiniMax Speech**（mm-speech）记的是 `speech-2.8-hd`，`minimax-api-overview`（2026-09-30）上没有这个号
 - **MuseTalk**（musetalk）记的是 `1.0`，`hf-musetalk`（2026-09-26）上没有这个号
 - **NeuralGCM**（neuralgcm）记的是 `1`，`sci-neuralgcm-gh`（2026-09-26）上没有这个号
-- **GPT TTS**（openai-tts）记的是 `GPT-4o mini TTS`，`openai-models`（2026-09-24）上没有这个号
+- **GPT TTS**（openai-tts）记的是 `GPT-4o mini TTS`，`openai-models`（2026-10-01）上没有这个号
 - **OpenVLA**（openvla）记的是 `7B`，`openvla-gh`（2026-09-26）上没有这个号
 - **PixVerse**（pixverse）记的是 `V6`，`pixverse-v6`（2026-09-26）上没有这个号
 - **Qwen Omni**（qwen-omni）记的是 `3.5-omni-plus`，`bailian-websearch`（2026-09-23）上没有这个号
