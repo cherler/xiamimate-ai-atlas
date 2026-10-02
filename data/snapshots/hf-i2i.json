@@ -1,10 +1,11 @@
 {
   "url": "https://huggingface.co/api/models?filter=image-to-image&sort=downloads&direction=-1&limit=60",
   "kind": "json",
-  "fetched_at": "2026-09-29",
-  "digest": "6cc3e98c684bdc8c",
+  "fetched_at": "2026-10-02",
+  "digest": "3b612d007e95b227",
   "items": [
     "Abiray/Qwen-Image-2.1-GGUF\t",
+    "Abiray/Qwen-Image-2.1-viggle-4-steps-turbo-GGUF\t",
     "Alissonerdx/BFS-Best-Face-Swap\t",
     "AlperKTS/Qwen-Image-2.1-GGUF\t",
     "ChrisColeTech/krea2-turbo-uncensored-v1.1-FP8\t",
@@ -53,7 +54,6 @@
     "meituan-longcat/LongCat-Image-Edit-Turbo\t",
     "prithivMLmods/Qwen-Image-Edit-2511-Hyper-Realistic-Portrait\t",
     "prithivMLmods/Qwen-Image-Edit-2511-Ultra-Realistic-Portrait\t",
-    "realrebelai/SenseNova-U1.5-8B_GGUFs\t",
     "rectangleworm/PornMaster_Klein-9b\t",
     "silveroxides/FLUX.2-dev-fp8_scaled\t",
     "stabilityai/stable-diffusion-xl-refiner-1.0\t",
