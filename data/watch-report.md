@@ -1,6 +1,6 @@
-# 信息源监视报告 · 2026-10-03
+# 信息源监视报告 · 2026-10-04
 
-本次检查 12 个到期源（共 429 个）：变化 3 · 首次 0 · 无变化 6 · **抓不到 3**
+本次检查 8 个到期源（共 429 个）：变化 2 · 首次 0 · 无变化 3 · **抓不到 3**
 
 > 这份报告是给人看的那 20 条待办的来源（§59.3 的负反馈：人每周要看的条目 ≤ 20）。
 > 「抓不到」不是失败，是**信息本身** —— 一个长期抓不到的官方源，说明那家厂商没有可 diff 的公开更新入口，
@@ -21,10 +21,9 @@
 
 ## 有变化
 
-- **bfl-flux2-multiref** Black Forest Labs 官方文档 · FLUX.2 多图参考编辑指南
-- **hf-robotics** Hugging Face · robotics 榜（按下载）
-  新增 14 条：CMSManhattan/JiRackDeltaNet_180b、HannesVonEssen/microduck-stilts、OpenWAM/OpenWAM-Alpha-Pretrain-Foundation-Model、lerobot/VLA-JEPA-LIBERO、lerobot/pi05_libero_finetuned_quantiles_v044、lerobot/smolvla_metaworld、michaelyuanqwq/roboengine-sam、mradermacher/JiRackUltra_1b-i1-GGUF、mradermacher/RoboInter-VLM_qwenvl25_3b-i1-GGUF、mradermacher/guava-v13b-qwen3.5-4b-GGUF、nvidia/GR00T-N1.7-SimplerEnv-Bridge、nvidia/gr00t17-lerobot-libero_10-640 …
-- **lerobot-gh** Hugging Face 官方 · LeRobot 仓库
+- **hf-funcineforge** 阿里 FunAudioLLM 官方 · Fun-CineForge 模型卡
+- **hf-org** Hugging Face 官方组织目录（模型接口）
+  新增 222 条：0xSojalSec/Qwen-Image-2.1-Uncensored-HF、Abiray/Qwen-Image-2.1-viggle-turbo-v0.3-6step-GGUF、Aleph-Alpha/Kolibri-1、Aleph-Alpha/Kolibri-1-BF16、Ashen3/SNOFS、AxiomicLabs/NCN-RW、BeaverAI/Spectre-37B-v1a-GGUF、Blackfrost-AI/CYBER-FROST-3.8-NVFP4、Blackfrost-AI/CYBER-FROST-3.8-NVFP4-V2、Cactus-Compute/whistle、Cloudflare/clef、Cloudflare/clef-flash …
 
 ## 全部
 
@@ -76,7 +75,7 @@
 | techcrunch-ai | B | atom | 未到期（上次 2026-10-02） |
 | ltx-gh | S | json | 未到期（上次 2026-09-30） |
 | ltx-hf-org | S | json | 未到期（上次 2026-10-02） |
-| decart-site | S | spa | 无变化 |
+| decart-site | S | spa | 未到期（上次 2026-10-03） |
 | picsart-video | C | html | 未到期（上次 2026-09-11） |
 | libtv | C | spa | 从未抓过 |
 | dreamina | S | html | 未到期（上次 2026-09-23） |
@@ -208,8 +207,8 @@
 | mcpservers-gh | S | json | 未到期（上次 2026-09-11） |
 | anthropic-features | S | html | 未到期（上次 2026-10-01） |
 | openai-docs | S | html | 未到期（上次 2026-10-01） |
-| deepseek-pricing | S | html | 未到期（上次 2026-10-01） |
-| deepseek-updates | S | html | 未到期（上次 2026-10-01） |
+| deepseek-pricing | S | html | 无变化 |
+| deepseek-updates | S | html | 无变化 |
 | bailian-models | S | html | 未到期（上次 2026-09-30） |
 | kimi-pricing | S | html | 未到期（上次 2026-09-23） |
 | glm-52-doc | S | html | 未到期（上次 2026-09-23） |
@@ -314,7 +313,7 @@
 | recraft-nl-edit | A | html | 未到期（上次 2026-09-24） |
 | hunyuan-image-hf | A | json | 未到期（上次 2026-09-24） |
 | bfl-flux2-overview | A | html | 未到期（上次 2026-09-24） |
-| bfl-flux2-multiref | A | html | 变了 |
+| bfl-flux2-multiref | A | html | 未到期（上次 2026-10-03） |
 | ark-seedream-api | A | spa | 未到期（上次 2026-09-24） |
 | arxiv-fp8 | A | html | 未到期（上次 2026-08-13） |
 | arxiv-int8 | A | html | 未到期（上次 2026-08-13） |
@@ -403,19 +402,19 @@
 | openai-model-tts | S | spa | 未到期（上次 2026-09-26） |
 | openai-model-realtime | S | spa | 未到期（上次 2026-09-26） |
 | elevenlabs-docs | S | html | 未到期（上次 2026-09-24） |
-| gemini-robotics-er | S | html | 无变化 |
+| gemini-robotics-er | S | html | 未到期（上次 2026-10-03） |
 | figure-helix | A | html | 未到期（上次 2026-09-26） |
 | pi-pi05-blog | A | html | 抓不到（HTTP 429） |
-| pi-openpi-gh | A | html | 无变化 |
-| nvidia-groot-gh | A | html | 无变化 |
+| pi-openpi-gh | A | html | 未到期（上次 2026-10-03） |
+| nvidia-groot-gh | A | html | 未到期（上次 2026-10-03） |
 | openvla-gh | A | html | 未到期（上次 2026-09-26） |
 | openvla-repo | A | html | 未到期（上次 2026-09-26） |
-| hf-robotics | B | json | 变了 |
-| lerobot-gh | A | json | 变了 |
-| groot-policy-doc | A | html | 无变化 |
+| hf-robotics | B | json | 未到期（上次 2026-10-03） |
+| lerobot-gh | A | json | 未到期（上次 2026-10-03） |
+| groot-policy-doc | A | html | 未到期（上次 2026-10-03） |
 | rynnbrain-card | A | html | 未到期（上次 2026-09-26） |
 | maniskill-gh | B | json | 未到期（上次 2026-09-13） |
-| cosmos3-card | S | html | 无变化 |
+| cosmos3-card | S | html | 未到期（上次 2026-10-03） |
 | genie3-blog | A | html | 未到期（上次 2026-09-26） |
 | odyssey-site | A | html | 未到期（上次 2026-09-26） |
 | worldlabs-marble | A | html | 未到期（上次 2026-09-26） |
@@ -456,6 +455,6 @@
 | seed-blog-1_5 | A | html | 未到期（上次 2026-09-26） |
 | seed-blog-2_0 | A | html | 未到期（上次 2026-09-26） |
 | ideogram-x | A | html | 未到期（上次 2026-09-26） |
-| hf-funcineforge | S | html | 未到期（上次 2026-09-20） |
-| hf-org | S | json | 未到期（上次 2026-10-01） |
-| gh-gptsovits-cn | C | json | 未到期（上次 2026-09-27） |
+| hf-funcineforge | S | html | 变了 |
+| hf-org | S | json | 变了 |
+| gh-gptsovits-cn | C | json | 无变化 |
