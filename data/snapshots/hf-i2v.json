@@ -1,8 +1,8 @@
 {
   "url": "https://huggingface.co/api/models?filter=image-to-video&sort=downloads&direction=-1&limit=60",
   "kind": "json",
-  "fetched_at": "2026-10-02",
-  "digest": "4419b410ca731217",
+  "fetched_at": "2026-10-05",
+  "digest": "676a6d3dad709911",
   "items": [
     "Abiray/LTX-2.5-Distilled-GGUF\t",
     "Abiray/MiniMax-H3-GGUF\t",
@@ -12,7 +12,6 @@
     "ChrisColeTech/LTX-2.5-uncensored-v1.1-FP8\t",
     "Comfy-Org/Wan_2.2_ComfyUI_Repackaged\t",
     "Hearmeman/minimax-h3-loras\t",
-    "Jojocodex/wushu-action-v7-minimax-h3-fl2va-ref2va-lora\t",
     "Lightricks/LTX-2\t",
     "Lightricks/LTX-2.3\t",
     "Lightricks/LTX-2.3-fp8\t",
@@ -42,6 +41,7 @@
     "city96/Wan2.1-I2V-14B-720P-gguf\t",
     "comfyicu/LTX-2.5\t",
     "coolthor/MiniMax-H3-pruned-NVFP4\t",
+    "drbaph/Hyperflow-Comfyui\t",
     "ibyteohdear/Lightricks-LTX-2\t",
     "ibyteohdear/Lightricks-LTX-2-DISTILLED-10-Eros\t",
     "jayn7/WAN2.2-I2V_A14B-DISTILL-LIGHTX2V-4STEP-GGUF\t",
