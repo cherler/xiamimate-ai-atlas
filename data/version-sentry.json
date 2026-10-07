@@ -1,10 +1,22 @@
 {
-  "generated_at": "2026-10-06",
-  "n": 5,
+  "generated_at": "2026-10-07",
+  "n": 6,
   "n_unclear": 0,
   "n_missing": 32,
   "n_skipped": 56,
   "rows": [
+    {
+      "kind": "有更新的一代",
+      "m": "elevenlabs",
+      "family": "ElevenLabs",
+      "cur": "Eleven v3",
+      "cur_as_of": "2026-08-12",
+      "found": "Eleven v4",
+      "found_num": "4",
+      "src": "elevenlabs-models",
+      "src_at": "2026-10-07",
+      "evidence": "Pay As You Go Consolidated billing Data Residency Usage analytics Assets Workspaces Introduction Models Text to Speech Eleven v4 Best practices Speech to Text Music Marketplace Best practices Text to Dialogue Image Video Avatars Ads Engine Voice Changer Voice Isolator Dubbing Sound Effects Voices Voice Remixing Forced"
+    },
     {
       "kind": "有更新的一代",
       "m": "gpt",
@@ -55,9 +67,9 @@
       "found": "M3.1",
       "found_num": "3.1",
       "src": "minimax-api-overview",
-      "src_at": "2026-09-30",
+      "src_at": "2026-10-07",
       "via_other_src": "hf-org",
-      "evidence": "n Plan，查看 订阅 Key [图标] 订阅 Key 用于 Token Plan 订阅套餐和已购积分，并与按量计费 API Key 相互独立。详情见 Token Plan 概要 ​ [图标] 语言模型 语言模型接口使用 MiniMax M3.1-Flash-Preview，MiniMax M3，MiniMax M2.7，MiniMax M2.7-highspeed，MiniMax M2.5，MiniMax M2.5-highspeed，MiniMax M2.1，MiniMax M2.1-highspeed，MiniMax M2 根据输入的上下文，让模型生成对话内容、工具调用。 [图标] MiniMax-M3.1-Flash-Pr"
+      "evidence": "订阅管理 > M Plan，查看 订阅 Key [图标] 订阅 Key 用于 M Plan 订阅套餐和已购积分，并与按量计费 API Key 相互独立。详情见 M Plan 概要 ​ [图标] 语言模型 语言模型接口使用 MiniMax M3.1-Flash-Preview，MiniMax M3，MiniMax M2.7，MiniMax M2.7-highspeed，MiniMax M2.5，MiniMax M2.5-highspeed，MiniMax M2.1，MiniMax M2.1-highspeed，MiniMax M2 根据输入的上下文，让模型生成对话内容、工具调用。 [图标] MiniMax-M3.1-Flash-Pr"
     },
     {
       "kind": "有更新的一代",
@@ -147,7 +159,7 @@
       "cur_as_of": "2026-08-12",
       "found": null,
       "src": "gemini-tts",
-      "src_at": "2026-09-23",
+      "src_at": "2026-10-07",
       "evidence": ""
     },
     {
@@ -159,7 +171,7 @@
       "cur_as_of": "2026-08-12",
       "found": null,
       "src": "glm-voice-doc",
-      "src_at": "2026-09-23",
+      "src_at": "2026-10-07",
       "evidence": ""
     },
     {
@@ -250,7 +262,7 @@
       "cur_as_of": "2026-08-12",
       "found": null,
       "src": "minimax-api-overview",
-      "src_at": "2026-09-30",
+      "src_at": "2026-10-07",
       "evidence": ""
     },
     {
@@ -317,7 +329,7 @@
       "cur_as_of": "2026-08-12",
       "found": null,
       "src": "bailian-websearch",
-      "src_at": "2026-09-23",
+      "src_at": "2026-10-07",
       "evidence": ""
     },
     {
@@ -352,7 +364,7 @@
       "cur_as_of": "2025-12-11",
       "found": null,
       "src": "runway-changelog",
-      "src_at": "2026-09-30",
+      "src_at": "2026-10-07",
       "evidence": ""
     },
     {
@@ -363,7 +375,7 @@
       "cur_as_of": "2026-08-15",
       "found": null,
       "src": "elevenlabs-models",
-      "src_at": "2026-09-23",
+      "src_at": "2026-10-07",
       "evidence": ""
     },
     {
@@ -374,7 +386,7 @@
       "cur_as_of": "2026-09-23",
       "found": null,
       "src": "seed-models",
-      "src_at": "2026-09-23",
+      "src_at": "2026-10-07",
       "evidence": ""
     },
     {
@@ -386,7 +398,7 @@
       "cur_as_of": "2026-07-31",
       "found": null,
       "src": "seed-blog",
-      "src_at": "2026-09-30",
+      "src_at": "2026-10-07",
       "evidence": ""
     },
     {
@@ -398,7 +410,7 @@
       "cur_as_of": "2026-08-11",
       "found": null,
       "src": "seed-blog",
-      "src_at": "2026-09-30",
+      "src_at": "2026-10-07",
       "evidence": ""
     },
     {

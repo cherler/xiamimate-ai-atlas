@@ -1,17 +1,18 @@
-# 引文回查 · 2026-10-06
+# 引文回查 · 2026-10-07
 
-回查 1235 条：无英文锚 726 · 对得上 341 · 找不到 98 · 无快照 19 · 快照无正文 39 · 人审认过·非逐字 10 · 快照被截断·判不了 2
+回查 1235 条：无英文锚 726 · 对得上 335 · 找不到 105 · 无快照 19 · 快照无正文 38 · 人审认过·非逐字 10 · 快照被截断·判不了 2
 
 > 这份报告回答一件事：**一格引文里的原句，在它署名的那份快照里还在不在。**
 > ⚠️ **失败不等于引文错。** 三种成因要分开：真署错了页 / 这一页的快照是残的（抓回来的是导航不是正文）/ 当初记的就不是逐字原文。**脚本不猜。**
 > 「人审认过·非逐字」那一摞是**审阅台上已经判过的**，列在这里只为不假装它们消失了 —— 不用再看。
 
-## 失败 ≥3 条的源（11 个）—— 这几个大概率是抓法不对
+## 失败 ≥3 条的源（12 个）—— 这几个大概率是抓法不对
 
 - **comfy-docs**（8 条）：发布 hidream-HiDream-I1-17B 出图底座，MIT、发布 ernie-image-ERNIE-Image-8B DiT 正式档，apache-2.0、发布 ovis-image-Ovis-Image-7B-7B 专攻图上出字 …
 - **rodin-api-docs**（6 条）：rodin × d-multiview、rodin × d-pbr、rodin × d-edit …
 - **hunyuanworld-gh**（5 条）：hunyuan-world × w-sim、hunyuan-world × w-realtime、模型 hunyuan-world 版本 …
 - **heygen-changelog**（5 条）：发布 heygen-v3api、发布 heygen-avatar3、发布 heygen-avatar5 …
+- **ideogram-overview**（4 条）：ideogram × i-edit、ideogram × i-styleref、ideogram × i-textrender …
 - **recraft-blog**（4 条）：模型 recraft 版本、发布 recraft-Recraft V3-长段文字 + 文字位置和大小可指定、发布 recraft-Recraft V4-按设计审美重训的一代 …
 - **veo-doc**（3 条）：veo × flf、veo × charref、veo × extend
 - **vidu-changelog**（3 条）：模型 vidu-s 版本、发布 vidu-q-Q1-参考生视频、发布 viduq2
@@ -22,7 +23,7 @@
 
 ## 全部
 
-### 找不到（98）
+### 找不到（105）
 
 - `veo-doc` veo × flf —— 锚「Frame-specific generation: Generate a video by specifying the first an」
 - `veo-doc` veo × charref —— 锚「Image-based direction: Use up to three reference images」
@@ -30,6 +31,11 @@
 - `decart-site` lucy × rt-endless —— 锚「infinite video, evolving continuously with the world」
 - `google-video-docs` gemini-omni × flf —— 锚「Use Veo 3.1 for specific capabilities like last-frame control」
 - `gemini-image-docs` gemini-image × i-textrender —— 锚「Advanced text rendering: Capable of generating legible, stylized text 」
+- `ideogram-overview` ideogram × i-edit —— 锚「Prompt fidelity, crystal-clear type, reliable editing, and production-」
+- `ideogram-overview` ideogram × i-styleref —— 锚「Using any of the API V3 endpoints, you can use a style_preset」
+- `ideogram-overview` ideogram × i-textrender —— 锚「Prompt fidelity, crystal-clear type, reliable editing, and production-」
+- `ideogram-upscale` ideogram × i-upscale —— 锚「Upscale provided images synchronously with an optional prompt.」
+- `ideogram-overview` ideogram × i-openweights —— 锚「across the app, API, MCP, and open weights」
 - `recraft-docs` recraft × i-t2i —— 锚「V4.1 is the latest generation」
 - `recraft-nl-edit` recraft × i-edit —— 锚「Recraft Studio supports targeted image editing using integrated extern」
 - `recraft-endpoints` recraft × i-outpaint —— 锚「The area to be generated can be specified either by per-side pixel mar」
@@ -37,7 +43,9 @@
 - `bfl-flux2-overview` flux × i-textrender —— 锚「Specialized for typography. Best for text rendering and preserving sma」
 - `hunyuan-image-card` hunyuan-image × i-i2i —— 锚「instruction reasoning and image-to-image generation including editing 」
 - `hunyuan-image-card` hunyuan-image × i-edit —— 锚「image-to-image generation including editing」
+- `llama-card` llama × t-long —— 锚「Maximum Context Length: 10M tokens」
 - `minimax-api-overview` mm-speech × s-format —— 锚「mp3, pcm, flac, wav」
+- `gemini-tts` gemini-tts × s-format —— 锚「filename , pcm , channels」
 - `openai-realtime` gpt-realtime × s-rt-transport —— 锚「Choose a connection method」
 - `cosyvoice-card` cosyvoice × s-style —— 锚「Instruct Support: Supports various instructions such as languages, dia」
 - `hf-fishspeech15` fish-speech × s-openweights —— 锚「Any Commercial use of the Materials requires a separate license from F」
@@ -128,10 +136,9 @@
 - `elevenlabs-docs` elevenlabs × s-design —— 锚「a guide on how to craft voices」
 - `elevenlabs-docs` elevenlabs × s-long —— 锚「a guide on how to create long-form content」
 
-### 快照无正文（39）
+### 快照无正文（38）
 
 - `mm-hf-api` hailuo × openweights —— 锚「plan to open up the model weights in the coming days」
-- `llama-card` llama × t-long —— 锚「Maximum Context Length: 10M tokens」
 - `hf-lineage` cosyvoice × s-design —— 锚「Instruct Support: Supports various instructions such as languages, dia」
 - `hf-lineage` cosyvoice × s-long —— 锚「Bi-Streaming: Support both text-in streaming and audio-out streaming, 」
 - `hf-lineage` kokoro × s-clone —— 锚「No synthetic audio from open TTS models or custom voice clones」
@@ -194,7 +201,7 @@
 
 ### 人审认过·非逐字（10）
 
-- `ideogram-v3-reframe` ideogram × i-outpaint —— 锚「Take a starting image and extend it to match your desired resolution.」（这句在 ideogram-overview）
+- `ideogram-v3-reframe` ideogram × i-outpaint —— 锚「Take a starting image and extend it to match your desired resolution.」
 - `hf-trellis2` trellis × d-multiview —— 锚「Implementation of multi-image conditioning」（这句在 gh-trellis）
 - `hf-trellis2` trellis × d-edit —— 锚「local 3D editing capabilities」（这句在 gh-trellis）
 - `arxiv-seed3d-20` seed3d × d-scene —— 锚「the system scales to complete scene generation through assembling obje」（这句在 arxiv-seed3d-10）
