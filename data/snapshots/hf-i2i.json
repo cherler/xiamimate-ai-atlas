@@ -1,8 +1,8 @@
 {
   "url": "https://huggingface.co/api/models?filter=image-to-image&sort=downloads&direction=-1&limit=60",
   "kind": "json",
-  "fetched_at": "2026-10-05",
-  "digest": "4964beb613139743",
+  "fetched_at": "2026-10-08",
+  "digest": "ab89f335bf8a9c0a",
   "items": [
     "Abiray/Qwen-Image-2.1-GGUF\t",
     "Abiray/Qwen-Image-2.1-viggle-4-steps-turbo-GGUF\t",
@@ -45,6 +45,7 @@
     "dx8152/Qwen-Edit-2509-Multiple-angles\t",
     "fal/Qwen-Image-Edit-2511-Multiple-Angles-LoRA\t",
     "jdopensource/JoyAI-Image-Edit-Diffusers\t",
+    "joyfox/Qwen-Image-Edit-2509-Upscale2K\t",
     "lightx2v/Qwen-Image-Edit-2511-Lightning\t",
     "lilylilith/AnyPose\t",
     "lllyasviel/sd-controlnet-canny\t",
@@ -57,7 +58,6 @@
     "rectangleworm/PornMaster_Klein-9b\t",
     "silveroxides/FLUX.2-dev-fp8_scaled\t",
     "stabilityai/stable-diffusion-xl-refiner-1.0\t",
-    "starsfriday/Qwen-Image-Edit-2511-Upscale2K\t",
     "timbrooks/instruct-pix2pix\t",
     "unsloth/FLUX.2-dev-GGUF\t",
     "unsloth/FLUX.2-klein-4B-GGUF\t",
