@@ -1,6 +1,6 @@
-# 引文回查 · 2026-10-07
+# 引文回查 · 2026-10-08
 
-回查 1235 条：无英文锚 726 · 对得上 335 · 找不到 105 · 无快照 19 · 快照无正文 38 · 人审认过·非逐字 10 · 快照被截断·判不了 2
+回查 1235 条：无英文锚 726 · 对得上 334 · 找不到 106 · 无快照 19 · 快照无正文 38 · 人审认过·非逐字 10 · 快照被截断·判不了 2
 
 > 这份报告回答一件事：**一格引文里的原句，在它署名的那份快照里还在不在。**
 > ⚠️ **失败不等于引文错。** 三种成因要分开：真署错了页 / 这一页的快照是残的（抓回来的是导航不是正文）/ 当初记的就不是逐字原文。**脚本不猜。**
@@ -23,7 +23,7 @@
 
 ## 全部
 
-### 找不到（105）
+### 找不到（106）
 
 - `veo-doc` veo × flf —— 锚「Frame-specific generation: Generate a video by specifying the first an」
 - `veo-doc` veo × charref —— 锚「Image-based direction: Use up to three reference images」
@@ -31,6 +31,7 @@
 - `decart-site` lucy × rt-endless —— 锚「infinite video, evolving continuously with the world」
 - `google-video-docs` gemini-omni × flf —— 锚「Use Veo 3.1 for specific capabilities like last-frame control」
 - `gemini-image-docs` gemini-image × i-textrender —— 锚「Advanced text rendering: Capable of generating legible, stylized text 」
+- `gemini-image-docs` gemini-image × i-4k —— 锚「It balances speed with state-of-the-art 4K generation, world knowledge」
 - `ideogram-overview` ideogram × i-edit —— 锚「Prompt fidelity, crystal-clear type, reliable editing, and production-」
 - `ideogram-overview` ideogram × i-styleref —— 锚「Using any of the API V3 endpoints, you can use a style_preset」
 - `ideogram-overview` ideogram × i-textrender —— 锚「Prompt fidelity, crystal-clear type, reliable editing, and production-」

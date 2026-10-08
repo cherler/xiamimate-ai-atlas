@@ -1,16 +1,19 @@
-# 版本哨兵 · 2026-10-07
+# 版本哨兵 · 2026-10-08
 
-扫 136 个模型：**有更新的一代 6** · 口径存疑 0 · 牌子摘了 32 · 比不了 56
+扫 136 个模型：**有更新的一代 7** · 口径存疑 0 · 牌子摘了 32 · 比不了 56
 
 > 这份只回答一件事：**一格署的那个源上，今天有没有出现比我们记的更新的版本号？**
 > 报出来的不是「世界变了」，是「**我们抓到了但没写回**」—— 这两件事的严重程度不一样。
 
-## 有更新的一代（6）—— 这一摞要写回 atlas.json
+## 有更新的一代（7）—— 这一摞要写回 atlas.json
 
 - **ElevenLabs**（elevenlabs）库里记 `Eleven v3`（核于 2026-08-12），而 `elevenlabs-models` 的快照（2026-10-07）上写着 **Eleven v4**
   > Pay As You Go Consolidated billing Data Residency Usage analytics Assets Workspaces Introduction Models Text to Speech Eleven v4 Best practices Speech to Text Music Marketplace Best practices Text to Dialogue Image Video Avatars Ads Engine Voice Changer Voice Isolator Dubbing Sound Effects Voices Voice Remixing Forced
 
-- **GPT**（gpt）库里记 `GPT-6 Astra`（核于 2026-09-10），而 `openai-models` 的快照（2026-10-01）上写着 **GPT-6.1**
+- **Nano Banana**（gemini-image）库里记 `2（gemini-3.1-flash-image）`（核于 2026-08-11），而 `gemini-models` 的快照（2026-10-08）上写着 **Nano Banana 2.1**
+  > ble bolt Gemini 3.1 Flash-Lite Frontier-class performance rivaling larger models at a fraction of the cost. Stable 🍌🍌 Nano Banana 2.1 High-efficiency image generation and editing model with improved visual quality, typography, and multi-turn consistency. New Stable 🍌🍌 Nano Banana 2 Powerful, high-efficiency image g
+
+- **GPT**（gpt）库里记 `GPT-6 Astra`（核于 2026-09-10），而 `openai-models` 的快照（2026-10-08）上写着 **GPT-6.1**
   > model If you re not sure where to start, use GPT-6 Astra , our flagship model for complex reasoning and coding. Choose GPT-6.1 Sol to balance intelligence and cost, or GPT-6 Luna for cost-sensitive, high-volume workloads. All latest OpenAI models support text and image input, text output, multilingual capabilities, an
 
 - **Kling**（kling）库里记 `3.0`（核于 2026-02-04），而 `kling-site` 的快照（2026-09-29）上写着 **Kling 4.0**　⚠️ 这一格署的是 `kling-api-updates`，**那个源上看不见新版**
@@ -50,7 +53,7 @@
 - **MiniMax Speech**（mm-speech）记的是 `speech-2.8-hd`，`minimax-api-overview`（2026-10-07）上没有这个号
 - **MuseTalk**（musetalk）记的是 `1.0`，`hf-musetalk`（2026-09-26）上没有这个号
 - **NeuralGCM**（neuralgcm）记的是 `1`，`sci-neuralgcm-gh`（2026-09-26）上没有这个号
-- **GPT TTS**（openai-tts）记的是 `GPT-4o mini TTS`，`openai-models`（2026-10-01）上没有这个号
+- **GPT TTS**（openai-tts）记的是 `GPT-4o mini TTS`，`openai-models`（2026-10-08）上没有这个号
 - **OpenVLA**（openvla）记的是 `7B`，`openvla-gh`（2026-09-26）上没有这个号
 - **PixVerse**（pixverse）记的是 `V6`，`pixverse-v6`（2026-09-26）上没有这个号
 - **Qwen Omni**（qwen-omni）记的是 `3.5-omni-plus`，`bailian-websearch`（2026-10-07）上没有这个号
