@@ -1,6 +1,6 @@
-# 该你看了 · 2026-10-08
+# 该你看了 · 2026-10-09
 
-**4069 条要你拍板**，分 7 摞。每摞都指向它原本在的文件 —— **这里只汇总，不下判断**。
+**4068 条要你拍板**，分 5 摞。每摞都指向它原本在的文件 —— **这里只汇总，不下判断**。
 
 > **动手在审阅台：http://127.0.0.1:8230**（`npm run station` 开）。
 > 这份文件是存档，看的是同一摞东西；判断、重跑、写回都在那边点，不要在两处各做一半。
@@ -10,12 +10,6 @@
 红的共同点是**错了会污染整张图且难回滚**：新实体、要推理才得出的结论、摘不出原文的。
 
 → **开审阅台**：`node scripts/review-ui.mjs` → http://127.0.0.1:8230 ；命令行版 `node scripts/review.mjs`。分级理由看 `node scripts/triage.mjs`
-
-## 抓到了但没内容：1 个源
-
-**它不报错**。SPA 站点最常见 —— 拿到的是导航壳，比对永远「无变化」。
-
-→ 见 data/watch-report.md 对应小节
 
 ## 收录候选 1 条（人工发现 1：Seed Audio 1.0）
 
@@ -29,17 +23,11 @@
 
 → 确认后跑 `npm run repos` 写回（审阅台上有按钮），再上线。 明细在 data/fresh-report.md
 
-## README 漂移：上游改过话 36
+## README 漂移：上游改过话 37
 
 我们对开源项目的判断是从**当时那一版 README** 读出来的。上游改了口径，页面上那句引用就成了假话，而没有任何人会收到通知。
 
 → 逐条核页面上引它的判断；核完 `node scripts/fetch-readme.mjs <项目 id>` 更新快照。 明细在 data/fresh-report.md
-
-## 保鲜巡检「教程与作品链接」这一支自己有问题
-
-跑不起来：ETIMEDOUT
-
-→ `node scripts/fresh.mjs links` 看输出
 
 ## 版本哨兵：7 个模型的源上已经有更新的一代（ElevenLabs Eleven v3 → Eleven v4；Nano Banana 2（gemini-3.1-flash-image） → Nano Banana 2.1；GPT GPT-6 Astra → GPT-6.1；Kling 3.0 → Kling 4.0；Meshy 7 → meshy-7.1；MiniMax M3 → M3.1；Odyssey Odyssey-2 → Odyssey-3）
 
