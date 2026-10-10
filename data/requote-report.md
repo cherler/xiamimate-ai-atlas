@@ -1,12 +1,12 @@
-# 引文回查 · 2026-10-09
+# 引文回查 · 2026-10-10
 
-回查 1235 条：无英文锚 726 · 对得上 334 · 找不到 106 · 无快照 19 · 快照无正文 38 · 人审认过·非逐字 10 · 快照被截断·判不了 2
+回查 1247 条：无英文锚 741 · 对得上 330 · 找不到 101 · 无快照 25 · 快照无正文 38 · 人审认过·非逐字 10 · 快照被截断·判不了 2
 
 > 这份报告回答一件事：**一格引文里的原句，在它署名的那份快照里还在不在。**
 > ⚠️ **失败不等于引文错。** 三种成因要分开：真署错了页 / 这一页的快照是残的（抓回来的是导航不是正文）/ 当初记的就不是逐字原文。**脚本不猜。**
 > 「人审认过·非逐字」那一摞是**审阅台上已经判过的**，列在这里只为不假装它们消失了 —— 不用再看。
 
-## 失败 ≥3 条的源（12 个）—— 这几个大概率是抓法不对
+## 失败 ≥3 条的源（13 个）—— 这几个大概率是抓法不对
 
 - **comfy-docs**（8 条）：发布 hidream-HiDream-I1-17B 出图底座，MIT、发布 ernie-image-ERNIE-Image-8B DiT 正式档，apache-2.0、发布 ovis-image-Ovis-Image-7B-7B 专攻图上出字 …
 - **rodin-api-docs**（6 条）：rodin × d-multiview、rodin × d-pbr、rodin × d-edit …
@@ -15,6 +15,7 @@
 - **ideogram-overview**（4 条）：ideogram × i-edit、ideogram × i-styleref、ideogram × i-textrender …
 - **recraft-blog**（4 条）：模型 recraft 版本、发布 recraft-Recraft V3-长段文字 + 文字位置和大小可指定、发布 recraft-Recraft V4-按设计审美重训的一代 …
 - **veo-doc**（3 条）：veo × flf、veo × charref、veo × extend
+- **elevenlabs-models**（3 条）：elevenlabs × s-clone、elevenlabs × s-style、elevenlabs × s-multi
 - **vidu-changelog**（3 条）：模型 vidu-s 版本、发布 vidu-q-Q1-参考生视频、发布 viduq2
 - **minimax-release-notes**（3 条）：发布 hailuo-01-运镜控制、发布 hailuo-02-换代02：1080p、发布 hailuo-2.3-换代2.3：肢体动作与表情
 - **wiki-midjourney**（3 条）：发布 midjourney-V6-这一代起大幅改善提示词跟随、发布 midjourney-V6.1-画质与细节一致性迭代、发布 midjourney-V7-Draft Mode 与 Omni Reference
@@ -23,15 +24,12 @@
 
 ## 全部
 
-### 找不到（106）
+### 找不到（101）
 
 - `veo-doc` veo × flf —— 锚「Frame-specific generation: Generate a video by specifying the first an」
 - `veo-doc` veo × charref —— 锚「Image-based direction: Use up to three reference images」
 - `veo-doc` veo × extend —— 锚「Video extension: Extend videos that were previously generated using Ve」
 - `decart-site` lucy × rt-endless —— 锚「infinite video, evolving continuously with the world」
-- `google-video-docs` gemini-omni × flf —— 锚「Use Veo 3.1 for specific capabilities like last-frame control」
-- `gemini-image-docs` gemini-image × i-textrender —— 锚「Advanced text rendering: Capable of generating legible, stylized text 」
-- `gemini-image-docs` gemini-image × i-4k —— 锚「It balances speed with state-of-the-art 4K generation, world knowledge」
 - `ideogram-overview` ideogram × i-edit —— 锚「Prompt fidelity, crystal-clear type, reliable editing, and production-」
 - `ideogram-overview` ideogram × i-styleref —— 锚「Using any of the API V3 endpoints, you can use a style_preset」
 - `ideogram-overview` ideogram × i-textrender —— 锚「Prompt fidelity, crystal-clear type, reliable editing, and production-」
@@ -40,19 +38,22 @@
 - `recraft-docs` recraft × i-t2i —— 锚「V4.1 is the latest generation」
 - `recraft-nl-edit` recraft × i-edit —— 锚「Recraft Studio supports targeted image editing using integrated extern」
 - `recraft-endpoints` recraft × i-outpaint —— 锚「The area to be generated can be specified either by per-side pixel mar」
+- `recraft-docs` recraft × i-styleref —— 锚「built for style consistency」
 - `bfl-flux2-multiref` flux × i-styleref —— 锚「Apply the colors, patterns, and surface tones of the animal in Image 2」
 - `bfl-flux2-overview` flux × i-textrender —— 锚「Specialized for typography. Best for text rendering and preserving sma」
 - `hunyuan-image-card` hunyuan-image × i-i2i —— 锚「instruction reasoning and image-to-image generation including editing 」
 - `hunyuan-image-card` hunyuan-image × i-edit —— 锚「image-to-image generation including editing」
 - `llama-card` llama × t-long —— 锚「Maximum Context Length: 10M tokens」
 - `minimax-api-overview` mm-speech × s-format —— 锚「mp3, pcm, flac, wav」
+- `elevenlabs-models` elevenlabs × s-clone —— 锚「high-fidelity voice cloning v4」
+- `elevenlabs-models` elevenlabs × s-style —— 锚「expressiveness, and control v4」
+- `elevenlabs-models` elevenlabs × s-multi —— 锚「natural multi-speaker dialogue v4」
 - `gemini-tts` gemini-tts × s-format —— 锚「filename , pcm , channels」
 - `openai-realtime` gpt-realtime × s-rt-transport —— 锚「Choose a connection method」
 - `cosyvoice-card` cosyvoice × s-style —— 锚「Instruct Support: Supports various instructions such as languages, dia」
 - `hf-fishspeech15` fish-speech × s-openweights —— 锚「Any Commercial use of the Materials requires a separate license from F」
 - `hf-qwen-layered` qwen-image × i-layered —— 锚「We are excited to introduce Qwen-Image-Layered, a model capable of dec」
 - `gh-hunyuan3d-api` hunyuan3d × d-remesh —— 锚「Maximum number of faces for texture generation」
-- `meshy-docs-api` meshy × d-t23d —— 锚「Create a Preview Task」
 - `meshy-docs-api` meshy × d-multiview —— 锚「Batch Images to 3D」
 - `rodin-site` rodin × d-t23d —— 锚「From text prompt to 3D object」
 - `rodin-site` rodin × d-i23d —— 锚「Upload a picture, get a 3D object instantly」
@@ -66,19 +67,14 @@
 - `nvidia-groot-gh` groot × e-openweights —— 锚「This model is released under the NVIDIA Open Model License Agreement」
 - `nvidia-groot-gh` groot × e-finetune —— 锚「Developers and researchers can post-train GR00T N1.7 with real or synt」
 - `openvla-gh` openvla × e-openweights —— 锚「All OpenVLA checkpoints, as well as our training codebase are released」
-- `odyssey-site` odyssey × w-sim —— 锚「Our most powerful general purpose world model yet」
 - `hunyuanworld-gh` hunyuan-world × w-sim —— 锚「April 16, 2026: We release HY-World-2.0, state-of-the-art 3D world mod」
 - `hunyuanworld-gh` hunyuan-world × w-realtime —— 锚「December 18, 2025: We release HunyuanWorld-1.5」
-- `gemini-models` 模型 gemini-omni 版本 —— 锚「Fast, conversational video generation and editing」
 - `vidu-changelog` 模型 vidu-s 版本 —— 锚「New Model - Vidu S2-Avatar: Real-Time Interactive Model」
-- `gemini-models` 模型 gemini-image 版本 —— 锚「our latest state-of-the-art image model.」
 - `recraft-blog` 模型 recraft 版本 —— 锚「Give V4.1 just a few words, and it'll give you something worth keeping」
 - `anthropic-models` 模型 claude 版本 —— 锚「Use Claude Fable 5.1 for demanding reasoning and long-horizon agentic 」
 - `openai-models` 模型 gpt 版本 —— 锚「Our most capable model, built for the hardest end-to-end work」
 - `bfl-flux3` 模型 flux-video 版本 —— 锚「FLUX 3 is one multimodal model. Video with synchronized audio, one req」
-- `meshy-site` 模型 meshy 版本 —— 锚「New Meshy 7 is live. Frontier 3D alignment.」
 - `pixverse-v6` 模型 pixverse 版本 —— 锚「Pro Lens Power, Endless Creation」
-- `odyssey-site` 模型 odyssey 版本 —— 锚「Our most powerful general purpose world model yet, materially advancin」
 - `hunyuanworld-gh` 模型 hunyuan-world 版本 —— 锚「April 16, 2026: We release HY-World-2.0, state-of-the-art 3D world mod」
 - `sci-af3-blog` 模型 alphafold 版本 —— 锚「AlphaFold 3 predicts the structure and interactions of all of life's m」
 - `sci-wn-gh` 模型 weathernext 版本 —— 锚「the global, medium-range atmospheric and cyclone forecasting model dev」
@@ -178,10 +174,16 @@
 - `hf-lineage` 发布 trellis-text —— 锚「takes in text or image prompts」
 - `hf-robotics` 发布 cosmos-reason2 —— 锚「replacing the Eagle backbone used in N1.6」
 
-### 无快照（19）
+### 无快照（25）
 
 - `openai-sora-2` sora × charref
 - `openai-sora-2` sora × audio
+- `xai-grok47-model` grok × t-long
+- `xai-grok47-model` grok × t-tools
+- `xai-grok47-model` grok × t-json
+- `xai-grok47-model` grok × t-cache
+- `xai-grok47-model` grok × t-batch
+- `minimax-music3-release` mm-music × s-openweights
 - `seed3d-page` seed3d × d-splat
 - `xai-imagine-image` 模型 grok-image 版本
 - `xai-imagine-video` 模型 grok-video 版本
