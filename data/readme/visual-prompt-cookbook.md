@@ -1,7 +1,7 @@
 <h1 align="center">AI Visual Prompt Cookbook</h1>
 
 <p align="center">
-  <img src="assets/hero-collage.jpg" alt="AI Visual Prompt Cookbook showcase">
+  <img src="assets/hero-collage.jpg" alt="AI Visual Prompt Cookbook: collage of AI image style prompts for Nano Banana Pro, GPT Image and Midjourney">
 </p>
 
 <p align="center">
@@ -14,8 +14,8 @@
 </p>
 
 <p align="center">
-  <img alt="Styles" src="https://img.shields.io/badge/styles-141-ff5a7a?style=flat-square">
-  <img alt="Previews" src="https://img.shields.io/badge/previews-282-4cc9f0?style=flat-square">
+  <img alt="Styles" src="https://img.shields.io/badge/styles-165-ff5a7a?style=flat-square">
+  <img alt="Previews" src="https://img.shields.io/badge/previews-330-4cc9f0?style=flat-square">
   <img alt="Format" src="https://img.shields.io/badge/format-style.json-111111?style=flat-square">
   <img alt="Languages" src="https://img.shields.io/badge/languages-6-f7b801?style=flat-square">
 </p>
@@ -33,7 +33,7 @@
 </p>
 
 <p align="center">
-  🖼️ <strong><a href="https://vigozhao.github.io/AI-Visual-Prompt-Cookbook/site/">Browse the online gallery</a></strong> · or jump to the <a href="#all-styles">All Styles gallery</a> / <a href="docs/CATALOG.md">full catalog</a> below.
+  🖼️ <strong><a href="https://prompts.vigocreativeai.com/site/">Browse the online gallery</a></strong> · or jump to the <a href="#all-styles">All Styles gallery</a> / <a href="docs/CATALOG.md">full catalog</a> below.
 </p>
 
 ## Quick Links
@@ -120,49 +120,49 @@ Prefer the short path? Browse the generated [Copy Prompt Library](docs/copy-prom
 
 ## Featured Styles
 
-Six visual systems to start with. Every style ships as one JSON plus two preview images. Browse the complete set of 141 in the [All Styles](#all-styles) gallery below.
+Six visual systems to start with. Every style ships as one JSON plus two preview images. Browse the complete set of 165 in the [All Styles](#all-styles) gallery below.
 
 <!-- HTML table used for rich image+link cells -->
 
 <table>
 <tr>
 <td width="33%" valign="top">
-<a href="styles/annotated-absence"><img src="assets/thumbs/annotated-absence-16x9.jpg" alt="Annotated Absence preview"></a>
-<h3>Annotated Absence</h3>
-<p>A photographic subject yields to white paper, retained as hand-traced contour, intimate word labels and sparse gray image fragments.</p>
-<p><a href="styles/annotated-absence/style.json"><strong>Open style.json</strong></a> · <a href="docs/copy-prompts/annotated-absence.md">Copy Prompt</a> · <a href="styles/annotated-absence">Folder</a></p>
+<a href="styles/chromatic-gesture-characters"><img src="assets/thumbs/chromatic-gesture-characters-16x9.jpg" alt="Chromatic Gesture Characters preview"></a>
+<h3>Chromatic Gesture Characters</h3>
+<p>Exaggerated geometric character illustration: sculptural color blocks, minimal black cut-paper faces, hot-pink clashes, selectively airbrushed shadows and fine print grain compress emotion and action into a bold poster silhouette.</p>
+<p><a href="styles/chromatic-gesture-characters/style.json"><strong>Open style.json</strong></a> · <a href="docs/copy-prompts/chromatic-gesture-characters.md">Copy Prompt</a> · <a href="styles/chromatic-gesture-characters">Folder</a></p>
 </td>
 <td width="33%" valign="top">
-<a href="styles/ink-body-manifesto"><img src="assets/thumbs/ink-body-manifesto-16x9.jpg" alt="Ink Body Manifesto preview"></a>
-<h3>Ink Body Manifesto</h3>
-<p>Realistic figures on pale gray-white ground, their torsos constructed from irregular black handwriting, with a compact heavy black headline and sparse red handwritten marks.</p>
-<p><a href="styles/ink-body-manifesto/style.json"><strong>Open style.json</strong></a> · <a href="docs/copy-prompts/ink-body-manifesto.md">Copy Prompt</a> · <a href="styles/ink-body-manifesto">Folder</a></p>
+<a href="styles/velocity-type-sport"><img src="assets/thumbs/velocity-type-sport-16x9.jpg" alt="Velocity Type Sport preview"></a>
+<h3>Velocity Type Sport</h3>
+<p>Extreme near-to-far sports photography interlocked with giant white oblique type, a dark vignetted gradient lit by a bright colored haze, and close-up gear or contact points that express each sport's force and direction.</p>
+<p><a href="styles/velocity-type-sport/style.json"><strong>Open style.json</strong></a> · <a href="docs/copy-prompts/velocity-type-sport.md">Copy Prompt</a> · <a href="styles/velocity-type-sport">Folder</a></p>
 </td>
 <td width="33%" valign="top">
-<a href="styles/memory-fragment-portrait"><img src="assets/thumbs/memory-fragment-portrait-16x9.jpg" alt="Memory Fragment Portrait preview"></a>
-<h3>Memory Fragment Portrait</h3>
-<p>A coarse-halftone black-and-white portrait tiled by a regular white grid; selected cells become faded life photographs, blank paper, and one fluorescent-pink key memory. From afar it is a face; up close it is a relationship.</p>
-<p><a href="styles/memory-fragment-portrait/style.json"><strong>Open style.json</strong></a> · <a href="docs/copy-prompts/memory-fragment-portrait.md">Copy Prompt</a> · <a href="styles/memory-fragment-portrait">Folder</a></p>
+<a href="styles/acid-jolt-photo-collage"><img src="assets/thumbs/acid-jolt-photo-collage-16x9.jpg" alt="Acid Jolt Portrait Collage preview"></a>
+<h3>Acid Jolt Portrait Collage</h3>
+<p>A punchy portrait-poster system mixing warm, low-fi close-up photography, blunt photo-fragment inserts, massive lemon-yellow rounded lettering, and loose marker signals against dark, quiet fields.</p>
+<p><a href="styles/acid-jolt-photo-collage/style.json"><strong>Open style.json</strong></a> · <a href="docs/copy-prompts/acid-jolt-photo-collage.md">Copy Prompt</a> · <a href="styles/acid-jolt-photo-collage">Folder</a></p>
 </td>
 </tr>
 <tr>
 <td width="33%" valign="top">
-<a href="styles/portrait-as-terrain"><img src="assets/thumbs/portrait-as-terrain-16x9.jpg" alt="Portrait as Terrain preview"></a>
-<h3>Portrait as Terrain</h3>
-<p>Monochrome human fragments become monumental single-color landscapes inhabited by tiny figures.</p>
-<p><a href="styles/portrait-as-terrain/style.json"><strong>Open style.json</strong></a> · <a href="docs/copy-prompts/portrait-as-terrain.md">Copy Prompt</a> · <a href="styles/portrait-as-terrain">Folder</a></p>
+<a href="styles/amber-orbit-editorial"><img src="assets/thumbs/amber-orbit-editorial-16x9.jpg" alt="Amber Orbit Editorial preview"></a>
+<h3>Amber Orbit Editorial</h3>
+<p>Intimate warm macro photography, grazing amber light, ivory serif typography and fine overlapping orbital lines turn tactile details into quiet editorial stories about attention, making and time.</p>
+<p><a href="styles/amber-orbit-editorial/style.json"><strong>Open style.json</strong></a> · <a href="docs/copy-prompts/amber-orbit-editorial.md">Copy Prompt</a> · <a href="styles/amber-orbit-editorial">Folder</a></p>
 </td>
 <td width="33%" valign="top">
-<a href="styles/acid-burst-motion-type"><img src="assets/thumbs/acid-burst-motion-type-16x9.jpg" alt="Acid Burst Motion Type preview"></a>
-<h3>Acid Burst Motion Type</h3>
-<p>Extreme wide-angle action photography with an enlarged near-lens object, saturated blue environmental depth, one acid-colored angular burst behind the subject and oversized lean typography sweeping diagonally through the foreground.</p>
-<p><a href="styles/acid-burst-motion-type/style.json"><strong>Open style.json</strong></a> · <a href="docs/copy-prompts/acid-burst-motion-type.md">Copy Prompt</a> · <a href="styles/acid-burst-motion-type">Folder</a></p>
+<a href="styles/felt-motion-brand-campaign"><img src="assets/thumbs/felt-motion-brand-campaign-16x9.jpg" alt="Felt Motion Brand Campaign preview"></a>
+<h3>Felt Motion Brand Campaign</h3>
+<p>An intimate sports photograph captures one bodily state through moody warm light, deep natural shadow and pronounced selective focus. A prominent white original logo and tight two-line wordmark overlap the optical center of the photograph.</p>
+<p><a href="styles/felt-motion-brand-campaign/style.json"><strong>Open style.json</strong></a> · <a href="docs/copy-prompts/felt-motion-brand-campaign.md">Copy Prompt</a> · <a href="styles/felt-motion-brand-campaign">Folder</a></p>
 </td>
 <td width="33%" valign="top">
-<a href="styles/cream-megatype-impact-editorial"><img src="assets/thumbs/cream-megatype-impact-editorial-16x9.jpg" alt="Cream Megatype Impact Editorial preview"></a>
-<h3>Cream Megatype Impact Editorial</h3>
-<p>Close wide-angle action photographs interlocked with enormous warm-cream condensed background type, cobalt environmental depth, tactile ground or water, and a compact rule-divided editorial information rail.</p>
-<p><a href="styles/cream-megatype-impact-editorial/style.json"><strong>Open style.json</strong></a> · <a href="docs/copy-prompts/cream-megatype-impact-editorial.md">Copy Prompt</a> · <a href="styles/cream-megatype-impact-editorial">Folder</a></p>
+<a href="styles/felt-motion-brand-campaign-set-02"><img src="assets/thumbs/felt-motion-brand-campaign-set-02-16x9.jpg" alt="Felt Motion Brand Campaign — Set 02 preview"></a>
+<h3>Felt Motion Brand Campaign — Set 02</h3>
+<p>An intimate sports photograph captures one bodily state through moody warm light, deep natural shadow and pronounced selective focus. A prominent white original logo and tight two-line wordmark overlap the optical center of the photograph.</p>
+<p><a href="styles/felt-motion-brand-campaign-set-02/style.json"><strong>Open style.json</strong></a> · <a href="docs/copy-prompts/felt-motion-brand-campaign-set-02.md">Copy Prompt</a> · <a href="styles/felt-motion-brand-campaign-set-02">Folder</a></p>
 </td>
 </tr>
 </table>
@@ -197,13 +197,197 @@ python3 scripts/validate-style-json.py .
 
 ## All Styles
 
-Browse all 141 styles below.
+Browse all 165 styles below.
 
 The complete library, including the featured styles above. For full descriptions and all file links per style, see [docs/CATALOG.md](docs/CATALOG.md).
 
 <!-- HTML table used for rich image+link cells -->
 
 <table>
+<tr>
+<td width="33%" valign="top">
+<a id="chromatic-gesture-characters"></a>
+<a href="styles/chromatic-gesture-characters"><img src="assets/thumbs/chromatic-gesture-characters-16x9.jpg" alt="Chromatic Gesture Characters preview"></a>
+<p><strong><a href="styles/chromatic-gesture-characters">Chromatic Gesture Characters</a></strong><br>
+<em>Exaggerated geometric character posters with sculptural color blocks, minimal black faces, hot-pink clashes, airbrushed shadows and fine print grain.</em><br>
+<a href="styles/chromatic-gesture-characters/style.json">style.json</a> · <a href="docs/copy-prompts/chromatic-gesture-characters.md">prompt</a> · <a href="styles/chromatic-gesture-characters/preview-9x16.jpg">9:16</a></p>
+</td>
+<td width="33%" valign="top">
+<a id="chromatic-gesture-characters-part-02"></a>
+<a href="styles/chromatic-gesture-characters-part-02"><img src="assets/thumbs/chromatic-gesture-characters-part-02-16x9.jpg" alt="Chromatic Gesture Characters — Part 2 preview"></a>
+<p><strong><a href="styles/chromatic-gesture-characters-part-02">Chromatic Gesture Characters — Part 2</a></strong><br>
+<em>Part 2: bread baking, cycling, dog walking and photography in exaggerated geometric figures, hot-pink clashes and grainy print texture.</em><br>
+<a href="styles/chromatic-gesture-characters-part-02/style.json">style.json</a> · <a href="docs/copy-prompts/chromatic-gesture-characters-part-02.md">prompt</a> · <a href="styles/chromatic-gesture-characters-part-02/preview-9x16.jpg">9:16</a></p>
+</td>
+<td width="33%" valign="top">
+<a id="chromatic-gesture-characters-part-03"></a>
+<a href="styles/chromatic-gesture-characters-part-03"><img src="assets/thumbs/chromatic-gesture-characters-part-03-16x9.jpg" alt="Chromatic Gesture Characters — Part 3 preview"></a>
+<p><strong><a href="styles/chromatic-gesture-characters-part-03">Chromatic Gesture Characters — Part 3</a></strong><br>
+<em>Part 3: topiary gardening, freediving, a chess move and carrying boxes in exaggerated geometric figures and hot-pink clashes.</em><br>
+<a href="styles/chromatic-gesture-characters-part-03/style.json">style.json</a> · <a href="docs/copy-prompts/chromatic-gesture-characters-part-03.md">prompt</a> · <a href="styles/chromatic-gesture-characters-part-03/preview-9x16.jpg">9:16</a></p>
+</td>
+</tr>
+<tr>
+<td width="33%" valign="top">
+<a id="chromatic-gesture-characters-part-04"></a>
+<a href="styles/chromatic-gesture-characters-part-04"><img src="assets/thumbs/chromatic-gesture-characters-part-04-16x9.jpg" alt="Chromatic Gesture Characters — Part 4 preview"></a>
+<p><strong><a href="styles/chromatic-gesture-characters-part-04">Chromatic Gesture Characters — Part 4</a></strong><br>
+<em>Part 4: pottery throwing, kite flying, accordion playing and a stretching cat in large geometric bodies and hot-pink clashes.</em><br>
+<a href="styles/chromatic-gesture-characters-part-04/style.json">style.json</a> · <a href="docs/copy-prompts/chromatic-gesture-characters-part-04.md">prompt</a> · <a href="styles/chromatic-gesture-characters-part-04/preview-9x16.jpg">9:16</a></p>
+</td>
+<td width="33%" valign="top">
+<a id="chromatic-gesture-characters-part-05"></a>
+<a href="styles/chromatic-gesture-characters-part-05"><img src="assets/thumbs/chromatic-gesture-characters-part-05-16x9.jpg" alt="Chromatic Gesture Characters — Part 5 preview"></a>
+<p><strong><a href="styles/chromatic-gesture-characters-part-05">Chromatic Gesture Characters — Part 5</a></strong><br>
+<em>Part 5: tea pouring, threading a needle, bowling and a snail in exaggerated geometry, hot-pink clashes and grainy print texture.</em><br>
+<a href="styles/chromatic-gesture-characters-part-05/style.json">style.json</a> · <a href="docs/copy-prompts/chromatic-gesture-characters-part-05.md">prompt</a> · <a href="styles/chromatic-gesture-characters-part-05/preview-9x16.jpg">9:16</a></p>
+</td>
+<td width="33%" valign="top">
+<a id="chromatic-gesture-characters-part-06"></a>
+<a href="styles/chromatic-gesture-characters-part-06"><img src="assets/thumbs/chromatic-gesture-characters-part-06-16x9.jpg" alt="Chromatic Gesture Characters — Part 6 preview"></a>
+<p><strong><a href="styles/chromatic-gesture-characters-part-06">Chromatic Gesture Characters — Part 6</a></strong><br>
+<em>Part 6: roller painting, turning a key, tightrope balancing and a toucan in geometric exaggeration and hot-pink clashes.</em><br>
+<a href="styles/chromatic-gesture-characters-part-06/style.json">style.json</a> · <a href="docs/copy-prompts/chromatic-gesture-characters-part-06.md">prompt</a> · <a href="styles/chromatic-gesture-characters-part-06/preview-9x16.jpg">9:16</a></p>
+</td>
+</tr>
+<tr>
+<td width="33%" valign="top">
+<a id="chromatic-gesture-characters-part-07"></a>
+<a href="styles/chromatic-gesture-characters-part-07"><img src="assets/thumbs/chromatic-gesture-characters-part-07-16x9.jpg" alt="Chromatic Gesture Characters — Part 7 preview"></a>
+<p><strong><a href="styles/chromatic-gesture-characters-part-07">Chromatic Gesture Characters — Part 7</a></strong><br>
+<em>Part 7: paper folding, headphone listening, canoe paddling and a sideways crab in geometric exaggeration and hot-pink clashes.</em><br>
+<a href="styles/chromatic-gesture-characters-part-07/style.json">style.json</a> · <a href="docs/copy-prompts/chromatic-gesture-characters-part-07.md">prompt</a> · <a href="styles/chromatic-gesture-characters-part-07/preview-9x16.jpg">9:16</a></p>
+</td>
+<td width="33%" valign="top">
+<a id="velocity-type-sport"></a>
+<a href="styles/velocity-type-sport"><img src="assets/thumbs/velocity-type-sport-16x9.jpg" alt="Velocity Type Sport preview"></a>
+<p><strong><a href="styles/velocity-type-sport">Velocity Type Sport</a></strong><br>
+<em>Extreme-perspective sports photos woven through giant white oblique type, with a bright color haze in a dark field.</em><br>
+<a href="styles/velocity-type-sport/style.json">style.json</a> · <a href="docs/copy-prompts/velocity-type-sport.md">prompt</a> · <a href="styles/velocity-type-sport/preview-9x16.jpg">9:16</a></p>
+</td>
+<td width="33%" valign="top">
+<a id="velocity-type-sport-part-02"></a>
+<a href="styles/velocity-type-sport-part-02"><img src="assets/thumbs/velocity-type-sport-part-02-16x9.jpg" alt="Velocity Type Sport — Part 2 preview"></a>
+<p><strong><a href="styles/velocity-type-sport-part-02">Velocity Type Sport — Part 2</a></strong><br>
+<em>Part 2: basketball, snowboarding, kayaking and boxing in giant white oblique type and single-color haze.</em><br>
+<a href="styles/velocity-type-sport-part-02/style.json">style.json</a> · <a href="docs/copy-prompts/velocity-type-sport-part-02.md">prompt</a> · <a href="styles/velocity-type-sport-part-02/preview-9x16.jpg">9:16</a></p>
+</td>
+</tr>
+<tr>
+<td width="33%" valign="top">
+<a id="velocity-type-sport-part-03"></a>
+<a href="styles/velocity-type-sport-part-03"><img src="assets/thumbs/velocity-type-sport-part-03-16x9.jpg" alt="Velocity Type Sport — Part 3 preview"></a>
+<p><strong><a href="styles/velocity-type-sport-part-03">Velocity Type Sport — Part 3</a></strong><br>
+<em>Part 3: tennis, still rings, speed skating and archery, framed as net, ring, blade and bowstring force structures.</em><br>
+<a href="styles/velocity-type-sport-part-03/style.json">style.json</a> · <a href="docs/copy-prompts/velocity-type-sport-part-03.md">prompt</a> · <a href="styles/velocity-type-sport-part-03/preview-9x16.jpg">9:16</a></p>
+</td>
+<td width="33%" valign="top">
+<a id="velocity-type-sport-part-04"></a>
+<a href="styles/velocity-type-sport-part-04"><img src="assets/thumbs/velocity-type-sport-part-04-16x9.jpg" alt="Velocity Type Sport — Part 4 preview"></a>
+<p><strong><a href="styles/velocity-type-sport-part-04">Velocity Type Sport — Part 4</a></strong><br>
+<em>Part 4: baseball swing, barbell lift, barrel surfing and gymnastics ribbon in giant white oblique type.</em><br>
+<a href="styles/velocity-type-sport-part-04/style.json">style.json</a> · <a href="docs/copy-prompts/velocity-type-sport-part-04.md">prompt</a> · <a href="styles/velocity-type-sport-part-04/preview-9x16.jpg">9:16</a></p>
+</td>
+<td width="33%" valign="top">
+<a id="acid-jolt-photo-collage"></a>
+<a href="styles/acid-jolt-photo-collage"><img src="assets/thumbs/acid-jolt-photo-collage-16x9.jpg" alt="Acid Jolt Portrait Collage preview"></a>
+<p><strong><a href="styles/acid-jolt-photo-collage">Acid Jolt Portrait Collage</a></strong><br>
+<em>Punchy portrait posters mixing warm low-fi close-ups, blunt photo fragments, massive lemon-yellow lettering, and loose marker signals.</em><br>
+<a href="styles/acid-jolt-photo-collage/style.json">style.json</a> · <a href="docs/copy-prompts/acid-jolt-photo-collage.md">prompt</a> · <a href="styles/acid-jolt-photo-collage/preview-9x16.jpg">9:16</a></p>
+</td>
+</tr>
+<tr>
+<td width="33%" valign="top">
+<a id="amber-orbit-editorial"></a>
+<a href="styles/amber-orbit-editorial"><img src="assets/thumbs/amber-orbit-editorial-16x9.jpg" alt="Amber Orbit Editorial preview"></a>
+<p><strong><a href="styles/amber-orbit-editorial">Amber Orbit Editorial</a></strong><br>
+<em>Warm amber macros with ivory serif type and fine orbital lines, turning tactile details into quiet editorial stories.</em><br>
+<a href="styles/amber-orbit-editorial/style.json">style.json</a> · <a href="docs/copy-prompts/amber-orbit-editorial.md">prompt</a> · <a href="styles/amber-orbit-editorial/preview-9x16.jpg">9:16</a></p>
+</td>
+<td width="33%" valign="top">
+<a id="felt-motion-brand-campaign"></a>
+<a href="styles/felt-motion-brand-campaign"><img src="assets/thumbs/felt-motion-brand-campaign-16x9.jpg" alt="Felt Motion Brand Campaign preview"></a>
+<p><strong><a href="styles/felt-motion-brand-campaign">Felt Motion Brand Campaign</a></strong><br>
+<em>Intimate sports photographs with moody warm light, selective focus, and a white original logo plus two-line wordmark at center.</em><br>
+<a href="styles/felt-motion-brand-campaign/style.json">style.json</a> · <a href="docs/copy-prompts/felt-motion-brand-campaign.md">prompt</a> · <a href="styles/felt-motion-brand-campaign/preview-9x16.jpg">9:16</a></p>
+</td>
+<td width="33%" valign="top">
+<a id="felt-motion-brand-campaign-set-02"></a>
+<a href="styles/felt-motion-brand-campaign-set-02"><img src="assets/thumbs/felt-motion-brand-campaign-set-02-16x9.jpg" alt="Felt Motion Brand Campaign — Set 02 preview"></a>
+<p><strong><a href="styles/felt-motion-brand-campaign-set-02">Felt Motion Brand Campaign — Set 02</a></strong><br>
+<em>A second Felt Motion set: intimate sports photographs, selective focus, and a centered white logo with a tight two-line wordmark.</em><br>
+<a href="styles/felt-motion-brand-campaign-set-02/style.json">style.json</a> · <a href="docs/copy-prompts/felt-motion-brand-campaign-set-02.md">prompt</a> · <a href="styles/felt-motion-brand-campaign-set-02/preview-9x16.jpg">9:16</a></p>
+</td>
+</tr>
+<tr>
+<td width="33%" valign="top">
+<a id="monumental-editorial-set-02"></a>
+<a href="styles/monumental-editorial-set-02"><img src="assets/thumbs/monumental-editorial-set-02-16x9.jpg" alt="Monumental Editorial — Set 02 preview"></a>
+<p><strong><a href="styles/monumental-editorial-set-02">Monumental Editorial — Set 02</a></strong><br>
+<em>Giant condensed white lettering colliding with tactile botanical, musical, food, and chrome-product photography.</em><br>
+<a href="styles/monumental-editorial-set-02/style.json">style.json</a> · <a href="docs/copy-prompts/monumental-editorial-set-02.md">prompt</a> · <a href="styles/monumental-editorial-set-02/preview-9x16.jpg">9:16</a></p>
+</td>
+<td width="33%" valign="top">
+<a id="monumental-sport-editorial"></a>
+<a href="styles/monumental-sport-editorial"><img src="assets/thumbs/monumental-sport-editorial-16x9.jpg" alt="Monumental Sport Editorial preview"></a>
+<p><strong><a href="styles/monumental-sport-editorial">Monumental Sport Editorial</a></strong><br>
+<em>Athletic photography colliding with monumental condensed white type on warm stone neutrals and deep black shapes.</em><br>
+<a href="styles/monumental-sport-editorial/style.json">style.json</a> · <a href="docs/copy-prompts/monumental-sport-editorial.md">prompt</a> · <a href="styles/monumental-sport-editorial/preview-9x16.jpg">9:16</a></p>
+</td>
+<td width="33%" valign="top">
+<a id="slice-signal-editorial"></a>
+<a href="styles/slice-signal-editorial"><img src="assets/thumbs/slice-signal-editorial-16x9.jpg" alt="Slice Signal Editorial preview"></a>
+<p><strong><a href="styles/slice-signal-editorial">Slice Signal Editorial</a></strong><br>
+<em>Experimental editorial posters with oversized condensed headlines, scarlet blocks, and photograph subjects cut by vertical slices.</em><br>
+<a href="styles/slice-signal-editorial/style.json">style.json</a> · <a href="docs/copy-prompts/slice-signal-editorial.md">prompt</a> · <a href="styles/slice-signal-editorial/preview-9x16.jpg">9:16</a></p>
+</td>
+</tr>
+<tr>
+<td width="33%" valign="top">
+<a id="chromatic-impact-athlete"></a>
+<a href="styles/chromatic-impact-athlete"><img src="assets/thumbs/chromatic-impact-athlete-16x9.jpg" alt="Chromatic Impact Athlete preview"></a>
+<p><strong><a href="styles/chromatic-impact-athlete">Chromatic Impact Athlete</a></strong><br>
+<em>High-contrast athletic posters colliding grayscale body photography, extreme perspective, and a single red-orange energy accent.</em><br>
+<a href="styles/chromatic-impact-athlete/style.json">style.json</a> · <a href="docs/copy-prompts/chromatic-impact-athlete.md">prompt</a> · <a href="styles/chromatic-impact-athlete/preview-9x16.jpg">9:16</a></p>
+</td>
+<td width="33%" valign="top">
+<a id="cream-curve-editorial"></a>
+<a href="styles/cream-curve-editorial"><img src="assets/thumbs/cream-curve-editorial-16x9.jpg" alt="Cream Curve Editorial preview"></a>
+<p><strong><a href="styles/cream-curve-editorial">Cream Curve Editorial</a></strong><br>
+<em>Sunlit editorial posters shaped by monumental condensed cream lettering, elastic curves, and subject/type depth exchanges.</em><br>
+<a href="styles/cream-curve-editorial/style.json">style.json</a> · <a href="docs/copy-prompts/cream-curve-editorial.md">prompt</a> · <a href="styles/cream-curve-editorial/preview-9x16.jpg">9:16</a></p>
+</td>
+<td width="33%" valign="top">
+<a id="kinetic-footwear-process"></a>
+<a href="styles/kinetic-footwear-process"><img src="assets/thumbs/kinetic-footwear-process-16x9.jpg" alt="Kinetic Footwear Process preview"></a>
+<p><strong><a href="styles/kinetic-footwear-process">Kinetic Footwear Process</a></strong><br>
+<em>Motion-led footwear campaigns showing a shoe mechanism through action, sequential states, and tactile engineering close-ups.</em><br>
+<a href="styles/kinetic-footwear-process/style.json">style.json</a> · <a href="docs/copy-prompts/kinetic-footwear-process.md">prompt</a> · <a href="styles/kinetic-footwear-process/preview-9x16.jpg">9:16</a></p>
+</td>
+</tr>
+<tr>
+<td width="33%" valign="top">
+<a id="sensory-footwear-lab"></a>
+<a href="styles/sensory-footwear-lab"><img src="assets/thumbs/sensory-footwear-lab-16x9.jpg" alt="Sensory Footwear Lab preview"></a>
+<p><strong><a href="styles/sensory-footwear-lab">Sensory Footwear Lab</a></strong><br>
+<em>Minimal future-sport concepts pairing tactile podded outsoles with quiet athletic gestures, ice-cool architecture, and signal-coral accents.</em><br>
+<a href="styles/sensory-footwear-lab/style.json">style.json</a> · <a href="docs/copy-prompts/sensory-footwear-lab.md">prompt</a> · <a href="styles/sensory-footwear-lab/preview-9x16.jpg">9:16</a></p>
+</td>
+<td width="33%" valign="top">
+<a id="vector-atelier"></a>
+<a href="styles/vector-atelier"><img src="assets/thumbs/vector-atelier-16x9.jpg" alt="Visual OS 051 — Freeze the Gear preview"></a>
+<p><strong><a href="styles/vector-atelier">Visual OS 051 — Freeze the Gear</a></strong><br>
+<em>Full-bleed future-sport posters isolating one razor-sharp piece of gear against directional motion trails and a giant white slogan.</em><br>
+<a href="styles/vector-atelier/style.json">style.json</a> · <a href="docs/copy-prompts/vector-atelier.md">prompt</a> · <a href="styles/vector-atelier/preview-9x16.jpg">9:16</a></p>
+</td>
+<td width="33%" valign="top">
+<a id="vector-process-study"></a>
+<a href="styles/vector-process-study"><img src="assets/thumbs/vector-process-study-16x9.jpg" alt="Vector Process Study preview"></a>
+<p><strong><a href="styles/vector-process-study">Vector Process Study</a></strong><br>
+<em>Premium footwear process boards explaining load, flex, fit, and construction through sequential panels and tactile macros.</em><br>
+<a href="styles/vector-process-study/style.json">style.json</a> · <a href="docs/copy-prompts/vector-process-study.md">prompt</a> · <a href="styles/vector-process-study/preview-9x16.jpg">9:16</a></p>
+</td>
+</tr>
 <tr>
 <td width="33%" valign="top">
 <a id="annotated-absence"></a>

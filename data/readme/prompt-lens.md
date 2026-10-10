@@ -115,7 +115,7 @@ pnpm install
 
 # 3. 复制环境变量模板
 cp .env.example .env.local
-# 然后编辑 .env.local 填入配置（数据库、B2、AI key 等）
+# 然后编辑 .env.local 填入配置（数据库、R2、AI key 等）
 # 详细配置说明见 LOCAL_SETUP.md
 
 # 4. 初始化数据库
@@ -218,7 +218,7 @@ prompt-analyzer/
 ├── lib/                   # 核心库
 │   ├── ai/                # AI 分析器
 │   ├── auth/              # 认证配置
-│   ├── Backblaze/         # B2 存储
+│   ├── cloudflare/        # R2 存储
 │   ├── db/                # 数据库
 │   └── middleware/        # 中间件
 └── tests/                 # 测试文件
@@ -250,3 +250,15 @@ vercel deploy
 ## License
 
 MIT
+
+## Star 趋势
+
+[![Star History](https://api.star-history.com/svg?repos=raojiacui/prompt-lens&type=Date&legend=top-left)](https://www.star-history.com/?repos=raojiacui%2Fprompt-lens&type=date&legend=top-left)
+
+## 请勿刷 Star 或 Fork
+
+请不要使用机器人、脚本、批量账号或刷星服务给本仓库添加 Star 或 Fork。
+
+欢迎真实用户因兴趣或使用需要自愿 Star、Fork，也欢迎反馈问题、分享使用体验和贡献代码。感谢每一份真实的支持。
+
+Please do not use bots, scripts, bulk accounts, or paid services to inflate this repository's stars or forks, including unsolicited promotion. Genuine interest, feedback, and contributions are welcome.

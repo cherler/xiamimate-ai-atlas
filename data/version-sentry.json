@@ -1,101 +1,10 @@
 {
-  "generated_at": "2026-10-09",
-  "n": 7,
+  "generated_at": "2026-10-10",
+  "n": 0,
   "n_unclear": 0,
   "n_missing": 32,
-  "n_skipped": 56,
+  "n_skipped": 55,
   "rows": [
-    {
-      "kind": "有更新的一代",
-      "m": "elevenlabs",
-      "family": "ElevenLabs",
-      "cur": "Eleven v3",
-      "cur_as_of": "2026-08-12",
-      "found": "Eleven v4",
-      "found_num": "4",
-      "src": "elevenlabs-models",
-      "src_at": "2026-10-07",
-      "evidence": "Pay As You Go Consolidated billing Data Residency Usage analytics Assets Workspaces Introduction Models Text to Speech Eleven v4 Best practices Speech to Text Music Marketplace Best practices Text to Dialogue Image Video Avatars Ads Engine Voice Changer Voice Isolator Dubbing Sound Effects Voices Voice Remixing Forced"
-    },
-    {
-      "kind": "有更新的一代",
-      "m": "gemini-image",
-      "family": "Nano Banana",
-      "zh": "Nano Banana",
-      "cur": "2（gemini-3.1-flash-image）",
-      "cur_as_of": "2026-08-11",
-      "found": "Nano Banana 2.1",
-      "found_num": "2.1",
-      "src": "gemini-models",
-      "src_at": "2026-10-08",
-      "evidence": "ble bolt Gemini 3.1 Flash-Lite Frontier-class performance rivaling larger models at a fraction of the cost. Stable 🍌🍌 Nano Banana 2.1 High-efficiency image generation and editing model with improved visual quality, typography, and multi-turn consistency. New Stable 🍌🍌 Nano Banana 2 Powerful, high-efficiency image g"
-    },
-    {
-      "kind": "有更新的一代",
-      "m": "gpt",
-      "family": "GPT",
-      "zh": "GPT",
-      "cur": "GPT-6 Astra",
-      "cur_as_of": "2026-09-10",
-      "found": "GPT-6.1",
-      "found_num": "6.1",
-      "src": "openai-models",
-      "src_at": "2026-10-08",
-      "evidence": "model If you re not sure where to start, use GPT-6 Astra , our flagship model for complex reasoning and coding. Choose GPT-6.1 Sol to balance intelligence and cost, or GPT-6 Luna for cost-sensitive, high-volume workloads. All latest OpenAI models support text and image input, text output, multilingual capabilities, an"
-    },
-    {
-      "kind": "有更新的一代",
-      "m": "kling",
-      "family": "Kling",
-      "zh": "可灵",
-      "cur": "3.0",
-      "cur_as_of": "2026-02-04",
-      "found": "Kling 4.0",
-      "found_num": "4.0",
-      "src": "kling-site",
-      "src_at": "2026-09-29",
-      "via_other_src": "kling-api-updates",
-      "evidence": "Kling AI Video and Image Generator [图标] Kling 4.0 全新升级 全能班底，你和可灵 [图标] 钢琴师在巨浪中的船头演奏。 开启创作 Kling 4.0 [图标] [图标] 视听表现，让画面真实 大幅度动态表现稳定、视听体验沉浸，从画面生成迈向专业级成片 [图标] [图标] 立即体验 [图标] Kling Image 3.0 强化影视级叙事 精准理解镜头语言，让每张静帧都拥有电影叙事张力 原生4K超清直出 原生直出4K超清画面，纹理"
-    },
-    {
-      "kind": "有更新的一代",
-      "m": "meshy",
-      "family": "Meshy",
-      "cur": "7",
-      "cur_as_of": "2026-08-13",
-      "found": "meshy-7.1",
-      "found_num": "7.1",
-      "src": "meshy-docs-api",
-      "src_at": "2026-09-26",
-      "via_other_src": "meshy-site",
-      "evidence": "l to use. The available values depend on model_type. Standard generation (model_type: standard): meshy-6-lite, meshy-6, meshy-7.1, latest (Meshy 7.1) meshy-7 (deprecated): use meshy-7.1 instead. Smart Topology generation (model_type: smart-topology): meshy-t2 (default): the Smart Topology model — cleaner topology, nati"
-    },
-    {
-      "kind": "有更新的一代",
-      "m": "minimax-text",
-      "family": "MiniMax",
-      "zh": "MiniMax 文本",
-      "cur": "M3",
-      "cur_as_of": "2026-06-02",
-      "found": "M3.1",
-      "found_num": "3.1",
-      "src": "minimax-api-overview",
-      "src_at": "2026-10-07",
-      "via_other_src": "hf-org",
-      "evidence": "订阅管理 > M Plan，查看 订阅 Key [图标] 订阅 Key 用于 M Plan 订阅套餐和已购积分，并与按量计费 API Key 相互独立。详情见 M Plan 概要 ​ [图标] 语言模型 语言模型接口使用 MiniMax M3.1-Flash-Preview，MiniMax M3，MiniMax M2.7，MiniMax M2.7-highspeed，MiniMax M2.5，MiniMax M2.5-highspeed，MiniMax M2.1，MiniMax M2.1-highspeed，MiniMax M2 根据输入的上下文，让模型生成对话内容、工具调用。 [图标] MiniMax-M3.1-Flash-Pr"
-    },
-    {
-      "kind": "有更新的一代",
-      "m": "odyssey",
-      "family": "Odyssey",
-      "cur": "Odyssey-2",
-      "cur_as_of": "2026-08-14",
-      "found": "Odyssey-3",
-      "found_num": "3",
-      "src": "odyssey-site",
-      "src_at": "2026-09-26",
-      "evidence": "ta Apple XAI We’re backed by ')\"> Foundation World Models Foundation world models to power physical and virtual systems Odyssey-3 draws on a learned understanding of physics, motion, and cause-and-effect to act in physical and virtual worlds. One foundation world model powers policies for robots, humanoids, cars, drone"
-    },
     {
       "kind": "牌子摘了",
       "m": "anysplat",
@@ -115,7 +24,7 @@
       "cur_as_of": "2026-08-15",
       "found": null,
       "src": "sci-aurora-gh",
-      "src_at": "2026-09-26",
+      "src_at": "2026-10-10",
       "evidence": ""
     },
     {
@@ -161,7 +70,7 @@
       "cur_as_of": "2026-08",
       "found": null,
       "src": "bfl-flux3",
-      "src_at": "2026-09-26",
+      "src_at": "2026-10-10",
       "evidence": ""
     },
     {
@@ -195,7 +104,7 @@
       "cur_as_of": "2026-08-15",
       "found": null,
       "src": "sci-gnome-gh",
-      "src_at": "2026-09-26",
+      "src_at": "2026-10-10",
       "evidence": ""
     },
     {
@@ -207,7 +116,7 @@
       "cur_as_of": "2026-07-31",
       "found": null,
       "src": "minimax-release-notes",
-      "src_at": "2026-09-26",
+      "src_at": "2026-10-10",
       "evidence": ""
     },
     {
@@ -218,7 +127,7 @@
       "cur_as_of": "2026-08-14",
       "found": null,
       "src": "hf-hunyuan-avatar",
-      "src_at": "2026-09-26",
+      "src_at": "2026-10-10",
       "evidence": ""
     },
     {
@@ -230,7 +139,7 @@
       "cur_as_of": "2026-08-13",
       "found": null,
       "src": "replicate-hunyuan3d-31",
-      "src_at": "2026-09-26",
+      "src_at": "2026-10-10",
       "evidence": ""
     },
     {
@@ -241,7 +150,7 @@
       "cur_as_of": "2026-08-14",
       "found": null,
       "src": "hf-liveportrait",
-      "src_at": "2026-09-26",
+      "src_at": "2026-10-10",
       "evidence": ""
     },
     {
@@ -263,7 +172,7 @@
       "cur_as_of": "2026-08-15",
       "found": null,
       "src": "sci-mattergen-gh",
-      "src_at": "2026-09-26",
+      "src_at": "2026-10-10",
       "evidence": ""
     },
     {
@@ -275,7 +184,7 @@
       "cur_as_of": "2026-08-12",
       "found": null,
       "src": "minimax-api-overview",
-      "src_at": "2026-10-07",
+      "src_at": "2026-10-10",
       "evidence": ""
     },
     {
@@ -286,7 +195,7 @@
       "cur_as_of": "2026-08-14",
       "found": null,
       "src": "hf-musetalk",
-      "src_at": "2026-09-26",
+      "src_at": "2026-10-10",
       "evidence": ""
     },
     {
@@ -297,7 +206,7 @@
       "cur_as_of": "2026-08-15",
       "found": null,
       "src": "sci-neuralgcm-gh",
-      "src_at": "2026-09-26",
+      "src_at": "2026-10-10",
       "evidence": ""
     },
     {
@@ -319,7 +228,7 @@
       "cur_as_of": "2026-08-14",
       "found": null,
       "src": "openvla-gh",
-      "src_at": "2026-09-26",
+      "src_at": "2026-10-10",
       "evidence": ""
     },
     {
@@ -330,7 +239,7 @@
       "cur_as_of": "2026-08-14",
       "found": null,
       "src": "pixverse-v6",
-      "src_at": "2026-09-26",
+      "src_at": "2026-10-10",
       "evidence": ""
     },
     {
@@ -354,7 +263,7 @@
       "cur_as_of": "2026-08-15",
       "found": null,
       "src": "hf-qwen3-asr",
-      "src_at": "2026-09-26",
+      "src_at": "2026-10-10",
       "evidence": ""
     },
     {
@@ -388,7 +297,7 @@
       "cur_as_of": "2026-08-15",
       "found": null,
       "src": "elevenlabs-models",
-      "src_at": "2026-10-07",
+      "src_at": "2026-10-10",
       "evidence": ""
     },
     {
@@ -434,7 +343,7 @@
       "cur_as_of": "2026-08-13",
       "found": null,
       "src": "stability-spar3d",
-      "src_at": "2026-09-26",
+      "src_at": "2026-10-10",
       "evidence": ""
     },
     {
@@ -445,7 +354,7 @@
       "cur_as_of": "2026-08-13",
       "found": null,
       "src": "tripo-docs-generation",
-      "src_at": "2026-09-26",
+      "src_at": "2026-10-10",
       "evidence": ""
     },
     {
@@ -484,10 +393,6 @@
     {
       "m": "locateanything",
       "why": "hf-locateanything 都没有可比对的正文（没快照，或只有 json/atom 的 items）"
-    },
-    {
-      "m": "gemini-omni",
-      "why": "版本串「Flash」里没有数字，比不了"
     },
     {
       "m": "wan",
