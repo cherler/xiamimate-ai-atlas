@@ -7,11 +7,57 @@ import { join } from 'node:path';
 import { execFileSync, spawnSync } from 'node:child_process';
 import { matchModel, assess, factKey, matchesVersion, groupQueue } from './review-policy.mjs';
 import { acknowledged } from './version-review-policy.mjs';
+import { closureContext, closureActive } from './review-closure.mjs';
+import { reviewReport } from './review-report.mjs';
 const a = JSON.parse(readFileSync(new URL('../data/atlas.json', import.meta.url)));
 const m = { id: 'veo', family: 'Veo', org: 'google', version: '3.1' };
 const f = { source: 'official', model_hint: 'Veo 3.1', kind: 'capability', capability: 'v2v', confidence: 'explicit', claim: 'Veo 3.1 edits video', quote: 'Veo 3.1 supports video editing.' };
 const source = { id: 'official', tier: 'S' };
 const cell = { m: 'veo', c: 'v2v', state: 'unknown' };
+
+test('automatic closure reopens changed evidence, versions and new identities', () => {
+  const atlas = { models: [m], support: [cell], capabilities: [{id:'v2v'}] };
+  const context = closureContext(atlas, () => f.quote)(f);
+  const row = { context };
+  assert.ok(closureActive(row, closureContext(atlas, () => f.quote)(f)));
+  assert.ok(!closureActive(row, closureContext(atlas, () => f.quote + ' No longer available.')(f)));
+  assert.ok(!closureActive(row, closureContext({...atlas,models:[{...m,version:'4'}]}, () => f.quote)(f)));
+  assert.ok(!closureActive(row, closureContext({...atlas,support:[{...cell,state:'no'}]}, () => f.quote)(f)));
+  const unknown = {...f,model_hint:'New Model 1'};
+  const old = {context:closureContext(atlas, () => f.quote)(unknown)};
+  assert.ok(!closureActive(old,closureContext({...atlas,models:[m,{id:'new',family:'New Model',version:'1'}]}, () => f.quote)(unknown)));
+});
+
+test('automatic ledger closes only its exact facts and reopens after a source change', async () => {
+  const root = mkdtempSync(join(tmpdir(), 'atlas-auto-review-'));
+  const previous = process.env.ATLAS_REVIEW_ROOT;
+  const write = (name,value) => writeFileSync(join(root,name), JSON.stringify(value));
+  try {
+    mkdirSync(join(root,'data/inbox'),{recursive:true}); mkdirSync(join(root,'data/snapshots'));
+    const atlas = {models:[m],support:[cell],capabilities:[{id:'v2v'}]};
+    write('data/atlas.json',atlas); write('data/sources.json',{sources:[source]});
+    write('data/snapshots/official.json',{text:f.quote});
+    const fresh = {...f,quote:'Veo 3.1 does not support video editing.',claim:'A different negative fact'};
+    write('data/inbox/2026-10-10.json',{results:[{source:'official',findings:[f,fresh]}]});
+    write('data/review-auto-log.json',{rows:[{...f,fact_key:factKey(f),decision:'not-adopted',context:closureContext(atlas,()=>f.quote)(f)}]});
+    process.env.ATLAS_REVIEW_ROOT=root;
+    const r=await import(`./review.mjs?auto=${root}`);
+    assert.equal(r.queue().length,1);assert.equal(r.queue()[0].claim,fresh.claim);
+    write('data/snapshots/official.json',{text:f.quote+' Changed conditions.'});
+    assert.equal(r.queue().length,2);
+  } finally {
+    if(previous===undefined) delete process.env.ATLAS_REVIEW_ROOT; else process.env.ATLAS_REVIEW_ROOT=previous;
+    rmSync(root,{recursive:true,force:true});
+  }
+});
+
+test('audit view escapes source text, blocks executable URLs and paginates', () => {
+  const row={model_hint:'<script>alert(1)</script>',claim:'untrusted',quote:'<img onerror=alert(1)>',url:'javascript:alert(1)',decision:'not-adopted'};
+  const html=reviewReport({rows:Array.from({length:31},()=>row)},new URLSearchParams());
+  assert.equal((html.match(/<article>/g)||[]).length,30);
+  assert.ok(!html.includes('<script>'));assert.ok(!html.includes('href="javascript:'));
+  assert.ok(html.includes('&lt;script&gt;'));
+});
 
 test('family routing picks a specific model, never a reverse substring or tied match', () => {
   assert.equal(matchModel(a, 'qwen3.5-omni')?.id, 'qwen-omni');

@@ -73,6 +73,7 @@ const idOf = (f, day) =>
  */
 export { matchModel } from "./review-policy.mjs";
 import { matchModel, assess, factKey, groupQueue } from "./review-policy.mjs";
+import { closureContext, closureActive } from "./review-closure.mjs";
 export { groupQueue };
 
 export function queue() {
@@ -92,6 +93,8 @@ export function queue() {
     return snapshots.get(id);
   };
   const closedFacts = new Set((readJSON("data/review-log.json", { rows: [] }).rows ?? []).map(x => x.fact_key).filter(Boolean));
+  const context = closureContext(atlas, snapshot);
+  const automatic = new Map((readJSON("data/review-auto-log.json", { rows: [] }).rows ?? []).map(r => [r.fact_key, r]));
   const out = [];
   for (const day of readdirSync(P("data/inbox")).filter((f) => f.endsWith(".json")).sort()) {
     const box = readJSON(`data/inbox/${day}`, {});
@@ -107,6 +110,8 @@ export function queue() {
       const legacyId = idOf(f, day.replace(".json", ""));
       const id = `${legacyId}::${factKey(f).slice(0, 12)}`;
       if (legacyClosed.has(legacyId) || rejected.has(id) || pending.has(id) || done.has(id) || closedFacts.has(factKey(f))) continue;
+      const reviewed = automatic.get(factKey(f));
+      if (reviewed && closureActive(reviewed, context(f))) continue;
       // 能不能落到一个具体格子 —— 这决定「通过」之后走哪一路
       const m = matchModel(atlas, f.model_hint);
       /**

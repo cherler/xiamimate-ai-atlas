@@ -8654,22 +8654,30 @@
     {
       "m": "gemini-omni",
       "c": "t2v",
-      "state": "unknown",
-      "verified_for": "Flash",
-      "note": "2026-10-10 已升级 1.1 Flash，新版能力待重核。原 Flash 记录：官方：从文本提示生成视频，**并按描述同时生成音频**",
+      "state": "yes",
+      "verified_for": "1.1 Flash",
+      "note": "对应本节示例完整型号 gemini-omni-1.1-flash，文本提示生成视频。",
       "src": "omni-doc",
       "via": "native",
-      "recheck": "1.1 Flash"
+      "quote": "Generate a video from a text prompt. The model generates a video with audio based on your text description.",
+      "by": "agent",
+      "as_of": "2026-10-10",
+      "reviewed_by": "Codex · 用户授权自动审阅",
+      "reviewed_at": "2026-10-10T02:25:04.130Z"
     },
     {
       "m": "gemini-omni",
       "c": "i2v",
-      "state": "unknown",
-      "verified_for": "Flash",
-      "note": "2026-10-10 已升级 1.1 Flash，新版能力待重核。原 Flash 记录：官方：可随文本提示给一张参考图，模型自行决定如何使用",
+      "state": "yes",
+      "verified_for": "1.1 Flash",
+      "note": "图生视频章节示例明确使用 gemini-omni-1.1-flash，输入 image 和 text。",
       "src": "omni-doc",
       "via": "native",
-      "recheck": "1.1 Flash"
+      "quote": "You can provide a reference image with your text prompt. Depending on your prompt, the model will decide how to use the image.",
+      "by": "agent",
+      "as_of": "2026-10-10",
+      "reviewed_by": "Codex · 用户授权自动审阅",
+      "reviewed_at": "2026-10-10T02:25:04.133Z"
     },
     {
       "m": "gemini-omni",
@@ -8685,22 +8693,30 @@
     {
       "m": "gemini-omni",
       "c": "charref",
-      "state": "unknown",
-      "verified_for": "Flash",
-      "note": "2026-10-10 已升级 1.1 Flash，新版能力待重核。原 Flash 记录：官方「Subject reference」：可给指定主体的参考图",
+      "state": "yes",
+      "verified_for": "1.1 Flash",
+      "note": "Subject reference 正文及示例明确对应 1.1 Flash；不是从 element replacement 导航推断。",
       "src": "omni-doc",
       "via": "native",
-      "recheck": "1.1 Flash"
+      "quote": "You can generate a video incorporating specific subjects provided as reference images.",
+      "by": "agent",
+      "as_of": "2026-10-10",
+      "reviewed_by": "Codex · 用户授权自动审阅",
+      "reviewed_at": "2026-10-10T02:25:04.134Z"
     },
     {
       "m": "gemini-omni",
       "c": "multiref",
-      "state": "unknown",
-      "verified_for": "Flash",
-      "note": "2026-10-10 已升级 1.1 Flash，新版能力待重核。原 Flash 记录：官方示例一次给 2 张参考图（猫与毛线球）；总览页称其支持文本/图片/音频/视频多输入同时推理",
+      "state": "yes",
+      "verified_for": "1.1 Flash",
+      "note": "当前 1.1 Flash 示例同时输入猫与毛线球两张参考图；不外推更多参考图数量上限。",
       "src": "omni-doc",
       "via": "native",
-      "recheck": "1.1 Flash"
+      "quote": "the following code shows how to provide 2 images of a cat and yarn to generate a video of the cat playing with the yarn.",
+      "by": "agent",
+      "as_of": "2026-10-10",
+      "reviewed_by": "Codex · 用户授权自动审阅",
+      "reviewed_at": "2026-10-10T02:25:04.134Z"
     },
     {
       "m": "gemini-omni",
@@ -8723,12 +8739,16 @@
     {
       "m": "gemini-omni",
       "c": "audio",
-      "state": "unknown",
-      "verified_for": "Flash",
-      "note": "2026-10-10 已升级 1.1 Flash，新版能力待重核。原 Flash 记录：文生视频即带音频输出",
+      "state": "yes",
+      "verified_for": "1.1 Flash",
+      "note": "当前 1.1 Flash 文生视频示例原生输出带音频视频。",
       "src": "omni-doc",
       "via": "native",
-      "recheck": "1.1 Flash"
+      "quote": "The model generates a video with audio based on your text description.",
+      "by": "agent",
+      "as_of": "2026-10-10",
+      "reviewed_by": "Codex · 用户授权自动审阅",
+      "reviewed_at": "2026-10-10T02:25:04.131Z"
     },
     {
       "m": "gemini-omni",
@@ -12016,8 +12036,15 @@
     {
       "m": "qwen-omni",
       "c": "s-style",
-      "state": "unknown",
-      "verified_for": "3.5-omni-plus"
+      "state": "yes",
+      "verified_for": "3.5-omni-plus",
+      "src": "bailian-omni",
+      "quote": "Audio control: Supports adjusting volume, speaking rate, and emotion through instructions",
+      "note": "已核 Qwen3.5-Omni 音频输出章节；同节示例明确使用 qwen3.5-omni-plus。支持指令调节音量、语速、情绪。",
+      "by": "agent",
+      "as_of": "2026-10-10",
+      "reviewed_by": "Codex · 用户授权自动审阅",
+      "reviewed_at": "2026-10-10T02:25:04.127Z"
     },
     {
       "m": "qwen-omni",
@@ -12811,13 +12838,15 @@
     {
       "m": "gemini-omni",
       "c": "v2v",
-      "state": "unknown",
-      "verified_for": "Flash",
-      "as_of": "2026-08-13",
-      "note": "2026-10-10 已升级 1.1 Flash，新版能力待重核。原 Flash 记录：官方把它和「视频生成」并列写成两件事 —— 说明改视频是独立的一路，不是生成的副产品。",
-      "src": "gemini-changelog",
-      "quote": "官方变更日志：「Released gemini-omni-flash-preview, a high-performance multimodal model designed for high-speed video generation and **conversational video editing**.」",
-      "recheck": "1.1 Flash"
+      "state": "yes",
+      "verified_for": "1.1 Flash",
+      "as_of": "2026-10-10",
+      "note": "当前 1.1 Flash 的编辑示例包含 previous_interaction_id 和上传已有视频两路输入，支持自然语言修改视频。",
+      "src": "omni-doc",
+      "quote": "Describe what you want to change, and the model applies the edit while preserving the parts of the video you want to keep.",
+      "by": "agent",
+      "reviewed_by": "Codex · 用户授权自动审阅",
+      "reviewed_at": "2026-10-10T02:25:04.132Z"
     },
     {
       "m": "wan",
@@ -13168,13 +13197,16 @@
     {
       "m": "meshy",
       "c": "d-i23d",
-      "state": "unknown",
-      "verified_for": "7",
-      "src": "meshy-docs-api",
-      "note": "⚠️ 2026-10-10 已更新到 7.1，此格尚未核到新版的直接证据，显示未知；原核验版本 7。旧记录：API 端点表列「Image to 3D」",
+      "state": "yes",
+      "verified_for": "7.1",
+      "src": "meshy-changelog",
+      "note": "变更日志明确列出 meshy-7.1 的图生 3D，替换旧版 Meshy 7 证据。",
       "via": "native",
       "as_of": "2026-10-10",
-      "recheck": "7.1"
+      "quote": "Added meshy-7.1 as an ai_model value for Image to 3D, Multi-Image to 3D and Text to 3D",
+      "by": "agent",
+      "reviewed_by": "Codex · 用户授权自动审阅",
+      "reviewed_at": "2026-10-10T02:25:04.130Z"
     },
     {
       "m": "meshy",
@@ -14689,11 +14721,15 @@
     {
       "m": "hallo2",
       "c": "p-text",
-      "state": "unknown",
+      "state": "yes",
       "verified_for": "Hallo-Live",
-      "note": "**查过、没有**：全文检索 text prompt —— 零命中。命令行参数只有 `--source_image` 与 `--driving_audio`。⚠️ 研究仓库不是功能清单，按站上口径不升级成 ❌",
-      "as_of": "2026-08-14",
-      "src": "hf-hallo2"
+      "note": "Hallo-Live 模型卡直接声明文本驱动，联合生成语音和头像视频。",
+      "as_of": "2026-10-10",
+      "src": "hf-hallo-live",
+      "quote": "real-time text-driven joint audio-video avatar generation framework",
+      "by": "agent",
+      "reviewed_by": "Codex · 用户授权自动审阅",
+      "reviewed_at": "2026-10-10T02:25:04.128Z"
     },
     {
       "m": "hallo2",
@@ -14745,11 +14781,15 @@
     {
       "m": "hallo2",
       "c": "p-live",
-      "state": "unknown",
+      "state": "yes",
       "verified_for": "Hallo-Live",
-      "note": "**查过、这份 README 里没有**：2026-08-14 全文检索「实时驱动」相关的英文与中文说法，零命中。⚠️ 研究仓库不是功能清单，所以不升级成 ❌ —— 但「查过没找到」和「还没查」是两回事，这一格现在是前者。",
-      "as_of": "2026-08-14",
-      "src": "hf-hallo2"
+      "note": "官方声明流式同步生成；20.38 FPS、0.94 秒延迟是在两张 H200 上的结果，不外推为消费级设备性能。",
+      "as_of": "2026-10-10",
+      "src": "hf-hallo-live",
+      "quote": "Hallo-Live reaches 20.38 FPS with 0.94 s latency on two NVIDIA H200 GPUs",
+      "by": "agent",
+      "reviewed_by": "Codex · 用户授权自动审阅",
+      "reviewed_at": "2026-10-10T02:25:04.128Z"
     },
     {
       "m": "hallo2",
@@ -16602,10 +16642,15 @@
     {
       "m": "qwen3-asr",
       "c": "s-a-lang",
-      "state": "unknown",
+      "state": "yes",
       "verified_for": "1.7B",
-      "as_of": "2026-08-15",
-      "note": "⚠️ **整行未核**：立项当天只核到仓库存在与下载量（1.7B 419 万 / 0.6B 416 万，均建于 2026-01-28），**模型卡正文还没逐条读**。这是「还没读」，不是「读完没找到」。"
+      "as_of": "2026-10-10",
+      "note": "明确包含当前 1.7B；30 种语言与 22 种中文方言，不写成 52 种独立语言。",
+      "src": "hf-qwen3-asr",
+      "quote": "Qwen3-ASR-1.7B and Qwen3-ASR-0.6B support language identification and speech recognition for 30 languages and 22 Chinese dialects",
+      "by": "agent",
+      "reviewed_by": "Codex · 用户授权自动审阅",
+      "reviewed_at": "2026-10-10T02:25:04.129Z"
     },
     {
       "m": "qwen3-asr",
@@ -16626,10 +16671,15 @@
     {
       "m": "qwen3-asr",
       "c": "s-a-realtime",
-      "state": "unknown",
+      "state": "yes",
       "verified_for": "1.7B",
-      "as_of": "2026-08-15",
-      "note": "⚠️ **整行未核**：立项当天只核到仓库存在与下载量（1.7B 419 万 / 0.6B 416 万，均建于 2026-01-28），**模型卡正文还没逐条读**。这是「还没读」，不是「读完没找到」。"
+      "as_of": "2026-10-10",
+      "note": "They both 指同段的 1.7B 与 0.6B，模型表亦列 Offline / Streaming；不把强制对齐器的时间戳能力并入本模型。",
+      "src": "hf-qwen3-asr",
+      "quote": "They both achieve streaming / offline unified inference with single model and support transcribe long audio.",
+      "by": "agent",
+      "reviewed_by": "Codex · 用户授权自动审阅",
+      "reviewed_at": "2026-10-10T02:25:04.129Z"
     },
     {
       "m": "qwen3-asr",
