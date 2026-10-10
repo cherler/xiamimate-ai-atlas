@@ -9,11 +9,64 @@ import { matchModel, assess, factKey, matchesVersion, groupQueue } from './revie
 import { acknowledged } from './version-review-policy.mjs';
 import { closureContext, closureActive } from './review-closure.mjs';
 import { reviewReport } from './review-report.mjs';
+import { quoteMatches, quoteFingerprint } from './requote-policy.mjs';
+import { reviewedCandidate } from './candidate-policy.mjs';
+import { liveAlerts } from './lib/alert-window.mjs';
 const a = JSON.parse(readFileSync(new URL('../data/atlas.json', import.meta.url)));
 const m = { id: 'veo', family: 'Veo', org: 'google', version: '3.1' };
 const f = { source: 'official', model_hint: 'Veo 3.1', kind: 'capability', capability: 'v2v', confidence: 'explicit', claim: 'Veo 3.1 edits video', quote: 'Veo 3.1 supports video editing.' };
 const source = { id: 'official', tier: 'S' };
 const cell = { m: 'veo', c: 'v2v', state: 'unknown' };
+
+test('requote handles presentation markup without equating changed factual text', () => {
+  assert.ok(quoteMatches('Model X supports image editing.', '**Model X** supports [image editing](https://example.com/edit).'));
+  assert.ok(!quoteMatches('Model X supports image editing.', 'Model X does not support image editing.'));
+  assert.notEqual(quoteFingerprint(cell,{text:'Evidence'}),quoteFingerprint({...cell,state:'yes'},{text:'Evidence'}));
+  assert.notEqual(quoteFingerprint(cell,{text:'Evidence'}),quoteFingerprint(cell,{text:'Changed evidence'}));
+});
+
+test('scoped candidate decisions allow a new repository by a previously reviewed author', () => {
+  const reviewed=new Set(['Author/Model-GGUF']);
+  assert.ok(reviewedCandidate(['Author/Model-GGUF'],reviewed));
+  assert.ok(!reviewedCandidate(['Author/Model-GGUF','Author/New-Foundation'],reviewed));
+  assert.ok(!reviewedCandidate([],reviewed));
+});
+
+test('flash generation removes expired and retired items and never publishes a future event', () => {
+  const events=[
+    {id:'old',date:'2026-09-23',kind:'version'},
+    {id:'retired',date:'2026-10-10',kind:'version',alert_retired_at:'2026-10-10'},
+    {id:'retired-manual',date:'2026-10-10',alert:{headline:'retired'},alert_retired_at:'2026-10-10'},
+    {id:'future',date:'2026-10-11',alert:{headline:'future'}},
+    {id:'today',date:'2026-10-10',alert:{headline:'today',until:'2026-10-17'}}
+  ];
+  assert.deepEqual(liveAlerts(events,'2026-10-10').items.map(x=>x.id),['today']);
+  assert.equal(liveAlerts(events.slice(-1),'2026-10-18').items.length,0);
+});
+
+test('requote closures reopen immediately when the source or reviewed entity changes', async () => {
+  const root=mkdtempSync(join(tmpdir(),'atlas-requote-'));
+  const previous=process.env.ATLAS_REVIEW_ROOT;
+  const write=(name,value)=>writeFileSync(join(root,name),JSON.stringify(value));
+  try {
+    mkdirSync(join(root,'data/snapshots'),{recursive:true});
+    const atlas={models:[m],support:[cell]}, snap={text:'Original evidence'}, at='veo × v2v';
+    write('data/atlas.json',atlas);write('data/snapshots/official.json',snap);
+    write('data/requote-report.json',{rows:[{src:'official',at,kind:'复核已处置'}]});
+    write('data/requote-decisions.json',{rows:[{id:'official|'+at,src:'official',at_label:at,action:'downgraded',fingerprint:quoteFingerprint(cell,snap)}]});
+    process.env.ATLAS_REVIEW_ROOT=root;
+    const r=await import(`./review.mjs?requote=${root}`);
+    assert.equal(r.requoteQueue().length,0);
+    write('data/snapshots/official.json',{text:'New evidence'});
+    assert.equal(r.requoteQueue().length,1);
+    write('data/snapshots/official.json',snap);
+    write('data/atlas.json',{...atlas,support:[{...cell,state:'yes'}]});
+    assert.equal(r.requoteQueue().length,1);
+  } finally {
+    if(previous===undefined)delete process.env.ATLAS_REVIEW_ROOT;else process.env.ATLAS_REVIEW_ROOT=previous;
+    rmSync(root,{recursive:true,force:true});
+  }
+});
 
 test('automatic closure reopens changed evidence, versions and new identities', () => {
   const atlas = { models: [m], support: [cell], capabilities: [{id:'v2v'}] };

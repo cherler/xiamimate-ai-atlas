@@ -74,6 +74,7 @@ const idOf = (f, day) =>
 export { matchModel } from "./review-policy.mjs";
 import { matchModel, assess, factKey, groupQueue } from "./review-policy.mjs";
 import { closureContext, closureActive } from "./review-closure.mjs";
+import {quoteEntity,quoteFingerprint} from './requote-policy.mjs';
 export { groupQueue };
 
 export function queue() {
@@ -418,7 +419,16 @@ export const rqId = (src, at) => `${src}|${at}`;
  * 「无快照」那一摞不进来 —— 那是源没登记，跑一次 watch 就没了，**不该占人的注意力**。
  */
 export function requoteQueue() {
-  const decided = new Set((readJSON(RQ_DECISIONS, { rows: [] }).rows ?? []).map((r) => r.id));
+  const decisions = readJSON(RQ_DECISIONS, { rows: [] }).rows ?? [];
+  const decided = new Set(decisions.filter(r=>!r.fingerprint).map(r=>r.id));
+  const atlas = readJSON('data/atlas.json',{});
+  for(const r of decisions.filter(r=>r.fingerprint)) {
+    if(r.fingerprint===quoteFingerprint(quoteEntity(atlas,r.at_label),readJSON(`data/snapshots/${r.src}.json`,{})))decided.add(r.id);
+  }
+  if(existsSync(P('data/requote-report.json'))) {
+    const kinds = new Set(['本页没有·别处有','找不到','快照无正文']);
+    return readJSON('data/requote-report.json',{rows:[]}).rows.filter(r=>(kinds.has(r.kind)||r.kind==='复核已处置')&&!decided.has(rqId(r.src,r.at))).map(r=>({...r,kind:r.kind==='复核已处置'?'复核上下文已变化':r.kind,id:rqId(r.src,r.at),elsewhere:r.elsewhere??[]}));
+  }
   const md = existsSync(P("data/requote-report.md")) ? readFileSync(P("data/requote-report.md"), "utf8") : "";
   const KINDS = ["本页没有·别处有", "找不到", "快照无正文"];
   const out = [];

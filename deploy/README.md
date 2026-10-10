@@ -28,7 +28,7 @@ sudo git fetch --all && sudo git reset --hard origin/main
 sudo PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD=1 npm ci --no-audit --no-fund
 sudo tar -xzf /tmp/atlas-og.tar.gz -C public      # 先放分享图，再构建
 sudo node scripts/validate.mjs                    # 硬闸：数据坏了就不该有产物
-sudo npx next build
+sudo npm run build:static
 ```
 
 ⚠️ **`npm ci` + `next build` 加起来可能超过十分钟，别让它挂在一条会断的 ssh 上。**
@@ -67,7 +67,7 @@ ssh <server> 'find /srv/xiamimate/atlas/current -name "._*" -delete
 ssh <server> 'cd /srv/xiamimate/xiamimate-ai-atlas && nohup bash -c "
   PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD=1 npm ci --silent > /tmp/atlas-build.log 2>&1
   node scripts/validate.mjs >> /tmp/atlas-build.log 2>&1
-  npx next build          >> /tmp/atlas-build.log 2>&1
+  npm run build:static    >> /tmp/atlas-build.log 2>&1
   echo DONE_\$? >> /tmp/atlas-build.log
 " > /dev/null 2>&1 &'
 # 然后轮询 /tmp/atlas-build.log 里的 DONE_0
@@ -251,3 +251,5 @@ stale_months / verified_at）。`scope`、`good`、`bad`、`tags`、`license_cla
 
 每天 09:23 的 `tick.sh` 会跑 `--dry` 版**只报警不写**，
 报警落在 `data/watch-report.md` —— 机器不碰 `atlas.json` 是这条管线的第一条纪律。
+
+2026-10-10：线上构建统一使用 `npm run build:static`，会先重算快讯与 RSS。直接调用 `next build` 会跳过快讯更新，把服务器残留的旧横幅再次打包上线。

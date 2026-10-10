@@ -2,5 +2,45 @@
  "at": "2026-10-10",
  "label": "快讯",
  "more": 0,
- "items": []
+ "items": [
+  {
+   "id": "omni-evidence-2026-10-10",
+   "date": "2026-10-10",
+   "until": "2026-10-17",
+   "headline": "今日补核：Gemini Omni 1.1 的六项生成与编辑能力",
+   "why": "这是本站今天补齐的证据，不是今天发布新模型；每格都已绑定 1.1 Flash，旧版能力没有直接继承。",
+   "domain": "video",
+   "src": {
+    "name": "Google · Gemini Omni Flash 官方文档",
+    "url": "https://ai.google.dev/gemini-api/docs/omni",
+    "tier": "official"
+   }
+  },
+  {
+   "id": "qwen-asr-evidence-2026-10-10",
+   "date": "2026-10-10",
+   "until": "2026-10-17",
+   "headline": "Qwen3-ASR 1.7B：多语种与流式识别已补齐",
+   "why": "选型时能确认语种与流式支持；没有把独立强制对齐器的时间戳能力算进 ASR 本体。",
+   "domain": "sound",
+   "src": {
+    "name": "阿里官方 · Qwen3-ASR 模型卡",
+    "url": "https://huggingface.co/Qwen/Qwen3-ASR-1.7B",
+    "tier": "official"
+   }
+  },
+  {
+   "id": "hallo-live-evidence-2026-10-10",
+   "date": "2026-10-10",
+   "until": "2026-10-17",
+   "headline": "Hallo-Live：文本驱动与实时生成已补齐",
+   "why": "可据此确认输入与输出方式；性能数字保留硬件条件，不外推到普通显卡。",
+   "domain": "avatar",
+   "src": {
+    "name": "HF · 复旦 Hallo-Live",
+    "url": "https://huggingface.co/fudan-generative-ai/Hallo-Live",
+    "tier": "official"
+   }
+  }
+ ]
 }

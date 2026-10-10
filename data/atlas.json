@@ -3304,7 +3304,7 @@
       "org": "bytedance",
       "team": "Seed",
       "version": "2.5",
-      "version_as_of": "2026-07-31",
+      "version_as_of": "2026-10-10",
       "status": "active",
       "tier": "core",
       "domain": "video",
@@ -3316,8 +3316,8 @@
       "arch_quote": null,
       "arch_note": null,
       "arch_basis": "common",
-      "version_src": "seed-blog",
-      "version_quote": "谱系最新一代「2.5」（2026-08-05）：One-take Creation, Flexible Referencing: Introducing Seedance 2.5"
+      "version_src": "seed-25",
+      "version_quote": "One-take Creation, Flexible Referencing: Introducing Seedance 2.5"
     },
     {
       "id": "hailuo",
@@ -3844,8 +3844,8 @@
       "weights": "closed",
       "team": "Seed",
       "status_note": "官方页当前指向 Seedream 5.0 Pro（seed.bytedance.com/en/seedream5_0_pro）。⚠️ **官方页没写发布日期**，所以 version_as_of 记的是我们的核验日",
-      "version_src": "seed-blog",
-      "version_quote": "谱系最新一代「Seedream 5.0 Pro」（2026-07-08）：Seedream 5.0 Pro is a multimodal image generation model that features advanced reasoning, efficient content cr",
+      "version_src": "seedream-page",
+      "version_quote": "Seedream 5.0 Pro — A multimodal image generation model that features advanced reasoning and efficient content creation.",
       "reach_cn": "ok",
       "reach_note": "www.volcengine.com 直连 200（本机实测 08-11）"
     },
@@ -3949,9 +3949,9 @@
       "tier": "core",
       "domain": "image",
       "weights": "closed",
-      "version_src": "recraft-blog",
-      "status_note": "官方文档原文：「V4.1 is the latest generation」。⚠️ 官方文档未标发布日期，version_as_of 记的是核验日",
-      "version_quote": "谱系最新一代「Recraft V4.1」（2026-05-14）：Give V4.1 just a few words, and it'll give you something worth keeping.",
+      "version_src": "recraft-docs",
+      "status_note": "2026-10-10 官方 API 表仍列 V4.1；V4.1 Flash 和 V4 Styles 是不同分支。",
+      "version_quote": "V4.1 The default. Photorealism, illustration, and strong short prompts.",
       "reach_cn": "ok",
       "reach_note": "www.recraft.ai 直连 200（本机实测 08-11）"
     },
@@ -4125,10 +4125,10 @@
       "weights": "closed",
       "team": "Anthropic",
       "version_src": "anthropic-models",
-      "version_quote": "模型总览页原文：「Use Claude Fable 5.1 for demanding reasoning and long-horizon agentic work, or when your evals on Claude Opus 5 at higher effort still fall short」；对照表列 API ID `claude-fable-5-1`，$10 / $50 每百万 token，1M 上下文，128K 最大输出，可靠知识截止 Jun 2026",
+      "version_quote": "Use Claude Fable 5.1 for demanding reasoning and long-horizon agentic work",
       "reach_cn": "blocked",
       "reach_note": "platform.claude.com 直连不通（连接失败）（本机实测 08-11）",
-      "note": "口径是**顶配（frontier）那一档，不是「默认款」**：总览页让多数负载从 Opus 5（$5/$25）起步，Fable 5.1（$10/$50）留给更难的推理与长程 Agent 任务。⚠️ 上一支 `claude-fable-5` 仍是 Active —— 弃用表给 `claude-fable-5-1` 的退役日是「不早于 2027-09-01」，给 `claude-fable-5` 的是「不早于 2027-06-09」。要改成追「默认款」口径可议，但那会把这一格换成 Opus 5。"
+      "note": "本站追踪最高能力档 Fable 5.1；官方总览目前建议多数工作从 Opus 5.5 起步。不要用默认款替换最高能力档。"
     },
     {
       "id": "gpt",
@@ -4145,7 +4145,7 @@
       "team": "OpenAI",
       "status_note": "版本号以 developers.openai.com 的模型清单为准 —— openai.com 主站 403，抓不到。发布日 2026-09-03 取自官方 API changelog（「Released GPT-6 Astra」），**这里的 version_as_of 是核验日不是发布日**；2026-10-10 复核：GPT-6 Astra 仍是最高能力档；GPT-6.1 Sol 是不同分支，不能按版本数字替换。",
       "version_src": "openai-models",
-      "version_quote": "官方模型清单把它放在第一位：不确定从哪起步就用 GPT-6 Astra，「our flagship model for complex reasoning and coding」。旗舰卡片原文「Our most capable model, built for the hardest end-to-end work」，Model ID gpt-6-astra，输入 $10 / 输出 $50 每百万 token，最大输出 128K，上下文 1.05M，知识截止 Apr 30, 2026。GPT-5.6 Sol / Terra / Luna 退为次席（Terra 平衡档、Luna 便宜档）",
+      "version_quote": "Our most capable model for the most demanding work.",
       "reach_cn": "blocked",
       "reach_note": "developers.openai.com 返回 403（换真 UA 仍 403，是拒绝不是不通）（本机实测 08-11）"
     },
@@ -4621,8 +4621,8 @@
       "domain": "video",
       "status": "active",
       "version_src": "bfl-flux3",
-      "version_quote": "官方文档 flux_3 一节：「**FLUX 3 is one multimodal model. Video with synchronized audio, one request shape keyed by mode.**」；同页「One model trained across image, video, and audio.」",
-      "note": "**Black Forest Labs 从图像跨进了视频。** 三种模式：`t2v`（纯提示词）、`i2v`（1–10 张图，可用 `[seconds, image]` 把关键帧钉到时间轴上，两张就是首尾帧）、Video Continuation（给一段 clip 接着往下生成）。官方规格：5–20 秒、24fps、`hd` 或 `fhd`；音频默认开，自述「multilingual speech with lipsync, effects, and ambience」。\n\n⚠️ **官方标着 preview**，并写明「**Video editing** and **Omni Reference with images and videos** will be available soon」——视频编辑还没有。\n\n**放在 Extended 而不是 Core，是负责人 2026-08-13 的决定**：clip 轨 9/10，按规则四进 Core 就要先踢一个出去，而「为了收新的去踢老的」不划算。⚠️ Extended 的含义是「库里有、不进主要视觉」——**它没有逐格核过的能力矩阵**，上面那些能力描述来自官方文档，不是我们逐格核验的结论。",
+      "version_quote": "One model trained across image, video, and audio.",
+      "note": "FLUX 3 是预览模型，支持图像、视频和音频。当前视频概览支持最多 20 秒、24 fps、最高 4K；文本、关键帧、续写由 mode 选择。视频编辑另走 FLUX Tools 的 FLUX Video Edit [fast] 端点，不合并进本型号；图像和视频 Omni Reference 仍注明将来开放。",
       "arch": null,
       "reach_cn": "ok"
     },
@@ -4828,7 +4828,7 @@
       "weights": "closed",
       "zh_none": true,
       "version_src": "pixverse-v6",
-      "version_quote": "官方 V6 文档的 Feature Comparison 表；平台首页横幅「**PixVerse V6 is officially LIVE!** Pro Lens Power, Endless Creation」",
+      "version_quote": "Feature Comparison",
       "lineage_note": "⚠️ 谱系还没采：官网只讲当前三条线（V6 / C1 / R1），历史版本（v3.5、v4、v5.5…）散在文档与更新记录里，下一轮补",
       "reach_cn": "unknown",
       "reach_note": "还没测",
@@ -5360,7 +5360,7 @@
       "weights": "open",
       "zh": "混元世界",
       "version_src": "hunyuanworld-gh",
-      "version_quote": "官方仓库更新日志：「April 16, 2026: We release **HY-World-2.0**, state-of-the-art 3D world model」；上一代「December 18, 2025: HunyuanWorld-1.5 (**WorldPlay**), enabling **real-time world creation and play**」",
+      "version_quote": "HY-World-2.0",
       "note": "⚠️ **同族的 `WorldMirror` 不在这一卷**：它自述是「a versatile feed-forward model for comprehensive **3D geometric prediction**」，出点云、深度、3D 高斯 —— **那是 3D 卷**。同一条产品线里有的支属于这一卷、有的属于别卷，这是规则十六边界二的第一个真实案例。"
     },
     {
@@ -5553,7 +5553,7 @@
       "weights": "open",
       "zh_none": true,
       "version_src": "sci-wn-gh",
-      "version_quote": "官方仓库：「This repo contains the code for **WeatherNext 2 (WN2)**, the global, medium-range atmospheric and cyclone forecasting model developed by Google DeepMind and Google Research. It also contains code for prior generation models **GraphCast** … and **WeatherNext Gen** … Published as **GenCast**」",
+      "version_quote": "This repo contains the code for WeatherNext 2 (WN2), the global, medium-range atmospheric and cyclone forecasting model developed by Google DeepMind and Google Research.",
       "note": "⚠️ **三代在同一个仓库里** —— GraphCast、WeatherNext Gen（GenCast）、WeatherNext 2。这是这一卷里谱系最清楚的一支：不用猜，官方自己按代际排好了。"
     },
     {
@@ -7800,6 +7800,131 @@
       "name": "Grok 4.7 专属模型页",
       "url": "https://docs.x.ai/developers/models/grok-4.7",
       "tier": "official"
+    },
+    "ideogram-v1-overview": {
+      "name": "Ideogram v1 API 概览（4.0 与 3.0）",
+      "url": "https://developer.ideogram.ai/v1/ideogram-api/api-overview",
+      "tier": "official"
+    },
+    "ideogram-v1-upscale": {
+      "name": "Ideogram v1 Upscale 端点",
+      "url": "https://developer.ideogram.ai/v1/api-reference/generate/post-upscale-image",
+      "tier": "official"
+    },
+    "rodin-gen25-api": {
+      "name": "Rodin Gen-2.5 API 参数",
+      "url": "https://docs.hyper3d.ai/en/api-specification/rodin-gen2-5",
+      "tier": "official"
+    },
+    "rodin-bang-api": {
+      "name": "Rodin Bang 部件分割端点",
+      "url": "https://docs.hyper3d.ai/en/api-specification/bang",
+      "tier": "official"
+    },
+    "card-deepseek-ai-deepseek-v3-2": {
+      "name": "deepseek-ai/DeepSeek-V3.2 官方模型卡",
+      "url": "https://huggingface.co/deepseek-ai/DeepSeek-V3.2/raw/main/README.md",
+      "tier": "official"
+    },
+    "card-zai-org-glm-4-5": {
+      "name": "zai-org/GLM-4.5 官方模型卡",
+      "url": "https://huggingface.co/zai-org/GLM-4.5/raw/main/README.md",
+      "tier": "official"
+    },
+    "card-zai-org-glm-4-6": {
+      "name": "zai-org/GLM-4.6 官方模型卡",
+      "url": "https://huggingface.co/zai-org/GLM-4.6/raw/main/README.md",
+      "tier": "official"
+    },
+    "card-zai-org-glm-5": {
+      "name": "zai-org/GLM-5 官方模型卡",
+      "url": "https://huggingface.co/zai-org/GLM-5/raw/main/README.md",
+      "tier": "official"
+    },
+    "card-zai-org-glm-5-1": {
+      "name": "zai-org/GLM-5.1 官方模型卡",
+      "url": "https://huggingface.co/zai-org/GLM-5.1/raw/main/README.md",
+      "tier": "official"
+    },
+    "card-zai-org-glm-5-2": {
+      "name": "zai-org/GLM-5.2 官方模型卡",
+      "url": "https://huggingface.co/zai-org/GLM-5.2/raw/main/README.md",
+      "tier": "official"
+    },
+    "card-moonshotai-kimi-k2-base": {
+      "name": "moonshotai/Kimi-K2-Base 官方模型卡",
+      "url": "https://huggingface.co/moonshotai/Kimi-K2-Base/raw/main/README.md",
+      "tier": "official"
+    },
+    "card-moonshotai-kimi-k2-thinking": {
+      "name": "moonshotai/Kimi-K2-Thinking 官方模型卡",
+      "url": "https://huggingface.co/moonshotai/Kimi-K2-Thinking/raw/main/README.md",
+      "tier": "official"
+    },
+    "card-moonshotai-kimi-k2-5": {
+      "name": "moonshotai/Kimi-K2.5 官方模型卡",
+      "url": "https://huggingface.co/moonshotai/Kimi-K2.5/raw/main/README.md",
+      "tier": "official"
+    },
+    "card-moonshotai-kimi-k2-6": {
+      "name": "moonshotai/Kimi-K2.6 官方模型卡",
+      "url": "https://huggingface.co/moonshotai/Kimi-K2.6/raw/main/README.md",
+      "tier": "official"
+    },
+    "card-moonshotai-kimi-k3": {
+      "name": "moonshotai/Kimi-K3 官方模型卡",
+      "url": "https://huggingface.co/moonshotai/Kimi-K3/raw/main/README.md",
+      "tier": "official"
+    },
+    "card-minimaxai-minimax-m2": {
+      "name": "MiniMaxAI/MiniMax-M2 官方模型卡",
+      "url": "https://huggingface.co/MiniMaxAI/MiniMax-M2/raw/main/README.md",
+      "tier": "official"
+    },
+    "card-minimaxai-minimax-m2-5": {
+      "name": "MiniMaxAI/MiniMax-M2.5 官方模型卡",
+      "url": "https://huggingface.co/MiniMaxAI/MiniMax-M2.5/raw/main/README.md",
+      "tier": "official"
+    },
+    "card-minimaxai-minimax-m3": {
+      "name": "MiniMaxAI/MiniMax-M3 官方模型卡",
+      "url": "https://huggingface.co/MiniMaxAI/MiniMax-M3/raw/main/README.md",
+      "tier": "official"
+    },
+    "card-mistralai-mistral-large-3-675b-instruct-2512": {
+      "name": "mistralai/Mistral-Large-3-675B-Instruct-2512 官方模型卡",
+      "url": "https://huggingface.co/mistralai/Mistral-Large-3-675B-Instruct-2512/raw/main/README.md",
+      "tier": "official"
+    },
+    "card-mistralai-mistral-small-4-119b-2603": {
+      "name": "mistralai/Mistral-Small-4-119B-2603 官方模型卡",
+      "url": "https://huggingface.co/mistralai/Mistral-Small-4-119B-2603/raw/main/README.md",
+      "tier": "official"
+    },
+    "card-mistralai-mistral-medium-3-5-128b": {
+      "name": "mistralai/Mistral-Medium-3.5-128B 官方模型卡",
+      "url": "https://huggingface.co/mistralai/Mistral-Medium-3.5-128B/raw/main/README.md",
+      "tier": "official"
+    },
+    "card-qwen-qwen3-5-27b": {
+      "name": "Qwen/Qwen3.5-27B 官方模型卡",
+      "url": "https://huggingface.co/Qwen/Qwen3.5-27B/raw/main/README.md",
+      "tier": "official"
+    },
+    "card-qwen-qwen3-6-27b": {
+      "name": "Qwen/Qwen3.6-27B 官方模型卡",
+      "url": "https://huggingface.co/Qwen/Qwen3.6-27B/raw/main/README.md",
+      "tier": "official"
+    },
+    "card-tencent-hunyuan3d-part": {
+      "name": "tencent/Hunyuan3D-Part 官方模型卡",
+      "url": "https://huggingface.co/tencent/Hunyuan3D-Part/raw/main/README.md",
+      "tier": "official"
+    },
+    "card-zai-org-glm-4-7": {
+      "name": "GLM-4.7 官方模型卡",
+      "url": "https://huggingface.co/zai-org/GLM-4.7/raw/main/README.md",
+      "tier": "official"
     }
   },
   "support": [
@@ -8380,8 +8505,9 @@
       "c": "openweights",
       "state": "yes",
       "verified_for": "H3",
-      "src": "mm-hf-api",
-      "note": "HF API 元数据：license = other，license_name = **minimax-h3-community-license-agreement** —— 自定义社区许可，不是标准开源协议。仓库含 280 个文件、有 safetensors，权重是真放出来了。官方博客发布当天写的还是「plan to open up the model weights in the coming days」"
+      "src": "h3-card",
+      "note": "当前 H3 官方卡列出模型文件与推理下载示例，采用 MiniMax H3 自定义社区许可；权重公开不等于标准开源协议。",
+      "quote": "License: minimax-h3-community-license-agreement"
     },
     {
       "m": "vidu-q",
@@ -8642,7 +8768,8 @@
       "state": "yes",
       "verified_for": "Lucy 2.5",
       "note": "官网首屏「infinite video, evolving continuously with the world」",
-      "src": "decart-site"
+      "src": "decart-site",
+      "quote": "Real-time, infinite video"
     },
     {
       "m": "lucy",
@@ -9257,10 +9384,10 @@
       "c": "i-edit",
       "state": "yes",
       "verified_for": "4.0",
-      "src": "ideogram-overview",
+      "src": "ideogram-v1-overview",
       "note": "⚠️ **这个端点路径不带版本号**，官方没说它跑的是哪一代模型 —— 它对任意图片可用，4.0 的产出也能喂进去，但不能算作「4.0 独有」。能力本身是确实的：概览里 Edit 一节写「Take a starting image and modify a part of an image while keeping the rest intact.」，还额外说明可以拿它做换脸（Face Swapping）。 🔧 **2026-08-16 改了署名的源**：原署 `ideogram-edit`，实际这句话在 `ideogram-overview` 里。",
       "as_of": "2026-08-12",
-      "quote": "POST /v1/edit —— 「Edit one or more images using a text prompt.」；API 概览把 4.0 描述为「Prompt fidelity, crystal-clear type, reliable editing, and production-ready image workflows」"
+      "quote": "Prompt fidelity, crystal-clear type, reliable editing, and production-ready image workflows across the app, API, MCP, and open weights."
     },
     {
       "m": "ideogram",
@@ -9318,8 +9445,8 @@
       "note": "**风格参考整套都在 3.0 那一支**：`style_reference_images`、`style_codes`（8 位十六进制风格码）、`style_preset`、`color_palette` —— v4 的 generate 端点一个都没有。概览那句「Using any of the API **V3** endpoints」是官方自己把这组能力钉在 v3 上。 🔧 **2026-08-16 改了署名的源**：原署 `ideogram-v3-generate`，实际这句话在 `ideogram-overview` 里。人审备注：通用",
       "as_of": "2026-08-12",
       "sibling": "3.0",
-      "src": "ideogram-overview",
-      "quote": "generate-v3 的 `style_reference_images`：「A set of images to use as style references (maximum total size 10MB across all style references).」；API 概览的 Style Presets 一节写「Using any of the API V3 endpoints, you can use a style_preset」"
+      "src": "ideogram-v1-overview",
+      "quote": "Using any of the API V3 endpoints, you can use a style_preset to generate an image."
     },
     {
       "m": "ideogram",
@@ -9339,8 +9466,8 @@
       "verified_for": "4.0",
       "note": "**原来这格是 ⬜，理由是「行业共识但厂商没写」。** 这次在官方文档里找到了厂商自己的原话（4.0 那条里的 `crystal-clear type`），所以改 ✅ —— 换的是证据，不是标准。",
       "as_of": "2026-08-12",
-      "src": "ideogram-overview",
-      "quote": "API 概览的 Ideogram 4.0 一条：「Prompt fidelity, crystal-clear type, reliable editing, and production-ready image workflows across the app, API, MCP, and open weights.」；Typography 一节：「Ideogram excels at integrating text into images for logos, branding, POD, or design layouts.」"
+      "src": "ideogram-v1-overview",
+      "quote": "Prompt fidelity, crystal-clear type, reliable editing, and production-ready image workflows across the app, API, MCP, and open weights."
     },
     {
       "m": "ideogram",
@@ -9349,8 +9476,8 @@
       "verified_for": "4.0",
       "note": "⚠️ **这个端点路径不带版本号**，官方没说它跑的是哪一代模型 —— 它对任意图片可用，4.0 的产出也能喂进去，但不能算作「4.0 独有」。",
       "as_of": "2026-08-12",
-      "src": "ideogram-upscale",
-      "quote": "POST https://api.ideogram.ai/upscale —— 「Upscale provided images synchronously with an optional prompt.」，请求体里有 `resemblance` 与 `detail` 两个调节量"
+      "src": "ideogram-v1-upscale",
+      "quote": "Upscale provided images synchronously with an optional prompt."
     },
     {
       "m": "ideogram",
@@ -9365,10 +9492,10 @@
       "c": "i-openweights",
       "state": "yes",
       "verified_for": "4.0",
-      "src": "ideogram-overview",
+      "src": "ideogram-v1-overview",
       "note": "**这一格原来是 ❌「闭源，官方未发布权重」—— 那是 3.0 时代的事实，4.0 变了。** 两条要跟着看清楚：① 许可叫 `ideogram-4-non-commercial`，**权重公开但不许商用**；② HF 上这两个仓库是 gated 的，要先接受许可才下得动（未登录取 README 返回「Access to model … is restricted」）。 🔧 **2026-08-16 改了署名的源**：原署 `ideogram-hf`，实际这句话在 `ideogram-overview` 里。人审备注：通用",
       "as_of": "2026-08-12",
-      "quote": "官方 HF 组织 ideogram-ai 下的 `ideogram-4-fp8`（createdAt 2026-05-30，↓31,707 ♥741）与 `ideogram-4-nf4`；模型卡 `license_name: ideogram-4-non-commercial`。API 概览也写明 4.0 覆盖「across the app, API, MCP, and open weights」"
+      "quote": "Prompt fidelity, crystal-clear type, reliable editing, and production-ready image workflows across the app, API, MCP, and open weights."
     },
     {
       "m": "recraft",
@@ -9376,7 +9503,8 @@
       "state": "yes",
       "verified_for": "V4.1",
       "src": "recraft-docs",
-      "note": "官方原文：「V4.1 is the latest generation」"
+      "note": "官方原文：「V4.1 is the latest generation」",
+      "quote": "The default. Photorealism, illustration, and strong short prompts."
     },
     {
       "m": "recraft",
@@ -9396,7 +9524,7 @@
       "note": "**「Recraft 能按指令改图」这句话是对的，但改图的不是 Recraft 的模型。** 官方自己把这一条列成「集成的外部模型」，逐个点名了五家。API 那边也没有按指令编辑的端点（imageToImage 是给一张图+提示词出相似图，靠 strength 调，不是「把红裙子改成蓝的」）。**这一格记在 Recraft V4.1 名下就是错的。**",
       "as_of": "2026-08-12",
       "src": "recraft-nl-edit",
-      "quote": "Recraft Studio 文档原文：「Recraft Studio supports targeted image editing using **integrated external models Google Nano Banana, OpenAI GPT-4o, Seedream, Flux Kontext, and Qwen-Image** that respond to natural language prompts and optional reference images.」"
+      "quote": "Recraft Studio supports targeted image editing using integrated external models"
     },
     {
       "m": "recraft",
@@ -9445,10 +9573,12 @@
     {
       "m": "recraft",
       "c": "i-styleref",
-      "state": "yes",
+      "state": "unknown",
       "verified_for": "V4.1",
       "src": "recraft-docs",
-      "note": "官方原文：「built for style consistency … artistic level control」"
+      "note": "2026-10-10 回查：当前官方文档把参考图风格控制列在 V4 Styles 分支，不能沿用到 V4.1。 原记录留在审阅档案。",
+      "quote": "",
+      "as_of": "2026-10-10"
     },
     {
       "m": "recraft",
@@ -9566,7 +9696,7 @@
       "note": "🔁 **这一格 08-12 记的是 ⬜，理由写了三条，三条都还成立 —— 但结论错了。** 当时说「官方的 Multi-Reference 讲的是元素与身份一致」，那是**同一页里另一节**的内容；真正给风格图的那一节叫 `Style & Material Transfer`，就在同一页往下。**上次读的是这一页的开头，不是这一页。** 和混元那格是同一种漏法的两个变种：一个搜参数名漏了展示区，一个读了页首漏了页中。⚠️ 与 Ideogram 不同的是，FLUX **没有 `style_reference_images` 这种参数** —— 风格图是当作普通参考图喂进去、靠提示词指认的，所以能力有、但没有独立开关。",
       "as_of": "2026-08-14",
       "src": "bfl-flux2-multiref",
-      "quote": "多图参考编辑指南的「**Style & Material Transfer**」一节：「Apply the visual style, texture, or material of **one image** onto the content of another.」示例 `Impasto style transfer` 喂两张输入图，第二张的标签就写着 **`Style`**；另一例的提示词是「Apply the colors, patterns, and surface tones of the animal in **Image 2** to the animal in **Image 1**. Keep the pose, lighting, and overall composition of Image 1 unchanged.」"
+      "quote": "Apply the visual style, texture, or material of one image onto the content of another."
     },
     {
       "m": "flux",
@@ -9586,7 +9716,7 @@
       "note": "官方点名的场景是信息图、UI 稿、营销物料 —— 都是**要成段文字和版面**的活。",
       "as_of": "2026-08-12",
       "src": "bfl-flux2-overview",
-      "quote": "官方把能力归成六个 Tab，其中一个就叫 **Typography & Text**：「Reliable text rendering for infographics, UI mockups, and marketing materials.」；另有一档变体自述「**Specialized for typography.** Best for text rendering and preserving small details.」"
+      "quote": "Reliable text rendering for infographics, UI mockups, and marketing materials."
     },
     {
       "m": "flux",
@@ -9873,17 +10003,21 @@
       "m": "hunyuan-image",
       "c": "i-i2i",
       "state": "yes",
-      "verified_for": "3.0",
+      "verified_for": "3.0-Instruct",
       "src": "hunyuan-image-card",
-      "note": "官方原文：「instruction reasoning and image-to-image generation including editing and multi-image fusion」"
+      "note": "官方原文：「instruction reasoning and image-to-image generation including editing and multi-image fusion」",
+      "quote": "Instruction reasoning and Image-to-image generation, including editing and multi-image fusion",
+      "sibling": "3.0-Instruct"
     },
     {
       "m": "hunyuan-image",
       "c": "i-edit",
       "state": "yes",
-      "verified_for": "3.0",
+      "verified_for": "3.0-Instruct",
       "src": "hunyuan-image-card",
-      "note": "官方原文：「image-to-image generation including editing」"
+      "note": "官方原文：「image-to-image generation including editing」",
+      "quote": "Instruction reasoning and Image-to-image generation, including editing and multi-image fusion",
+      "sibling": "3.0-Instruct"
     },
     {
       "m": "hunyuan-image",
@@ -11306,12 +11440,13 @@
     {
       "m": "llama",
       "c": "t-long",
-      "state": "yes",
+      "state": "unknown",
       "verified_for": "4",
       "src": "llama-card",
-      "note": "Scout「Maximum Context Length: **10M tokens**」；Maverick 为 1M",
+      "note": "2026-10-10 回查：当前来源已重定向成 Meta 产品/登录页，未核到 Llama 4 Scout 的 10M 上下文原文；本轮不再作为已证实能力展示。 原记录留在审阅档案。",
       "via": "native",
-      "as_of": "2026-08-12"
+      "as_of": "2026-10-10",
+      "quote": ""
     },
     {
       "m": "llama",
@@ -11718,7 +11853,8 @@
       "src": "minimax-api-overview",
       "note": "接口概览「同步语音合成」一节：「支持多种音频规格、格式，包括：mp3, pcm, flac, wav」，并可调比特率与采样率",
       "via": "native",
-      "as_of": "2026-08-12"
+      "as_of": "2026-08-12",
+      "quote": "输出格式含 mp3、pcm、flac、wav。"
     },
     {
       "m": "elevenlabs",
@@ -11919,13 +12055,15 @@
     {
       "m": "gemini-tts",
       "c": "s-format",
-      "state": "yes",
+      "state": "unknown",
       "verified_for": "3.1 Flash TTS Preview",
       "src": "gemini-tts",
-      "note": "默认输出 24kHz、16-bit、单声道 WAV 文件｜原文：「def wave_file ( filename , pcm , channels = 1 , rate = 24000 , sample_width = 2 ): ... wave_file ( 'out.wav' , ... )」",
+      "note": "2026-10-10 回查：当前正文示例已经换到 Gemini 3.8 TTS，无法据此重核 3.1 Preview；旧说明把客户端封装 WAV 的示例当成默认原生格式，撤回该结论。 原记录留在审阅档案。",
       "by": "human",
       "reviewed_by": "liuzhenhai（经 Claude 代办）",
-      "reviewed_at": "2026-09-23 05:05:51"
+      "reviewed_at": "2026-09-23 05:05:51",
+      "quote": "",
+      "as_of": "2026-10-10"
     },
     {
       "m": "openai-tts",
@@ -12181,12 +12319,13 @@
     {
       "m": "gpt-realtime",
       "c": "s-rt-transport",
-      "state": "yes",
+      "state": "unknown",
       "verified_for": "2.1",
       "src": "openai-realtime",
-      "note": "「Choose a connection method」列出 **WebRTC / WebSocket / SIP** 三种",
+      "note": "2026-10-10 回查：当前总览主要指向新一代语音接口；导航栏的 WebRTC/WebSockets/SIP 标签不足以核定 2.1 型号的完整接入组合。 原记录留在审阅档案。",
       "via": "native",
-      "as_of": "2026-08-12"
+      "as_of": "2026-10-10",
+      "quote": ""
     },
     {
       "m": "grok-voice",
@@ -12357,12 +12496,13 @@
     {
       "m": "cosyvoice",
       "c": "s-design",
-      "state": "yes",
+      "state": "unknown",
       "verified_for": "Fun-CosyVoice3-0.5B-2512",
       "src": "hf-lineage",
-      "note": "README 的 Key Features：「**Instruct Support**: Supports various instructions such as languages, dialects, emotions…」—— 用一句话指定音色与情绪，正是音色设计这一格问的事",
-      "as_of": "2026-08-14",
-      "via": "native"
+      "note": "2026-10-10 回查：Instruct 的语种、方言和情绪控制不等于从描述创建一个新音色；原先对音色设计的推断过度。 原记录留在审阅档案。",
+      "as_of": "2026-10-10",
+      "via": "native",
+      "quote": ""
     },
     {
       "m": "cosyvoice",
@@ -12407,12 +12547,13 @@
     {
       "m": "cosyvoice",
       "c": "s-long",
-      "state": "yes",
+      "state": "unknown",
       "verified_for": "Fun-CosyVoice3-0.5B-2512",
       "src": "hf-lineage",
-      "note": "README：「**Bi-Streaming**: Support both text-in streaming and audio-out streaming, and achieves latency as low as 150ms」—— 文本可以边进边合成，长文本不必一次性喂",
-      "as_of": "2026-08-14",
-      "via": "native"
+      "note": "2026-10-10 回查：双向流式和 150ms 延迟不等于长文本异步任务接口；缺少长文本上限或异步能力的直接证据。 原记录留在审阅档案。",
+      "as_of": "2026-10-10",
+      "via": "native",
+      "quote": ""
     },
     {
       "m": "cosyvoice",
@@ -12647,9 +12788,9 @@
       "state": "yes",
       "verified_for": "s2-pro",
       "as_of": "2026-08-12",
-      "note": "⚠️ **权重公开但不许商用**，而且两处许可写法还不一样：HF 模型卡是 CC-BY-NC-SA-4.0，GitHub 仓库是「Fish Audio 研究许可」（原文：Any Commercial use of the Materials requires a separate license from Fish Audio）。两个都指向同一件事 —— 商用要另谈。",
-      "src": "hf-fishspeech15",
-      "quote": "fishaudio/fish-speech-1.5：模型卡 `license: cc-by-nc-sa-4.0`，createdAt 2024-11-24，♥768"
+      "note": "s2-pro 采用 Fish Audio Research License，允许研究与非商业使用。这里核实权重已发布，不沿用 1.5 的 CC-BY-NC-SA 许可名。",
+      "src": "fish-s2pro-card",
+      "quote": "The release includes model weights, fine-tuning code, and an SGLang-based streaming inference engine."
     },
     {
       "m": "qwen-omni",
@@ -12762,7 +12903,7 @@
       "as_of": "2026-08-12",
       "note": "官方给的用法很具体：层数可变（同一张图可拆 3 层或 8 层）、可**递归**再拆、改完某一层其余内容原样不动（「physically isolating it from the rest of the content」）。⚠️ **这个能力在 Qwen-Image-Layered 这个单独的开源模型上**，不是当前主力 `qwen-image-3.0-pro`（3.0 的 API 参数表里没有任何分层字段）。",
       "src": "hf-qwen-layered",
-      "quote": "官方模型卡：「We are excited to introduce **Qwen-Image-Layered**, a model capable of decomposing an image into multiple RGBA layers. This layered representation unlocks **inherent editability**: each layer can be independently edited」；`license: apache-2.0`，createdAt 2025-12-17，↓36,125 ♥1,135",
+      "quote": "a model capable of decomposing an image into multiple RGBA layers.",
       "sibling": "Qwen-Image-Layered"
     },
     {
@@ -12976,12 +13117,13 @@
     {
       "m": "hunyuan3d",
       "c": "d-remesh",
-      "state": "yes",
+      "state": "unknown",
       "verified_for": "3.1",
-      "note": "官方 `api_models.py` 的请求参数：`face_count`（「Maximum number of faces for texture generation」）与 `octree_resolution`（「Resolution of the octree for mesh generation」）—— 面数与网格分辨率都能控。⚠️ 出处是官方代码",
-      "as_of": "2026-08-13",
+      "note": "2026-10-10 回查：引文来自 Hunyuan3D 2.1 的 api_models.py，不能据此证明当前 3.1 具备相同重拓扑参数。 原记录留在审阅档案。",
+      "as_of": "2026-10-10",
       "src": "gh-hunyuan3d-api",
-      "via": "native"
+      "via": "native",
+      "quote": ""
     },
     {
       "m": "hunyuan3d",
@@ -12991,8 +13133,9 @@
       "note": "**长在 Hunyuan3D-Part 那一支上**：官方仓库 tencent/Hunyuan3D-Part（2025-09-23，♥546）——「Hunyuan 3D **Part Segmentation and Generation** Pipeline」。⚠️ 主线 2.1/3.1 里没有这个能力，是**另一个仓库**",
       "as_of": "2026-08-14",
       "sibling": "Part",
-      "src": "hf-lineage",
-      "via": "native"
+      "src": "card-tencent-hunyuan3d-part",
+      "via": "native",
+      "quote": "Pipeline of our image to 3D part generation. It contains two key components, P3-SAM and X-Part."
     },
     {
       "m": "hunyuan3d",
@@ -13211,13 +13354,13 @@
     {
       "m": "meshy",
       "c": "d-multiview",
-      "state": "unknown",
-      "verified_for": "7",
-      "src": "meshy-docs-api",
-      "note": "⚠️ 2026-10-10 已更新到 7.1，此格尚未核到新版的直接证据，显示未知；原核验版本 7。旧记录：API 端点表列「Multi Image to 3D」；Web App 文档另有「Batch Images to 3D」",
+      "state": "yes",
+      "verified_for": "7.1",
+      "src": "meshy-changelog",
+      "note": "2026-09-18 官方更新日志明确 Multi-Image to 3D 支持 7.1；4K geometry_resolution 不适用于这个多图端点。",
       "via": "native",
       "as_of": "2026-10-10",
-      "recheck": "7.1"
+      "quote": "Added meshy-7.1 as an ai_model value for Image to 3D, Multi-Image to 3D and Text to 3D: same parameters and credit cost as meshy-7, higher geometry detail."
     },
     {
       "m": "meshy",
@@ -13340,20 +13483,22 @@
       "c": "d-t23d",
       "state": "yes",
       "verified_for": "Gen-2.5",
-      "src": "rodin-site",
+      "src": "rodin-gen25-api",
       "note": "产品页功能列表：「Text To 3D — From text prompt to 3D object — instantly」",
       "via": "native",
-      "as_of": "2026-08-13"
+      "as_of": "2026-08-13",
+      "quote": "Generate 3D assets from images or text with Rodin Gen-2.5."
     },
     {
       "m": "rodin",
       "c": "d-i23d",
       "state": "yes",
       "verified_for": "Gen-2.5",
-      "src": "rodin-site",
+      "src": "rodin-gen25-api",
       "note": "产品页功能列表：「Image To 3D — Upload a picture, get a 3D object instantly」",
       "via": "native",
-      "as_of": "2026-08-13"
+      "as_of": "2026-08-13",
+      "quote": "Generate 3D assets from images or text with Rodin Gen-2.5."
     },
     {
       "m": "rodin",
@@ -13362,18 +13507,20 @@
       "verified_for": "Gen-2.5",
       "note": "Gen-2 参数表：「images … up to 5 images. As the form data request will preserve the order of the images, the first image will be the image for material generation」",
       "as_of": "2026-08-13",
-      "src": "rodin-api-docs",
-      "via": "native"
+      "src": "rodin-gen25-api",
+      "via": "native",
+      "quote": "Submit one to five images."
     },
     {
       "m": "rodin",
       "c": "d-pbr",
       "state": "yes",
       "verified_for": "Gen-2.5",
-      "src": "rodin-api-docs",
+      "src": "rodin-gen25-api",
       "note": "参数 material：「PBR: Physically Based Materials, including base color texture, metallicness texture, normal texture and roughness texture」，另有 Shaded / All / None",
       "via": "native",
-      "as_of": "2026-08-13"
+      "as_of": "2026-08-13",
+      "quote": "PBR: Physically Based Materials, including base color texture, metallicness texture, normal texture and roughness texture"
     },
     {
       "m": "rodin",
@@ -13400,10 +13547,11 @@
       "c": "d-edit",
       "state": "yes",
       "verified_for": "Gen-2.5",
-      "src": "rodin-api-docs",
-      "note": "独立端点「Bang!」：「split a Rodin-generated Asset into multiple submodels」；产品页另有 3D Mesh Editor",
+      "src": "rodin-bang-api",
+      "note": "配套 Bang 端点对 Rodin 资产做部件分割；不是生成模型直接按文本重写网格。",
       "via": "native",
-      "as_of": "2026-08-13"
+      "as_of": "2026-08-13",
+      "quote": "Higher values split the model into more pieces."
     },
     {
       "m": "rodin",
@@ -13442,8 +13590,9 @@
       "verified_for": "Gen-2.5",
       "note": "参数 geometry_file_format：「Possible values are glb, usdz, fbx, obj, and stl. Default is glb」",
       "as_of": "2026-08-13",
-      "src": "rodin-api-docs",
-      "via": "native"
+      "src": "rodin-gen25-api",
+      "via": "native",
+      "quote": "Supported formats: glb, usdz, fbx, obj, and stl."
     },
     {
       "m": "rodin",
@@ -14072,12 +14221,13 @@
     {
       "m": "heygen",
       "c": "p-video",
-      "state": "yes",
+      "state": "unknown",
       "verified_for": "Avatar V",
-      "note": "创建形象可以「from footage, images, or a text description」—— 一段素材视频即可建形象",
-      "as_of": "2026-08-14",
+      "note": "2026-10-10 回查：原来源是文档入口；未核到 Avatar V 专属正文明确支持用素材视频创建形象，不能以全站功能简介代替型号证据。 原记录留在审阅档案。",
+      "as_of": "2026-10-10",
       "src": "heygen-docs",
-      "via": "native"
+      "via": "native",
+      "quote": ""
     },
     {
       "m": "heygen",
@@ -14761,13 +14911,14 @@
     {
       "m": "hallo2",
       "c": "p-emotion",
-      "state": "yes",
+      "state": "unknown",
       "verified_for": "2",
-      "note": "命令行参数里可分别调 `--pose_weight` `--face_weight` `--lip_weight` `--face_expand_ratio` —— 姿态 / 表情 / 口型分开加权　⚠️ **这条证据核的是 Hallo2**；Hallo-Live 的模型卡只有标题与论文号，没有逐项能力说明 —— 标待重核，不沿用。",
-      "as_of": "2026-08-14",
+      "note": "2026-10-10 回查：旧证据仅针对 Hallo2 的姿态/面部权重参数，不足以证明 Hallo-Live 的情绪控制能力。 原记录留在审阅档案。",
+      "as_of": "2026-10-10",
       "src": "hf-hallo2",
       "via": "native",
-      "recheck": "Hallo-Live"
+      "recheck": "Hallo-Live",
+      "quote": ""
     },
     {
       "m": "hallo2",
@@ -14910,7 +15061,7 @@
       "state": "yes",
       "verified_for": "N1.7",
       "src": "nvidia-groot-gh",
-      "quote": "模型卡 `License` 一节：「This model is released under the **NVIDIA Open Model License Agreement**」",
+      "quote": "Model weights: NVIDIA Open Model License",
       "as_of": "2026-08-14",
       "note": "⚠️ **不是标准开源协议**。权重公开、条款是英伟达自己那份，商用前必须自己读 —— 和 OpenVLA 的 MIT、X-VLA 的 Apache-2.0 不是一回事。"
     },
@@ -14940,7 +15091,7 @@
       "state": "yes",
       "verified_for": "N1.7",
       "src": "nvidia-groot-gh",
-      "quote": "README：「Developers and researchers can **post-train** GR00T N1.7 with real or synthetic data for their specific humanoid robot or task」；N1.7 更新条目：「Fine-tuning can use **multiple dataset paths with mixture weighting**」",
+      "quote": "Dataset input handling now supports multiple dataset paths and",
       "as_of": "2026-08-14",
       "note": ""
     },
@@ -14978,7 +15129,7 @@
       "state": "yes",
       "verified_for": "7B",
       "src": "openvla-gh",
-      "quote": "模型卡：「All OpenVLA checkpoints, as well as our training codebase are released under an **MIT License**」",
+      "quote": "License: MIT",
       "as_of": "2026-08-14",
       "note": "这一卷里许可最干净的一支 —— MIT，没有附加条款。"
     },
@@ -15963,18 +16114,18 @@
       "state": "yes",
       "verified_for": "HY-World 2.0",
       "src": "hunyuanworld-gh",
-      "quote": "官方仓库更新日志：「April 16, 2026: We release **HY-World-2.0**, state-of-the-art **3D world model**」",
+      "quote": "state-of-the-art 3D world model!",
       "as_of": "2026-08-14"
     },
     {
       "m": "hunyuan-world",
       "c": "w-realtime",
-      "state": "yes",
+      "state": "unknown",
       "verified_for": "HY-World 2.0",
       "src": "hunyuanworld-gh",
-      "quote": "「December 18, 2025: We release **HunyuanWorld-1.5 (WorldPlay)**, enabling **real-time world creation and play**」",
-      "as_of": "2026-08-14",
-      "note": "⚠️ 这一格的依据在 **1.5 那一支（WorldPlay）**，不是当前的 2.0。"
+      "quote": "",
+      "as_of": "2026-10-10",
+      "note": "2026-10-10 回查：原句明确是 HunyuanWorld-1.5 (WorldPlay) 的实时创造与游玩能力，不足以证明 HY-World 2.0 的实时性。 原记录留在审阅档案。"
     },
     {
       "m": "hunyuan-world",
@@ -18607,7 +18758,7 @@
       "date": "2025-02-11",
       "added": "运镜控制",
       "src": "minimax-release-notes",
-      "quote": "Released a video generation model with enhanced camera control, offering superior adherence to camera movement directives.",
+      "quote": "Released a video generation model with enhanced camera control, offering superior adherence to camera movement directives",
       "cap": "camera"
     },
     {
@@ -18617,7 +18768,7 @@
       "date": "2025-06-18",
       "added": "换代 02：1080p",
       "src": "minimax-release-notes",
-      "quote": "Released MiniMax Hailuo 02, a next-generation video generation model with support for 1080p resolution.",
+      "quote": "Released MiniMax Hailuo 02, a next-generation video generation model with support for 1080p resolution",
       "parent": "hailuo-01-运镜控制",
       "cap_skip": "换代记录，没有声明新增了能力轴上的项"
     },
@@ -18628,7 +18779,7 @@
       "date": "2025-10-28",
       "added": "换代 2.3：肢体动作与表情",
       "src": "minimax-release-notes",
-      "quote": "Released MiniMax-Hailuo-2.3 & 2.3-Fast, featuring breakthroughs in body movement, facial expressions, physical realism.",
+      "quote": "featuring breakthroughs in body movement, facial expressions, physical realism",
       "parent": "hailuo-02-换代02：1080p",
       "cap_skip": "换代记录，没有声明新增了能力轴上的项"
     },
@@ -18964,9 +19115,9 @@
     {
       "m": "seedance",
       "version": "2.5",
-      "date": "2026-08-05",
+      "date": "2026-07-31",
       "added": "换代 2.5：一镜到底 + 灵活参考",
-      "src": "seed-blog",
+      "src": "seed-25",
       "quote": "One-take Creation, Flexible Referencing: Introducing Seedance 2.5",
       "cap_skip": "同上",
       "id": "seedance2.5",
@@ -19141,7 +19292,7 @@
       "date": "2025-08-26",
       "added": "参考生视频",
       "src": "vidu-changelog",
-      "quote": "Reference video generation launched, supporting viduq1, vidu2.0, vidu1.5 models",
+      "quote": "Supports selection of viduq1, vidu2.0, vidu1.5 models",
       "cap": "charref"
     },
     {
@@ -19336,7 +19487,7 @@
       "date": "2026-08-07",
       "added": "实时交互生成",
       "src": "decart-site",
-      "quote": "官网首屏标 LUCY 2.5 IS LIVE",
+      "quote": "Lucy 2.5: Raising the Bar for Live AI",
       "note": "Decart 的实时交互线。2.5 的逐项能力差异**待重核**（见模型页 status_note）。",
       "cap": "rt-interact"
     },
@@ -19532,34 +19683,40 @@
       "m": "seedream",
       "version": "Seedream 3.0",
       "date": "2025-04-16",
-      "added": "原生 2K 直出 + 小字排版变准",
+      "added": "待核历史记录：原生 2K 直出 + 小字排版变准",
       "src": "seed-blog",
       "quote": "native 2K output for diverse aspect ratios; improved small text accuracy and typography",
-      "note": "日期取「公开可查到它的第一天」（官方公告日），不是内部完成日 —— 演化树只用来看先后，月内误差在图上看不出来。负责人 2026-08-11 定的口径。",
-      "cap": "i-textrender"
+      "note": "⚠️ 2026-10-10：历史引文未核实，原描述与日期保留作历史线索，不作为当前能力证据。日期取「公开可查到它的第一天」（官方公告日），不是内部完成日 —— 演化树只用来看先后，月内误差在图上看不出来。负责人 2026-08-11 定的口径。",
+      "cap": "i-textrender",
+      "evidence_status": "unverified",
+      "evidence_reviewed_at": "2026-10-10"
     },
     {
       "id": "seedream-Seedream 4.0-出图与改图并进一个模型",
       "m": "seedream",
       "version": "Seedream 4.0",
       "date": "2025-09-09",
-      "added": "出图与改图并进一个模型",
+      "added": "待核历史记录：出图与改图并进一个模型",
       "src": "seed-blog",
       "quote": "a new-gen image creation model developed by the ByteDance Seed team",
-      "note": "日期取「公开可查到它的第一天」（官方公告日），不是内部完成日 —— 演化树只用来看先后，月内误差在图上看不出来。负责人 2026-08-11 定的口径。",
+      "note": "⚠️ 2026-10-10：历史引文未核实，原描述与日期保留作历史线索，不作为当前能力证据。日期取「公开可查到它的第一天」（官方公告日），不是内部完成日 —— 演化树只用来看先后，月内误差在图上看不出来。负责人 2026-08-11 定的口径。",
       "parent": "seedream-Seedream 3.0-原生 2K 直出 + 小字排版变准",
-      "cap": "i-edit"
+      "cap": "i-edit",
+      "evidence_status": "unverified",
+      "evidence_reviewed_at": "2026-10-10"
     },
     {
       "id": "recraft-Recraft V3-长段文字 + 文字位置和大小可指定",
       "m": "recraft",
       "version": "Recraft V3",
       "date": "2024-10-30",
-      "added": "长段文字 + 文字位置和大小可指定",
+      "added": "待核历史记录：长段文字 + 文字位置和大小可指定",
       "src": "recraft-blog",
       "quote": "Recraft V3 is the only model in the world that can generate images with long texts, as opposed to just one or a couple of words. The new model allows specifying the exact positions and sizes of text on a design.",
-      "note": "日期取「公开可查到它的第一天」（官方公告日），不是内部完成日 —— 演化树只用来看先后，月内误差在图上看不出来。负责人 2026-08-11 定的口径。",
-      "cap": "i-textrender"
+      "note": "⚠️ 2026-10-10：历史引文未核实，原描述与日期保留作历史线索，不作为当前能力证据。日期取「公开可查到它的第一天」（官方公告日），不是内部完成日 —— 演化树只用来看先后，月内误差在图上看不出来。负责人 2026-08-11 定的口径。",
+      "cap": "i-textrender",
+      "evidence_status": "unverified",
+      "evidence_reviewed_at": "2026-10-10"
     },
     {
       "id": "kolors-Kolors-中英双语出图的开放权重底座",
@@ -19579,7 +19736,7 @@
       "date": "2023-12-21",
       "added": "这一代起大幅改善提示词跟随",
       "src": "wiki-midjourney",
-      "quote": "V6 ... December 21, 2023 (alpha)",
+      "quote": "V6 December 21, 2023",
       "note": "日期取「公开可查到它的第一天」（官方公告日），不是内部完成日 —— 演化树只用来看先后，月内误差在图上看不出来。负责人 2026-08-11 定的口径。",
       "cap_skip": "效果或速度的改善，能力轴上没有对应项（轴记的是「能不能做」，不是「做得多好」）"
     },
@@ -19590,7 +19747,7 @@
       "date": "2024-07-31",
       "added": "画质与细节一致性迭代",
       "src": "wiki-midjourney",
-      "quote": "V6.1 ... July 31, 2024",
+      "quote": "V6.1 July 31, 2024",
       "note": "日期取「公开可查到它的第一天」（官方公告日），不是内部完成日 —— 演化树只用来看先后，月内误差在图上看不出来。负责人 2026-08-11 定的口径。",
       "parent": "midjourney-V6-这一代起大幅改善提示词跟随",
       "cap_skip": "效果或速度的改善，能力轴上没有对应项（轴记的是「能不能做」，不是「做得多好」）"
@@ -19602,7 +19759,7 @@
       "date": "2025-04-04",
       "added": "Draft Mode 与 Omni Reference",
       "src": "wiki-midjourney",
-      "quote": "V7 ... April 4, 2025 (alpha)",
+      "quote": "V7 April 4, 2025",
       "note": "日期取「公开可查到它的第一天」（官方公告日），不是内部完成日 —— 演化树只用来看先后，月内误差在图上看不出来。负责人 2026-08-11 定的口径。",
       "parent": "midjourney-V6.1-画质与细节一致性迭代",
       "cap": "i-multiref"
@@ -19623,47 +19780,56 @@
       "m": "krea-img",
       "version": "Krea 2",
       "date": "2026-05-12",
-      "added": "第一个完全从零训练的自研基座",
+      "added": "待核历史记录：第一个完全从零训练的自研基座",
       "src": "krea-blog",
       "quote": "our first foundation image model built completely from scratch",
-      "note": "日期取「公开可查到它的第一天」（官方公告日），不是内部完成日 —— 演化树只用来看先后，月内误差在图上看不出来。负责人 2026-08-11 定的口径。",
+      "note": "⚠️ 2026-10-10：历史引文未核实，原描述与日期保留作历史线索，不作为当前能力证据。日期取「公开可查到它的第一天」（官方公告日），不是内部完成日 —— 演化树只用来看先后，月内误差在图上看不出来。负责人 2026-08-11 定的口径。",
       "parent": "krea-img-FLUX.1 Krea-把自家审美调校的权重开放出来",
-      "cap_skip": "尺寸 / 速度 / 价格档位，不是新增能力"
+      "cap_skip": "尺寸 / 速度 / 价格档位，不是新增能力",
+      "evidence_status": "unverified",
+      "evidence_reviewed_at": "2026-10-10"
     },
     {
       "id": "gpt-image-GPT-image-2-4K + 生成前先想（能自查、能搜网）",
       "m": "gpt-image",
       "version": "GPT-image-2",
       "date": "2026-04-21",
-      "added": "4K + 生成前先想（能自查、能搜网）",
+      "added": "待核历史记录：4K + 生成前先想（能自查、能搜网）",
       "src": "ms-foundry-blog",
       "quote": "GPT-image-2 brings real world intelligence, multilingual understanding, improved instruction following, increased resolution support, and an intelligent routing layer",
-      "note": "OpenAI 自家公告页与帮助中心都抓不到（403），日期取同日上线的 Microsoft Foundry 一侧。",
+      "note": "⚠️ 2026-10-10：历史引文未核实，原描述与日期保留作历史线索，不作为当前能力证据。OpenAI 自家公告页与帮助中心都抓不到（403），日期取同日上线的 Microsoft Foundry 一侧。",
       "parent": "gpt-image-gpt-image-1-API 首次开放出图",
-      "cap": "i-4k"
+      "cap": "i-4k",
+      "evidence_status": "unverified",
+      "evidence_reviewed_at": "2026-10-10"
     },
     {
       "id": "gemini-image-Nano Banana Pro-接上自家新一代大模型的推理，4K 与复杂版面",
       "m": "gemini-image",
       "version": "Nano Banana Pro",
       "date": "2025-11-20",
-      "added": "接上自家新一代大模型的推理，4K 与复杂版面",
+      "added": "待核历史记录：接上自家新一代大模型的推理，4K 与复杂版面",
       "src": "google-nb-blog",
       "quote": "Today, we're introducing Nano Banana Pro (Gemini 3 Pro Image), our new state-of-the art image generation and editing model.",
       "parent": "gemini-image-Nano Banana-对话式改图（多轮指令改同一张）",
-      "note": " 官方原文点名的是 Gemini 3 Pro（在 quote 里照留）——**摘要里不写别的方向的产品线名**：这条摘要会作为节点标签画在图上，而方向隔离检查（正确地）把那当成串味。",
-      "cap": "i-4k"
+      "note": "⚠️ 2026-10-10：历史引文未核实，原描述与日期保留作历史线索，不作为当前能力证据。 官方原文点名的是 Gemini 3 Pro（在 quote 里照留）——**摘要里不写别的方向的产品线名**：这条摘要会作为节点标签画在图上，而方向隔离检查（正确地）把那当成串味。",
+      "cap": "i-4k",
+      "evidence_status": "unverified",
+      "evidence_reviewed_at": "2026-10-10"
     },
     {
       "id": "gemini-image-Nano Banana 2-Pro 的质量按 Flash 的速度和价钱出",
       "m": "gemini-image",
       "version": "Nano Banana 2",
       "date": "2026-02-26",
-      "added": "Pro 的质量按 Flash 的速度和价钱出",
+      "added": "待核历史记录：Pro 的质量按 Flash 的速度和价钱出",
       "src": "google-nb-blog",
       "quote": "Introducing Nano Banana 2 (Gemini 3.1 Flash Image), our latest state-of-the-art image model.",
       "parent": "gemini-image-Nano Banana Pro-接上自家新一代大模型的推理，4K 与复杂版面",
-      "cap_skip": "效果或速度的改善，能力轴上没有对应项（轴记的是「能不能做」，不是「做得多好」）"
+      "cap_skip": "效果或速度的改善，能力轴上没有对应项（轴记的是「能不能做」，不是「做得多好」）",
+      "evidence_status": "unverified",
+      "evidence_reviewed_at": "2026-10-10",
+      "note": "⚠️ 2026-10-10：历史引文未核实，原描述与日期保留作历史线索，不作为当前能力证据。"
     },
     {
       "id": "seedream-Seedream 5.0 Pro-分层输出 + 圈画标注式改图",
@@ -19671,8 +19837,8 @@
       "version": "Seedream 5.0 Pro",
       "date": "2026-07-08",
       "added": "交互编辑：坐标 / 框选 / 箭头指定编辑位置",
-      "src": "seed-blog",
-      "quote": "Seedream 5.0 Pro is a multimodal image generation model that features advanced reasoning, efficient content creation, and professional production capabilities.",
+      "src": "seedream-page",
+      "quote": "A multimodal image generation model that features advanced reasoning and efficient content creation.",
       "parent": "seedream-Seedream 4.0-出图与改图并进一个模型",
       "note": "⚠️ 这条 2026-08-12 改过两次：原来写「分层输出 + 圈画标注式改图」，两句都拿不出出处，先改成了引文支持得住的通用描述；当天晚些时候在火山方舟的图片生成 API 页（要 SPA 渲染才看得到）找到了官方原文「交互编辑：支持通过坐标、框选、箭头等多种方式指定编辑位置」，**于是把「圈画标注式改图」那一半按原话加了回来**。「分层输出」那一半仍然没有出处，不加。",
       "cap": "i-inpaint"
@@ -19715,17 +19881,19 @@
       "m": "ideogram",
       "version": "Ideogram 4",
       "date": "2026-05-30",
-      "added": "这一代把权重放了出来",
+      "added": "待核历史记录：这一代把权重放了出来",
       "src": "hf-org",
       "quote": "ideogram-ai/ideogram-4-fp8 与 ideogram-4-nf4（官方 HF 组织 createdAt 2026-05-30，下载 3.2 万 / 4.0 万）",
-      "note": "ComfyUI 官方教程也写「released as an open-source model that runs entirely on your own hardware」。",
+      "note": "⚠️ 2026-10-10：历史引文未核实，原描述与日期保留作历史线索，不作为当前能力证据。ComfyUI 官方教程也写「released as an open-source model that runs entirely on your own hardware」。",
       "parent": "ideogram-3.0-画布编辑（Magic Fill / Extend）",
       "repos": [
         "ideogram-ai/ideogram-4-fp8",
         "ideogram-ai/ideogram-4-nf4",
         "ideogram-ai/ideogram-4-nf4-diffusers"
       ],
-      "cap": "i-openweights"
+      "cap": "i-openweights",
+      "evidence_status": "unverified",
+      "evidence_reviewed_at": "2026-10-10"
     },
     {
       "id": "sd-SD 3 Medium-换 MMDiT 架构",
@@ -19754,43 +19922,55 @@
       "m": "recraft",
       "version": "Recraft V4",
       "date": "2026-02-17",
-      "added": "按设计审美重训的一代",
+      "added": "待核历史记录：按设计审美重训的一代",
       "src": "recraft-blog",
       "quote": "Recraft V4 … brings true visual taste to AI image generation",
       "parent": "recraft-Recraft V3-长段文字 + 文字位置和大小可指定",
-      "cap_skip": "效果或速度的改善，能力轴上没有对应项（轴记的是「能不能做」，不是「做得多好」）"
+      "cap_skip": "效果或速度的改善，能力轴上没有对应项（轴记的是「能不能做」，不是「做得多好」）",
+      "evidence_status": "unverified",
+      "evidence_reviewed_at": "2026-10-10",
+      "note": "⚠️ 2026-10-10：历史引文未核实，原描述与日期保留作历史线索，不作为当前能力证据。"
     },
     {
       "id": "recraft-Recraft V4.1-写实更自然、短提示词也能懂",
       "m": "recraft",
       "version": "Recraft V4.1",
       "date": "2026-05-14",
-      "added": "写实更自然、短提示词也能懂",
+      "added": "待核历史记录：写实更自然、短提示词也能懂",
       "src": "recraft-blog",
       "quote": "Give V4.1 just a few words, and it'll give you something worth keeping.",
       "parent": "recraft-Recraft V4-按设计审美重训的一代",
-      "cap_skip": "效果或速度的改善，能力轴上没有对应项（轴记的是「能不能做」，不是「做得多好」）"
+      "cap_skip": "效果或速度的改善，能力轴上没有对应项（轴记的是「能不能做」，不是「做得多好」）",
+      "evidence_status": "unverified",
+      "evidence_reviewed_at": "2026-10-10",
+      "note": "⚠️ 2026-10-10：历史引文未核实，原描述与日期保留作历史线索，不作为当前能力证据。"
     },
     {
       "id": "midjourney-V8 Alpha-出图快约 5 倍 + 原生 2K（--hd）",
       "m": "midjourney",
       "version": "V8 Alpha",
       "date": "2026-03-17",
-      "added": "出图快约 5 倍 + 原生 2K（--hd）",
+      "added": "待核历史记录：出图快约 5 倍 + 原生 2K（--hd）",
       "src": "mj-updates",
       "quote": "V8 is an incredible model. It's much better at following detailed directions and will still surprise you when you ask.",
       "parent": "midjourney-V7-Draft Mode 与 Omni Reference",
-      "cap_skip": "效果或速度的改善，能力轴上没有对应项（轴记的是「能不能做」，不是「做得多好」）"
+      "cap_skip": "效果或速度的改善，能力轴上没有对应项（轴记的是「能不能做」，不是「做得多好」）",
+      "evidence_status": "unverified",
+      "evidence_reviewed_at": "2026-10-10",
+      "note": "⚠️ 2026-10-10：历史引文未核实，原描述与日期保留作历史线索，不作为当前能力证据。"
     },
     {
       "id": "hidream-HiDream-I1-17B 出图底座，MIT",
       "m": "hidream",
       "version": "HiDream-I1",
       "date": "2025-04-06",
-      "added": "17B 出图底座，MIT",
+      "added": "待核历史记录：17B 出图底座，MIT",
       "src": "comfy-docs",
       "quote": "HiDream-I1 is a text-to-image model officially open-sourced by HiDream-ai on April 7, 2025. The model has 17B parameters and is released under the MIT license",
-      "cap": "i-openweights"
+      "cap": "i-openweights",
+      "evidence_status": "unverified",
+      "evidence_reviewed_at": "2026-10-10",
+      "note": "⚠️ 2026-10-10：历史引文未核实，原描述与日期保留作历史线索，不作为当前能力证据。"
     },
     {
       "id": "hidream-HiDream-E1.1-按指令改图的分支",
@@ -19829,11 +20009,14 @@
       "m": "ernie-image",
       "version": "ERNIE-Image",
       "date": "2026-04-07",
-      "added": "8B DiT 正式档，apache-2.0",
+      "added": "待核历史记录：8B DiT 正式档，apache-2.0",
       "src": "comfy-docs",
       "quote": "ERNIE-Image is an open text-to-image model by Baidu, licensed under Apache-2.0. Built on an 8B parameter Diffusion Transformer (DiT)",
       "parent": "ernie-image-ERNIE-Image-Turbo-快档先出",
-      "cap": "i-openweights"
+      "cap": "i-openweights",
+      "evidence_status": "unverified",
+      "evidence_reviewed_at": "2026-10-10",
+      "note": "⚠️ 2026-10-10：历史引文未核实，原描述与日期保留作历史线索，不作为当前能力证据。"
     },
     {
       "id": "ernie-image-ERNIE-Image-Aes-审美取向的调校档",
@@ -19851,42 +20034,52 @@
       "m": "ovis-image",
       "version": "Ovis-Image-7B",
       "date": "2025-11-28",
-      "added": "7B 专攻图上出字",
+      "added": "待核历史记录：7B 专攻图上出字",
       "src": "comfy-docs",
       "quote": "Ovis-Image is a 7B text-to-image model built upon Ovis-U1, specifically optimized for high-quality text rendering.",
-      "cap": "i-textrender"
+      "cap": "i-textrender",
+      "evidence_status": "unverified",
+      "evidence_reviewed_at": "2026-10-10",
+      "note": "⚠️ 2026-10-10：历史引文未核实，原描述与日期保留作历史线索，不作为当前能力证据。"
     },
     {
       "id": "lens-Lens-双流 MMDiT + FLUX.2 的 VAE",
       "m": "lens",
       "version": "Lens",
       "date": "2026-05-23",
-      "added": "双流 MMDiT + FLUX.2 的 VAE",
+      "added": "待核历史记录：双流 MMDiT + FLUX.2 的 VAE",
       "src": "comfy-docs",
       "quote": "Lens is an open text-to-image model by Microsoft, licensed under MIT. With 3.8 billion parameters, it uses a dual-stream MMDiT architecture with GPT-OSS-20B text encoder features and the FLUX.2 semantic VAE",
-      "note": "官方仓库 gated，日期取 ComfyUI 官方镜像 Comfy-Org/Lens 的 createdAt（2026-05-23）—— 误差在月内。",
-      "cap_skip": "架构或规模变化，能力轴上没有对应项"
+      "note": "⚠️ 2026-10-10：历史引文未核实，原描述与日期保留作历史线索，不作为当前能力证据。官方仓库 gated，日期取 ComfyUI 官方镜像 Comfy-Org/Lens 的 createdAt（2026-05-23）—— 误差在月内。",
+      "cap_skip": "架构或规模变化，能力轴上没有对应项",
+      "evidence_status": "unverified",
+      "evidence_reviewed_at": "2026-10-10"
     },
     {
       "id": "mage-flow-Mage-Flow-4B 出图与指令改图一体",
       "m": "mage-flow",
       "version": "Mage-Flow",
       "date": "2026-07-24",
-      "added": "4B 出图与指令改图一体",
+      "added": "待核历史记录：4B 出图与指令改图一体",
       "src": "comfy-docs",
       "quote": "Mage-Flow is a compact 4B-scale generative stack from Microsoft Research for efficient text-to-image generation and instruction-based image editing.",
-      "note": "官方仓库 gated，日期取 ComfyUI 官方镜像 Comfy-Org/Mage-Flow 的 createdAt（2026-07-24）。",
-      "cap": "i-edit"
+      "note": "⚠️ 2026-10-10：历史引文未核实，原描述与日期保留作历史线索，不作为当前能力证据。官方仓库 gated，日期取 ComfyUI 官方镜像 Comfy-Org/Mage-Flow 的 createdAt（2026-07-24）。",
+      "cap": "i-edit",
+      "evidence_status": "unverified",
+      "evidence_reviewed_at": "2026-10-10"
     },
     {
       "id": "pixeldit-PixelDiT-1300M-1024px-不用 VAE，直接在像素空间扩散",
       "m": "pixeldit",
       "version": "PixelDiT-1300M-1024px",
       "date": "2026-03-30",
-      "added": "不用 VAE，直接在像素空间扩散",
+      "added": "待核历史记录：不用 VAE，直接在像素空间扩散",
       "src": "comfy-docs",
       "quote": "PixelDiT is NVIDIA's pixel-space diffusion transformer for 1024px text-to-image generation. It operates directly in pixel space: no VAE encode/decode required.",
-      "cap_skip": "架构或规模变化，能力轴上没有对应项"
+      "cap_skip": "架构或规模变化，能力轴上没有对应项",
+      "evidence_status": "unverified",
+      "evidence_reviewed_at": "2026-10-10",
+      "note": "⚠️ 2026-10-10：历史引文未核实，原描述与日期保留作历史线索，不作为当前能力证据。"
     },
     {
       "id": "anima-Anima-—",
@@ -19903,10 +20096,13 @@
       "m": "boogu-image",
       "version": "Boogu-Image-0.1",
       "date": "2026-06-16",
-      "added": "生成与编辑合到一个模型，apache-2.0",
+      "added": "待核历史记录：生成与编辑合到一个模型，apache-2.0",
       "src": "comfy-docs",
       "quote": "Boogu-Image-0.1 is an Apache-2.0 open-source unified image generation and editing model family.",
-      "cap": "i-edit"
+      "cap": "i-edit",
+      "evidence_status": "unverified",
+      "evidence_reviewed_at": "2026-10-10",
+      "note": "⚠️ 2026-10-10：历史引文未核实，原描述与日期保留作历史线索，不作为当前能力证据。"
     },
     {
       "id": "boogu-image-Boogu-Image-0.1-Edit-Turbo-改图的快档",
@@ -19924,10 +20120,13 @@
       "m": "newbie-image",
       "version": "NewBie-image-Exp0.1",
       "date": "2025-11-30",
-      "added": "3.5B Next-DiT，二次元向",
+      "added": "待核历史记录：3.5B Next-DiT，二次元向",
       "src": "comfy-docs",
       "quote": "NewBie-image-Exp0.1 is a 3.5B parameter DiT model developed by NewBieAI Lab for anime-style text-to-image generation. Built on the Next-DiT architecture",
-      "cap_skip": "发布记录或形态调整，没有声明能力轴上的新增项"
+      "cap_skip": "发布记录或形态调整，没有声明能力轴上的新增项",
+      "evidence_status": "unverified",
+      "evidence_reviewed_at": "2026-10-10",
+      "note": "⚠️ 2026-10-10：历史引文未核实，原描述与日期保留作历史线索，不作为当前能力证据。"
     },
     {
       "id": "flux-FLUX.1-Fill-dev-专做重绘与扩图的一档",
@@ -20181,7 +20380,7 @@
       "version": "V3.2",
       "date": "2025-12-01",
       "added": "把算力效率和推理/Agent 表现放到一起",
-      "src": "hf-org",
+      "src": "card-deepseek-ai-deepseek-v3-2",
       "quote": "We introduce DeepSeek-V3.2, a model that harmonizes high computational efficiency with superior reasoning and agent performance.",
       "parent": "deepseek-V3.1-换代；同年 9 月出",
       "repos": [
@@ -20195,7 +20394,7 @@
       "m": "deepseek",
       "version": "V4",
       "date": "2026-04-22",
-      "added": "换代：Pro 1.6T（激活 49B）与 Flash 两档 MoE",
+      "added": "待核历史记录：换代：Pro 1.6T（激活 49B）与 Flash 两档 MoE",
       "src": "hf-org",
       "quote": "We present a preview version of DeepSeek-V4 series, including two strong Mixture-of-Experts (MoE) language models — DeepSeek-V4-Pro with 1.6T parameters (49B activated) and DeepSeek-V4-Flash",
       "parent": "deepseek-V3.2-把算力效率和推理/Agent 表现放到一起",
@@ -20203,7 +20402,10 @@
         "deepseek-ai/DeepSeek-V4-Flash-Base",
         "deepseek-ai/DeepSeek-V4-Pro-Base"
       ],
-      "cap_skip": "换代或小版本记录，没有声明新增能力"
+      "cap_skip": "换代或小版本记录，没有声明新增能力",
+      "evidence_status": "unverified",
+      "evidence_reviewed_at": "2026-10-10",
+      "note": "⚠️ 2026-10-10：历史引文未核实，原描述与日期保留作历史线索，不作为当前能力证据。"
     },
     {
       "id": "deepseek-V4-Flash-0731-Flash 档的日期戳更新",
@@ -20222,7 +20424,7 @@
       "version": "GLM-4.5",
       "date": "2025-07-20",
       "added": "这一代的开放权重发布",
-      "src": "hf-org",
+      "src": "card-zai-org-glm-4-5",
       "quote": "GLM-4.5 technical blog, technical report, and Zhipu AI technical documentation（模型卡首段）",
       "note": "官方模型卡只给了博客链接，**没写这一代新增了什么** —— 这一条本身就是可记的事实",
       "parent": "glm-GLM-4-改名 GLM-4，脱",
@@ -20237,7 +20439,7 @@
       "version": "GLM-4.6",
       "date": "2025-09-29",
       "added": "小版本迭代",
-      "src": "hf-org",
+      "src": "card-zai-org-glm-4-6",
       "quote": "GLM-4.6 technical blog, technical report(GLM-4.5)",
       "note": "官方模型卡只给了博客链接，**没写这一代新增了什么** —— 这一条本身就是可记的事实",
       "parent": "glm-GLM-4.5-这一代的开放权重发布",
@@ -20252,7 +20454,7 @@
       "version": "GLM-4.7",
       "date": "2025-12-22",
       "added": "小版本迭代",
-      "src": "hf-org",
+      "src": "card-zai-org-glm-4-7",
       "quote": "GLM-4.7 technical blog, technical report(GLM-4.5)",
       "note": "官方模型卡只给了博客链接，**没写这一代新增了什么** —— 这一条本身就是可记的事实",
       "parent": "glm-GLM-4.6-小版本迭代",
@@ -20264,7 +20466,7 @@
       "version": "GLM-5",
       "date": "2026-02-11",
       "added": "换代：冲复杂系统工程与长程 Agent 任务",
-      "src": "hf-org",
+      "src": "card-zai-org-glm-5",
       "quote": "We are launching GLM-5, targeting complex systems engineering and long-horizon agentic tasks.",
       "parent": "glm-GLM-4.7-小版本迭代",
       "repos": [
@@ -20278,7 +20480,7 @@
       "version": "GLM-5.1",
       "date": "2026-04-03",
       "added": "小版本迭代",
-      "src": "hf-org",
+      "src": "card-zai-org-glm-5-1",
       "quote": "GLM-5.1 blog and GLM-5 Technical report",
       "note": "官方模型卡只给了博客链接，**没写这一代新增了什么** —— 这一条本身就是可记的事实",
       "parent": "glm-GLM-5-换代：冲复杂系统工程与长程 Agent 任务",
@@ -20293,7 +20495,7 @@
       "version": "GLM-5.2",
       "date": "2026-06-16",
       "added": "小版本迭代",
-      "src": "hf-org",
+      "src": "card-zai-org-glm-5-2",
       "quote": "GLM-5.2 blog and GLM-5 Technical report",
       "note": "官方模型卡只给了博客链接，**没写这一代新增了什么** —— 这一条本身就是可记的事实",
       "parent": "glm-GLM-5.1-小版本迭代",
@@ -20308,7 +20510,7 @@
       "version": "K2",
       "date": "2025-07-11",
       "added": "1T 参数 MoE（激活 32B），用 Muon 优化器训",
-      "src": "hf-org",
+      "src": "card-moonshotai-kimi-k2-base",
       "quote": "Kimi K2 is a state-of-the-art mixture-of-experts (MoE) language model with 32 billion activated parameters and 1 trillion total parameters. Trained with the Muon optimizer",
       "parent": "kimi-Kimi-Dev-面向软件工程任务的专",
       "repos": [
@@ -20322,7 +20524,7 @@
       "version": "K2-Thinking",
       "date": "2025-11-04",
       "added": "边推理边调工具的思考档",
-      "src": "hf-org",
+      "src": "card-moonshotai-kimi-k2-thinking",
       "quote": "Kimi K2 Thinking is the latest, most capable version of open-source thinking model … a thinking agent that reasons step-by-step while dynamically invoking tools",
       "parent": "kimi-K2-1T 参数 MoE（激活 32B），用 Muon 优化器训",
       "repos": [
@@ -20336,7 +20538,7 @@
       "version": "K2.5",
       "date": "2026-01-01",
       "added": "转原生多模态：在 K2-Base 上继续预训 15T 图文混合 token",
-      "src": "hf-org",
+      "src": "card-moonshotai-kimi-k2-5",
       "quote": "Kimi K2.5 is an open-source, native multimodal agentic model built through continual pretraining on approximately 15 trillion mixed visual and text tokens atop Kimi-K2-Base.",
       "parent": "kimi-K2-Thinking-边推理边调工具的思考档",
       "repos": [
@@ -20350,7 +20552,7 @@
       "version": "K2.6",
       "date": "2026-04-14",
       "added": "长程编码、自主执行与群体任务编排",
-      "src": "hf-org",
+      "src": "card-moonshotai-kimi-k2-6",
       "quote": "Kimi K2.6 … advances practical capabilities in long-horizon coding, coding-driven design, proactive autonomous execution, and swarm-based task orchestration",
       "parent": "kimi-K2.5-转原生多模态：在 K2-Base 上继续预训 15T 图文混合 token",
       "repos": [
@@ -20364,7 +20566,7 @@
       "version": "K3",
       "date": "2026-06-13",
       "added": "2.8T 参数，换新注意力（KDA + AttnRes）",
-      "src": "hf-org",
+      "src": "card-moonshotai-kimi-k3",
       "quote": "Kimi K3 is an open-weight, native multimodal agentic model and our most capable model to date. It is a 2.8T-parameter model built on Kimi Delta Attention (KDA) and Attention Residuals (AttnRes)",
       "parent": "kimi-K2.6-长程编码、自主执行与群体任务编排",
       "repos": [
@@ -20393,7 +20595,7 @@
       "version": "M2",
       "date": "2025-10-22",
       "added": "主打写代码与 Agent 流程的小模型",
-      "src": "hf-org",
+      "src": "card-minimaxai-minimax-m2",
       "quote": "Today, we release and open source MiniMax-M2, a Mini model built for Max coding & agentic workflows.",
       "parent": "minimax-text-M1-推理模型，按",
       "repos": [
@@ -20407,7 +20609,7 @@
       "version": "M2.5",
       "date": "2026-02-12",
       "added": "小版本迭代",
-      "src": "hf-org",
+      "src": "card-minimaxai-minimax-m2-5",
       "quote": "Today we're introducing our latest model, MiniMax-M2.5.",
       "note": "官方卡只有一句发布语，没展开这一代加了什么",
       "parent": "minimax-text-M2.1-小版本迭代",
@@ -20422,7 +20624,7 @@
       "version": "M3",
       "date": "2026-06-02",
       "added": "转原生多模态 + 1M 上下文（约 428B 参数、激活 23B）",
-      "src": "hf-org",
+      "src": "card-minimaxai-minimax-m3",
       "quote": "MiniMax-M3 is a native multimodal model with 1M context. It has ~428B parameters and ~23B activated parameters.",
       "parent": "minimax-text-M2.7-小版本迭代",
       "repos": [
@@ -20436,7 +20638,7 @@
       "version": "Large 3",
       "date": "2025-11-28",
       "added": "675B 总参 / 41B 激活的多模态细粒度 MoE",
-      "src": "hf-org",
+      "src": "card-mistralai-mistral-large-3-675b-instruct-2512",
       "quote": "Mistral Large 3 is a state-of-the-art general-purpose Multimodal granular Mixture-of-Experts model with 41B active parameters and 675B total parameters",
       "parent": "mistral-text-Ministral 3-端侧档换代；同日放出",
       "repos": [
@@ -20450,7 +20652,7 @@
       "version": "Small 4",
       "date": "2026-01-23",
       "added": "把 Instruct / Reasoning 等三支合成一个混合模型",
-      "src": "hf-org",
+      "src": "card-mistralai-mistral-small-4-119b-2603",
       "quote": "Mistral Small 4 is a powerful hybrid model capable of acting as both a general instruction model and a reasoning model. It unifies the capabilities of three different model families",
       "parent": "mistral-text-Large 3-675B 总参 / 41B 激活的多模态细粒度 MoE",
       "repos": [
@@ -20464,7 +20666,7 @@
       "version": "Medium 3.5",
       "date": "2026-03-31",
       "added": "第一个「合并」旗舰：128B 稠密 + 256k 上下文",
-      "src": "hf-org",
+      "src": "card-mistralai-mistral-medium-3-5-128b",
       "quote": "Mistral Medium 3.5 is our first flagship merged model. It is a dense 128B model with a 256k context window",
       "parent": "mistral-text-Leanstral-定理证明支线",
       "repos": [
@@ -20478,7 +20680,7 @@
       "version": "Qwen3.5",
       "date": "2026-02-24",
       "added": "换代",
-      "src": "hf-org",
+      "src": "card-qwen-qwen3-5-27b",
       "quote": "Qwen3.5 represents a significant leap forward, integrating breakthroughs（模型卡首段）",
       "parent": "qwen-text-Qwen3-Next-新架构试验档 80B",
       "repos": [
@@ -20493,7 +20695,7 @@
       "version": "Qwen3.6",
       "date": "2026-04-15",
       "added": "按社区反馈做稳定性与可靠性",
-      "src": "hf-org",
+      "src": "card-qwen-qwen3-6-27b",
       "quote": "Following the February release of the Qwen3.5 series, we're pleased to share the first open-weight variant of Qwen3.6. Built on direct feedback from the community, Qwen3.6 prioritizes stability and re…",
       "parent": "qwen-text-Qwen3.5-换代",
       "repos": [
@@ -22389,7 +22591,7 @@
       "date": "2026-08-01",
       "added": "BFL 从图像跨进视频：t2v / i2v / 视频续写，音频默认开",
       "src": "bfl-flux3",
-      "quote": "「FLUX 3 is one multimodal model. Video with synchronized audio, one request shape keyed by mode.」",
+      "quote": "One model trained across image, video, and audio.",
       "note": "⚠️ **日期取的是「我们核到它时它已经在文档里」的月份（2026-08），不是发布日** —— 官方文档没标发布日期。宁可标粗，也不编一个精确到日的数字。",
       "cap_skip": "这一代是这条产品线在视频方向的起点，不代表某一项能力首次出现"
     },
@@ -22543,12 +22745,14 @@
       "m": "rodin",
       "version": "Gen-2",
       "date": "2025-06-01",
-      "added": "多图输入（最多 5 张）+ 面数控制 + 五种导出格式",
+      "added": "待核历史记录：多图输入（最多 5 张）+ 面数控制 + 五种导出格式",
       "parent": "rodin-gen1",
       "src": "rodin-api-docs",
       "quote": "Gen-2 参数表：「images … up to 5 images」「geometry_file_format … glb, usdz, fbx, obj, and stl」「quality … Raw: high 500k / Quad: high 50k」",
-      "note": "⚠️ **日期是估的**，文档没写发布时间，精度只到月",
-      "cap": "d-multiview"
+      "note": "⚠️ 2026-10-10：历史引文未核实，原描述与日期保留作历史线索，不作为当前能力证据。⚠️ **日期是估的**，文档没写发布时间，精度只到月",
+      "cap": "d-multiview",
+      "evidence_status": "unverified",
+      "evidence_reviewed_at": "2026-10-10"
     },
     {
       "id": "rodin-gen2.5",
@@ -22557,8 +22761,8 @@
       "date": "2026-01-01",
       "added": "按档位计费的新一代",
       "parent": "rodin-gen2",
-      "src": "rodin-api-docs",
-      "quote": "「Gen-2.5 Generation」一节的档位表：Gen-2.5-Extreme-Low「Best for quickly generating simple assets」0.5 credit 起",
+      "src": "rodin-gen25-api",
+      "quote": "Quick generation of simple assets.",
       "note": "⚠️ **日期是估的**，文档没写发布时间，精度只到年",
       "cap_skip": "档位表讲的是成本与用途，不是新增能力"
     },
@@ -22646,8 +22850,8 @@
       "date": "2025-09-23",
       "parent": "hy3d-2.1",
       "added": "部件分割与生成",
-      "src": "hf-lineage",
-      "quote": "官方 HF 仓库 tencent/Hunyuan3D-Part（createdAt 2025-09-23，♥546）：Hunyuan 3D Part Segmentation and Generation Pipeline",
+      "src": "card-tencent-hunyuan3d-part",
+      "quote": "Pipeline of our image to 3D part generation. It contains two key components, P3-SAM and X-Part.",
       "cap": "d-edit"
     },
     {
@@ -22666,11 +22870,13 @@
       "version": "text-xlarge",
       "date": "2025-03-24",
       "parent": "trellis-image",
-      "added": "文生 3D 的权重",
+      "added": "待核历史记录：文生 3D 的权重",
       "src": "hf-lineage",
       "quote": "官方 HF 仓库 microsoft/TRELLIS-text-xlarge / -large / -base（createdAt 均为 2025-03-24）",
-      "note": "⚠️ **文生 3D 的权重是单独一支**，不在 image-large 里 —— 我们那格 ✅ 的证据是 README 的「takes in text or image prompts」，落到权重上要来这一支拿。",
-      "cap": "d-t23d"
+      "note": "⚠️ 2026-10-10：历史引文未核实，原描述与日期保留作历史线索，不作为当前能力证据。⚠️ **文生 3D 的权重是单独一支**，不在 image-large 里 —— 我们那格 ✅ 的证据是 README 的「takes in text or image prompts」，落到权重上要来这一支拿。",
+      "cap": "d-t23d",
+      "evidence_status": "unverified",
+      "evidence_reviewed_at": "2026-10-10"
     },
     {
       "id": "trellis-2",
@@ -22790,7 +22996,7 @@
       "parent": "meshy-4",
       "added": "重拓扑与导出",
       "src": "meshy-changelog",
-      "quote": "更新日志 2024-12-19：「Added the Remesh APIs, which allow users to remesh and export existing 3D models ... into various formats」",
+      "quote": "Added the Remesh APIs, which allow users to remesh and export existing 3D models generated by other Meshy APIs into various formats.",
       "cap": "d-remesh"
     },
     {
@@ -22846,7 +23052,7 @@
       "parent": "meshy-6",
       "added": "指定导出格式",
       "src": "meshy-changelog",
-      "quote": "更新日志 2026-03-17：「Added optional **target_formats** parameter ... Specify which 3D formats to generate（例子给的是 glb、fbx）」",
+      "quote": "Specify which 3D formats to generate",
       "cap": "d-format"
     },
     {
@@ -22857,7 +23063,7 @@
       "parent": "meshy-format",
       "added": "换代 7",
       "src": "meshy-changelog",
-      "quote": "更新日志 2026-08-12：「Added ai_model: meshy-7 to the Image to 3D API: our newest 3D generation model, with **higher-fidelity geometry than Meshy 6**. It also introduces the ultra_mode parameter」",
+      "quote": "our newest 3D generation model, with higher-fidelity geometry than Meshy 6.",
       "cap_skip": "几何更清晰是质量提升，不是轴上的新项"
     },
     {
@@ -23019,7 +23225,7 @@
       "date": "2026-04-01",
       "added": "v3 端点整套上线",
       "src": "heygen-changelog",
-      "quote": "更新日志最早的一批（2026-04）：「New v3 API endpoints」「New Video Creation Schema」「New Voice Creation Endpoint」",
+      "quote": "Added support for custom voice creation",
       "note": "⚠️ **这份日志只到 2026-04** —— Avatar III / IV 更早就有了，但官方没给可引的上线时间。**这不是「它没有历史」，是「我们拿不到」**。",
       "cap_skip": "端点整改不是新增能力"
     },
@@ -23040,11 +23246,13 @@
       "version": "Avatar V",
       "date": "2026-05-12",
       "parent": "heygen-v3api",
-      "added": "Avatar V 与 IV 同价",
+      "added": "待核历史记录：Avatar V 与 IV 同价",
       "src": "heygen-changelog",
       "quote": "更新日志 2026-05-12「Avatar V Pricing Parity with Avatar IV」：「Per-second video generation rates for **Avatar V** now match Avatar IV」",
-      "note": "⚠️ **拿计费公告当发布日期是退而求其次**：日志里没有 Avatar V 的上线条目，这条只能证明「2026-05-12 它已存在」。",
-      "cap_skip": "计费变化不是能力"
+      "note": "⚠️ 2026-10-10：历史引文未核实，原描述与日期保留作历史线索，不作为当前能力证据。⚠️ **拿计费公告当发布日期是退而求其次**：日志里没有 Avatar V 的上线条目，这条只能证明「2026-05-12 它已存在」。",
+      "cap_skip": "计费变化不是能力",
+      "evidence_status": "unverified",
+      "evidence_reviewed_at": "2026-10-10"
     },
     {
       "id": "heygen-batch",
@@ -23052,10 +23260,13 @@
       "version": "Avatar V",
       "date": "2026-07-01",
       "parent": "heygen-avatar5",
-      "added": "批量翻译 / 唇形同步 / 资产接口",
+      "added": "待核历史记录：批量翻译 / 唇形同步 / 资产接口",
       "src": "heygen-changelog",
       "quote": "更新日志 2026-07「Batch APIs for Translations, Lipsyncs, and Assets」；同月还有「Batch Video Creation」",
-      "cap": "p-translate"
+      "cap": "p-translate",
+      "evidence_status": "unverified",
+      "evidence_reviewed_at": "2026-10-10",
+      "note": "⚠️ 2026-10-10：历史引文未核实，原描述与日期保留作历史线索，不作为当前能力证据。"
     },
     {
       "id": "heygen-consent",
@@ -23065,7 +23276,7 @@
       "parent": "heygen-batch",
       "added": "肖像授权视频可直接上传",
       "src": "heygen-changelog",
-      "quote": "更新日志 2026-08「Consent Video Upload Available for All Enterprise Accounts」：「Level 2 consent is **no longer gated behind a whitelist**」",
+      "quote": "Uploading a pre-recorded consent video (Level 2) is now available to every Enterprise account.",
       "note": "⚠️ 这条记的是**合规流程**不是模型能力（见规则十三：consent 特意没进能力轴）—— 但它对能不能真的用上影响很大，所以进谱系。",
       "cap_skip": "合规流程，按规则十三不挂能力"
     },
@@ -23094,11 +23305,13 @@
       "m": "elevenlabs",
       "version": "Eleven v3",
       "date": "2026-02-02",
-      "added": "v3 转正（出 alpha）",
+      "added": "待核历史记录：v3 转正（出 alpha）",
       "src": "elevenlabs-changelog",
       "quote": "更新日志 2026-02-02：「Eleven v3 — v3 is out of alpha - it's more stable, accurate and has lower latency」",
-      "note": "⚠️ **这条记的是「转正」不是「首发」**：v3 的 alpha 更早就有了，但那一期不在我们扫到的 40 期里。**别把转正日当成发布日**。",
-      "cap_skip": "转正是状态变化，不是新增能力"
+      "note": "⚠️ 2026-10-10：历史引文未核实，原描述与日期保留作历史线索，不作为当前能力证据。⚠️ **这条记的是「转正」不是「首发」**：v3 的 alpha 更早就有了，但那一期不在我们扫到的 40 期里。**别把转正日当成发布日**。",
+      "cap_skip": "转正是状态变化，不是新增能力",
+      "evidence_status": "unverified",
+      "evidence_reviewed_at": "2026-10-10"
     },
     {
       "id": "eleven-v3-conv",
@@ -23106,20 +23319,26 @@
       "version": "Eleven v3",
       "date": "2026-02-09",
       "parent": "eleven-v3-ga",
-      "added": "对话档进 agents",
+      "added": "待核历史记录：对话档进 agents",
       "src": "elevenlabs-changelog",
       "quote": "更新日志 2026-02-09：「**Eleven v3 conversational model**: Added `eleven_v3_conversational` to the available TTS models for agents」",
-      "cap_skip": "是把已有模型接进另一条产品线，不是新增能力"
+      "cap_skip": "是把已有模型接进另一条产品线，不是新增能力",
+      "evidence_status": "unverified",
+      "evidence_reviewed_at": "2026-10-10",
+      "note": "⚠️ 2026-10-10：历史引文未核实，原描述与日期保留作历史线索，不作为当前能力证据。"
     },
     {
       "id": "eleven-music-v2",
       "m": "eleven-music",
       "version": "v2",
       "date": "2026-06-15",
-      "added": "换代 v2：分块作曲",
+      "added": "待核历史记录：换代 v2：分块作曲",
       "src": "elevenlabs-changelog",
       "quote": "更新日志 2026-06-15：「**Music v2 introduces chunk-based composition plans** built from `GenerationChunk` and `AudioRefChunk`」",
-      "cap_skip": "日志讲的是接口结构，没说对应我们轴上哪一项"
+      "cap_skip": "日志讲的是接口结构，没说对应我们轴上哪一项",
+      "evidence_status": "unverified",
+      "evidence_reviewed_at": "2026-10-10",
+      "note": "⚠️ 2026-10-10：历史引文未核实，原描述与日期保留作历史线索，不作为当前能力证据。"
     },
     {
       "id": "gpttts-2025-03",
@@ -23255,7 +23474,7 @@
       "parent": "molmoact-1",
       "added": "接上流匹配连续动作专家，改成多本体后训练档",
       "src": "molmoact-card",
-      "quote": "模型卡：「builds on **Molmo2-ER**, an embodied-reasoning VLM backbone, and connects the autoregressive VLM to a **flow-matching continuous action expert** through per-layer KV conditioning」",
+      "quote": "connects the autoregressive VLM to a flow-matching continuous action expert through per-layer KV (key-value) conditioning.",
       "note": "⚠️ 同代一次放出七个仓（`-LIBERO` `-SO100_101` `-Think` `-Pretrain` `-DROID` `-BimanualYAM` 与基座），**按规则三算一次发布，不各开一个节点**。",
       "cap": "e-embodiment"
     },
@@ -23413,11 +23632,13 @@
       "version": "Reason2",
       "date": "2025-12-12",
       "parent": "cosmos-reason1",
-      "added": "理解支：这一支后来成了 GR00T N1.7 的视觉骨干",
+      "added": "待核历史记录：理解支：这一支后来成了 GR00T N1.7 的视觉骨干",
       "src": "hf-robotics",
       "quote": "`nvidia/Cosmos-Reason2-8B` 与 `-2B`（createdAt 均为 2025-12-12），下载量 725,417 / 712,957",
-      "note": "🔗 **跨卷依赖**：具身卷的 GR00T N1.7 更新说明写着「New VLM backbone: **Cosmos-Reason2-2B**（Qwen3-VL architecture），replacing the Eagle backbone used in N1.6」。**被谁用不改变归属**（规则十六 D-1）—— 它留在这一卷，依赖关系记在这里。⚠️ 模型卡同样 gated。",
-      "cap": "w-understand"
+      "note": "⚠️ 2026-10-10：历史引文未核实，原描述与日期保留作历史线索，不作为当前能力证据。🔗 **跨卷依赖**：具身卷的 GR00T N1.7 更新说明写着「New VLM backbone: **Cosmos-Reason2-2B**（Qwen3-VL architecture），replacing the Eagle backbone used in N1.6」。**被谁用不改变归属**（规则十六 D-1）—— 它留在这一卷，依赖关系记在这里。⚠️ 模型卡同样 gated。",
+      "cap": "w-understand",
+      "evidence_status": "unverified",
+      "evidence_reviewed_at": "2026-10-10"
     },
     {
       "id": "cosmos-3",
@@ -23484,7 +23705,7 @@
       "parent": "hyworld-1",
       "added": "实时世界创建与游玩",
       "src": "hunyuanworld-gh",
-      "quote": "更新日志：「December 18, 2025: We release **HunyuanWorld-1.5 (WorldPlay)**, enabling **real-time world creation and play**」",
+      "quote": "enabling real-time world creation and play!",
       "note": "**这一卷「实时交互」那一格在混元这条线上的唯一依据。**",
       "cap": "w-realtime"
     },
@@ -23496,7 +23717,7 @@
       "parent": "hyworld-15",
       "added": "3D 世界模型",
       "src": "hunyuanworld-gh",
-      "quote": "更新日志：「April 16, 2026: We release **HY-World-2.0**, state-of-the-art **3D world model**」",
+      "quote": "state-of-the-art 3D world model!",
       "note": "⚠️ 同族的 `WorldMirror`（2025-10-22）**不在这条线上也不在这一卷** —— 它自述是 3D 几何预测，属 3D 卷。**一条产品线里的支可以分属两卷**，这是规则十六边界二的第一个真实案例。",
       "cap": "w-3d"
     },
@@ -23855,7 +24076,7 @@
       "date": "2026-09-03",
       "added": "整首歌那一档换代：音乐连贯性与人声变好，时长与曲式控制变细",
       "src": "gemini-changelog",
-      "quote": "更新日志 2026-09-03：「Lyria 3.5 in public preview: Released the next generation of Google's music generation model: lyria-3.5: Full-length song generation with improved musical coherence, natural vocals, and fine-grained duration and structural control」",
+      "quote": "Lyria 3.5 generally available (GA): Released the next generation of Google's music generation model:",
       "note": "接替 `lyria-3-pro-preview`（官方模型表里已无 Pro 那一行）；Clip 那一支照旧留着。声音卷 2026-08-12 才立项，3.5 之前的谱系仍然只有一个点。",
       "parent": "lyria-3 Preview-Clip 与 Pro",
       "cap_skip": "结构与时长控制上一代就有，这一代是**变细**不是新增；能力轴上没有对应项"

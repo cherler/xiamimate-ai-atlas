@@ -1,6 +1,6 @@
 /** Read-only, escaped and paginated audit view. Inbox text is untrusted. */
 const esc = x => String(x ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
-export const verdictNames = {adopted:'采纳',corrected:'纠正后采纳',duplicate:'重复',covered:'已有证据覆盖','event-archived':'事件归档','out-of-scope':'不纳入当前图谱','not-adopted':'证据不足或口径不符，本轮不采纳'};
+export const verdictNames = {adopted:'采纳',corrected:'修正引文或结论',verified:'引文核实',repointed:'修正来源',downgraded:'撤回支持结论，改为未知','historical-unverified':'历史引文未核实，已标注归档',derivative:'量化/二次分发归档',duplicate:'重复',covered:'已有证据覆盖','event-archived':'事件归档','out-of-scope':'不纳入当前图谱','not-adopted':'证据不足或口径不符，本轮不采纳'};
 export function reviewReport(audit, params) {
   const query = (params.get('q') ?? '').slice(0, 200), decision = params.get('decision') ?? '';
   const all = (audit.rows ?? []).filter(r => (!decision || r.decision === decision) &&

@@ -207,6 +207,7 @@ const PAGE = `<!doctype html><html lang="zh-CN"><head><meta charset="utf-8">
   <h1>虾米看AI · 本机审阅台</h1>
   <div class="sub" id="sub">读取中…</div>
   <a href="/auto-review">查看自动审阅记录与逐条处理理由</a>
+  <a href="/cleanup-review">查看采集单、引文回查与候选清理记录</a>
 </header>
 <main>
   <div id="tabs" style="display:flex;gap:8px;margin-bottom:16px">
@@ -543,8 +544,8 @@ loadTodo();load();loadRq();loadPending();
 
 createServer(async (req, res) => {
   const path = req.url.split("?")[0];
-  if (path === "/auto-review") {
-    const file = join(ROOT, "data/review-auto-log.json");
+  if (path === "/auto-review" || path === "/cleanup-review") {
+    const file = join(ROOT, path === '/cleanup-review' ? 'data/review-cleanup-2026-10-10.json' : "data/review-auto-log.json");
     const audit = existsSync(file) ? JSON.parse(readFileSync(file, "utf8")) : {};
     res.writeHead(200, { "content-type": "text/html; charset=utf-8" });
     return res.end(reviewReport(audit, new URL(req.url, 'http://localhost').searchParams));

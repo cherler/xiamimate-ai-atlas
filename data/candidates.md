@@ -41,7 +41,7 @@
 - `chat` Muse Spark Muse Spark 1.2（2026-08-27）
 - `asset` Lux3D Lux3D（2026-08-27）
 - `er` LocateAnything LocateAnything-3B（2026-08-27）
-- `clip` Seedance 2.5（2026-07-31）
+- `clip` Seedance 2.5（2026-10-10）
 - `clip` MiniMax Hailuo H3（2026-07-31）
 - `clip` Gemini Omni 1.1 Flash（2026-10-10）
 - `clip` Wan 3.0（2026-08-07）
@@ -186,10 +186,9 @@
 
 > ⚠️ 另有 **4 个组织被判成量化 / 搬运号**（仓库八成以上是 GGUF、AWQ、mlx 这类二次分发档），已从下表略过：`city96`、`xinsir`、`ChrisColeTech`、`QuantStack`。**判据是仓库名，不是人品** —— 它们里面若有自训模型，会因为名字不带量化后缀而照常出现在上表。
 
-| 组织 | 仓库数 | 示例 |
-|---|---:|---|
-| AlperKTS | 2 | `AlperKTS/Krea2_FP8` |
-| silveroxides | 2 | `silveroxides/Chroma-GGUF` |
+（无）
+> 已核 AlperKTS 本次出现的 2 个仓库：量化/格式转换，不另建模型产品线。只记这些具体仓库；新仓库仍会重新检查。
+> 已核 silveroxides 本次出现的 2 个仓库：量化/格式转换，不另建模型产品线。只记这些具体仓库；新仓库仍会重新检查。
 
 > ⚠️ HF 这一路混着个人搬运号与量化号（QuantStack、city96、calcuis 之类）。
 > **脚本分不出「自己训模型」和「搬别人的」** —— 那要人看一眼组织主页。
@@ -204,7 +203,7 @@
 - `chat` Muse Spark Muse Spark 1.2（2026-08-27）
 - `asset` Lux3D Lux3D（2026-08-27）
 - `er` LocateAnything LocateAnything-3B（2026-08-27）
-- `clip` Seedance 2.5（2026-07-31）
+- `clip` Seedance 2.5（2026-10-10）
 - `clip` MiniMax Hailuo H3（2026-07-31）
 - `clip` Gemini Omni 1.1 Flash（2026-10-10）
 - `clip` Wan 3.0（2026-08-07）
