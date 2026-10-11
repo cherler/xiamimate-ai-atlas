@@ -1,8 +1,8 @@
 {
-  "generated_at": "2026-10-10",
+  "generated_at": "2026-10-11",
   "n": 0,
   "n_unclear": 0,
-  "n_missing": 32,
+  "n_missing": 30,
   "n_skipped": 55,
   "rows": [
     {
@@ -274,7 +274,7 @@
       "cur_as_of": "2026-08-13",
       "found": null,
       "src": "rodin-api-docs",
-      "src_at": "2026-09-26",
+      "src_at": "2026-10-11",
       "evidence": ""
     },
     {
@@ -308,30 +308,6 @@
       "cur_as_of": "2026-09-23",
       "found": null,
       "src": "seed-models",
-      "src_at": "2026-10-07",
-      "evidence": ""
-    },
-    {
-      "kind": "牌子摘了",
-      "m": "seedance",
-      "family": "Seedance",
-      "zh": "即梦 Seedance",
-      "cur": "2.5",
-      "cur_as_of": "2026-07-31",
-      "found": null,
-      "src": "seed-blog",
-      "src_at": "2026-10-07",
-      "evidence": ""
-    },
-    {
-      "kind": "牌子摘了",
-      "m": "seedream",
-      "family": "Seedream",
-      "zh": "即梦图像",
-      "cur": "5.0 Pro",
-      "cur_as_of": "2026-08-11",
-      "found": null,
-      "src": "seed-blog",
       "src_at": "2026-10-07",
       "evidence": ""
     },

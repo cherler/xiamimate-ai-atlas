@@ -1,25 +1,28 @@
-# 引文回查 · 2026-10-10
+# 引文回查 · 2026-10-11
 
-回查 1250 条：无英文锚 737 · 对得上 341 · 复核已处置 139 · 无快照 25 · 人审认过·非逐字 8
+回查 1250 条：无英文锚 741 · 对得上 346 · 复核已处置 131 · 无快照 20 · 找不到 4 · 人审认过·非逐字 8
 
 > 这份报告回答一件事：**一格引文里的原句，在它署名的那份快照里还在不在。**
 > ⚠️ **失败不等于引文错。** 三种成因要分开：真署错了页 / 这一页的快照是残的（抓回来的是导航不是正文）/ 当初记的就不是逐字原文。**脚本不猜。**
 > 「人审认过·非逐字」那一摞是**审阅台上已经判过的**，列在这里只为不假装它们消失了 —— 不用再看。
 
-## 失败 ≥3 条的源（0 个）—— 这几个大概率是抓法不对
+## 失败 ≥3 条的源（1 个）—— 这几个大概率是抓法不对
 
+- **recraft-blog**（3 条）：发布 recraft-Recraft V3-长段文字 + 文字位置和大小可指定、发布 recraft-Recraft V4-按设计审美重训的一代、发布 recraft-Recraft V4.1-写实更自然、短提示词也能懂
 
 ## 全部
 
-### 无快照（25）
+### 找不到（4）
+
+- `xai-grok47-model` grok × t-batch —— 锚「Batch API: Not supported」
+- `recraft-blog` 发布 recraft-Recraft V3-长段文字 + 文字位置和大小可指定 —— 锚「Recraft V3 is the only model in the world that can generate images wit」
+- `recraft-blog` 发布 recraft-Recraft V4-按设计审美重训的一代 —— 锚「brings true visual taste to AI image generation」
+- `recraft-blog` 发布 recraft-Recraft V4.1-写实更自然、短提示词也能懂 —— 锚「Give V4.1 just a few words, and it'll give you something worth keeping」
+
+### 无快照（20）
 
 - `openai-sora-2` sora × charref
 - `openai-sora-2` sora × audio
-- `xai-grok47-model` grok × t-long
-- `xai-grok47-model` grok × t-tools
-- `xai-grok47-model` grok × t-json
-- `xai-grok47-model` grok × t-cache
-- `xai-grok47-model` grok × t-batch
 - `minimax-music3-release` mm-music × s-openweights
 - `seed3d-page` seed3d × d-splat
 - `xai-imagine-image` 模型 grok-image 版本
@@ -50,7 +53,7 @@
 - `hf-hunyuan3d-21` 发布 hy3d-2.1 —— 锚「We release the first production-ready 3D asset generation model, Hunyu」（这句在 gh-hunyuan3d-21）
 - `openai-model-tts` 发布 gpttts-2025-12 —— 锚「slugs to point to the 2025-12-15 snapshots」（这句在 openai-changelog）
 
-### 复核已处置（139）
+### 复核已处置（131）
 
 - `veo-doc` veo × flf
 - `veo-doc` veo × charref
@@ -120,23 +123,15 @@
 - `vidu-changelog` 发布 vidu-q-Q1-参考生视频
 - `vidu-changelog` 发布 viduq2
 - `decart-site` 发布 lucy-Lucy2.5-Lucy2.5
-- `azure-foundry-blog` 发布 gpt-image-gpt-image-1-API 首次开放出图
 - `google-gemini-blog` 发布 gemini-image-Nano Banana-对话式改图（多轮指令改同一张）
 - `seed-blog` 发布 seedream-Seedream 3.0-原生 2K 直出 + 小字排版变准
 - `seed-blog` 发布 seedream-Seedream 4.0-出图与改图并进一个模型
-- `recraft-blog` 发布 recraft-Recraft V3-长段文字 + 文字位置和大小可指定
-- `kolors-gh` 发布 kolors-Kolors-中英双语出图的开放权重底座
-- `wiki-midjourney` 发布 midjourney-V6-这一代起大幅改善提示词跟随
-- `wiki-midjourney` 发布 midjourney-V6.1-画质与细节一致性迭代
-- `wiki-midjourney` 发布 midjourney-V7-Draft Mode 与 Omni Reference
 - `krea-blog` 发布 krea-img-Krea 2-第一个完全从零训练的自研基座
 - `ms-foundry-blog` 发布 gpt-image-GPT-image-2-4K + 生成前先想（能自查、能搜网）
 - `google-nb-blog` 发布 gemini-image-Nano Banana Pro-接上自家新一代大模型的推理，4K 与复杂版面
 - `google-nb-blog` 发布 gemini-image-Nano Banana 2-Pro 的质量按 Flash 的速度和价钱出
 - `seedream-page` 发布 seedream-Seedream 5.0 Pro-分层输出 + 圈画标注式改图
 - `hf-org` 发布 ideogram-Ideogram 4-这一代把权重放了出来
-- `recraft-blog` 发布 recraft-Recraft V4-按设计审美重训的一代
-- `recraft-blog` 发布 recraft-Recraft V4.1-写实更自然、短提示词也能懂
 - `mj-updates` 发布 midjourney-V8 Alpha-出图快约 5 倍 + 原生 2K（--hd）
 - `comfy-docs` 发布 hidream-HiDream-I1-17B 出图底座，MIT
 - `comfy-docs` 发布 ernie-image-ERNIE-Image-8B DiT 正式档，apache-2.0
