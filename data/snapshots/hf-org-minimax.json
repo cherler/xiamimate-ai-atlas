@@ -1,7 +1,7 @@
 {
   "url": "https://huggingface.co/api/models?author=MiniMaxAI&limit=100",
   "kind": "json",
-  "fetched_at": "2026-09-11",
+  "fetched_at": "2026-10-11",
   "digest": "4374d2c796b04ff2",
   "items": [
     "MiniMaxAI/MiniMax-H3\t",

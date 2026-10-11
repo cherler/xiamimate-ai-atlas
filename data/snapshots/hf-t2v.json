@@ -1,8 +1,8 @@
 {
   "url": "https://huggingface.co/api/models?filter=text-to-video&sort=downloads&direction=-1&limit=60",
   "kind": "json",
-  "fetched_at": "2026-10-08",
-  "digest": "0a13e915e6b08301",
+  "fetched_at": "2026-10-11",
+  "digest": "9a27a9e7b0bcbad3",
   "items": [
     "Abiray/LTX-2.5-Distilled-GGUF\t",
     "Abiray/MiniMax-H3-GGUF\t",
@@ -36,7 +36,6 @@
     "Wan-AI/Wan2.1-T2V-14B\t",
     "Wan-AI/Wan2.1-T2V-14B-Diffusers\t",
     "Wan-AI/Wan2.2-T2V-A14B-Diffusers\t",
-    "Wan-AI/Wan2.2-TI2V-5B\t",
     "Wan-AI/Wan2.2-TI2V-5B-Diffusers\t",
     "WarmBloodAban/Minimax-h3_Singularity\t",
     "Winnougan/Cobijada_Minimax-H3_Hybrid_Pruned_ComfyUI\t",
@@ -60,6 +59,7 @@
     "realrebelai/LTX-2.5_GGUFs\t",
     "rockerBOO/minimax-h3-nvfp4-convrot\t",
     "t8star/Vdn-Minimax-H3-Comfy\t",
+    "unsloth/LTX-2-GGUF\t",
     "unsloth/LTX-2.3-GGUF\t",
     "unsloth/MiniMax-H3-GGUF\t",
     "unsloth/Wan2.2-TI2V-5B-GGUF\t",

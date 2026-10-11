@@ -1,8 +1,8 @@
 {
   "url": "https://huggingface.co/api/models?filter=image-to-video&sort=downloads&direction=-1&limit=60",
   "kind": "json",
-  "fetched_at": "2026-10-08",
-  "digest": "68e899cbd007bdfb",
+  "fetched_at": "2026-10-11",
+  "digest": "1abf9fe6b52e5695",
   "items": [
     "Abiray/LTX-2.5-Distilled-GGUF\t",
     "Abiray/MiniMax-H3-GGUF\t",
@@ -27,6 +27,7 @@
     "TenStrip/LTX2.3-10Eros\t",
     "Wan-AI/Wan2.1-I2V-14B-480P\t",
     "Wan-AI/Wan2.1-I2V-14B-480P-Diffusers\t",
+    "Wan-AI/Wan2.1-I2V-14B-720P\t",
     "Wan-AI/Wan2.1-I2V-14B-720P-Diffusers\t",
     "Wan-AI/Wan2.1-VACE-1.3B\t",
     "Wan-AI/Wan2.1-VACE-14B\t",
@@ -62,7 +63,6 @@
     "t8star/Vdn-Minimax-H3-Comfy\t",
     "unsloth/LTX-2-GGUF\t",
     "unsloth/LTX-2.3-GGUF\t",
-    "unsloth/MiniMax-H3-GGUF\t",
-    "vantagewithai/SCAIL-2-GGUF-ComfyUI\t"
+    "unsloth/MiniMax-H3-GGUF\t"
   ]
 }
