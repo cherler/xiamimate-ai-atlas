@@ -1,6 +1,6 @@
-# 引文回查 · 2026-10-12
+# 引文回查 · 2026-10-13
 
-回查 1250 条：无英文锚 741 · 对得上 346 · 复核已处置 131 · 无快照 20 · 找不到 4 · 人审认过·非逐字 8
+回查 1250 条：无英文锚 742 · 对得上 346 · 复核已处置 129 · 无快照 20 · 找不到 4 · 人审认过·非逐字 8 · 快照无正文 1
 
 > 这份报告回答一件事：**一格引文里的原句，在它署名的那份快照里还在不在。**
 > ⚠️ **失败不等于引文错。** 三种成因要分开：真署错了页 / 这一页的快照是残的（抓回来的是导航不是正文）/ 当初记的就不是逐字原文。**脚本不猜。**
@@ -18,6 +18,10 @@
 - `recraft-blog` 发布 recraft-Recraft V3-长段文字 + 文字位置和大小可指定 —— 锚「Recraft V3 is the only model in the world that can generate images wit」
 - `recraft-blog` 发布 recraft-Recraft V4-按设计审美重训的一代 —— 锚「brings true visual taste to AI image generation」
 - `recraft-blog` 发布 recraft-Recraft V4.1-写实更自然、短提示词也能懂 —— 锚「Give V4.1 just a few words, and it'll give you something worth keeping」
+
+### 快照无正文（1）
+
+- `hf-org` 发布 deepseek-V4-换代：Pro 1.6T（激活 49B）与 Flash 两档 MoE —— 锚「We present a preview version of DeepSeek-V4 series, including two stro」
 
 ### 无快照（20）
 
@@ -53,7 +57,7 @@
 - `hf-hunyuan3d-21` 发布 hy3d-2.1 —— 锚「We release the first production-ready 3D asset generation model, Hunyu」（这句在 gh-hunyuan3d-21）
 - `openai-model-tts` 发布 gpttts-2025-12 —— 锚「slugs to point to the 2025-12-15 snapshots」（这句在 openai-changelog）
 
-### 复核已处置（131）
+### 复核已处置（129）
 
 - `veo-doc` veo × flf
 - `veo-doc` veo × charref
@@ -131,7 +135,6 @@
 - `google-nb-blog` 发布 gemini-image-Nano Banana Pro-接上自家新一代大模型的推理，4K 与复杂版面
 - `google-nb-blog` 发布 gemini-image-Nano Banana 2-Pro 的质量按 Flash 的速度和价钱出
 - `seedream-page` 发布 seedream-Seedream 5.0 Pro-分层输出 + 圈画标注式改图
-- `hf-org` 发布 ideogram-Ideogram 4-这一代把权重放了出来
 - `mj-updates` 发布 midjourney-V8 Alpha-出图快约 5 倍 + 原生 2K（--hd）
 - `comfy-docs` 发布 hidream-HiDream-I1-17B 出图底座，MIT
 - `comfy-docs` 发布 ernie-image-ERNIE-Image-8B DiT 正式档，apache-2.0
@@ -142,7 +145,6 @@
 - `comfy-docs` 发布 boogu-image-Boogu-Image-0.1-生成与编辑合到一个模型，apache-2.0
 - `comfy-docs` 发布 newbie-image-NewBie-image-Exp0.1-3.5B Next-DiT，二次元向
 - `card-deepseek-ai-deepseek-v3-2` 发布 deepseek-V3.2-把算力效率和推理/Agent 表现放到一起
-- `hf-org` 发布 deepseek-V4-换代：Pro 1.6T（激活 49B）与 Flash 两档 MoE
 - `card-zai-org-glm-4-5` 发布 glm-GLM-4.5-这一代的开放权重发布
 - `card-zai-org-glm-4-6` 发布 glm-GLM-4.6-小版本迭代
 - `card-zai-org-glm-4-7` 发布 glm-GLM-4.7-小版本迭代

@@ -1,4 +1,4 @@
-# 版本哨兵 · 2026-10-12
+# 版本哨兵 · 2026-10-13
 
 扫 136 个模型：**有更新的一代 0** · 口径存疑 0 · 牌子摘了 30 · 比不了 55
 
@@ -41,7 +41,7 @@
 - **Seed GR-3**（seed-gr3）记的是 `GR-3`，`seed-models`（2026-10-07）上没有这个号
 - **SPAR3D**（spar3d）记的是 `Stable Point Aware 3D`，`stability-spar3d`（2026-10-10）上没有这个号
 - **Tripo**（tripo）记的是 `P1-20260311`，`tripo-docs-generation`（2026-10-10）上没有这个号
-- **Meta V-JEPA**（vjepa）记的是 `V-JEPA 2`，`vjepa2-blog`（2026-09-13）上没有这个号
+- **Meta V-JEPA**（vjepa）记的是 `V-JEPA 2`，`vjepa2-blog`（2026-10-13）上没有这个号
 
 ## 比不了（55）
 
