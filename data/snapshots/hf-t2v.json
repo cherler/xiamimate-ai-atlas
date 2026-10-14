@@ -1,8 +1,8 @@
 {
   "url": "https://huggingface.co/api/models?filter=text-to-video&sort=downloads&direction=-1&limit=60",
   "kind": "json",
-  "fetched_at": "2026-10-11",
-  "digest": "9a27a9e7b0bcbad3",
+  "fetched_at": "2026-10-14",
+  "digest": "72d8a7c1452f2321",
   "items": [
     "Abiray/LTX-2.5-Distilled-GGUF\t",
     "Abiray/MiniMax-H3-GGUF\t",
@@ -39,6 +39,7 @@
     "Wan-AI/Wan2.2-TI2V-5B-Diffusers\t",
     "WarmBloodAban/Minimax-h3_Singularity\t",
     "Winnougan/Cobijada_Minimax-H3_Hybrid_Pruned_ComfyUI\t",
+    "ZhengmingYu/DMAD\t",
     "alibaba-pai/MiniMax-H3-Acc-LoRAs\t",
     "aptech0081/MiniMax-H3-Acc-LoRAs-ComfyUI\t",
     "brurpo/DaSiWa-MiniMax-H3-Hybrid\t",
@@ -48,7 +49,6 @@
     "coolthor/MiniMax-H3-pruned-NVFP4\t",
     "drbaph/MiniMax-H3-Turbo-Lora-ComfyUI\t",
     "fal/MiniMax-H3-Realism-People-LoRA\t",
-    "ibyteohdear/Lightricks-LTX-2\t",
     "ibyteohdear/Lightricks-LTX-2-DISTILLED-10-Eros\t",
     "joeygambino/MiniMax-H3-curve-GGUF\t",
     "joeygambino/MiniMax-H3-encoder-GGUF\t",

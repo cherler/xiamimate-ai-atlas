@@ -1,7 +1,7 @@
 {
   "url": "https://huggingface.co/api/models?filter=image-to-video&sort=downloads&direction=-1&limit=60",
   "kind": "json",
-  "fetched_at": "2026-10-11",
+  "fetched_at": "2026-10-14",
   "digest": "1abf9fe6b52e5695",
   "items": [
     "Abiray/LTX-2.5-Distilled-GGUF\t",

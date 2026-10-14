@@ -1,6 +1,6 @@
-# 信息源监视报告 · 2026-10-13
+# 信息源监视报告 · 2026-10-14
 
-本次检查 24 个到期源（共 456 个）：变化 12 · 首次 0 · 无变化 7 · **抓不到 5**
+本次检查 89 个到期源（共 456 个）：变化 57 · 首次 0 · 无变化 25 · **抓不到 7**
 
 > 这份报告是给人看的那 20 条待办的来源（§59.3 的负反馈：人每周要看的条目 ≤ 20）。
 > 「抓不到」不是失败，是**信息本身** —— 一个长期抓不到的官方源，说明那家厂商没有可 diff 的公开更新入口，
@@ -12,83 +12,138 @@
 
 ## 抓不到（要处理）
 
+- **vidu-changelog**（S/spa）Vidu 平台 · 更新日志 — 还是壳：渲染后正文只有 9 个字符
+  https://platform.vidu.com/docs/update
+- **arxiv-video**（S/atom）arXiv · 视频生成新论文 — The operation was aborted due to timeout
+  http://export.arxiv.org/api/query?search_query=abs:%22video%20generation%22&sortBy=submittedDate&sortOrder=descending&max_results=40
 - **picsart-effects**（C/html）Picsart Effects — HTTP 403
   https://picsart.com/ai-video-effects/
+- **arxiv-worldmodel**（S/atom）arXiv · world model / 实时视频生成 — HTTP 429
+  http://export.arxiv.org/api/query?search_query=abs:%22world%20model%22+AND+abs:%22video%22&sortBy=submittedDate&sortOrder=descending&max_results=40
 - **picsart-video**（C/html）Picsart AI 视频 — HTTP 403
   https://picsart.com/ai-video-generator/
 - **aa-t2i**（A/spa）Artificial Analysis · 文生图竞技场 — 还是壳：渲染后正文只有 281 个字符
   https://artificialanalysis.ai/text-to-image/arena
 - **tripo-site**（S/spa）Tripo 官网 — 被人机验证挡住（页面标题「Just a moment...」）—— 这条源只能人工核，别再换抓法
   https://www.tripo3d.ai/
-- **pi-pi05-blog**（A/html）Physical Intelligence 官方博客 · π₀.₅ — HTTP 429
-  https://www.physicalintelligence.company/blog/pi05
 
 ## 有变化
 
-- **gh-llm-universe** GitHub · datawhalechina/llm-universe（动手学大模型应用开发）
-- **gh-all-in-rag** GitHub · datawhalechina/all-in-rag（RAG 技术全栈指南）
-- **gh-handy-multi-agent** GitHub · datawhalechina/handy-multi-agent（多智能体教程）
-- **gh-llm-action** GitHub · liguodongiot/llm-action（大模型工程化实战）
-- **gh-self-llm** GitHub · datawhalechina/self-llm（开源大模型食用指南）
-- **gh-langchain-zh** GitHub · LangChain 中文入门教程
-- **gh-llamafactory** GitHub · hiyouga/LLaMA-Factory
-- **gh-chattts-cn** ChatTTS 官方中文文档
-- **gh-comfyui** GitHub · Comfy-Org/ComfyUI
-- **gh-sdbook** GitHub · StableDiffusionBook（中文 AI 绘画手册）
-- **maniskill-gh** ManiSkill 仿真环境仓库
-- **hf-org** Hugging Face 官方组织目录（模型接口）
-  新增 293 条：2Noise/ChatTTS、Abiray/Kroma-v0.3.1-Turbo-OPD-GGUF、AtomicChat/Qwen-Image-2.1-Turbo-Uncensored-GGUF、AuroraAI-Research/AuroraIMG-6M、AxiomicLabs/GPT-S3-3M、AxiomicLabs/GPT-X3-150M、BAAI/bge-base-en-v1.5、BAAI/bge-reranker-v2-m3、Bingsu/adetailer、ByteDance/SDXL-Lightning、CMSManhattan/JiRackUltra_1b、Comfy-Org/ltx-2 …
+- **google-video-docs** Google AI for Developers · 视频生成
+- **vidu-model-map** Vidu 平台 · Model Map（官方模型清单）
+- **vidu-function-list** Vidu 平台 · Function List（官方按模型列的能力清单）
+- **aa-t2v** Artificial Analysis · 文生视频榜
+- **aa-i2v** Artificial Analysis · 图生视频榜
+- **hf-t2v** Hugging Face · text-to-video 按下载量
+  新增 1 条：ZhengmingYu/DMAD
+- **hf-v2v** Hugging Face · video-to-video 按下载量
+  新增 5 条：Lightricks/LTX-2.3-22b-IC-LoRA-In-Outpainting、Lightricks/LTX-2.5-22b-IC-LoRA-Layout-To-Render、Lightricks/LTX-2.5-22b-IC-LoRA-Restore、Lightricks/LTX-2.5-22b-IC-LoRA-SDR-To-HDR、szwagros/SoL-Refiner-LTX-2.5-H3-int8-convrot
+- **replicate-t2v** Replicate · text-to-video 集合
+- **runway-models** Runway · Models 指南
+- **apiyi-models** APIYI · 更新日志（API 聚合商）
+- **techcrunch-ai** TechCrunch · AI（RSS）
+  新增 20 条：Science Corporation implants its vision-restoring chip in its first Stargardt disease patient、Cerebras CEO says we&#8217;re nearing a future where everyone has a personal AI assistant at home、Industrial Next wants factory robots to switch tasks in minutes, not weeks、Cerebras CEO pushes back on AI doomsday warnings、Judge orders OpenAI to turn over hiring records in Apple trade secrets case、Flox Intelligence is building AI to keep wildlife away from trains, airports, and roads、Facebook is giving users more control over their algorithm、Laplace Intelligence red-teams robots and self-driving cars before they hit the real world、Pluto Security raises $42M as AI gives enterprise security teams a new headache、Google Play now lets anyone build private, vibe-coded apps that run on Android、SpaceX and Google both said no. Now his software is riding a SpaceX rocket next to Google’s、TechCrunch Disrupt 2026: Day 1 …
+- **hf-lineage** Hugging Face · 模型公开目录
+  新增 100 条：15A7/1R8yYa5tLXIBy75w、15A7/2Huk94Dz4p0UT0d7、15A7/J812is4H3kB7DD5Q、15A7/JYjKS1FKoznQIOLc、15A7/PDZRA8eEZNtAFFC8、15A7/RICog8WAYJwhOEiU、15A7/SwMnP3gOxChKs26q、15A7/Y3OfDn7nPdd2jd8P、Devubiodee/plutus-gpt-oss、DistributedAI/102-v1、DistributedAI/102-v13、DistributedAI/102-v14 …
+- **framepack-gh** GitHub · FramePack
+- **fpwrapper-gh** GitHub · ComfyUI-FramePackWrapper
+- **latentsync-gh** GitHub · bytedance/LatentSync
+- **lswrapper-gh** GitHub · ComfyUI-LatentSyncWrapper
+- **float-gh** GitHub · ComfyUI-FLOAT
+- **wanwrapper-gh** GitHub · ComfyUI-WanVideoWrapper
+- **comfy-org-hf** Hugging Face · Comfy-Org 官方组织
+  新增 2 条：Comfy-Org/Ming-Image、Comfy-Org/Qwen-Image-2.1
+- **ltx-comfy-gh** GitHub · ComfyUI-LTXVideo
+- **mpt-gh** GitHub · harry0703/MoneyPrinterTurbo
+- **manim-gh** GitHub · ManimCommunity/manim
+- **pyvideotrans-gh** GitHub · jianchang512/pyvideotrans
+- **duix-gh** GitHub · duixcom/Duix-Avatar
+- **fay-gh** GitHub · xszyou/Fay
+- **narrato-gh** GitHub · linyqh/NarratoAI
+- **zho-wf-gh** GitHub · ZHO-ZHO-ZHO/ComfyUI-Workflows-ZHO
+- **echomimic-gh** GitHub · antgroup/echomimic
+- **linly-talker-gh** GitHub · Kedreamix/Linly-Talker
+- **animate-anything-gh** GitHub · alibaba/animate-anything
+- **huobao-gh** GitHub · chatfire-AI/huobao-drama
+- **awesome-vd-gh** GitHub · showlab/Awesome-Video-Diffusion
+- **hf-t2i** Hugging Face · text-to-image 按下载量
+  新增 5 条：AtomicChat/Qwen-Image-2.1-Turbo-Uncensored-GGUF、LyliaEngine/waiIllustriousSDXL_v170、abenzerps/Qwen-Image-2.1-Uncensored-Quantized、latent-consistency/lcm-lora-sdv1-5、unsloth/Qwen-Image-2.1-Turbo-GGUF
+- **hf-i2i** Hugging Face · image-to-image 按下载量
+  新增 3 条：joyfox/Qwen-Image-Edit-2509-Upscale2K、lllyasviel/control_v11p_sd15_openpose、mflux-community/qwen-image-edit-2511-mflux-q4
+- **bailian-models** 阿里云百炼 · 支持的模型清单
+- **ark-models** 火山方舟 · 模型列表
+- **s-e2ab-gh** GitHub · DrewThomasson/ebook2audiobook
+- **s-abogen-gh** GitHub · denizsafak/abogen
+- **s-epub2tts-gh** GitHub · aedocw/epub2tts
+- **s-abcreator-gh** GitHub · prakharsr/audiobook-creator
+- **s-smartsub-gh** GitHub · buxuku/SmartSub
+- **s-pipecat-gh** GitHub · pipecat-ai/pipecat
+- **s-livekit-gh** GitHub · livekit/agents
+- **s-hfs2s-gh** GitHub · huggingface/speech-to-speech
+- **s-moshi-gh** GitHub · kyutai-labs/moshi
+- **s-acestep15-gh** GitHub · ace-step/ACE-Step-1.5
+- **s-acestep-gh** GitHub · ace-step/ACE-Step
+- **s-yue-gh** GitHub · multimodal-art-projection/YuE
+- **s-audiocraft-gh** GitHub · facebookresearch/audiocraft
+- **s-gptsovits-gh** GitHub · RVC-Boss/GPT-SoVITS
+- **s-rvc-gh** GitHub · RVC-Project/Retrieval-based-Voice-Conversion-WebUI
+- **s-fishspeech-gh** GitHub · fishaudio/fish-speech
+- **s-indextts-gh** GitHub · index-tts/index-tts
+- **s-cosyvoice-gh** GitHub · QwenAudio/CosyVoice
+- **s-f5tts-gh** GitHub · SWivid/F5-TTS
+- **s-qwen3omni-gh** GitHub · QwenLM/Qwen3-Omni
+- **sci-af3-blog** Google 官方博客 · AlphaFold 3
 
 ## 全部
 
 | 源 | 权威 | 类型 | 状态 |
 |---|---|---|---|
-| seed-blog | S | html | 未到期（上次 2026-10-07） |
+| seed-blog | S | html | 无变化 |
 | seed-models | S | html | 未到期（上次 2026-10-07） |
-| kling-api-updates | S | spa | 未到期（上次 2026-10-07） |
+| kling-api-updates | S | spa | 无变化 |
 | kling-site | S | spa | 未到期（上次 2026-10-10） |
-| google-video-docs | S | html | 未到期（上次 2026-10-07） |
+| google-video-docs | S | html | 变了 |
 | deepmind-veo | S | html | 未到期（上次 2026-10-07） |
 | vertex-video-ref | S | html | 未到期（上次 2026-10-07） |
 | openai-sora-eol | S | spa | 未到期（上次 2026-08-12） |
 | openai-sora-2 | S | spa | 从未抓过 |
-| wan-gh-releases | S | json | 未到期（上次 2026-10-07） |
-| wan-hf | S | json | 未到期（上次 2026-10-07） |
-| minimax-blog | S | html | 未到期（上次 2026-10-07） |
-| minimax-hf | S | json | 未到期（上次 2026-10-07） |
+| wan-gh-releases | S | json | 无变化 |
+| wan-hf | S | json | 无变化 |
+| minimax-blog | S | html | 无变化 |
+| minimax-hf | S | json | 无变化 |
 | runway-research | S | html | 未到期（上次 2026-10-07） |
 | luma-site | S | html | 未到期（上次 2026-10-07） |
-| vidu-changelog | S | spa | 未到期（上次 2026-10-07） |
-| vidu-model-map | S | spa | 未到期（上次 2026-10-07） |
-| vidu-function-list | S | spa | 未到期（上次 2026-10-07） |
+| vidu-changelog | S | spa | 抓不到（还是壳：渲染后正文只有 9 个字符） |
+| vidu-model-map | S | spa | 变了 |
+| vidu-function-list | S | spa | 变了 |
 | vidu-site | S | html | 未到期（上次 2026-10-07） |
 | vidu-s1-gh | S | json | 未到期（上次 2026-10-07） |
 | pika-site | S | html | 未到期（上次 2026-10-08） |
 | higgsfield-site | S | html | 未到期（上次 2026-10-07） |
 | decart-research | S | html | 未到期（上次 2026-10-07） |
-| arxiv-video | S | atom | 未到期（上次 2026-10-07） |
-| epoch-notable | A | csv | 未到期（上次 2026-10-07） |
-| aa-t2v | A | spa | 未到期（上次 2026-10-07） |
-| aa-i2v | A | spa | 未到期（上次 2026-10-07） |
-| hf-t2v | A | json | 未到期（上次 2026-10-11） |
-| hf-i2v | A | json | 未到期（上次 2026-10-11） |
-| hf-v2v | A | json | 未到期（上次 2026-10-07） |
+| arxiv-video | S | atom | 抓不到（The operation was aborted due to timeout） |
+| epoch-notable | A | csv | 无变化 |
+| aa-t2v | A | spa | 变了 |
+| aa-i2v | A | spa | 变了 |
+| hf-t2v | A | json | 变了 |
+| hf-i2v | A | json | 无变化 |
+| hf-v2v | A | json | 变了 |
 | fal-video | S | spa | 未到期（上次 2026-10-08） |
-| replicate-t2v | S | html | 未到期（上次 2026-10-07） |
+| replicate-t2v | S | html | 变了 |
 | aiwiki | B | spa | 未到期（上次 2026-10-11） |
 | futurepedia | B | html | 未到期（上次 2026-10-11） |
 | comfyui-releases | C | json | 未到期（上次 2026-10-07） |
 | capcut-templates | C | html | 未到期（上次 2026-10-11） |
 | picsart-effects | C | html | 抓不到（HTTP 403） |
-| runway-changelog | S | spa | 未到期（上次 2026-10-07） |
-| runway-models | S | spa | 未到期（上次 2026-10-07） |
+| runway-changelog | S | spa | 无变化 |
+| runway-models | S | spa | 变了 |
 | luma-changelog | S | spa | 未到期（上次 2026-08-07） |
-| seed-models-hub | S | html | 未到期（上次 2026-10-07） |
-| apiyi-models | S | spa | 未到期（上次 2026-10-07） |
-| arxiv-worldmodel | S | atom | 未到期（上次 2026-10-07） |
-| techcrunch-ai | B | atom | 未到期（上次 2026-10-11） |
-| ltx-gh | S | json | 未到期（上次 2026-10-07） |
-| ltx-hf-org | S | json | 未到期（上次 2026-10-11） |
+| seed-models-hub | S | html | 无变化 |
+| apiyi-models | S | spa | 变了 |
+| arxiv-worldmodel | S | atom | 抓不到（HTTP 429） |
+| techcrunch-ai | B | atom | 变了 |
+| ltx-gh | S | json | 无变化 |
+| ltx-hf-org | S | json | 无变化 |
 | decart-site | S | spa | 未到期（上次 2026-10-11） |
 | picsart-video | C | html | 抓不到（HTTP 403） |
 | libtv | C | spa | 从未抓过 |
@@ -106,31 +161,31 @@
 | hf-course | S | html | 未到期（上次 2026-08-12） |
 | comfy-docs | S | spa | 未到期（上次 2026-10-07） |
 | h3-card | S | html | 未到期（上次 2026-10-07） |
-| hf-lineage | S | json | 未到期（上次 2026-10-07） |
-| vacetools-gh | C | json | 未到期（上次 2026-10-07） |
-| framepack-gh | S | json | 未到期（上次 2026-10-07） |
-| fpwrapper-gh | C | json | 未到期（上次 2026-10-07） |
-| latentsync-gh | S | json | 未到期（上次 2026-10-07） |
-| lswrapper-gh | C | json | 未到期（上次 2026-10-07） |
-| float-gh | C | json | 未到期（上次 2026-10-07） |
-| sviflf-gh | C | json | 未到期（上次 2026-10-07） |
-| flflatent-gh | C | json | 未到期（上次 2026-10-07） |
+| hf-lineage | S | json | 变了 |
+| vacetools-gh | C | json | 无变化 |
+| framepack-gh | S | json | 变了 |
+| fpwrapper-gh | C | json | 变了 |
+| latentsync-gh | S | json | 变了 |
+| lswrapper-gh | C | json | 变了 |
+| float-gh | C | json | 变了 |
+| sviflf-gh | C | json | 无变化 |
+| flflatent-gh | C | json | 无变化 |
 | mm-blog | S | html | 未到期（上次 2026-10-11） |
-| wanwrapper-gh | C | json | 未到期（上次 2026-10-07） |
-| comfy-org-hf | S | json | 未到期（上次 2026-10-07） |
-| ltx-comfy-gh | S | json | 未到期（上次 2026-10-07） |
-| mpt-gh | C | json | 未到期（上次 2026-10-07） |
-| manim-gh | C | json | 未到期（上次 2026-10-07） |
-| pyvideotrans-gh | C | json | 未到期（上次 2026-10-07） |
-| duix-gh | C | json | 未到期（上次 2026-10-07） |
-| fay-gh | C | json | 未到期（上次 2026-10-07） |
-| narrato-gh | C | json | 未到期（上次 2026-10-07） |
-| zho-wf-gh | C | json | 未到期（上次 2026-10-07） |
-| echomimic-gh | C | json | 未到期（上次 2026-10-07） |
-| linly-talker-gh | C | json | 未到期（上次 2026-10-07） |
-| animate-anything-gh | C | json | 未到期（上次 2026-10-07） |
-| huobao-gh | C | json | 未到期（上次 2026-10-07） |
-| awesome-vd-gh | C | json | 未到期（上次 2026-10-07） |
+| wanwrapper-gh | C | json | 变了 |
+| comfy-org-hf | S | json | 变了 |
+| ltx-comfy-gh | S | json | 变了 |
+| mpt-gh | C | json | 变了 |
+| manim-gh | C | json | 变了 |
+| pyvideotrans-gh | C | json | 变了 |
+| duix-gh | C | json | 变了 |
+| fay-gh | C | json | 变了 |
+| narrato-gh | C | json | 变了 |
+| zho-wf-gh | C | json | 变了 |
+| echomimic-gh | C | json | 变了 |
+| linly-talker-gh | C | json | 变了 |
+| animate-anything-gh | C | json | 变了 |
+| huobao-gh | C | json | 变了 |
+| awesome-vd-gh | C | json | 变了 |
 | seedream-page | S | html | 未到期（上次 2026-10-07） |
 | openai-models | S | html | 未到期（上次 2026-10-08） |
 | gemini-models | S | html | 未到期（上次 2026-10-08） |
@@ -184,8 +239,8 @@
 | ms-foundry-blog | B | html | 未到期（上次 2026-10-11） |
 | mj-updates | S | html | 未到期（上次 2026-10-07） |
 | aa-t2i | A | spa | 抓不到（还是壳：渲染后正文只有 281 个字符） |
-| hf-t2i | A | json | 未到期（上次 2026-10-11） |
-| hf-i2i | A | json | 未到期（上次 2026-10-11） |
+| hf-t2i | A | json | 变了 |
+| hf-i2i | A | json | 变了 |
 | anthropic-models | S | html | 未到期（上次 2026-10-08） |
 | deepseek-docs | S | html | 未到期（上次 2026-10-08） |
 | xai-docs | S | html | 未到期（上次 2026-10-08） |
@@ -221,16 +276,16 @@
 | mcpservers-gh | S | json | 未到期（上次 2026-10-11） |
 | anthropic-features | S | html | 未到期（上次 2026-10-08） |
 | openai-docs | S | html | 未到期（上次 2026-10-08） |
-| deepseek-pricing | S | html | 无变化 |
-| deepseek-updates | S | html | 无变化 |
-| bailian-models | S | html | 未到期（上次 2026-10-07） |
+| deepseek-pricing | S | html | 未到期（上次 2026-10-13） |
+| deepseek-updates | S | html | 未到期（上次 2026-10-13） |
+| bailian-models | S | html | 变了 |
 | kimi-pricing | S | html | 未到期（上次 2026-10-07） |
 | glm-52-doc | S | html | 未到期（上次 2026-10-07） |
 | kimi-websearch | S | html | 未到期（上次 2026-10-07） |
 | bailian-websearch | S | html | 未到期（上次 2026-10-07） |
 | glm-websearch | S | html | 未到期（上次 2026-10-07） |
 | bailian-coder | S | html | 未到期（上次 2026-10-07） |
-| ark-models | S | spa | 未到期（上次 2026-10-07） |
+| ark-models | S | spa | 变了 |
 | minimax-api-overview | S | spa | 未到期（上次 2026-10-10） |
 | openai-caching | S | html | 未到期（上次 2026-10-08） |
 | openai-structured | S | html | 未到期（上次 2026-10-08） |
@@ -241,12 +296,12 @@
 | minimax-openai-api | S | spa | 未到期（上次 2026-10-07） |
 | minimax-server-tools | S | spa | 未到期（上次 2026-10-07） |
 | minimax-caching | S | spa | 未到期（上次 2026-10-07） |
-| minimax-openapi | S | json | 未到期（上次 2026-10-07） |
+| minimax-openapi | S | json | 无变化 |
 | gemini-computer-use | S | spa | 未到期（上次 2026-10-08） |
 | ark-pricing | S | spa | 未到期（上次 2026-10-07） |
-| bailian-models-zh | S | spa | 未到期（上次 2026-10-07） |
-| glm-batch | S | html | 未到期（上次 2026-10-07） |
-| glm-chat-api | S | html | 未到期（上次 2026-10-07） |
+| bailian-models-zh | S | spa | 无变化 |
+| glm-batch | S | html | 无变化 |
+| glm-chat-api | S | html | 无变化 |
 | claude-deprecations | S | html | 未到期（上次 2026-10-08） |
 | openai-changelog | S | spa | 未到期（上次 2026-10-08） |
 | gemini-changelog | S | spa | 未到期（上次 2026-10-08） |
@@ -274,28 +329,28 @@
 | llama-card | S | html | 未到期（上次 2026-10-07） |
 | elevenlabs-voices | S | html | 未到期（上次 2026-10-07） |
 | wan-t2v-card | S | html | 未到期（上次 2026-10-07） |
-| minimax-release | S | spa | 未到期（上次 2026-10-07） |
-| s-e2ab-gh | C | json | 未到期（上次 2026-10-07） |
-| s-abogen-gh | C | json | 未到期（上次 2026-10-07） |
-| s-epub2tts-gh | C | json | 未到期（上次 2026-10-07） |
-| s-abcreator-gh | C | json | 未到期（上次 2026-10-07） |
-| s-smartsub-gh | C | json | 未到期（上次 2026-10-07） |
-| s-youdub-gh | C | json | 未到期（上次 2026-10-07） |
-| s-pipecat-gh | C | json | 未到期（上次 2026-10-07） |
-| s-livekit-gh | C | json | 未到期（上次 2026-10-07） |
-| s-hfs2s-gh | C | json | 未到期（上次 2026-10-07） |
-| s-moshi-gh | C | json | 未到期（上次 2026-10-07） |
-| s-acestep15-gh | C | json | 未到期（上次 2026-10-07） |
-| s-acestep-gh | C | json | 未到期（上次 2026-10-07） |
-| s-yue-gh | C | json | 未到期（上次 2026-10-07） |
-| s-audiocraft-gh | C | json | 未到期（上次 2026-10-07） |
-| s-gptsovits-gh | C | json | 未到期（上次 2026-10-07） |
-| s-rvc-gh | C | json | 未到期（上次 2026-10-07） |
-| s-fishspeech-gh | C | json | 未到期（上次 2026-10-07） |
-| s-indextts-gh | C | json | 未到期（上次 2026-10-07） |
-| s-cosyvoice-gh | C | json | 未到期（上次 2026-10-07） |
-| s-f5tts-gh | C | json | 未到期（上次 2026-10-07） |
-| s-qwen3omni-gh | C | json | 未到期（上次 2026-10-07） |
+| minimax-release | S | spa | 无变化 |
+| s-e2ab-gh | C | json | 变了 |
+| s-abogen-gh | C | json | 变了 |
+| s-epub2tts-gh | C | json | 变了 |
+| s-abcreator-gh | C | json | 变了 |
+| s-smartsub-gh | C | json | 变了 |
+| s-youdub-gh | C | json | 无变化 |
+| s-pipecat-gh | C | json | 变了 |
+| s-livekit-gh | C | json | 变了 |
+| s-hfs2s-gh | C | json | 变了 |
+| s-moshi-gh | C | json | 变了 |
+| s-acestep15-gh | C | json | 变了 |
+| s-acestep-gh | C | json | 变了 |
+| s-yue-gh | C | json | 变了 |
+| s-audiocraft-gh | C | json | 变了 |
+| s-gptsovits-gh | C | json | 变了 |
+| s-rvc-gh | C | json | 变了 |
+| s-fishspeech-gh | C | json | 变了 |
+| s-indextts-gh | C | json | 变了 |
+| s-cosyvoice-gh | C | json | 变了 |
+| s-f5tts-gh | C | json | 变了 |
+| s-qwen3omni-gh | C | json | 变了 |
 | ideogram-overview | A | html | 未到期（上次 2026-10-07） |
 | ideogram-v4-remix | A | html | 未到期（上次 2026-10-07） |
 | ideogram-v3-inpaint | A | html | 未到期（上次 2026-10-07） |
@@ -315,9 +370,9 @@
 | hf-cosyvoice2 | A | json | 未到期（上次 2026-10-11） |
 | hf-glmtts | A | json | 未到期（上次 2026-10-11） |
 | hf-glm4voice | A | json | 未到期（上次 2026-10-11） |
-| hf-fishspeech15 | A | html | 未到期（上次 2026-09-14） |
+| hf-fishspeech15 | A | html | 无变化 |
 | hf-qwen3omni | A | json | 未到期（上次 2026-10-11） |
-| hf-qwen-layered | A | html | 未到期（上次 2026-09-14） |
+| hf-qwen-layered | A | html | 无变化 |
 | hf-org-minimax | A | json | 未到期（上次 2026-10-11） |
 | hf-org-xai | A | json | 未到期（上次 2026-10-11） |
 | hf-org-elevenlabs | A | json | 未到期（上次 2026-10-11） |
@@ -343,16 +398,16 @@
 | bfl-flux3 | A | html | 未到期（上次 2026-10-10） |
 | anthropic-privacy | A | html | 未到期（上次 2026-08-14） |
 | stability-terms | A | html | 未到期（上次 2026-08-14） |
-| gh-llm-universe | C | json | 变了 |
-| gh-all-in-rag | C | json | 变了 |
-| gh-handy-multi-agent | C | json | 变了 |
-| gh-llm-action | C | json | 变了 |
-| gh-self-llm | C | json | 变了 |
-| gh-langchain-zh | C | json | 变了 |
-| gh-llamafactory | C | json | 变了 |
-| gh-chattts-cn | C | json | 变了 |
-| gh-comfyui | C | json | 变了 |
-| gh-sdbook | C | json | 变了 |
+| gh-llm-universe | C | json | 未到期（上次 2026-10-13） |
+| gh-all-in-rag | C | json | 未到期（上次 2026-10-13） |
+| gh-handy-multi-agent | C | json | 未到期（上次 2026-10-13） |
+| gh-llm-action | C | json | 未到期（上次 2026-10-13） |
+| gh-self-llm | C | json | 未到期（上次 2026-10-13） |
+| gh-langchain-zh | C | json | 未到期（上次 2026-10-13） |
+| gh-llamafactory | C | json | 未到期（上次 2026-10-13） |
+| gh-chattts-cn | C | json | 未到期（上次 2026-10-13） |
+| gh-comfyui | C | json | 未到期（上次 2026-10-13） |
+| gh-sdbook | C | json | 未到期（上次 2026-10-13） |
 | waytoagi-wiki | C | spa | 从未抓过 |
 | hf-hunyuan3d-21 | S | html | 未到期（上次 2026-10-10） |
 | tripo-docs-generation | S | spa | 未到期（上次 2026-10-10） |
@@ -383,8 +438,8 @@
 | hf-apple-sharp | S | html | 未到期（上次 2026-09-25） |
 | gh-hunyuan3d-api | S | html | 未到期（上次 2026-09-25） |
 | hf-anysplat | S | html | 未到期（上次 2026-09-25） |
-| arxiv-seed3d-20 | S | html | 无变化 |
-| arxiv-seed3d-10 | S | html | 无变化 |
+| arxiv-seed3d-20 | S | html | 未到期（上次 2026-10-13） |
+| arxiv-seed3d-10 | S | html | 未到期（上次 2026-10-13） |
 | hf-trellis2 | S | html | 未到期（上次 2026-09-25） |
 | pixverse-caps | S | html | 未到期（上次 2026-10-10） |
 | pixverse-v6 | S | html | 未到期（上次 2026-10-10） |
@@ -418,7 +473,7 @@
 | elevenlabs-docs | S | html | 未到期（上次 2026-10-08） |
 | gemini-robotics-er | S | html | 未到期（上次 2026-10-10） |
 | figure-helix | A | html | 未到期（上次 2026-10-10） |
-| pi-pi05-blog | A | html | 抓不到（HTTP 429） |
+| pi-pi05-blog | A | html | 无变化 |
 | pi-openpi-gh | A | html | 未到期（上次 2026-10-10） |
 | nvidia-groot-gh | A | html | 未到期（上次 2026-10-10） |
 | openvla-gh | A | html | 未到期（上次 2026-10-10） |
@@ -427,19 +482,19 @@
 | lerobot-gh | A | json | 未到期（上次 2026-10-10） |
 | groot-policy-doc | A | html | 未到期（上次 2026-10-10） |
 | rynnbrain-card | A | html | 未到期（上次 2026-10-10） |
-| maniskill-gh | B | json | 变了 |
+| maniskill-gh | B | json | 未到期（上次 2026-10-13） |
 | cosmos3-card | S | html | 未到期（上次 2026-10-10） |
 | genie3-blog | A | html | 未到期（上次 2026-10-10） |
 | odyssey-site | S | html | 未到期（上次 2026-10-10） |
 | worldlabs-marble | A | html | 未到期（上次 2026-10-10） |
 | matrixgame-card | A | html | 未到期（上次 2026-10-10） |
 | hunyuanworld-gh | A | html | 未到期（上次 2026-10-10） |
-| wham-card | A | html | 无变化 |
-| vjepa2-blog | A | html | 无变化 |
-| vjepa2-card | B | html | 无变化 |
+| wham-card | A | html | 未到期（上次 2026-10-13） |
+| vjepa2-blog | A | html | 未到期（上次 2026-10-13） |
+| vjepa2-card | B | html | 未到期（上次 2026-10-13） |
 | sci-boltz-gh | A | html | 未到期（上次 2026-10-10） |
-| sci-af3-blog | A | html | 未到期（上次 2026-09-14） |
-| sci-esm2-card | B | html | 未到期（上次 2026-09-14） |
+| sci-af3-blog | A | html | 变了 |
+| sci-esm2-card | B | html | 无变化 |
 | sci-wn-gh | A | html | 未到期（上次 2026-10-10） |
 | sci-aurora-gh | A | html | 未到期（上次 2026-10-10） |
 | sci-neuralgcm-gh | A | html | 未到期（上次 2026-10-10） |
@@ -470,7 +525,7 @@
 | seed-blog-2_0 | A | html | 未到期（上次 2026-10-10） |
 | ideogram-x | A | html | 未到期（上次 2026-10-10） |
 | hf-funcineforge | S | html | 未到期（上次 2026-10-04） |
-| hf-org | S | json | 变了 |
+| hf-org | S | json | 未到期（上次 2026-10-13） |
 | gh-gptsovits-cn | C | json | 未到期（上次 2026-10-11） |
 | gemini-nb21 | S | spa | 未到期（上次 2026-10-10） |
 | xai-grok47-model | S | html | 未到期（上次 2026-10-11） |
