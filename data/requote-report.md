@@ -1,26 +1,32 @@
-# 引文回查 · 2026-10-13
+# 引文回查 · 2026-10-14
 
-回查 1250 条：无英文锚 742 · 对得上 346 · 复核已处置 129 · 无快照 20 · 找不到 4 · 人审认过·非逐字 8 · 快照无正文 1
+回查 1250 条：无英文锚 745 · 对得上 344 · 复核已处置 123 · 无快照 20 · 找不到 7 · 快照无正文 3 · 人审认过·非逐字 8
 
 > 这份报告回答一件事：**一格引文里的原句，在它署名的那份快照里还在不在。**
 > ⚠️ **失败不等于引文错。** 三种成因要分开：真署错了页 / 这一页的快照是残的（抓回来的是导航不是正文）/ 当初记的就不是逐字原文。**脚本不猜。**
 > 「人审认过·非逐字」那一摞是**审阅台上已经判过的**，列在这里只为不假装它们消失了 —— 不用再看。
 
-## 失败 ≥3 条的源（1 个）—— 这几个大概率是抓法不对
+## 失败 ≥3 条的源（2 个）—— 这几个大概率是抓法不对
 
+- **vidu-function-list**（3 条）：vidu-q × flf、vidu-q × multiref、vidu-q × extend
 - **recraft-blog**（3 条）：发布 recraft-Recraft V3-长段文字 + 文字位置和大小可指定、发布 recraft-Recraft V4-按设计审美重训的一代、发布 recraft-Recraft V4.1-写实更自然、短提示词也能懂
 
 ## 全部
 
-### 找不到（4）
+### 找不到（7）
 
+- `vidu-function-list` vidu-q × flf —— 锚「Start end to video」
+- `vidu-function-list` vidu-q × multiref —— 锚「Supports uploading multiple images」
+- `vidu-function-list` vidu-q × extend —— 锚「Supports extension from 1」
 - `xai-grok47-model` grok × t-batch —— 锚「Batch API: Not supported」
 - `recraft-blog` 发布 recraft-Recraft V3-长段文字 + 文字位置和大小可指定 —— 锚「Recraft V3 is the only model in the world that can generate images wit」
 - `recraft-blog` 发布 recraft-Recraft V4-按设计审美重训的一代 —— 锚「brings true visual taste to AI image generation」
 - `recraft-blog` 发布 recraft-Recraft V4.1-写实更自然、短提示词也能懂 —— 锚「Give V4.1 just a few words, and it'll give you something worth keeping」
 
-### 快照无正文（1）
+### 快照无正文（3）
 
+- `hf-lineage` kokoro × s-clone —— 锚「No synthetic audio from open TTS models or custom voice clones」
+- `hf-lineage` hunyuan3d × d-scene —— 锚「immersive 3D world generation」
 - `hf-org` 发布 deepseek-V4-换代：Pro 1.6T（激活 49B）与 Flash 两档 MoE —— 锚「We present a preview version of DeepSeek-V4 series, including two stro」
 
 ### 无快照（20）
@@ -57,7 +63,7 @@
 - `hf-hunyuan3d-21` 发布 hy3d-2.1 —— 锚「We release the first production-ready 3D asset generation model, Hunyu」（这句在 gh-hunyuan3d-21）
 - `openai-model-tts` 发布 gpttts-2025-12 —— 锚「slugs to point to the 2025-12-15 snapshots」（这句在 openai-changelog）
 
-### 复核已处置（129）
+### 复核已处置（123）
 
 - `veo-doc` veo × flf
 - `veo-doc` veo × charref
@@ -84,15 +90,11 @@
 - `elevenlabs-models` elevenlabs × s-multi
 - `gemini-tts` gemini-tts × s-format
 - `openai-realtime` gpt-realtime × s-rt-transport
-- `hf-lineage` cosyvoice × s-design
 - `cosyvoice-card` cosyvoice × s-style
-- `hf-lineage` cosyvoice × s-long
-- `hf-lineage` kokoro × s-clone
 - `fish-s2pro-card` fish-speech × s-openweights
 - `hf-qwen-layered` qwen-image × i-layered
 - `gh-hunyuan3d-api` hunyuan3d × d-remesh
 - `card-tencent-hunyuan3d-part` hunyuan3d × d-edit
-- `hf-lineage` hunyuan3d × d-scene
 - `meshy-changelog` meshy × d-multiview
 - `rodin-gen25-api` rodin × d-t23d
 - `rodin-gen25-api` rodin × d-i23d
@@ -117,7 +119,6 @@
 - `bfl-flux3` 模型 flux-video 版本
 - `pixverse-v6` 模型 pixverse 版本
 - `hunyuanworld-gh` 模型 hunyuan-world 版本
-- `sci-af3-blog` 模型 alphafold 版本
 - `sci-wn-gh` 模型 weathernext 版本
 - `minimax-release-notes` 发布 hailuo-01-运镜控制
 - `minimax-release-notes` 发布 hailuo-02-换代02：1080p
@@ -168,7 +169,6 @@
 - `rodin-api-docs` 发布 rodin-gen2
 - `rodin-gen25-api` 发布 rodin-gen2.5
 - `card-tencent-hunyuan3d-part` 发布 hy3d-part
-- `hf-lineage` 发布 trellis-text
 - `meshy-changelog` 发布 meshy-remesh
 - `meshy-changelog` 发布 meshy-format
 - `meshy-changelog` 发布 meshy-7
