@@ -1,27 +1,35 @@
-# 引文回查 · 2026-10-14
+# 引文回查 · 2026-10-15
 
-回查 1250 条：无英文锚 745 · 对得上 344 · 复核已处置 123 · 无快照 20 · 找不到 7 · 快照无正文 3 · 人审认过·非逐字 8
+回查 1250 条：无英文锚 745 · 对得上 342 · 复核已处置 118 · 无快照 20 · 找不到 14 · 快照无正文 3 · 人审认过·非逐字 8
 
 > 这份报告回答一件事：**一格引文里的原句，在它署名的那份快照里还在不在。**
 > ⚠️ **失败不等于引文错。** 三种成因要分开：真署错了页 / 这一页的快照是残的（抓回来的是导航不是正文）/ 当初记的就不是逐字原文。**脚本不猜。**
 > 「人审认过·非逐字」那一摞是**审阅台上已经判过的**，列在这里只为不假装它们消失了 —— 不用再看。
 
-## 失败 ≥3 条的源（2 个）—— 这几个大概率是抓法不对
+## 失败 ≥3 条的源（3 个）—— 这几个大概率是抓法不对
 
+- **recraft-endpoints**（5 条）：recraft × i-i2i、recraft × i-inpaint、recraft × i-outpaint …
 - **vidu-function-list**（3 条）：vidu-q × flf、vidu-q × multiref、vidu-q × extend
 - **recraft-blog**（3 条）：发布 recraft-Recraft V3-长段文字 + 文字位置和大小可指定、发布 recraft-Recraft V4-按设计审美重训的一代、发布 recraft-Recraft V4.1-写实更自然、短提示词也能懂
 
 ## 全部
 
-### 找不到（7）
+### 找不到（14）
 
 - `vidu-function-list` vidu-q × flf —— 锚「Start end to video」
 - `vidu-function-list` vidu-q × multiref —— 锚「Supports uploading multiple images」
 - `vidu-function-list` vidu-q × extend —— 锚「Supports extension from 1」
+- `recraft-endpoints` recraft × i-i2i —— 锚「Image-to-image operation tool allows you to create images similar to a」
+- `recraft-endpoints` recraft × i-inpaint —— 锚「It uses a mask to identify the areas to be filled in, where white pixe」
+- `recraft-endpoints` recraft × i-outpaint —— 锚「The area to be generated can be specified either by per-side pixel mar」
+- `recraft-endpoints` recraft × i-fidelity —— 锚「preserving certain aspects like composition, color, or subject identit」
+- `recraft-endpoints` recraft × i-upscale —— 锚「boosting resolution with a focus on refining small details and faces」
 - `xai-grok47-model` grok × t-batch —— 锚「Batch API: Not supported」
+- `xai-release-notes` 模型 grok 版本 —— 锚「Grok 4.7, SpaceXAI s frontier model for coding, agentic tasks, and kno」
 - `recraft-blog` 发布 recraft-Recraft V3-长段文字 + 文字位置和大小可指定 —— 锚「Recraft V3 is the only model in the world that can generate images wit」
 - `recraft-blog` 发布 recraft-Recraft V4-按设计审美重训的一代 —— 锚「brings true visual taste to AI image generation」
 - `recraft-blog` 发布 recraft-Recraft V4.1-写实更自然、短提示词也能懂 —— 锚「Give V4.1 just a few words, and it'll give you something worth keeping」
+- `claude-deprecations` 发布 claude-Claude 4.7-起用新分词器；tem —— 锚「Claude Opus 4.7 and later」
 
 ### 快照无正文（3）
 
@@ -63,7 +71,7 @@
 - `hf-hunyuan3d-21` 发布 hy3d-2.1 —— 锚「We release the first production-ready 3D asset generation model, Hunyu」（这句在 gh-hunyuan3d-21）
 - `openai-model-tts` 发布 gpttts-2025-12 —— 锚「slugs to point to the 2025-12-15 snapshots」（这句在 openai-changelog）
 
-### 复核已处置（123）
+### 复核已处置（118）
 
 - `veo-doc` veo × flf
 - `veo-doc` veo × charref
@@ -76,11 +84,8 @@
 - `ideogram-v1-upscale` ideogram × i-upscale
 - `ideogram-v1-overview` ideogram × i-openweights
 - `recraft-docs` recraft × i-t2i
-- `recraft-nl-edit` recraft × i-edit
-- `recraft-endpoints` recraft × i-outpaint
 - `recraft-docs` recraft × i-styleref
 - `bfl-flux2-multiref` flux × i-styleref
-- `bfl-flux2-overview` flux × i-textrender
 - `hunyuan-image-card` hunyuan-image × i-i2i
 - `hunyuan-image-card` hunyuan-image × i-edit
 - `llama-card` llama × t-long
@@ -115,7 +120,6 @@
 - `seedream-page` 模型 seedream 版本
 - `recraft-docs` 模型 recraft 版本
 - `anthropic-models` 模型 claude 版本
-- `openai-models` 模型 gpt 版本
 - `bfl-flux3` 模型 flux-video 版本
 - `pixverse-v6` 模型 pixverse 版本
 - `hunyuanworld-gh` 模型 hunyuan-world 版本
@@ -187,4 +191,3 @@
 - `hunyuanworld-gh` 发布 hyworld-15
 - `hunyuanworld-gh` 发布 hyworld-2
 - `sci-wn-gh` 发布 wn-gen
-- `gemini-changelog` 发布 lyria-3.5-整首歌那一档换代

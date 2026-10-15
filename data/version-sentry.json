@@ -1,10 +1,35 @@
 {
-  "generated_at": "2026-10-14",
-  "n": 1,
+  "generated_at": "2026-10-15",
+  "n": 3,
   "n_unclear": 0,
   "n_missing": 30,
   "n_skipped": 55,
   "rows": [
+    {
+      "kind": "有更新的一代",
+      "m": "gemini-text",
+      "family": "Gemini",
+      "zh": "Gemini",
+      "cur": "Gemini 3.8 Flash",
+      "cur_as_of": "2026-09-10",
+      "found": "Gemini 4",
+      "found_num": "4",
+      "src": "gemini-models",
+      "src_at": "2026-10-15",
+      "evidence": "tform Gemini API OAuth authentication Policies Terms of service Available regions Abuse monitoring Feedback information Gemini 4 Argon is now available. Try it out . Home Gemini API Docs Send feedback Models This guide introduces all the models available through the Gemini API. Gemini 4 Stable auto_awesome Gemini 4 Arg"
+    },
+    {
+      "kind": "有更新的一代",
+      "m": "grok-voice",
+      "family": "Grok Voice",
+      "cur": "think-fast-2.0",
+      "cur_as_of": "2026-08-12",
+      "found": "Grok Voice 3.0",
+      "found_num": "3.0",
+      "src": "xai-release-notes",
+      "src_at": "2026-10-15",
+      "evidence": "ivacy General Release Notes Release Notes Copy for LLM View as Markdown Create API key Meet grok-4.7 October October 14 Grok Voice 3.0 is available grok-voice-3.0 is now available with Speech to Speech, at the same price as Grok Voice 2.0. grok-voice-latest now points to grok-voice-3.0 , so sessions that use the alias"
+    },
     {
       "kind": "有更新的一代",
       "m": "vidu-q",
@@ -231,7 +256,7 @@
       "cur_as_of": "2026-08-12",
       "found": null,
       "src": "openai-models",
-      "src_at": "2026-10-08",
+      "src_at": "2026-10-15",
       "evidence": ""
     },
     {
