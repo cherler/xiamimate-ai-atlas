@@ -1,4 +1,4 @@
-# 版本哨兵 · 2026-10-16
+# 版本哨兵 · 2026-10-17
 
 扫 136 个模型：**有更新的一代 3** · 口径存疑 0 · 牌子摘了 30 · 比不了 55
 
@@ -25,7 +25,7 @@
 
 - **AnySplat**（anysplat）记的是 `v1`，`hf-anysplat`（2026-10-16）上没有这个号
 - **Aurora**（aurora）记的是 `1`，`sci-aurora-gh`（2026-10-10）上没有这个号
-- **CogVideoX**（cogvideox）记的是 `2b/5b`，`hf-cogvideox`（2026-09-26）上没有这个号
+- **CogVideoX**（cogvideox）记的是 `2b/5b`，`hf-cogvideox`（2026-10-17）上没有这个号
 - **Doubao**（doubao）记的是 `Seed-2.1 Pro`，`doubao-force-2026`（2026-08-12）上没有这个号
 - **ESM-2**（esm）记的是 `650M`，`sci-esm2-card`（2026-10-14）上没有这个号
 - **FLUX 3**（flux-video）记的是 `3`，`bfl-flux3`（2026-10-10）上没有这个号
@@ -36,9 +36,9 @@
 - **HunyuanVideo-Avatar**（hunyuan-avatar）记的是 `1.0`，`hf-hunyuan-avatar`（2026-10-10）上没有这个号
 - **Hunyuan3D**（hunyuan3d）记的是 `3.1`，`replicate-hunyuan3d-31`（2026-10-10）上没有这个号
 - **LivePortrait**（liveportrait）记的是 `1.0`，`hf-liveportrait`（2026-10-10）上没有这个号
-- **MAGI**（magi）记的是 `2 Preview`，`hf-magi`（2026-09-26）上没有这个号
+- **MAGI**（magi）记的是 `2 Preview`，`hf-magi`（2026-10-17）上没有这个号
 - **MatterGen**（mattergen）记的是 `1`，`sci-mattergen-gh`（2026-10-10）上没有这个号
-- **MiniMax Speech**（mm-speech）记的是 `speech-2.8-hd`，`minimax-api-overview`（2026-10-10）上没有这个号
+- **MiniMax Speech**（mm-speech）记的是 `speech-2.8-hd`，`minimax-api-overview`（2026-10-17）上没有这个号
 - **MuseTalk**（musetalk）记的是 `1.0`，`hf-musetalk`（2026-10-10）上没有这个号
 - **NeuralGCM**（neuralgcm）记的是 `1`，`sci-neuralgcm-gh`（2026-10-10）上没有这个号
 - **GPT TTS**（openai-tts）记的是 `GPT-4o mini TTS`，`openai-models`（2026-10-15）上没有这个号

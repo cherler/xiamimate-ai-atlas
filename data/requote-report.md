@@ -1,6 +1,6 @@
-# 引文回查 · 2026-10-16
+# 引文回查 · 2026-10-17
 
-回查 1250 条：无英文锚 746 · 对得上 342 · 复核已处置 117 · 无快照 20 · 找不到 14 · 快照无正文 3 · 人审认过·非逐字 8
+回查 1250 条：无英文锚 747 · 对得上 342 · 复核已处置 116 · 无快照 20 · 找不到 14 · 快照无正文 3 · 人审认过·非逐字 8
 
 > 这份报告回答一件事：**一格引文里的原句，在它署名的那份快照里还在不在。**
 > ⚠️ **失败不等于引文错。** 三种成因要分开：真署错了页 / 这一页的快照是残的（抓回来的是导航不是正文）/ 当初记的就不是逐字原文。**脚本不猜。**
@@ -71,7 +71,7 @@
 - `hf-hunyuan3d-21` 发布 hy3d-2.1 —— 锚「We release the first production-ready 3D asset generation model, Hunyu」（这句在 gh-hunyuan3d-21）
 - `openai-model-tts` 发布 gpttts-2025-12 —— 锚「slugs to point to the 2025-12-15 snapshots」（这句在 openai-changelog）
 
-### 复核已处置（117）
+### 复核已处置（116）
 
 - `veo-doc` veo × flf
 - `veo-doc` veo × charref
@@ -186,7 +186,6 @@
 - `openvla-gh` 发布 openvla-7b
 - `pi-openpi-gh` 发布 pi0-fast
 - `molmoact-card` 发布 molmoact-2
-- `hf-robotics` 发布 cosmos-reason2
 - `hunyuanworld-gh` 发布 hyworld-15
 - `hunyuanworld-gh` 发布 hyworld-2
 - `sci-wn-gh` 发布 wn-gen

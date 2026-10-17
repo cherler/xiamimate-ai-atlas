@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-16",
+  "generated_at": "2026-10-17",
   "n": 3,
   "n_unclear": 0,
   "n_missing": 30,
@@ -74,7 +74,7 @@
       "cur_as_of": "2026-08-14",
       "found": null,
       "src": "hf-cogvideox",
-      "src_at": "2026-09-26",
+      "src_at": "2026-10-17",
       "evidence": ""
     },
     {
@@ -200,7 +200,7 @@
       "cur_as_of": "2026-08-14",
       "found": null,
       "src": "hf-magi",
-      "src_at": "2026-09-26",
+      "src_at": "2026-10-17",
       "evidence": ""
     },
     {
@@ -223,7 +223,7 @@
       "cur_as_of": "2026-08-12",
       "found": null,
       "src": "minimax-api-overview",
-      "src_at": "2026-10-10",
+      "src_at": "2026-10-17",
       "evidence": ""
     },
     {
