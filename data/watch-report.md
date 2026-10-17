@@ -1,6 +1,6 @@
-# 信息源监视报告 · 2026-10-16
+# 信息源监视报告 · 2026-10-17
 
-本次检查 22 个到期源（共 456 个）：变化 15 · 首次 0 · 无变化 2 · **抓不到 5**
+本次检查 33 个到期源（共 456 个）：变化 21 · 首次 0 · 无变化 7 · **抓不到 5**
 
 > 这份报告是给人看的那 20 条待办的来源（§59.3 的负反馈：人每周要看的条目 ≤ 20）。
 > 「抓不到」不是失败，是**信息本身** —— 一个长期抓不到的官方源，说明那家厂商没有可 diff 的公开更新入口，
@@ -25,23 +25,34 @@
 
 ## 有变化
 
-- **arxiv-video** arXiv · 视频生成新论文
-  新增 40 条：Sparse Attention for Video Generation Acceleration via Growing Sparsity and Reduced Search、Temporal Specification Guidance for Text-to-Video Generation、RIGen: Beyond Action Following with Reciprocal Interaction in Generative Gameplay、Orbia: Do Generated Videos Form a Consistent 3D World?、Any Time, Any Space: A World-State-Centric Framework for Agentic Video Generation、Speculative Sampling in Interactive Video Generation、KinoGen: Customizable Humanoid Loco-Manipulation References via Kinematically Grounded Video Generation、DreamHMR: From Video Generation to Human Motion Modeling via Structural Focusing、RepForcing: Representation-Space Initialization for Autoregressive Video Distillation、When Pairwise Preferences Cycle: A Reliability-Anchored Preference Walk for Video GRPO、Kandinsky S2V 1.0: Audio-Driven Avatar Video Generation、Long-horizon Video Generation with Slot Memory Addressed By Region Tokens …
-- **replicate-3d** Replicate · 3D 模型合集
-- **hf-image-to-3d** Hugging Face · Image-to-3D 任务页
-- **comfy-3d-hunyuan** ComfyUI 官方 · Hunyuan3D-2 教程
-- **gh-hunyuan3d-21** Tencent-Hunyuan/Hunyuan3D-2.1 仓库
-- **gh-hunyuan3d-part** Tencent-Hunyuan/Hunyuan3D-Part 仓库
-- **gh-spar3d** Stability-AI/stable-point-aware-3d 仓库
-- **gh-triposg** VAST-AI-Research/TripoSG 仓库
-- **gh-instantmesh** TencentARC/InstantMesh 仓库
-- **hf-instantmesh** Hugging Face · TencentARC/InstantMesh 模型卡
-- **hf-apple-sharp** Hugging Face · apple/Sharp 模型卡
-- **gh-hunyuan3d-api** 混元3D-2.1 仓库 · api_server.py / api_models.py
-- **hf-anysplat** Hugging Face · lhjiang/anysplat 模型卡
-- **hf-trellis2** Hugging Face · microsoft/TRELLIS.2-4B 模型卡
-- **hf-org** Hugging Face 官方组织目录（模型接口）
-  新增 315 条：01-ai/Yi-34B、Abiray/MiniCPM-V-4.7-1B-abliterated-heretic-GGUF、Abiray/flux-3-image-klein-sd-GGUF、Alibaba-NLP/gte-large-en-v1.5、Alibaba-NLP/gte-multilingual-base、AtomicChat/LFM2.5-24B-A2B-Uncensored-GGUF、AtomicChat/MiniCPM-V-4.7-35B-A3B-GGUF、AtomicChat/MiniCPM-V-4.7-35B-A3B-Uncensored-GGUF、BAAI/bge-base-en、BAAI/bge-reranker-base、BAAI/bge-reranker-large、BAAI/bge-small-zh-v1.5 …
+- **hf-t2v** Hugging Face · text-to-video 按下载量
+  新增 1 条：ibyteohdear/Lightricks-LTX-2
+- **hf-i2v** Hugging Face · image-to-video 按下载量
+  新增 4 条：Soul-AILab/SoulX-FlashTalk-14B、Wan-AI/Wan2.2-S2V-14B、robbyant/lingbot-world-fast、speach1sdef178/MiniMax-H3-X2-Detail-VAE
+- **techcrunch-ai** TechCrunch · AI（RSS）
+  新增 20 条：Replit is no longer working with Anthropic, CEO says、India becomes the latest country to report rogue AI agent activity、An Nvidia insider-turned-VC on why robotics hasn’t hit its ChatGPT moment, yet、Physical AI is more than robots, says the Nvidia veteran now investing in it、Elorian’s first AI model wants to reason with images, not just about them、Jev is Vercel&#8217;s fastest-adopted AI model ever、Mark Wahlberg on using AI in film &#8216;the right way&#8217; and being open to an AI clone carrying on his legacy、Veritas expands its anti-counterfeit chip to jewelry, trophies, and fragrance bottles、Replit&#8217;s CEO says the future of work is the &#8216;self-driving company&#8217;、When it came to Cal AI&#8217;s viral success, a small army of influencers paid off、Meta launches an open-weight AI model that runs on Macs、Amazon devices chief Panos Panay sees a future where AI devices replace the need to use apps …
+- **ltx-hf-org** Hugging Face · Lightricks 组织全部仓库
+  新增 1 条：Lightricks/LTX-2.3-22b-LoRA-Foley-V2A
+- **hf-t2i** Hugging Face · text-to-image 按下载量
+  新增 3 条：AtomicChat/Qwen-Image-2.1-Turbo-GGUF、CompVis/stable-diffusion-v1-1、unsloth/Qwen-Image-2.1-Turbo-FP8
+- **hf-i2i** Hugging Face · image-to-image 按下载量
+  新增 5 条：Abiray/Qwen-Image-2.1-Turbo-GGUF、black-forest-labs/flux-3-image-klein、black-forest-labs/flux-3-image-klein-base、black-forest-labs/flux-3-image-klein-comfy、unsloth/FLUX.2-klein-4B-FP8
+- **hf-cogvideox** Hugging Face · zai-org/CogVideoX-2b
+- **hf-i2vgen** Hugging Face · ali-vilab/i2vgen-xl
+- **hf-longcat-edit** Hugging Face · meituan-longcat/LongCat-Image-Edit
+- **hf-magi** Hugging Face · sand-ai/MAGI-1 与 MAGI-2-preview
+- **replicate-lipsync** Replicate · 搜索「lipsync」
+- **comfy-s2v** ComfyUI 官方 · Wan2.2-S2V 音频驱动工作流
+- **heygen-translate** HeyGen · Video Translation 文档
+- **heygen-live** HeyGen · Live Avatar 文档
+- **heygen-photo** HeyGen · Photo Avatar 文档
+- **heygen-training** HeyGen · 培训与入职视频（Cookbook）
+- **gh-video-retalking** OpenTalker/video-retalking 仓库
+- **gemini-robotics-er** Google 官方文档 · Gemini Robotics ER（能力表 / 端点 / 定价）
+- **hf-robotics** Hugging Face · robotics 榜（按下载）
+  新增 12 条：Alibaba-DAMO-Academy/RynnBrain1.1-9B、CMSManhattan/JiRackTernaryGemma4_26b、DAVIAN-Robotics/pi05_droid_jointpos、SidneyXie/pi05_robotwin、black-forest-labs/flux-3-action-base、builtbyd3v/kairos-door-rain、builtbyd3v/spot-wetfloor-convnext-tiny、jepacpp/h-jepa-GGUF、juexzz/INTACT-pi0-finetune-bridge、microsoft/Magma-8B、mradermacher/RoboJudge-9B-GGUF、mradermacher/X-Planner-9B-0916-GGUF
+- **lerobot-gh** Hugging Face 官方 · LeRobot 仓库
+- **gemini-nb21** Google · Nano Banana 2.1 模型卡
 
 ## 全部
 
@@ -70,12 +81,12 @@
 | pika-site | S | html | 未到期（上次 2026-10-08） |
 | higgsfield-site | S | html | 未到期（上次 2026-10-07） |
 | decart-research | S | html | 未到期（上次 2026-10-07） |
-| arxiv-video | S | atom | 变了 |
+| arxiv-video | S | atom | 未到期（上次 2026-10-16） |
 | epoch-notable | A | csv | 未到期（上次 2026-10-14） |
 | aa-t2v | A | spa | 未到期（上次 2026-10-14） |
 | aa-i2v | A | spa | 未到期（上次 2026-10-14） |
-| hf-t2v | A | json | 未到期（上次 2026-10-14） |
-| hf-i2v | A | json | 未到期（上次 2026-10-14） |
+| hf-t2v | A | json | 变了 |
+| hf-i2v | A | json | 变了 |
 | hf-v2v | A | json | 未到期（上次 2026-10-14） |
 | fal-video | S | spa | 未到期（上次 2026-10-15） |
 | replicate-t2v | S | html | 未到期（上次 2026-10-14） |
@@ -90,9 +101,9 @@
 | seed-models-hub | S | html | 未到期（上次 2026-10-14） |
 | apiyi-models | S | spa | 未到期（上次 2026-10-14） |
 | arxiv-worldmodel | S | atom | 未到期（上次 2026-10-15） |
-| techcrunch-ai | B | atom | 未到期（上次 2026-10-14） |
+| techcrunch-ai | B | atom | 变了 |
 | ltx-gh | S | json | 未到期（上次 2026-10-14） |
-| ltx-hf-org | S | json | 未到期（上次 2026-10-14） |
+| ltx-hf-org | S | json | 变了 |
 | decart-site | S | spa | 未到期（上次 2026-10-11） |
 | picsart-video | C | html | 抓不到（HTTP 403） |
 | libtv | C | spa | 从未抓过 |
@@ -188,8 +199,8 @@
 | ms-foundry-blog | B | html | 未到期（上次 2026-10-11） |
 | mj-updates | S | html | 未到期（上次 2026-10-07） |
 | aa-t2i | A | spa | 抓不到（还是壳：渲染后正文只有 281 个字符） |
-| hf-t2i | A | json | 未到期（上次 2026-10-14） |
-| hf-i2i | A | json | 未到期（上次 2026-10-14） |
+| hf-t2i | A | json | 变了 |
+| hf-i2i | A | json | 变了 |
 | anthropic-models | S | html | 未到期（上次 2026-10-15） |
 | deepseek-docs | S | html | 未到期（上次 2026-10-15） |
 | xai-docs | S | html | 未到期（上次 2026-10-15） |
@@ -225,8 +236,8 @@
 | mcpservers-gh | S | json | 未到期（上次 2026-10-11） |
 | anthropic-features | S | html | 未到期（上次 2026-10-15） |
 | openai-docs | S | html | 未到期（上次 2026-10-15） |
-| deepseek-pricing | S | html | 无变化 |
-| deepseek-updates | S | html | 无变化 |
+| deepseek-pricing | S | html | 未到期（上次 2026-10-16） |
+| deepseek-updates | S | html | 未到期（上次 2026-10-16） |
 | bailian-models | S | html | 未到期（上次 2026-10-14） |
 | kimi-pricing | S | html | 未到期（上次 2026-10-07） |
 | glm-52-doc | S | html | 未到期（上次 2026-10-07） |
@@ -235,7 +246,7 @@
 | glm-websearch | S | html | 未到期（上次 2026-10-07） |
 | bailian-coder | S | html | 未到期（上次 2026-10-07） |
 | ark-models | S | spa | 未到期（上次 2026-10-14） |
-| minimax-api-overview | S | spa | 未到期（上次 2026-10-10） |
+| minimax-api-overview | S | spa | 无变化 |
 | openai-caching | S | html | 未到期（上次 2026-10-08） |
 | openai-structured | S | html | 未到期（上次 2026-10-08） |
 | deepseek-chat-api | S | html | 未到期（上次 2026-10-08） |
@@ -341,8 +352,8 @@
 | arxiv-lora | A | html | 未到期（上次 2026-08-13） |
 | hf-gguf-doc | A | html | 未到期（上次 2026-08-13） |
 | hf-diffusers-memory | A | html | 未到期（上次 2026-08-13） |
-| zimage-gh | A | html | 未到期（上次 2026-09-26） |
-| hunyuan-image-gh | A | html | 未到期（上次 2026-09-26） |
+| zimage-gh | A | html | 无变化 |
+| hunyuan-image-gh | A | html | 无变化 |
 | skyreels-gh | A | html | 未到期（上次 2026-10-10） |
 | bfl-flux3 | A | html | 未到期（上次 2026-10-10） |
 | anthropic-privacy | A | html | 未到期（上次 2026-08-14） |
@@ -371,32 +382,32 @@
 | tripo-docs-animation | S | spa | 未到期（上次 2026-10-10） |
 | gh-hunyuan3d-buffalo | S | html | 未到期（上次 2026-10-10） |
 | replicate-hunyuan3d-31 | A | spa | 未到期（上次 2026-10-10） |
-| replicate-3d | A | spa | 变了 |
-| hf-image-to-3d | A | spa | 变了 |
-| comfy-3d-hunyuan | S | html | 变了 |
-| gh-hunyuan3d-21 | S | html | 变了 |
-| gh-hunyuan3d-part | S | html | 变了 |
-| gh-spar3d | S | html | 变了 |
-| gh-triposg | S | html | 变了 |
-| gh-instantmesh | S | html | 变了 |
+| replicate-3d | A | spa | 未到期（上次 2026-10-16） |
+| hf-image-to-3d | A | spa | 未到期（上次 2026-10-16） |
+| comfy-3d-hunyuan | S | html | 未到期（上次 2026-10-16） |
+| gh-hunyuan3d-21 | S | html | 未到期（上次 2026-10-16） |
+| gh-hunyuan3d-part | S | html | 未到期（上次 2026-10-16） |
+| gh-spar3d | S | html | 未到期（上次 2026-10-16） |
+| gh-triposg | S | html | 未到期（上次 2026-10-16） |
+| gh-instantmesh | S | html | 未到期（上次 2026-10-16） |
 | modelscope-orgs | S | json | 从未抓过 |
 | hf-wan-vace | S | html | 未到期（上次 2026-10-10） |
 | hf-ltx-25 | S | html | 未到期（上次 2026-10-10） |
 | meshy-changelog | S | spa | 未到期（上次 2026-10-10） |
-| hf-instantmesh | S | html | 变了 |
-| hf-apple-sharp | S | html | 变了 |
-| gh-hunyuan3d-api | S | html | 变了 |
-| hf-anysplat | S | html | 变了 |
+| hf-instantmesh | S | html | 未到期（上次 2026-10-16） |
+| hf-apple-sharp | S | html | 未到期（上次 2026-10-16） |
+| gh-hunyuan3d-api | S | html | 未到期（上次 2026-10-16） |
+| hf-anysplat | S | html | 未到期（上次 2026-10-16） |
 | arxiv-seed3d-20 | S | html | 未到期（上次 2026-10-13） |
 | arxiv-seed3d-10 | S | html | 未到期（上次 2026-10-13） |
-| hf-trellis2 | S | html | 变了 |
+| hf-trellis2 | S | html | 未到期（上次 2026-10-16） |
 | pixverse-caps | S | html | 未到期（上次 2026-10-10） |
 | pixverse-v6 | S | html | 未到期（上次 2026-10-10） |
 | pixverse-fusion | S | html | 未到期（上次 2026-10-10） |
-| hf-cogvideox | S | html | 未到期（上次 2026-09-26） |
-| hf-i2vgen | S | html | 未到期（上次 2026-09-26） |
-| hf-longcat-edit | S | html | 未到期（上次 2026-09-26） |
-| hf-magi | S | html | 未到期（上次 2026-09-26） |
+| hf-cogvideox | S | html | 变了 |
+| hf-i2vgen | S | html | 变了 |
+| hf-longcat-edit | S | html | 变了 |
+| hf-magi | S | html | 变了 |
 | heygen-docs | S | spa | 未到期（上次 2026-10-10） |
 | synthesia-docs | S | spa | 未到期（上次 2026-10-10） |
 | hf-longcat-avatar | S | html | 未到期（上次 2026-10-10） |
@@ -404,35 +415,35 @@
 | hf-liveportrait | S | html | 未到期（上次 2026-10-10） |
 | hf-musetalk | S | html | 未到期（上次 2026-10-10） |
 | hf-hallo2 | S | html | 未到期（上次 2026-10-10） |
-| replicate-lipsync | A | spa | 未到期（上次 2026-09-26） |
-| comfy-s2v | S | html | 未到期（上次 2026-09-26） |
-| heygen-translate | S | html | 未到期（上次 2026-09-26） |
-| heygen-live | S | html | 未到期（上次 2026-09-26） |
-| heygen-photo | S | html | 未到期（上次 2026-09-26） |
-| heygen-training | S | html | 未到期（上次 2026-09-26） |
+| replicate-lipsync | A | spa | 变了 |
+| comfy-s2v | S | html | 变了 |
+| heygen-translate | S | html | 变了 |
+| heygen-live | S | html | 变了 |
+| heygen-photo | S | html | 变了 |
+| heygen-training | S | html | 变了 |
 | heygen-changelog | S | html | 未到期（上次 2026-10-10） |
 | hf-hallo-live | S | html | 未到期（上次 2026-10-10） |
 | hf-longcat-avatar-10 | S | html | 未到期（上次 2026-10-10） |
-| gh-video-retalking | S | html | 未到期（上次 2026-09-26） |
+| gh-video-retalking | S | html | 变了 |
 | elevenlabs-changelog | S | html | 未到期（上次 2026-10-10） |
 | hf-glm-voice | S | html | 未到期（上次 2026-10-10） |
 | hf-glm-tts | S | html | 未到期（上次 2026-10-10） |
 | openai-model-tts | S | spa | 未到期（上次 2026-10-10） |
 | openai-model-realtime | S | spa | 未到期（上次 2026-10-10） |
 | elevenlabs-docs | S | html | 未到期（上次 2026-10-08） |
-| gemini-robotics-er | S | html | 未到期（上次 2026-10-10） |
+| gemini-robotics-er | S | html | 变了 |
 | figure-helix | A | html | 未到期（上次 2026-10-10） |
 | pi-pi05-blog | A | html | 未到期（上次 2026-10-14） |
-| pi-openpi-gh | A | html | 未到期（上次 2026-10-10） |
-| nvidia-groot-gh | A | html | 未到期（上次 2026-10-10） |
+| pi-openpi-gh | A | html | 无变化 |
+| nvidia-groot-gh | A | html | 无变化 |
 | openvla-gh | A | html | 未到期（上次 2026-10-10） |
 | openvla-repo | A | html | 未到期（上次 2026-10-10） |
-| hf-robotics | B | json | 未到期（上次 2026-10-10） |
-| lerobot-gh | A | json | 未到期（上次 2026-10-10） |
-| groot-policy-doc | A | html | 未到期（上次 2026-10-10） |
+| hf-robotics | B | json | 变了 |
+| lerobot-gh | A | json | 变了 |
+| groot-policy-doc | A | html | 无变化 |
 | rynnbrain-card | A | html | 未到期（上次 2026-10-10） |
 | maniskill-gh | B | json | 未到期（上次 2026-10-13） |
-| cosmos3-card | S | html | 未到期（上次 2026-10-10） |
+| cosmos3-card | S | html | 无变化 |
 | genie3-blog | A | html | 未到期（上次 2026-10-10） |
 | odyssey-site | S | html | 未到期（上次 2026-10-10） |
 | worldlabs-marble | A | html | 未到期（上次 2026-10-10） |
@@ -474,9 +485,9 @@
 | seed-blog-2_0 | A | html | 未到期（上次 2026-10-10） |
 | ideogram-x | A | html | 未到期（上次 2026-10-10） |
 | hf-funcineforge | S | html | 未到期（上次 2026-10-04） |
-| hf-org | S | json | 变了 |
+| hf-org | S | json | 未到期（上次 2026-10-16） |
 | gh-gptsovits-cn | C | json | 未到期（上次 2026-10-11） |
-| gemini-nb21 | S | spa | 未到期（上次 2026-10-10） |
+| gemini-nb21 | S | spa | 变了 |
 | xai-grok47-model | S | html | 未到期（上次 2026-10-11） |
 | ideogram-v1-overview | A | html | 未到期（上次 2026-10-10T02:48:40.640Z） |
 | ideogram-v1-upscale | A | html | 未到期（上次 2026-10-10T02:48:40.641Z） |

@@ -1,8 +1,8 @@
 {
   "url": "https://huggingface.co/api/models?author=Lightricks&sort=downloads&direction=-1&limit=40",
   "kind": "json",
-  "fetched_at": "2026-10-14",
-  "digest": "d984b55c93030b09",
+  "fetched_at": "2026-10-17",
+  "digest": "bbdd73eab8b7e745",
   "items": [
     "Lightricks/LTX-2\t",
     "Lightricks/LTX-2.3\t",
@@ -14,7 +14,7 @@
     "Lightricks/LTX-2.3-22b-IC-LoRA-In-Outpainting\t",
     "Lightricks/LTX-2.3-22b-IC-LoRA-Ingredients\t",
     "Lightricks/LTX-2.3-22b-IC-LoRA-Pixel-Spatial-Upscaler\t",
-    "Lightricks/LTX-2.3-22b-LoRA-Cinemagraph\t",
+    "Lightricks/LTX-2.3-22b-LoRA-Foley-V2A\t",
     "Lightricks/LTX-2.3-fp8\t",
     "Lightricks/LTX-2.3-nvfp4\t",
     "Lightricks/LTX-2.5\t",
