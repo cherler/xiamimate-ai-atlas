@@ -41,6 +41,7 @@ import { execFileSync } from "node:child_process";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
 import { acknowledged } from "./version-review-policy.mjs";
+import { specificProbes } from "./version-probes.mjs";
 
 const ROOT = process.env.ATLAS_REVIEW_ROOT || join(dirname(fileURLToPath(import.meta.url)), "..");
 const argv = process.argv.slice(2);
@@ -157,7 +158,8 @@ const 口径存疑 = (found, cur) => cmp(found, cur) !== cmpDecimal(found, cur);
  */
 const words = (s) => s.split(/[\s_-]+/).filter(Boolean).length;
 const probes = (m) => {
-  const out = [];
+  const out = specificProbes(m);
+  if (m.id === 'gemini-tts') return out;
   const v = String(m.version ?? "");
   const cur = (v.match(/\d+(?:\.\d+)*/) ?? [])[0];
   if (!cur) return out;
@@ -256,8 +258,8 @@ for (const m of atlas.models ?? []) {
     const sn = sid === m.version_src ? snap : snapText(sid);
     if (!sn?.text) continue;
     for (const p of ps) {
-      for (const hit of sn.text.matchAll(rx(p.prefix))) {
-        const found = hit[1];
+      for (const hit of sn.text.matchAll(p.pattern ?? rx(p.prefix))) {
+        const found = p.normalize ? p.normalize(hit[1]) : hit[1];
         const before = sn.text.slice(Math.max(0, hit.index - 60), hit.index);
         // **只有署名的那个源才算「见过当前版本」** —— 牌子摘没摘是对它一个源的判断
         const 近旁 = (before + hit[0]).toLowerCase();

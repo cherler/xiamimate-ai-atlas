@@ -170,7 +170,7 @@ The plugin ships with 70+ built-in tools across four categories. Each tool bring
 - `script-execute` - Compiles and executes C# code dynamically using Roslyn
 - `script-read` - Reads the content of a script file
 - `script-update-or-create` - Updates or creates script file with the provided C# code
-- `tests-run` - Execute Unity tests (EditMode/PlayMode) with filtering and detailed results
+- `tests-run` - Execute Unity tests (EditMode/PlayMode): any RQL selection over the `tests` source as one run, results filtered with RQL
 - `type-get-json-schema` - Generate a JSON Schema for a C# type via reflection
 
 </details>
@@ -178,18 +178,7 @@ The plugin ships with 70+ built-in tools across four categories. Each tool bring
 <details>
   <summary>Profiling & Diagnostics</summary>
 
-- `profiler-capture-frame` - Capture the current frame's timing info (delta time, FPS, frame counts)
-- `profiler-clear-data` - Discard all frames currently held by the Editor Profiler
-- `profiler-enable-module` - Toggle the local enabled flag for a named profiler module
-- `profiler-get-memory-stats` - Return a memory statistics snapshot (reserved, allocated, mono heap, graphics)
-- `profiler-get-rendering-stats` - Return frame timing, FPS, vsync, target frame rate, graphics device type
-- `profiler-get-script-stats` - Return script execution timing plus Mono / GC memory usage
-- `profiler-get-status` - Return the profiler's enabled state, active modules, and platform support
-- `profiler-list-modules` - List all known profiler module names with their enabled flag
-- `profiler-load-data` - Read back a previously-saved profiler JSON snapshot
-- `profiler-save-data` - Save a snapshot of profiler-derived stats to a JSON file
-- `profiler-start` - Enable Unity's runtime profiler and open the Profiler window
-- `profiler-stop` - Disable Unity's runtime profiler
+- RQL source `profiler` (via `rql-query` / `rql-mutate`) - memory, rendering, script and frame snapshots, module flags; `Start`, `Stop`, `ClearFrames`, `EnableModule`, `Save`, `Load`
 
 </details>
 
@@ -199,16 +188,16 @@ Install extensions when need more tools or [create your own tools](#add-custom-t
 
 | Extension | Description |
 | --- | --- |
-| **[AI Animation](https://github.com/IvanMurzak/Unity-AI-Animation/)** | Set of additional tools for Unity Animations |
-| **[AI Cinemachine](https://github.com/IvanMurzak/Unity-AI-Cinemachine/)** | MCP Tools for Cinemachine |
-| **[AI InputSystem](https://github.com/IvanMurzak/Unity-AI-InputSystem/)** | MCP Tools for the Unity Input System |
-| **[AI Navigation](https://github.com/IvanMurzak/Unity-AI-Navigation/)** | MCP Tools for AI Navigation (NavMesh surfaces, baking, agents, links) |
-| **[AI ParticleSystem](https://github.com/IvanMurzak/Unity-AI-ParticleSystem/)** | Set of additional tools for Unity Particle System |
-| **[AI ProBuilder](https://github.com/IvanMurzak/Unity-AI-ProBuilder/)** | Set of additional tools for Unity ProBuilder |
-| **[AI Splines](https://github.com/IvanMurzak/Unity-AI-Splines/)** | MCP Tools for Unity Splines |
-| **[AI Terrain](https://github.com/IvanMurzak/Unity-AI-Terrain/)** | Set of additional tools for Unity Terrain |
-| **[AI Tilemap](https://github.com/IvanMurzak/Unity-AI-Tilemap/)** | MCP Tools for Unity 2D Tilemaps |
-| **[AI Timeline](https://github.com/IvanMurzak/Unity-AI-Timeline/)** | MCP Tools for Unity Timeline cutscenes and sequences |
+| **[AI Animation](https://github.com/IvanMurzak/Unity-MCP/blob/main/extensions/Animation/README.md)** | Set of additional tools for Unity Animations |
+| **[AI Cinemachine](https://github.com/IvanMurzak/Unity-MCP/blob/main/extensions/Cinemachine/README.md)** | MCP Tools for Cinemachine |
+| **[AI InputSystem](https://github.com/IvanMurzak/Unity-MCP/blob/main/extensions/InputSystem/README.md)** | MCP Tools for the Unity Input System |
+| **[AI Navigation](https://github.com/IvanMurzak/Unity-MCP/blob/main/extensions/Navigation/README.md)** | MCP Tools for AI Navigation (NavMesh surfaces, baking, agents, links) |
+| **[AI ParticleSystem](https://github.com/IvanMurzak/Unity-MCP/blob/main/extensions/ParticleSystem/README.md)** | Set of additional tools for Unity Particle System |
+| **[AI ProBuilder](https://github.com/IvanMurzak/Unity-MCP/blob/main/extensions/ProBuilder/README.md)** | Set of additional tools for Unity ProBuilder |
+| **[AI Splines](https://github.com/IvanMurzak/Unity-MCP/blob/main/extensions/Splines/README.md)** | MCP Tools for Unity Splines |
+| **[AI Terrain](https://github.com/IvanMurzak/Unity-MCP/blob/main/extensions/Terrain/README.md)** | Set of additional tools for Unity Terrain |
+| **[AI Tilemap](https://github.com/IvanMurzak/Unity-MCP/blob/main/extensions/Tilemap/README.md)** | MCP Tools for Unity 2D Tilemaps |
+| **[AI Timeline](https://github.com/IvanMurzak/Unity-MCP/blob/main/extensions/Timeline/README.md)** | MCP Tools for Unity Timeline cutscenes and sequences |
 
 ![AI Game Developer — Unity SKILLS and MCP](https://github.com/IvanMurzak/Unity-MCP/blob/main/docs/img/promo/hazzard-divider.svg?raw=true)
 

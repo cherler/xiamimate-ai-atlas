@@ -1,22 +1,11 @@
 # 版本哨兵 · 2026-10-19
 
-扫 136 个模型：**有更新的一代 3** · 口径存疑 0 · 牌子摘了 30 · 比不了 55
+扫 136 个模型：**有更新的一代 0** · 口径存疑 0 · 牌子摘了 29 · 比不了 55
 
 > 这份只回答一件事：**一格署的那个源上，今天有没有出现比我们记的更新的版本号？**
 > 报出来的不是「世界变了」，是「**我们抓到了但没写回**」—— 这两件事的严重程度不一样。
 
-## 有更新的一代（3）—— 这一摞要写回 atlas.json
-
-- **Gemini**（gemini-text）库里记 `Gemini 3.8 Flash`（核于 2026-09-10），而 `gemini-models` 的快照（2026-10-15）上写着 **Gemini 4**
-  > tform Gemini API OAuth authentication Policies Terms of service Available regions Abuse monitoring Feedback information Gemini 4 Argon is now available. Try it out . Home Gemini API Docs Send feedback Models This guide introduces all the models available through the Gemini API. Gemini 4 Stable auto_awesome Gemini 4 Arg
-
-- **Grok Voice**（grok-voice）库里记 `think-fast-2.0`（核于 2026-08-12），而 `xai-release-notes` 的快照（2026-10-15）上写着 **Grok Voice 3.0**
-  > ivacy General Release Notes Release Notes Copy for LLM View as Markdown Create API key Meet grok-4.7 October October 14 Grok Voice 3.0 is available grok-voice-3.0 is now available with Speech to Speech, at the same price as Grok Voice 2.0. grok-voice-latest now points to grok-voice-3.0 , so sessions that use the alias
-
-- **Vidu Q**（vidu-q）库里记 `Q3`（核于 2026-04-13），而 `vidu-model-map` 的快照（2026-10-14）上写着 **ViduQ4**　⚠️ 这一格署的是 `vidu-changelog`，**那个源上看不见新版**
-  > idu2.0, suitable for video generation, audio generation, direct audio-video output, and other domains: Video Generation ViduQ4 Preview Model Viduq4-preview Introduction Next-gen flagship for expressive audio & video Resolution 540p, 720p, 1080p，2k，4k Frame rate 24fps Duration 1-16s selectable Image-to-video ✔️ Referenc
-
-## 机器自查 · 牌子摘了（30）—— **不用你拍板**
+## 机器自查 · 牌子摘了（29）—— **不用你拍板**
 
 > 「在这个源上找不到我们记的版本号」有两种成因，脚本分不开：
 > **版本串本来就不是数字型号**（`650M` / `7B` / `2b/5b` / `glm-4-voice` 这类，占绝大多数），
@@ -29,16 +18,15 @@
 - **Doubao**（doubao）记的是 `Seed-2.1 Pro`，`doubao-force-2026`（2026-08-12）上没有这个号
 - **ESM-2**（esm）记的是 `650M`，`sci-esm2-card`（2026-10-14）上没有这个号
 - **FLUX 3**（flux-video）记的是 `3`，`bfl-flux3`（2026-10-10）上没有这个号
-- **Gemini TTS**（gemini-tts）记的是 `3.1 Flash TTS Preview`，`gemini-tts`（2026-10-07）上没有这个号
 - **GLM Voice**（glm-voice）记的是 `glm-4-voice`，`glm-voice-doc`（2026-10-07）上没有这个号
 - **GNoME**（gnome）记的是 `1`，`sci-gnome-gh`（2026-10-10）上没有这个号
-- **MiniMax Hailuo**（hailuo）记的是 `H3`，`minimax-release-notes`（2026-10-10）上没有这个号
+- **MiniMax Hailuo**（hailuo）记的是 `H3`，`minimax-release-notes`（2026-10-19）上没有这个号
 - **HunyuanVideo-Avatar**（hunyuan-avatar）记的是 `1.0`，`hf-hunyuan-avatar`（2026-10-10）上没有这个号
 - **Hunyuan3D**（hunyuan3d）记的是 `3.1`，`replicate-hunyuan3d-31`（2026-10-10）上没有这个号
 - **LivePortrait**（liveportrait）记的是 `1.0`，`hf-liveportrait`（2026-10-10）上没有这个号
 - **MAGI**（magi）记的是 `2 Preview`，`hf-magi`（2026-10-17）上没有这个号
 - **MatterGen**（mattergen）记的是 `1`，`sci-mattergen-gh`（2026-10-10）上没有这个号
-- **MiniMax Speech**（mm-speech）记的是 `speech-2.8-hd`，`minimax-api-overview`（2026-10-17）上没有这个号
+- **MiniMax Speech**（mm-speech）记的是 `speech-2.8-hd`，`minimax-api-overview`（2026-10-19）上没有这个号
 - **MuseTalk**（musetalk）记的是 `1.0`，`hf-musetalk`（2026-10-10）上没有这个号
 - **NeuralGCM**（neuralgcm）记的是 `1`，`sci-neuralgcm-gh`（2026-10-10）上没有这个号
 - **GPT TTS**（openai-tts）记的是 `GPT-4o mini TTS`，`openai-models`（2026-10-15）上没有这个号

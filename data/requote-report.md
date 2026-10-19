@@ -1,41 +1,15 @@
 # 引文回查 · 2026-10-19
 
-回查 1250 条：无英文锚 747 · 对得上 342 · 复核已处置 116 · 无快照 20 · 找不到 14 · 快照无正文 3 · 人审认过·非逐字 8
+回查 1273 条：无英文锚 759 · 对得上 357 · 复核已处置 129 · 无快照 20 · 人审认过·非逐字 8
 
 > 这份报告回答一件事：**一格引文里的原句，在它署名的那份快照里还在不在。**
 > ⚠️ **失败不等于引文错。** 三种成因要分开：真署错了页 / 这一页的快照是残的（抓回来的是导航不是正文）/ 当初记的就不是逐字原文。**脚本不猜。**
 > 「人审认过·非逐字」那一摞是**审阅台上已经判过的**，列在这里只为不假装它们消失了 —— 不用再看。
 
-## 失败 ≥3 条的源（3 个）—— 这几个大概率是抓法不对
+## 失败 ≥3 条的源（0 个）—— 这几个大概率是抓法不对
 
-- **recraft-endpoints**（5 条）：recraft × i-i2i、recraft × i-inpaint、recraft × i-outpaint …
-- **vidu-function-list**（3 条）：vidu-q × flf、vidu-q × multiref、vidu-q × extend
-- **recraft-blog**（3 条）：发布 recraft-Recraft V3-长段文字 + 文字位置和大小可指定、发布 recraft-Recraft V4-按设计审美重训的一代、发布 recraft-Recraft V4.1-写实更自然、短提示词也能懂
 
 ## 全部
-
-### 找不到（14）
-
-- `vidu-function-list` vidu-q × flf —— 锚「Start end to video」
-- `vidu-function-list` vidu-q × multiref —— 锚「Supports uploading multiple images」
-- `vidu-function-list` vidu-q × extend —— 锚「Supports extension from 1」
-- `recraft-endpoints` recraft × i-i2i —— 锚「Image-to-image operation tool allows you to create images similar to a」
-- `recraft-endpoints` recraft × i-inpaint —— 锚「It uses a mask to identify the areas to be filled in, where white pixe」
-- `recraft-endpoints` recraft × i-outpaint —— 锚「The area to be generated can be specified either by per-side pixel mar」
-- `recraft-endpoints` recraft × i-fidelity —— 锚「preserving certain aspects like composition, color, or subject identit」
-- `recraft-endpoints` recraft × i-upscale —— 锚「boosting resolution with a focus on refining small details and faces」
-- `xai-grok47-model` grok × t-batch —— 锚「Batch API: Not supported」
-- `xai-release-notes` 模型 grok 版本 —— 锚「Grok 4.7, SpaceXAI s frontier model for coding, agentic tasks, and kno」
-- `recraft-blog` 发布 recraft-Recraft V3-长段文字 + 文字位置和大小可指定 —— 锚「Recraft V3 is the only model in the world that can generate images wit」
-- `recraft-blog` 发布 recraft-Recraft V4-按设计审美重训的一代 —— 锚「brings true visual taste to AI image generation」
-- `recraft-blog` 发布 recraft-Recraft V4.1-写实更自然、短提示词也能懂 —— 锚「Give V4.1 just a few words, and it'll give you something worth keeping」
-- `claude-deprecations` 发布 claude-Claude 4.7-起用新分词器；tem —— 锚「Claude Opus 4.7 and later」
-
-### 快照无正文（3）
-
-- `hf-lineage` kokoro × s-clone —— 锚「No synthetic audio from open TTS models or custom voice clones」
-- `hf-lineage` hunyuan3d × d-scene —— 锚「immersive 3D world generation」
-- `hf-org` 发布 deepseek-V4-换代：Pro 1.6T（激活 49B）与 Flash 两档 MoE —— 锚「We present a preview version of DeepSeek-V4 series, including two stro」
 
 ### 无快照（20）
 
@@ -71,7 +45,7 @@
 - `hf-hunyuan3d-21` 发布 hy3d-2.1 —— 锚「We release the first production-ready 3D asset generation model, Hunyu」（这句在 gh-hunyuan3d-21）
 - `openai-model-tts` 发布 gpttts-2025-12 —— 锚「slugs to point to the 2025-12-15 snapshots」（这句在 openai-changelog）
 
-### 复核已处置（116）
+### 复核已处置（129）
 
 - `veo-doc` veo × flf
 - `veo-doc` veo × charref
@@ -84,21 +58,27 @@
 - `ideogram-v1-upscale` ideogram × i-upscale
 - `ideogram-v1-overview` ideogram × i-openweights
 - `recraft-docs` recraft × i-t2i
+- `recraft-image-to-image` recraft × i-i2i
+- `recraft-inpainting` recraft × i-inpaint
+- `recraft-outpainting` recraft × i-outpaint
 - `recraft-docs` recraft × i-styleref
+- `recraft-image-to-image` recraft × i-fidelity
+- `recraft-upscale` recraft × i-upscale
 - `bfl-flux2-multiref` flux × i-styleref
 - `hunyuan-image-card` hunyuan-image × i-i2i
 - `hunyuan-image-card` hunyuan-image × i-edit
 - `llama-card` llama × t-long
-- `minimax-api-overview` mm-speech × s-format
+- `xai-grok47-model` grok × t-batch
 - `elevenlabs-models` elevenlabs × s-clone
 - `elevenlabs-models` elevenlabs × s-style
 - `elevenlabs-models` elevenlabs × s-multi
-- `gemini-tts` gemini-tts × s-format
 - `openai-realtime` gpt-realtime × s-rt-transport
 - `cosyvoice-card` cosyvoice × s-style
+- `hf-lineage` kokoro × s-clone
 - `fish-s2pro-card` fish-speech × s-openweights
 - `hf-qwen-layered` qwen-image × i-layered
 - `card-tencent-hunyuan3d-part` hunyuan3d × d-edit
+- `hf-lineage` hunyuan3d × d-scene
 - `meshy-changelog` meshy × d-multiview
 - `rodin-gen25-api` rodin × d-t23d
 - `rodin-gen25-api` rodin × d-i23d
@@ -119,26 +99,31 @@
 - `seedream-page` 模型 seedream 版本
 - `recraft-docs` 模型 recraft 版本
 - `anthropic-models` 模型 claude 版本
+- `xai-release-notes` 模型 grok 版本
 - `bfl-flux3` 模型 flux-video 版本
 - `pixverse-v6` 模型 pixverse 版本
 - `hunyuanworld-gh` 模型 hunyuan-world 版本
 - `sci-wn-gh` 模型 weathernext 版本
-- `minimax-release-notes` 发布 hailuo-01-运镜控制
-- `minimax-release-notes` 发布 hailuo-02-换代02：1080p
-- `minimax-release-notes` 发布 hailuo-2.3-换代2.3：肢体动作与表情
 - `runway-changelog` 发布 aleph2
 - `seed-25` 发布 seedance2.5
 - `vidu-changelog` 发布 vidu-q-Q1-参考生视频
+- `vidu-changelog` 发布 vidu-q-Q2-换代Q2：pro与turbo两档
 - `vidu-changelog` 发布 viduq2
+- `vidu-changelog` 发布 vidu-q-Q3-换代Q3：文生+图生
+- `vidu-changelog` 发布 vidu-q-Q3-首尾帧
+- `vidu-changelog` 发布 vidu-q-Q3-参考生视频（Q3版）
 - `decart-site` 发布 lucy-Lucy2.5-Lucy2.5
 - `google-gemini-blog` 发布 gemini-image-Nano Banana-对话式改图（多轮指令改同一张）
 - `seed-blog` 发布 seedream-Seedream 3.0-原生 2K 直出 + 小字排版变准
 - `seed-blog` 发布 seedream-Seedream 4.0-出图与改图并进一个模型
+- `recraft-blog` 发布 recraft-Recraft V3-长段文字 + 文字位置和大小可指定
 - `krea-blog` 发布 krea-img-Krea 2-第一个完全从零训练的自研基座
 - `ms-foundry-blog` 发布 gpt-image-GPT-image-2-4K + 生成前先想（能自查、能搜网）
 - `google-nb-blog` 发布 gemini-image-Nano Banana Pro-接上自家新一代大模型的推理，4K 与复杂版面
 - `google-nb-blog` 发布 gemini-image-Nano Banana 2-Pro 的质量按 Flash 的速度和价钱出
 - `seedream-page` 发布 seedream-Seedream 5.0 Pro-分层输出 + 圈画标注式改图
+- `recraft-blog` 发布 recraft-Recraft V4-按设计审美重训的一代
+- `recraft-blog` 发布 recraft-Recraft V4.1-写实更自然、短提示词也能懂
 - `mj-updates` 发布 midjourney-V8 Alpha-出图快约 5 倍 + 原生 2K（--hd）
 - `comfy-docs` 发布 hidream-HiDream-I1-17B 出图底座，MIT
 - `comfy-docs` 发布 ernie-image-ERNIE-Image-8B DiT 正式档，apache-2.0
@@ -149,6 +134,7 @@
 - `comfy-docs` 发布 boogu-image-Boogu-Image-0.1-生成与编辑合到一个模型，apache-2.0
 - `comfy-docs` 发布 newbie-image-NewBie-image-Exp0.1-3.5B Next-DiT，二次元向
 - `card-deepseek-ai-deepseek-v3-2` 发布 deepseek-V3.2-把算力效率和推理/Agent 表现放到一起
+- `hf-org` 发布 deepseek-V4-换代：Pro 1.6T（激活 49B）与 Flash 两档 MoE
 - `card-zai-org-glm-4-5` 发布 glm-GLM-4.5-这一代的开放权重发布
 - `card-zai-org-glm-4-6` 发布 glm-GLM-4.6-小版本迭代
 - `card-zai-org-glm-4-7` 发布 glm-GLM-4.7-小版本迭代
@@ -168,6 +154,7 @@
 - `card-mistralai-mistral-medium-3-5-128b` 发布 mistral-text-Medium 3.5-第一个「合并」旗舰：128B 稠密 + 256k 上下文
 - `card-qwen-qwen3-5-27b` 发布 qwen-text-Qwen3.5-换代
 - `card-qwen-qwen3-6-27b` 发布 qwen-text-Qwen3.6-按社区反馈做稳定性与可靠性
+- `claude-deprecations` 发布 claude-Claude 4.7-起用新分词器；tem
 - `bfl-flux3` 发布 flux-video-FLUX 3-BFL 从图像跨进视频
 - `rodin-api-docs` 发布 rodin-gen2
 - `rodin-gen25-api` 发布 rodin-gen2.5

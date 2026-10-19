@@ -226,7 +226,7 @@
    "kind": "spa",
    "vendor": "vidu-q,vidu-s",
    "name": "Vidu 平台 · 更新日志",
-   "url": "https://platform.vidu.com/docs/update",
+   "url": "https://platform.vidu.com/docs/api-reference/updates",
    "refresh_days": 7,
    "good_for": [
     "capability",
@@ -241,7 +241,7 @@
    "kind": "spa",
    "vendor": "vidu-q,vidu-s",
    "name": "Vidu 平台 · Model Map（官方模型清单）",
-   "url": "https://platform.vidu.com/docs/model-map",
+   "url": "https://platform.vidu.com/docs/overview/model-map",
    "refresh_days": 7,
    "good_for": [
     "version",
@@ -255,7 +255,7 @@
    "kind": "spa",
    "vendor": "vidu-q,vidu-s",
    "name": "Vidu 平台 · Function List（官方按模型列的能力清单）",
-   "url": "https://platform.vidu.com/docs/function-list",
+   "url": "https://platform.vidu.com/docs/overview/function-list",
    "refresh_days": 7,
    "good_for": [
     "capability"
@@ -1333,8 +1333,8 @@
   {
    "id": "gemini-models",
    "tier": "S",
-   "kind": "html",
-   "vendor": "gemini",
+   "kind": "spa",
+   "vendor": "gemini,gemini-text,gemini-tts",
    "name": "Google · Gemini API 官方模型列表",
    "url": "https://ai.google.dev/gemini-api/docs/models",
    "refresh_days": 7,
@@ -2470,7 +2470,7 @@
   {
    "id": "deepseek-pricing",
    "tier": "S",
-   "kind": "html",
+   "kind": "spa",
    "vendor": "deepseek",
    "name": "DeepSeek 官方文档 · 模型与价格",
    "url": "https://api-docs.deepseek.com/quick_start/pricing/",
@@ -2488,7 +2488,7 @@
   {
    "id": "deepseek-updates",
    "tier": "S",
-   "kind": "html",
+   "kind": "spa",
    "vendor": "deepseek",
    "name": "DeepSeek 官方文档 · 更新日志",
    "url": "https://api-docs.deepseek.com/updates/",
@@ -2696,13 +2696,14 @@
   {
    "id": "minimax-anthropic-api",
    "tier": "S",
-   "kind": "spa",
+   "kind": "html",
    "lang": "zh-CN",
    "vendor": "minimax-text",
-   "name": "MiniMax 开放平台 · Anthropic SDK 兼容",
-   "url": "https://platform.minimaxi.com/docs/api-reference/text-anthropic-api",
-   "refresh_days": 14,
+   "name": "MiniMax · Anthropic 兼容 API",
+   "url": "https://platform.minimax.cn/docs/api-reference/text-anthropic-api.md",
+   "refresh_days": 7,
    "good_for": [
+    "version",
     "capability"
    ]
   },
@@ -2858,7 +2859,7 @@
    "id": "gemini-changelog",
    "tier": "S",
    "kind": "spa",
-   "vendor": "gemini-text",
+   "vendor": "gemini,gemini-text,gemini-tts",
    "name": "Gemini API · Release notes",
    "url": "https://ai.google.dev/gemini-api/docs/changelog",
    "refresh_days": 7,
@@ -2870,7 +2871,7 @@
   {
    "id": "xai-release-notes",
    "tier": "S",
-   "kind": "html",
+   "kind": "spa",
    "vendor": "grok",
    "name": "xAI · API Release Notes",
    "url": "https://docs.x.ai/developers/release-notes",
@@ -2936,7 +2937,7 @@
   {
    "id": "gemini-tts",
    "tier": "S",
-   "kind": "html",
+   "kind": "spa",
    "vendor": "gemini-text",
    "name": "Gemini API · Speech generation",
    "url": "https://ai.google.dev/gemini-api/docs/speech-generation",
@@ -3053,10 +3054,10 @@
   {
    "id": "xai-voice",
    "tier": "S",
-   "kind": "html",
+   "kind": "spa",
    "vendor": "grok-voice",
    "name": "xAI · Voice APIs",
-   "url": "https://docs.x.ai/docs/guides/voice",
+   "url": "https://docs.x.ai/developers/model-capabilities/audio/voice",
    "refresh_days": 14,
    "good_for": [
     "capability",
@@ -6020,7 +6021,7 @@
    "vendor": "grok",
    "url": "https://docs.x.ai/developers/models/grok-4.7",
    "tier": "S",
-   "kind": "html",
+   "kind": "spa",
    "refresh_days": 7,
    "good_for": [
     "capability",
@@ -6375,6 +6376,145 @@
    "refresh_days": 14,
    "good_for": [
     "version"
+   ]
+  },
+  {
+   "id": "gemini-argon",
+   "tier": "S",
+   "kind": "spa",
+   "vendor": "gemini-text",
+   "name": "Google · Gemini 4 Argon 模型卡",
+   "url": "https://ai.google.dev/gemini-api/docs/models/gemini-4-argon",
+   "refresh_days": 7,
+   "good_for": [
+    "version",
+    "capability"
+   ]
+  },
+  {
+   "id": "gemini-tts38",
+   "tier": "S",
+   "kind": "spa",
+   "vendor": "gemini-tts",
+   "name": "Google · Gemini 3.8 Flash TTS 模型卡",
+   "url": "https://ai.google.dev/gemini-api/docs/models/gemini-3.8-flash-tts",
+   "refresh_days": 7,
+   "good_for": [
+    "version",
+    "capability"
+   ]
+  },
+  {
+   "id": "vidu-q4-i2v",
+   "tier": "S",
+   "kind": "spa",
+   "vendor": "vidu-q",
+   "name": "Vidu · Q4 Preview 图生视频 API",
+   "url": "https://platform.vidu.com/docs/api-reference/video-models/vidu-q4-preview/image-to-video",
+   "refresh_days": 7,
+   "good_for": [
+    "version",
+    "capability"
+   ]
+  },
+  {
+   "id": "vidu-q4-reference",
+   "tier": "S",
+   "kind": "spa",
+   "vendor": "vidu-q",
+   "name": "Vidu · Q4 Preview 参考生视频 API",
+   "url": "https://platform.vidu.com/docs/api-reference/video-models/vidu-q4-preview/reference-to-video",
+   "refresh_days": 7,
+   "good_for": [
+    "version",
+    "capability"
+   ]
+  },
+  {
+   "id": "xai-voice3",
+   "tier": "S",
+   "kind": "spa",
+   "vendor": "grok-voice",
+   "name": "xAI · Speech to Speech API",
+   "url": "https://docs.x.ai/developers/model-capabilities/audio/speech-to-speech",
+   "refresh_days": 7,
+   "good_for": [
+    "version",
+    "capability"
+   ]
+  },
+  {
+   "id": "minimax-m31-guide",
+   "name": "MiniMax · M3.1 Flash 模型调用",
+   "url": "https://platform.minimax.cn/docs/guides/text-generation.md",
+   "tier": "S",
+   "kind": "html",
+   "vendor": "minimax-text",
+   "refresh_days": 7,
+   "good_for": [
+    "version",
+    "capability"
+   ]
+  },
+  {
+   "id": "minimax-m31-tools",
+   "name": "MiniMax · M3.1 工具调用",
+   "url": "https://platform.minimax.cn/docs/guides/text-m3-function-call.md",
+   "tier": "S",
+   "kind": "html",
+   "vendor": "minimax-text",
+   "refresh_days": 7,
+   "good_for": [
+    "version",
+    "capability"
+   ]
+  },
+  {
+   "id": "recraft-image-to-image",
+   "name": "Recraft · image-to-image",
+   "url": "https://www.recraft.ai/docs/api-reference/tools/image-to-image.md",
+   "tier": "S",
+   "kind": "html",
+   "vendor": "recraft",
+   "refresh_days": 7,
+   "good_for": [
+    "capability"
+   ]
+  },
+  {
+   "id": "recraft-inpainting",
+   "name": "Recraft · inpainting",
+   "url": "https://www.recraft.ai/docs/api-reference/tools/inpainting.md",
+   "tier": "S",
+   "kind": "html",
+   "vendor": "recraft",
+   "refresh_days": 7,
+   "good_for": [
+    "capability"
+   ]
+  },
+  {
+   "id": "recraft-outpainting",
+   "name": "Recraft · outpainting",
+   "url": "https://www.recraft.ai/docs/api-reference/tools/outpainting.md",
+   "tier": "S",
+   "kind": "html",
+   "vendor": "recraft",
+   "refresh_days": 7,
+   "good_for": [
+    "capability"
+   ]
+  },
+  {
+   "id": "recraft-upscale",
+   "name": "Recraft · upscale",
+   "url": "https://www.recraft.ai/docs/api-reference/tools/upscale.md",
+   "tier": "S",
+   "kind": "html",
+   "vendor": "recraft",
+   "refresh_days": 7,
+   "good_for": [
+    "capability"
    ]
   }
  ],

@@ -1,0 +1,10 @@
+{
+  "url": "https://ai.google.dev/gemini-api/docs/models/gemini-4-argon",
+  "kind": "spa",
+  "fetched_at": "2026-10-19",
+  "digest": "dc3b16fa612e07a030fbec475984d39792334f8d5af131dc46495df99a6cd656",
+  "items": [],
+  "text": "Gemini 4 Argon is now available. Try it out. Home Gemini API Docs Send feedback Gemini 4 Argon Gemini 4 Argon (gemini-4-argon) is our flagship reasoning model, built for complex software engineering, deep mathematical and scientific problem solving, autonomous multi-step agents, and long decode up to 1M tokens. Try in Google AI Studio Documentation Visit the Latest model page for full coverage of features, API changes, and migration guidance. gemini-4-argon Property Description id_cardModel code gemini-4-argon saveSupported data types Inputs Text, Image, Video, Audio, and PDF Output Text token_autoToken limits[*] Context window (unified input and output token limit) 1,048,576 Max output 65,536 (default synchronous) / up to 1,048,576 (with long decode) handymanCapabilities Agentic video understanding Supported (defaults to static) Audio generation Not supported Caching Supported (Implicit only) Note: Explicit caching is not supported. Code execution Supported Computer use Supported (Preview) File search Supported Function calling Supported Grounding with Google Maps Supported Image generation Not supported Live API Not supported Search grounding Supported Structured outputs Supported Thinking Supported (low, medium, high) URL context Supported speedConsumption options Batch API Supported Flex inference Supported Priority inference Supported 123Versions Read the model version patterns for more details. Stable: gemini-4-argon calendar_monthLatest update October 2026 id_cardModel card Model card Send feedback",
+  "full_len": 1530,
+  "truncated": false
+}

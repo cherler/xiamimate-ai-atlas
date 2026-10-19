@@ -6,33 +6,33 @@
     <atom:link href="https://xiamimate.com/atlas/changes.xml" rel="self" type="application/rss+xml"/>
     <description>AI 视频模型的版本、停服、价格与能力变化。每条带 Before / After / 为什么重要，以及厂商官方来源。</description>
     <language>zh-CN</language>
-    <lastBuildDate>Sat, 10 Oct 2026 00:00:00 GMT</lastBuildDate>
+    <lastBuildDate>Mon, 19 Oct 2026 00:00:00 GMT</lastBuildDate>
     <item>
-      <title>【快讯】Gemini Omni 1.1 Flash：今天回查当前型号的官方正文和代码示例，补齐文生视频、图生视频、角色参考、多参考、原生音频和视频转视频。</title>
-      <link>https://xiamimate.com/atlas/changes#omni-evidence-2026-10-10</link>
-      <guid isPermaLink="false">omni-evidence-2026-10-10</guid>
-      <pubDate>Sat, 10 Oct 2026 00:00:00 GMT</pubDate>
+      <title>【快讯】深度求索：V4.1 Flash-1017。deepseek-flash 已指向 1017 更新，价格和调用方法不变；Pro 仍是 V4-Pro-0813。Search / Fetch 是独立 API，不据此宣称模型内置搜索。旧 V4.1 权重不能证明 1017 检查点已发布。</title>
+      <link>https://xiamimate.com/atlas/changes#deepseek-review-2026-10-19</link>
+      <guid isPermaLink="false">deepseek-review-2026-10-19</guid>
+      <pubDate>Mon, 19 Oct 2026 00:00:00 GMT</pubDate>
       <category>快讯</category>
-      <category>gemini-omni</category>
-      <description>&lt;p&gt;&lt;b&gt;快讯&lt;/b&gt;（挂到 2026-10-17）：今日补核：Gemini Omni 1.1 的六项生成与编辑能力&lt;/p&gt;&lt;p&gt;&lt;b&gt;Gemini Omni 1.1 Flash&lt;/b&gt; · capability（这一条是我们记错了）&lt;/p&gt;&lt;p&gt;此前：版本已更新到 1.1 Flash，但六个能力格仍显示未知。&lt;/p&gt;&lt;p&gt;现在：今天回查当前型号的官方正文和代码示例，补齐文生视频、图生视频、角色参考、多参考、原生音频和视频转视频。&lt;/p&gt;&lt;p&gt;&lt;b&gt;为什么重要：&lt;/b&gt;这是本站今天补齐的证据，不是今天发布新模型；每格都已绑定 1.1 Flash，旧版能力没有直接继承。&lt;/p&gt;&lt;p&gt;影响：gemini-omni&lt;/p&gt;&lt;p&gt;来源：&lt;a href=&quot;https://ai.google.dev/gemini-api/docs/omni&quot;&gt;Google · Gemini Omni Flash 官方文档&lt;/a&gt;&lt;/p&gt;</description>
+      <category>deepseek</category>
+      <description>&lt;p&gt;&lt;b&gt;快讯&lt;/b&gt;（挂到 2026-10-26）：今日补核：DeepSeek 更新至 V4.1 Flash-1017&lt;/p&gt;&lt;p&gt;&lt;b&gt;深度求索&lt;/b&gt; · 版本更迭（这一条是我们记错了）&lt;/p&gt;&lt;p&gt;此前：V4.1&lt;/p&gt;&lt;p&gt;现在：V4.1 Flash-1017。deepseek-flash 已指向 1017 更新，价格和调用方法不变；Pro 仍是 V4-Pro-0813。Search / Fetch 是独立 API，不据此宣称模型内置搜索。旧 V4.1 权重不能证明 1017 检查点已发布。&lt;/p&gt;&lt;p&gt;&lt;b&gt;为什么重要：&lt;/b&gt;本站于 2026-10-19 补核；官方发布日期为 2026-10-17。&lt;/p&gt;&lt;p&gt;影响：deepseek&lt;/p&gt;&lt;p&gt;来源：&lt;a href=&quot;https://api-docs.deepseek.com/updates/&quot;&gt;DeepSeek 官方文档 · 更新日志&lt;/a&gt;&lt;/p&gt;</description>
     </item>
     <item>
-      <title>【快讯】Qwen3-ASR 1.7B：官方模型卡明确 1.7B 支持 30 种语言及 22 种中文方言，并统一支持流式与离线识别。</title>
-      <link>https://xiamimate.com/atlas/changes#qwen-asr-evidence-2026-10-10</link>
-      <guid isPermaLink="false">qwen-asr-evidence-2026-10-10</guid>
-      <pubDate>Sat, 10 Oct 2026 00:00:00 GMT</pubDate>
+      <title>【快讯】Grok Voice：3.0。grok-voice-latest 已指向 3.0，2.0 已弃用；官方说明价格和 API 调用方式不变。</title>
+      <link>https://xiamimate.com/atlas/changes#grok-voice-review-2026-10-19</link>
+      <guid isPermaLink="false">grok-voice-review-2026-10-19</guid>
+      <pubDate>Mon, 19 Oct 2026 00:00:00 GMT</pubDate>
       <category>快讯</category>
-      <category>qwen3-asr</category>
-      <description>&lt;p&gt;&lt;b&gt;快讯&lt;/b&gt;（挂到 2026-10-17）：Qwen3-ASR 1.7B：多语种与流式识别已补齐&lt;/p&gt;&lt;p&gt;&lt;b&gt;Qwen3-ASR 1.7B&lt;/b&gt; · capability（这一条是我们记错了）&lt;/p&gt;&lt;p&gt;此前：多语种和实时识别两格尚未核实。&lt;/p&gt;&lt;p&gt;现在：官方模型卡明确 1.7B 支持 30 种语言及 22 种中文方言，并统一支持流式与离线识别。&lt;/p&gt;&lt;p&gt;&lt;b&gt;为什么重要：&lt;/b&gt;选型时能确认语种与流式支持；没有把独立强制对齐器的时间戳能力算进 ASR 本体。&lt;/p&gt;&lt;p&gt;影响：qwen3-asr&lt;/p&gt;&lt;p&gt;来源：&lt;a href=&quot;https://huggingface.co/Qwen/Qwen3-ASR-1.7B&quot;&gt;阿里官方 · Qwen3-ASR 模型卡&lt;/a&gt;&lt;/p&gt;</description>
+      <category>grok-voice</category>
+      <description>&lt;p&gt;&lt;b&gt;快讯&lt;/b&gt;（挂到 2026-10-26）：今日补核：Grok Voice 更新至 3.0&lt;/p&gt;&lt;p&gt;&lt;b&gt;Grok Voice&lt;/b&gt; · 版本更迭（这一条是我们记错了）&lt;/p&gt;&lt;p&gt;此前：think-fast-2.0&lt;/p&gt;&lt;p&gt;现在：3.0。grok-voice-latest 已指向 3.0，2.0 已弃用；官方说明价格和 API 调用方式不变。&lt;/p&gt;&lt;p&gt;&lt;b&gt;为什么重要：&lt;/b&gt;本站于 2026-10-19 补核；官方发布日期为 2026-10-14。&lt;/p&gt;&lt;p&gt;影响：grok-voice&lt;/p&gt;&lt;p&gt;来源：&lt;a href=&quot;https://docs.x.ai/developers/release-notes&quot;&gt;xAI · API Release Notes&lt;/a&gt;&lt;/p&gt;</description>
     </item>
     <item>
-      <title>【快讯】Hallo-Live：今天按 Hallo-Live 官方模型卡补齐文本驱动与流式音视频生成；官方报告在两张 H200 上达到 20.38 FPS、0.94 秒延迟。</title>
-      <link>https://xiamimate.com/atlas/changes#hallo-live-evidence-2026-10-10</link>
-      <guid isPermaLink="false">hallo-live-evidence-2026-10-10</guid>
-      <pubDate>Sat, 10 Oct 2026 00:00:00 GMT</pubDate>
+      <title>【快讯】Gemini：Gemini 4 Argon。旗舰推理模型转为 Gemini 4 Argon；3.8 Flash 仍是独立档位。长输出可达 1M token，显式缓存不支持，Computer Use 仍为 Preview。</title>
+      <link>https://xiamimate.com/atlas/changes#gemini-text-review-2026-10-19</link>
+      <guid isPermaLink="false">gemini-text-review-2026-10-19</guid>
+      <pubDate>Mon, 19 Oct 2026 00:00:00 GMT</pubDate>
       <category>快讯</category>
-      <category>hallo2</category>
-      <description>&lt;p&gt;&lt;b&gt;快讯&lt;/b&gt;（挂到 2026-10-17）：Hallo-Live：文本驱动与实时生成已补齐&lt;/p&gt;&lt;p&gt;&lt;b&gt;Hallo-Live&lt;/b&gt; · capability（这一条是我们记错了）&lt;/p&gt;&lt;p&gt;此前：文本驱动和实时生成仍引用旧版 Hallo2 的未核实说明。&lt;/p&gt;&lt;p&gt;现在：今天按 Hallo-Live 官方模型卡补齐文本驱动与流式音视频生成；官方报告在两张 H200 上达到 20.38 FPS、0.94 秒延迟。&lt;/p&gt;&lt;p&gt;&lt;b&gt;为什么重要：&lt;/b&gt;可据此确认输入与输出方式；性能数字保留硬件条件，不外推到普通显卡。&lt;/p&gt;&lt;p&gt;影响：hallo2&lt;/p&gt;&lt;p&gt;来源：&lt;a href=&quot;https://huggingface.co/fudan-generative-ai/Hallo-Live&quot;&gt;HF · 复旦 Hallo-Live&lt;/a&gt;&lt;/p&gt;</description>
+      <category>gemini-text</category>
+      <description>&lt;p&gt;&lt;b&gt;快讯&lt;/b&gt;（挂到 2026-10-26）：今日补核：Gemini 更新至 Gemini 4 Argon&lt;/p&gt;&lt;p&gt;&lt;b&gt;Gemini&lt;/b&gt; · 版本更迭（这一条是我们记错了）&lt;/p&gt;&lt;p&gt;此前：Gemini 3.8 Flash&lt;/p&gt;&lt;p&gt;现在：Gemini 4 Argon。旗舰推理模型转为 Gemini 4 Argon；3.8 Flash 仍是独立档位。长输出可达 1M token，显式缓存不支持，Computer Use 仍为 Preview。&lt;/p&gt;&lt;p&gt;&lt;b&gt;为什么重要：&lt;/b&gt;本站于 2026-10-19 补核；官方发布日期为 2026-10-13。&lt;/p&gt;&lt;p&gt;影响：gemini-text&lt;/p&gt;&lt;p&gt;来源：&lt;a href=&quot;https://ai.google.dev/gemini-api/docs/changelog&quot;&gt;Gemini API · Release notes&lt;/a&gt;&lt;/p&gt;</description>
     </item>
     <item>
       <title>Tripo API V2：官方公告：2026-10-01 起不再更新与支持，2026-11-01 起 V2 端点全部停止接收请求</title>
@@ -41,6 +41,54 @@
       <pubDate>Sun, 01 Nov 2026 00:00:00 GMT</pubDate>
       <category>tripo</category>
       <description>&lt;p&gt;&lt;b&gt;Tripo API V2&lt;/b&gt; · 生命周期&lt;/p&gt;&lt;p&gt;此前：V2 端点照常服务，且&lt;b&gt;不传参数时默认调的就是 V2 时代的 v2.5-20250123&lt;/b&gt;&lt;/p&gt;&lt;p&gt;现在：官方公告：2026-10-01 起不再更新与支持，2026-11-01 起 V2 端点全部停止接收请求&lt;/p&gt;&lt;p&gt;&lt;b&gt;为什么重要：&lt;/b&gt;&lt;b&gt;默认值踩的正是要停的那一支&lt;/b&gt; —— 没显式指定 model_version 的调用会跟着一起断&lt;/p&gt;&lt;p&gt;影响：tripo&lt;/p&gt;&lt;p&gt;来源：&lt;a href=&quot;https://platform.tripo3d.ai/docs/generation&quot;&gt;Tripo · Generation 端点文档&lt;/a&gt;&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>MiniMax M3.1 Flash：2026-10-19 官方支持列表与调用示例已使用 M3.1-Flash，不再沿用此前 Preview 的限定渠道描述。M3 仍正常提供；新版权重开放情况未确认。思考默认 max 且不能关闭。</title>
+      <link>https://xiamimate.com/atlas/changes#minimax-text-review-2026-10-19</link>
+      <guid isPermaLink="false">minimax-text-review-2026-10-19</guid>
+      <pubDate>Mon, 19 Oct 2026 00:00:00 GMT</pubDate>
+      <category>minimax-text</category>
+      <description>&lt;p&gt;&lt;b&gt;MiniMax M3.1 Flash&lt;/b&gt; · 版本更迭（这一条是我们记错了）&lt;/p&gt;&lt;p&gt;此前：M3；M3.1-Flash-Preview 曾限定渠道提供。&lt;/p&gt;&lt;p&gt;现在：2026-10-19 官方支持列表与调用示例已使用 M3.1-Flash，不再沿用此前 Preview 的限定渠道描述。M3 仍正常提供；新版权重开放情况未确认。思考默认 max 且不能关闭。&lt;/p&gt;&lt;p&gt;&lt;b&gt;为什么重要：&lt;/b&gt;这是今天核到的当前支持列表变化，未把核实日冒充官方发布日期。&lt;/p&gt;&lt;p&gt;影响：minimax-text&lt;/p&gt;&lt;p&gt;来源：&lt;a href=&quot;https://platform.minimax.cn/docs/guides/text-generation.md&quot;&gt;MiniMax · M3.1 Flash 模型调用&lt;/a&gt;&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Gemini TTS：3.8 Flash TTS。旗舰创意语音档为 3.8 Flash TTS，130 种语言；Flash-Lite 是独立的低延迟档位。支持预设音色、音色设计与需授权的声音复刻，默认单次输出改为 WAV。</title>
+      <link>https://xiamimate.com/atlas/changes#gemini-tts-review-2026-10-19</link>
+      <guid isPermaLink="false">gemini-tts-review-2026-10-19</guid>
+      <pubDate>Mon, 19 Oct 2026 00:00:00 GMT</pubDate>
+      <category>gemini-tts</category>
+      <description>&lt;p&gt;&lt;b&gt;Gemini TTS&lt;/b&gt; · 版本更迭（这一条是我们记错了）&lt;/p&gt;&lt;p&gt;此前：3.1 Flash TTS Preview&lt;/p&gt;&lt;p&gt;现在：3.8 Flash TTS。旗舰创意语音档为 3.8 Flash TTS，130 种语言；Flash-Lite 是独立的低延迟档位。支持预设音色、音色设计与需授权的声音复刻，默认单次输出改为 WAV。&lt;/p&gt;&lt;p&gt;&lt;b&gt;为什么重要：&lt;/b&gt;本站于 2026-10-19 补核；官方发布日期为 2026-09-22。&lt;/p&gt;&lt;p&gt;影响：gemini-tts&lt;/p&gt;&lt;p&gt;来源：&lt;a href=&quot;https://ai.google.dev/gemini-api/docs/changelog&quot;&gt;Gemini API · Release notes&lt;/a&gt;&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Vidu Q：Q4 Preview。Q4 为预览版。当前确认图生视频与参考生视频，支持音画同出、最高 4K 和 15 张参考图；端点时长为 3–16 秒（概览页另写 1–16 秒，以实际端点为准）。Q3 的其他能力不自动继承。</title>
+      <link>https://xiamimate.com/atlas/changes#vidu-q-review-2026-10-19</link>
+      <guid isPermaLink="false">vidu-q-review-2026-10-19</guid>
+      <pubDate>Mon, 19 Oct 2026 00:00:00 GMT</pubDate>
+      <category>vidu-q</category>
+      <description>&lt;p&gt;&lt;b&gt;Vidu Q&lt;/b&gt; · 版本更迭（这一条是我们记错了）&lt;/p&gt;&lt;p&gt;此前：Q3&lt;/p&gt;&lt;p&gt;现在：Q4 Preview。Q4 为预览版。当前确认图生视频与参考生视频，支持音画同出、最高 4K 和 15 张参考图；端点时长为 3–16 秒（概览页另写 1–16 秒，以实际端点为准）。Q3 的其他能力不自动继承。&lt;/p&gt;&lt;p&gt;&lt;b&gt;为什么重要：&lt;/b&gt;本站于 2026-10-19 补核；官方发布日期为 2026-10-07。&lt;/p&gt;&lt;p&gt;影响：vidu-q&lt;/p&gt;&lt;p&gt;来源：&lt;a href=&quot;https://platform.vidu.com/docs/api-reference/updates&quot;&gt;Vidu 平台 · 更新日志&lt;/a&gt;&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Gemini Omni 1.1 Flash：今天回查当前型号的官方正文和代码示例，补齐文生视频、图生视频、角色参考、多参考、原生音频和视频转视频。</title>
+      <link>https://xiamimate.com/atlas/changes#omni-evidence-2026-10-10</link>
+      <guid isPermaLink="false">omni-evidence-2026-10-10</guid>
+      <pubDate>Sat, 10 Oct 2026 00:00:00 GMT</pubDate>
+      <category>gemini-omni</category>
+      <description>&lt;p&gt;&lt;b&gt;Gemini Omni 1.1 Flash&lt;/b&gt; · capability（这一条是我们记错了）&lt;/p&gt;&lt;p&gt;此前：版本已更新到 1.1 Flash，但六个能力格仍显示未知。&lt;/p&gt;&lt;p&gt;现在：今天回查当前型号的官方正文和代码示例，补齐文生视频、图生视频、角色参考、多参考、原生音频和视频转视频。&lt;/p&gt;&lt;p&gt;&lt;b&gt;为什么重要：&lt;/b&gt;这是本站今天补齐的证据，不是今天发布新模型；每格都已绑定 1.1 Flash，旧版能力没有直接继承。&lt;/p&gt;&lt;p&gt;影响：gemini-omni&lt;/p&gt;&lt;p&gt;来源：&lt;a href=&quot;https://ai.google.dev/gemini-api/docs/omni&quot;&gt;Google · Gemini Omni Flash 官方文档&lt;/a&gt;&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Qwen3-ASR 1.7B：官方模型卡明确 1.7B 支持 30 种语言及 22 种中文方言，并统一支持流式与离线识别。</title>
+      <link>https://xiamimate.com/atlas/changes#qwen-asr-evidence-2026-10-10</link>
+      <guid isPermaLink="false">qwen-asr-evidence-2026-10-10</guid>
+      <pubDate>Sat, 10 Oct 2026 00:00:00 GMT</pubDate>
+      <category>qwen3-asr</category>
+      <description>&lt;p&gt;&lt;b&gt;Qwen3-ASR 1.7B&lt;/b&gt; · capability（这一条是我们记错了）&lt;/p&gt;&lt;p&gt;此前：多语种和实时识别两格尚未核实。&lt;/p&gt;&lt;p&gt;现在：官方模型卡明确 1.7B 支持 30 种语言及 22 种中文方言，并统一支持流式与离线识别。&lt;/p&gt;&lt;p&gt;&lt;b&gt;为什么重要：&lt;/b&gt;选型时能确认语种与流式支持；没有把独立强制对齐器的时间戳能力算进 ASR 本体。&lt;/p&gt;&lt;p&gt;影响：qwen3-asr&lt;/p&gt;&lt;p&gt;来源：&lt;a href=&quot;https://huggingface.co/Qwen/Qwen3-ASR-1.7B&quot;&gt;阿里官方 · Qwen3-ASR 模型卡&lt;/a&gt;&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Hallo-Live：今天按 Hallo-Live 官方模型卡补齐文本驱动与流式音视频生成；官方报告在两张 H200 上达到 20.38 FPS、0.94 秒延迟。</title>
+      <link>https://xiamimate.com/atlas/changes#hallo-live-evidence-2026-10-10</link>
+      <guid isPermaLink="false">hallo-live-evidence-2026-10-10</guid>
+      <pubDate>Sat, 10 Oct 2026 00:00:00 GMT</pubDate>
+      <category>hallo2</category>
+      <description>&lt;p&gt;&lt;b&gt;Hallo-Live&lt;/b&gt; · capability（这一条是我们记错了）&lt;/p&gt;&lt;p&gt;此前：文本驱动和实时生成仍引用旧版 Hallo2 的未核实说明。&lt;/p&gt;&lt;p&gt;现在：今天按 Hallo-Live 官方模型卡补齐文本驱动与流式音视频生成；官方报告在两张 H200 上达到 20.38 FPS、0.94 秒延迟。&lt;/p&gt;&lt;p&gt;&lt;b&gt;为什么重要：&lt;/b&gt;可据此确认输入与输出方式；性能数字保留硬件条件，不外推到普通显卡。&lt;/p&gt;&lt;p&gt;影响：hallo2&lt;/p&gt;&lt;p&gt;来源：&lt;a href=&quot;https://huggingface.co/fudan-generative-ai/Hallo-Live&quot;&gt;HF · 复旦 Hallo-Live&lt;/a&gt;&lt;/p&gt;</description>
     </item>
     <item>
       <title>Sora：OpenAI 公告 API 于 2026-09-24 停止</title>
@@ -88,7 +136,7 @@
       <guid isPermaLink="false">vidu-s2-2026-09-15</guid>
       <pubDate>Tue, 15 Sep 2026 00:00:00 GMT</pubDate>
       <category>vidu-s</category>
-      <description>&lt;p&gt;&lt;b&gt;Vidu S2（实时线换代，兼修一处来源错配）&lt;/b&gt; · 版本更迭&lt;/p&gt;&lt;p&gt;此前：atlas 记 S1，且这一格署的是 arXiv 上的 S1 论文&lt;/p&gt;&lt;p&gt;现在：官方 API 更新日志 09-15 上新 Vidu S2-Avatar（实时语音交互 + 复杂动作控制）与 Vidu S2-Editing（拿参考图实时改进来的视频流）；版本来源改署官方更新日志&lt;/p&gt;&lt;p&gt;&lt;b&gt;为什么重要：&lt;/b&gt;生数的实时线换代了。&lt;b&gt;顺带修的那处更要紧&lt;/b&gt;：换代只在更新日志上宣布，论文页永远停在 S1 —— 署在论文上等于这条线以后换代我们也看不见。&lt;/p&gt;&lt;p&gt;影响：vidu-s&lt;/p&gt;&lt;p&gt;来源：&lt;a href=&quot;https://platform.vidu.com/docs/update&quot;&gt;Vidu 平台 · 更新日志&lt;/a&gt;&lt;/p&gt;</description>
+      <description>&lt;p&gt;&lt;b&gt;Vidu S2（实时线换代，兼修一处来源错配）&lt;/b&gt; · 版本更迭&lt;/p&gt;&lt;p&gt;此前：atlas 记 S1，且这一格署的是 arXiv 上的 S1 论文&lt;/p&gt;&lt;p&gt;现在：官方 API 更新日志 09-15 上新 Vidu S2-Avatar（实时语音交互 + 复杂动作控制）与 Vidu S2-Editing（拿参考图实时改进来的视频流）；版本来源改署官方更新日志&lt;/p&gt;&lt;p&gt;&lt;b&gt;为什么重要：&lt;/b&gt;生数的实时线换代了。&lt;b&gt;顺带修的那处更要紧&lt;/b&gt;：换代只在更新日志上宣布，论文页永远停在 S1 —— 署在论文上等于这条线以后换代我们也看不见。&lt;/p&gt;&lt;p&gt;影响：vidu-s&lt;/p&gt;&lt;p&gt;来源：&lt;a href=&quot;https://platform.vidu.com/docs/api-reference/updates&quot;&gt;Vidu 平台 · 更新日志&lt;/a&gt;&lt;/p&gt;</description>
     </item>
     <item>
       <title>DeepSeek V4.1（新架构家族，先出 Flash 档）：官方更新日志正式发布 DeepSeek-V4.1-Flash，称其为「the smallest model in our new architecture family」，原生多模态视觉理解；V4 Flash / V4 Flash Vision Exp 下线并路由到 V4.1 Flash；**Pro 档仍是 V4-Pro-0813 且继续提供服务**</title>
@@ -368,55 +416,6 @@
       <pubDate>Mon, 03 Aug 2026 00:00:00 GMT</pubDate>
       <category>hailuo</category>
       <description>&lt;p&gt;&lt;b&gt;MiniMax H3&lt;/b&gt; · capability&lt;/p&gt;&lt;p&gt;此前：官方博客写的是「plan to open up the model weights in the coming days」&lt;/p&gt;&lt;p&gt;现在：权重已上 Hugging Face（280 个文件，含 safetensors）&lt;/p&gt;&lt;p&gt;&lt;b&gt;为什么重要：&lt;/b&gt;&lt;b&gt;「计划开」和「已经开」是两件事&lt;/b&gt;，中间隔了几天。而许可是自定义的 minimax-h3-community-license-agreement，不是标准开源协议 —— 只看「开源」那一格会看错。&lt;/p&gt;&lt;p&gt;影响：想自部署的可以动手了；商用前必须自己读许可条款&lt;/p&gt;&lt;p&gt;来源：&lt;a href=&quot;https://huggingface.co/api/models/MiniMaxAI/MiniMax-H3&quot;&gt;HF API · MiniMaxAI/MiniMax-H3 元数据（许可与文件清单）&lt;/a&gt;&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Seedance：2.5：单次最多 50 个参考输入（30 图 + 10 视频 + 10 音频），30 秒一镜到底，支持多轮延长</title>
-      <link>https://xiamimate.com/atlas/changes#seedance-25</link>
-      <guid isPermaLink="false">seedance-25</guid>
-      <pubDate>Fri, 31 Jul 2026 00:00:00 GMT</pubDate>
-      <category>seedance</category>
-      <description>&lt;p&gt;&lt;b&gt;Seedance&lt;/b&gt; · version&lt;/p&gt;&lt;p&gt;此前：2.0：单次 9 图 + 3 视频 + 3 音频参考&lt;/p&gt;&lt;p&gt;现在：2.5：单次最多 50 个参考输入（30 图 + 10 视频 + 10 音频），30 秒一镜到底，支持多轮延长&lt;/p&gt;&lt;p&gt;&lt;b&gt;为什么重要：&lt;/b&gt;参考输入的上限从 15 涨到 50，是这一代最实的一步 —— 而「参考」正是这两年真正在铺开的方向。&lt;/p&gt;&lt;p&gt;影响：多主体、多镜头的活可以少拆几次；Replicate 上仍标着 coming soon，还用不上&lt;/p&gt;&lt;p&gt;来源：&lt;a href=&quot;https://seed.bytedance.com/en/blog/one-take-creation-flexible-referencing-introducing-seedance-2-5&quot;&gt;ByteDance Seed 官方博客 · Seedance 2.5（2026-07-31）&lt;/a&gt;&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>MiniMax Hailuo：H3 放出权重（自定义社区许可），可自部署</title>
-      <link>https://xiamimate.com/atlas/changes#hailuo-2026-07-31</link>
-      <guid isPermaLink="false">hailuo-2026-07-31</guid>
-      <pubDate>Fri, 31 Jul 2026 00:00:00 GMT</pubDate>
-      <category>hailuo</category>
-      <description>&lt;p&gt;&lt;b&gt;MiniMax Hailuo&lt;/b&gt; · 生命周期&lt;/p&gt;&lt;p&gt;此前：海螺 01 / 02 / 2.3 全部闭源，只能调 API&lt;/p&gt;&lt;p&gt;现在：H3 放出权重（自定义社区许可），可自部署&lt;/p&gt;&lt;p&gt;&lt;b&gt;为什么重要：&lt;/b&gt;闭源阵营里第一家把主力模型的权重放出来的 —— &lt;b&gt;和万相正好走了相反的方向&lt;/b&gt;&lt;/p&gt;&lt;p&gt;影响：skill:openweights；capability:openweights；hailuo&lt;/p&gt;&lt;p&gt;来源：&lt;a href=&quot;https://platform.minimax.io/docs/release-notes/models&quot;&gt;MiniMax 开放平台 · 模型发布日志&lt;/a&gt;&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Claude Opus 5：Anthropic 发 Opus 5:「comes close to the frontier intelligence of Fable 5 at half the price」,$5/$25,Claude Max 新默认款</title>
-      <link>https://xiamimate.com/atlas/changes#claude-opus5-2026-07-24</link>
-      <guid isPermaLink="false">claude-opus5-2026-07-24</guid>
-      <pubDate>Fri, 24 Jul 2026 00:00:00 GMT</pubDate>
-      <category>claude</category>
-      <description>&lt;p&gt;&lt;b&gt;Claude Opus 5&lt;/b&gt; · 新模型&lt;/p&gt;&lt;p&gt;此前：Claude 5 家族顶配是 Fable 5&lt;/p&gt;&lt;p&gt;现在：Anthropic 发 Opus 5:「comes close to the frontier intelligence of Fable 5 at half the price」,$5/$25,Claude Max 新默认款&lt;/p&gt;&lt;p&gt;&lt;b&gt;为什么重要：&lt;/b&gt;&lt;b&gt;atlas 仍记 Fable 5(frontier)&lt;/b&gt;;Opus 5 是更便宜的默认款不是能力升级,故只加 note+事件、不翻版本号。&lt;/p&gt;&lt;p&gt;影响：claude&lt;/p&gt;&lt;p&gt;来源：&lt;a href=&quot;https://www.anthropic.com/news/claude-opus-5&quot;&gt;Anthropic 官方 · Introducing Claude Opus 5&lt;/a&gt;&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Gemini 与 Claude 同时弃用采样参数：Gemini 3.6 在发布同一天宣布弃用这三个参数；Claude 从 Opus 4.7 起，这三个参数设成非默认值直接返回 400</title>
-      <link>https://xiamimate.com/atlas/changes#sampling-params-deprecated-2026-07-21</link>
-      <guid isPermaLink="false">sampling-params-deprecated-2026-07-21</guid>
-      <pubDate>Tue, 21 Jul 2026 00:00:00 GMT</pubDate>
-      <category>gemini-text</category>
-      <category>claude</category>
-      <description>&lt;p&gt;&lt;b&gt;Gemini 与 Claude 同时弃用采样参数&lt;/b&gt; · capability&lt;/p&gt;&lt;p&gt;此前：temperature / top_p / top_k 是通用的输出控制手段&lt;/p&gt;&lt;p&gt;现在：Gemini 3.6 在发布同一天宣布弃用这三个参数；Claude 从 Opus 4.7 起，这三个参数设成非默认值直接返回 400&lt;/p&gt;&lt;p&gt;&lt;b&gt;为什么重要：&lt;/b&gt;&lt;b&gt;两家在同一个季度做了同一个决定&lt;/b&gt;，这不是巧合：模型转向自适应思考之后，采样温度这一层控制反而会破坏推理。对使用者是硬变更 —— 老代码里传了 temperature 的，在 Claude 上会直接报错。&lt;/p&gt;&lt;p&gt;影响：gemini-text；claude&lt;/p&gt;&lt;p&gt;来源：&lt;a href=&quot;https://ai.google.dev/gemini-api/docs/changelog&quot;&gt;Gemini API · Release notes&lt;/a&gt;&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>GPT：GPT-5.6 上线，改成 Sol / Terra / Luna 三档命名</title>
-      <link>https://xiamimate.com/atlas/changes#gpt-5.6-2026-07-09</link>
-      <guid isPermaLink="false">gpt-5.6-2026-07-09</guid>
-      <pubDate>Thu, 09 Jul 2026 00:00:00 GMT</pubDate>
-      <category>gpt</category>
-      <description>&lt;p&gt;&lt;b&gt;GPT&lt;/b&gt; · version&lt;/p&gt;&lt;p&gt;此前：GPT-5.5 / 5.5-pro&lt;/p&gt;&lt;p&gt;现在：GPT-5.6 上线，改成 Sol / Terra / Luna 三档命名&lt;/p&gt;&lt;p&gt;&lt;b&gt;为什么重要：&lt;/b&gt;命名从「数字 + mini/nano」换成了代号，&lt;b&gt;按名字猜档次的做法从这一代起失效&lt;/b&gt;。&lt;/p&gt;&lt;p&gt;影响：gpt&lt;/p&gt;&lt;p&gt;来源：&lt;a href=&quot;https://developers.openai.com/api/docs/changelog&quot;&gt;OpenAI · API Changelog&lt;/a&gt;&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Seedream：Seedream 5.0 Pro：分层输出 + 圈画标注式改图</title>
-      <link>https://xiamimate.com/atlas/changes#seedream-5-2026-07-08</link>
-      <guid isPermaLink="false">seedream-5-2026-07-08</guid>
-      <pubDate>Wed, 08 Jul 2026 00:00:00 GMT</pubDate>
-      <category>seedream</category>
-      <description>&lt;p&gt;&lt;b&gt;Seedream&lt;/b&gt; · version&lt;/p&gt;&lt;p&gt;此前：Seedream 4.0：出图与改图并进一个模型&lt;/p&gt;&lt;p&gt;现在：Seedream 5.0 Pro：分层输出 + 圈画标注式改图&lt;/p&gt;&lt;p&gt;&lt;b&gt;为什么重要：&lt;/b&gt;&lt;b&gt;分层输出把「改图」从重画整张变成动某一层&lt;/b&gt; —— 这是设计流程里差别最大的一步&lt;/p&gt;&lt;p&gt;影响：seedream&lt;/p&gt;&lt;p&gt;来源：&lt;a href=&quot;https://seed.bytedance.com/en/blog&quot;&gt;ByteDance Seed · 官方博客&lt;/a&gt;&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>

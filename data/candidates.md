@@ -1,4 +1,4 @@
-# 收录候选 · 2026-10-10
+# 收录候选 · 2026-10-19
 
 
 
@@ -24,7 +24,7 @@
 
 ### 二、Hugging Face 下载量前列、我们没收的组织（开源侧的实际采用度）
 
-> ⚠️ 另有 **8 个组织被判成量化 / 搬运号**（仓库八成以上是 GGUF、AWQ、mlx 这类二次分发档），已从下表略过：`ChrisColeTech`、`QuantStack`、`city96`、`drbaph`、`joeygambino`、`molbal` 等。**判据是仓库名，不是人品** —— 它们里面若有自训模型，会因为名字不带量化后缀而照常出现在上表。
+> ⚠️ 另有 **7 个组织被判成量化 / 搬运号**（仓库八成以上是 GGUF、AWQ、mlx 这类二次分发档），已从下表略过：`ChrisColeTech`、`QuantStack`、`city96`、`drbaph`、`joeygambino`、`realrebelai` 等。**判据是仓库名，不是人品** —— 它们里面若有自训模型，会因为名字不带量化后缀而照常出现在上表。
 
 （无）
 
@@ -47,7 +47,7 @@
 - `clip` Wan 3.0（2026-08-07）
 - `clip` Runway Gen Gen-4.5（2025-12-11）
 - `clip` Kling 4.0（2026-10-10）
-- `clip` Vidu Q Q3（2026-04-13）
+- `clip` Vidu Q Q4 Preview（2026-10-19）
 - `clip` Veo 3.1（2025-10） — **superseded**
 - `clip` Sora 2（2025-09） — **discontinued**
 - `realtime` Vidu S S2（2026-09-19）
@@ -83,19 +83,19 @@
 - `still` NewBie-image Exp0.1（2025-11-30）
 - `chat` Claude Fable 5.1（2026-09-10）
 - `chat` GPT GPT-6 Astra（2026-09-10）
-- `chat` Gemini Gemini 3.8 Flash（2026-09-10）
+- `chat` Gemini Gemini 4 Argon（2026-10-19）
 - `chat` Qwen 3.8-max（2026-08-11）
-- `chat` DeepSeek V4.1（2026-09-19）
+- `chat` DeepSeek V4.1 Flash-1017（2026-10-19）
 - `chat` Kimi K3（2026-06-13）
 - `chat` GLM GLM-5.3（2026-08-29）
-- `chat` MiniMax M3（2026-06-02）
+- `chat` MiniMax M3.1 Flash（2026-10-19）
 - `chat` Doubao Seed-2.1 Pro（2026-06-23）
 - `chat` Llama 4（2025-04-05）
 - `chat` Grok 4.7（2026-10-10）
 - `chat` Mistral Medium 3.5（2026-03-31）
 - `tts` MiniMax Speech speech-2.8-hd（2026-08-12）
 - `tts` ElevenLabs Eleven v4（2026-10-10）
-- `tts` Gemini TTS 3.1 Flash TTS Preview（2026-08-12）
+- `tts` Gemini TTS 3.8 Flash TTS（2026-10-19）
 - `tts` GPT TTS GPT-4o mini TTS（2026-08-12）
 - `voice-rt` GLM Voice glm-4-voice（2026-08-12）
 - `tts` Qwen Omni 3.5-omni-plus（2026-08-12）
@@ -103,7 +103,7 @@
 - `music` Eleven Music v2.5（2026-09-23）
 - `music` Lyria 3.5（2026-09-10）
 - `voice-rt` GPT Realtime 2.1（2026-08-12）
-- `voice-rt` Grok Voice think-fast-2.0（2026-08-12）
+- `voice-rt` Grok Voice 3.0（2026-10-19）
 - `tts` GLM-TTS GLM-TTS（2026-08-12）
 - `tts` CosyVoice Fun-CosyVoice3-0.5B-2512（2025-12-11）
 - `tts` Fish Speech s2-pro（2026-03-09）
@@ -184,11 +184,11 @@
 
 ### 二、Hugging Face 下载量前列、我们没收的组织（开源侧的实际采用度）
 
-> ⚠️ 另有 **4 个组织被判成量化 / 搬运号**（仓库八成以上是 GGUF、AWQ、mlx 这类二次分发档），已从下表略过：`city96`、`xinsir`、`ChrisColeTech`、`QuantStack`。**判据是仓库名，不是人品** —— 它们里面若有自训模型，会因为名字不带量化后缀而照常出现在上表。
+> ⚠️ 另有 **4 个组织被判成量化 / 搬运号**（仓库八成以上是 GGUF、AWQ、mlx 这类二次分发档），已从下表略过：`AtomicChat`、`city96`、`xinsir`、`QuantStack`。**判据是仓库名，不是人品** —— 它们里面若有自训模型，会因为名字不带量化后缀而照常出现在上表。
 
 （无）
-> 已核 AlperKTS 本次出现的 2 个仓库：量化/格式转换，不另建模型产品线。只记这些具体仓库；新仓库仍会重新检查。
-> 已核 silveroxides 本次出现的 2 个仓库：量化/格式转换，不另建模型产品线。只记这些具体仓库；新仓库仍会重新检查。
+> 已核 AlperKTS 本次出现的 1 个仓库：量化/格式转换，不另建模型产品线。只记这些具体仓库；新仓库仍会重新检查。
+> 已核 silveroxides 本次出现的 1 个仓库：量化/格式转换，不另建模型产品线。只记这些具体仓库；新仓库仍会重新检查。
 
 > ⚠️ HF 这一路混着个人搬运号与量化号（QuantStack、city96、calcuis 之类）。
 > **脚本分不出「自己训模型」和「搬别人的」** —— 那要人看一眼组织主页。
@@ -209,7 +209,7 @@
 - `clip` Wan 3.0（2026-08-07）
 - `clip` Runway Gen Gen-4.5（2025-12-11）
 - `clip` Kling 4.0（2026-10-10）
-- `clip` Vidu Q Q3（2026-04-13）
+- `clip` Vidu Q Q4 Preview（2026-10-19）
 - `clip` Veo 3.1（2025-10） — **superseded**
 - `clip` Sora 2（2025-09） — **discontinued**
 - `realtime` Vidu S S2（2026-09-19）
@@ -245,19 +245,19 @@
 - `still` NewBie-image Exp0.1（2025-11-30）
 - `chat` Claude Fable 5.1（2026-09-10）
 - `chat` GPT GPT-6 Astra（2026-09-10）
-- `chat` Gemini Gemini 3.8 Flash（2026-09-10）
+- `chat` Gemini Gemini 4 Argon（2026-10-19）
 - `chat` Qwen 3.8-max（2026-08-11）
-- `chat` DeepSeek V4.1（2026-09-19）
+- `chat` DeepSeek V4.1 Flash-1017（2026-10-19）
 - `chat` Kimi K3（2026-06-13）
 - `chat` GLM GLM-5.3（2026-08-29）
-- `chat` MiniMax M3（2026-06-02）
+- `chat` MiniMax M3.1 Flash（2026-10-19）
 - `chat` Doubao Seed-2.1 Pro（2026-06-23）
 - `chat` Llama 4（2025-04-05）
 - `chat` Grok 4.7（2026-10-10）
 - `chat` Mistral Medium 3.5（2026-03-31）
 - `tts` MiniMax Speech speech-2.8-hd（2026-08-12）
 - `tts` ElevenLabs Eleven v4（2026-10-10）
-- `tts` Gemini TTS 3.1 Flash TTS Preview（2026-08-12）
+- `tts` Gemini TTS 3.8 Flash TTS（2026-10-19）
 - `tts` GPT TTS GPT-4o mini TTS（2026-08-12）
 - `voice-rt` GLM Voice glm-4-voice（2026-08-12）
 - `tts` Qwen Omni 3.5-omni-plus（2026-08-12）
@@ -265,7 +265,7 @@
 - `music` Eleven Music v2.5（2026-09-23）
 - `music` Lyria 3.5（2026-09-10）
 - `voice-rt` GPT Realtime 2.1（2026-08-12）
-- `voice-rt` Grok Voice think-fast-2.0（2026-08-12）
+- `voice-rt` Grok Voice 3.0（2026-10-19）
 - `tts` GLM-TTS GLM-TTS（2026-08-12）
 - `tts` CosyVoice Fun-CosyVoice3-0.5B-2512（2025-12-11）
 - `tts` Fish Speech s2-pro（2026-03-09）

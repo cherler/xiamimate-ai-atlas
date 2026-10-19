@@ -1,5 +1,5 @@
 {
-  "at": "2026-10-10T02:52:04.210Z",
+  "at": "2026-10-19T10:24:27.386Z",
   "rows": [
     {
       "at": "kling × t2v",
@@ -347,63 +347,69 @@
     },
     {
       "at": "vidu-q × t2v",
-      "src": "vidu-function-list",
+      "src": "vidu-q4-i2v",
       "kind": "无英文锚",
       "anchor": null
     },
     {
       "at": "vidu-q × i2v",
-      "src": "vidu-function-list",
-      "kind": "无英文锚",
-      "anchor": null
+      "src": "vidu-q4-i2v",
+      "kind": "对得上",
+      "anchor": "viduq4-preview: Supports audio-video synchronization, supports automatic camera switching"
     },
     {
       "at": "vidu-q × flf",
-      "src": "vidu-function-list",
-      "kind": "对得上",
-      "anchor": "Start end to video"
-    },
-    {
-      "at": "vidu-q × charref",
-      "src": "vidu-function-list",
+      "src": "vidu-q4-i2v",
       "kind": "无英文锚",
       "anchor": null
     },
     {
-      "at": "vidu-q × multiref",
-      "src": "vidu-function-list",
+      "at": "vidu-q × charref",
+      "src": "vidu-q4-reference",
       "kind": "对得上",
-      "anchor": "Supports uploading multiple images"
+      "anchor": "viduq4-preview model supports uploading 1 to 15 images"
+    },
+    {
+      "at": "vidu-q × multiref",
+      "src": "vidu-q4-reference",
+      "kind": "对得上",
+      "anchor": "viduq4-preview model supports uploading 1 to 15 images"
     },
     {
       "at": "vidu-q × motion",
-      "src": "vidu-function-list",
+      "src": "vidu-q4-i2v",
       "kind": "无英文锚",
       "anchor": null
     },
     {
       "at": "vidu-q × camera",
-      "src": "vidu-function-list",
+      "src": "vidu-q4-i2v",
       "kind": "无英文锚",
       "anchor": null
     },
     {
       "at": "vidu-q × audio",
-      "src": "vidu-model-map",
-      "kind": "无英文锚",
-      "anchor": null
+      "src": "vidu-q4-i2v",
+      "kind": "对得上",
+      "anchor": "viduq4-preview: Supports audio-video synchronization, supports automatic camera switching"
     },
     {
       "at": "vidu-q × lipsync",
-      "src": "vidu-function-list",
+      "src": "vidu-q4-i2v",
       "kind": "无英文锚",
       "anchor": null
     },
     {
       "at": "vidu-q × extend",
-      "src": "vidu-function-list",
-      "kind": "对得上",
-      "anchor": "Supports extension from 1"
+      "src": "vidu-q4-i2v",
+      "kind": "无英文锚",
+      "anchor": null
+    },
+    {
+      "at": "vidu-q × openweights",
+      "src": "vidu-q4-i2v",
+      "kind": "无英文锚",
+      "anchor": null
     },
     {
       "at": "runway × t2v",
@@ -901,31 +907,33 @@
     },
     {
       "at": "recraft × i-i2i",
-      "src": "recraft-endpoints",
-      "kind": "对得上",
-      "anchor": "Image-to-image operation tool allows you to create images similar to a given image, preserving certain aspects like composition, color, or subject identity while altering others based on the prompt."
+      "src": "recraft-image-to-image",
+      "kind": "复核已处置",
+      "fingerprint": "07ac6a1f9f04700902d399be48bac6db4dbb90d5197df6c2bba415af098fba7b",
+      "action": "corrected",
+      "why": "具体端点替代旧总表引文。"
     },
     {
       "at": "recraft × i-edit",
       "src": "recraft-nl-edit",
-      "kind": "复核已处置",
-      "fingerprint": "aae1e8956b56c3d6a9f338e8b897a645b21c2ed37c423e9cdf2df21676018af8",
-      "action": "corrected",
-      "why": "更新外接模型清单开头的原句；仍不把 Studio 外接模型算进 V4.1。"
+      "kind": "对得上",
+      "anchor": "Recraft Studio supports targeted image editing using integrated external models"
     },
     {
       "at": "recraft × i-inpaint",
-      "src": "recraft-endpoints",
-      "kind": "对得上",
-      "anchor": "It uses a mask to identify the areas to be filled in, where white pixels represent the regions to inpaint, and black pixels indicate the areas to keep intact"
+      "src": "recraft-inpainting",
+      "kind": "复核已处置",
+      "fingerprint": "281ccb1b33188d17e163e2425bceb04253e728fc74a0fab6b34bcfc1535d7c6d",
+      "action": "corrected",
+      "why": "旧版把平台 V3 端点算到 V4.1。"
     },
     {
       "at": "recraft × i-outpaint",
-      "src": "recraft-endpoints",
+      "src": "recraft-outpainting",
       "kind": "复核已处置",
-      "fingerprint": "65f6ace7a193c8f03b8ec59b44bcf53cbb39c305e912de1f52603f2abd2cbf74",
-      "action": "verified",
-      "why": "原引用在署名来源正文中仍可回查；原误报来自 Markdown、大小写、空白或备注英文片段。仅确认引文，不因本次回查改变历史发布时间。"
+      "fingerprint": "aa29e3c77ac4a69082d64dde089a11128cb54f515782f37626b579f9043754b3",
+      "action": "corrected",
+      "why": "旧版把平台 V3 端点算到 V4.1。"
     },
     {
       "at": "recraft × i-styleref",
@@ -937,9 +945,11 @@
     },
     {
       "at": "recraft × i-fidelity",
-      "src": "recraft-endpoints",
-      "kind": "对得上",
-      "anchor": "preserving certain aspects like composition, color, or subject identity"
+      "src": "recraft-image-to-image",
+      "kind": "复核已处置",
+      "fingerprint": "18739d854078eeaf6353ed75994981485886b6ef344a9ff62b85994a22fb3582",
+      "action": "downgraded",
+      "why": "撤回缺失的主体保真引文。"
     },
     {
       "at": "recraft × i-textrender",
@@ -949,9 +959,11 @@
     },
     {
       "at": "recraft × i-upscale",
-      "src": "recraft-endpoints",
-      "kind": "对得上",
-      "anchor": "boosting resolution with a focus on refining small details and faces"
+      "src": "recraft-upscale",
+      "kind": "复核已处置",
+      "fingerprint": "32b4aa6d8cabd25249e74b7522b8d23bfcaab5f51fd39a2d773c76df452e82f6",
+      "action": "corrected",
+      "why": "保留平台工具能力，注明独立任务。"
     },
     {
       "at": "recraft × i-openweights",
@@ -1012,10 +1024,8 @@
     {
       "at": "flux × i-textrender",
       "src": "bfl-flux2-overview",
-      "kind": "复核已处置",
-      "fingerprint": "07b32c535ef8b47604ddf64ed4ccfd10b0863dba197629ab74af776489b6af95",
-      "action": "corrected",
-      "why": "保留 FLUX.2 通用文字渲染证据，删去 Flex 专属说明，避免误归到 dev。"
+      "kind": "对得上",
+      "anchor": "Reliable text rendering for infographics, UI mockups, and marketing materials."
     },
     {
       "at": "flux × i-4k",
@@ -1347,67 +1357,85 @@
     },
     {
       "at": "gemini-text × t-think",
-      "src": "gemini-models",
+      "src": "gemini-argon",
       "kind": "无英文锚",
       "anchor": null
     },
     {
       "at": "gemini-text × t-long",
-      "src": "gemini-models",
+      "src": "gemini-argon",
+      "kind": "对得上",
+      "anchor": "unified input and output token limit"
+    },
+    {
+      "at": "gemini-text × t-maxout",
+      "src": "gemini-argon",
       "kind": "无英文锚",
       "anchor": null
     },
     {
       "at": "gemini-text × t-tools",
-      "src": "gemini-models",
+      "src": "gemini-argon",
       "kind": "无英文锚",
       "anchor": null
     },
     {
       "at": "gemini-text × t-json",
-      "src": "gemini-models",
+      "src": "gemini-argon",
       "kind": "无英文锚",
       "anchor": null
     },
     {
       "at": "gemini-text × t-search",
-      "src": "gemini-models",
+      "src": "gemini-argon",
       "kind": "无英文锚",
       "anchor": null
     },
     {
       "at": "gemini-text × t-code",
-      "src": "gemini-models",
+      "src": "gemini-argon",
       "kind": "无英文锚",
       "anchor": null
     },
     {
       "at": "gemini-text × t-computer",
-      "src": "gemini-computer-use",
-      "kind": "对得上",
-      "anchor": "The Gemini 3.x models support several advanced capabilities: Multi-environment support: build agents for browser, mobile, and desktop environments"
-    },
-    {
-      "at": "gemini-text × t-vision",
-      "src": "gemini-vision",
-      "kind": "对得上",
-      "anchor": "Gemini models are built to be multimodal from the ground up, unlocking a wide range of image processing and computer vision tasks"
-    },
-    {
-      "at": "gemini-text × t-audio",
-      "src": "gemini-audio",
-      "kind": "对得上",
-      "anchor": "Max length: 9.5 hours of audio per prompt"
-    },
-    {
-      "at": "gemini-text × t-cache",
-      "src": "gemini-models",
+      "src": "gemini-argon",
       "kind": "无英文锚",
       "anchor": null
     },
     {
+      "at": "gemini-text × t-vision",
+      "src": "gemini-argon",
+      "kind": "对得上",
+      "anchor": "Inputs Text, Image, Video, Audio, and PDF"
+    },
+    {
+      "at": "gemini-text × t-audio",
+      "src": "gemini-argon",
+      "kind": "对得上",
+      "anchor": "Inputs Text, Image, Video, Audio, and PDF"
+    },
+    {
+      "at": "gemini-text × t-cache",
+      "src": "gemini-argon",
+      "kind": "对得上",
+      "anchor": "Note: Explicit caching is not supported."
+    },
+    {
       "at": "gemini-text × t-batch",
-      "src": "gemini-models",
+      "src": "gemini-argon",
+      "kind": "无英文锚",
+      "anchor": null
+    },
+    {
+      "at": "gemini-text × t-fim",
+      "src": "gemini-argon",
+      "kind": "无英文锚",
+      "anchor": null
+    },
+    {
+      "at": "gemini-text × t-openweights",
+      "src": "gemini-argon",
       "kind": "无英文锚",
       "anchor": null
     },
@@ -1492,8 +1520,8 @@
     {
       "at": "deepseek × t-maxout",
       "src": "deepseek-pricing",
-      "kind": "无英文锚",
-      "anchor": null
+      "kind": "对得上",
+      "anchor": "MAX OUTPUT MAXIMUM: 384K"
     },
     {
       "at": "deepseek × t-tools",
@@ -1509,18 +1537,42 @@
     },
     {
       "at": "deepseek × t-search",
-      "src": "deepseek-chat-api",
+      "src": "deepseek-pricing",
+      "kind": "无英文锚",
+      "anchor": null
+    },
+    {
+      "at": "deepseek × t-code",
+      "src": "deepseek-pricing",
+      "kind": "无英文锚",
+      "anchor": null
+    },
+    {
+      "at": "deepseek × t-computer",
+      "src": "deepseek-pricing",
       "kind": "无英文锚",
       "anchor": null
     },
     {
       "at": "deepseek × t-vision",
-      "src": "deepseek-updates",
-      "kind": "对得上",
-      "anchor": "with native multimodal visual understanding"
+      "src": "deepseek-pricing",
+      "kind": "无英文锚",
+      "anchor": null
+    },
+    {
+      "at": "deepseek × t-audio",
+      "src": "deepseek-pricing",
+      "kind": "无英文锚",
+      "anchor": null
     },
     {
       "at": "deepseek × t-cache",
+      "src": "deepseek-pricing",
+      "kind": "无英文锚",
+      "anchor": null
+    },
+    {
+      "at": "deepseek × t-batch",
       "src": "deepseek-pricing",
       "kind": "无英文锚",
       "anchor": null
@@ -1533,7 +1585,7 @@
     },
     {
       "at": "deepseek × t-openweights",
-      "src": "hf-org",
+      "src": "deepseek-pricing",
       "kind": "无英文锚",
       "anchor": null
     },
@@ -1659,67 +1711,85 @@
     },
     {
       "at": "minimax-text × t-think",
-      "src": "minimax-anthropic-api",
+      "src": "minimax-m31-guide",
       "kind": "无英文锚",
       "anchor": null
     },
     {
       "at": "minimax-text × t-long",
-      "src": "minimax-api-overview",
+      "src": "minimax-m31-guide",
       "kind": "无英文锚",
       "anchor": null
     },
     {
       "at": "minimax-text × t-maxout",
-      "src": "minimax-openapi",
+      "src": "minimax-m31-guide",
       "kind": "无英文锚",
       "anchor": null
     },
     {
       "at": "minimax-text × t-tools",
-      "src": "minimax-api-overview",
+      "src": "minimax-m31-guide",
       "kind": "无英文锚",
       "anchor": null
     },
     {
       "at": "minimax-text × t-json",
-      "src": "minimax-openapi",
+      "src": "minimax-m31-guide",
       "kind": "无英文锚",
       "anchor": null
     },
     {
       "at": "minimax-text × t-search",
-      "src": "minimax-server-tools",
+      "src": "minimax-m31-guide",
       "kind": "无英文锚",
       "anchor": null
     },
     {
       "at": "minimax-text × t-code",
-      "src": "minimax-server-tools",
+      "src": "minimax-m31-guide",
+      "kind": "无英文锚",
+      "anchor": null
+    },
+    {
+      "at": "minimax-text × t-computer",
+      "src": "minimax-m31-guide",
       "kind": "无英文锚",
       "anchor": null
     },
     {
       "at": "minimax-text × t-vision",
-      "src": "minimax-anthropic-api",
+      "src": "minimax-m31-guide",
       "kind": "无英文锚",
       "anchor": null
     },
     {
       "at": "minimax-text × t-audio",
-      "src": "minimax-openai-api",
+      "src": "minimax-m31-guide",
       "kind": "无英文锚",
       "anchor": null
     },
     {
       "at": "minimax-text × t-cache",
-      "src": "minimax-caching",
+      "src": "minimax-m31-guide",
+      "kind": "无英文锚",
+      "anchor": null
+    },
+    {
+      "at": "minimax-text × t-batch",
+      "src": "minimax-m31-guide",
+      "kind": "无英文锚",
+      "anchor": null
+    },
+    {
+      "at": "minimax-text × t-fim",
+      "src": "minimax-m31-guide",
       "kind": "无英文锚",
       "anchor": null
     },
     {
       "at": "minimax-text × t-openweights",
-      "src": "hf-org",
+      "src": "minimax-m31-guide",
       "kind": "无英文锚",
       "anchor": null
     },
@@ -1818,7 +1888,7 @@
     {
       "at": "grok × t-long",
       "src": "xai-grok47-model",
-      "kind": "无快照",
+      "kind": "无英文锚",
       "anchor": null
     },
     {
@@ -1830,13 +1900,13 @@
     {
       "at": "grok × t-tools",
       "src": "xai-grok47-model",
-      "kind": "无快照",
+      "kind": "无英文锚",
       "anchor": null
     },
     {
       "at": "grok × t-json",
       "src": "xai-grok47-model",
-      "kind": "无快照",
+      "kind": "无英文锚",
       "anchor": null
     },
     {
@@ -1848,14 +1918,16 @@
     {
       "at": "grok × t-cache",
       "src": "xai-grok47-model",
-      "kind": "无快照",
+      "kind": "无英文锚",
       "anchor": null
     },
     {
       "at": "grok × t-batch",
       "src": "xai-grok47-model",
-      "kind": "无快照",
-      "anchor": null
+      "kind": "复核已处置",
+      "fingerprint": "0cac6bc7c1b0e10a77fdc7e5cd1e0560a8c851bc210782151112ebaac9bdd74b",
+      "action": "corrected",
+      "why": "仅修正冒号排版变化。"
     },
     {
       "at": "mistral-text × t-tools",
@@ -1920,10 +1992,8 @@
     {
       "at": "mm-speech × s-format",
       "src": "minimax-api-overview",
-      "kind": "复核已处置",
-      "fingerprint": "e9c585ee23678c3911f76daff294b23c7066951b2e94aba5219f81f8ca5f231e",
-      "action": "corrected",
-      "why": "当前接口概览直接列出这些格式，并写明四类接口共用所列 speech-2.8-hd 等模型。"
+      "kind": "无英文锚",
+      "anchor": null
     },
     {
       "at": "elevenlabs × s-voices",
@@ -1993,41 +2063,63 @@
     },
     {
       "at": "gemini-tts × s-voices",
-      "src": "gemini-tts",
-      "kind": "无英文锚",
-      "anchor": null
+      "src": "gemini-tts38",
+      "kind": "对得上",
+      "anchor": "Works seamlessly with prebuilt voices"
+    },
+    {
+      "at": "gemini-tts × s-clone",
+      "src": "gemini-tts38",
+      "kind": "对得上",
+      "anchor": "persistent stored voices by default, plus optional stateless keys"
+    },
+    {
+      "at": "gemini-tts × s-design",
+      "src": "gemini-tts38",
+      "kind": "对得上",
+      "anchor": "custom Voice design personas"
     },
     {
       "at": "gemini-tts × s-style",
-      "src": "gemini-tts",
-      "kind": "无英文锚",
-      "anchor": null
+      "src": "gemini-tts38",
+      "kind": "对得上",
+      "anchor": "precise adherence to turn-level style directions and inline vocal events"
     },
     {
       "at": "gemini-tts × s-multi",
-      "src": "gemini-tts",
-      "kind": "无英文锚",
-      "anchor": null
+      "src": "gemini-tts38",
+      "kind": "对得上",
+      "anchor": "Every turn in a multi-speaker request must explicitly include speaker inside speech_metadata matching one of the configured speakers."
     },
     {
       "at": "gemini-tts × s-lang",
-      "src": "gemini-tts",
+      "src": "gemini-tts38",
       "kind": "无英文锚",
       "anchor": null
     },
     {
       "at": "gemini-tts × s-stream",
       "src": "gemini-tts",
+      "kind": "对得上",
+      "anchor": "You can stream the generated audio as it is being synthesized by setting stream: true."
+    },
+    {
+      "at": "gemini-tts × s-long",
+      "src": "gemini-tts38",
+      "kind": "无英文锚",
+      "anchor": null
+    },
+    {
+      "at": "gemini-tts × s-timestamp",
+      "src": "gemini-tts38",
       "kind": "无英文锚",
       "anchor": null
     },
     {
       "at": "gemini-tts × s-format",
       "src": "gemini-tts",
-      "kind": "复核已处置",
-      "fingerprint": "ef88c9eb814a209931f6aa5238042576ec4917f377b23a3015fb2db353beffab",
-      "action": "downgraded",
-      "why": "当前正文示例已经换到 Gemini 3.8 TTS，无法据此重核 3.1 Preview；旧说明把客户端封装 WAV 的示例当成默认原生格式，撤回该结论。"
+      "kind": "对得上",
+      "anchor": "To request a different audio encoding or sample rate, configure mime_type and optional sample_rate inside response_format"
     },
     {
       "at": "openai-tts × s-voices",
@@ -2147,21 +2239,27 @@
     },
     {
       "at": "grok-voice × s-rt-duplex",
-      "src": "xai-voice",
+      "src": "xai-voice3",
+      "kind": "对得上",
+      "anchor": "Stream audio and text bidirectionally via WebSocket"
+    },
+    {
+      "at": "grok-voice × s-rt-tools",
+      "src": "xai-voice3",
       "kind": "无英文锚",
       "anchor": null
     },
     {
-      "at": "grok-voice × s-rt-tools",
-      "src": "xai-voice",
+      "at": "grok-voice × s-rt-translate",
+      "src": "xai-voice3",
       "kind": "无英文锚",
       "anchor": null
     },
     {
       "at": "grok-voice × s-rt-transport",
-      "src": "xai-voice",
-      "kind": "无英文锚",
-      "anchor": null
+      "src": "xai-voice3",
+      "kind": "对得上",
+      "anchor": "Stream audio and text bidirectionally via WebSocket"
     },
     {
       "at": "glm-voice × s-rt-duplex",
@@ -2214,10 +2312,8 @@
     {
       "at": "cosyvoice × s-design",
       "src": "hf-lineage",
-      "kind": "复核已处置",
-      "fingerprint": "92dce18f788bb775d8ebf1ffc76153e3b95a4bf2aca9e42509c883b8ae585fae",
-      "action": "downgraded",
-      "why": "Instruct 的语种、方言和情绪控制不等于从描述创建一个新音色；原先对音色设计的推断过度。"
+      "kind": "无英文锚",
+      "anchor": null
     },
     {
       "at": "cosyvoice × s-style",
@@ -2248,10 +2344,8 @@
     {
       "at": "cosyvoice × s-long",
       "src": "hf-lineage",
-      "kind": "复核已处置",
-      "fingerprint": "cab579ced5b514cd01b7bf0e0288769cea1471808103babf7cd04ffe58c80573",
-      "action": "downgraded",
-      "why": "双向流式和 150ms 延迟不等于长文本异步任务接口；缺少长文本上限或异步能力的直接证据。"
+      "kind": "无英文锚",
+      "anchor": null
     },
     {
       "at": "cosyvoice × s-timestamp",
@@ -2311,9 +2405,9 @@
       "at": "kokoro × s-clone",
       "src": "hf-lineage",
       "kind": "复核已处置",
-      "fingerprint": "eae8689c06f661abee1a6908e11eece6a0f721265e824ae2d9eaa13f4b46d233",
-      "action": "not-adopted",
-      "why": "原记录本就标未知，用于说明错误命中或另一支线，未将这条引文用作支持结论。本轮归档该重复核查。"
+      "fingerprint": "0a5672bee0166e14204c29545185e3f01577be44bd8682dbb7003d1ffe27fd5b",
+      "action": "downgraded",
+      "why": "源无正文，不据此确认能力。"
     },
     {
       "at": "kokoro × s-design",
@@ -2427,13 +2521,13 @@
     },
     {
       "at": "grok-voice × s-openweights",
-      "src": "hf-org-xai",
+      "src": "xai-voice3",
       "kind": "无英文锚",
       "anchor": null
     },
     {
       "at": "gemini-tts × s-openweights",
-      "src": "gemini-tts",
+      "src": "gemini-tts38",
       "kind": "无英文锚",
       "anchor": null
     },
@@ -2482,6 +2576,12 @@
       "anchor": "Use Seedance 2.5 to perform a green-screen edit: keep the girl and the moss-covered stairs from the original video, and replace the green screen with a cinematic fairy-tale fantasy world."
     },
     {
+      "at": "vidu-q × v2v",
+      "src": "vidu-q4-i2v",
+      "kind": "无英文锚",
+      "anchor": null
+    },
+    {
       "at": "hunyuan3d × d-t23d",
       "src": "hf-hunyuan3d-21",
       "kind": "无英文锚",
@@ -2514,10 +2614,8 @@
     {
       "at": "hunyuan3d × d-remesh",
       "src": "gh-hunyuan3d-api",
-      "kind": "复核已处置",
-      "fingerprint": "8c50d294e4955da1ca5ec25d35c16733dc2961b2ffee1b7c0b6e93b0fdb32773",
-      "action": "downgraded",
-      "why": "引文来自 Hunyuan3D 2.1 的 api_models.py，不能据此证明当前 3.1 具备相同重拓扑参数。"
+      "kind": "无英文锚",
+      "anchor": null
     },
     {
       "at": "hunyuan3d × d-edit",
@@ -2543,9 +2641,9 @@
       "at": "hunyuan3d × d-scene",
       "src": "hf-lineage",
       "kind": "复核已处置",
-      "fingerprint": "b0d19676e6ee7a1f4504cce6c1f9eece7c018e092dd7bd69417692d0d31eec11",
-      "action": "not-adopted",
-      "why": "原记录本就标未知，用于说明错误命中或另一支线，未将这条引文用作支持结论。本轮归档该重复核查。"
+      "fingerprint": "077691311fee631b42feac88b1769aa63c42f798c2bfa4e355ce46074d9995d5",
+      "action": "downgraded",
+      "why": "源无正文，不据此确认能力。"
     },
     {
       "at": "hunyuan3d × d-format",
@@ -4367,8 +4465,8 @@
     {
       "at": "模型 vidu-q 版本",
       "src": "vidu-changelog",
-      "kind": "对得上",
-      "anchor": "Support the addition of viduq3-mix"
+      "kind": "无英文锚",
+      "anchor": null
     },
     {
       "at": "模型 veo 版本",
@@ -4380,9 +4478,9 @@
       "at": "模型 vidu-s 版本",
       "src": "vidu-changelog",
       "kind": "复核已处置",
-      "fingerprint": "cb7f073eb631bfe437cbdf87bb19bc6ab0ec651b80f2cafba8e50aca428ae10a",
-      "action": "verified",
-      "why": "原引用在署名来源正文中仍可回查；原误报来自 Markdown、大小写、空白或备注英文片段。仅确认引文，不因本次回查改变历史发布时间。"
+      "fingerprint": "c736e283f14d2f0c3bda1f77bd5048c6dc90ff5a7b24c83558ad7815d8f79ff5",
+      "action": "corrected",
+      "why": "官方页改版后按当前正文修正引文，版本不变。"
     },
     {
       "at": "模型 lucy 版本",
@@ -4476,16 +4574,14 @@
     {
       "at": "模型 gpt 版本",
       "src": "openai-models",
-      "kind": "复核已处置",
-      "fingerprint": "614d23d1a42728a08c865e23f26aa7ca1ddad336bca73a8a234b400e700732b2",
-      "action": "corrected",
-      "why": "Astra 型号未变，只是卡片文案改写；移除已过时的次席型号说明。"
+      "kind": "对得上",
+      "anchor": "Our most capable model for the most demanding work."
     },
     {
       "at": "模型 gemini-text 版本",
-      "src": "gemini-models",
-      "kind": "对得上",
-      "anchor": "Our most intelligent Flash model, engineered for long-horizon software engineering, autonomous agents, and complex enterprise workflows"
+      "src": "gemini-changelog",
+      "kind": "无英文锚",
+      "anchor": null
     },
     {
       "at": "模型 qwen-text 版本",
@@ -4497,7 +4593,7 @@
       "at": "模型 deepseek 版本",
       "src": "deepseek-updates",
       "kind": "对得上",
-      "anchor": "Today, we officially release the DeepSeek-V4.1-Flash model. It is the smallest model in our new architecture family, with native multimodal visual understanding."
+      "anchor": "DeepSeek V4.1 Flash has been upgraded to DeepSeek-V4.1-Flash-1017."
     },
     {
       "at": "模型 kimi 版本",
@@ -4513,7 +4609,7 @@
     },
     {
       "at": "模型 minimax-text 版本",
-      "src": "hf-org",
+      "src": "minimax-m31-guide",
       "kind": "无英文锚",
       "anchor": null
     },
@@ -4532,8 +4628,10 @@
     {
       "at": "模型 grok 版本",
       "src": "xai-release-notes",
-      "kind": "对得上",
-      "anchor": "Grok 4.7, SpaceXAI s frontier model for coding, agentic tasks, and knowledge work, is now available on the xAI API as grok-4.7 ."
+      "kind": "复核已处置",
+      "fingerprint": "d3da4e28da5503f211899d065207c576668e72ca541447b65213abf923afd0c5",
+      "action": "corrected",
+      "why": "官方页改版后按当前正文修正引文，版本不变。"
     },
     {
       "at": "模型 mistral-text 版本",
@@ -4555,9 +4653,9 @@
     },
     {
       "at": "模型 gemini-tts 版本",
-      "src": "gemini-tts",
+      "src": "gemini-changelog",
       "kind": "对得上",
-      "anchor": "Gemini 3.1 Flash TTS Preview"
+      "anchor": "Gemini 3.8 Flash TTS and Gemini 3.8 Flash-Lite TTS generally available"
     },
     {
       "at": "模型 openai-tts 版本",
@@ -4604,8 +4702,8 @@
     {
       "at": "模型 grok-voice 版本",
       "src": "xai-release-notes",
-      "kind": "无英文锚",
-      "anchor": null
+      "kind": "对得上",
+      "anchor": "grok-voice-3.0 is now available with Speech to Speech, at the same price as Grok Voice 2.0."
     },
     {
       "at": "模型 glm-tts 版本",
@@ -4945,10 +5043,8 @@
     {
       "at": "模型 alphafold 版本",
       "src": "sci-af3-blog",
-      "kind": "复核已处置",
-      "fingerprint": "adea1476d0618fb10857d154d4b7ab18f2141e6817ef952a84a80e263564d0fd",
-      "action": "verified",
-      "why": "原引用在署名来源正文中仍可回查；原误报来自 Markdown、大小写、空白或备注英文片段。仅确认引文，不因本次回查改变历史发布时间。"
+      "kind": "对得上",
+      "anchor": "AlphaFold 3 predicts the structure and interactions of all of life's molecules"
     },
     {
       "at": "模型 boltz 版本",
@@ -5051,26 +5147,20 @@
     {
       "at": "发布 hailuo-01-运镜控制",
       "src": "minimax-release-notes",
-      "kind": "复核已处置",
-      "fingerprint": "dc08bfb685cb95313cbfdd886c9e48c0f32871583bd534cb61ee31c6ab43461e",
-      "action": "corrected",
-      "why": "原引文在逗号处提前结束，却加了原文没有的句号；修复逐字引用。"
+      "kind": "对得上",
+      "anchor": "Released a video generation model with enhanced camera control, offering superior adherence to camera movement directives"
     },
     {
       "at": "发布 hailuo-02-换代02：1080p",
       "src": "minimax-release-notes",
-      "kind": "复核已处置",
-      "fingerprint": "78201ecce3ee42dcb3adb4758acc5d2c39d54e1020a27346e0070afbe6a65375",
-      "action": "corrected",
-      "why": "原文后面还有 10 秒时长说明；去掉并不存在的句号。"
+      "kind": "对得上",
+      "anchor": "Released MiniMax Hailuo 02, a next-generation video generation model with support for 1080p resolution"
     },
     {
       "at": "发布 hailuo-2.3-换代2.3：肢体动作与表情",
       "src": "minimax-release-notes",
-      "kind": "复核已处置",
-      "fingerprint": "777037e03721c953f50933f43489b0f345ed180273522abd8d60b31a0adc78c7",
-      "action": "corrected",
-      "why": "修复提前结束后补句号造成的误报。"
+      "kind": "对得上",
+      "anchor": "featuring breakthroughs in body movement, facial expressions, physical realism"
     },
     {
       "at": "发布 hailuo-H3-换代H3：开放权重的通用多模态",
@@ -5344,41 +5434,49 @@
       "at": "发布 vidu-q-Q1-参考生视频",
       "src": "vidu-changelog",
       "kind": "复核已处置",
-      "fingerprint": "185cd4ab544b79399448801d4cf4ca791ee5cf1bd1223c280087e15db77a07cb",
+      "fingerprint": "63827ead3c2b51c8e57bdd1dc827048d1bad9fe648629cbe61e1785b879b4439",
       "action": "corrected",
-      "why": "参考生视频条目仍在，原记录将标题和说明拼成了一句；改成逐字子句。"
+      "why": "Vidu 官方迁移文档，历史日期与能力不变，更新译法与引用文本。"
     },
     {
       "at": "发布 vidu-q-Q2-换代Q2：pro与turbo两档",
       "src": "vidu-changelog",
-      "kind": "对得上",
-      "anchor": "Added viduq2-pro and viduq2-turbo models"
+      "kind": "复核已处置",
+      "fingerprint": "cca8c14f06d6c05dfdb87d55d3b5c2580a45e4d84c994a13f15f0b3973c81d35",
+      "action": "corrected",
+      "why": "Vidu 官方迁移文档，历史日期与能力不变，更新译法与引用文本。"
     },
     {
       "at": "发布 viduq2",
       "src": "vidu-changelog",
       "kind": "复核已处置",
-      "fingerprint": "2a321c80a03b31000df996f228107ff22ab22048750790277d673346eb5fb065",
-      "action": "verified",
-      "why": "原引用在署名来源正文中仍可回查；原误报来自 Markdown、大小写、空白或备注英文片段。仅确认引文，不因本次回查改变历史发布时间。"
+      "fingerprint": "26407955a25fad78d7a17f4f016db6124d08d38adbff3ba3533d60d1e667d439",
+      "action": "corrected",
+      "why": "Vidu 官方迁移文档，历史日期与能力不变，更新译法与引用文本。"
     },
     {
       "at": "发布 vidu-q-Q3-换代Q3：文生+图生",
       "src": "vidu-changelog",
-      "kind": "对得上",
-      "anchor": "Support the addition of viduq3-pro models for both Wensheng and Tusheng"
+      "kind": "复核已处置",
+      "fingerprint": "3b7707e9dac51cc8940fb64463a59e1d56733fb2b13520ffc8c8bd4806b8f5bc",
+      "action": "corrected",
+      "why": "Vidu 官方迁移文档，历史日期与能力不变，更新译法与引用文本。"
     },
     {
       "at": "发布 vidu-q-Q3-首尾帧",
       "src": "vidu-changelog",
-      "kind": "对得上",
-      "anchor": "Support the addition of viduq3-turbo model for both text2video and image2video and start-end2video"
+      "kind": "复核已处置",
+      "fingerprint": "bdeeef581704cee0b1a4822578f2a41337d114d1663ba55204d5743c9b20679e",
+      "action": "corrected",
+      "why": "Vidu 官方迁移文档，历史日期与能力不变，更新译法与引用文本。"
     },
     {
       "at": "发布 vidu-q-Q3-参考生视频（Q3版）",
       "src": "vidu-changelog",
-      "kind": "对得上",
-      "anchor": "Support the addition of viduq3-mix"
+      "kind": "复核已处置",
+      "fingerprint": "7c91ee2708c7af53793f5b40bedf141927f9ac1b12eaafc4d01a26760aa014ac",
+      "action": "corrected",
+      "why": "Vidu 官方迁移文档，历史日期与能力不变，更新译法与引用文本。"
     },
     {
       "at": "发布 wan-Wan2.1-文生视频",
@@ -5541,10 +5639,8 @@
     {
       "at": "发布 gpt-image-gpt-image-1-API 首次开放出图",
       "src": "azure-foundry-blog",
-      "kind": "复核已处置",
-      "fingerprint": "60cf421306a703e568f780849eee4ad298eeef3e74513fe9386021cae4f390b6",
-      "action": "verified",
-      "why": "原引用在署名来源正文中仍可回查；原误报来自 Markdown、大小写、空白或备注英文片段。仅确认引文，不因本次回查改变历史发布时间。"
+      "kind": "对得上",
+      "anchor": "the launch of GPT-image-1, the latest and most advanced image generation model"
     },
     {
       "at": "发布 gemini-image-Nano Banana-对话式改图（多轮指令改同一张）",
@@ -5574,41 +5670,33 @@
       "at": "发布 recraft-Recraft V3-长段文字 + 文字位置和大小可指定",
       "src": "recraft-blog",
       "kind": "复核已处置",
-      "fingerprint": "16bb40088d1bd37370750455b356db5c6212f75dd1837d217846e19b4524eb91",
+      "fingerprint": "6608985b0d423725f21c7e094f89d60244416d2a9db62e1a64f0912b53f0a05d",
       "action": "historical-unverified",
-      "why": "recraft-blog 当前可用正文未找回原引用（可能改写或目录未含历史正文）。本轮不确认这段历史描述，也不由此新增能力；保留原记录并显式标注未核实。"
+      "why": "滚动博客或目录无原始历史正文；明确标注未核实，不将归档当验证通过。"
     },
     {
       "at": "发布 kolors-Kolors-中英双语出图的开放权重底座",
       "src": "kolors-gh",
-      "kind": "复核已处置",
-      "fingerprint": "d57b714cbb81d624bf11fdb210de0d57ed893f58ea055405d6845aad0cb78fe0",
-      "action": "verified",
-      "why": "原引用在署名来源正文中仍可回查；原误报来自 Markdown、大小写、空白或备注英文片段。仅确认引文，不因本次回查改变历史发布时间。"
+      "kind": "对得上",
+      "anchor": "We release Kolors, a large text-to-image model trained on billions of text-image pairs. This model is bilingual in both Chinese and English"
     },
     {
       "at": "发布 midjourney-V6-这一代起大幅改善提示词跟随",
       "src": "wiki-midjourney",
-      "kind": "复核已处置",
-      "fingerprint": "d01336b1d3e4e5df4617a015e9c87fc01d14b46955802a7e7501eee936c8138e",
-      "action": "corrected",
-      "why": "旧引文中的省略号是编辑标记，表格仍列同一版本与日期；删除省略号后可回查。该来源为次级来源。"
+      "kind": "对得上",
+      "anchor": "V6 December 21, 2023"
     },
     {
       "at": "发布 midjourney-V6.1-画质与细节一致性迭代",
       "src": "wiki-midjourney",
-      "kind": "复核已处置",
-      "fingerprint": "96878a2f64896f8de7a2b6d0f1e6c6a411ddbbced1b6b8d98afa3d828d442d95",
-      "action": "corrected",
-      "why": "旧引文中的省略号是编辑标记，表格仍列同一版本与日期；删除省略号后可回查。该来源为次级来源。"
+      "kind": "对得上",
+      "anchor": "V6.1 July 31, 2024"
     },
     {
       "at": "发布 midjourney-V7-Draft Mode 与 Omni Reference",
       "src": "wiki-midjourney",
-      "kind": "复核已处置",
-      "fingerprint": "515a06ae49fc67b3484a1748d3aa69fc7dc5676419f8cc52afb463fd450d63ce",
-      "action": "corrected",
-      "why": "旧引文中的省略号是编辑标记，表格仍列同一版本与日期；删除省略号后可回查。该来源为次级来源。"
+      "kind": "对得上",
+      "anchor": "V7 April 4, 2025"
     },
     {
       "at": "发布 krea-img-FLUX.1 Krea-把自家审美调校的权重开放出来",
@@ -5677,10 +5765,8 @@
     {
       "at": "发布 ideogram-Ideogram 4-这一代把权重放了出来",
       "src": "hf-org",
-      "kind": "复核已处置",
-      "fingerprint": "bbf451da18869e1d5b1bc812786331733c68adc8d9bd761e6c57d76569e164f9",
-      "action": "historical-unverified",
-      "why": "hf-org 当前可用正文未找回原引用（快照为目录元数据，没有模型卡正文）。本轮不确认这段历史描述，也不由此新增能力；保留原记录并显式标注未核实。"
+      "kind": "无英文锚",
+      "anchor": null
     },
     {
       "at": "发布 sd-SD 3 Medium-换 MMDiT 架构",
@@ -5698,17 +5784,17 @@
       "at": "发布 recraft-Recraft V4-按设计审美重训的一代",
       "src": "recraft-blog",
       "kind": "复核已处置",
-      "fingerprint": "09587c042b049122c8c2c2997440f53237657b49212e87a2685c2e0562b6805e",
+      "fingerprint": "b7752e8ca3ec14533a1d0331d6229130f3c4730e7c67c8d8c889165dc7d95d8b",
       "action": "historical-unverified",
-      "why": "recraft-blog 当前可用正文未找回原引用（可能改写或目录未含历史正文）。本轮不确认这段历史描述，也不由此新增能力；保留原记录并显式标注未核实。"
+      "why": "滚动博客或目录无原始历史正文；明确标注未核实，不将归档当验证通过。"
     },
     {
       "at": "发布 recraft-Recraft V4.1-写实更自然、短提示词也能懂",
       "src": "recraft-blog",
       "kind": "复核已处置",
-      "fingerprint": "c220f6f3cece6956d81b975b5c7fb718d1918d1fa973a3bd2e59573c25411216",
+      "fingerprint": "23737a225051f1af94bc7556d68d8f381e58a688b3294a6c05d26640364e42e5",
       "action": "historical-unverified",
-      "why": "recraft-blog 当前可用正文未找回原引用（可能改写或目录未含历史正文）。本轮不确认这段历史描述，也不由此新增能力；保留原记录并显式标注未核实。"
+      "why": "滚动博客或目录无原始历史正文；明确标注未核实，不将归档当验证通过。"
     },
     {
       "at": "发布 midjourney-V8 Alpha-出图快约 5 倍 + 原生 2K（--hd）",
@@ -5968,9 +6054,9 @@
       "at": "发布 deepseek-V4-换代：Pro 1.6T（激活 49B）与 Flash 两档 MoE",
       "src": "hf-org",
       "kind": "复核已处置",
-      "fingerprint": "caf2ad742ea5043ebbe9360e6efa95ededd1292a8ac49ebf99952d1d6995a2b5",
+      "fingerprint": "03ae8739144ff5dcf46b2d5c54809623ee72691976de83f9684116b346177111",
       "action": "historical-unverified",
-      "why": "hf-org 当前可用正文未找回原引用（快照为目录元数据，没有模型卡正文）。本轮不确认这段历史描述，也不由此新增能力；保留原记录并显式标注未核实。"
+      "why": "滚动博客或目录无原始历史正文；明确标注未核实，不将归档当验证通过。"
     },
     {
       "at": "发布 deepseek-V4-Flash-0731-Flash 档的日期戳更新",
@@ -6181,8 +6267,10 @@
     {
       "at": "发布 claude-Claude 4.7-起用新分词器；tem",
       "src": "claude-deprecations",
-      "kind": "对得上",
-      "anchor": "Claude Opus 4.7 and later"
+      "kind": "复核已处置",
+      "fingerprint": "43050eb781038fccf4b4eb73199ce46ad21c4c2062c0d9d893a49d3f3dc5f2cf",
+      "action": "historical-unverified",
+      "why": "滚动博客或目录无原始历史正文；明确标注未核实，不将归档当验证通过。"
     },
     {
       "at": "发布 claude-Claude 4.8-effort 参数在",
@@ -7115,10 +7203,8 @@
     {
       "at": "发布 trellis-text",
       "src": "hf-lineage",
-      "kind": "复核已处置",
-      "fingerprint": "99c9d68a66d003d0e3974153204f6476e578054e388a4151aa8fd3b638bf675f",
-      "action": "historical-unverified",
-      "why": "hf-lineage 当前可用正文未找回原引用（快照为目录元数据，没有模型卡正文）。本轮不确认这段历史描述，也不由此新增能力；保留原记录并显式标注未核实。"
+      "kind": "无英文锚",
+      "anchor": null
     },
     {
       "at": "发布 trellis-2",
@@ -7552,10 +7638,8 @@
     {
       "at": "发布 cosmos-reason2",
       "src": "hf-robotics",
-      "kind": "复核已处置",
-      "fingerprint": "505bc924ad0ca750de0f8458542a42877b025373e2bc55c90985b09691035df7",
-      "action": "historical-unverified",
-      "why": "hf-robotics 当前可用正文未找回原引用（快照为目录元数据，没有模型卡正文）。本轮不确认这段历史描述，也不由此新增能力；保留原记录并显式标注未核实。"
+      "kind": "无英文锚",
+      "anchor": null
     },
     {
       "at": "发布 cosmos-3",
@@ -7788,10 +7872,8 @@
     {
       "at": "发布 lyria-3.5-整首歌那一档换代",
       "src": "gemini-changelog",
-      "kind": "复核已处置",
-      "fingerprint": "4e44ff167e0ac613b435dce626e925ba3854554c4276920959b0ffc10ff040bf",
-      "action": "corrected",
-      "why": "原历史记录把 GA 错写成预览；按 2026-09-03 官方更新改为正式开放。"
+      "kind": "对得上",
+      "anchor": "Released the next generation of Google's music generation model:"
     },
     {
       "at": "发布 gemini-text-Gemini 3.8-最强 Flash：长程",
@@ -7816,6 +7898,42 @@
       "src": "elevenlabs-models",
       "kind": "对得上",
       "anchor": "Eleven Music v2.5 Our most advanced music model Improved quality and prompt adherence Richer melodies, deeper arrangements, and more layered instruments. Same workflows and support: composition plans, audio reference, and inpainting"
+    },
+    {
+      "at": "发布 gemini-text-Gemini-4-Argon-20261019",
+      "src": "gemini-changelog",
+      "kind": "无英文锚",
+      "anchor": null
+    },
+    {
+      "at": "发布 grok-voice-3.0-20261019",
+      "src": "xai-release-notes",
+      "kind": "对得上",
+      "anchor": "grok-voice-3.0 is now available with Speech to Speech, at the same price as Grok Voice 2.0."
+    },
+    {
+      "at": "发布 vidu-q-Q4-Preview-20261019",
+      "src": "vidu-changelog",
+      "kind": "无英文锚",
+      "anchor": null
+    },
+    {
+      "at": "发布 gemini-tts-3.8-Flash-TTS-20261019",
+      "src": "gemini-changelog",
+      "kind": "对得上",
+      "anchor": "Gemini 3.8 Flash TTS and Gemini 3.8 Flash-Lite TTS generally available"
+    },
+    {
+      "at": "发布 deepseek-V4.1-Flash-1017-20261019",
+      "src": "deepseek-updates",
+      "kind": "对得上",
+      "anchor": "DeepSeek V4.1 Flash has been upgraded to DeepSeek-V4.1-Flash-1017."
+    },
+    {
+      "at": "发布 minimax-text-M3.1-Flash-20261019",
+      "src": "minimax-m31-guide",
+      "kind": "无英文锚",
+      "anchor": null
     }
   ]
 }

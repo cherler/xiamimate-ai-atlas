@@ -1,49 +1,10 @@
 {
   "generated_at": "2026-10-19",
-  "n": 3,
+  "n": 0,
   "n_unclear": 0,
-  "n_missing": 30,
+  "n_missing": 29,
   "n_skipped": 55,
   "rows": [
-    {
-      "kind": "有更新的一代",
-      "m": "gemini-text",
-      "family": "Gemini",
-      "zh": "Gemini",
-      "cur": "Gemini 3.8 Flash",
-      "cur_as_of": "2026-09-10",
-      "found": "Gemini 4",
-      "found_num": "4",
-      "src": "gemini-models",
-      "src_at": "2026-10-15",
-      "evidence": "tform Gemini API OAuth authentication Policies Terms of service Available regions Abuse monitoring Feedback information Gemini 4 Argon is now available. Try it out . Home Gemini API Docs Send feedback Models This guide introduces all the models available through the Gemini API. Gemini 4 Stable auto_awesome Gemini 4 Arg"
-    },
-    {
-      "kind": "有更新的一代",
-      "m": "grok-voice",
-      "family": "Grok Voice",
-      "cur": "think-fast-2.0",
-      "cur_as_of": "2026-08-12",
-      "found": "Grok Voice 3.0",
-      "found_num": "3.0",
-      "src": "xai-release-notes",
-      "src_at": "2026-10-15",
-      "evidence": "ivacy General Release Notes Release Notes Copy for LLM View as Markdown Create API key Meet grok-4.7 October October 14 Grok Voice 3.0 is available grok-voice-3.0 is now available with Speech to Speech, at the same price as Grok Voice 2.0. grok-voice-latest now points to grok-voice-3.0 , so sessions that use the alias"
-    },
-    {
-      "kind": "有更新的一代",
-      "m": "vidu-q",
-      "family": "Vidu Q",
-      "zh": "Vidu Q",
-      "cur": "Q3",
-      "cur_as_of": "2026-04-13",
-      "found": "ViduQ4",
-      "found_num": "4",
-      "src": "vidu-model-map",
-      "src_at": "2026-10-14",
-      "via_other_src": "vidu-changelog",
-      "evidence": "idu2.0, suitable for video generation, audio generation, direct audio-video output, and other domains: Video Generation ViduQ4 Preview Model Viduq4-preview Introduction Next-gen flagship for expressive audio & video Resolution 540p, 720p, 1080p，2k，4k Frame rate 24fps Duration 1-16s selectable Image-to-video ✔️ Referenc"
-    },
     {
       "kind": "牌子摘了",
       "m": "anysplat",
@@ -114,17 +75,6 @@
     },
     {
       "kind": "牌子摘了",
-      "m": "gemini-tts",
-      "family": "Gemini TTS",
-      "cur": "3.1 Flash TTS Preview",
-      "cur_as_of": "2026-08-12",
-      "found": null,
-      "src": "gemini-tts",
-      "src_at": "2026-10-07",
-      "evidence": ""
-    },
-    {
-      "kind": "牌子摘了",
       "m": "glm-voice",
       "family": "GLM Voice",
       "zh": "智谱语音",
@@ -155,7 +105,7 @@
       "cur_as_of": "2026-07-31",
       "found": null,
       "src": "minimax-release-notes",
-      "src_at": "2026-10-10",
+      "src_at": "2026-10-19",
       "evidence": ""
     },
     {
@@ -223,7 +173,7 @@
       "cur_as_of": "2026-08-12",
       "found": null,
       "src": "minimax-api-overview",
-      "src_at": "2026-10-17",
+      "src_at": "2026-10-19",
       "evidence": ""
     },
     {

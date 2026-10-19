@@ -32,7 +32,7 @@
     "station": "node scripts/review-ui.mjs",
     "todo": "node scripts/todo.mjs",
     "alert": "node scripts/alert.mjs",
-    "test:review": "node scripts/test-review.mjs",
+    "test:review": "node scripts/test-review.mjs && node scripts/test-version-probes.mjs",
     "build:static": "node scripts/validate.mjs && node scripts/alert.mjs && node scripts/make-feed.mjs && next build"
   },
   "dependencies": {

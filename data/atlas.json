@@ -1,6 +1,6 @@
 {
   "version": "1.8.3",
-  "generated_at": "2026-10-10",
+  "generated_at": "2026-10-19",
   "note": "第九版。clip 轨九个 Family 已全部用厂商官方源逐格重核（86% 的格子挂官方来源）。全部由 Agent 录入，未经人工核验（§59.3 转述层）。模型按 version_as_of 降序；status 标生命周期。",
   "changelog": [
     "v1.8.3 字节 Seed 三条收进扩展层：SeedRealtime（实时语音轨第 4 家）、Seed GR-3（动作策略轨此前九家无字节）、Protenix（生物轨此前无中国厂商）。**Seed Audio 1.0 没收** —— 它自述「面向完整声音场景 / 影视级音频创作」，比音乐生成轨的定义（给定描述或歌词产出音乐）宽一层，硬塞进 music 是错档、另开一条轨又会造出一整列假的 ⬜，所以留在候选单上等口径。",
@@ -3340,7 +3340,11 @@
       "arch_note": null,
       "arch_basis": "common",
       "version_src": "minimax-release-notes",
-      "version_quote": "谱系最新一代「H3」（2026-07-31）：A new-generation open general-purpose multimodal video model."
+      "version_quote": "谱系最新一代「H3」（2026-07-31）：A new-generation open general-purpose multimodal video model.",
+      "aliases": [
+        "MiniMax H3",
+        "MiniMax Hailuo"
+      ]
     },
     {
       "id": "gemini-omni",
@@ -3448,10 +3452,10 @@
       "family": "Vidu Q",
       "zh": "Vidu Q",
       "org": "shengshu",
-      "version": "Q3",
-      "version_as_of": "2026-04-13",
+      "version": "Q4 Preview",
+      "version_as_of": "2026-10-19",
       "status": "active",
-      "status_note": "Q3 是一个系列而非单一模型：viduq3-pro / -mix / -drama / -ad / -turbo 五个并列（官方 Model Map）。2026-02-11 起陆续进 API，2026-04-13 补齐 reference2video",
+      "status_note": "Q4 为预览版。当前确认图生视频与参考生视频，支持音画同出、最高 4K 和 15 张参考图；端点时长为 3–16 秒（概览页另写 1–16 秒，以实际端点为准）。Q3 的其他能力不自动继承。",
       "tier": "core",
       "domain": "video",
       "reach_cn": "ok",
@@ -3463,7 +3467,10 @@
       "arch_note": null,
       "arch_basis": "common",
       "version_src": "vidu-changelog",
-      "version_quote": "谱系最新一代「Q3」（2026-04-13）：Support the addition of viduq3-mix、viduq3-turbo、viduq3 model for reference2video"
+      "version_quote": "[New Models]-Vidu Q4 preview",
+      "version_aliases": [
+        "viduq4-preview"
+      ]
     },
     {
       "id": "veo",
@@ -3529,7 +3536,7 @@
       "arch_note": null,
       "arch_basis": "common",
       "version_src": "vidu-changelog",
-      "version_quote": "官方 API 更新日志 2026-09-15：「New Model - Vidu S2-Avatar: Real-Time Interactive Model … - Vidu S2-Editing: Real-Time Editing Model」",
+      "version_quote": "Vidu S2-Avatar: Real-Time Interactive Model",
       "note": "**换代来源从 S1 论文改成官方更新日志。** 原来这一格署 `vidu-s1-paper`（arXiv 论文），而新一代 S2 只在官方 API 更新日志上宣布、论文那一页永远停在 S1 —— 署在论文上意味着这条线换代了我们也看不见（版本哨兵 2026-09-19 报的就是这个错配）。"
     },
     {
@@ -4155,18 +4162,21 @@
       "family": "Gemini",
       "zh": "Gemini",
       "org": "google",
-      "version": "Gemini 3.8 Flash",
-      "version_as_of": "2026-09-10",
+      "version": "Gemini 4 Argon",
+      "version_as_of": "2026-10-19",
       "status": "active",
       "tier": "core",
       "domain": "text",
       "weights": "closed",
       "team": "Google DeepMind",
-      "version_src": "gemini-models",
-      "version_quote": "官方模型清单原文：「Gemini 3.8 Flash — Our most intelligent Flash model, engineered for long-horizon software engineering, autonomous agents, and complex enterprise workflows」，标着 New / Stable，端点 `gemini-3.8-flash`；同页把 3.7 与 3.6 都改称「Our previous-generation Flash model」。发布日 2026-09-02 取自 Gemini API 更新日志（GA 公告）",
+      "version_src": "gemini-changelog",
+      "version_quote": "Gemini 4 Argon (gemini-4-argon) generally available (GA)",
       "reach_cn": "blocked",
       "reach_note": "ai.google.dev 直连不通（连接失败）—— 读官方文档要出境（本机实测 08-11）",
-      "status_note": "⚠️ **这一格原来署的是 `gemini-37-blog`（一篇讲 3.7 的发布博客），而那个源全站连快照都没有** —— 结果 3.8 出来一周多，版本哨兵在这一格上是瞎的。2026-09-10 改署官方模型清单：**版本要署在会列出下一代的地方（目录页 / 更新日志），不能署在讲某一代的文章上。**"
+      "status_note": "旗舰推理模型转为 Gemini 4 Argon；3.8 Flash 仍是独立档位。长输出可达 1M token，显式缓存不支持，Computer Use 仍为 Preview。",
+      "version_aliases": [
+        "gemini-4-argon"
+      ]
     },
     {
       "id": "qwen-text",
@@ -4194,18 +4204,23 @@
       "family": "DeepSeek",
       "zh": "深度求索",
       "org": "deepseek",
-      "version": "V4.1",
-      "version_as_of": "2026-09-19",
+      "version": "V4.1 Flash-1017",
+      "version_as_of": "2026-10-19",
       "status": "active",
       "tier": "core",
       "domain": "text",
-      "weights": "open",
+      "weights": "unknown",
       "team": "DeepSeek",
       "version_src": "deepseek-updates",
-      "version_quote": "官方更新日志 2026-09-10：「Today, we officially release the DeepSeek-V4.1-Flash model. It is the smallest model in our new architecture family, with native multimodal visual understanding.」官方 HF 组织同名开源权重 deepseek-ai/DeepSeek-V4.1-Flash",
+      "version_quote": "DeepSeek V4.1 Flash has been upgraded to DeepSeek-V4.1-Flash-1017.",
       "reach_cn": "ok",
       "reach_note": "api-docs.deepseek.com 直连 200（本机实测 08-11）",
-      "note": "**这一代目前只出了最小的 Flash 档，Pro 档仍是 V4-Pro-0813。** 官方更新日志（2026-09-10）把 V4.1 称作「our new architecture family」，V4 Flash 与 V4 Flash Vision Exp 已下线、模型名兼容路由到 V4.1 Flash；而同一条公告里写明「we have decided to continue providing API services for DeepSeek V4 Pro after September 14, 2026」，「Models & Pricing」页当前两档也仍是 deepseek-flash（DeepSeek-V4.1-Flash）与 deepseek-v4-pro（DeepSeek-V4-Pro-0813）。这一格记的是**谱系最新一代**，所以升到 V4.1；要看旗舰档位，看谱系树上 V4-Pro-0813 那个节点。权重口径没变：deepseek-ai/DeepSeek-V4.1-Flash 在官方 HF 组织上可下载，weights 仍是 open。"
+      "note": "**这一代目前只出了最小的 Flash 档，Pro 档仍是 V4-Pro-0813。** 官方更新日志（2026-09-10）把 V4.1 称作「our new architecture family」，V4 Flash 与 V4 Flash Vision Exp 已下线、模型名兼容路由到 V4.1 Flash；而同一条公告里写明「we have decided to continue providing API services for DeepSeek V4 Pro after September 14, 2026」，「Models & Pricing」页当前两档也仍是 deepseek-flash（DeepSeek-V4.1-Flash）与 deepseek-v4-pro（DeepSeek-V4-Pro-0813）。这一格记的是**谱系最新一代**，所以升到 V4.1；要看旗舰档位，看谱系树上 V4-Pro-0813 那个节点。权重口径没变：deepseek-ai/DeepSeek-V4.1-Flash 在官方 HF 组织上可下载，weights 仍是 open。",
+      "status_note": "deepseek-flash 已指向 1017 更新，价格和调用方法不变；Pro 仍是 V4-Pro-0813。Search / Fetch 是独立 API，不据此宣称模型内置搜索。旧 V4.1 权重不能证明 1017 检查点已发布。",
+      "version_aliases": [
+        "DeepSeek-V4.1-Flash-1017",
+        "deepseek-flash"
+      ]
     },
     {
       "id": "kimi",
@@ -4249,18 +4264,21 @@
       "family": "MiniMax",
       "zh": "MiniMax 文本",
       "org": "minimax",
-      "version": "M3",
-      "version_as_of": "2026-06-02",
+      "version": "M3.1 Flash",
+      "version_as_of": "2026-10-19",
       "status": "active",
       "tier": "core",
       "domain": "text",
-      "weights": "open",
+      "weights": "unknown",
       "team": "MiniMax",
-      "version_src": "hf-org",
-      "version_quote": "MiniMaxAI/MiniMax-M3（官方 HF 组织 createdAt 2026-06-02）。**注意别取 MiniMax-H3** —— 那是视频那一卷的海螺，同组织不同卷",
+      "version_src": "minimax-m31-guide",
+      "version_quote": "MiniMax-M3.1-Flash** 是最新 M 系列语言模型",
       "reach_cn": "ok",
       "reach_note": "platform.minimaxi.com 直连 307（本机实测 08-11）",
-      "status_note": "2026-10-10 官方接口概览并列 M3 与 M3.1-Flash-Preview，且后者暂时仅通过 M Plan 和 MiniMax Code 提供。当前卡保留开放权重 M3；预览分支不继承 M3 的能力和权重标签。"
+      "status_note": "2026-10-19 官方支持列表与调用示例已使用 M3.1-Flash，不再沿用此前 Preview 的限定渠道描述。M3 仍正常提供；新版权重开放情况未确认。思考默认 max 且不能关闭。",
+      "version_aliases": [
+        "MiniMax-M3.1-Flash"
+      ]
     },
     {
       "id": "doubao",
@@ -4310,7 +4328,7 @@
       "weights": "closed",
       "team": "xAI",
       "version_src": "xai-release-notes",
-      "version_quote": "Grok 4.7, SpaceXAI s frontier model for coding, agentic tasks, and knowledge work, is now available on the xAI API as grok-4.7 .",
+      "version_quote": "Grok 4.7, SpaceXSI's frontier model for coding, agentic tasks, and knowledge work, is now available on the xAI API as grok-4.7.",
       "reach_cn": "blocked",
       "reach_note": "docs.x.ai 直连不通（连接失败）（本机实测 08-11）",
       "status_note": "官方于 2026-09-21 发布 grok-4.7，明确 500k 上下文、文本和图像输入、可调推理。",
@@ -4378,18 +4396,25 @@
       "class": "tts",
       "family": "Gemini TTS",
       "org": "google",
-      "version": "3.1 Flash TTS Preview",
-      "version_as_of": "2026-08-12",
+      "version": "3.8 Flash TTS",
+      "version_as_of": "2026-10-19",
       "status": "active",
       "tier": "core",
       "domain": "sound",
       "weights": "closed",
-      "version_src": "gemini-tts",
-      "version_quote": "语音生成指南列出 Gemini 3.1 Flash TTS Preview / 2.5 Flash Preview TTS / 2.5 Pro Preview TTS；30 种预设音色、59 种语言",
+      "version_src": "gemini-changelog",
+      "version_quote": "Gemini 3.8 Flash TTS and Gemini 3.8 Flash-Lite TTS generally available (GA)",
       "lineage_note": "声音卷 2026-08-12 才立项，谱系还没采 —— 这是「没采到」，不是「它没有历史」",
       "reach_cn": "blocked",
       "reach_note": "ai.google.dev 直连不通（连接失败）（本机实测 08-12）",
-      "zh_none": true
+      "zh_none": true,
+      "status_note": "旗舰创意语音档为 3.8 Flash TTS，130 种语言；Flash-Lite 是独立的低延迟档位。支持预设音色、音色设计与需授权的声音复刻，默认单次输出改为 WAV。",
+      "version_aliases": [
+        "gemini-3.8-flash-tts"
+      ],
+      "aliases": [
+        "Gemini Flash TTS"
+      ]
     },
     {
       "id": "openai-tts",
@@ -4525,18 +4550,22 @@
       "class": "voice-rt",
       "family": "Grok Voice",
       "org": "xai",
-      "version": "think-fast-2.0",
-      "version_as_of": "2026-08-12",
+      "version": "3.0",
+      "version_as_of": "2026-10-19",
       "status": "active",
       "tier": "core",
       "domain": "sound",
       "weights": "closed",
       "version_src": "xai-release-notes",
-      "version_quote": "API 发布说明 2026 年 7 月：grok-voice-think-fast-2.0",
+      "version_quote": "grok-voice-3.0 is now available with Speech to Speech, at the same price as Grok Voice 2.0.",
       "lineage_note": "声音卷 2026-08-12 才立项，谱系还没采 —— 这是「没采到」，不是「它没有历史」",
       "reach_cn": "blocked",
       "reach_note": "docs.x.ai 直连不通（连接失败）（本机实测 08-12）",
-      "zh_none": true
+      "zh_none": true,
+      "status_note": "grok-voice-latest 已指向 3.0，2.0 已弃用；官方说明价格和 API 调用方式不变。",
+      "version_aliases": [
+        "grok-voice-3.0"
+      ]
     },
     {
       "id": "glm-tts",
@@ -6358,7 +6387,7 @@
     },
     "vidu-changelog": {
       "name": "Vidu 平台 · 更新日志",
-      "url": "https://platform.vidu.com/docs/update",
+      "url": "https://platform.vidu.com/docs/api-reference/updates",
       "tier": "official"
     },
     "wiki-midjourney": {
@@ -6642,8 +6671,8 @@
       "tier": "official"
     },
     "minimax-anthropic-api": {
-      "name": "MiniMax 开放平台 · Anthropic SDK 兼容",
-      "url": "https://platform.minimaxi.com/docs/api-reference/text-anthropic-api",
+      "name": "MiniMax · Anthropic 兼容 API",
+      "url": "https://platform.minimax.cn/docs/api-reference/text-anthropic-api.md",
       "tier": "official"
     },
     "minimax-openai-api": {
@@ -6778,7 +6807,7 @@
     },
     "xai-voice": {
       "name": "xAI · Voice APIs",
-      "url": "https://docs.x.ai/docs/guides/voice",
+      "url": "https://docs.x.ai/developers/model-capabilities/audio/voice",
       "tier": "official"
     },
     "kokoro-card": {
@@ -7748,12 +7777,12 @@
     },
     "vidu-model-map": {
       "name": "Vidu 平台 · Model Map（官方模型清单）",
-      "url": "https://platform.vidu.com/docs/model-map",
+      "url": "https://platform.vidu.com/docs/overview/model-map",
       "tier": "official"
     },
     "vidu-function-list": {
       "name": "Vidu 平台 · Function List（官方功能清单）",
-      "url": "https://platform.vidu.com/docs/function-list",
+      "url": "https://platform.vidu.com/docs/overview/function-list",
       "tier": "official"
     },
     "runway-changelog": {
@@ -7924,6 +7953,61 @@
     "card-zai-org-glm-4-7": {
       "name": "GLM-4.7 官方模型卡",
       "url": "https://huggingface.co/zai-org/GLM-4.7/raw/main/README.md",
+      "tier": "official"
+    },
+    "gemini-argon": {
+      "name": "Google · Gemini 4 Argon 模型卡",
+      "url": "https://ai.google.dev/gemini-api/docs/models/gemini-4-argon",
+      "tier": "official"
+    },
+    "gemini-tts38": {
+      "name": "Google · Gemini 3.8 Flash TTS 模型卡",
+      "url": "https://ai.google.dev/gemini-api/docs/models/gemini-3.8-flash-tts",
+      "tier": "official"
+    },
+    "vidu-q4-i2v": {
+      "name": "Vidu · Q4 Preview 图生视频 API",
+      "url": "https://platform.vidu.com/docs/api-reference/video-models/vidu-q4-preview/image-to-video",
+      "tier": "official"
+    },
+    "vidu-q4-reference": {
+      "name": "Vidu · Q4 Preview 参考生视频 API",
+      "url": "https://platform.vidu.com/docs/api-reference/video-models/vidu-q4-preview/reference-to-video",
+      "tier": "official"
+    },
+    "xai-voice3": {
+      "name": "xAI · Speech to Speech API",
+      "url": "https://docs.x.ai/developers/model-capabilities/audio/speech-to-speech",
+      "tier": "official"
+    },
+    "minimax-m31-guide": {
+      "name": "MiniMax · M3.1 Flash 模型调用",
+      "url": "https://platform.minimax.cn/docs/guides/text-generation.md",
+      "tier": "official"
+    },
+    "minimax-m31-tools": {
+      "name": "MiniMax · M3.1 工具调用",
+      "url": "https://platform.minimax.cn/docs/guides/text-m3-function-call.md",
+      "tier": "official"
+    },
+    "recraft-image-to-image": {
+      "name": "Recraft · image-to-image",
+      "url": "https://www.recraft.ai/docs/api-reference/tools/image-to-image.md",
+      "tier": "official"
+    },
+    "recraft-inpainting": {
+      "name": "Recraft · inpainting",
+      "url": "https://www.recraft.ai/docs/api-reference/tools/inpainting.md",
+      "tier": "official"
+    },
+    "recraft-outpainting": {
+      "name": "Recraft · outpainting",
+      "url": "https://www.recraft.ai/docs/api-reference/tools/outpainting.md",
+      "tier": "official"
+    },
+    "recraft-upscale": {
+      "name": "Recraft · upscale",
+      "url": "https://www.recraft.ai/docs/api-reference/tools/upscale.md",
       "tier": "official"
     }
   },
@@ -8512,98 +8596,109 @@
     {
       "m": "vidu-q",
       "c": "t2v",
-      "state": "yes",
-      "verified_for": "Q3",
-      "note": "官方功能清单「Text to Video」；2026-02-11 viduq3-turbo 进 text2video",
-      "src": "vidu-function-list",
-      "via": "native"
+      "state": "unknown",
+      "verified_for": "Q4 Preview",
+      "as_of": "2026-10-19",
+      "note": "当前 Q4 两个端点未给出该项型号适用证据。自动切镜不等于可控运镜，单张首帧不等于首尾帧，Q3/平台独立任务不自动继承；旧记录已保留在审阅档案。",
+      "src": "vidu-q4-i2v"
     },
     {
       "m": "vidu-q",
       "c": "i2v",
       "state": "yes",
-      "verified_for": "Q3",
-      "note": "官方功能清单「Image to Video」",
-      "src": "vidu-function-list",
+      "verified_for": "Q4 Preview",
+      "as_of": "2026-10-19",
+      "note": "Q4 Preview 图生视频支持首帧输入及音画同步；audio 默认 true。",
+      "src": "vidu-q4-i2v",
+      "quote": "viduq4-preview: Supports audio-video synchronization, supports automatic camera switching",
       "via": "native"
     },
     {
       "m": "vidu-q",
       "c": "flf",
-      "state": "yes",
-      "verified_for": "Q3",
-      "note": "官方有一等功能「Start end to video」，且 2026-02-11 明确 viduq3-turbo 与 viduq3-pro 都进了 start-end2video 🔧 **2026-08-15 改了署名的源**：原署 `vidu-up`，实际这句话在 `vidu-fl` 里。人审备注：这句「Start end to video」在功能清单页里，vidu-up 是升级说明页，署错了",
-      "src": "vidu-function-list",
-      "via": "native"
+      "state": "unknown",
+      "verified_for": "Q4 Preview",
+      "as_of": "2026-10-19",
+      "note": "当前 Q4 两个端点未给出该项型号适用证据。自动切镜不等于可控运镜，单张首帧不等于首尾帧，Q3/平台独立任务不自动继承；旧记录已保留在审阅档案。",
+      "src": "vidu-q4-i2v"
     },
     {
       "m": "vidu-q",
       "c": "charref",
       "state": "yes",
-      "verified_for": "Q3",
-      "note": "官方「Reference to Video」：用输入图里的主体或场景作参考",
-      "src": "vidu-function-list",
+      "verified_for": "Q4 Preview",
+      "as_of": "2026-10-19",
+      "note": "Q4 Preview 支持 1–15 张主体参考图。",
+      "src": "vidu-q4-reference",
+      "quote": "viduq4-preview model supports uploading 1 to 15 images",
       "via": "native"
     },
     {
       "m": "vidu-q",
       "c": "multiref",
       "state": "yes",
-      "verified_for": "Q3",
-      "note": "同上，官方写明「Supports uploading multiple images」",
-      "src": "vidu-function-list",
+      "verified_for": "Q4 Preview",
+      "as_of": "2026-10-19",
+      "note": "Q4 Preview 支持 1–15 张主体参考图。",
+      "src": "vidu-q4-reference",
+      "quote": "viduq4-preview model supports uploading 1 to 15 images",
       "via": "native"
     },
     {
       "m": "vidu-q",
       "c": "motion",
-      "state": "yes",
-      "verified_for": "Q3",
-      "note": "官方有独立任务 **Motion Sync**；2026-02-04 更新写明「输入动作参考视频＋角色图，生成角色按参考视频动作的视频」。注意它是独立接口，不是 viduq3 生成时的一步",
-      "src": "vidu-function-list",
-      "via": "separate-task"
+      "state": "unknown",
+      "verified_for": "Q4 Preview",
+      "as_of": "2026-10-19",
+      "note": "当前 Q4 两个端点未给出该项型号适用证据。自动切镜不等于可控运镜，单张首帧不等于首尾帧，Q3/平台独立任务不自动继承；旧记录已保留在审阅档案。",
+      "src": "vidu-q4-i2v"
     },
     {
       "m": "vidu-q",
       "c": "camera",
       "state": "unknown",
-      "verified_for": "Q3",
-      "note": "官方 function-list 与 update 两页里「camera / 运镜 / 镜头」**零命中**；只提供「motion amplitude（运动幅度）」。我上一版标「支持」是拿第三方知识库当官方了",
-      "src": "vidu-function-list"
+      "verified_for": "Q4 Preview",
+      "as_of": "2026-10-19",
+      "note": "当前 Q4 两个端点未给出该项型号适用证据。自动切镜不等于可控运镜，单张首帧不等于首尾帧，Q3/平台独立任务不自动继承；旧记录已保留在审阅档案。",
+      "src": "vidu-q4-i2v"
     },
     {
       "m": "vidu-q",
       "c": "audio",
       "state": "yes",
-      "verified_for": "Q3",
-      "note": "官方 Model Map：ViduQ3 全系「Supports simultaneous audio & video output」；2025-11-13 起「Audio&Video Direct Output」",
-      "src": "vidu-model-map",
+      "verified_for": "Q4 Preview",
+      "as_of": "2026-10-19",
+      "note": "Q4 Preview 图生视频支持首帧输入及音画同步；audio 默认 true。",
+      "src": "vidu-q4-i2v",
+      "quote": "viduq4-preview: Supports audio-video synchronization, supports automatic camera switching",
       "via": "native"
     },
     {
       "m": "vidu-q",
       "c": "lipsync",
-      "state": "yes",
-      "verified_for": "Q3",
-      "note": "官方独立任务 Lip Sync：让视频角色按指定文本对口型，支持数百种音色与语言",
-      "src": "vidu-function-list",
-      "via": "separate-task"
+      "state": "unknown",
+      "verified_for": "Q4 Preview",
+      "as_of": "2026-10-19",
+      "note": "当前 Q4 两个端点未给出该项型号适用证据。自动切镜不等于可控运镜，单张首帧不等于首尾帧，Q3/平台独立任务不自动继承；旧记录已保留在审阅档案。",
+      "src": "vidu-q4-i2v"
     },
     {
       "m": "vidu-q",
       "c": "extend",
-      "state": "yes",
-      "verified_for": "Q3",
-      "note": "官方独立任务 **Video Extension**，「Supports extension from 1～7s」",
-      "src": "vidu-function-list",
-      "via": "separate-task"
+      "state": "unknown",
+      "verified_for": "Q4 Preview",
+      "as_of": "2026-10-19",
+      "note": "当前 Q4 两个端点未给出该项型号适用证据。自动切镜不等于可控运镜，单张首帧不等于首尾帧，Q3/平台独立任务不自动继承；旧记录已保留在审阅档案。",
+      "src": "vidu-q4-i2v"
     },
     {
       "m": "vidu-q",
       "c": "openweights",
-      "state": "no",
-      "verified_for": "Q3",
-      "note": "官方文档与更新日志中无任何权重发布条目；仅 API"
+      "state": "unknown",
+      "verified_for": "Q4 Preview",
+      "as_of": "2026-10-19",
+      "note": "当前 Q4 两个端点未给出该项型号适用证据。自动切镜不等于可控运镜，单张首帧不等于首尾帧，Q3/平台独立任务不自动继承；旧记录已保留在审阅档案。",
+      "src": "vidu-q4-i2v"
     },
     {
       "m": "runway",
@@ -9511,10 +9606,10 @@
       "c": "i-i2i",
       "state": "yes",
       "verified_for": "V4.1",
-      "note": "用 `strength` 调相似度（官方：「Use prompt to describe the new image and strength to define similarity level」）。另有 `POST /v1/images/variateImage`（Remix）做**不给提示词**的同概念变体。",
-      "as_of": "2026-08-12",
-      "src": "recraft-endpoints",
-      "quote": "`POST /v1/images/imageToImage` —— 「Image-to-image operation tool allows you to create images similar to a given image, preserving certain aspects like composition, color, or subject identity while altering others based on the prompt.」"
+      "note": "当前端点支持 V4.1；用 strength 控制与原图的差异，V4.1 Flash 不支持。",
+      "as_of": "2026-10-19",
+      "src": "recraft-image-to-image",
+      "quote": "Works with Recraft V3, V4, and V4.1."
     },
     {
       "m": "recraft",
@@ -9537,22 +9632,22 @@
     {
       "m": "recraft",
       "c": "i-inpaint",
-      "state": "yes",
+      "state": "no",
       "verified_for": "V4.1",
-      "note": "蒙版语义写得很明确：**白色是要重画的、黑色是要保留的**。另有 `POST /v1/images/eraseRegion` 专做「擦掉一块」。",
-      "as_of": "2026-08-12",
-      "src": "recraft-endpoints",
-      "quote": "`POST /v1/images/inpaint` —— 「Inpainting lets you regenerate specific parts of an image while keeping the rest intact. … It uses a mask to identify the areas to be filled in, where white pixels represent the regions to inpaint, and black pixels indicate the areas to keep intact」"
+      "note": "当前 model 参数只接受 recraftv3 / recraftv3_vector，明确不支持其他模型；V4.1 的原支持结论撤回。",
+      "as_of": "2026-10-19",
+      "src": "recraft-inpainting",
+      "quote": "Other models don't support inpainting."
     },
     {
       "m": "recraft",
       "c": "i-outpaint",
-      "state": "yes",
+      "state": "no",
       "verified_for": "V4.1",
-      "note": "四边可以分别指定扩多少像素，不是只能按比例整体扩。",
-      "as_of": "2026-08-12",
-      "src": "recraft-endpoints",
-      "quote": "`POST /v1/images/outpaint` —— 「Outpainting extends an image beyond its original boundaries by generating new content around it. … The area to be generated can be specified either by per-side pixel margins via `expand_left`, `expand_right`, `expand_top`, `expand_bottom`」"
+      "note": "当前 model 参数只接受 recraftv3 / recraftv3_vector，明确不支持其他模型；V4.1 的原支持结论撤回。",
+      "as_of": "2026-10-19",
+      "src": "recraft-outpainting",
+      "quote": "Other models don't support outpainting."
     },
     {
       "m": "recraft",
@@ -9583,12 +9678,12 @@
     {
       "m": "recraft",
       "c": "i-fidelity",
-      "state": "yes",
+      "state": "unknown",
       "verified_for": "V4.1",
-      "note": "⚠️ 这是**图生图那条路上的保真控制**（给一张图、调相似度），不是「给几张参考图锁定同一个角色」那种角色一致性 —— Recraft 的 API 里没有专门的角色参考字段。",
-      "as_of": "2026-08-12",
-      "src": "recraft-endpoints",
-      "quote": "imageToImage 的官方描述里明写「preserving certain aspects like composition, color, or **subject identity**」，并提供 `strength` 参数「to define similarity level」"
+      "note": "当前文档确认图生图 strength 相似度控制，但未保留旧 subject identity 承诺；不足以证明主体保真。",
+      "as_of": "2026-10-19",
+      "src": "recraft-image-to-image",
+      "quote": ""
     },
     {
       "m": "recraft",
@@ -9603,10 +9698,11 @@
       "c": "i-upscale",
       "state": "yes",
       "verified_for": "V4.1",
-      "note": "**两档语义不同**：crisp 是保守放大（更锐更干净），creative 会重绘细节与人脸 —— 后者会改变画面内容，用在人像上要当心。",
-      "as_of": "2026-08-12",
-      "src": "recraft-endpoints",
-      "quote": "两个端点：`POST /v1/images/crispUpscale`（「increasing image resolution, making the image sharper and cleaner」）与 `POST /v1/images/creativeUpscale`（「boosting resolution with a focus on refining small details and faces」）"
+      "note": "平台独立放大工具：crisp 保留内容，creative 会重绘细节和人脸；不是 V4.1 原生分辨率声明。",
+      "as_of": "2026-10-19",
+      "src": "recraft-upscale",
+      "quote": "Creative upscale regenerates fine detail and faces.",
+      "via": "separate-task"
     },
     {
       "m": "recraft",
@@ -10500,146 +10596,139 @@
       "m": "gemini-text",
       "c": "t-think",
       "state": "yes",
-      "verified_for": "Gemini 3.6 Flash",
-      "note": "⚠️ 旧结论核在 Gemini 3.6 Flash，**离在售的 3.8 差了两代**。证据是模型清单页的功能导航（按 API 功能列，不分模型档），当初判过「不足以移动 verified_for」，这次不改判据。要清掉这一摞得去逐个模型页核 —— 文档 Core capabilities 下列「Thinking」（含 Thought signatures）",
-      "src": "gemini-models",
-      "via": "native",
-      "recheck": "Gemini 3.8 Flash",
-      "as_of": "2026-09-10"
+      "verified_for": "Gemini 4 Argon",
+      "as_of": "2026-10-19",
+      "note": "支持低、中、高三档思考。",
+      "src": "gemini-argon",
+      "quote": "Thinking Supported (low, medium, high)"
     },
     {
       "m": "gemini-text",
       "c": "t-long",
       "state": "yes",
-      "verified_for": "Gemini 3.6 Flash",
-      "note": "⚠️ 旧结论核在 Gemini 3.6 Flash，**离在售的 3.8 差了两代**。证据是模型清单页的功能导航（按 API 功能列，不分模型档），当初判过「不足以移动 verified_for」，这次不改判据。要清掉这一摞得去逐个模型页核 —— 指南单列「Long context」一节",
-      "src": "gemini-models",
-      "via": "native",
-      "recheck": "Gemini 3.8 Flash",
-      "as_of": "2026-09-10"
+      "verified_for": "Gemini 4 Argon",
+      "as_of": "2026-10-19",
+      "note": "输入与输出共享 1,048,576 token 上下文。",
+      "src": "gemini-argon",
+      "quote": "Context window (unified input and output token limit) 1,048,576"
     },
     {
       "m": "gemini-text",
       "c": "t-maxout",
-      "state": "unknown",
-      "verified_for": "Gemini 3.6 Flash",
-      "recheck": "Gemini 3.8 Flash",
-      "note": "⚠️ 旧结论核在 Gemini 3.6 Flash，**离在售的 3.8 差了两代**。证据是模型清单页的功能导航（按 API 功能列，不分模型档），当初判过「不足以移动 verified_for」，这次不改判据。要清掉这一摞得去逐个模型页核 —— 最大输出这一项模型清单页上没有，要去单个模型页看",
-      "as_of": "2026-09-10"
+      "state": "yes",
+      "verified_for": "Gemini 4 Argon",
+      "as_of": "2026-10-19",
+      "note": "默认同步输出 65,536 token；长解码最高 1,048,576，不能把后者当默认。",
+      "src": "gemini-argon",
+      "quote": "Max output 65,536 (default synchronous) / up to 1,048,576 (with long decode)"
     },
     {
       "m": "gemini-text",
       "c": "t-tools",
       "state": "yes",
-      "verified_for": "Gemini 3.6 Flash",
-      "note": "⚠️ 旧结论核在 Gemini 3.6 Flash，**离在售的 3.8 差了两代**。证据是模型清单页的功能导航（按 API 功能列，不分模型档），当初判过「不足以移动 verified_for」，这次不改判据。要清掉这一摞得去逐个模型页核 —— Tools 下列「Function calling」",
-      "src": "gemini-models",
-      "via": "native",
-      "recheck": "Gemini 3.8 Flash",
-      "as_of": "2026-09-10"
+      "verified_for": "Gemini 4 Argon",
+      "as_of": "2026-10-19",
+      "note": "支持函数调用。",
+      "src": "gemini-argon",
+      "quote": "Function calling Supported"
     },
     {
       "m": "gemini-text",
       "c": "t-json",
       "state": "yes",
-      "verified_for": "Gemini 3.6 Flash",
-      "note": "⚠️ 旧结论核在 Gemini 3.6 Flash，**离在售的 3.8 差了两代**。证据是模型清单页的功能导航（按 API 功能列，不分模型档），当初判过「不足以移动 verified_for」，这次不改判据。要清掉这一摞得去逐个模型页核 —— Core capabilities 下列「Structured outputs」",
-      "src": "gemini-models",
-      "via": "native",
-      "recheck": "Gemini 3.8 Flash",
-      "as_of": "2026-09-10"
+      "verified_for": "Gemini 4 Argon",
+      "as_of": "2026-10-19",
+      "note": "支持结构化输出。",
+      "src": "gemini-argon",
+      "quote": "Structured outputs Supported"
     },
     {
       "m": "gemini-text",
       "c": "t-search",
       "state": "yes",
-      "verified_for": "Gemini 3.6 Flash",
-      "note": "⚠️ 旧结论核在 Gemini 3.6 Flash，**离在售的 3.8 差了两代**。证据是模型清单页的功能导航（按 API 功能列，不分模型档），当初判过「不足以移动 verified_for」，这次不改判据。要清掉这一摞得去逐个模型页核 —— Tools 下列「Google Search」（Grounding with Search）",
-      "src": "gemini-models",
-      "via": "native",
-      "recheck": "Gemini 3.8 Flash",
-      "as_of": "2026-09-10"
+      "verified_for": "Gemini 4 Argon",
+      "as_of": "2026-10-19",
+      "note": "支持搜索接地。",
+      "src": "gemini-argon",
+      "quote": "Search grounding Supported"
     },
     {
       "m": "gemini-text",
       "c": "t-code",
       "state": "yes",
-      "verified_for": "Gemini 3.6 Flash",
-      "note": "⚠️ 旧结论核在 Gemini 3.6 Flash，**离在售的 3.8 差了两代**。证据是模型清单页的功能导航（按 API 功能列，不分模型档），当初判过「不足以移动 verified_for」，这次不改判据。要清掉这一摞得去逐个模型页核 —— Tools 下列「Code execution」",
-      "src": "gemini-models",
-      "via": "native",
-      "recheck": "Gemini 3.8 Flash",
-      "as_of": "2026-09-10"
+      "verified_for": "Gemini 4 Argon",
+      "as_of": "2026-10-19",
+      "note": "支持代码执行工具。",
+      "src": "gemini-argon",
+      "quote": "Code execution Supported"
     },
     {
       "m": "gemini-text",
       "c": "t-computer",
       "state": "yes",
-      "verified_for": "Gemini 3.8 Flash",
-      "src": "gemini-computer-use",
-      "note": "Computer Use 指南的示例与模型清单已换到 **gemini-3.8-flash**；原文「The Gemini 3.x models support several advanced capabilities: Multi-environment support: build agents for browser, mobile, and desktop environments」，另有 prompt injection detection 等安全开关",
-      "via": "native",
-      "as_of": "2026-09-10"
+      "verified_for": "Gemini 4 Argon",
+      "as_of": "2026-10-19",
+      "note": "支持 Computer Use，但仍为预览。",
+      "src": "gemini-argon",
+      "quote": "Computer use Supported (Preview)"
     },
     {
       "m": "gemini-text",
       "c": "t-vision",
       "state": "yes",
-      "verified_for": "Gemini 3.8 Flash",
-      "src": "gemini-vision",
-      "note": "图像理解指南原文：「Gemini models are built to be multimodal from the ground up, unlocking a wide range of image processing and computer vision tasks」；全篇示例已换用 `gemini-3.8-flash`",
-      "via": "native",
-      "as_of": "2026-09-10"
+      "verified_for": "Gemini 4 Argon",
+      "as_of": "2026-10-19",
+      "note": "模型卡明确支持图像与视频输入。",
+      "src": "gemini-argon",
+      "quote": "Inputs Text, Image, Video, Audio, and PDF"
     },
     {
       "m": "gemini-text",
       "c": "t-audio",
       "state": "yes",
-      "verified_for": "Gemini 3.8 Flash",
-      "src": "gemini-audio",
-      "note": "音频理解指南全篇示例已换用 `gemini-3.8-flash`，并给了量：「32 tokens per second of audio (1 minute = 1,920 tokens)」「Max length: 9.5 hours of audio per prompt」，另说明能听懂非语音声音",
-      "via": "native",
-      "as_of": "2026-09-10"
+      "verified_for": "Gemini 4 Argon",
+      "as_of": "2026-10-19",
+      "note": "支持音频输入，输出为文本；不是音频生成。",
+      "src": "gemini-argon",
+      "quote": "Inputs Text, Image, Video, Audio, and PDF"
     },
     {
       "m": "gemini-text",
       "c": "t-cache",
       "state": "yes",
-      "verified_for": "Gemini 3.6 Flash",
-      "note": "⚠️ 旧结论核在 Gemini 3.6 Flash，**离在售的 3.8 差了两代**。证据是模型清单页的功能导航（按 API 功能列，不分模型档），当初判过「不足以移动 verified_for」，这次不改判据。要清掉这一摞得去逐个模型页核 —— Optimization 下列「Context caching」",
-      "src": "gemini-models",
-      "via": "native",
-      "recheck": "Gemini 3.8 Flash",
-      "as_of": "2026-09-10"
+      "verified_for": "Gemini 4 Argon",
+      "as_of": "2026-10-19",
+      "note": "仅隐式缓存；不支持显式缓存。",
+      "src": "gemini-argon",
+      "quote": "Caching Supported (Implicit only) Note: Explicit caching is not supported."
     },
     {
       "m": "gemini-text",
       "c": "t-batch",
       "state": "yes",
-      "verified_for": "Gemini 3.6 Flash",
-      "note": "⚠️ 旧结论核在 Gemini 3.6 Flash，**离在售的 3.8 差了两代**。证据是模型清单页的功能导航（按 API 功能列，不分模型档），当初判过「不足以移动 verified_for」，这次不改判据。要清掉这一摞得去逐个模型页核 —— Optimization 下列「Batch API」",
-      "src": "gemini-models",
-      "via": "native",
-      "recheck": "Gemini 3.8 Flash",
-      "as_of": "2026-09-10"
+      "verified_for": "Gemini 4 Argon",
+      "as_of": "2026-10-19",
+      "note": "支持 Batch API。",
+      "src": "gemini-argon",
+      "quote": "Batch API Supported"
     },
     {
       "m": "gemini-text",
       "c": "t-fim",
       "state": "unknown",
-      "verified_for": "Gemini 3.6 Flash",
-      "recheck": "Gemini 3.8 Flash",
-      "note": "⚠️ 旧结论核在 Gemini 3.6 Flash，**离在售的 3.8 差了两代**。证据是模型清单页的功能导航（按 API 功能列，不分模型档），当初判过「不足以移动 verified_for」，这次不改判据。要清掉这一摞得去逐个模型页核 —— 中间填充这一项官方从没提过",
-      "as_of": "2026-09-10"
+      "verified_for": "Gemini 4 Argon",
+      "as_of": "2026-10-19",
+      "note": "已核当前型号模型卡，未取得这一能力的明确证据；保留未知，不从目录导航推断。",
+      "src": "gemini-argon"
     },
     {
       "m": "gemini-text",
       "c": "t-openweights",
       "state": "unknown",
-      "verified_for": "Gemini 3.6 Flash",
-      "recheck": "Gemini 3.8 Flash",
-      "note": "⚠️ 旧结论核在 Gemini 3.6 Flash，**离在售的 3.8 差了两代**。证据是模型清单页的功能导航（按 API 功能列，不分模型档），当初判过「不足以移动 verified_for」，这次不改判据。要清掉这一摞得去逐个模型页核 —— Gemini 是闭源 API，但这一格当初没署源，照旧标着",
-      "as_of": "2026-09-10"
+      "verified_for": "Gemini 4 Argon",
+      "as_of": "2026-10-19",
+      "note": "已核当前型号模型卡，未取得这一能力的明确证据；保留未知，不从目录导航推断。",
+      "src": "gemini-argon"
     },
     {
       "m": "qwen-text",
@@ -10790,133 +10879,135 @@
       "m": "deepseek",
       "c": "t-think",
       "state": "yes",
-      "verified_for": "V4.1",
-      "note": "官方「Models & Pricing」页（2026-09-19 快照，两列分别是 deepseek-flash = DeepSeek-V4.1-Flash 与 deepseek-v4-pro = V4-Pro-0813）：THINKING MODE 行两列同值「Supports both non-thinking and thinking (default) modes」。文档示例使用 thinking: {type: enabled} 与 reasoning_effort: high",
+      "verified_for": "V4.1 Flash-1017",
+      "as_of": "2026-10-19",
+      "note": "当前价目表明确将 deepseek-flash 绑定到 DeepSeek-V4.1-Flash-1017；视觉仅 Flash 支持，FIM 仅非思考模式。",
       "src": "deepseek-pricing",
-      "via": "native",
-      "as_of": "2026-09-19"
+      "quote": "Supports both non-thinking and thinking (default) modes"
     },
     {
       "m": "deepseek",
       "c": "t-long",
       "state": "yes",
-      "verified_for": "V4.1",
+      "verified_for": "V4.1 Flash-1017",
+      "as_of": "2026-10-19",
+      "note": "当前价目表明确将 deepseek-flash 绑定到 DeepSeek-V4.1-Flash-1017；视觉仅 Flash 支持，FIM 仅非思考模式。",
       "src": "deepseek-pricing",
-      "note": "官方「Models & Pricing」页（2026-09-19 快照，两列分别是 deepseek-flash = DeepSeek-V4.1-Flash 与 deepseek-v4-pro = V4-Pro-0813）：CONTEXT LENGTH 行两列同值 1M",
-      "via": "native",
-      "as_of": "2026-09-19"
+      "quote": "CONTEXT LENGTH 1M"
     },
     {
       "m": "deepseek",
       "c": "t-maxout",
       "state": "yes",
-      "verified_for": "V4.1",
+      "verified_for": "V4.1 Flash-1017",
+      "as_of": "2026-10-19",
+      "note": "当前价目表明确将 deepseek-flash 绑定到 DeepSeek-V4.1-Flash-1017；视觉仅 Flash 支持，FIM 仅非思考模式。",
       "src": "deepseek-pricing",
-      "note": "官方「Models & Pricing」页（2026-09-19 快照，两列分别是 deepseek-flash = DeepSeek-V4.1-Flash 与 deepseek-v4-pro = V4-Pro-0813）：MAX OUTPUT 行两列同值「MAXIMUM: 384K」",
-      "via": "native",
-      "as_of": "2026-09-19"
+      "quote": "MAX OUTPUT MAXIMUM: 384K"
     },
     {
       "m": "deepseek",
       "c": "t-tools",
       "state": "yes",
-      "verified_for": "V4.1",
-      "note": "官方「Models & Pricing」页（2026-09-19 快照，两列分别是 deepseek-flash = DeepSeek-V4.1-Flash 与 deepseek-v4-pro = V4-Pro-0813）：FEATURES「Tool Calls」两列都是 ✓",
+      "verified_for": "V4.1 Flash-1017",
+      "as_of": "2026-10-19",
+      "note": "当前价目表明确将 deepseek-flash 绑定到 DeepSeek-V4.1-Flash-1017；视觉仅 Flash 支持，FIM 仅非思考模式。",
       "src": "deepseek-pricing",
-      "via": "native",
-      "as_of": "2026-09-19"
+      "quote": "Tool Calls ✓ ✓"
     },
     {
       "m": "deepseek",
       "c": "t-json",
       "state": "yes",
-      "verified_for": "V4.1",
-      "note": "官方「Models & Pricing」页（2026-09-19 快照，两列分别是 deepseek-flash = DeepSeek-V4.1-Flash 与 deepseek-v4-pro = V4-Pro-0813）：FEATURES「Json Output」两列都是 ✓",
+      "verified_for": "V4.1 Flash-1017",
+      "as_of": "2026-10-19",
+      "note": "当前价目表明确将 deepseek-flash 绑定到 DeepSeek-V4.1-Flash-1017；视觉仅 Flash 支持，FIM 仅非思考模式。",
       "src": "deepseek-pricing",
-      "via": "native",
-      "as_of": "2026-09-19"
+      "quote": "Json Output ✓ ✓"
     },
     {
       "m": "deepseek",
       "c": "t-search",
-      "state": "no",
-      "verified_for": "V4",
-      "src": "deepseek-chat-api",
-      "note": "Chat Completions 的请求参数列全了（messages / thinking / tools / tool_choice / response_format / logprobs …），**没有任何联网搜索开关**。⚠️ 这是从「列全了的参数表」读出来的，不是一句明写的「不支持」；要联网得自己在 `tools` 里接外部搜索　旧结论「请求参数里没有联网搜索」核在 V4 的 Chat Completions API 页上；V4.1 的参数表尚未单独复核。",
-      "via": "native",
-      "as_of": "2026-08-11",
-      "recheck": "V4.1"
+      "state": "unknown",
+      "verified_for": "V4.1 Flash-1017",
+      "as_of": "2026-10-19",
+      "note": "已核 1017 当前价目表，未取得本项明确证据。Search / Fetch 为独立接口；旧 V4.1 权重不证明 1017 检查点开放。",
+      "src": "deepseek-pricing"
     },
     {
       "m": "deepseek",
       "c": "t-code",
       "state": "unknown",
-      "verified_for": "V4",
-      "recheck": "V4.1",
-      "note": "旧结论核在 V4；V4.1 待重核。"
+      "verified_for": "V4.1 Flash-1017",
+      "as_of": "2026-10-19",
+      "note": "已核 1017 当前价目表，未取得本项明确证据。Search / Fetch 为独立接口；旧 V4.1 权重不证明 1017 检查点开放。",
+      "src": "deepseek-pricing"
     },
     {
       "m": "deepseek",
       "c": "t-computer",
       "state": "unknown",
-      "verified_for": "V4",
-      "recheck": "V4.1",
-      "note": "旧结论核在 V4；V4.1 待重核。"
+      "verified_for": "V4.1 Flash-1017",
+      "as_of": "2026-10-19",
+      "note": "已核 1017 当前价目表，未取得本项明确证据。Search / Fetch 为独立接口；旧 V4.1 权重不证明 1017 检查点开放。",
+      "src": "deepseek-pricing"
     },
     {
       "m": "deepseek",
       "c": "t-vision",
       "state": "yes",
-      "verified_for": "V4.1",
-      "src": "deepseek-updates",
-      "as_of": "2026-09-19",
-      "note": "✅ **这一代图像输入转正了。** 更新日志 2026-09-10 写明 V4.1-Flash「with native multimodal visual understanding」，同日实验支线 V4-Flash-Vision-Exp 下线。上一版这里记的是「只长在实验支线 deepseek-v4-flash-vision-exp 上，主线不支持」，V4.1 之后不成立。⚠️ **反过来要注意档位**：官方「Models & Pricing」页（2026-09-19）FEATURES「Vision」一行，deepseek-flash 是 ✓、deepseek-v4-pro 是 Not supported —— 看得见图的是便宜的 Flash 档，贵的 Pro 档反而不支持。"
+      "verified_for": "V4.1 Flash-1017",
+      "as_of": "2026-10-19",
+      "note": "当前价目表明确将 deepseek-flash 绑定到 DeepSeek-V4.1-Flash-1017；视觉仅 Flash 支持，FIM 仅非思考模式。",
+      "src": "deepseek-pricing",
+      "quote": "Vision ✓ Not supported"
     },
     {
       "m": "deepseek",
       "c": "t-audio",
       "state": "unknown",
-      "verified_for": "V4",
-      "recheck": "V4.1",
-      "note": "旧结论核在 V4；V4.1 待重核。"
+      "verified_for": "V4.1 Flash-1017",
+      "as_of": "2026-10-19",
+      "note": "已核 1017 当前价目表，未取得本项明确证据。Search / Fetch 为独立接口；旧 V4.1 权重不证明 1017 检查点开放。",
+      "src": "deepseek-pricing"
     },
     {
       "m": "deepseek",
       "c": "t-cache",
       "state": "yes",
-      "verified_for": "V4.1",
-      "note": "官方「Models & Pricing」页（2026-09-19 快照，两列分别是 deepseek-flash = DeepSeek-V4.1-Flash 与 deepseek-v4-pro = V4-Pro-0813）：价目表对两列都分「CACHE HIT / CACHE MISS」两档输入价，命中价是未命中价的 1/50 上下；API Guides 另列「Context Caching」",
+      "verified_for": "V4.1 Flash-1017",
+      "as_of": "2026-10-19",
+      "note": "当前价目表明确将 deepseek-flash 绑定到 DeepSeek-V4.1-Flash-1017；视觉仅 Flash 支持，FIM 仅非思考模式。",
       "src": "deepseek-pricing",
-      "via": "native",
-      "as_of": "2026-09-19"
+      "quote": "1M INPUT TOKENS (CACHE HIT)"
     },
     {
       "m": "deepseek",
       "c": "t-batch",
       "state": "unknown",
-      "verified_for": "V4",
-      "recheck": "V4.1",
-      "note": "旧结论核在 V4；V4.1 待重核。"
+      "verified_for": "V4.1 Flash-1017",
+      "as_of": "2026-10-19",
+      "note": "已核 1017 当前价目表，未取得本项明确证据。Search / Fetch 为独立接口；旧 V4.1 权重不证明 1017 检查点开放。",
+      "src": "deepseek-pricing"
     },
     {
       "m": "deepseek",
       "c": "t-fim",
       "state": "yes",
-      "verified_for": "V4.1",
-      "note": "官方「Models & Pricing」页（2026-09-19 快照，两列分别是 deepseek-flash = DeepSeek-V4.1-Flash 与 deepseek-v4-pro = V4-Pro-0813）：FEATURES「FIM Completion（Beta）」两列都是「Non-thinking mode only」—— **只在非思考模式下可用**，不是无条件支持",
+      "verified_for": "V4.1 Flash-1017",
+      "as_of": "2026-10-19",
+      "note": "当前价目表明确将 deepseek-flash 绑定到 DeepSeek-V4.1-Flash-1017；视觉仅 Flash 支持，FIM 仅非思考模式。",
       "src": "deepseek-pricing",
-      "via": "native",
-      "as_of": "2026-09-19"
+      "quote": "FIM Completion（Beta） Non-thinking mode only"
     },
     {
       "m": "deepseek",
       "c": "t-openweights",
-      "state": "yes",
-      "verified_for": "V4.1",
-      "src": "hf-org",
-      "via": "native",
-      "note": "官方 HF 组织下有可下载权重：deepseek-ai/DeepSeek-V4.1-Flash（2026-09-19 抓到；上一代的 DeepSeek-V4-Flash / V4-Pro 仍在）",
-      "as_of": "2026-09-19"
+      "state": "unknown",
+      "verified_for": "V4.1 Flash-1017",
+      "as_of": "2026-10-19",
+      "note": "已核 1017 当前价目表，未取得本项明确证据。Search / Fetch 为独立接口；旧 V4.1 权重不证明 1017 检查点开放。",
+      "src": "deepseek-pricing"
     },
     {
       "m": "kimi",
@@ -11178,128 +11269,152 @@
       "m": "minimax-text",
       "c": "t-think",
       "state": "yes",
-      "verified_for": "M3",
-      "src": "minimax-anthropic-api",
-      "note": "参数表：「thinking 完全支持 —— MiniMax-M3 默认关闭 thinking，可通过 adaptive 开启。M2.x 模型的 thinking 无法关闭」；内容块表另有 `type=\"thinking\"` 完全支持。⚠️ 两个兼容层的默认值相反：Anthropic 兼容层默认**关**，OpenAI 兼容层默认**开**",
+      "verified_for": "M3.1 Flash",
+      "src": "minimax-m31-guide",
+      "note": "支持 low / medium / high / xhigh / max；默认 max，不能关闭。",
       "via": "native",
-      "as_of": "2026-08-11"
+      "as_of": "2026-10-19",
+      "quote": "深度思考不支持关闭。"
     },
     {
       "m": "minimax-text",
       "c": "t-long",
       "state": "yes",
-      "verified_for": "M3",
-      "src": "minimax-api-overview",
-      "note": "支持模型表：MiniMax-M3 输入输出总 token 1,000,000（其余 M2.x 均为 204800）",
+      "verified_for": "M3.1 Flash",
+      "src": "minimax-m31-guide",
+      "note": "当前型号最大上下文 1M token。",
       "via": "native",
-      "as_of": "2026-08-11"
+      "as_of": "2026-10-19",
+      "quote": "MiniMax-M3.1-Flash 支持最高 1,000,000 token 上下文"
     },
     {
       "m": "minimax-text",
       "c": "t-maxout",
-      "state": "yes",
-      "verified_for": "M3",
-      "src": "minimax-openapi",
-      "note": "`max_completion_tokens` 的字段说明：「MiniMax-M3 推荐值为 131072（128K），**上限为 524288（512K）**；其他模型推荐值为 65536（64K），上限为 204800（200K）」。Anthropic 兼容那份规格里 `max_tokens` 写的是同一组数",
+      "state": "unknown",
+      "verified_for": "M3.1 Flash",
+      "src": "minimax-m31-guide",
+      "note": "当前 M3.1-Flash 模型调用文档未足以确认此项；不继承 M3 的接口限制、缓存或开放权重结论。",
       "via": "native",
-      "as_of": "2026-08-11"
+      "as_of": "2026-10-19",
+      "quote": ""
     },
     {
       "m": "minimax-text",
       "c": "t-tools",
       "state": "yes",
-      "verified_for": "M3",
-      "src": "minimax-api-overview",
-      "note": "「语言模型接口……根据输入的上下文，让模型生成对话内容、工具调用」；M3 一行的介绍为「适用于 Agent 推理、工具调用、代码和长上下文任务」",
+      "verified_for": "M3.1 Flash",
+      "src": "minimax-m31-guide",
+      "note": "支持工具调用，不等于内置代码执行。",
       "via": "native",
-      "as_of": "2026-08-11"
+      "as_of": "2026-10-19",
+      "quote": "MiniMax-M3.1-Flash 面向 Agent 推理、工具调用、代码和结构化任务执行优化。"
     },
     {
       "m": "minimax-text",
       "c": "t-json",
-      "state": "no",
-      "verified_for": "M3",
-      "src": "minimax-openapi",
-      "note": "`/v1/chat/completions` 的 OpenAPI 规格里字段名列全了（messages / tools / thinking / reasoning_split / service_tier …），**没有 `response_format`**，也没有 json_schema 相关字段；Anthropic 兼容那份同样没有。⚠️ 从枚举读出来的，且只说「没有专门的结构化输出参数」—— 用 `tools` 的函数参数模式约束输出仍然可行",
+      "state": "unknown",
+      "verified_for": "M3.1 Flash",
+      "src": "minimax-m31-guide",
+      "note": "当前 M3.1-Flash 模型调用文档未足以确认此项；不继承 M3 的接口限制、缓存或开放权重结论。",
       "via": "native",
-      "as_of": "2026-08-11"
+      "as_of": "2026-10-19",
+      "quote": ""
     },
     {
       "m": "minimax-text",
       "c": "t-search",
-      "state": "yes",
-      "verified_for": "M3",
-      "src": "minimax-server-tools",
-      "note": "服务端工具（Server Tools）：在 `tools` 里声明 `{\"type\": \"web_search_20250305\", \"name\": \"web_search\"}`，「模型在 MiniMax 服务端自动执行工具并获取结果，一次请求内完成」。⚠️ 两个限制：**仅 Anthropic Messages API**（`/anthropic/v1/messages`）可用，且该能力标着 **Beta**",
+      "state": "unknown",
+      "verified_for": "M3.1 Flash",
+      "src": "minimax-m31-guide",
+      "note": "当前 M3.1-Flash 模型调用文档未足以确认此项；不继承 M3 的接口限制、缓存或开放权重结论。",
       "via": "native",
-      "as_of": "2026-08-11"
+      "as_of": "2026-10-19",
+      "quote": ""
     },
     {
       "m": "minimax-text",
       "c": "t-code",
-      "state": "no",
-      "verified_for": "M3",
-      "src": "minimax-server-tools",
-      "note": "「支持范围」表把服务端托管的工具列全了：**可用工具只有 `web_search`（联网搜索）**，没有代码执行环境。⚠️ 这是从枚举读出来的；只覆盖服务端工具这一条路径，自己在客户端 `tools` 里接沙箱不在此列",
+      "state": "unknown",
+      "verified_for": "M3.1 Flash",
+      "src": "minimax-m31-guide",
+      "note": "当前 M3.1-Flash 模型调用文档未足以确认此项；不继承 M3 的接口限制、缓存或开放权重结论。",
       "via": "native",
-      "as_of": "2026-08-11"
+      "as_of": "2026-10-19",
+      "quote": ""
     },
     {
       "m": "minimax-text",
       "c": "t-computer",
       "state": "unknown",
-      "verified_for": "M3"
+      "verified_for": "M3.1 Flash",
+      "src": "minimax-m31-guide",
+      "quote": "",
+      "note": "当前 M3.1-Flash 模型调用文档未足以确认此项；不继承 M3 的接口限制、缓存或开放权重结论。",
+      "as_of": "2026-10-19"
     },
     {
       "m": "minimax-text",
       "c": "t-vision",
       "state": "yes",
-      "verified_for": "M3",
-      "src": "minimax-anthropic-api",
-      "note": "内容块表：「`type=\"image\"` 仅 M3 —— 通过 URL 或 base64 输入图片，支持 JPEG、PNG、GIF、WEBP」，`type=\"video\"` 同为仅 M3（MP4、AVI、MOV、MKV）。参数表也写明「M2.7、M2.5、M2.1 和 M2 系列……不支持图片和视频输入」",
+      "verified_for": "M3.1 Flash",
+      "src": "minimax-m31-guide",
+      "note": "支持图片与视频输入。",
       "via": "native",
-      "as_of": "2026-08-11"
+      "as_of": "2026-10-19",
+      "quote": "支持文本、图片和视频等多模态输入"
     },
     {
       "m": "minimax-text",
       "c": "t-audio",
-      "state": "no",
-      "verified_for": "M3",
-      "src": "minimax-openai-api",
-      "note": "注意事项原文：「MiniMax-M3 可通过 OpenAI 兼容消息内容块输入图片和视频；**当前不支持音频输入**」",
+      "state": "unknown",
+      "verified_for": "M3.1 Flash",
+      "src": "minimax-m31-guide",
+      "note": "当前 M3.1-Flash 模型调用文档未足以确认此项；不继承 M3 的接口限制、缓存或开放权重结论。",
       "via": "native",
-      "as_of": "2026-08-11"
+      "as_of": "2026-10-19",
+      "quote": ""
     },
     {
       "m": "minimax-text",
       "c": "t-cache",
-      "state": "yes",
-      "verified_for": "M3",
-      "src": "minimax-caching",
-      "note": "分两种：**自动缓存**（被动，「自动识别重复的上下文内容，无需更改接口调用方式」）与 **主动缓存**（Anthropic 兼容层显式设参数）。示例用的是 `model=\"MiniMax-M3\"`",
+      "state": "unknown",
+      "verified_for": "M3.1 Flash",
+      "src": "minimax-m31-guide",
+      "note": "当前 M3.1-Flash 模型调用文档未足以确认此项；不继承 M3 的接口限制、缓存或开放权重结论。",
       "via": "native",
-      "as_of": "2026-08-11"
+      "as_of": "2026-10-19",
+      "quote": ""
     },
     {
       "m": "minimax-text",
       "c": "t-batch",
       "state": "unknown",
-      "verified_for": "M3"
+      "verified_for": "M3.1 Flash",
+      "src": "minimax-m31-guide",
+      "quote": "",
+      "note": "当前 M3.1-Flash 模型调用文档未足以确认此项；不继承 M3 的接口限制、缓存或开放权重结论。",
+      "as_of": "2026-10-19"
     },
     {
       "m": "minimax-text",
       "c": "t-fim",
       "state": "unknown",
-      "verified_for": "M3"
+      "verified_for": "M3.1 Flash",
+      "src": "minimax-m31-guide",
+      "quote": "",
+      "note": "当前 M3.1-Flash 模型调用文档未足以确认此项；不继承 M3 的接口限制、缓存或开放权重结论。",
+      "as_of": "2026-10-19"
     },
     {
       "m": "minimax-text",
       "c": "t-openweights",
-      "state": "yes",
-      "verified_for": "M3",
-      "src": "hf-org",
+      "state": "unknown",
+      "verified_for": "M3.1 Flash",
+      "src": "minimax-m31-guide",
       "via": "native",
-      "note": "官方 HF 组织下有可下载权重：MiniMaxAI/MiniMax-M3"
+      "note": "当前 M3.1-Flash 模型调用文档未足以确认此项；不继承 M3 的接口限制、缓存或开放权重结论。",
+      "quote": "",
+      "as_of": "2026-10-19"
     },
     {
       "m": "doubao",
@@ -11644,11 +11759,12 @@
       "c": "t-batch",
       "state": "no",
       "verified_for": "4.7",
-      "note": "Grok 4.7 专属 Details 明确 Batch API: Not supported（当前页展示 us-east-1）；不从全站导航推定支持。",
+      "note": "当前 grok-4.7 模型页明确 Batch API 不支持。",
       "src": "xai-grok47-model",
-      "as_of": "2026-10-10",
+      "as_of": "2026-10-19",
       "by": "agent",
-      "reviewed_by": "Codex（用户授权）"
+      "reviewed_by": "Codex（用户授权）",
+      "quote": "Batch API Not supported"
     },
     {
       "m": "grok",
@@ -11982,88 +12098,99 @@
       "m": "gemini-tts",
       "c": "s-voices",
       "state": "yes",
-      "verified_for": "3.1 Flash TTS Preview",
-      "src": "gemini-tts",
-      "note": "「30 种预设音色」，含 Zephyr、Puck、Charon、Kore 等",
-      "via": "native",
-      "as_of": "2026-08-12"
+      "verified_for": "3.8 Flash TTS",
+      "as_of": "2026-10-19",
+      "note": "支持预设音色及扩展音色库，旧版 30 种数量不再沿用。",
+      "src": "gemini-tts38",
+      "quote": "Works seamlessly with prebuilt voices"
     },
     {
       "m": "gemini-tts",
       "c": "s-clone",
-      "state": "unknown",
-      "verified_for": "3.1 Flash TTS Preview"
+      "state": "yes",
+      "verified_for": "3.8 Flash TTS",
+      "as_of": "2026-10-19",
+      "note": "支持声音复刻；使用需获得声音持有者授权。",
+      "src": "gemini-tts38",
+      "quote": "Voice replication (persistent stored voices by default, plus optional stateless keys)"
     },
     {
       "m": "gemini-tts",
       "c": "s-design",
-      "state": "unknown",
-      "verified_for": "3.1 Flash TTS Preview"
+      "state": "yes",
+      "verified_for": "3.8 Flash TTS",
+      "as_of": "2026-10-19",
+      "note": "支持先设计音色，再以 voice ID 调用。",
+      "src": "gemini-tts38",
+      "quote": "custom Voice design personas"
     },
     {
       "m": "gemini-tts",
       "c": "s-style",
       "state": "yes",
-      "verified_for": "3.1 Flash TTS Preview",
-      "src": "gemini-tts",
-      "note": "「可控的风格生成 —— 通过自然语言控制音色、口音、节奏和语调」，另支持 `[whispers]`、`[laughs]` 这类音频标签",
-      "via": "native",
-      "as_of": "2026-08-12"
+      "verified_for": "3.8 Flash TTS",
+      "as_of": "2026-10-19",
+      "note": "支持结构化风格指令及行内声音事件。",
+      "src": "gemini-tts38",
+      "quote": "precise adherence to turn-level style directions and inline vocal events"
     },
     {
       "m": "gemini-tts",
       "c": "s-multi",
       "state": "yes",
-      "verified_for": "3.1 Flash TTS Preview",
-      "src": "gemini-tts",
-      "note": "「多说话人音频生成」，**最多 2 位**",
-      "via": "native",
-      "as_of": "2026-08-12"
+      "verified_for": "3.8 Flash TTS",
+      "as_of": "2026-10-19",
+      "note": "每轮指定 speaker；旧版最多两人的数量不直接套用。",
+      "src": "gemini-tts38",
+      "quote": "Every turn in a multi-speaker request must explicitly include speaker inside speech_metadata matching one of the configured speakers."
     },
     {
       "m": "gemini-tts",
       "c": "s-lang",
       "state": "yes",
-      "verified_for": "3.1 Flash TTS Preview",
-      "src": "gemini-tts",
-      "note": "支持 59 种语言（含普通话、繁体中文、日语、韩语等）",
-      "via": "native",
-      "as_of": "2026-08-12"
+      "verified_for": "3.8 Flash TTS",
+      "as_of": "2026-10-19",
+      "note": "Flash TTS 支持 130 种语言；不要与 Flash-Lite 的 101 种混用。",
+      "src": "gemini-tts38",
+      "quote": "130 languages"
     },
     {
       "m": "gemini-tts",
       "c": "s-stream",
       "state": "yes",
-      "verified_for": "3.1 Flash TTS Preview",
+      "verified_for": "3.8 Flash TTS",
+      "as_of": "2026-10-19",
+      "note": "3.8 Flash TTS 示例明确使用 stream:true；默认返回 24kHz 单声道 PCM 音频块。",
       "src": "gemini-tts",
-      "note": "「流式语音生成」—— ⚠️ **仅 3.1 版本模型**",
-      "via": "native",
-      "as_of": "2026-08-12"
+      "quote": "You can stream the generated audio as it is being synthesized by setting stream: true."
     },
     {
       "m": "gemini-tts",
       "c": "s-long",
       "state": "unknown",
-      "verified_for": "3.1 Flash TTS Preview"
+      "verified_for": "3.8 Flash TTS",
+      "as_of": "2026-10-19",
+      "note": "当前模型卡不足以确认本项；长篇多轮稳定性不等于异步长文本接口，旧 3.1 的流式能力不直接继承。",
+      "src": "gemini-tts38"
     },
     {
       "m": "gemini-tts",
       "c": "s-timestamp",
       "state": "unknown",
-      "verified_for": "3.1 Flash TTS Preview"
+      "verified_for": "3.8 Flash TTS",
+      "as_of": "2026-10-19",
+      "note": "当前模型卡不足以确认本项；长篇多轮稳定性不等于异步长文本接口，旧 3.1 的流式能力不直接继承。",
+      "src": "gemini-tts38"
     },
     {
       "m": "gemini-tts",
       "c": "s-format",
-      "state": "unknown",
-      "verified_for": "3.1 Flash TTS Preview",
+      "state": "yes",
+      "verified_for": "3.8 Flash TTS",
+      "as_of": "2026-10-19",
+      "note": "可选 WAV、PCM、mu-law、A-law；可配置 sample_rate，例如 24000 / 16000 / 8000 Hz。",
       "src": "gemini-tts",
-      "note": "2026-10-10 回查：当前正文示例已经换到 Gemini 3.8 TTS，无法据此重核 3.1 Preview；旧说明把客户端封装 WAV 的示例当成默认原生格式，撤回该结论。 原记录留在审阅档案。",
-      "by": "human",
-      "reviewed_by": "liuzhenhai（经 Claude 代办）",
-      "reviewed_at": "2026-09-23 05:05:51",
-      "quote": "",
-      "as_of": "2026-10-10"
+      "quote": "To request a different audio encoding or sample rate, configure mime_type and optional sample_rate inside response_format"
     },
     {
       "m": "openai-tts",
@@ -12331,37 +12458,39 @@
       "m": "grok-voice",
       "c": "s-rt-duplex",
       "state": "yes",
-      "verified_for": "think-fast-2.0",
-      "src": "xai-voice",
-      "note": "Voice API 的「Speech to Speech」：实时语音对话代理，「低延迟轮转与工具使用」，语音检测用 `server_vad`",
-      "via": "native",
-      "as_of": "2026-08-12"
+      "verified_for": "3.0",
+      "as_of": "2026-10-19",
+      "note": "支持双向音频与文本流，server_vad 轮转；文档另列 interruptible 控制。",
+      "src": "xai-voice3",
+      "quote": "Stream audio and text bidirectionally via WebSocket"
     },
     {
       "m": "grok-voice",
       "c": "s-rt-tools",
       "state": "yes",
-      "verified_for": "think-fast-2.0",
-      "src": "xai-voice",
-      "note": "Speech to Speech 支持工具，文档点名 `web_search`",
-      "via": "native",
-      "as_of": "2026-08-12"
+      "verified_for": "3.0",
+      "as_of": "2026-10-19",
+      "note": "当前 3.0 文档列出 function、web_search、x_search、file_search 与 mcp 工具。",
+      "src": "xai-voice3"
     },
     {
       "m": "grok-voice",
       "c": "s-rt-translate",
       "state": "unknown",
-      "verified_for": "think-fast-2.0"
+      "verified_for": "3.0",
+      "as_of": "2026-10-19",
+      "note": "已核当前实时语音文档，未见本项明确证据。",
+      "src": "xai-voice3"
     },
     {
       "m": "grok-voice",
       "c": "s-rt-transport",
       "state": "yes",
-      "verified_for": "think-fast-2.0",
-      "src": "xai-voice",
-      "note": "传输方式：**WebSocket**（TTS 另可单次请求）",
-      "via": "native",
-      "as_of": "2026-08-12"
+      "verified_for": "3.0",
+      "as_of": "2026-10-19",
+      "note": "WebSocket 实时传输。",
+      "src": "xai-voice3",
+      "quote": "Stream audio and text bidirectionally via WebSocket"
     },
     {
       "m": "glm-voice",
@@ -12671,8 +12800,9 @@
       "state": "unknown",
       "verified_for": "82M v1.1-zh",
       "src": "hf-lineage",
-      "note": "⚠️ **假命中**：`clone` 出现在训练数据说明里（「No synthetic audio from open TTS models or custom voice clones」）—— 那是**说训练数据不含克隆音**，不是「它支持音色复刻」。差一点记反",
-      "as_of": "2026-08-14"
+      "note": "2026-10-19 当前来源为目录元数据，不能支持原能力断言；撤回结论，待取得具体模型原文。",
+      "as_of": "2026-10-19",
+      "quote": ""
     },
     {
       "m": "kokoro",
@@ -12868,22 +12998,20 @@
     {
       "m": "grok-voice",
       "c": "s-openweights",
-      "state": "no",
-      "verified_for": "think-fast-2.0",
-      "as_of": "2026-08-12",
-      "note": "xAI 确实开过权重 —— 但只开文本那条线，语音这条没有。**「这家开源」和「这个模型开源」不是一回事。**",
-      "src": "hf-org-xai",
-      "quote": "xAI 官方 HF 组织 xai-org 下**只有 2 个仓库**：grok-1（2024-03-17）与 grok-2（2025-08-22），都是文本模型"
+      "state": "unknown",
+      "verified_for": "3.0",
+      "as_of": "2026-10-19",
+      "note": "已核当前实时语音文档，未见本项明确证据。",
+      "src": "xai-voice3"
     },
     {
       "m": "gemini-tts",
       "c": "s-openweights",
-      "state": "no",
-      "verified_for": "3.1 Flash TTS Preview",
-      "as_of": "2026-08-12",
-      "note": "⚠️ **这一格的依据比 MiniMax / xAI 那几格弱**：Google 的 HF 组织有上千个仓库，接口一次只返回 200 个，我按音频关键词在这 200 个里没找到 —— 那不足以证明「全都没有」。所以这里靠的是官方文档只提供 API 这一点。",
-      "src": "gemini-tts",
-      "quote": "官方文档只给 API 调用方式（generateContent 配 responseModalities: [\"AUDIO\"]），全篇没有权重下载入口"
+      "state": "unknown",
+      "verified_for": "3.8 Flash TTS",
+      "as_of": "2026-10-19",
+      "note": "当前模型卡不足以确认本项；长篇多轮稳定性不等于异步长文本接口，旧 3.1 的流式能力不直接继承。",
+      "src": "gemini-tts38"
     },
     {
       "m": "lyria",
@@ -13041,9 +13169,10 @@
       "m": "vidu-q",
       "c": "v2v",
       "state": "unknown",
-      "verified_for": "Q3",
-      "as_of": "2026-08-13",
-      "note": "官方文档里没有「拿一段视频进去、改完再出来」这一路的端点或参数。⚠️ **别和图生视频（i2v）混**：那是给一张静态图；也别和「视频延长」混：那是接着往后长，不是改已有的内容。—— 读完没找到，不是没读。"
+      "verified_for": "Q4 Preview",
+      "as_of": "2026-10-19",
+      "note": "当前 Q4 两个端点未给出该项型号适用证据。自动切镜不等于可控运镜，单张首帧不等于首尾帧，Q3/平台独立任务不自动继承；旧记录已保留在审阅档案。",
+      "src": "vidu-q4-i2v"
     },
     {
       "m": "veo",
@@ -13160,9 +13289,10 @@
       "c": "d-scene",
       "state": "unknown",
       "verified_for": "3.1",
-      "note": "⚠️ 场景级在 `HunyuanWorld-1.0`（「immersive 3D world generation」）那一支，**按规则十二它是世界模型不是资产生成**，不收。混元 3D 主线的 API 只出单体资产",
-      "as_of": "2026-08-14",
-      "src": "hf-lineage"
+      "note": "2026-10-19 当前来源为目录元数据，不能支持原能力断言；撤回结论，待取得具体模型原文。",
+      "as_of": "2026-10-19",
+      "src": "hf-lineage",
+      "quote": ""
     },
     {
       "m": "hunyuan3d",
@@ -19292,7 +19422,7 @@
       "date": "2025-08-26",
       "added": "参考生视频",
       "src": "vidu-changelog",
-      "quote": "Supports selection of viduq1, vidu2.0, vidu1.5 models",
+      "quote": "You can select the `viduq1`, `vidu2.0`, `vidu1.5` models",
       "cap": "charref"
     },
     {
@@ -19302,7 +19432,7 @@
       "date": "2025-09-24",
       "added": "换代 Q2：pro 与 turbo 两档",
       "src": "vidu-changelog",
-      "quote": "Added viduq2-pro and viduq2-turbo models",
+      "quote": "Added viduq2-pro, viduq2-turbo models",
       "parent": "vidu-q-Q1-参考生视频",
       "cap_skip": "换代记录，没有声明新增了能力轴上的项"
     },
@@ -19312,7 +19442,7 @@
       "date": "2025-11-13",
       "added": "音视频直出",
       "src": "vidu-changelog",
-      "quote": "Audio&Video Direct Output Capability - Audio&video direct output is now available",
+      "quote": "Vidu Reference-to-Video and Image-to-Video now support direct audio-video output",
       "cap": "audio",
       "id": "viduq2",
       "parent": "vidu-q-Q2-换代Q2：pro与turbo两档"
@@ -19324,7 +19454,7 @@
       "date": "2026-01-27",
       "added": "换代 Q3：文生 + 图生",
       "src": "vidu-changelog",
-      "quote": "Support the addition of viduq3-pro models for both Wensheng and Tusheng",
+      "quote": "Added viduq3-pro model",
       "parent": "vidu-q-Q2-换代Q2：pro与turbo两档",
       "cap_skip": "换代记录，没有声明新增了能力轴上的项"
     },
@@ -19335,7 +19465,7 @@
       "date": "2026-02-11",
       "added": "首尾帧",
       "src": "vidu-changelog",
-      "quote": "Support the addition of viduq3-turbo model for both text2video and image2video and start-end2video",
+      "quote": "Added viduq3-pro, viduq3-turbo models to Start-End Frame",
       "parent": "vidu-q-Q3-换代Q3：文生+图生",
       "cap": "flf"
     },
@@ -19346,7 +19476,7 @@
       "date": "2026-04-13",
       "added": "参考生视频（Q3 版）",
       "src": "vidu-changelog",
-      "quote": "Support the addition of viduq3-mix、viduq3-turbo、viduq3 model for reference2video",
+      "quote": "Added viduq3-mix, viduq3-turbo, viduq3 models to Reference-to-Video",
       "parent": "vidu-q-Q3-换代Q3：文生+图生",
       "cap": "charref"
     },
@@ -19713,10 +19843,10 @@
       "added": "待核历史记录：长段文字 + 文字位置和大小可指定",
       "src": "recraft-blog",
       "quote": "Recraft V3 is the only model in the world that can generate images with long texts, as opposed to just one or a couple of words. The new model allows specifying the exact positions and sizes of text on a design.",
-      "note": "⚠️ 2026-10-10：历史引文未核实，原描述与日期保留作历史线索，不作为当前能力证据。日期取「公开可查到它的第一天」（官方公告日），不是内部完成日 —— 演化树只用来看先后，月内误差在图上看不出来。负责人 2026-08-11 定的口径。",
+      "note": "2026-10-19：当前来源未找回原始历史引文，保留记录作为历史线索，不作为当前能力证据。 ⚠️ 2026-10-10：历史引文未核实，原描述与日期保留作历史线索，不作为当前能力证据。日期取「公开可查到它的第一天」（官方公告日），不是内部完成日 —— 演化树只用来看先后，月内误差在图上看不出来。负责人 2026-08-11 定的口径。",
       "cap": "i-textrender",
       "evidence_status": "unverified",
-      "evidence_reviewed_at": "2026-10-10"
+      "evidence_reviewed_at": "2026-10-19"
     },
     {
       "id": "kolors-Kolors-中英双语出图的开放权重底座",
@@ -19928,8 +20058,8 @@
       "parent": "recraft-Recraft V3-长段文字 + 文字位置和大小可指定",
       "cap_skip": "效果或速度的改善，能力轴上没有对应项（轴记的是「能不能做」，不是「做得多好」）",
       "evidence_status": "unverified",
-      "evidence_reviewed_at": "2026-10-10",
-      "note": "⚠️ 2026-10-10：历史引文未核实，原描述与日期保留作历史线索，不作为当前能力证据。"
+      "evidence_reviewed_at": "2026-10-19",
+      "note": "2026-10-19：当前来源未找回原始历史引文，保留记录作为历史线索，不作为当前能力证据。 ⚠️ 2026-10-10：历史引文未核实，原描述与日期保留作历史线索，不作为当前能力证据。"
     },
     {
       "id": "recraft-Recraft V4.1-写实更自然、短提示词也能懂",
@@ -19942,8 +20072,8 @@
       "parent": "recraft-Recraft V4-按设计审美重训的一代",
       "cap_skip": "效果或速度的改善，能力轴上没有对应项（轴记的是「能不能做」，不是「做得多好」）",
       "evidence_status": "unverified",
-      "evidence_reviewed_at": "2026-10-10",
-      "note": "⚠️ 2026-10-10：历史引文未核实，原描述与日期保留作历史线索，不作为当前能力证据。"
+      "evidence_reviewed_at": "2026-10-19",
+      "note": "2026-10-19：当前来源未找回原始历史引文，保留记录作为历史线索，不作为当前能力证据。 ⚠️ 2026-10-10：历史引文未核实，原描述与日期保留作历史线索，不作为当前能力证据。"
     },
     {
       "id": "midjourney-V8 Alpha-出图快约 5 倍 + 原生 2K（--hd）",
@@ -20404,8 +20534,8 @@
       ],
       "cap_skip": "换代或小版本记录，没有声明新增能力",
       "evidence_status": "unverified",
-      "evidence_reviewed_at": "2026-10-10",
-      "note": "⚠️ 2026-10-10：历史引文未核实，原描述与日期保留作历史线索，不作为当前能力证据。"
+      "evidence_reviewed_at": "2026-10-19",
+      "note": "2026-10-19：当前来源未找回原始历史引文，保留记录作为历史线索，不作为当前能力证据。 ⚠️ 2026-10-10：历史引文未核实，原描述与日期保留作历史线索，不作为当前能力证据。"
     },
     {
       "id": "deepseek-V4-Flash-0731-Flash 档的日期戳更新",
@@ -20792,12 +20922,14 @@
       "m": "claude",
       "version": "Claude 4.7",
       "date": "2026-04-16",
-      "added": "起用新分词器；temperature/top_p/top_k 被弃用",
+      "added": "待核历史记录：起用新分词器；temperature/top_p/top_k 被弃用",
       "src": "claude-deprecations",
       "quote": "弃用表：`claude-opus-4-7` 退役不早于 2027-04-16（推算）；参数弃用表写明「Deprecated (Claude Opus 4.7 and later)」",
-      "note": "Anthropic 的弃用表**只登记日期，不写这一代新增了什么** —— 这一条本身就是可记的事实。4.6 之后 ID 不再带日期，日期由「退役不早于」减一年推得（**这是推算不是原文**）：Fable 5 官方写明 GA 2026-06-09、退役不早于 2027-06-09，Sonnet 4.5 的 ID 是 20250929、退役 2026-09-29，两个锚点都正好一年；误差最大的 Opus 4.5 也只差 23 天，月份级可用",
+      "note": "2026-10-19：当前来源未找回原始历史引文，保留记录作为历史线索，不作为当前能力证据。 Anthropic 的弃用表**只登记日期，不写这一代新增了什么** —— 这一条本身就是可记的事实。4.6 之后 ID 不再带日期，日期由「退役不早于」减一年推得（**这是推算不是原文**）：Fable 5 官方写明 GA 2026-06-09、退役不早于 2027-06-09，Sonnet 4.5 的 ID 是 20250929、退役 2026-09-29，两个锚点都正好一年；误差最大的 Opus 4.5 也只差 23 天，月份级可用",
       "parent": "claude-Claude 4.6-ID 改为无日期的定",
-      "cap_skip": "架构或规模变化，能力轴上没有对应项"
+      "cap_skip": "架构或规模变化，能力轴上没有对应项",
+      "evidence_status": "unverified",
+      "evidence_reviewed_at": "2026-10-19"
     },
     {
       "id": "claude-Claude 4.8-effort 参数在",
@@ -24131,6 +24263,78 @@
       "note": "⚠️ **日期是我们核到它的那天，不是发布日** —— 同 v2 那条的老毛病：官方模型页把各代并列但**不标发布日**，changelog 也拿不到。宁可标明口径，也不编一个发布日。",
       "parent": "eleven-music-v2",
       "cap_skip": "提质记录：官方原文写的是「same workflows and support」，没有声明能力轴上的新增项"
+    },
+    {
+      "id": "gemini-text-Gemini-4-Argon-20261019",
+      "m": "gemini-text",
+      "version": "Gemini 4 Argon",
+      "date": "2026-10-13",
+      "added": "旗舰推理模型转为 Gemini 4 Argon；3.8 Flash 仍是独立档位。长输出可达 1M token，显式缓存不支持，Computer Use 仍为 Preview。",
+      "src": "gemini-changelog",
+      "quote": "Gemini 4 Argon (gemini-4-argon) generally available (GA)",
+      "parent": "gemini-text-Gemini 3.8-最强 Flash：长程",
+      "cap_skip": "版本更新记录；能力按当前模型文档逐格核验，不宣称所有能力首次出现。",
+      "note": "2026-10-19 核实收录；发布日期取官方公告。"
+    },
+    {
+      "id": "grok-voice-3.0-20261019",
+      "m": "grok-voice",
+      "version": "3.0",
+      "date": "2026-10-14",
+      "added": "grok-voice-latest 已指向 3.0，2.0 已弃用；官方说明价格和 API 调用方式不变。",
+      "src": "xai-release-notes",
+      "quote": "grok-voice-3.0 is now available with Speech to Speech, at the same price as Grok Voice 2.0.",
+      "parent": "grok-voice-think-fast-2.0-换代",
+      "cap_skip": "版本更新记录；能力按当前模型文档逐格核验，不宣称所有能力首次出现。",
+      "note": "2026-10-19 核实收录；发布日期取官方公告。"
+    },
+    {
+      "id": "vidu-q-Q4-Preview-20261019",
+      "m": "vidu-q",
+      "version": "Q4 Preview",
+      "date": "2026-10-07",
+      "added": "Q4 为预览版。当前确认图生视频与参考生视频，支持音画同出、最高 4K 和 15 张参考图；端点时长为 3–16 秒（概览页另写 1–16 秒，以实际端点为准）。Q3 的其他能力不自动继承。",
+      "src": "vidu-changelog",
+      "quote": "[New Models]-Vidu Q4 preview",
+      "parent": "vidu-q-Q3-参考生视频（Q3版）",
+      "cap_skip": "版本更新记录；能力按当前模型文档逐格核验，不宣称所有能力首次出现。",
+      "note": "2026-10-19 核实收录；发布日期取官方公告。"
+    },
+    {
+      "id": "gemini-tts-3.8-Flash-TTS-20261019",
+      "m": "gemini-tts",
+      "version": "3.8 Flash TTS",
+      "date": "2026-09-22",
+      "added": "旗舰创意语音档为 3.8 Flash TTS，130 种语言；Flash-Lite 是独立的低延迟档位。支持预设音色、音色设计与需授权的声音复刻，默认单次输出改为 WAV。",
+      "src": "gemini-changelog",
+      "quote": "Gemini 3.8 Flash TTS and Gemini 3.8 Flash-Lite TTS generally available (GA)",
+      "parent": "gemini-tts-3.1 Flash TTS Preview-加流式语音生成 ——",
+      "cap_skip": "版本更新记录；能力按当前模型文档逐格核验，不宣称所有能力首次出现。",
+      "note": "2026-10-19 核实收录；发布日期取官方公告。"
+    },
+    {
+      "id": "deepseek-V4.1-Flash-1017-20261019",
+      "m": "deepseek",
+      "version": "V4.1 Flash-1017",
+      "date": "2026-10-17",
+      "added": "deepseek-flash 已指向 1017 更新，价格和调用方法不变；Pro 仍是 V4-Pro-0813。Search / Fetch 是独立 API，不据此宣称模型内置搜索。旧 V4.1 权重不能证明 1017 检查点已发布。",
+      "src": "deepseek-updates",
+      "quote": "DeepSeek V4.1 Flash has been upgraded to DeepSeek-V4.1-Flash-1017.",
+      "parent": "deepseek-V4.1-换代V4.1：新架构家族的最小一档",
+      "cap_skip": "版本更新记录；能力按当前模型文档逐格核验，不宣称所有能力首次出现。",
+      "note": "2026-10-19 核实收录；发布日期取官方公告。"
+    },
+    {
+      "id": "minimax-text-M3.1-Flash-20261019",
+      "m": "minimax-text",
+      "version": "M3.1 Flash",
+      "date": "2026-10-19",
+      "added": "官方当前支持列表加入 M3.1-Flash：1M 上下文、图片/视频输入、强制自适应思考与工具调用。",
+      "src": "minimax-m31-guide",
+      "quote": "MiniMax-M3.1-Flash** 是最新 M 系列语言模型",
+      "parent": "minimax-text-M3-转原生多模态 + 1M 上下文（约 428B 参数、激活 23B）",
+      "cap_skip": "当前版本登记，不宣称能力首次出现。",
+      "note": "日期为本站核实日；当前支持文档未给明确发布日期。此前 10-10 记为限定渠道 Preview，本次重新核实供给范围。"
     }
   ],
   "$versions": "版本谱系（演进图的数据）。**演进的主体是模型，不是能力。**\n\n原来那张演进图每行是一项能力、横轴是「我们能证明的最早时间」、粗细是几家支持。\n读者看完只得到「动作复刻 2025-12 出现、6/9 支持」—— 那是一次数据库查询的可视化，不涨知识。\n而且它得靠图注免责（「不是业界首次出现」）：**一张需要图注免责的图，说明它量错了东西。**\n\n这份数据画的是**厂商自己发布的版本和日期**，所以不需要免责。每条必须回答：\n**这一代新增了什么。** 只有版本号没有 added 的节点没有价值，不收。\n\n两个最好的来源，都不是「新闻」：\n  · **官方 Hugging Face 组织** —— 模型名本身就编码了能力与代际\n    （Wan2.1-FLF2V＝首尾帧、Wan2.2-S2V＝语音驱动、LTX 的 IC-LoRA-Ingredients＝角色参考），\n    发布时间由 HF API 给出，比任何新闻稿都准。\n  · **官方 API 更新日志** —— 可灵那份 31k 字符里有 170 条带日期的条目。\n\n覆盖不全是事实：万相和可灵能画出完整谱系，Runway/Vidu/Seedance 只有近期几个点，\nVeo/Sora/海螺/LTX 还没有。**图上要标出哪几条线是完整的、哪几条只是片段** ——\n画一条只有两个点的线却不说明，读者会以为这家两年只更新过两次。\n\n`cap` 把版本节点挂到能力 id 上，图上「点一项能力，看各家谁先谁后」靠它。\n**对不上的一律留空并写明理由（cap_skip），不硬凑** —— 硬凑一个 id，纵向那一刀就切错了。\n典型：Wan 的 S2V 是「语音驱动」，不等于我们轴上的「对口型」，两件事不合并；\n「换代」节点本身也不是新增单项能力。\n\n`id` + `parent` 把平铺记录变成**真的树**。分叉是真实存在的：\nWan2.1 底座上同时长出 FLF2V（首尾帧）和 VACE（统一编辑）两个变体，\nWan2.2 是换代接在 2.1 后面，Animate-2 又接在 Animate 后面。\n\n**没有父节点的就让它当根，不许为了让树好看硬接一条边** ——\nRunway 的 Aleph 是编辑线，不是 Gen 的后代，它自己是一棵树。\n\n⚠️ **日期必须取 HF 的 `createdAt`，不能取 `lastModified`。**\n第一版取错了字段，把「最后修改」当成了发布日期：Wan2.2 记成 2025-08-07（实际 2025-07-18）、\nAnimate 记成 2025-11-05（实际 2025-09-11）——**差了两个月**。\n仓库发布后还会被反复更新，两个字段根本不是一回事。\n这类错最阴：日期看着合理、图也画得出来，但整条时间线是歪的。\n\n覆盖不足要**写在数据里**，不是靠图上一句话糊过去：\n模型的 `lineage_note` 解释为什么它的节点少（太新 / 官方记录只回溯到某时）。\n校验 R58 强制：**核心模型少于 3 个节点却没写理由，就是错**。\n「我们没采到」和「它本来就没有」是两回事，读者有权知道是哪一种。",
@@ -29843,7 +30047,7 @@
           "id": "comfyui",
           "zh": "ComfyUI",
           "url": "https://github.com/Comfy-Org/ComfyUI",
-          "stars": 136639,
+          "stars": 139076,
           "license": "GPL-3.0",
           "license_class": "copyleft",
           "decisions": [
@@ -29868,7 +30072,7 @@
           ],
           "unfit": "一次性产出需求 —— 回报来自工作流复用。",
           "src": "github README + DeepWiki 架构页",
-          "verified_at": "2026-10-10",
+          "verified_at": "2026-10-19",
           "role": "base",
           "diagrams": [
             {
@@ -29969,8 +30173,8 @@
             "issue_src": "github issues 按回复数排序 · 核验 2026-08-16"
           },
           "created_at": "2023-01-17",
-          "pushed_at": "2026-10-10",
-          "stars_per_month": 3054,
+          "pushed_at": "2026-10-19",
+          "stars_per_month": 3088,
           "stale_months": 0,
           "group": "parts",
           "tutorials": [
@@ -30003,7 +30207,7 @@
           "id": "wan22",
           "zh": "Wan2.2",
           "url": "https://github.com/Wan-Video/Wan2.2",
-          "stars": 17827,
+          "stars": 18010,
           "license": "Apache-2.0",
           "license_class": "permissive",
           "decisions": [
@@ -30027,7 +30231,7 @@
           ],
           "unfit": "交付期紧的商单 —— 价值在沉淀方法，不在单次产出效率。",
           "src": "github README + DeepWiki 架构页",
-          "verified_at": "2026-10-10",
+          "verified_at": "2026-10-19",
           "role": "tool",
           "diagrams": [
             {
@@ -30117,7 +30321,7 @@
           },
           "created_at": "2025-07-28",
           "pushed_at": "2026-09-21",
-          "stars_per_month": 1236,
+          "stars_per_month": 1224,
           "stale_months": 1,
           "group": "parts",
           "tutorials": [
@@ -30150,10 +30354,10 @@
           "id": "hunyuanvideo",
           "zh": "HunyuanVideo",
           "url": "https://github.com/Tencent-Hunyuan/HunyuanVideo",
-          "stars": 12609,
+          "stars": 12634,
           "created_at": "2024-11-28",
           "pushed_at": "2026-10-08",
-          "stars_per_month": 564,
+          "stars_per_month": 557,
           "stale_months": 0,
           "license": "Tencent Hunyuan Community License",
           "license_class": "restricted",
@@ -30181,7 +30385,7 @@
           ],
           "unfit": "只有一张消费级显卡的人 —— 官方门槛 45GB 起，社区的 GPU-Poor 分支是另一个项目、另一套代码。",
           "src": "github README + GitHub API + LICENSE.txt 原文 + DeepWiki 架构页",
-          "verified_at": "2026-10-10",
+          "verified_at": "2026-10-19",
           "autonomy": {
             "weights": "local",
             "seed": "yes",
@@ -30291,10 +30495,10 @@
           "id": "framepack",
           "zh": "FramePack",
           "url": "https://github.com/lllyasviel/FramePack",
-          "stars": 17279,
+          "stars": 17300,
           "created_at": "2025-04-12",
           "pushed_at": "2025-10-16",
-          "stars_per_month": 963,
+          "stars_per_month": 949,
           "stale_months": 12,
           "license": "Apache-2.0",
           "license_class": "permissive",
@@ -30322,7 +30526,7 @@
           ],
           "unfit": "要接最新底座的人 —— 它停在 HunyuanVideo 那一代，而这一年底座换了好几轮。",
           "src": "github README + GitHub API + DeepWiki 架构页",
-          "verified_at": "2026-10-10",
+          "verified_at": "2026-10-19",
           "autonomy": {
             "weights": "local",
             "seed": "yes",
@@ -30409,10 +30613,10 @@
           "id": "ltx-video",
           "zh": "LTX-Video",
           "url": "https://github.com/Lightricks/LTX-Video",
-          "stars": 11057,
+          "stars": 11132,
           "created_at": "2024-11-20",
           "pushed_at": "2026-01-05",
-          "stars_per_month": 488,
+          "stars_per_month": 485,
           "stale_months": 9,
           "license": "Apache-2.0",
           "license_class": "permissive",
@@ -30441,7 +30645,7 @@
           ],
           "unfit": "要最高画质的活 —— 它的取舍从头到尾都是拿质量换速度。",
           "src": "github README + GitHub API + LICENSE 原文 + DeepWiki 架构页",
-          "verified_at": "2026-10-10",
+          "verified_at": "2026-10-19",
           "autonomy": {
             "weights": "local",
             "seed": "yes",
@@ -30543,7 +30747,7 @@
           "id": "minimax-h3",
           "zh": "MiniMax H3",
           "url": "https://github.com/MiniMax-AI/MiniMax-H3",
-          "stars": 9730,
+          "stars": 10144,
           "license": "MiniMax H3 Community License",
           "license_class": "restricted",
           "decisions": [
@@ -30573,7 +30777,7 @@
           ],
           "unfit": "面向欧美市场交付的商单 —— 许可证把那几个地区排除在授权范围之外，不是加个免责声明能绕过去的。",
           "src": "github README + GitHub API + HuggingFace LICENSE 原文 + DeepWiki 架构页",
-          "verified_at": "2026-10-10",
+          "verified_at": "2026-10-19",
           "autonomy": {
             "weights": "local",
             "seed": "yes",
@@ -30644,7 +30848,7 @@
           },
           "created_at": "2026-07-30",
           "pushed_at": "2026-08-15",
-          "stars_per_month": 4114,
+          "stars_per_month": 3812,
           "stale_months": 2,
           "diagrams": [
             {
@@ -30695,7 +30899,7 @@
           "id": "controlnet",
           "zh": "ControlNet",
           "url": "https://github.com/lllyasviel/ControlNet",
-          "stars": 34131,
+          "stars": 34122,
           "license": "Apache-2.0",
           "license_class": "permissive",
           "decisions": [
@@ -30716,7 +30920,7 @@
           ],
           "unfit": "不需要精确构图的场景 —— 多一道预处理不划算。",
           "src": "github README + docs/low_vram.md + DeepWiki 架构页",
-          "verified_at": "2026-10-10",
+          "verified_at": "2026-10-19",
           "role": "tool",
           "diagrams": [
             {
@@ -30806,8 +31010,8 @@
           },
           "created_at": "2023-02-01",
           "pushed_at": "2024-02-25",
-          "stars_per_month": 771,
-          "stale_months": 31,
+          "stars_per_month": 766,
+          "stale_months": 32,
           "group": "parts",
           "tutorials": [
             {
@@ -30847,7 +31051,7 @@
           "id": "ip-adapter",
           "zh": "IP-Adapter",
           "url": "https://github.com/tencent-ailab/IP-Adapter",
-          "stars": 6698,
+          "stars": 6704,
           "license": "Apache-2.0",
           "license_class": "permissive",
           "decisions": [
@@ -30869,7 +31073,7 @@
           ],
           "unfit": "需要精确控制多个不同人物时。",
           "src": "github README + DeepWiki 架构页",
-          "verified_at": "2026-10-10",
+          "verified_at": "2026-10-19",
           "role": "tool",
           "diagrams": [
             {
@@ -30955,8 +31159,8 @@
           },
           "created_at": "2023-08-16",
           "pushed_at": "2024-06-28",
-          "stars_per_month": 177,
-          "stale_months": 27,
+          "stars_per_month": 176,
+          "stale_months": 28,
           "group": "parts",
           "sub": "control",
           "tags": [
@@ -30969,7 +31173,7 @@
           "id": "instantid",
           "zh": "InstantID",
           "url": "https://github.com/instantX-research/InstantID",
-          "stars": 11995,
+          "stars": 11993,
           "license": "代码 Apache-2.0",
           "license_class": "noncommercial",
           "decisions": [
@@ -30990,7 +31194,7 @@
           ],
           "unfit": "任何商用交付 —— 许可证不允许。",
           "src": "github README + DeepWiki 架构页",
-          "verified_at": "2026-10-10",
+          "verified_at": "2026-10-19",
           "role": "tool",
           "diagrams": [
             {
@@ -31076,7 +31280,7 @@
           },
           "created_at": "2023-12-11",
           "pushed_at": "2024-07-18",
-          "stars_per_month": 353,
+          "stars_per_month": 350,
           "stale_months": 27,
           "group": "parts",
           "license_note": "权重仅研究用途",
@@ -31091,7 +31295,7 @@
           "id": "ace-step",
           "zh": "ACE-Step",
           "url": "https://github.com/ace-step/ACE-Step",
-          "stars": 4903,
+          "stars": 4957,
           "license": "Apache-2.0",
           "license_class": "permissive",
           "decisions": [
@@ -31112,7 +31316,7 @@
           ],
           "unfit": "需要特定曲风精确复刻时。",
           "src": "github README + DeepWiki 架构页",
-          "verified_at": "2026-10-10",
+          "verified_at": "2026-10-19",
           "role": "tool",
           "diagrams": [
             {
@@ -31206,7 +31410,7 @@
           },
           "created_at": "2025-04-28",
           "pushed_at": "2026-02-15",
-          "stars_per_month": 282,
+          "stars_per_month": 280,
           "stale_months": 8,
           "group": "parts",
           "tutorials": [
@@ -31230,7 +31434,7 @@
           "id": "pyvideotrans",
           "zh": "pyvideotrans",
           "url": "https://github.com/jianchang512/pyvideotrans",
-          "stars": 19279,
+          "stars": 19450,
           "license": "GPL-3.0",
           "license_class": "copyleft",
           "decisions": [
@@ -31251,7 +31455,7 @@
           ],
           "unfit": "只需要单段能力（只要转写、或只要配音）时 —— 装整条太重。",
           "src": "github README + DeepWiki 架构页",
-          "verified_at": "2026-10-10",
+          "verified_at": "2026-10-19",
           "role": "tool",
           "diagrams": [
             {
@@ -31340,7 +31544,7 @@
             "issue_src": "github issues 按回复数排序 · 核验 2026-08-16"
           },
           "created_at": "2023-10-02",
-          "pushed_at": "2026-10-07",
+          "pushed_at": "2026-10-15",
           "stars_per_month": 532,
           "stale_months": 0,
           "group": "parts",
@@ -31365,7 +31569,7 @@
           "id": "real-esrgan",
           "zh": "Real-ESRGAN",
           "url": "https://github.com/xinntao/Real-ESRGAN",
-          "stars": 37043,
+          "stars": 37145,
           "license": "BSD-3-Clause",
           "license_class": "permissive",
           "decisions": [
@@ -31386,7 +31590,7 @@
           ],
           "unfit": "源素材本身糊得厉害时 —— 超分补不出不存在的信息。",
           "src": "github README + DeepWiki 架构页",
-          "verified_at": "2026-10-10",
+          "verified_at": "2026-10-19",
           "role": "tool",
           "diagrams": [
             {
@@ -31472,7 +31676,7 @@
           },
           "created_at": "2021-07-19",
           "pushed_at": "2024-08-06",
-          "stars_per_month": 591,
+          "stars_per_month": 590,
           "stale_months": 26,
           "group": "parts",
           "tutorials": [
@@ -31512,11 +31716,11 @@
           "id": "practical-rife",
           "zh": "Practical-RIFE",
           "url": "https://github.com/hzwer/Practical-RIFE",
-          "stars": 1027,
+          "stars": 1028,
           "created_at": "2021-06-16",
           "pushed_at": "2026-08-27",
           "stars_per_month": 16,
-          "stale_months": 1,
+          "stale_months": 2,
           "license": "MIT",
           "license_class": "permissive",
           "role": "tool",
@@ -31542,7 +31746,7 @@
           ],
           "unfit": "指望它补出原片没有的内容 —— 它是把两帧之间填满，不是生成新画面。",
           "src": "github README + GitHub API + LICENSE 原文 + DeepWiki 架构页",
-          "verified_at": "2026-10-10",
+          "verified_at": "2026-10-19",
           "autonomy": {
             "weights": "local",
             "seed": "na",
@@ -31633,10 +31837,10 @@
           "id": "codeformer",
           "zh": "CodeFormer",
           "url": "https://github.com/sczhou/CodeFormer",
-          "stars": 18171,
+          "stars": 18185,
           "created_at": "2022-06-21",
           "pushed_at": "2025-11-18",
-          "stars_per_month": 352,
+          "stars_per_month": 350,
           "stale_months": 11,
           "license": "S-Lab License 1.0",
           "license_class": "noncommercial",
@@ -31663,7 +31867,7 @@
           ],
           "unfit": "任何要收钱的活 —— 许可证只给非商业用途，没有商用授权入口。",
           "src": "github README + GitHub API + LICENSE 原文 + DeepWiki 架构页",
-          "verified_at": "2026-10-10",
+          "verified_at": "2026-10-19",
           "autonomy": {
             "weights": "local",
             "seed": "na",
@@ -31830,7 +32034,7 @@
             ]
           },
           "src": "github README",
-          "verified_at": "2026-10-10",
+          "verified_at": "2026-10-19",
           "created_at": "2023-12-06",
           "pushed_at": "2025-02-19",
           "stars_per_month": 44,
@@ -31876,7 +32080,7 @@
           "id": "latentsync",
           "zh": "LatentSync",
           "url": "https://github.com/bytedance/LatentSync",
-          "stars": 6124,
+          "stars": 6167,
           "license": "Apache-2.0",
           "license_class": "permissive",
           "role": "tool",
@@ -31950,10 +32154,10 @@
             ]
           },
           "src": "github README",
-          "verified_at": "2026-10-10",
+          "verified_at": "2026-10-19",
           "created_at": "2024-12-11",
           "pushed_at": "2025-06-20",
-          "stars_per_month": 279,
+          "stars_per_month": 277,
           "stale_months": 16,
           "diagrams": [
             {
@@ -31984,11 +32188,11 @@
           "id": "index-tts",
           "zh": "IndexTTS2",
           "url": "https://github.com/index-tts/index-tts",
-          "stars": 24381,
+          "stars": 24580,
           "created_at": "2025-02-06",
           "pushed_at": "2026-09-29",
-          "stars_per_month": 1215,
-          "stale_months": 0,
+          "stars_per_month": 1207,
+          "stale_months": 1,
           "license": "bilibili Model Use License",
           "license_class": "restricted",
           "role": "tool",
@@ -32014,7 +32218,7 @@
           ],
           "unfit": "要做多语种配音的活 —— 目前只有中英两种。",
           "src": "github README + GitHub API + LICENSE 原文 + DeepWiki 架构页",
-          "verified_at": "2026-10-10",
+          "verified_at": "2026-10-19",
           "autonomy": {
             "weights": "local",
             "seed": "partial",
@@ -32110,7 +32314,7 @@
           "id": "sd-scripts",
           "zh": "kohya sd-scripts",
           "url": "https://github.com/kohya-ss/sd-scripts",
-          "stars": 7243,
+          "stars": 7242,
           "license": "Apache-2.0",
           "license_class": "permissive",
           "role": "tool",
@@ -32118,7 +32322,7 @@
             "identity",
             "compose"
           ],
-          "scope": "训练脚本集：LoRA、DreamBooth、原生微调、文本反演、ControlNet-LLLite。覆盖 SD1.x/2.x、SDXL、SD3/3.5、FLUX.1 等。",
+          "scope": "训练脚本集：覆盖 SD1.x/2.x、SDXL、SD3/3.5、FLUX.1；2026-10-18 的 v0.12.1 新增 MOSS-Image LoRA 支持。",
           "control": "**参考图锁不住的，训练能锁住。** 角色参考只给一张图当锚，LoRA 是把这个角色写进权重 —— 这是自持能力最深的一档。",
           "hw": "仓库未给 LoRA 训练的最低显存",
           "autonomy": {
@@ -32129,12 +32333,12 @@
           },
           "good": [
             "**训出来的 LoRA 是一个属于你的权重文件** —— 本专项唯一能产出「自有资产」的项目",
-            "**一直在维护**（最后提交 2026-08-02）—— 星速只有 164/月，但这一格看的是活不活，不是涨得快不快",
+            "2026-10-18 发布 v0.12.1，新增模型训练支持并修正学习率调度参数。",
             "一套脚本覆盖 SD1.5 到 FLUX，换底模不换工具链"
           ],
           "bad": [
             "**仓库不给最低显存** —— 能不能训得看你自己试",
-            "0.11.0 做过一次大规模内部重构，**老教程的命令未必还能用**",
+            "v0.12.1 调整自定义学习率调度器收到的训练与预热步数，升级后应核对自己的训练配置。",
             "训练这条路的坑普遍比推理多（本专项六个项目的训练侧 issue 都久悬）"
           ],
           "unfit": "只做几条片子的人 —— 训一个 LoRA 的时间够生成几十条视频了。",
@@ -32170,8 +32374,8 @@
             ],
             "pitfalls": [
               {
-                "where": "0.11.0 的重构",
-                "note": "README 记录 0.11.0 内部重构，并称尽量减少直接影响；不能据此断言用户必受影响。当前迁移还需注意旧 gen_img_diffusers.py 已移除，改用 gen_img.py。"
+                "where": "v0.12.1 调度器参数",
+                "note": "当前 README 说明自定义学习率调度器现在收到实际 num_training_steps 与 num_warmup_steps；旧配置的行为应重新核对。"
               },
               {
                 "where": "最低显存",
@@ -32184,11 +32388,11 @@
             ]
           },
           "src": "github README",
-          "verified_at": "2026-10-10",
+          "verified_at": "2026-10-19",
           "created_at": "2022-12-18",
-          "pushed_at": "2026-09-24",
-          "stars_per_month": 158,
-          "stale_months": 1,
+          "pushed_at": "2026-10-18",
+          "stars_per_month": 157,
+          "stale_months": 0,
           "diagrams": [
             {
               "id": "sdscripts-arch",
@@ -32219,9 +32423,9 @@
           "id": "musubi-tuner",
           "zh": "musubi-tuner",
           "url": "https://github.com/kohya-ss/musubi-tuner",
-          "stars": 2090,
+          "stars": 2105,
           "created_at": "2024-12-31",
-          "pushed_at": "2026-09-30",
+          "pushed_at": "2026-10-12",
           "stars_per_month": 98,
           "stale_months": 0,
           "license": "无 LICENSE 文件",
@@ -32250,7 +32454,7 @@
           ],
           "unfit": "只训图片 LoRA 的人 —— 那是 sd-scripts 的活，用这个是绕远路。",
           "src": "github README + GitHub API + DeepWiki 架构页",
-          "verified_at": "2026-10-10",
+          "verified_at": "2026-10-19",
           "autonomy": {
             "weights": "local",
             "seed": "yes",
@@ -32360,7 +32564,7 @@
           "id": "ollama",
           "zh": "Ollama",
           "url": "https://github.com/ollama/ollama",
-          "stars": 182545,
+          "stars": 183797,
           "license": "MIT",
           "license_class": "permissive",
           "role": "base",
@@ -32432,10 +32636,10 @@
             ]
           },
           "src": "github README + ollama.com 官网",
-          "verified_at": "2026-10-10",
+          "verified_at": "2026-10-19",
           "created_at": "2023-06-26",
-          "pushed_at": "2026-10-09",
-          "stars_per_month": 4623,
+          "pushed_at": "2026-10-18",
+          "stars_per_month": 4620,
           "stale_months": 0,
           "diagrams": [
             {
@@ -32477,10 +32681,10 @@
           "id": "diffsynth",
           "zh": "DiffSynth-Studio",
           "url": "https://github.com/modelscope/DiffSynth-Studio",
-          "stars": 13214,
+          "stars": 13267,
           "created_at": "2023-12-07",
-          "pushed_at": "2026-10-09",
-          "stars_per_month": 388,
+          "pushed_at": "2026-10-19",
+          "stars_per_month": 386,
           "stale_months": 0,
           "license": "Apache-2.0",
           "license_class": "permissive",
@@ -32492,7 +32696,7 @@
             "sound",
             "repro"
           ],
-          "scope": "魔搭的扩散模型工程框架：一套 API 跑 Wan、FLUX、Qwen-Image、ACE-Step 等多条线，推理与训练都管。",
+          "scope": "魔搭扩散模型工程框架，覆盖图像、视频、音乐推理与训练；近期加入 FLUX.3、MOSS-Image 与 OPD 蒸馏加速训练。",
           "control": "**它和 ComfyUI 不是一类底座**：ComfyUI 是连线的，它是写代码的 —— `pipe(prompt=..., seed=42)` 三行起步。真正的卖点是显存管理做到了层级、能把模型换到磁盘上，所以 6GB 也能跑本来要 24GB 的活。",
           "hw": "按所跑模型定；**官方举例：HunyuanVideo 129×720×1280 在 24GB 上跑，129×512×384 压到 6GB**",
           "arch": "`Pipeline.from_pretrained()` 按 ModelConfig 拉模型进 ModelPool，推理时按需 `load_models_to_device()` 逐段搬运，用完即卸。各家模型（WanModel、FluxDiT、QwenImageDiT、AceStepDiT…）实现在 `diffsynth/models/`，管线在 `diffsynth/pipelines/`，训练在 `diffsynth/training/`。同时支持 CUDA 与昇腾 NPU。",
@@ -32510,7 +32714,7 @@
           ],
           "unfit": "完全不写代码的人 —— 它的入口就是 Python API，没有图形界面这一层。",
           "src": "github README + GitHub API + LICENSE 原文 + DeepWiki 架构页",
-          "verified_at": "2026-10-10",
+          "verified_at": "2026-10-19",
           "autonomy": {
             "weights": "local",
             "seed": "yes",
@@ -32619,7 +32823,7 @@
           "id": "moneyprinter",
           "zh": "MoneyPrinterTurbo",
           "url": "https://github.com/harry0703/MoneyPrinterTurbo",
-          "stars": 129342,
+          "stars": 132981,
           "license": "MIT",
           "license_class": "permissive",
           "decisions": [
@@ -32667,8 +32871,8 @@
             ],
             "install": [
               {
-                "step": "克隆 + 装依赖",
-                "gate": "Python 环境，无需显卡"
+                "step": "安装官方 mpt 包或部署源码",
+                "gate": "官方 PyPI 包名 mpt，Python 3.11+；mpt webui 启动。名为 MoneyPrinterTurbo 的 PyPI 包由第三方维护。"
               },
               {
                 "step": "配大模型 API",
@@ -32705,11 +32909,11 @@
             ]
           },
           "role": "allinone",
-          "verified_at": "2026-10-10",
+          "verified_at": "2026-10-19",
           "src": "github README",
           "created_at": "2024-03-11",
-          "pushed_at": "2026-10-09",
-          "stars_per_month": 4175,
+          "pushed_at": "2026-10-19",
+          "stars_per_month": 4252,
           "stale_months": 0,
           "diagrams": [
             {
@@ -32740,7 +32944,7 @@
           "id": "narratoai",
           "zh": "NarratoAI",
           "url": "https://github.com/linyqh/NarratoAI",
-          "stars": 11341,
+          "stars": 11462,
           "license": "MIT",
           "license_class": "permissive",
           "decisions": [
@@ -32821,12 +33025,12 @@
             ]
           },
           "role": "allinone",
-          "verified_at": "2026-10-10",
+          "verified_at": "2026-10-19",
           "src": "github README",
           "created_at": "2024-08-12",
-          "pushed_at": "2026-09-17",
-          "stars_per_month": 438,
-          "stale_months": 1,
+          "pushed_at": "2026-10-19",
+          "stars_per_month": 437,
+          "stale_months": 0,
           "diagrams": [
             {
               "id": "narratoai-arch",
@@ -32874,7 +33078,7 @@
           "id": "huobao",
           "zh": "火宝短剧",
           "url": "https://github.com/chatfire-AI/huobao-drama",
-          "stars": 15919,
+          "stars": 16366,
           "license": "未放 LICENSE",
           "license_class": "noncommercial",
           "decisions": [
@@ -32948,11 +33152,11 @@
             ]
           },
           "role": "allinone",
-          "verified_at": "2026-10-10",
+          "verified_at": "2026-10-19",
           "src": "github README",
           "created_at": "2026-01-05",
           "pushed_at": "2026-10-05",
-          "stars_per_month": 1743,
+          "stars_per_month": 1736,
           "stale_months": 0,
           "diagrams": [
             {
@@ -32983,7 +33187,7 @@
           "id": "toonflow",
           "zh": "Toonflow",
           "url": "https://github.com/HBAI-Ltd/Toonflow-app",
-          "stars": 16985,
+          "stars": 18250,
           "license": "MIT",
           "license_class": "permissive",
           "decisions": [
@@ -33056,7 +33260,7 @@
             "pitfalls": [
               {
                 "where": "许可证",
-                "note": "**写着 Apache-2.0，但附了商用补充**：分发给 2 个以上独立第三方要授权。**只看徽章会判错** —— 和 InstantID 是同一类陷阱"
+                "note": "2026-10-10 核当前默认分支 LICENSE：MIT。旧版本的附加条款不自动适用于当前版本；历史分发应核对所用版本。"
               },
               {
                 "where": "成本",
@@ -33069,11 +33273,11 @@
             ]
           },
           "role": "allinone",
-          "verified_at": "2026-10-10",
+          "verified_at": "2026-10-19",
           "src": "github README",
           "created_at": "2026-01-29",
-          "pushed_at": "2026-10-09",
-          "stars_per_month": 2036,
+          "pushed_at": "2026-10-16",
+          "stars_per_month": 2112,
           "stale_months": 0,
           "diagrams": [
             {
@@ -33115,11 +33319,11 @@
           "id": "infinite-canvas",
           "zh": "infinite-canvas",
           "url": "https://github.com/basketikun/infinite-canvas",
-          "stars": 7431,
+          "stars": 7775,
           "created_at": "2026-05-18",
-          "pushed_at": "2026-09-23",
-          "stars_per_month": 1560,
-          "stale_months": 1,
+          "pushed_at": "2026-10-10",
+          "stars_per_month": 1537,
+          "stale_months": 0,
           "license": "MIT",
           "license_note": "README 明写「也可以用于闭源产品」",
           "license_class": "permissive",
@@ -33149,7 +33353,7 @@
           ],
           "unfit": "想一句话出成片的人 —— 它是让你自己摆的工作台，不是自动流水线。",
           "src": "github README + GitHub API + LICENSE + DeepWiki 架构页",
-          "verified_at": "2026-10-10",
+          "verified_at": "2026-10-19",
           "autonomy": {
             "weights": "api",
             "seed": "partial",
@@ -33235,10 +33439,10 @@
           "id": "open-ai-canvas",
           "zh": "open-ai-canvas",
           "url": "https://github.com/ddcat-ai/open-ai-canvas",
-          "stars": 1164,
+          "stars": 1338,
           "created_at": "2026-07-22",
-          "pushed_at": "2026-10-10",
-          "stars_per_month": 443,
+          "pushed_at": "2026-10-19",
+          "stars_per_month": 458,
           "stale_months": 0,
           "license": "MIT",
           "license_class": "permissive",
@@ -33253,7 +33457,7 @@
           "engine": "cloud",
           "scope": "面向 AI 影视创作的无限画布：多模态生成、分镜编排、素材管理、Agent 工作流。",
           "control": "**同是画布，它把重心放在影视这条线上** —— 分镜编排与素材管理是一等功能，后端是 Go（Gin）+ PostgreSQL + 异步 Worker，素材可落阿里云 OSS 或本地。后台还统一管上传上限与账号容量（默认单文件 50MB、日上传 200MB，可调到 999MB）。",
-          "hw": "不需要显卡；一条命令装服务端（脚本），或 Docker 起 Go 后端 + Nginx + PostgreSQL",
+          "hw": "服务端推荐 systemd Linux + Docker，包含 PostgreSQL、Redis 与独立 Agent；官方 Release 镜像部署带 Host Updater，源码部署自行维护升级。",
           "arch": "React 前端 + Go/Gin 后端分层（handler → service → repository/GORM），生成任务交给异步 Worker，模型请求经渠道中继转到各家上游。存储走阿里云 OSS 或本地卷，Nginx 请求体硬上限 1024MB。",
           "good": [
             "**画布 + 分镜编排**：影视这条线上做得比通用画布深",
@@ -33269,7 +33473,7 @@
           ],
           "unfit": "只想在本机跑一下的人 —— 它的完整形态是带数据库与对象存储的服务端。",
           "src": "github README + GitHub API + DeepWiki 架构页",
-          "verified_at": "2026-10-10",
+          "verified_at": "2026-10-19",
           "autonomy": {
             "weights": "api",
             "seed": "partial",
@@ -33284,8 +33488,8 @@
             ],
             "install": [
               {
-                "step": "装服务端",
-                "gate": "官方给了一条 `curl … | sudo bash` 的安装脚本；**这类装法先看一眼脚本内容**"
+                "step": "按已发布版本安装官方 Release 镜像",
+                "gate": "服务端推荐 systemd Linux，部署 PostgreSQL、Redis、独立 Agent、后端与网页；使用该版本 SHA256SUMS 和固定镜像 digest。源码部署不包含后台在线更新。"
               },
               {
                 "step": "配存储",
@@ -33355,14 +33559,14 @@
           "id": "vozeb-pro",
           "zh": "VOZEB PRO",
           "url": "https://github.com/csyqlz/VOZEB-PRO",
-          "stars": 967,
+          "stars": 977,
           "created_at": "2026-07-17",
-          "pushed_at": "2026-10-09",
-          "stars_per_month": 346,
+          "pushed_at": "2026-10-14",
+          "stars_per_month": 316,
           "stale_months": 0,
-          "license": "AGPL-3.0",
-          "license_note": "2026-10-10 核 LICENSE 为 AGPL-3.0；README 说明另提供企业自营闭源商业授权，具体边界以对应许可文本为准。",
-          "license_class": "copyleft",
+          "license": "BUSL-1.1",
+          "license_note": "2026-10-19 核当前 LICENSE：BUSL-1.1；额外许可覆盖个人学习、非商业研究、本地开发测试等，企业商业生产、SaaS 与商业私有化部署需另行商业授权。旧 AGPL 版本需按对应提交的许可核对。",
+          "license_class": "restricted",
           "role": "allinone",
           "group": "allinone",
           "decisions": [
@@ -33384,14 +33588,14 @@
             "README 自带 9 张流程图，作者把每条链路都画了 —— 这一点在开源项目里少见"
           ],
           "bad": [
-            "社区版采用 AGPL-3.0；想闭源部署时需核对作者提供的商业授权范围与费用。",
+            "源码可见但当前许可限制商业生产用途；不能把旧 AGPL 结论套用到最新版本。",
             "当前仍为 0.0.7；项目创建于 2026-07-17，功能稳定性需按自己的生产流程验证。",
             "摊子铺得很大（创作 + 电商 + 治理 + 财务），**维护面同样大**",
             "画面仍全走云端渠道，要自备 key"
           ],
           "unfit": "只想要一个生成工具的人 —— 它有一半是运营后台，那部分你多半用不上。",
           "src": "github README + GitHub API + LICENSE 原文（DeepWiki 未索引，图取自 README）",
-          "verified_at": "2026-10-10",
+          "verified_at": "2026-10-19",
           "autonomy": {
             "weights": "api",
             "seed": "partial",
@@ -33434,7 +33638,7 @@
             "pitfalls": [
               {
                 "where": "许可证",
-                "note": "2026-10-10 核 LICENSE 为 AGPL-3.0；README 说明另提供企业自营闭源商业授权，具体边界以对应许可文本为准。"
+                "note": "2026-10-19 核当前 LICENSE：BUSL-1.1；额外许可覆盖个人学习、非商业研究、本地开发测试等，企业商业生产、SaaS 与商业私有化部署需另行商业授权。旧 AGPL 版本需按对应提交的许可核对。"
               },
               {
                 "where": "版本还很早",
@@ -33476,10 +33680,10 @@
           "id": "openmontage",
           "zh": "OpenMontage",
           "url": "https://github.com/calesthio/OpenMontage",
-          "stars": 65864,
+          "stars": 69711,
           "created_at": "2026-03-29",
-          "pushed_at": "2026-10-03",
-          "stars_per_month": 10282,
+          "pushed_at": "2026-10-16",
+          "stars_per_month": 10402,
           "stale_months": 0,
           "license": "AGPL-3.0",
           "license_class": "copyleft",
@@ -33492,13 +33696,13 @@
             "sound"
           ],
           "engine": "cloud",
-          "scope": "让 Claude / Cursor 这类 Agent 当导演的视频生产系统。一句话进去，12 条流水线自己挑一条走完。",
+          "scope": "让 Agent 编排视频生产：通过声明式流水线组织素材、生成、字幕、音频与合成。",
           "control": "**它把「怎么拍」写成了 Agent 读得懂的文件**：`pipeline_defs/*.yaml` 定流水线、`skills/pipelines/*.md` 是给 Agent 看的作业指导、`tools/tool_registry.py` 管有哪些工具可用。换模型不改代码，改注册表。云端 API 与本地 GPU（Wan 2.1/2.2、Hunyuan）两条路都接。",
           "hw": "不装 GPU 也能跑（全走云端 API）；**有 GPU 可以切到本地免费出片**。要装 FFmpeg、Python 与 Node",
           "arch": "三层：Agent 读 `skills/` 里的作业指导 → 按 `pipeline_defs/*.yaml` 选流水线 → 经 ToolRegistry 调具体工具（TTS、图、视频、音乐各一组）。成片用 Remotion 合。用户自带素材时会先探每个文件的分辨率、编码、声道、时长，README 原话是「不从文件名幻想内容」。",
           "good": [
-            "**这一类里最有名的**：五个月 4.8 万星",
-            "12 条流水线覆盖解说、纪录片式蒙太奇、动画讲解等常见片型，不用自己从零编排",
+            "提供可修改的流水线定义和工具注册表，适合复用固定片型。",
+            "流水线覆盖解说、纪录片式蒙太奇、动画讲解等片型。",
             "云端与本地 GPU 双路，有卡就免费出片",
             "会先探素材真实参数再做创作决定，而不是靠文件名猜"
           ],
@@ -33506,11 +33710,11 @@
             "**AGPL-3.0**：改了拿去对外提供服务就得开源",
             "依赖链长（Python + Node + FFmpeg + Remotion），装起来不算轻",
             "画面质量的上限仍然取决于你配的那个模型接口，它本身不生成",
-            "218 个 issue 开着 —— 涨得太快，问题也堆得快"
+            "生成、配音、素材与合成依赖多套组件，排错需定位具体流水线步骤。"
           ],
           "unfit": "只想出一条片子的人 —— 它是一套生产系统，装它的成本要摊在很多条片子上才划算。",
           "src": "github README + GitHub API + DeepWiki 架构页",
-          "verified_at": "2026-10-10",
+          "verified_at": "2026-10-19",
           "autonomy": {
             "weights": "api",
             "seed": "partial",
@@ -33540,7 +33744,7 @@
             "modify": [
               {
                 "path": "pipeline_defs/*.yaml",
-                "effect": "12 条流水线的定义。要改流程从这里，不改代码"
+                "effect": "流水线定义；改片型与编排从这里开始。"
               },
               {
                 "path": "skills/pipelines/*.md",
@@ -33597,10 +33801,10 @@
           "id": "video-shotcraft",
           "zh": "video-shotcraft",
           "url": "https://github.com/Vincentwei1021/video-shotcraft",
-          "stars": 11050,
+          "stars": 12476,
           "created_at": "2026-07-19",
-          "pushed_at": "2026-10-05",
-          "stars_per_month": 4053,
+          "pushed_at": "2026-10-17",
+          "stars_per_month": 4128,
           "stale_months": 0,
           "license": "Apache-2.0",
           "license_class": "permissive",
@@ -33612,25 +33816,25 @@
             "pace"
           ],
           "engine": "yours",
-          "scope": "给 Claude Code / Codex 用的产品宣传片 Skill：152 种镜头写成参考文件，用 Remotion 渲染。",
+          "scope": "为 Claude Code / Codex 提供产品宣传片镜头配方，以网页截图与文案为素材，用 Remotion 渲染；当前 README 的 Gallery 列出 150 个镜头。",
           "control": "**它不调视频生成模型，它用代码渲染** —— 网页截图当素材、PageCam 组件做推拉摇移、Remotion 出片。所以画面是确定的、可复现的，代价是只适合产品演示这一类。Agent 读 `SKILL.md` 和 `references/shots/*.md` 决定用哪个镜头。",
           "hw": "不需要显卡（不跑生成模型）；要 Node 与 Chrome（截图靠无头浏览器）",
           "arch": "Agent 读 SKILL.md → 从 `references/shots/*.md` 里挑镜头 → `capture-template.mjs` 把产品网页截成贴图与 `layout.json` → `PageCam` 按 layout 做镜头运动 → Remotion 渲出 mp4。自带一条验证过的模板：36.2 秒、1920×1080、30fps、10 个镜头。",
           "good": [
             "**画面确定、可复现** —— 代码渲染，不是抽卡；同样输入必然同样输出",
-            "152 种镜头成文，Agent 直接按名字取用",
+            "镜头配方与可视化 Gallery 配套，可按画面选择。",
             "自带完整可跑的样片模板（36.2 秒 / 10 镜头），不用从空白开始",
             "Apache-2.0；连它自己的 38 秒展示片都是用它做的"
           ],
           "bad": [
             "**只适合产品演示类**：它的素材来自网页截图，不是任意实拍或生成画面",
-            "**开源才 27 天** —— 5207 星涨得极快，但沉淀时间还很短",
+            "项目持续调整镜头库与工作台，使用时应以当前版本的配方和模板为准。",
             "剪辑成本被用户提过（issue #37 在问有没有高性价比模型）",
             "剪映草稿导出只在 mac 上测过，Windows 未测（README 自述）"
           ],
           "unfit": "要拍真实场景或人物的片子 —— 它的画面来自网页截图与代码渲染，不是这条路。",
           "src": "github README + GitHub API + DeepWiki 架构页",
-          "verified_at": "2026-10-10",
+          "verified_at": "2026-10-19",
           "autonomy": {
             "weights": "na",
             "seed": "yes",
@@ -33660,7 +33864,7 @@
             "modify": [
               {
                 "path": "references/shots/*.md",
-                "effect": "152 种镜头的说明。Agent 就是读这些决定怎么拍"
+                "effect": "镜头配方库的说明。Agent 就是读这些决定怎么拍"
               },
               {
                 "path": "assets/lib/PageCam.tsx",
@@ -33717,11 +33921,11 @@
           "id": "gen-media-skills",
           "zh": "Generative Media Skills",
           "url": "https://github.com/SamurAIGPT/Generative-Media-Skills",
-          "stars": 4,
+          "stars": 12,
           "created_at": "2026-09-29",
           "pushed_at": "2026-09-29",
-          "stars_per_month": 11,
-          "stale_months": 0,
+          "stars_per_month": 18,
+          "stale_months": 1,
           "license": "MIT",
           "license_class": "permissive",
           "role": "tool",
@@ -33750,7 +33954,7 @@
           ],
           "unfit": "想直连某一家官方 API 的人 —— 它的价值在统一中间层，只用一家就是多套一层。",
           "src": "github README + GitHub API + DeepWiki 架构页",
-          "verified_at": "2026-10-10",
+          "verified_at": "2026-10-19",
           "autonomy": {
             "weights": "api",
             "seed": "partial",
@@ -33835,11 +34039,11 @@
           "id": "chengfeng-videocut",
           "zh": "乘风视频剪辑 Skills",
           "url": "https://github.com/Agentchengfeng/chengfeng-videocut-skills",
-          "stars": 3045,
+          "stars": 3103,
           "created_at": "2026-01-14",
-          "pushed_at": "2026-09-20",
-          "stars_per_month": 345,
-          "stale_months": 1,
+          "pushed_at": "2026-10-10",
+          "stars_per_month": 340,
+          "stale_months": 0,
           "license": "Apache-2.0",
           "license_class": "permissive",
           "role": "tool",
@@ -33867,7 +34071,7 @@
           ],
           "unfit": "不做口播类内容的人 —— 它的两个 skill 都是围着口播转的。",
           "src": "github README + GitHub API + DeepWiki 架构页",
-          "verified_at": "2026-10-10",
+          "verified_at": "2026-10-19",
           "autonomy": {
             "weights": "api",
             "seed": "no",
@@ -33954,10 +34158,10 @@
           "id": "openchatcut",
           "zh": "OpenChatCut",
           "url": "https://github.com/0xsline/OpenChatCut",
-          "stars": 2226,
+          "stars": 2517,
           "created_at": "2026-07-15",
-          "pushed_at": "2026-10-07",
-          "stars_per_month": 779,
+          "pushed_at": "2026-10-18",
+          "stars_per_month": 798,
           "stale_months": 0,
           "license": "AGPL-3.0",
           "license_note": "传染性：改了并对外提供服务就要开源",
@@ -33971,7 +34175,7 @@
           "engine": "yours",
           "scope": "对话式视频剪辑器，本地优先。你说「第二条音轨第 8 秒加个故障转场」，它就去改那一刀。",
           "control": "**别人是「一句话出片」，它是「一句话改这一刀」** —— 时间轴是真的，Agent 通过 MCP 读写工程。所以你能一直待在对话里做精修，而不是不满意就整条重生成。可换大模型当「大脑」。",
-          "hw": "本机服务＋浏览器；须用 localhost / 127.0.0.1 或 HTTPS。跨设备普通 HTTP 缺少浏览器能力，编辑器不能正常打开。",
+          "hw": "本机服务＋浏览器；须用 localhost / 127.0.0.1 或 HTTPS。跨设备普通 HTTP 缺少浏览器能力，编辑器不能正常打开。 浏览器端的本地素材工具要求服务在同一台机器运行，并配置 AGENT_IMPORT_ROOTS 允许目录；桌面版默认可访问系统允许的目录。",
           "arch": "本地优先的编辑器 + 一个可被 Agent 读写的工程仓（MCP）。扩展中心装可视化资源包（`openchatcut-plugin@1` 格式，运行时校验），官方资源 MIT，社区资源各自选许可、每张卡上标作者与许可。",
           "good": [
             "**对话式精修**这条路上目前最成型的一个 —— 剪辑不是重摇，是改具体那一刀",
@@ -33987,7 +34191,7 @@
           ],
           "unfit": "想「一句话出整片」的人 —— 它是剪辑器，前提是你已经有素材。",
           "src": "github README + GitHub API + DeepWiki 架构页",
-          "verified_at": "2026-10-10",
+          "verified_at": "2026-10-19",
           "autonomy": {
             "weights": "api",
             "seed": "na",
@@ -34069,11 +34273,11 @@
           "id": "video-podcast-maker",
           "zh": "video-podcast-maker",
           "url": "https://github.com/Agents365-ai/video-podcast-maker",
-          "stars": 1670,
+          "stars": 1687,
           "created_at": "2026-02-16",
           "pushed_at": "2026-10-01",
-          "stars_per_month": 215,
-          "stale_months": 0,
+          "stars_per_month": 210,
+          "stale_months": 1,
           "license": "MIT",
           "license_note": "**2026-09-05 上游把它从 CC BY-NC 4.0 换成了 MIT**（commit「chore: relicense CC BY-NC 4.0 -> MIT」）。在那之前克隆的那份仍是 CC BY-NC，不可商用 —— 网上的转述多半还停在旧口径。",
           "license_class": "permissive",
@@ -34103,7 +34307,7 @@
           ],
           "unfit": "要快出 1080p 的人 —— 它默认渲 4K，慢得多（issue #7 / #25 都在问能不能降档）；以及不愿意为一条链再装 ttscn / assetseeker 几个自家仓库的人。",
           "src": "github README + GitHub API（DeepWiki 未索引）",
-          "verified_at": "2026-10-10",
+          "verified_at": "2026-10-19",
           "wiki": "none",
           "wiki_note": "DeepWiki 没有索引这个仓库（2026-08-17 查，页面返回 not found）。所以这一页只有 README 与 issue 两层，没有由源码生成的图。",
           "autonomy": {
@@ -34168,10 +34372,10 @@
           "id": "motion-skills",
           "zh": "motion-skills",
           "url": "https://github.com/iart-ai/motion-skills",
-          "stars": 756,
+          "stars": 894,
           "created_at": "2026-06-22",
-          "pushed_at": "2026-09-30",
-          "stars_per_month": 209,
+          "pushed_at": "2026-10-14",
+          "stars_per_month": 229,
           "stale_months": 0,
           "license": "MIT",
           "license_class": "permissive",
@@ -34182,7 +34386,7 @@
             "pace"
           ],
           "engine": "yours",
-          "scope": "**它本身是一个索引** —— 51 个动效 skill 分在 15 个各自独立的仓库里（短视频、电商、广告、数据动画、讲解、地图、网页动效、动效设计、动态排版、3D/WebGL、数学动画、生成插画等），按包各装各的。装完 Claude Code、Cursor、Codex 等 40 多个 Agent 自动发现。",
+          "scope": "动效技能索引：55 个技能分成 18 个安装包，覆盖短视频、数据动画、网页动效、3D/WebGL、透明字幕条和口播 B-roll 等；按需安装到 Agent。",
           "control": "**每支 skill 都带一个「交付即自检」的回路**：渲一帧 → 截图 → 核对，让 Agent 检查自己的产出而不是交上去碰运气。这是它和一堆提示词模板最实质的区别 —— 动效最难的从来不是知道该怎么做，是**做完不知道对不对**。",
           "hw": "不需要显卡；跟着你用的 Agent 走",
           "arch": "50 个 skill 分包发布，每包单独装。装完由 Agent 自动发现，**提示词匹配到就自己激活**，不用显式调用。",
@@ -34193,14 +34397,14 @@
             "MIT"
           ],
           "bad": [
-            "**356 星是这个索引仓库的**，真正要装的分包各自只有个位数到十几星 —— 别把索引的热度当成内容的成熟度",
-            "**停更 2 个月**，15 个分仓也都停在同一天",
-            "自述是商业产品 iart.ai 背后的开源部分，开源这一支的投入取决于那家公司",
-            "**DeepWiki 没索引**，仓库自己也没有 issue 讨论可查"
+            "索引与分包独立维护，索引热度不能代表每个包的成熟度。",
+            "18 个安装包的依赖和渲染方式不同，应逐包验证。",
+            "README 自述是商业产品 iart.ai 背后的开源部分。",
+            "历史审阅时仓库讨论较少，遇到问题需要结合分包文档排查。"
           ],
           "unfit": "想要一个装完就能出片的工具 —— 它教的是手艺，渲染还得你自己接。",
           "src": "github README + GitHub API（DeepWiki 未索引）",
-          "verified_at": "2026-10-10",
+          "verified_at": "2026-10-19",
           "wiki": "none",
           "wiki_note": "DeepWiki 没有索引这个仓库（2026-08-17 查，页面返回 not found）。它本身是一批 markdown skill，也没有多少调用关系可画。",
           "autonomy": {
@@ -34232,7 +34436,7 @@
             "pitfalls": [
               {
                 "where": "装太多",
-                "note": "50 个包全装会占掉 Agent 不少上下文。**按需装**是它分包发布的原因"
+                "note": "按需选择 18 个安装包中的相关部分，避免把无关技能全部塞进 Agent 上下文。"
               },
               {
                 "where": "遇到问题没处问",
@@ -34252,9 +34456,9 @@
           "id": "comfyui-manager",
           "zh": "ComfyUI-Manager",
           "url": "https://github.com/Comfy-Org/ComfyUI-Manager",
-          "stars": 16393,
+          "stars": 16502,
           "created_at": "2023-04-23",
-          "pushed_at": "2026-10-08",
+          "pushed_at": "2026-10-18",
           "stars_per_month": 394,
           "stale_months": 0,
           "license": "GPL-3.0",
@@ -34283,7 +34487,7 @@
           ],
           "unfit": "不用 ComfyUI 的人 —— 它是那个生态的装配件，脱开没有意义。",
           "src": "github README + GitHub API + DeepWiki 架构页",
-          "verified_at": "2026-10-10",
+          "verified_at": "2026-10-19",
           "autonomy": {
             "weights": "na",
             "seed": "na",
@@ -34383,10 +34587,10 @@
           "id": "wanvideowrapper",
           "zh": "ComfyUI-WanVideoWrapper",
           "url": "https://github.com/Kijai/ComfyUI-WanVideoWrapper",
-          "stars": 6726,
+          "stars": 6737,
           "created_at": "2025-02-25",
           "pushed_at": "2026-05-24",
-          "stars_per_month": 346,
+          "stars_per_month": 341,
           "stale_months": 5,
           "license": "Apache-2.0",
           "license_class": "permissive",
@@ -34417,7 +34621,7 @@
           ],
           "unfit": "不用 ComfyUI 的人；以及想读一份稳定文档的人 —— 它的 README 更像一份持续更新的变更说明。",
           "src": "github README + GitHub API（DeepWiki 未索引）",
-          "verified_at": "2026-10-10",
+          "verified_at": "2026-10-19",
           "autonomy": {
             "weights": "local",
             "seed": "yes",
@@ -34481,10 +34685,10 @@
           "id": "comfy-templates",
           "zh": "ComfyUI 官方工作流模板",
           "url": "https://github.com/Comfy-Org/workflow_templates",
-          "stars": 1278,
+          "stars": 1335,
           "created_at": "2025-02-28",
-          "pushed_at": "2026-10-09",
-          "stars_per_month": 66,
+          "pushed_at": "2026-10-19",
+          "stars_per_month": 68,
           "stale_months": 0,
           "license": "MIT",
           "license_class": "permissive",
@@ -34513,7 +34717,7 @@
           ],
           "unfit": "想找社区花式工作流的人 —— 这里只有官方那一份最小可用版。",
           "src": "github README + GitHub API（DeepWiki 未索引）",
-          "verified_at": "2026-10-10",
+          "verified_at": "2026-10-19",
           "wiki": "none",
           "wiki_note": "DeepWiki 没有索引这个仓库（2026-08-16 查，页面返回 not found）。它主要是工作流 JSON 与预览图，本来也没什么调用关系可画。",
           "autonomy": {
@@ -34587,10 +34791,10 @@
           "id": "waoowaoo",
           "zh": "waoowaoo",
           "url": "https://github.com/waooAI/waoowaoo",
-          "stars": 14461,
+          "stars": 14597,
           "created_at": "2026-01-22",
           "pushed_at": "2026-09-21",
-          "stars_per_month": 1687,
+          "stars_per_month": 1646,
           "stale_months": 1,
           "license": "CC BY-NC-SA 4.0",
           "license_class": "noncommercial",
@@ -34634,7 +34838,7 @@
           ],
           "unfit": "接商单 —— 许可证明确禁止商业使用。",
           "src": "github README + GitHub API + LICENSE 原文 + DeepWiki 架构页",
-          "verified_at": "2026-10-10",
+          "verified_at": "2026-10-19",
           "autonomy": {
             "weights": "api",
             "seed": "no",
@@ -34724,11 +34928,11 @@
           "id": "jellyfish",
           "zh": "Jellyfish",
           "url": "https://github.com/Forget-C/Jellyfish",
-          "stars": 6640,
+          "stars": 6776,
           "created_at": "2026-03-06",
           "pushed_at": "2026-07-30",
-          "stars_per_month": 927,
-          "stale_months": 2,
+          "stars_per_month": 909,
+          "stale_months": 3,
           "license": "Apache-2.0",
           "license_class": "permissive",
           "role": "allinone",
@@ -34770,7 +34974,7 @@
           ],
           "unfit": "想开箱即用的人 —— 它是给二次开发者的工作台，不是给创作者的成品软件。",
           "src": "github README + GitHub API + LICENSE + DeepWiki 架构页",
-          "verified_at": "2026-10-10",
+          "verified_at": "2026-10-19",
           "autonomy": {
             "weights": "api",
             "seed": "no",
@@ -34856,11 +35060,11 @@
           "id": "moyin",
           "zh": "魔因漫创",
           "url": "https://github.com/MemeCalculate/moyin-creator",
-          "stars": 4686,
+          "stars": 4728,
           "created_at": "2026-02-09",
           "pushed_at": "2026-08-27",
-          "stars_per_month": 587,
-          "stale_months": 1,
+          "stars_per_month": 571,
+          "stale_months": 2,
           "license": "AGPL-3.0",
           "license_class": "copyleft",
           "role": "allinone",
@@ -34903,7 +35107,7 @@
           ],
           "unfit": "想读源码或二次开发的人 —— 公开的那份比你下到的安装包旧六个版本。",
           "src": "github README + GitHub API + Releases 接口 + package.json + DeepWiki 架构页",
-          "verified_at": "2026-10-10",
+          "verified_at": "2026-10-19",
           "autonomy": {
             "weights": "api",
             "seed": "no",
@@ -34993,10 +35197,10 @@
           "id": "bigbanana",
           "zh": "BigBanana AI Director",
           "url": "https://github.com/shuyu-labs/BigBanana-AI-Director",
-          "stars": 2291,
+          "stars": 2350,
           "created_at": "2026-01-31",
           "pushed_at": "2026-10-06",
-          "stars_per_month": 277,
+          "stars_per_month": 274,
           "stale_months": 0,
           "license": "CC BY-NC-SA 4.0",
           "license_class": "noncommercial",
@@ -35040,7 +35244,7 @@
           ],
           "unfit": "想长期跟着源码走的人 —— 它已经宣布不再同步源码了，你读到的是历史版本。",
           "src": "github README 原文 + GitHub API + DeepWiki 架构页",
-          "verified_at": "2026-10-10",
+          "verified_at": "2026-10-19",
           "autonomy": {
             "weights": "api",
             "seed": "no",
@@ -35177,10 +35381,10 @@
           "unfit": "非商品题材 —— 它的整套设定（卖点、种草、转化钩子）都围着卖东西转，做别的是杀鸡用牛刀。",
           "src": "github README + DeepWiki",
           "url": "https://github.com/xixihhhh/clipforge",
-          "stars": 960,
+          "stars": 1032,
           "created_at": "2026-03-23",
           "pushed_at": "2026-10-08",
-          "stars_per_month": 145,
+          "stars_per_month": 150,
           "stale_months": 0,
           "diagrams": [
             {
@@ -35200,7 +35404,7 @@
               "mermaid": "sequenceDiagram\n    participant UI as VideoPage (Client)\n    participant API as /api/project/[id]/compose\n    participant DB as SQLite (Drizzle)\n    participant Worker as FFmpeg Worker\n\n    UI->>API: POST startCompose(config)\n    API->>DB: Update project status to 'composing'\n    API->>Worker: Spawn FFmpeg Process\n    API-->>UI: 202 Accepted (jobId)\n    \n    loop Polling\n        UI->>API: GET status\n        API->>DB: Query current progress\n        DB-->>API: Progress %\n        API-->>UI: { progress, status }\n    end\n\n    Worker->>DB: Update status to 'done' + outputUrl\n    UI->>API: GET status (final)\n    API-->>UI: { status: 'done', outputUrl: '/api/output/...' }\n    UI->>UI: setComposeDone(true)"
             }
           ],
-          "verified_at": "2026-10-10",
+          "verified_at": "2026-10-19",
           "hands": {
             "install": [
               {
@@ -35307,10 +35511,10 @@
           "unfit": "手里一条素材都没有、想让 AI 从零生成画面 —— 那要找生成向的工具。",
           "src": "github README + DeepWiki",
           "url": "https://github.com/YILS-LIN/short-video-factory",
-          "stars": 5589,
+          "stars": 5767,
           "created_at": "2025-07-09",
-          "pushed_at": "2026-09-29",
-          "stars_per_month": 371,
+          "pushed_at": "2026-10-16",
+          "stars_per_month": 376,
           "stale_months": 0,
           "diagrams": [
             {
@@ -35330,7 +35534,7 @@
               "mermaid": "sequenceDiagram\n    participant HomeView as \"Home View<br/>(Orchestrator)\"\n    participant TextGen as \"TextGenerateInstance\"\n    participant AppStore as \"useAppStore\"\n    \n    Note over HomeView: User clicks Render Video\n    HomeView->>AppStore: updateRenderStatus(GenerateText)\n    \n    alt Output text already exists\n        HomeView->>TextGen: getCurrentOutputText()\n        TextGen-->>HomeView: return outputText.value\n    else Need to generate\n        HomeView->>TextGen: handleGenerate()\n        TextGen->>TextGen: streamText() loop\n        TextGen-->>HomeView: return outputText.value\n    end\n    \n    HomeView->>HomeView: Continue to TTS stage\n    \n    Note over HomeView: After video completion<br/>in auto-batch mode\n    HomeView->>TextGen: clearOutputText()\n    TextGen->>TextGen: outputText.value = ''\n    HomeView->>HomeView: Restart pipeline"
             }
           ],
-          "verified_at": "2026-10-10",
+          "verified_at": "2026-10-19",
           "hands": {
             "install": [
               {
@@ -35428,12 +35632,12 @@
           "wiki": "none",
           "wiki_note": "DeepWiki 抓不到由源码生成的图（2026-08-17 核）。**这是抓不到，不是没有代码** —— 那边没有索引这个仓库，所以这一项只有 README 与文档两层。",
           "url": "https://github.com/Anil-matcha/AI-Youtube-Shorts-Generator",
-          "stars": 5287,
+          "stars": 5486,
           "created_at": "2024-06-28",
-          "pushed_at": "2026-10-06",
-          "stars_per_month": 193,
+          "pushed_at": "2026-10-11",
+          "stars_per_month": 198,
           "stale_months": 0,
-          "verified_at": "2026-10-10",
+          "verified_at": "2026-10-19",
           "repo_id": 821280833
         },
         {
@@ -35485,12 +35689,12 @@
           "wiki": "none",
           "wiki_note": "DeepWiki 抓不到由源码生成的图（2026-08-17 核）。那边没有索引这个仓库，**是抓不到不是没有** —— 这一项只有 README 与文档两层。",
           "url": "https://github.com/Anil-matcha/Open-AI-UGC",
-          "stars": 358,
+          "stars": 376,
           "created_at": "2023-05-22",
           "pushed_at": "2026-10-01",
           "stars_per_month": 9,
-          "stale_months": 0,
-          "verified_at": "2026-10-10",
+          "stale_months": 1,
+          "verified_at": "2026-10-19",
           "repo_id": 643931576
         },
         {
@@ -35540,9 +35744,9 @@
           "unfit": "没有成片、想从零做一条 —— 它的起点是已有素材。",
           "src": "github README + DeepWiki",
           "url": "https://github.com/google-marketing-solutions/vigenair",
-          "stars": 240,
+          "stars": 241,
           "created_at": "2024-05-08",
-          "pushed_at": "2026-09-27",
+          "pushed_at": "2026-10-15",
           "stars_per_month": 8,
           "stale_months": 0,
           "diagrams": [
@@ -35563,7 +35767,7 @@
               "mermaid": "sequenceDiagram\n    participant Input as \"Video Input\"\n    participant Extractor as \"Extractor Service\"\n    participant VideoAPI as \"Video Intelligence\"\n    participant Whisper as \"Whisper/Gemini\"\n    participant Spleeter as \"Spleeter\"\n    participant Gemini as \"Vertex AI Gemini\"\n    participant Storage as \"GCS Storage\"\n    \n    Input->>Extractor: Upload video file\n    Extractor->>VideoAPI: Analyse video content\n    Extractor->>Whisper: Transcribe audio\n    Extractor->>Spleeter: Separate audio tracks\n    \n    VideoAPI-->>Extractor: Shot detection, labels, objects\n    Whisper-->>Extractor: Timestamped transcript\n    Spleeter-->>Extractor: Vocal/music tracks\n    \n    Extractor->>Gemini: Annotate segments\n    Gemini-->>Extractor: Scene descriptions\n    \n    Extractor->>Storage: Store analysis.json, data.json\n    \n    Note over Storage: User requests variants\n    \n    Storage->>Gemini: Generate variants with prompt\n    Gemini-->>Storage: Scored combinations\n    \n    Storage->>Gemini: Generate text assets\n    Gemini-->>Storage: Headlines and descriptions"
             }
           ],
-          "verified_at": "2026-10-10",
+          "verified_at": "2026-10-19",
           "repo_id": 797524842
         },
         {
@@ -35599,10 +35803,10 @@
           "unfit": "做录播成片 —— 那条路上有更省事的口型工具，不需要扛实时的复杂度。",
           "src": "github README + DeepWiki",
           "url": "https://github.com/lipku/LiveTalking",
-          "stars": 9814,
+          "stars": 9960,
           "created_at": "2023-12-19",
           "pushed_at": "2026-10-09",
-          "stars_per_month": 291,
+          "stars_per_month": 293,
           "stale_months": 0,
           "diagrams": [
             {
@@ -35622,7 +35826,7 @@
               "mermaid": "sequenceDiagram\n    participant ClientJS as \"client.js\"\n    participant PC as \"RTCPeerConnection\"\n    participant Server as \"app.py /offer\"\n    participant Session as \"nerfreals[sessionid]\"\n    \n    ClientJS->>PC: \"addTransceiver('video', {direction: 'recvonly'})\"\n    ClientJS->>PC: \"addTransceiver('audio', {direction: 'recvonly'})\"\n    ClientJS->>PC: \"createOffer()\"\n    PC->>ClientJS: \"SDP offer\"\n    ClientJS->>PC: \"setLocalDescription(offer)\"\n    \n    Note over ClientJS: Wait for ICE gathering complete\n    \n    ClientJS->>Server: \"POST /offer {sdp: offer.sdp, type: offer.type}\"\n    Server->>Session: \"Create new session with sessionid\"\n    Server->>Session: \"Store RTCPeerConnection\"\n    Server->>ClientJS: \"{sdp: answer.sdp, type: answer.type, sessionid: int}\"\n    \n    ClientJS->>PC: \"setRemoteDescription(answer)\"\n    PC->>ClientJS: \"ontrack events (video/audio)\"\n    ClientJS->>ClientJS: \"Store sessionid in #sessionid field\""
             }
           ],
-          "verified_at": "2026-10-10",
+          "verified_at": "2026-10-19",
           "hands": {
             "install": [
               {
@@ -35717,12 +35921,12 @@
           "group": "prompt",
           "role": "tool",
           "url": "https://github.com/dexhunter/seedance2-skill",
-          "stars": 4232,
+          "stars": 4347,
           "created_at": "2026-02-11",
           "pushed_at": "2026-09-19",
-          "stars_per_month": 535,
+          "stars_per_month": 529,
           "stale_months": 1,
-          "verified_at": "2026-10-10",
+          "verified_at": "2026-10-19",
           "repo_id": 1155501359
         },
         {
@@ -35763,12 +35967,12 @@
           "group": "prompt",
           "role": "tool",
           "url": "https://github.com/zenstory-ai/drama-skills",
-          "stars": 2669,
+          "stars": 3060,
           "created_at": "2026-07-16",
-          "pushed_at": "2026-10-03",
-          "stars_per_month": 945,
+          "pushed_at": "2026-10-15",
+          "stars_per_month": 980,
           "stale_months": 0,
-          "verified_at": "2026-10-10",
+          "verified_at": "2026-10-19",
           "repo_id": 1302986554
         },
         {
@@ -35804,10 +36008,10 @@
           "group": "prompt",
           "role": "tool",
           "url": "https://github.com/liangdabiao/Seedance2-Storyboard-Generator",
-          "stars": 2551,
+          "stars": 2623,
           "created_at": "2026-02-16",
           "pushed_at": "2026-09-21",
-          "stars_per_month": 329,
+          "stars_per_month": 326,
           "stale_months": 1,
           "diagrams": [
             {
@@ -35827,7 +36031,7 @@
               "mermaid": "flowchart LR\n    SKILL[\"SKILL.md\n(skill definition)\"]\n\n    SKILL --> F1[\"Title_剧本.md\nFour-act script\nwith episode breakdown\"]\n    SKILL --> F2[\"Title_素材清单.md\nAll C/S/P asset\ngeneration prompts\"]\n    SKILL --> F3[\"Title_E01_分镜.md\nEpisode 1 storyboard\"]\n    SKILL --> F4[\"Title_E02_分镜.md\nEpisode 2 storyboard\"]\n    SKILL --> FN[\"Title_E[XX]_分镜.md\n...\"]\n\n    F1 -->|\"narrative structure\"| F3\n    F2 -->|\"asset IDs for @图片X refs\"| F3\n    F3 -->|\"尾帧描述 feeds\"| F4\n    F4 -->|\"尾帧描述 feeds\"| FN"
             }
           ],
-          "verified_at": "2026-10-10",
+          "verified_at": "2026-10-19",
           "repo_id": 1158953185
         },
         {
@@ -35865,21 +36069,21 @@
           "group": "prompt",
           "role": "tool",
           "url": "https://github.com/jnMetaCode/ai-shortfilm-prompts",
-          "stars": 459,
+          "stars": 475,
           "created_at": "2026-05-18",
-          "pushed_at": "2026-10-05",
-          "stars_per_month": 96,
+          "pushed_at": "2026-10-19",
+          "stars_per_month": 94,
           "stale_months": 0,
-          "verified_at": "2026-10-10",
+          "verified_at": "2026-10-19",
           "repo_id": 1242674602
         },
         {
           "id": "awesome-seedance2-prompts",
           "zh": "Awesome Seedance 2 Prompts",
           "sub": "plib",
-          "license": "见仓库 LICENSE 文件",
-          "license_class": "restricted",
-          "license_note": "仓库有 LICENSE 文件，但 GitHub 识别不出是哪一种（标为 Other，2026-08-17 核）。**抄提示词之前先自己读一遍那份文件**。",
+          "license": "CC-BY-4.0",
+          "license_class": "permissive",
+          "license_note": "2026-10-19 核 LICENSE：CC BY 4.0。复用需署名、附许可链接并标明修改；第三方示例素材需分别核对。",
           "decisions": [
             "shot",
             "compose",
@@ -35898,7 +36102,7 @@
             "还在更新 —— 提示词库最怕停更"
           ],
           "bad": [
-            "**许可证识别不出来**，商用前要自己读原文",
+            "复用提示词库需遵守 CC BY 4.0 的署名、许可链接与修改说明要求。",
             "只对 Seedance 一家",
             "成品多但缺方法，抄得到抄不懂"
           ],
@@ -35909,12 +36113,12 @@
           "group": "prompt",
           "role": "tool",
           "url": "https://github.com/YouMind-OpenLab/awesome-seedance-2-prompts",
-          "stars": 2103,
+          "stars": 2153,
           "created_at": "2026-02-11",
-          "pushed_at": "2026-10-09",
-          "stars_per_month": 266,
+          "pushed_at": "2026-10-19",
+          "stars_per_month": 262,
           "stale_months": 0,
-          "verified_at": "2026-10-10",
+          "verified_at": "2026-10-19",
           "repo_id": 1155268703
         },
         {
@@ -35951,12 +36155,12 @@
           "group": "prompt",
           "role": "tool",
           "url": "https://github.com/op7418/guizang-s-prompt",
-          "stars": 1465,
+          "stars": 1474,
           "created_at": "2025-12-29",
           "pushed_at": "2026-01-06",
-          "stars_per_month": 156,
+          "stars_per_month": 153,
           "stale_months": 9,
-          "verified_at": "2026-10-10",
+          "verified_at": "2026-10-19",
           "repo_id": 1124452481
         },
         {
@@ -35992,10 +36196,10 @@
           "group": "prompt",
           "role": "tool",
           "url": "https://github.com/willwulfken/MidJourney-Styles-and-Keywords-Reference",
-          "stars": 12309,
+          "stars": 12314,
           "created_at": "2022-07-03",
           "pushed_at": "2025-04-11",
-          "stars_per_month": 240,
+          "stars_per_month": 239,
           "stale_months": 18,
           "diagrams": [
             {
@@ -36015,7 +36219,7 @@
               "mermaid": "sequenceDiagram\n    participant U as \"User\"\n    participant P as \"Prompt Parser\"\n    participant S as \"Style Recognition System\"\n    participant G as \"Generation Engine\"\n    participant I as \"Image Output\"\n    \n    U->>P: \"a futuristic cityscape, cyberpunk style\"\n    P->>S: Parse for style keywords\n    S->>S: Identify \"futuristic\" and \"cyberpunk\" as Themes\n    S->>G: Apply theme parameters\n    G->>I: Generate themed image\n    I->>U: Display stylized image"
             }
           ],
-          "verified_at": "2026-10-10",
+          "verified_at": "2026-10-19",
           "repo_id": 509949415
         },
         {
@@ -36032,7 +36236,7 @@
             "提示词写成 JSON 模板",
             "参数可换不用重写"
           ],
-          "scope": "一套可复用的 JSON 提示词模板与风格参考。",
+          "scope": "171 套结构化提示词风格、342 张预览；JSON 模板支持 v2.1 / v2.2，较新模板仅声明实际使用的变量。",
           "control": "**把提示词拆成结构化字段**，于是换风格只改一个字段，不用整句重写 —— 批量出多个变体时这一点是决定性的。",
           "hw": "无。",
           "good": [
@@ -36052,12 +36256,12 @@
           "group": "prompt",
           "role": "tool",
           "url": "https://github.com/VigoZhao/AI-Visual-Prompt-Cookbook",
-          "stars": 762,
+          "stars": 789,
           "created_at": "2026-05-11",
-          "pushed_at": "2026-10-08",
-          "stars_per_month": 153,
+          "pushed_at": "2026-10-15",
+          "stars_per_month": 149,
           "stale_months": 0,
-          "verified_at": "2026-10-10",
+          "verified_at": "2026-10-19",
           "repo_id": 1235254657
         },
         {
@@ -36094,10 +36298,10 @@
           "group": "prompt",
           "role": "tool",
           "url": "https://github.com/raojiacui/prompt-lens",
-          "stars": 610,
+          "stars": 632,
           "created_at": "2026-03-17",
           "pushed_at": "2026-10-07",
-          "stars_per_month": 90,
+          "stars_per_month": 89,
           "stale_months": 0,
           "diagrams": [
             {
@@ -36117,7 +36321,7 @@
               "mermaid": "sequenceDiagram\n    participant U as Client\n    participant API as POST /api/upload\n    participant RL as checkRateLimit\n    participant B2 as Backblaze B2 (R2 Lib)\n    participant DB as Drizzle (operationLogs)\n\n    U->>API: Multipart Form (File)\n    API->>RL: checkRateLimit(userId, uploadConfig)\n    RL-->>API: allowed: true\n    API->>API: isFileSizeValid & isAllowedFileType\n    API->>B2: uploadToR2(buffer, key, contentType)\n    B2-->>API: Success\n    API->>B2: getSignedUrlFromR2(key, 3600)\n    B2-->>API: Signed URL\n    API->>DB: db.insert(operationLogs)\n    API-->>U: JSON { url, key, mediaType }"
             }
           ],
-          "verified_at": "2026-10-10",
+          "verified_at": "2026-10-19",
           "repo_id": 1184025656
         },
         {
@@ -36153,10 +36357,10 @@
           "group": "prompt",
           "role": "tool",
           "url": "https://github.com/dair-ai/Prompt-Engineering-Guide",
-          "stars": 78944,
+          "stars": 79328,
           "created_at": "2022-12-16",
           "pushed_at": "2026-03-11",
-          "stars_per_month": 1724,
+          "stars_per_month": 1721,
           "stale_months": 7,
           "diagrams": [
             {
@@ -36176,7 +36380,7 @@
               "mermaid": "graph LR\n    Models[\"Model Comparison\"]\n    \n    Models --> Traditional[\"Traditional ML:<br/>DeBERTa-V3<br/>(strong baseline)\"]\n    Models --> OlderGPT[\"Older GPT-3<br/>variants\"]\n    Models --> GPT35[\"gpt-3.5-turbo<br/>(optimized)\"]\n    \n    Traditional -->|\"outperformed by\"| GPT35\n    OlderGPT -->|\"outperformed by\"| GPT35\n    \n    GPT35 --> KeyMetrics[\"Key Advantages:<br/>- Higher F1 (91.7)<br/>- No fine-tuning<br/>- Adaptable via prompts\"]\n    \n    GPT35 --> Tradeoff[\"Trade-off:<br/>- Lower template adherence<br/>- Requires parsing\"]"
             }
           ],
-          "verified_at": "2026-10-10",
+          "verified_at": "2026-10-19",
           "repo_id": 579082810
         },
         {
@@ -36213,12 +36417,12 @@
           "group": "prompt",
           "role": "tool",
           "url": "https://github.com/cclank/lanshu-awesome-ai-video-kit",
-          "stars": 414,
+          "stars": 422,
           "created_at": "2026-05-25",
           "pushed_at": "2026-10-07",
-          "stars_per_month": 91,
+          "stars_per_month": 87,
           "stale_months": 0,
-          "verified_at": "2026-10-10",
+          "verified_at": "2026-10-19",
           "repo_id": 1249635932
         }
       ],
@@ -38031,12 +38235,12 @@
           ],
           "tags": [
             "49 个角色分三层",
-            "73 个流程命令",
+            "74 个流程命令",
             "三大引擎各配专家"
           ],
-          "scope": "把一个 Claude Code 会话组织成一间工作室：49 个 agent 分导演 / 部门主管 / 专才三层，73 个斜杠命令覆盖从头脑风暴到发版，外加 12 个钩子、11 条规则、41 份文档模板。",
+          "scope": "把一个 Claude Code 会话组织成一间工作室：49 个 agent 分导演 / 部门主管 / 专才三层，74 个斜杠命令覆盖从头脑风暴到发版，外加 15 个钩子、14 条规则、62 份文档模板。",
           "control": "靠三样东西咬住质量：角色有明确的上报路径、钩子在提交与推送时跑校验、文档模板逼你把设计写下来。它不产出美术也不碰引擎，产出的是**结构**。",
-          "hw": "只要 Claude Code 本身；jq 与 Python 3 可选，缺了只是少一层校验，不影响用。",
+          "hw": "Claude Code；Python 3 负责读取配置与校验数据，jq 推荐安装。缺少 Python 时配置退回默认值，暂存数据 JSON 的提交会被阻止。",
           "arch": "全部是 `.claude/` 下的 Markdown 与 shell：agents / skills / hooks / rules / docs。没有服务、没有依赖，clone 下来就是一套配置。",
           "good": [
             "把「一个人配一个 AI」补成了「有人评审、有人验收」",
@@ -38051,10 +38255,10 @@
           "unfit": "想让它自己把游戏做出来 —— 它管的是分工与流程，一行引擎代码都不替你跑。",
           "src": "github README + DeepWiki",
           "url": "https://github.com/Donchitos/Claude-Code-Game-Studios",
-          "stars": 26005,
+          "stars": 26857,
           "created_at": "2026-02-12",
-          "pushed_at": "2026-10-08",
-          "stars_per_month": 3298,
+          "pushed_at": "2026-10-19",
+          "stars_per_month": 3283,
           "stale_months": 0,
           "diagrams": [
             {
@@ -38074,7 +38278,7 @@
               "mermaid": "sequenceDiagram\n    participant U as User\n    participant D as Director (Tier 1)\n    participant L as Lead (Tier 2)\n    participant S as Specialist (Tier 3)\n\n    U->>D: /team-combat \"Add fire damage\"\n    D->>L: Delegate Design (game-designer)\n    L->>S: Draft Implementation (gameplay-programmer)\n    S-->>L: Code + Tests\n    L->>S: Validate (qa-tester)\n    S-->>D: Validation Report\n    D->>U: Final Approval Request"
             }
           ],
-          "verified_at": "2026-10-10",
+          "verified_at": "2026-10-19",
           "hands": {
             "install": [
               {
@@ -38090,8 +38294,8 @@
                 "gate": "Godot / Unity / 虚幻三套专家角色互斥，选错了后面所有建议都对不上"
               },
               {
-                "step": "装 jq 与 Python 3（可选）",
-                "gate": "缺了钩子会优雅降级 —— **也就是校验静默失效**，不会报错"
+                "step": "安装 Python 3，建议同时安装 jq",
+                "gate": "当前 README 明确：无 Python 时配置回退默认值，涉及数据 JSON 的提交会阻止，不能笼统当作可选依赖。"
               }
             ],
             "modify": [
@@ -38101,7 +38305,7 @@
               },
               {
                 "path": ".claude/skills/",
-                "effect": "73 个斜杠命令。每个是一份 SKILL.md"
+                "effect": "74 个斜杠命令。每个是一份 SKILL.md"
               },
               {
                 "path": ".claude/hooks/",
@@ -38109,7 +38313,7 @@
               },
               {
                 "path": ".claude/docs/templates/",
-                "effect": "41 份文档模板，设计文档的骨架从这里来"
+                "effect": "62 份文档模板，设计文档的骨架从这里来"
               }
             ],
             "pitfalls": [
@@ -38123,7 +38327,7 @@
               },
               {
                 "where": "角色太多",
-                "note": "49 个角色 73 个命令，第一次用光读清单就是负担。**先只用 `/start` 给你的那条路线**，别通读"
+                "note": "49 个角色 74 个命令，第一次用光读清单就是负担。**先只用 `/start` 给你的那条路线**，别通读"
               }
             ],
             "layers": [
@@ -38173,12 +38377,12 @@
           "wiki": "none",
           "wiki_note": "DeepWiki 首页抓不到由源码生成的图（2026-08-17 核）。这个项目主体是 Agent 配置与提示词，没有可画的调用关系 —— 不是我们没抓，是没有那个东西。",
           "url": "https://github.com/wellingfeng/UltraGameStudio",
-          "stars": 312,
+          "stars": 324,
           "created_at": "2026-05-30",
-          "pushed_at": "2026-09-30",
-          "stars_per_month": 71,
+          "pushed_at": "2026-10-11",
+          "stars_per_month": 69,
           "stale_months": 0,
-          "verified_at": "2026-10-10",
+          "verified_at": "2026-10-19",
           "repo_id": 1254172144
         },
         {
@@ -38218,7 +38422,7 @@
           "stars": 216,
           "created_at": "2026-03-10",
           "pushed_at": "2026-05-08",
-          "stars_per_month": 31,
+          "stars_per_month": 29,
           "stale_months": 5,
           "diagrams": [
             {
@@ -38238,7 +38442,7 @@
               "mermaid": "sequenceDiagram\n    participant Session as \"FAutonomixChatSession\"\n    participant Client as \"IAutonomixLLMClient\"\n    participant Router as \"FAutonomixActionRouter\"\n    participant Exec as \"IAutonomixActionExecutor\"\n\n    Session->>Client: SendMessage(History, Tools)\n    Client-->>Session: OnMessageDelta (Streaming Text)\n    Client-->>Session: OnMessageReceived (FAutonomixMessage w/ ToolCalls)\n    \n    loop For each ToolCall in Message\n        Session->>Router: RouteAction(ToolCall)\n        Router->>Exec: ExecuteAction(Arguments)\n        Exec-->>Router: FAutonomixActionResult\n        Router-->>Session: Update Tool Result\n    end\n\n    Session->>Client: SendMessage (Results)"
             }
           ],
-          "verified_at": "2026-10-10",
+          "verified_at": "2026-10-19",
           "repo_id": 1177696970
         },
         {
@@ -38277,12 +38481,12 @@
           "wiki": "none",
           "wiki_note": "DeepWiki 首页抓不到由源码生成的图（2026-08-17 核）。仓库主体是 67 份 Markdown 技能文件，没有调用关系可画。",
           "url": "https://github.com/gamedev-skills/awesome-gamedev-agent-skills",
-          "stars": 1384,
+          "stars": 1624,
           "created_at": "2026-06-24",
           "pushed_at": "2026-10-09",
-          "stars_per_month": 390,
+          "stars_per_month": 423,
           "stale_months": 0,
-          "verified_at": "2026-10-10",
+          "verified_at": "2026-10-19",
           "repo_id": 1278883735
         },
         {
@@ -38319,12 +38523,12 @@
           "wiki": "none",
           "wiki_note": "DeepWiki 首页抓不到由源码生成的图（2026-08-17 核）。仓库是提示词与命令的集合，没有代码结构。",
           "url": "https://github.com/Unity-Technologies/skills",
-          "stars": 1060,
+          "stars": 1104,
           "created_at": "2026-05-05",
-          "pushed_at": "2026-10-09",
-          "stars_per_month": 204,
+          "pushed_at": "2026-10-16",
+          "stars_per_month": 201,
           "stale_months": 0,
-          "verified_at": "2026-10-10",
+          "verified_at": "2026-10-19",
           "tutorials": [
             {
               "title": "Unity 伴生许可证原文（用之前必读）",
@@ -38357,7 +38561,7 @@
           "hw": "只要一个支持技能的 AI 编码客户端。",
           "good": [
             "专注 Godot 4.x，不做跨引擎妥协",
-            "开源半年内星速就到了这一类的前列"
+            "v1.15.1 增加行为评估；README 说明代码示例已按 Godot 4.7.2 解析或编译。"
           ],
           "bad": [
             "只有 Godot，别的引擎用不上",
@@ -38366,10 +38570,10 @@
           "unfit": "非 Godot 项目。",
           "src": "github README + DeepWiki",
           "url": "https://github.com/jame581/GodotPrompter",
-          "stars": 804,
+          "stars": 850,
           "created_at": "2026-04-03",
-          "pushed_at": "2026-10-09",
-          "stars_per_month": 129,
+          "pushed_at": "2026-10-14",
+          "stars_per_month": 130,
           "stale_months": 0,
           "diagrams": [
             {
@@ -38389,12 +38593,12 @@
               "mermaid": "sequenceDiagram\n    participant C as Client (Peer 2)\n    participant S as Server (Peer 1)\n    \n    Note over C: _physics_process\n    C->>C: _apply_input() (Prediction)\n    C->>S: _send_input_to_server(dir, tick)\n    \n    Note over S: _physics_process\n    S->>S: _apply_input() (Authority)\n    S->>C: _receive_server_correction(pos, ack_tick)\n    \n    Note over C: RPC Received\n    C->>C: Rewind to pos\n    C->>C: Replay pending inputs (Reconciliation)"
             }
           ],
-          "verified_at": "2026-10-10",
+          "verified_at": "2026-10-19",
           "repo_id": 1200746432
         },
         {
           "id": "gd-agentic-skills",
-          "zh": "GD-Agentic-Skills",
+          "zh": "Game Dev Agentic Skills",
           "license": "LGPL-3.0",
           "license_class": "copyleft",
           "license_note": "LGPL-3.0 有传染性：改动这些文件本身要以同样许可证放出，用它写出来的游戏代码不受影响。",
@@ -38408,25 +38612,25 @@
             "定位成长期记忆",
             "跟 Godot 4.7+"
           ],
-          "scope": "自称 Godot 4.7+ AI Agent 的「长期记忆」：一批高密度的 Godot 领域知识文件。",
+          "scope": "面向 Godot 4.7+ 与 Bevy 0.20+ 的 AI Agent 技能库，当前 README 列出 184 项技能；已由 GD-Agentic-Skills 更名。",
           "control": "把引擎知识固化成文件，让 Agent 每次都从同一份事实出发 —— 而不是靠模型的记忆。",
           "hw": "只要一个支持技能的 AI 编码客户端。",
           "good": [
             "把「别按记忆写引擎 API」变成了一份可查的文件",
-            "跟的是 Godot 较新的大版本"
+            "同时覆盖 Godot 与 Bevy，并按各自引擎版本维护知识。"
           ],
           "bad": [
             "LGPL 比同类的 MIT 严，改动要回馈",
             "版本跟得紧的另一面是老项目用不上"
           ],
-          "unfit": "还在 Godot 3.x 的项目。",
+          "unfit": "使用 Godot 3.x 或未覆盖引擎的项目。",
           "src": "github README + DeepWiki",
-          "url": "https://github.com/thedivergentai/GD-Agentic-Skills",
-          "stars": 821,
+          "url": "https://github.com/thedivergentai/Game-Dev-Agentic-Skills",
+          "stars": 869,
           "created_at": "2026-02-07",
-          "pushed_at": "2026-09-09",
-          "stars_per_month": 102,
-          "stale_months": 1,
+          "pushed_at": "2026-10-16",
+          "stars_per_month": 104,
+          "stale_months": 0,
           "diagrams": [
             {
               "id": "g-gd-agentic-skills-1",
@@ -38445,7 +38649,7 @@
               "mermaid": "sequenceDiagram\n    participant M as godot-master\n    participant A as Anara (Analyst)\n    participant V as godot-agent-vision\n    participant MS as Migration Station\n\n    M->>A: request_audit(project_path)\n    A->>A: Phase I: Project Mapping\n    alt is_legacy_version == true\n        A->>MS: route_to_migration()\n        MS-->>A: migration_complete\n    end\n    A->>V: capture_ui_state()\n    V-->>A: webp_manifest (.gdskills/vision/)\n    A->>A: Phase III: Specialized Scoring\n    A-->>M: audit_report (Score/100 + FixList)"
             }
           ],
-          "verified_at": "2026-10-10",
+          "verified_at": "2026-10-19",
           "repo_id": 1152331977
         },
         {
@@ -38477,11 +38681,11 @@
           "unfit": "以蓝图为主的项目。",
           "src": "github README + DeepWiki",
           "url": "https://github.com/quodsoler/unreal-engine-skills",
-          "stars": 360,
+          "stars": 400,
           "created_at": "2026-03-01",
           "pushed_at": "2026-09-28",
-          "stars_per_month": 49,
-          "stale_months": 0,
+          "stars_per_month": 52,
+          "stale_months": 1,
           "diagrams": [
             {
               "id": "g-unreal-skills-1",
@@ -38500,7 +38704,7 @@
               "mermaid": "sequenceDiagram\n    participant E as Engine/World\n    participant A as AActor Instance\n    participant C as UActorComponent\n\n    Note over A: Constructor (CDO Pass)\n    E->>A: CreateDefaultSubobject<T>()\n    E->>A: PostInitializeComponents()\n    Note right of A: Safe to bind Component Delegates\n    E->>A: BeginPlay()\n    A->>C: BeginPlay()\n    Note over A,C: Gameplay Loop (Tick)\n    E->>A: EndPlay(Reason)\n    A->>C: EndPlay(Reason)\n    E->>A: Destroyed()"
             }
           ],
-          "verified_at": "2026-10-10",
+          "verified_at": "2026-10-19",
           "repo_id": 1170089650
         },
         {
@@ -38538,10 +38742,10 @@
           "unfit": "只想让 AI 写脚本文件、完全不想让它碰工程 —— 那用技能包更轻。",
           "src": "github README + DeepWiki",
           "url": "https://github.com/CoplayDev/unity-mcp",
-          "stars": 14797,
+          "stars": 15123,
           "created_at": "2025-03-18",
-          "pushed_at": "2026-10-08",
-          "stars_per_month": 789,
+          "pushed_at": "2026-10-19",
+          "stars_per_month": 794,
           "stale_months": 0,
           "diagrams": [
             {
@@ -38561,7 +38765,7 @@
               "mermaid": "sequenceDiagram\n    participant Client as AI Client (Cursor/Claude)\n    participant Server as Python Server (mcpforunityserver)\n    participant Hub as PluginHub (Python)\n    participant Bridge as WebSocketTransportClient (Unity)\n    participant Tool as RefreshUnity (C#)\n\n    Client->>Server: MCP Call: \"refresh_unity\"\n    Server->>Server: UnityInstanceMiddleware identifies instance\n    Server->>Hub: Forward to PluginHub\n    Hub->>Bridge: JSON-RPC: \"execute_command\"\n    Bridge->>Bridge: TransportCommandDispatcher.RunOnMainThreadAsync\n    Note over Bridge: Executes on Unity Main Thread\n    Bridge->>Tool: HandleCommand(JObject params)\n    Tool-->>Bridge: return SuccessResponse\n    Bridge-->>Hub: JSON-RPC Response\n    Hub-->>Server: Forward Result\n    Server-->>Client: MCP Result: Success"
             }
           ],
-          "verified_at": "2026-10-10",
+          "verified_at": "2026-10-19",
           "hands": {
             "install": [
               {
@@ -38663,10 +38867,10 @@
           "unfit": "只做编辑器侧自动化 —— 运行时那一半是它的主要重量，用不上就选更轻的。",
           "src": "github README + DeepWiki",
           "url": "https://github.com/IvanMurzak/Unity-MCP",
-          "stars": 4410,
+          "stars": 4497,
           "created_at": "2025-04-02",
-          "pushed_at": "2026-10-10",
-          "stars_per_month": 241,
+          "pushed_at": "2026-10-19",
+          "stars_per_month": 242,
           "stale_months": 0,
           "diagrams": [
             {
@@ -38686,7 +38890,7 @@
               "mermaid": "sequenceDiagram\n    participant Client as \"AI Client\"\n    participant Server as \"Unity-MCP-Server\"\n    participant Plugin as \"Unity-MCP-Plugin\"\n    participant Unity as \"Unity Editor\"\n    \n    Client->>Server: MCP Protocol Request\n    Server->>Plugin: SignalR RPC Call\n    Plugin->>Unity: Unity API Call (Main Thread)\n    Unity-->>Plugin: Result\n    Plugin-->>Server: Response\n    Server-->>Client: MCP Response"
             }
           ],
-          "verified_at": "2026-10-10",
+          "verified_at": "2026-10-19",
           "repo_id": 959123498
         },
         {
@@ -38719,11 +38923,11 @@
           "unfit": "Unity 2021 / 2022 的老工程。",
           "src": "github README + DeepWiki",
           "url": "https://github.com/CoderGamester/mcp-unity",
-          "stars": 1923,
+          "stars": 1936,
           "created_at": "2025-03-13",
-          "pushed_at": "2026-09-03",
-          "stars_per_month": 102,
-          "stale_months": 1,
+          "pushed_at": "2026-10-11",
+          "stars_per_month": 101,
+          "stale_months": 0,
           "diagrams": [
             {
               "id": "g-mcp-unity-1",
@@ -38742,7 +38946,7 @@
               "mermaid": "sequenceDiagram\n    participant AI as \"AI Assistant\"\n    participant Node as \"Node.js Server\"\n    participant Unity as \"Unity Editor\"\n    \n    AI->>Node: Request (JSON-RPC)\n    Note over Node: McpServer processes request\n    \n    alt Tool Execution\n        Node->>Unity: Tool request via WebSocket\n        Note over Unity: McpUnitySocketHandler\n        Unity->>Unity: Execute tool\n        Unity->>Node: Tool result\n    else Resource Fetch\n        Node->>Unity: Resource request via WebSocket\n        Note over Unity: McpUnitySocketHandler\n        Unity->>Unity: Fetch resource\n        Unity->>Node: Resource data\n    end\n    \n    Node->>AI: Response (JSON-RPC)"
             }
           ],
-          "verified_at": "2026-10-10",
+          "verified_at": "2026-10-19",
           "repo_id": 948148972
         },
         {
@@ -38779,11 +38983,11 @@
           "unfit": "不能接受 GPL 的商业项目。",
           "src": "github README + DeepWiki",
           "url": "https://github.com/r1n7aro/Locus",
-          "stars": 747,
+          "stars": 754,
           "created_at": "2026-04-22",
-          "pushed_at": "2026-09-23",
-          "stars_per_month": 133,
-          "stale_months": 1,
+          "pushed_at": "2026-10-17",
+          "stars_per_month": 128,
+          "stale_months": 0,
           "diagrams": [
             {
               "id": "g-locus-1",
@@ -38802,7 +39006,7 @@
               "mermaid": "sequenceDiagram\n    participant UI as KnowledgeSearchPanel.vue\n    participant TOOL as knowledge_query.json\n    participant RT as KnowledgeRuntime [mod.rs]\n    participant LEX as KnowledgeTantivyIndex\n    participant EMB as EmbeddingManager\n\n    UI->>TOOL: query(lexicalQuery, semanticQuery)\n    TOOL->>RT: query_documents_with_progress()\n    par Lexical Search\n        RT->>LEX: search(lexicalQuery)\n        LEX-->>RT: Vec<LexicalHit>\n    and Semantic Search\n        RT->>EMB: encode(semanticQuery)\n        EMB-->>RT: Vector\n        RT->>RT: vector_similarity_search()\n    end\n    RT->>RT: semantic_rank::passes_semantic_score_threshold()\n    RT-->>UI: Vec<KnowledgeSearchHit>"
             }
           ],
-          "verified_at": "2026-10-10",
+          "verified_at": "2026-10-19",
           "hands": {
             "install": [
               {
@@ -38876,10 +39080,10 @@
           "unfit": "生产项目 —— 作者自己不建议。想看虚幻侧怎么接，读它；想用，看官方那条路。",
           "src": "github README + DeepWiki",
           "url": "https://github.com/chongdashu/unreal-mcp",
-          "stars": 2090,
+          "stars": 2096,
           "created_at": "2025-03-28",
           "pushed_at": "2025-04-22",
-          "stars_per_month": 113,
+          "stars_per_month": 112,
           "stale_months": 18,
           "diagrams": [
             {
@@ -38899,7 +39103,7 @@
               "mermaid": "sequenceDiagram\n    participant Client as \"Client Application\"\n    participant MCP as \"Python MCP Server\"\n    participant Conn as \"UnrealConnection\"\n    participant UE as \"Unreal Engine\"\n    \n    Client->>MCP: Call tool function\n    MCP->>Conn: get_unreal_connection()\n    \n    alt No existing connection\n        Conn->>Conn: Create new connection\n        Conn->>UE: Connect socket\n        UE-->>Conn: Connection established\n    else Connection exists\n        Conn->>Conn: Verify connection\n        alt Connection valid\n            Conn-->>MCP: Return existing connection\n        else Connection invalid\n            Conn->>Conn: Create new connection\n            Conn->>UE: Connect socket\n            UE-->>Conn: Connection established\n        end\n    end\n    \n    MCP->>Conn: send_command(command, params)\n    Conn->>UE: Send JSON command\n    UE->>UE: Process command\n    UE-->>Conn: Return JSON response\n    Conn->>Conn: Parse response\n    Conn-->>MCP: Return parsed response\n    MCP-->>Client: Return result"
             }
           ],
-          "verified_at": "2026-10-10",
+          "verified_at": "2026-10-19",
           "hands": {
             "install": [
               {
@@ -38996,10 +39200,10 @@
           "unfit": "还在虚幻 5.7 及更早的项目 —— 官方 MCP 那时还不存在。",
           "src": "github README + DeepWiki",
           "url": "https://github.com/kevinpbuckley/VibeUE",
-          "stars": 729,
+          "stars": 781,
           "created_at": "2025-09-12",
           "pushed_at": "2026-10-07",
-          "stars_per_month": 56,
+          "stars_per_month": 59,
           "stale_months": 0,
           "diagrams": [
             {
@@ -39019,7 +39223,7 @@
               "mermaid": "sequenceDiagram\n    participant Client as AI Client\n    participant Python as vibe_ue_server.py\n    participant UBridge as UBridge::RouteCommand\n    participant MatNodeCmd as FMaterialNodeCommands\n    participant MatNodeSvc as FMaterialNodeService\n    participant UE as Unreal Engine APIs\n    \n    Client->>Python: manage_material_node(action=\"create\")\n    Python->>UBridge: TCP JSON: {\"type\": \"manage_material_node\", \"params\": {...}}\n    UBridge->>UBridge: AsyncTask(GameThread)\n    UBridge->>MatNodeCmd: HandleCommand(\"manage_material_node\", params)\n    MatNodeCmd->>MatNodeCmd: ParseAction(\"create\")\n    MatNodeCmd->>MatNodeSvc: CreateExpression(material, class, x, y)\n    MatNodeSvc->>UE: UMaterialEditingLibrary::CreateMaterialExpression\n    UE-->>MatNodeSvc: UMaterialExpression*\n    MatNodeSvc->>MatNodeSvc: BuildExpressionInfo()\n    MatNodeSvc-->>MatNodeCmd: TResult<FMaterialExpressionInfo>::Success\n    MatNodeCmd-->>UBridge: JSON: {\"success\": true, \"expression\": {...}}\n    UBridge-->>Python: TCP Response\n    Python-->>Client: MCP Response"
             }
           ],
-          "verified_at": "2026-10-10",
+          "verified_at": "2026-10-19",
           "hands": {
             "install": [
               {
@@ -39117,11 +39321,11 @@
           "unfit": "不用 Claude 的团队 —— 编辑器面板那一半是白装的。",
           "src": "github README + DeepWiki",
           "url": "https://github.com/Natfii/UnrealClaude",
-          "stars": 909,
+          "stars": 940,
           "created_at": "2026-01-03",
           "pushed_at": "2026-06-26",
           "stars_per_month": 99,
-          "stale_months": 3,
+          "stale_months": 4,
           "diagrams": [
             {
               "id": "g-unrealclaude-1",
@@ -39140,7 +39344,7 @@
               "mermaid": "sequenceDiagram\n    participant UI as SClaudeEditorWidget\n    participant Sub as FClaudeCodeSubsystem\n    participant Run as FClaudeCodeRunner\n    participant CLI as claude (Process)\n    participant Br as MCP Bridge (Node.js)\n    participant Srv as FUnrealClaudeMCPServer\n    participant Reg as FMCPToolRegistry\n    \n    UI->>Sub: SendPrompt(\"Spawn an actor\")\n    Sub->>Run: ExecuteAsync()\n    Run->>CLI: Write NDJSON to Stdin\n    CLI->>Br: HTTP POST /mcp/tool/spawn_actor\n    Br->>Srv: Forward to Plugin Port 3000\n    Srv->>Reg: HandleExecuteTool()\n    Reg->>Reg: FMCPTool_SpawnActor::Execute()\n    Reg-->>Srv: FMCPToolResult\n    Srv-->>Br: JSON Response\n    Br-->>CLI: Tool Result\n    CLI-->>Run: Read NDJSON from Stdout\n    Run-->>UI: Update Chat Stream"
             }
           ],
-          "verified_at": "2026-10-10",
+          "verified_at": "2026-10-19",
           "hands": {
             "install": [
               {
@@ -39187,7 +39391,7 @@
         },
         {
           "id": "unreal-mcp-chir",
-          "zh": "Unreal Engine MCP Server",
+          "zh": "EngineWire（原 Unreal MCP）",
           "license": "MIT",
           "license_class": "permissive",
           "group": "engine",
@@ -39205,7 +39409,7 @@
           ],
           "scope": "经一个原生 C++ 自动化桥插件控制虚幻：资源管理、Actor、编辑器与播放模式、关卡、动画与物理、Niagara 特效、Sequencer 影视与渲染队列。TypeScript 加 C++ 写成。",
           "control": "桥在 C++ 侧，能力边界跟着引擎的自动化接口走 —— 引擎能自动化的它基本都能调。",
-          "hw": "仓库未说明版本下限；提供 Docker 与 npm 包两种装法。",
+          "hw": "支持 UE 5.0–5.8；安装原生 C++ 插件，可选 HTTP 或 Node stdio 接入。预编译二进制必须匹配引擎小版本及平台。",
           "good": [
             "覆盖到 Sequencer 与渲染队列，做过场动画这一块同类少见",
             "已登记进 MCP 官方注册表，装起来省事",
@@ -39219,10 +39423,10 @@
           "unfit": "只需要摆几个 Actor —— 这么大的覆盖面是负担。",
           "src": "github README + DeepWiki",
           "url": "https://github.com/ChiR24/Unreal_mcp",
-          "stars": 911,
+          "stars": 958,
           "created_at": "2025-09-07",
-          "pushed_at": "2026-10-09",
-          "stars_per_month": 70,
+          "pushed_at": "2026-10-19",
+          "stars_per_month": 72,
           "stale_months": 0,
           "diagrams": [
             {
@@ -39242,7 +39446,7 @@
               "mermaid": "sequenceDiagram\n    participant Tool as \"Tool Handler\"\n    participant UB as \"UnrealBridge\"\n    participant AB as \"AutomationBridge<br/>sendAutomationRequest()\"\n    participant WS as \"WebSocket\"\n    participant Mgr as \"FMcpConnectionManager\"\n    participant Sub as \"UMcpAutomationBridgeSubsystem\"\n    \n    Tool->>UB: executeConsoleCommand(cmd)\n    UB->>UB: CommandValidator.validate(cmd)\n    UB->>AB: sendAutomationRequest('console_command', {command})\n    AB->>AB: Generate request ID\n    AB->>WS: Send JSON {type:'command', id, action, args}\n    \n    WS->>Mgr: Binary WebSocket frame\n    Mgr->>Mgr: Validate size <= 5MB\n    Mgr->>Sub: Dispatch request\n    Sub->>Sub: Lookup handler in TMap\n    Sub->>Sub: Execute handler function\n    Sub-->>Mgr: Result\n    Mgr-->>WS: JSON response {type:'response', id, success, result}\n    \n    WS-->>AB: Parse response\n    AB->>AB: Match request ID\n    AB-->>UB: Return StandardActionResponse\n    UB-->>Tool: Success/error result\n    \n    Note over AB,WS: Timeout: 30s default<br/>Configurable per request"
             }
           ],
-          "verified_at": "2026-10-10",
+          "verified_at": "2026-10-19",
           "tutorials": [
             {
               "title": "MCP 官方注册表",
@@ -39287,11 +39491,11 @@
           "unfit": "需要长期依赖的生产项目 —— 归属已变，路线不由社区定。",
           "src": "github README + DeepWiki",
           "url": "https://github.com/flopperam/unreal-engine-mcp",
-          "stars": 1094,
+          "stars": 1109,
           "created_at": "2025-08-06",
           "pushed_at": "2026-06-26",
           "stars_per_month": 77,
-          "stale_months": 3,
+          "stale_months": 4,
           "diagrams": [
             {
               "id": "g-unreal-engine-mcp-1",
@@ -39310,7 +39514,7 @@
               "mermaid": "sequenceDiagram\n    participant Python as \"UnrealConnection\"\n    participant Socket as \"TCP Socket\"\n    participant Bridge as \"UEpicUnrealMCPBridge\"\n    participant GameThread as \"Unreal Game Thread\"\n    participant Engine as \"Unreal Engine APIs\"\n    \n    Python->>Socket: JSON Command\n    Socket->>Bridge: Raw TCP Data\n    Bridge->>Bridge: Parse JSON\n    Bridge->>GameThread: AsyncTask(ExecuteCommand)\n    \n    alt Editor Command\n        GameThread->>Engine: EditorCommands->HandleCommand()\n    else Blueprint Command\n        GameThread->>Engine: BlueprintCommands->HandleCommand()\n    end\n    \n    Engine-->>GameThread: Result\n    GameThread-->>Bridge: JSON Response\n    Bridge-->>Socket: Serialized Response\n    Socket-->>Python: TCP Response"
             }
           ],
-          "verified_at": "2026-10-10",
+          "verified_at": "2026-10-19",
           "repo_id": 1032917792
         },
         {
@@ -39347,10 +39551,10 @@
           "unfit": "不想装 Node 的 —— 有原生实现的替代品。",
           "src": "github README + DeepWiki",
           "url": "https://github.com/Coding-Solo/godot-mcp",
-          "stars": 5988,
+          "stars": 6154,
           "created_at": "2025-02-26",
           "pushed_at": "2026-04-16",
-          "stars_per_month": 308,
+          "stars_per_month": 312,
           "stale_months": 6,
           "diagrams": [
             {
@@ -39370,7 +39574,7 @@
               "mermaid": "sequenceDiagram\n    participant AI as \"AI Assistant\"\n    participant MCP as \"GodotServer\"\n    participant GodotOps as \"godot_operations.gd\"\n    participant Godot as \"Godot Engine\"\n    \n    AI->>MCP: Call tool (name + arguments)\n    \n    alt Direct CLI Tools\n        Note right of MCP: Simple tools like launch_editor, get_godot_version\n        MCP->>Godot: Execute CLI command\n        Godot-->>MCP: Return result\n    else GDScript Operations\n        Note right of MCP: Complex tools like create_scene, add_node\n        MCP->>MCP: Normalize & validate parameters\n        MCP->>MCP: Convert camelCase to snake_case\n        MCP->>Godot: Execute with --script godot_operations.gd\n        Godot->>GodotOps: Execute operation with parameters\n        GodotOps->>Godot: Perform operation (scene manipulation, etc.)\n        Godot-->>GodotOps: Operation result\n        GodotOps-->>MCP: Return output/errors\n    end\n    \n    MCP->>AI: Formatted response (JSON or error)"
             }
           ],
-          "verified_at": "2026-10-10",
+          "verified_at": "2026-10-19",
           "hands": {
             "install": [
               {
@@ -39458,10 +39662,10 @@
           "unfit": "Godot 4.4 及更早的项目。",
           "src": "github README + DeepWiki",
           "url": "https://github.com/hi-godot/godot-ai",
-          "stars": 2882,
+          "stars": 3071,
           "created_at": "2026-04-12",
-          "pushed_at": "2026-10-09",
-          "stars_per_month": 485,
+          "pushed_at": "2026-10-18",
+          "stars_per_month": 492,
           "stale_months": 0,
           "diagrams": [
             {
@@ -39481,7 +39685,7 @@
               "mermaid": "sequenceDiagram\n    participant C as AI Client\n    participant M as HintOpTypoOnManage\n    participant P as Pydantic (FastMCP)\n    participant R as MANAGE_TOOL_OPS\n\n    C->>M: node_manage(op=\"get_childen\")\n    M->>P: call_next(context)\n    Note over P: ValidationError: 'get_childen' not in Literal[...]\n    P-->>M: raise ValidationError\n    M->>R: get(\"node_manage\")\n    R-->>M: (\"get_children\", \"delete\", ...)\n    M->>M: difflib.get_close_matches(\"get_childen\")\n    M-->>C: raise ToolError(\"Did you mean 'get_children'?\")"
             }
           ],
-          "verified_at": "2026-10-10",
+          "verified_at": "2026-10-19",
           "hands": {
             "install": [
               {
@@ -39572,12 +39776,12 @@
           "wiki": "none",
           "wiki_note": "DeepWiki 首页抓不到由源码生成的图（2026-08-17 核）。这个仓库 DeepWiki 没有索引到可画的结构，**不是我们没抓，是那边没有** —— 所以这一项只有 README 与文档两层。",
           "url": "https://github.com/yurineko73/Godot-MCP-Native",
-          "stars": 836,
+          "stars": 859,
           "created_at": "2026-05-04",
           "pushed_at": "2026-08-03",
-          "stars_per_month": 160,
-          "stale_months": 2,
-          "verified_at": "2026-10-10",
+          "stars_per_month": 156,
+          "stale_months": 3,
+          "verified_at": "2026-10-19",
           "hands": {
             "install": [
               {
@@ -39652,7 +39856,7 @@
           "unfit": "对授权状态有要求的商业项目 —— 先把许可证问清楚。",
           "src": "github README + DeepWiki",
           "url": "https://github.com/DaxianLee/cocos-mcp-server",
-          "stars": 1438,
+          "stars": 1460,
           "created_at": "2025-07-17",
           "pushed_at": "2026-07-08",
           "stars_per_month": 97,
@@ -39675,7 +39879,7 @@
               "mermaid": "sequenceDiagram\n    participant UI as \"Control Panel<br/>Vue 3 UI\"\n    participant IPC as \"Editor.Message.send\"\n    participant Main as \"main.ts<br/>Message Handler\"\n    participant Server as \"MCPServer Instance\"\n    participant Setup as \"setupTools()\"\n    participant List as \"toolsList[]\"\n    \n    UI->>UI: User toggles tool<br/>checkbox\n    UI->>IPC: 'update-enabled-tools'<br/>[{category, name, enabled}]\n    IPC->>Main: Message received\n    Main->>Server: updateEnabledTools(enabledTools)\n    Server->>Server: this.enabledTools = enabledTools\n    Server->>Setup: setupTools() re-runs\n    Setup->>List: Rebuild tool list<br/>with new filters\n    List-->>Server: Updated toolsList\n    Server-->>Main: Update complete\n    Main-->>UI: Success response\n    UI->>UI: Update UI to reflect<br/>new state"
             }
           ],
-          "verified_at": "2026-10-10",
+          "verified_at": "2026-10-19",
           "hands": {
             "install": [
               {
@@ -39757,12 +39961,12 @@
           "wiki": "none",
           "wiki_note": "DeepWiki 首页抓不到由源码生成的图（2026-08-17 核）。仓库体量小，那边没有索引到可画的结构。",
           "url": "https://github.com/Chrrxs/robloxstudio-mcp",
-          "stars": 287,
+          "stars": 314,
           "created_at": "2026-05-23",
-          "pushed_at": "2026-10-09",
-          "stars_per_month": 62,
+          "pushed_at": "2026-10-18",
+          "stars_per_month": 64,
           "stale_months": 0,
-          "verified_at": "2026-10-10",
+          "verified_at": "2026-10-19",
           "repo_id": 1247808514
         },
         {
@@ -39785,7 +39989,7 @@
             "改的是现成工程"
           ],
           "scope": "把 Blender 接到任意大模型：用对话做建模、搭场景、改物件。",
-          "control": "**它不生成模型，它操作建模软件** —— 于是拓扑、UV、绑骨这些生成模型给不了的东西，全都回到了你手里。这是素材侧和「图生 3D」完全不同的一条路。",
+          "control": "以 MCP 操作 Blender 工程，支持建模、场景和资产管理；还可调用 Tripo、Hunyuan3D、Rodin、Meshy 生成并导入资产。生成模型质量与 Blender 编辑能力应分开评价。",
           "hw": "uv；Blender；一个 MCP 客户端。不需要显卡跑推理。",
           "good": [
             "**绕开了生成模型最大的短板**：出来的是可编辑的工程，不是一坨网格",
@@ -39795,15 +39999,16 @@
           "bad": [
             "你得会 Blender —— 它放大的是你的能力，不是替代",
             "对话操作复杂建模效率不一定比手动高",
-            "和游戏引擎之间还隔着一次导出"
+            "和游戏引擎之间还隔着一次导出",
+            "Meshy 集成使用用户自己的 API Key，需付费套餐，不包含在 Premium 生成额度中。"
           ],
           "unfit": "完全不懂三维的人 —— 它假设你知道自己要什么。",
           "src": "github README + DeepWiki",
           "url": "https://github.com/ahujasid/mcp-for-blender",
-          "stars": 30330,
+          "stars": 31632,
           "created_at": "2025-03-07",
-          "pushed_at": "2026-10-06",
-          "stars_per_month": 1586,
+          "pushed_at": "2026-10-18",
+          "stars_per_month": 1629,
           "stale_months": 0,
           "diagrams": [
             {
@@ -39823,7 +40028,7 @@
               "mermaid": "sequenceDiagram\n    participant Operator as \"BLENDERMCP_OT_connect\"\n    participant Server as \"BlenderMCPServer\"\n    participant Socket as \"socket.socket\"\n    participant Thread as \"server_thread\"\n    \n    Operator->>Server: __init__(host, port)\n    Server->>Server: Set running=False\n    Operator->>Server: start()\n    Server->>Socket: socket.socket(AF_INET, SOCK_STREAM)\n    Server->>Socket: setsockopt(SO_REUSEADDR, 1)\n    Server->>Socket: bind((host, port))\n    Server->>Socket: listen(1)\n    Server->>Thread: threading.Thread(target=_server_loop)\n    Server->>Thread: daemon=True\n    Server->>Thread: start()\n    Note over Server: Server ready on port 9876"
             }
           ],
-          "verified_at": "2026-10-10",
+          "verified_at": "2026-10-19",
           "hands": {
             "install": [
               {
@@ -39912,11 +40117,11 @@
           "unfit": "没有 A 卡以上级别显卡的个人开发者 —— 门槛在硬件不在软件。",
           "src": "github README + DeepWiki",
           "url": "https://github.com/microsoft/TRELLIS",
-          "stars": 13840,
+          "stars": 14009,
           "created_at": "2024-12-02",
           "pushed_at": "2026-06-26",
           "stars_per_month": 622,
-          "stale_months": 3,
+          "stale_months": 4,
           "diagrams": [
             {
               "id": "g-trellis-1",
@@ -39935,7 +40140,7 @@
               "mermaid": "sequenceDiagram\n    participant User\n    participant Pipeline as \"TrellisImageTo3DPipeline\"\n    participant Outputs as \"Pipeline Outputs Dict\"\n    participant GLBExport as \"postprocessing_utils.to_glb()\"\n    participant PLYExport as \"gaussian.save_ply()\"\n    participant FileSystem as \"File System\"\n    \n    User->>Pipeline: run(image, seed=1)\n    Pipeline->>Outputs: Return {'gaussian': [...], 'mesh': [...]}\n    \n    Note over Outputs: User has 3D asset in memory<br/>Can extract multiple formats\n    \n    User->>GLBExport: to_glb(gaussian, mesh, simplify=0.95, texture_size=1024)\n    GLBExport->>GLBExport: Simplify mesh\n    GLBExport->>GLBExport: Bake texture from Gaussians\n    GLBExport->>GLBExport: Package into GLB\n    GLBExport-->>User: Return GLB object\n    User->>FileSystem: glb.export(\"output.glb\")\n    \n    User->>PLYExport: gaussian.save_ply(\"output.ply\")\n    PLYExport->>FileSystem: Write PLY file directly\n    \n    Note over FileSystem: Two formats available:<br/>output.glb (~5 MB)<br/>output.ply (~50 MB)"
             }
           ],
-          "verified_at": "2026-10-10",
+          "verified_at": "2026-10-19",
           "hands": {
             "install": [
               {
@@ -40024,7 +40229,7 @@
           "unfit": "面向欧盟或英国市场的产品 —— 许可证不覆盖那些地区。",
           "src": "github README + LICENSE 原文 + DeepWiki",
           "url": "https://github.com/Tencent-Hunyuan/Hunyuan3D-2.1",
-          "stars": 4155,
+          "stars": 4232,
           "created_at": "2025-06-13",
           "pushed_at": "2025-10-17",
           "stars_per_month": 261,
@@ -40047,7 +40252,7 @@
               "mermaid": "sequenceDiagram\n    participant Init as \"__init__\"\n    participant RemBG as \"BackgroundRemover\"\n    participant ShapePipe as \"Hunyuan3DDiTFlowMatching<br/>Pipeline\"\n    participant PaintPipe as \"Hunyuan3DPaintPipeline\"\n    participant FS as \"File System\"\n    \n    Init->>RemBG: Initialize rembg\n    Note over RemBG: model_worker.py:96\n    \n    Init->>ShapePipe: from_pretrained(model_path)\n    Note over ShapePipe: model_worker.py:99\n    \n    alt enable_flashvdm\n        Init->>ShapePipe: enable_flashvdm(mc_algo)\n        Note over ShapePipe: model_worker.py:100-102\n    end\n    \n    alt compile\n        Init->>ShapePipe: compile()\n        Note over ShapePipe: model_worker.py:103-104\n    end\n    \n    Init->>Init: Create Hunyuan3DPaintConfig\n    Note over Init: max_num_view=6<br/>resolution=512<br/>model_worker.py:107-112\n    \n    Init->>PaintPipe: Hunyuan3DPaintPipeline(conf)\n    Note over PaintPipe: model_worker.py:113\n    \n    Init->>FS: Clean cache directory\n    Note over FS: Remove old files<br/>model_worker.py:114-116"
             }
           ],
-          "verified_at": "2026-10-10",
+          "verified_at": "2026-10-19",
           "hands": {
             "install": [
               {
@@ -40134,10 +40339,10 @@
           "unfit": "只要一个静态摆件 —— 拆分能力用不上，选更省事的。",
           "src": "github README + DeepWiki",
           "url": "https://github.com/wgsxm/PartCrafter",
-          "stars": 2489,
+          "stars": 2493,
           "created_at": "2025-06-09",
           "pushed_at": "2026-04-16",
-          "stars_per_month": 155,
+          "stars_per_month": 153,
           "stale_months": 6,
           "diagrams": [
             {
@@ -40157,7 +40362,7 @@
               "mermaid": "flowchart TD\n    LatentInput[\"structured_latent_input\"]\n    NoiseScheduler[\"noise_scheduler\"]\n    PartCrafterDiTModel[\"PartCrafterDiTModel\"]\n    PartEmbedding[\"part_embedding\"]\n    TimeEmbedding[\"time_embedding\"]\n    DenoisedLatents[\"denoised_latents\"]\n    \n    LatentInput --> NoiseScheduler\n    NoiseScheduler --> PartCrafterDiTModel\n    PartEmbedding -->|\"part-specific tokens\"| PartCrafterDiTModel\n    TimeEmbedding --> PartCrafterDiTModel\n    PartCrafterDiTModel --> DenoisedLatents"
             }
           ],
-          "verified_at": "2026-10-10",
+          "verified_at": "2026-10-19",
           "tutorials": [
             {
               "title": "模型权重与说明",
@@ -40202,7 +40407,7 @@
           "unfit": "需要长期跟进新版的生产管线 —— 它已经不动了。",
           "src": "github README + DeepWiki",
           "url": "https://github.com/VAST-AI-Research/TripoSG",
-          "stars": 1826,
+          "stars": 1847,
           "created_at": "2025-03-24",
           "pushed_at": "2025-04-18",
           "stars_per_month": 98,
@@ -40225,7 +40430,7 @@
               "mermaid": "flowchart LR\n    A[\"Full Resolution Mesh\"] --> B{\"faces > target?\"}\n    B -->|Yes| C[\"Merge Close Vertices\"]\n    C --> D[\"Quadric Edge Collapse\"]\n    D --> E[\"Simplified Mesh\"]\n    B -->|No| E"
             }
           ],
-          "verified_at": "2026-10-10",
+          "verified_at": "2026-10-19",
           "hands": {
             "install": [
               {
@@ -40312,7 +40517,7 @@
           "stars": 1047,
           "created_at": "2024-07-31",
           "pushed_at": "2025-07-14",
-          "stars_per_month": 40,
+          "stars_per_month": 39,
           "stale_months": 15,
           "diagrams": [
             {
@@ -40332,7 +40537,7 @@
               "mermaid": "sequenceDiagram\n    participant User\n    participant Gradio as \"Gradio Web Interface\"\n    participant Model as \"3DTopia-XL Model\"\n    participant FileSystem as \"File System\"\n    \n    User->>Gradio: Upload image or enter text prompt\n    User->>Gradio: Adjust inference parameters\n    User->>Gradio: Click \"Generate\" button\n    Gradio->>Model: Process input with parameters\n    Model->>Gradio: Return generation progress\n    Gradio->>User: Display intermediate results\n    Model->>FileSystem: Save final 3D mesh (GLB)\n    FileSystem->>Gradio: Load 3D mesh for preview\n    Gradio->>User: Display 3D model viewer\n    Gradio->>User: Provide download link"
             }
           ],
-          "verified_at": "2026-10-10",
+          "verified_at": "2026-10-19",
           "repo_id": 836079752
         },
         {
@@ -40367,10 +40572,10 @@
           "unfit": "要一套游戏音效 —— 它是音乐模型，不是音效模型。",
           "src": "github README + DeepWiki",
           "url": "https://github.com/ace-step/ACE-Step-1.5",
-          "stars": 13325,
+          "stars": 13790,
           "created_at": "2025-09-04",
-          "pushed_at": "2026-10-05",
-          "stars_per_month": 1012,
+          "pushed_at": "2026-10-11",
+          "stars_per_month": 1024,
           "stale_months": 0,
           "diagrams": [
             {
@@ -40390,7 +40595,7 @@
               "mermaid": "sequenceDiagram\n    participant UI as \"Gradio Interface\"\n    participant BatchMgr as \"generate_with_batch_management<br/>(batch_management_wrapper.py)\"\n    participant Progress as \"generate_with_progress<br/>(generation_progress.py)\"\n    participant Music as \"generate_music<br/>(inference.py)\"\n    participant BQueue as \"Batch Queue<br/>(batch_queue.py)\"\n    \n    UI->>BatchMgr: Click \"Generate\"\n    BatchMgr->>Progress: Start Streaming Generator\n    \n    rect loop [Inference Pass]\n        Progress->>Music: Call inference pipeline\n        Music-->>Progress: Partial Tensors / Audio\n        Progress-->>BatchMgr: Yield UI Updates (46 core outputs)\n        BatchMgr-->>UI: Update Playback/Waveforms\n    end\n    \n    BatchMgr->>BQueue: store_batch_in_queue()\n    Note over BatchMgr, BQueue: Stores seeds, audio_paths, and params\n    BatchMgr-->>UI: Final Batch Navigation Update"
             }
           ],
-          "verified_at": "2026-10-10",
+          "verified_at": "2026-10-19",
           "repo_id": 1050131556
         },
         {
@@ -40423,10 +40628,10 @@
           "unfit": "要循环播放的背景音乐 —— 带人声的整曲不适合长时间循环。",
           "src": "github README + DeepWiki",
           "url": "https://github.com/multimodal-art-projection/YuE",
-          "stars": 11053,
+          "stars": 12270,
           "created_at": "2025-01-23",
           "pushed_at": "2026-10-06",
-          "stars_per_month": 538,
+          "stars_per_month": 589,
           "stale_months": 0,
           "diagrams": [
             {
@@ -40446,7 +40651,7 @@
               "mermaid": "sequenceDiagram\n    participant Input as \"Input Preparation\"\n    participant MM as \"MMTokenizer\"\n    participant S1 as \"Stage 1 Model\"\n    participant CM as \"CodecManipulator\"\n    participant Output as \"Stage 1 Output\"\n    \n    Input->>MM: Genre tags & lyrics\n    \n    alt Using Audio Prompt (ICL mode)\n        Input->>CM: Encode audio prompt\n        CM->>MM: Add audio tokens to prompt\n    end\n    \n    MM->>S1: Tokenized prompt\n    \n    loop For each lyric segment\n        S1->>S1: Generate audio tokens\n        S1->>CM: Output raw token sequence\n        CM->>CM: Extract & separate vocal/instrumental\n    end\n    \n    CM->>Output: Save vocal tokens (.npy)\n    CM->>Output: Save instrumental tokens (.npy)"
             }
           ],
-          "verified_at": "2026-10-10",
+          "verified_at": "2026-10-19",
           "license_note": "2026-10-10 核 README：代码、技能和文档 Apache-2.0；权重另有 MODEL_LICENSE，公司商用需联系授权。旧 YuE-v1 的许可不能套到 YuE2。",
           "repo_id": 920995232
         },
@@ -40484,9 +40689,9 @@
           "unfit": "想要会聊天的 NPC —— 这条路训的是操作，不是语言。",
           "src": "github README + LICENSE 原文 + DeepWiki",
           "url": "https://github.com/Unity-Technologies/ml-agents",
-          "stars": 19727,
+          "stars": 19770,
           "created_at": "2017-09-08",
-          "pushed_at": "2026-10-07",
+          "pushed_at": "2026-10-13",
           "stars_per_month": 181,
           "stale_months": 0,
           "diagrams": [
@@ -40507,7 +40712,7 @@
               "mermaid": "graph TD\n    Academy[\"Academy<br/>(Unity.MLAgents.Academy)\"]\n    Agent1[\"Agent<br/>(Unity.MLAgents.Agent)\"]\n    Agent2[\"Agent<br/>(Unity.MLAgents.Agent)\"]\n    \n    BP[\"BehaviorParameters<br/>(Unity.MLAgents.Policies.BehaviorParameters)\"]\n    DR[\"DecisionRequester<br/>(Unity.MLAgents.DecisionRequester)\"]\n    \n    Academy -->|\"EnvironmentStep()\"| Agent1\n    Academy -->|\"EnvironmentStep()\"| Agent2\n    \n    Agent1 --> BP\n    Agent1 --> DR\n    \n    Academy -.->|\"Communicator\"| RpcComm[\"RpcCommunicator\"]"
             }
           ],
-          "verified_at": "2026-10-10",
+          "verified_at": "2026-10-19",
           "tutorials": [
             {
               "title": "Unity 官方包文档",
@@ -40552,11 +40757,11 @@
           "unfit": "面向低配移动设备的游戏 —— 本地推理这条路在那儿走不通。",
           "src": "github README + DeepWiki",
           "url": "https://github.com/undreamai/LLMUnity",
-          "stars": 1719,
+          "stars": 1727,
           "created_at": "2023-12-27",
           "pushed_at": "2026-04-29",
           "stars_per_month": 51,
-          "stale_months": 5,
+          "stale_months": 6,
           "diagrams": [
             {
               "id": "g-llmunity-1",
@@ -40575,7 +40780,7 @@
               "mermaid": "sequenceDiagram\n    participant Client as \"LLMCaller (e.g., LLMCharacter)\"\n    participant LLM as \"LLM Component\"\n    participant LLMLib as \"LLMLib\"\n    participant Native as \"Native Library\"\n    \n    Client->>LLM: Register(llmCaller)\n    LLM-->>Client: id_slot\n    \n    Client->>LLM: Completion(jsonRequest, streamCallback)\n    LLM->>LLMLib: LLM_Completion(json, streamWrapper)\n    \n    LLMLib->>Native: Process Request\n    \n    loop Until complete\n        Native->>LLMLib: Stream response\n        LLMLib->>StreamWrapper: Update buffer\n        StreamWrapper->>Client: streamCallback(partialResult)\n    end\n    \n    LLMLib-->>LLM: Final result\n    LLM-->>Client: Return complete result"
             }
           ],
-          "verified_at": "2026-10-10",
+          "verified_at": "2026-10-19",
           "hands": {
             "install": [
               {
@@ -40665,7 +40870,7 @@
           "unfit": "Unity 项目 —— 官方那套更成熟。",
           "src": "github README + DeepWiki",
           "url": "https://github.com/edbeeching/godot_rl_agents",
-          "stars": 1602,
+          "stars": 1615,
           "created_at": "2021-07-01",
           "pushed_at": "2026-07-10",
           "stars_per_month": 25,
@@ -40688,7 +40893,7 @@
               "mermaid": "graph LR\n    User[\"User/Wrapper\"] -->|\"close()\"| Close[\"GodotEnv.close()\"]\n    Close -->|\"JSON: {type: 'close'}\"| Send[\"_send_as_json\"]\n    Send --> Wait[\"time.sleep(1.0)\"]\n    Wait --> SocketClose[\"connection.close()\"]\n    SocketClose --> Unregister[\"atexit.unregister(_close)\"]"
             }
           ],
-          "verified_at": "2026-10-10",
+          "verified_at": "2026-10-19",
           "repo_id": 382052734
         },
         {
@@ -40713,27 +40918,27 @@
             "拿跑起来的画面自证",
             "三个引擎各一套指南"
           ],
-          "scope": "**一个生成游戏的生成器**：选好引擎与宿主 Agent，它先产出一个很薄的游戏仓库（一份运行时清单、一页引擎指南、一个素材生成技能），Agent 再在那个仓库里把游戏建出来。支持 Godot 4（C#/.NET）、Bevy（Rust）、Babylon.js（浏览器）。",
+          "scope": "生成游戏工程与 Agent 工作流：覆盖 Godot 4（C# 或 GDScript）、Bevy、Babylon.js、three.js；素材生成、编码、运行与录屏验证形成闭环。",
           "control": "**它不看编译过没过，它看跑起来长什么样** —— README 的原话是「以证据代替声明」：Agent 从运行中的游戏（一个实时网址或一段录屏）判断结果，于是看得见的缺陷会驱动下一轮迭代。你可以盯着实时画面随时插手，也可以完全不管、最后收一段十几二十秒的自证录像。",
-          "hw": "按引擎装 Godot .NET / Rust / Node 22.12+；Chrome 加硬件 WebGL2；Python 3；以及 vulkan-tools、xvfb、ffmpeg、imagemagick。**另需三个闭源接口的密钥。** 在 Ubuntu、Debian、macOS 上测过。",
+          "hw": "按引擎准备 Godot / Rust / Node 22.12+；浏览器录屏需硬件 WebGL2，另需 Python 3 等依赖。本地素材生成使用 godogen_assets，需要 NVIDIA GPU；Gemini、Grok、Tripo 等付费 API 是可选补充。",
           "arch": "发布期把引擎与宿主 Agent 渲染成一份运行时布局：`prompts/runtime.md` 是清单，`asset-gen/` 是跨引擎的素材生成技能，`engines/*.md` 各是一页引擎指南。工程脚手架与截屏工具由 Agent 照着指南自己重建。",
           "good": [
             "**这一类里唯一明说能无人值守跑完的**，而且给出了「怎么算跑通」的判据：录像",
-            "三个引擎横着支持，不押注单一技术栈",
+            "支持四个引擎、五种工程配置，Godot 可选 C# 或 GDScript。",
             "素材、代码、运行、验证接成一条闭环，不是只写代码"
           ],
           "bad": [
-            "**产能全是买来的**：参考图与角色走 Gemini、贴图与视频走 Grok、3D 与绑定走 Tripo3D —— 三个密钥缺一不可，开源的是编排不是能力",
-            "**一次完整生成要几个小时**，作者自己建议放到 GPU 服务器上跑并用 tmux 挂着",
-            "依赖列表很长（引擎 + Rust + Node + Python + 四个系统包），装起来是真门槛"
+            "本地素材生成需要 NVIDIA GPU；没有本地生成服务时，可改用相应付费 API。",
+            "引擎与素材后端的依赖不同，运行成本和耗时需按具体项目评估。",
+            "依赖覆盖引擎、Node、Python 与媒体工具，首次配置有门槛。"
           ],
-          "unfit": "想在自己笔记本上十分钟出个东西 —— 它的运行尺度是「小时」和「服务器」。",
+          "unfit": "不愿配置引擎、素材工具和录屏环境，只想即开即用的场景。",
           "src": "github README + DeepWiki",
           "url": "https://github.com/htdt/godogen",
-          "stars": 7073,
+          "stars": 7162,
           "created_at": "2026-02-06",
-          "pushed_at": "2026-10-01",
-          "stars_per_month": 875,
+          "pushed_at": "2026-10-16",
+          "stars_per_month": 855,
           "stale_months": 0,
           "diagrams": [
             {
@@ -40753,7 +40958,7 @@
               "mermaid": "sequenceDiagram\n    participant O as Orchestrator\n    participant AG as asset_gen.py\n    participant B as budget.json\n    participant AI as AI Services (Gemini/Tripo3D)\n\n    O->>AG: Call subcommand (image/glb/spritesheet)\n    AG->>B: check_budget(cost_cents)\n    B-->>AG: Budget OK\n    AG->>AI: generate_content() / create_task()\n    AI-->>AG: Binary Data / Task ID\n    AG->>B: record_spend(cost, service)\n    AG-->>O: JSON Result {\"ok\": true, \"path\": \"...\"}"
             }
           ],
-          "verified_at": "2026-10-10",
+          "verified_at": "2026-10-19",
           "repo_id": 1151667698
         },
         {
@@ -40791,12 +40996,12 @@
           "wiki": "none",
           "wiki_note": "DeepWiki 抓不到由源码生成的图（2026-08-17 核）。主体是一个单文件 HTML 启动器加一份技能定义，没有多模块的调用关系可画。",
           "url": "https://github.com/Shanyin-ai/Story-to-game",
-          "stars": 465,
+          "stars": 467,
           "created_at": "2026-05-11",
           "pushed_at": "2026-06-02",
-          "stars_per_month": 93,
-          "stale_months": 4,
-          "verified_at": "2026-10-10",
+          "stars_per_month": 88,
+          "stale_months": 5,
+          "verified_at": "2026-10-19",
           "repo_id": 1235135158
         },
         {
@@ -40834,12 +41039,12 @@
           "wiki": "none",
           "wiki_note": "DeepWiki 抓不到由源码生成的图（2026-08-17 核）。仓库主体是 Markdown 技能定义，没有调用关系可画。",
           "url": "https://github.com/ybuild-ai/ai-game-art-pipeline-skill",
-          "stars": 297,
+          "stars": 301,
           "created_at": "2026-05-04",
           "pushed_at": "2026-06-17",
-          "stars_per_month": 57,
+          "stars_per_month": 55,
           "stale_months": 4,
-          "verified_at": "2026-10-10",
+          "verified_at": "2026-10-19",
           "repo_id": 1228895176
         },
         {
@@ -40860,7 +41065,7 @@
             "技能式而非工具式",
             "基线 Unity 2022.3+"
           ],
-          "scope": "基于 REST 接口的 Unity 编辑器自动化引擎：让 AI 通过「技能」直接操作 Unity 场景。",
+          "scope": "基于 REST 接口的 Unity 编辑器自动化工具，当前 README 列出 839 个技能及 29 个设计指导模块。",
           "control": "**接法和这一栏其它项目不一样** —— 别人走 MCP 协议，它走 REST 接口。好处是任何能发 HTTP 的东西都接得上，不必是 MCP 客户端。",
           "hw": "官方维护基线是 Unity 2022.3+；README 明说代码里可能还留着 2021 的兼容逻辑，但后续开发与回归测试只面向 2022.3+ 与 Unity 6。",
           "good": [
@@ -40876,10 +41081,10 @@
           "unfit": "已经在用 MCP 客户端的团队 —— 那条路上有更成熟的选择。",
           "src": "github README + DeepWiki",
           "url": "https://github.com/Besty0728/Unity-Skills",
-          "stars": 1821,
+          "stars": 1869,
           "created_at": "2026-01-18",
-          "pushed_at": "2026-10-09",
-          "stars_per_month": 209,
+          "pushed_at": "2026-10-19",
+          "stars_per_month": 208,
           "stale_months": 0,
           "diagrams": [
             {
@@ -40899,7 +41104,7 @@
               "mermaid": "sequenceDiagram\n    participant Client as HTTP Client\n    participant Listener as ListenLoop Thread\n    participant Queue as _jobQueue\n    participant Pool as _requestJobPool\n    participant Counter as _pendingRequests\n    participant Responder as ThreadPool\n    \n    Client->>Listener: HTTP Request\n    Listener->>Listener: CheckAdmissionRateLimit()\n    alt Rate limit exceeded\n        Listener->>Client: 429 Too Many Requests\n    end\n    \n    Listener->>Counter: TryReservePendingSlot()\n    alt Pending limit exceeded\n        Listener->>Client: 503 Service Unavailable\n    end\n    \n    Listener->>Listener: Read request body (max 10MB)\n    alt Body too large\n        Listener->>Client: 413 Payload Too Large\n    end\n    \n    Listener->>Pool: RentRequestJob()\n    Pool-->>Listener: RequestJob instance\n    Listener->>Listener: job.Prepare(context, method, path, body)\n    \n    Listener->>Queue: Enqueue(job)\n    alt Queue full\n        Listener->>Listener: Set error response\n        Listener->>Listener: Signal completion\n    end\n    \n    Listener->>Responder: QueueUserWorkItem(WaitAndRespond, job)"
             }
           ],
-          "verified_at": "2026-10-10",
+          "verified_at": "2026-10-19",
           "repo_id": 1136752401
         },
         {
@@ -40934,10 +41139,10 @@
           "unfit": "要三维角色 —— 它的产出是二维精灵表。",
           "src": "github README + DeepWiki",
           "url": "https://github.com/gykim80/perfectpixel-studio",
-          "stars": 585,
+          "stars": 597,
           "created_at": "2026-06-14",
           "pushed_at": "2026-06-22",
-          "stars_per_month": 151,
+          "stars_per_month": 143,
           "stale_months": 4,
           "diagrams": [
             {
@@ -40957,7 +41162,7 @@
               "mermaid": "sequenceDiagram\n    participant FE as Frontend (React)\n    participant APP as App (Go)\n    participant GEN as internal/gen (Provider)\n    participant PIPE as Sprite Pipeline\n\n    FE->>APP: GenerateState(stateName, prompt)\n    APP->>APP: genContext() (Create & Track CancelFunc)\n    APP->>GEN: Request Image (Attempt 1)\n    GEN-->>APP: Raw Strip PNG\n    APP->>PIPE: Process & Inspect (ScoreFrames)\n    alt Score < Threshold\n        APP->>APP: Inject RetryHints\n        APP->>GEN: Request Image (Attempt 2)\n    else Score >= Threshold\n        APP->>FE: Return Result\n    end\n    APP->>APP: release() (Cleanup Context)"
             }
           ],
-          "verified_at": "2026-10-10",
+          "verified_at": "2026-10-19",
           "repo_id": 1268903356
         },
         {
@@ -40992,11 +41197,11 @@
           "unfit": "要表演级的精细动画 —— 自动绑骨给的是可动，不是好看。",
           "src": "github README + DeepWiki",
           "url": "https://github.com/VAST-AI-Research/UniRig",
-          "stars": 1805,
+          "stars": 1856,
           "created_at": "2025-04-08",
           "pushed_at": "2026-06-04",
-          "stars_per_month": 100,
-          "stale_months": 4,
+          "stars_per_month": 101,
+          "stale_months": 5,
           "diagrams": [
             {
               "id": "g3-unirig-1",
@@ -41015,7 +41220,7 @@
               "mermaid": "sequenceDiagram\n    participant Client as \"Inference Script\"\n    participant Download as \"download()\"\n    participant MAP as \"Checkpoint MAP\"\n    participant Hub as \"Hugging Face Hub\"\n    \n    Client->>Download: download(ckpt_name)\n    Download->>MAP: Check if ckpt_name exists\n    alt Checkpoint found\n        Download->>Hub: hf_hub_download(repo_id, filename)\n        Hub-->>Download: Local checkpoint path\n        Download-->>Client: Return local path\n    else Checkpoint not found\n        Download-->>Client: Return original ckpt_name\n    end\n    \n    Note over Download,Hub: Exception handling returns original path"
             }
           ],
-          "verified_at": "2026-10-10",
+          "verified_at": "2026-10-19",
           "repo_id": 962634954
         },
         {
@@ -41052,12 +41257,12 @@
           "wiki": "none",
           "wiki_note": "DeepWiki 抓不到由源码生成的图（2026-08-17 核）。这是一层薄封装，主体逻辑在上游 UniRig 那边。",
           "url": "https://github.com/PozzettiAndrea/ComfyUI-UniRig",
-          "stars": 425,
+          "stars": 428,
           "created_at": "2025-11-12",
           "pushed_at": "2026-08-24",
-          "stars_per_month": 39,
+          "stars_per_month": 38,
           "stale_months": 2,
-          "verified_at": "2026-10-10",
+          "verified_at": "2026-10-19",
           "repo_id": 1095221043
         },
         {
@@ -41093,7 +41298,7 @@
           "unfit": "要非人形角色的动作 —— 它训的是人体。",
           "src": "github README + 上游 LICENSE 原文 + DeepWiki",
           "url": "https://github.com/jtydhr88/ComfyUI-HY-Motion1",
-          "stars": 310,
+          "stars": 313,
           "created_at": "2025-12-30",
           "pushed_at": "2026-08-20",
           "stars_per_month": 33,
@@ -41116,7 +41321,7 @@
               "mermaid": "flowchart TD\n    A[\"Load tokenizer\nfrom GGUF directory\"] -->|\"success\"| DONE[\"tokenizer_loaded = True\"]\n    A -->|\"fail\"| B[\"Scan all Qwen3\ndirectories in ckpts/\"]\n    B -->|\"success\"| DONE\n    B -->|\"fail\"| C[\"Load from\nckpts/Qwen3-8B (default)\"]\n    C -->|\"success\"| DONE\n    C -->|\"fail\"| E[\"FileNotFoundError\"]"
             }
           ],
-          "verified_at": "2026-10-10",
+          "verified_at": "2026-10-19",
           "repo_id": 1125543211
         },
         {
@@ -41151,7 +41356,7 @@
           "unfit": "要背景音乐 —— 那是音乐模型的活。",
           "src": "github README + DeepWiki",
           "url": "https://github.com/SonyResearch/Woosh",
-          "stars": 389,
+          "stars": 395,
           "created_at": "2025-11-25",
           "pushed_at": "2026-09-11",
           "stars_per_month": 37,
@@ -41174,7 +41379,7 @@
               "mermaid": "graph TD\n    User[\"User (Tkinter UI)\"] -- \"text prompt\" --> GenFunc[\"generate()\"]\n    GenFunc -- \"HTTP POST (GenerateArgs)\" --> API[\"Woosh API Server\"]\n    API -- \"FLAC Audio Stream\" --> GenFunc\n    GenFunc -- \"Write to Disk\" --> TempFile[\"/tmp/sfxfm_flac/*.flac\"]\n    TempFile --> InsertFunc[\"insert_file_at_cursor()\"]\n    InsertFunc -- \"reapy.Project()\" --> Reaper[\"REAPER DAW\"]\n    Reaper -- \"RPR.InsertMedia()\" --> Timeline[\"Timeline Cursor\"]"
             }
           ],
-          "verified_at": "2026-10-10",
+          "verified_at": "2026-10-19",
           "repo_id": 1103764049
         },
         {
@@ -41209,7 +41414,7 @@
           "unfit": "只想出几个音效就走 —— 那用现成模型。",
           "src": "github README + DeepWiki",
           "url": "https://github.com/Stability-AI/stable-audio-tools",
-          "stars": 3876,
+          "stars": 3888,
           "created_at": "2023-05-23",
           "pushed_at": "2026-10-09",
           "stars_per_month": 95,
@@ -41232,7 +41437,7 @@
               "mermaid": "sequenceDiagram\n    participant B as Batch Data\n    participant PT as Pretransform (Encoder)\n    participant W as Training Wrapper\n    participant M as Model (DiT/UNet)\n    participant L as Loss Function\n\n    B->>W: Raw Audio + Metadata\n    W->>PT: Encode to Latents\n    PT-->>W: Latent Representation\n    W->>W: Sample Timestep (t)\n    W->>W: Add Noise (sigma)\n    W->>M: Noised Latents + t + Conditioning\n    M-->>W: Predicted v / Noise\n    W->>L: Compare Prediction vs Target\n    L-->>W: Scalar Loss\n    W->>W: Update EMA Weights"
             }
           ],
-          "verified_at": "2026-10-10",
+          "verified_at": "2026-10-19",
           "repo_id": 644481540
         },
         {
@@ -41268,10 +41473,10 @@
           "unfit": "年营收过百万美元又不想谈授权的团队 —— 直接看 Apache-2.0 那一支。",
           "src": "github README + Stability 官方许可页 + DeepWiki",
           "url": "https://github.com/Stability-AI/stable-audio-3",
-          "stars": 796,
+          "stars": 808,
           "created_at": "2026-03-19",
-          "pushed_at": "2026-10-10",
-          "stars_per_month": 118,
+          "pushed_at": "2026-10-11",
+          "stars_per_month": 115,
           "stale_months": 0,
           "diagrams": [
             {
@@ -41291,7 +41496,7 @@
               "mermaid": "sequenceDiagram\n    participant CLI as \"insert_audio.py\"\n    participant RS as \"AudioInserter (Remote Script)\"\n    participant API as \"Live Python API\"\n\n    CLI->>CLI: find_latest_audio() or use explicit path\n    CLI->>RS: send_command({\"action\": \"insert_audio\", \"file_path\": \"...\"})\n    RS->>RS: _handle_command(data)\n    RS->>RS: schedule_message(1, do_insert)\n    Note over RS, API: Executes in Main Thread\n    RS->>API: song.create_audio_track(-1)\n    RS->>API: slot.create_audio_clip(unique_path)\n    RS->>API: track.duplicate_clip_to_arrangement(clip, insert_time)\n    RS->>API: slot.delete_clip()\n    RS-->>CLI: {\"ok\": True, \"message\": \"Done\"}"
             }
           ],
-          "verified_at": "2026-10-10",
+          "verified_at": "2026-10-19",
           "repo_id": 1186729718
         }
       ],

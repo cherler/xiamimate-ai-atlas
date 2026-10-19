@@ -1,0 +1,10 @@
+import assert from 'node:assert/strict';
+import {specificProbes} from './version-probes.mjs';
+const hits = (model, text) => specificProbes(model).flatMap(p => [...text.matchAll(p.pattern)].map(h => p.normalize ? p.normalize(h[1]) : h[1]));
+assert.deepEqual(hits({id:'gemini-tts',version:'3.1 Flash TTS Preview'}, 'Gemini 4 Argon; Gemini 3.8 Flash TTS; gemini-3.9-flash-lite-tts'), ['3.8']);
+assert.deepEqual(hits({id:'gemini-tts',version:'3.8 Flash TTS'}, 'gemini-3.9-flash-tts'), ['3.9']);
+assert.deepEqual(hits({id:'deepseek',version:'V4.1'}, 'DeepSeek-V4.1-Flash-1017; DeepSeek-V4-Pro-0813'), ['4.1.1017']);
+assert.equal(specificProbes({id:'deepseek',version:'V4.1 Flash-1017'})[0].cur,'4.1.1017');
+assert.deepEqual(hits({id:'deepseek',version:'V4.1 Flash-1017'}, 'DeepSeek V4.1 Flash; DeepSeek-V4.1-Flash-1024'), ['4.1','4.1.1024']);
+assert.deepEqual(hits({id:'deepseek',version:'V4.1 Flash-1017'}, 'DeepSeek-V4-Flash-0731'), ['4.0.0731']);
+console.log('6 version probe regression checks passed');

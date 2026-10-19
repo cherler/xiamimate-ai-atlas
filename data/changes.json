@@ -11,6 +11,126 @@
  "$alert_label": "快讯",
  "events": [
   {
+   "id": "minimax-text-review-2026-10-19",
+   "date": "2026-10-19",
+   "side": "ours",
+   "kind": "版本更迭",
+   "domain": "text",
+   "subject": "MiniMax M3.1 Flash",
+   "models": [
+    "minimax-text"
+   ],
+   "impact": [
+    "minimax-text"
+   ],
+   "src": "minimax-m31-guide",
+   "before": "M3；M3.1-Flash-Preview 曾限定渠道提供。",
+   "after": "2026-10-19 官方支持列表与调用示例已使用 M3.1-Flash，不再沿用此前 Preview 的限定渠道描述。M3 仍正常提供；新版权重开放情况未确认。思考默认 max 且不能关闭。",
+   "why": "这是今天核到的当前支持列表变化，未把核实日冒充官方发布日期。"
+  },
+  {
+   "id": "deepseek-review-2026-10-19",
+   "subject": "深度求索",
+   "before": "V4.1",
+   "after": "V4.1 Flash-1017。deepseek-flash 已指向 1017 更新，价格和调用方法不变；Pro 仍是 V4-Pro-0813。Search / Fetch 是独立 API，不据此宣称模型内置搜索。旧 V4.1 权重不能证明 1017 检查点已发布。",
+   "why": "本站于 2026-10-19 补核；官方发布日期为 2026-10-17。",
+   "impact": [
+    "deepseek"
+   ],
+   "models": [
+    "deepseek"
+   ],
+   "src": "deepseek-updates",
+   "domain": "text",
+   "date": "2026-10-19",
+   "side": "ours",
+   "kind": "版本更迭",
+   "alert": {
+    "headline": "今日补核：DeepSeek 更新至 V4.1 Flash-1017",
+    "until": "2026-10-26"
+   }
+  },
+  {
+   "id": "gemini-tts-review-2026-10-19",
+   "subject": "Gemini TTS",
+   "before": "3.1 Flash TTS Preview",
+   "after": "3.8 Flash TTS。旗舰创意语音档为 3.8 Flash TTS，130 种语言；Flash-Lite 是独立的低延迟档位。支持预设音色、音色设计与需授权的声音复刻，默认单次输出改为 WAV。",
+   "why": "本站于 2026-10-19 补核；官方发布日期为 2026-09-22。",
+   "impact": [
+    "gemini-tts"
+   ],
+   "models": [
+    "gemini-tts"
+   ],
+   "src": "gemini-changelog",
+   "domain": "sound",
+   "date": "2026-10-19",
+   "side": "ours",
+   "kind": "版本更迭"
+  },
+  {
+   "id": "vidu-q-review-2026-10-19",
+   "subject": "Vidu Q",
+   "before": "Q3",
+   "after": "Q4 Preview。Q4 为预览版。当前确认图生视频与参考生视频，支持音画同出、最高 4K 和 15 张参考图；端点时长为 3–16 秒（概览页另写 1–16 秒，以实际端点为准）。Q3 的其他能力不自动继承。",
+   "why": "本站于 2026-10-19 补核；官方发布日期为 2026-10-07。",
+   "impact": [
+    "vidu-q"
+   ],
+   "models": [
+    "vidu-q"
+   ],
+   "src": "vidu-changelog",
+   "domain": "video",
+   "date": "2026-10-19",
+   "side": "ours",
+   "kind": "版本更迭"
+  },
+  {
+   "id": "grok-voice-review-2026-10-19",
+   "subject": "Grok Voice",
+   "before": "think-fast-2.0",
+   "after": "3.0。grok-voice-latest 已指向 3.0，2.0 已弃用；官方说明价格和 API 调用方式不变。",
+   "why": "本站于 2026-10-19 补核；官方发布日期为 2026-10-14。",
+   "impact": [
+    "grok-voice"
+   ],
+   "models": [
+    "grok-voice"
+   ],
+   "src": "xai-release-notes",
+   "domain": "sound",
+   "date": "2026-10-19",
+   "side": "ours",
+   "kind": "版本更迭",
+   "alert": {
+    "headline": "今日补核：Grok Voice 更新至 3.0",
+    "until": "2026-10-26"
+   }
+  },
+  {
+   "id": "gemini-text-review-2026-10-19",
+   "subject": "Gemini",
+   "before": "Gemini 3.8 Flash",
+   "after": "Gemini 4 Argon。旗舰推理模型转为 Gemini 4 Argon；3.8 Flash 仍是独立档位。长输出可达 1M token，显式缓存不支持，Computer Use 仍为 Preview。",
+   "why": "本站于 2026-10-19 补核；官方发布日期为 2026-10-13。",
+   "impact": [
+    "gemini-text"
+   ],
+   "models": [
+    "gemini-text"
+   ],
+   "src": "gemini-changelog",
+   "domain": "text",
+   "date": "2026-10-19",
+   "side": "ours",
+   "kind": "版本更迭",
+   "alert": {
+    "headline": "今日补核：Gemini 更新至 Gemini 4 Argon",
+    "until": "2026-10-26"
+   }
+  },
+  {
    "id": "omni-evidence-2026-10-10",
    "date": "2026-10-10",
    "side": "ours",
