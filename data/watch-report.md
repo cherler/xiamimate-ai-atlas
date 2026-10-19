@@ -1,6 +1,6 @@
-# 信息源监视报告 · 2026-10-18
+# 信息源监视报告 · 2026-10-19
 
-本次检查 10 个到期源（共 456 个）：变化 2 · 首次 0 · 无变化 3 · **抓不到 5**
+本次检查 8 个到期源（共 456 个）：变化 3 · 首次 0 · 无变化 0 · **抓不到 5**
 
 > 这份报告是给人看的那 20 条待办的来源（§59.3 的负反馈：人每周要看的条目 ≤ 20）。
 > 「抓不到」不是失败，是**信息本身** —— 一个长期抓不到的官方源，说明那家厂商没有可 diff 的公开更新入口，
@@ -25,8 +25,10 @@
 
 ## 有变化
 
-- **hf-funcineforge** 阿里 FunAudioLLM 官方 · Fun-CineForge 模型卡
-- **xai-grok47-model** Grok 4.7 专属模型页
+- **deepseek-pricing** DeepSeek 官方文档 · 模型与价格
+- **deepseek-updates** DeepSeek 官方文档 · 更新日志
+- **hf-org** Hugging Face 官方组织目录（模型接口）
+  新增 240 条：ATH-MaaS/OvisOCR2、Abiray/MOSS-Image-SFT-INT8-convrot、AlexWortega/Qwen3.8-27B-antislop、Alibaba-NLP/gte-reranker-modernbert-base、Alissonerdx/CharacterSheet、AtomicChat/Ling-3.1-flash-GGUF、AtomicChat/NVIDIA-Nemotron-3.5-Bolt-74B-A9B-Uncensored-GGUF、AuroraAI-Research/AuroraASR-1M、Baekpica/DeepSeek-V4.1-Flash-1017-VQ-GGUF、BaruqRodrigues/llm-legislativo、Blackfrost-AI/DeepSeek-V4.1-Flash-1017-DERISKED-FP8、BoldingBuilds/Ternary-Bonsai-2-27B-Abliterated-v2-PQ2_0-MTP-GGUF …
 
 ## 全部
 
@@ -78,7 +80,7 @@
 | techcrunch-ai | B | atom | 未到期（上次 2026-10-17） |
 | ltx-gh | S | json | 未到期（上次 2026-10-14） |
 | ltx-hf-org | S | json | 未到期（上次 2026-10-17） |
-| decart-site | S | spa | 无变化 |
+| decart-site | S | spa | 未到期（上次 2026-10-18） |
 | picsart-video | C | html | 抓不到（HTTP 403） |
 | libtv | C | spa | 从未抓过 |
 | dreamina | S | html | 未到期（上次 2026-10-07） |
@@ -210,8 +212,8 @@
 | mcpservers-gh | S | json | 未到期（上次 2026-10-11） |
 | anthropic-features | S | html | 未到期（上次 2026-10-15） |
 | openai-docs | S | html | 未到期（上次 2026-10-15） |
-| deepseek-pricing | S | html | 未到期（上次 2026-10-16） |
-| deepseek-updates | S | html | 未到期（上次 2026-10-16） |
+| deepseek-pricing | S | html | 变了 |
+| deepseek-updates | S | html | 变了 |
 | bailian-models | S | html | 未到期（上次 2026-10-14） |
 | kimi-pricing | S | html | 未到期（上次 2026-10-07） |
 | glm-52-doc | S | html | 未到期（上次 2026-10-07） |
@@ -316,7 +318,7 @@
 | recraft-nl-edit | A | html | 未到期（上次 2026-10-15） |
 | hunyuan-image-hf | A | json | 未到期（上次 2026-10-15） |
 | bfl-flux2-overview | A | html | 未到期（上次 2026-10-15） |
-| bfl-flux2-multiref | A | html | 无变化 |
+| bfl-flux2-multiref | A | html | 未到期（上次 2026-10-18） |
 | ark-seedream-api | A | spa | 未到期（上次 2026-10-08） |
 | arxiv-fp8 | A | html | 未到期（上次 2026-08-13） |
 | arxiv-int8 | A | html | 未到期（上次 2026-08-13） |
@@ -458,11 +460,11 @@
 | seed-blog-1_5 | A | html | 未到期（上次 2026-10-10） |
 | seed-blog-2_0 | A | html | 未到期（上次 2026-10-10） |
 | ideogram-x | A | html | 未到期（上次 2026-10-10） |
-| hf-funcineforge | S | html | 变了 |
-| hf-org | S | json | 未到期（上次 2026-10-16） |
-| gh-gptsovits-cn | C | json | 无变化 |
+| hf-funcineforge | S | html | 未到期（上次 2026-10-18） |
+| hf-org | S | json | 变了 |
+| gh-gptsovits-cn | C | json | 未到期（上次 2026-10-18） |
 | gemini-nb21 | S | spa | 未到期（上次 2026-10-17） |
-| xai-grok47-model | S | html | 变了 |
+| xai-grok47-model | S | html | 未到期（上次 2026-10-18） |
 | ideogram-v1-overview | A | html | 未到期（上次 2026-10-10T02:48:40.640Z） |
 | ideogram-v1-upscale | A | html | 未到期（上次 2026-10-10T02:48:40.641Z） |
 | rodin-gen25-api | A | html | 未到期（上次 2026-10-10T02:48:40.642Z） |
