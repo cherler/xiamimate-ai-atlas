@@ -1,286 +1,34 @@
-# 保鲜巡检 · 2026-10-19 01:26
+# 保鲜巡检 · 2026-10-19 10:41
 
 页面上写的**还成不成立**。三支各查一类，**只报不改** —— 写回由人在审阅台上点。
 
-## 开源项目仓库数字　会改变结论的变化 1
+## 开源项目仓库数字　没有要人看的
 
-查于 2026-10-19 01:26
+查于 2026-10-19 10:21
 
 星数、停更月数是**会过期的事实**。「在维护」变成「停更 12 个月」之后，卡上的标签、`unfit` 里的判断、要不要继续收录，全都得跟着重想 —— 页面却照写不误。
 
 → 确认后跑 `npm run repos` 写回（审阅台上有按钮），再上线。
 
 ```
-口径日 2026-10-19（试跑，没写）
-
-数字有变动的 100 个：
-  ComfyUI                  ★138635 (+1996) · 3078/月 · 停更 0
-  Wan2.2                   ★ 18006 (+179) · 1223/月 · 停更 1
-  HunyuanVideo             ★ 12634 (+25) · 557/月 · 停更 0
-  FramePack                ★ 17299 (+20) · 949/月 · 停更 12
-  LTX-Video                ★ 11132 (+75) · 485/月 · 停更 9
-  MiniMax H3               ★ 10104 (+374) · 3797/月 · 停更 2
-  ControlNet               ★ 34121 (-10) · 766/月 · 停更 32
-  IP-Adapter               ★  6702 (+4) · 176/月 · 停更 28
-  InstantID                ★ 11993 (-2) · 350/月 · 停更 27
-  ACE-Step                 ★  4953 (+50) · 280/月 · 停更 8
-  pyvideotrans             ★ 19442 (+163) · 532/月 · 停更 0
-  Real-ESRGAN              ★ 37141 (+98) · 589/月 · 停更 26
-  Practical-RIFE           ★  1028 (+1) · 16/月 · 停更 2
-  CodeFormer               ★ 18184 (+13) · 350/月 · 停更 11
-  LatentSync               ★  6164 (+40) · 277/月 · 停更 16
-  IndexTTS2                ★ 24565 (+184) · 1206/月 · 停更 1
-  kohya sd-scripts         ★  7242 (-1) · 157/月 · 停更 0
-  musubi-tuner             ★  2103 (+13) · 97/月 · 停更 0
-  Ollama                   ★183749 (+1204) · 4619/月 · 停更 0
-  DiffSynth-Studio         ★ 13262 (+48) · 386/月 · 停更 0
-  MoneyPrinterTurbo        ★132804 (+3462) · 4246/月 · 停更 0
-  NarratoAI                ★ 11450 (+109) · 437/月 · 停更 1
-  火宝短剧                     ★ 16345 (+426) · 1734/月 · 停更 0
-  Toonflow                 ★ 18112 (+1127) · 2096/月 · 停更 0
-  infinite-canvas          ★  7751 (+320) · 1532/月 · 停更 0
-  open-ai-canvas           ★  1330 (+166) · 455/月 · 停更 0
-  VOZEB PRO                ★   976 (+9) · 316/月 · 停更 0
-  OpenMontage              ★ 69539 (+3675) · 10376/月 · 停更 0
-  video-shotcraft          ★ 12395 (+1345) · 4101/月 · 停更 0
-  Generative Media Skills  ★    12 (+8) · 18/月 · 停更 1
-  乘风视频剪辑 Skills            ★  3094 (+49) · 339/月 · 停更 0
-  OpenChatCut              ★  2500 (+274) · 793/月 · 停更 0
-  video-podcast-maker      ★  1686 (+16) · 209/月 · 停更 1
-  motion-skills            ★   888 (+132) · 227/月 · 停更 0
-  ComfyUI-Manager          ★ 16494 (+101) · 394/月 · 停更 0
-  ComfyUI-WanVideoWrapper  ★  6736 (+10) · 341/月 · 停更 5
-  ComfyUI 官方工作流模板          ★  1333 (+55) · 68/月 · 停更 0
-  waoowaoo                 ★ 14580 (+119) · 1644/月 · 停更 1
-  Jellyfish                ★  6770 (+130) · 908/月 · 停更 3
-  魔因漫创                     ★  4727 (+41) · 571/月 · 停更 2
-  BigBanana AI Director    ★  2348 (+57) · 274/月 · 停更 0
-  ClipForge                ★  1027 (+67) · 149/月 · 停更 0
-  短视频工厂                    ★  5745 (+156) · 374/月 · 停更 0
-  AI YouTube Shorts Generator ★  5466 (+179) · 197/月 · 停更 0
-  Open AI UGC              ★   376 (+18) · 9/月 · 停更 1
-  ViGenAiR                 ★   241 (+1) · 8/月 · 停更 0
-  LiveTalking              ★  9953 (+139) · 293/月 · 停更 0
-  Seedance 2.0 Prompt Skills ★  4341 (+109) · 529/月 · 停更 1
-  Drama Skills             ★  3038 (+369) · 973/月 · 停更 0
-  Seedance2 Storyboard Generator ★  2621 (+70) · 326/月 · 停更 1
-  AI Shortfilm Prompts     ★   475 (+16) · 94/月 · 停更 0
-  Awesome Seedance 2 Prompts ★  2151 (+48) · 262/月 · 停更 0
-  歸藏的提示词库                  ★  1474 (+9) · 153/月 · 停更 9
-  MidJourney 风格与关键词参考      ★ 12313 (+4) · 239/月 · 停更 18
-  AI Visual Prompt Cookbook ★   788 (+26) · 149/月 · 停更 0
-  PromptLens               ★   630 (+20) · 89/月 · 停更 0
-  Prompt Engineering Guide ★ 79300 (+356) · 1721/月 · 停更 7
-  蓝书 AI 视频工具包              ★   422 (+8) · 87/月 · 停更 0
-  Claude Code Game Studios ★ 26825 (+820) · 3279/月 · 停更 0
-  UltraGameStudio          ★   323 (+11) · 69/月 · 停更 0
-  awesome-gamedev-agent-skills ★  1608 (+224) · 418/月 · 停更 0
-  Unity 官方技能包              ★  1102 (+42) · 201/月 · 停更 0
-  GodotPrompter            ★   847 (+43) · 130/月 · 停更 0
-  GD-Agentic-Skills        ★   866 (+45) · 104/月 · 停更 0
-  unreal-engine-skills     ★   399 (+39) · 52/月 · 停更 1
-  MCP for Unity            ★ 15094 (+297) · 792/月 · 停更 0
-  Unity-MCP（Murzak）        ★  4494 (+84) · 242/月 · 停更 0
-  MCP Unity                ★  1936 (+13) · 101/月 · 停更 0
-  Locus                    ★   754 (+7) · 128/月 · 停更 0
-  unreal-mcp（chongdashu）   ★  2097 (+7) · 112/月 · 停更 18
-  VibeUE                   ★   780 (+51) · 59/月 · 停更 0
-  UnrealClaude             ★   940 (+31) · 99/月 · 停更 4
-  Unreal Engine MCP Server ★   957 (+46) · 72/月 · 停更 0
-  unreal-engine-mcp（flopperam） ★  1109 (+15) · 77/月 · 停更 4
-  Godot MCP                ★  6149 (+161) · 312/月 · 停更 6
-  Godot AI                 ★  3061 (+179) · 490/月 · 停更 0
-  Godot MCP Native         ★   856 (+20) · 155/月 · 停更 3
-  Cocos Creator MCP        ★  1459 (+21) · 97/月 · 停更 3
-  Roblox Studio MCP        ★   312 (+25) · 64/月 · 停更 0
-  Blender MCP              ★ 31568 (+1238) · 1626/月 · 停更 0
-  TRELLIS                  ★ 14001 (+161) · 621/月 · 停更 4
-  混元 3D 2.1                ★  4227 (+72) · 261/月 · 停更 12
-  PartCrafter              ★  2492 (+3) · 153/月 · 停更 6
-  TripoSG                  ★  1845 (+19) · 98/月 · 停更 18
-  ACE-Step 1.5             ★ 13772 (+447) · 1022/月 · 停更 0
-  YuE2                     ★ 12146 (+1093) · 583/月 · 停更 0
-  Unity ML-Agents          ★ 19770 (+43) · 181/月 · 停更 0
-  LLM for Unity            ★  1724 (+5) · 51/月 · 停更 6
-  Godot RL Agents          ★  1615 (+13) · 25/月 · 停更 3
-  Godogen                  ★  7158 (+85) · 854/月 · 停更 0
-  Story-to-Game            ★   466 (+1) · 88/月 · 停更 5
-  AI Game Art Pipeline Skill ★   301 (+4) · 55/月 · 停更 4
-  UnitySkills              ★  1866 (+45) · 207/月 · 停更 0
-  PerfectPixel             ★   595 (+10) · 143/月 · 停更 4
-  UniRig                   ★  1853 (+48) · 101/月 · 停更 5
-  ComfyUI-UniRig           ★   428 (+3) · 38/月 · 停更 2
-  ComfyUI-HY-Motion1       ★   313 (+3) · 33/月 · 停更 2
-  Woosh                    ★   395 (+6) · 37/月 · 停更 1
-  stable-audio-tools       ★  3888 (+12) · 95/月 · 停更 0
-  Stable Audio 3           ★   807 (+11) · 115/月 · 停更 0
-
-────────────────────────────────────────────────────────────
-要人看一眼的 1 条：
-❗ GD-Agentic-Skills：仓库已改名 thedivergentai/GD-Agentic-Skills → thedivergentai/Game-Dev-Agentic-Skills，data 里的 url 要跟着改
-────────────────────────────────────────────────────────────
-**这些会让页面上的判断变成假话**，改完再上线。
+（这次没跑；结论见上，原文要重跑才有）
 ```
 
-## README 漂移　上游改过话 24
+## README 漂移　没有要人看的
 
-查于 2026-10-19 01:26
+查于 2026-10-19 10:28
 
 我们对开源项目的判断是从**当时那一版 README** 读出来的。上游改了口径，页面上那句引用就成了假话，而没有任何人会收到通知。
 
 → 逐条核页面上引它的判断；核完 `node scripts/fetch-readme.mjs <项目 id>` 更新快照。
 
 ```
-比了 103 份 README
-
-────────────────────────────────────────────────────────────────
-上游改过话的 24 个：
-
-  ❗ AI 视频制作 › pyvideotrans   删 4 句 · 增 8 句
-     https://github.com/jianchang512/pyvideotrans
-     **页面上有 1 处引了 README 的判断，逐条核：**
-       · 门槛：Windows / macOS / Linux；GPU 可选。README 的 GPU 加速配置限定 NVIDIA，需 CUDA 12.8 与 cuDNN 
-     核完更新快照：node scripts/fetch-readme.mjs pyvideotrans
-
-  ❗ AI 视频制作 › kohya sd-scripts   删 52 句 · 增 54 句
-     https://github.com/kohya-ss/sd-scripts
-     **页面上有 2 处引了 README 的判断，逐条核：**
-       · 坑：0.11.0 的重构：README 记录 0.11.0 内部重构，并称尽量减少直接影响；不能据此断言用户必受影响。当前迁移还需注意旧 gen_img_dif
-       · 坑：最低显存：仓库不给这个数字。 这一格是空的，只能自己试 —— 与推理侧那些明写门槛的项目不是一个成熟度
-     核完更新快照：node scripts/fetch-readme.mjs sd-scripts
-
-  ❗ AI 视频制作 › Ollama   删 0 句 · 增 1 句
-     https://github.com/ollama/ollama
-     （页面上没有引原话的判断，风险低）
-     核完更新快照：node scripts/fetch-readme.mjs ollama
-
-  ❗ AI 视频制作 › DiffSynth-Studio   删 4 句 · 增 56 句
-     https://github.com/modelscope/DiffSynth-Studio
-     （页面上没有引原话的判断，风险低）
-     核完更新快照：node scripts/fetch-readme.mjs diffsynth
-
-  ❗ AI 视频制作 › MoneyPrinterTurbo   删 5 句 · 增 37 句
-     https://github.com/harry0703/MoneyPrinterTurbo
-     （页面上没有引原话的判断，风险低）
-     核完更新快照：node scripts/fetch-readme.mjs moneyprinter
-
-  ❗ AI 视频制作 › Toonflow   删 4 句 · 增 39 句
-     https://github.com/HBAI-Ltd/Toonflow-app
-     （页面上没有引原话的判断，风险低）
-     核完更新快照：node scripts/fetch-readme.mjs toonflow
-
-  ❗ AI 视频制作 › open-ai-canvas   删 23 句 · 增 38 句
-     https://github.com/ddcat-ai/open-ai-canvas
-     （页面上没有引原话的判断，风险低）
-     核完更新快照：node scripts/fetch-readme.mjs open-ai-canvas
-
-  ❗ AI 视频制作 › VOZEB PRO   删 21 句 · 增 19 句
-     https://github.com/csyqlz/VOZEB-PRO
-     **页面上有 3 处引了 README 的判断，逐条核：**
-       · 优势：README 自带 9 张流程图，作者把每条链路都画了 —— 这一点在开源项目里少见
-       · 坑：许可证：2026-10-10 核 LICENSE 为 AGPL-3.0；README 说明另提供企业自营闭源商业授权，具体边界以对应许可文本为准。
-       · 坑：版本还很早：当前 README 标记 v0.0.7；功能列表不能代替稳定性实测，上生产前需要验证目标流程。
-     核完更新快照：node scripts/fetch-readme.mjs vozeb-pro
-
-  ❗ AI 视频制作 › OpenMontage   删 21 句 · 增 2 句
-     https://github.com/calesthio/OpenMontage
-     **页面上有 2 处引了 README 的判断，逐条核：**
-       · 坑：想要「纯实拍素材」的片子：README 明写要显式说 use real footage only，并指定 documentary montage / ton
-       · 坑：依赖装不全：FFmpeg、Node、Python、Remotion 四样缺一不可；README 的 `make setup` 是一条龙，手装容易漏 `pip
-     核完更新快照：node scripts/fetch-readme.mjs openmontage
-
-  ❗ AI 视频制作 › video-shotcraft   删 102 句 · 增 167 句
-     https://github.com/Vincentwei1021/video-shotcraft
-     **页面上有 2 处引了 README 的判断，逐条核：**
-       · 局限：剪映草稿导出只在 mac 上测过，Windows 未测（README 自述）
-       · 坑：剪映导出：README 自述 `jianying-export/` 是 mac tested / win untested
-     核完更新快照：node scripts/fetch-readme.mjs video-shotcraft
-
-  ❗ AI 视频制作 › OpenChatCut   删 2 句 · 增 2 句
-     https://github.com/0xsline/OpenChatCut
-     （页面上没有引原话的判断，风险低）
-     核完更新快照：node scripts/fetch-readme.mjs openchatcut
-
-  ❗ AI 视频制作 › motion-skills   删 5 句 · 增 6 句
-     https://github.com/iart-ai/motion-skills
-     **页面上有 1 处引了 README 的判断，逐条核：**
-       · 局限：自述是商业产品 iart.ai 背后的开源部分，开源这一支的投入取决于那家公司
-     核完更新快照：node scripts/fetch-readme.mjs motion-skills
-
-  ❗ AI 视频制作 › 短视频工厂   删 7 句 · 增 13 句
-     https://github.com/YILS-LIN/short-video-factory
-     （页面上没有引原话的判断，风险低）
-     核完更新快照：node scripts/fetch-readme.mjs short-video-factory
-
-  ❗ AI 视频制作 › AI YouTube Shorts Generator   删 4 句 · 增 3 句
-     https://github.com/Anil-matcha/AI-Youtube-Shorts-Generator
-     **页面上有 1 处引了 README 的判断，逐条核：**
-       · 局限：默认档（`--mode api`）绑第三方付费接口 MuAPI，README 顶部挂它的 badge、正文多处带 utm 推广链接，用之前先切 `--mod
-     核完更新快照：node scripts/fetch-readme.mjs yt-shorts-gen
-
-  ❗ AI 视频制作 › Drama Skills   删 25 句 · 增 27 句
-     https://github.com/zenstory-ai/drama-skills
-     **页面上有 1 处引了 README 的判断，逐条核：**
-       · 优势：README 自述来自作者漫剧工作室，自 2025 年起累计上千个项目；这是作者自述，未独立核验。
-     核完更新快照：node scripts/fetch-readme.mjs drama-skills
-
-  ❗ AI 视频制作 › Awesome Seedance 2 Prompts   删 1542 句 · 增 938 句
-     https://github.com/YouMind-OpenLab/awesome-seedance-2-prompts
-     **页面上有 1 处引了 README 的判断，逐条核：**
-       · 范围：整理好的 Seedance 2.0 视频提示词库，README 自述逾六千条，覆盖电影感、动画、UGC 等多种风格。
-     核完更新快照：node scripts/fetch-readme.mjs awesome-seedance2-prompts
-
-  ❗ AI 视频制作 › AI Visual Prompt Cookbook   删 176 句 · 增 157 句
-     https://github.com/VigoZhao/AI-Visual-Prompt-Cookbook
-     （页面上没有引原话的判断，风险低）
-     核完更新快照：node scripts/fetch-readme.mjs visual-prompt-cookbook
-
-  ❗ AI 游戏制作 › GodotPrompter   删 4 句 · 增 9 句
-     https://github.com/jame581/GodotPrompter
-     （页面上没有引原话的判断，风险低）
-     核完更新快照：node scripts/fetch-readme.mjs godotprompter
-
-  ❗ AI 游戏制作 › GD-Agentic-Skills   删 135 句 · 增 302 句
-     https://github.com/thedivergentai/GD-Agentic-Skills
-     （页面上没有引原话的判断，风险低）
-     核完更新快照：node scripts/fetch-readme.mjs gd-agentic-skills
-
-  ❗ AI 游戏制作 › Unity-MCP（Murzak）   删 11 句 · 增 21 句
-     https://github.com/IvanMurzak/Unity-MCP
-     **页面上有 1 处引了 README 的判断，逐条核：**
-       · 局限：README 极长，找一个具体功能要翻很久
-     核完更新快照：node scripts/fetch-readme.mjs unity-mcp-murzak
-
-  ❗ AI 游戏制作 › Unreal Engine MCP Server   删 16 句 · 增 14 句
-     https://github.com/ChiR24/Unreal_mcp
-     **页面上有 1 处引了 README 的判断，逐条核：**
-       · 局限：和官方 5.8 MCP 的关系 README 没交代
-     核完更新快照：node scripts/fetch-readme.mjs unreal-mcp-chir
-
-  ❗ AI 游戏制作 › Blender MCP   删 2 句 · 增 11 句
-     https://github.com/ahujasid/mcp-for-blender
-     （页面上没有引原话的判断，风险低）
-     核完更新快照：node scripts/fetch-readme.mjs blender-mcp
-
-  ❗ AI 游戏制作 › Godogen   删 19 句 · 增 66 句
-     https://github.com/htdt/godogen
-     **页面上有 2 处引了 README 的判断，逐条核：**
-       · 局限：一次完整生成要几个小时，作者自己建议放到 GPU 服务器上跑并用 tmux 挂着
-       · 靠什么做到：它不看编译过没过，它看跑起来长什么样 —— README 的原话是「以证据代替声明」：Agent 从运行中的游戏（一个实时网址或一段录屏）判断结果，于是看得
-     核完更新快照：node scripts/fetch-readme.mjs godogen
-
-  ❗ AI 游戏制作 › UnitySkills   删 13 句 · 增 14 句
-     https://github.com/Besty0728/Unity-Skills
-     **页面上有 1 处引了 README 的判断，逐条核：**
-       · 门槛：官方维护基线是 Unity 2022.3+；README 明说代码里可能还留着 2021 的兼容逻辑，但后续开发与回归测试只面向 2022.3+ 与 Uni
-     核完更新快照：node scripts/fetch-readme.mjs unity-skills-besty
-
-────────────────────────────────────────────────────────────────
+（这次没跑；结论见上，原文要重跑才有）
 ```
 
-## 教程与作品链接　没有要人看的
+## 教程与作品链接　复核后没有要人看的
 
-查于 2026-10-19 01:26
+查于 2026-10-19 10:41
 
 外链是我们唯一给不了兜底的东西。**限流不算死链** —— 那支脚本已经分开了，这里取的只有真打不开的那一类。
 
@@ -289,12 +37,12 @@
 ```
 回查 241 条外链（教程 + 常识 + 作品出处）
 
-  ✓ ComfyUI · 官方入门：第一次出图
-  ✓ ComfyUI · 官方教程：文生图工作流
-  ✓ Wan2.2 · ComfyUI 官方：Wan2.2 工作流
   ⚠ 标题变了 Wan2.2 · ComfyUI 官方：Wan 首尾帧
       录入：ComfyUI Wan2.1 FLF2V 原生示例 - ComfyUI
       现在：在 ComfyUI 中使用 Wan2.1 FLF2V：首尾帧生成视频 - ComfyUI
+  ✓ Wan2.2 · ComfyUI 官方：Wan2.2 工作流
+  ✓ ComfyUI · 官方入门：第一次出图
+  ✓ ComfyUI · 官方教程：文生图工作流
   ✓ HunyuanVideo · ComfyUI 官方：HunyuanVideo 工作流
   ⚠ 标题变了 HunyuanVideo · ComfyUI 官方：HunyuanVideo 1.5
       录入：混元视频 1.5 ComfyUI 教程 - ComfyUI
@@ -302,166 +50,167 @@
   ⚠ 标题变了 LTX-Video · ComfyUI 官方：LTX-Video 工作流
       录入：LTX-0.9.5 ComfyUI 工作流示例 - ComfyUI
       现在：LTX-Video 0.9.5：ComfyUI 文生视频、图生视频与多帧控制 - ComfyUI
-  ✓ MiniMax H3 · ComfyUI 官方：MiniMax H3 工作流
   ✓ MiniMax H3 · SGLang cookbook：H3 部署
+  ⚠ 标题变了 ControlNet · ComfyUI 官方：姿势控制两遍出图
+      录入：ComfyUI Pose ControlNet 使用示例 - ComfyUI
+      现在：Pose ControlNet：ComfyUI OpenPose 与两段式工作流 - ComfyUI
   ⚠ 标题变了 ControlNet · ComfyUI 官方：ControlNet 入门
       录入：ComfyUI ControlNet 使用示例 - ComfyUI
       现在：ControlNet：ComfyUI 预处理器、模型与工作流 - ComfyUI
-  ✓ ControlNet · ComfyUI 官方：姿势控制两遍出图
-  ✓ ControlNet · ComfyUI 官方：深度图控制
+  ⚠ 标题变了 ControlNet · ComfyUI 官方：深度图控制
+      录入：深度 ControlNet 工作流示例 - ComfyUI
+      现在：Depth ControlNet：ComfyUI 场景结构控制 - ComfyUI
+  ✓ MiniMax H3 · ComfyUI 官方：MiniMax H3 工作流
+  ✓ Real-ESRGAN · 作者本人的 B 站讲解
   ✓ ACE-Step · ComfyUI 官方：ACE-Step 出音乐
   ✓ pyvideotrans · 官方文档站
-  ✓ Real-ESRGAN · 作者本人的 B 站讲解
   ⚠ 标题变了 Real-ESRGAN · ComfyUI 官方：视频放大
       录入：ComfyUI 视频放大 - ComfyUI
       现在：ComfyUI 视频放大：模型与使用场景 - ComfyUI
   ✓ Real-ESRGAN · ComfyUI 官方：图片放大
+  ✓ Ollama · 官方快速上手
   ✓ MotionCtrl · 官方：SVD 分支用法与示例
   ✓ musubi-tuner · 官方文档：训 Wan 的 LoRA
-  ✓ musubi-tuner · 官方文档：训 FramePack 的 LoRA
-  ✓ Ollama · 官方快速上手
   ✓ DiffSynth-Studio · 官方中文文档
-  ✓ DiffSynth-Studio · 官方：显存管理怎么开
-  ✓ NarratoAI · 官方文档（飞书）
   ✓ NarratoAI · 仓库 Wiki
   ✓ Toonflow · 官方演示视频（B 站）
+  ✓ DiffSynth-Studio · 官方：显存管理怎么开
   ✓ ComfyUI-Manager · ComfyUI 官方：怎么装自定义节点
-  ✓ ComfyUI 官方工作流模板 · ComfyUI 官方：模板功能怎么用
-  ✓ ClipForge · 项目官网
+  ✓ NarratoAI · 官方文档（飞书）
   ✓ LiveTalking · 国内镜像（Gitee）
-  ✓ 知识 · 镜头怎么说话 · 景别、角度、构图、焦段、运镜：一篇讲完
+  ✓ ComfyUI 官方工作流模板 · ComfyUI 官方：模板功能怎么用
+  ✓ musubi-tuner · 官方文档：训 FramePack 的 LoRA
+  ✓ ClipForge · 项目官网
   ✓ 知识 · 镜头怎么说话 · 运镜的类型与用法
-  ✓ 知识 · 镜头怎么说话 · 电影摄影（词条）
-  ✓ 知识 · 镜头怎么说话 · 景深（词条）
+  ✓ 知识 · 镜头怎么说话 · 景别、角度、构图、焦段、运镜：一篇讲完
   ✓ 知识 · 镜头怎么说话 · 电影摄影是什么
   ✓ 知识 · 镜头怎么说话 · 景深怎么控
-  ✓ 知识 · 镜头怎么说话 · 分镜脚本（词条）
   ✓ 知识 · 镜头怎么说话 · 怎么列镜头表
-  ✓ 知识 · 镜头怎么说话 · 一镜到底（词条）
-  ✓ 代表作 · 镜头怎么说话 · 《鸟人》
-  ✓ 知识 · 镜头怎么说话 · 长镜头
-  ✓ 代表作 · 镜头怎么说话 · 《1917》
+  ⏳ 知识 · 镜头怎么说话 · 电影摄影（词条）（两次都没拉到，算够不着）
+  ⏳ 知识 · 镜头怎么说话 · 景深（词条）（两次都没拉到，算够不着）
+  ⏳ 知识 · 镜头怎么说话 · 分镜脚本（词条）（两次都没拉到，算够不着）
+  ⏳ 代表作 · 镜头怎么说话 · 《1917》（同域名连续超时，本条暂缓，未核实）
   ✓ 知识 · 镜头怎么说话 · 荷兰角（斜角）
-  ✓ 代表作 · 镜头怎么说话 · 《第三人》
+  ⏳ 代表作 · 镜头怎么说话 · 《第三人》（同域名连续超时，本条暂缓，未核实）
   ✓ 知识 · 镜头怎么说话 · 希区柯克变焦
-  ✓ 代表作 · 镜头怎么说话 · 《迷魂记》
+  ⏳ 代表作 · 镜头怎么说话 · 《迷魂记》（同域名连续超时，本条暂缓，未核实）
+  ⏳ 知识 · 镜头怎么说话 · 一镜到底（词条）（两次都没拉到，算够不着）
+  ⏳ 代表作 · 镜头怎么说话 · 《盗亦有道》（同域名连续超时，本条暂缓，未核实）
+  ⏳ 知识 · 画面怎么摆 · 三分法（词条）（同域名连续超时，本条暂缓，未核实）
   ✓ 知识 · 镜头怎么说话 · 跟拍镜头
-  ✓ 代表作 · 镜头怎么说话 · 《盗亦有道》
-  ✓ 知识 · 画面怎么摆 · 三分法（词条）
+  ⏳ 知识 · 画面怎么摆 · 场面调度（词条）（同域名连续超时，本条暂缓，未核实）
   ✓ 知识 · 画面怎么摆 · 三分法：怎么用、什么时候该破
-  ✓ 知识 · 画面怎么摆 · 场面调度（词条）
   ✓ 知识 · 怎么剪才不跳 · 连贯剪辑：让观众感觉不到剪过
+  ⏳ 知识 · 怎么剪才不跳 · 蒙太奇（词条）（同域名连续超时，本条暂缓，未核实）
+  ⏳ 知识 · 怎么剪才不跳 · 剪辑（词条）（同域名连续超时，本条暂缓，未核实）
+  ⏳ 知识 · 怎么剪才不跳 · 跳接（词条）（同域名连续超时，本条暂缓，未核实）
+  ✓ 知识 · 镜头怎么说话 · 长镜头
   ✓ 知识 · 怎么剪才不跳 · 180 度规则
-  ✓ 知识 · 怎么剪才不跳 · 蒙太奇（词条）
-  ✓ 知识 · 怎么剪才不跳 · 剪辑（词条）
-  ✓ 知识 · 怎么剪才不跳 · 跳接（词条）
-  ✓ 知识 · 怎么剪才不跳 · 跳接：什么时候是错，什么时候是风格
   ✓ 知识 · 怎么剪才不跳 · J 剪与 L 剪：声音先进或后走
+  ⏳ 知识 · 故事怎么搭 · 三幕剧（词条）（同域名连续超时，本条暂缓，未核实）
+  ⏳ 知识 · 故事怎么搭 · 分镜（词条）（同域名连续超时，本条暂缓，未核实）
   ✓ 知识 · 故事怎么搭 · 三幕结构
-  ✓ 知识 · 故事怎么搭 · 三幕剧（词条）
-  ✓ 知识 · 故事怎么搭 · 分镜（词条）
-  ✓ 知识 · 故事怎么搭 · 一句话梗概（logline）怎么写
-  ✓ 知识 · 故事怎么搭 · 剧本（词条）
+  ⏳ 知识 · 故事怎么搭 · 剧本（词条）（同域名连续超时，本条暂缓，未核实）
+  ⏳ 代表作 · 镜头怎么说话 · 《鸟人》（两次都没拉到，算够不着）
+  ✓ 知识 · 怎么剪才不跳 · 跳接：什么时候是错，什么时候是风格
   ✓ 知识 · 声音怎么用 · 有声源与无声源：声音从画面里来还是从画面外来
-  ✓ 知识 · 声音怎么用 · 声音设计是什么
   ✓ 知识 · 光怎么打 · 三点布光
+  ✓ 知识 · 故事怎么搭 · 一句话梗概（logline）怎么写
+  ✓ 知识 · 声音怎么用 · 声音设计是什么
   ✓ 知识 · 光怎么打 · 高调布光
+  ⏳ 知识 · 光怎么打 · 色温（词条）（同域名连续超时，本条暂缓，未核实）
   ✓ 知识 · 光怎么打 · 低调布光
   ✓ 知识 · 光怎么打 · 伦勃朗光
+  ⏳ 知识 · 色彩怎么用 · 色彩心理学（词条）（同域名连续超时，本条暂缓，未核实）
+  ⏳ 知识 · 色彩怎么用 · 颜色（词条）（同域名连续超时，本条暂缓，未核实）
   ✓ 知识 · 光怎么打 · 有动机的光
-  ✓ 知识 · 光怎么打 · 色温（词条）
   ✓ 知识 · 色彩怎么用 · 色彩理论
+  ⏳ 知识 · 人物怎么立 · 对白（词条）（同域名连续超时，本条暂缓，未核实）
   ✓ 知识 · 色彩怎么用 · 电影的配色方案
-  ✓ 知识 · 色彩怎么用 · 色彩心理学（词条）
-  ✓ 知识 · 色彩怎么用 · 颜色（词条）
-  ✓ 知识 · 人物怎么立 · 角色弧光
+  ⏳ 知识 · 交付前要懂的数 · 帧率（词条）（同域名连续超时，本条暂缓，未核实）
+  ⏳ 知识 · 交付前要懂的数 · 长宽比（词条）（同域名连续超时，本条暂缓，未核实）
   ✓ 知识 · 人物怎么立 · 对白怎么写
-  ✓ 知识 · 人物怎么立 · 对白（词条）
+  ⏳ 代表作 · 导演的招牌手法 · 《布达佩斯大饭店》（同域名连续超时，本条暂缓，未核实）
+  ✓ 知识 · 人物怎么立 · 角色弧光
+  ⏳ 代表作 · 导演的招牌手法 · 《拯救大兵瑞恩》（同域名连续超时，本条暂缓，未核实）
   ✓ 知识 · 交付前要懂的数 · 画幅比例
-  ✓ 知识 · 交付前要懂的数 · 帧率（词条）
-  ✓ 知识 · 交付前要懂的数 · 长宽比（词条）
-  ✓ 知识 · 导演的招牌手法 · 韦斯·安德森：对称、正面、平移
-  ✓ 代表作 · 导演的招牌手法 · 《布达佩斯大饭店》
-  ✓ 知识 · 导演的招牌手法 · 斯皮尔伯格：他怎么调度镜头
-  ✓ 代表作 · 导演的招牌手法 · 《拯救大兵瑞恩》
+  ⏳ 代表作 · 导演的招牌手法 · 《敦刻尔克》（同域名连续超时，本条暂缓，未核实）
+  ⏳ 知识 · 导演的招牌手法 · 杜琪峰（词条）（同域名连续超时，本条暂缓，未核实）
+  ⏳ 代表作 · 导演的招牌手法 · 《枪火》（同域名连续超时，本条暂缓，未核实）
+  ⏳ 知识 · 导演的招牌手法 · 王家卫（词条）（同域名连续超时，本条暂缓，未核实）
+  ⏳ 代表作 · 导演的招牌手法 · 《花样年华》（同域名连续超时，本条暂缓，未核实）
+  ⏳ 知识 · 导演的招牌手法 · 昆汀·塔伦提诺（词条）（同域名连续超时，本条暂缓，未核实）
+  ⏳ 代表作 · 导演的招牌手法 · 《低俗小说》（同域名连续超时，本条暂缓，未核实）
+  ⏳ 知识 · 动画与工作室 · 皮克斯动画工作室（词条）（同域名连续超时，本条暂缓，未核实）
+  ⏳ 代表作 · 动画与工作室 · 《玩具总动员》（同域名连续超时，本条暂缓，未核实）
+  ⏳ 知识 · 动画与工作室 · 吉卜力工作室（词条）（同域名连续超时，本条暂缓，未核实）
+  ⏳ 代表作 · 动画与工作室 · 《千与千寻》（同域名连续超时，本条暂缓，未核实）
+  ⏳ 知识 · 动画与工作室 · 宫崎骏（词条）（同域名连续超时，本条暂缓，未核实）
+  ⏳ 代表作 · 动画与工作室 · 《龙猫》（同域名连续超时，本条暂缓，未核实）
+  ⏳ 知识 · 动画与工作室 · 定格动画（词条）（同域名连续超时，本条暂缓，未核实）
+  ⏳ 代表作 · 动画与工作室 · 《了不起的狐狸爸爸》（同域名连续超时，本条暂缓，未核实）
+  ⏳ 知识 · 动画与工作室 · 动画电影（词条）（同域名连续超时，本条暂缓，未核实）
+  ⏳ 代表作 · 动画与工作室 · 《头脑特工队》（同域名连续超时，本条暂缓，未核实）
+  ⏳ 知识 · 演员立住的那一类 · 成龙（词条）（同域名连续超时，本条暂缓，未核实）
+  ⏳ 代表作 · 演员立住的那一类 · 《警察故事》（同域名连续超时，本条暂缓，未核实）
+  ⏳ 知识 · 演员立住的那一类 · 周星驰（词条）（同域名连续超时，本条暂缓，未核实）
+  ⏳ 代表作 · 演员立住的那一类 · 《喜剧之王》（同域名连续超时，本条暂缓，未核实）
+  ⏳ 知识 · 演员立住的那一类 · 无厘头（词条）（同域名连续超时，本条暂缓，未核实）
+  ⏳ 代表作 · 演员立住的那一类 · 《大话西游》（同域名连续超时，本条暂缓，未核实）
+  ⏳ 知识 · 演员立住的那一类 · 功夫片（词条）（同域名连续超时，本条暂缓，未核实）
+  ⏳ 代表作 · 演员立住的那一类 · 《醉拳》（同域名连续超时，本条暂缓，未核实）
   ✓ 知识 · 导演的招牌手法 · 诺兰：结构与实拍
-  ✓ 代表作 · 导演的招牌手法 · 《敦刻尔克》
-  ✓ 知识 · 导演的招牌手法 · 杜琪峰（词条）
-  ✓ 代表作 · 导演的招牌手法 · 《枪火》
-  ✓ 知识 · 导演的招牌手法 · 王家卫（词条）
-  ✓ 代表作 · 导演的招牌手法 · 《花样年华》
-  ✓ 知识 · 导演的招牌手法 · 昆汀·塔伦提诺（词条）
-  ✓ 代表作 · 导演的招牌手法 · 《低俗小说》
-  ✓ 知识 · 动画与工作室 · 皮克斯动画工作室（词条）
-  ✓ 代表作 · 动画与工作室 · 《玩具总动员》
-  ✓ 知识 · 动画与工作室 · 吉卜力工作室（词条）
-  ✓ 代表作 · 动画与工作室 · 《千与千寻》
-  ✓ 知识 · 动画与工作室 · 宫崎骏（词条）
-  ✓ 代表作 · 动画与工作室 · 《龙猫》
-  ✓ 知识 · 动画与工作室 · 定格动画（词条）
-  ✓ 代表作 · 动画与工作室 · 《了不起的狐狸爸爸》
-  ✓ 知识 · 动画与工作室 · 动画电影（词条）
-  ✓ 代表作 · 动画与工作室 · 《头脑特工队》
-  ✓ 知识 · 演员立住的那一类 · 成龙（词条）
-  ✓ 代表作 · 演员立住的那一类 · 《警察故事》
-  ✓ 知识 · 演员立住的那一类 · 周星驰（词条）
-  ✓ 代表作 · 演员立住的那一类 · 《喜剧之王》
-  ✓ 知识 · 演员立住的那一类 · 无厘头（词条）
-  ✓ 代表作 · 演员立住的那一类 · 《大话西游》
-  ✓ 知识 · 演员立住的那一类 · 功夫片（词条）
-  ✓ 代表作 · 演员立住的那一类 · 《醉拳》
+  ⏳ 代表作 · 类型片与流派 · 《双重赔偿》（同域名连续超时，本条暂缓，未核实）
+  ⏳ 知识 · 类型片与流派 · 黑色电影（词条）（同域名连续超时，本条暂缓，未核实）
+  ⏳ 代表作 · 类型片与流派 · 《唐人街》（同域名连续超时，本条暂缓，未核实）
+  ⏳ 知识 · 类型片与流派 · 西部片（词条）（同域名连续超时，本条暂缓，未核实）
+  ⏳ 代表作 · 类型片与流派 · 《黄金三镖客》（同域名连续超时，本条暂缓，未核实）
+  ⏳ 知识 · 类型片与流派 · 赛博朋克（词条）（同域名连续超时，本条暂缓，未核实）
+  ⏳ 代表作 · 类型片与流派 · 《银翼杀手》（同域名连续超时，本条暂缓，未核实）
+  ⏳ 知识 · 类型片与流派 · 法国新浪潮（词条）（同域名连续超时，本条暂缓，未核实）
+  ⏳ 代表作 · 类型片与流派 · 《精疲力尽》（同域名连续超时，本条暂缓，未核实）
+  ⏳ 知识 · 类型片与流派 · 香港电影新浪潮（词条）（同域名连续超时，本条暂缓，未核实）
+  ⏳ 代表作 · 类型片与流派 · 《投奔怒海》（同域名连续超时，本条暂缓，未核实）
+  ⏳ 知识 · 类型片与流派 · 蒙太奇学派（词条）（同域名连续超时，本条暂缓，未核实）
+  ⏳ 代表作 · 类型片与流派 · 《战舰波将金号》（同域名连续超时，本条暂缓，未核实）
+  ⏳ 知识 · 动画的画法 · 水墨画（词条）（同域名连续超时，本条暂缓，未核实）
+  ⏳ 代表作 · 动画的画法 · 中国动画（词条，水墨动画那一支在这里）（同域名连续超时，本条暂缓，未核实）
+  ⏳ 知识 · 动画的画法 · 赛璐璐（词条）（同域名连续超时，本条暂缓，未核实）
+  ✓ 知识 · 导演的招牌手法 · 斯皮尔伯格：他怎么调度镜头
   ✓ 知识 · 类型片与流派 · 黑色电影
-  ✓ 代表作 · 类型片与流派 · 《双重赔偿》
-  ✓ 知识 · 类型片与流派 · 黑色电影（词条）
-  ✓ 代表作 · 类型片与流派 · 《唐人街》
-  ✓ 知识 · 类型片与流派 · 西部片（词条）
-  ✓ 代表作 · 类型片与流派 · 《黄金三镖客》
-  ✓ 知识 · 类型片与流派 · 赛博朋克（词条）
-  ✓ 代表作 · 类型片与流派 · 《银翼杀手》
-  ✓ 知识 · 类型片与流派 · 法国新浪潮（词条）
-  ✓ 代表作 · 类型片与流派 · 《精疲力尽》
-  ✓ 知识 · 类型片与流派 · 香港电影新浪潮（词条）
-  ✓ 代表作 · 类型片与流派 · 《投奔怒海》
-  ✓ 知识 · 类型片与流派 · 蒙太奇学派（词条）
-  ✓ 代表作 · 类型片与流派 · 《战舰波将金号》
-  ✓ 知识 · 动画的画法 · 水墨画（词条）
-  ✓ 代表作 · 动画的画法 · 中国动画（词条，水墨动画那一支在这里）
-  ✓ 知识 · 动画的画法 · 赛璐璐（词条）
-  ✓ 代表作 · 动画的画法 · 传统动画（英文词条）
-  ✓ 知识 · 动画的画法 · 有限帧动画（英文词条）
-  ✓ 知识 · 动画的画法 · 日本动画（词条）
-  ✓ 知识 · 动画的画法 · 厚涂（词条）
-  ✓ 代表作 · 动画的画法 · Impasto（英文词条）
-  ✓ 知识 · 动画的画法 · 像素艺术（词条）
-  ✓ 知识 · 动画的画法 · 低多边形（词条）
-  ✓ 知识 · 动画的画法 · 卡通渲染（词条）
-  ✓ 知识 · 动画的画法 · 皮影戏（词条）
-  ✓ 代表作 · 动画的画法 · 剪纸（词条）
-  ✓ 知识 · 动画的画法 · 转描（英文词条）
-  ✓ 知识 · 动画的画法 · 黏土动画（英文词条）
-  ✓ 代表作 · 动画的画法 · 逐格动画（词条）
-  ✓ 知识 · 实拍的影像质感 · 胶片颗粒（英文词条）
-  ✓ 代表作 · 实拍的影像质感 · 底片（词条）
-  ✓ 知识 · 实拍的影像质感 · 变形宽银幕（英文词条）
-  ✓ 代表作 · 实拍的影像质感 · 变形镜头（词条）
-  ✓ 知识 · 实拍的影像质感 · 特艺七彩（词条）
-  ✓ 知识 · 实拍的影像质感 · 黑白电影（词条）
-  ✓ 知识 · 实拍的影像质感 · 明暗对照法（英文词条）
-  ✓ 知识 · 实拍的影像质感 · 青橙调色（英文词条）
-  ✓ 代表作 · 实拍的影像质感 · 调色（英文词条）
-  ✓ 知识 · 实拍的影像质感 · 焦外散景（英文词条）
-  ✓ 知识 · 实拍的影像质感 · 手持摄影（英文词条）
-  ✓ 知识 · 实拍的影像质感 · 自然光（Available light，英文词条）
+  ⏳ 知识 · 动画的画法 · 日本动画（词条）（同域名连续超时，本条暂缓，未核实）
+  ⏳ 知识 · 动画的画法 · 厚涂（词条）（同域名连续超时，本条暂缓，未核实）
+  ✓ 知识 · 导演的招牌手法 · 韦斯·安德森：对称、正面、平移
+  ⏳ 知识 · 动画的画法 · 像素艺术（词条）（同域名连续超时，本条暂缓，未核实）
+  ⏳ 知识 · 动画的画法 · 低多边形（词条）（同域名连续超时，本条暂缓，未核实）
+  ⏳ 知识 · 动画的画法 · 卡通渲染（词条）（同域名连续超时，本条暂缓，未核实）
+  ⏳ 知识 · 动画的画法 · 皮影戏（词条）（同域名连续超时，本条暂缓，未核实）
+  ⏳ 代表作 · 动画的画法 · 剪纸（词条）（同域名连续超时，本条暂缓，未核实）
+  ⏳ 代表作 · 动画的画法 · 传统动画（英文词条）（两次都没拉到，算够不着）
+  ⏳ 知识 · 动画的画法 · 有限帧动画（英文词条）（两次都没拉到，算够不着）
+  ⏳ 代表作 · 动画的画法 · 逐格动画（词条）（同域名连续超时，本条暂缓，未核实）
+  ⏳ 代表作 · 动画的画法 · Impasto（英文词条）（两次都没拉到，算够不着）
+  ⏳ 代表作 · 实拍的影像质感 · 底片（词条）（同域名连续超时，本条暂缓，未核实）
+  ⏳ 知识 · 实拍的影像质感 · 变形宽银幕（英文词条）（同域名连续超时，本条暂缓，未核实）
+  ⏳ 代表作 · 实拍的影像质感 · 变形镜头（词条）（同域名连续超时，本条暂缓，未核实）
+  ⏳ 知识 · 实拍的影像质感 · 特艺七彩（词条）（同域名连续超时，本条暂缓，未核实）
+  ⏳ 知识 · 实拍的影像质感 · 黑白电影（词条）（同域名连续超时，本条暂缓，未核实）
+  ⏳ 知识 · 实拍的影像质感 · 明暗对照法（英文词条）（同域名连续超时，本条暂缓，未核实）
+  ⏳ 知识 · 实拍的影像质感 · 青橙调色（英文词条）（同域名连续超时，本条暂缓，未核实）
+  ⏳ 代表作 · 实拍的影像质感 · 调色（英文词条）（同域名连续超时，本条暂缓，未核实）
+  ⏳ 知识 · 实拍的影像质感 · 焦外散景（英文词条）（同域名连续超时，本条暂缓，未核实）
+  ⏳ 知识 · 实拍的影像质感 · 手持摄影（英文词条）（同域名连续超时，本条暂缓，未核实）
+  ⏳ 知识 · 实拍的影像质感 · 自然光（Available light，英文词条）（同域名连续超时，本条暂缓，未核实）
   ✓ 知识 · 法与权 · 《人工智能生成合成内容标识办法》全文
   ✓ 知识 · 法与权 · 官方答记者问
-  ✓ 知识 · 法与权 · 著作权（词条）
-  ✓ 知识 · 法与权 · 肖像权（词条）
+  ⏳ 知识 · 法与权 · 著作权（词条）（同域名连续超时，本条暂缓，未核实）
+  ⏳ 知识 · 法与权 · 肖像权（词条）（同域名连续超时，本条暂缓，未核实）
   ✓ 作品 · Kök Börü · Variety：Higgsfield 在 SIGGRAPH 首映《Kök Börü》
-  ✓ 作品 · Kök Börü · AWN：混合人机动画管线详解
+  ✗ 403 作品 · Kök Börü · AWN：混合人机动画管线详解
   ✓ 作品 · 丧尸清道夫 · 腾讯新闻：对话《丧尸清道夫》作者 —— 10 天 3000 块
   ✓ 作品 · 丧尸清道夫 · B 站：人物一致性怎么保持（制作拆解）
+  ⏳ 知识 · 动画的画法 · 转描（英文词条）（两次都没拉到，算够不着）
   ✓ 作品 · Hell Grind · Variety：我在戛纳看了 Hell Grind
-  ✓ 作品 · Hell Grind · Screen Daily：Higgsfield 在戛纳公开全 AI 长片
   ✓ 对照 · livetalking · issue #510
   ✓ 对照 · clipforge · 仓库 README
   ✓ 对照 · yt-shorts-gen · 仓库 README 的前置条件一节
@@ -474,76 +223,212 @@
   ✓ MCP for Unity · 官方工具目录：47 个入口各管什么
   ✓ unreal-mcp（chongdashu） · Epic 官方：编辑器里的 Unreal MCP（引擎自带的那条路）
   ✓ VibeUE · Epic 官方：编辑器里的 Unreal MCP
+  ⏳ 知识 · 动画的画法 · 黏土动画（英文词条）（两次都没拉到，算够不着）
+  ✓ EngineWire（原 Unreal MCP） · MCP 官方注册表
   ✓ VibeUE · 项目主页
-  ✓ Unreal Engine MCP Server · MCP 官方注册表
-  ✓ Godot MCP · Godot 官方下载（先装引擎再设 GODOT_PATH）
   ✓ Godot AI · Godot 官方资源库页（可一键装）
+  ✓ Godot MCP · Godot 官方下载（先装引擎再设 GODOT_PATH）
   ⚠ 标题变了 Blender MCP · 项目官网
       录入：Community Blender MCP | AI-Powered 3D Modeling Agent for Blender
       现在：Original Blender MCP: Free Setup for Claude, ChatGPT, Cursor
-  ✓ TRELLIS · 在线体验空间
-  ✓ 混元 3D 2.1 · 模型权重页
-  ✓ PartCrafter · 模型权重与说明
+  ⏳ 知识 · 实拍的影像质感 · 胶片颗粒（英文词条）（两次都没拉到，算够不着）
+  ⏳ 作品 · Hell Grind · Screen Daily：Higgsfield 在戛纳公开全 AI 长片（两次都没拉到，算够不着）
   ✓ TripoSG · 项目页与在线体验
   ✓ Unity ML-Agents · Unity 官方包文档
   ✓ LLM for Unity · 官方文档站
-  ✓ 知识 · 核心循环与机制 · 游戏机制（词条）
-  ✓ 知识 · 核心循环与机制 · Game mechanics（英文词条）
-  ✓ 知识 · 核心循环与机制 · 游戏设计（词条）
-  ✓ 知识 · 核心循环与机制 · Game design document（英文词条）
-  ✓ 知识 · 心流与难度 · 心流（词条）
-  ✓ 知识 · 心流与难度 · Flow（英文词条）
-  ✓ 知识 · 心流与难度 · Difficulty level（英文词条）
-  ✓ 知识 · 心流与难度 · 游戏平衡（英文词条）
-  ✓ 知识 · 关卡与空间 · 游戏关卡（词条）
-  ✓ 知识 · 关卡与空间 · Level design（英文词条）
+  ⏳ 知识 · 核心循环与机制 · 游戏机制（词条）（同域名连续超时，本条暂缓，未核实）
+  ⏳ 知识 · 核心循环与机制 · Game mechanics（英文词条）（同域名连续超时，本条暂缓，未核实）
+  ⏳ 知识 · 核心循环与机制 · 游戏设计（词条）（同域名连续超时，本条暂缓，未核实）
+  ⏳ 知识 · 核心循环与机制 · Game design document（英文词条）（同域名连续超时，本条暂缓，未核实）
+  ⏳ 知识 · 心流与难度 · 心流（词条）（同域名连续超时，本条暂缓，未核实）
+  ⏳ 知识 · 心流与难度 · Flow（英文词条）（同域名连续超时，本条暂缓，未核实）
+  ⏳ 知识 · 心流与难度 · Difficulty level（英文词条）（同域名连续超时，本条暂缓，未核实）
+  ⏳ 知识 · 心流与难度 · 游戏平衡（英文词条）（同域名连续超时，本条暂缓，未核实）
+  ⏳ 知识 · 关卡与空间 · 游戏关卡（词条）（同域名连续超时，本条暂缓，未核实）
+  ⏳ 知识 · 关卡与空间 · Level design（英文词条）（同域名连续超时，本条暂缓，未核实）
   ✓ 知识 · 关卡与空间 · Red Blob Games：网格与寻路
-  ✓ 知识 · 关卡与空间 · 程序化生成（词条）
-  ✓ 知识 · 手感与反馈 · Game feel（英文词条）
-  ✓ 知识 · 手感与反馈 · Input lag（英文词条）
-  ✓ 知识 · 手感与反馈 · 动画十二原则（词条）
-  ✓ 知识 · 手感与反馈 · Juiciness / 反馈堆叠（Game feel 章节）
-  ✓ 知识 · 数值与经济 · 虚拟经济（词条）
-  ✓ 知识 · 数值与经济 · Loot box（英文词条）
-  ✓ 知识 · 数值与经济 · Random number generation in games
-  ✓ 知识 · 数值与经济 · Progression（英文词条）
-  ✓ 知识 · 类型与流派 · 电子游戏类型（词条）
-  ✓ 知识 · 类型与流派 · Roguelike（词条）
-  ✓ 知识 · 类型与流派 · 平台游戏（词条）
-  ✓ 知识 · 类型与流派 · 沙盒游戏（词条）
-  ✓ 知识 · 类型与流派 · 塔防游戏（词条）
+  ⏳ 知识 · 关卡与空间 · 程序化生成（词条）（同域名连续超时，本条暂缓，未核实）
+  ⏳ 知识 · 手感与反馈 · Game feel（英文词条）（同域名连续超时，本条暂缓，未核实）
+  ⏳ 知识 · 手感与反馈 · Input lag（英文词条）（同域名连续超时，本条暂缓，未核实）
+  ⏳ 知识 · 手感与反馈 · 动画十二原则（词条）（同域名连续超时，本条暂缓，未核实）
+  ⏳ 知识 · 手感与反馈 · Juiciness / 反馈堆叠（Game feel 章节）（同域名连续超时，本条暂缓，未核实）
+  ⏳ 知识 · 数值与经济 · 虚拟经济（词条）（同域名连续超时，本条暂缓，未核实）
+  ⏳ 知识 · 数值与经济 · Loot box（英文词条）（同域名连续超时，本条暂缓，未核实）
+  ⏳ 知识 · 数值与经济 · Random number generation in games（同域名连续超时，本条暂缓，未核实）
+  ⏳ 知识 · 数值与经济 · Progression（英文词条）（同域名连续超时，本条暂缓，未核实）
+  ⏳ 知识 · 类型与流派 · 电子游戏类型（词条）（同域名连续超时，本条暂缓，未核实）
+  ⏳ 知识 · 类型与流派 · Roguelike（词条）（同域名连续超时，本条暂缓，未核实）
+  ⏳ 知识 · 类型与流派 · 平台游戏（词条）（同域名连续超时，本条暂缓，未核实）
+  ⏳ 知识 · 类型与流派 · 沙盒游戏（词条）（同域名连续超时，本条暂缓，未核实）
+  ⏳ 知识 · 类型与流派 · 塔防游戏（词条）（同域名连续超时，本条暂缓，未核实）
   ✓ 知识 · 授权与合规 · Unity 官方定价与授权
   ✓ 知识 · 授权与合规 · 虚幻引擎官方授权条款
   ✓ 知识 · 授权与合规 · Godot 官方许可说明
-  ✓ 知识 · 授权与合规 · 创用 CC 授权（词条）
-  ✓ 知识 · 授权与合规 · 生成式 AI 与著作权（英文词条）
+  ⏳ 知识 · 授权与合规 · 创用 CC 授权（词条）（同域名连续超时，本条暂缓，未核实）
+  ⏳ 知识 · 授权与合规 · 生成式 AI 与著作权（英文词条）（同域名连续超时，本条暂缓，未核实）
   ✓ 知识 · 成体系的免费书 · 游戏编程模式（全文免费）
   ✓ 知识 · 成体系的免费书 · 游戏编程模式 · 中文版
   ✓ 知识 · 成体系的免费书 · The Book of Shaders
   ✓ 知识 · 成体系的免费书 · Red Blob Games
-  ✓ 知识 · 官方文档与精选清单 · Godot 官方文档
+  ⏳ 429 知识 · 官方文档与精选清单 · Godot 官方文档（限流，不算死链）
   ✓ 知识 · 官方文档与精选清单 · Unity 官方学习站
   ✓ 知识 · 官方文档与精选清单 · 虚幻引擎官方文档
   ✓ 知识 · 官方文档与精选清单 · awesome-godot（原 Godot 官方组织，现由个人维护）
   ✓ 知识 · 官方文档与精选清单 · GameDevMind 游戏开发技术图谱
   ✓ 知识 · 官方文档与精选清单 · magictools 游戏开发资源大全
   ✓ 知识 · 官方文档与精选清单 · awesome-learn-gamedev 学习资源精选
-  ✓ 作品 · Tower of Time · itch.io 作品页（含平台强制的 AI 披露字段与素材来源清单）
-  ✓ 作品 · Tower of Time · Show HN：I AI-coded a tower defense game and documented the whole process（319 分 152 评）
+  ⏳ TRELLIS · 在线体验空间（两次都没拉到，算够不着）
+  ⏳ 混元 3D 2.1 · 模型权重页（两次都没拉到，算够不着）
+  ⏳ PartCrafter · 模型权重与说明（两次都没拉到，算够不着）
   ✓ 作品 · Tower of Time · 项目仓库（README 写明工具清单与 95% 的比例）
   ✓ 作品 · Tower of Time · PROMPTS.md：按对话记录的全部提示词
-  ✓ 作品 · Godogen 的四个演示作 · Godogen 仓库
   ✓ 作品 · Godogen 的四个演示作 · demo_prompts.md：四个演示各自的完整提示词
+  ✓ 作品 · Godogen 的四个演示作 · Godogen 仓库
   ✓ 对照 · cc-game-studios · issue #34：Has anyone created a finished, playable game successfully?
   ✓ 对照 · cc-game-studios · issue #53：有人用这个搭建过一个完整的游戏吗?
-  ✓ 对照 · unrealclaude · issue #31：Claude cannot read Blueprints or use other custom tools
   ✓ 对照 · locus · issue #84
   ✓ 对照 · cocos-mcp · 仓库 README
-  ✓ 对照 · godogen · 仓库 README 的前置条件一节
+  ✓ 对照 · unrealclaude · issue #31：Claude cannot read Blueprints or use other custom tools
   ✓ 对照 · unreal-mcp · issue #15：spawn_blueprint_actor doesn't work
   ✓ 对照 · unreal-mcp · issue #12：Error when setting up with Cursor（8 条回复，最热）
+  ✓ 对照 · godogen · 仓库 README 的前置条件一节
+  ⏳ 作品 · Tower of Time · itch.io 作品页（含平台强制的 AI 披露字段与素材来源清单）（两次都没拉到，算够不着）
+  ⏳ 作品 · Tower of Time · Show HN：I AI-coded a tower defense game and documented the whole process（319 分 152 评）（两次都没拉到，算够不着）
 
-241 条：通过 235 · 打不开 0 · 标题变了 6 · 限流或够不着 0
+241 条：通过 106 · 打不开 1 · 标题变了 8 · 限流或够不着 126
+打不开的要么换链接、要么删掉，别留着：
+  HTTP 403 https://www.awn.com/news/higgsfield-debuts-k-k-b-r-showcasing-hybrid-human-ai-animation-pipeline
 标题变了的要人看一眼内容还对不对，对就更新 page_title 与 verified_at。
+被限流 / 够不着的**不是死链**，隔一会儿单独再跑一次就行：
+  curl 两次都起不来 —— 够不着，不等于死链 https://zh.wikipedia.org/wiki/電影攝影
+  curl 两次都起不来 —— 够不着，不等于死链 https://zh.wikipedia.org/wiki/景深
+  curl 两次都起不来 —— 够不着，不等于死链 https://zh.wikipedia.org/wiki/分鏡腳本
+  同域名连续三次双重超时；本条未请求，待网络恢复后复核 https://zh.wikipedia.org/wiki/1917_(電影)
+  同域名连续三次双重超时；本条未请求，待网络恢复后复核 https://zh.wikipedia.org/wiki/第三人
+  同域名连续三次双重超时；本条未请求，待网络恢复后复核 https://zh.wikipedia.org/wiki/迷魂記
+  curl 两次都起不来 —— 够不着，不等于死链 https://zh.wikipedia.org/wiki/一鏡到底
+  同域名连续三次双重超时；本条未请求，待网络恢复后复核 https://zh.wikipedia.org/wiki/盜亦有道
+  同域名连续三次双重超时；本条未请求，待网络恢复后复核 https://zh.wikipedia.org/wiki/三分法
+  同域名连续三次双重超时；本条未请求，待网络恢复后复核 https://zh.wikipedia.org/wiki/場面調度
+  同域名连续三次双重超时；本条未请求，待网络恢复后复核 https://zh.wikipedia.org/wiki/蒙太奇
+  同域名连续三次双重超时；本条未请求，待网络恢复后复核 https://zh.wikipedia.org/wiki/剪輯
+  同域名连续三次双重超时；本条未请求，待网络恢复后复核 https://zh.wikipedia.org/wiki/跳接
+  同域名连续三次双重超时；本条未请求，待网络恢复后复核 https://zh.wikipedia.org/wiki/三幕劇
+  同域名连续三次双重超时；本条未请求，待网络恢复后复核 https://zh.wikipedia.org/wiki/分鏡
+  同域名连续三次双重超时；本条未请求，待网络恢复后复核 https://zh.wikipedia.org/wiki/劇本
+  curl 两次都起不来 —— 够不着，不等于死链 https://zh.wikipedia.org/wiki/鳥人_(2014年電影)
+  同域名连续三次双重超时；本条未请求，待网络恢复后复核 https://zh.wikipedia.org/wiki/色溫
+  同域名连续三次双重超时；本条未请求，待网络恢复后复核 https://zh.wikipedia.org/wiki/色彩心理學
+  同域名连续三次双重超时；本条未请求，待网络恢复后复核 https://zh.wikipedia.org/wiki/颜色
+  同域名连续三次双重超时；本条未请求，待网络恢复后复核 https://zh.wikipedia.org/wiki/對白
+  同域名连续三次双重超时；本条未请求，待网络恢复后复核 https://zh.wikipedia.org/wiki/幀率
+  同域名连续三次双重超时；本条未请求，待网络恢复后复核 https://zh.wikipedia.org/wiki/長寬比_(影像)
+  同域名连续三次双重超时；本条未请求，待网络恢复后复核 https://zh.wikipedia.org/wiki/布達佩斯大飯店
+  同域名连续三次双重超时；本条未请求，待网络恢复后复核 https://zh.wikipedia.org/wiki/拯救大兵瑞恩
+  同域名连续三次双重超时；本条未请求，待网络恢复后复核 https://zh.wikipedia.org/wiki/敦刻尔克_(电影)
+  同域名连续三次双重超时；本条未请求，待网络恢复后复核 https://zh.wikipedia.org/wiki/杜琪峰
+  同域名连续三次双重超时；本条未请求，待网络恢复后复核 https://zh.wikipedia.org/wiki/槍火
+  同域名连续三次双重超时；本条未请求，待网络恢复后复核 https://zh.wikipedia.org/wiki/王家卫
+  同域名连续三次双重超时；本条未请求，待网络恢复后复核 https://zh.wikipedia.org/wiki/花樣年華
+  同域名连续三次双重超时；本条未请求，待网络恢复后复核 https://zh.wikipedia.org/wiki/昆汀·塔倫提諾
+  同域名连续三次双重超时；本条未请求，待网络恢复后复核 https://zh.wikipedia.org/wiki/低俗小說
+  同域名连续三次双重超时；本条未请求，待网络恢复后复核 https://zh.wikipedia.org/wiki/皮克斯动画工作室
+  同域名连续三次双重超时；本条未请求，待网络恢复后复核 https://zh.wikipedia.org/wiki/玩具總動員
+  同域名连续三次双重超时；本条未请求，待网络恢复后复核 https://zh.wikipedia.org/wiki/吉卜力工作室
+  同域名连续三次双重超时；本条未请求，待网络恢复后复核 https://zh.wikipedia.org/wiki/千與千尋
+  同域名连续三次双重超时；本条未请求，待网络恢复后复核 https://zh.wikipedia.org/wiki/宮崎駿
+  同域名连续三次双重超时；本条未请求，待网络恢复后复核 https://zh.wikipedia.org/wiki/龍貓
+  同域名连续三次双重超时；本条未请求，待网络恢复后复核 https://zh.wikipedia.org/wiki/定格动画
+  同域名连续三次双重超时；本条未请求，待网络恢复后复核 https://zh.wikipedia.org/wiki/了不起的狐狸爸爸
+  同域名连续三次双重超时；本条未请求，待网络恢复后复核 https://zh.wikipedia.org/wiki/動畫電影
+  同域名连续三次双重超时；本条未请求，待网络恢复后复核 https://zh.wikipedia.org/wiki/頭腦特工隊
+  同域名连续三次双重超时；本条未请求，待网络恢复后复核 https://zh.wikipedia.org/wiki/成龙
+  同域名连续三次双重超时；本条未请求，待网络恢复后复核 https://zh.wikipedia.org/wiki/警察故事
+  同域名连续三次双重超时；本条未请求，待网络恢复后复核 https://zh.wikipedia.org/wiki/周星驰
+  同域名连续三次双重超时；本条未请求，待网络恢复后复核 https://zh.wikipedia.org/wiki/喜劇之王_(1999年電影)
+  同域名连续三次双重超时；本条未请求，待网络恢复后复核 https://zh.wikipedia.org/wiki/無厘頭
+  同域名连续三次双重超时；本条未请求，待网络恢复后复核 https://zh.wikipedia.org/wiki/大话西游
+  同域名连续三次双重超时；本条未请求，待网络恢复后复核 https://zh.wikipedia.org/wiki/功夫片
+  同域名连续三次双重超时；本条未请求，待网络恢复后复核 https://zh.wikipedia.org/wiki/醉拳
+  同域名连续三次双重超时；本条未请求，待网络恢复后复核 https://zh.wikipedia.org/wiki/雙重賠償_(電影)
+  同域名连续三次双重超时；本条未请求，待网络恢复后复核 https://zh.wikipedia.org/wiki/黑色电影
+  同域名连续三次双重超时；本条未请求，待网络恢复后复核 https://zh.wikipedia.org/wiki/唐人街_(電影)
+  同域名连续三次双重超时；本条未请求，待网络恢复后复核 https://zh.wikipedia.org/wiki/西部片
+  同域名连续三次双重超时；本条未请求，待网络恢复后复核 https://zh.wikipedia.org/wiki/黃金三鏢客
+  同域名连续三次双重超时；本条未请求，待网络恢复后复核 https://zh.wikipedia.org/wiki/賽博朋克
+  同域名连续三次双重超时；本条未请求，待网络恢复后复核 https://zh.wikipedia.org/wiki/銀翼殺手
+  同域名连续三次双重超时；本条未请求，待网络恢复后复核 https://zh.wikipedia.org/wiki/法國新浪潮
+  同域名连续三次双重超时；本条未请求，待网络恢复后复核 https://zh.wikipedia.org/wiki/精疲力盡
+  同域名连续三次双重超时；本条未请求，待网络恢复后复核 https://zh.wikipedia.org/wiki/香港電影新浪潮
+  同域名连续三次双重超时；本条未请求，待网络恢复后复核 https://zh.wikipedia.org/wiki/投奔怒海
+  同域名连续三次双重超时；本条未请求，待网络恢复后复核 https://zh.wikipedia.org/wiki/蒙太奇學派
+  同域名连续三次双重超时；本条未请求，待网络恢复后复核 https://zh.wikipedia.org/wiki/戰艦波將金號
+  同域名连续三次双重超时；本条未请求，待网络恢复后复核 https://zh.wikipedia.org/wiki/水墨畫
+  同域名连续三次双重超时；本条未请求，待网络恢复后复核 https://zh.wikipedia.org/wiki/中国动画
+  同域名连续三次双重超时；本条未请求，待网络恢复后复核 https://zh.wikipedia.org/wiki/賽璐璐
+  同域名连续三次双重超时；本条未请求，待网络恢复后复核 https://zh.wikipedia.org/wiki/日本动画
+  同域名连续三次双重超时；本条未请求，待网络恢复后复核 https://zh.wikipedia.org/wiki/厚涂
+  同域名连续三次双重超时；本条未请求，待网络恢复后复核 https://zh.wikipedia.org/wiki/像素艺术
+  同域名连续三次双重超时；本条未请求，待网络恢复后复核 https://zh.wikipedia.org/wiki/低多邊形
+  同域名连续三次双重超时；本条未请求，待网络恢复后复核 https://zh.wikipedia.org/wiki/卡通渲染
+  同域名连续三次双重超时；本条未请求，待网络恢复后复核 https://zh.wikipedia.org/wiki/皮影戏
+  同域名连续三次双重超时；本条未请求，待网络恢复后复核 https://zh.wikipedia.org/wiki/剪紙
+  curl 两次都起不来 —— 够不着，不等于死链 https://en.wikipedia.org/wiki/Traditional_animation
+  curl 两次都起不来 —— 够不着，不等于死链 https://en.wikipedia.org/wiki/Limited_animation
+  同域名连续三次双重超时；本条未请求，待网络恢复后复核 https://zh.wikipedia.org/wiki/逐格動畫
+  curl 两次都起不来 —— 够不着，不等于死链 https://en.wikipedia.org/wiki/Impasto
+  同域名连续三次双重超时；本条未请求，待网络恢复后复核 https://zh.wikipedia.org/wiki/膠卷
+  同域名连续三次双重超时；本条未请求，待网络恢复后复核 https://en.wikipedia.org/wiki/Anamorphic_format
+  同域名连续三次双重超时；本条未请求，待网络恢复后复核 https://zh.wikipedia.org/wiki/變形鏡頭
+  同域名连续三次双重超时；本条未请求，待网络恢复后复核 https://zh.wikipedia.org/wiki/特藝七彩
+  同域名连续三次双重超时；本条未请求，待网络恢复后复核 https://zh.wikipedia.org/wiki/黑白電影
+  同域名连续三次双重超时；本条未请求，待网络恢复后复核 https://en.wikipedia.org/wiki/Chiaroscuro
+  同域名连续三次双重超时；本条未请求，待网络恢复后复核 https://en.wikipedia.org/wiki/Teal_and_orange
+  同域名连续三次双重超时；本条未请求，待网络恢复后复核 https://en.wikipedia.org/wiki/Color_grading
+  同域名连续三次双重超时；本条未请求，待网络恢复后复核 https://en.wikipedia.org/wiki/Bokeh
+  同域名连续三次双重超时；本条未请求，待网络恢复后复核 https://en.wikipedia.org/wiki/Handheld_camera
+  同域名连续三次双重超时；本条未请求，待网络恢复后复核 https://en.wikipedia.org/wiki/Available_light
+  同域名连续三次双重超时；本条未请求，待网络恢复后复核 https://zh.wikipedia.org/wiki/著作權
+  同域名连续三次双重超时；本条未请求，待网络恢复后复核 https://zh.wikipedia.org/wiki/肖像權
+  curl 两次都起不来 —— 够不着，不等于死链 https://en.wikipedia.org/wiki/Rotoscoping
+  curl 两次都起不来 —— 够不着，不等于死链 https://en.wikipedia.org/wiki/Claymation
+  curl 两次都起不来 —— 够不着，不等于死链 https://en.wikipedia.org/wiki/Film_grain
+  curl 两次都起不来 —— 够不着，不等于死链 https://www.screendaily.com/news/in-pictures-higgsfield-unveils-fully-ai-generated-feature-hell-grind-in-cannes/5216871.article
+  同域名连续三次双重超时；本条未请求，待网络恢复后复核 https://zh.wikipedia.org/wiki/游戏机制
+  同域名连续三次双重超时；本条未请求，待网络恢复后复核 https://en.wikipedia.org/wiki/Game_mechanics
+  同域名连续三次双重超时；本条未请求，待网络恢复后复核 https://zh.wikipedia.org/wiki/游戏设计
+  同域名连续三次双重超时；本条未请求，待网络恢复后复核 https://en.wikipedia.org/wiki/Game_design_document
+  同域名连续三次双重超时；本条未请求，待网络恢复后复核 https://zh.wikipedia.org/wiki/心流
+  同域名连续三次双重超时；本条未请求，待网络恢复后复核 https://en.wikipedia.org/wiki/Flow_(psychology)
+  同域名连续三次双重超时；本条未请求，待网络恢复后复核 https://en.wikipedia.org/wiki/Game_difficulty
+  同域名连续三次双重超时；本条未请求，待网络恢复后复核 https://en.wikipedia.org/wiki/Game_balance
+  同域名连续三次双重超时；本条未请求，待网络恢复后复核 https://zh.wikipedia.org/wiki/遊戲關卡
+  同域名连续三次双重超时；本条未请求，待网络恢复后复核 https://en.wikipedia.org/wiki/Level_design
+  同域名连续三次双重超时；本条未请求，待网络恢复后复核 https://zh.wikipedia.org/wiki/程序化生成
+  同域名连续三次双重超时；本条未请求，待网络恢复后复核 https://en.wikipedia.org/wiki/Game_feel
+  同域名连续三次双重超时；本条未请求，待网络恢复后复核 https://en.wikipedia.org/wiki/Input_lag
+  同域名连续三次双重超时；本条未请求，待网络恢复后复核 https://zh.wikipedia.org/wiki/動畫的12項基本法則
+  同域名连续三次双重超时；本条未请求，待网络恢复后复核 https://en.wikipedia.org/wiki/Game_feel#Juiciness
+  同域名连续三次双重超时；本条未请求，待网络恢复后复核 https://zh.wikipedia.org/wiki/虚拟经济
+  同域名连续三次双重超时；本条未请求，待网络恢复后复核 https://en.wikipedia.org/wiki/Loot_box
+  同域名连续三次双重超时；本条未请求，待网络恢复后复核 https://en.wikipedia.org/wiki/Randomness#In_games
+  同域名连续三次双重超时；本条未请求，待网络恢复后复核 https://en.wikipedia.org/wiki/Experience_point
+  同域名连续三次双重超时；本条未请求，待网络恢复后复核 https://zh.wikipedia.org/wiki/电子游戏类型
+  同域名连续三次双重超时；本条未请求，待网络恢复后复核 https://zh.wikipedia.org/wiki/Roguelike
+  同域名连续三次双重超时；本条未请求，待网络恢复后复核 https://zh.wikipedia.org/wiki/平台游戏
+  同域名连续三次双重超时；本条未请求，待网络恢复后复核 https://zh.wikipedia.org/wiki/沙盒游戏
+  同域名连续三次双重超时；本条未请求，待网络恢复后复核 https://zh.wikipedia.org/wiki/塔防游戏
+  同域名连续三次双重超时；本条未请求，待网络恢复后复核 https://zh.wikipedia.org/wiki/知识共享许可协议
+  同域名连续三次双重超时；本条未请求，待网络恢复后复核 https://en.wikipedia.org/wiki/Artificial_intelligence_art#Copyright
+  HTTP 429 https://docs.godotengine.org/en/stable/
+  curl 两次都起不来 —— 够不着，不等于死链 https://huggingface.co/spaces/JeffreyXiang/TRELLIS
+  curl 两次都起不来 —— 够不着，不等于死链 https://huggingface.co/tencent/Hunyuan3D-2.1
+  curl 两次都起不来 —— 够不着，不等于死链 https://huggingface.co/wgsxm/PartCrafter
+  curl 两次都起不来 —— 够不着，不等于死链 https://m4v3k.itch.io/tower-of-time
+  curl 两次都起不来 —— 够不着，不等于死链 https://news.ycombinator.com/item?id=44463967
 ```
 
+
+## 2026-10-19 复核结论
+
+上方保留原始巡检输出，原始退出码为 1。唯一的“打不开”是 AWN 返回 403；独立网页读取已确认原报道仍存在，因此改归访问受限，确认死链为 0。检查器已修正并通过回归测试。8 处标题变化均已打开页面核对，更新 atlas.json 中的 page_title 与 verified_at；其余 126 条访问受限或未请求链接仍保留待复核，不视为验证通过。完整逐条变更见本轮审阅存档。

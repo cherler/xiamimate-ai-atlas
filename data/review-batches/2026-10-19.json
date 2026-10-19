@@ -241954,5 +241954,98 @@
       "sha256": "2b2ffb76ba44bf79a3f29023332fad2d8bd70ef9dd27ff9e7258bf1a213a08bb",
       "text": "Creative Commons Attribution 4.0 International License (CC BY 4.0)\n\nCopyright (c) 2025 YouMind OpenLab\n\nThis work is licensed under the Creative Commons Attribution 4.0 International License.\n\nTo view a copy of this license, visit:\nhttps://creativecommons.org/licenses/by/4.0/\n\nor send a letter to:\nCreative Commons, PO Box 1866, Mountain View, CA 94042, USA.\n\n---\n\nYou are free to:\n\n- Share — copy and redistribute the material in any medium or format\n- Adapt — remix, transform, and build upon the material for any purpose, even commercially\n\nUnder the following terms:\n\n- Attribution — You must give appropriate credit, provide a link to the license, and indicate if changes were made. You may do so in any reasonable manner, but not in any way that suggests the licensor endorses you or your use.\n\nNo additional restrictions — You may not apply legal terms or technological measures that legally restrict others from doing anything the license permits.\n\n---\n\nNotices:\n\nYou do not have to comply with the license for elements of the material in the public domain or where your use is permitted by an applicable exception or limitation.\n\nNo warranties are given. The license may not give you all of the permissions necessary for your intended use. For example, other rights such as publicity, privacy, or moral rights may limit how you use the material.\n"
     }
-  ]
+  ],
+  "link_review": {
+    "at": "2026-10-19T10:52:09.510119+00:00",
+    "actor": "Codex",
+    "raw_dead": 1,
+    "confirmed_dead": 0,
+    "access_restricted": 1,
+    "url": "https://www.awn.com/news/higgsfield-debuts-k-k-b-r-showcasing-hybrid-human-ai-animation-pipeline",
+    "decision": "保留出处；403 归入访问受限，不作死链",
+    "why": "本机 curl 返回 403，但独立网页读取成功返回原报道正文（2026-10-19 核验）。已修正检查器：401/403 不再判死链，并增加回归测试。",
+    "raw_report": "review-batches/2026-10-19-links.md",
+    "title_reviews": [
+      {
+        "project": "Wan2.2",
+        "title": "ComfyUI 官方：Wan 首尾帧",
+        "url": "https://docs.comfy.org/zh-CN/tutorials/video/wan/wan-flf",
+        "before": "ComfyUI Wan2.1 FLF2V 原生示例 - ComfyUI",
+        "after": "在 ComfyUI 中使用 Wan2.1 FLF2V：首尾帧生成视频 - ComfyUI",
+        "at": "2026-10-19T10:52:09.510119+00:00",
+        "decision": "保留链接，更新标题与核验日期",
+        "why": "已打开原始页面复核，内容仍与所列教程对应；直接巡检取得的新标题写回。视频放大页为多模型通用指南，不作为 Real-ESRGAN 专属能力证据。"
+      },
+      {
+        "project": "HunyuanVideo",
+        "title": "ComfyUI 官方：HunyuanVideo 1.5",
+        "url": "https://docs.comfy.org/zh-CN/tutorials/video/hunyuan/hunyuan-video-1-5",
+        "before": "混元视频 1.5 ComfyUI 教程 - ComfyUI",
+        "after": "混元视频 1.5：ComfyUI 消费级 GPU 视频生成 - ComfyUI",
+        "at": "2026-10-19T10:52:09.510119+00:00",
+        "decision": "保留链接，更新标题与核验日期",
+        "why": "已打开原始页面复核，内容仍与所列教程对应；直接巡检取得的新标题写回。视频放大页为多模型通用指南，不作为 Real-ESRGAN 专属能力证据。"
+      },
+      {
+        "project": "LTX-Video",
+        "title": "ComfyUI 官方：LTX-Video 工作流",
+        "url": "https://docs.comfy.org/zh-CN/tutorials/video/ltxv",
+        "before": "LTX-0.9.5 ComfyUI 工作流示例 - ComfyUI",
+        "after": "LTX-Video 0.9.5：ComfyUI 文生视频、图生视频与多帧控制 - ComfyUI",
+        "at": "2026-10-19T10:52:09.510119+00:00",
+        "decision": "保留链接，更新标题与核验日期",
+        "why": "已打开原始页面复核，内容仍与所列教程对应；直接巡检取得的新标题写回。视频放大页为多模型通用指南，不作为 Real-ESRGAN 专属能力证据。"
+      },
+      {
+        "project": "ControlNet",
+        "title": "ComfyUI 官方：姿势控制两遍出图",
+        "url": "https://docs.comfy.org/zh-CN/tutorials/controlnet/pose-controlnet-2-pass",
+        "before": "ComfyUI Pose ControlNet 使用示例 - ComfyUI",
+        "after": "Pose ControlNet：ComfyUI OpenPose 与两段式工作流 - ComfyUI",
+        "at": "2026-10-19T10:52:09.510119+00:00",
+        "decision": "保留链接，更新标题与核验日期",
+        "why": "已打开原始页面复核，内容仍与所列教程对应；直接巡检取得的新标题写回。视频放大页为多模型通用指南，不作为 Real-ESRGAN 专属能力证据。"
+      },
+      {
+        "project": "ControlNet",
+        "title": "ComfyUI 官方：ControlNet 入门",
+        "url": "https://docs.comfy.org/zh-CN/tutorials/controlnet/controlnet",
+        "before": "ComfyUI ControlNet 使用示例 - ComfyUI",
+        "after": "ControlNet：ComfyUI 预处理器、模型与工作流 - ComfyUI",
+        "at": "2026-10-19T10:52:09.510119+00:00",
+        "decision": "保留链接，更新标题与核验日期",
+        "why": "已打开原始页面复核，内容仍与所列教程对应；直接巡检取得的新标题写回。视频放大页为多模型通用指南，不作为 Real-ESRGAN 专属能力证据。"
+      },
+      {
+        "project": "ControlNet",
+        "title": "ComfyUI 官方：深度图控制",
+        "url": "https://docs.comfy.org/zh-CN/tutorials/controlnet/depth-controlnet",
+        "before": "深度 ControlNet 工作流示例 - ComfyUI",
+        "after": "Depth ControlNet：ComfyUI 场景结构控制 - ComfyUI",
+        "at": "2026-10-19T10:52:09.510119+00:00",
+        "decision": "保留链接，更新标题与核验日期",
+        "why": "已打开原始页面复核，内容仍与所列教程对应；直接巡检取得的新标题写回。视频放大页为多模型通用指南，不作为 Real-ESRGAN 专属能力证据。"
+      },
+      {
+        "project": "Real-ESRGAN",
+        "title": "ComfyUI 官方：视频放大",
+        "url": "https://docs.comfy.org/zh-CN/tutorials/utility/video-upscale",
+        "before": "ComfyUI 视频放大 - ComfyUI",
+        "after": "ComfyUI 视频放大：模型与使用场景 - ComfyUI",
+        "at": "2026-10-19T10:52:09.510119+00:00",
+        "decision": "保留链接，更新标题与核验日期",
+        "why": "已打开原始页面复核，内容仍与所列教程对应；直接巡检取得的新标题写回。视频放大页为多模型通用指南，不作为 Real-ESRGAN 专属能力证据。"
+      },
+      {
+        "project": "Blender MCP",
+        "title": "项目官网",
+        "url": "https://blendermcp.org/",
+        "before": "Community Blender MCP | AI-Powered 3D Modeling Agent for Blender",
+        "after": "Original Blender MCP: Free Setup for Claude, ChatGPT, Cursor",
+        "at": "2026-10-19T10:52:09.510119+00:00",
+        "decision": "保留链接，更新标题与核验日期",
+        "why": "已打开原始页面复核，内容仍与所列教程对应；直接巡检取得的新标题写回。视频放大页为多模型通用指南，不作为 Real-ESRGAN 专属能力证据。"
+      }
+    ]
+  }
 }

@@ -13,7 +13,9 @@
  *   npm run tutorials:check
  */
 import { readFileSync } from "node:fs";
-import { execFileSync } from "node:child_process";
+import { execFile } from "node:child_process";
+import { promisify } from "node:util";
+const run = promisify(execFile);
 
 const a = JSON.parse(readFileSync("data/atlas.json", "utf8"));
 const rows = [];
@@ -59,7 +61,8 @@ console.log(`回查 ${rows.length} 条外链（教程 + 常识 + 作品出处）
  * 匿名接口限流被报成「这些仓库没有 README」）。**同一个错，这里不再犯。**
  * 所以单独归一类：报出来提醒人，但不判失败。
  */
-const RETRYABLE = new Set(["429", "503", "502", "504"]);
+// 401/403 mean access is denied; they do not establish that a page is gone.
+const RETRYABLE = new Set(["401", "403", "429", "503", "502", "504"]);
 
 /**
  * **GitHub 的 issue 页对未登录请求回 404，而那个 issue 明明活着。**
@@ -74,13 +77,13 @@ const RETRYABLE = new Set(["429", "503", "502", "504"]);
  * 所以 github.com 的链接在判死前**必须用 `gh api` 复核一次**（已登录，5000/小时）。
  * 站上有二十多条 issue 出处，这条会反复咬。
  */
-const ghAlive = (url) => {
+const ghAlive = async (url) => {
   const iss = url.match(/github\.com\/([^/]+)\/([^/]+)\/issues\/(\d+)/);
   const rep = url.match(/github\.com\/([^/]+)\/([^/]+)\/?$/);
   const path = iss ? `repos/${iss[1]}/${iss[2]}/issues/${iss[3]}`
     : rep ? `repos/${rep[1]}/${rep[2]}` : null;
   if (!path) return null;          // 不是能用 api 复核的形状，交回给状态码判
-  try { execFileSync("gh", ["api", path], { stdio: ["ignore", "ignore", "pipe"] }); return true; }
+  try { await run("gh", ["api", path], { timeout: 30000 }); return true; }
   catch (e) { return /404|Not Found/i.test(String(e.stderr ?? e)) ? false : null; }
 };
 const dead = [], drift = [], throttled = [];
@@ -97,19 +100,33 @@ const dead = [], drift = [], throttled = [];
  * 所以：**失败先重试一次（放宽超时），再失败才交给 gh api 复核，两关都过不去才算够不着。**
  * 而且够不着归 throttled 那一摞（不判失败、不催人改数据），只有真 404 才进 dead。
  */
-const pull = (url, maxTime) => execFileSync("curl", [
+const pull = async (url, maxTime) => (await run("curl", [
   "-sL", "--max-time", String(maxTime), "-w", "\n__STATUS__%{http_code}",
   "-A", "Mozilla/5.0 (compatible; xiamimate-ai-atlas)", url,
-], { encoding: "utf8", maxBuffer: 32 * 1024 * 1024 });
+], { encoding: "utf8", maxBuffer: 32 * 1024 * 1024 })).stdout;
 
-for (const r of rows) {
+// Bound concurrency so slow, unrelated sites do not block every remaining link.
+// Each link retains the same retry and GitHub cross-check rules.
+let cursor = 0;
+const unreachableHosts = new Map();
+async function worker() {
+while (cursor < rows.length) {
+  const r = rows[cursor++];
+  let host;
+  try { host = new URL(r.url).hostname; } catch { host = r.url; }
+  if ((unreachableHosts.get(host) ?? 0) >= 3) {
+    throttled.push({ ...r, why: '同域名连续三次请求及重试均失败；本条未请求，待网络恢复后复核' });
+    console.log(`  ⏳ ${r.project} · ${r.title}（同域名连续失败，本条暂缓，未核实）`);
+    continue;
+  }
   let out = "";
   try {
-    out = pull(r.url, 25);
+    out = await pull(r.url, 25);
   } catch {
-    try { out = pull(r.url, 45); }            // 一次抖动不定案
+    try { out = await pull(r.url, 45); }      // 一次抖动不定案
     catch {
-      const alive = ghAlive(r.url);
+      unreachableHosts.set(host, (unreachableHosts.get(host) ?? 0) + 1);
+      const alive = await ghAlive(r.url);
       if (alive === false) {
         dead.push({ ...r, why: "curl 起不来 / 超时（gh api 也说没了）" });
         console.log(`  ✗ ${r.project} · ${r.title}`);
@@ -121,6 +138,7 @@ for (const r of rows) {
     }
   }
 
+  unreachableHosts.set(host, 0);
   const code = out.match(/__STATUS__(\d+)\s*$/)?.[1] ?? "?";
   const title = (out.match(/<title[^>]*>([\s\S]{0,200}?)<\/title>/i)?.[1] ?? "").replace(/\s+/g, " ").trim();
   if (RETRYABLE.has(code)) {
@@ -130,7 +148,7 @@ for (const r of rows) {
   }
   if (code !== "200") {
     /** 判死之前先问一次 api —— **「够不着」和「不存在」不能靠一个状态码定案**。 */
-    const alive = ghAlive(r.url);
+    const alive = await ghAlive(r.url);
     if (alive === true) {
       throttled.push({ ...r, why: `HTTP ${code}（gh api 说它活着，是反爬）` });
       console.log(`  ⏳ ${code} ${r.project} · ${r.title}（GitHub 反爬，不算死链）`);
@@ -160,6 +178,8 @@ for (const r of rows) {
   }
   console.log(`  ✓ ${r.project} · ${r.title}`);
 }
+}
+await Promise.all(Array.from({ length: Math.min(4, rows.length) }, worker));
 
 console.log(`\n${rows.length} 条：通过 ${rows.length - dead.length - drift.length - throttled.length}` +
   ` · 打不开 ${dead.length} · 标题变了 ${drift.length} · 限流或够不着 ${throttled.length}`);

@@ -30335,11 +30335,11 @@
             },
             {
               "title": "ComfyUI 官方：Wan 首尾帧",
-              "page_title": "ComfyUI Wan2.1 FLF2V 原生示例 - ComfyUI",
+              "page_title": "在 ComfyUI 中使用 Wan2.1 FLF2V：首尾帧生成视频 - ComfyUI",
               "url": "https://docs.comfy.org/zh-CN/tutorials/video/wan/wan-flf",
               "kind": "官方",
               "lang": "zh",
-              "verified_at": "2026-08-16"
+              "verified_at": "2026-10-19"
             }
           ],
           "sub": "gen",
@@ -30475,11 +30475,11 @@
             },
             {
               "title": "ComfyUI 官方：HunyuanVideo 1.5",
-              "page_title": "混元视频 1.5 ComfyUI 教程 - ComfyUI",
+              "page_title": "混元视频 1.5：ComfyUI 消费级 GPU 视频生成 - ComfyUI",
               "url": "https://docs.comfy.org/zh-CN/tutorials/video/hunyuan/hunyuan-video-1-5",
               "kind": "官方",
               "lang": "zh",
-              "verified_at": "2026-08-16"
+              "verified_at": "2026-10-19"
             }
           ],
           "license_note": "许可证正文首句写明不适用于欧盟、英国、韩国",
@@ -30727,11 +30727,11 @@
           "tutorials": [
             {
               "title": "ComfyUI 官方：LTX-Video 工作流",
-              "page_title": "LTX-0.9.5 ComfyUI 工作流示例 - ComfyUI",
+              "page_title": "LTX-Video 0.9.5：ComfyUI 文生视频、图生视频与多帧控制 - ComfyUI",
               "url": "https://docs.comfy.org/zh-CN/tutorials/video/ltxv",
               "kind": "官方",
               "lang": "zh",
-              "verified_at": "2026-08-16"
+              "verified_at": "2026-10-19"
             }
           ],
           "license_note": "代码 Apache-2.0；部分权重另按 OpenRail-M 发布",
@@ -31016,27 +31016,27 @@
           "tutorials": [
             {
               "title": "ComfyUI 官方：ControlNet 入门",
-              "page_title": "ComfyUI ControlNet 使用示例 - ComfyUI",
+              "page_title": "ControlNet：ComfyUI 预处理器、模型与工作流 - ComfyUI",
               "url": "https://docs.comfy.org/zh-CN/tutorials/controlnet/controlnet",
               "kind": "官方",
               "lang": "zh",
-              "verified_at": "2026-08-16"
+              "verified_at": "2026-10-19"
             },
             {
               "title": "ComfyUI 官方：姿势控制两遍出图",
-              "page_title": "ComfyUI Pose ControlNet 使用示例 - ComfyUI",
+              "page_title": "Pose ControlNet：ComfyUI OpenPose 与两段式工作流 - ComfyUI",
               "url": "https://docs.comfy.org/zh-CN/tutorials/controlnet/pose-controlnet-2-pass",
               "kind": "官方",
               "lang": "zh",
-              "verified_at": "2026-08-16"
+              "verified_at": "2026-10-19"
             },
             {
               "title": "ComfyUI 官方：深度图控制",
-              "page_title": "深度 ControlNet 工作流示例 - ComfyUI",
+              "page_title": "Depth ControlNet：ComfyUI 场景结构控制 - ComfyUI",
               "url": "https://docs.comfy.org/zh-CN/tutorials/controlnet/depth-controlnet",
               "kind": "官方",
               "lang": "zh",
-              "verified_at": "2026-09-19"
+              "verified_at": "2026-10-19"
             }
           ],
           "sub": "control",
@@ -31690,11 +31690,11 @@
             },
             {
               "title": "ComfyUI 官方：视频放大",
-              "page_title": "ComfyUI 视频放大 - ComfyUI",
+              "page_title": "ComfyUI 视频放大：模型与使用场景 - ComfyUI",
               "url": "https://docs.comfy.org/zh-CN/tutorials/utility/video-upscale",
               "kind": "官方",
               "lang": "zh",
-              "verified_at": "2026-08-16"
+              "verified_at": "2026-10-19"
             },
             {
               "title": "ComfyUI 官方：图片放大",
@@ -40077,8 +40077,8 @@
               "url": "https://blendermcp.org/",
               "kind": "官方",
               "lang": "en",
-              "page_title": "Community Blender MCP | AI-Powered 3D Modeling Agent for Blender",
-              "verified_at": "2026-09-19"
+              "page_title": "Original Blender MCP: Free Setup for Claude, ChatGPT, Cursor",
+              "verified_at": "2026-10-19"
             }
           ],
           "repo_id": 944414751
