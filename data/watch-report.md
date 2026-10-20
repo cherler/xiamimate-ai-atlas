@@ -1,6 +1,6 @@
-# 信息源监视报告 · 2026-10-19
+# 信息源监视报告 · 2026-10-20
 
-本次检查 4 个到期源（共 467 个）：变化 0 · 首次 0 · 无变化 0 · **抓不到 4**
+本次检查 10 个到期源（共 467 个）：变化 5 · 首次 0 · 无变化 1 · **抓不到 4**
 
 > 这份报告是给人看的那 20 条待办的来源（§59.3 的负反馈：人每周要看的条目 ≤ 20）。
 > 「抓不到」不是失败，是**信息本身** —— 一个长期抓不到的官方源，说明那家厂商没有可 diff 的公开更新入口，
@@ -12,9 +12,9 @@
 
 ## 抓不到（要处理）
 
-- **picsart-effects**（C/html）Picsart Effects — fetch failed / ECONNREFUSED
+- **picsart-effects**（C/html）Picsart Effects — HTTP 403
   https://picsart.com/ai-video-effects/
-- **picsart-video**（C/html）Picsart AI 视频 — fetch failed / ECONNREFUSED
+- **picsart-video**（C/html）Picsart AI 视频 — HTTP 403
   https://picsart.com/ai-video-generator/
 - **aa-t2i**（A/spa）Artificial Analysis · 文生图竞技场 — 还是壳：渲染后正文只有 281 个字符
   https://artificialanalysis.ai/text-to-image/arena
@@ -23,7 +23,16 @@
 
 ## 有变化
 
-（首轮无基线可比）
+- **hf-t2v** Hugging Face · text-to-video 按下载量
+  新增 3 条：ZawShiShawn/Gestura-MiniMax-H3-VAE-LiteRT、alibaba-pai/Wan2.2-VACE-Fun-A14B、unsloth/LTX-2.5-GGUF
+- **hf-i2v** Hugging Face · image-to-video 按下载量
+  新增 3 条：ZawShiShawn/Gestura-MiniMax-H3-VAE-LiteRT、pablodawson/MiniMax-H3-360-Orbit-LoRA、unsloth/LTX-2.5-GGUF
+- **techcrunch-ai** TechCrunch · AI（RSS）
+  新增 16 条：Nscale and Anthropic are reportedly in talks for yet another $45 billion compute deal、Embedded AI evaluators won&#8217;t be an easy solution, Hugging Face&#8217;s policy chief says、Microsoft says AI agents are like insider threats as &#8216;frontier models can&#8217;t be trusted&#8217;、Amazon is taking its biggest shot at Nvidia yet with new TorchNeuron dev tool、Hackers hit AI coding tool OpenCode, running up charges on users’ AI accounts、Tolan snags $30M for its AI companion that helps users navigate life、Replika’s founder built the AI assistant she pitched at Disrupt 12 years ago、Tenstorrent hits $6.2B valuation to scale open-weight AI chips、People are using AI to make their smart TVs dumb again、Nvidia launches new open models to run agents in the enterprise and on PCs、Laplace Intelligence red-teams robots and self-driving cars before they hit the real world、Anthropic says it’s committing 5% of its shares to a ‘public benefit fund’ …
+- **hf-t2i** Hugging Face · text-to-image 按下载量
+  新增 5 条：DogukanUrker/Qwen-Image-2.1-Turbo-GGUF、LyliaEngine/waiIllustriousSDXL_v170、PrunaAI/Pruna-Qage-2.1、lightx2v/Qwen-Image-2.1-Lightning、unsloth/Qwen-Image-2.1
+- **hf-i2i** Hugging Face · image-to-image 按下载量
+  新增 3 条：ZawShiShawn/gestura-flux2-klein-4b-litert-tflite、mflux-community/qwen-image-edit-2511-mflux-q4、ml-resources/flux-3-image-klein-comfy
 
 ## 全部
 
@@ -56,8 +65,8 @@
 | epoch-notable | A | csv | 未到期（上次 2026-10-14） |
 | aa-t2v | A | spa | 未到期（上次 2026-10-14） |
 | aa-i2v | A | spa | 未到期（上次 2026-10-14） |
-| hf-t2v | A | json | 未到期（上次 2026-10-17） |
-| hf-i2v | A | json | 未到期（上次 2026-10-17） |
+| hf-t2v | A | json | 变了 |
+| hf-i2v | A | json | 变了 |
 | hf-v2v | A | json | 未到期（上次 2026-10-14） |
 | fal-video | S | spa | 未到期（上次 2026-10-15） |
 | replicate-t2v | S | html | 未到期（上次 2026-10-14） |
@@ -65,18 +74,18 @@
 | futurepedia | B | html | 未到期（上次 2026-10-11） |
 | comfyui-releases | C | json | 未到期（上次 2026-10-07） |
 | capcut-templates | C | html | 未到期（上次 2026-10-11） |
-| picsart-effects | C | html | 抓不到（fetch failed / ECONNREFUSED） |
+| picsart-effects | C | html | 抓不到（HTTP 403） |
 | runway-changelog | S | spa | 未到期（上次 2026-10-14） |
 | runway-models | S | spa | 未到期（上次 2026-10-14） |
 | luma-changelog | S | spa | 未到期（上次 2026-08-07） |
 | seed-models-hub | S | html | 未到期（上次 2026-10-14） |
 | apiyi-models | S | spa | 未到期（上次 2026-10-14） |
 | arxiv-worldmodel | S | atom | 未到期（上次 2026-10-15） |
-| techcrunch-ai | B | atom | 未到期（上次 2026-10-17） |
+| techcrunch-ai | B | atom | 变了 |
 | ltx-gh | S | json | 未到期（上次 2026-10-14） |
-| ltx-hf-org | S | json | 未到期（上次 2026-10-17） |
+| ltx-hf-org | S | json | 无变化 |
 | decart-site | S | spa | 未到期（上次 2026-10-18） |
-| picsart-video | C | html | 抓不到（fetch failed / ECONNREFUSED） |
+| picsart-video | C | html | 抓不到（HTTP 403） |
 | libtv | C | spa | 从未抓过 |
 | dreamina | S | html | 未到期（上次 2026-10-07） |
 | hailuo-video | S | html | 未到期（上次 2026-10-07） |
@@ -170,8 +179,8 @@
 | ms-foundry-blog | B | html | 未到期（上次 2026-10-11） |
 | mj-updates | S | html | 未到期（上次 2026-10-07） |
 | aa-t2i | A | spa | 抓不到（还是壳：渲染后正文只有 281 个字符） |
-| hf-t2i | A | json | 未到期（上次 2026-10-17） |
-| hf-i2i | A | json | 未到期（上次 2026-10-17） |
+| hf-t2i | A | json | 变了 |
+| hf-i2i | A | json | 变了 |
 | anthropic-models | S | html | 未到期（上次 2026-10-15） |
 | deepseek-docs | S | html | 未到期（上次 2026-10-15） |
 | xai-docs | S | html | 未到期（上次 2026-10-15） |
