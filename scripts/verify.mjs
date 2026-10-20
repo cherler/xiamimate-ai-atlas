@@ -23,6 +23,7 @@
  *
  *   node scripts/verify.mjs            # 查构建产物 out/（默认，测的是将来跑的东西）
  *   node scripts/verify.mjs --dev      # 查 dev server（改代码时快速回归）
+ *   node scripts/verify.mjs --changes  # 只复验更新记录的排序与筛选
  */
 import { createServer } from "node:http";
 import { readFile } from "node:fs/promises";
@@ -227,6 +228,14 @@ const browser = await chromium.launch();
 const fails = [];
 const todo = new Set();
 const ok = (c, msg) => { console.log(`  ${c ? "✓" : "✗"} ${msg}`); if (!c) fails.push(msg); };
+
+if (process.argv.includes("--changes")) {
+  await checkChangesTimeline();
+  await browser.close();
+  if (server) await new Promise((resolve) => server.close(resolve));
+  console.log(fails.length ? `${fails.length} 项没过。` : "更新记录检查通过。");
+  process.exit(fails.length ? 1 : 0);
+}
 
 /** 真·可见：有面积、没被 display:none / visibility:hidden / opacity:0。数 DOM 是数不出来的。 */
 const VISIBLE = (sel) => `(() => [...document.querySelectorAll(${JSON.stringify(sel)})].filter((e) => {
@@ -808,6 +817,54 @@ const mentions = (txt, name) => {
     ok(miss.length === 0,
       `${path} 的筛选条覆盖 ${live.length} 个上线方向` +
       (miss.length ? ` —— **少了 ${miss.map((d) => d.name).join("、")}**` : `（${live.map((d) => d.name).join("、")}）`));
+  }
+}
+
+// ── 更新记录必须按全局日期排列，筛选不能重新打乱顺序 ──────────────
+await checkChangesTimeline();
+async function checkChangesTimeline() {
+  console.log("\n══════ 更新记录时间线 ══════");
+  const events = JSON.parse(readFileSync(join(ROOT, "data/changes.json"), "utf8")).events
+    .slice().sort((a, b) => b.date.localeCompare(a.date));
+  const domains = JSON.parse(readFileSync(join(ROOT, "data/atlas.json"), "utf8")).domains;
+  const today = new Date().toLocaleDateString("en-CA", { timeZone: "Asia/Shanghai" });
+  const latestDate = events.find((e) => e.date <= today)?.date;
+  for (const width of [1440, 390]) {
+    const page = await browser.newPage({ viewport: { width, height: 900 } });
+    const errors = [];
+    page.on("pageerror", (e) => errors.push(e.message));
+    await page.goto(ORIGIN + BASE + "/changes", { waitUntil: "networkidle" });
+    const check = async (expected, label) => {
+      const ids = await page.locator("main article").evaluateAll((els) => els.map((el) => el.id));
+      ok(JSON.stringify(ids) === JSON.stringify(expected.map((e) => e.id)),
+        `${width}px ${label}：记录无遗漏，厂商与本站记录统一按日期降序`);
+      const groups = await page.locator("main > section").evaluateAll((els) => els.map((el) => ({
+        date: el.querySelector("h2 time")?.getAttribute("datetime"),
+        heading: el.querySelector("h2")?.textContent ?? "",
+        count: Number(el.querySelector("h2 > span:last-child")?.textContent?.match(/^(\d+) 条$/)?.[1]),
+        dates: [...el.querySelectorAll("article")].map((a) => a.getAttribute("data-change-date")),
+      })));
+      const dates = [...new Set(expected.map((e) => e.date))];
+      ok(JSON.stringify(groups.map((g) => g.date)) === JSON.stringify(dates)
+        && groups.every((g) => g.count === g.dates.length && g.dates.every((date) => date === g.date)),
+        `${width}px ${label}：日期标题与条数一致，没有空日期组`);
+      ok(groups.every((g) => g.date > today
+        ? g.heading.includes("计划生效") && !g.heading.includes("最近更新")
+        : g.heading.includes("最近更新") === (g.date === latestDate)),
+        `${width}px ${label}：未来计划不会标为最近更新`);
+    };
+    await check(events, "全部");
+    for (const d of domains.filter((d) => events.some((e) => (e.domain ?? "video") === d.id))) {
+      const chip = page.getByRole("group", { name: "按方向筛选变化" }).getByRole("button", { name: new RegExp(`^${d.name} `) });
+      await chip.click();
+      await check(events.filter((e) => (e.domain ?? "video") === d.id), d.name);
+      await chip.click();
+    }
+    await check(events, "取消筛选");
+    ok(await page.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth + 1),
+      `${width}px 时间线无横向溢出`);
+    ok(errors.length === 0, `${width}px 时间线筛选无运行错误`);
+    await page.close();
   }
 }
 
