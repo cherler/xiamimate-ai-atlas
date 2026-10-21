@@ -1,6 +1,6 @@
-# 引文回查 · 2026-10-20
+# 引文回查 · 2026-10-21
 
-回查 1273 条：无英文锚 759 · 对得上 357 · 复核已处置 129 · 无快照 20 · 人审认过·非逐字 8
+回查 1273 条：无英文锚 764 · 对得上 361 · 复核已处置 118 · 无快照 20 · 人审认过·非逐字 8 · 找不到 2
 
 > 这份报告回答一件事：**一格引文里的原句，在它署名的那份快照里还在不在。**
 > ⚠️ **失败不等于引文错。** 三种成因要分开：真署错了页 / 这一页的快照是残的（抓回来的是导航不是正文）/ 当初记的就不是逐字原文。**脚本不猜。**
@@ -10,6 +10,11 @@
 
 
 ## 全部
+
+### 找不到（2）
+
+- `krea-blog` 发布 krea-img-Krea 2-第一个完全从零训练的自研基座 —— 锚「our first foundation image model built completely from scratch」
+- `mj-updates` 发布 midjourney-V8 Alpha-出图快约 5 倍 + 原生 2K（--hd） —— 锚「V8 is an incredible model. It's much better at following detailed dire」
 
 ### 无快照（20）
 
@@ -45,12 +50,11 @@
 - `hf-hunyuan3d-21` 发布 hy3d-2.1 —— 锚「We release the first production-ready 3D asset generation model, Hunyu」（这句在 gh-hunyuan3d-21）
 - `openai-model-tts` 发布 gpttts-2025-12 —— 锚「slugs to point to the 2025-12-15 snapshots」（这句在 openai-changelog）
 
-### 复核已处置（129）
+### 复核已处置（118）
 
 - `veo-doc` veo × flf
 - `veo-doc` veo × charref
 - `veo-doc` veo × extend
-- `h3-card` hailuo × openweights
 - `decart-site` lucy × rt-endless
 - `ideogram-v1-overview` ideogram × i-edit
 - `ideogram-v1-overview` ideogram × i-styleref
@@ -67,18 +71,12 @@
 - `bfl-flux2-multiref` flux × i-styleref
 - `hunyuan-image-card` hunyuan-image × i-i2i
 - `hunyuan-image-card` hunyuan-image × i-edit
-- `llama-card` llama × t-long
 - `xai-grok47-model` grok × t-batch
 - `elevenlabs-models` elevenlabs × s-clone
 - `elevenlabs-models` elevenlabs × s-style
 - `elevenlabs-models` elevenlabs × s-multi
-- `openai-realtime` gpt-realtime × s-rt-transport
-- `cosyvoice-card` cosyvoice × s-style
-- `hf-lineage` kokoro × s-clone
-- `fish-s2pro-card` fish-speech × s-openweights
 - `hf-qwen-layered` qwen-image × i-layered
 - `card-tencent-hunyuan3d-part` hunyuan3d × d-edit
-- `hf-lineage` hunyuan3d × d-scene
 - `meshy-changelog` meshy × d-multiview
 - `rodin-gen25-api` rodin × d-t23d
 - `rodin-gen25-api` rodin × d-i23d
@@ -104,7 +102,6 @@
 - `pixverse-v6` 模型 pixverse 版本
 - `hunyuanworld-gh` 模型 hunyuan-world 版本
 - `sci-wn-gh` 模型 weathernext 版本
-- `runway-changelog` 发布 aleph2
 - `seed-25` 发布 seedance2.5
 - `vidu-changelog` 发布 vidu-q-Q1-参考生视频
 - `vidu-changelog` 发布 vidu-q-Q2-换代Q2：pro与turbo两档
@@ -113,18 +110,15 @@
 - `vidu-changelog` 发布 vidu-q-Q3-首尾帧
 - `vidu-changelog` 发布 vidu-q-Q3-参考生视频（Q3版）
 - `decart-site` 发布 lucy-Lucy2.5-Lucy2.5
-- `google-gemini-blog` 发布 gemini-image-Nano Banana-对话式改图（多轮指令改同一张）
 - `seed-blog` 发布 seedream-Seedream 3.0-原生 2K 直出 + 小字排版变准
 - `seed-blog` 发布 seedream-Seedream 4.0-出图与改图并进一个模型
 - `recraft-blog` 发布 recraft-Recraft V3-长段文字 + 文字位置和大小可指定
-- `krea-blog` 发布 krea-img-Krea 2-第一个完全从零训练的自研基座
 - `ms-foundry-blog` 发布 gpt-image-GPT-image-2-4K + 生成前先想（能自查、能搜网）
 - `google-nb-blog` 发布 gemini-image-Nano Banana Pro-接上自家新一代大模型的推理，4K 与复杂版面
 - `google-nb-blog` 发布 gemini-image-Nano Banana 2-Pro 的质量按 Flash 的速度和价钱出
 - `seedream-page` 发布 seedream-Seedream 5.0 Pro-分层输出 + 圈画标注式改图
 - `recraft-blog` 发布 recraft-Recraft V4-按设计审美重训的一代
 - `recraft-blog` 发布 recraft-Recraft V4.1-写实更自然、短提示词也能懂
-- `mj-updates` 发布 midjourney-V8 Alpha-出图快约 5 倍 + 原生 2K（--hd）
 - `comfy-docs` 发布 hidream-HiDream-I1-17B 出图底座，MIT
 - `comfy-docs` 发布 ernie-image-ERNIE-Image-8B DiT 正式档，apache-2.0
 - `comfy-docs` 发布 ovis-image-Ovis-Image-7B-7B 专攻图上出字

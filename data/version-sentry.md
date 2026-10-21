@@ -1,9 +1,14 @@
-# 版本哨兵 · 2026-10-20
+# 版本哨兵 · 2026-10-21
 
-扫 136 个模型：**有更新的一代 0** · 口径存疑 0 · 牌子摘了 29 · 比不了 55
+扫 136 个模型：**有更新的一代 1** · 口径存疑 0 · 牌子摘了 29 · 比不了 55
 
 > 这份只回答一件事：**一格署的那个源上，今天有没有出现比我们记的更新的版本号？**
 > 报出来的不是「世界变了」，是「**我们抓到了但没写回**」—— 这两件事的严重程度不一样。
+
+## 有更新的一代（1）—— 这一摞要写回 atlas.json
+
+- **Krea**（krea-img）库里记 `2-Raw`（核于 2026-06-18），而 `krea-blog` 的快照（2026-10-21）上写着 **Krea 3**
+  > ctor Perez · Apr 2, 2025 product Announcing Krea Ship Week Victor Perez Diego Rodriguez · Mar 26, 2025 Articles product Krea 3 Crashes the Top 4: Every Benchmark, Explained The Krea Team · Oct 20, 2026 guides Krea 3 vs GPT Image 2: Which AI Image Editor to Use in 2026 The Krea Team · Oct 20, 2026 guides Krea 3 vs Nano
 
 ## 机器自查 · 牌子摘了（29）—— **不用你拍板**
 
@@ -18,7 +23,7 @@
 - **Doubao**（doubao）记的是 `Seed-2.1 Pro`，`doubao-force-2026`（2026-08-12）上没有这个号
 - **ESM-2**（esm）记的是 `650M`，`sci-esm2-card`（2026-10-14）上没有这个号
 - **FLUX 3**（flux-video）记的是 `3`，`bfl-flux3`（2026-10-10）上没有这个号
-- **GLM Voice**（glm-voice）记的是 `glm-4-voice`，`glm-voice-doc`（2026-10-07）上没有这个号
+- **GLM Voice**（glm-voice）记的是 `glm-4-voice`，`glm-voice-doc`（2026-10-21）上没有这个号
 - **GNoME**（gnome）记的是 `1`，`sci-gnome-gh`（2026-10-10）上没有这个号
 - **MiniMax Hailuo**（hailuo）记的是 `H3`，`minimax-release-notes`（2026-10-19）上没有这个号
 - **HunyuanVideo-Avatar**（hunyuan-avatar）记的是 `1.0`，`hf-hunyuan-avatar`（2026-10-10）上没有这个号
@@ -32,12 +37,12 @@
 - **GPT TTS**（openai-tts）记的是 `GPT-4o mini TTS`，`openai-models`（2026-10-15）上没有这个号
 - **OpenVLA**（openvla）记的是 `7B`，`openvla-gh`（2026-10-10）上没有这个号
 - **PixVerse**（pixverse）记的是 `V6`，`pixverse-v6`（2026-10-10）上没有这个号
-- **Qwen Omni**（qwen-omni）记的是 `3.5-omni-plus`，`bailian-websearch`（2026-10-07）上没有这个号
+- **Qwen Omni**（qwen-omni）记的是 `3.5-omni-plus`，`bailian-websearch`（2026-10-21）上没有这个号
 - **Qwen3-ASR**（qwen3-asr）记的是 `1.7B`，`hf-qwen3-asr`（2026-10-10）上没有这个号
 - **Rodin**（rodin）记的是 `Gen-2.5`，`rodin-api-docs`（2026-10-11）上没有这个号
-- **Runway Gen**（runway）记的是 `Gen-4.5`，`runway-changelog`（2026-10-14）上没有这个号
+- **Runway Gen**（runway）记的是 `Gen-4.5`，`runway-changelog`（2026-10-21）上没有这个号
 - **ElevenLabs Scribe**（scribe）记的是 `v2`，`elevenlabs-models`（2026-10-10）上没有这个号
-- **Seed GR-3**（seed-gr3）记的是 `GR-3`，`seed-models`（2026-10-07）上没有这个号
+- **Seed GR-3**（seed-gr3）记的是 `GR-3`，`seed-models`（2026-10-21）上没有这个号
 - **SPAR3D**（spar3d）记的是 `Stable Point Aware 3D`，`stability-spar3d`（2026-10-10）上没有这个号
 - **Tripo**（tripo）记的是 `P1-20260311`，`tripo-docs-generation`（2026-10-10）上没有这个号
 - **Meta V-JEPA**（vjepa）记的是 `V-JEPA 2`，`vjepa2-blog`（2026-10-13）上没有这个号
