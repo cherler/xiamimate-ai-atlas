@@ -1,4 +1,4 @@
-# 版本哨兵 · 2026-10-21
+# 版本哨兵 · 2026-10-22
 
 扫 136 个模型：**有更新的一代 1** · 口径存疑 0 · 牌子摘了 29 · 比不了 55
 
@@ -34,7 +34,7 @@
 - **MiniMax Speech**（mm-speech）记的是 `speech-2.8-hd`，`minimax-api-overview`（2026-10-19）上没有这个号
 - **MuseTalk**（musetalk）记的是 `1.0`，`hf-musetalk`（2026-10-10）上没有这个号
 - **NeuralGCM**（neuralgcm）记的是 `1`，`sci-neuralgcm-gh`（2026-10-10）上没有这个号
-- **GPT TTS**（openai-tts）记的是 `GPT-4o mini TTS`，`openai-models`（2026-10-15）上没有这个号
+- **GPT TTS**（openai-tts）记的是 `GPT-4o mini TTS`，`openai-models`（2026-10-22）上没有这个号
 - **OpenVLA**（openvla）记的是 `7B`，`openvla-gh`（2026-10-10）上没有这个号
 - **PixVerse**（pixverse）记的是 `V6`，`pixverse-v6`（2026-10-10）上没有这个号
 - **Qwen Omni**（qwen-omni）记的是 `3.5-omni-plus`，`bailian-websearch`（2026-10-21）上没有这个号

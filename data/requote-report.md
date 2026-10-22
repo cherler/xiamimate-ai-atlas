@@ -1,6 +1,6 @@
-# 引文回查 · 2026-10-21
+# 引文回查 · 2026-10-22
 
-回查 1273 条：无英文锚 764 · 对得上 361 · 复核已处置 118 · 无快照 20 · 人审认过·非逐字 8 · 找不到 2
+回查 1273 条：无英文锚 764 · 对得上 365 · 无快照 20 · 复核已处置 110 · 人审认过·非逐字 8 · 找不到 5 · 快照无正文 1
 
 > 这份报告回答一件事：**一格引文里的原句，在它署名的那份快照里还在不在。**
 > ⚠️ **失败不等于引文错。** 三种成因要分开：真署错了页 / 这一页的快照是残的（抓回来的是导航不是正文）/ 当初记的就不是逐字原文。**脚本不猜。**
@@ -11,10 +11,17 @@
 
 ## 全部
 
-### 找不到（2）
+### 找不到（5）
 
 - `krea-blog` 发布 krea-img-Krea 2-第一个完全从零训练的自研基座 —— 锚「our first foundation image model built completely from scratch」
+- `google-nb-blog` 发布 gemini-image-Nano Banana Pro-接上自家新一代大模型的推理，4K 与复杂版面 —— 锚「our new state-of-the art image generation and editing model.」
+- `google-nb-blog` 发布 gemini-image-Nano Banana 2-Pro 的质量按 Flash 的速度和价钱出 —— 锚「our latest state-of-the-art image model.」
 - `mj-updates` 发布 midjourney-V8 Alpha-出图快约 5 倍 + 原生 2K（--hd） —— 锚「V8 is an incredible model. It's much better at following detailed dire」
+- `claude-deprecations` 发布 claude-Claude 4.7-起用新分词器；tem —— 锚「Claude Opus 4.7 and later」
+
+### 快照无正文（1）
+
+- `hf-org` 发布 deepseek-V4-换代：Pro 1.6T（激活 49B）与 Flash 两档 MoE —— 锚「We present a preview version of DeepSeek-V4 series, including two stro」
 
 ### 无快照（20）
 
@@ -50,11 +57,8 @@
 - `hf-hunyuan3d-21` 发布 hy3d-2.1 —— 锚「We release the first production-ready 3D asset generation model, Hunyu」（这句在 gh-hunyuan3d-21）
 - `openai-model-tts` 发布 gpttts-2025-12 —— 锚「slugs to point to the 2025-12-15 snapshots」（这句在 openai-changelog）
 
-### 复核已处置（118）
+### 复核已处置（110）
 
-- `veo-doc` veo × flf
-- `veo-doc` veo × charref
-- `veo-doc` veo × extend
 - `decart-site` lucy × rt-endless
 - `ideogram-v1-overview` ideogram × i-edit
 - `ideogram-v1-overview` ideogram × i-styleref
@@ -96,7 +100,6 @@
 - `vidu-changelog` 模型 vidu-s 版本
 - `seedream-page` 模型 seedream 版本
 - `recraft-docs` 模型 recraft 版本
-- `anthropic-models` 模型 claude 版本
 - `xai-release-notes` 模型 grok 版本
 - `bfl-flux3` 模型 flux-video 版本
 - `pixverse-v6` 模型 pixverse 版本
@@ -114,8 +117,6 @@
 - `seed-blog` 发布 seedream-Seedream 4.0-出图与改图并进一个模型
 - `recraft-blog` 发布 recraft-Recraft V3-长段文字 + 文字位置和大小可指定
 - `ms-foundry-blog` 发布 gpt-image-GPT-image-2-4K + 生成前先想（能自查、能搜网）
-- `google-nb-blog` 发布 gemini-image-Nano Banana Pro-接上自家新一代大模型的推理，4K 与复杂版面
-- `google-nb-blog` 发布 gemini-image-Nano Banana 2-Pro 的质量按 Flash 的速度和价钱出
 - `seedream-page` 发布 seedream-Seedream 5.0 Pro-分层输出 + 圈画标注式改图
 - `recraft-blog` 发布 recraft-Recraft V4-按设计审美重训的一代
 - `recraft-blog` 发布 recraft-Recraft V4.1-写实更自然、短提示词也能懂
@@ -128,7 +129,6 @@
 - `comfy-docs` 发布 boogu-image-Boogu-Image-0.1-生成与编辑合到一个模型，apache-2.0
 - `comfy-docs` 发布 newbie-image-NewBie-image-Exp0.1-3.5B Next-DiT，二次元向
 - `card-deepseek-ai-deepseek-v3-2` 发布 deepseek-V3.2-把算力效率和推理/Agent 表现放到一起
-- `hf-org` 发布 deepseek-V4-换代：Pro 1.6T（激活 49B）与 Flash 两档 MoE
 - `card-zai-org-glm-4-5` 发布 glm-GLM-4.5-这一代的开放权重发布
 - `card-zai-org-glm-4-6` 发布 glm-GLM-4.6-小版本迭代
 - `card-zai-org-glm-4-7` 发布 glm-GLM-4.7-小版本迭代
@@ -148,7 +148,6 @@
 - `card-mistralai-mistral-medium-3-5-128b` 发布 mistral-text-Medium 3.5-第一个「合并」旗舰：128B 稠密 + 256k 上下文
 - `card-qwen-qwen3-5-27b` 发布 qwen-text-Qwen3.5-换代
 - `card-qwen-qwen3-6-27b` 发布 qwen-text-Qwen3.6-按社区反馈做稳定性与可靠性
-- `claude-deprecations` 发布 claude-Claude 4.7-起用新分词器；tem
 - `bfl-flux3` 发布 flux-video-FLUX 3-BFL 从图像跨进视频
 - `rodin-api-docs` 发布 rodin-gen2
 - `rodin-gen25-api` 发布 rodin-gen2.5
