@@ -1,8 +1,8 @@
 {
   "url": "https://huggingface.co/api/models?filter=image-to-video&sort=downloads&direction=-1&limit=60",
   "kind": "json",
-  "fetched_at": "2026-10-20",
-  "digest": "8d1072d038cef774",
+  "fetched_at": "2026-10-23",
+  "digest": "043e0fd247fdc5c8",
   "items": [
     "Abiray/LTX-2.5-Distilled-GGUF\t",
     "Abiray/MiniMax-H3-GGUF\t",
@@ -11,7 +11,7 @@
     "CZMartin22/TaoMate-H3-3step-ComfyUI\t",
     "ChrisColeTech/LTX-2.3-uncensored-v1.4-FP8\t",
     "ChrisColeTech/LTX-2.5-uncensored-v1.1-FP8\t",
-    "Comfy-Org/Wan_2.2_ComfyUI_Repackaged\t",
+    "Comfy-Org/Wan-2.2\t",
     "Hearmeman/minimax-h3-loras\t",
     "Lightricks/LTX-2\t",
     "Lightricks/LTX-2.3\t",

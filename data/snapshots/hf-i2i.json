@@ -1,14 +1,13 @@
 {
   "url": "https://huggingface.co/api/models?filter=image-to-image&sort=downloads&direction=-1&limit=60",
   "kind": "json",
-  "fetched_at": "2026-10-20",
-  "digest": "b58ffe377c0c9c90",
+  "fetched_at": "2026-10-23",
+  "digest": "265110fd28ed442d",
   "items": [
     "Abiray/Qwen-Image-2.1-GGUF\t",
     "Abiray/Qwen-Image-2.1-Turbo-GGUF\t",
     "Abiray/Qwen-Image-2.1-viggle-4-steps-turbo-GGUF\t",
     "Alissonerdx/BFS-Best-Face-Swap\t",
-    "AlperKTS/Qwen-Image-2.1-GGUF\t",
     "ChrisColeTech/qwen-image-edit-uncensored-GGUF\t",
     "QuantStack/FLUX.1-Kontext-dev-GGUF\t",
     "QuantStack/Qwen-Image-Edit-2509-GGUF\t",
@@ -41,7 +40,6 @@
     "bullerwins/FLUX.1-Kontext-dev-GGUF\t",
     "chfm/Qwen-Image-2.1-GGUF\t",
     "city96/FLUX.2-dev-gguf\t",
-    "darknight9121/FLUX.2-klein-base-9B-bucket-uncensored\t",
     "dx8152/Flux2-Klein-9B-Consistency\t",
     "dx8152/Qwen-Edit-2509-Multiple-angles\t",
     "fal/Qwen-Image-Edit-2511-Multiple-Angles-LoRA\t",
@@ -59,10 +57,12 @@
     "tencent/HunyuanImage-3.0-Instruct\t",
     "timbrooks/instruct-pix2pix\t",
     "unsloth/FLUX.2-dev-GGUF\t",
+    "unsloth/FLUX.2-klein-4B\t",
     "unsloth/FLUX.2-klein-4B-FP8\t",
     "unsloth/FLUX.2-klein-4B-GGUF\t",
     "unsloth/FLUX.2-klein-9B-GGUF\t",
     "unsloth/FLUX.2-klein-base-9B-GGUF\t",
-    "unsloth/Qwen-Image-Edit-2511-GGUF\t"
+    "unsloth/Qwen-Image-Edit-2511-GGUF\t",
+    "unsloth/flux-3-image-klein-GGUF\t"
   ]
 }
