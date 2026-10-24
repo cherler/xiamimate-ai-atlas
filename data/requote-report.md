@@ -1,23 +1,33 @@
-# 引文回查 · 2026-10-23
+# 引文回查 · 2026-10-24
 
-回查 1273 条：无英文锚 764 · 对得上 365 · 无快照 20 · 复核已处置 110 · 人审认过·非逐字 8 · 找不到 5 · 快照无正文 1
+回查 1273 条：无英文锚 770 · 对得上 412 · 无快照 20 · 复核已处置 49 · 找不到 13 · 人审认过·非逐字 8 · 快照无正文 1
 
 > 这份报告回答一件事：**一格引文里的原句，在它署名的那份快照里还在不在。**
 > ⚠️ **失败不等于引文错。** 三种成因要分开：真署错了页 / 这一页的快照是残的（抓回来的是导航不是正文）/ 当初记的就不是逐字原文。**脚本不猜。**
 > 「人审认过·非逐字」那一摞是**审阅台上已经判过的**，列在这里只为不假装它们消失了 —— 不用再看。
 
-## 失败 ≥3 条的源（0 个）—— 这几个大概率是抓法不对
+## 失败 ≥3 条的源（2 个）—— 这几个大概率是抓法不对
 
+- **meshy-changelog**（4 条）：meshy × d-i23d、meshy × d-multiview、发布 meshy-remesh …
+- **elevenlabs-changelog**（3 条）：发布 eleven-v3-ga、发布 eleven-v3-conv、发布 eleven-music-v2
 
 ## 全部
 
-### 找不到（5）
+### 找不到（13）
 
+- `meshy-changelog` meshy × d-i23d —— 锚「Added meshy-7.1 as an ai_model value for Image to 3D, Multi-Image to 3」
+- `meshy-changelog` meshy × d-multiview —— 锚「Added meshy-7.1 as an ai_model value for Image to 3D, Multi-Image to 3」
 - `krea-blog` 发布 krea-img-Krea 2-第一个完全从零训练的自研基座 —— 锚「our first foundation image model built completely from scratch」
 - `google-nb-blog` 发布 gemini-image-Nano Banana Pro-接上自家新一代大模型的推理，4K 与复杂版面 —— 锚「our new state-of-the art image generation and editing model.」
 - `google-nb-blog` 发布 gemini-image-Nano Banana 2-Pro 的质量按 Flash 的速度和价钱出 —— 锚「our latest state-of-the-art image model.」
 - `mj-updates` 发布 midjourney-V8 Alpha-出图快约 5 倍 + 原生 2K（--hd） —— 锚「V8 is an incredible model. It's much better at following detailed dire」
 - `claude-deprecations` 发布 claude-Claude 4.7-起用新分词器；tem —— 锚「Claude Opus 4.7 and later」
+- `meshy-changelog` 发布 meshy-remesh —— 锚「Added the Remesh APIs, which allow users to remesh and export existing」
+- `meshy-changelog` 发布 meshy-pbr —— 锚「Support PBR texture maps in API via enable_pbr parameter for latest me」
+- `heygen-changelog` 发布 heygen-avatar5 —— 锚「Per-second video generation rates for Avatar V now match Avatar IV」
+- `elevenlabs-changelog` 发布 eleven-v3-ga —— 锚「v3 is out of alpha - it's more stable, accurate and has lower latency」
+- `elevenlabs-changelog` 发布 eleven-v3-conv —— 锚「Eleven v3 conversational model: Added eleven_v3_conversational to the 」
+- `elevenlabs-changelog` 发布 eleven-music-v2 —— 锚「Music v2 introduces chunk-based composition plans built from Generatio」
 
 ### 快照无正文（1）
 
@@ -57,51 +67,25 @@
 - `hf-hunyuan3d-21` 发布 hy3d-2.1 —— 锚「We release the first production-ready 3D asset generation model, Hunyu」（这句在 gh-hunyuan3d-21）
 - `openai-model-tts` 发布 gpttts-2025-12 —— 锚「slugs to point to the 2025-12-15 snapshots」（这句在 openai-changelog）
 
-### 复核已处置（110）
+### 复核已处置（49）
 
 - `decart-site` lucy × rt-endless
-- `ideogram-v1-overview` ideogram × i-edit
-- `ideogram-v1-overview` ideogram × i-styleref
-- `ideogram-v1-overview` ideogram × i-textrender
-- `ideogram-v1-upscale` ideogram × i-upscale
-- `ideogram-v1-overview` ideogram × i-openweights
-- `recraft-docs` recraft × i-t2i
 - `recraft-image-to-image` recraft × i-i2i
 - `recraft-inpainting` recraft × i-inpaint
 - `recraft-outpainting` recraft × i-outpaint
-- `recraft-docs` recraft × i-styleref
 - `recraft-image-to-image` recraft × i-fidelity
 - `recraft-upscale` recraft × i-upscale
 - `bfl-flux2-multiref` flux × i-styleref
-- `hunyuan-image-card` hunyuan-image × i-i2i
-- `hunyuan-image-card` hunyuan-image × i-edit
 - `xai-grok47-model` grok × t-batch
-- `elevenlabs-models` elevenlabs × s-clone
-- `elevenlabs-models` elevenlabs × s-style
-- `elevenlabs-models` elevenlabs × s-multi
 - `hf-qwen-layered` qwen-image × i-layered
-- `card-tencent-hunyuan3d-part` hunyuan3d × d-edit
-- `meshy-changelog` meshy × d-multiview
-- `rodin-gen25-api` rodin × d-t23d
-- `rodin-gen25-api` rodin × d-i23d
-- `rodin-gen25-api` rodin × d-multiview
-- `rodin-gen25-api` rodin × d-pbr
-- `rodin-bang-api` rodin × d-edit
-- `rodin-gen25-api` rodin × d-format
 - `stability-spar3d` spar3d × d-edit
-- `heygen-docs` heygen × p-video
-- `hf-hallo2` hallo2 × p-emotion
-- `nvidia-groot-gh` groot × e-openweights
-- `nvidia-groot-gh` groot × e-finetune
 - `openvla-gh` openvla × e-openweights
 - `hunyuanworld-gh` hunyuan-world × w-sim
 - `hunyuanworld-gh` hunyuan-world × w-realtime
 - `seed-25` 模型 seedance 版本
 - `vidu-changelog` 模型 vidu-s 版本
 - `seedream-page` 模型 seedream 版本
-- `recraft-docs` 模型 recraft 版本
 - `xai-release-notes` 模型 grok 版本
-- `bfl-flux3` 模型 flux-video 版本
 - `pixverse-v6` 模型 pixverse 版本
 - `hunyuanworld-gh` 模型 hunyuan-world 版本
 - `sci-wn-gh` 模型 weathernext 版本
@@ -128,44 +112,9 @@
 - `comfy-docs` 发布 pixeldit-PixelDiT-1300M-1024px-不用 VAE，直接在像素空间扩散
 - `comfy-docs` 发布 boogu-image-Boogu-Image-0.1-生成与编辑合到一个模型，apache-2.0
 - `comfy-docs` 发布 newbie-image-NewBie-image-Exp0.1-3.5B Next-DiT，二次元向
-- `card-deepseek-ai-deepseek-v3-2` 发布 deepseek-V3.2-把算力效率和推理/Agent 表现放到一起
-- `card-zai-org-glm-4-5` 发布 glm-GLM-4.5-这一代的开放权重发布
-- `card-zai-org-glm-4-6` 发布 glm-GLM-4.6-小版本迭代
-- `card-zai-org-glm-4-7` 发布 glm-GLM-4.7-小版本迭代
-- `card-zai-org-glm-5` 发布 glm-GLM-5-换代：冲复杂系统工程与长程 Agent 任务
-- `card-zai-org-glm-5-1` 发布 glm-GLM-5.1-小版本迭代
-- `card-zai-org-glm-5-2` 发布 glm-GLM-5.2-小版本迭代
-- `card-moonshotai-kimi-k2-base` 发布 kimi-K2-1T 参数 MoE（激活 32B），用 Muon 优化器训
-- `card-moonshotai-kimi-k2-thinking` 发布 kimi-K2-Thinking-边推理边调工具的思考档
-- `card-moonshotai-kimi-k2-5` 发布 kimi-K2.5-转原生多模态：在 K2-Base 上继续预训 15T 图文混合 token
-- `card-moonshotai-kimi-k2-6` 发布 kimi-K2.6-长程编码、自主执行与群体任务编排
-- `card-moonshotai-kimi-k3` 发布 kimi-K3-2.8T 参数，换新注意力（KDA + AttnRes）
-- `card-minimaxai-minimax-m2` 发布 minimax-text-M2-主打写代码与 Agent 流程的小模型
-- `card-minimaxai-minimax-m2-5` 发布 minimax-text-M2.5-小版本迭代
-- `card-minimaxai-minimax-m3` 发布 minimax-text-M3-转原生多模态 + 1M 上下文（约 428B 参数、激活 23B）
-- `card-mistralai-mistral-large-3-675b-instruct-2512` 发布 mistral-text-Large 3-675B 总参 / 41B 激活的多模态细粒度 MoE
-- `card-mistralai-mistral-small-4-119b-2603` 发布 mistral-text-Small 4-把 Instruct / Reasoning 等三支合成一个混合模型
-- `card-mistralai-mistral-medium-3-5-128b` 发布 mistral-text-Medium 3.5-第一个「合并」旗舰：128B 稠密 + 256k 上下文
-- `card-qwen-qwen3-5-27b` 发布 qwen-text-Qwen3.5-换代
-- `card-qwen-qwen3-6-27b` 发布 qwen-text-Qwen3.6-按社区反馈做稳定性与可靠性
-- `bfl-flux3` 发布 flux-video-FLUX 3-BFL 从图像跨进视频
 - `rodin-api-docs` 发布 rodin-gen2
-- `rodin-gen25-api` 发布 rodin-gen2.5
-- `card-tencent-hunyuan3d-part` 发布 hy3d-part
-- `meshy-changelog` 发布 meshy-remesh
-- `meshy-changelog` 发布 meshy-format
-- `meshy-changelog` 发布 meshy-7
-- `heygen-changelog` 发布 heygen-v3api
-- `heygen-changelog` 发布 heygen-avatar3
-- `heygen-changelog` 发布 heygen-avatar5
-- `heygen-changelog` 发布 heygen-batch
-- `heygen-changelog` 发布 heygen-consent
-- `elevenlabs-changelog` 发布 eleven-v3-ga
-- `elevenlabs-changelog` 发布 eleven-v3-conv
-- `elevenlabs-changelog` 发布 eleven-music-v2
 - `openvla-gh` 发布 openvla-7b
 - `pi-openpi-gh` 发布 pi0-fast
-- `molmoact-card` 发布 molmoact-2
 - `hunyuanworld-gh` 发布 hyworld-15
 - `hunyuanworld-gh` 发布 hyworld-2
 - `sci-wn-gh` 发布 wn-gen

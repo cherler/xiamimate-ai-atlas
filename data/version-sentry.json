@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-23",
+  "generated_at": "2026-10-24",
   "n": 1,
   "n_unclear": 0,
   "n_missing": 29,
@@ -37,7 +37,7 @@
       "cur_as_of": "2026-08-15",
       "found": null,
       "src": "sci-aurora-gh",
-      "src_at": "2026-10-10",
+      "src_at": "2026-10-24",
       "evidence": ""
     },
     {
@@ -83,7 +83,7 @@
       "cur_as_of": "2026-08",
       "found": null,
       "src": "bfl-flux3",
-      "src_at": "2026-10-10",
+      "src_at": "2026-10-24",
       "evidence": ""
     },
     {
@@ -106,7 +106,7 @@
       "cur_as_of": "2026-08-15",
       "found": null,
       "src": "sci-gnome-gh",
-      "src_at": "2026-10-10",
+      "src_at": "2026-10-24",
       "evidence": ""
     },
     {
@@ -129,7 +129,7 @@
       "cur_as_of": "2026-08-14",
       "found": null,
       "src": "hf-hunyuan-avatar",
-      "src_at": "2026-10-10",
+      "src_at": "2026-10-24",
       "evidence": ""
     },
     {
@@ -141,7 +141,7 @@
       "cur_as_of": "2026-08-13",
       "found": null,
       "src": "replicate-hunyuan3d-31",
-      "src_at": "2026-10-10",
+      "src_at": "2026-10-24",
       "evidence": ""
     },
     {
@@ -152,7 +152,7 @@
       "cur_as_of": "2026-08-14",
       "found": null,
       "src": "hf-liveportrait",
-      "src_at": "2026-10-10",
+      "src_at": "2026-10-24",
       "evidence": ""
     },
     {
@@ -174,7 +174,7 @@
       "cur_as_of": "2026-08-15",
       "found": null,
       "src": "sci-mattergen-gh",
-      "src_at": "2026-10-10",
+      "src_at": "2026-10-24",
       "evidence": ""
     },
     {
@@ -197,7 +197,7 @@
       "cur_as_of": "2026-08-14",
       "found": null,
       "src": "hf-musetalk",
-      "src_at": "2026-10-10",
+      "src_at": "2026-10-24",
       "evidence": ""
     },
     {
@@ -208,7 +208,7 @@
       "cur_as_of": "2026-08-15",
       "found": null,
       "src": "sci-neuralgcm-gh",
-      "src_at": "2026-10-10",
+      "src_at": "2026-10-24",
       "evidence": ""
     },
     {
@@ -230,7 +230,7 @@
       "cur_as_of": "2026-08-14",
       "found": null,
       "src": "openvla-gh",
-      "src_at": "2026-10-10",
+      "src_at": "2026-10-24",
       "evidence": ""
     },
     {
@@ -265,7 +265,7 @@
       "cur_as_of": "2026-08-15",
       "found": null,
       "src": "hf-qwen3-asr",
-      "src_at": "2026-10-10",
+      "src_at": "2026-10-24",
       "evidence": ""
     },
     {
@@ -299,7 +299,7 @@
       "cur_as_of": "2026-08-15",
       "found": null,
       "src": "elevenlabs-models",
-      "src_at": "2026-10-10",
+      "src_at": "2026-10-24",
       "evidence": ""
     },
     {
@@ -321,7 +321,7 @@
       "cur_as_of": "2026-08-13",
       "found": null,
       "src": "stability-spar3d",
-      "src_at": "2026-10-10",
+      "src_at": "2026-10-24",
       "evidence": ""
     },
     {
@@ -332,7 +332,7 @@
       "cur_as_of": "2026-08-13",
       "found": null,
       "src": "tripo-docs-generation",
-      "src_at": "2026-10-10",
+      "src_at": "2026-10-24",
       "evidence": ""
     },
     {
