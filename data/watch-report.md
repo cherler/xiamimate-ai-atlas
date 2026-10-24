@@ -1,6 +1,6 @@
-# 信息源监视报告 · 2026-10-23
+# 信息源监视报告 · 2026-10-24
 
-本次检查 11 个到期源（共 467 个）：变化 6 · 首次 0 · 无变化 0 · **抓不到 5**
+本次检查 105 个到期源（共 467 个）：变化 73 · 首次 0 · 无变化 26 · **抓不到 6**
 
 > 这份报告是给人看的那 20 条待办的来源（§59.3 的负反馈：人每周要看的条目 ≤ 20）。
 > 「抓不到」不是失败，是**信息本身** —— 一个长期抓不到的官方源，说明那家厂商没有可 diff 的公开更新入口，
@@ -12,31 +12,96 @@
 
 ## 抓不到（要处理）
 
-- **arxiv-video**（S/atom）arXiv · 视频生成新论文 — HTTP 429
-  http://export.arxiv.org/api/query?search_query=abs:%22video%20generation%22&sortBy=submittedDate&sortOrder=descending&max_results=40
-- **picsart-effects**（C/html）Picsart Effects — HTTP 403
+- **picsart-effects**（C/html）Picsart Effects — HTTP 404
   https://picsart.com/ai-video-effects/
-- **picsart-video**（C/html）Picsart AI 视频 — HTTP 403
-  https://picsart.com/ai-video-generator/
 - **aa-t2i**（A/spa）Artificial Analysis · 文生图竞技场 — 还是壳：渲染后正文只有 281 个字符
   https://artificialanalysis.ai/text-to-image/arena
 - **tripo-site**（S/spa）Tripo 官网 — 被人机验证挡住（页面标题「Just a moment...」）—— 这条源只能人工核，别再换抓法
   https://www.tripo3d.ai/
+- **pixverse-caps**（S/html）PixVerse · 官方能力矩阵 — HTTP 404
+  https://docs.platform.pixverse.ai/capability-matrix-2144288m0.md
+- **pixverse-v6**（S/html）PixVerse · V6 模型文档 — HTTP 404
+  https://docs.platform.pixverse.ai/v6-2056814m0.md
+- **pixverse-fusion**（S/html）PixVerse · Fusion（多参考图生视频）文档 — HTTP 404
+  https://docs.platform.pixverse.ai/fusionreference-to-video-1339253m0.md
 
 ## 有变化
 
-- **hf-t2v** Hugging Face · text-to-video 按下载量
-  新增 2 条：AlayaLab/Evoke-Turbo、krea/krea-realtime-video
-- **hf-i2v** Hugging Face · image-to-video 按下载量
-  新增 1 条：Comfy-Org/Wan-2.2
-- **techcrunch-ai** TechCrunch · AI（RSS）
-  新增 20 条：Left alone with nothing to do, AI agents started playing、OpenAI working on new $30B raise at $1.25T valuation ahead of IPO、1Password launches a way for AI agents to log in on your behalf without seeing your password、OpenAI makes its Jev competitor widely available as decision model competition heats up、Canva releases its first image generation model、Microsoft’s Mustafa Suleyman says its AI outperforms doctors on hard cases as he chases ‘medical superintelligence’、Chinese hackers spied on thousands of companies after breaching IT giant ConnectWise、Uber puts all 30,000 employees on ChatGPT Work、Spotify&#8217;s current AI bet is about being the music service that agents choose、Claude Duet app is Anthropic&#8217;s bet on agents、Nirva raises $33M for a pendant that only listens to you、DeepSeek reportedly raises $15B days after US restrictions …
-- **ltx-hf-org** Hugging Face · Lightricks 组织全部仓库
-  新增 6 条：Lightricks/LTX-2-19b-LoRA-Camera-Control-Dolly-In、Lightricks/LTX-2-19b-LoRA-Camera-Control-Dolly-Left、Lightricks/LTX-2-19b-LoRA-Camera-Control-Dolly-Right、Lightricks/LTX-2-19b-LoRA-Camera-Control-Jib-Down、Lightricks/LTX-2-19b-LoRA-Camera-Control-Jib-Up、Lightricks/LTX-2-19b-LoRA-Camera-Control-Static
-- **hf-t2i** Hugging Face · text-to-image 按下载量
-  新增 4 条：PrunaAI/Pruna-Q-Image-2.1、latent-consistency/lcm-lora-sdv1-5、unsloth/Krea-2-Turbo、unsloth/Z-Image-Turbo
-- **hf-i2i** Hugging Face · image-to-image 按下载量
-  新增 2 条：unsloth/FLUX.2-klein-4B、unsloth/flux-3-image-klein-GGUF
+- **arxiv-video** arXiv · 视频生成新论文
+  新增 40 条：WorldForge V2: Eliciting Camera-Trajectory Alignment in Video Diffusion Models、AnyGameRenderer: Entity-Consistent Generative Rendering Across Games and an Entity-Level Benchmark、RGraph-Eval: Task-Grounded Scene Graphs for Evaluating Robot Video Generation、Making MLLM Latents Matter: Factor-Aware Predictive Learning for Cinematic Video Generation、Verus-Insight: Towards Explainable Artifact Detection in AI-Generated Videos、Direct Forcing: A Single-Stage Training Recipe for Few-Step Autoregressive Text-to-Video Generation、DeXplicit: Making Physical State Explicit in Dexterous Manipulation World Models、PhyEvolve: Multi-Agent State-Evolution Planning for Physics-Aware Video Generation、Latent Space Jam: Layout Guided Video Synthesis、Self-Distilling Future Video Representations for World Action Models、Rethinking Video Autoencoders for Interactive World Models、Attn-Forcing: Learning Full-Context Attention Proxies for Streaming Video Generation …
+- **picsart-video** Picsart AI 视频
+- **elevenlabs-models** ElevenLabs · Models
+- **bfl-flux3** Black Forest Labs 官方文档 · FLUX 3 概览
+- **hf-hunyuan3d-21** 腾讯混元3D 2.1 · HF 模型卡
+- **meshy-docs-api** Meshy · API 文档
+- **meshy-site** Meshy 官网
+- **gh-trellis** microsoft/TRELLIS 仓库
+- **rodin-site** Rodin / Hyper3D 官网
+- **gh-hunyuan3d-buffalo** Tencent-Hunyuan/Hunyuan3D-Buffalo1.0 仓库
+- **replicate-hunyuan3d-31** Replicate · 腾讯官方账号 tencent/hunyuan-3d-3.1
+- **hf-wan-vace** Hugging Face · Wan2.1-VACE-14B 模型卡
+- **hf-ltx-25** Hugging Face · LTX-2.5 模型卡
+- **meshy-changelog** Meshy · API 更新日志
+- **heygen-docs** HeyGen · 开发者文档索引
+- **synthesia-docs** Synthesia · API 文档
+- **hf-longcat-avatar** HF · 美团 LongCat-Video-Avatar-1.5
+- **hf-hunyuan-avatar** HF · 腾讯 HunyuanVideo-Avatar
+- **hf-liveportrait** HF · 快手 LivePortrait
+- **hf-musetalk** HF · 腾讯音乐 MuseTalk
+- **hf-hallo2** HF · 复旦 Hallo2
+- **heygen-changelog** HeyGen · API 更新日志
+- **hf-hallo-live** HF · 复旦 Hallo-Live
+- **hf-longcat-avatar-10** HF · 美团 LongCat-Video-Avatar（1.0）
+- **elevenlabs-changelog** ElevenLabs · 更新日志索引
+- **hf-glm-voice** HF · 智谱 glm-4-voice-9b
+- **hf-glm-tts** HF · 智谱 GLM-TTS
+- **openai-model-tts** OpenAI · GPT-4o mini TTS 模型页
+- **openai-model-realtime** OpenAI · GPT-Realtime 模型页
+- **gemini-robotics-er** Google 官方文档 · Gemini Robotics ER（能力表 / 端点 / 定价）
+- **nvidia-groot-gh** NVIDIA/Isaac-GR00T 官方仓库
+- **hf-robotics** Hugging Face · robotics 榜（按下载）
+  新增 8 条：CogACT/CogACT-Base、IffYuan/Embodied-R1.5、Miical/pi05-libero-spatial-sft-step-100、StarVLA/Qwen3-VL-4B-Instruct-Action、XiaomiRobotics/Xiaomi-Robotics-1-RoboCasa365、mradermacher/PhysBrain1.5-8B-i1-GGUF、mradermacher/ROMA-7B-i1-GGUF、mradermacher/RynnBrain-Plan-8B-i1-GGUF
+- **lerobot-gh** Hugging Face 官方 · LeRobot 仓库
+- **genie3-blog** Google DeepMind 官方博客 · Genie 3
+- **odyssey-site** Odyssey 官网（产品线自述）
+- **sci-mace-gh** MACE 官方仓库
+- **sora-api** OpenAI API · sora-2 模型页（⚠️ 同上，403）
+- **mm-hf-api** HF API · MiniMaxAI/MiniMax-H3 元数据（许可与文件清单）
+- **ltx-hf-23** Hugging Face · Lightricks/LTX-2.3（当前主力）
+- **recraft-docs** Recraft · 官方文档
+- **bfl-docs** Black Forest Labs · 官方文档索引
+- **zimage-card** Z-Image 官方模型卡（Hugging Face）
+- **hunyuan-image-card** HunyuanImage-3.0 官方模型卡（Hugging Face）
+- **smolvla-card** Hugging Face 官方 · SmolVLA 模型卡
+- **molmoact-card** Ai2 官方 · MolmoAct2 模型卡
+- **hf-sensevoice** 阿里 FunAudioLLM 官方 · SenseVoiceSmall 模型卡
+- **hf-qwen3-asr** 阿里官方 · Qwen3-ASR 模型卡
+- **ideogram-x** Ideogram 官方账号发布公告（@ideogram_ai）
+- **ideogram-v1-overview** Ideogram v1 API 概览（4.0 与 3.0）
+- **ideogram-v1-upscale** Ideogram v1 Upscale 端点
+- **rodin-gen25-api** Rodin Gen-2.5 API 参数
+- **rodin-bang-api** Rodin Bang 部件分割端点
+- **card-deepseek-ai-deepseek-v3-2** deepseek-ai/DeepSeek-V3.2 官方模型卡
+- **card-zai-org-glm-4-5** zai-org/GLM-4.5 官方模型卡
+- **card-zai-org-glm-4-6** zai-org/GLM-4.6 官方模型卡
+- **card-zai-org-glm-5** zai-org/GLM-5 官方模型卡
+- **card-zai-org-glm-5-1** zai-org/GLM-5.1 官方模型卡
+- **card-zai-org-glm-5-2** zai-org/GLM-5.2 官方模型卡
+- **card-moonshotai-kimi-k2-base** moonshotai/Kimi-K2-Base 官方模型卡
+- **card-moonshotai-kimi-k2-thinking** moonshotai/Kimi-K2-Thinking 官方模型卡
+- **card-moonshotai-kimi-k2-5** moonshotai/Kimi-K2.5 官方模型卡
+- **card-moonshotai-kimi-k2-6** moonshotai/Kimi-K2.6 官方模型卡
+- **card-moonshotai-kimi-k3** moonshotai/Kimi-K3 官方模型卡
+- **card-minimaxai-minimax-m2** MiniMaxAI/MiniMax-M2 官方模型卡
+- **card-minimaxai-minimax-m2-5** MiniMaxAI/MiniMax-M2.5 官方模型卡
+- **card-minimaxai-minimax-m3** MiniMaxAI/MiniMax-M3 官方模型卡
+- **card-mistralai-mistral-large-3-675b-instruct-2512** mistralai/Mistral-Large-3-675B-Instruct-2512 官方模型卡
+- **card-mistralai-mistral-small-4-119b-2603** mistralai/Mistral-Small-4-119B-2603 官方模型卡
+- **card-mistralai-mistral-medium-3-5-128b** mistralai/Mistral-Medium-3.5-128B 官方模型卡
+- **card-qwen-qwen3-5-27b** Qwen/Qwen3.5-27B 官方模型卡
+- **card-qwen-qwen3-6-27b** Qwen/Qwen3.6-27B 官方模型卡
+- **card-tencent-hunyuan3d-part** tencent/Hunyuan3D-Part 官方模型卡
+- **card-zai-org-glm-4-7** GLM-4.7 官方模型卡
 
 ## 全部
 
@@ -45,7 +110,7 @@
 | seed-blog | S | html | 未到期（上次 2026-10-21） |
 | seed-models | S | html | 未到期（上次 2026-10-21） |
 | kling-api-updates | S | spa | 未到期（上次 2026-10-21） |
-| kling-site | S | spa | 未到期（上次 2026-10-10） |
+| kling-site | S | spa | 无变化 |
 | google-video-docs | S | html | 未到期（上次 2026-10-21） |
 | deepmind-veo | S | html | 未到期（上次 2026-10-21） |
 | vertex-video-ref | S | html | 未到期（上次 2026-10-21） |
@@ -65,12 +130,12 @@
 | pika-site | S | html | 未到期（上次 2026-10-22） |
 | higgsfield-site | S | html | 未到期（上次 2026-10-21） |
 | decart-research | S | html | 未到期（上次 2026-10-21） |
-| arxiv-video | S | atom | 抓不到（HTTP 429） |
+| arxiv-video | S | atom | 变了 |
 | epoch-notable | A | csv | 未到期（上次 2026-10-21） |
 | aa-t2v | A | spa | 未到期（上次 2026-10-21） |
 | aa-i2v | A | spa | 未到期（上次 2026-10-21） |
-| hf-t2v | A | json | 变了 |
-| hf-i2v | A | json | 变了 |
+| hf-t2v | A | json | 未到期（上次 2026-10-23） |
+| hf-i2v | A | json | 未到期（上次 2026-10-23） |
 | hf-v2v | A | json | 未到期（上次 2026-10-21） |
 | fal-video | S | spa | 未到期（上次 2026-10-22） |
 | replicate-t2v | S | html | 未到期（上次 2026-10-21） |
@@ -78,18 +143,18 @@
 | futurepedia | B | html | 未到期（上次 2026-10-11） |
 | comfyui-releases | C | json | 未到期（上次 2026-10-21） |
 | capcut-templates | C | html | 未到期（上次 2026-10-11） |
-| picsart-effects | C | html | 抓不到（HTTP 403） |
+| picsart-effects | C | html | 抓不到（HTTP 404） |
 | runway-changelog | S | spa | 未到期（上次 2026-10-21） |
 | runway-models | S | spa | 未到期（上次 2026-10-21） |
 | luma-changelog | S | spa | 未到期（上次 2026-08-07） |
 | seed-models-hub | S | html | 未到期（上次 2026-10-21） |
 | apiyi-models | S | spa | 未到期（上次 2026-10-21） |
 | arxiv-worldmodel | S | atom | 未到期（上次 2026-10-22） |
-| techcrunch-ai | B | atom | 变了 |
+| techcrunch-ai | B | atom | 未到期（上次 2026-10-23） |
 | ltx-gh | S | json | 未到期（上次 2026-10-21） |
-| ltx-hf-org | S | json | 变了 |
+| ltx-hf-org | S | json | 未到期（上次 2026-10-23） |
 | decart-site | S | spa | 未到期（上次 2026-10-18） |
-| picsart-video | C | html | 抓不到（HTTP 403） |
+| picsart-video | C | html | 变了 |
 | libtv | C | spa | 从未抓过 |
 | dreamina | S | html | 未到期（上次 2026-10-21） |
 | hailuo-video | S | html | 未到期（上次 2026-10-21） |
@@ -183,8 +248,8 @@
 | ms-foundry-blog | B | html | 未到期（上次 2026-10-11） |
 | mj-updates | S | html | 未到期（上次 2026-10-21） |
 | aa-t2i | A | spa | 抓不到（还是壳：渲染后正文只有 281 个字符） |
-| hf-t2i | A | json | 变了 |
-| hf-i2i | A | json | 变了 |
+| hf-t2i | A | json | 未到期（上次 2026-10-23） |
+| hf-i2i | A | json | 未到期（上次 2026-10-23） |
 | anthropic-models | S | html | 未到期（上次 2026-10-22） |
 | deepseek-docs | S | html | 未到期（上次 2026-10-22） |
 | xai-docs | S | html | 未到期（上次 2026-10-22） |
@@ -252,7 +317,7 @@
 | xai-release-notes | S | spa | 未到期（上次 2026-10-19） |
 | aa-llm | B | spa | 未到期（上次 2026-10-21） |
 | ideogram-api | S | html | 未到期（上次 2026-10-21） |
-| elevenlabs-models | S | html | 未到期（上次 2026-10-10） |
+| elevenlabs-models | S | html | 变了 |
 | openai-realtime | S | html | 未到期（上次 2026-10-21） |
 | gemini-tts | S | spa | 未到期（上次 2026-10-19） |
 | elevenlabs-tts | S | html | 未到期（上次 2026-10-21） |
@@ -338,8 +403,8 @@
 | hf-diffusers-memory | A | html | 未到期（上次 2026-08-13） |
 | zimage-gh | A | html | 未到期（上次 2026-10-17） |
 | hunyuan-image-gh | A | html | 未到期（上次 2026-10-17） |
-| skyreels-gh | A | html | 未到期（上次 2026-10-10） |
-| bfl-flux3 | A | html | 未到期（上次 2026-10-10） |
+| skyreels-gh | A | html | 无变化 |
+| bfl-flux3 | A | html | 变了 |
 | anthropic-privacy | A | html | 未到期（上次 2026-08-14） |
 | stability-terms | A | html | 未到期（上次 2026-08-14） |
 | gh-llm-universe | C | json | 未到期（上次 2026-10-13） |
@@ -353,19 +418,19 @@
 | gh-comfyui | C | json | 未到期（上次 2026-10-13） |
 | gh-sdbook | C | json | 未到期（上次 2026-10-13） |
 | waytoagi-wiki | C | spa | 从未抓过 |
-| hf-hunyuan3d-21 | S | html | 未到期（上次 2026-10-10） |
-| tripo-docs-generation | S | spa | 未到期（上次 2026-10-10） |
-| meshy-docs-api | S | spa | 未到期（上次 2026-10-10） |
-| meshy-site | S | spa | 未到期（上次 2026-10-10） |
+| hf-hunyuan3d-21 | S | html | 变了 |
+| tripo-docs-generation | S | spa | 无变化 |
+| meshy-docs-api | S | spa | 变了 |
+| meshy-site | S | spa | 变了 |
 | rodin-api-docs | S | html | 未到期（上次 2026-10-11） |
-| gh-trellis | S | html | 未到期（上次 2026-10-10） |
+| gh-trellis | S | html | 变了 |
 | seed3d-page | S | spa | 从未抓过 |
-| stability-spar3d | S | html | 未到期（上次 2026-10-10） |
+| stability-spar3d | S | html | 无变化 |
 | tripo-site | S | spa | 抓不到（被人机验证挡住（页面标题「Just a moment...」）—— 这条源只能人工核，别再换抓法） |
-| rodin-site | S | spa | 未到期（上次 2026-10-10） |
-| tripo-docs-animation | S | spa | 未到期（上次 2026-10-10） |
-| gh-hunyuan3d-buffalo | S | html | 未到期（上次 2026-10-10） |
-| replicate-hunyuan3d-31 | A | spa | 未到期（上次 2026-10-10） |
+| rodin-site | S | spa | 变了 |
+| tripo-docs-animation | S | spa | 无变化 |
+| gh-hunyuan3d-buffalo | S | html | 变了 |
+| replicate-hunyuan3d-31 | A | spa | 变了 |
 | replicate-3d | A | spa | 未到期（上次 2026-10-16） |
 | hf-image-to-3d | A | spa | 未到期（上次 2026-10-16） |
 | comfy-3d-hunyuan | S | html | 未到期（上次 2026-10-16） |
@@ -375,9 +440,9 @@
 | gh-triposg | S | html | 未到期（上次 2026-10-16） |
 | gh-instantmesh | S | html | 未到期（上次 2026-10-16） |
 | modelscope-orgs | S | json | 从未抓过 |
-| hf-wan-vace | S | html | 未到期（上次 2026-10-10） |
-| hf-ltx-25 | S | html | 未到期（上次 2026-10-10） |
-| meshy-changelog | S | spa | 未到期（上次 2026-10-10） |
+| hf-wan-vace | S | html | 变了 |
+| hf-ltx-25 | S | html | 变了 |
+| meshy-changelog | S | spa | 变了 |
 | hf-instantmesh | S | html | 未到期（上次 2026-10-16） |
 | hf-apple-sharp | S | html | 未到期（上次 2026-10-16） |
 | gh-hunyuan3d-api | S | html | 未到期（上次 2026-10-16） |
@@ -385,119 +450,119 @@
 | arxiv-seed3d-20 | S | html | 未到期（上次 2026-10-13） |
 | arxiv-seed3d-10 | S | html | 未到期（上次 2026-10-13） |
 | hf-trellis2 | S | html | 未到期（上次 2026-10-16） |
-| pixverse-caps | S | html | 未到期（上次 2026-10-10） |
-| pixverse-v6 | S | html | 未到期（上次 2026-10-10） |
-| pixverse-fusion | S | html | 未到期（上次 2026-10-10） |
+| pixverse-caps | S | html | 抓不到（HTTP 404） |
+| pixverse-v6 | S | html | 抓不到（HTTP 404） |
+| pixverse-fusion | S | html | 抓不到（HTTP 404） |
 | hf-cogvideox | S | html | 未到期（上次 2026-10-17） |
 | hf-i2vgen | S | html | 未到期（上次 2026-10-17） |
 | hf-longcat-edit | S | html | 未到期（上次 2026-10-17） |
 | hf-magi | S | html | 未到期（上次 2026-10-17） |
-| heygen-docs | S | spa | 未到期（上次 2026-10-10） |
-| synthesia-docs | S | spa | 未到期（上次 2026-10-10） |
-| hf-longcat-avatar | S | html | 未到期（上次 2026-10-10） |
-| hf-hunyuan-avatar | S | html | 未到期（上次 2026-10-10） |
-| hf-liveportrait | S | html | 未到期（上次 2026-10-10） |
-| hf-musetalk | S | html | 未到期（上次 2026-10-10） |
-| hf-hallo2 | S | html | 未到期（上次 2026-10-10） |
+| heygen-docs | S | spa | 变了 |
+| synthesia-docs | S | spa | 变了 |
+| hf-longcat-avatar | S | html | 变了 |
+| hf-hunyuan-avatar | S | html | 变了 |
+| hf-liveportrait | S | html | 变了 |
+| hf-musetalk | S | html | 变了 |
+| hf-hallo2 | S | html | 变了 |
 | replicate-lipsync | A | spa | 未到期（上次 2026-10-17） |
 | comfy-s2v | S | html | 未到期（上次 2026-10-17） |
 | heygen-translate | S | html | 未到期（上次 2026-10-17） |
 | heygen-live | S | html | 未到期（上次 2026-10-17） |
 | heygen-photo | S | html | 未到期（上次 2026-10-17） |
 | heygen-training | S | html | 未到期（上次 2026-10-17） |
-| heygen-changelog | S | html | 未到期（上次 2026-10-10） |
-| hf-hallo-live | S | html | 未到期（上次 2026-10-10） |
-| hf-longcat-avatar-10 | S | html | 未到期（上次 2026-10-10） |
+| heygen-changelog | S | html | 变了 |
+| hf-hallo-live | S | html | 变了 |
+| hf-longcat-avatar-10 | S | html | 变了 |
 | gh-video-retalking | S | html | 未到期（上次 2026-10-17） |
-| elevenlabs-changelog | S | html | 未到期（上次 2026-10-10） |
-| hf-glm-voice | S | html | 未到期（上次 2026-10-10） |
-| hf-glm-tts | S | html | 未到期（上次 2026-10-10） |
-| openai-model-tts | S | spa | 未到期（上次 2026-10-10） |
-| openai-model-realtime | S | spa | 未到期（上次 2026-10-10） |
+| elevenlabs-changelog | S | html | 变了 |
+| hf-glm-voice | S | html | 变了 |
+| hf-glm-tts | S | html | 变了 |
+| openai-model-tts | S | spa | 变了 |
+| openai-model-realtime | S | spa | 变了 |
 | elevenlabs-docs | S | html | 未到期（上次 2026-10-22） |
-| gemini-robotics-er | S | html | 未到期（上次 2026-10-17） |
-| figure-helix | A | html | 未到期（上次 2026-10-10） |
+| gemini-robotics-er | S | html | 变了 |
+| figure-helix | A | html | 无变化 |
 | pi-pi05-blog | A | html | 未到期（上次 2026-10-14） |
-| pi-openpi-gh | A | html | 未到期（上次 2026-10-17） |
-| nvidia-groot-gh | A | html | 未到期（上次 2026-10-17） |
-| openvla-gh | A | html | 未到期（上次 2026-10-10） |
-| openvla-repo | A | html | 未到期（上次 2026-10-10） |
-| hf-robotics | B | json | 未到期（上次 2026-10-17） |
-| lerobot-gh | A | json | 未到期（上次 2026-10-17） |
-| groot-policy-doc | A | html | 未到期（上次 2026-10-17） |
-| rynnbrain-card | A | html | 未到期（上次 2026-10-10） |
+| pi-openpi-gh | A | html | 无变化 |
+| nvidia-groot-gh | A | html | 变了 |
+| openvla-gh | A | html | 无变化 |
+| openvla-repo | A | html | 无变化 |
+| hf-robotics | B | json | 变了 |
+| lerobot-gh | A | json | 变了 |
+| groot-policy-doc | A | html | 无变化 |
+| rynnbrain-card | A | html | 无变化 |
 | maniskill-gh | B | json | 未到期（上次 2026-10-13） |
-| cosmos3-card | S | html | 未到期（上次 2026-10-17） |
-| genie3-blog | A | html | 未到期（上次 2026-10-10） |
-| odyssey-site | S | html | 未到期（上次 2026-10-10） |
-| worldlabs-marble | A | html | 未到期（上次 2026-10-10） |
-| matrixgame-card | A | html | 未到期（上次 2026-10-10） |
-| hunyuanworld-gh | A | html | 未到期（上次 2026-10-10） |
+| cosmos3-card | S | html | 无变化 |
+| genie3-blog | A | html | 变了 |
+| odyssey-site | S | html | 变了 |
+| worldlabs-marble | A | html | 无变化 |
+| matrixgame-card | A | html | 无变化 |
+| hunyuanworld-gh | A | html | 无变化 |
 | wham-card | A | html | 未到期（上次 2026-10-13） |
 | vjepa2-blog | A | html | 未到期（上次 2026-10-13） |
 | vjepa2-card | B | html | 未到期（上次 2026-10-13） |
-| sci-boltz-gh | A | html | 未到期（上次 2026-10-10） |
+| sci-boltz-gh | A | html | 无变化 |
 | sci-af3-blog | A | html | 未到期（上次 2026-10-14） |
 | sci-esm2-card | B | html | 未到期（上次 2026-10-14） |
-| sci-wn-gh | A | html | 未到期（上次 2026-10-10） |
-| sci-aurora-gh | A | html | 未到期（上次 2026-10-10） |
-| sci-neuralgcm-gh | A | html | 未到期（上次 2026-10-10） |
-| sci-mattergen-gh | A | html | 未到期（上次 2026-10-10） |
-| sci-mace-gh | A | html | 未到期（上次 2026-10-10） |
-| sci-gnome-gh | A | html | 未到期（上次 2026-10-10） |
-| seed-25 | A | html | 未到期（上次 2026-10-10） |
+| sci-wn-gh | A | html | 无变化 |
+| sci-aurora-gh | A | html | 无变化 |
+| sci-neuralgcm-gh | A | html | 无变化 |
+| sci-mattergen-gh | A | html | 无变化 |
+| sci-mace-gh | A | html | 变了 |
+| sci-gnome-gh | A | html | 无变化 |
+| seed-25 | A | html | 无变化 |
 | veo-doc | A | html | 未到期（上次 2026-10-22） |
-| sora-api | A | html | 未到期（上次 2026-10-10） |
-| wan-site | A | html | 未到期（上次 2026-10-10） |
-| mm-hf-api | A | json | 未到期（上次 2026-10-10） |
+| sora-api | A | html | 变了 |
+| wan-site | A | html | 无变化 |
+| mm-hf-api | A | json | 变了 |
 | vidu-s1-paper | A | html | 未到期（上次 2026-08-15） |
 | omni-doc | A | html | 未到期（上次 2026-10-11） |
-| ltx-hf-23 | A | html | 未到期（上次 2026-10-10） |
+| ltx-hf-23 | A | html | 变了 |
 | gemini-image-docs | A | html | 未到期（上次 2026-10-22） |
 | openai-image-docs | A | html | 未到期（上次 2026-10-22） |
-| recraft-docs | A | html | 未到期（上次 2026-10-10） |
-| bfl-docs | A | html | 未到期（上次 2026-10-10） |
-| zimage-card | A | html | 未到期（上次 2026-10-10） |
-| hunyuan-image-card | A | html | 未到期（上次 2026-10-10） |
-| smolvla-card | A | html | 未到期（上次 2026-10-10） |
-| molmoact-card | A | html | 未到期（上次 2026-10-10） |
+| recraft-docs | A | html | 变了 |
+| bfl-docs | A | html | 变了 |
+| zimage-card | A | html | 变了 |
+| hunyuan-image-card | A | html | 变了 |
+| smolvla-card | A | html | 变了 |
+| molmoact-card | A | html | 变了 |
 | hf-whisper | A | html | 未到期（上次 2026-10-22） |
-| hf-sensevoice | A | html | 未到期（上次 2026-10-10） |
-| hf-qwen3-asr | A | html | 未到期（上次 2026-10-10） |
+| hf-sensevoice | A | html | 变了 |
+| hf-qwen3-asr | A | html | 变了 |
 | minimax-release-notes | A | html | 未到期（上次 2026-10-19） |
-| seed-blog-1_5 | A | html | 未到期（上次 2026-10-10） |
-| seed-blog-2_0 | A | html | 未到期（上次 2026-10-10） |
-| ideogram-x | A | html | 未到期（上次 2026-10-10） |
+| seed-blog-1_5 | A | html | 无变化 |
+| seed-blog-2_0 | A | html | 无变化 |
+| ideogram-x | A | html | 变了 |
 | hf-funcineforge | S | html | 未到期（上次 2026-10-18） |
 | hf-org | S | json | 未到期（上次 2026-10-22） |
 | gh-gptsovits-cn | C | json | 未到期（上次 2026-10-18） |
-| gemini-nb21 | S | spa | 未到期（上次 2026-10-17） |
+| gemini-nb21 | S | spa | 无变化 |
 | xai-grok47-model | S | spa | 未到期（上次 2026-10-19） |
-| ideogram-v1-overview | A | html | 未到期（上次 2026-10-10T02:48:40.640Z） |
-| ideogram-v1-upscale | A | html | 未到期（上次 2026-10-10T02:48:40.641Z） |
-| rodin-gen25-api | A | html | 未到期（上次 2026-10-10T02:48:40.642Z） |
-| rodin-bang-api | A | html | 未到期（上次 2026-10-10T02:48:40.642Z） |
-| card-deepseek-ai-deepseek-v3-2 | A | html | 未到期（上次 2026-10-10T02:48:40.644Z） |
-| card-zai-org-glm-4-5 | A | html | 未到期（上次 2026-10-10T02:48:40.644Z） |
-| card-zai-org-glm-4-6 | A | html | 未到期（上次 2026-10-10T02:48:40.644Z） |
-| card-zai-org-glm-5 | A | html | 未到期（上次 2026-10-10T02:48:40.644Z） |
-| card-zai-org-glm-5-1 | A | html | 未到期（上次 2026-10-10T02:48:40.644Z） |
-| card-zai-org-glm-5-2 | A | html | 未到期（上次 2026-10-10T02:48:40.645Z） |
-| card-moonshotai-kimi-k2-base | A | html | 未到期（上次 2026-10-10T02:48:40.645Z） |
-| card-moonshotai-kimi-k2-thinking | A | html | 未到期（上次 2026-10-10T02:48:40.645Z） |
-| card-moonshotai-kimi-k2-5 | A | html | 未到期（上次 2026-10-10T02:48:40.645Z） |
-| card-moonshotai-kimi-k2-6 | A | html | 未到期（上次 2026-10-10T02:48:40.645Z） |
-| card-moonshotai-kimi-k3 | A | html | 未到期（上次 2026-10-10T02:48:40.645Z） |
-| card-minimaxai-minimax-m2 | A | html | 未到期（上次 2026-10-10T02:48:40.646Z） |
-| card-minimaxai-minimax-m2-5 | A | html | 未到期（上次 2026-10-10T02:48:40.646Z） |
-| card-minimaxai-minimax-m3 | A | html | 未到期（上次 2026-10-10T02:48:40.646Z） |
-| card-mistralai-mistral-large-3-675b-instruct-2512 | A | html | 未到期（上次 2026-10-10T02:48:40.646Z） |
-| card-mistralai-mistral-small-4-119b-2603 | A | html | 未到期（上次 2026-10-10T02:48:40.646Z） |
-| card-mistralai-mistral-medium-3-5-128b | A | html | 未到期（上次 2026-10-10T02:48:40.646Z） |
-| card-qwen-qwen3-5-27b | A | html | 未到期（上次 2026-10-10T02:48:40.646Z） |
-| card-qwen-qwen3-6-27b | A | html | 未到期（上次 2026-10-10T02:48:40.647Z） |
-| card-tencent-hunyuan3d-part | A | html | 未到期（上次 2026-10-10T02:48:40.647Z） |
-| card-zai-org-glm-4-7 | A | html | 未到期（上次 2026-10-10T02:52:01.981Z） |
+| ideogram-v1-overview | A | html | 变了 |
+| ideogram-v1-upscale | A | html | 变了 |
+| rodin-gen25-api | A | html | 变了 |
+| rodin-bang-api | A | html | 变了 |
+| card-deepseek-ai-deepseek-v3-2 | A | html | 变了 |
+| card-zai-org-glm-4-5 | A | html | 变了 |
+| card-zai-org-glm-4-6 | A | html | 变了 |
+| card-zai-org-glm-5 | A | html | 变了 |
+| card-zai-org-glm-5-1 | A | html | 变了 |
+| card-zai-org-glm-5-2 | A | html | 变了 |
+| card-moonshotai-kimi-k2-base | A | html | 变了 |
+| card-moonshotai-kimi-k2-thinking | A | html | 变了 |
+| card-moonshotai-kimi-k2-5 | A | html | 变了 |
+| card-moonshotai-kimi-k2-6 | A | html | 变了 |
+| card-moonshotai-kimi-k3 | A | html | 变了 |
+| card-minimaxai-minimax-m2 | A | html | 变了 |
+| card-minimaxai-minimax-m2-5 | A | html | 变了 |
+| card-minimaxai-minimax-m3 | A | html | 变了 |
+| card-mistralai-mistral-large-3-675b-instruct-2512 | A | html | 变了 |
+| card-mistralai-mistral-small-4-119b-2603 | A | html | 变了 |
+| card-mistralai-mistral-medium-3-5-128b | A | html | 变了 |
+| card-qwen-qwen3-5-27b | A | html | 变了 |
+| card-qwen-qwen3-6-27b | A | html | 变了 |
+| card-tencent-hunyuan3d-part | A | html | 变了 |
+| card-zai-org-glm-4-7 | A | html | 变了 |
 | gemini-argon | S | spa | 未到期（上次 2026-10-19） |
 | gemini-tts38 | S | spa | 未到期（上次 2026-10-19） |
 | vidu-q4-i2v | S | spa | 未到期（上次 2026-10-19） |
