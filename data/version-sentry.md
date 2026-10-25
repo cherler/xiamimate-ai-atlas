@@ -1,4 +1,4 @@
-# 版本哨兵 · 2026-10-24
+# 版本哨兵 · 2026-10-25
 
 扫 136 个模型：**有更新的一代 1** · 口径存疑 0 · 牌子摘了 29 · 比不了 55
 
@@ -39,7 +39,7 @@
 - **PixVerse**（pixverse）记的是 `V6`，`pixverse-v6`（2026-10-10）上没有这个号
 - **Qwen Omni**（qwen-omni）记的是 `3.5-omni-plus`，`bailian-websearch`（2026-10-21）上没有这个号
 - **Qwen3-ASR**（qwen3-asr）记的是 `1.7B`，`hf-qwen3-asr`（2026-10-24）上没有这个号
-- **Rodin**（rodin）记的是 `Gen-2.5`，`rodin-api-docs`（2026-10-11）上没有这个号
+- **Rodin**（rodin）记的是 `Gen-2.5`，`rodin-api-docs`（2026-10-25）上没有这个号
 - **Runway Gen**（runway）记的是 `Gen-4.5`，`runway-changelog`（2026-10-21）上没有这个号
 - **ElevenLabs Scribe**（scribe）记的是 `v2`，`elevenlabs-models`（2026-10-24）上没有这个号
 - **Seed GR-3**（seed-gr3）记的是 `GR-3`，`seed-models`（2026-10-21）上没有这个号
