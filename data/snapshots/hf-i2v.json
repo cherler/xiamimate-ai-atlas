@@ -1,8 +1,8 @@
 {
   "url": "https://huggingface.co/api/models?filter=image-to-video&sort=downloads&direction=-1&limit=60",
   "kind": "json",
-  "fetched_at": "2026-10-23",
-  "digest": "043e0fd247fdc5c8",
+  "fetched_at": "2026-10-26",
+  "digest": "c7278a82de35f36b",
   "items": [
     "Abiray/LTX-2.5-Distilled-GGUF\t",
     "Abiray/MiniMax-H3-GGUF\t",
@@ -25,6 +25,7 @@
     "QuantStack/LTX-2.3-GGUF\t",
     "QuantStack/Wan2.2-I2V-A14B-GGUF\t",
     "TenStrip/LTX2.3-10Eros\t",
+    "WAS/Minimax-h3_Singularity_v2_pruned\t",
     "Wan-AI/Wan2.1-I2V-14B-480P\t",
     "Wan-AI/Wan2.1-I2V-14B-480P-Diffusers\t",
     "Wan-AI/Wan2.1-I2V-14B-720P\t",
@@ -39,7 +40,6 @@
     "audio-cpp/LiveAvatar-GGUF\t",
     "bullerwins/Wan2.2-I2V-A14B-GGUF\t",
     "city96/Wan2.1-I2V-14B-480P-gguf\t",
-    "city96/Wan2.1-I2V-14B-720P-gguf\t",
     "comfyicu/LTX-2.5\t",
     "hum-ma/Wan2.2-TI2V-5B-Turbo-GGUF\t",
     "ibyteohdear/Lightricks-LTX-2-DISTILLED-10-Eros\t",
