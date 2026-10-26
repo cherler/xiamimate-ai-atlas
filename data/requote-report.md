@@ -1,6 +1,6 @@
-# 引文回查 · 2026-10-25
+# 引文回查 · 2026-10-26
 
-回查 1273 条：无英文锚 771 · 对得上 411 · 无快照 20 · 复核已处置 45 · 找不到 17 · 人审认过·非逐字 8 · 快照无正文 1
+回查 1273 条：无英文锚 773 · 对得上 422 · 无快照 20 · 本页没有·别处有 1 · 复核已处置 31 · 找不到 17 · 人审认过·非逐字 8 · 快照无正文 1
 
 > 这份报告回答一件事：**一格引文里的原句，在它署名的那份快照里还在不在。**
 > ⚠️ **失败不等于引文错。** 三种成因要分开：真署错了页 / 这一页的快照是残的（抓回来的是导航不是正文）/ 当初记的就不是逐字原文。**脚本不猜。**
@@ -13,6 +13,10 @@
 - **elevenlabs-changelog**（3 条）：发布 eleven-v3-ga、发布 eleven-v3-conv、发布 eleven-music-v2
 
 ## 全部
+
+### 本页没有·别处有（1）
+
+- `xai-grok47-model` grok × t-batch —— 锚「Batch API Not supported」（这句在 gemini-robotics-er）
 
 ### 找不到（17）
 
@@ -72,33 +76,19 @@
 - `hf-hunyuan3d-21` 发布 hy3d-2.1 —— 锚「We release the first production-ready 3D asset generation model, Hunyu」（这句在 gh-hunyuan3d-21）
 - `openai-model-tts` 发布 gpttts-2025-12 —— 锚「slugs to point to the 2025-12-15 snapshots」（这句在 openai-changelog）
 
-### 复核已处置（45）
+### 复核已处置（31）
 
-- `recraft-image-to-image` recraft × i-i2i
-- `recraft-inpainting` recraft × i-inpaint
-- `recraft-outpainting` recraft × i-outpaint
-- `recraft-image-to-image` recraft × i-fidelity
-- `recraft-upscale` recraft × i-upscale
-- `xai-grok47-model` grok × t-batch
 - `hf-qwen-layered` qwen-image × i-layered
 - `stability-spar3d` spar3d × d-edit
 - `openvla-gh` openvla × e-openweights
 - `hunyuanworld-gh` hunyuan-world × w-sim
 - `hunyuanworld-gh` hunyuan-world × w-realtime
 - `seed-25` 模型 seedance 版本
-- `vidu-changelog` 模型 vidu-s 版本
 - `seedream-page` 模型 seedream 版本
-- `xai-release-notes` 模型 grok 版本
 - `pixverse-v6` 模型 pixverse 版本
 - `hunyuanworld-gh` 模型 hunyuan-world 版本
 - `sci-wn-gh` 模型 weathernext 版本
 - `seed-25` 发布 seedance2.5
-- `vidu-changelog` 发布 vidu-q-Q1-参考生视频
-- `vidu-changelog` 发布 vidu-q-Q2-换代Q2：pro与turbo两档
-- `vidu-changelog` 发布 viduq2
-- `vidu-changelog` 发布 vidu-q-Q3-换代Q3：文生+图生
-- `vidu-changelog` 发布 vidu-q-Q3-首尾帧
-- `vidu-changelog` 发布 vidu-q-Q3-参考生视频（Q3版）
 - `seed-blog` 发布 seedream-Seedream 3.0-原生 2K 直出 + 小字排版变准
 - `seed-blog` 发布 seedream-Seedream 4.0-出图与改图并进一个模型
 - `recraft-blog` 发布 recraft-Recraft V3-长段文字 + 文字位置和大小可指定
