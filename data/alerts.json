@@ -1,46 +1,6 @@
 {
- "at": "2026-10-26",
+ "at": "2026-10-27",
  "label": "快讯",
- "more": 3,
- "items": [
-  {
-   "id": "deepseek-review-2026-10-19",
-   "date": "2026-10-19",
-   "until": "2026-10-26",
-   "headline": "今日补核：DeepSeek 更新至 V4.1 Flash-1017",
-   "why": "本站于 2026-10-19 补核；官方发布日期为 2026-10-17。",
-   "domain": "text",
-   "src": {
-    "name": "DeepSeek 官方文档 · 更新日志",
-    "url": "https://api-docs.deepseek.com/updates/",
-    "tier": "official"
-   }
-  },
-  {
-   "id": "grok-voice-review-2026-10-19",
-   "date": "2026-10-19",
-   "until": "2026-10-26",
-   "headline": "今日补核：Grok Voice 更新至 3.0",
-   "why": "本站于 2026-10-19 补核；官方发布日期为 2026-10-14。",
-   "domain": "sound",
-   "src": {
-    "name": "xAI · API Release Notes",
-    "url": "https://docs.x.ai/developers/release-notes",
-    "tier": "official"
-   }
-  },
-  {
-   "id": "gemini-text-review-2026-10-19",
-   "date": "2026-10-19",
-   "until": "2026-10-26",
-   "headline": "今日补核：Gemini 更新至 Gemini 4 Argon",
-   "why": "本站于 2026-10-19 补核；官方发布日期为 2026-10-13。",
-   "domain": "text",
-   "src": {
-    "name": "Gemini API · Release notes",
-    "url": "https://ai.google.dev/gemini-api/docs/changelog",
-    "tier": "official"
-   }
-  }
- ]
+ "more": 0,
+ "items": []
 }
