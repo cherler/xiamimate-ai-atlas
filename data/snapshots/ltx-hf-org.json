@@ -1,8 +1,8 @@
 {
   "url": "https://huggingface.co/api/models?author=Lightricks&sort=downloads&direction=-1&limit=40",
   "kind": "json",
-  "fetched_at": "2026-10-26",
-  "digest": "c8b0bcb5c8869b67",
+  "fetched_at": "2026-10-29",
+  "digest": "ae6bc2a7f4fa6140",
   "items": [
     "Lightricks/LTX-2\t",
     "Lightricks/LTX-2-19b-LoRA-Camera-Control-Dolly-In\t",
@@ -15,9 +15,9 @@
     "Lightricks/LTX-2.3-22b-IC-LoRA-Clean-Plate\t",
     "Lightricks/LTX-2.3-22b-IC-LoRA-Deblur\t",
     "Lightricks/LTX-2.3-22b-IC-LoRA-DubIt\t",
-    "Lightricks/LTX-2.3-22b-IC-LoRA-HDR\t",
     "Lightricks/LTX-2.3-22b-IC-LoRA-In-Outpainting\t",
     "Lightricks/LTX-2.3-22b-IC-LoRA-Ingredients\t",
+    "Lightricks/LTX-2.3-22b-IC-LoRA-Relight\t",
     "Lightricks/LTX-2.3-fp8\t",
     "Lightricks/LTX-2.3-nvfp4\t",
     "Lightricks/LTX-2.5\t",
