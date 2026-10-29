@@ -1,11 +1,14 @@
-# 版本哨兵 · 2026-10-28
+# 版本哨兵 · 2026-10-29
 
-扫 136 个模型：**有更新的一代 1** · 口径存疑 0 · 牌子摘了 29 · 比不了 55
+扫 136 个模型：**有更新的一代 2** · 口径存疑 0 · 牌子摘了 29 · 比不了 55
 
 > 这份只回答一件事：**一格署的那个源上，今天有没有出现比我们记的更新的版本号？**
 > 报出来的不是「世界变了」，是「**我们抓到了但没写回**」—— 这两件事的严重程度不一样。
 
-## 有更新的一代（1）—— 这一摞要写回 atlas.json
+## 有更新的一代（2）—— 这一摞要写回 atlas.json
+
+- **GPT**（gpt）库里记 `GPT-6 Astra`（核于 2026-09-10），而 `openai-models` 的快照（2026-10-29）上写着 **GPT-6.1**
+  > tokens Context window 1.05M Knowledge cutoff Apr 30, 2026 Tools Functions, Web search, File search, Computer use Terra GPT-6.1 Terra A fast, efficient model for visual reasoning, precise computer use, and clear, natural writing. Model ID gpt-6.1-terra Reasoning none low medium high xhigh max Input price $1 / Input MTo
 
 - **Krea**（krea-img）库里记 `2-Raw`（核于 2026-06-18），而 `krea-blog` 的快照（2026-10-21）上写着 **Krea 3**
   > ctor Perez · Apr 2, 2025 product Announcing Krea Ship Week Victor Perez Diego Rodriguez · Mar 26, 2025 Articles product Krea 3 Crashes the Top 4: Every Benchmark, Explained The Krea Team · Oct 20, 2026 guides Krea 3 vs GPT Image 2: Which AI Image Editor to Use in 2026 The Krea Team · Oct 20, 2026 guides Krea 3 vs Nano
@@ -34,7 +37,7 @@
 - **MiniMax Speech**（mm-speech）记的是 `speech-2.8-hd`，`minimax-api-overview`（2026-10-26）上没有这个号
 - **MuseTalk**（musetalk）记的是 `1.0`，`hf-musetalk`（2026-10-24）上没有这个号
 - **NeuralGCM**（neuralgcm）记的是 `1`，`sci-neuralgcm-gh`（2026-10-24）上没有这个号
-- **GPT TTS**（openai-tts）记的是 `GPT-4o mini TTS`，`openai-models`（2026-10-22）上没有这个号
+- **GPT TTS**（openai-tts）记的是 `GPT-4o mini TTS`，`openai-models`（2026-10-29）上没有这个号
 - **OpenVLA**（openvla）记的是 `7B`，`openvla-gh`（2026-10-24）上没有这个号
 - **PixVerse**（pixverse）记的是 `V6`，`pixverse-v6`（2026-10-10）上没有这个号
 - **Qwen Omni**（qwen-omni）记的是 `3.5-omni-plus`，`bailian-websearch`（2026-10-21）上没有这个号

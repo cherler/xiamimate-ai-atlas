@@ -1,10 +1,23 @@
 {
-  "generated_at": "2026-10-28",
-  "n": 1,
+  "generated_at": "2026-10-29",
+  "n": 2,
   "n_unclear": 0,
   "n_missing": 29,
   "n_skipped": 55,
   "rows": [
+    {
+      "kind": "有更新的一代",
+      "m": "gpt",
+      "family": "GPT",
+      "zh": "GPT",
+      "cur": "GPT-6 Astra",
+      "cur_as_of": "2026-09-10",
+      "found": "GPT-6.1",
+      "found_num": "6.1",
+      "src": "openai-models",
+      "src_at": "2026-10-29",
+      "evidence": "tokens Context window 1.05M Knowledge cutoff Apr 30, 2026 Tools Functions, Web search, File search, Computer use Terra GPT-6.1 Terra A fast, efficient model for visual reasoning, precise computer use, and clear, natural writing. Model ID gpt-6.1-terra Reasoning none low medium high xhigh max Input price $1 / Input MTo"
+    },
     {
       "kind": "有更新的一代",
       "m": "krea-img",
@@ -219,7 +232,7 @@
       "cur_as_of": "2026-08-12",
       "found": null,
       "src": "openai-models",
-      "src_at": "2026-10-22",
+      "src_at": "2026-10-29",
       "evidence": ""
     },
     {
