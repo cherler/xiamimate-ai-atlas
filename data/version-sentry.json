@@ -1,10 +1,23 @@
 {
-  "generated_at": "2026-11-01",
+  "generated_at": "2026-11-02",
   "n": 2,
-  "n_unclear": 0,
-  "n_missing": 29,
+  "n_unclear": 1,
+  "n_missing": 28,
   "n_skipped": 55,
   "rows": [
+    {
+      "kind": "口径存疑",
+      "m": "hailuo",
+      "family": "MiniMax Hailuo",
+      "zh": "海螺",
+      "cur": "H3",
+      "cur_as_of": "2026-07-31",
+      "found": "minimax-hailuo-23",
+      "found_num": "23",
+      "src": "minimax-release-notes",
+      "src_at": "2026-11-02",
+      "evidence": ". 28, 2025`}),`\\n`,_jsx(Card,{title:`MiniMax-Hailuo-2.3 \\u0026 2.3-Fast`,icon:`video`,href:`https://www.minimax.io/news/minimax-hailuo-23`,cta:`Learn More`,children:_jsx(_components.p,{children:`Released MiniMax-Hailuo-2.3 \\u0026 2.3-Fast, featuring breakthroughs in body movement, facial expressions, physical realism,"
+    },
     {
       "kind": "有更新的一代",
       "m": "gpt",
@@ -124,18 +137,6 @@
     },
     {
       "kind": "牌子摘了",
-      "m": "hailuo",
-      "family": "MiniMax Hailuo",
-      "zh": "海螺",
-      "cur": "H3",
-      "cur_as_of": "2026-07-31",
-      "found": null,
-      "src": "minimax-release-notes",
-      "src_at": "2026-10-19",
-      "evidence": ""
-    },
-    {
-      "kind": "牌子摘了",
       "m": "hunyuan-avatar",
       "family": "HunyuanVideo-Avatar",
       "cur": "1.0",
@@ -199,7 +200,7 @@
       "cur_as_of": "2026-08-12",
       "found": null,
       "src": "minimax-api-overview",
-      "src_at": "2026-10-26",
+      "src_at": "2026-11-02",
       "evidence": ""
     },
     {

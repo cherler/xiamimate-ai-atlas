@@ -1,6 +1,6 @@
-# 版本哨兵 · 2026-11-01
+# 版本哨兵 · 2026-11-02
 
-扫 136 个模型：**有更新的一代 2** · 口径存疑 0 · 牌子摘了 29 · 比不了 55
+扫 136 个模型：**有更新的一代 2** · 口径存疑 1 · 牌子摘了 28 · 比不了 55
 
 > 这份只回答一件事：**一格署的那个源上，今天有没有出现比我们记的更新的版本号？**
 > 报出来的不是「世界变了」，是「**我们抓到了但没写回**」—— 这两件事的严重程度不一样。
@@ -13,7 +13,16 @@
 - **Krea**（krea-img）库里记 `2-Raw`（核于 2026-06-18），而 `krea-blog` 的快照（2026-10-21）上写着 **Krea 3**
   > ctor Perez · Apr 2, 2025 product Announcing Krea Ship Week Victor Perez Diego Rodriguez · Mar 26, 2025 Articles product Krea 3 Crashes the Top 4: Every Benchmark, Explained The Krea Team · Oct 20, 2026 guides Krea 3 vs GPT Image 2: Which AI Image Editor to Use in 2026 The Krea Team · Oct 20, 2026 guides Krea 3 vs Nano
 
-## 机器自查 · 牌子摘了（29）—— **不用你拍板**
+## 口径存疑（1）—— 两种读法结论相反，**得你定**
+
+> `4.20` 按分段整数读是 4 之后的第 20 个小版本（比 4.6 新），按小数读就是 4.2（比 4.6 老）。
+> 哪种对取决于厂商自己的习惯，脚本判不了。定完把结论记进 `data/version-sentry-ack.json`。
+
+- **MiniMax Hailuo**（hailuo）库里记 `H3`，`minimax-release-notes`（2026-11-02）上出现 **minimax-hailuo-23**
+  分段整数读：23 比 H3 **新**；小数读：比 H3 **老**
+  > . 28, 2025`}),`\n`,_jsx(Card,{title:`MiniMax-Hailuo-2.3 \u0026 2.3-Fast`,icon:`video`,href:`https://www.minimax.io/news/minimax-hailuo-23`,cta:`Learn More`,children:_jsx(_components.p,{children:`Released MiniMax-Hailuo-2.3 \u0026 2.3-Fast, featuring breakthroughs in body movement, facial expressions, physical realism,
+
+## 机器自查 · 牌子摘了（28）—— **不用你拍板**
 
 > 「在这个源上找不到我们记的版本号」有两种成因，脚本分不开：
 > **版本串本来就不是数字型号**（`650M` / `7B` / `2b/5b` / `glm-4-voice` 这类，占绝大多数），
@@ -28,13 +37,12 @@
 - **FLUX 3**（flux-video）记的是 `3`，`bfl-flux3`（2026-10-24）上没有这个号
 - **GLM Voice**（glm-voice）记的是 `glm-4-voice`，`glm-voice-doc`（2026-10-21）上没有这个号
 - **GNoME**（gnome）记的是 `1`，`sci-gnome-gh`（2026-10-24）上没有这个号
-- **MiniMax Hailuo**（hailuo）记的是 `H3`，`minimax-release-notes`（2026-10-19）上没有这个号
 - **HunyuanVideo-Avatar**（hunyuan-avatar）记的是 `1.0`，`hf-hunyuan-avatar`（2026-10-24）上没有这个号
 - **Hunyuan3D**（hunyuan3d）记的是 `3.1`，`replicate-hunyuan3d-31`（2026-10-24）上没有这个号
 - **LivePortrait**（liveportrait）记的是 `1.0`，`hf-liveportrait`（2026-10-24）上没有这个号
 - **MAGI**（magi）记的是 `2 Preview`，`hf-magi`（2026-10-17）上没有这个号
 - **MatterGen**（mattergen）记的是 `1`，`sci-mattergen-gh`（2026-10-24）上没有这个号
-- **MiniMax Speech**（mm-speech）记的是 `speech-2.8-hd`，`minimax-api-overview`（2026-10-26）上没有这个号
+- **MiniMax Speech**（mm-speech）记的是 `speech-2.8-hd`，`minimax-api-overview`（2026-11-02）上没有这个号
 - **MuseTalk**（musetalk）记的是 `1.0`，`hf-musetalk`（2026-10-24）上没有这个号
 - **NeuralGCM**（neuralgcm）记的是 `1`，`sci-neuralgcm-gh`（2026-10-24）上没有这个号
 - **GPT TTS**（openai-tts）记的是 `GPT-4o mini TTS`，`openai-models`（2026-10-29）上没有这个号
