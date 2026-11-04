@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-11-03",
-  "n": 2,
+  "generated_at": "2026-11-04",
+  "n": 3,
   "n_unclear": 1,
   "n_missing": 28,
   "n_skipped": 55,
@@ -33,6 +33,20 @@
     },
     {
       "kind": "有更新的一代",
+      "m": "kimi",
+      "family": "Kimi",
+      "zh": "Kimi",
+      "cur": "K3",
+      "cur_as_of": "2026-06-13",
+      "found": "K3.1",
+      "found_num": "3.1",
+      "src": "kimi-pricing",
+      "src_at": "2026-11-04",
+      "via_other_src": "hf-org",
+      "evidence": "at: /docs/llms.txt Use this file to discover all available pages before exploring further. Skip to main content 🎉 Kimi K3.1 Pro 已正式发布， 快来体验吧！ Kimi API 开放平台 home page 简体中文 模型推理 托管智能体 API 参考 模型与定价 资源 搜索... ⌘ K 企业订阅 联系销售 用户中心 Kimi API 开放平台 home page 搜索或提问... Navigation 模型推理定价 模型推理价格说明 模型推理定价 计费说明 功能定价 批量推理定价 联网搜索定价 托管智能体"
+    },
+    {
+      "kind": "有更新的一代",
       "m": "krea-img",
       "family": "Krea",
       "zh": "Krea",
@@ -41,8 +55,8 @@
       "found": "Krea 3",
       "found_num": "3",
       "src": "krea-blog",
-      "src_at": "2026-10-21",
-      "evidence": "ctor Perez · Apr 2, 2025 product Announcing Krea Ship Week Victor Perez Diego Rodriguez · Mar 26, 2025 Articles product Krea 3 Crashes the Top 4: Every Benchmark, Explained The Krea Team · Oct 20, 2026 guides Krea 3 vs GPT Image 2: Which AI Image Editor to Use in 2026 The Krea Team · Oct 20, 2026 guides Krea 3 vs Nano"
+      "src_at": "2026-11-04",
+      "evidence": "Krea Blog New The Krea 3 Technical Report is out Read the report → App Image Generator Video Generator Upscaler API Pricing Enterprise Sign up for free Log in Sign up for free Log in App Image Generation Video Generati"
     },
     {
       "kind": "牌子摘了",
@@ -121,7 +135,7 @@
       "cur_as_of": "2026-08-12",
       "found": null,
       "src": "glm-voice-doc",
-      "src_at": "2026-10-21",
+      "src_at": "2026-11-04",
       "evidence": ""
     },
     {
@@ -267,7 +281,7 @@
       "cur_as_of": "2026-08-12",
       "found": null,
       "src": "bailian-websearch",
-      "src_at": "2026-10-21",
+      "src_at": "2026-11-04",
       "evidence": ""
     },
     {
@@ -302,7 +316,7 @@
       "cur_as_of": "2025-12-11",
       "found": null,
       "src": "runway-changelog",
-      "src_at": "2026-10-28",
+      "src_at": "2026-11-04",
       "evidence": ""
     },
     {
@@ -324,7 +338,7 @@
       "cur_as_of": "2026-09-23",
       "found": null,
       "src": "seed-models",
-      "src_at": "2026-10-21",
+      "src_at": "2026-11-04",
       "evidence": ""
     },
     {
