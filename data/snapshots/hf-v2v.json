@@ -1,8 +1,8 @@
 {
   "url": "https://huggingface.co/api/models?filter=video-to-video&sort=downloads&direction=-1&limit=60",
   "kind": "json",
-  "fetched_at": "2026-10-28",
-  "digest": "91d20ae75d3c0cff",
+  "fetched_at": "2026-11-04",
+  "digest": "f20b6bc9937dcf1d",
   "items": [
     "AInVFX/SeedVR2_comfyUI\t",
     "Abiray/LTX-2.5-Distilled-GGUF\t",
@@ -14,6 +14,8 @@
     "ByteDance-Seed/SeedVR2-7B\t",
     "ChrisColeTech/LTX-2.3-uncensored-v1.4-FP8\t",
     "ChrisColeTech/LTX-2.5-uncensored-v1.1-FP8\t",
+    "Comfy-Org/Frame-Interpolation\t",
+    "Efficient-Large-Model/Open-H3-Regenerate-2K\t",
     "EllipsesMark/Minimax-h3_Singularity\t",
     "JunhaoZhuang/FlashVSR\t",
     "JunhaoZhuang/FlashVSR-v1.1\t",
@@ -45,7 +47,6 @@
     "alibaba-pai/MiniMax-H3-Fun-Controlnet-Union-2.0\t",
     "comfyicu/LTX-2.5\t",
     "drbaph/Viggle-Animate-ComfyUI\t",
-    "fal/LTX-2.3-3DREAL-LoRA\t",
     "frtertaer/LTX-2.5-uncensored-v1.1-FP8\t",
     "ibyteohdear/Lightricks-LTX-2\t",
     "joyfox/LTX2.3-ICEdit-Insight\t",
@@ -55,13 +56,12 @@
     "numz/SeedVR2_comfyUI\t",
     "nvidia/Cosmos-H-Surgical\t",
     "rzgar/minimax-h3_fl2v_8Step_motion_enhancer\t",
+    "rzgar/minimax-h3_ref2va_8Step_motion_enhancer\t",
     "rzgar/minimax_h3_fl2va_fp8_e4m3fn\t",
-    "rzgar/minimax_h3_ref2va_fp8_e4m3fn\t",
     "unsloth/LTX-2-GGUF\t",
     "unsloth/LTX-2.3-GGUF\t",
     "vantagewithai/LTX-2.3-GGUF\t",
     "vantagewithai/LTX-2.5-GGUF\t",
-    "vantagewithai/MiniMax-H3-comfyUI-GGUF\t",
     "vantagewithai/Sulphur-2-Base-GGUF\t",
     "yuvraj108c/LTX-2.5\t"
   ]

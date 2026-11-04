@@ -1,8 +1,8 @@
 {
   "url": "https://huggingface.co/api/models?filter=image-to-video&sort=downloads&direction=-1&limit=60",
   "kind": "json",
-  "fetched_at": "2026-11-01",
-  "digest": "4cf064507f637668",
+  "fetched_at": "2026-11-04",
+  "digest": "64ff2a8da53f0819",
   "items": [
     "Abiray/LTX-2.5-Distilled-GGUF\t",
     "Abiray/MiniMax-H3-GGUF\t",
@@ -49,7 +49,6 @@
     "leejet/MiniMax-H3-GGUF\t",
     "lightx2v/Wan2.2-Distill-Loras\t",
     "molbal/MiniMax-H3-GGUF\t",
-    "nvidia/Cosmos3-Super-Image2Video\t",
     "pablodawson/MiniMax-H3-360-Orbit-LoRA\t",
     "realrebelai/LTX-2.5_GGUFs\t",
     "realrebelai/SCAIL-2_GGUF\t",
@@ -59,6 +58,7 @@
     "speach1sdef178/MiniMax-H3-X2-Detail-VAE\t",
     "stabilityai/stable-video-diffusion-img2vid\t",
     "stabilityai/stable-video-diffusion-img2vid-xt\t",
+    "styly-agents/Wan2-2-pixel-animate\t",
     "t8star/Vdn-Minimax-H3-Comfy\t",
     "unsloth/LTX-2-GGUF\t",
     "unsloth/LTX-2.3-GGUF\t",

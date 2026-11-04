@@ -1,8 +1,8 @@
 {
   "url": "https://huggingface.co/api/models?filter=image-to-image&sort=downloads&direction=-1&limit=60",
   "kind": "json",
-  "fetched_at": "2026-11-01",
-  "digest": "4a52c06224bb1c54",
+  "fetched_at": "2026-11-04",
+  "digest": "f7bb0ca45b8ae0ae",
   "items": [
     "Abiray/Qwen-Image-2.1-GGUF\t",
     "Abiray/Qwen-Image-2.1-Turbo-GGUF\t",
@@ -38,7 +38,6 @@
     "black-forest-labs/flux-3-image-klein-base\t",
     "black-forest-labs/flux-3-image-klein-comfy\t",
     "city96/FLUX.2-dev-gguf\t",
-    "dx8152/Flux2-Klein-9B-Consistency\t",
     "dx8152/Qwen-Edit-2509-Multiple-angles\t",
     "fal/Qwen-Image-Edit-2511-Multiple-Angles-LoRA\t",
     "jdopensource/JoyAI-Image-Edit-Diffusers\t",
@@ -48,6 +47,7 @@
     "lrzjason/Anything2Real\t",
     "mflux-community/flux2-klein-4b-mflux-q4\t",
     "mflux-community/qwen-image-edit-2511-mflux-q4\t",
+    "mflux-community/qwen-image-edit-2511-mflux-q8\t",
     "ml-resources/flux-3-image-klein-comfy\t",
     "realrebelai/FLUX-3-Image-Klein_GGUFs\t",
     "stabilityai/stable-diffusion-xl-refiner-1.0\t",

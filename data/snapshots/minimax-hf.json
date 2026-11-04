@@ -1,8 +1,8 @@
 {
   "url": "https://huggingface.co/api/models?author=MiniMaxAI&sort=lastModified&direction=-1&limit=40",
   "kind": "json",
-  "fetched_at": "2026-10-28",
-  "digest": "19ed4f9b6f9c1d59",
+  "fetched_at": "2026-11-04",
+  "digest": "bfc85da5e0c1ea07",
   "items": [
     "MiniMaxAI/MiniMax-H3\t2026-08-13T01:46:29.000Z",
     "MiniMaxAI/MiniMax-M1-40k\t2025-07-07T07:50:30.000Z",
@@ -15,7 +15,7 @@
     "MiniMaxAI/MiniMax-M2.7\t2026-10-26T07:08:13.000Z",
     "MiniMaxAI/MiniMax-M3\t2026-10-26T07:08:14.000Z",
     "MiniMaxAI/MiniMax-M3-MXFP8\t2026-10-26T07:08:15.000Z",
-    "MiniMaxAI/MiniMax-M3.1-Flash\t2026-10-26T07:08:15.000Z",
+    "MiniMaxAI/MiniMax-M3.1-Flash\t2026-10-30T08:44:16.000Z",
     "MiniMaxAI/MiniMax-Music3\t2026-10-26T07:08:16.000Z",
     "MiniMaxAI/MiniMax-Text-01\t2025-07-03T05:13:03.000Z",
     "MiniMaxAI/MiniMax-Text-01-hf\t2025-07-09T07:38:12.000Z",
