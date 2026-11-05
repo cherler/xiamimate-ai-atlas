@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-11-04",
-  "n": 3,
+  "generated_at": "2026-11-05",
+  "n": 4,
   "n_unclear": 1,
   "n_missing": 28,
   "n_skipped": 55,
@@ -28,8 +28,21 @@
       "found": "GPT-6.1",
       "found_num": "6.1",
       "src": "openai-models",
-      "src_at": "2026-10-29",
+      "src_at": "2026-11-05",
       "evidence": "tokens Context window 1.05M Knowledge cutoff Apr 30, 2026 Tools Functions, Web search, File search, Computer use Terra GPT-6.1 Terra A fast, efficient model for visual reasoning, precise computer use, and clear, natural writing. Model ID gpt-6.1-terra Reasoning none low medium high xhigh max Input price $1 / Input MTo"
+    },
+    {
+      "kind": "有更新的一代",
+      "m": "gpt-image",
+      "family": "GPT Image",
+      "zh": "GPT Image",
+      "cur": "2.5（sunburst / flare）",
+      "cur_as_of": "2026-09-10",
+      "found": "gpt-image-2.6",
+      "found_num": "2.6",
+      "src": "openai-changelog",
+      "src_at": "2026-11-05",
+      "evidence": "Changelog [图标] Upcoming deprecations can be found on the deprecations page. November, 2026 Nov 4 Feature gpt-image-2.6-sunburst gpt-image-2.6-flare v1/images/generations v1/images/edits Released GPT-Image-2.6 Sunburst and GPT-Image-2.6 Flare for image generation and editing, with adjustable complexity, S"
     },
     {
       "kind": "有更新的一代",
@@ -247,7 +260,7 @@
       "cur_as_of": "2026-08-12",
       "found": null,
       "src": "openai-models",
-      "src_at": "2026-10-29",
+      "src_at": "2026-11-05",
       "evidence": ""
     },
     {

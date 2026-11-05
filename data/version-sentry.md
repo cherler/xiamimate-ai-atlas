@@ -1,14 +1,17 @@
-# 版本哨兵 · 2026-11-04
+# 版本哨兵 · 2026-11-05
 
-扫 136 个模型：**有更新的一代 3** · 口径存疑 1 · 牌子摘了 28 · 比不了 55
+扫 136 个模型：**有更新的一代 4** · 口径存疑 1 · 牌子摘了 28 · 比不了 55
 
 > 这份只回答一件事：**一格署的那个源上，今天有没有出现比我们记的更新的版本号？**
 > 报出来的不是「世界变了」，是「**我们抓到了但没写回**」—— 这两件事的严重程度不一样。
 
-## 有更新的一代（3）—— 这一摞要写回 atlas.json
+## 有更新的一代（4）—— 这一摞要写回 atlas.json
 
-- **GPT**（gpt）库里记 `GPT-6 Astra`（核于 2026-09-10），而 `openai-models` 的快照（2026-10-29）上写着 **GPT-6.1**
+- **GPT**（gpt）库里记 `GPT-6 Astra`（核于 2026-09-10），而 `openai-models` 的快照（2026-11-05）上写着 **GPT-6.1**
   > tokens Context window 1.05M Knowledge cutoff Apr 30, 2026 Tools Functions, Web search, File search, Computer use Terra GPT-6.1 Terra A fast, efficient model for visual reasoning, precise computer use, and clear, natural writing. Model ID gpt-6.1-terra Reasoning none low medium high xhigh max Input price $1 / Input MTo
+
+- **GPT Image**（gpt-image）库里记 `2.5（sunburst / flare）`（核于 2026-09-10），而 `openai-changelog` 的快照（2026-11-05）上写着 **gpt-image-2.6**
+  > Changelog [图标] Upcoming deprecations can be found on the deprecations page. November, 2026 Nov 4 Feature gpt-image-2.6-sunburst gpt-image-2.6-flare v1/images/generations v1/images/edits Released GPT-Image-2.6 Sunburst and GPT-Image-2.6 Flare for image generation and editing, with adjustable complexity, S
 
 - **Kimi**（kimi）库里记 `K3`（核于 2026-06-13），而 `kimi-pricing` 的快照（2026-11-04）上写着 **K3.1**　⚠️ 这一格署的是 `hf-org`，**那个源上看不见新版**
   > at: /docs/llms.txt Use this file to discover all available pages before exploring further. Skip to main content 🎉 Kimi K3.1 Pro 已正式发布， 快来体验吧！ Kimi API 开放平台 home page 简体中文 模型推理 托管智能体 API 参考 模型与定价 资源 搜索... ⌘ K 企业订阅 联系销售 用户中心 Kimi API 开放平台 home page 搜索或提问... Navigation 模型推理定价 模型推理价格说明 模型推理定价 计费说明 功能定价 批量推理定价 联网搜索定价 托管智能体
@@ -48,7 +51,7 @@
 - **MiniMax Speech**（mm-speech）记的是 `speech-2.8-hd`，`minimax-api-overview`（2026-11-02）上没有这个号
 - **MuseTalk**（musetalk）记的是 `1.0`，`hf-musetalk`（2026-10-24）上没有这个号
 - **NeuralGCM**（neuralgcm）记的是 `1`，`sci-neuralgcm-gh`（2026-10-24）上没有这个号
-- **GPT TTS**（openai-tts）记的是 `GPT-4o mini TTS`，`openai-models`（2026-10-29）上没有这个号
+- **GPT TTS**（openai-tts）记的是 `GPT-4o mini TTS`，`openai-models`（2026-11-05）上没有这个号
 - **OpenVLA**（openvla）记的是 `7B`，`openvla-gh`（2026-10-24）上没有这个号
 - **PixVerse**（pixverse）记的是 `V6`，`pixverse-v6`（2026-10-10）上没有这个号
 - **Qwen Omni**（qwen-omni）记的是 `3.5-omni-plus`，`bailian-websearch`（2026-11-04）上没有这个号
