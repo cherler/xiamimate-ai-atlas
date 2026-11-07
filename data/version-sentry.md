@@ -1,11 +1,14 @@
-# 版本哨兵 · 2026-11-06
+# 版本哨兵 · 2026-11-07
 
-扫 136 个模型：**有更新的一代 4** · 口径存疑 1 · 牌子摘了 28 · 比不了 55
+扫 136 个模型：**有更新的一代 5** · 口径存疑 1 · 牌子摘了 27 · 比不了 55
 
 > 这份只回答一件事：**一格署的那个源上，今天有没有出现比我们记的更新的版本号？**
 > 报出来的不是「世界变了」，是「**我们抓到了但没写回**」—— 这两件事的严重程度不一样。
 
-## 有更新的一代（4）—— 这一摞要写回 atlas.json
+## 有更新的一代（5）—— 这一摞要写回 atlas.json
+
+- **Google Genie**（genie）库里记 `Genie 3`（核于 2026-08-14），而 `genie3-blog` 的快照（2026-11-07）上写着 **Genie 4**
+  > in Toksoz-Exley, Xinchen Yan, Petko Yotov, Mingda Zhang and Martin Zlocha for their insights and support. Related posts Genie 4 Learn more How to create effective prompts with Genie Learn more SIMA 2: An Agent that Plays, Reasons, and Learns With You in Virtual 3D Worlds November 2025 Research Learn more Genie 2: A lar
 
 - **GPT**（gpt）库里记 `GPT-6 Astra`（核于 2026-09-10），而 `openai-models` 的快照（2026-11-05）上写着 **GPT-6.1**
   > tokens Context window 1.05M Knowledge cutoff Apr 30, 2026 Tools Functions, Web search, File search, Computer use Terra GPT-6.1 Terra A fast, efficient model for visual reasoning, precise computer use, and clear, natural writing. Model ID gpt-6.1-terra Reasoning none low medium high xhigh max Input price $1 / Input MTo
@@ -28,7 +31,7 @@
   分段整数读：23 比 H3 **新**；小数读：比 H3 **老**
   > . 28, 2025`}),`\n`,_jsx(Card,{title:`MiniMax-Hailuo-2.3 \u0026 2.3-Fast`,icon:`video`,href:`https://www.minimax.io/news/minimax-hailuo-23`,cta:`Learn More`,children:_jsx(_components.p,{children:`Released MiniMax-Hailuo-2.3 \u0026 2.3-Fast, featuring breakthroughs in body movement, facial expressions, physical realism,
 
-## 机器自查 · 牌子摘了（28）—— **不用你拍板**
+## 机器自查 · 牌子摘了（27）—— **不用你拍板**
 
 > 「在这个源上找不到我们记的版本号」有两种成因，脚本分不开：
 > **版本串本来就不是数字型号**（`650M` / `7B` / `2b/5b` / `glm-4-voice` 这类，占绝大多数），
@@ -36,32 +39,31 @@
 > 所以这一摞只存不催 —— 真出了新一代，上面那一摞会喊。
 
 - **AnySplat**（anysplat）记的是 `v1`，`hf-anysplat`（2026-11-06）上没有这个号
-- **Aurora**（aurora）记的是 `1`，`sci-aurora-gh`（2026-10-24）上没有这个号
-- **CogVideoX**（cogvideox）记的是 `2b/5b`，`hf-cogvideox`（2026-10-17）上没有这个号
+- **Aurora**（aurora）记的是 `1`，`sci-aurora-gh`（2026-11-07）上没有这个号
+- **CogVideoX**（cogvideox）记的是 `2b/5b`，`hf-cogvideox`（2026-11-07）上没有这个号
 - **Doubao**（doubao）记的是 `Seed-2.1 Pro`，`doubao-force-2026`（2026-08-12）上没有这个号
 - **ESM-2**（esm）记的是 `650M`，`sci-esm2-card`（2026-10-14）上没有这个号
-- **FLUX 3**（flux-video）记的是 `3`，`bfl-flux3`（2026-10-24）上没有这个号
+- **FLUX 3**（flux-video）记的是 `3`，`bfl-flux3`（2026-11-07）上没有这个号
 - **GLM Voice**（glm-voice）记的是 `glm-4-voice`，`glm-voice-doc`（2026-11-04）上没有这个号
-- **GNoME**（gnome）记的是 `1`，`sci-gnome-gh`（2026-10-24）上没有这个号
-- **HunyuanVideo-Avatar**（hunyuan-avatar）记的是 `1.0`，`hf-hunyuan-avatar`（2026-10-24）上没有这个号
-- **Hunyuan3D**（hunyuan3d）记的是 `3.1`，`replicate-hunyuan3d-31`（2026-10-24）上没有这个号
-- **LivePortrait**（liveportrait）记的是 `1.0`，`hf-liveportrait`（2026-10-24）上没有这个号
-- **MAGI**（magi）记的是 `2 Preview`，`hf-magi`（2026-10-17）上没有这个号
-- **MatterGen**（mattergen）记的是 `1`，`sci-mattergen-gh`（2026-10-24）上没有这个号
+- **GNoME**（gnome）记的是 `1`，`sci-gnome-gh`（2026-11-07）上没有这个号
+- **HunyuanVideo-Avatar**（hunyuan-avatar）记的是 `1.0`，`hf-hunyuan-avatar`（2026-11-07）上没有这个号
+- **Hunyuan3D**（hunyuan3d）记的是 `3.1`，`replicate-hunyuan3d-31`（2026-11-07）上没有这个号
+- **LivePortrait**（liveportrait）记的是 `1.0`，`hf-liveportrait`（2026-11-07）上没有这个号
+- **MAGI**（magi）记的是 `2 Preview`，`hf-magi`（2026-11-07）上没有这个号
+- **MatterGen**（mattergen）记的是 `1`，`sci-mattergen-gh`（2026-11-07）上没有这个号
 - **MiniMax Speech**（mm-speech）记的是 `speech-2.8-hd`，`minimax-api-overview`（2026-11-02）上没有这个号
-- **MuseTalk**（musetalk）记的是 `1.0`，`hf-musetalk`（2026-10-24）上没有这个号
-- **NeuralGCM**（neuralgcm）记的是 `1`，`sci-neuralgcm-gh`（2026-10-24）上没有这个号
+- **NeuralGCM**（neuralgcm）记的是 `1`，`sci-neuralgcm-gh`（2026-11-07）上没有这个号
 - **GPT TTS**（openai-tts）记的是 `GPT-4o mini TTS`，`openai-models`（2026-11-05）上没有这个号
-- **OpenVLA**（openvla）记的是 `7B`，`openvla-gh`（2026-10-24）上没有这个号
+- **OpenVLA**（openvla）记的是 `7B`，`openvla-gh`（2026-11-07）上没有这个号
 - **PixVerse**（pixverse）记的是 `V6`，`pixverse-v6`（2026-10-10）上没有这个号
 - **Qwen Omni**（qwen-omni）记的是 `3.5-omni-plus`，`bailian-websearch`（2026-11-04）上没有这个号
-- **Qwen3-ASR**（qwen3-asr）记的是 `1.7B`，`hf-qwen3-asr`（2026-10-24）上没有这个号
+- **Qwen3-ASR**（qwen3-asr）记的是 `1.7B`，`hf-qwen3-asr`（2026-11-07）上没有这个号
 - **Rodin**（rodin）记的是 `Gen-2.5`，`rodin-api-docs`（2026-10-25）上没有这个号
 - **Runway Gen**（runway）记的是 `Gen-4.5`，`runway-changelog`（2026-11-04）上没有这个号
-- **ElevenLabs Scribe**（scribe）记的是 `v2`，`elevenlabs-models`（2026-10-24）上没有这个号
+- **ElevenLabs Scribe**（scribe）记的是 `v2`，`elevenlabs-models`（2026-11-07）上没有这个号
 - **Seed GR-3**（seed-gr3）记的是 `GR-3`，`seed-models`（2026-11-04）上没有这个号
-- **SPAR3D**（spar3d）记的是 `Stable Point Aware 3D`，`stability-spar3d`（2026-10-24）上没有这个号
-- **Tripo**（tripo）记的是 `P1-20260311`，`tripo-docs-generation`（2026-10-24）上没有这个号
+- **SPAR3D**（spar3d）记的是 `Stable Point Aware 3D`，`stability-spar3d`（2026-11-07）上没有这个号
+- **Tripo**（tripo）记的是 `P1-20260311`，`tripo-docs-generation`（2026-11-07）上没有这个号
 - **Meta V-JEPA**（vjepa）记的是 `V-JEPA 2`，`vjepa2-blog`（2026-10-13）上没有这个号
 
 ## 比不了（55）

@@ -1,8 +1,8 @@
 {
-  "generated_at": "2026-11-06",
-  "n": 4,
+  "generated_at": "2026-11-07",
+  "n": 5,
   "n_unclear": 1,
-  "n_missing": 28,
+  "n_missing": 27,
   "n_skipped": 55,
   "rows": [
     {
@@ -17,6 +17,18 @@
       "src": "minimax-release-notes",
       "src_at": "2026-11-02",
       "evidence": ". 28, 2025`}),`\\n`,_jsx(Card,{title:`MiniMax-Hailuo-2.3 \\u0026 2.3-Fast`,icon:`video`,href:`https://www.minimax.io/news/minimax-hailuo-23`,cta:`Learn More`,children:_jsx(_components.p,{children:`Released MiniMax-Hailuo-2.3 \\u0026 2.3-Fast, featuring breakthroughs in body movement, facial expressions, physical realism,"
+    },
+    {
+      "kind": "有更新的一代",
+      "m": "genie",
+      "family": "Google Genie",
+      "cur": "Genie 3",
+      "cur_as_of": "2026-08-14",
+      "found": "Genie 4",
+      "found_num": "4",
+      "src": "genie3-blog",
+      "src_at": "2026-11-07",
+      "evidence": "in Toksoz-Exley, Xinchen Yan, Petko Yotov, Mingda Zhang and Martin Zlocha for their insights and support. Related posts Genie 4 Learn more How to create effective prompts with Genie Learn more SIMA 2: An Agent that Plays, Reasons, and Learns With You in Virtual 3D Worlds November 2025 Research Learn more Genie 2: A lar"
     },
     {
       "kind": "有更新的一代",
@@ -90,7 +102,7 @@
       "cur_as_of": "2026-08-15",
       "found": null,
       "src": "sci-aurora-gh",
-      "src_at": "2026-10-24",
+      "src_at": "2026-11-07",
       "evidence": ""
     },
     {
@@ -101,7 +113,7 @@
       "cur_as_of": "2026-08-14",
       "found": null,
       "src": "hf-cogvideox",
-      "src_at": "2026-10-17",
+      "src_at": "2026-11-07",
       "evidence": ""
     },
     {
@@ -136,7 +148,7 @@
       "cur_as_of": "2026-08",
       "found": null,
       "src": "bfl-flux3",
-      "src_at": "2026-10-24",
+      "src_at": "2026-11-07",
       "evidence": ""
     },
     {
@@ -159,7 +171,7 @@
       "cur_as_of": "2026-08-15",
       "found": null,
       "src": "sci-gnome-gh",
-      "src_at": "2026-10-24",
+      "src_at": "2026-11-07",
       "evidence": ""
     },
     {
@@ -170,7 +182,7 @@
       "cur_as_of": "2026-08-14",
       "found": null,
       "src": "hf-hunyuan-avatar",
-      "src_at": "2026-10-24",
+      "src_at": "2026-11-07",
       "evidence": ""
     },
     {
@@ -182,7 +194,7 @@
       "cur_as_of": "2026-08-13",
       "found": null,
       "src": "replicate-hunyuan3d-31",
-      "src_at": "2026-10-24",
+      "src_at": "2026-11-07",
       "evidence": ""
     },
     {
@@ -193,7 +205,7 @@
       "cur_as_of": "2026-08-14",
       "found": null,
       "src": "hf-liveportrait",
-      "src_at": "2026-10-24",
+      "src_at": "2026-11-07",
       "evidence": ""
     },
     {
@@ -204,7 +216,7 @@
       "cur_as_of": "2026-08-14",
       "found": null,
       "src": "hf-magi",
-      "src_at": "2026-10-17",
+      "src_at": "2026-11-07",
       "evidence": ""
     },
     {
@@ -215,7 +227,7 @@
       "cur_as_of": "2026-08-15",
       "found": null,
       "src": "sci-mattergen-gh",
-      "src_at": "2026-10-24",
+      "src_at": "2026-11-07",
       "evidence": ""
     },
     {
@@ -232,24 +244,13 @@
     },
     {
       "kind": "牌子摘了",
-      "m": "musetalk",
-      "family": "MuseTalk",
-      "cur": "1.0",
-      "cur_as_of": "2026-08-14",
-      "found": null,
-      "src": "hf-musetalk",
-      "src_at": "2026-10-24",
-      "evidence": ""
-    },
-    {
-      "kind": "牌子摘了",
       "m": "neuralgcm",
       "family": "NeuralGCM",
       "cur": "1",
       "cur_as_of": "2026-08-15",
       "found": null,
       "src": "sci-neuralgcm-gh",
-      "src_at": "2026-10-24",
+      "src_at": "2026-11-07",
       "evidence": ""
     },
     {
@@ -271,7 +272,7 @@
       "cur_as_of": "2026-08-14",
       "found": null,
       "src": "openvla-gh",
-      "src_at": "2026-10-24",
+      "src_at": "2026-11-07",
       "evidence": ""
     },
     {
@@ -306,7 +307,7 @@
       "cur_as_of": "2026-08-15",
       "found": null,
       "src": "hf-qwen3-asr",
-      "src_at": "2026-10-24",
+      "src_at": "2026-11-07",
       "evidence": ""
     },
     {
@@ -340,7 +341,7 @@
       "cur_as_of": "2026-08-15",
       "found": null,
       "src": "elevenlabs-models",
-      "src_at": "2026-10-24",
+      "src_at": "2026-11-07",
       "evidence": ""
     },
     {
@@ -362,7 +363,7 @@
       "cur_as_of": "2026-08-13",
       "found": null,
       "src": "stability-spar3d",
-      "src_at": "2026-10-24",
+      "src_at": "2026-11-07",
       "evidence": ""
     },
     {
@@ -373,7 +374,7 @@
       "cur_as_of": "2026-08-13",
       "found": null,
       "src": "tripo-docs-generation",
-      "src_at": "2026-10-24",
+      "src_at": "2026-11-07",
       "evidence": ""
     },
     {

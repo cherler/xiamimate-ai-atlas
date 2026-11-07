@@ -1,29 +1,36 @@
-# 引文回查 · 2026-11-06
+# 引文回查 · 2026-11-07
 
-回查 1273 条：无英文锚 773 · 对得上 422 · 无快照 20 · 本页没有·别处有 1 · 复核已处置 23 · 找不到 25 · 人审认过·非逐字 8 · 快照无正文 1
+回查 1273 条：无英文锚 773 · 对得上 412 · 无快照 20 · 找不到 37 · 复核已处置 22 · 人审认过·非逐字 8 · 快照无正文 1
 
 > 这份报告回答一件事：**一格引文里的原句，在它署名的那份快照里还在不在。**
 > ⚠️ **失败不等于引文错。** 三种成因要分开：真署错了页 / 这一页的快照是残的（抓回来的是导航不是正文）/ 当初记的就不是逐字原文。**脚本不猜。**
 > 「人审认过·非逐字」那一摞是**审阅台上已经判过的**，列在这里只为不假装它们消失了 —— 不用再看。
 
-## 失败 ≥3 条的源（4 个）—— 这几个大概率是抓法不对
+## 失败 ≥3 条的源（6 个）—— 这几个大概率是抓法不对
 
 - **comfy-docs**（8 条）：发布 hidream-HiDream-I1-17B 出图底座，MIT、发布 ernie-image-ERNIE-Image-8B DiT 正式档，apache-2.0、发布 ovis-image-Ovis-Image-7B-7B 专攻图上出字 …
+- **tripo-docs-generation**（6 条）：tripo × d-i23d、tripo × d-pbr、tripo × d-remesh …
 - **meshy-changelog**（4 条）：meshy × d-i23d、meshy × d-multiview、发布 meshy-remesh …
+- **tripo-docs-animation**（3 条）：tripo × d-edit、tripo × d-anim、tripo × d-format
 - **decart-site**（3 条）：oasis × w-sim、模型 oasis 版本、发布 oasis-3
 - **elevenlabs-changelog**（3 条）：发布 eleven-v3-ga、发布 eleven-v3-conv、发布 eleven-music-v2
 
 ## 全部
 
-### 本页没有·别处有（1）
+### 找不到（37）
 
-- `xai-grok47-model` grok × t-batch —— 锚「Batch API Not supported」（这句在 gemini-robotics-er）
-
-### 找不到（25）
-
+- `xai-grok47-model` grok × t-batch —— 锚「Batch API Not supported」
+- `tripo-docs-generation` tripo × d-i23d —— 锚「Request type: This field must be set to image_to_model」
+- `tripo-docs-generation` tripo × d-pbr —— 锚「A boolean option to enable pbr. The default value is true」
+- `tripo-docs-generation` tripo × d-remesh —— 锚「default face_limit will be 10000」
+- `tripo-docs-animation` tripo × d-edit —— 锚「Splits the model into editable parts」
+- `tripo-docs-animation` tripo × d-anim —— 锚「automatically rigging your model and adding animation」
+- `tripo-docs-animation` tripo × d-format —— 锚「The file format. This parameter can only be glb or fbx」
 - `meshy-changelog` meshy × d-i23d —— 锚「Added meshy-7.1 as an ai_model value for Image to 3D, Multi-Image to 3」
 - `meshy-changelog` meshy × d-multiview —— 锚「Added meshy-7.1 as an ai_model value for Image to 3D, Multi-Image to 3」
 - `decart-site` oasis × w-sim —— 锚「REALTIME INTERACTIVE WORLD MODEL FOR PHYSICAL AI」
+- `elevenlabs-models` 模型 elevenlabs 版本 —— 锚「Eleven v4 and Eleven v4 Turbo are here. Our fastest and most emotive s」
+- `tripo-docs-generation` 模型 tripo 版本 —— 锚「If this option is not set, the default value will be v2.5-20250123」
 - `decart-site` 模型 oasis 版本 —— 锚「REALTIME INTERACTIVE WORLD MODEL FOR PHYSICAL AI」
 - `krea-blog` 发布 krea-img-Krea 2-第一个完全从零训练的自研基座 —— 锚「our first foundation image model built completely from scratch」
 - `google-nb-blog` 发布 gemini-image-Nano Banana Pro-接上自家新一代大模型的推理，4K 与复杂版面 —— 锚「our new state-of-the art image generation and editing model.」
@@ -38,9 +45,12 @@
 - `comfy-docs` 发布 boogu-image-Boogu-Image-0.1-生成与编辑合到一个模型，apache-2.0 —— 锚「Boogu-Image-0.1 is an Apache-2.0 open-source unified image generation 」
 - `comfy-docs` 发布 newbie-image-NewBie-image-Exp0.1-3.5B Next-DiT，二次元向 —— 锚「NewBie-image-Exp0.1 is a 3.5B parameter DiT model developed by NewBieA」
 - `claude-deprecations` 发布 claude-Claude 4.7-起用新分词器；tem —— 锚「Claude Opus 4.7 and later」
+- `tripo-docs-generation` 发布 tripo-v2.5 —— 锚「If this option is not set, the default value will be v2.5-20250123」
+- `tripo-docs-generation` 发布 tripo-p1 —— 锚「P1-20260311 View supported parameter details」
 - `rodin-api-docs` 发布 rodin-gen2 —— 锚「glb, usdz, fbx, obj, and stl」
 - `meshy-changelog` 发布 meshy-remesh —— 锚「Added the Remesh APIs, which allow users to remesh and export existing」
 - `meshy-changelog` 发布 meshy-pbr —— 锚「Support PBR texture maps in API via enable_pbr parameter for latest me」
+- `heygen-changelog` 发布 heygen-v3api —— 锚「Added support for custom voice creation」
 - `heygen-changelog` 发布 heygen-avatar5 —— 锚「Per-second video generation rates for Avatar V now match Avatar IV」
 - `elevenlabs-changelog` 发布 eleven-v3-ga —— 锚「v3 is out of alpha - it's more stable, accurate and has lower latency」
 - `elevenlabs-changelog` 发布 eleven-v3-conv —— 锚「Eleven v3 conversational model: Added eleven_v3_conversational to the 」
@@ -85,10 +95,9 @@
 - `hf-hunyuan3d-21` 发布 hy3d-2.1 —— 锚「We release the first production-ready 3D asset generation model, Hunyu」（这句在 gh-hunyuan3d-21）
 - `openai-model-tts` 发布 gpttts-2025-12 —— 锚「slugs to point to the 2025-12-15 snapshots」（这句在 openai-changelog）
 
-### 复核已处置（23）
+### 复核已处置（22）
 
 - `hf-qwen-layered` qwen-image × i-layered
-- `stability-spar3d` spar3d × d-edit
 - `openvla-gh` openvla × e-openweights
 - `hunyuanworld-gh` hunyuan-world × w-sim
 - `hunyuanworld-gh` hunyuan-world × w-realtime
