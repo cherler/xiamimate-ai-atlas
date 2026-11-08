@@ -1,6 +1,6 @@
-# 引文回查 · 2026-11-07
+# 引文回查 · 2026-11-08
 
-回查 1273 条：无英文锚 773 · 对得上 412 · 无快照 20 · 找不到 37 · 复核已处置 22 · 人审认过·非逐字 8 · 快照无正文 1
+回查 1273 条：无英文锚 773 · 对得上 410 · 无快照 20 · 找不到 39 · 复核已处置 22 · 人审认过·非逐字 8 · 快照无正文 1
 
 > 这份报告回答一件事：**一格引文里的原句，在它署名的那份快照里还在不在。**
 > ⚠️ **失败不等于引文错。** 三种成因要分开：真署错了页 / 这一页的快照是残的（抓回来的是导航不是正文）/ 当初记的就不是逐字原文。**脚本不猜。**
@@ -17,9 +17,11 @@
 
 ## 全部
 
-### 找不到（37）
+### 找不到（39）
 
+- `omni-doc` gemini-omni × multiref —— 锚「the following code shows how to provide 2 images of a cat and yarn to 」
 - `xai-grok47-model` grok × t-batch —— 锚「Batch API Not supported」
+- `omni-doc` gemini-omni × v2v —— 锚「Describe what you want to change, and the model applies the edit while」
 - `tripo-docs-generation` tripo × d-i23d —— 锚「Request type: This field must be set to image_to_model」
 - `tripo-docs-generation` tripo × d-pbr —— 锚「A boolean option to enable pbr. The default value is true」
 - `tripo-docs-generation` tripo × d-remesh —— 锚「default face_limit will be 10000」

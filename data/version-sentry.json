@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-11-07",
-  "n": 5,
+  "generated_at": "2026-11-08",
+  "n": 6,
   "n_unclear": 1,
   "n_missing": 27,
   "n_skipped": 55,
@@ -82,6 +82,19 @@
       "src": "krea-blog",
       "src_at": "2026-11-04",
       "evidence": "Krea Blog New The Krea 3 Technical Report is out Read the report → App Image Generator Video Generator Upscaler API Pricing Enterprise Sign up for free Log in Sign up for free Log in App Image Generation Video Generati"
+    },
+    {
+      "kind": "有更新的一代",
+      "m": "lucy",
+      "family": "Decart Lucy",
+      "zh": "Lucy",
+      "cur": "Lucy 2.5",
+      "cur_as_of": "2026-08-07",
+      "found": "Lucy 2.6",
+      "found_num": "2.6",
+      "src": "decart-site",
+      "src_at": "2026-11-08",
+      "evidence": "s Gaming Learn more about Live AI Math to Matter New research, launches, and experiments. See All [图标] November 5, 2026 Lucy 2.6: Ready for Live Commerce and Engagement Sharper fidelity and quality for your characters, clothing, and products, all generated live. Read more → [图标] October 2026 Learning a Spatial Memory C"
     },
     {
       "kind": "牌子摘了",
@@ -318,7 +331,7 @@
       "cur_as_of": "2026-08-13",
       "found": null,
       "src": "rodin-api-docs",
-      "src_at": "2026-10-25",
+      "src_at": "2026-11-08",
       "evidence": ""
     },
     {

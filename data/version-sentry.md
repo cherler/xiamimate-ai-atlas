@@ -1,11 +1,11 @@
-# 版本哨兵 · 2026-11-07
+# 版本哨兵 · 2026-11-08
 
-扫 136 个模型：**有更新的一代 5** · 口径存疑 1 · 牌子摘了 27 · 比不了 55
+扫 136 个模型：**有更新的一代 6** · 口径存疑 1 · 牌子摘了 27 · 比不了 55
 
 > 这份只回答一件事：**一格署的那个源上，今天有没有出现比我们记的更新的版本号？**
 > 报出来的不是「世界变了」，是「**我们抓到了但没写回**」—— 这两件事的严重程度不一样。
 
-## 有更新的一代（5）—— 这一摞要写回 atlas.json
+## 有更新的一代（6）—— 这一摞要写回 atlas.json
 
 - **Google Genie**（genie）库里记 `Genie 3`（核于 2026-08-14），而 `genie3-blog` 的快照（2026-11-07）上写着 **Genie 4**
   > in Toksoz-Exley, Xinchen Yan, Petko Yotov, Mingda Zhang and Martin Zlocha for their insights and support. Related posts Genie 4 Learn more How to create effective prompts with Genie Learn more SIMA 2: An Agent that Plays, Reasons, and Learns With You in Virtual 3D Worlds November 2025 Research Learn more Genie 2: A lar
@@ -21,6 +21,9 @@
 
 - **Krea**（krea-img）库里记 `2-Raw`（核于 2026-06-18），而 `krea-blog` 的快照（2026-11-04）上写着 **Krea 3**
   > Krea Blog New The Krea 3 Technical Report is out Read the report → App Image Generator Video Generator Upscaler API Pricing Enterprise Sign up for free Log in Sign up for free Log in App Image Generation Video Generati
+
+- **Decart Lucy**（lucy）库里记 `Lucy 2.5`（核于 2026-08-07），而 `decart-site` 的快照（2026-11-08）上写着 **Lucy 2.6**
+  > s Gaming Learn more about Live AI Math to Matter New research, launches, and experiments. See All [图标] November 5, 2026 Lucy 2.6: Ready for Live Commerce and Engagement Sharper fidelity and quality for your characters, clothing, and products, all generated live. Read more → [图标] October 2026 Learning a Spatial Memory C
 
 ## 口径存疑（1）—— 两种读法结论相反，**得你定**
 
@@ -58,7 +61,7 @@
 - **PixVerse**（pixverse）记的是 `V6`，`pixverse-v6`（2026-10-10）上没有这个号
 - **Qwen Omni**（qwen-omni）记的是 `3.5-omni-plus`，`bailian-websearch`（2026-11-04）上没有这个号
 - **Qwen3-ASR**（qwen3-asr）记的是 `1.7B`，`hf-qwen3-asr`（2026-11-07）上没有这个号
-- **Rodin**（rodin）记的是 `Gen-2.5`，`rodin-api-docs`（2026-10-25）上没有这个号
+- **Rodin**（rodin）记的是 `Gen-2.5`，`rodin-api-docs`（2026-11-08）上没有这个号
 - **Runway Gen**（runway）记的是 `Gen-4.5`，`runway-changelog`（2026-11-04）上没有这个号
 - **ElevenLabs Scribe**（scribe）记的是 `v2`，`elevenlabs-models`（2026-11-07）上没有这个号
 - **Seed GR-3**（seed-gr3）记的是 `GR-3`，`seed-models`（2026-11-04）上没有这个号
