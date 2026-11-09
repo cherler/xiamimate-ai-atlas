@@ -1,11 +1,14 @@
-# 版本哨兵 · 2026-11-08
+# 版本哨兵 · 2026-11-09
 
-扫 136 个模型：**有更新的一代 6** · 口径存疑 1 · 牌子摘了 27 · 比不了 55
+扫 136 个模型：**有更新的一代 7** · 口径存疑 1 · 牌子摘了 27 · 比不了 55
 
 > 这份只回答一件事：**一格署的那个源上，今天有没有出现比我们记的更新的版本号？**
 > 报出来的不是「世界变了」，是「**我们抓到了但没写回**」—— 这两件事的严重程度不一样。
 
-## 有更新的一代（6）—— 这一摞要写回 atlas.json
+## 有更新的一代（7）—— 这一摞要写回 atlas.json
+
+- **Gemini Omni**（gemini-omni）库里记 `1.1 Flash`（核于 2026-10-10），而 `gemini-changelog` 的快照（2026-11-09）上写着 **Gemini Omni 1.2**
+  > schema, pricing, and embedding space, so no other code changes or vector re-indexing are needed. November 5, 2026 [图标] Gemini Omni 1.2 Flash generally available (GA): Released Gemini Omni 1.2 Flash (gemini-omni-1.2-flash), featuring up to 15-second video generation and conversational editing (3 to 10 seconds for first
 
 - **Google Genie**（genie）库里记 `Genie 3`（核于 2026-08-14），而 `genie3-blog` 的快照（2026-11-07）上写着 **Genie 4**
   > in Toksoz-Exley, Xinchen Yan, Petko Yotov, Mingda Zhang and Martin Zlocha for their insights and support. Related posts Genie 4 Learn more How to create effective prompts with Genie Learn more SIMA 2: An Agent that Plays, Reasons, and Learns With You in Virtual 3D Worlds November 2025 Research Learn more Genie 2: A lar
@@ -54,7 +57,7 @@
 - **LivePortrait**（liveportrait）记的是 `1.0`，`hf-liveportrait`（2026-11-07）上没有这个号
 - **MAGI**（magi）记的是 `2 Preview`，`hf-magi`（2026-11-07）上没有这个号
 - **MatterGen**（mattergen）记的是 `1`，`sci-mattergen-gh`（2026-11-07）上没有这个号
-- **MiniMax Speech**（mm-speech）记的是 `speech-2.8-hd`，`minimax-api-overview`（2026-11-02）上没有这个号
+- **MiniMax Speech**（mm-speech）记的是 `speech-2.8-hd`，`minimax-api-overview`（2026-11-09）上没有这个号
 - **NeuralGCM**（neuralgcm）记的是 `1`，`sci-neuralgcm-gh`（2026-11-07）上没有这个号
 - **GPT TTS**（openai-tts）记的是 `GPT-4o mini TTS`，`openai-models`（2026-11-05）上没有这个号
 - **OpenVLA**（openvla）记的是 `7B`，`openvla-gh`（2026-11-07）上没有这个号

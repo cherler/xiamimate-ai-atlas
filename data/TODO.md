@@ -1,17 +1,17 @@
-# 该你看了 · 2026-11-08
+# 该你看了 · 2026-11-09
 
-**16582 条要你拍板**，分 4 摞。每摞都指向它原本在的文件 —— **这里只汇总，不下判断**。
+**17282 条要你拍板**，分 4 摞。每摞都指向它原本在的文件 —— **这里只汇总，不下判断**。
 
 > **动手在审阅台：http://127.0.0.1:8230**（`npm run station` 开）。
 > 这份文件是存档，看的是同一摞东西；判断、重跑、写回都在那边点，不要在两处各做一半。
 
-## 收件箱里等你定的 16540 条（5431 个问题，满足写入前置条件 309 条）
+## 收件箱里等你定的 17238 条（5553 个问题，满足写入前置条件 349 条）
 
 红的共同点是**错了会污染整张图且难回滚**：新实体、要推理才得出的结论、摘不出原文的。
 
 → **开审阅台**：`node scripts/review-ui.mjs` → http://127.0.0.1:8230 ；命令行版 `node scripts/review.mjs`。分级理由看 `node scripts/triage.mjs`
 
-## 开源项目仓库数字：会改变结论的变化 1
+## 开源项目仓库数字：会改变结论的变化 2
 
 星数、停更月数是**会过期的事实**。「在维护」变成「停更 12 个月」之后，卡上的标签、`unfit` 里的判断、要不要继续收录，全都得跟着重想 —— 页面却照写不误。
 
@@ -23,7 +23,7 @@
 
 → 逐条核页面上引它的判断；核完 `node scripts/fetch-readme.mjs <项目 id>` 更新快照。 明细在 data/fresh-report.md
 
-## 版本哨兵：6 个模型的源上已经有更新的一代（Google Genie Genie 3 → Genie 4；GPT GPT-6 Astra → GPT-6.1；GPT Image 2.5（sunburst / flare） → gpt-image-2.6；Kimi K3 → K3.1；Krea 2-Raw → Krea 3；Decart Lucy Lucy 2.5 → Lucy 2.6）
+## 版本哨兵：7 个模型的源上已经有更新的一代（Gemini Omni 1.1 Flash → Gemini Omni 1.2；Google Genie Genie 3 → Genie 4；GPT GPT-6 Astra → GPT-6.1；GPT Image 2.5（sunburst / flare） → gpt-image-2.6；Kimi K3 → K3.1；Krea 2-Raw → Krea 3；Decart Lucy Lucy 2.5 → Lucy 2.6）
 
 **这不是「世界变了」，是「我们抓到了但没写回」** —— 快照里已经有了，只差有人认。版本号是这张图上最贵的事实：它一错，底下几十格证据全都在给上一代背书。
 

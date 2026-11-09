@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-11-08",
-  "n": 6,
+  "generated_at": "2026-11-09",
+  "n": 7,
   "n_unclear": 1,
   "n_missing": 27,
   "n_skipped": 55,
@@ -17,6 +17,19 @@
       "src": "minimax-release-notes",
       "src_at": "2026-11-02",
       "evidence": ". 28, 2025`}),`\\n`,_jsx(Card,{title:`MiniMax-Hailuo-2.3 \\u0026 2.3-Fast`,icon:`video`,href:`https://www.minimax.io/news/minimax-hailuo-23`,cta:`Learn More`,children:_jsx(_components.p,{children:`Released MiniMax-Hailuo-2.3 \\u0026 2.3-Fast, featuring breakthroughs in body movement, facial expressions, physical realism,"
+    },
+    {
+      "kind": "有更新的一代",
+      "m": "gemini-omni",
+      "family": "Gemini Omni",
+      "zh": "Gemini Omni",
+      "cur": "1.1 Flash",
+      "cur_as_of": "2026-10-10",
+      "found": "Gemini Omni 1.2",
+      "found_num": "1.2",
+      "src": "gemini-changelog",
+      "src_at": "2026-11-09",
+      "evidence": "schema, pricing, and embedding space, so no other code changes or vector re-indexing are needed. November 5, 2026 [图标] Gemini Omni 1.2 Flash generally available (GA): Released Gemini Omni 1.2 Flash (gemini-omni-1.2-flash), featuring up to 15-second video generation and conversational editing (3 to 10 seconds for first"
     },
     {
       "kind": "有更新的一代",
@@ -252,7 +265,7 @@
       "cur_as_of": "2026-08-12",
       "found": null,
       "src": "minimax-api-overview",
-      "src_at": "2026-11-02",
+      "src_at": "2026-11-09",
       "evidence": ""
     },
     {
