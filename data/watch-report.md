@@ -1,6 +1,6 @@
-# 信息源监视报告 · 2026-11-08
+# 信息源监视报告 · 2026-11-09
 
-本次检查 11 个到期源（共 467 个）：变化 2 · 首次 0 · 无变化 3 · **抓不到 6**
+本次检查 29 个到期源（共 467 个）：变化 9 · 首次 0 · 无变化 14 · **抓不到 6**
 
 > 这份报告是给人看的那 20 条待办的来源（§59.3 的负反馈：人每周要看的条目 ≤ 20）。
 > 「抓不到」不是失败，是**信息本身** —— 一个长期抓不到的官方源，说明那家厂商没有可 diff 的公开更新入口，
@@ -27,8 +27,16 @@
 
 ## 有变化
 
-- **decart-site** Decart 官网首屏（当前版本）
-- **omni-doc** Google · Gemini Omni Flash 官方文档
+- **gemini-models** Google · Gemini API 官方模型列表
+- **minimax-api-overview** MiniMax 开放平台 · 接口概览
+- **minimax-anthropic-api** MiniMax · Anthropic 兼容 API
+- **gemini-changelog** Gemini API · Release notes
+- **xai-release-notes** xAI · API Release Notes
+- **hf-org** Hugging Face 官方组织目录（模型接口）
+  新增 216 条：0ppxnhximxr/snapref-v2a、169Pi/Alpie_Seed_GGUF、169Pi/Alpie_seed、AJ-Gonzalez/coder-lfm3-1.7b、Abiray/LTX-2.5-Distilled-GGUF、Adahm/PE-Heretic-INT8-ConvRot-for-Qwen-Image-2.1、AlicanKiraz0/Cybersecurity-BaronLLM_Offensive_Security_LLM_Q6_K_GGUF、BAAI/AREX-2、BAAI/PingPongRealWorldRL、BAAI/bge-small-en-v1.5、BananaMind/BananaMind-2.5-Pro、BeaverAI/Spectre-37B-v1b-GGUF …
+- **gemini-argon** Google · Gemini 4 Argon 模型卡
+- **gemini-tts38** Google · Gemini 3.8 Flash TTS 模型卡
+- **minimax-m31-tools** MiniMax · M3.1 工具调用
 
 ## 全部
 
@@ -49,9 +57,9 @@
 | minimax-hf | S | json | 未到期（上次 2026-11-04） |
 | runway-research | S | html | 未到期（上次 2026-11-04） |
 | luma-site | S | html | 未到期（上次 2026-11-04） |
-| vidu-changelog | S | spa | 未到期（上次 2026-11-02） |
-| vidu-model-map | S | spa | 未到期（上次 2026-11-02） |
-| vidu-function-list | S | spa | 未到期（上次 2026-11-02） |
+| vidu-changelog | S | spa | 无变化 |
+| vidu-model-map | S | spa | 无变化 |
+| vidu-function-list | S | spa | 无变化 |
 | vidu-site | S | html | 未到期（上次 2026-11-04） |
 | vidu-s1-gh | S | json | 未到期（上次 2026-11-04） |
 | pika-site | S | html | 未到期（上次 2026-11-05） |
@@ -80,7 +88,7 @@
 | techcrunch-ai | B | atom | 未到期（上次 2026-11-07） |
 | ltx-gh | S | json | 未到期（上次 2026-11-04） |
 | ltx-hf-org | S | json | 未到期（上次 2026-11-07） |
-| decart-site | S | spa | 变了 |
+| decart-site | S | spa | 未到期（上次 2026-11-08） |
 | picsart-video | C | html | 未到期（上次 2026-10-24） |
 | libtv | C | spa | 从未抓过 |
 | dreamina | S | html | 未到期（上次 2026-11-04） |
@@ -124,7 +132,7 @@
 | awesome-vd-gh | C | json | 未到期（上次 2026-11-04） |
 | seedream-page | S | html | 未到期（上次 2026-11-04） |
 | openai-models | S | html | 未到期（上次 2026-11-05） |
-| gemini-models | S | spa | 未到期（上次 2026-11-02） |
+| gemini-models | S | spa | 变了 |
 | google-gemini-blog | S | html | 未到期（上次 2026-11-04） |
 | azure-foundry-blog | B | html | 未到期（上次 2026-10-11） |
 | recraft-blog | S | html | 未到期（上次 2026-10-11） |
@@ -212,8 +220,8 @@
 | mcpservers-gh | S | json | 未到期（上次 2026-10-11） |
 | anthropic-features | S | html | 未到期（上次 2026-11-05） |
 | openai-docs | S | html | 未到期（上次 2026-11-05） |
-| deepseek-pricing | S | spa | 未到期（上次 2026-11-06） |
-| deepseek-updates | S | spa | 未到期（上次 2026-11-06） |
+| deepseek-pricing | S | spa | 无变化 |
+| deepseek-updates | S | spa | 无变化 |
 | bailian-models | S | html | 未到期（上次 2026-11-04） |
 | kimi-pricing | S | html | 未到期（上次 2026-11-04） |
 | glm-52-doc | S | html | 未到期（上次 2026-11-04） |
@@ -222,13 +230,13 @@
 | glm-websearch | S | html | 未到期（上次 2026-11-04） |
 | bailian-coder | S | html | 未到期（上次 2026-11-04） |
 | ark-models | S | spa | 未到期（上次 2026-11-04） |
-| minimax-api-overview | S | spa | 未到期（上次 2026-11-02） |
+| minimax-api-overview | S | spa | 变了 |
 | openai-caching | S | html | 未到期（上次 2026-11-05） |
 | openai-structured | S | html | 未到期（上次 2026-11-05） |
 | deepseek-chat-api | S | html | 未到期（上次 2026-11-05） |
 | gemini-audio | S | spa | 未到期（上次 2026-11-05） |
 | gemini-vision | S | spa | 未到期（上次 2026-11-05） |
-| minimax-anthropic-api | S | html | 未到期（上次 2026-11-02） |
+| minimax-anthropic-api | S | html | 变了 |
 | minimax-openai-api | S | spa | 未到期（上次 2026-11-04） |
 | minimax-server-tools | S | spa | 未到期（上次 2026-11-04） |
 | minimax-caching | S | spa | 未到期（上次 2026-11-04） |
@@ -240,8 +248,8 @@
 | glm-chat-api | S | html | 未到期（上次 2026-11-04） |
 | claude-deprecations | S | html | 未到期（上次 2026-11-05） |
 | openai-changelog | S | spa | 未到期（上次 2026-11-05） |
-| gemini-changelog | S | spa | 未到期（上次 2026-11-02） |
-| xai-release-notes | S | spa | 未到期（上次 2026-11-02） |
+| gemini-changelog | S | spa | 变了 |
+| xai-release-notes | S | spa | 变了 |
 | aa-llm | B | spa | 未到期（上次 2026-11-04） |
 | ideogram-api | S | html | 未到期（上次 2026-11-04） |
 | elevenlabs-models | S | html | 未到期（上次 2026-11-07） |
@@ -318,7 +326,7 @@
 | recraft-nl-edit | A | html | 未到期（上次 2026-11-05） |
 | hunyuan-image-hf | A | json | 未到期（上次 2026-11-05） |
 | bfl-flux2-overview | A | html | 未到期（上次 2026-11-05） |
-| bfl-flux2-multiref | A | html | 无变化 |
+| bfl-flux2-multiref | A | html | 未到期（上次 2026-11-08） |
 | ark-seedream-api | A | spa | 未到期（上次 2026-11-05） |
 | arxiv-fp8 | A | html | 未到期（上次 2026-08-13） |
 | arxiv-int8 | A | html | 未到期（上次 2026-08-13） |
@@ -349,7 +357,7 @@
 | tripo-docs-generation | S | spa | 未到期（上次 2026-11-07） |
 | meshy-docs-api | S | spa | 未到期（上次 2026-11-07） |
 | meshy-site | S | spa | 未到期（上次 2026-11-07） |
-| rodin-api-docs | S | html | 无变化 |
+| rodin-api-docs | S | html | 未到期（上次 2026-11-08） |
 | gh-trellis | S | html | 未到期（上次 2026-11-07） |
 | seed3d-page | S | spa | 从未抓过 |
 | stability-spar3d | S | html | 未到期（上次 2026-11-07） |
@@ -443,7 +451,7 @@
 | wan-site | A | html | 未到期（上次 2026-11-07） |
 | mm-hf-api | A | json | 未到期（上次 2026-11-07） |
 | vidu-s1-paper | A | html | 未到期（上次 2026-08-15） |
-| omni-doc | A | html | 变了 |
+| omni-doc | A | html | 未到期（上次 2026-11-08） |
 | ltx-hf-23 | A | html | 未到期（上次 2026-11-07） |
 | gemini-image-docs | A | html | 未到期（上次 2026-11-05） |
 | openai-image-docs | A | html | 未到期（上次 2026-11-05） |
@@ -461,10 +469,10 @@
 | seed-blog-2_0 | A | html | 未到期（上次 2026-11-07） |
 | ideogram-x | A | html | 未到期（上次 2026-11-07） |
 | hf-funcineforge | S | html | 未到期（上次 2026-11-01） |
-| hf-org | S | json | 未到期（上次 2026-11-06） |
-| gh-gptsovits-cn | C | json | 无变化 |
+| hf-org | S | json | 变了 |
+| gh-gptsovits-cn | C | json | 未到期（上次 2026-11-08） |
 | gemini-nb21 | S | spa | 未到期（上次 2026-11-07） |
-| xai-grok47-model | S | spa | 未到期（上次 2026-11-02） |
+| xai-grok47-model | S | spa | 无变化 |
 | ideogram-v1-overview | A | html | 未到期（上次 2026-11-07） |
 | ideogram-v1-upscale | A | html | 未到期（上次 2026-11-07） |
 | rodin-gen25-api | A | html | 未到期（上次 2026-11-07） |
@@ -490,14 +498,14 @@
 | card-qwen-qwen3-6-27b | A | html | 未到期（上次 2026-11-07） |
 | card-tencent-hunyuan3d-part | A | html | 未到期（上次 2026-11-07） |
 | card-zai-org-glm-4-7 | A | html | 未到期（上次 2026-11-07） |
-| gemini-argon | S | spa | 未到期（上次 2026-11-02） |
-| gemini-tts38 | S | spa | 未到期（上次 2026-11-02） |
-| vidu-q4-i2v | S | spa | 未到期（上次 2026-11-02） |
-| vidu-q4-reference | S | spa | 未到期（上次 2026-11-02） |
-| xai-voice3 | S | spa | 未到期（上次 2026-11-02） |
-| minimax-m31-guide | S | html | 未到期（上次 2026-11-02） |
-| minimax-m31-tools | S | html | 未到期（上次 2026-11-02） |
-| recraft-image-to-image | S | html | 未到期（上次 2026-11-02） |
-| recraft-inpainting | S | html | 未到期（上次 2026-11-02） |
-| recraft-outpainting | S | html | 未到期（上次 2026-11-02） |
-| recraft-upscale | S | html | 未到期（上次 2026-11-02） |
+| gemini-argon | S | spa | 变了 |
+| gemini-tts38 | S | spa | 变了 |
+| vidu-q4-i2v | S | spa | 无变化 |
+| vidu-q4-reference | S | spa | 无变化 |
+| xai-voice3 | S | spa | 无变化 |
+| minimax-m31-guide | S | html | 无变化 |
+| minimax-m31-tools | S | html | 变了 |
+| recraft-image-to-image | S | html | 无变化 |
+| recraft-inpainting | S | html | 无变化 |
+| recraft-outpainting | S | html | 无变化 |
+| recraft-upscale | S | html | 无变化 |
