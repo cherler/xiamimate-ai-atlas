@@ -1,4 +1,4 @@
-# 版本哨兵 · 2026-11-09
+# 版本哨兵 · 2026-11-10
 
 扫 136 个模型：**有更新的一代 7** · 口径存疑 1 · 牌子摘了 27 · 比不了 55
 
@@ -47,7 +47,7 @@
 - **AnySplat**（anysplat）记的是 `v1`，`hf-anysplat`（2026-11-06）上没有这个号
 - **Aurora**（aurora）记的是 `1`，`sci-aurora-gh`（2026-11-07）上没有这个号
 - **CogVideoX**（cogvideox）记的是 `2b/5b`，`hf-cogvideox`（2026-11-07）上没有这个号
-- **Doubao**（doubao）记的是 `Seed-2.1 Pro`，`doubao-force-2026`（2026-08-12）上没有这个号
+- **Doubao**（doubao）记的是 `Seed-2.1 Pro`，`doubao-force-2026`（2026-11-10）上没有这个号
 - **ESM-2**（esm）记的是 `650M`，`sci-esm2-card`（2026-10-14）上没有这个号
 - **FLUX 3**（flux-video）记的是 `3`，`bfl-flux3`（2026-11-07）上没有这个号
 - **GLM Voice**（glm-voice）记的是 `glm-4-voice`，`glm-voice-doc`（2026-11-04）上没有这个号

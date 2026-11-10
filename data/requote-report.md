@@ -1,23 +1,24 @@
-# 引文回查 · 2026-11-09
+# 引文回查 · 2026-11-10
 
-回查 1273 条：无英文锚 773 · 对得上 410 · 无快照 20 · 找不到 39 · 复核已处置 22 · 人审认过·非逐字 8 · 快照无正文 1
+回查 1273 条：无英文锚 773 · 对得上 410 · 无快照 20 · 找不到 42 · 复核已处置 19 · 人审认过·非逐字 8 · 快照无正文 1
 
 > 这份报告回答一件事：**一格引文里的原句，在它署名的那份快照里还在不在。**
 > ⚠️ **失败不等于引文错。** 三种成因要分开：真署错了页 / 这一页的快照是残的（抓回来的是导航不是正文）/ 当初记的就不是逐字原文。**脚本不猜。**
 > 「人审认过·非逐字」那一摞是**审阅台上已经判过的**，列在这里只为不假装它们消失了 —— 不用再看。
 
-## 失败 ≥3 条的源（6 个）—— 这几个大概率是抓法不对
+## 失败 ≥3 条的源（7 个）—— 这几个大概率是抓法不对
 
 - **comfy-docs**（8 条）：发布 hidream-HiDream-I1-17B 出图底座，MIT、发布 ernie-image-ERNIE-Image-8B DiT 正式档，apache-2.0、发布 ovis-image-Ovis-Image-7B-7B 专攻图上出字 …
 - **tripo-docs-generation**（6 条）：tripo × d-i23d、tripo × d-pbr、tripo × d-remesh …
 - **meshy-changelog**（4 条）：meshy × d-i23d、meshy × d-multiview、发布 meshy-remesh …
 - **tripo-docs-animation**（3 条）：tripo × d-edit、tripo × d-anim、tripo × d-format
 - **decart-site**（3 条）：oasis × w-sim、模型 oasis 版本、发布 oasis-3
+- **recraft-blog**（3 条）：发布 recraft-Recraft V3-长段文字 + 文字位置和大小可指定、发布 recraft-Recraft V4-按设计审美重训的一代、发布 recraft-Recraft V4.1-写实更自然、短提示词也能懂
 - **elevenlabs-changelog**（3 条）：发布 eleven-v3-ga、发布 eleven-v3-conv、发布 eleven-music-v2
 
 ## 全部
 
-### 找不到（39）
+### 找不到（42）
 
 - `omni-doc` gemini-omni × multiref —— 锚「the following code shows how to provide 2 images of a cat and yarn to 」
 - `xai-grok47-model` grok × t-batch —— 锚「Batch API Not supported」
@@ -34,9 +35,12 @@
 - `elevenlabs-models` 模型 elevenlabs 版本 —— 锚「Eleven v4 and Eleven v4 Turbo are here. Our fastest and most emotive s」
 - `tripo-docs-generation` 模型 tripo 版本 —— 锚「If this option is not set, the default value will be v2.5-20250123」
 - `decart-site` 模型 oasis 版本 —— 锚「REALTIME INTERACTIVE WORLD MODEL FOR PHYSICAL AI」
+- `recraft-blog` 发布 recraft-Recraft V3-长段文字 + 文字位置和大小可指定 —— 锚「Recraft V3 is the only model in the world that can generate images wit」
 - `krea-blog` 发布 krea-img-Krea 2-第一个完全从零训练的自研基座 —— 锚「our first foundation image model built completely from scratch」
 - `google-nb-blog` 发布 gemini-image-Nano Banana Pro-接上自家新一代大模型的推理，4K 与复杂版面 —— 锚「our new state-of-the art image generation and editing model.」
 - `google-nb-blog` 发布 gemini-image-Nano Banana 2-Pro 的质量按 Flash 的速度和价钱出 —— 锚「our latest state-of-the-art image model.」
+- `recraft-blog` 发布 recraft-Recraft V4-按设计审美重训的一代 —— 锚「brings true visual taste to AI image generation」
+- `recraft-blog` 发布 recraft-Recraft V4.1-写实更自然、短提示词也能懂 —— 锚「Give V4.1 just a few words, and it'll give you something worth keeping」
 - `mj-updates` 发布 midjourney-V8 Alpha-出图快约 5 倍 + 原生 2K（--hd） —— 锚「V8 is an incredible model. It's much better at following detailed dire」
 - `comfy-docs` 发布 hidream-HiDream-I1-17B 出图底座，MIT —— 锚「HiDream-I1 is a text-to-image model officially open-sourced by HiDream」
 - `comfy-docs` 发布 ernie-image-ERNIE-Image-8B DiT 正式档，apache-2.0 —— 锚「ERNIE-Image is an open text-to-image model by Baidu, licensed under Ap」
@@ -97,7 +101,7 @@
 - `hf-hunyuan3d-21` 发布 hy3d-2.1 —— 锚「We release the first production-ready 3D asset generation model, Hunyu」（这句在 gh-hunyuan3d-21）
 - `openai-model-tts` 发布 gpttts-2025-12 —— 锚「slugs to point to the 2025-12-15 snapshots」（这句在 openai-changelog）
 
-### 复核已处置（22）
+### 复核已处置（19）
 
 - `hf-qwen-layered` qwen-image × i-layered
 - `openvla-gh` openvla × e-openweights
@@ -111,11 +115,8 @@
 - `seed-25` 发布 seedance2.5
 - `seed-blog` 发布 seedream-Seedream 3.0-原生 2K 直出 + 小字排版变准
 - `seed-blog` 发布 seedream-Seedream 4.0-出图与改图并进一个模型
-- `recraft-blog` 发布 recraft-Recraft V3-长段文字 + 文字位置和大小可指定
 - `ms-foundry-blog` 发布 gpt-image-GPT-image-2-4K + 生成前先想（能自查、能搜网）
 - `seedream-page` 发布 seedream-Seedream 5.0 Pro-分层输出 + 圈画标注式改图
-- `recraft-blog` 发布 recraft-Recraft V4-按设计审美重训的一代
-- `recraft-blog` 发布 recraft-Recraft V4.1-写实更自然、短提示词也能懂
 - `openvla-gh` 发布 openvla-7b
 - `pi-openpi-gh` 发布 pi0-fast
 - `hunyuanworld-gh` 发布 hyworld-15
