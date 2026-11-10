@@ -1,11 +1,10 @@
 {
   "url": "https://huggingface.co/api/models?filter=image-to-image&sort=downloads&direction=-1&limit=60",
   "kind": "json",
-  "fetched_at": "2026-11-07",
-  "digest": "76a8606d6336b68c",
+  "fetched_at": "2026-11-10",
+  "digest": "47a5606486a56b47",
   "items": [
     "Abiray/Qwen-Image-2.1-Turbo-GGUF\t",
-    "Abiray/Qwen-Image-2.1-viggle-4-steps-turbo-GGUF\t",
     "Alissonerdx/BFS-Best-Face-Swap\t",
     "ChrisColeTech/qwen-image-edit-uncensored-GGUF\t",
     "Comfy-Org/Fibo-2.0\t",
@@ -60,6 +59,7 @@
     "unsloth/FLUX.2-klein-4B-FP8\t",
     "unsloth/FLUX.2-klein-4B-GGUF\t",
     "unsloth/FLUX.2-klein-9B-GGUF\t",
+    "unsloth/FLUX.2-klein-base-4B\t",
     "unsloth/FLUX.2-klein-base-9B-GGUF\t",
     "unsloth/Qwen-Image-Edit-2511-GGUF\t",
     "unsloth/flux-3-image-klein-FP8\t",

@@ -1,14 +1,13 @@
 {
   "url": "https://huggingface.co/api/models?filter=image-to-video&sort=downloads&direction=-1&limit=60",
   "kind": "json",
-  "fetched_at": "2026-11-07",
-  "digest": "a96920d851dd9e4f",
+  "fetched_at": "2026-11-10",
+  "digest": "9bbea0236beb5b18",
   "items": [
     "Abiray/LTX-2.5-Distilled-GGUF\t",
     "Abiray/MiniMax-H3-GGUF\t",
     "Abiray/MiniMax-H3-Pruned-GGUF\t",
     "Abiray/Minimax-H3-nvfp4-INT4-INT8-Convrot\t",
-    "AlayaLab/Evoke-Turbo\t",
     "ChrisColeTech/LTX-2.3-uncensored-v1.4-FP8\t",
     "ChrisColeTech/LTX-2.5-uncensored-v1.1-FP8\t",
     "ChrisColeTech/minimax-h3-turbo-GGUF\t",
@@ -27,6 +26,7 @@
     "QuantStack/LTX-2.3-GGUF\t",
     "QuantStack/Wan2.2-I2V-A14B-GGUF\t",
     "TenStrip/LTX2.3-10Eros\t",
+    "VideoRebirthAI/hyperflow-h3-flash\t",
     "WAS/Minimax-h3_Singularity_v2_pruned\t",
     "Wan-AI/Wan2.1-I2V-14B-480P\t",
     "Wan-AI/Wan2.1-I2V-14B-480P-Diffusers\t",
@@ -46,7 +46,6 @@
     "hum-ma/Wan2.2-TI2V-5B-Turbo-GGUF\t",
     "ibyteohdear/Lightricks-LTX-2-DISTILLED-10-Eros\t",
     "jayn7/WAN2.2-I2V_A14B-DISTILL-LIGHTX2V-4STEP-GGUF\t",
-    "joeygambino/MiniMax-H3-curve-GGUF\t",
     "joeygambino/MiniMax-H3-encoder-GGUF\t",
     "leejet/MiniMax-H3-GGUF\t",
     "lightx2v/Wan2.2-Distill-Loras\t",
@@ -62,6 +61,7 @@
     "t8star/Vdn-Minimax-H3-Comfy\t",
     "unsloth/LTX-2-GGUF\t",
     "unsloth/LTX-2.3-GGUF\t",
+    "unsloth/LTX-2.5-FP8\t",
     "unsloth/LTX-2.5-GGUF\t",
     "unsloth/MiniMax-H3-GGUF\t"
   ]
