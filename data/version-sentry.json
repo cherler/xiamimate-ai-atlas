@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-11-11",
-  "n": 7,
+  "generated_at": "2026-11-12",
+  "n": 8,
   "n_unclear": 1,
   "n_missing": 27,
   "n_skipped": 55,
@@ -17,6 +17,19 @@
       "src": "minimax-release-notes",
       "src_at": "2026-11-02",
       "evidence": ". 28, 2025`}),`\\n`,_jsx(Card,{title:`MiniMax-Hailuo-2.3 \\u0026 2.3-Fast`,icon:`video`,href:`https://www.minimax.io/news/minimax-hailuo-23`,cta:`Learn More`,children:_jsx(_components.p,{children:`Released MiniMax-Hailuo-2.3 \\u0026 2.3-Fast, featuring breakthroughs in body movement, facial expressions, physical realism,"
+    },
+    {
+      "kind": "有更新的一代",
+      "m": "claude",
+      "family": "Claude",
+      "zh": "Claude",
+      "cur": "Fable 5.1",
+      "cur_as_of": "2026-09-10",
+      "found": "Fable 5.2",
+      "found_num": "5.2",
+      "src": "anthropic-models",
+      "src_at": "2026-11-12",
+      "evidence": "de API skill Release notes  API reference  English   Console Log in   Search Ctrl K Models Models overview Claude Fable 5.2 Claude Opus 5.5 Claude Sonnet 5.5 Claude Haiku 5.5 Specialized models  Legacy models  Guides Choosing a model Optimizing for cost and intelligence Upgrade between model versions Lifecycle"
     },
     {
       "kind": "有更新的一代",
@@ -53,7 +66,7 @@
       "found": "GPT-6.1",
       "found_num": "6.1",
       "src": "openai-models",
-      "src_at": "2026-11-05",
+      "src_at": "2026-11-12",
       "evidence": "tokens Context window 1.05M Knowledge cutoff Apr 30, 2026 Tools Functions, Web search, File search, Computer use Terra GPT-6.1 Terra A fast, efficient model for visual reasoning, precise computer use, and clear, natural writing. Model ID gpt-6.1-terra Reasoning none low medium high xhigh max Input price $1 / Input MTo"
     },
     {
@@ -66,8 +79,8 @@
       "found": "gpt-image-2.6",
       "found_num": "2.6",
       "src": "openai-changelog",
-      "src_at": "2026-11-05",
-      "evidence": "Changelog [图标] Upcoming deprecations can be found on the deprecations page. November, 2026 Nov 4 Feature gpt-image-2.6-sunburst gpt-image-2.6-flare v1/images/generations v1/images/edits Released GPT-Image-2.6 Sunburst and GPT-Image-2.6 Flare for image generation and editing, with adjustable complexity, S"
+      "src_at": "2026-11-12",
+      "evidence": "n an authorized test environment, and verify fixes. See Daybreak setup before sending your first request. Nov 4 Feature gpt-image-2.6-sunburst gpt-image-2.6-flare v1/images/generations v1/images/edits Released GPT-Image-2.6 Sunburst and GPT-Image-2.6 Flare for image generation and editing, with adjustable complexity, S"
     },
     {
       "kind": "有更新的一代",
@@ -287,7 +300,7 @@
       "cur_as_of": "2026-08-12",
       "found": null,
       "src": "openai-models",
-      "src_at": "2026-11-05",
+      "src_at": "2026-11-12",
       "evidence": ""
     },
     {
@@ -411,7 +424,7 @@
       "cur_as_of": "2026-08-14",
       "found": null,
       "src": "vjepa2-blog",
-      "src_at": "2026-10-13",
+      "src_at": "2026-11-12",
       "evidence": ""
     }
   ],

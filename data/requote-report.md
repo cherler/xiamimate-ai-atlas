@@ -1,6 +1,6 @@
-# 引文回查 · 2026-11-11
+# 引文回查 · 2026-11-12
 
-回查 1273 条：无英文锚 773 · 对得上 410 · 无快照 20 · 找不到 42 · 复核已处置 19 · 人审认过·非逐字 8 · 快照无正文 1
+回查 1273 条：无英文锚 773 · 对得上 409 · 无快照 20 · 找不到 43 · 复核已处置 19 · 人审认过·非逐字 8 · 快照无正文 1
 
 > 这份报告回答一件事：**一格引文里的原句，在它署名的那份快照里还在不在。**
 > ⚠️ **失败不等于引文错。** 三种成因要分开：真署错了页 / 这一页的快照是残的（抓回来的是导航不是正文）/ 当初记的就不是逐字原文。**脚本不猜。**
@@ -18,7 +18,7 @@
 
 ## 全部
 
-### 找不到（42）
+### 找不到（43）
 
 - `omni-doc` gemini-omni × multiref —— 锚「the following code shows how to provide 2 images of a cat and yarn to 」
 - `xai-grok47-model` grok × t-batch —— 锚「Batch API Not supported」
@@ -32,6 +32,7 @@
 - `meshy-changelog` meshy × d-i23d —— 锚「Added meshy-7.1 as an ai_model value for Image to 3D, Multi-Image to 3」
 - `meshy-changelog` meshy × d-multiview —— 锚「Added meshy-7.1 as an ai_model value for Image to 3D, Multi-Image to 3」
 - `decart-site` oasis × w-sim —— 锚「REALTIME INTERACTIVE WORLD MODEL FOR PHYSICAL AI」
+- `anthropic-models` 模型 claude 版本 —— 锚「Use Claude Fable 5.1 for demanding reasoning and long-horizon agentic 」
 - `elevenlabs-models` 模型 elevenlabs 版本 —— 锚「Eleven v4 and Eleven v4 Turbo are here. Our fastest and most emotive s」
 - `tripo-docs-generation` 模型 tripo 版本 —— 锚「If this option is not set, the default value will be v2.5-20250123」
 - `decart-site` 模型 oasis 版本 —— 锚「REALTIME INTERACTIVE WORLD MODEL FOR PHYSICAL AI」

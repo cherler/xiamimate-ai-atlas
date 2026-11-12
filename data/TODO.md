@@ -1,15 +1,21 @@
-# 该你看了 · 2026-11-11
+# 该你看了 · 2026-11-12
 
-**19145 条要你拍板**，分 4 摞。每摞都指向它原本在的文件 —— **这里只汇总，不下判断**。
+**19699 条要你拍板**，分 5 摞。每摞都指向它原本在的文件 —— **这里只汇总，不下判断**。
 
 > **动手在审阅台：http://127.0.0.1:8230**（`npm run station` 开）。
 > 这份文件是存档，看的是同一摞东西；判断、重跑、写回都在那边点，不要在两处各做一半。
 
-## 收件箱里等你定的 19099 条（5988 个问题，满足写入前置条件 356 条）
+## 收件箱里等你定的 19650 条（6176 个问题，满足写入前置条件 369 条）
 
 红的共同点是**错了会污染整张图且难回滚**：新实体、要推理才得出的结论、摘不出原文的。
 
 → **开审阅台**：`node scripts/review-ui.mjs` → http://127.0.0.1:8230 ；命令行版 `node scripts/review.mjs`。分级理由看 `node scripts/triage.mjs`
+
+## 抓到了但没内容：1 个源
+
+**它不报错**。SPA 站点最常见 —— 拿到的是导航壳，比对永远「无变化」。
+
+→ 见 data/watch-report.md 对应小节
 
 ## 开源项目仓库数字：会改变结论的变化 2
 
@@ -17,13 +23,13 @@
 
 → 确认后跑 `npm run repos` 写回（审阅台上有按钮），再上线。 明细在 data/fresh-report.md
 
-## README 漂移：上游改过话 37
+## README 漂移：上游改过话 38
 
 我们对开源项目的判断是从**当时那一版 README** 读出来的。上游改了口径，页面上那句引用就成了假话，而没有任何人会收到通知。
 
 → 逐条核页面上引它的判断；核完 `node scripts/fetch-readme.mjs <项目 id>` 更新快照。 明细在 data/fresh-report.md
 
-## 版本哨兵：7 个模型的源上已经有更新的一代（Gemini Omni 1.1 Flash → Gemini Omni 1.2；Google Genie Genie 3 → Genie 4；GPT GPT-6 Astra → GPT-6.1；GPT Image 2.5（sunburst / flare） → gpt-image-2.6；Kimi K3 → K3.1；Krea 2-Raw → Krea 3；Decart Lucy Lucy 2.5 → Lucy 2.6）
+## 版本哨兵：8 个模型的源上已经有更新的一代（Claude Fable 5.1 → Fable 5.2；Gemini Omni 1.1 Flash → Gemini Omni 1.2；Google Genie Genie 3 → Genie 4；GPT GPT-6 Astra → GPT-6.1；GPT Image 2.5（sunburst / flare） → gpt-image-2.6；Kimi K3 → K3.1；Krea 2-Raw → Krea 3；Decart Lucy Lucy 2.5 → Lucy 2.6）
 
 **这不是「世界变了」，是「我们抓到了但没写回」** —— 快照里已经有了，只差有人认。版本号是这张图上最贵的事实：它一错，底下几十格证据全都在给上一代背书。
 
