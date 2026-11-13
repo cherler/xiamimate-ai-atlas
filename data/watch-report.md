@@ -1,6 +1,6 @@
-# 信息源监视报告 · 2026-11-12
+# 信息源监视报告 · 2026-11-13
 
-本次检查 36 个到期源（共 467 个）：变化 23 · 首次 0 · 无变化 6 · **抓不到 6**
+本次检查 17 个到期源（共 467 个）：变化 6 · 首次 0 · 无变化 5 · **抓不到 6**
 
 > 这份报告是给人看的那 20 条待办的来源（§59.3 的负反馈：人每周要看的条目 ≤ 20）。
 > 「抓不到」不是失败，是**信息本身** —— 一个长期抓不到的官方源，说明那家厂商没有可 diff 的公开更新入口，
@@ -8,7 +8,7 @@
 
 ## 抓到了但没内容（比抓不到更危险 —— 它不会喊）
 
-- **deepseek-docs** DeepSeek 官方 API 文档 — 正文里找不到任何一个期望关键词（https://api-docs.deepseek.com/）
+（无）
 
 ## 抓不到（要处理）
 
@@ -27,31 +27,17 @@
 
 ## 有变化
 
-- **fal-video** fal · 视频模型目录
-- **arxiv-worldmodel** arXiv · world model / 实时视频生成
-  新增 21 条：OnlyAct: Extracting Action Representations from Foundation Models for World Models、From Video Frames to Robot Meta-Frames: A Unified Latent Interface for World Action Models、LaST0.5: A Generalist World Action Model with Interaction-Centric Latent Reasoning、WanderBench: Can World Models Explore Dynamic Worlds from Video?、How Many Candidates Does a One-Step World Model Need? A Random-Codebook Account of Nearest-of-m Training on Frozen DINO Tokens、SurgTAP-3D: A Large-Scale Cross-Surgery Video Dataset with Contact-Aware 3D Motion Tracking、Breaking survivorship bias in driving world models、ForeAct: Geometry-Guided Action Learning from World Representations、SurgWorld: Learning Surgical Representations Beyond Observation via Latent Prediction、ObjectWorld: Scaling Object-Centric World Models with A Large-Scale 3D Full-Object Flow Dataset、WorldFoundry: Towards Unified Infrastructure for World Intelligence、Action Transfer Across Character Body Plans in Latent-Action World Models: An Empirical Study of Animated Characters …
-- **openai-models** OpenAI · 官方模型列表
-- **anthropic-models** Anthropic 官方文档 · 模型总览
-- **anthropic-features** Anthropic 官方文档 · Features overview
-- **openai-docs** OpenAI 开发者文档 · 指南索引
-- **claude-deprecations** Anthropic · Model deprecations
-- **openai-changelog** OpenAI · API Changelog
-- **gemini-music** Gemini API · Music generation（Lyria 3）
-- **gh-llm-universe** GitHub · datawhalechina/llm-universe（动手学大模型应用开发）
-- **gh-all-in-rag** GitHub · datawhalechina/all-in-rag（RAG 技术全栈指南）
-- **gh-handy-multi-agent** GitHub · datawhalechina/handy-multi-agent（多智能体教程）
-- **gh-llm-action** GitHub · liguodongiot/llm-action（大模型工程化实战）
-- **gh-self-llm** GitHub · datawhalechina/self-llm（开源大模型食用指南）
-- **gh-langchain-zh** GitHub · LangChain 中文入门教程
-- **gh-llamafactory** GitHub · hiyouga/LLaMA-Factory
-- **gh-chattts-cn** ChatTTS 官方中文文档
-- **gh-comfyui** GitHub · Comfy-Org/ComfyUI
-- **gh-sdbook** GitHub · StableDiffusionBook（中文 AI 绘画手册）
-- **arxiv-seed3d-20** arXiv · Seed3D 2.0 技术报告
-- **maniskill-gh** ManiSkill 仿真环境仓库
-- **vjepa2-blog** Meta 官方博客 · V-JEPA 2 world model
-- **hf-org** Hugging Face 官方组织目录（模型接口）
-  新增 231 条：7err4/MOSS-Image-CharRef、AInVFX/ainvfx-fluid、AJ-Gonzalez/coder-lfm3-1.7b-k3.1-pro、Abiray/MiniMax-H3-Image-GGUF、AiNinja94/RelayVSR-ComfyUI-Workflow、AkameV6p5/Gemma-4-E4B-Maomao、AmSach/Gemma-4-26B-A4B-MAPLE-Sub5GB-GGUF、Angais/Krea-2-PixelArt-16x16、Angais/MOSS-Image-PixelArt-16x16、Asteromorph/AsteroRank-Lepton、AtomicChat/Arete-27B-GGUF、AtomicChat/LFM2.5-24B-A2B-Uncensored-GGUF …
+- **hf-t2v** Hugging Face · text-to-video 按下载量
+  新增 3 条：AlayaLab/Evoke-Turbo、BennyDaBall/HyperFlow-H3-Flash-INT8-ComfyUI、tencent/HunyuanVideo
+- **hf-i2v** Hugging Face · image-to-video 按下载量
+  新增 2 条：AlayaLab/Evoke-Turbo、Pika-Labs/Pika-H3-Flex
+- **techcrunch-ai** TechCrunch · AI（RSS）
+  新增 20 条：Democrats launch Nvidia investigation, write scathing letter on Huang&#8217;s &#8216;scheme&#8217; with Trump、Muse can now place calls to US businesses — if you pay、The unfolding Jensen Huang scandal: a timeline、Nebius tests the neocloud playbook with $40 billion in planned spending、Jensen Huang was having a third affair, Reuters reports、Google&#8217;s latest Search upgrade promises better answers to your most complicated questions、Nectar launches an AI agent to automate creator discovery and outreach for brands、Jensen Huang’s exit puts Nvidia’s support for open source in question、Hugging Face CEO vows to keep fighting for open source AI after Jensen Huang&#8217;s exit、United Airlines blocks AI agents from booking flights, citing cybersecurity risks、SoftBank’s billion-dollar loss may have put a cap on AI&#8217;s natural gas ambitions、Phota Labs uses AI to turn everyday photos into professional-looking shots …
+- **hf-t2i** Hugging Face · text-to-image 按下载量
+  新增 3 条：Comfy-Org/MiniMax-H3-Image、MiniMaxAI/MiniMax-H3-Image、leejet/FLUX.2-klein-4B-GGUF
+- **hf-i2i** Hugging Face · image-to-image 按下载量
+  新增 3 条：MiniMaxAI/MiniMax-H3-Image、unsloth/FLUX.2-klein-9B、unsloth/flux-3-image-klein-base-FP8
+- **sci-af3-blog** Google 官方博客 · AlphaFold 3
 
 ## 全部
 
@@ -84,10 +70,10 @@
 | epoch-notable | A | csv | 未到期（上次 2026-11-11） |
 | aa-t2v | A | spa | 未到期（上次 2026-11-11） |
 | aa-i2v | A | spa | 未到期（上次 2026-11-11） |
-| hf-t2v | A | json | 未到期（上次 2026-11-10） |
-| hf-i2v | A | json | 未到期（上次 2026-11-10） |
+| hf-t2v | A | json | 变了 |
+| hf-i2v | A | json | 变了 |
 | hf-v2v | A | json | 未到期（上次 2026-11-11） |
-| fal-video | S | spa | 变了 |
+| fal-video | S | spa | 未到期（上次 2026-11-12） |
 | replicate-t2v | S | html | 未到期（上次 2026-11-11） |
 | aiwiki | B | spa | 未到期（上次 2026-11-10） |
 | futurepedia | B | html | 未到期（上次 2026-11-10） |
@@ -99,10 +85,10 @@
 | luma-changelog | S | spa | 未到期（上次 2026-08-07） |
 | seed-models-hub | S | html | 未到期（上次 2026-11-11） |
 | apiyi-models | S | spa | 未到期（上次 2026-11-11） |
-| arxiv-worldmodel | S | atom | 变了 |
-| techcrunch-ai | B | atom | 未到期（上次 2026-11-10） |
+| arxiv-worldmodel | S | atom | 未到期（上次 2026-11-12） |
+| techcrunch-ai | B | atom | 变了 |
 | ltx-gh | S | json | 未到期（上次 2026-11-11） |
-| ltx-hf-org | S | json | 未到期（上次 2026-11-10） |
+| ltx-hf-org | S | json | 无变化 |
 | decart-site | S | spa | 未到期（上次 2026-11-08） |
 | picsart-video | C | html | 未到期（上次 2026-10-24） |
 | libtv | C | spa | 从未抓过 |
@@ -146,7 +132,7 @@
 | huobao-gh | C | json | 未到期（上次 2026-11-11） |
 | awesome-vd-gh | C | json | 未到期（上次 2026-11-11） |
 | seedream-page | S | html | 未到期（上次 2026-11-04） |
-| openai-models | S | html | 变了 |
+| openai-models | S | html | 未到期（上次 2026-11-12） |
 | gemini-models | S | spa | 未到期（上次 2026-11-09） |
 | google-gemini-blog | S | html | 未到期（上次 2026-11-04） |
 | azure-foundry-blog | B | html | 未到期（上次 2026-11-10） |
@@ -198,11 +184,11 @@
 | ms-foundry-blog | B | html | 未到期（上次 2026-11-10） |
 | mj-updates | S | html | 未到期（上次 2026-11-04） |
 | aa-t2i | A | spa | 抓不到（还是壳：渲染后正文只有 281 个字符） |
-| hf-t2i | A | json | 未到期（上次 2026-11-10） |
-| hf-i2i | A | json | 未到期（上次 2026-11-10） |
-| anthropic-models | S | html | 变了 |
-| deepseek-docs | S | html | 没内容 |
-| xai-docs | S | html | 无变化 |
+| hf-t2i | A | json | 变了 |
+| hf-i2i | A | json | 变了 |
+| anthropic-models | S | html | 未到期（上次 2026-11-12） |
+| deepseek-docs | S | html | 未到期（上次 2026-11-12） |
+| xai-docs | S | html | 未到期（上次 2026-11-12） |
 | doubao-force-2026 | B | html | 未到期（上次 2026-11-10） |
 | wan3-qbitai | B | spa | 从未抓过 |
 | kimi-api | S | html | 未到期（上次 2026-11-04） |
@@ -233,10 +219,10 @@
 | unstructured-gh | S | json | 未到期（上次 2026-11-10） |
 | mineru-gh | S | json | 未到期（上次 2026-11-10） |
 | mcpservers-gh | S | json | 未到期（上次 2026-11-10） |
-| anthropic-features | S | html | 变了 |
-| openai-docs | S | html | 变了 |
-| deepseek-pricing | S | spa | 无变化 |
-| deepseek-updates | S | spa | 无变化 |
+| anthropic-features | S | html | 未到期（上次 2026-11-12） |
+| openai-docs | S | html | 未到期（上次 2026-11-12） |
+| deepseek-pricing | S | spa | 未到期（上次 2026-11-12） |
+| deepseek-updates | S | spa | 未到期（上次 2026-11-12） |
 | bailian-models | S | html | 未到期（上次 2026-11-11） |
 | kimi-pricing | S | html | 未到期（上次 2026-11-04） |
 | glm-52-doc | S | html | 未到期（上次 2026-11-04） |
@@ -261,8 +247,8 @@
 | bailian-models-zh | S | spa | 未到期（上次 2026-11-11） |
 | glm-batch | S | html | 未到期（上次 2026-11-11） |
 | glm-chat-api | S | html | 未到期（上次 2026-11-11） |
-| claude-deprecations | S | html | 变了 |
-| openai-changelog | S | spa | 变了 |
+| claude-deprecations | S | html | 未到期（上次 2026-11-12） |
+| openai-changelog | S | spa | 未到期（上次 2026-11-12） |
 | gemini-changelog | S | spa | 未到期（上次 2026-11-09） |
 | xai-release-notes | S | spa | 未到期（上次 2026-11-09） |
 | aa-llm | B | spa | 未到期（上次 2026-11-04） |
@@ -274,7 +260,7 @@
 | bailian-omni | S | html | 未到期（上次 2026-11-05） |
 | elevenlabs-remix | S | html | 未到期（上次 2026-11-04） |
 | openai-tts | S | html | 未到期（上次 2026-11-04） |
-| gemini-music | S | html | 变了 |
+| gemini-music | S | html | 未到期（上次 2026-11-12） |
 | glm-tts-doc | S | html | 未到期（上次 2026-11-04） |
 | glm-tts-clone-doc | S | html | 未到期（上次 2026-11-04） |
 | glm-voice-doc | S | html | 未到期（上次 2026-11-04） |
@@ -329,9 +315,9 @@
 | hf-cosyvoice2 | A | json | 未到期（上次 2026-11-10） |
 | hf-glmtts | A | json | 未到期（上次 2026-11-10） |
 | hf-glm4voice | A | json | 未到期（上次 2026-11-10） |
-| hf-fishspeech15 | A | html | 未到期（上次 2026-10-14） |
+| hf-fishspeech15 | A | html | 无变化 |
 | hf-qwen3omni | A | json | 未到期（上次 2026-11-10） |
-| hf-qwen-layered | A | html | 未到期（上次 2026-10-14） |
+| hf-qwen-layered | A | html | 无变化 |
 | hf-org-minimax | A | json | 未到期（上次 2026-11-10） |
 | hf-org-xai | A | json | 未到期（上次 2026-11-10） |
 | hf-org-elevenlabs | A | json | 未到期（上次 2026-11-10） |
@@ -357,16 +343,16 @@
 | bfl-flux3 | A | html | 未到期（上次 2026-11-07） |
 | anthropic-privacy | A | html | 未到期（上次 2026-08-14） |
 | stability-terms | A | html | 未到期（上次 2026-08-14） |
-| gh-llm-universe | C | json | 变了 |
-| gh-all-in-rag | C | json | 变了 |
-| gh-handy-multi-agent | C | json | 变了 |
-| gh-llm-action | C | json | 变了 |
-| gh-self-llm | C | json | 变了 |
-| gh-langchain-zh | C | json | 变了 |
-| gh-llamafactory | C | json | 变了 |
-| gh-chattts-cn | C | json | 变了 |
-| gh-comfyui | C | json | 变了 |
-| gh-sdbook | C | json | 变了 |
+| gh-llm-universe | C | json | 未到期（上次 2026-11-12） |
+| gh-all-in-rag | C | json | 未到期（上次 2026-11-12） |
+| gh-handy-multi-agent | C | json | 未到期（上次 2026-11-12） |
+| gh-llm-action | C | json | 未到期（上次 2026-11-12） |
+| gh-self-llm | C | json | 未到期（上次 2026-11-12） |
+| gh-langchain-zh | C | json | 未到期（上次 2026-11-12） |
+| gh-llamafactory | C | json | 未到期（上次 2026-11-12） |
+| gh-chattts-cn | C | json | 未到期（上次 2026-11-12） |
+| gh-comfyui | C | json | 未到期（上次 2026-11-12） |
+| gh-sdbook | C | json | 未到期（上次 2026-11-12） |
 | waytoagi-wiki | C | spa | 从未抓过 |
 | hf-hunyuan3d-21 | S | html | 未到期（上次 2026-11-07） |
 | tripo-docs-generation | S | spa | 未到期（上次 2026-11-07） |
@@ -397,8 +383,8 @@
 | hf-apple-sharp | S | html | 未到期（上次 2026-11-06） |
 | gh-hunyuan3d-api | S | html | 未到期（上次 2026-11-06） |
 | hf-anysplat | S | html | 未到期（上次 2026-11-06） |
-| arxiv-seed3d-20 | S | html | 变了 |
-| arxiv-seed3d-10 | S | html | 无变化 |
+| arxiv-seed3d-20 | S | html | 未到期（上次 2026-11-12） |
+| arxiv-seed3d-10 | S | html | 未到期（上次 2026-11-12） |
 | hf-trellis2 | S | html | 未到期（上次 2026-11-06） |
 | pixverse-caps | S | html | 抓不到（HTTP 404） |
 | pixverse-v6 | S | html | 抓不到（HTTP 404） |
@@ -441,19 +427,19 @@
 | lerobot-gh | A | json | 未到期（上次 2026-11-07） |
 | groot-policy-doc | A | html | 未到期（上次 2026-11-07） |
 | rynnbrain-card | A | html | 未到期（上次 2026-11-07） |
-| maniskill-gh | B | json | 变了 |
+| maniskill-gh | B | json | 未到期（上次 2026-11-12） |
 | cosmos3-card | S | html | 未到期（上次 2026-11-07） |
 | genie3-blog | A | html | 未到期（上次 2026-11-07） |
 | odyssey-site | S | html | 未到期（上次 2026-11-07） |
 | worldlabs-marble | A | html | 未到期（上次 2026-11-07） |
 | matrixgame-card | A | html | 未到期（上次 2026-11-07） |
 | hunyuanworld-gh | A | html | 未到期（上次 2026-11-07） |
-| wham-card | A | html | 无变化 |
-| vjepa2-blog | A | html | 变了 |
-| vjepa2-card | B | html | 无变化 |
+| wham-card | A | html | 未到期（上次 2026-11-12） |
+| vjepa2-blog | A | html | 未到期（上次 2026-11-12） |
+| vjepa2-card | B | html | 未到期（上次 2026-11-12） |
 | sci-boltz-gh | A | html | 未到期（上次 2026-11-07） |
-| sci-af3-blog | A | html | 未到期（上次 2026-10-14） |
-| sci-esm2-card | B | html | 未到期（上次 2026-10-14） |
+| sci-af3-blog | A | html | 变了 |
+| sci-esm2-card | B | html | 无变化 |
 | sci-wn-gh | A | html | 未到期（上次 2026-11-07） |
 | sci-aurora-gh | A | html | 未到期（上次 2026-11-07） |
 | sci-neuralgcm-gh | A | html | 未到期（上次 2026-11-07） |
@@ -465,7 +451,7 @@
 | sora-api | A | html | 未到期（上次 2026-11-07） |
 | wan-site | A | html | 未到期（上次 2026-11-07） |
 | mm-hf-api | A | json | 未到期（上次 2026-11-07） |
-| vidu-s1-paper | A | html | 未到期（上次 2026-08-15） |
+| vidu-s1-paper | A | html | 无变化 |
 | omni-doc | A | html | 未到期（上次 2026-11-08） |
 | ltx-hf-23 | A | html | 未到期（上次 2026-11-07） |
 | gemini-image-docs | A | html | 未到期（上次 2026-11-05） |
@@ -484,7 +470,7 @@
 | seed-blog-2_0 | A | html | 未到期（上次 2026-11-07） |
 | ideogram-x | A | html | 未到期（上次 2026-11-07） |
 | hf-funcineforge | S | html | 未到期（上次 2026-11-01） |
-| hf-org | S | json | 变了 |
+| hf-org | S | json | 未到期（上次 2026-11-12） |
 | gh-gptsovits-cn | C | json | 未到期（上次 2026-11-08） |
 | gemini-nb21 | S | spa | 未到期（上次 2026-11-07） |
 | xai-grok47-model | S | spa | 未到期（上次 2026-11-09） |

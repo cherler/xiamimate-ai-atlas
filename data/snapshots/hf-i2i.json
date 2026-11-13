@@ -1,14 +1,15 @@
 {
   "url": "https://huggingface.co/api/models?filter=image-to-image&sort=downloads&direction=-1&limit=60",
   "kind": "json",
-  "fetched_at": "2026-11-10",
-  "digest": "47a5606486a56b47",
+  "fetched_at": "2026-11-13",
+  "digest": "3ec3ec9536ed9d02",
   "items": [
     "Abiray/Qwen-Image-2.1-Turbo-GGUF\t",
     "Alissonerdx/BFS-Best-Face-Swap\t",
     "ChrisColeTech/qwen-image-edit-uncensored-GGUF\t",
     "Comfy-Org/Fibo-2.0\t",
     "KoalaNation/FLUX-3-KLEIN-MODELS\t",
+    "MiniMaxAI/MiniMax-H3-Image\t",
     "PrunaAI/P-H3-Image-Comfy\t",
     "QuantStack/FLUX.1-Kontext-dev-GGUF\t",
     "QuantStack/Qwen-Image-Edit-2509-GGUF\t",
@@ -16,7 +17,6 @@
     "Qwen/Qwen-Image-Edit-2509\t",
     "Qwen/Qwen-Image-Edit-2511\t",
     "ScottzillaSystems/qwen-image-edit-plus-nsfw-lora\t",
-    "Shar514/Flux-Uncensored-V2\t",
     "Viggle/Qwen-Image-2.1-viggle-turbo\t",
     "ZawShiShawn/gestura-flux2-klein-4b-litert-tflite\t",
     "alibaba-pai/Qwen-Image-2.1-Fun-Controlnet-Union\t",
@@ -27,7 +27,6 @@
     "black-forest-labs/FLUX.2-klein-4b-fp8\t",
     "black-forest-labs/FLUX.2-klein-9B\t",
     "black-forest-labs/FLUX.2-klein-9b-fp8\t",
-    "black-forest-labs/FLUX.2-klein-9b-kv-fp8\t",
     "black-forest-labs/FLUX.2-klein-base-4B\t",
     "black-forest-labs/FLUX.2-klein-base-4b-fp8\t",
     "black-forest-labs/FLUX.2-klein-base-9B\t",
@@ -45,7 +44,6 @@
     "lllyasviel/control_v11p_sd15_openpose\t",
     "lrzjason/Anything2Real\t",
     "mflux-community/flux2-klein-4b-mflux-q4\t",
-    "mflux-community/qwen-image-edit-2511-mflux-q4\t",
     "mflux-community/qwen-image-edit-2511-mflux-q8\t",
     "ml-resources/flux-3-image-klein\t",
     "ml-resources/flux-3-image-klein-comfy\t",
@@ -58,11 +56,13 @@
     "unsloth/FLUX.2-klein-4B\t",
     "unsloth/FLUX.2-klein-4B-FP8\t",
     "unsloth/FLUX.2-klein-4B-GGUF\t",
+    "unsloth/FLUX.2-klein-9B\t",
     "unsloth/FLUX.2-klein-9B-GGUF\t",
     "unsloth/FLUX.2-klein-base-4B\t",
     "unsloth/FLUX.2-klein-base-9B-GGUF\t",
     "unsloth/Qwen-Image-Edit-2511-GGUF\t",
     "unsloth/flux-3-image-klein-FP8\t",
-    "unsloth/flux-3-image-klein-GGUF\t"
+    "unsloth/flux-3-image-klein-GGUF\t",
+    "unsloth/flux-3-image-klein-base-FP8\t"
   ]
 }
