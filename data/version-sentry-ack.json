@@ -25,6 +25,21 @@
       "why": "完整名称是 M3.1-Flash-Preview，当前接口概览限定 M Plan / MiniMax Code；不据此替换开放权重 M3。正式版或供给范围变化时重新审阅。",
       "source": "minimax-api-overview",
       "suffix": "-Flash-Preview"
+    },
+    {
+      "m": "gpt",
+      "found": "GPT-6.1",
+      "suffix": "Terra",
+      "decided_at": "2026-11-15",
+      "by": "Codex",
+      "why": "官方仍将 GPT-6 Astra 定位为最高能力档；6.1 Terra 是速度成本分支。"
+    },
+    {
+      "m": "hailuo",
+      "found": "minimax-hailuo-23",
+      "decided_at": "2026-11-15",
+      "by": "Codex",
+      "why": "这是 2025-10-28 发布的 Hailuo 2.3 URL slug，不能将去掉小数点的 23 作为 H3 的后继版本。"
     }
   ]
 }

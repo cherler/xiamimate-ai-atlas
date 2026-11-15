@@ -1,10 +1,78 @@
 {
-  "at": "2026-10-10",
-  "scope": "只对以下具体仓库作量化/二次分发判定，不排除整个作者或上游模型。",
+  "at": "2026-11-15",
+  "scope": "逐仓库记录收录判断，不排除整个作者或其未来模型。",
   "rows": [
-    {"repo":"AlperKTS/Krea2_FP8","decision":"derivative","url":"https://huggingface.co/AlperKTS/Krea2_FP8","why":"模型卡明确是 Krea 2 OSS Turbo 的 FP8 权重量化，原研究和权重归 KREA.ai；不是新产品线。"},
-    {"repo":"AlperKTS/Qwen-Image-2.1-GGUF","decision":"derivative","url":"https://huggingface.co/AlperKTS/Qwen-Image-2.1-GGUF","why":"Qwen-Image-2.1 的 GGUF 分发档，归上游 Qwen-Image，不另建 AlperKTS 模型线。"},
-    {"repo":"silveroxides/Chroma-GGUF","decision":"derivative","url":"https://huggingface.co/silveroxides/Chroma-GGUF","why":"仓库提供 GGUF 量化文件并指向另一份 Chroma GGUF 分发，不是作者新训基础模型。此裁决不等于否定 Chroma 上游的收录资格。"},
-    {"repo":"silveroxides/FLUX.2-dev-fp8_scaled","decision":"derivative","url":"https://huggingface.co/silveroxides/FLUX.2-dev-fp8_scaled","why":"FLUX.2-dev 的 scaled FP8 分发档，上游 FLUX 已收录；不是独立模型产品线。"}
+    {
+      "repo": "AlperKTS/Krea2_FP8",
+      "decision": "derivative",
+      "url": "https://huggingface.co/AlperKTS/Krea2_FP8",
+      "why": "模型卡明确是 Krea 2 OSS Turbo 的 FP8 权重量化，原研究和权重归 KREA.ai；不是新产品线。"
+    },
+    {
+      "repo": "AlperKTS/Qwen-Image-2.1-GGUF",
+      "decision": "derivative",
+      "url": "https://huggingface.co/AlperKTS/Qwen-Image-2.1-GGUF",
+      "why": "Qwen-Image-2.1 的 GGUF 分发档，归上游 Qwen-Image，不另建 AlperKTS 模型线。"
+    },
+    {
+      "repo": "silveroxides/Chroma-GGUF",
+      "decision": "derivative",
+      "url": "https://huggingface.co/silveroxides/Chroma-GGUF",
+      "why": "仓库提供 GGUF 量化文件并指向另一份 Chroma GGUF 分发，不是作者新训基础模型。此裁决不等于否定 Chroma 上游的收录资格。"
+    },
+    {
+      "repo": "silveroxides/FLUX.2-dev-fp8_scaled",
+      "decision": "derivative",
+      "url": "https://huggingface.co/silveroxides/FLUX.2-dev-fp8_scaled",
+      "why": "FLUX.2-dev 的 scaled FP8 分发档，上游 FLUX 已收录；不是独立模型产品线。"
+    },
+    {
+      "repo": "Efficient-Large-Model/Open-H3-Regenerate-2K",
+      "decision": "derivative",
+      "url": "https://huggingface.co/Efficient-Large-Model/Open-H3-Regenerate-2K",
+      "why": "模型卡说明为 MiniMax-H3 的 LoRA 精修/超分流水线，包含未修改的底座副本。归入 H3 衍生工具线索，不另计为全新基础模型。并非单纯量化，保留其训练与工程贡献。",
+      "at": "2026-11-15",
+      "by": "Codex"
+    },
+    {
+      "repo": "Efficient-Large-Model/Open-H3-Regenerate-2K-IC",
+      "decision": "derivative",
+      "url": "https://huggingface.co/Efficient-Large-Model/Open-H3-Regenerate-2K-IC",
+      "why": "模型卡说明为 MiniMax-H3 的 LoRA 精修/超分流水线，包含未修改的底座副本。归入 H3 衍生工具线索，不另计为全新基础模型。并非单纯量化，保留其训练与工程贡献。",
+      "at": "2026-11-15",
+      "by": "Codex"
+    },
+    {
+      "repo": "Viggle/Viggle-Animate",
+      "decision": "out-of-scope",
+      "url": "https://huggingface.co/Viggle/Viggle-Animate",
+      "why": "已核官方模型卡：Animate 为 H3 全量微调和蒸馏，Remake 为后续视频重制工作流，不能称为搬运或普通量化。本轮范围决定：保留为视频编辑专题线索，不新增通用基座产品线，也不将其能力归给原生 H3。若扩大到角色替换/整片重制专用模型，应重新收录评估。",
+      "at": "2026-11-15",
+      "by": "Codex"
+    },
+    {
+      "repo": "Viggle/Viggle-Remake",
+      "decision": "out-of-scope",
+      "url": "https://huggingface.co/Viggle/Viggle-Remake",
+      "why": "已核官方模型卡：Animate 为 H3 全量微调和蒸馏，Remake 为后续视频重制工作流，不能称为搬运或普通量化。本轮范围决定：保留为视频编辑专题线索，不新增通用基座产品线，也不将其能力归给原生 H3。若扩大到角色替换/整片重制专用模型，应重新收录评估。",
+      "at": "2026-11-15",
+      "by": "Codex"
+    },
+    {
+      "repo": "ml-resources/flux-3-image-klein",
+      "decision": "derivative",
+      "url": "https://huggingface.co/ml-resources/flux-3-image-klein",
+      "why": "Comfy 仓库明确声明为 BFL 权重的非官方镜像并指向原始发行；不将镜像作者建为新模型厂商。基础仓库本轮页面抓取失败，不为其内容逐项背书，亦不将 Klein 分支直接替换主表的 FLUX 2-dev。",
+      "at": "2026-11-15",
+      "by": "Codex"
+    },
+    {
+      "repo": "ml-resources/flux-3-image-klein-comfy",
+      "decision": "derivative",
+      "url": "https://huggingface.co/ml-resources/flux-3-image-klein-comfy",
+      "why": "Comfy 仓库明确声明为 BFL 权重的非官方镜像并指向原始发行；不将镜像作者建为新模型厂商。基础仓库本轮页面抓取失败，不为其内容逐项背书，亦不将 Klein 分支直接替换主表的 FLUX 2-dev。",
+      "at": "2026-11-15",
+      "by": "Codex"
+    }
   ]
 }

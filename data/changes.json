@@ -11,6 +11,150 @@
  "$alert_label": "快讯",
  "events": [
   {
+   "id": "tripo-review-2026-11-15",
+   "date": "2026-11-15",
+   "side": "ours",
+   "kind": "版本更迭",
+   "domain": "threed",
+   "subject": "今日补核：Tripo P2-20260801",
+   "models": [
+    "tripo"
+   ],
+   "impact": [
+    "tripo"
+   ],
+   "src": "review-tripo-p2",
+   "before": "P1-20260311",
+   "after": "P2-20260801：原生四边形拓扑，支持文本、单图与多视图输入。",
+   "why": "11-15 是本站核验日期；旧文档迁移使版本哨兵漏检，本轮按新官方型号页补正。"
+  },
+  {
+   "id": "lucy-review-2026-11-15",
+   "date": "2026-11-15",
+   "side": "ours",
+   "kind": "版本更迭",
+   "domain": "video",
+   "subject": "今日补核：Decart Lucy Lucy 2.6",
+   "models": [
+    "lucy"
+   ],
+   "impact": [
+    "lucy"
+   ],
+   "src": "review-lucy26",
+   "before": "Lucy 2.5",
+   "after": "Lucy 2.6。官方 11-05 发布并作为 lucy-latest 默认版本，价格与 2.5 相同，改进直播中的人物、服饰和物件一致性。",
+   "why": "本次为来源核验与页面更新日期；未核实的新版本能力保持未知，不继承旧版本结论。"
+  },
+  {
+   "id": "krea-img-review-2026-11-15",
+   "date": "2026-11-15",
+   "side": "ours",
+   "kind": "版本更迭",
+   "domain": "image",
+   "subject": "今日补核：Krea 3",
+   "models": [
+    "krea-img"
+   ],
+   "impact": [
+    "krea-img"
+   ],
+   "src": "krea-blog",
+   "before": "2-Raw",
+   "after": "3。11-03 官方技术报告发布 Krea 3；主打图像编辑，最多 8 张参考图、原生 2K。不沿用 Krea-2-Raw 的权重开放标记。",
+   "why": "本次为来源核验与页面更新日期；未核实的新版本能力保持未知，不继承旧版本结论。"
+  },
+  {
+   "id": "kimi-review-2026-11-15",
+   "date": "2026-11-15",
+   "side": "ours",
+   "kind": "版本更迭",
+   "domain": "text",
+   "subject": "今日补核：Kimi K3.1 Pro",
+   "models": [
+    "kimi"
+   ],
+   "impact": [
+    "kimi"
+   ],
+   "src": "review-kimi31",
+   "before": "K3",
+   "after": "K3.1 Pro。官方指南确认当前 API 型号 kimi-k3.1-pro；Highspeed 是独立 ID。权重发布承诺不等于已经核到权重下载。",
+   "why": "本次为来源核验与页面更新日期；未核实的新版本能力保持未知，不继承旧版本结论。"
+  },
+  {
+   "id": "gpt-image-review-2026-11-15",
+   "date": "2026-11-15",
+   "side": "ours",
+   "kind": "版本更迭",
+   "domain": "image",
+   "subject": "今日补核：GPT Image 2.6（sunburst / flare）",
+   "models": [
+    "gpt-image"
+   ],
+   "impact": [
+    "gpt-image"
+   ],
+   "src": "openai-changelog",
+   "before": "2.5（sunburst / flare）",
+   "after": "2.6（sunburst / flare）。官方 11-04 发布两档 2.6，增加复杂度调节、SVG 和 GIF 生成；不把旧版全部能力自动转写到新版。",
+   "why": "本次为来源核验与页面更新日期；未核实的新版本能力保持未知，不继承旧版本结论。"
+  },
+  {
+   "id": "genie-review-2026-11-15",
+   "date": "2026-11-15",
+   "side": "ours",
+   "kind": "版本更迭",
+   "domain": "world",
+   "subject": "今日补核：Google Genie Genie 4",
+   "models": [
+    "genie"
+   ],
+   "impact": [
+    "genie"
+   ],
+   "src": "review-genie4",
+   "before": "Genie 3",
+   "after": "Genie 4。已核对当前官方产品页，支持实时自然语言创建及改变环境。未来应用与当前开放能力须区分。",
+   "why": "本次为来源核验与页面更新日期；未核实的新版本能力保持未知，不继承旧版本结论。"
+  },
+  {
+   "id": "gemini-omni-review-2026-11-15",
+   "date": "2026-11-15",
+   "side": "ours",
+   "kind": "版本更迭",
+   "domain": "video",
+   "subject": "今日补核：Gemini Omni 1.2 Flash",
+   "models": [
+    "gemini-omni"
+   ],
+   "impact": [
+    "gemini-omni"
+   ],
+   "src": "gemini-changelog",
+   "before": "1.1 Flash",
+   "after": "1.2 Flash。官方 11-05 发布：最长 15 秒生成，首尾帧 3–10 秒；每次续接 3–10 秒，总长至 30 秒，最多 6 张参考图。1.1 请求将于 12-03 自动路由至 1.2。",
+   "why": "本次为来源核验与页面更新日期；未核实的新版本能力保持未知，不继承旧版本结论。"
+  },
+  {
+   "id": "claude-review-2026-11-15",
+   "date": "2026-11-15",
+   "side": "ours",
+   "kind": "版本更迭",
+   "domain": "text",
+   "subject": "今日补核：Claude Fable 5.2",
+   "models": [
+    "claude"
+   ],
+   "impact": [
+    "claude"
+   ],
+   "src": "anthropic-models",
+   "before": "Fable 5.1",
+   "after": "Fable 5.2。官方于 2026-11-09 发布；核验日为 11-15。1M 上下文、128K 输出，Adaptive thinking 常开。",
+   "why": "本次为来源核验与页面更新日期；未核实的新版本能力保持未知，不继承旧版本结论。"
+  },
+  {
    "id": "minimax-text-review-2026-10-19",
    "date": "2026-10-19",
    "side": "ours",

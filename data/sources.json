@@ -6516,6 +6516,97 @@
    "good_for": [
     "capability"
    ]
+  },
+  {
+   "id": "review-genie4",
+   "url": "https://deepmind.google/models/genie/",
+   "name": "Google DeepMind · Genie 4",
+   "tier": "S",
+   "kind": "html",
+   "vendor": "genie",
+   "refresh_days": 7,
+   "good_for": [
+    "version",
+    "capability"
+   ]
+  },
+  {
+   "id": "review-kimi31",
+   "url": "https://platform.kimi.com/docs/guide/kimi-k3-1-pro-quickstart",
+   "name": "Kimi · K3.1 Pro 指南",
+   "tier": "S",
+   "kind": "html",
+   "vendor": "kimi",
+   "refresh_days": 7,
+   "good_for": [
+    "version",
+    "capability"
+   ]
+  },
+  {
+   "id": "review-lucy26",
+   "url": "https://decart.ai/publications/introducing-lucy-2-6",
+   "name": "Decart · Lucy 2.6 发布",
+   "tier": "S",
+   "kind": "html",
+   "vendor": "lucy",
+   "refresh_days": 7,
+   "good_for": [
+    "version",
+    "capability"
+   ]
+  },
+  {
+   "id": "review-tripo-p2",
+   "name": "Tripo P2 官方型号页",
+   "url": "https://developers.tripo3d.ai/en/models/p2",
+   "vendor": "tripo",
+   "tier": "S",
+   "kind": "html",
+   "refresh_days": 7,
+   "good_for": [
+    "version",
+    "capability"
+   ]
+  },
+  {
+   "id": "review-meshy-image",
+   "name": "Meshy 图生 3D 端点",
+   "url": "https://docs.meshy.ai/en/api/image-to-3d",
+   "vendor": "meshy",
+   "tier": "S",
+   "kind": "html",
+   "refresh_days": 7,
+   "good_for": [
+    "version",
+    "capability"
+   ]
+  },
+  {
+   "id": "review-meshy-multi",
+   "name": "Meshy 多图生 3D 端点",
+   "url": "https://docs.meshy.ai/en/api/multi-image-to-3d",
+   "vendor": "meshy",
+   "tier": "S",
+   "kind": "html",
+   "refresh_days": 7,
+   "good_for": [
+    "version",
+    "capability"
+   ]
+  },
+  {
+   "id": "review-krea3",
+   "name": "Krea 3 技术报告",
+   "url": "https://www.krea.ai/blog/krea-3-technical-report",
+   "vendor": "krea-img",
+   "tier": "S",
+   "kind": "html",
+   "refresh_days": 7,
+   "good_for": [
+    "version",
+    "capability"
+   ]
   }
  ],
  "$missing": [

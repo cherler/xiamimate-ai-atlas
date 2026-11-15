@@ -1,0 +1,10 @@
+{
+  "url": "https://docs.meshy.ai/en/api/multi-image-to-3d",
+  "kind": "html",
+  "fetched_at": "2026-11-15",
+  "capture": "selected-excerpts-via-web",
+  "capture_note": "官方页面选段核验，非完整正文；仅支持本轮所引句子。",
+  "digest": "e0e2c5720d86ded2",
+  "items": [],
+  "text": "Generate a 3D model from one to four images of the same object, taken from different angles. latest: Meshy 7.1"
+}

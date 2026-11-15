@@ -21,7 +21,7 @@ screenshots, memory reports, and profiler captures from each peer.
 
 ### Find performance problems
 
-- Record server or client CPU timings with `capture_script_profiler` and `capture_micro_profiler`.
+- Record server or client CPU timings with `capture_script_profiler` and `capture_micro_profiler`. MicroProfiler captures are saved for re-analysis, and `capture_micro_profiler` also analyzes `.gprx` dumps from Studio's MicroProfiler.
 - Break down memory use with `get_memory_breakdown` or attribute scene cost with `get_scene_analysis`.
 
 ### Work in edit mode
@@ -31,6 +31,7 @@ screenshots, memory reports, and profiler captures from each peer.
 - For large generated Luau, use the [verified chunk-staging workflow](docs/large-inputs.md): explicit instance routing, UTF-8 byte/hash readback, ownership-checked cleanup, and bounded recovery without blindly replaying mutations.
 - Use `selection` to inspect or update Studio selection and frame a part or model before capturing the viewport.
 - Capture the viewport with `capture_screenshot`, then send mouse or keyboard input. See [Configuration](docs/configuration.md#host-window-capture).
+- Record the viewport to MP4 with `capture_video` to review cutscenes, tweens, or animations. Each recording returns a storyboard image of evenly spaced frames. Requires Windows or WSL, plus FFmpeg 8+; see [Video recording](docs/configuration.md#video-recording).
 
 ### Inspect Creator Store assets
 
@@ -41,6 +42,10 @@ screenshots, memory reports, and profiler captures from each peer.
 ### Manage monetization
 
 - List, create, and update developer products and game passes with `manage_monetization`. New items stay off sale unless you ask, and a name that already exists is refused because Roblox cannot delete these items. Requires an Open Cloud API key; see [Configuration](docs/configuration.md#environment-variables).
+
+### Manage experience settings
+
+- Read and change the experience title, description, server size, devices, voice chat, private server price, and social links with `manage_experience`. Private server price changes need `confirm`, which the agent sets itself, so it is not a human approval step. It cannot make an experience public or private: Open Cloud ignores visibility changes, and Roblox can refuse to make an experience public through an API key, so change visibility in Creator Hub. The agent can use every permission the key grants, so give the key only the scopes you want an agent to use. Requires an Open Cloud API key; see [Configuration](docs/configuration.md#environment-variables).
 
 ### Look up Roblox APIs
 
@@ -144,7 +149,8 @@ Read-only access to the DataModel.
 
 No DataModel or script edits. The selection tool can change editor selection and
 camera framing; export and profiler tools can write files only to explicit local
-paths.
+paths, except that `capture_micro_profiler` keeps its 10 most recent captures in
+the system temp directory.
 
 Install only one variant at a time (the installers remove the other automatically):
 

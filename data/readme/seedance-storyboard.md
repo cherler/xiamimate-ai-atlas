@@ -17,7 +17,7 @@
 
 本项目参考学习了： 《用 Seedance 2.0 做了 20 集水墨漫剧，聊聊真实体验》北极的树 闲话AI ，感谢作者。
 
-感谢厚爱，已经上线直接免费使用： https://skillhub.cn/skills/user_8bb4b4f5/seedance2-storyboard-generator
+本项目升级DeepSeek Harness工作台：https://github.com/liangdabiao/dsh-seedance-studio
 
 同时基于本项目，我再制作几个风格版本给大家试试：
 
@@ -25,7 +25,10 @@
 
 乐高大电影风格： https://github.com/liangdabiao/lego-cinematic-remix
 
-如果想不需要付费seedance这些，也能够生成免费的视频，我推荐我这个：  https://github.com/liangdabiao/whiteboard-explainer
+如果想不需要付费seedance这些，也能够生成免费的视频，我推荐我这个：  https://github.com/liangdabiao/whiteboard-teacher-video
+
+用AI声音克隆 + 视频生成模型， 真人视频和语音。 用AI一键生成 数字人播报视频，甚至连口型和表情都极其逼真: 
+https://github.com/liangdabiao/digital-human-koubo
 
 项目首发于linux.do社区，感谢佬友认同： https://linux.do/t/topic/1619920
 

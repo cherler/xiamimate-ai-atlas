@@ -1,44 +1,9 @@
 # 版本哨兵 · 2026-11-15
 
-扫 136 个模型：**有更新的一代 8** · 口径存疑 1 · 牌子摘了 27 · 比不了 55
+扫 136 个模型：**有更新的一代 0** · 口径存疑 0 · 牌子摘了 27 · 比不了 55
 
 > 这份只回答一件事：**一格署的那个源上，今天有没有出现比我们记的更新的版本号？**
 > 报出来的不是「世界变了」，是「**我们抓到了但没写回**」—— 这两件事的严重程度不一样。
-
-## 有更新的一代（8）—— 这一摞要写回 atlas.json
-
-- **Claude**（claude）库里记 `Fable 5.1`（核于 2026-09-10），而 `anthropic-models` 的快照（2026-11-12）上写着 **Fable 5.2**
-  > de API skill Release notes  API reference  English   Console Log in   Search Ctrl K Models Models overview Claude Fable 5.2 Claude Opus 5.5 Claude Sonnet 5.5 Claude Haiku 5.5 Specialized models  Legacy models  Guides Choosing a model Optimizing for cost and intelligence Upgrade between model versions Lifecycle
-
-- **Gemini Omni**（gemini-omni）库里记 `1.1 Flash`（核于 2026-10-10），而 `gemini-changelog` 的快照（2026-11-09）上写着 **Gemini Omni 1.2**
-  > schema, pricing, and embedding space, so no other code changes or vector re-indexing are needed. November 5, 2026 [图标] Gemini Omni 1.2 Flash generally available (GA): Released Gemini Omni 1.2 Flash (gemini-omni-1.2-flash), featuring up to 15-second video generation and conversational editing (3 to 10 seconds for first
-
-- **Google Genie**（genie）库里记 `Genie 3`（核于 2026-08-14），而 `genie3-blog` 的快照（2026-11-07）上写着 **Genie 4**
-  > in Toksoz-Exley, Xinchen Yan, Petko Yotov, Mingda Zhang and Martin Zlocha for their insights and support. Related posts Genie 4 Learn more How to create effective prompts with Genie Learn more SIMA 2: An Agent that Plays, Reasons, and Learns With You in Virtual 3D Worlds November 2025 Research Learn more Genie 2: A lar
-
-- **GPT**（gpt）库里记 `GPT-6 Astra`（核于 2026-09-10），而 `openai-models` 的快照（2026-11-12）上写着 **GPT-6.1**
-  > tokens Context window 1.05M Knowledge cutoff Apr 30, 2026 Tools Functions, Web search, File search, Computer use Terra GPT-6.1 Terra A fast, efficient model for visual reasoning, precise computer use, and clear, natural writing. Model ID gpt-6.1-terra Reasoning none low medium high xhigh max Input price $1 / Input MTo
-
-- **GPT Image**（gpt-image）库里记 `2.5（sunburst / flare）`（核于 2026-09-10），而 `openai-changelog` 的快照（2026-11-12）上写着 **gpt-image-2.6**
-  > n an authorized test environment, and verify fixes. See Daybreak setup before sending your first request. Nov 4 Feature gpt-image-2.6-sunburst gpt-image-2.6-flare v1/images/generations v1/images/edits Released GPT-Image-2.6 Sunburst and GPT-Image-2.6 Flare for image generation and editing, with adjustable complexity, S
-
-- **Kimi**（kimi）库里记 `K3`（核于 2026-06-13），而 `kimi-pricing` 的快照（2026-11-04）上写着 **K3.1**　⚠️ 这一格署的是 `hf-org`，**那个源上看不见新版**
-  > at: /docs/llms.txt Use this file to discover all available pages before exploring further. Skip to main content 🎉 Kimi K3.1 Pro 已正式发布， 快来体验吧！ Kimi API 开放平台 home page 简体中文 模型推理 托管智能体 API 参考 模型与定价 资源 搜索... ⌘ K 企业订阅 联系销售 用户中心 Kimi API 开放平台 home page 搜索或提问... Navigation 模型推理定价 模型推理价格说明 模型推理定价 计费说明 功能定价 批量推理定价 联网搜索定价 托管智能体
-
-- **Krea**（krea-img）库里记 `2-Raw`（核于 2026-06-18），而 `krea-blog` 的快照（2026-11-04）上写着 **Krea 3**
-  > Krea Blog New The Krea 3 Technical Report is out Read the report → App Image Generator Video Generator Upscaler API Pricing Enterprise Sign up for free Log in Sign up for free Log in App Image Generation Video Generati
-
-- **Decart Lucy**（lucy）库里记 `Lucy 2.5`（核于 2026-08-07），而 `decart-site` 的快照（2026-11-15）上写着 **Lucy 2.6**
-  > ew first-year group, joint research with faculty, and problems no syllabus covers yet Read more → [图标] November 5, 2026 Lucy 2.6: Ready for Live Commerce and Engagement [图标] Decart Team Sharper fidelity and quality for your characters, clothing, and products, all generated live. Read more → [图标] October 2026 Learning a
-
-## 口径存疑（1）—— 两种读法结论相反，**得你定**
-
-> `4.20` 按分段整数读是 4 之后的第 20 个小版本（比 4.6 新），按小数读就是 4.2（比 4.6 老）。
-> 哪种对取决于厂商自己的习惯，脚本判不了。定完把结论记进 `data/version-sentry-ack.json`。
-
-- **MiniMax Hailuo**（hailuo）库里记 `H3`，`minimax-release-notes`（2026-11-02）上出现 **minimax-hailuo-23**
-  分段整数读：23 比 H3 **新**；小数读：比 H3 **老**
-  > . 28, 2025`}),`\n`,_jsx(Card,{title:`MiniMax-Hailuo-2.3 \u0026 2.3-Fast`,icon:`video`,href:`https://www.minimax.io/news/minimax-hailuo-23`,cta:`Learn More`,children:_jsx(_components.p,{children:`Released MiniMax-Hailuo-2.3 \u0026 2.3-Fast, featuring breakthroughs in body movement, facial expressions, physical realism,
 
 ## 机器自查 · 牌子摘了（27）—— **不用你拍板**
 
@@ -55,6 +20,7 @@
 - **FLUX 3**（flux-video）记的是 `3`，`bfl-flux3`（2026-11-07）上没有这个号
 - **GLM Voice**（glm-voice）记的是 `glm-4-voice`，`glm-voice-doc`（2026-11-04）上没有这个号
 - **GNoME**（gnome）记的是 `1`，`sci-gnome-gh`（2026-11-07）上没有这个号
+- **MiniMax Hailuo**（hailuo）记的是 `H3`，`minimax-release-notes`（2026-11-02）上没有这个号
 - **HunyuanVideo-Avatar**（hunyuan-avatar）记的是 `1.0`，`hf-hunyuan-avatar`（2026-11-07）上没有这个号
 - **Hunyuan3D**（hunyuan3d）记的是 `3.1`，`replicate-hunyuan3d-31`（2026-11-07）上没有这个号
 - **LivePortrait**（liveportrait）记的是 `1.0`，`hf-liveportrait`（2026-11-07）上没有这个号
@@ -72,7 +38,6 @@
 - **ElevenLabs Scribe**（scribe）记的是 `v2`，`elevenlabs-models`（2026-11-07）上没有这个号
 - **Seed GR-3**（seed-gr3）记的是 `GR-3`，`seed-models`（2026-11-04）上没有这个号
 - **SPAR3D**（spar3d）记的是 `Stable Point Aware 3D`，`stability-spar3d`（2026-11-07）上没有这个号
-- **Tripo**（tripo）记的是 `P1-20260311`，`tripo-docs-generation`（2026-11-07）上没有这个号
 - **Meta V-JEPA**（vjepa）记的是 `V-JEPA 2`，`vjepa2-blog`（2026-11-12）上没有这个号
 
 ## 比不了（55）

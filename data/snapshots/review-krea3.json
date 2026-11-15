@@ -1,0 +1,10 @@
+{
+  "url": "https://www.krea.ai/blog/krea-3-technical-report",
+  "kind": "html",
+  "fetched_at": "2026-11-15",
+  "capture": "selected-excerpts-via-web",
+  "capture_note": "官方页面选段核验，非完整正文；仅支持本轮所引句子。",
+  "digest": "9b4f3308c26bc239",
+  "items": [],
+  "text": "Krea 3 Technical Report. foundation image-to-image model. makes targeted changes while leaving the rest of the image untouched. combines up to 8 reference images."
+}

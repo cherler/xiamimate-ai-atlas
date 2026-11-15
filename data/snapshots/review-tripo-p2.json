@@ -1,0 +1,10 @@
+{
+  "url": "https://developers.tripo3d.ai/en/models/p2",
+  "kind": "html",
+  "fetched_at": "2026-11-15",
+  "capture": "selected-excerpts-via-web",
+  "capture_note": "官方页面选段核验，非完整正文；仅支持本轮所引句子。",
+  "digest": "bbe7df19b00bfd52",
+  "items": [],
+  "text": "Tripo P2 P2-20260801 Current release. Text, single-image, and multiview inputs are supported. Enable PBR materials (default: true); forces texture to true"
+}

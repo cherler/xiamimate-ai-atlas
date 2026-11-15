@@ -201,7 +201,7 @@ out.push([
   ``,
   hfNew.length ? `| 组织 | 仓库数 | 示例 |\n|---|---:|---|` : "（无）",
   ...hfNew.slice(0, 20).map((x) => `| ${x.org} | ${x.n} | \`${x.sample}\` |`),
-  ...orgRows.filter(x=>x.reviewed).map(x=>`> 已核 ${x.org} 本次出现的 ${x.n} 个仓库：量化/格式转换，不另建模型产品线。只记这些具体仓库；新仓库仍会重新检查。`),
+  ...orgRows.filter(x=>x.reviewed).map(x=>`> 已处置 ${x.org} 本次出现的 ${x.n} 个仓库，具体收录决定与理由见 data/candidates-decisions.json。处置不等于确认新模型，也不一律代表量化/格式转换；新仓库仍会重新检查。`),
   ``,
   `> ⚠️ HF 这一路混着个人搬运号与量化号（QuantStack、city96、calcuis 之类）。`,
   `> **脚本分不出「自己训模型」和「搬别人的」** —— 那要人看一眼组织主页。`,

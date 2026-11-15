@@ -1,4 +1,4 @@
-# 收录候选 · 2026-10-19
+# 收录候选 · 2026-11-15
 
 
 
@@ -24,9 +24,11 @@
 
 ### 二、Hugging Face 下载量前列、我们没收的组织（开源侧的实际采用度）
 
-> ⚠️ 另有 **7 个组织被判成量化 / 搬运号**（仓库八成以上是 GGUF、AWQ、mlx 这类二次分发档），已从下表略过：`ChrisColeTech`、`QuantStack`、`city96`、`drbaph`、`joeygambino`、`realrebelai` 等。**判据是仓库名，不是人品** —— 它们里面若有自训模型，会因为名字不带量化后缀而照常出现在上表。
+> ⚠️ 另有 **6 个组织被判成量化 / 搬运号**（仓库八成以上是 GGUF、AWQ、mlx 这类二次分发档），已从下表略过：`ChrisColeTech`、`QuantStack`、`city96`、`drbaph`、`realrebelai`、`vantagewithai`。**判据是仓库名，不是人品** —— 它们里面若有自训模型，会因为名字不带量化后缀而照常出现在上表。
 
 （无）
+> 已处置 Efficient-Large-Model 本次出现的 2 个仓库，具体收录决定与理由见 data/candidates-decisions.json。处置不等于确认新模型，也不一律代表量化/格式转换；新仓库仍会重新检查。
+> 已处置 Viggle 本次出现的 2 个仓库，具体收录决定与理由见 data/candidates-decisions.json。处置不等于确认新模型，也不一律代表量化/格式转换；新仓库仍会重新检查。
 
 > ⚠️ HF 这一路混着个人搬运号与量化号（QuantStack、city96、calcuis 之类）。
 > **脚本分不出「自己训模型」和「搬别人的」** —— 那要人看一眼组织主页。
@@ -43,7 +45,7 @@
 - `er` LocateAnything LocateAnything-3B（2026-08-27）
 - `clip` Seedance 2.5（2026-10-10）
 - `clip` MiniMax Hailuo H3（2026-07-31）
-- `clip` Gemini Omni 1.1 Flash（2026-10-10）
+- `clip` Gemini Omni 1.2 Flash（2026-11-15）
 - `clip` Wan 3.0（2026-08-07）
 - `clip` Runway Gen Gen-4.5（2025-12-11）
 - `clip` Kling 4.0（2026-10-10）
@@ -51,7 +53,7 @@
 - `clip` Veo 3.1（2025-10） — **superseded**
 - `clip` Sora 2（2025-09） — **discontinued**
 - `realtime` Vidu S S2（2026-09-19）
-- `realtime` Decart Lucy Lucy 2.5（2026-08-07）
+- `realtime` Decart Lucy Lucy 2.6（2026-11-15）
 - `clip` LTX 2.5（2026-08-13）
 - `clip` HappyHorse 1.1（2026-06）
 - `clip` SkyReels V3（2026-03）
@@ -64,10 +66,10 @@
 - `still` Z-Image Turbo（2025-11-25）
 - `still` HunyuanImage 3.0（2025-09-25）
 - `still` Stable Diffusion XL 1.0（2023-07-25）
-- `still` Krea 2-Raw（2026-06-18）
+- `still` Krea 3（2026-11-15）
 - `still` Seedream 5.0 Pro（2026-08-11）
 - `still` Nano Banana 2.1（gemini-nano-banana-2.1）（2026-10-10）
-- `still` GPT Image 2.5（sunburst / flare）（2026-09-10）
+- `still` GPT Image 2.6（sunburst / flare）（2026-11-15）
 - `still` Kolors 待核（2026-08-11）
 - `still` Midjourney 待核（2026-08-11）
 - `still` Ideogram 4.0（2026-08-12）
@@ -81,12 +83,12 @@
 - `still` Anima Anima（2026-01-29）
 - `still` Boogu-Image 0.1-Turbo（2026-06-16）
 - `still` NewBie-image Exp0.1（2025-11-30）
-- `chat` Claude Fable 5.1（2026-09-10）
+- `chat` Claude Fable 5.2（2026-11-15）
 - `chat` GPT GPT-6 Astra（2026-09-10）
 - `chat` Gemini Gemini 4 Argon（2026-10-19）
 - `chat` Qwen 3.8-max（2026-08-11）
 - `chat` DeepSeek V4.1 Flash-1017（2026-10-19）
-- `chat` Kimi K3（2026-06-13）
+- `chat` Kimi K3.1 Pro（2026-11-15）
 - `chat` GLM GLM-5.3（2026-08-29）
 - `chat` MiniMax M3.1 Flash（2026-10-19）
 - `chat` Doubao Seed-2.1 Pro（2026-06-23）
@@ -94,7 +96,7 @@
 - `chat` Grok 4.7（2026-10-10）
 - `chat` Mistral Medium 3.5（2026-03-31）
 - `tts` MiniMax Speech speech-2.8-hd（2026-08-12）
-- `tts` ElevenLabs Eleven v4（2026-10-10）
+- `tts` ElevenLabs Eleven v4（2026-11-15）
 - `tts` Gemini TTS 3.8 Flash TTS（2026-10-19）
 - `tts` GPT TTS GPT-4o mini TTS（2026-08-12）
 - `voice-rt` GLM Voice glm-4-voice（2026-08-12）
@@ -110,7 +112,7 @@
 - `tts` Kokoro 82M v1.1-zh（2025-02-27）
 - `clip` FLUX 3 3（2026-08）
 - `asset` Hunyuan3D 3.1（2026-08-13）
-- `asset` Tripo P1-20260311（2026-08-13）
+- `asset` Tripo P2-20260801（2026-11-15）
 - `asset` Meshy 7.1（2026-10-10）
 - `asset` Rodin Gen-2.5（2026-08-13）
 - `asset` TRELLIS TRELLIS.2-4B（2026-08-13）
@@ -145,14 +147,14 @@
 - `vla` Galaxea G0 G0-VLA（2026-08-14）
 - `vla` lingbot-vla v2-6b（2026-08-14）
 - `world` NVIDIA Cosmos Cosmos3（2026-08-14）
-- `world` Google Genie Genie 3（2026-08-14）
+- `world` Google Genie Genie 4（2026-11-15）
 - `world` World Labs Marble Marble（2026-08-14）
 - `world` Odyssey Odyssey-3（2026-10-10）
 - `world` Matrix-Game 3.0（2026-08-14）
 - `world` 混元世界 HY-World 2.0（2026-08-14）
 - `world` Microsoft WHAM WHAM（2026-08-14）
 - `world` Meta V-JEPA V-JEPA 2（2026-08-14）
-- `world` Decart Oasis Oasis 3（2026-08-14）
+- `world` Decart Oasis Oasis 3（2026-11-15）
 - `world` Etched Oasis-500M 500M（2026-08-14）
 - `asr` ElevenLabs Scribe v2（2026-08-15）
 - `asr` Whisper large-v3（2026-08-15） — **maintained**
@@ -184,11 +186,10 @@
 
 ### 二、Hugging Face 下载量前列、我们没收的组织（开源侧的实际采用度）
 
-> ⚠️ 另有 **4 个组织被判成量化 / 搬运号**（仓库八成以上是 GGUF、AWQ、mlx 这类二次分发档），已从下表略过：`AtomicChat`、`city96`、`xinsir`、`QuantStack`。**判据是仓库名，不是人品** —— 它们里面若有自训模型，会因为名字不带量化后缀而照常出现在上表。
+> ⚠️ 另有 **5 个组织被判成量化 / 搬运号**（仓库八成以上是 GGUF、AWQ、mlx 这类二次分发档），已从下表略过：`AtomicChat`、`city96`、`leejet`、`xinsir`、`QuantStack`。**判据是仓库名，不是人品** —— 它们里面若有自训模型，会因为名字不带量化后缀而照常出现在上表。
 
 （无）
-> 已核 AlperKTS 本次出现的 1 个仓库：量化/格式转换，不另建模型产品线。只记这些具体仓库；新仓库仍会重新检查。
-> 已核 silveroxides 本次出现的 1 个仓库：量化/格式转换，不另建模型产品线。只记这些具体仓库；新仓库仍会重新检查。
+> 已处置 ml-resources 本次出现的 2 个仓库，具体收录决定与理由见 data/candidates-decisions.json。处置不等于确认新模型，也不一律代表量化/格式转换；新仓库仍会重新检查。
 
 > ⚠️ HF 这一路混着个人搬运号与量化号（QuantStack、city96、calcuis 之类）。
 > **脚本分不出「自己训模型」和「搬别人的」** —— 那要人看一眼组织主页。
@@ -205,7 +206,7 @@
 - `er` LocateAnything LocateAnything-3B（2026-08-27）
 - `clip` Seedance 2.5（2026-10-10）
 - `clip` MiniMax Hailuo H3（2026-07-31）
-- `clip` Gemini Omni 1.1 Flash（2026-10-10）
+- `clip` Gemini Omni 1.2 Flash（2026-11-15）
 - `clip` Wan 3.0（2026-08-07）
 - `clip` Runway Gen Gen-4.5（2025-12-11）
 - `clip` Kling 4.0（2026-10-10）
@@ -213,7 +214,7 @@
 - `clip` Veo 3.1（2025-10） — **superseded**
 - `clip` Sora 2（2025-09） — **discontinued**
 - `realtime` Vidu S S2（2026-09-19）
-- `realtime` Decart Lucy Lucy 2.5（2026-08-07）
+- `realtime` Decart Lucy Lucy 2.6（2026-11-15）
 - `clip` LTX 2.5（2026-08-13）
 - `clip` HappyHorse 1.1（2026-06）
 - `clip` SkyReels V3（2026-03）
@@ -226,10 +227,10 @@
 - `still` Z-Image Turbo（2025-11-25）
 - `still` HunyuanImage 3.0（2025-09-25）
 - `still` Stable Diffusion XL 1.0（2023-07-25）
-- `still` Krea 2-Raw（2026-06-18）
+- `still` Krea 3（2026-11-15）
 - `still` Seedream 5.0 Pro（2026-08-11）
 - `still` Nano Banana 2.1（gemini-nano-banana-2.1）（2026-10-10）
-- `still` GPT Image 2.5（sunburst / flare）（2026-09-10）
+- `still` GPT Image 2.6（sunburst / flare）（2026-11-15）
 - `still` Kolors 待核（2026-08-11）
 - `still` Midjourney 待核（2026-08-11）
 - `still` Ideogram 4.0（2026-08-12）
@@ -243,12 +244,12 @@
 - `still` Anima Anima（2026-01-29）
 - `still` Boogu-Image 0.1-Turbo（2026-06-16）
 - `still` NewBie-image Exp0.1（2025-11-30）
-- `chat` Claude Fable 5.1（2026-09-10）
+- `chat` Claude Fable 5.2（2026-11-15）
 - `chat` GPT GPT-6 Astra（2026-09-10）
 - `chat` Gemini Gemini 4 Argon（2026-10-19）
 - `chat` Qwen 3.8-max（2026-08-11）
 - `chat` DeepSeek V4.1 Flash-1017（2026-10-19）
-- `chat` Kimi K3（2026-06-13）
+- `chat` Kimi K3.1 Pro（2026-11-15）
 - `chat` GLM GLM-5.3（2026-08-29）
 - `chat` MiniMax M3.1 Flash（2026-10-19）
 - `chat` Doubao Seed-2.1 Pro（2026-06-23）
@@ -256,7 +257,7 @@
 - `chat` Grok 4.7（2026-10-10）
 - `chat` Mistral Medium 3.5（2026-03-31）
 - `tts` MiniMax Speech speech-2.8-hd（2026-08-12）
-- `tts` ElevenLabs Eleven v4（2026-10-10）
+- `tts` ElevenLabs Eleven v4（2026-11-15）
 - `tts` Gemini TTS 3.8 Flash TTS（2026-10-19）
 - `tts` GPT TTS GPT-4o mini TTS（2026-08-12）
 - `voice-rt` GLM Voice glm-4-voice（2026-08-12）
@@ -272,7 +273,7 @@
 - `tts` Kokoro 82M v1.1-zh（2025-02-27）
 - `clip` FLUX 3 3（2026-08）
 - `asset` Hunyuan3D 3.1（2026-08-13）
-- `asset` Tripo P1-20260311（2026-08-13）
+- `asset` Tripo P2-20260801（2026-11-15）
 - `asset` Meshy 7.1（2026-10-10）
 - `asset` Rodin Gen-2.5（2026-08-13）
 - `asset` TRELLIS TRELLIS.2-4B（2026-08-13）
@@ -307,14 +308,14 @@
 - `vla` Galaxea G0 G0-VLA（2026-08-14）
 - `vla` lingbot-vla v2-6b（2026-08-14）
 - `world` NVIDIA Cosmos Cosmos3（2026-08-14）
-- `world` Google Genie Genie 3（2026-08-14）
+- `world` Google Genie Genie 4（2026-11-15）
 - `world` World Labs Marble Marble（2026-08-14）
 - `world` Odyssey Odyssey-3（2026-10-10）
 - `world` Matrix-Game 3.0（2026-08-14）
 - `world` 混元世界 HY-World 2.0（2026-08-14）
 - `world` Microsoft WHAM WHAM（2026-08-14）
 - `world` Meta V-JEPA V-JEPA 2（2026-08-14）
-- `world` Decart Oasis Oasis 3（2026-08-14）
+- `world` Decart Oasis Oasis 3（2026-11-15）
 - `world` Etched Oasis-500M 500M（2026-08-14）
 - `asr` ElevenLabs Scribe v2（2026-08-15）
 - `asr` Whisper large-v3（2026-08-15） — **maintained**

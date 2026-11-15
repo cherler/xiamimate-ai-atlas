@@ -1,6 +1,49 @@
 {
  "at": "2026-11-15",
  "label": "快讯",
- "more": 0,
- "items": []
+ "more": 5,
+ "items": [
+  {
+   "id": "tripo-review-2026-11-15",
+   "date": "2026-11-15",
+   "until": "2026-11-22",
+   "headline": "今日补核：Tripo P2-20260801",
+   "auto": true,
+   "why": "11-15 是本站核验日期；旧文档迁移使版本哨兵漏检，本轮按新官方型号页补正。",
+   "domain": "threed",
+   "src": {
+    "name": "Tripo P2 官方型号页",
+    "url": "https://developers.tripo3d.ai/en/models/p2",
+    "tier": "official"
+   }
+  },
+  {
+   "id": "lucy-review-2026-11-15",
+   "date": "2026-11-15",
+   "until": "2026-11-22",
+   "headline": "今日补核：Decart Lucy Lucy 2.6",
+   "auto": true,
+   "why": "本次为来源核验与页面更新日期；未核实的新版本能力保持未知，不继承旧版本结论。",
+   "domain": "video",
+   "src": {
+    "name": "Decart · Lucy 2.6 发布",
+    "url": "https://decart.ai/publications/introducing-lucy-2-6",
+    "tier": "official"
+   }
+  },
+  {
+   "id": "krea-img-review-2026-11-15",
+   "date": "2026-11-15",
+   "until": "2026-11-22",
+   "headline": "今日补核：Krea 3",
+   "auto": true,
+   "why": "本次为来源核验与页面更新日期；未核实的新版本能力保持未知，不继承旧版本结论。",
+   "domain": "image",
+   "src": {
+    "name": "Krea 官方博客",
+    "url": "https://www.krea.ai/blog",
+    "tier": "official"
+   }
+  }
+ ]
 }

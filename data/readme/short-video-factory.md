@@ -36,6 +36,16 @@
 
 [![许可证][license-shield]][license-url]
 
+<p align="center">
+  <a href="https://www.star-history.com/yils-lin/short-video-factory">
+    <picture>
+      <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/badge?repo=YILS-LIN/short-video-factory&type=trending&theme=dark" />
+      <source media="(prefers-color-scheme: light)" srcset="https://api.star-history.com/badge?repo=YILS-LIN/short-video-factory&type=trending" />
+      <img alt="GitHub Trending Repository of the Day" src="https://api.star-history.com/badge?repo=YILS-LIN/short-video-factory&type=trending" />
+    </picture>
+  </a>
+</p>
+
   <p align="center">
     <a href="https://github.com/YILS-LIN/short-video-factory/issues/new?labels=bug&template=bug-report---.md">报告Bug</a>
     &middot;
@@ -74,12 +84,34 @@
 
 <p align="right">(<a href="#readme-top">返回顶部</a>)</p>
 
+## 🤝 赞助商
+
+感谢以下合作伙伴对项目持续开发的支持！
+
+<table>
+  <tr>
+    <td width="180" align="center">
+      <a href="https://www.jalapeno-cloud.ai?invite=short-video-factory">
+        <img src="https://github.com/user-attachments/assets/9a575788-0c19-4642-b9a3-64c9639224ca" alt="Jalapeno Cloud Logo" width="180">
+      </a>
+    </td>
+    <td>
+      <strong>Jalapeno Cloud</strong>
+      <p>Jalapeno Cloud 提供自部署模型 Token 与稳定供应渠道，Seedance 直连源头云厂商。</p>
+      <p>🎁 <strong>专属福利：</strong>通过活动链接注册即赠 $1，充值额外赠送 20% 额度（约 83 折）。</p>
+      <a href="https://www.jalapeno-cloud.ai?invite=short-video-factory">访问官网 ↗</a>
+    </td>
+  </tr>
+</table>
+
+<p align="right">(<a href="#readme-top">返回顶部</a>)</p>
+
 ## 💬 交流社区
 
 欢迎加入「短视频工厂」微信交流群，与开发者一起交流使用心得、分享创作经验、获取最新更新。
 
 <div align="left">
-  <img src="images/wechat-community-group-1-qr.png" alt="短视频工厂微信交流 1 群二维码" width="320">
+  <img src="images/wechat-community-group-2-qr.png" alt="短视频工厂微信交流 2 群二维码" width="320">
 </div>
 
 注：群二维码有效期有限，请以图片中标注的有效期为准。
@@ -185,11 +217,11 @@ Copyright © 2025 YILS.
 
 ## ⭐ 星标历史
 
-<a href="https://star-history.dera.page/#YILS-LIN/short-video-factory">
+<a href="https://www.star-history.com/?repos=YILS-LIN/short-video-factory">
  <picture>
-   <source media="(prefers-color-scheme: dark)" srcset="https://star-history.dera.page/svg?repos=YILS-LIN/short-video-factory&theme=dark" />
-   <source media="(prefers-color-scheme: light)" srcset="https://star-history.dera.page/svg?repos=YILS-LIN/short-video-factory" />
-   <img alt="Star History Chart" src="https://star-history.dera.page/svg?repos=YILS-LIN/short-video-factory" />
+   <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/chart?repos=YILS-LIN/short-video-factory&type=date&theme=dark&legend=top-left" />
+   <source media="(prefers-color-scheme: light)" srcset="https://api.star-history.com/chart?repos=YILS-LIN/short-video-factory&type=date&legend=top-left" />
+   <img alt="Star History Chart" src="https://api.star-history.com/chart?repos=YILS-LIN/short-video-factory&type=date&legend=top-left" />
  </picture>
 </a>
 

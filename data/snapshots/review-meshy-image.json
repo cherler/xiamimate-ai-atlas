@@ -1,0 +1,10 @@
+{
+  "url": "https://docs.meshy.ai/en/api/image-to-3d",
+  "kind": "html",
+  "fetched_at": "2026-11-15",
+  "capture": "selected-excerpts-via-web",
+  "capture_note": "官方页面选段核验，非完整正文；仅支持本轮所引句子。",
+  "digest": "2f1caea79231d784",
+  "items": [],
+  "text": "Image to 3D API. \"ai_model\": \"meshy-7.1\", \"geometry_resolution\": \"4k\", \"enable_pbr\": true, \"should_remesh\": true"
+}

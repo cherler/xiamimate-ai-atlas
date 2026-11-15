@@ -61,8 +61,9 @@ console.log(`回查 ${rows.length} 条外链（教程 + 常识 + 作品出处）
  * 匿名接口限流被报成「这些仓库没有 README」）。**同一个错，这里不再犯。**
  * 所以单独归一类：报出来提醒人，但不判失败。
  */
-// 401/403 mean access is denied; they do not establish that a page is gone.
-const RETRYABLE = new Set(["401", "403", "429", "503", "502", "504"]);
+// Access/precondition failures do not establish that a page is gone.
+// Bilibili returns 412 to some server requests while the same video is accessible locally.
+const RETRYABLE = new Set(["401", "403", "412", "429", "503", "502", "504"]);
 
 /**
  * **GitHub 的 issue 页对未登录请求回 404，而那个 issue 明明活着。**
