@@ -1,6 +1,6 @@
-# 信息源监视报告 · 2026-11-14
+# 信息源监视报告 · 2026-11-15
 
-本次检查 15 个到期源（共 467 个）：变化 7 · 首次 0 · 无变化 2 · **抓不到 6**
+本次检查 13 个到期源（共 467 个）：变化 5 · 首次 0 · 无变化 2 · **抓不到 6**
 
 > 这份报告是给人看的那 20 条待办的来源（§59.3 的负反馈：人每周要看的条目 ≤ 20）。
 > 「抓不到」不是失败，是**信息本身** —— 一个长期抓不到的官方源，说明那家厂商没有可 diff 的公开更新入口，
@@ -27,15 +27,12 @@
 
 ## 有变化
 
-- **arxiv-video** arXiv · 视频生成新论文
-  新增 31 条：Back to Pixels: Lifting Latent Video Diffusion into Pixel Space、K2V: Generative Keyframing For Physically Plausible Video Generation、Spatial Foundry: A Multimodal Dataset for Spatial Intelligence、TokenStream: Multi-Subject Personalized Video Generation with Token-wise LoRA and Guided Attention、PhysLoop: Harnessing LLMs' Physics Awareness for Self-Improving Video Generation Models、VBot Exo2Ego Policy: Lightweight Data Collection and Exocentric-to-Egocentric Video Generation、BWM-Forge: Agentic World Programming for Embodied Intelligence、WorldDraft: If Code Builds the World, Can Video Models Just Render It?、TRACE: Trajectory Synchronization for Training-Free Resolution Extension in Video Generation、VibePrevisBench: Evaluating Agentic Coding for 4D Scene Generation in Blender、CoCode-World: Shared 3D Proxy Representation for Multi-Player World Models、From Concepts to Interactions: Dynamic Graph Semantic Recomposition for Safe Visual Generation …
-- **gemini-robotics-er** Google 官方文档 · Gemini Robotics ER（能力表 / 端点 / 定价）
-- **nvidia-groot-gh** NVIDIA/Isaac-GR00T 官方仓库
-- **hf-robotics** Hugging Face · robotics 榜（按下载）
-  新增 10 条：0xAnkitSingh/GR00T-N1.6-LIBERO、Alibaba-DAMO-Academy/RynnBrain-2B、Dexmal/DM05、XiaomiRobotics/Xiaomi-Robotics-0-LIBERO、Zizizi-hao/NegWAM、autotrust/AutoTrust-Decider-Mini-9B、jialei02/lawam-libero-sft-lerobot、juexzz/INTACT-pi0-finetune-bridge、nvidia/gr00t17-lerobot-libero_10-640、remyxai/SpaceLLaVA
-- **lerobot-gh** Hugging Face 官方 · LeRobot 仓库
-- **cosmos3-card** NVIDIA 官方 · Cosmos3-Nano 模型卡（输入输出规格与本体维度表）
-- **gemini-nb21** Google · Nano Banana 2.1 模型卡
+- **decart-site** Decart 官网首屏（当前版本）
+- **deepseek-pricing** DeepSeek 官方文档 · 模型与价格
+- **deepseek-updates** DeepSeek 官方文档 · 更新日志
+- **hf-funcineforge** 阿里 FunAudioLLM 官方 · Fun-CineForge 模型卡
+- **hf-org** Hugging Face 官方组织目录（模型接口）
+  新增 225 条：0bserverx/Qwen3.8-27B-Heretic-GSQ-RCO-GGUF、8BitStudio/Sekai-1、Abiray/MiniMax-H3-GGUF、AiNinja94/MiniMax-H3、Aratako/Irodori-TTS-v4-Large、AtomicChat/FLUX-3-Image-Klein-pup-Uncensored-GGUF、AtomicChat/Qwen3.8-Flash-Next-GGUF、AtomicChat/Qwen3.8-Flash-Next-Uncensored-GGUF、AtomicChat/ZONOS3-Mini-GGUF、AutowareFoundation/latent_drive、Cactus-Compute/nemotron-3.5-120b-cq、CloudGoat/Baphomet-1.1-4B …
 
 ## 全部
 
@@ -64,7 +61,7 @@
 | pika-site | S | html | 未到期（上次 2026-11-05） |
 | higgsfield-site | S | html | 未到期（上次 2026-11-04） |
 | decart-research | S | html | 未到期（上次 2026-11-04） |
-| arxiv-video | S | atom | 变了 |
+| arxiv-video | S | atom | 未到期（上次 2026-11-14） |
 | epoch-notable | A | csv | 未到期（上次 2026-11-11） |
 | aa-t2v | A | spa | 未到期（上次 2026-11-11） |
 | aa-i2v | A | spa | 未到期（上次 2026-11-11） |
@@ -87,7 +84,7 @@
 | techcrunch-ai | B | atom | 未到期（上次 2026-11-13） |
 | ltx-gh | S | json | 未到期（上次 2026-11-11） |
 | ltx-hf-org | S | json | 未到期（上次 2026-11-13） |
-| decart-site | S | spa | 未到期（上次 2026-11-08） |
+| decart-site | S | spa | 变了 |
 | picsart-video | C | html | 未到期（上次 2026-10-24） |
 | libtv | C | spa | 从未抓过 |
 | dreamina | S | html | 未到期（上次 2026-11-04） |
@@ -219,8 +216,8 @@
 | mcpservers-gh | S | json | 未到期（上次 2026-11-10） |
 | anthropic-features | S | html | 未到期（上次 2026-11-12） |
 | openai-docs | S | html | 未到期（上次 2026-11-12） |
-| deepseek-pricing | S | spa | 未到期（上次 2026-11-12） |
-| deepseek-updates | S | spa | 未到期（上次 2026-11-12） |
+| deepseek-pricing | S | spa | 变了 |
+| deepseek-updates | S | spa | 变了 |
 | bailian-models | S | html | 未到期（上次 2026-11-11） |
 | kimi-pricing | S | html | 未到期（上次 2026-11-04） |
 | glm-52-doc | S | html | 未到期（上次 2026-11-04） |
@@ -325,7 +322,7 @@
 | recraft-nl-edit | A | html | 未到期（上次 2026-11-05） |
 | hunyuan-image-hf | A | json | 未到期（上次 2026-11-05） |
 | bfl-flux2-overview | A | html | 未到期（上次 2026-11-05） |
-| bfl-flux2-multiref | A | html | 未到期（上次 2026-11-08） |
+| bfl-flux2-multiref | A | html | 无变化 |
 | ark-seedream-api | A | spa | 未到期（上次 2026-11-05） |
 | arxiv-fp8 | A | html | 未到期（上次 2026-08-13） |
 | arxiv-int8 | A | html | 未到期（上次 2026-08-13） |
@@ -414,19 +411,19 @@
 | openai-model-tts | S | spa | 未到期（上次 2026-11-07） |
 | openai-model-realtime | S | spa | 未到期（上次 2026-11-07） |
 | elevenlabs-docs | S | html | 未到期（上次 2026-11-05） |
-| gemini-robotics-er | S | html | 变了 |
+| gemini-robotics-er | S | html | 未到期（上次 2026-11-14） |
 | figure-helix | A | html | 未到期（上次 2026-11-07） |
 | pi-pi05-blog | A | html | 未到期（上次 2026-11-11） |
-| pi-openpi-gh | A | html | 无变化 |
-| nvidia-groot-gh | A | html | 变了 |
+| pi-openpi-gh | A | html | 未到期（上次 2026-11-14） |
+| nvidia-groot-gh | A | html | 未到期（上次 2026-11-14） |
 | openvla-gh | A | html | 未到期（上次 2026-11-07） |
 | openvla-repo | A | html | 未到期（上次 2026-11-07） |
-| hf-robotics | B | json | 变了 |
-| lerobot-gh | A | json | 变了 |
-| groot-policy-doc | A | html | 无变化 |
+| hf-robotics | B | json | 未到期（上次 2026-11-14） |
+| lerobot-gh | A | json | 未到期（上次 2026-11-14） |
+| groot-policy-doc | A | html | 未到期（上次 2026-11-14） |
 | rynnbrain-card | A | html | 未到期（上次 2026-11-07） |
 | maniskill-gh | B | json | 未到期（上次 2026-11-12） |
-| cosmos3-card | S | html | 变了 |
+| cosmos3-card | S | html | 未到期（上次 2026-11-14） |
 | genie3-blog | A | html | 未到期（上次 2026-11-07） |
 | odyssey-site | S | html | 未到期（上次 2026-11-07） |
 | worldlabs-marble | A | html | 未到期（上次 2026-11-07） |
@@ -467,10 +464,10 @@
 | seed-blog-1_5 | A | html | 未到期（上次 2026-11-07） |
 | seed-blog-2_0 | A | html | 未到期（上次 2026-11-07） |
 | ideogram-x | A | html | 未到期（上次 2026-11-07） |
-| hf-funcineforge | S | html | 未到期（上次 2026-11-01） |
-| hf-org | S | json | 未到期（上次 2026-11-12） |
-| gh-gptsovits-cn | C | json | 未到期（上次 2026-11-08） |
-| gemini-nb21 | S | spa | 变了 |
+| hf-funcineforge | S | html | 变了 |
+| hf-org | S | json | 变了 |
+| gh-gptsovits-cn | C | json | 无变化 |
+| gemini-nb21 | S | spa | 未到期（上次 2026-11-14） |
 | xai-grok47-model | S | spa | 未到期（上次 2026-11-09） |
 | ideogram-v1-overview | A | html | 未到期（上次 2026-11-07） |
 | ideogram-v1-upscale | A | html | 未到期（上次 2026-11-07） |
