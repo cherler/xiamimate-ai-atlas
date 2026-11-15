@@ -1,4 +1,4 @@
-# 版本哨兵 · 2026-11-14
+# 版本哨兵 · 2026-11-15
 
 扫 136 个模型：**有更新的一代 8** · 口径存疑 1 · 牌子摘了 27 · 比不了 55
 
@@ -28,8 +28,8 @@
 - **Krea**（krea-img）库里记 `2-Raw`（核于 2026-06-18），而 `krea-blog` 的快照（2026-11-04）上写着 **Krea 3**
   > Krea Blog New The Krea 3 Technical Report is out Read the report → App Image Generator Video Generator Upscaler API Pricing Enterprise Sign up for free Log in Sign up for free Log in App Image Generation Video Generati
 
-- **Decart Lucy**（lucy）库里记 `Lucy 2.5`（核于 2026-08-07），而 `decart-site` 的快照（2026-11-08）上写着 **Lucy 2.6**
-  > s Gaming Learn more about Live AI Math to Matter New research, launches, and experiments. See All [图标] November 5, 2026 Lucy 2.6: Ready for Live Commerce and Engagement Sharper fidelity and quality for your characters, clothing, and products, all generated live. Read more → [图标] October 2026 Learning a Spatial Memory C
+- **Decart Lucy**（lucy）库里记 `Lucy 2.5`（核于 2026-08-07），而 `decart-site` 的快照（2026-11-15）上写着 **Lucy 2.6**
+  > ew first-year group, joint research with faculty, and problems no syllabus covers yet Read more → [图标] November 5, 2026 Lucy 2.6: Ready for Live Commerce and Engagement [图标] Decart Team Sharper fidelity and quality for your characters, clothing, and products, all generated live. Read more → [图标] October 2026 Learning a
 
 ## 口径存疑（1）—— 两种读法结论相反，**得你定**
 
