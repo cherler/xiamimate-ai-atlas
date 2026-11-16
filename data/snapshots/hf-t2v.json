@@ -1,8 +1,8 @@
 {
   "url": "https://huggingface.co/api/models?filter=text-to-video&sort=downloads&direction=-1&limit=60",
   "kind": "json",
-  "fetched_at": "2026-11-13",
-  "digest": "fdc7e9552ffc1a5a",
+  "fetched_at": "2026-11-16",
+  "digest": "9401019339c636d5",
   "items": [
     "Abiray/LTX-2.5-Distilled-GGUF\t",
     "Abiray/MiniMax-H3-GGUF\t",
@@ -43,7 +43,6 @@
     "ZawShiShawn/Gestura-MiniMax-H3-VAE-LiteRT\t",
     "ZhengmingYu/DMAD\t",
     "alibaba-pai/MiniMax-H3-Acc-LoRAs\t",
-    "alibaba-pai/Wan2.2-VACE-Fun-A14B\t",
     "calcuis/wan-1.3b-gguf\t",
     "city96/Wan2.1-T2V-14B-gguf\t",
     "comfyicu/LTX-2.5\t",
@@ -51,6 +50,7 @@
     "fal/MiniMax-H3-Realism-People-LoRA\t",
     "guoyww/animatediff-motion-adapter-v1-5-2\t",
     "joeygambino/MiniMax-H3-encoder-GGUF\t",
+    "krea/krea-realtime-video\t",
     "larryvrh/MiniMax-H3-Turbo-Lora\t",
     "leejet/MiniMax-H3-GGUF\t",
     "molbal/MiniMax-H3-GGUF\t",

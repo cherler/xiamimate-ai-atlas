@@ -1,10 +1,9 @@
 {
   "url": "https://huggingface.co/api/models?filter=text-to-image&sort=downloads&direction=-1&limit=60",
   "kind": "json",
-  "fetched_at": "2026-11-13",
-  "digest": "dea5012af65fd784",
+  "fetched_at": "2026-11-16",
+  "digest": "d262b2151767b53e",
   "items": [
-    "AtomicChat/Qwen-Image-2.1-Turbo-GGUF\t",
     "AtomicChat/Qwen-Image-2.1-Turbo-Uncensored-GGUF\t",
     "ByteDance/SDXL-Lightning\t",
     "Comfy-Org/Flux-1-Dev\t",
@@ -24,6 +23,7 @@
     "LyliaEngine/waiIllustriousSDXL_v170\t",
     "MiniMaxAI/MiniMax-H3-Image\t",
     "Noctaluna/Noct-Q-Uncensored-Qwen-Image-2.1\t",
+    "OnomaAIResearch/Illustrious-xl-early-release-v0\t",
     "PrunaAI/P-H3-Image-Comfy\t",
     "Qwen/Qwen-Image\t",
     "Qwen/Qwen-Image-2.1\t",

@@ -1,7 +1,7 @@
 {
   "url": "https://docs.x.ai/developers/models/grok-4.7",
   "kind": "spa",
-  "fetched_at": "2026-11-09",
+  "fetched_at": "2026-11-16",
   "digest": "773f5a774abf8308",
   "items": [],
   "text": "Models / Grok 4.7 grok-4.7 [图标] SpaceXSI's frontier model for coding, agentic tasks, and knowledge work. [图标][图标] Copy for LLM [图标]View as Markdown Read announcement[图标] Try in playground At a glance Modalities Text, Image [图标] Text Context window 500,000 Pricing $2.00 [图标] $6.00 Capabilities [图标] Function calling Connect the SpaceXSI model to external tools and systems. [图标] Structured outputs Return responses in specific, organized formats. [图标] Reasoning The model can think before responding. Pricing Input Tokens $2.00/ 1M tokens Cached tokens $0.50/ 1M tokens Output Tokens $6.00/ 1M tokens You are charged for each token used when making calls to our API. Using cached input tokens can significantly reduce your costs. This model is available on multiple clusters, you can find full regional based pricing below. How does pricing work[图标] Tool pricing[图标] Request increased rate limits Higher context pricing We charge different rates for requests which exceed the 200K context window Show batch API pricing Details Model name grok-4.7 [图标] Region us-east-1 [图标] Batch API Supported Reasoning efforts SUPPORTED low, medium, high, xhigh DEFAULT high RATE LIMITS Requests per second 150 Tokens per minute 50,000,000 [图标] Learn more Quickstart Create an API Key and make your first request. [图标] Learn more Tool use Let Grok perform actions and look up information. [图标] Learn more Structured outputs Let Grok generate structured outputs.",
