@@ -1,4 +1,4 @@
-# 版本哨兵 · 2026-11-15
+# 版本哨兵 · 2026-11-16
 
 扫 136 个模型：**有更新的一代 0** · 口径存疑 0 · 牌子摘了 27 · 比不了 55
 
@@ -20,13 +20,13 @@
 - **FLUX 3**（flux-video）记的是 `3`，`bfl-flux3`（2026-11-07）上没有这个号
 - **GLM Voice**（glm-voice）记的是 `glm-4-voice`，`glm-voice-doc`（2026-11-04）上没有这个号
 - **GNoME**（gnome）记的是 `1`，`sci-gnome-gh`（2026-11-07）上没有这个号
-- **MiniMax Hailuo**（hailuo）记的是 `H3`，`minimax-release-notes`（2026-11-02）上没有这个号
+- **MiniMax Hailuo**（hailuo）记的是 `H3`，`minimax-release-notes`（2026-11-16）上没有这个号
 - **HunyuanVideo-Avatar**（hunyuan-avatar）记的是 `1.0`，`hf-hunyuan-avatar`（2026-11-07）上没有这个号
 - **Hunyuan3D**（hunyuan3d）记的是 `3.1`，`replicate-hunyuan3d-31`（2026-11-07）上没有这个号
 - **LivePortrait**（liveportrait）记的是 `1.0`，`hf-liveportrait`（2026-11-07）上没有这个号
 - **MAGI**（magi）记的是 `2 Preview`，`hf-magi`（2026-11-07）上没有这个号
 - **MatterGen**（mattergen）记的是 `1`，`sci-mattergen-gh`（2026-11-07）上没有这个号
-- **MiniMax Speech**（mm-speech）记的是 `speech-2.8-hd`，`minimax-api-overview`（2026-11-09）上没有这个号
+- **MiniMax Speech**（mm-speech）记的是 `speech-2.8-hd`，`minimax-api-overview`（2026-11-16）上没有这个号
 - **NeuralGCM**（neuralgcm）记的是 `1`，`sci-neuralgcm-gh`（2026-11-07）上没有这个号
 - **GPT TTS**（openai-tts）记的是 `GPT-4o mini TTS`，`openai-models`（2026-11-12）上没有这个号
 - **OpenVLA**（openvla）记的是 `7B`，`openvla-gh`（2026-11-07）上没有这个号

@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-15",
+  "generated_at": "2026-11-16",
   "n": 0,
   "n_unclear": 0,
   "n_missing": 27,
@@ -105,7 +105,7 @@
       "cur_as_of": "2026-07-31",
       "found": null,
       "src": "minimax-release-notes",
-      "src_at": "2026-11-02",
+      "src_at": "2026-11-16",
       "evidence": ""
     },
     {
@@ -173,7 +173,7 @@
       "cur_as_of": "2026-08-12",
       "found": null,
       "src": "minimax-api-overview",
-      "src_at": "2026-11-09",
+      "src_at": "2026-11-16",
       "evidence": ""
     },
     {
