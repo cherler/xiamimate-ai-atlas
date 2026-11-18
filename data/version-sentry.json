@@ -1,10 +1,50 @@
 {
-  "generated_at": "2026-11-17",
-  "n": 0,
+  "generated_at": "2026-11-18",
+  "n": 3,
   "n_unclear": 0,
   "n_missing": 27,
   "n_skipped": 55,
   "rows": [
+    {
+      "kind": "有更新的一代",
+      "m": "gpt",
+      "family": "GPT",
+      "zh": "GPT",
+      "cur": "GPT-6 Astra",
+      "cur_as_of": "2026-09-10",
+      "found": "GPT-6.2",
+      "found_num": "6.2",
+      "src": "openai-realtime",
+      "src_at": "2026-11-18",
+      "via_other_src": "openai-models",
+      "evidence": "ng Overview Models Agents Tools Audio voice Production API reference Docs Audio voice Home Get started Quickstart Using GPT-6.2 Key concepts API credits for ChatGPT subscribers Core concepts Responses API Decisions API Conversation state Background mode Streaming WebSocket mode Mid-turn steering Multi-agent Webhooks Fi"
+    },
+    {
+      "kind": "有更新的一代",
+      "m": "qwen-text",
+      "family": "Qwen",
+      "zh": "通义千问",
+      "cur": "3.8-max",
+      "cur_as_of": "2026-08-11",
+      "found": "qwen4",
+      "found_num": "4",
+      "src": "bailian-models-zh",
+      "src_at": "2026-11-18",
+      "evidence": "阿里云百炼提供千问及第三方模型服务，覆盖文本、图像、音频、视频等多种模态。 文本 [图标] 文本生成 [图标] [图标] qwen4-max 复杂推理与编程 [图标] qwen3.7-plus 性能、速度与成本均衡 [图标] qwen3.8-flash 快速且低成本 [图标] deepseek-v4-pro-0813 文本生成 [图标] deepseek-v4.1-flash 文本生成 [图标] kimi/kimi-k3 文本生成 [图标] kimi-k3 文本生成 [图标] glm-5.3 文本生成 [图标] ZH"
+    },
+    {
+      "kind": "有更新的一代",
+      "m": "seedream",
+      "family": "Seedream",
+      "zh": "即梦图像",
+      "cur": "5.0 Pro",
+      "cur_as_of": "2026-08-11",
+      "found": "Seedream 5.5",
+      "found_num": "5.5",
+      "src": "seedream-page",
+      "src_at": "2026-11-18",
+      "evidence": "at idea. Advancing the frontier of intelligence, in service of humanity Join ByteDance Seed Models Seed2.1 Seedance 2.5 Seedream 5.5 SeedRealtime Seed Audio 1.0 Seed GR-RL Learn More Publications Seed Edge Seed STEM Fellows Program Seed Campus Recruitment Transparency Copyright© 2026 Bytedance Seed Disclaimer Contact u"
+    },
     {
       "kind": "牌子摘了",
       "m": "anysplat",
@@ -82,7 +122,7 @@
       "cur_as_of": "2026-08-12",
       "found": null,
       "src": "glm-voice-doc",
-      "src_at": "2026-11-04",
+      "src_at": "2026-11-18",
       "evidence": ""
     },
     {
@@ -229,7 +269,7 @@
       "cur_as_of": "2026-08-12",
       "found": null,
       "src": "bailian-websearch",
-      "src_at": "2026-11-04",
+      "src_at": "2026-11-18",
       "evidence": ""
     },
     {
@@ -264,7 +304,7 @@
       "cur_as_of": "2025-12-11",
       "found": null,
       "src": "runway-changelog",
-      "src_at": "2026-11-11",
+      "src_at": "2026-11-18",
       "evidence": ""
     },
     {
@@ -286,7 +326,7 @@
       "cur_as_of": "2026-09-23",
       "found": null,
       "src": "seed-models",
-      "src_at": "2026-11-04",
+      "src_at": "2026-11-18",
       "evidence": ""
     },
     {

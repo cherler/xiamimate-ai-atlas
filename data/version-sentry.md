@@ -1,9 +1,20 @@
-# 版本哨兵 · 2026-11-17
+# 版本哨兵 · 2026-11-18
 
-扫 136 个模型：**有更新的一代 0** · 口径存疑 0 · 牌子摘了 27 · 比不了 55
+扫 136 个模型：**有更新的一代 3** · 口径存疑 0 · 牌子摘了 27 · 比不了 55
 
 > 这份只回答一件事：**一格署的那个源上，今天有没有出现比我们记的更新的版本号？**
 > 报出来的不是「世界变了」，是「**我们抓到了但没写回**」—— 这两件事的严重程度不一样。
+
+## 有更新的一代（3）—— 这一摞要写回 atlas.json
+
+- **GPT**（gpt）库里记 `GPT-6 Astra`（核于 2026-09-10），而 `openai-realtime` 的快照（2026-11-18）上写着 **GPT-6.2**　⚠️ 这一格署的是 `openai-models`，**那个源上看不见新版**
+  > ng Overview Models Agents Tools Audio voice Production API reference Docs Audio voice Home Get started Quickstart Using GPT-6.2 Key concepts API credits for ChatGPT subscribers Core concepts Responses API Decisions API Conversation state Background mode Streaming WebSocket mode Mid-turn steering Multi-agent Webhooks Fi
+
+- **Qwen**（qwen-text）库里记 `3.8-max`（核于 2026-08-11），而 `bailian-models-zh` 的快照（2026-11-18）上写着 **qwen4**
+  > 阿里云百炼提供千问及第三方模型服务，覆盖文本、图像、音频、视频等多种模态。 文本 [图标] 文本生成 [图标] [图标] qwen4-max 复杂推理与编程 [图标] qwen3.7-plus 性能、速度与成本均衡 [图标] qwen3.8-flash 快速且低成本 [图标] deepseek-v4-pro-0813 文本生成 [图标] deepseek-v4.1-flash 文本生成 [图标] kimi/kimi-k3 文本生成 [图标] kimi-k3 文本生成 [图标] glm-5.3 文本生成 [图标] ZH
+
+- **Seedream**（seedream）库里记 `5.0 Pro`（核于 2026-08-11），而 `seedream-page` 的快照（2026-11-18）上写着 **Seedream 5.5**
+  > at idea. Advancing the frontier of intelligence, in service of humanity Join ByteDance Seed Models Seed2.1 Seedance 2.5 Seedream 5.5 SeedRealtime Seed Audio 1.0 Seed GR-RL Learn More Publications Seed Edge Seed STEM Fellows Program Seed Campus Recruitment Transparency Copyright© 2026 Bytedance Seed Disclaimer Contact u
 
 ## 机器自查 · 牌子摘了（27）—— **不用你拍板**
 
@@ -18,7 +29,7 @@
 - **Doubao**（doubao）记的是 `Seed-2.1 Pro`，`doubao-force-2026`（2026-11-10）上没有这个号
 - **ESM-2**（esm）记的是 `650M`，`sci-esm2-card`（2026-11-13）上没有这个号
 - **FLUX 3**（flux-video）记的是 `3`，`bfl-flux3`（2026-11-07）上没有这个号
-- **GLM Voice**（glm-voice）记的是 `glm-4-voice`，`glm-voice-doc`（2026-11-04）上没有这个号
+- **GLM Voice**（glm-voice）记的是 `glm-4-voice`，`glm-voice-doc`（2026-11-18）上没有这个号
 - **GNoME**（gnome）记的是 `1`，`sci-gnome-gh`（2026-11-07）上没有这个号
 - **MiniMax Hailuo**（hailuo）记的是 `H3`，`minimax-release-notes`（2026-11-16）上没有这个号
 - **HunyuanVideo-Avatar**（hunyuan-avatar）记的是 `1.0`，`hf-hunyuan-avatar`（2026-11-07）上没有这个号
@@ -31,12 +42,12 @@
 - **GPT TTS**（openai-tts）记的是 `GPT-4o mini TTS`，`openai-models`（2026-11-12）上没有这个号
 - **OpenVLA**（openvla）记的是 `7B`，`openvla-gh`（2026-11-07）上没有这个号
 - **PixVerse**（pixverse）记的是 `V6`，`pixverse-v6`（2026-10-10）上没有这个号
-- **Qwen Omni**（qwen-omni）记的是 `3.5-omni-plus`，`bailian-websearch`（2026-11-04）上没有这个号
+- **Qwen Omni**（qwen-omni）记的是 `3.5-omni-plus`，`bailian-websearch`（2026-11-18）上没有这个号
 - **Qwen3-ASR**（qwen3-asr）记的是 `1.7B`，`hf-qwen3-asr`（2026-11-07）上没有这个号
 - **Rodin**（rodin）记的是 `Gen-2.5`，`rodin-api-docs`（2026-11-08）上没有这个号
-- **Runway Gen**（runway）记的是 `Gen-4.5`，`runway-changelog`（2026-11-11）上没有这个号
+- **Runway Gen**（runway）记的是 `Gen-4.5`，`runway-changelog`（2026-11-18）上没有这个号
 - **ElevenLabs Scribe**（scribe）记的是 `v2`，`elevenlabs-models`（2026-11-07）上没有这个号
-- **Seed GR-3**（seed-gr3）记的是 `GR-3`，`seed-models`（2026-11-04）上没有这个号
+- **Seed GR-3**（seed-gr3）记的是 `GR-3`，`seed-models`（2026-11-18）上没有这个号
 - **SPAR3D**（spar3d）记的是 `Stable Point Aware 3D`，`stability-spar3d`（2026-11-07）上没有这个号
 - **Meta V-JEPA**（vjepa）记的是 `V-JEPA 2`，`vjepa2-blog`（2026-11-12）上没有这个号
 
