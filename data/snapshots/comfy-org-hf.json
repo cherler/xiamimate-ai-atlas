@@ -1,8 +1,8 @@
 {
   "url": "https://huggingface.co/api/models?author=Comfy-Org&sort=lastModified&direction=-1&limit=40",
   "kind": "json",
-  "fetched_at": "2026-11-11",
-  "digest": "ca1fb35874299ec1",
+  "fetched_at": "2026-11-18",
+  "digest": "c676828bf12d1f32",
   "items": [
     "Comfy-Org/ACE-Step\t2026-10-28T02:13:30.000Z",
     "Comfy-Org/ACE-Step-1.5\t2026-10-28T02:14:02.000Z",
@@ -36,12 +36,12 @@
     "Comfy-Org/Idol\t2026-11-09T00:29:02.000Z",
     "Comfy-Org/Krea-2\t2026-11-02T10:31:06.000Z",
     "Comfy-Org/MOSS-Image\t2026-11-04T11:43:29.000Z",
-    "Comfy-Org/Ming-3.0-TTS\t2026-10-28T02:12:01.000Z",
-    "Comfy-Org/MiniMax-H3\t2026-11-02T21:17:20.000Z",
-    "Comfy-Org/MiniMax-H3-Image\t2026-11-10T16:04:39.000Z",
+    "Comfy-Org/MiniMax-H3\t2026-11-15T09:54:16.000Z",
+    "Comfy-Org/MiniMax-H3-Image\t2026-11-11T12:10:29.000Z",
+    "Comfy-Org/PAN2\t2026-11-15T22:02:20.000Z",
     "Comfy-Org/Qwen-Image-2.1\t2026-10-29T23:54:55.000Z",
     "Comfy-Org/Qwen3.5\t2026-11-10T10:54:34.000Z",
-    "Comfy-Org/RelayVSR\t2026-11-09T00:29:18.000Z",
+    "Comfy-Org/RelayVSR\t2026-11-11T12:10:49.000Z",
     "Comfy-Org/UltraTex\t2026-11-10T05:48:53.000Z",
     "Comfy-Org/WeVisOne-VL\t2026-11-09T11:56:30.000Z"
   ]

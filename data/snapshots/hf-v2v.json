@@ -1,8 +1,8 @@
 {
   "url": "https://huggingface.co/api/models?filter=video-to-video&sort=downloads&direction=-1&limit=60",
   "kind": "json",
-  "fetched_at": "2026-11-11",
-  "digest": "7b970b083abcd57c",
+  "fetched_at": "2026-11-18",
+  "digest": "7221b6a799483402",
   "items": [
     "AInVFX/SeedVR2_comfyUI\t",
     "Abiray/LTX-2.5-Distilled-GGUF\t",
@@ -57,9 +57,9 @@
     "molbal/MiniMax-H3-GGUF\t",
     "numz/SeedVR2_comfyUI\t",
     "rzgar/minimax-h3_fl2v_8Step_motion_enhancer\t",
+    "szwagros/SoL-Refiner-LTX-2.5-H3-int8-convrot\t",
     "unsloth/LTX-2-GGUF\t",
     "unsloth/LTX-2.3-GGUF\t",
-    "vantagewithai/LTX-2.3-GGUF\t",
     "vantagewithai/LTX-2.5-GGUF\t",
     "vantagewithai/MiniMax-H3-comfyUI-GGUF\t",
     "vantagewithai/Sulphur-2-Base-GGUF\t",

@@ -1,11 +1,11 @@
 {
   "url": "https://huggingface.co/api/models?author=MiniMaxAI&sort=lastModified&direction=-1&limit=40",
   "kind": "json",
-  "fetched_at": "2026-11-11",
-  "digest": "319347496de3592b",
+  "fetched_at": "2026-11-18",
+  "digest": "07d3dbaed35a207b",
   "items": [
     "MiniMaxAI/MiniMax-H3\t2026-11-09T23:28:00.000Z",
-    "MiniMaxAI/MiniMax-H3-Image\t2026-11-11T00:30:36.000Z",
+    "MiniMaxAI/MiniMax-H3-Image\t2026-11-16T10:00:08.000Z",
     "MiniMaxAI/MiniMax-H3-Image-PE\t2026-11-10T15:16:06.000Z",
     "MiniMaxAI/MiniMax-M1-40k\t2025-07-07T07:50:30.000Z",
     "MiniMaxAI/MiniMax-M1-40k-hf\t2025-07-11T02:07:58.000Z",
