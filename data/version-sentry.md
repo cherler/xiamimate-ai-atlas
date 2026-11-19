@@ -1,4 +1,4 @@
-# 版本哨兵 · 2026-11-18
+# 版本哨兵 · 2026-11-19
 
 扫 136 个模型：**有更新的一代 3** · 口径存疑 0 · 牌子摘了 27 · 比不了 55
 
@@ -7,8 +7,8 @@
 
 ## 有更新的一代（3）—— 这一摞要写回 atlas.json
 
-- **GPT**（gpt）库里记 `GPT-6 Astra`（核于 2026-09-10），而 `openai-realtime` 的快照（2026-11-18）上写着 **GPT-6.2**　⚠️ 这一格署的是 `openai-models`，**那个源上看不见新版**
-  > ng Overview Models Agents Tools Audio voice Production API reference Docs Audio voice Home Get started Quickstart Using GPT-6.2 Key concepts API credits for ChatGPT subscribers Core concepts Responses API Decisions API Conversation state Background mode Streaming WebSocket mode Mid-turn steering Multi-agent Webhooks Fi
+- **GPT**（gpt）库里记 `GPT-6 Astra`（核于 2026-09-10），而 `openai-models` 的快照（2026-11-19）上写着 **GPT-6.2**
+  > caching Overview Models Agents Tools Audio voice Production API reference Docs Models Home Get started Quickstart Using GPT-6.2 Key concepts API credits for ChatGPT subscribers Core concepts Responses API Decisions API Conversation state Background mode Streaming WebSocket mode Mid-turn steering Multi-agent Webhooks Fi
 
 - **Qwen**（qwen-text）库里记 `3.8-max`（核于 2026-08-11），而 `bailian-models-zh` 的快照（2026-11-18）上写着 **qwen4**
   > 阿里云百炼提供千问及第三方模型服务，覆盖文本、图像、音频、视频等多种模态。 文本 [图标] 文本生成 [图标] [图标] qwen4-max 复杂推理与编程 [图标] qwen3.7-plus 性能、速度与成本均衡 [图标] qwen3.8-flash 快速且低成本 [图标] deepseek-v4-pro-0813 文本生成 [图标] deepseek-v4.1-flash 文本生成 [图标] kimi/kimi-k3 文本生成 [图标] kimi-k3 文本生成 [图标] glm-5.3 文本生成 [图标] ZH
@@ -39,7 +39,7 @@
 - **MatterGen**（mattergen）记的是 `1`，`sci-mattergen-gh`（2026-11-07）上没有这个号
 - **MiniMax Speech**（mm-speech）记的是 `speech-2.8-hd`，`minimax-api-overview`（2026-11-16）上没有这个号
 - **NeuralGCM**（neuralgcm）记的是 `1`，`sci-neuralgcm-gh`（2026-11-07）上没有这个号
-- **GPT TTS**（openai-tts）记的是 `GPT-4o mini TTS`，`openai-models`（2026-11-12）上没有这个号
+- **GPT TTS**（openai-tts）记的是 `GPT-4o mini TTS`，`openai-models`（2026-11-19）上没有这个号
 - **OpenVLA**（openvla）记的是 `7B`，`openvla-gh`（2026-11-07）上没有这个号
 - **PixVerse**（pixverse）记的是 `V6`，`pixverse-v6`（2026-10-10）上没有这个号
 - **Qwen Omni**（qwen-omni）记的是 `3.5-omni-plus`，`bailian-websearch`（2026-11-18）上没有这个号

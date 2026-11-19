@@ -1,20 +1,26 @@
-# 引文回查 · 2026-11-18
+# 引文回查 · 2026-11-19
 
-回查 1274 条：对得上 415 · 无英文锚 786 · 无快照 20 · 找不到 10 · 复核已处置 34 · 人审认过·非逐字 7 · 快照无正文 2
+回查 1274 条：对得上 410 · 无英文锚 786 · 无快照 20 · 找不到 16 · 复核已处置 33 · 人审认过·非逐字 7 · 快照无正文 2
 
 > 这份报告回答一件事：**一格引文里的原句，在它署名的那份快照里还在不在。**
 > ⚠️ **失败不等于引文错。** 三种成因要分开：真署错了页 / 这一页的快照是残的（抓回来的是导航不是正文）/ 当初记的就不是逐字原文。**脚本不猜。**
 > 「人审认过·非逐字」那一摞是**审阅台上已经判过的**，列在这里只为不假装它们消失了 —— 不用再看。
 
-## 失败 ≥3 条的源（1 个）—— 这几个大概率是抓法不对
+## 失败 ≥3 条的源（2 个）—— 这几个大概率是抓法不对
 
 - **comfy-docs**（8 条）：发布 hidream-HiDream-I1-17B 出图底座，MIT、发布 ernie-image-ERNIE-Image-8B DiT 正式档，apache-2.0、发布 ovis-image-Ovis-Image-7B-7B 专攻图上出字 …
+- **elevenlabs-docs**（3 条）：elevenlabs × s-design、elevenlabs × s-long、elevenlabs × s-timestamp
 
 ## 全部
 
-### 找不到（10）
+### 找不到（16）
 
+- `openai-models` gpt × t-think —— 锚「Model ID gpt-6-astra Reasoning low medium high xhigh max」
+- `elevenlabs-docs` elevenlabs × s-design —— 锚「a guide on how to craft voices」
+- `elevenlabs-docs` elevenlabs × s-long —— 锚「a guide on how to create long-form content」
+- `elevenlabs-docs` elevenlabs × s-timestamp —— 锚「turn spoken audio and text into a time-aligned transcript」
 - `gemini-tts` gemini-tts × s-format —— 锚「To request a different audio encoding or sample rate, configure mime_t」
+- `openai-models` 模型 gpt 版本 —— 锚「Our most capable model for the most demanding work.」
 - `krea-blog` 发布 krea-img-Krea 2-第一个完全从零训练的自研基座 —— 锚「our first foundation image model built completely from scratch」
 - `comfy-docs` 发布 hidream-HiDream-I1-17B 出图底座，MIT —— 锚「HiDream-I1 is a text-to-image model officially open-sourced by HiDream」
 - `comfy-docs` 发布 ernie-image-ERNIE-Image-8B DiT 正式档，apache-2.0 —— 锚「ERNIE-Image is an open text-to-image model by Baidu, licensed under Ap」
@@ -24,6 +30,7 @@
 - `comfy-docs` 发布 pixeldit-PixelDiT-1300M-1024px-不用 VAE，直接在像素空间扩散 —— 锚「PixelDiT is NVIDIA's pixel-space diffusion transformer for 1024px text」
 - `comfy-docs` 发布 boogu-image-Boogu-Image-0.1-生成与编辑合到一个模型，apache-2.0 —— 锚「Boogu-Image-0.1 is an Apache-2.0 open-source unified image generation 」
 - `comfy-docs` 发布 newbie-image-NewBie-image-Exp0.1-3.5B Next-DiT，二次元向 —— 锚「NewBie-image-Exp0.1 is a 3.5B parameter DiT model developed by NewBieA」
+- `claude-deprecations` 发布 claude-Claude 4.7-起用新分词器；tem —— 锚「Claude Opus 4.7 and later」
 
 ### 快照无正文（2）
 
@@ -63,7 +70,7 @@
 - `hf-hunyuan3d-21` 发布 hy3d-2.1 —— 锚「We release the first production-ready 3D asset generation model, Hunyu」（这句在 gh-hunyuan3d-21）
 - `openai-model-tts` 发布 gpttts-2025-12 —— 锚「slugs to point to the 2025-12-15 snapshots」（这句在 openai-changelog）
 
-### 复核已处置（34）
+### 复核已处置（33）
 
 - `hf-qwen-layered` qwen-image × i-layered
 - `openvla-gh` openvla × e-openweights
@@ -82,7 +89,6 @@
 - `google-nb-blog` 发布 gemini-image-Nano Banana 2-Pro 的质量按 Flash 的速度和价钱出
 - `recraft-blog` 发布 recraft-Recraft V4-按设计审美重训的一代
 - `recraft-blog` 发布 recraft-Recraft V4.1-写实更自然、短提示词也能懂
-- `claude-deprecations` 发布 claude-Claude 4.7-起用新分词器；tem
 - `tripo-docs-generation` 发布 tripo-v2.5
 - `tripo-docs-generation` 发布 tripo-p1
 - `rodin-api-docs` 发布 rodin-gen2

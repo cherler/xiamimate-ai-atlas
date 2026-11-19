@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-18",
+  "generated_at": "2026-11-19",
   "n": 3,
   "n_unclear": 0,
   "n_missing": 27,
@@ -14,10 +14,9 @@
       "cur_as_of": "2026-09-10",
       "found": "GPT-6.2",
       "found_num": "6.2",
-      "src": "openai-realtime",
-      "src_at": "2026-11-18",
-      "via_other_src": "openai-models",
-      "evidence": "ng Overview Models Agents Tools Audio voice Production API reference Docs Audio voice Home Get started Quickstart Using GPT-6.2 Key concepts API credits for ChatGPT subscribers Core concepts Responses API Decisions API Conversation state Background mode Streaming WebSocket mode Mid-turn steering Multi-agent Webhooks Fi"
+      "src": "openai-models",
+      "src_at": "2026-11-19",
+      "evidence": "caching Overview Models Agents Tools Audio voice Production API reference Docs Models Home Get started Quickstart Using GPT-6.2 Key concepts API credits for ChatGPT subscribers Core concepts Responses API Decisions API Conversation state Background mode Streaming WebSocket mode Mid-turn steering Multi-agent Webhooks Fi"
     },
     {
       "kind": "有更新的一代",
@@ -235,7 +234,7 @@
       "cur_as_of": "2026-08-12",
       "found": null,
       "src": "openai-models",
-      "src_at": "2026-11-12",
+      "src_at": "2026-11-19",
       "evidence": ""
     },
     {
