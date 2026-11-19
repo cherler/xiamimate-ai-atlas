@@ -1,14 +1,13 @@
 {
   "url": "https://huggingface.co/api/models?filter=text-to-video&sort=downloads&direction=-1&limit=60",
   "kind": "json",
-  "fetched_at": "2026-11-16",
-  "digest": "9401019339c636d5",
+  "fetched_at": "2026-11-19",
+  "digest": "316fca9c277720dd",
   "items": [
     "Abiray/LTX-2.5-Distilled-GGUF\t",
     "Abiray/MiniMax-H3-GGUF\t",
     "Abiray/MiniMax-H3-Pruned-GGUF\t",
     "Abiray/Minimax-H3-nvfp4-INT4-INT8-Convrot\t",
-    "AlayaLab/Evoke-Turbo\t",
     "BennyDaBall/HyperFlow-H3-Flash-INT8-ComfyUI\t",
     "ByteDance/AnimateDiff-Lightning\t",
     "ChrisColeTech/LTX-2.3-uncensored-v1.4-FP8\t",
@@ -22,6 +21,7 @@
     "Lightricks/LTX-2.3\t",
     "Lightricks/LTX-2.3-fp8\t",
     "Lightricks/LTX-2.5\t",
+    "Lightricks/LTX-2.5-Diffusers\t",
     "LokkenJP/TenEros_Max_optimized_learned\t",
     "MiniMaxAI/MiniMax-H3\t",
     "QuantStack/LTX-2.3-GGUF\t",
@@ -43,6 +43,7 @@
     "ZawShiShawn/Gestura-MiniMax-H3-VAE-LiteRT\t",
     "ZhengmingYu/DMAD\t",
     "alibaba-pai/MiniMax-H3-Acc-LoRAs\t",
+    "alibaba-pai/Wan2.2-VACE-Fun-A14B\t",
     "calcuis/wan-1.3b-gguf\t",
     "city96/Wan2.1-T2V-14B-gguf\t",
     "comfyicu/LTX-2.5\t",
@@ -62,7 +63,6 @@
     "unsloth/LTX-2.5-FP8\t",
     "unsloth/LTX-2.5-GGUF\t",
     "unsloth/MiniMax-H3-GGUF\t",
-    "unsloth/Wan2.2-TI2V-5B-GGUF\t",
-    "wangfuyun/AnimateLCM\t"
+    "unsloth/Wan2.2-TI2V-5B-GGUF\t"
   ]
 }

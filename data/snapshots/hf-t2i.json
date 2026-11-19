@@ -1,9 +1,10 @@
 {
   "url": "https://huggingface.co/api/models?filter=text-to-image&sort=downloads&direction=-1&limit=60",
   "kind": "json",
-  "fetched_at": "2026-11-16",
-  "digest": "d262b2151767b53e",
+  "fetched_at": "2026-11-19",
+  "digest": "fb09bd889afe7373",
   "items": [
+    "Abiray/MiniMax-H3-Image-GGUF\t",
     "AtomicChat/Qwen-Image-2.1-Turbo-Uncensored-GGUF\t",
     "ByteDance/SDXL-Lightning\t",
     "Comfy-Org/Flux-1-Dev\t",
@@ -15,7 +16,7 @@
     "Comfy-Org/MiniMax-H3-Image\t",
     "Comfy-Org/Qwen-Image-2.1\t",
     "CompVis/stable-diffusion-v1-4\t",
-    "DogukanUrker/Qwen-Image-2.1-Turbo-GGUF\t",
+    "Hearthscale/MiniMax-H3-Image-GGUF\t",
     "Laxhar/noobai-XL-1.1\t",
     "Lykon/DreamShaper\t",
     "Lykon/dreamshaper-7\t",
@@ -23,7 +24,6 @@
     "LyliaEngine/waiIllustriousSDXL_v170\t",
     "MiniMaxAI/MiniMax-H3-Image\t",
     "Noctaluna/Noct-Q-Uncensored-Qwen-Image-2.1\t",
-    "OnomaAIResearch/Illustrious-xl-early-release-v0\t",
     "PrunaAI/P-H3-Image-Comfy\t",
     "Qwen/Qwen-Image\t",
     "Qwen/Qwen-Image-2.1\t",
@@ -36,6 +36,7 @@
     "black-forest-labs/FLUX.2-klein-base-4B\t",
     "cagliostrolab/animagine-xl-3.1\t",
     "cagliostrolab/animagine-xl-4.0\t",
+    "chatrlabs/Qwen-Image-2.1-Uncensored-Omni-Quantized\t",
     "city96/FLUX.1-dev-gguf\t",
     "h94/IP-Adapter-FaceID\t",
     "leejet/FLUX.2-klein-4B-GGUF\t",
@@ -48,9 +49,9 @@
     "stabilityai/stable-diffusion-xl-base-1.0\t",
     "stable-diffusion-v1-5/stable-diffusion-inpainting\t",
     "stable-diffusion-v1-5/stable-diffusion-v1-5\t",
-    "unsloth/FLUX.2-klein-4B-FP8\t",
     "unsloth/FLUX.2-klein-4B-GGUF\t",
     "unsloth/Krea-2-Turbo\t",
+    "unsloth/MOSS-Image-SFT-GGUF\t",
     "unsloth/Qwen-Image-2.1\t",
     "unsloth/Qwen-Image-2.1-FP8\t",
     "unsloth/Qwen-Image-2.1-GGUF\t",
@@ -62,7 +63,6 @@
     "unsloth/Z-Image-Turbo-GGUF\t",
     "unsloth/flux-3-image-klein-FP8\t",
     "unsloth/flux-3-image-klein-GGUF\t",
-    "xinsir/controlnet-openpose-sdxl-1.0\t",
-    "xinsir/controlnet-union-sdxl-1.0\t"
+    "xinsir/controlnet-openpose-sdxl-1.0\t"
   ]
 }
