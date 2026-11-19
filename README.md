@@ -2,10 +2,12 @@
 
 以能力为线索，比较 AI 模型能做什么、适用什么场景，以及结论来自哪里。包含视频、图像、文本、声音、3D、数字人、具身智能、世界模型和科学计算九个方向。
 
-- [GitHub Pages 完整版](https://cherler.github.io/xiamimate-ai-atlas/)
-- [虾米伙伴站点](https://xiamimate.com/atlas/)
+- [GitHub Pages 完整版（推荐入口）](https://cherler.github.io/xiamimate-ai-atlas/)
+- [虾米伙伴（xiamimate.com）](https://xiamimate.com/atlas/)：备用入口，个人维护，可能随时关闭或失效。
 
-本仓库包含完整的页面、数据、来源快照、审阅工具与构建流程。模型和能力信息以 `data/atlas.json` 为真源；变更记录在 `data/changes.json`。每项判断保留来源、核验日期及适用版本，机器录入的内容仍需结合官方文档核对。
+建议收藏 GitHub Pages 地址。该版本独立部署，不依赖虾米伙伴主站；即使 `xiamimate.com` 停用，仍可通过 GitHub Pages 访问，或克隆本仓库自行部署。
+
+原独立简化版已移除，源码与发布流程统一以本仓库的完整版为准。本仓库包含完整的页面、数据、来源快照、审阅工具与构建流程。模型和能力信息以 `data/atlas.json` 为真源；变更记录在 `data/changes.json`。每项判断保留来源、核验日期及适用版本，机器录入的内容仍需结合官方文档核对。
 
 ## 本地运行
 
@@ -25,7 +27,7 @@ npm run dev
 
 仓库设置中选择 **Pages → Build and deployment → Source → GitHub Actions**，向 `main` 推送或手动运行 `Deploy full atlas to GitHub Pages` 即可发布。流程会验证数据、生成完整图片与架构图、构建静态页面并检查站内链接。没有定时监控或采集任务。
 
-独立站点的导航、订阅和分享图使用当前 Pages 地址，纠错入口会打开预填好的 GitHub Issue，也可通过邮件反馈。原有 `xiamimate.com` 部署继续使用主站的页眉、页脚和反馈服务。
+独立站点的导航、订阅和分享图使用当前 Pages 地址，纠错入口会打开预填好的 GitHub Issue，也可通过邮件反馈。仅并入虾米伙伴主站的部署会使用其页眉、页脚和反馈服务。
 
 本地构建相同的独立版本：
 
