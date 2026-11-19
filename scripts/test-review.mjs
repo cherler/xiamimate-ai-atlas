@@ -1,7 +1,7 @@
 /** Regression tests use a disposable data directory; never change the live atlas. */
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { mkdtempSync, mkdirSync, writeFileSync, readFileSync, rmSync } from 'node:fs';
+import { mkdtempSync, mkdirSync, writeFileSync, readFileSync, rmSync, existsSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 import { execFileSync, spawnSync } from 'node:child_process';
@@ -200,6 +200,20 @@ test('queue and decisions preserve mixed sources, colliding claim prefixes, repe
     assert.equal(read('data/atlas.json').support[0].state, 'unknown');
     assert.equal(r.queue().length, 4);
     assert.equal(r.pendingQueue().length, 0);
+  } finally {
+    if (previous === undefined) delete process.env.ATLAS_REVIEW_ROOT; else process.env.ATLAS_REVIEW_ROOT = previous;
+    rmSync(root, { recursive: true, force: true });
+  }
+});
+
+test('a fresh clone without a local inbox has an empty read-only queue', async () => {
+  const root = mkdtempSync(join(tmpdir(), 'atlas-no-inbox-'));
+  const previous = process.env.ATLAS_REVIEW_ROOT;
+  try {
+    process.env.ATLAS_REVIEW_ROOT = root;
+    const review = await import(`./review.mjs?noInbox=${root}`);
+    assert.deepEqual(review.queue(), []);
+    assert.equal(existsSync(join(root, 'data')), false);
   } finally {
     if (previous === undefined) delete process.env.ATLAS_REVIEW_ROOT; else process.env.ATLAS_REVIEW_ROOT = previous;
     rmSync(root, { recursive: true, force: true });

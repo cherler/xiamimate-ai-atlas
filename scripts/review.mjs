@@ -78,6 +78,8 @@ import {quoteEntity,quoteFingerprint} from './requote-policy.mjs';
 export { groupQueue };
 
 export function queue() {
+  // Inbox files are local collection output and are absent in a fresh clone.
+  if (!existsSync(P("data/inbox"))) return [];
   const rejected = new Set((readJSON("data/review-rejected.json", { rows: [] }).rows ?? []).map((r) => r.id));
   const pending = new Set((readJSON("data/review-pending.json", { rows: [] }).rows ?? []).map((r) => r.id));
   const done = new Set((readJSON("data/review-log.json", { rows: [] }).rows ?? []).map((r) => r.id));
