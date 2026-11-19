@@ -10,11 +10,15 @@
  *
  * @type {import('next').NextConfig}
  */
+import { BASE_PATH, STANDALONE } from "./site.config.mjs";
+
 const nextConfig = {
   output: "export",
   // Caddy 的 handle_path 会剥掉 /atlas 前缀，所以静态文件按根目录摆；
   // 但 HTML 里的资源链接必须带 /atlas —— 那正是 basePath 干的事。两者配套，缺一不可。
-  basePath: "/atlas",
+  basePath: BASE_PATH,
+  // Pages serves nested routes as directories, including on a direct refresh.
+  trailingSlash: STANDALONE,
   images: { unoptimized: true },
   // Next dev 默认只放行 localhost 来源；用 127.0.0.1 打开会被拒，
   // 而且是**静默失败**（HMR / hydration 不工作，页面点不动）。抄自 tools-frontend 踩过的坑。

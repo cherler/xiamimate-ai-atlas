@@ -1,3 +1,4 @@
+import { sitePath } from "@/site.config.mjs";
 import type { Metadata } from "next";
 import Link from "next/link";
 import Tree from "@/components/Tree";
@@ -18,10 +19,10 @@ export async function generateMetadata(
     // —— 静默截断会让读者以为这一卷就这么多（见 make-share.mjs 的 CAP）。
     openGraph: {
       title: `${d.name} · 谁在什么时候，长出了什么`,
-      url: `https://xiamimate.com/atlas/${domain}/tree`,
-      images: [{ url: `/atlas/og/tree-${domain}-16x9.png`, width: 1200, height: 675 }],
+      url: sitePath(`/${domain}/tree`),
+      images: [{ url: sitePath(`/og/tree-${domain}-16x9.png`), width: 1200, height: 675 }],
     },
-    twitter: { card: "summary_large_image", images: [`/atlas/og/tree-${domain}-16x9.png`] },
+    twitter: { card: "summary_large_image", images: [sitePath(`/og/tree-${domain}-16x9.png`)] },
   };
 }
 
@@ -52,7 +53,7 @@ export default async function TreePage({ params }: { params: Promise<{ domain: s
           <br />
           最早 {since}
           <span className="mx-1.5 text-rule">|</span>
-          <Share og={`/atlas/og/tree-${domain}-16x9.png`} title={`${d.name} · 谁在什么时候，长出了什么`} />
+          <Share og={sitePath(`/og/tree-${domain}-16x9.png`)} title={`${d.name} · 谁在什么时候，长出了什么`} />
         </div>
       </header>
 

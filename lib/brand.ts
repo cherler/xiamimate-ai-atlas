@@ -1,3 +1,4 @@
+import { sitePath } from "@/site.config.mjs";
 /**
  * 站名与图标只此一处。
  *
@@ -24,5 +25,5 @@ export const BRAND = {
    * favicon。**要带 basePath** —— public/favicon.svg 部署后在 /atlas/favicon.svg，
    * Next 不会替 metadata.icons 自动补 basePath（OG 图那几条也是手写全路径）。
    */
-  icon: "/atlas/favicon.svg",
+  icon: sitePath("/favicon.svg"),
 };

@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { atlas } from "@/lib/atlas";
+import { stripBasePath } from "@/site.config.mjs";
 import { modelBySlug, capBySlug } from "@/lib/slug";
 import DomainSwitch from "./DomainSwitch";
 import NavSearch from "./NavSearch";
@@ -58,7 +59,7 @@ export default function Nav() {
    * 当前在哪个方向。从路径第一段取；取不到（根页、/method 这类全局页）
    * 就退回 live 的那个 —— **导航不能因为你在全局页就失去入口**。
    */
-  const parts = p.replace(/^\/atlas/, "").split("/").filter(Boolean);
+  const parts = stripBasePath(p).split("/").filter(Boolean);
   const seg = parts[0] ?? "";
   /**
    * `/skill/[id]` 这类页不带方向前缀，但它**本身是属于某个方向的**。

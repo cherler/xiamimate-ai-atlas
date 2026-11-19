@@ -1,3 +1,4 @@
+import { sitePath } from "@/site.config.mjs";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { Fact, Rich } from "@/components/Fact";
@@ -31,8 +32,8 @@ export async function generateMetadata({ params }: { params: Promise<{ id: strin
       `每一格都带厂商官方来源与核验日期。`,
     // 这一页自己的分享图（§19）。§19 要的是「知识图可分享」，不是只分享 URL ——
     // 图里画的就是这一页的结论，从同一份数据生成。
-    openGraph: { images: [{ url: `/atlas/og/model-${id}-16x9.png`, width: 1200, height: 675 }] },
-    twitter: { card: "summary_large_image", images: [`/atlas/og/model-${id}-16x9.png`] },
+    openGraph: { images: [{ url: sitePath(`/og/model-${id}-16x9.png`), width: 1200, height: 675 }] },
+    twitter: { card: "summary_large_image", images: [sitePath(`/og/model-${id}-16x9.png`)] },
   };
 }
 
@@ -56,7 +57,7 @@ export default async function ModelPage({ params }: { params: Promise<{ id: stri
           负责人 2026-08-12：「放在右下角谁也看不到咧」。 */}
       <div className="flex items-baseline justify-between gap-3">
         <BackLink />
-        <Share og={`/atlas/og/model-${id}-16x9.png`} title={label(m)} />
+        <Share og={sitePath(`/og/model-${id}-16x9.png`)} title={label(m)} />
       </div>
 
       <header className="flex flex-col gap-2">

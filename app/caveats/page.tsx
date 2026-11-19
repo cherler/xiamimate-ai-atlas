@@ -1,3 +1,4 @@
+import { sitePath } from "@/site.config.mjs";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { atlas, label, groupByDomain, domainOfModel } from "@/lib/atlas";
@@ -18,9 +19,9 @@ export const metadata: Metadata = {
   openGraph: {
     title: "能力对了，你未必用得上 —— 下单前先看这几条",
     description: "上游停服了平台还在卖；上架的常常不是当前版本；同一模型各平台不同价；大陆直连不通。每条带厂商官方原文。",
-    images: [{ url: "/atlas/og/caveats-16x9.png", width: 1200, height: 675 }],
+    images: [{ url: sitePath("/og/caveats-16x9.png"), width: 1200, height: 675 }],
   },
-  twitter: { card: "summary_large_image", images: ["/atlas/og/caveats-16x9.png"] },
+  twitter: { card: "summary_large_image", images: [sitePath("/og/caveats-16x9.png")] },
 };
 
 export default function CaveatsPage() {
@@ -38,7 +39,7 @@ export default function CaveatsPage() {
           负责人 2026-08-12：「放在右下角谁也看不到咧」。 */}
       <div className="flex items-baseline justify-between gap-3">
         <BackLink />
-        <Share og="/atlas/og/caveats-16x9.png" title="能力对了，你未必用得上 —— 下单前先看这几条" />
+        <Share og={sitePath("/og/caveats-16x9.png")} title="能力对了，你未必用得上 —— 下单前先看这几条" />
       </div>
       <header className="flex flex-col gap-2 border-b-[2.5px] border-ink pb-4">
         <h1 className="text-[38px] font-bold leading-tight tracking-[-.01em]">能力对了，你未必用得上</h1>

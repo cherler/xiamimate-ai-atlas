@@ -20,6 +20,8 @@
     "deepwiki": "node scripts/deepwiki.mjs",
     "readme": "node scripts/fetch-readme.mjs",
     "basepath": "node scripts/basepath-check.mjs",
+    "check:static": "node scripts/check-static.mjs",
+    "test:static-ui": "node scripts/test-static-ui.mjs",
     "repos": "node scripts/refresh-repos.mjs",
     "fresh": "node scripts/fresh.mjs",
     "readme:drift": "node scripts/readme-drift.mjs",

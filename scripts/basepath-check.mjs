@@ -23,9 +23,9 @@
  */
 import { readdirSync, readFileSync, existsSync, statSync } from "node:fs";
 import { join } from "node:path";
+import { BASE_PATH as BASE } from "../site.config.mjs";
 
 const OUT = "out";
-const BASE = "/atlas";
 if (!existsSync(OUT)) { console.error("没有 out/，先跑 npm run build"); process.exit(1); }
 
 const html = [];
@@ -37,15 +37,15 @@ const html = [];
   }
 })(OUT);
 
-/** `/_next/` 是构建产物自己的资源路径，Next 已经按 basePath 处理过，不在这条规矩里。 */
-const SKIP = /^(\/_next\/|\/atlas(\/|$)|\/\/)/;
+/** Assets and links must stay under this deployment's base path. */
+const belongsToSite = (href) => !BASE || href === BASE || href.startsWith(`${BASE}/`) || href.startsWith("//");
 
 const bad = new Map();
 for (const f of html) {
   const s = readFileSync(f, "utf8");
   for (const m of s.matchAll(/href="(\/[^"]*)"/g)) {
     const href = m[1];
-    if (SKIP.test(href)) continue;
+    if (belongsToSite(href)) continue;
     if (!bad.has(href)) bad.set(href, []);
     bad.get(href).push(f);
   }

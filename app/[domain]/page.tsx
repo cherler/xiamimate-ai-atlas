@@ -1,3 +1,4 @@
+import { sitePath } from "@/site.config.mjs";
 import type { Metadata } from "next";
 import Link from "next/link";
 import TruthTable, { Legend } from "@/components/TruthTable";
@@ -32,10 +33,10 @@ export async function generateMetadata(
      */
     openGraph: {
       title: `${d.name} · 能力核验规格书`,
-      url: `https://xiamimate.com/atlas/${domain}`,
-      images: [{ url: `/atlas/og/domain-${domain}-16x9.png`, width: 1200, height: 675 }],
+      url: sitePath(`/${domain}`),
+      images: [{ url: sitePath(`/og/domain-${domain}-16x9.png`), width: 1200, height: 675 }],
     },
-    twitter: { card: "summary_large_image", images: [`/atlas/og/domain-${domain}-16x9.png`] },
+    twitter: { card: "summary_large_image", images: [sitePath(`/og/domain-${domain}-16x9.png`)] },
   };
 }
 
@@ -81,7 +82,7 @@ export default async function DomainHome({ params }: { params: Promise<{ domain:
           <br />
           引用官方来源 {Object.keys(atlas.sources).length} 处
           <span className="mx-1.5 text-rule">|</span>
-          <Share og={`/atlas/og/domain-${domain}-16x9.png`} title={`${d.name} · 能力核验规格书`} />
+          <Share og={sitePath(`/og/domain-${domain}-16x9.png`)} title={`${d.name} · 能力核验规格书`} />
         </div>
       </header>
 

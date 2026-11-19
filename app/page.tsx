@@ -1,3 +1,4 @@
+import { sitePath } from "@/site.config.mjs";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { atlas, domainModels, tracksOf } from "@/lib/atlas";
@@ -30,7 +31,7 @@ export default function Pick() {
         </h1>
         {/* 右上角，和其余各页同一个位置 —— 一个每页都在别处的按钮，等于每页都要重新找 */}
         <div className="ml-auto whitespace-nowrap">
-          <Share og="/atlas/og/index-16x9.png" title="虾米看AI · AI 能力核验" />
+          <Share og={sitePath("/og/index-16x9.png")} title="虾米看AI · AI 能力核验" />
         </div>
       </header>
 

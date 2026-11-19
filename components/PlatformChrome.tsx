@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import { STANDALONE } from "@/site.config.mjs";
 
 /**
  * 挂载主站导出的平台页眉与页脚（虾米伙伴 › 虾米看AI）。
@@ -96,7 +97,7 @@ function Slot({ part }: { part: "header" | "footer" }) {
   const [on, setOn] = useState(false);
 
   useEffect(() => {
-    if (done.current) return;
+    if (STANDALONE || done.current) return;
     let live = true;
     void loadChrome().then((api) => {
       if (!live || !api || !ref.current) return;

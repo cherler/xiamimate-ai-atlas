@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { atlas, cell, label, vendorName } from "@/lib/atlas";
+import { REPOSITORY, STANDALONE } from "@/site.config.mjs";
 
 /**
  * 一键报错（方案 §46 Suggest Correction）。
@@ -71,8 +72,12 @@ export default function ReportIssue({ m, c }: { m?: string; c?: string }) {
     .filter(Boolean)
     .join("\n");
 
-  const mailBody = `${context}\n\n────────  以下请填  ────────\n实际应该是：\n你在哪看到的（链接最好）：\n`;
+  const mailBody = `${context}\n\n实际应该是：${what.trim()}\n你在哪看到的（链接最好）：${where_.trim()}\n`;
   const href = `mailto:${MAILTO}?subject=${encodeURIComponent(`纠错：${where}`)}&body=${encodeURIComponent(mailBody)}`;
+  const issueHref = `https://github.com/${REPOSITORY}/issues/new?${new URLSearchParams({
+    title: `纠错：${where}`,
+    body: mailBody,
+  })}`;
 
   const submit = async () => {
     if (!what.trim()) return setSt({ k: "err", msg: "先写一句「实际应该是什么」吧 —— 只有这句我们替不了你。" });
@@ -146,26 +151,33 @@ export default function ReportIssue({ m, c }: { m?: string; c?: string }) {
                 />
               </label>
 
-              <label className="flex flex-col gap-1">
+              {!STANDALONE && <label className="flex flex-col gap-1">
                 <span className="text-muted">怎么联系你？（选填，只在需要问清楚时用）</span>
                 <input
                   value={contact} onChange={(e) => setContact(e.target.value)}
                   placeholder="邮箱或微信，不填也能提"
                   className={box}
                 />
-              </label>
+              </label>}
+
+              {STANDALONE && <p className="text-muted">将在 GitHub 打开已填好的纠错单，提交后公开可见。私人反馈可用邮件。</p>}
 
               {st.k === "err" && (
                 <p className="text-no leading-relaxed border-l-2 border-no pl-2">{st.msg}</p>
               )}
 
               <div className="flex items-center gap-3 flex-wrap">
-                <button
+                {STANDALONE ? <a
+                  href={issueHref} target="_blank" rel="noopener noreferrer"
+                  className="px-3 py-1.5 rounded border border-yes text-yes hover:bg-yes hover:text-paper"
+                >
+                  到 GitHub 提交纠错
+                </a> : <button
                   onClick={submit} disabled={st.k === "sending"}
                   className="px-3 py-1.5 rounded border border-yes text-yes hover:bg-yes hover:text-paper disabled:opacity-50"
                 >
                   {st.k === "sending" ? "提交中…" : "提交"}
-                </button>
+                </button>}
                 <a href={href} className="text-muted underline hover:text-ink">
                   或者写一封已填好上下文的邮件 →
                 </a>

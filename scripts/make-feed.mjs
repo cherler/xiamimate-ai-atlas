@@ -22,11 +22,12 @@ import { readFileSync, writeFileSync, mkdirSync } from "node:fs";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
 import { liveAlerts, untilOf, headlineOf } from './lib/alert-window.mjs';
+import { SITE_URL } from '../site.config.mjs';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), "..");
 const a = JSON.parse(readFileSync(join(ROOT, "data/atlas.json"), "utf8"));
 const ch = JSON.parse(readFileSync(join(ROOT, "data/changes.json"), "utf8"));
-const SITE = "https://xiamimate.com/atlas";
+const SITE = SITE_URL;
 
 const esc = (s) => String(s ?? "").replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" })[c]);
 /**

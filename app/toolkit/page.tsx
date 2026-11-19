@@ -1,3 +1,4 @@
+import { sitePath } from "@/site.config.mjs";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { Rich } from "@/components/Fact";
@@ -17,7 +18,7 @@ import BackLink from "@/components/BackLink";
 export const metadata: Metadata = {
   title: "想查一件事，该去哪个站 —— 附我们踩过的坑",
   description: "按任务导航，每条带我们自己的判断和负面结论：Epoch AI 不收视频模型；AA 量的是画质不是能力；HF 的「权重公开」不等于开源协议。",
-  openGraph: { images: [{ url: "/atlas/og/index-16x9.png", width: 1200, height: 675 }] },
+  openGraph: { images: [{ url: sitePath("/og/index-16x9.png"), width: 1200, height: 675 }] },
 };
 
 export default function ToolkitPage() {

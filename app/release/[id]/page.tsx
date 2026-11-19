@@ -1,3 +1,4 @@
+import { sitePath } from "@/site.config.mjs";
 import type { Metadata } from "next";
 import Link from "next/link";
 import BackLink from "@/components/BackLink";
@@ -39,7 +40,7 @@ export async function generateMetadata({ params }: { params: Promise<{ id: strin
   return {
     title: `${m?.family ?? v.m} ${v.version} · ${v.added}`,
     description: `${v.date} 发布。这一代新增：${v.added}。带官方原文与来源链接。`,
-    openGraph: { images: [{ url: "/atlas/og/index-16x9.png", width: 1200, height: 675 }] },
+    openGraph: { images: [{ url: sitePath("/og/index-16x9.png"), width: 1200, height: 675 }] },
   };
 }
 
@@ -60,7 +61,7 @@ export default async function ReleasePage({ params }: { params: Promise<{ id: st
     <main className="mx-auto max-w-[900px] px-8 pt-5 pb-16 flex flex-col gap-6">
       <div className="flex items-baseline justify-between gap-3">
         <BackLink />
-        <Share og="/atlas/og/index-16x9.png" title={`${m.family} ${v.version} · ${v.added}`} />
+        <Share og={sitePath("/og/index-16x9.png")} title={`${m.family} ${v.version} · ${v.added}`} />
       </div>
 
       <header className="flex flex-col gap-3 border-b border-rule pb-5">

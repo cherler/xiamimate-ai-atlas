@@ -1,3 +1,4 @@
+import { sitePath } from "@/site.config.mjs";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { Rich } from "@/components/Fact";
@@ -44,7 +45,7 @@ export const metadata: Metadata = {
      */
     `从「什么是大模型」到本地部署、微调与实际应用，${TUTORIAL_N} 个公开教程（以中文为主），` +
     "逐个核过星标与最后更新日。附站上会撞见的术语速查（FP8 / INT8 / GGUF / LoRA），每条带论文出处。",
-  openGraph: { images: [{ url: "/atlas/og/index-16x9.png", width: 1200, height: 675 }] },
+  openGraph: { images: [{ url: sitePath("/og/index-16x9.png"), width: 1200, height: 675 }] },
 };
 
 type Term = (typeof glossary.terms)[number];
@@ -79,7 +80,7 @@ export default function BasicsPage() {
       <main className="max-w-[980px] min-w-0 flex-1 flex flex-col gap-8">
       <div className="flex items-baseline justify-between gap-3">
         <BackLink />
-        <Share og="/atlas/og/index-16x9.png" title="本地跑模型前先看懂这些词" />
+        <Share og={sitePath("/og/index-16x9.png")} title="本地跑模型前先看懂这些词" />
       </div>
 
       <header className="flex flex-col gap-3 border-b border-rule pb-5">

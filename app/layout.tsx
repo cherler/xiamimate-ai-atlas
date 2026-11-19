@@ -1,3 +1,4 @@
+import { sitePath, SITE_ORIGIN } from "@/site.config.mjs";
 import type { Metadata } from "next";
 /**
  * **和主站同一份 Geist**（`geist` 官方包把 woff2 随 npm 本地分发，构建不请求外网）。
@@ -29,7 +30,7 @@ const DESC =
  * 路径里的 /atlas 是 basePath —— public/og/x.png 部署后就在 /atlas/og/x.png。
  */
 export const metadata: Metadata = {
-  metadataBase: new URL("https://xiamimate.com"),
+  metadataBase: new URL(SITE_ORIGIN),
   /**
    * `template` 让每个子页都自动带上站名 —— 否则分享出去的是一个孤零零的
    * 「谁和谁有关系」，看不出是谁家的。首页用 default，与姊妹站同格式。
@@ -40,16 +41,16 @@ export const metadata: Metadata = {
   openGraph: {
     title: "9 个 AI 视频模型 × 11 项能力，谁能做什么",
     description: DESC,
-    url: "/atlas/",
+    url: sitePath("/"),
     siteName: BRAND.full,
     locale: "zh_CN",
     type: "website",
-    images: [{ url: "/atlas/og/index-16x9.png", width: 1200, height: 675 }],
+    images: [{ url: sitePath("/og/index-16x9.png"), width: 1200, height: 675 }],
   },
-  twitter: { card: "summary_large_image", images: ["/atlas/og/index-16x9.png"] },
+  twitter: { card: "summary_large_image", images: [sitePath("/og/index-16x9.png")] },
   // RSS 自动发现：**静态站没有后端，订阅只能是一个静态文件** ——
   // 好处是读者不用把邮箱交给我们。
-  alternates: { types: { "application/rss+xml": [{ url: "/atlas/changes.xml", title: `${BRAND.full} · 变了什么` }] } },
+  alternates: { types: { "application/rss+xml": [{ url: sitePath("/changes.xml"), title: `${BRAND.full} · 变了什么` }] } },
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

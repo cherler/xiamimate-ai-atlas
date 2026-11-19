@@ -1,3 +1,5 @@
+import { SITE_URL } from "../site.config.mjs";
+const SITE_LABEL = SITE_URL.replace(/^https?:\/\//, "");
 /**
  * 分享图自动生成（方案 §19 · 任务 G4）。
  *
@@ -111,12 +113,12 @@ const shell = (w, h, body, foot) => `<!doctype html><meta charset="utf-8">
   b{font-weight:600}
   .yes{color:${C.yes}} .no{color:${C.no}} .unk{color:${C.unknown}} .mut{color:${C.muted}}
 </style>
-<div class="wm">xiamimate.com/atlas</div>
+<div class="wm">${SITE_LABEL}</div>
 <div class="grow">${body}</div>
 <div class="foot">
   <div>${foot}</div>
   <div style="text-align:right">
-    <div class="brand">虾米看AI · xiamimate.com/atlas</div>
+    <div class="brand">虾米看AI · ${SITE_LABEL}</div>
     <div>数据 ${a.version} · 核验于 ${a.generated_at} · 机器录入，每格带官方来源</div>
   </div>
 </div>`;

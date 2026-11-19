@@ -1,3 +1,5 @@
+import { SITE_URL } from "../site.config.mjs";
+const SITE_LABEL = SITE_URL.replace(/^https?:\/\//, "");
 /**
  * 从 data/atlas.json 生成能力矩阵静态图的 HTML。
  *
@@ -150,7 +152,7 @@ const html = `<!doctype html>
   <footer>
     <div>每一格的来源、原文链接与判定说明全部公开可复核。<br />
       <b style="color:var(--unk)">本批数据全部为机器录入</b> —— 我们把这件事印在脸上，而不是藏起来。</div>
-    <div class="who">AI 视频能力地图<span>xiamimate.com/atlas（建设中）</span></div>
+    <div class="who">AI 视频能力地图<span>${SITE_LABEL}</span></div>
   </footer>
 </body></html>`;
 

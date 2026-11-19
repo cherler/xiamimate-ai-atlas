@@ -1,3 +1,4 @@
+import { sitePath } from "@/site.config.mjs";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { Fact, MARK, TONE } from "@/components/Fact";
@@ -45,7 +46,7 @@ export async function generateMetadata({ params }: { params: Promise<{ pair: str
     // **描述要跟着表走。** 价格与折扣已封存、只有视频卷有，
     // 描述里却一直写着「价格、折扣」—— 对图像和文本两卷是在承诺表里没有的东西。
     description: `能力、效果、上架平台、大陆可达性放在同一张表里。每一格带厂商官方来源。`,
-    openGraph: { images: [{ url: `/atlas/og/model-${a.id}-16x9.png`, width: 1200, height: 675 }] },
+    openGraph: { images: [{ url: sitePath(`/og/model-${a.id}-16x9.png`), width: 1200, height: 675 }] },
   };
 }
 

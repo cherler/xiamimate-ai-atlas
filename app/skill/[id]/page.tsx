@@ -1,3 +1,4 @@
+import { sitePath } from "@/site.config.mjs";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { Rich } from "@/components/Fact";
@@ -36,7 +37,7 @@ export async function generateMetadata({ params }: { params: Promise<{ id: strin
   return {
     title: `${s.zh}怎么做 —— 谁能做、拿什么跑、有什么坑`,
     description: `${s.zh}（${s.en}）：${direct.length} 家原生模型就能做，${separate.length} 家得用它的变体，${s.workflow?.length ?? 0} 个能跑起来的 workflow。含已知限制与官方来源。`,
-    openGraph: { images: [{ url: `/atlas/og/capability-${s.cap ?? "t2v"}-16x9.png`, width: 1200, height: 675 }] },
+    openGraph: { images: [{ url: sitePath(`/og/capability-${s.cap ?? "t2v"}-16x9.png`), width: 1200, height: 675 }] },
   };
 }
 

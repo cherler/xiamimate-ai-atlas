@@ -1,3 +1,4 @@
+import { sitePath } from "@/site.config.mjs";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { Rich } from "@/components/Fact";
@@ -88,7 +89,7 @@ export default function ChangesPage() {
           厂商更新与本站补核、更正一起展示；未来生效事项会标注为计划。
         </p>
         <p className="text-muted text-[13px]">
-          <a href="/atlas/changes.xml" className="underline hover:text-ink">用 RSS 订阅这一页 →</a>
+          <a href={sitePath("/changes.xml")} className="underline hover:text-ink">用 RSS 订阅这一页 →</a>
           <span className="ml-2">阅读器里可以按模型过滤</span>
         </p>
       </header>
